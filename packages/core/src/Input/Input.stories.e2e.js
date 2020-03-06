@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { Input } from '../index.js'
+import { Input } from './Input.js'
 
 window.onChange = window.Cypress.cy.stub()
 window.onBlur = window.Cypress.cy.stub()

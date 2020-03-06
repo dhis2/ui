@@ -1,11 +1,12 @@
-import propTypes from '@dhis2/prop-types'
 import React, { Component } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { statusPropType } from './common-prop-types.js'
+import propTypes from '@dhis2/prop-types'
 import { theme, colors, spacers } from '@dhis2/ui-constants'
 import { StatusIcon } from '@dhis2/ui-icons'
+
+import { statusPropType } from '../common-prop-types.js'
 
 const styles = css`
     .input {
