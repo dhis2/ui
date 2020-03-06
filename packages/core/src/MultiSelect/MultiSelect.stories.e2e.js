@@ -1,7 +1,9 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import { storiesOf } from '@storybook/react'
-import { MultiSelect, MultiSelectOption } from '../index.js'
+
+import { MultiSelect } from './MultiSelect.js'
+import { MultiSelectOption } from '../index.js'
 
 window.onChange = window.Cypress.cy.stub()
 window.onFocus = window.Cypress.cy.stub()

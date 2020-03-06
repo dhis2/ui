@@ -5,8 +5,8 @@ import { statusPropType, multiSelectedPropType } from './common-prop-types.js'
 import { Field } from './Field/Field.js'
 import { Label } from './Label/Label.js'
 import { Help } from './Help/Help.js'
-import { MultiSelect } from './MultiSelect.js'
 import { Box } from './Box/Box.js'
+import { MultiSelect } from './MultiSelect/MultiSelect.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
