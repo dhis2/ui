@@ -10,11 +10,10 @@
  *
  */
 
-/* global */
+/* utilities */
 export { CssReset } from './CssReset/CssReset.js'
 export { CssVariables } from './CssVariables/CssVariables.js'
 
-/* refactored */
 /* core */
 export { AlertBar } from './AlertBar/AlertBar.js'
 export { AlertStack } from './AlertStack/AlertStack.js'
