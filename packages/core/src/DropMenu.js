@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import propTypes from '@dhis2/prop-types'
 
 import { layers } from '@dhis2/ui-constants'
-import { Layer } from './LayerContext.js'
+import { Layer } from './LayerContext/LayerContext.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
