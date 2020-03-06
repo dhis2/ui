@@ -12,7 +12,7 @@
 
 /* global */
 export { CssReset } from './CssReset/CssReset.js'
-export { CssVariables } from './CssVariables.js'
+export { CssVariables } from './CssVariables/CssVariables.js'
 
 /* refactored */
 /* core */

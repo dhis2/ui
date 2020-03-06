@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { CssVariables } from '../index.js'
+import { CssVariables } from './CssVariables.js'
 
 // eslint-disable-next-line react/prop-types
 const App = ({ children }) => <div>{children}</div>
