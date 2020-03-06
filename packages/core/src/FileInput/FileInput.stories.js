@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { FileInput } from '../index.js'
+import { FileInput } from './FileInput.js'
 
 const onChange = (payload, event) => {
     console.log('onChange payload', payload)

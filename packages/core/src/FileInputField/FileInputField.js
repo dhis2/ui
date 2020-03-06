@@ -3,9 +3,9 @@ import propTypes from '@dhis2/prop-types'
 
 import { statusPropType, sizePropType } from '../common-prop-types.js'
 
+import { FileInput } from '../FileInput/FileInput.js'
 import { FileList } from '../FileList/FileList.js'
 
-import { FileInput } from '../FileInput.js'
 import { FileListPlaceholder } from '../FileListPlaceholder.js'
 
 import { Field } from '../Field/Field.js'
