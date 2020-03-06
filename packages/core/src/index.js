@@ -11,7 +11,7 @@
  */
 
 /* global */
-export { CssReset } from './CssReset.js'
+export { CssReset } from './CssReset/CssReset.js'
 export { CssVariables } from './CssVariables.js'
 
 /* refactored */
