@@ -29,6 +29,7 @@
     "dependencies": {
         "@dhis2/prop-types": "^1.5.0",
         "@dhis2/ui-constants": "^5.0.0",
+        "@dhis2/ui-icons": "^5.0.0",
         "@popperjs/core": "^2.1.0",
         "classnames": "^2.2.6"
     },

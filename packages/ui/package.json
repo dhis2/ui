@@ -11,6 +11,7 @@
     },
     "dependencies": {
         "@dhis2/ui-constants": "^5.0.0",
+        "@dhis2/ui-icons": "^5.0.0",
         "@dhis2/ui-core": "^5.0.0",
         "@dhis2/ui-widgets": "^5.0.0"
     }
