@@ -43,6 +43,7 @@ export { ToggleGroup } from './ToggleGroup/ToggleGroup.js'
 /* widgets */
 export { CheckboxField } from './CheckboxField/CheckboxField.js'
 export { ToggleGroupField } from './ToggleGroupField/ToggleGroupField.js'
+export { TextAreaField } from './TextAreaField/TextAreaField.js'
 
 /* todo */
 export { Divider } from './Divider/Divider.js'
@@ -59,7 +60,6 @@ export { MenuItem } from './MenuItem.js'
 export { MenuList } from './MenuList.js'
 export { ScreenCover } from './ScreenCover.js'
 export { SwitchField } from './SwitchField.js'
-export { TextAreaField } from './TextAreaField.js'
 
 /* Select */
 export { SingleSelect } from './SingleSelect.js'
