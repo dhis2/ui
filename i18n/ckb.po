@@ -1,0 +1,40 @@
+# Translators:
+# phil_dhis2, 2019
+# Viktor Varland <viktor@dhis2.org>, 2019
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2020-02-18T13:19:29.126Z\n"
+"PO-Revision-Date: 2019-08-12 21:09+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
+"Language-Team: Central Kurdish (https://www.transifex.com/hisp-uio/teams/100509/ckb/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ckb\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Search apps"
+msgstr ""
+
+msgid "Edit profile"
+msgstr ""
+
+msgid "Settings"
+msgstr "ريكخستن"
+
+msgid "Account"
+msgstr ""
+
+msgid "Help"
+msgstr "هاوكاري"
+
+msgid "About DHIS2"
+msgstr ""
+
+msgid "Logout"
+msgstr ""
+
+msgid "Something went wrong with loading the children."
+msgstr ""
