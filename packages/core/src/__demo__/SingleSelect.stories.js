@@ -105,7 +105,7 @@ const options = [
     <SingleSelectOption key="10" value="10" label="ten" />,
 ]
 
-storiesOf('SingleSelect', module)
+storiesOf('Component/Core/SingleSelect', module)
     .add('Default', () => (
         <SingleSelect {...defaultProps}>{options}</SingleSelect>
     ))

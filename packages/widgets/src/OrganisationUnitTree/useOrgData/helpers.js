@@ -16,7 +16,7 @@ export const createQuery = ids =>
     ids.reduce((query, id) => ({ ...query, [id]: createOrgUnitQuery(id) }), {})
 
 /**
- * @param {Object.<string, Object>[]} nodes
+ * @param {Object[]} nodes
  * @returns {}
  */
 export const addMissingDisplayNameProps = nodes => {

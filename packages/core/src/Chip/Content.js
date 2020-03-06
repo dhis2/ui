@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
-import { spacers } from '../theme.js'
+import { spacers } from '@dhis2/ui-constants'
 
 export const Content = ({ children, overflow }) => (
     <span className={cx({ overflow })}>

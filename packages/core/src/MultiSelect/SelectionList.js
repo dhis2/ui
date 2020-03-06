@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import { multiSelectedPropType } from '../common-prop-types.js'
-import { Chip } from '../Chip.js'
+import { Chip } from '../Chip/Chip.js'
 import { removeOption, findOptionChild } from '../Select/option-helpers.js'
 
 const createRemoveHandler = ({ selected, onChange, value, label }) => (

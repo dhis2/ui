@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
-import { colors } from '../theme.js'
+import { colors } from '@dhis2/ui-constants'
 
 const ArrowDown = () => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">

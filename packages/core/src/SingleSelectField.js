@@ -2,11 +2,11 @@ import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
 import { statusPropType, singleSelectedPropType } from './common-prop-types.js'
-import { Field } from './Field.js'
-import { Label } from './Label.js'
-import { Help } from './Help.js'
+import { Field } from './Field/Field.js'
+import { Label } from './Label/Label.js'
+import { Help } from './Help/Help.js'
 import { SingleSelect } from './SingleSelect.js'
-import { Constrictor } from './Constrictor.js'
+import { Box } from './Box/Box.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
@@ -64,7 +64,7 @@ class SingleSelectField extends React.Component {
                     </Label>
                 )}
 
-                <Constrictor width={inputWidth} minWidth="100px">
+                <Box width={inputWidth} minWidth="100px">
                     <SingleSelect
                         selected={selected}
                         tabIndex={tabIndex}
@@ -92,7 +92,7 @@ class SingleSelectField extends React.Component {
                     >
                         {children}
                     </SingleSelect>
-                </Constrictor>
+                </Box>
 
                 {helpText && (
                     <Help dataTest={`${dataTest}-help`}>{helpText}</Help>

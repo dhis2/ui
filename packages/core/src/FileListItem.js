@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
-import { colors, spacers } from './theme.js'
+import { colors, spacers } from '@dhis2/ui-constants'
 import { AttachFile } from './icons/AttachFile.js'
 import { Loading } from './icons/Status.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718

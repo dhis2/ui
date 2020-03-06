@@ -29,7 +29,7 @@ const TableFooterButton = () => (
 
 const TableButton = () => <Button primary>Table button</Button>
 
-storiesOf('Table', module).add('Static layout', () => (
+storiesOf('Component/Widget/Table', module).add('Static layout', () => (
     <Table>
         <TableHead>
             <TableRowHead>
@@ -155,7 +155,7 @@ storiesOf('Table', module).add('Static layout', () => (
     </Table>
 ))
 
-storiesOf('Table', module).add(
+storiesOf('Component/Widget/Table', module).add(
     'Static layout with buttons in dense cells',
     () => (
         <Table>

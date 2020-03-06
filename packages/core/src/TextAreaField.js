@@ -2,11 +2,11 @@ import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
 import { statusPropType } from './common-prop-types.js'
-import { Field } from './Field.js'
-import { Label } from './Label.js'
-import { TextArea } from './TextArea.js'
-import { Help } from './Help.js'
-import { Constrictor } from './Constrictor.js'
+import { Field } from './Field/Field.js'
+import { Label } from './Label/Label.js'
+import { TextArea } from './TextArea/TextArea.js'
+import { Help } from './Help/Help.js'
+import { Box } from './Box/Box.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
@@ -53,7 +53,7 @@ const TextAreaField = ({
             </Label>
         )}
 
-        <Constrictor width={inputWidth} minWidth="220px">
+        <Box width={inputWidth} minWidth="220px">
             <TextArea
                 onFocus={onFocus}
                 onBlur={onBlur}
@@ -74,7 +74,7 @@ const TextAreaField = ({
                 resize={resize}
                 rows={rows}
             />
-        </Constrictor>
+        </Box>
 
         {helpText && <Help dataTest={`${dataTest}-help`}>{helpText}</Help>}
 

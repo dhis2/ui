@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
-import { colors } from '../theme.js'
+import { colors } from '@dhis2/ui-constants'
 
 /**
  * @module

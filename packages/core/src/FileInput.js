@@ -3,8 +3,8 @@ import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
 import { statusPropType, sizePropType } from './common-prop-types.js'
-import { Button } from './Button.js'
-import { spacers } from './theme.js'
+import { Button } from './Button/Button.js'
+import { spacers } from '@dhis2/ui-constants'
 import { Upload } from './icons/Upload.js'
 import { StatusIcon } from './icons/Status.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718

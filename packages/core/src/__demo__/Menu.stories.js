@@ -5,7 +5,7 @@ import { Menu, MenuItem, Divider, Switch } from '../index.js'
 
 const Wrapper = fn => <div style={{}}>{fn()}</div>
 
-storiesOf('Menu', module)
+storiesOf('Component/Widget/Menu', module)
     .addDecorator(Wrapper)
 
     .add('Default', () => (

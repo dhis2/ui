@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from 'prop-types'
 
 import { ContentWithTitle } from './StackedTableCell/ContentWithTitle.js'
-import { colors } from './theme.js'
+import { colors } from '@dhis2/ui-constants'
 
 /**
  * @module

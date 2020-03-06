@@ -24,7 +24,7 @@ const CustomCell = props => (
     </td>
 )
 
-storiesOf('StackedTable', module)
+storiesOf('Component/Widget/StackedTable', module)
     .add('Default', () => (
         <StackedTable>
             <StackedTableHead>

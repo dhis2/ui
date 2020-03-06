@@ -1,3 +1,0 @@
-[build]
-  command = "yarn install --frozen-lockfile && yarn build"
-  publish = "build/docs/"

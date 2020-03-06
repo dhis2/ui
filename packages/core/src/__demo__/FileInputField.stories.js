@@ -12,7 +12,7 @@ const onCancel = () => {
     console.log('onCancel')
 }
 
-storiesOf('FileInputField', module)
+storiesOf('Component/Widget/FileInputField', module)
     .add('Default', () => (
         <FileInputField
             onChange={onChange}

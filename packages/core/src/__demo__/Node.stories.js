@@ -34,7 +34,7 @@ const LoadingSpinner = () => (
     </React.Fragment>
 )
 
-storiesOf('Node', module)
+storiesOf('Component/Core/Node', module)
     .add('Custom icon', () => (
         <Node
             icon={<LoadingSpinner />}

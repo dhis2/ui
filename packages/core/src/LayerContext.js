@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import propTypes from '@dhis2/prop-types'
-import { layers } from './theme.js'
+import { layers } from '@dhis2/ui-constants'
 
 const LayerContext = React.createContext(0)
 

@@ -98,7 +98,7 @@ const options = [
     <MultiSelectOption key="10" value="10" label="ten" />,
 ]
 
-storiesOf('MultiSelect', module)
+storiesOf('Component/Core/MultiSelect', module)
     .add('Default', () => (
         <MultiSelect {...defaultProps}>{options}</MultiSelect>
     ))

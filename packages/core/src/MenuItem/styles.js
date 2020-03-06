@@ -1,5 +1,5 @@
 import css from 'styled-jsx/css'
-import { colors, spacers } from '../theme.js'
+import { colors, spacers } from '@dhis2/ui-constants'
 
 export default css`
     li {

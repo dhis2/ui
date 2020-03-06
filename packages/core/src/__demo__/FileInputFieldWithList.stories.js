@@ -10,13 +10,16 @@ const onChange = ({ files }) => {
     console.log('files: ', files)
 }
 
-storiesOf('FileInputFieldWithList', module).add('Default', () => (
-    <FileInputFieldWithList
-        multiple
-        onChange={onChange}
-        buttonLabel="Upload file"
-        name="upload"
-        files={files}
-        removeText="remove"
-    />
-))
+storiesOf('Component/Widget/FileInputFieldWithList', module).add(
+    'Default',
+    () => (
+        <FileInputFieldWithList
+            multiple
+            onChange={onChange}
+            buttonLabel="Upload file"
+            name="upload"
+            files={files}
+            removeText="remove"
+        />
+    )
+)

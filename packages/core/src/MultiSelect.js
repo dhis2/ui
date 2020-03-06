@@ -1,5 +1,6 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
+import { spacers } from '@dhis2/ui-constants'
 import { multiSelectedPropType, statusPropType } from './common-prop-types.js'
 import { Select } from './Select.js'
 import { Input } from './MultiSelect/Input.js'
@@ -7,7 +8,6 @@ import { Menu } from './MultiSelect/Menu.js'
 import { FilterableMenu } from './MultiSelect/FilterableMenu.js'
 import { Loading } from './Select/Loading.js'
 import { StatusIcon } from './icons/Status.js'
-import { spacers } from './theme.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**

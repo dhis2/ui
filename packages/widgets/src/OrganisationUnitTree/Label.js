@@ -1,7 +1,9 @@
-import { Checkbox, colors } from '@dhis2/ui-core'
 import React from 'react'
 import propTypes from 'prop-types'
 import cx from 'classnames'
+
+import { Checkbox } from '@dhis2/ui-core'
+import { colors } from '@dhis2/ui-constants'
 
 import { FolderOpen } from './icons/FolderOpen'
 import { FolderClosed } from './icons/FolderClosed'

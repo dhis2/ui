@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import css from 'styled-jsx/css'
 
-import { colors, theme } from '@dhis2/ui-core'
+import { colors, theme } from '@dhis2/ui-constants'
 
 import { Email } from '../icons/Email.js'
 import { Message } from '../icons/Message.js'

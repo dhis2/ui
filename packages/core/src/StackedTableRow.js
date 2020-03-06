@@ -3,7 +3,7 @@ import propTypes from '@dhis2/prop-types'
 
 import { Consumer } from './StackedTable/TableContext.js'
 import { addColNumToChildren } from './StackedTableRow/addColNumToChildren'
-import { colors } from './theme.js'
+import { colors } from '@dhis2/ui-constants'
 import { supplyHeaderLabelsToChildren } from './StackedTableRow/supplyHeaderLabelsToChildren'
 
 /**

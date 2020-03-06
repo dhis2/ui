@@ -21,7 +21,7 @@ window.onClose = (payload, event) => {
 
 const onClose = (...args) => window.onClose(...args)
 
-storiesOf('Modal', module)
+storiesOf('Component/Widget/Modal', module)
     .add('Default: Content', () => (
         <Modal onClose={onClose}>
             <ModalContent>

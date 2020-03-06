@@ -20,7 +20,7 @@ const isPathIncluded = (includedPaths, path) => {
  * the units that should be included itself)
  *
  * @param {Object} node
- * @param {{ id: String }[]} node.children
+ * @param {Object[]} node.children
  * @param {string[]} includedPaths
  * @returns {string[]}
  */

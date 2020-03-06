@@ -2,7 +2,8 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import i18n from '@dhis2/d2-i18n'
-import { Card, InputField, colors, theme } from '@dhis2/ui-core'
+import { Card, InputField } from '@dhis2/ui-core'
+import { colors, theme } from '@dhis2/ui-constants'
 
 import { Settings } from '../icons/Settings.js'
 import { Apps as AppsIcon } from '../icons/Apps.js'

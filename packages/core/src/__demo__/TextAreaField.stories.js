@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { TextAreaField } from '../index.js'
 
-storiesOf('TextAreaField', module)
+storiesOf('Component/Widget/TextAreaField', module)
     .add('No placeholder, no value', () => (
         <TextAreaField onChange={() => {}} name="textarea" />
     ))

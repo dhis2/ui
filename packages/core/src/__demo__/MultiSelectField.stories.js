@@ -22,7 +22,7 @@ const options = [
     <MultiSelectOption key="10" value="10" label="ten" />,
 ]
 
-storiesOf('MultiSelectField', module)
+storiesOf('Component/Widget/MultiSelectField', module)
     .add('Default', () => (
         <MultiSelectField {...defaultProps}>{options}</MultiSelectField>
     ))

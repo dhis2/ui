@@ -18,7 +18,7 @@ const onChange = (payload, event) => {
         )
 }
 
-storiesOf('FileInput', module)
+storiesOf('Component/Core/FileInput', module)
     .add('Default', () => (
         <FileInput
             onChange={onChange}

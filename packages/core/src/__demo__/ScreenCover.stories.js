@@ -15,7 +15,7 @@ window.onClick = (payload, event) => {
 
 const onClick = (...args) => window.onClick(...args)
 
-storiesOf('ScreenCover', module)
+storiesOf('Utility/ScreenCover', module)
     .add('Default', () => <ScreenCover onClick={onClick} />)
 
     .add('CircularLoader', () => (

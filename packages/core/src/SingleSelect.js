@@ -7,7 +7,7 @@ import { Menu } from './SingleSelect/Menu.js'
 import { FilterableMenu } from './SingleSelect/FilterableMenu.js'
 import { Loading } from './Select/Loading.js'
 import { StatusIcon } from './icons/Status.js'
-import { spacers } from './theme.js'
+import { spacers } from '@dhis2/ui-constants'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**

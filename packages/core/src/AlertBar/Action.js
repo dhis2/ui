@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import propTypes from '@dhis2/prop-types'
-import { spacers } from '../theme.js'
+import { spacers } from '@dhis2/ui-constants'
 
 class Action extends Component {
     onClick = event => {

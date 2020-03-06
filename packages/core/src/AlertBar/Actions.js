@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { Action } from './Action.js'
-import { spacers } from '../theme.js'
+import { spacers } from '@dhis2/ui-constants'
 
 const Actions = ({ actions, hide, dataTest }) => {
     if (!actions) {

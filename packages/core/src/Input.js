@@ -4,7 +4,7 @@ import css from 'styled-jsx/css'
 import cx from 'classnames'
 
 import { statusPropType } from './common-prop-types.js'
-import { theme, colors, spacers } from './theme.js'
+import { theme, colors, spacers } from '@dhis2/ui-constants'
 import { StatusIcon } from './icons/Status.js'
 
 const styles = css`

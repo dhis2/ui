@@ -1,6 +1,6 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import { Button } from '../Button.js'
+import { Button } from '../Button/Button.js'
 
 const InputClearButton = ({ onClear, clearText, className, dataTest }) => (
     <Button

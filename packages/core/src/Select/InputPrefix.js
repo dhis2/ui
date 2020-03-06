@@ -1,6 +1,6 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import { colors, spacers } from '../theme.js'
+import { colors, spacers } from '@dhis2/ui-constants'
 
 const InputPrefix = ({ prefix, className, dataTest }) => {
     if (!prefix) {

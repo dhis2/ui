@@ -1,6 +1,6 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import { colors, spacers, theme } from '../theme.js'
+import { colors, spacers, theme } from '@dhis2/ui-constants'
 
 const Empty = ({ message, className, dataTest }) => (
     <div className={className} data-test={dataTest}>

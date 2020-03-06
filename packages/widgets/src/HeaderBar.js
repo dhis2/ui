@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import propTypes from '@dhis2/prop-types'
 
-import { colors } from '@dhis2/ui-core'
+import { colors } from '@dhis2/ui-constants'
 
 import Apps from './HeaderBar/Apps.js'
 import Profile from './HeaderBar/Profile.js'

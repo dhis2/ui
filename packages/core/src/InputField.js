@@ -2,11 +2,11 @@ import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
 import { statusPropType } from './common-prop-types.js'
-import { Field } from './Field.js'
-import { Label } from './Label.js'
+import { Field } from './Field/Field.js'
+import { Label } from './Label/Label.js'
 import { Input } from './Input.js'
-import { Help } from './Help.js'
-import { Constrictor } from './Constrictor.js'
+import { Help } from './Help/Help.js'
+import { Box } from './Box/Box.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
@@ -59,7 +59,7 @@ class InputField extends React.Component {
                     </Label>
                 )}
 
-                <Constrictor width={inputWidth} minWidth="72px">
+                <Box width={inputWidth} minWidth="72px">
                     <Input
                         onFocus={onFocus}
                         onBlur={onBlur}
@@ -78,7 +78,7 @@ class InputField extends React.Component {
                         initialFocus={initialFocus}
                         readOnly={readOnly}
                     />
-                </Constrictor>
+                </Box>
 
                 {helpText && (
                     <Help dataTest={`${dataTest}-help`}>{helpText}</Help>

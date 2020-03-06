@@ -1,6 +1,6 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import { spacers } from '../theme.js'
+import { spacers } from '@dhis2/ui-constants'
 
 export const Required = ({ dataTest }) => (
     <span data-test={dataTest}>

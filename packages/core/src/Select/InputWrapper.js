@@ -3,7 +3,7 @@ import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 import { statusPropType } from '../common-prop-types.js'
 import { ArrowDown } from './ArrowDown.js'
-import { colors, theme } from '../theme.js'
+import { colors, theme } from '@dhis2/ui-constants'
 
 const InputWrapper = ({
     dataTest,

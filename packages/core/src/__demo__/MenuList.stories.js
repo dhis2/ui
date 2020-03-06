@@ -41,7 +41,7 @@ export const FolderOpen = () => (
     </svg>
 )
 
-storiesOf('MenuList', module)
+storiesOf('Component/Core/MenuList', module)
     .addDecorator(Wrapper)
 
     .add('Default', () => (
