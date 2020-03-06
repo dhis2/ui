@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Tab } from '../index.js'
+import { Tab } from './Tab.js'
 
 window.onClick = window.Cypress.cy.stub()
 
