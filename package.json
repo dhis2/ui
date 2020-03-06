@@ -38,10 +38,10 @@
         "lint:text": "d2-style text check",
         "start": "concurrently -n w: \"yarn:watch:*\" --kill-others",
         "test": "d2-app-scripts test",
-        "watch:storybook": "yarn workspace storybook start --quiet --ci",
         "watch:constants": "yarn build:constants --watch --dev",
         "watch:core": "yarn build:core --watch --dev",
         "watch:icons": "yarn build:icons --watch --dev",
+        "watch:storybook": "yarn workspace storybook start --quiet --ci",
         "watch:widgets": "yarn build:widgets --watch --dev"
     },
     "devDependencies": {

@@ -1,10 +1,10 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
-import { statusPropType } from './common-prop-types.js'
-import { Field } from './Field/Field.js'
-import { Help } from './Help/Help.js'
-import { AddRequired } from './ToggleField/AddRequired.js'
+import { statusPropType } from '../common-prop-types.js'
+import { Field } from '../Field/Field.js'
+import { Help } from '../Help/Help.js'
+import { AddRequired } from './AddRequired.js'
 
 const ToggleField = ({
     value,
