@@ -2,11 +2,13 @@ import propTypes from '@dhis2/prop-types'
 import React, { Component } from 'react'
 import { resolve } from 'styled-jsx/css'
 
-import { buttonVariantPropType, sizePropType } from '../common-prop-types.js'
 import { spacers } from '@dhis2/ui-constants'
-import { Button } from '../Button/Button.js'
-import { DropMenu } from '../DropMenu.js'
 import { ArrowDown, ArrowUp } from '@dhis2/ui-icons'
+
+import { buttonVariantPropType, sizePropType } from '../common-prop-types.js'
+
+import { Button } from '../Button/Button.js'
+import { DropMenu } from '../DropMenu/DropMenu.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 const arrow = resolve`
