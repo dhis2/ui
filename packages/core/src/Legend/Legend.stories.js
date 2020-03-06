@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Legend } from '../index.js'
+import { Legend } from './Legend.js'
 
 storiesOf('Component/Core/Legend', module)
     .add('Default', () => (
