@@ -4,7 +4,7 @@ import { spacers } from '@dhis2/ui-constants'
 import { StatusIcon } from '@dhis2/ui-icons'
 
 import { multiSelectedPropType, statusPropType } from '../common-prop-types.js'
-import { Select } from '../Select.js'
+import { Select } from '../Select/Select.js'
 import { Loading } from '../Select/Loading.js'
 
 import { Input } from './Input.js'

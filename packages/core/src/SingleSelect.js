@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import { singleSelectedPropType, statusPropType } from './common-prop-types.js'
-import { Select } from './Select.js'
+import { Select } from './Select/Select.js'
 import { Input } from './SingleSelect/Input.js'
 import { Menu } from './SingleSelect/Menu.js'
 import { FilterableMenu } from './SingleSelect/FilterableMenu.js'
