@@ -3,8 +3,7 @@ import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
 import { colors, spacers } from '@dhis2/ui-constants'
-import { AttachFile } from '@dhis2/ui-icons'
-import { Loading } from '@dhis2/ui-icons'
+import { AttachFile, Loading } from '@dhis2/ui-icons'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**

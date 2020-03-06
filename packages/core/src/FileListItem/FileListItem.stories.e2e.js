@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { FileListItem } from '../index.js'
+import { FileListItem } from './FileListItem.js'
 
 window.onRemove = window.Cypress.cy.stub()
 window.onCancel = window.Cypress.cy.stub()

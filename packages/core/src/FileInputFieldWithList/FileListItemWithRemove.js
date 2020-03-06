@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import propTypes from '@dhis2/prop-types'
 
-import { FileListItem } from '../FileListItem.js'
+import { FileListItem } from '../FileListItem/FileListItem.js'
 
 class FileListItemWithRemove extends Component {
     handleRemove = event => {
