@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { FileInputFieldWithList } from '../index.js'
+import { FileInputFieldWithList } from './FileInputFieldWithList.js'
 
 window.onChange = window.Cypress.cy.stub()
 

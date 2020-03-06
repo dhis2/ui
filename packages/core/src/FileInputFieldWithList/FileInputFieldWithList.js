@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import propTypes from '@dhis2/prop-types'
 
-import { FileInputField } from './FileInputField.js'
-import { FileListItemWithRemove } from './FileInputFieldWithList/FileListItemWithRemove.js'
-import { statusPropType, sizePropType } from './common-prop-types.js'
+import { statusPropType, sizePropType } from '../common-prop-types.js'
+import { FileInputField } from '../FileInputField.js'
+
+import { FileListItemWithRemove } from './FileListItemWithRemove.js'
+;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
  * @module
@@ -15,7 +17,6 @@ import { statusPropType, sizePropType } from './common-prop-types.js'
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/fileinput.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/fileinputfieldwithlist--default|Storybook}
  */
-
 class FileInputFieldWithList extends Component {
     handleChange = ({ files: fileList }, event) => {
         const { onChange, name } = this.props
