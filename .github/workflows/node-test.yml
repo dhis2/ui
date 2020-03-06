@@ -15,6 +15,13 @@ jobs:
             - name: Install
               run: yarn install
 
+            - name: Build
+              run: |
+                  yarn build:constants
+                  yarn build:core
+                  yarn build:widgets
+                  yarn build:ui
+
             - name: Test
               run: yarn test
         env:
