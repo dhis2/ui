@@ -2,9 +2,9 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
-import { Toggle } from './Node/Toggle.js'
-import { Spacer } from './Node/Spacer.js'
-import { Leaves } from './Node/Leaves.js'
+import { Toggle } from './Toggle.js'
+import { Spacer } from './Spacer.js'
+import { Leaves } from './Leaves.js'
 
 /**
  * @module
