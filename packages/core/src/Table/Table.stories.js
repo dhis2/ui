@@ -4,7 +4,6 @@ import { storiesOf } from '@storybook/react'
 
 import {
     Button,
-    Table,
     TableBody,
     TableCell,
     TableCellHead,
@@ -13,6 +12,8 @@ import {
     TableRow,
     TableRowHead,
 } from '../index.js'
+
+import { Table } from './Table.js'
 
 const TableFooterButton = () => (
     <div>
