@@ -1,9 +1,10 @@
 import React from 'react'
-import propTypes from '@dhis2/prop-types'
 
-import { Card } from './Card/Card.js'
-import { MenuList } from './MenuList.js'
+import propTypes from '@dhis2/prop-types'
 import { spacers } from '@dhis2/ui-constants'
+
+import { Card } from '../Card/Card.js'
+import { MenuList } from '../MenuList.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**

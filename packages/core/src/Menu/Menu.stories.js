@@ -1,7 +1,8 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import { Menu, MenuItem, Divider, Switch } from '../index.js'
+import { MenuItem, Divider, Switch } from '../index.js'
+import { Menu } from './Menu.js'
 
 const Wrapper = fn => <div style={{}}>{fn()}</div>
 
