@@ -1,7 +1,10 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { TabBar, Tab } from '../index.js'
+
 import { AttachFile } from '@dhis2/ui-icons'
+
+import { Tab } from '../index.js'
+import { TabBar } from './TabBar.js'
 
 const Wrapper = fn => (
     <div

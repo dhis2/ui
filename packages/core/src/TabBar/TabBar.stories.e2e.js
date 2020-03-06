@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { storiesOf } from '@storybook/react'
-import { TabBar } from '../index.js'
+import { TabBar } from './TabBar.js'
 
 storiesOf('TabBar', module)
     .add('With children', () => <TabBar>I am a child</TabBar>)
