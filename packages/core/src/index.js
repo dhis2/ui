@@ -46,6 +46,7 @@ export { ToggleGroup } from './ToggleGroup/ToggleGroup.js'
 
 /* widgets */
 export { CheckboxField } from './CheckboxField/CheckboxField.js'
+export { Modal } from './Modal/Modal.js'
 export { ToggleGroupField } from './ToggleGroupField/ToggleGroupField.js'
 export { TextAreaField } from './TextAreaField/TextAreaField.js'
 
@@ -90,7 +91,6 @@ export { StackedTableRowHead } from './StackedTableRowHead.js'
 
 export { Menu } from './Menu.js'
 export { Node } from './Node.js'
-export { Modal } from './Modal.js'
 export { ModalActions } from './ModalActions.js'
 export { ModalContent } from './ModalContent.js'
 export { ModalTitle } from './ModalTitle.js'

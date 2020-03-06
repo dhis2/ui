@@ -4,13 +4,14 @@ import { storiesOf } from '@storybook/react'
 import {
     Button,
     ButtonStrip,
-    Modal,
     ModalTitle,
     ModalActions,
     ModalContent,
     SingleSelectField,
     SingleSelectOption,
 } from '../index.js'
+
+import { Modal } from './Modal.js'
 
 const say = something => () => alert(something)
 

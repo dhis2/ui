@@ -1,12 +1,13 @@
-import { resolve } from 'styled-jsx/css'
 import React from 'react'
 import cx from 'classnames'
+import { resolve } from 'styled-jsx/css'
+
 import propTypes from '@dhis2/prop-types'
+import { spacersNum } from '@dhis2/ui-constants'
 
 import { Card } from '../Card/Card.js'
 import { insideAlignmentPropType } from '../common-prop-types.js'
 import { sizePropType } from '../common-prop-types.js'
-import { spacersNum } from '@dhis2/ui-constants'
 
 const cardBoxStyle = resolve`
     .modal-card {

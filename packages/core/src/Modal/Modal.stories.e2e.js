@@ -3,11 +3,12 @@ import { storiesOf } from '@storybook/react'
 import {
     Button,
     ButtonStrip,
-    Modal,
     ModalTitle,
     ModalActions,
     ModalContent,
 } from '../index.js'
+
+import { Modal } from './Modal.js'
 
 window.onClose = window.Cypress.cy.stub()
 
