@@ -2,7 +2,8 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
-import { SingleSelect, SingleSelectOption } from '../index.js'
+import { SingleSelectOption } from '../index.js'
+import { SingleSelect } from './SingleSelect.js'
 
 const OptionIcon = () => (
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 32">
