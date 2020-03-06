@@ -63,12 +63,12 @@ export { FileInputFieldWithList } from './FileInputFieldWithList/FileInputFieldW
 export { Menu } from './Menu/Menu.js'
 export { Modal } from './Modal/Modal.js'
 export { MultiSelectField } from './MultiSelectField/MultiSelectField.js'
+export { SwitchField } from './SwitchField/SwitchField.js'
 export { ToggleGroupField } from './ToggleGroupField/ToggleGroupField.js'
 export { TextAreaField } from './TextAreaField/TextAreaField.js'
 
 /* todo */
 export { Divider } from './Divider/Divider.js'
-export { SwitchField } from './SwitchField.js'
 export { SingleSelect } from './SingleSelect.js'
 export { SingleSelectField } from './SingleSelectField.js'
 export { SingleSelectOption } from './SingleSelectOption.js'
