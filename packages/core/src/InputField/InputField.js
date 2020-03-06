@@ -1,12 +1,12 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
-import { statusPropType } from './common-prop-types.js'
-import { Field } from './Field/Field.js'
-import { Label } from './Label/Label.js'
-import { Input } from './Input/Input.js'
-import { Help } from './Help/Help.js'
-import { Box } from './Box/Box.js'
+import { statusPropType } from '../common-prop-types.js'
+import { Field } from '../Field/Field.js'
+import { Label } from '../Label/Label.js'
+import { Input } from '../Input/Input.js'
+import { Help } from '../Help/Help.js'
+import { Box } from '../Box/Box.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
