@@ -1,9 +1,9 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
-import { extractHeaderLabels } from './StackedTable/extractHeaderLabels.js'
-import { Provider } from './StackedTable/TableContext.js'
-import { Table } from './StackedTable/Table.js'
+import { extractHeaderLabels } from './extractHeaderLabels.js'
+import { Provider } from './TableContext.js'
+import { Table } from './Table.js'
 
 /**
  * @module

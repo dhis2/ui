@@ -4,7 +4,6 @@ import React from 'react'
 import { mount } from 'enzyme'
 
 import {
-    StackedTable,
     StackedTableBody,
     StackedTableCell,
     StackedTableCellHead,
@@ -12,6 +11,8 @@ import {
     StackedTableRow,
     StackedTableRowHead,
 } from '../index.js'
+
+import { StackedTable } from './StackedTable.js'
 
 const Table = ({ headerLabels, bodyLabels }) => (
     <StackedTable>

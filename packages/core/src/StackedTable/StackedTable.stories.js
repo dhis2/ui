@@ -5,7 +5,6 @@ import { storiesOf } from '@storybook/react'
 
 import {
     Button,
-    StackedTable,
     StackedTableBody,
     StackedTableCell,
     StackedTableCellHead,
@@ -14,6 +13,8 @@ import {
     StackedTableRow,
     StackedTableRowHead,
 } from '../index.js'
+
+import { StackedTable } from './StackedTable.js'
 
 const CustomCell = props => (
     <td>
