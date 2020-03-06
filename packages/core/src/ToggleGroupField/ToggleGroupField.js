@@ -4,7 +4,7 @@ import React from 'react'
 import { ToggleGroup } from '../ToggleGroup/ToggleGroup.js'
 import { Field } from '../Field/Field.js'
 import { FieldSet } from '../FieldSet/FieldSet.js'
-import { Legend } from '../Legend.js'
+import { Legend } from '../Legend/Legend.js'
 import { Help } from '../Help/Help.js'
 import { statusPropType } from '../common-prop-types.js'
 

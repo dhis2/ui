@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { MenuItem } from '../index.js'
+import { MenuItem } from './MenuItem.js'
 
 window.onClick = window.Cypress.cy.stub()
 
