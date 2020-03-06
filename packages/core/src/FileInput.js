@@ -5,8 +5,8 @@ import cx from 'classnames'
 import { statusPropType, sizePropType } from './common-prop-types.js'
 import { Button } from './Button/Button.js'
 import { spacers } from '@dhis2/ui-constants'
-import { Upload } from './icons/Upload.js'
-import { StatusIcon } from './icons/Status.js'
+import { Upload } from '@dhis2/ui-icons'
+import { StatusIcon } from '@dhis2/ui-icons'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**

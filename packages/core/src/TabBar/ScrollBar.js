@@ -1,7 +1,7 @@
 import React, { Component, createRef } from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
-import { ChevronLeft, ChevronRight } from '../icons/Chevron'
+import { ChevronLeft, ChevronRight } from '@dhis2/ui-icons'
 import { colors } from '@dhis2/ui-constants'
 import { detectHorizontalScrollbarHeight } from './detectHorizontalScrollbarHeight'
 import { animatedSideScroll } from './animatedSideScroll'

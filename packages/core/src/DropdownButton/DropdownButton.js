@@ -6,7 +6,7 @@ import { buttonVariantPropType, sizePropType } from '../common-prop-types.js'
 import { spacers } from '@dhis2/ui-constants'
 import { Button } from '../Button/Button.js'
 import { DropMenu } from '../DropMenu.js'
-import { ArrowDown, ArrowUp } from '../icons/Arrow.js'
+import { ArrowDown, ArrowUp } from '@dhis2/ui-icons'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 const arrow = resolve`

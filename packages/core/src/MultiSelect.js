@@ -7,7 +7,7 @@ import { Input } from './MultiSelect/Input.js'
 import { Menu } from './MultiSelect/Menu.js'
 import { FilterableMenu } from './MultiSelect/FilterableMenu.js'
 import { Loading } from './Select/Loading.js'
-import { StatusIcon } from './icons/Status.js'
+import { StatusIcon } from '@dhis2/ui-icons'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**

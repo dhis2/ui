@@ -16,11 +16,7 @@ jobs:
               run: yarn install
 
             - name: Build
-              run: |
-                  yarn build:constants
-                  yarn build:core
-                  yarn build:widgets
-                  yarn build:ui
+              run: yarn build
 
             - name: Test
               run: yarn test

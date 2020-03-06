@@ -5,9 +5,8 @@ import i18n from '@dhis2/d2-i18n'
 import { Card, InputField } from '@dhis2/ui-core'
 import { colors, theme } from '@dhis2/ui-constants'
 
-import { Settings } from '../icons/Settings.js'
-import { Apps as AppsIcon } from '../icons/Apps.js'
-import { Cancel } from '../icons/Cancel.js'
+import { Settings } from '@dhis2/ui-icons'
+import { Apps as AppsIcon } from '@dhis2/ui-icons'
 
 import css from 'styled-jsx/css'
 
@@ -17,17 +16,6 @@ const appIcon = css.resolve`
         cursor: pointer;
         height: 24px;
         width: 24px;
-    }
-`
-
-const trailIcon = css.resolve`
-    svg {
-        fill: ${colors.grey900};
-        cursor: pointer;
-        height: 24px;
-        width: 24px;
-        margin-right: 8px;
-        margin-top: 4px;
     }
 `
 
@@ -41,18 +29,7 @@ const settingsIcon = css.resolve`
     }
 `
 
-function TrailIcon({ onClick }) {
-    return (
-        <a onClick={onClick}>
-            <Cancel className={trailIcon.className} />
-        </a>
-    )
-}
-TrailIcon.propTypes = {
-    onClick: propTypes.func,
-}
-
-function Search({ value, onChange, onIconClick, contextPath }) {
+function Search({ value, onChange, contextPath }) {
     return (
         <div>
             <span>
@@ -61,7 +38,6 @@ function Search({ value, onChange, onIconClick, contextPath }) {
                     name="filter"
                     placeholder={i18n.t('Search apps')}
                     onChange={onChange}
-                    trailIcon={<TrailIcon onClick={onIconClick} />}
                     initialFocus
                 />
             </span>
@@ -72,7 +48,6 @@ function Search({ value, onChange, onIconClick, contextPath }) {
                 </a>
             </span>
 
-            {trailIcon.styles}
             {settingsIcon.styles}
             <style jsx>{`
                 div {
@@ -95,15 +70,10 @@ function Search({ value, onChange, onIconClick, contextPath }) {
     )
 }
 
-Search.defaultProps = {
-    onIconClick: null,
-}
-
 Search.propTypes = {
     contextPath: propTypes.string.isRequired,
     value: propTypes.string.isRequired,
     onChange: propTypes.func.isRequired,
-    onIconClick: propTypes.func,
 }
 
 function Item({ name, path, img }) {

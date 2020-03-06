@@ -3,7 +3,7 @@ import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 import css from 'styled-jsx/css'
 
-import { ChevronRight } from './icons/Chevron.js'
+import { ChevronRight } from '@dhis2/ui-icons'
 import styles from './MenuItem/styles.js'
 
 const subChevron = css.resolve`

@@ -5,10 +5,10 @@ import cx from 'classnames'
 import { Checkbox } from '@dhis2/ui-core'
 import { colors } from '@dhis2/ui-constants'
 
-import { FolderOpen } from './icons/FolderOpen'
-import { FolderClosed } from './icons/FolderClosed'
-import { Single } from './icons/Single'
-import { Empty } from './icons/Empty'
+import { FolderOpen } from '@dhis2/ui-icons'
+import { FolderClosed } from '@dhis2/ui-icons'
+import { Single } from '@dhis2/ui-icons'
+import { Empty } from '@dhis2/ui-icons'
 import { orgUnitPathPropType } from './propTypes'
 
 /**

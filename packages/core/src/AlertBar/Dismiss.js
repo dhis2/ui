@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import { spacers } from '@dhis2/ui-constants'
-import { Close } from '../icons/Close.js'
+import { Close } from '@dhis2/ui-icons'
 
 const Dismiss = ({ onClick, dataTest }) => (
     <div onClick={onClick} data-test={dataTest}>

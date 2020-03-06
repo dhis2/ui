@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import css from 'styled-jsx/css'
 import { Button } from '../Button/Button.js'
 import { DropMenu } from '../DropMenu.js'
-import { ArrowDown, ArrowUp } from '../icons/Arrow.js'
+import { ArrowDown, ArrowUp } from '@dhis2/ui-icons'
 
 import { spacers } from '@dhis2/ui-constants'
 import { buttonVariantPropType, sizePropType } from '../common-prop-types.js'

@@ -3,7 +3,7 @@ import propTypes from '@dhis2/prop-types'
 import React, { Component, createRef } from 'react'
 
 import { statusPropType } from '../common-prop-types.js'
-import { Regular, Dense } from '../icons/Radio.js'
+import { Regular, Dense } from '@dhis2/ui-icons'
 import { colors, theme } from '@dhis2/ui-constants'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 

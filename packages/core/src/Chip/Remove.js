@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import { css, resolve } from 'styled-jsx/css'
 
-import { Cancel } from '../icons/Cancel'
+import { Cancel } from '@dhis2/ui-icons'
 import { colors } from '@dhis2/ui-constants'
 
 const containerStyle = css`

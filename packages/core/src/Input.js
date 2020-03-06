@@ -5,7 +5,7 @@ import cx from 'classnames'
 
 import { statusPropType } from './common-prop-types.js'
 import { theme, colors, spacers } from '@dhis2/ui-constants'
-import { StatusIcon } from './icons/Status.js'
+import { StatusIcon } from '@dhis2/ui-icons'
 
 const styles = css`
     .input {

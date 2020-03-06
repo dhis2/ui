@@ -6,11 +6,11 @@ import i18n from '@dhis2/d2-i18n'
 import { Card, Divider, MenuItem } from '@dhis2/ui-core'
 import { colors } from '@dhis2/ui-constants'
 
-import { Settings } from '../../icons/Settings.js'
-import { Info } from '../../icons/Info.js'
-import { Help } from '../../icons/Help.js'
-import { Exit } from '../../icons/Exit.js'
-import { Account } from '../../icons/Account.js'
+import { Settings } from '@dhis2/ui-icons'
+import { Info } from '@dhis2/ui-icons'
+import { Help } from '@dhis2/ui-icons'
+import { Exit } from '@dhis2/ui-icons'
+import { Account } from '@dhis2/ui-icons'
 
 import { ProfileHeader } from './ProfileHeader.js'
 
