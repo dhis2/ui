@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { FileInputField } from '../index.js'
+import { FileInputField } from './FileInputField.js'
 
 storiesOf('FileInputField', module).add('With label and required', () => (
     <FileInputField

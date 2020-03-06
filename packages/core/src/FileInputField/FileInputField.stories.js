@@ -1,6 +1,8 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { FileInputField, FileListItem } from '../index.js'
+
+import { FileListItem } from '../index.js'
+import { FileInputField } from './FileInputField.js'
 
 const onChange = obj => {
     console.log('onChange', obj)

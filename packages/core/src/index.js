@@ -50,6 +50,7 @@ export { ToggleGroup } from './ToggleGroup/ToggleGroup.js'
 
 /* widgets */
 export { CheckboxField } from './CheckboxField/CheckboxField.js'
+export { FileInputField } from './FileInputField/FileInputField.js'
 export { FileInputFieldWithList } from './FileInputFieldWithList/FileInputFieldWithList.js'
 export { Menu } from './Menu/Menu.js'
 export { Modal } from './Modal/Modal.js'
@@ -59,7 +60,6 @@ export { TextAreaField } from './TextAreaField/TextAreaField.js'
 /* todo */
 export { Divider } from './Divider/Divider.js'
 export { FileInput } from './FileInput.js'
-export { FileInputField } from './FileInputField.js'
 export { FileList } from './FileList.js'
 export { FileListItem } from './FileListItem.js'
 export { FileListPlaceholder } from './FileListPlaceholder.js'
