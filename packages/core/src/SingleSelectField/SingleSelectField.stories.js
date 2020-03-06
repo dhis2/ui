@@ -1,6 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { SingleSelectField, SingleSelectOption } from '../index.js'
+import { SingleSelectOption } from '../index.js'
+import { SingleSelectField } from './SingleSelectField.js'
 
 const defaultProps = {
     label: 'Default label',
