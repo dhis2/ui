@@ -41,6 +41,7 @@
         "watch:storybook": "yarn workspace storybook start --quiet --ci",
         "watch:constants": "yarn build:constants --watch --dev",
         "watch:core": "yarn build:core --watch --dev",
+        "watch:icons": "yarn build:icons --watch --dev",
         "watch:widgets": "yarn build:widgets --watch --dev"
     },
     "devDependencies": {
