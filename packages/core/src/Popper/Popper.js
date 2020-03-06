@@ -1,8 +1,9 @@
 import React, { Component, createRef } from 'react'
 import propTypes from 'prop-types'
 
-import { createPopper } from './Popper/createPopper.js'
-import { elementRefPropType } from './common-prop-types.js'
+import { elementRefPropType } from '../common-prop-types.js'
+
+import { createPopper } from './createPopper.js'
 
 class Popper extends Component {
     popperInstance = null
