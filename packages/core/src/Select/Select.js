@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import propTypes from '@dhis2/prop-types'
+
 import {
     statusPropType,
     singleSelectedPropType,
     multiSelectedPropType,
-} from './common-prop-types.js'
-import { InputWrapper } from './Select/InputWrapper.js'
-import { MenuWrapper } from './Select/MenuWrapper.js'
+} from '../common-prop-types.js'
+
+import { InputWrapper } from './InputWrapper.js'
+import { MenuWrapper } from './MenuWrapper.js'
 
 // Keycodes for the keypress event handlers
 const ESCAPE_KEY = 27

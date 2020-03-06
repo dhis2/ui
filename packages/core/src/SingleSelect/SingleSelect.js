@@ -1,13 +1,17 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import { singleSelectedPropType, statusPropType } from './common-prop-types.js'
-import { Select } from './Select/Select.js'
-import { Input } from './SingleSelect/Input.js'
-import { Menu } from './SingleSelect/Menu.js'
-import { FilterableMenu } from './SingleSelect/FilterableMenu.js'
-import { Loading } from './Select/Loading.js'
+
 import { StatusIcon } from '@dhis2/ui-icons'
 import { spacers } from '@dhis2/ui-constants'
+
+import { singleSelectedPropType, statusPropType } from '../common-prop-types.js'
+
+import { Select } from '../Select/Select.js'
+import { Loading } from '../Select/Loading.js'
+
+import { Input } from './Input.js'
+import { Menu } from './Menu.js'
+import { FilterableMenu } from './FilterableMenu.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
