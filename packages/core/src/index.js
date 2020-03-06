@@ -32,6 +32,7 @@ export { FieldSet } from './FieldSet/FieldSet.js'
 export { FileInput } from './FileInput/FileInput.js'
 export { FileList } from './FileList/FileList.js'
 export { FileListItem } from './FileListItem/FileListItem.js'
+export { FileListPlaceholder } from './FileListPlaceholder/FileListPlaceholder.js'
 export { Help } from './Help/Help.js'
 export { Input } from './Input/Input.js'
 export { InputField } from './InputField/InputField.js'
@@ -62,7 +63,6 @@ export { TextAreaField } from './TextAreaField/TextAreaField.js'
 
 /* todo */
 export { Divider } from './Divider/Divider.js'
-export { FileListPlaceholder } from './FileListPlaceholder.js'
 export { ScreenCover } from './ScreenCover.js'
 export { SwitchField } from './SwitchField.js'
 

@@ -5,9 +5,7 @@ import { statusPropType, sizePropType } from '../common-prop-types.js'
 
 import { FileInput } from '../FileInput/FileInput.js'
 import { FileList } from '../FileList/FileList.js'
-
-import { FileListPlaceholder } from '../FileListPlaceholder.js'
-
+import { FileListPlaceholder } from '../FileListPlaceholder/FileListPlaceholder.js'
 import { Field } from '../Field/Field.js'
 import { Label } from '../Label/Label.js'
 import { Help } from '../Help/Help.js'
