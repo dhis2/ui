@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { ScreenCover } from '../index.js'
+import { ScreenCover } from './ScreenCover.js'
 
 window.onClick = window.Cypress.cy.stub()
 

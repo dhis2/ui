@@ -1,9 +1,10 @@
 import React from 'react'
-import propTypes from '@dhis2/prop-types'
 
-import { Backdrop } from './Backdrop/Backdrop.js'
-import { insideAlignmentPropType } from './common-prop-types.js'
+import propTypes from '@dhis2/prop-types'
 import { layers, spacers } from '@dhis2/ui-constants'
+
+import { Backdrop } from '../Backdrop/Backdrop.js'
+import { insideAlignmentPropType } from '../common-prop-types.js'
 
 const Content = ({ children, position }) => (
     <div className={position}>

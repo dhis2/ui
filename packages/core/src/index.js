@@ -49,6 +49,7 @@ export { MultiSelect } from './MultiSelect/MultiSelect.js'
 export { MultiSelectOption } from './MultiSelectOption/MultiSelectOption.js'
 export { Node } from './Node/Node.js'
 export { Radio } from './Radio/Radio.js'
+export { ScreenCover } from './ScreenCover/ScreenCover.js'
 export { SplitButton } from './SplitButton/SplitButton.js'
 export { Switch } from './Switch/Switch.js'
 export { Tag } from './Tag/Tag.js'
@@ -67,15 +68,10 @@ export { TextAreaField } from './TextAreaField/TextAreaField.js'
 
 /* todo */
 export { Divider } from './Divider/Divider.js'
-export { ScreenCover } from './ScreenCover.js'
 export { SwitchField } from './SwitchField.js'
-
-/* Select */
 export { SingleSelect } from './SingleSelect.js'
 export { SingleSelectField } from './SingleSelectField.js'
 export { SingleSelectOption } from './SingleSelectOption.js'
-
-/* table */
 export { TableBody } from './TableBody.js'
 export { TableCell } from './TableCell.js'
 export { TableCellHead } from './TableCellHead.js'
@@ -84,7 +80,6 @@ export { TableFoot } from './TableFoot.js'
 export { TableHead } from './TableHead.js'
 export { TableRow } from './TableRow.js'
 export { TableRowHead } from './TableRowHead.js'
-
 export { StackedTableBody } from './StackedTableBody.js'
 export { StackedTableCell } from './StackedTableCell.js'
 export { StackedTableCellHead } from './StackedTableCellHead.js'
@@ -93,6 +88,5 @@ export { StackedTableFoot } from './StackedTableFoot.js'
 export { StackedTableHead } from './StackedTableHead.js'
 export { StackedTableRow } from './StackedTableRow.js'
 export { StackedTableRowHead } from './StackedTableRowHead.js'
-
 export { Tab } from './Tab.js'
 export { TabBar } from './TabBar.js'

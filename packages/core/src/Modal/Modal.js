@@ -2,7 +2,7 @@ import { createPortal } from 'react-dom'
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
-import { ScreenCover } from '../ScreenCover.js'
+import { ScreenCover } from '../ScreenCover/ScreenCover.js'
 import { insideAlignmentPropType, sizePropType } from '../common-prop-types.js'
 
 import { ModalCard } from './ModalCard.js'

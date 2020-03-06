@@ -1,12 +1,8 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import {
-    CircularLoader,
-    ScreenCover,
-    Menu,
-    MenuItem,
-    Divider,
-} from '../index.js'
+import { CircularLoader, Menu, MenuItem, Divider } from '../index.js'
+
+import { ScreenCover } from './ScreenCover.js'
 
 window.onClick = (payload, event) => {
     console.log('onClick payload', payload)
