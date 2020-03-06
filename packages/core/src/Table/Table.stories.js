@@ -2,18 +2,16 @@ import React from 'react'
 
 import { storiesOf } from '@storybook/react'
 
-import {
-    Button,
-    TableBody,
-    TableCell,
-    TableCellHead,
-    TableFoot,
-    TableHead,
-    TableRow,
-    TableRowHead,
-} from '../index.js'
+import { Button } from '../index.js'
 
 import { Table } from './Table.js'
+import { TableBody } from './TableBody.js'
+import { TableCell } from './TableCell.js'
+import { TableCellHead } from './TableCellHead.js'
+import { TableFoot } from './TableFoot.js'
+import { TableHead } from './TableHead.js'
+import { TableRow } from './TableRow.js'
+import { TableRowHead } from './TableRowHead.js'
 
 const TableFooterButton = () => (
     <div>

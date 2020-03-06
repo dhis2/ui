@@ -3,16 +3,13 @@ import React from 'react'
 
 import { mount } from 'enzyme'
 
-import {
-    StackedTableBody,
-    StackedTableCell,
-    StackedTableCellHead,
-    StackedTableHead,
-    StackedTableRow,
-    StackedTableRowHead,
-} from '../index.js'
-
 import { StackedTable } from './StackedTable.js'
+import { StackedTableBody } from './StackedTableBody.js'
+import { StackedTableCell } from './StackedTableCell.js'
+import { StackedTableCellHead } from './StackedTableCellHead.js'
+import { StackedTableHead } from './StackedTableHead.js'
+import { StackedTableRow } from './StackedTableRow.js'
+import { StackedTableRowHead } from './StackedTableRowHead.js'
 
 const Table = ({ headerLabels, bodyLabels }) => (
     <StackedTable>

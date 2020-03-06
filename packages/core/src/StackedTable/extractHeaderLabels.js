@@ -1,5 +1,5 @@
 import React from 'react'
-import { StackedTableHead } from '../StackedTableHead/StackedTableHead.js'
+import { StackedTableHead } from './StackedTableHead.js'
 
 const isChildTableHead = child => child.type === StackedTableHead
 const extractChildrenProp = component => component.props.children
