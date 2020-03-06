@@ -1,0 +1,31 @@
+# For more options:
+# https://github.com/cypress-io/github-action
+
+name: 'DHIS2'
+
+on: push
+
+jobs:
+    cypress-run:
+        name: E2E Tests
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                containers: [1, 2, 3]
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v1
+
+            - name: Tests
+              uses: cypress-io/github-action@v1
+              with:
+                  record: true
+                  parallel: true
+                  start: 'yarn cy:server'
+                  wait-on: 'http://localhost:5000'
+                  wait-on-timeout: 120
+                  group: 'e2e'
+              env:
+                  CI: true
+                  STORYBOOK_TESTING: true
+                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}

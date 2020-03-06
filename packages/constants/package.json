@@ -1,0 +1,24 @@
+{
+    "name": "@dhis2/ui-constants",
+    "version": "5.0.0",
+    "description": "Constants used in the UI libs",
+    "main": "build/cjs/lib.js",
+    "module": "build/es/lib.js",
+    "author": "Viktor Varland <viktor@dhis2.org>",
+    "license": "BSD-3-Clause",
+    "private": false,
+    "sideEffects": false,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dhis2/ui-core.git"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "build": "d2-app-scripts build"
+    },
+    "files": [
+        "build"
+    ]
+}
