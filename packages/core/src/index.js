@@ -60,6 +60,7 @@ export { FileInputField } from './FileInputField/FileInputField.js'
 export { FileInputFieldWithList } from './FileInputFieldWithList/FileInputFieldWithList.js'
 export { Menu } from './Menu/Menu.js'
 export { Modal } from './Modal/Modal.js'
+export { MultiSelectField } from './MultiSelectField/MultiSelectField.js'
 export { ToggleGroupField } from './ToggleGroupField/ToggleGroupField.js'
 export { TextAreaField } from './TextAreaField/TextAreaField.js'
 
@@ -72,7 +73,6 @@ export { SwitchField } from './SwitchField.js'
 export { SingleSelect } from './SingleSelect.js'
 export { SingleSelectField } from './SingleSelectField.js'
 export { SingleSelectOption } from './SingleSelectOption.js'
-export { MultiSelectField } from './MultiSelectField.js'
 
 /* table */
 export { TableBody } from './TableBody.js'
