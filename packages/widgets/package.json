@@ -1,0 +1,72 @@
+{
+    "name": "@dhis2/ui-widgets",
+    "version": "2.1.0",
+    "main": "build/cjs/lib.js",
+    "module": "build/es/lib.js",
+    "sideEffects": false,
+    "repository": "git@github.com:dhis2/ui-widgets.git",
+    "author": "Edoardo Sabadelli <edoardo@dhis2.org>",
+    "contributors": [
+        "Viktor Varland <viktor@dhis2.org>"
+    ],
+    "license": "BSD-3-Clause",
+    "private": false,
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "build": "d2-app-scripts build && yarn build:demo",
+        "build:demo": "build-storybook -c .storybook -o ./build/docs",
+        "prestart": "d2-app-scripts i18n extract && d2-app-scripts i18n generate",
+        "start": "EXTEND_ESLINT=true start-storybook -c .storybook",
+        "start:demo": "yarn start --port 5000",
+        "start:testing": "STORYBOOK_TESTING=1 yarn start --port 5001 --quiet --ci",
+        "cypress:open": "concurrently --kill-others -n storybook,cypress 'yarn start:testing' 'wait-on http-get://localhost:5001 && cypress open'",
+        "cypress:run": "concurrently --kill-others --success first -n storybook,cypress 'yarn start:testing' 'wait-on http-get://localhost:5001 && cypress run --headless'",
+        "lint": "yarn lint:js && yarn lint:text",
+        "lint:js": "d2-style js check",
+        "lint:text": "d2-style text check",
+        "format": "yarn format:js && yarn format:text",
+        "format:js": "d2-style js apply",
+        "format:text": "d2-style text apply",
+        "format:staged": "yarn format:js --staged && yarn format:text --staged",
+        "test": "d2-app-scripts test"
+    },
+    "devDependencies": {
+        "@dhis2/app-runtime": "^2.1",
+        "@dhis2/cli-app-scripts": "^3.2.5",
+        "@dhis2/cli-style": "^6.0.0",
+        "@dhis2/d2-i18n": "^1.0.6",
+        "@dhis2/ui-core": "^4.13.0",
+        "@storybook/csf": "^0.0.1",
+        "@storybook/preset-create-react-app": "^1.5.2",
+        "@storybook/react": "5.3.14",
+        "concurrently": "^5.1.0",
+        "cypress": "^4.1.0",
+        "cypress-cucumber-preprocessor": "^2.0.1",
+        "fs-extra": "^8.1.0",
+        "react": "^16.13.0",
+        "react-dev-utils": "^10.2.0",
+        "react-dom": "^16.13.0",
+        "storybook-addon-jsx": "^7.1.14",
+        "storybook-addon-react-docgen": "^1.2.2",
+        "styled-jsx": "^3.2.4",
+        "typeface-roboto": "^0.0.75",
+        "wait-on": "^4.0.0"
+    },
+    "peerDependencies": {
+        "@dhis2/app-runtime": "^2.1",
+        "@dhis2/d2-i18n": "^1",
+        "@dhis2/ui-core": "^4",
+        "react": "^16.8",
+        "react-dom": "^16.8",
+        "styled-jsx": "^3.2"
+    },
+    "dependencies": {
+        "@dhis2/prop-types": "^1.5",
+        "classnames": "^2.2.6"
+    },
+    "files": [
+        "build"
+    ]
+}
