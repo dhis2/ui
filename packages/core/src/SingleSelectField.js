@@ -5,7 +5,7 @@ import { statusPropType, singleSelectedPropType } from './common-prop-types.js'
 import { Field } from './Field/Field.js'
 import { Label } from './Label/Label.js'
 import { Help } from './Help/Help.js'
-import { SingleSelect } from './SingleSelect.js'
+import { SingleSelect } from './SingleSelect/SingleSelect.js'
 import { Box } from './Box/Box.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
