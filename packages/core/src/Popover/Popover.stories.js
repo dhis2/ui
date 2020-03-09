@@ -1,6 +1,8 @@
 import React, { useRef } from 'react'
-import { Popover } from '../Popover.js'
-import { elevations } from '../theme.js'
+
+import { elevations } from '@dhis2/ui-constants'
+
+import { Popover } from './Popover.js'
 
 const boxStyle = {
     display: 'flex',

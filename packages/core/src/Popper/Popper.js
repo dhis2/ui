@@ -1,11 +1,11 @@
 import React, { Component, createRef } from 'react'
-import propTypes from 'prop-types'
+import propTypes from '@dhis2/prop-types'
 import { createPopper } from '@popperjs/core'
 
 import {
     elementRefPropType,
     referencePlacementPropType,
-} from './common-prop-types.js'
+} from '../common-prop-types.js'
 
 import * as baseModifiers from './modifiers.js'
 
