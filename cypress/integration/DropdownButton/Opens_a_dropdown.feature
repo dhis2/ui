@@ -7,5 +7,5 @@ Feature: The DropdownButton renders a dropdown
 
     Scenario: The user closes the dropdown
         Given a DropdownButton with opened dropdown is rendered
-        When the DropdownButton is clicked
+        When the Backdrop is clicked
         Then the dropdown is not rendered

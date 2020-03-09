@@ -1,3 +1,10 @@
+# [4.14.0](https://github.com/dhis2/ui-core/compare/v4.13.0...v4.14.0) (2020-03-09)
+
+
+### Features
+
+* introduce popover, expose popper, refactor split/dropdown-button ([609b1f2](https://github.com/dhis2/ui-core/commit/609b1f2d4aba582df97115f8d85af1864e986043))
+
 # [4.13.0](https://github.com/dhis2/ui-core/compare/v4.12.0...v4.13.0) (2020-03-02)
 
 

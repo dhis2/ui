@@ -1,15 +1,15 @@
 import propTypes from '@dhis2/prop-types'
 import React, { Component } from 'react'
+import { createPortal } from 'react-dom'
 import { resolve } from 'styled-jsx/css'
 
 import { spacers } from '@dhis2/ui-constants'
 import { ArrowDown, ArrowUp } from '@dhis2/ui-icons'
 
-import { buttonVariantPropType, sizePropType } from '../common-prop-types.js'
-
+import { Backdrop } from '../Backdrop/Backdrop.js'
 import { Button } from '../Button/Button.js'
-import { DropMenu } from '../DropMenu/DropMenu.js'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
+import { Popper } from '../Popper/Popper.js'
+import { buttonVariantPropType, sizePropType } from '../common-prop-types.js'
 
 const arrow = resolve`
     margin-left: ${spacers.dp12};
@@ -88,14 +88,20 @@ class DropdownButton extends Component {
                     <ArrowIconComponent className={arrow.className} />
                 </Button>
 
-                {open && (
-                    <DropMenu
-                        className="dropdown-button-dropmenu"
-                        component={component}
-                        onClose={() => this.setState({ open: false })}
-                        anchorEl={this.anchorRef.current}
-                    />
-                )}
+                {open &&
+                    createPortal(
+                        <Backdrop onClick={this.onToggle} transparent>
+                            <Popper
+                                dataTest={`${dataTest}-popper`}
+                                placement="bottom-end"
+                                reference={this.anchorRef}
+                            >
+                                {component}
+                            </Popper>
+                        </Backdrop>,
+                        document.body
+                    )}
+
                 {arrow.styles}
                 <style jsx>{`
                     div {
