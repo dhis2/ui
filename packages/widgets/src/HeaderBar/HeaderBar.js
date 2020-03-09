@@ -1,17 +1,14 @@
 import React, { useEffect } from 'react'
-import propTypes from '@dhis2/prop-types'
 
+import propTypes from '@dhis2/prop-types'
+import { useDataQuery } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 
-import Apps from './HeaderBar/Apps.js'
-import Profile from './HeaderBar/Profile.js'
-
-import { useDataQuery } from '@dhis2/app-runtime'
-
-import { Logo } from './HeaderBar/Logo.js'
-import { Title } from './HeaderBar/Title.js'
-
-import { Notifications } from './HeaderBar/Notifications.js'
+import Apps from './Apps.js'
+import Profile from './Profile.js'
+import { Logo } from './Logo.js'
+import { Title } from './Title.js'
+import { Notifications } from './Notifications.js'
 
 import './locales'
 import i18n from '@dhis2/d2-i18n'

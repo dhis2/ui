@@ -1,4 +1,4 @@
-export { HeaderBar } from './HeaderBar'
+export { HeaderBar } from './HeaderBar/HeaderBar.js'
 export { OrganisationUnitTree } from './OrganisationUnitTree'
 
 export { CheckboxField } from './CheckboxField/CheckboxField.js'
