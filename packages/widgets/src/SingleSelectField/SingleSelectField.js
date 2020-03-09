@@ -1,13 +1,12 @@
-import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
-import { statusPropType, singleSelectedPropType } from '../common-prop-types.js'
-import { Field } from '../Field/Field.js'
-import { Label } from '../Label/Label.js'
-import { Help } from '../Help/Help.js'
-import { SingleSelect } from '../SingleSelect/SingleSelect.js'
-import { Box } from '../Box/Box.js'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
+import propTypes from '@dhis2/prop-types'
+import { Field, Label, Help, SingleSelect, Box } from '@dhis2/ui-core'
+
+const statusPropType = propTypes.mutuallyExclusive(
+    ['valid', 'warning', 'error'],
+    propTypes.bool
+)
 
 /**
  * @module
@@ -181,7 +180,10 @@ SingleSelectField.propTypes = {
     placeholder: propTypes.string,
     prefix: propTypes.string,
     required: propTypes.bool,
-    selected: singleSelectedPropType,
+    selected: propTypes.shape({
+        label: propTypes.string,
+        value: propTypes.string,
+    }),
     tabIndex: propTypes.string,
     valid: statusPropType,
     validationText: propTypes.string,

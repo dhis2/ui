@@ -80,6 +80,5 @@ export { ToggleGroup } from './ToggleGroup/ToggleGroup.js'
 /* widgets */
 export { Menu } from './Menu/Menu.js'
 export { Modal } from './Modal/Modal.js'
-export { SingleSelectField } from './SingleSelectField/SingleSelectField.js'
 export { SwitchField } from './SwitchField/SwitchField.js'
 export { TextAreaField } from './TextAreaField/TextAreaField.js'
