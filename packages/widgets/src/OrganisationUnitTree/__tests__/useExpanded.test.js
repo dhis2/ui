@@ -4,7 +4,7 @@ import {
     createExpandHandlers,
     getInitiallyExpandedPaths,
 } from '../useExpanded/helpers'
-import { useExpanded } from '../useExpanded'
+import { useExpanded } from '../useExpanded.js'
 
 jest.mock('react', () => ({
     useState: jest.fn(initialValue => [initialValue, () => null]),

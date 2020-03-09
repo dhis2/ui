@@ -10,8 +10,8 @@ import { Logo } from './Logo.js'
 import { Title } from './Title.js'
 import { Notifications } from './Notifications.js'
 
-import './locales'
 import i18n from '@dhis2/d2-i18n'
+import '../locales'
 
 const query = {
     systemInfo: {

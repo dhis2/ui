@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useForceReload } from '../useForceReload'
+import { useForceReload } from '../useForceReload.js'
 
 jest.mock('react', () => ({
     useEffect: jest.fn(callback => callback()),

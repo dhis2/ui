@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { AlertStack } from './AlertStack.js'
 import { AlertBar } from '../index.js'
 
-storiesOf('Component/Widget/AlertStack', module).add('Default', () => (
+storiesOf('Component/Core/AlertStack', module).add('Default', () => (
     <AlertStack>
         <AlertBar permanent>First notification - I am at the bottom</AlertBar>
         <AlertBar permanent critical>

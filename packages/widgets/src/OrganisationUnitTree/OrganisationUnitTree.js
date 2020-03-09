@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 import propTypes from 'prop-types'
 
-import { OrganisationUnitNode } from './OrganisationUnitTree/OrganisationUnitNode'
-import { RootError } from './OrganisationUnitTree/RootError'
-import { RootLoading } from './OrganisationUnitTree/RootLoading'
-import { orgUnitPathPropType } from './OrganisationUnitTree/propTypes'
-import { useExpanded } from './OrganisationUnitTree/useExpanded'
-import { useForceReload } from './OrganisationUnitTree/useForceReload'
-import { useOrgData } from './OrganisationUnitTree/useOrgData'
+import { OrganisationUnitNode } from './OrganisationUnitNode.js'
+import { RootError } from './RootError.js'
+import { RootLoading } from './RootLoading.js'
+import { orgUnitPathPropType } from './propTypes.js'
+import { useExpanded } from './useExpanded.js'
+import { useForceReload } from './useForceReload.js'
+import { useOrgData } from './useOrgData.js'
 
 /**
  * @module

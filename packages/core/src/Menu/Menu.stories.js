@@ -6,7 +6,7 @@ import { Menu } from './Menu.js'
 
 const Wrapper = fn => <div style={{}}>{fn()}</div>
 
-storiesOf('Component/Widget/Menu', module)
+storiesOf('Component/Core/Menu', module)
     .addDecorator(Wrapper)
 
     .add('Default', () => (

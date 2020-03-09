@@ -1,7 +1,10 @@
 import { useDataQuery } from '@dhis2/app-runtime'
 
-import { addMissingDisplayNameProps, createQuery } from '../useOrgData/helpers'
-import { useOrgData } from '../useOrgData'
+import {
+    addMissingDisplayNameProps,
+    createQuery,
+} from '../useOrgData/helpers.js'
+import { useOrgData } from '../useOrgData.js'
 
 jest.mock('@dhis2/app-runtime', () => ({
     useDataQuery: jest.fn(() => ({ loading: false, error: null, data: {} })),

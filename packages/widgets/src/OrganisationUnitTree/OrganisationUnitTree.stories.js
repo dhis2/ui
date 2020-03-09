@@ -1,8 +1,9 @@
 /* eslint-disable react/no-unescaped-entities,react/prop-types */
 import React, { useEffect, useState } from 'react'
 import { storiesOf } from '@storybook/react'
-import { OrganisationUnitTree } from '../index'
 import { CustomDataProvider, DataProvider } from '@dhis2/app-runtime'
+
+import { OrganisationUnitTree } from './OrganisationUnitTree.js'
 
 const log = true
 const onChange = (...args) => log && console.log('onChange', ...args)

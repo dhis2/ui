@@ -1,4 +1,4 @@
-import { hasDescendantSelectedPaths } from '../hasDescendantSelectedPaths'
+import { hasDescendantSelectedPaths } from '../hasDescendantSelectedPaths.js'
 
 describe('hasDescendantSelectedPaths', () => {
     it('should return true when the path is a parent path of one of the selected paths', () => {

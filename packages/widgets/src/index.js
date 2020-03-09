@@ -1,5 +1,5 @@
 export { HeaderBar } from './HeaderBar/HeaderBar.js'
-export { OrganisationUnitTree } from './OrganisationUnitTree'
+export { OrganisationUnitTree } from './OrganisationUnitTree/OrganisationUnitTree.js'
 
 export { CheckboxField } from './CheckboxField/CheckboxField.js'
 export { FileInputField } from './FileInputField/FileInputField.js'
