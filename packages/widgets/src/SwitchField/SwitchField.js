@@ -1,14 +1,24 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
-import { Switch } from '@dhis2/ui-core'
-
-import { ToggleField } from '../ToggleField/ToggleField.js'
+import { Field, Switch, Help, Required } from '@dhis2/ui-core'
 
 const statusPropType = propTypes.mutuallyExclusive(
     ['valid', 'warning', 'error'],
     propTypes.bool
 )
+
+const AddRequired = ({ label, required, dataTest }) => (
+    <React.Fragment>
+        {label}
+        {required && <Required dataTest={`${dataTest}-required`} />}
+    </React.Fragment>
+)
+AddRequired.propTypes = {
+    dataTest: propTypes.string,
+    label: propTypes.node,
+    required: propTypes.bool,
+}
 
 /**
  * @module
@@ -42,28 +52,43 @@ const SwitchField = ({
     validationText,
     dataTest,
 }) => (
-    <ToggleField
-        toggleComponent={Switch}
-        value={value}
-        label={label}
-        name={name}
-        className={className}
-        tabIndex={tabIndex}
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        checked={checked}
-        disabled={disabled}
-        valid={valid}
-        warning={warning}
-        error={error}
-        dense={dense}
-        initialFocus={initialFocus}
-        required={required}
-        helpText={helpText}
-        validationText={validationText}
-        dataTest={dataTest}
-    />
+    <Field className={className} dataTest={dataTest}>
+        <Switch
+            value={value}
+            label={
+                <AddRequired
+                    label={label}
+                    required={required}
+                    dataTest={dataTest}
+                />
+            }
+            name={name}
+            tabIndex={tabIndex}
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            checked={checked}
+            disabled={disabled}
+            valid={valid}
+            warning={warning}
+            error={error}
+            dense={dense}
+            initialFocus={initialFocus}
+        />
+
+        {helpText && <Help dataTest={`${dataTest}-help`}>{helpText}</Help>}
+
+        {validationText && (
+            <Help
+                error={error}
+                warning={warning}
+                valid={valid}
+                dataTest={`${dataTest}-validation`}
+            >
+                {validationText}
+            </Help>
+        )}
+    </Field>
 )
 
 SwitchField.defaultProps = {
