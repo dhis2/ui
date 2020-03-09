@@ -1,7 +1,9 @@
-import { storiesOf } from '@storybook/react'
 import React from 'react'
+import { storiesOf } from '@storybook/react'
+
+import { Checkbox } from '@dhis2/ui-core'
+
 import { ToggleGroupField } from './ToggleGroupField.js'
-import { Checkbox } from '../index.js'
 
 storiesOf('ToggleGroupField', module).add('With label and required', () => (
     <ToggleGroupField

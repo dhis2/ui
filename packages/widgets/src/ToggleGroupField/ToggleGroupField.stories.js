@@ -1,8 +1,9 @@
-import { storiesOf } from '@storybook/react'
 import React from 'react'
+import { storiesOf } from '@storybook/react'
+
+import { Checkbox, Radio, Switch } from '@dhis2/ui-core'
 
 import { ToggleGroupField } from './ToggleGroupField.js'
-import { Checkbox, Radio, Switch } from '../index.js'
 
 const logger = ({ name, value, checked }) =>
     console.info(`name: ${name}, value: ${value}, checked: ${checked}`)
