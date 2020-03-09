@@ -1,11 +1,19 @@
 import React, { Component } from 'react'
 import propTypes from '@dhis2/prop-types'
 
-import { statusPropType, sizePropType } from '../common-prop-types.js'
 import { FileInputField } from '../FileInputField/FileInputField.js'
 
 import { FileListItemWithRemove } from './FileListItemWithRemove.js'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
+
+const statusPropType = propTypes.mutuallyExclusive(
+    ['valid', 'warning', 'error'],
+    propTypes.bool
+)
+
+const sizePropType = propTypes.mutuallyExclusive(
+    ['small', 'large'],
+    propTypes.bool
+)
 
 /**
  * @module
