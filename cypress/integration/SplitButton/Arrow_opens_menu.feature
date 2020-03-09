@@ -1,15 +1,15 @@
-Feature: The SplitButton renders a DropMenu
+Feature: The SplitButton renders a Popper
 
-    Scenario: The user opens the DropMenu
+    Scenario: The user opens the Popper
         Given a SplitButton is rendered
         And the SplitButton menu is closed
         When the SplitButton toggle is clicked
         Then the menu is visible
         And the component is visible
 
-    Scenario: The user closes the DropMenu
+    Scenario: The user closes the Popper
         Given a SplitButton is rendered
         And the SplitButton menu is open
-        When the SplitButton toggle is clicked
+        When the Backdrop is clicked
         Then the menu is not visible
         And the component is not visible

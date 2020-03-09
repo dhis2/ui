@@ -1,12 +1,14 @@
 import propTypes from '@dhis2/prop-types'
 import React, { Component } from 'react'
+import { createPortal } from 'react-dom'
 import { resolve } from 'styled-jsx/css'
 
-import { buttonVariantPropType, sizePropType } from './common-prop-types.js'
-import { spacers } from './theme.js'
-import { Button } from './Button.js'
-import { DropMenu } from './DropMenu.js'
 import { ArrowDown, ArrowUp } from './icons/Arrow.js'
+import { Backdrop } from './Backdrop.js'
+import { Button } from './Button.js'
+import { buttonVariantPropType, sizePropType } from './common-prop-types.js'
+import { Popper } from './Popper.js'
+import { spacers } from './theme.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 const arrow = resolve`
@@ -86,14 +88,20 @@ class DropdownButton extends Component {
                     <ArrowIconComponent className={arrow.className} />
                 </Button>
 
-                {open && (
-                    <DropMenu
-                        className="dropdown-button-dropmenu"
-                        component={component}
-                        onClose={() => this.setState({ open: false })}
-                        anchorEl={this.anchorRef.current}
-                    />
-                )}
+                {open &&
+                    createPortal(
+                        <Backdrop onClick={this.onToggle} transparent>
+                            <Popper
+                                dataTest={`${dataTest}-popper`}
+                                placement="bottom-end"
+                                reference={this.anchorRef}
+                            >
+                                {component}
+                            </Popper>
+                        </Backdrop>,
+                        document.body
+                    )}
+
                 {arrow.styles}
                 <style jsx>{`
                     div {

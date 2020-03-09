@@ -1,13 +1,15 @@
 import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
 import React, { Component } from 'react'
+import { createPortal } from 'react-dom'
 import css from 'styled-jsx/css'
-import { Button } from './Button.js'
-import { DropMenu } from './DropMenu.js'
-import { ArrowDown, ArrowUp } from './icons/Arrow.js'
 
-import { spacers } from './theme.js'
+import { ArrowDown, ArrowUp } from './icons/Arrow.js'
+import { Backdrop } from './Backdrop.js'
+import { Button } from './Button.js'
 import { buttonVariantPropType, sizePropType } from './common-prop-types.js'
+import { Popper } from './Popper.js'
+import { spacers } from './theme.js'
 
 const rightButton = css.resolve`
     button {
@@ -111,14 +113,19 @@ class SplitButton extends Component {
                     {arrow}
                 </Button>
 
-                {open && (
-                    <DropMenu
-                        dataTest={`${dataTest}-menu`}
-                        component={component}
-                        onClose={() => this.setState({ open: false })}
-                        anchorEl={this.anchorRef.current}
-                    />
-                )}
+                {open &&
+                    createPortal(
+                        <Backdrop onClick={this.onToggle} transparent>
+                            <Popper
+                                dataTest={`${dataTest}-menu`}
+                                placement="bottom-end"
+                                reference={this.anchorRef}
+                            >
+                                {component}
+                            </Popper>
+                        </Backdrop>,
+                        document.body
+                    )}
 
                 {rightButton.styles}
                 <style jsx>{`

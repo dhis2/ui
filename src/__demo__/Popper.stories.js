@@ -13,7 +13,7 @@ const boxStyle = {
 }
 
 const referenceElementStyle = {
-    width: 100,
+    width: 130,
     height: 50,
     backgroundColor: 'cadetblue',
     textAlign: 'center',
@@ -21,7 +21,7 @@ const referenceElementStyle = {
 }
 
 const popperStyle = {
-    width: 80,
+    width: 110,
     height: 30,
     backgroundColor: 'lightblue',
     textAlign: 'center',
@@ -51,16 +51,6 @@ BoxWithCenteredReferenceElement.propTypes = {
     renderChildren: propTypes.func,
 }
 
-const PopperWithStyledContent = ({ referenceElement, placement }) => (
-    <Popper reference={referenceElement} placement={placement} className="test">
-        <div style={popperStyle}>Popper</div>
-    </Popper>
-)
-PopperWithStyledContent.propTypes = {
-    placement: propTypes.string,
-    referenceElement: propTypes.object,
-}
-
 export default {
     title: 'Popper',
     component: Popper,
@@ -71,74 +61,62 @@ export default {
 
 /* eslint-disable react/prop-types */
 export const Top = ({ referenceElement }) => (
-    <PopperWithStyledContent
-        referenceElement={referenceElement}
-        placement="top"
-    />
+    <Popper reference={referenceElement} placement="top">
+        <div style={popperStyle}>Top</div>
+    </Popper>
 )
 export const TopStart = ({ referenceElement }) => (
-    <PopperWithStyledContent
-        referenceElement={referenceElement}
-        placement="top-start"
-    />
+    <Popper reference={referenceElement} placement="top-start">
+        <div style={popperStyle}>Top start</div>
+    </Popper>
 )
 export const TopEnd = ({ referenceElement }) => (
-    <PopperWithStyledContent
-        referenceElement={referenceElement}
-        placement="top-end"
-    />
+    <Popper reference={referenceElement} placement="top-end">
+        <div style={popperStyle}>Top end</div>
+    </Popper>
 )
 export const Bottom = ({ referenceElement }) => (
-    <PopperWithStyledContent
-        referenceElement={referenceElement}
-        placement="bottom"
-    />
+    <Popper reference={referenceElement} placement="bottom">
+        <div style={popperStyle}>Bottom</div>
+    </Popper>
 )
 export const BottomStart = ({ referenceElement }) => (
-    <PopperWithStyledContent
-        referenceElement={referenceElement}
-        placement="bottom-start"
-    />
+    <Popper reference={referenceElement} placement="bottom-start">
+        <div style={popperStyle}>Bottom start</div>
+    </Popper>
 )
 export const BottomEnd = ({ referenceElement }) => (
-    <PopperWithStyledContent
-        referenceElement={referenceElement}
-        placement="bottom-end"
-    />
+    <Popper reference={referenceElement} placement="bottom-end">
+        <div style={popperStyle}>Bottom end</div>
+    </Popper>
 )
 export const Right = ({ referenceElement }) => (
-    <PopperWithStyledContent
-        referenceElement={referenceElement}
-        placement="right"
-    />
+    <Popper reference={referenceElement} placement="right">
+        <div style={popperStyle}>Right</div>
+    </Popper>
 )
 export const RightStart = ({ referenceElement }) => (
-    <PopperWithStyledContent
-        referenceElement={referenceElement}
-        placement="right-start"
-    />
+    <Popper reference={referenceElement} placement="right-start">
+        <div style={popperStyle}>Right start</div>
+    </Popper>
 )
 export const RightEnd = ({ referenceElement }) => (
-    <PopperWithStyledContent
-        referenceElement={referenceElement}
-        placement="right-end"
-    />
+    <Popper reference={referenceElement} placement="right-end">
+        <div style={popperStyle}>Right end</div>
+    </Popper>
 )
 export const Left = ({ referenceElement }) => (
-    <PopperWithStyledContent
-        referenceElement={referenceElement}
-        placement="left"
-    />
+    <Popper reference={referenceElement} placement="left">
+        <div style={popperStyle}>Left</div>
+    </Popper>
 )
 export const LeftStart = ({ referenceElement }) => (
-    <PopperWithStyledContent
-        referenceElement={referenceElement}
-        placement="left-start"
-    />
+    <Popper reference={referenceElement} placement="left-start">
+        <div style={popperStyle}>Left start</div>
+    </Popper>
 )
 export const LeftEnd = ({ referenceElement }) => (
-    <PopperWithStyledContent
-        referenceElement={referenceElement}
-        placement="left-end"
-    />
+    <Popper reference={referenceElement} placement="left-end">
+        <div style={popperStyle}>Left end</div>
+    </Popper>
 )

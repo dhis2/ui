@@ -28,6 +28,24 @@ export const insideAlignmentPropType = propTypes.oneOf([
     'bottom',
 ])
 
+export const referencePlacementPropType = propTypes.oneOf([
+    'auto',
+    'auto-start',
+    'auto-end',
+    'top',
+    'top-start',
+    'top-end',
+    'bottom', // will be used as default
+    'bottom-start',
+    'bottom-end',
+    'right',
+    'right-start',
+    'right-end',
+    'left',
+    'left-start',
+    'left-end',
+])
+
 export const elementRefPropType = propTypes.oneOfType([
     propTypes.func,
     propTypes.shape({ current: propTypes.instanceOf(Element) }),

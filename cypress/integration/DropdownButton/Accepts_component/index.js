@@ -7,7 +7,9 @@ Given(
 
         cy.get('[data-test="dhis2-uicore-dropdownbutton"]').should('be.visible')
         cy.get('[data-test="dhis2-uicore-dropdownbutton"]').click()
-        cy.get('[data-test="dhis2-uicore-dropmenu"]').should('exist')
+        cy.get('[data-test="dhis2-uicore-dropdownbutton-popper"]').should(
+            'exist'
+        )
     }
 )
 
