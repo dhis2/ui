@@ -1,5 +1,5 @@
 import '../common/index'
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a SplitButton is rendered', () => {
     cy.visitStory('SplitButton', 'Default')
@@ -14,6 +14,10 @@ Given('the SplitButton menu is closed', () => {
     cy.get('[data-test="dhis2-uicore-splitbutton-menu"]').should(
         'not.be.visible'
     )
+})
+
+When('the Backdrop is clicked', () => {
+    cy.get('[data-test="dhis2-uicore-backdrop"]').click()
 })
 
 Then('the menu is not visible', () => {
