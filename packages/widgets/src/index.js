@@ -7,4 +7,5 @@ export { FileInputFieldWithList } from './FileInputFieldWithList/FileInputFieldW
 export { InputField } from './InputField/InputField.js'
 export { MultiSelectField } from './MultiSelectField/MultiSelectField.js'
 export { SingleSelectField } from './SingleSelectField/SingleSelectField.js'
+export { SwitchField } from './SwitchField/SwitchField.js'
 export { ToggleGroupField } from './ToggleGroupField/ToggleGroupField.js'
