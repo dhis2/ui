@@ -1,15 +1,19 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
-import { statusPropType, multiSelectedPropType } from '../common-prop-types.js'
+import { Field, Label, Help, Box, MultiSelect } from '@dhis2/ui-core'
 
-import { Field } from '../Field/Field.js'
-import { Label } from '../Label/Label.js'
-import { Help } from '../Help/Help.js'
-import { Box } from '../Box/Box.js'
+const statusPropType = propTypes.mutuallyExclusive(
+    ['valid', 'warning', 'error'],
+    propTypes.bool
+)
 
-import { MultiSelect } from '../MultiSelect/MultiSelect.js'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
+const multiSelectedPropType = propTypes.arrayOf(
+    propTypes.shape({
+        label: propTypes.string,
+        value: propTypes.string,
+    })
+)
 
 /**
  * @module
