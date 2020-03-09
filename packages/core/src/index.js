@@ -79,8 +79,6 @@ export { TextArea } from './TextArea/TextArea.js'
 export { ToggleGroup } from './ToggleGroup/ToggleGroup.js'
 
 /* widgets */
-export { CheckboxField } from './CheckboxField/CheckboxField.js'
-export { FileInputField } from './FileInputField/FileInputField.js'
 export { FileInputFieldWithList } from './FileInputFieldWithList/FileInputFieldWithList.js'
 export { Menu } from './Menu/Menu.js'
 export { Modal } from './Modal/Modal.js'

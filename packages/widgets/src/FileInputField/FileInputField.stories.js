@@ -1,7 +1,8 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import { FileListItem } from '../index.js'
+import { FileListItem } from '@dhis2/ui-core'
+
 import { FileInputField } from './FileInputField.js'
 
 const onChange = obj => {

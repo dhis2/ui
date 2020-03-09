@@ -1,15 +1,24 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
-import { statusPropType, sizePropType } from '../common-prop-types.js'
+import {
+    FileInput,
+    FileList,
+    FileListPlaceholder,
+    Field,
+    Label,
+    Help,
+} from '@dhis2/ui-core'
 
-import { FileInput } from '../FileInput/FileInput.js'
-import { FileList } from '../FileList/FileList.js'
-import { FileListPlaceholder } from '../FileListPlaceholder/FileListPlaceholder.js'
-import { Field } from '../Field/Field.js'
-import { Label } from '../Label/Label.js'
-import { Help } from '../Help/Help.js'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
+const statusPropType = propTypes.mutuallyExclusive(
+    ['valid', 'warning', 'error'],
+    propTypes.bool
+)
+
+const sizePropType = propTypes.mutuallyExclusive(
+    ['small', 'large'],
+    propTypes.bool
+)
 
 /**
  * @module
