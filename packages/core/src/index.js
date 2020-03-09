@@ -1,20 +1,7 @@
-/*
- * /!\  READ THIS /!\
- * ------------------
- *
- *  This file determines which components are considered part of the
- *  public API.
- *
- *  Only components that are for external use should be exposed here.
- *  Internal components and helpers should not appear in this file.
- *
- */
-
 /* utilities */
 export { CssReset } from './CssReset/CssReset.js'
 export { CssVariables } from './CssVariables/CssVariables.js'
 
-/* core */
 export { AlertBar } from './AlertBar/AlertBar.js'
 export { AlertStack } from './AlertStack/AlertStack.js'
 export { Box } from './Box/Box.js'
@@ -39,8 +26,10 @@ export { Label } from './Label/Label.js'
 export { Legend } from './Legend/Legend.js'
 export { LinearLoader } from './LinearLoader/LinearLoader.js'
 export { Logo, LogoIcon, LogoIconWhite, LogoWhite } from './Logo/Logo.js'
+export { Menu } from './Menu/Menu.js'
 export { MenuItem } from './MenuItem/MenuItem.js'
 export { MenuList } from './MenuList/MenuList.js'
+export { Modal } from './Modal/Modal.js'
 export { ModalActions } from './ModalActions/ModalActions.js'
 export { ModalContent } from './ModalContent/ModalContent.js'
 export { ModalTitle } from './ModalTitle/ModalTitle.js'
@@ -77,8 +66,3 @@ export { TableRowHead } from './Table/TableRowHead.js'
 export { Tag } from './Tag/Tag.js'
 export { TextArea } from './TextArea/TextArea.js'
 export { ToggleGroup } from './ToggleGroup/ToggleGroup.js'
-
-/* widgets */
-export { Menu } from './Menu/Menu.js'
-export { Modal } from './Modal/Modal.js'
-export { TextAreaField } from './TextAreaField/TextAreaField.js'
