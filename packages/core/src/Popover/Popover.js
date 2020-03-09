@@ -2,19 +2,20 @@ import React from 'react'
 import { createPortal } from 'react-dom'
 import propTypes from 'prop-types'
 
+import { colors, elevations } from '@dhis2/ui-constants'
+
 import {
     elementRefPropType,
     referencePlacementPropType,
-} from './common-prop-types.js'
+} from '../common-prop-types.js'
 
-import { Popper } from './Popper'
-import { Backdrop } from './Backdrop'
+import { Popper } from '../Popper/Popper.js'
+import { Backdrop } from '../Backdrop/Backdrop.js'
 
-import { Arrow } from './Popover/Arrow'
-import { arrow, offset, hideArrowWhenDisplaced } from './Popover/modifiers.js'
-import { colors, elevations } from './theme.js'
+import { Arrow } from './Arrow.js'
+import { arrow, offset, hideArrowWhenDisplaced } from './modifiers.js'
 
-const arroModifiers = [arrow, offset, hideArrowWhenDisplaced]
+const arrowModifiers = [arrow, offset, hideArrowWhenDisplaced]
 /**
  * @module
  * @param {Popover.PropTypes} props
@@ -43,7 +44,7 @@ const Popover = ({
                 dataTest={`${dataTest}-popper`}
                 placement={placement}
                 reference={reference}
-                modifiers={arrow ? arroModifiers : []}
+                modifiers={arrow ? arrowModifiers : []}
                 className={className}
             >
                 <div>

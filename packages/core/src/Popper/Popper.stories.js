@@ -1,6 +1,7 @@
 import React, { Component, createRef } from 'react'
 import propTypes from '@dhis2/prop-types'
-import { Popper } from '../../src/Popper.js'
+
+import { Popper } from './Popper.js'
 
 const boxStyle = {
     display: 'flex',

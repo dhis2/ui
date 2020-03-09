@@ -1,6 +1,7 @@
 import React, { Component, createRef } from 'react'
 import propTypes from '@dhis2/prop-types'
-import { Popover } from '../Popover.js'
+
+import { Popover } from './Popover.js'
 
 const boxStyle = {
     display: 'flex',
