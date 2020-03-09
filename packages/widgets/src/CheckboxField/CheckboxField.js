@@ -1,10 +1,12 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
-import { statusPropType } from '../common-prop-types.js'
-import { ToggleField } from '../ToggleField/ToggleField.js'
-import { Checkbox } from '../Checkbox/Checkbox.js'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
+import { ToggleField, Checkbox } from '@dhis2/ui-core'
+
+export const statusPropType = propTypes.mutuallyExclusive(
+    ['valid', 'warning', 'error'],
+    propTypes.bool
+)
 
 /**
  * @module
