@@ -1,13 +1,12 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
-import { statusPropType } from '../common-prop-types.js'
-import { Field } from '../Field/Field.js'
-import { Label } from '../Label/Label.js'
-import { Input } from '../Input/Input.js'
-import { Help } from '../Help/Help.js'
-import { Box } from '../Box/Box.js'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
+import { Field, Label, Input, Help, Box } from '@dhis2/ui-core'
+
+export const statusPropType = propTypes.mutuallyExclusive(
+    ['valid', 'warning', 'error'],
+    propTypes.bool
+)
 
 /**
  * @module
