@@ -7,7 +7,7 @@ import {
     ModalTitle,
     ModalActions,
     ModalContent,
-    SingleSelectField,
+    SingleSelect,
     SingleSelectOption,
 } from '../index.js'
 
@@ -485,7 +485,7 @@ storiesOf('Component/Widget/Modal', module)
             <ModalTitle>Select opens on top of the Modal</ModalTitle>
 
             <ModalContent>
-                <SingleSelectField>
+                <SingleSelect>
                     <SingleSelectOption key="1" value="1" label="one" />
                     <SingleSelectOption key="2" value="2" label="two" />
                     <SingleSelectOption key="3" value="3" label="three" />
@@ -496,7 +496,7 @@ storiesOf('Component/Widget/Modal', module)
                     <SingleSelectOption key="8" value="3" label="eight" />
                     <SingleSelectOption key="9" value="3" label="nine" />
                     <SingleSelectOption key="10" value="3" label="ten" />
-                </SingleSelectField>
+                </SingleSelect>
             </ModalContent>
 
             <ModalActions>
@@ -517,7 +517,7 @@ storiesOf('Component/Widget/Modal', module)
             <ModalTitle>Select opens on top of the Modal - Level 1</ModalTitle>
 
             <ModalContent>
-                <SingleSelectField>
+                <SingleSelect>
                     <SingleSelectOption key="1" value="1" label="one" />
                     <SingleSelectOption key="2" value="2" label="two" />
                     <SingleSelectOption key="3" value="3" label="three" />
@@ -528,14 +528,14 @@ storiesOf('Component/Widget/Modal', module)
                     <SingleSelectOption key="8" value="3" label="eight" />
                     <SingleSelectOption key="9" value="3" label="nine" />
                     <SingleSelectOption key="10" value="3" label="ten" />
-                </SingleSelectField>
+                </SingleSelect>
                 <Modal large>
                     <ModalTitle>
                         Select opens on top of the Modal - Level 2
                     </ModalTitle>
 
                     <ModalContent>
-                        <SingleSelectField>
+                        <SingleSelect>
                             <SingleSelectOption key="1" value="1" label="one" />
                             <SingleSelectOption key="2" value="2" label="two" />
                             <SingleSelectOption
@@ -574,14 +574,14 @@ storiesOf('Component/Widget/Modal', module)
                                 value="3"
                                 label="ten"
                             />
-                        </SingleSelectField>
+                        </SingleSelect>
                         <Modal large>
                             <ModalTitle>
                                 Select opens on top of the Modal - Level 3
                             </ModalTitle>
 
                             <ModalContent>
-                                <SingleSelectField>
+                                <SingleSelect>
                                     <SingleSelectOption
                                         key="1"
                                         value="1"
@@ -632,7 +632,7 @@ storiesOf('Component/Widget/Modal', module)
                                         value="3"
                                         label="ten"
                                     />
-                                </SingleSelectField>
+                                </SingleSelect>
                             </ModalContent>
 
                             <ModalActions>

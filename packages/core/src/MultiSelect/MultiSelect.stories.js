@@ -4,7 +4,7 @@ import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
 
 import { MultiSelect } from './MultiSelect.js'
-import { MultiSelectOption } from '../index.js'
+import { MultiSelectOption } from '../MultiSelectOption/MultiSelectOption.js'
 
 const CheckIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">

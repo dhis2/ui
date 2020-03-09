@@ -1,8 +1,9 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
+import { MultiSelectOption } from '@dhis2/ui-core'
+
 import { MultiSelectField } from './MultiSelectField.js'
-import { MultiSelectOption } from '../index.js'
 
 const defaultProps = {
     label: 'Default label',

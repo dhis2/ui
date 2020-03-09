@@ -1,8 +1,9 @@
 import React from 'react'
-import propTypes from '@dhis2/prop-types'
 
+import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
-import { Required } from '../Label/Required.js'
+
+import { Required } from '../Required/Required.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**

@@ -1,12 +1,12 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { InputField, Help } from '../index.js'
+import { Input, Help } from '../index.js'
 import { Field } from './Field.js'
 
 storiesOf('Component/Core/Field', module).add('Default', () => (
     <>
         <Field>
-            <InputField
+            <Input
                 onChange={() => {
                     console.log('Nothing happens')
                 }}
@@ -16,7 +16,7 @@ storiesOf('Component/Core/Field', module).add('Default', () => (
             <Help>A helpful text</Help>
         </Field>
         <Field>
-            <InputField
+            <Input
                 onChange={() => {
                     console.log('Nothing happens')
                 }}
