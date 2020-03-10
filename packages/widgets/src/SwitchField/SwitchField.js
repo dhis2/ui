@@ -1,12 +1,8 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import { Field, Switch, Help, Required } from '@dhis2/ui-core'
-
-const statusPropType = propTypes.mutuallyExclusive(
-    ['valid', 'warning', 'error'],
-    propTypes.bool
-)
 
 const AddRequired = ({ label, required, dataTest }) => (
     <React.Fragment>
@@ -130,17 +126,17 @@ SwitchField.propTypes = {
     dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
-    error: statusPropType,
+    error: sharedPropTypes.statusPropType,
     helpText: propTypes.string,
     initialFocus: propTypes.bool,
     label: propTypes.node,
     name: propTypes.string,
     required: propTypes.bool,
     tabIndex: propTypes.string,
-    valid: statusPropType,
+    valid: sharedPropTypes.statusPropType,
     validationText: propTypes.string,
     value: propTypes.string,
-    warning: statusPropType,
+    warning: sharedPropTypes.statusPropType,
     onBlur: propTypes.func,
     onChange: propTypes.func,
     onFocus: propTypes.func,

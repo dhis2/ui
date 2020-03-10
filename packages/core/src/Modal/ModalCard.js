@@ -3,11 +3,9 @@ import cx from 'classnames'
 import { resolve } from 'styled-jsx/css'
 
 import propTypes from '@dhis2/prop-types'
-import { spacersNum } from '@dhis2/ui-constants'
+import { spacersNum, sharedPropTypes } from '@dhis2/ui-constants'
 
 import { Card } from '../Card/Card.js'
-import { insideAlignmentPropType } from '../common-prop-types.js'
-import { sizePropType } from '../common-prop-types.js'
 
 const cardBoxStyle = resolve`
     .modal-card {
@@ -67,7 +65,7 @@ export const ModalCard = ({ children, small, large, position }) => (
  */
 ModalCard.propTypes = {
     children: propTypes.node.isRequired,
-    position: insideAlignmentPropType.isRequired,
-    large: sizePropType,
-    small: sizePropType,
+    position: sharedPropTypes.insideAlignmentPropType.isRequired,
+    large: sharedPropTypes.sizePropType,
+    small: sharedPropTypes.sizePropType,
 }

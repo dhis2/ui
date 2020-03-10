@@ -1,19 +1,10 @@
 import React, { Component } from 'react'
 import propTypes from '@dhis2/prop-types'
+import { sharedPropTypes } from '@dhis2/ui-constants'
 
 import { FileInputField } from '../FileInputField/FileInputField.js'
 
 import { FileListItemWithRemove } from './FileListItemWithRemove.js'
-
-const statusPropType = propTypes.mutuallyExclusive(
-    ['valid', 'warning', 'error'],
-    propTypes.bool
-)
-
-const sizePropType = propTypes.mutuallyExclusive(
-    ['small', 'large'],
-    propTypes.bool
-)
 
 /**
  * @module
@@ -184,22 +175,22 @@ FileInputFieldWithList.propTypes = {
     className: propTypes.string,
     dataTest: propTypes.string,
     disabled: propTypes.bool,
-    error: statusPropType,
+    error: sharedPropTypes.statusPropType,
     files: propTypes.arrayOf(propTypes.instanceOf(File)),
     helpText: propTypes.string,
     initialFocus: propTypes.bool,
     label: propTypes.string,
-    large: sizePropType,
+    large: sharedPropTypes.sizePropType,
     multiple: propTypes.bool,
     name: propTypes.string,
     placeholder: propTypes.string,
     removeText: propTypes.string,
     required: propTypes.bool,
-    small: sizePropType,
+    small: sharedPropTypes.sizePropType,
     tabIndex: propTypes.string,
-    valid: statusPropType,
+    valid: sharedPropTypes.statusPropType,
     validationText: propTypes.string,
-    warning: statusPropType,
+    warning: sharedPropTypes.statusPropType,
     onBlur: propTypes.func,
     onFocus: propTypes.func,
 }

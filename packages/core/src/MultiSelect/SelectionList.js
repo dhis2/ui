@@ -1,6 +1,6 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import { multiSelectedPropType } from '../common-prop-types.js'
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import { Chip } from '../Chip/Chip.js'
 import { removeOption, findOptionChild } from '../Select/option-helpers.js'
 
@@ -58,7 +58,7 @@ const SelectionList = ({ selected, onChange, disabled, options }) => (
 SelectionList.propTypes = {
     disabled: propTypes.bool,
     options: propTypes.node,
-    selected: multiSelectedPropType,
+    selected: sharedPropTypes.multiSelectedPropType,
     onChange: propTypes.func,
 }
 

@@ -3,10 +3,8 @@ import css from 'styled-jsx/css'
 import cx from 'classnames'
 
 import propTypes from '@dhis2/prop-types'
-import { theme, colors, spacers } from '@dhis2/ui-constants'
+import { theme, colors, spacers, sharedPropTypes } from '@dhis2/ui-constants'
 import { StatusIcon } from '@dhis2/ui-icons'
-
-import { statusPropType } from '../common-prop-types.js'
 
 const styles = css`
     .input {
@@ -216,7 +214,7 @@ Input.propTypes = {
     dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
-    error: statusPropType,
+    error: sharedPropTypes.statusPropType,
     initialFocus: propTypes.bool,
     loading: propTypes.bool,
     name: propTypes.string,
@@ -238,9 +236,9 @@ Input.propTypes = {
         'time',
         'search',
     ]),
-    valid: statusPropType,
+    valid: sharedPropTypes.statusPropType,
     value: propTypes.string,
-    warning: statusPropType,
+    warning: sharedPropTypes.statusPropType,
     onBlur: propTypes.func,
     onChange: propTypes.func,
     onFocus: propTypes.func,

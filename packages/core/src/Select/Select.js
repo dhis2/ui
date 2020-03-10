@@ -1,11 +1,7 @@
 import React, { Component } from 'react'
 import propTypes from '@dhis2/prop-types'
 
-import {
-    statusPropType,
-    singleSelectedPropType,
-    multiSelectedPropType,
-} from '../common-prop-types.js'
+import { sharedPropTypes } from '@dhis2/ui-constants'
 
 import { InputWrapper } from './InputWrapper.js'
 import { MenuWrapper } from './MenuWrapper.js'
@@ -248,20 +244,20 @@ Select.propTypes = {
     input: propTypes.element.isRequired,
     menu: propTypes.element.isRequired,
     selected: propTypes.oneOfType([
-        singleSelectedPropType,
-        multiSelectedPropType,
+        sharedPropTypes.singleSelectedPropType,
+        sharedPropTypes.multiSelectedPropType,
     ]).isRequired,
     children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
-    error: statusPropType,
+    error: sharedPropTypes.statusPropType,
     initialFocus: propTypes.bool,
     maxHeight: propTypes.string,
     tabIndex: propTypes.string,
-    valid: statusPropType,
-    warning: statusPropType,
+    valid: sharedPropTypes.statusPropType,
+    warning: sharedPropTypes.statusPropType,
     onBlur: propTypes.func,
     onChange: propTypes.func,
     onFocus: propTypes.func,

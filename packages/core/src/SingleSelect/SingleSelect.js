@@ -2,9 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { StatusIcon } from '@dhis2/ui-icons'
-import { spacers } from '@dhis2/ui-constants'
-
-import { singleSelectedPropType, statusPropType } from '../common-prop-types.js'
+import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
 
 import { Select } from '../Select/Select.js'
 import { Loading } from '../Select/Loading.js'
@@ -164,7 +162,7 @@ SingleSelect.propTypes = {
     dense: propTypes.bool,
     disabled: propTypes.bool,
     empty: propTypes.node,
-    error: statusPropType,
+    error: sharedPropTypes.statusPropType,
     filterPlaceholder: propTypes.string,
     filterable: propTypes.bool,
     initialFocus: propTypes.bool,
@@ -178,10 +176,10 @@ SingleSelect.propTypes = {
     ),
     placeholder: propTypes.string,
     prefix: propTypes.string,
-    selected: singleSelectedPropType,
+    selected: sharedPropTypes.singleSelectedPropType,
     tabIndex: propTypes.string,
-    valid: statusPropType,
-    warning: statusPropType,
+    valid: sharedPropTypes.statusPropType,
+    warning: sharedPropTypes.statusPropType,
     onBlur: propTypes.func,
     onChange: propTypes.func,
     onFocus: propTypes.func,

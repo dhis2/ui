@@ -3,7 +3,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { ScreenCover } from '../ScreenCover/ScreenCover.js'
-import { insideAlignmentPropType, sizePropType } from '../common-prop-types.js'
+import { sharedPropTypes } from '@dhis2/ui-constants'
 
 import { ModalCard } from './ModalCard.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
@@ -81,9 +81,9 @@ Modal.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
-    large: sizePropType,
-    position: insideAlignmentPropType,
-    small: sizePropType,
+    large: sharedPropTypes.sizePropType,
+    position: sharedPropTypes.insideAlignmentPropType,
+    small: sharedPropTypes.sizePropType,
     // Callback used when clicking on the screen cover
     onClose: propTypes.func,
 }

@@ -1,8 +1,7 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
-import { singleSelectedPropType } from '../common-prop-types.js'
-import { spacers } from '@dhis2/ui-constants'
+import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
 import { findOptionChild } from '../Select/option-helpers.js'
 
 const Selection = ({ options, selected, className }) => {
@@ -45,7 +44,7 @@ const Selection = ({ options, selected, className }) => {
 Selection.propTypes = {
     className: propTypes.string,
     options: propTypes.node,
-    selected: singleSelectedPropType,
+    selected: sharedPropTypes.singleSelectedPropType,
 }
 
 export { Selection }

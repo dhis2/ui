@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import propTypes from '@dhis2/prop-types'
-import {
-    singleSelectedPropType,
-    multiSelectedPropType,
-} from '../common-prop-types.js'
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import { FilterInput } from '../Select/FilterInput.js'
 import { NoMatch } from '../Select/NoMatch.js'
 import { filterIgnored, checkIfValidOption } from '../Select/option-helpers.js'
@@ -98,8 +95,8 @@ FilterableMenu.propTypes = {
     dataTest: propTypes.string.isRequired,
     noMatchText: propTypes.string.isRequired,
     selected: propTypes.oneOfType([
-        singleSelectedPropType,
-        multiSelectedPropType,
+        sharedPropTypes.singleSelectedPropType,
+        sharedPropTypes.multiSelectedPropType,
     ]).isRequired,
     empty: propTypes.node,
     handleClose: propTypes.func,

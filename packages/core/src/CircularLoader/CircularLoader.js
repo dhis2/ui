@@ -2,8 +2,7 @@ import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
-import { sizePropType } from '../common-prop-types.js'
-import { theme, spacers } from '@dhis2/ui-constants'
+import { theme, spacers, sharedPropTypes } from '@dhis2/ui-constants'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
@@ -105,8 +104,8 @@ CircularLoader.defaultProps = {
 CircularLoader.propTypes = {
     className: propTypes.string,
     dataTest: propTypes.string,
-    large: sizePropType,
-    small: sizePropType,
+    large: sharedPropTypes.sizePropType,
+    small: sharedPropTypes.sizePropType,
 }
 
 export { CircularLoader }

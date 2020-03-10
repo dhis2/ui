@@ -2,8 +2,7 @@ import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
-import { statusPropType } from '../common-prop-types.js'
-import { spacers, theme } from '@dhis2/ui-constants'
+import { spacers, theme, sharedPropTypes } from '@dhis2/ui-constants'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
@@ -69,9 +68,9 @@ Help.propTypes = {
     children: propTypes.string,
     className: propTypes.string,
     dataTest: propTypes.string,
-    error: statusPropType,
-    valid: statusPropType,
-    warning: statusPropType,
+    error: sharedPropTypes.statusPropType,
+    valid: sharedPropTypes.statusPropType,
+    warning: sharedPropTypes.statusPropType,
 }
 
 export { Help }

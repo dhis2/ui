@@ -1,12 +1,8 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import { ToggleGroup, Field, FieldSet, Legend, Help } from '@dhis2/ui-core'
-
-export const statusPropType = propTypes.mutuallyExclusive(
-    ['valid', 'warning', 'error'],
-    propTypes.bool
-)
 
 /**
  * @module
@@ -100,18 +96,18 @@ ToggleGroupField.propTypes = {
     dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
-    error: statusPropType,
+    error: sharedPropTypes.statusPropType,
     helpText: propTypes.string,
     label: propTypes.string,
     name: propTypes.string,
     required: propTypes.bool,
-    valid: statusPropType,
+    valid: sharedPropTypes.statusPropType,
     validationText: propTypes.string,
     value: propTypes.oneOfType([
         propTypes.string,
         propTypes.arrayOf(propTypes.string),
     ]),
-    warning: statusPropType,
+    warning: sharedPropTypes.statusPropType,
     onChange: propTypes.func,
 }
 

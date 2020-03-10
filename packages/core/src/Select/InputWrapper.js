@@ -1,9 +1,8 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
-import { statusPropType } from '../common-prop-types.js'
 import { ArrowDown } from './ArrowDown.js'
-import { colors, theme } from '@dhis2/ui-constants'
+import { colors, theme, sharedPropTypes } from '@dhis2/ui-constants'
 
 const InputWrapper = ({
     dataTest,
@@ -107,9 +106,9 @@ InputWrapper.propTypes = {
     className: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
-    error: statusPropType,
-    valid: statusPropType,
-    warning: statusPropType,
+    error: sharedPropTypes.statusPropType,
+    valid: sharedPropTypes.statusPropType,
+    warning: sharedPropTypes.statusPropType,
 }
 
 export { InputWrapper }

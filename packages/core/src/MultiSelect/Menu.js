@@ -1,6 +1,6 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import { multiSelectedPropType } from '../common-prop-types.js'
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import { Empty } from '../Select/Empty.js'
 import {
     filterIgnored,
@@ -92,7 +92,7 @@ Menu.propTypes = {
     dataTest: propTypes.string.isRequired,
     empty: propTypes.node,
     options: propTypes.node,
-    selected: multiSelectedPropType,
+    selected: sharedPropTypes.multiSelectedPropType,
     onChange: propTypes.func,
 }
 

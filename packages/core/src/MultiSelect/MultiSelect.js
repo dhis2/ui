@@ -1,9 +1,8 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import { spacers } from '@dhis2/ui-constants'
+import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
 import { StatusIcon } from '@dhis2/ui-icons'
 
-import { multiSelectedPropType, statusPropType } from '../common-prop-types.js'
 import { Select } from '../Select/Select.js'
 import { Loading } from '../Select/Loading.js'
 
@@ -162,7 +161,7 @@ MultiSelect.propTypes = {
     dense: propTypes.bool,
     disabled: propTypes.bool,
     empty: propTypes.node,
-    error: statusPropType,
+    error: sharedPropTypes.statusPropType,
     filterPlaceholder: propTypes.string,
     filterable: propTypes.bool,
     initialFocus: propTypes.bool,
@@ -176,10 +175,10 @@ MultiSelect.propTypes = {
     ),
     placeholder: propTypes.string,
     prefix: propTypes.string,
-    selected: multiSelectedPropType,
+    selected: sharedPropTypes.multiSelectedPropType,
     tabIndex: propTypes.string,
-    valid: statusPropType,
-    warning: statusPropType,
+    valid: sharedPropTypes.statusPropType,
+    warning: sharedPropTypes.statusPropType,
     onBlur: propTypes.func,
     onChange: propTypes.func,
     onFocus: propTypes.func,

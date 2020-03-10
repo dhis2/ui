@@ -2,12 +2,7 @@ import React from 'react'
 import { createPortal } from 'react-dom'
 import propTypes from 'prop-types'
 
-import { colors, elevations } from '@dhis2/ui-constants'
-
-import {
-    elementRefPropType,
-    referencePlacementPropType,
-} from '../common-prop-types.js'
+import { colors, elevations, sharedPropTypes } from '@dhis2/ui-constants'
 
 import { Popper } from '../Popper/Popper.js'
 import { Backdrop } from '../Backdrop/Backdrop.js'
@@ -86,12 +81,12 @@ Popover.defaultProps = {
  */
 Popover.propTypes = {
     children: propTypes.node.isRequired,
-    reference: elementRefPropType.isRequired,
+    reference: sharedPropTypes.elementRefPropType.isRequired,
     arrow: propTypes.bool,
     className: propTypes.string,
     dataTest: propTypes.string,
     maxWidth: propTypes.number,
-    placement: referencePlacementPropType,
+    placement: sharedPropTypes.referencePlacementPropType,
     onBackdropClick: propTypes.func,
 }
 

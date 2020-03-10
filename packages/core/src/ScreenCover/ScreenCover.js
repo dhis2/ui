@@ -1,10 +1,9 @@
 import React from 'react'
 
 import propTypes from '@dhis2/prop-types'
-import { layers, spacers } from '@dhis2/ui-constants'
+import { layers, spacers, sharedPropTypes } from '@dhis2/ui-constants'
 
 import { Backdrop } from '../Backdrop/Backdrop.js'
-import { insideAlignmentPropType } from '../common-prop-types.js'
 
 const Content = ({ children, position }) => (
     <div className={position}>
@@ -36,7 +35,7 @@ const Content = ({ children, position }) => (
 
 Content.propTypes = {
     children: propTypes.node,
-    position: insideAlignmentPropType,
+    position: sharedPropTypes.insideAlignmentPropType,
 }
 
 /**
@@ -80,7 +79,7 @@ ScreenCover.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
-    position: insideAlignmentPropType,
+    position: sharedPropTypes.insideAlignmentPropType,
     onClick: propTypes.func,
 }
 

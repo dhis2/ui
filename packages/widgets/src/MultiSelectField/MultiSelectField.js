@@ -1,19 +1,8 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import { Field, Label, Help, Box, MultiSelect } from '@dhis2/ui-core'
-
-const statusPropType = propTypes.mutuallyExclusive(
-    ['valid', 'warning', 'error'],
-    propTypes.bool
-)
-
-const multiSelectedPropType = propTypes.arrayOf(
-    propTypes.shape({
-        label: propTypes.string,
-        value: propTypes.string,
-    })
-)
 
 /**
  * @module
@@ -169,7 +158,7 @@ MultiSelectField.propTypes = {
     dense: propTypes.bool,
     disabled: propTypes.bool,
     empty: propTypes.node,
-    error: statusPropType,
+    error: sharedPropTypes.statusPropType,
     filterPlaceholder: propTypes.string,
     filterable: propTypes.bool,
     helpText: propTypes.string,
@@ -187,11 +176,11 @@ MultiSelectField.propTypes = {
     placeholder: propTypes.string,
     prefix: propTypes.string,
     required: propTypes.bool,
-    selected: multiSelectedPropType,
+    selected: sharedPropTypes.multiSelectedPropType,
     tabIndex: propTypes.string,
-    valid: statusPropType,
+    valid: sharedPropTypes.statusPropType,
     validationText: propTypes.string,
-    warning: statusPropType,
+    warning: sharedPropTypes.statusPropType,
     onBlur: propTypes.func,
     onChange: propTypes.func,
     onFocus: propTypes.func,

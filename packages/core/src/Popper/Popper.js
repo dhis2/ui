@@ -2,10 +2,7 @@ import React, { Component, createRef } from 'react'
 import propTypes from '@dhis2/prop-types'
 import { createPopper } from '@popperjs/core'
 
-import {
-    elementRefPropType,
-    referencePlacementPropType,
-} from '../common-prop-types.js'
+import { sharedPropTypes } from '@dhis2/ui-constants'
 
 import * as baseModifiers from './modifiers.js'
 
@@ -99,7 +96,7 @@ Popper.defaultProps = {
 // Prop names follow the names here: https://popper.js.org/docs/v2/constructors/
 Popper.propTypes = {
     children: propTypes.node.isRequired,
-    reference: elementRefPropType.isRequired,
+    reference: sharedPropTypes.elementRefPropType.isRequired,
     className: propTypes.string,
     dataTest: propTypes.string,
     modifiers: propTypes.arrayOf(
@@ -108,7 +105,7 @@ Popper.propTypes = {
             options: propTypes.object,
         })
     ),
-    placement: referencePlacementPropType,
+    placement: sharedPropTypes.referencePlacementPropType,
     strategy: propTypes.oneOf(['absolute', 'fixed']), // defaults to 'absolute'
     onFirstUpdate: propTypes.func,
 }

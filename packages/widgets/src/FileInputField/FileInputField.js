@@ -1,6 +1,7 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import {
     FileInput,
     FileList,
@@ -9,16 +10,6 @@ import {
     Label,
     Help,
 } from '@dhis2/ui-core'
-
-const statusPropType = propTypes.mutuallyExclusive(
-    ['valid', 'warning', 'error'],
-    propTypes.bool
-)
-
-const sizePropType = propTypes.mutuallyExclusive(
-    ['small', 'large'],
-    propTypes.bool
-)
 
 /**
  * @module
@@ -149,20 +140,20 @@ FileInputField.propTypes = {
     className: propTypes.string,
     dataTest: propTypes.string,
     disabled: propTypes.bool,
-    error: statusPropType,
+    error: sharedPropTypes.statusPropType,
     helpText: propTypes.string,
     initialFocus: propTypes.bool,
     label: propTypes.string,
-    large: sizePropType,
+    large: sharedPropTypes.sizePropType,
     multiple: propTypes.bool,
     name: propTypes.string,
     placeholder: propTypes.string,
     required: propTypes.bool,
-    small: sizePropType,
+    small: sharedPropTypes.sizePropType,
     tabIndex: propTypes.string,
-    valid: statusPropType,
+    valid: sharedPropTypes.statusPropType,
     validationText: propTypes.string,
-    warning: statusPropType,
+    warning: sharedPropTypes.statusPropType,
     onBlur: propTypes.func,
     onChange: propTypes.func,
     onFocus: propTypes.func,

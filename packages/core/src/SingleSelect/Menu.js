@@ -1,6 +1,6 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import { singleSelectedPropType } from '../common-prop-types.js'
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import { Empty } from '../Select/Empty.js'
 import { filterIgnored, checkIfValidOption } from '../Select/option-helpers.js'
 
@@ -74,7 +74,7 @@ Menu.propTypes = {
     handleClose: propTypes.func,
     handleFocusInput: propTypes.func,
     options: propTypes.node,
-    selected: singleSelectedPropType,
+    selected: sharedPropTypes.singleSelectedPropType,
     onChange: propTypes.func,
 }
 

@@ -1,12 +1,8 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import { Field, Label, Input, Help, Box } from '@dhis2/ui-core'
-
-export const statusPropType = propTypes.mutuallyExclusive(
-    ['valid', 'warning', 'error'],
-    propTypes.bool
-)
 
 /**
  * @module
@@ -139,7 +135,7 @@ InputField.propTypes = {
     dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
-    error: statusPropType,
+    error: sharedPropTypes.statusPropType,
     helpText: propTypes.string,
     initialFocus: propTypes.bool,
     inputWidth: propTypes.string,
@@ -151,10 +147,10 @@ InputField.propTypes = {
     required: propTypes.bool,
     tabIndex: propTypes.string,
     type: Input.propTypes.type,
-    valid: statusPropType,
+    valid: sharedPropTypes.statusPropType,
     validationText: propTypes.string,
     value: propTypes.string,
-    warning: statusPropType,
+    warning: sharedPropTypes.statusPropType,
     onBlur: propTypes.func,
     onChange: propTypes.func,
     onFocus: propTypes.func,

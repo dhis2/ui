@@ -2,11 +2,7 @@ import React from 'react'
 
 import propTypes from '@dhis2/prop-types'
 import { Field, Label, Help, SingleSelect, Box } from '@dhis2/ui-core'
-
-const statusPropType = propTypes.mutuallyExclusive(
-    ['valid', 'warning', 'error'],
-    propTypes.bool
-)
+import { sharedPropTypes } from '@dhis2/ui-constants'
 
 /**
  * @module
@@ -162,7 +158,7 @@ SingleSelectField.propTypes = {
     dense: propTypes.bool,
     disabled: propTypes.bool,
     empty: propTypes.node,
-    error: statusPropType,
+    error: sharedPropTypes.statusPropType,
     filterPlaceholder: propTypes.string,
     filterable: propTypes.bool,
     helpText: propTypes.string,
@@ -185,9 +181,9 @@ SingleSelectField.propTypes = {
         value: propTypes.string,
     }),
     tabIndex: propTypes.string,
-    valid: statusPropType,
+    valid: sharedPropTypes.statusPropType,
     validationText: propTypes.string,
-    warning: statusPropType,
+    warning: sharedPropTypes.statusPropType,
     onBlur: propTypes.func,
     onChange: propTypes.func,
     onFocus: propTypes.func,

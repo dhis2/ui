@@ -3,10 +3,8 @@ import cx from 'classnames'
 
 import propTypes from '@dhis2/prop-types'
 
-import { spacers } from '@dhis2/ui-constants'
+import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
 import { Upload, StatusIcon } from '@dhis2/ui-icons'
-
-import { statusPropType, sizePropType } from '../common-prop-types.js'
 
 import { Button } from '../Button/Button.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
@@ -159,15 +157,15 @@ FileInput.propTypes = {
     className: propTypes.string,
     dataTest: propTypes.string,
     disabled: propTypes.bool,
-    error: statusPropType,
+    error: sharedPropTypes.statusPropType,
     initialFocus: propTypes.bool,
-    large: sizePropType,
+    large: sharedPropTypes.sizePropType,
     multiple: propTypes.bool,
     name: propTypes.string,
-    small: sizePropType,
+    small: sharedPropTypes.sizePropType,
     tabIndex: propTypes.string,
-    valid: statusPropType,
-    warning: statusPropType,
+    valid: sharedPropTypes.statusPropType,
+    warning: sharedPropTypes.statusPropType,
     onBlur: propTypes.func,
     onChange: propTypes.func,
     onFocus: propTypes.func,

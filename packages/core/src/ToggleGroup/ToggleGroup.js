@@ -3,7 +3,7 @@ import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 import { Children, cloneElement } from 'react'
 
-import { statusPropType } from '../common-prop-types.js'
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import { Spacer } from '../ToggleGroup/Spacer.js'
 
 /**
@@ -76,14 +76,14 @@ ToggleGroup.propTypes = {
     dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
-    error: statusPropType,
+    error: sharedPropTypes.statusPropType,
     name: propTypes.string,
-    valid: statusPropType,
+    valid: sharedPropTypes.statusPropType,
     value: propTypes.oneOfType([
         propTypes.string,
         propTypes.arrayOf(propTypes.string),
     ]),
-    warning: statusPropType,
+    warning: sharedPropTypes.statusPropType,
     onChange: propTypes.func,
 }
 

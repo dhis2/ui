@@ -2,7 +2,7 @@ import propTypes from '@dhis2/prop-types'
 import React, { Component } from 'react'
 import cx from 'classnames'
 
-import { statusPropType } from '../common-prop-types.js'
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import { StatusIcon } from '@dhis2/ui-icons'
 
 import { styles } from './TextArea.styles.js'
@@ -223,7 +223,7 @@ TextArea.propTypes = {
     dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
-    error: statusPropType,
+    error: sharedPropTypes.statusPropType,
     initialFocus: propTypes.bool,
     loading: propTypes.bool,
     name: propTypes.string,
@@ -232,9 +232,9 @@ TextArea.propTypes = {
     resize: propTypes.oneOf(['none', 'both', 'horizontal', 'vertical']),
     rows: propTypes.number,
     tabIndex: propTypes.string,
-    valid: statusPropType,
+    valid: sharedPropTypes.statusPropType,
     value: propTypes.string,
-    warning: statusPropType,
+    warning: sharedPropTypes.statusPropType,
     width: propTypes.string,
     onBlur: propTypes.func,
     onChange: propTypes.func,

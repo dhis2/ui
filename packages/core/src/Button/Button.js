@@ -2,7 +2,7 @@ import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
 import React, { Component, createRef } from 'react'
 
-import { buttonVariantPropType, sizePropType } from '../common-prop-types.js'
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import styles from './Button.styles.js'
 
 /**
@@ -137,15 +137,15 @@ Button.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
-    destructive: buttonVariantPropType,
+    destructive: sharedPropTypes.buttonVariantPropType,
     disabled: propTypes.bool,
     icon: propTypes.element,
     initialFocus: propTypes.bool,
-    large: sizePropType,
+    large: sharedPropTypes.sizePropType,
     name: propTypes.string,
-    primary: buttonVariantPropType,
-    secondary: buttonVariantPropType,
-    small: sizePropType,
+    primary: sharedPropTypes.buttonVariantPropType,
+    secondary: sharedPropTypes.buttonVariantPropType,
+    small: sharedPropTypes.sizePropType,
     tabIndex: propTypes.string,
     type: propTypes.oneOf(['submit', 'reset', 'button']),
     value: propTypes.string,

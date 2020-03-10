@@ -9,7 +9,7 @@ import { ArrowDown, ArrowUp } from '@dhis2/ui-icons'
 import { Backdrop } from '../Backdrop/Backdrop.js'
 import { Button } from '../Button/Button.js'
 import { Popper } from '../Popper/Popper.js'
-import { buttonVariantPropType, sizePropType } from '../common-prop-types.js'
+import { sharedPropTypes } from '@dhis2/ui-constants'
 
 const arrow = resolve`
     margin-left: ${spacers.dp12};
@@ -153,15 +153,15 @@ DropdownButton.propTypes = {
     className: propTypes.string,
     component: propTypes.element,
     dataTest: propTypes.string,
-    destructive: buttonVariantPropType,
+    destructive: sharedPropTypes.buttonVariantPropType,
     disabled: propTypes.bool,
     icon: propTypes.element,
     initialFocus: propTypes.bool,
-    large: sizePropType,
+    large: sharedPropTypes.sizePropType,
     name: propTypes.string,
-    primary: buttonVariantPropType,
-    secondary: buttonVariantPropType,
-    small: sizePropType,
+    primary: sharedPropTypes.buttonVariantPropType,
+    secondary: sharedPropTypes.buttonVariantPropType,
+    small: sharedPropTypes.sizePropType,
     tabIndex: propTypes.string,
     type: propTypes.oneOf(['submit', 'reset', 'button']),
     value: propTypes.string,

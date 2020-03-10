@@ -2,9 +2,8 @@ import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
 import React, { Component, createRef } from 'react'
 
-import { statusPropType } from '../common-prop-types.js'
 import { Regular, Dense } from '@dhis2/ui-icons'
-import { colors, theme } from '@dhis2/ui-constants'
+import { colors, theme, sharedPropTypes } from '@dhis2/ui-constants'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
@@ -217,15 +216,15 @@ Checkbox.propTypes = {
     dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
-    error: statusPropType,
+    error: sharedPropTypes.statusPropType,
     indeterminate: uniqueOnStatePropType,
     initialFocus: propTypes.bool,
     label: propTypes.node,
     name: propTypes.string,
     tabIndex: propTypes.string,
-    valid: statusPropType,
+    valid: sharedPropTypes.statusPropType,
     value: propTypes.string,
-    warning: statusPropType,
+    warning: sharedPropTypes.statusPropType,
     onBlur: propTypes.func,
     onChange: propTypes.func,
     onFocus: propTypes.func,
