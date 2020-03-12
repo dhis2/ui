@@ -1,14 +1,32 @@
-name: 'DHIS2'
+name: 'dhis2-node publish'
 
 on:
     push:
         branches:
+            # match branches in:
+            # https://github.com/semantic-release/semantic-release/blob/master/docs/usage/configuration.md#branches
             - master
+            - next
+            - next-major
+            - alpha
+            - beta
+            - '[0-9]+.x'
+            - '[0-9]+.x.x'
+            - '[0-9]+.[0-9]+.x'
+
+env:
+    GIT_AUTHOR_NAME: '@dhis2-bot'
+    GIT_AUTHOR_EMAIL: 'apps@dhis2.org'
+    GIT_COMMITTER_NAME: '@dhis2-bot'
+    GIT_COMMITTER_EMAIL: 'apps@dhis2.org'
+    NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+    GH_TOKEN: ${{secrets.GH_TOKEN}}
 
 jobs:
     process:
-        name: Release
+        name: Publish
         runs-on: ubuntu-latest
+        if: "!contains(github.event.head_commit.message, '[skip ci]')"
         steps:
             - uses: actions/checkout@v1
             - uses: actions/setup-node@v1
@@ -16,22 +34,18 @@ jobs:
                   node-version: 12.x
 
             - name: Install
-              run: yarn install
-
-            - name: Lint
-              run: yarn lint
+              run: yarn install --frozen-lockfile
 
             - name: Build
               run: yarn build
 
-            - name: Publish
+            - name: Test
+              run: yarn test
+
+            - name: Lint
+              run: yarn lint
+
+            - name: Publish to NPM
               run: npx @dhis2/cli-utils release --publish npm
-              env:
-                  GIT_AUTHOR_NAME: '@dhis2-bot'
-                  GIT_AUTHOR_EMAIL: 'apps@dhis2.org'
-                  GIT_COMMITTER_NAME: '@dhis2-bot'
-                  GIT_COMMITTER_EMAIL: 'apps@dhis2.org'
-                  NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-                  GH_TOKEN: ${{secrets.GH_TOKEN}}
         env:
             CI: true

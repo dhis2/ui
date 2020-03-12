@@ -1,11 +1,12 @@
-name: 'DHIS2'
+name: 'dhis2-node lint'
 
-on: [push]
+on: push
 
 jobs:
     pr:
-        name: Style
+        name: Lint
         runs-on: ubuntu-latest
+        if: "!contains(github.event.head_commit.message, '[skip ci]')"
         steps:
             - uses: actions/checkout@v1
             - uses: actions/setup-node@v1
@@ -13,9 +14,9 @@ jobs:
                   node-version: 12.x
 
             - name: Install
-              run: yarn install
+              run: yarn install --frozen-lockfile
 
-            - name: Lint
+            - name: Run linters
               run: yarn lint
         env:
             CI: true
