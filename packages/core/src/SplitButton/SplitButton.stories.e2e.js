@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { SplitButton } from './SplitButton.js'
 
-window.onClick = window.Cypress.cy.stub()
+window.onClick = window.Cypress && window.Cypress.cy.stub()
 
 storiesOf('SplitButton', module)
     .add('Default', () => (
