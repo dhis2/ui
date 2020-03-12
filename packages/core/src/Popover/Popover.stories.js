@@ -4,6 +4,8 @@ import { elevations } from '@dhis2/ui-constants'
 
 import { Popover } from './Popover.js'
 
+export default { title: 'Component/Widget/Popover', component: Popover }
+
 const boxStyle = {
     display: 'flex',
     justifyContent: 'center',
@@ -19,8 +21,6 @@ const referenceElementStyle = {
     textAlign: 'center',
     padding: 6,
 }
-
-export default { title: 'Popover', component: Popover }
 
 export const Default = () => {
     const ref = useRef(null)

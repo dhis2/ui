@@ -3,6 +3,14 @@ import propTypes from '@dhis2/prop-types'
 
 import { Popper } from './Popper.js'
 
+export default {
+    title: 'Component/Widget/Popper',
+    component: Popper,
+    decorators: [
+        storyFN => <BoxWithCenteredReferenceElement renderChildren={storyFN} />,
+    ],
+}
+
 const boxStyle = {
     display: 'flex',
     alignItems: 'center',
@@ -50,14 +58,6 @@ class BoxWithCenteredReferenceElement extends Component {
 }
 BoxWithCenteredReferenceElement.propTypes = {
     renderChildren: propTypes.func,
-}
-
-export default {
-    title: 'Popper',
-    component: Popper,
-    decorators: [
-        storyFN => <BoxWithCenteredReferenceElement renderChildren={storyFN} />,
-    ],
 }
 
 /* eslint-disable react/prop-types */
