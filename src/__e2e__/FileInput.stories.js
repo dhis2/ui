@@ -2,8 +2,8 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { FileInput } from '../index.js'
 
-window.onBlur = window.Cypress.cy.stub()
-window.onFocus = window.Cypress.cy.stub()
+window.onBlur = window.Cypress && window.Cypress.cy.stub()
+window.onFocus = window.Cypress && window.Cypress.cy.stub()
 
 const onChange = (payload, event) => {
     // NOTE: if files is not transformed into an array,

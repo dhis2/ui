@@ -3,9 +3,9 @@ import propTypes from '@dhis2/prop-types'
 import { storiesOf } from '@storybook/react'
 import { SingleSelect, SingleSelectOption } from '../index.js'
 
-window.onChange = window.Cypress.cy.stub()
-window.onFocus = window.Cypress.cy.stub()
-window.onBlur = window.Cypress.cy.stub()
+window.onChange = window.Cypress && window.Cypress.cy.stub()
+window.onFocus = window.Cypress && window.Cypress.cy.stub()
+window.onBlur = window.Cypress && window.Cypress.cy.stub()
 
 const CustomSingleSelectOption = ({ label, onClick }) => (
     <div onClick={e => onClick({}, e)}>{label}</div>

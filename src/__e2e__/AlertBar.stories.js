@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { AlertBar } from '../index.js'
 
-window.onHidden = window.Cypress.cy.stub()
+window.onHidden = window.Cypress && window.Cypress.cy.stub()
 
 storiesOf('AlertBar', module)
     .add('Default', () => <AlertBar>Default</AlertBar>)

@@ -9,7 +9,7 @@ import {
     ModalContent,
 } from '../index.js'
 
-window.onClose = window.Cypress.cy.stub()
+window.onClose = window.Cypress && window.Cypress.cy.stub()
 
 storiesOf('Modal', module)
     .add('With onClose', () => (

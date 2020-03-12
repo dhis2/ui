@@ -2,10 +2,10 @@ import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { Checkbox } from '../index.js'
 
-window.onClick = window.Cypress.cy.stub()
-window.onChange = window.Cypress.cy.stub()
-window.onBlur = window.Cypress.cy.stub()
-window.onFocus = window.Cypress.cy.stub()
+window.onClick = window.Cypress && window.Cypress.cy.stub()
+window.onChange = window.Cypress && window.Cypress.cy.stub()
+window.onBlur = window.Cypress && window.Cypress.cy.stub()
+window.onFocus = window.Cypress && window.Cypress.cy.stub()
 
 storiesOf('Checkbox', module)
     .add('With onChange', () => (

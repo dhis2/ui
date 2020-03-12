@@ -2,9 +2,9 @@ import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { Switch } from '../index.js'
 
-window.onChange = window.Cypress.cy.stub()
-window.onBlur = window.Cypress.cy.stub()
-window.onFocus = window.Cypress.cy.stub()
+window.onChange = window.Cypress && window.Cypress.cy.stub()
+window.onBlur = window.Cypress && window.Cypress.cy.stub()
+window.onFocus = window.Cypress && window.Cypress.cy.stub()
 
 storiesOf('Switch', module)
     .add('With onChange', () => (
