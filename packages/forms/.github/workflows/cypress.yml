@@ -1,0 +1,36 @@
+# For more options:
+# https://github.com/cypress-io/github-action
+
+name: 'DHIS2: Cypress'
+
+on:
+    push:
+        branches:
+            - master
+    pull_request:
+
+jobs:
+    cypress-run:
+        name: E2E Tests
+        runs-on: ubuntu-latest
+        if: "!contains(github.event.head_commit.message, '[skip ci]')"
+        strategy:
+            matrix:
+                containers: [1, 2, 3]
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v1
+
+            - name: Tests
+              uses: cypress-io/github-action@v1
+              with:
+                  record: true
+                  parallel: true
+                  start: 'yarn start:testing'
+                  wait-on: 'http://localhost:5001'
+                  wait-on-timeout: 60
+                  group: 'e2e'
+              env:
+                  CI: true
+                  STORYBOOK_TESTING: true
+                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}

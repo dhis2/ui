@@ -1,0 +1,31 @@
+targets:
+
+{
+  "android": "4.4",
+  "chrome": "49",
+  "edge": "16",
+  "firefox": "60",
+  "ie": "11",
+  "ios": "10.3",
+  "opera": "54",
+  "safari": "11"
+}
+
+polyfills:
+
+web.dom.iterable
+
+es6.array.fill
+es6.array.iterator
+es6.function.name
+es6.object.assign
+es6.object.keys
+es6.object.set-prototype-of
+es6.promise
+es6.regexp.match
+es6.regexp.split
+es6.string.starts-with
+es6.string.iterator
+es6.symbol
+
+es7.symbol.async-iterator
