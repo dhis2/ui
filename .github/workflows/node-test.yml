@@ -3,8 +3,7 @@ name: 'dhis2-node test'
 on: push
 
 jobs:
-    pr:
-        name: Unit
+    unit:
         runs-on: ubuntu-latest
         if: "!contains(github.event.head_commit.message, '[skip ci]')"
         steps:
