@@ -2,6 +2,7 @@ import { Field } from 'react-final-form'
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { MultiSelect, hasValue } from '../index.js'
+import { formDecorator } from '../formDecorator.js'
 
 const defaultOptions = [
     { value: 'first', label: 'First' },
@@ -9,6 +10,7 @@ const defaultOptions = [
 ]
 
 storiesOf('Testing:MultiSelect', module)
+    .addDecorator(formDecorator)
     .addParameters({ options: { showPanel: false } })
     .add('Required', ({ cypressProps }) => (
         <Field

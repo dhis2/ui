@@ -1,6 +1,7 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import { RadioGroupField, Radio } from '@dhis2/ui-core'
+import { Radio } from '@dhis2/ui-core'
+import { ToggleGroupField } from '@dhis2/ui-widgets'
 
 import {
     createChangeHandler,
@@ -32,7 +33,7 @@ const RadioGroup = ({
     ...rest
 }) => {
     return (
-        <RadioGroupField
+        <ToggleGroupField
             {...rest}
             name={input.name}
             error={hasError(meta, error)}
@@ -47,7 +48,7 @@ const RadioGroup = ({
             {options.map(({ value, label }) => (
                 <Radio key={value} label={label} value={value} />
             ))}
-        </RadioGroupField>
+        </ToggleGroupField>
     )
 }
 

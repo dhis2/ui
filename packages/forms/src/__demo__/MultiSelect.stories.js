@@ -1,5 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { formDecorator } from '../formDecorator.js'
 
 import { Field, MultiSelect } from '../index.js'
 
@@ -23,7 +24,8 @@ const initialValue = [
     { value: '10', label: 'ten' },
 ]
 
-storiesOf('MultiSelect', module)
+storiesOf('Form/MultiSelect', module)
+    .addDecorator(formDecorator)
     .add('Default', () => (
         <Field
             component={MultiSelect}

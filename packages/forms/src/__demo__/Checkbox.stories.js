@@ -2,8 +2,10 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 
 import { Field, Checkbox, hasValue } from '../index.js'
+import { formDecorator } from '../formDecorator.js'
 
-storiesOf('Checkbox', module)
+storiesOf('Form/Checkbox', module)
+    .addDecorator(formDecorator)
     .add('Default', () => (
         <Field component={Checkbox} name="agree" label="Do you agree?" />
     ))

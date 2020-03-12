@@ -1,5 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { formDecorator } from '../formDecorator.js'
 
 import { Field, CheckboxGroup, arrayWithIdObjects, hasValue } from '../index.js'
 
@@ -11,7 +12,8 @@ const options = [
 
 const multipleValue = ['bar', 'baz']
 
-storiesOf('CheckboxGroup', module)
+storiesOf('Form/CheckboxGroup', module)
+    .addDecorator(formDecorator)
     .add('Default - Checkbox', () => (
         <Field
             name="choice"

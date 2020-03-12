@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { formDecorator } from '../formDecorator.js'
 
 import {
     Checkbox,
@@ -185,6 +186,7 @@ const StandardForm = ({ values }) => {
 }
 
 storiesOf('Testing:Forms', module)
+    .addDecorator(formDecorator)
     .addParameters({ options: { showPanel: false } })
     .add('Standard form', ({ formRenderProps }) => (
         <StandardForm {...formRenderProps} />

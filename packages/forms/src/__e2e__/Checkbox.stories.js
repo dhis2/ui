@@ -1,9 +1,11 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { formDecorator } from '../formDecorator.js'
 
 import { Field, Checkbox, hasValue } from '../index.js'
 
 storiesOf('Testing:Checkbox', module)
+    .addDecorator(formDecorator)
     .add('Unchecked', () => (
         <Field
             component={Checkbox}

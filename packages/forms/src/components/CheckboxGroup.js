@@ -1,6 +1,7 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import { CheckboxGroupField, Checkbox } from '@dhis2/ui-core'
+import { Checkbox } from '@dhis2/ui-core'
+import { ToggleGroupField } from '@dhis2/ui-widgets'
 
 import {
     hasError,
@@ -40,7 +41,7 @@ const CheckboxGroup = ({
     onBlur,
     ...rest
 }) => (
-    <CheckboxGroupField
+    <ToggleGroupField
         {...rest}
         value={input.value || []}
         name={input.name}
@@ -54,7 +55,7 @@ const CheckboxGroup = ({
         {options.map(({ value, label }) => (
             <Checkbox key={value} label={label} value={value} />
         ))}
-    </CheckboxGroupField>
+    </ToggleGroupField>
 )
 
 CheckboxGroup.propTypes = {

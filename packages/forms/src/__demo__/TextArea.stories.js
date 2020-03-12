@@ -1,9 +1,11 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { formDecorator } from '../formDecorator.js'
 
 import { Field, TextArea, hasValue } from '../index.js'
 
-storiesOf('TextArea', module)
+storiesOf('Form/TextArea', module)
+    .addDecorator(formDecorator)
     .add('Default', () => (
         <Field component={TextArea} name="agree" label="Do you agree?" />
     ))

@@ -1,5 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { formDecorator } from '../formDecorator.js'
 
 import { Field, SingleSelect } from '../index.js'
 
@@ -18,7 +19,8 @@ const options = [
 
 const initialValue = { value: '4', label: 'four' }
 
-storiesOf('SingleSelect', module)
+storiesOf('Form/SingleSelect', module)
+    .addDecorator(formDecorator)
     .add('Default', () => (
         <Field
             component={SingleSelect}

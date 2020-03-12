@@ -1,5 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { formDecorator } from '../formDecorator.js'
 
 import { Field, RadioGroup, hasValue } from '../index.js'
 
@@ -10,6 +11,7 @@ const defaultOptions = [
 ]
 
 storiesOf('Testing:RadioGroup', module)
+    .addDecorator(formDecorator)
     .add('Default', ({ cypressProps }) => (
         <Field
             name="choice"

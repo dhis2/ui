@@ -1,9 +1,11 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { formDecorator } from '../formDecorator.js'
 
 import { Field, Switch, hasValue } from '../index.js'
 
-storiesOf('Switch', module)
+storiesOf('Form/Switch', module)
+    .addDecorator(formDecorator)
     .add('Default', () => (
         <Field component={Switch} name="agree" label="Do you agree?" />
     ))

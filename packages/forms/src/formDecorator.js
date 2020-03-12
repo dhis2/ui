@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import { Button } from '@dhis2/ui-core'
 
-import { Form, FormSpy } from '../src/index.js'
+import { Form, FormSpy } from './index.js'
 
 const formProps = {
     onSubmit: values => {

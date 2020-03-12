@@ -1,5 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { formDecorator } from '../formDecorator.js'
 
 import { Field, RadioGroup, hasValue } from '../index.js'
 
@@ -9,7 +10,8 @@ const options = [
     { label: 'Baz', value: 'baz' },
 ]
 
-storiesOf('RadioGroup', module)
+storiesOf('Form/RadioGroup', module)
+    .addDecorator(formDecorator)
     .add('Default - Radio', () => (
         <Field
             name="choice"

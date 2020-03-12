@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/ui-forms",
-    "version": "1.0.1",
+    "version": "5.0.0",
     "main": "./build/cjs/lib.js",
     "module": "./build/es/lib.js",
     "sideEffects": false,
@@ -13,55 +13,16 @@
         "access": "public"
     },
     "scripts": {
-        "build": "d2-app-scripts build",
-        "build:docs": "d2-utils-docsite build ./docs -o ./build/docs --jsdoc ./src --jsdoc-output-file api.md",
-        "build:demo": "EXTEND_ESLINT=true build-storybook -c .storybook -o ./build/docs/demo",
-        "prestart": "d2-app-scripts i18n extract && d2-app-scripts i18n generate",
-        "start": "yarn start:demo",
-        "start:docs": "d2-utils-docsite serve ./docs -o ./build/docs --jsdoc ./src --jsdoc-output-file api.md",
-        "start:demo": "EXTEND_ESLINT=true start-storybook --port 5000",
-        "start:testing": "EXTEND_ESLINT=true STORYBOOK_INCLUDE_TESTING=1 start-storybook --port 5001 --quiet --ci",
-        "cy:open": "concurrently --kill-others -n storybook,cypress 'yarn start:testing' 'wait-on http-get://localhost:5001 && d2-utils-cypress open'",
-        "cy:run": "concurrently --kill-others --success first -n storybook,cypress 'yarn start:testing' 'wait-on http-get://localhost:5001 && d2-utils-cypress run'",
-        "lint": "yarn lint:js && yarn lint:text",
-        "lint:js": "d2-style js check",
-        "lint:text": "d2-style text check",
-        "format": "yarn format:js && yarn format:text",
-        "format:staged": "yarn format:js --staged && yarn format:text --staged",
-        "format:js": "d2-style js apply",
-        "format:text": "d2-style text apply",
-        "test": "d2-app-scripts test"
-    },
-    "devDependencies": {
-        "@dhis2/app-runtime": "2.0.4",
-        "@dhis2/cli-app-scripts": "^3.2.4",
-        "@dhis2/cli-style": "^6.0.0",
-        "@dhis2/cli-utils-cypress": "^1.0.2",
-        "@dhis2/ui-core": "4.1.2",
-        "@storybook/addon-notes": "5.3.8",
-        "@storybook/preset-create-react-app": "^1.5.2",
-        "@storybook/react": "^5.3.8",
-        "@storybook/router": "^5.3.8",
-        "concurrently": "^5.0.2",
-        "enzyme": "^3.11.0",
-        "enzyme-adapter-react-16": "^1.15.2",
-        "fs-extra": "^8.1.0",
-        "react": "^16.9.0",
-        "react-dev-utils": "^10.0.0",
-        "react-dom": "^16.9.0",
-        "storybook-addon-jsx": "^7.1.6",
-        "storybook-addon-react-docgen": "^1.2.21",
-        "typeface-roboto": "^0.0.75",
-        "wait-on": "^4.0.0"
+        "build": "d2-app-scripts build"
     },
     "peerDependencies": {
-        "@dhis2/d2-i18n": "^1",
-        "@dhis2/ui-core": "^4",
         "react": "^16.8",
         "react-dom": "^16.8"
     },
     "dependencies": {
         "@dhis2/prop-types": "^1.5",
+        "@dhis2/ui-core": "^5.0.0",
+        "@dhis2/ui-widgets": "^5.0.0",
         "classnames": "^2.2.6",
         "final-form": "^4.18.5",
         "react-final-form": "^6.3.0"

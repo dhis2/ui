@@ -16,10 +16,7 @@
         "access": "public"
     },
     "scripts": {
-        "cy:open": "d2-utils-cypress open",
-        "cy:run": "d2-utils-cypress run",
-        "build": "d2-app-scripts build",
-        "test": "d2-app-scripts test"
+        "build": "d2-app-scripts build"
     },
     "peerDependencies": {
         "react": "^16.8",
