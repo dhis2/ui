@@ -1,0 +1,26 @@
+name: 'DHIS2: Tests'
+
+on:
+    push:
+        branches:
+            - master
+    pull_request:
+
+jobs:
+    pr:
+        name: Unit
+        runs-on: ubuntu-latest
+        if: "!contains(github.event.head_commit.message, '[skip ci]')"
+        steps:
+            - uses: actions/checkout@v1
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12.x
+
+            - name: Install
+              run: yarn install --frozen-lockfile
+
+            - name: Test
+              run: yarn test
+        env:
+            CI: true
