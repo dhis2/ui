@@ -1,5 +1,5 @@
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
-import { hasValueMessage } from '../../../../src/validators/hasValue.js'
+import { hasValueMessage } from '../../../../../packages/forms/src/validators/hasValue.js'
 
 Given('an empty, required Input is rendered', () => {
     cy.visitStory('Testing:Input', 'Required')

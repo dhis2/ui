@@ -1,6 +1,6 @@
 import '../common/index.js'
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
-import { hasValueMessage } from '../../../../src/validators/hasValue.js'
+import { hasValueMessage } from '../../../../../packages/forms/src/validators/hasValue.js'
 
 Given('an unchecked Checkbox is rendered', () => {
     cy.visitStory('Testing:Checkbox', 'Unchecked')
