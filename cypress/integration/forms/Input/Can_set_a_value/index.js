@@ -1,7 +1,7 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a Input with no text is rendered', () => {
-    cy.visitStory('Testing:Input', 'Default')
+    cy.visitStory('Testing:InputControl', 'Default')
     cy.verifyFormValue('agree', undefined)
 })
 

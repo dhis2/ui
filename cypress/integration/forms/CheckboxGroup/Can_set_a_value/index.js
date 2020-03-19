@@ -14,11 +14,11 @@ Given('the CheckboxGroup has two options', () => {
 })
 
 When('the user selects the first option', () => {
-    cy.get('legend + label').click()
+    cy.get('label:first').click()
 })
 
 When('the user selects the second option', () => {
-    cy.get('legend + label + label').click()
+    cy.get('label:last').click()
 })
 
 Then("the form state's value equals the first option's value", () => {

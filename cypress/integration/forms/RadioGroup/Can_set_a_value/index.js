@@ -14,11 +14,11 @@ Given('the RadioGroup has two options', () => {
 })
 
 When('the user selects the first option', () => {
-    cy.get('legend + label + label').click()
+    cy.get('label:first').click()
 })
 
 Then("the form state's value equals the first option's value", () => {
     cy.get('@options').then(options => {
-        cy.verifyFormValue('choice', options[1].value)
+        cy.verifyFormValue('choice', options[0].value)
     })
 })

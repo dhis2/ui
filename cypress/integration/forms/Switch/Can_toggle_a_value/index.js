@@ -2,7 +2,7 @@ import '../common/index.js'
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('an unchecked Switch with a value is rendered', () => {
-    cy.visitStory('Testing:Switch', 'Unchecked with value')
+    cy.visitStory('Testing:SwitchControl', 'Unchecked with value')
     cy.verifyFormValue('switch', undefined)
 })
 
@@ -11,7 +11,7 @@ Then('the form value that corresponds to the switch will be yes', () => {
 })
 
 Given('a checked Switch with a value is rendered', () => {
-    cy.visitStory('Testing:Switch', 'Checked with value')
+    cy.visitStory('Testing:SwitchControl', 'Checked with value')
     cy.verifyFormValue('switch', 'yes')
 })
 

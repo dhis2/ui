@@ -1,3 +1,4 @@
+import '../../common/submit.js'
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 import { hasValueMessage } from '../../../../../packages/forms/src/validators/hasValue.js'
 
