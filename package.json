@@ -23,7 +23,7 @@
         "build:icons": "yarn workspace @dhis2/ui-icons build",
         "build:ui": "yarn workspace @dhis2/ui build",
         "build:widgets": "yarn workspace @dhis2/ui-widgets build",
-        "cy:server": "STORYBOOK_TESTING=1 yarn start",
+        "cy:server": "yarn build && STORYBOOK_TESTING=1 yarn watch:storybook",
         "cy:open": "concurrently --kill-others --success --first -n cy:server,cy:open 'yarn cy:server' 'wait-on http-get://localhost:5000 && d2-utils-cypress open'",
         "cy:run": "concurrently --kill-others --success --first -n cy:server,cy:run 'yarn cy:server' 'wait-on http-get://localhost:5000 && d2-utils-cypress run'",
         "demo": "yarn workspace storybook build -o ../dist/demo --quiet",
