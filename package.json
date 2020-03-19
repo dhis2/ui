@@ -1,6 +1,6 @@
 {
     "name": "root",
-    "version": "5.0.0",
+    "version": "5.0.0-alpha.1",
     "repository": "git@github.com:dhis2/ui.git",
     "author": "Viktor Varland <viktor@dhis2.org>",
     "license": "BSD-3-Clause",
