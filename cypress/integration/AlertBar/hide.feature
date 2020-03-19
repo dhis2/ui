@@ -1,4 +1,4 @@
-Feature: The AlertBars will hide automatically
+Feature: Hiding the AlertBar
 
     Scenario: AlertBar hides automatically after the default time
         Given a default AlertBar is rendered
@@ -9,8 +9,6 @@ Feature: The AlertBars will hide automatically
         Given an AlertBar with a custom duration is rendered
         When the custom duration has passed
         Then the AlertBar will not be visible
-
-Feature: The AlertBar will hide when the user clicks the Cancel button
 
     Scenario: The user clicks the "Cancel" button
         Given a permanent AlertBar with actions is rendered
