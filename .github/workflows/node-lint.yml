@@ -1,4 +1,4 @@
-name: 'dhis2-node lint'
+name: 'dhis2: lint (node)'
 
 on: push
 

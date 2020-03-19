@@ -1,7 +1,7 @@
 # For more options:
 # https://github.com/cypress-io/github-action
 
-name: 'dhis2-cypress test'
+name: 'dhis2: test (cypress)'
 
 on:
     push:
