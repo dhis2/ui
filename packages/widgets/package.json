@@ -1,0 +1,37 @@
+{
+    "name": "@dhis2/ui-widgets",
+    "version": "5.0.0",
+    "main": "build/cjs/lib.js",
+    "module": "build/es/lib.js",
+    "sideEffects": false,
+    "repository": "git@github.com:dhis2/ui-widgets.git",
+    "author": "Edoardo Sabadelli <edoardo@dhis2.org>",
+    "contributors": [
+        "Viktor Varland <viktor@dhis2.org>"
+    ],
+    "license": "BSD-3-Clause",
+    "private": false,
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "build": "d2-app-scripts build"
+    },
+    "peerDependencies": {
+        "react": "^16.8",
+        "react-dom": "^16.8",
+        "styled-jsx": "^3.2"
+    },
+    "dependencies": {
+        "@dhis2/app-runtime": "^2.1.0",
+        "@dhis2/d2-i18n": "^1",
+        "@dhis2/prop-types": "^1.5",
+        "@dhis2/ui-constants": "^5.0.0",
+        "@dhis2/ui-icons": "^5.0.0",
+        "@dhis2/ui-core": "^5.0.0",
+        "classnames": "^2.2.6"
+    },
+    "files": [
+        "build"
+    ]
+}

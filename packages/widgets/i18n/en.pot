@@ -1,0 +1,33 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"POT-Creation-Date: 2020-02-18T13:19:29.126Z\n"
+"PO-Revision-Date: 2020-02-18T13:19:29.126Z\n"
+
+msgid "Search apps"
+msgstr ""
+
+msgid "Edit profile"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Account"
+msgstr ""
+
+msgid "Help"
+msgstr ""
+
+msgid "About DHIS2"
+msgstr ""
+
+msgid "Logout"
+msgstr ""
+
+msgid "Something went wrong with loading the children."
+msgstr ""

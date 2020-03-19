@@ -1,0 +1,33 @@
+{
+    "name": "@dhis2/ui-forms",
+    "version": "5.0.0",
+    "main": "./build/cjs/lib.js",
+    "module": "./build/es/lib.js",
+    "sideEffects": false,
+    "repository": "git@github.com:dhis2/ui-forms.git",
+    "author": "Jan-Gerke Salomon <jan-gerke@dhis2.org>",
+    "contributors": [],
+    "license": "BSD-3-Clause",
+    "private": false,
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "build": "d2-app-scripts build"
+    },
+    "peerDependencies": {
+        "react": "^16.8",
+        "react-dom": "^16.8"
+    },
+    "dependencies": {
+        "@dhis2/prop-types": "^1.5",
+        "@dhis2/ui-core": "^5.0.0",
+        "@dhis2/ui-widgets": "^5.0.0",
+        "classnames": "^2.2.6",
+        "final-form": "^4.18.5",
+        "react-final-form": "^6.3.0"
+    },
+    "files": [
+        "build"
+    ]
+}
