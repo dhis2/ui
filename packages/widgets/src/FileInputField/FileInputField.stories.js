@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import { FileListItem } from '@dhis2/ui-core'
+import { FileListItem } from '../index.js'
 
 import { FileInputField } from './FileInputField.js'
 

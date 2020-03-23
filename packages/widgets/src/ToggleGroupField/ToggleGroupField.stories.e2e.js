@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import { Checkbox } from '@dhis2/ui-core'
+import { Checkbox } from '../index.js'
 
 import { ToggleGroupField } from './ToggleGroupField.js'
 

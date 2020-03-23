@@ -1,4 +1,4 @@
-import { Button } from '@dhis2/ui-core'
+import { Button } from '../index.js'
 import React, { useState } from 'react'
 import { storiesOf } from '@storybook/react'
 import { CustomDataProvider } from '@dhis2/app-runtime'

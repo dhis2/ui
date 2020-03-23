@@ -2,7 +2,7 @@ import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
 import { sharedPropTypes } from '@dhis2/ui-constants'
-import { ToggleGroup, Field, FieldSet, Legend, Help } from '@dhis2/ui-core'
+import { ToggleGroup, Field, FieldSet, Legend, Help } from '../index.js'
 
 /**
  * @module

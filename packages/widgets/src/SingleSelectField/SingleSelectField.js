@@ -1,7 +1,7 @@
 import React from 'react'
 
 import propTypes from '@dhis2/prop-types'
-import { Field, Label, Help, SingleSelect, Box } from '@dhis2/ui-core'
+import { Field, Label, Help, SingleSelect, Box } from '../index.js'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 
 /**

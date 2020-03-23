@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { FileInputField } from '@dhis2/ui-widgets'
-import { FileListItem } from '@dhis2/ui-core'
+import { FileListItem } from '@dhis2/ui-widgets'
 
 import { hasError, isValid, getValidationText } from '../shared/helpers.js'
 import { inputPropType, metaPropType } from '../shared/propTypes.js'

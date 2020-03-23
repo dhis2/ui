@@ -6,7 +6,7 @@
  * !!!!!!!!!!!!!!!!!!!!!!!!!
  * APPROVING THE PR
  */
-import { CircularLoader, Node } from '@dhis2/ui-core';
+import { CircularLoader, Node } from '../index.js';
 import { resolve } from 'styled-jsx/css'
 import React, { useEffect } from 'react'
 import i18n from '@dhis2/d2-i18n'

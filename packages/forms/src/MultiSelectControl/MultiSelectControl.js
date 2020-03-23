@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import { MultiSelectField } from '@dhis2/ui-widgets'
-import { MultiSelectOption } from '@dhis2/ui-core'
+import { MultiSelectOption } from '@dhis2/ui-widgets'
 
 import {
     createSelectChangeHandler,
