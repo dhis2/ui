@@ -2,4 +2,4 @@
 export { CssReset } from './CssReset/CssReset.js'
 export { CssVariables } from './CssVariables/CssVariables.js'
 
-export { ButtonBase } from './ButtonBase/ButtonBase.js'
+export { default as ButtonBase } from './ButtonBase/ButtonBase.js'
