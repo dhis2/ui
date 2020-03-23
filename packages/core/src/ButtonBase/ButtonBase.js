@@ -10,32 +10,40 @@ import styles from './ButtonBase.styles.js'
  * @param {ButtonBase.PropTypes} props
  * @returns {React.Component}
  */
-export const ButtonBase = ({
-    children,
-    className,
-    primary,
-    secondary,
-    destructive,
-    small,
-    large,
-    disabled,
-    ...props
-}) => (
-    <button
-        {...props}
-        className={cx(className, {
+function ButtonBase(
+        {
+            children,
+            className,
             primary,
             secondary,
             destructive,
             small,
             large,
-        })}
-        disabled={disabled}
-    >
-        {children}
-        <style jsx>{styles}</style>
-    </button>
-)
+            disabled,
+            ...props
+        },
+        ref
+    ) {
+        return (
+            <button
+                {...props}
+                className={cx(className, {
+                    primary,
+                    secondary,
+                    destructive,
+                    small,
+                    large,
+                })}
+                disabled={disabled}
+                ref={ref}
+            >
+                {children}
+                <style jsx>{styles}</style>
+            </button>
+        )
+    }
+
+export default React.forwardRef(ButtonBase)
 
 /**
  * @typedef {Object} PropTypes
