@@ -1,3 +1,18 @@
+# [5.0.0-alpha.2](https://github.com/dhis2/ui/compare/v5.0.0-alpha.1...v5.0.0-alpha.2) (2020-03-24)
+
+
+### Code Refactoring
+
+* **core:** add forward refs to base components ([699b194](https://github.com/dhis2/ui/commit/699b1945e83f6551d34137b9a650a580a0918d53))
+* move all core components to widgets ([d6f8a7b](https://github.com/dhis2/ui/commit/d6f8a7b0a379e27a4a0a38968efc2514c3938be5))
+
+
+### BREAKING CHANGES
+
+* **core:** base components can hold a ref.
+* All @dhis2/ui-core exports have been migrated to
+@dhis2/ui-widgets.
+
 # [5.0.0-alpha.1](https://github.com/dhis2/ui/compare/v4.0.0...v5.0.0-alpha.1) (2020-03-19)
 
 
