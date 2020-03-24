@@ -27,7 +27,7 @@ const ForceReloading = () => {
         <CustomDataProvider data={afterReloadData}>
             <button
                 disabled={forceReload}
-                dataTest="reload-all"
+                data-test="reload-all"
                 onClick={() => setForceReload(true)}
             >
                 Force reload tree
