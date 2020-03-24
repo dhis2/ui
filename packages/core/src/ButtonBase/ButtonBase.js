@@ -43,8 +43,6 @@ function ButtonBase(
     )
 }
 
-export default React.forwardRef(ButtonBase)
-
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -67,3 +65,5 @@ ButtonBase.propTypes = {
     secondary: propTypes.bool,
     small: propTypes.bool,
 }
+
+export default React.forwardRef(ButtonBase)
