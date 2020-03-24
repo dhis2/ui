@@ -1,4 +1,3 @@
-import { Button } from '@dhis2/ui-core'
 import React, { useState } from 'react'
 import { storiesOf } from '@storybook/react'
 import { CustomDataProvider } from '@dhis2/app-runtime'
@@ -26,13 +25,13 @@ const ForceReloading = () => {
 
     return (
         <CustomDataProvider data={afterReloadData}>
-            <Button
+            <button
                 disabled={forceReload}
-                dataTest="reload-all"
+                data-test="reload-all"
                 onClick={() => setForceReload(true)}
             >
                 Force reload tree
-            </Button>
+            </button>
 
             <StatefulMultiSelectionWrapper>
                 {({ selected, onChange }) => (

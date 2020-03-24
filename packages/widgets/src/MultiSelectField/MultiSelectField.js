@@ -2,7 +2,7 @@ import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
 import { sharedPropTypes } from '@dhis2/ui-constants'
-import { Field, Label, Help, Box, MultiSelect } from '@dhis2/ui-core'
+import { Field, Label, Help, Box, MultiSelect } from '../index.js'
 
 /**
  * @module

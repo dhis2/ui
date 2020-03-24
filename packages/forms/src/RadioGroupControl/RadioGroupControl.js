@@ -1,6 +1,6 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import { Radio } from '@dhis2/ui-core'
+import { Radio } from '@dhis2/ui-widgets'
 import { ToggleGroupField } from '@dhis2/ui-widgets'
 
 import {

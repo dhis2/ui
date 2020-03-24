@@ -9,7 +9,7 @@ import {
     Field,
     Label,
     Help,
-} from '@dhis2/ui-core'
+} from '@dhis2/ui-widgets'
 
 /**
  * @module

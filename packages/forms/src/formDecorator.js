@@ -1,6 +1,6 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import { Button } from '@dhis2/ui-core'
+import { Button } from '@dhis2/ui-widgets'
 
 import { FormControl } from './index.js'
 import { FormSpy } from './FormSpy.js'

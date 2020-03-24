@@ -3,7 +3,7 @@ import css from 'styled-jsx/css'
 
 import i18n from '@dhis2/d2-i18n'
 import { colors, theme } from '@dhis2/ui-constants'
-import { Card } from '@dhis2/ui-core'
+import { Card } from '../index.js'
 import { Settings, Apps as AppsIcon } from '@dhis2/ui-icons'
 import propTypes from '@dhis2/prop-types'
 
