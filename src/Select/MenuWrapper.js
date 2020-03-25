@@ -5,18 +5,15 @@ import { resolve } from 'styled-jsx/css'
 import { Card } from '../Card.js'
 import { layers } from '../theme.js'
 import { Backdrop } from '../Backdrop.js'
+import { Popper } from '../Popper.js'
 
 const MenuWrapper = ({
     children,
-    maxHeight,
-    className,
-    menuRef,
-    menuTop,
-    menuLeft,
-    menuWidth,
-    zIndex,
-    onClick,
     dataTest,
+    maxHeight,
+    menuWidth,
+    onClick,
+    selectRef,
 }) => {
     const { styles, className: cardClassName } = resolve`
         height: auto;
@@ -24,21 +21,20 @@ const MenuWrapper = ({
         overflow: auto;
     `
     return ReactDOM.createPortal(
-        <Backdrop onClick={onClick} transparent zIndex={zIndex}>
-            <div className={className} ref={menuRef} data-test={dataTest}>
-                <Card className={cardClassName}>{children}</Card>
+        <Backdrop onClick={onClick} transparent zIndex={layers.applicationTop}>
+            <Popper reference={selectRef} placement="bottom">
+                <div data-test={`${dataTest}-menuwrapper`}>
+                    <Card className={cardClassName}>{children}</Card>
 
-                {styles}
+                    {styles}
 
-                <style jsx>{`
-                    div {
-                        position: absolute;
-                        top: ${menuTop};
-                        left: ${menuLeft};
-                        width: ${menuWidth};
-                    }
-                `}</style>
-            </div>
+                    <style jsx>{`
+                        div {
+                            width: ${menuWidth};
+                        }
+                    `}</style>
+                </div>
+            </Popper>
         </Backdrop>,
         document.body
     )
@@ -46,20 +42,14 @@ const MenuWrapper = ({
 
 MenuWrapper.defaultProps = {
     maxHeight: '280px',
-    zIndex: layers.applicationTop,
 }
 
 MenuWrapper.propTypes = {
     dataTest: propTypes.string.isRequired,
-    menuLeft: propTypes.string.isRequired,
-    menuRef: propTypes.object.isRequired,
-    menuTop: propTypes.string.isRequired,
     menuWidth: propTypes.string.isRequired,
     selectRef: propTypes.object.isRequired,
     children: propTypes.node,
-    className: propTypes.string,
     maxHeight: propTypes.string,
-    zIndex: propTypes.number,
     onClick: propTypes.func,
 }
 

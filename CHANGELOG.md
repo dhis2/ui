@@ -1,3 +1,10 @@
+# [4.15.0](https://github.com/dhis2/ui-core/compare/v4.14.0...v4.15.0) (2020-03-19)
+
+
+### Features
+
+* introduce tooltip and e2e tests ([bec3f07](https://github.com/dhis2/ui-core/commit/bec3f0717840aa466ba00dafd0f499fca5dd3e63))
+
 # [4.14.0](https://github.com/dhis2/ui-core/compare/v4.13.0...v4.14.0) (2020-03-09)
 
 

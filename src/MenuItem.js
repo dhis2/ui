@@ -1,51 +1,8 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import cx from 'classnames'
-import css from 'styled-jsx/css'
 
-import { ChevronRight } from './icons/Chevron.js'
-import styles from './MenuItem/styles.js'
-
-const subChevron = css.resolve`
-    svg {
-        margin: 0 -14px 0 auto;
-        width: 18px;
-        height: 18px;
-        pointer-events: none;
-        user-select: none;
-    }
-`
-
-const subMenu = css.resolve`
-    div {
-        display: none;
-        position: absolute;
-        top: 0;
-        left: 100%;
-        white-space: nowrap;
-    }
-
-    li:hover > :global(span) > :global(div) {
-        display: block;
-    }
-`
-
-const SubMenu = ({ children, className }) => (
-    <div className={className}>{children}</div>
-)
-
-SubMenu.propTypes = {
-    children: propTypes.element,
-    className: propTypes.string,
-}
-
-const createOnClickHandler = (onClick, value) => evt => {
-    if (onClick) {
-        evt.preventDefault()
-        evt.stopPropagation()
-        onClick({ value }, evt)
-    }
-}
+import { MenuItemContent } from './MenuItem/MenuItemContent'
+import { SubMenu } from './MenuItem/SubMenu'
 
 /**
  * @module
@@ -72,41 +29,34 @@ const MenuItem = ({
     target,
     dataTest,
 }) => {
-    const hasMenu = !!children
-    const isClickable = href || onClick
-    const LinkElement = isClickable ? 'a' : 'span'
-    const linkElementProps = {}
-
-    if (isClickable) {
-        linkElementProps.href = href
-        linkElementProps.onClick = createOnClickHandler(onClick, value)
-    }
-
-    return (
-        <li
-            className={cx(className, subMenu.className, {
-                destructive,
-                disabled,
-                dense,
-                active,
-            })}
-            data-test={dataTest}
+    return !children ? (
+        <MenuItemContent
+            active={active}
+            className={className}
+            dataTest={dataTest}
+            dense={dense}
+            destructive={destructive}
+            disabled={disabled}
+            href={href}
+            icon={icon}
+            label={label}
+            target={target}
+            value={value}
+            onClick={onClick}
+        />
+    ) : (
+        <SubMenu
+            active={active}
+            className={className}
+            dataTest={dataTest}
+            dense={dense}
+            destructive={destructive}
+            disabled={disabled}
+            icon={icon}
+            label={label}
         >
-            <LinkElement className="link" {...linkElementProps} target={target}>
-                {icon}
-                <div className="label">{label}</div>
-
-                {hasMenu && <ChevronRight className={subChevron.className} />}
-                {subChevron.styles}
-
-                {hasMenu && (
-                    <SubMenu className={subMenu.className}>{children}</SubMenu>
-                )}
-                {subMenu.styles}
-            </LinkElement>
-
-            <style jsx>{styles}</style>
-        </li>
+            {children}
+        </SubMenu>
     )
 }
 
@@ -121,6 +71,7 @@ MenuItem.defaultProps = {
  * @prop {string|Node} [label]
  * @prop {string} [value]
  * @prop {string} [href]
+ * @prop {string} [target]
  * @prop {function} [onClick] - Click handler called with `value` as the sole argument
  * @prop {string} [className]
  * @prop {Element} [children]

@@ -241,3 +241,86 @@ storiesOf('SingleSelect', module)
             <SingleSelectOption value="3" label="option three" />
         </SingleSelect>
     ))
+    .add('Default position', () => (
+        <>
+            <SingleSelect className="select">
+                <SingleSelectOption value="1" label="option one" />
+                <SingleSelectOption value="2" label="option two" />
+                <SingleSelectOption value="3" label="option three" />
+                <SingleSelectOption value="4" label="option four" />
+                <SingleSelectOption value="5" label="option five" />
+                <SingleSelectOption value="6" label="option six" />
+                <SingleSelectOption value="7" label="option seven" />
+                <SingleSelectOption value="8" label="option eight" />
+                <SingleSelectOption value="9" label="option nine" />
+                <SingleSelectOption value="10" label="option ten" />
+                <SingleSelectOption value="11" label="option eleven" />
+                <SingleSelectOption value="12" label="option twelve" />
+            </SingleSelect>
+            <style jsx>{`
+                :global(#root) {
+                    margin-bottom: 2000px;
+                }
+            `}</style>
+        </>
+    ))
+    .add('Flipped position', () => (
+        <>
+            <SingleSelect className="select">
+                <SingleSelectOption value="1" label="option one" />
+                <SingleSelectOption value="2" label="option two" />
+                <SingleSelectOption value="3" label="option three" />
+                <SingleSelectOption value="4" label="option four" />
+                <SingleSelectOption value="5" label="option five" />
+                <SingleSelectOption value="6" label="option six" />
+                <SingleSelectOption value="7" label="option seven" />
+                <SingleSelectOption value="8" label="option eight" />
+                <SingleSelectOption value="9" label="option nine" />
+                <SingleSelectOption value="10" label="option ten" />
+                <SingleSelectOption value="11" label="option eleven" />
+                <SingleSelectOption value="12" label="option twelve" />
+            </SingleSelect>
+            <style jsx>{`
+                :global(html),
+                :global(body),
+                :global(#root) {
+                    position: relative;
+                    height: 500px;
+                    max-height: 500px;
+                }
+                :global(#root) {
+                    padding-top: 400px !important;
+                }
+            `}</style>
+        </>
+    ))
+    .add('Shifted into view', () => (
+        <>
+            <SingleSelect className="select">
+                <SingleSelectOption value="1" label="option one" />
+                <SingleSelectOption value="2" label="option two" />
+                <SingleSelectOption value="3" label="option three" />
+                <SingleSelectOption value="4" label="option four" />
+                <SingleSelectOption value="5" label="option five" />
+                <SingleSelectOption value="6" label="option six" />
+                <SingleSelectOption value="7" label="option seven" />
+                <SingleSelectOption value="8" label="option eight" />
+                <SingleSelectOption value="9" label="option nine" />
+                <SingleSelectOption value="10" label="option ten" />
+                <SingleSelectOption value="11" label="option eleven" />
+                <SingleSelectOption value="12" label="option twelve" />
+            </SingleSelect>
+            <style jsx>{`
+                :global(html),
+                :global(body),
+                :global(#root) {
+                    position: relative;
+                    height: 300px !important;
+                    max-height: 300px;
+                }
+                :global(#root) {
+                    padding-top: 130px !important;
+                }
+            `}</style>
+        </>
+    ))

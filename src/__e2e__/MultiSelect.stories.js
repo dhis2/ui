@@ -250,3 +250,86 @@ storiesOf('MultiSelect', module)
             <MultiSelectOption value="3" label="option three" />
         </MultiSelect>
     ))
+    .add('Default position', () => (
+        <>
+            <MultiSelect className="select">
+                <MultiSelectOption value="1" label="option one" />
+                <MultiSelectOption value="2" label="option two" />
+                <MultiSelectOption value="3" label="option three" />
+                <MultiSelectOption value="4" label="option four" />
+                <MultiSelectOption value="5" label="option five" />
+                <MultiSelectOption value="6" label="option six" />
+                <MultiSelectOption value="7" label="option seven" />
+                <MultiSelectOption value="8" label="option eight" />
+                <MultiSelectOption value="9" label="option nine" />
+                <MultiSelectOption value="10" label="option ten" />
+                <MultiSelectOption value="11" label="option eleven" />
+                <MultiSelectOption value="12" label="option twelve" />
+            </MultiSelect>
+            <style jsx>{`
+                :global(#root) {
+                    margin-bottom: 2000px;
+                }
+            `}</style>
+        </>
+    ))
+    .add('Flipped position', () => (
+        <>
+            <MultiSelect className="select">
+                <MultiSelectOption value="1" label="option one" />
+                <MultiSelectOption value="2" label="option two" />
+                <MultiSelectOption value="3" label="option three" />
+                <MultiSelectOption value="4" label="option four" />
+                <MultiSelectOption value="5" label="option five" />
+                <MultiSelectOption value="6" label="option six" />
+                <MultiSelectOption value="7" label="option seven" />
+                <MultiSelectOption value="8" label="option eight" />
+                <MultiSelectOption value="9" label="option nine" />
+                <MultiSelectOption value="10" label="option ten" />
+                <MultiSelectOption value="11" label="option eleven" />
+                <MultiSelectOption value="12" label="option twelve" />
+            </MultiSelect>
+            <style jsx>{`
+                :global(html),
+                :global(body),
+                :global(#root) {
+                    position: relative;
+                    height: 500px;
+                    max-height: 500px;
+                }
+                :global(#root) {
+                    padding-top: 400px !important;
+                }
+            `}</style>
+        </>
+    ))
+    .add('Shifted into view', () => (
+        <>
+            <MultiSelect className="select">
+                <MultiSelectOption value="1" label="option one" />
+                <MultiSelectOption value="2" label="option two" />
+                <MultiSelectOption value="3" label="option three" />
+                <MultiSelectOption value="4" label="option four" />
+                <MultiSelectOption value="5" label="option five" />
+                <MultiSelectOption value="6" label="option six" />
+                <MultiSelectOption value="7" label="option seven" />
+                <MultiSelectOption value="8" label="option eight" />
+                <MultiSelectOption value="9" label="option nine" />
+                <MultiSelectOption value="10" label="option ten" />
+                <MultiSelectOption value="11" label="option eleven" />
+                <MultiSelectOption value="12" label="option twelve" />
+            </MultiSelect>
+            <style jsx>{`
+                :global(html),
+                :global(body),
+                :global(#root) {
+                    position: relative;
+                    height: 300px !important;
+                    max-height: 300px;
+                }
+                :global(#root) {
+                    padding-top: 130px !important;
+                }
+            `}</style>
+        </>
+    ))
