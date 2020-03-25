@@ -1,6 +1,7 @@
 import React from 'react'
 import css from 'styled-jsx/css'
-import { Tooltip } from '../Tooltip.js'
+
+import { Tooltip } from './Tooltip.js'
 
 const noPaddingStyles = css`
     :global(#root) {

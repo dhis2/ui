@@ -5,9 +5,7 @@ import { resolve } from 'styled-jsx/css'
 import propTypes from '@dhis2/prop-types'
 import { layers } from '@dhis2/ui-constants'
 
-import { Card } from '../Card.js'
-import { Backdrop } from '../Backdrop.js'
-import { Popper } from '../Popper.js'
+import { Card, Backdrop, Popper } from '../index.js'
 
 const MenuWrapper = ({
     children,

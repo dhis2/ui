@@ -1,6 +1,7 @@
 import React from 'react'
-import { Tooltip } from '../Tooltip.js'
 import propTypes from '@dhis2/prop-types'
+
+import { Tooltip } from './Tooltip.js'
 
 export default {
     title: 'Tooltip',

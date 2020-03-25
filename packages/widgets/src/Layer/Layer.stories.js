@@ -1,8 +1,9 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import propTypes from '@dhis2/prop-types'
-import { Layer } from '../Layer.js'
-import { layers } from '../theme.js'
+import { layers } from '@dhis2/ui-constants'
+
+import { Layer } from './Layer.js'
 
 const logger = event => {
     event.stopPropagation()
