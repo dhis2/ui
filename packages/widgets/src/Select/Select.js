@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import propTypes from '@dhis2/prop-types'
-
 import { sharedPropTypes } from '@dhis2/ui-constants'
-
 import { InputWrapper } from './InputWrapper.js'
 import { MenuWrapper } from './MenuWrapper.js'
 
@@ -15,26 +13,19 @@ const DOWN_KEY = 40
 export class Select extends Component {
     state = {
         open: false,
-        menuTop: 'auto',
-        menuLeft: 'auto',
         menuWidth: 'auto',
     }
 
-    // The requestAnimationFrame id for updating the menu position
-    menuRequestId = null
-
     selectRef = React.createRef()
     inputRef = React.createRef()
-    menuRef = React.createRef()
 
     componentDidMount() {
         if (this.props.initialFocus) {
             this.inputRef.current.focus()
         }
-    }
-
-    componentWillUnmount() {
-        this.handleMeasurementStop()
+        this.setState({
+            menuWidth: `${this.inputRef.current.offsetWidth}px`,
+        })
     }
 
     handleFocusInput = () => {
@@ -51,57 +42,12 @@ export class Select extends Component {
         onFocus({ selected }, e)
     }
 
-    /**
-     * Menu related logic
-     */
-    updateMenuPosition = () => {
-        const selectEl = this.selectRef.current
-
-        // Debounce by canceling the previously scheduled measurement
-        if (this.menuRequestId) {
-            window.cancelAnimationFrame(this.menuRequestId)
-        }
-
-        this.menuRequestId = window.requestAnimationFrame(() => {
-            const rect = selectEl.getBoundingClientRect()
-            const menuTop = rect.bottom
-            const menuLeft = rect.left
-            const menuWidth = rect.width
-
-            const sizing = {
-                menuTop: `${menuTop}px`,
-                menuLeft: `${menuLeft}px`,
-                menuWidth: `${menuWidth}px`,
-            }
-
-            this.setState(sizing)
-        })
-    }
-
-    handleMeasurementStart = () => {
-        this.updateMenuPosition()
-
-        window.addEventListener('resize', this.updateMenuPosition)
-        window.addEventListener('scroll', this.updateMenuPosition)
-    }
-
-    handleMeasurementStop = () => {
-        window.removeEventListener('resize', this.updateMenuPosition)
-        window.removeEventListener('scroll', this.updateMenuPosition)
-
-        if (this.menuRequestId) {
-            window.cancelAnimationFrame(this.menuRequestId)
-        }
-    }
-
     handleOpen = () => {
-        this.handleMeasurementStart()
         this.setState({ open: true })
     }
 
     handleClose = () => {
         this.setState({ open: false })
-        this.handleMeasurementStop()
     }
 
     onToggle = e => {
@@ -154,7 +100,7 @@ export class Select extends Component {
     }
 
     render() {
-        const { open, menuTop, menuLeft, menuWidth } = this.state
+        const { open, menuWidth } = this.state
         const {
             children,
             className,
@@ -173,7 +119,6 @@ export class Select extends Component {
         // We need to update the menu's position on selection because
         // that can cause the input area to change size
         const handleChange = (data, e) => {
-            this.updateMenuPosition()
             onChange(data, e)
         }
 
@@ -222,9 +167,6 @@ export class Select extends Component {
                         onClick={this.onOutsideClick}
                         maxHeight={maxHeight}
                         selectRef={this.selectRef}
-                        menuRef={this.menuRef}
-                        menuTop={menuTop}
-                        menuLeft={menuLeft}
                         menuWidth={menuWidth}
                         dataTest={`${dataTest}-menu`}
                     >
