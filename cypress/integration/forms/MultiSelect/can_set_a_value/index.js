@@ -14,11 +14,16 @@ Given('the MultiSelect has two options', () => {
 })
 
 When('the user selects the first option', () => {
-    cy.get('form > div').selectSelectNthOption(1, true)
+    cy.get('[data-test="dhis2-uicore-multiselect"]').click()
+    cy.get('[data-test="dhis2-uicore-checkbox"]')
+        .first()
+        .click()
 })
 
 When('the user selects the second option', () => {
-    cy.get('form > div').selectSelectNthOption(2, true)
+    cy.get('[data-test="dhis2-uicore-checkbox"]')
+        .last()
+        .click()
 })
 
 Then("the form state's value equals the first option's value", () => {
