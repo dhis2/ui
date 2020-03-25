@@ -1,3 +1,15 @@
+# [4.16.0](https://github.com/dhis2/ui-core/compare/v4.15.0...v4.16.0) (2020-03-25)
+
+
+### Bug Fixes
+
+* **tooltip:** remove `tag` prop so anchor is always a span ([0c4a72a](https://github.com/dhis2/ui-core/commit/0c4a72ad61f043fc8406e2a385a375bc2ae22e95))
+
+
+### Features
+
+* tooltip with renderprops ([3b5aeca](https://github.com/dhis2/ui-core/commit/3b5aecabe202c61041ecde40617563aacb303e5a))
+
 # [4.15.0](https://github.com/dhis2/ui-core/compare/v4.14.0...v4.15.0) (2020-03-19)
 
 
