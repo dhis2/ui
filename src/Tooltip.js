@@ -65,7 +65,6 @@ class Tooltip extends Component {
         const {
             children,
             className,
-            component: Component,
             content,
             dataTest,
             maxWidth,
@@ -75,14 +74,22 @@ class Tooltip extends Component {
 
         return (
             <>
-                <Component
-                    onMouseOver={this.onMouseOver}
-                    onMouseOut={this.onMouseOut}
-                    ref={this.ref}
-                    data-test={`${dataTest}-reference`}
-                >
-                    {children}
-                </Component>
+                {typeof children === 'function' ? (
+                    children({
+                        onMouseOver: this.onMouseOver,
+                        onMouseOut: this.onMouseOut,
+                        ref: this.ref,
+                    })
+                ) : (
+                    <span
+                        onMouseOver={this.onMouseOver}
+                        onMouseOut={this.onMouseOut}
+                        ref={this.ref}
+                        data-test={`${dataTest}-reference`}
+                    >
+                        {children}
+                    </span>
+                )}
 
                 {open &&
                     createPortal(
@@ -122,9 +129,9 @@ class Tooltip extends Component {
 
 Tooltip.defaultProps = {
     dataTest: 'dhis2-uicore-tooltip',
-    component: 'span',
     maxWidth: 300,
     placement: 'top',
+    tag: 'span',
 }
 
 /**
@@ -132,37 +139,14 @@ Tooltip.defaultProps = {
  * @static
  * @prop {Node} [children]
  * @prop {string} [className]
- * @prop {string|function} [component] Use a custom component to wrap the Tooltip children or pass a string (i.e. 'p') to use a custom built-in component
- * @example
- * const Content = React.forwardRef(
- *     ({ children, onMouseOver, onMouseOut, dataTest }, ref) => (
- *         <em
- *             style={{ display: 'inline-block', color: 'red' }}
- *             ref={ref}
- *             onMouseOver={onMouseOver}
- *             onMouseOut={onMouseOut}
- *             dataTest={`${dataTest}-reference`}
- *         >
- *             {children}
- *         </em>
- *     )
- * )
- * Content.displayName = 'Content'
- * Content.propTypes = {
- *     children: propTypes.node,
- *     dataTest: propTypes.string,
- *     onMouseOut: propTypes.func,
- *     onMouseOver: propTypes.func,
- * }
  * @prop {Node} [content]
- * @prop {string} [dataTest]
- * @prop {number} [maxWidth]
+ * @prop {string} [dataTest=dhis2-uicore-tooltip]
+ * @prop {number} [maxWidth=300]
  * @prop {('top'|'bottom'|'right'|'left')} [placement=top]
  */
 Tooltip.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
-    component: propTypes.oneOfType([propTypes.string, propTypes.func]),
     content: propTypes.node,
     dataTest: propTypes.string,
     maxWidth: propTypes.number,

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Tooltip } from '../Tooltip.js'
-import propTypes from '@dhis2/prop-types'
+import { Button } from '../Button.js'
 
 export default {
     title: 'Tooltip',
@@ -59,11 +59,11 @@ export const PlacementLeft = () => (
     </p>
 )
 
-export const CustomElement = () => {
+export const CustomElementViaTagProp = () => {
     return (
         <p>
             I am a{' '}
-            <Tooltip content="Some extra info" component="p">
+            <Tooltip content="Some extra info" tag="em">
                 paragraph
             </Tooltip>{' '}
             that contains a tooltip.
@@ -71,35 +71,53 @@ export const CustomElement = () => {
     )
 }
 
-const Content = React.forwardRef(
-    ({ children, onMouseOver, onMouseOut, ...rest }, ref) => (
-        <em
-            style={{ display: 'inline-block', color: 'red' }}
-            ref={ref}
-            onMouseOver={onMouseOver}
-            onMouseOut={onMouseOut}
-            {...rest}
-        >
-            {children}
-        </em>
+export const CustomBuiltInComponent = () => {
+    return (
+        <p>
+            I am a{' '}
+            <Tooltip content="Some extra info">
+                {({ ref, onMouseOver, onMouseOut }) => (
+                    <span
+                        ref={ref}
+                        onMouseOver={onMouseOver}
+                        onMouseOut={onMouseOut}
+                    >
+                        paragraph
+                        <style jsx>{`
+                            span {
+                                color: green;
+                                text-decoration: underline;
+                            }
+                        `}</style>
+                    </span>
+                )}
+            </Tooltip>{' '}
+            that contains a tooltip.
+        </p>
     )
-)
-Content.displayName = 'Content'
-Content.propTypes = {
-    children: propTypes.node,
-    dataTest: propTypes.string,
-    onMouseOut: propTypes.func,
-    onMouseOver: propTypes.func,
 }
 
 export const CustomComponent = () => {
     return (
         <p>
             I am a{' '}
-            <Tooltip content="Some extra info" component={Content}>
-                paragraph
+            <Tooltip content="Some extra info">
+                {({ ref, onMouseOver, onMouseOut }) => (
+                    <span
+                        ref={ref}
+                        onMouseOver={onMouseOver}
+                        onMouseOut={onMouseOut}
+                    >
+                        <Button>paragraph</Button>
+                        <style jsx>{`
+                            span {
+                                display: inline-flex;
+                            }
+                        `}</style>
+                    </span>
+                )}
             </Tooltip>{' '}
-            that contains a tooltip.
+            that contains a Button with a tooltip.
         </p>
     )
 }
