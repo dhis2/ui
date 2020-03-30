@@ -14,32 +14,21 @@ export const filterIgnored = children =>
     )
 
 // Find an option in an array of react children
-export const findOptionChild = (targetOption, optionChildren) =>
+export const findOptionChild = (value, optionChildren) =>
     React.Children.toArray(optionChildren).find(currentOption => {
         if (!currentOption.props) {
             return false
         }
 
-        const matchesLabel = targetOption.label === currentOption.props.label
-        const matchesValue = targetOption.value === currentOption.props.value
-
-        return matchesLabel && matchesValue
+        return value === currentOption.props.value
     })
 
 // Find an option in an array of option objects
-export const findOption = (targetOption, optionArray) =>
-    optionArray.find(currentOption => {
-        const matchesLabel = targetOption.label === currentOption.label
-        const matchesValue = targetOption.value === currentOption.value
-
-        return matchesLabel && matchesValue
-    })
+export const findOption = (value, optionArray) =>
+    optionArray.find(optionValue => value === optionValue)
 
 // Remove a specific option from an array of options
-export const removeOption = (targetOption, optionArray) =>
-    optionArray.filter(currentOption => {
-        const matchesLabel = targetOption.label === currentOption.label
-        const matchesValue = targetOption.value === currentOption.value
-
-        return !matchesLabel && !matchesValue
+export const removeOption = (value, optionArray) =>
+    optionArray.filter(optionValue => {
+        return optionValue !== value
     })

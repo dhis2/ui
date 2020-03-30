@@ -1,15 +1,10 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import { sharedPropTypes } from '@dhis2/ui-constants'
 import { Chip } from '../Chip/Chip.js'
 import { removeOption, findOptionChild } from '../Select/option-helpers.js'
 
-const createRemoveHandler = ({ selected, onChange, value, label }) => (
-    _,
-    e
-) => {
-    const clickedOption = { value, label }
-    const filtered = removeOption(clickedOption, selected)
+const createRemoveHandler = ({ selected, onChange, value }) => (_, e) => {
+    const filtered = removeOption(value, selected)
     const data = { selected: filtered }
 
     onChange(data, e)
@@ -17,14 +12,14 @@ const createRemoveHandler = ({ selected, onChange, value, label }) => (
 
 const SelectionList = ({ selected, onChange, disabled, options }) => (
     <React.Fragment>
-        {selected.map(({ value, label }) => {
-            const selectedOption = findOptionChild({ value, label }, options)
+        {selected.map(value => {
+            const selectedOption = findOptionChild(value, options)
 
             if (!selectedOption) {
                 const message =
-                    'The selected option could not be found as a child of the select. ' +
-                    'Make sure that the value and label for all options passed to the ' +
-                    '`selected` prop matches an existing option.'
+                    `There is no option with the value: "${value}". ` +
+                    'Make sure that all the values passed to the selected ' +
+                    'prop match the value of an existing option.'
                 throw new Error(message)
             }
 
@@ -38,17 +33,16 @@ const SelectionList = ({ selected, onChange, disabled, options }) => (
                       selected,
                       onChange,
                       value,
-                      label,
                   })
 
             return (
                 <Chip
-                    key={label}
+                    key={value}
                     onRemove={onRemove}
                     disabled={isDisabled}
                     overflow
                 >
-                    {label}
+                    {selectedOption.props.label}
                 </Chip>
             )
         })}
@@ -58,7 +52,7 @@ const SelectionList = ({ selected, onChange, disabled, options }) => (
 SelectionList.propTypes = {
     disabled: propTypes.bool,
     options: propTypes.node,
-    selected: sharedPropTypes.multiSelectedPropType,
+    selected: propTypes.arrayOf(propTypes.string),
     onChange: propTypes.func,
 }
 

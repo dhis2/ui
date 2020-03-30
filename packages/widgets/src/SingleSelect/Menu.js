@@ -1,6 +1,5 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import { sharedPropTypes } from '@dhis2/ui-constants'
 import { Empty } from '../Select/Empty.js'
 import { filterIgnored, checkIfValidOption } from '../Select/option-helpers.js'
 
@@ -38,12 +37,12 @@ const Menu = ({
             return child
         }
 
-        const { value, label, disabled: isDisabled } = child.props
+        const { value, disabled: isDisabled } = child.props
 
         // Active means the option is currently selected
-        const isActive = value === selected.value && label === selected.label
+        const isActive = value === selected
         const onClick = (_, e) => {
-            const data = { selected: { value, label } }
+            const data = { selected: value }
             e.stopPropagation()
 
             onChange(data, e)
@@ -74,7 +73,7 @@ Menu.propTypes = {
     handleClose: propTypes.func,
     handleFocusInput: propTypes.func,
     options: propTypes.node,
-    selected: sharedPropTypes.singleSelectedPropType,
+    selected: propTypes.string,
     onChange: propTypes.func,
 }
 

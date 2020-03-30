@@ -57,7 +57,12 @@ MultiSelectControl.propTypes = {
 
     error: propTypes.bool,
     loading: propTypes.bool,
-    options: MultiSelectField.propTypes.selected,
+    options: propTypes.arrayOf(
+        propTypes.shape({
+            label: propTypes.string,
+            value: propTypes.string,
+        })
+    ),
     showLoadingStatus: propTypes.bool,
     showValidStatus: propTypes.bool,
     valid: propTypes.bool,

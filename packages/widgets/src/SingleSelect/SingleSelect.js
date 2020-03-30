@@ -118,7 +118,7 @@ const SingleSelect = ({
 }
 
 SingleSelect.defaultProps = {
-    selected: {},
+    selected: '',
     dataTest: 'dhis2-uicore-singleselect',
 }
 
@@ -127,7 +127,7 @@ SingleSelect.defaultProps = {
  * @static
  *
  * @prop {function} [onChange]
- * @prop {Object} [selected]
+ * @prop {String} [selected]
  * @prop {string} [className]
  * @prop {string} [tabIndex]
  * @prop {Node} [children]
@@ -176,7 +176,7 @@ SingleSelect.propTypes = {
     ),
     placeholder: propTypes.string,
     prefix: propTypes.string,
-    selected: sharedPropTypes.singleSelectedPropType,
+    selected: propTypes.string,
     tabIndex: propTypes.string,
     valid: sharedPropTypes.statusPropType,
     warning: sharedPropTypes.statusPropType,

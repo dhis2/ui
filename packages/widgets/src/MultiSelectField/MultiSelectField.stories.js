@@ -7,7 +7,7 @@ import { MultiSelectField } from './MultiSelectField.js'
 
 const defaultProps = {
     label: 'Default label',
-    selected: [{ value: '1', label: 'one' }],
+    selected: ['1'],
     onChange: selected =>
         alert(`Selected changed to: ${JSON.stringify(selected, null, 2)}`),
 }

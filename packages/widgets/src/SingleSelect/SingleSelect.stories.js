@@ -137,11 +137,7 @@ storiesOf('SingleSelect', module)
         </SingleSelect>
     ))
     .add('With options, a selection and disabled', () => (
-        <SingleSelect
-            disabled
-            className="select"
-            selected={{ value: '1', label: 'option one' }}
-        >
+        <SingleSelect disabled className="select" selected="1">
             <SingleSelectOption value="1" label="option one" />
             <SingleSelectOption value="2" label="option two" />
             <SingleSelectOption value="3" label="option three" />
@@ -162,11 +158,7 @@ storiesOf('SingleSelect', module)
         </SingleSelect>
     ))
     .add('With prefix and selection', () => (
-        <SingleSelect
-            className="select"
-            prefix="Prefix text"
-            selected={{ value: '1', label: 'option one' }}
-        >
+        <SingleSelect className="select" prefix="Prefix text" selected="1">
             <SingleSelectOption value="1" label="option one" />
             <SingleSelectOption value="2" label="option two" />
             <SingleSelectOption value="3" label="option three" />
@@ -182,7 +174,7 @@ storiesOf('SingleSelect', module)
     .add('With placeholder and selection', () => (
         <SingleSelect
             className="select"
-            selected={{ value: '1', label: 'option one' }}
+            selected="1"
             placeholder="Placeholder text"
         >
             <SingleSelectOption value="1" label="option one" />
@@ -199,10 +191,7 @@ storiesOf('SingleSelect', module)
         </SingleSelect>
     ))
     .add('With options and a selection', () => (
-        <SingleSelect
-            className="select"
-            selected={{ value: '1', label: 'option one' }}
-        >
+        <SingleSelect className="select" selected="1">
             <SingleSelectOption value="1" label="option one" />
             <SingleSelectOption value="2" label="option two" />
             <SingleSelectOption value="3" label="option three" />
@@ -211,7 +200,7 @@ storiesOf('SingleSelect', module)
     .add('With options, a selection and onChange', () => (
         <SingleSelect
             className="select"
-            selected={{ value: '1', label: 'option one' }}
+            selected="1"
             onChange={window.onChange}
         >
             <SingleSelectOption value="1" label="option one" />
@@ -224,7 +213,7 @@ storiesOf('SingleSelect', module)
             clearable
             clearText="Clear"
             className="select"
-            selected={{ value: '1', label: 'option one' }}
+            selected="1"
             onChange={window.onChange}
         >
             <SingleSelectOption value="1" label="option one" />

@@ -17,12 +17,7 @@ const options = [
     { value: '10', label: 'ten' },
 ]
 
-const initialValue = [
-    { value: '3', label: 'three' },
-    { value: '4', label: 'four' },
-    { value: '9', label: 'nine' },
-    { value: '10', label: 'ten' },
-]
+const initialValue = ['3', '4', '9', '10']
 
 storiesOf('Form/MultiSelectControl', module)
     .addDecorator(formDecorator)

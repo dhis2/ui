@@ -1,6 +1,5 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import { sharedPropTypes } from '@dhis2/ui-constants'
 import { FilterableMenu as CommonFilterableMenu } from '../Select/FilterableMenu.js'
 import { Menu } from './Menu.js'
 
@@ -37,7 +36,7 @@ FilterableMenu.propTypes = {
     handleFocusInput: propTypes.func,
     options: propTypes.node,
     placeholder: propTypes.string,
-    selected: sharedPropTypes.multiSelectedPropType,
+    selected: propTypes.arrayOf(propTypes.string),
     onChange: propTypes.func,
 }
 

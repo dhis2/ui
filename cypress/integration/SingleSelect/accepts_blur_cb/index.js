@@ -9,7 +9,7 @@ Then('the onBlur handler is called', () => {
     cy.window().then(win => {
         expect(win.onBlur).to.be.calledOnce
         expect(win.onBlur).to.be.calledWith({
-            selected: {},
+            selected: '',
         })
     })
 })

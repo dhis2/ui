@@ -36,21 +36,6 @@ export const sizePropType = propTypes.mutuallyExclusive(
 )
 
 /**
- * SingleSelect selected item propType
- * @return {PropType} Object with props `label` and `value`.
- */
-export const singleSelectedPropType = propTypes.shape({
-    label: propTypes.string,
-    value: propTypes.string,
-})
-
-/**
- * SingleSelect selected item propType
- * @return {Array} Array of Objects with props `label` and `value`.
- */
-export const multiSelectedPropType = propTypes.arrayOf(singleSelectedPropType)
-
-/**
  * Inside alignment props
  * @return {PropType} PropType that validates the inside alignment.
  */

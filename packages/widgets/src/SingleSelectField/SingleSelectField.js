@@ -109,7 +109,7 @@ class SingleSelectField extends React.Component {
 }
 
 SingleSelectField.defaultProps = {
-    selected: {},
+    selected: '',
     dataTest: 'dhis2-uicore-singleselectfield',
 }
 
@@ -119,7 +119,7 @@ SingleSelectField.defaultProps = {
  *
  * @prop {function} [onChange]
  * @prop {string} label
- * @prop {Object} [selected]
+ * @prop {string} [selected]
  * @prop {string} [className]
  * @prop {string} [tabIndex]
  * @prop {Node} [children]
@@ -176,10 +176,7 @@ SingleSelectField.propTypes = {
     placeholder: propTypes.string,
     prefix: propTypes.string,
     required: propTypes.bool,
-    selected: propTypes.shape({
-        label: propTypes.string,
-        value: propTypes.string,
-    }),
+    selected: propTypes.string,
     tabIndex: propTypes.string,
     valid: sharedPropTypes.statusPropType,
     validationText: propTypes.string,

@@ -116,16 +116,10 @@ export class Select extends Component {
             dataTest,
         } = this.props
 
-        // We need to update the menu's position on selection because
-        // that can cause the input area to change size
-        const handleChange = (data, e) => {
-            onChange(data, e)
-        }
-
         // Create the input
         const inputProps = {
             selected,
-            onChange: handleChange,
+            onChange,
             options: children,
             disabled,
         }
@@ -134,7 +128,7 @@ export class Select extends Component {
         // Create the menu
         const menuProps = {
             selected,
-            onChange: handleChange,
+            onChange,
             options: children,
             handleClose: this.handleClose,
             handleFocusInput: this.handleFocusInput,
@@ -186,8 +180,8 @@ Select.propTypes = {
     input: propTypes.element.isRequired,
     menu: propTypes.element.isRequired,
     selected: propTypes.oneOfType([
-        sharedPropTypes.singleSelectedPropType,
-        sharedPropTypes.multiSelectedPropType,
+        propTypes.string,
+        propTypes.arrayOf(propTypes.string),
     ]).isRequired,
     children: propTypes.node,
     className: propTypes.string,

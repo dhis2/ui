@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
-import { colors, sharedPropTypes } from '@dhis2/ui-constants'
+import { colors } from '@dhis2/ui-constants'
 import { Selection } from './Selection.js'
 import { InputPlaceholder } from '../Select/InputPlaceholder.js'
 import { InputPrefix } from '../Select/InputPrefix.js'
@@ -20,9 +20,9 @@ const Input = ({
     disabled,
     inputMaxHeight,
 }) => {
-    const hasSelection = 'label' in selected && 'value' in selected
+    const hasSelection = selected && typeof selected === 'string'
     const onClear = (_, e) => {
-        const data = { selected: {} }
+        const data = { selected: '' }
 
         e.stopPropagation()
         onChange(data, e)
@@ -96,7 +96,7 @@ Input.propTypes = {
     options: propTypes.node,
     placeholder: propTypes.string,
     prefix: propTypes.string,
-    selected: sharedPropTypes.singleSelectedPropType,
+    selected: propTypes.string,
     onChange: propTypes.func,
 }
 

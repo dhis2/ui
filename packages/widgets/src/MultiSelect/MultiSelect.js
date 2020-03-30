@@ -126,7 +126,7 @@ MultiSelect.defaultProps = {
  * @static
  *
  * @prop {function} [onChange]
- * @prop {Array} [selected]
+ * @prop {Array.<string>} [selected]
  * @prop {string} [className]
  * @prop {string} [tabIndex]
  * @prop {Node} [children]
@@ -175,7 +175,7 @@ MultiSelect.propTypes = {
     ),
     placeholder: propTypes.string,
     prefix: propTypes.string,
-    selected: sharedPropTypes.multiSelectedPropType,
+    selected: propTypes.arrayOf(propTypes.string),
     tabIndex: propTypes.string,
     valid: sharedPropTypes.statusPropType,
     warning: sharedPropTypes.statusPropType,
