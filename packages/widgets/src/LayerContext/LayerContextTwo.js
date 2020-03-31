@@ -3,7 +3,15 @@ import React, { useContext } from 'react'
 import propTypes from '@dhis2/prop-types'
 import { layers } from '@dhis2/ui-constants'
 
-const LayerContext = React.createContext(0)
+const getOrCreateLayerContext = () => {
+    if (!window.dhis2UiCoreLayerContext) {
+        window.dhis2UiCoreLayerContext = React.createContext(0)
+    }
+
+    return window.dhis2UiCoreLayerContext
+}
+
+const LayerContext = getOrCreateLayerContext()
 
 const getStackedLayer = (zIndex, context) => {
     // Keep alert layer constant
