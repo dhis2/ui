@@ -39,9 +39,7 @@ export const SingleSelectControl = ({
             onFocus={createFocusHandler(input, onFocus)}
             onChange={createSelectChangeHandler(input)}
             onBlur={createBlurHandler(input, onBlur)}
-            selected={
-                input.value || {}
-            } /* input.value is an empty string initially, so we're providing an empty object if falsey */
+            selected={input.value || ''}
         >
             {options.map(option => (
                 <SingleSelectOption key={option.value} {...option} />
@@ -53,7 +51,12 @@ export const SingleSelectControl = ({
 SingleSelectControl.propTypes = {
     input: inputPropType.isRequired,
     meta: metaPropType.isRequired,
-    options: propTypes.arrayOf(SingleSelectField.propTypes.selected).isRequired,
+    options: propTypes.arrayOf(
+        propTypes.shape({
+            label: propTypes.string,
+            value: propTypes.string,
+        })
+    ).isRequired,
 
     error: propTypes.bool,
     loading: propTypes.bool,

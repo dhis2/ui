@@ -1,6 +1,5 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import { sharedPropTypes } from '@dhis2/ui-constants'
 import { Empty } from '../Select/Empty.js'
 import {
     filterIgnored,
@@ -14,17 +13,13 @@ const onDisabledClick = (_, e) => {
     e.preventDefault()
 }
 
-const createHandler = ({ isActive, onChange, selected, value, label }) => (
-    _,
-    e
-) => {
-    const clickedOption = { value, label }
+const createHandler = ({ isActive, onChange, selected, value }) => (_, e) => {
     e.stopPropagation()
     e.preventDefault()
 
     // If the option is currently selected remove it from the array of selected options
     if (isActive) {
-        const filtered = removeOption(clickedOption, selected)
+        const filtered = removeOption(value, selected)
         const data = { selected: filtered }
 
         return onChange(data, e)
@@ -32,7 +27,7 @@ const createHandler = ({ isActive, onChange, selected, value, label }) => (
 
     // Otherwise, add it to selected
     const data = {
-        selected: selected.concat([clickedOption]),
+        selected: selected.concat([value]),
     }
     return onChange(data, e)
 }
@@ -61,7 +56,7 @@ const Menu = ({ options, onChange, selected, empty, dataTest }) => {
         const { value, label, disabled: isDisabled } = child.props
 
         // Active means the option is currently selected
-        const isActive = !!findOption({ value, label }, selected)
+        const isActive = !!findOption(value, selected)
 
         // Create the appropriate click handler for the option
         const onClick = isDisabled
@@ -92,7 +87,7 @@ Menu.propTypes = {
     dataTest: propTypes.string.isRequired,
     empty: propTypes.node,
     options: propTypes.node,
-    selected: sharedPropTypes.multiSelectedPropType,
+    selected: propTypes.arrayOf(propTypes.string),
     onChange: propTypes.func,
 }
 

@@ -17,7 +17,7 @@ When('the user selects the first option', () => {
 Then("the form state's value equals the first option's value", () => {
     cy.get('@options').then(options => {
         cy.getFormValue('singleSelect').then(actualValue => {
-            expect(actualValue).to.deep.equal(options[0])
+            expect(actualValue).to.deep.equal(options[0].value)
         })
     })
 })

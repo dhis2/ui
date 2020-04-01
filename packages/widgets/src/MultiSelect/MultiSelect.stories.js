@@ -135,11 +135,7 @@ storiesOf('MultiSelect', module)
         </MultiSelect>
     ))
     .add('With options, a selection and disabled', () => (
-        <MultiSelect
-            disabled
-            className="select"
-            selected={[{ value: '1', label: 'option one' }]}
-        >
+        <MultiSelect disabled className="select" selected={['1']}>
             <MultiSelectOption value="1" label="option one" />
             <MultiSelectOption value="2" label="option two" />
             <MultiSelectOption value="3" label="option three" />
@@ -160,11 +156,7 @@ storiesOf('MultiSelect', module)
         </MultiSelect>
     ))
     .add('With prefix and selection', () => (
-        <MultiSelect
-            className="select"
-            prefix="Prefix text"
-            selected={[{ value: '1', label: 'option one' }]}
-        >
+        <MultiSelect className="select" prefix="Prefix text" selected={['1']}>
             <MultiSelectOption value="1" label="option one" />
             <MultiSelectOption value="2" label="option two" />
             <MultiSelectOption value="3" label="option three" />
@@ -180,7 +172,7 @@ storiesOf('MultiSelect', module)
     .add('With placeholder and selection', () => (
         <MultiSelect
             className="select"
-            selected={[{ value: '1', label: 'option one' }]}
+            selected={['1']}
             placeholder="Placeholder text"
         >
             <MultiSelectOption value="1" label="option one" />
@@ -197,10 +189,7 @@ storiesOf('MultiSelect', module)
         </MultiSelect>
     ))
     .add('With options and a selection', () => (
-        <MultiSelect
-            className="select"
-            selected={[{ value: '1', label: 'option one' }]}
-        >
+        <MultiSelect className="select" selected={['1']}>
             <MultiSelectOption value="1" label="option one" />
             <MultiSelectOption value="2" label="option two" />
             <MultiSelectOption value="3" label="option three" />
@@ -209,7 +198,7 @@ storiesOf('MultiSelect', module)
     .add('With options, a selection and onChange', () => (
         <MultiSelect
             className="select"
-            selected={[{ value: '1', label: 'option one' }]}
+            selected={['1']}
             onChange={window.onChange}
         >
             <MultiSelectOption value="1" label="option one" />
@@ -218,13 +207,7 @@ storiesOf('MultiSelect', module)
         </MultiSelect>
     ))
     .add('With options and multiple selections', () => (
-        <MultiSelect
-            className="select"
-            selected={[
-                { value: '1', label: 'option one' },
-                { value: '2', label: 'option two' },
-            ]}
-        >
+        <MultiSelect className="select" selected={['1', '2']}>
             <MultiSelectOption value="1" label="option one" />
             <MultiSelectOption value="2" label="option two" />
             <MultiSelectOption value="3" label="option three" />
@@ -235,7 +218,7 @@ storiesOf('MultiSelect', module)
             clearable
             clearText="Clear"
             className="select"
-            selected={[{ value: '1', label: 'option one' }]}
+            selected={['1']}
             onChange={window.onChange}
         >
             <MultiSelectOption value="1" label="option one" />

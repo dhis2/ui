@@ -41,7 +41,7 @@ Then('the clicked option is selected', () => {
     cy.window().then(win => {
         expect(win.onChange).to.be.calledOnce
         expect(win.onChange).to.be.calledWith({
-            selected: [{ label: 'option one', value: '1' }],
+            selected: ['1'],
         })
     })
 })
@@ -50,10 +50,7 @@ Then('the clicked option is selected as well', () => {
     cy.window().then(win => {
         expect(win.onChange).to.be.calledOnce
         expect(win.onChange).to.be.calledWith({
-            selected: [
-                { label: 'option one', value: '1' },
-                { label: 'option two', value: '2' },
-            ],
+            selected: ['1', '2'],
         })
     })
 })

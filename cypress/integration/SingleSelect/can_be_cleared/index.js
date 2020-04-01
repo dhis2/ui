@@ -18,6 +18,6 @@ When('the clear button is clicked', () => {
 Then('the SingleSelect is cleared', () => {
     cy.window().then(win => {
         expect(win.onChange).to.be.calledOnce
-        expect(win.onChange).to.be.calledWith({ selected: {} })
+        expect(win.onChange).to.be.calledWith({ selected: '' })
     })
 })

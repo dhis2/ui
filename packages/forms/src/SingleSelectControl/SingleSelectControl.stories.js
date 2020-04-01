@@ -17,8 +17,6 @@ const options = [
     { value: '10', label: 'ten' },
 ]
 
-const initialValue = { value: '4', label: 'four' }
-
 storiesOf('Form/SingleSelectControl', module)
     .addDecorator(formDecorator)
     .add('Default', () => (
@@ -35,6 +33,6 @@ storiesOf('Form/SingleSelectControl', module)
             name="agree"
             label="Do you agree?"
             options={options}
-            initialValue={initialValue}
+            initialValue="4"
         />
     ))

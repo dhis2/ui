@@ -27,7 +27,7 @@ Then('the clicked option is selected', () => {
     cy.window().then(win => {
         expect(win.onChange).to.be.calledOnce
         expect(win.onChange).to.be.calledWith({
-            selected: { label: 'option one', value: '1' },
+            selected: '1',
         })
     })
 })

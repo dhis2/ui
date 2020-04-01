@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
-import { colors, sharedPropTypes } from '@dhis2/ui-constants'
+import { colors } from '@dhis2/ui-constants'
 import { SelectionList } from './SelectionList.js'
 import { InputPlaceholder } from '../Select/InputPlaceholder.js'
 import { InputPrefix } from '../Select/InputPrefix.js'
@@ -101,7 +101,7 @@ Input.propTypes = {
     options: propTypes.node,
     placeholder: propTypes.string,
     prefix: propTypes.string,
-    selected: sharedPropTypes.multiSelectedPropType,
+    selected: propTypes.arrayOf(propTypes.string),
     onChange: propTypes.func,
 }
 

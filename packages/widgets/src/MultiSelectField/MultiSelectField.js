@@ -119,7 +119,7 @@ MultiSelectField.defaultProps = {
  *
  * @prop {function} [onChange]
  * @prop {string} [label]
- * @prop {Array} [selected]
+ * @prop {Array.<string>} [selected]
  * @prop {string} [className]
  * @prop {string} [tabIndex]
  * @prop {Node} [children]
@@ -176,7 +176,7 @@ MultiSelectField.propTypes = {
     placeholder: propTypes.string,
     prefix: propTypes.string,
     required: propTypes.bool,
-    selected: sharedPropTypes.multiSelectedPropType,
+    selected: propTypes.arrayOf(propTypes.string),
     tabIndex: propTypes.string,
     valid: sharedPropTypes.statusPropType,
     validationText: propTypes.string,

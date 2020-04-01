@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
-import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
+import { spacers } from '@dhis2/ui-constants'
 import { findOptionChild } from '../Select/option-helpers.js'
 
 const Selection = ({ options, selected, className }) => {
@@ -9,9 +9,9 @@ const Selection = ({ options, selected, className }) => {
 
     if (!selectedOption) {
         const message =
-            'The selected option could not be found as a child of the select. ' +
-            'Make sure that the value and label passed to the `selected` prop ' +
-            'match an existing option.'
+            `There is no option with the value: "${selected}". ` +
+            'Make sure that the value passed to the selected ' +
+            'prop matches the value of an existing option.'
         throw new Error(message)
     }
 
@@ -44,7 +44,7 @@ const Selection = ({ options, selected, className }) => {
 Selection.propTypes = {
     className: propTypes.string,
     options: propTypes.node,
-    selected: sharedPropTypes.singleSelectedPropType,
+    selected: propTypes.string,
 }
 
 export { Selection }
