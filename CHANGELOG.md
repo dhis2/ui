@@ -1,3 +1,16 @@
+# [5.0.0-alpha.3](https://github.com/dhis2/ui/compare/v5.0.0-alpha.2...v5.0.0-alpha.3) (2020-04-01)
+
+
+### Code Refactoring
+
+* use string based selection in multi- and single-select ([e3627a4](https://github.com/dhis2/ui/commit/e3627a479577a7bbd3d78e86f5fbf93e2ca57971))
+
+
+### BREAKING CHANGES
+
+* - SingleSelect selection is now a string instead of an object with a value and label property
+- MultiSelect selection is now an array of strings instead of an array of objects with a value and label property
+
 # [5.0.0-alpha.2](https://github.com/dhis2/ui/compare/v5.0.0-alpha.1...v5.0.0-alpha.2) (2020-03-24)
 
 
