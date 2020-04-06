@@ -16,7 +16,7 @@ CustomMultiSelectOption.propTypes = {
     onClick: propTypes.func,
 }
 
-storiesOf('MultiSelect', module)
+storiesOf('Component/Widget/MultiSelect', module)
     .add('With options', () => (
         <MultiSelect className="select">
             <MultiSelectOption value="1" label="option one" />
@@ -25,7 +25,11 @@ storiesOf('MultiSelect', module)
         </MultiSelect>
     ))
     .add('With options and onChange', () => (
-        <MultiSelect className="select" onChange={window.onChange}>
+        <MultiSelect
+            className="select"
+            onChange={val => console.log(val)}
+            selected={['1']}
+        >
             <MultiSelectOption value="1" label="option one" />
             <MultiSelectOption value="2" label="option two" />
             <MultiSelectOption value="3" label="option three" />
