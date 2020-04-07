@@ -64,38 +64,47 @@ DivInLayer.propTypes = {
     className: propTypes.string,
 }
 
-storiesOf('Layer', module).add('Stacked layers (pure nesting)', () => (
-    <>
-        <DivInLayer stackLevel={layers.alert} className="layer-a-child">
-            A
-            <DivInLayer stackLevel={layers.blocking} className="layer-b-child">
-                B
-                <DivInLayer stackLevel={4561} className="layer-c-child">
-                    C
-                </DivInLayer>
-            </DivInLayer>
-        </DivInLayer>
-        <DivInLayer stackLevel={layers.blocking} className="layer-d-child">
-            D
-            <DivInLayer stackLevel={layers.blocking} className="layer-e-child">
-                E
+storiesOf('Component/Widget/Layer', module).add(
+    'Stacked layers (pure nesting)',
+    () => (
+        <>
+            <DivInLayer stackLevel={layers.alert} className="layer-a-child">
+                A
                 <DivInLayer
-                    stackLevel={layers.applicationTop}
-                    className="layer-f-child"
+                    stackLevel={layers.blocking}
+                    className="layer-b-child"
                 >
-                    F
+                    B
+                    <DivInLayer stackLevel={4561} className="layer-c-child">
+                        C
+                    </DivInLayer>
                 </DivInLayer>
             </DivInLayer>
-        </DivInLayer>
-        <style jsx>{`
-            :global(#root) {
-                height: auto !important;
-            }
-        `}</style>
-    </>
-))
+            <DivInLayer stackLevel={layers.blocking} className="layer-d-child">
+                D
+                <DivInLayer
+                    stackLevel={layers.blocking}
+                    className="layer-e-child"
+                >
+                    E
+                    <DivInLayer
+                        stackLevel={layers.applicationTop}
+                        className="layer-f-child"
+                    >
+                        F
+                    </DivInLayer>
+                </DivInLayer>
+            </DivInLayer>
+            <style jsx>{`
+                :global(#root) {
+                    height: auto !important;
+                }
+            `}</style>
+        </>
+    )
+)
 
-storiesOf('Layer', module).add('Inverse nesting', () => (
+storiesOf('Component/Widget/Layer', module).add('Inverse nesting', () => (
     <>
         <DivInLayer stackLevel={layers.blocking} className="layer-a-child">
             A

@@ -20,7 +20,7 @@ const MenuItemPositions = () => (
     </Menu>
 )
 
-storiesOf('MenuItem', module)
+storiesOf('Component/Widget/MenuItem', module)
     .add('With onClick and value', () => (
         <MenuItem label="Menu item" value="Value" onClick={window.onClick} />
     ))
