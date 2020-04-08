@@ -1,3 +1,10 @@
+# [5.0.0-alpha.4](https://github.com/dhis2/ui/compare/v5.0.0-alpha.3...v5.0.0-alpha.4) (2020-04-08)
+
+
+### Features
+
+* add noticebox component ([357ef6d](https://github.com/dhis2/ui/commit/357ef6d45e739d53cf1cef7933ed121259016f54))
+
 # [5.0.0-alpha.3](https://github.com/dhis2/ui/compare/v5.0.0-alpha.2...v5.0.0-alpha.3) (2020-04-01)
 
 
