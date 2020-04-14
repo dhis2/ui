@@ -1,12 +1,22 @@
-import { createPortal } from 'react-dom'
+import cx from 'classnames'
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
+import { layers, spacers, spacersNum } from '@dhis2/ui-constants'
+import { resolve } from 'styled-jsx/css'
 
-import { ScreenCover } from '../ScreenCover/ScreenCover.js'
+import { Layer } from '../Layer/Layer.js'
+import { CenteredContent } from '../CenteredContent/CenteredContent.js'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 
-import { ModalCard } from './ModalCard.js'
+import { Card } from '../Card/Card.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
+
+const scrollBoxCard = resolve`
+    div {
+        display: flex;
+        flex-direction: column;
+    }
+`
 
 /**
  * @module
@@ -45,21 +55,40 @@ export const Modal = ({
     className,
     position,
     dataTest,
-}) =>
-    createPortal(
-        <ScreenCover
-            onClick={onClose}
-            className={className}
-            position={position}
-        >
-            <aside data-test={dataTest}>
-                <ModalCard small={small} large={large} position={position}>
-                    {children}
-                </ModalCard>
+}) => (
+    <Layer onClick={onClose} level={layers.blocking} translucent>
+        <CenteredContent position={position}>
+            <aside
+                data-test={dataTest}
+                className={cx(className, position, { small, large })}
+            >
+                <Card className={scrollBoxCard.className}>{children}</Card>
             </aside>
-        </ScreenCover>,
-        document.body
-    )
+            {scrollBoxCard.styles}
+            <style jsx>{`
+                aside {
+                    overflow-y: hidden;
+                    height: auto;
+                    max-height: calc(100vh - ${2 * spacersNum.dp64}px);
+                    max-width: calc(100vw - ${2 * spacersNum.dp64}px);
+                    width: 600px;
+                }
+                aside.top {
+                    transform: translateY(${spacers.dp64});
+                }
+                aside.bottom {
+                    transform: translateY(-${spacers.dp64});
+                }
+                aside.small {
+                    width: 400px;
+                }
+                aside.large {
+                    width: 800px;
+                }
+            `}</style>
+        </CenteredContent>
+    </Layer>
+)
 
 Modal.defaultProps = {
     dataTest: 'dhis2-uicore-modal',

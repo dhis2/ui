@@ -23,9 +23,23 @@ export class Select extends Component {
         if (this.props.initialFocus) {
             this.inputRef.current.focus()
         }
-        this.setState({
-            menuWidth: `${this.inputRef.current.offsetWidth}px`,
-        })
+
+        this.setMenuWidth()
+        window.addEventListener('resize', this.setMenuWidth)
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.setMenuWidth)
+    }
+
+    setMenuWidth = () => {
+        const inputWidth = `${this.inputRef.current.offsetWidth}px`
+
+        if (this.state.menuWidth !== inputWidth) {
+            this.setState({
+                menuWidth: inputWidth,
+            })
+        }
     }
 
     handleFocusInput = () => {

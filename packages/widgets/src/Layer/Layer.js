@@ -1,15 +1,38 @@
 import cx from 'classnames'
 import React, { createContext, useState, useContext } from 'react'
 import { createPortal } from 'react-dom'
-
 import propTypes from '@dhis2/prop-types'
+import { layers } from '@dhis2/ui-constants'
 
 const LayerContext = createContext({
     node: document.body,
     level: 0,
 })
 
-const Layer = ({ children, className, level, position }) => {
+const createClickHandler = onClick => event => {
+    // don't respond to clicks that originated in the children
+    if (onClick && event.target === event.currentTarget) {
+        onClick({}, event)
+    }
+}
+
+/**
+ * @module
+ * @param {Layer.PropTypes} props
+ * @returns {React.Component}
+ * @example import {     } from @dhis2/ui-core
+ * @see Live demo: {@link /demo/?path=/story/component-widget-layer--default|Storybook}
+ */
+const Layer = ({
+    children,
+    className,
+    dataTest,
+    level,
+    onClick,
+    pointerEvents,
+    position,
+    translucent,
+}) => {
     const parentLayer = useContext(LayerContext)
     const [layerEl, setLayerEl] = useState(null)
     const nextLayer = {
@@ -22,7 +45,11 @@ const Layer = ({ children, className, level, position }) => {
     return createPortal(
         <div
             ref={setLayerEl}
-            className={cx(className, position, `level-${level}`)}
+            className={cx('layer', className, position, `level-${level}`, {
+                translucent,
+            })}
+            data-test={dataTest}
+            onClick={createClickHandler(onClick)}
         >
             {layerEl && (
                 <LayerContext.Provider value={nextLayer}>
@@ -32,8 +59,15 @@ const Layer = ({ children, className, level, position }) => {
             <style jsx>{`
                 div {
                     z-index: ${level};
-                    height: 100%;
-                    width: 100%;
+                    pointer-events: ${pointerEvents};
+                }
+            `}</style>
+            <style jsx>{`
+                div {
+                    top: 0;
+                    left: 0;
+                    min-height: 100vh;
+                    min-width: 100vw;
                 }
                 div.fixed {
                     position: fixed;
@@ -42,9 +76,11 @@ const Layer = ({ children, className, level, position }) => {
                 }
                 div.absolute {
                     position: absolute;
+                    height: 100%;
+                    width: 100%;
                 }
-                div.relative {
-                    position: relative;
+                div.translucent {
+                    background-color: rgba(33, 43, 54, 0.4);
                 }
             `}</style>
         </div>,
@@ -54,13 +90,31 @@ const Layer = ({ children, className, level, position }) => {
 
 Layer.defaultProps = {
     position: 'fixed',
+    dataTest: 'dhis2-uicore-layer',
+    pointerEvents: 'all',
+    level: layers.applicationTop,
 }
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {string} [className]
+ * @prop {Node} [children]
+ * @prop {string} [dataTest=dhis2-uicore-layer]
+ * @prop {number} [level=layers.applicationTop]
+ * @prop {string} [pointerEvents=all] - One of 'all', 'none'
+ * @prop {boolean} [translucent] - When true a semi-transparent background is added
+ * @prop {function} [onClick]
+ */
 Layer.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
+    dataTest: propTypes.string,
     level: propTypes.number,
-    position: propTypes.oneOf(['absolute', 'relative', 'fixed']),
+    pointerEvents: propTypes.oneOf(['all', 'none']),
+    position: propTypes.oneOf(['absolute', 'fixed']),
+    translucent: propTypes.bool,
+    onClick: propTypes.func,
 }
 
 export { Layer }

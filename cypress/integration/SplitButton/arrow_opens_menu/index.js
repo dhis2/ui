@@ -16,8 +16,8 @@ Given('the SplitButton menu is closed', () => {
     )
 })
 
-When('the Backdrop is clicked', () => {
-    cy.get('[data-test="dhis2-uicore-backdrop"]').click()
+When('the user clicks the backdrop Layer', () => {
+    cy.get('[data-test="dhis2-uicore-layer"]').click()
 })
 
 Then('the menu is not visible', () => {

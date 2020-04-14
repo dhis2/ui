@@ -51,6 +51,8 @@ PopperInBoxWithCenteredReferenceElement.propTypes = {
     paddingTop: propTypes.number,
 }
 
+window.onClickOutside = window.Cypress && window.Cypress.cy.stub()
+
 export default { title: 'Popover', component: Popover }
 
 export const Default = () => <PopperInBoxWithCenteredReferenceElement />
@@ -65,4 +67,9 @@ export const HiddenArrow = () => (
 )
 export const NoArrow = () => (
     <PopperInBoxWithCenteredReferenceElement arrow={false} />
+)
+export const WithOnClickOutside = () => (
+    <PopperInBoxWithCenteredReferenceElement
+        onClickOutside={window.onClickOutside}
+    />
 )

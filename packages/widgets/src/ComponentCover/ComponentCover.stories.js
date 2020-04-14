@@ -1,29 +1,75 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
 import { ComponentCover } from './ComponentCover.js'
-import { CircularLoader, Card } from '../index.js'
+import { CircularLoader, CenteredContent } from '../index.js'
 
-storiesOf('Utility/ComponentCover', module)
-    .add('CircularLoader', () => (
-        <div style={{ width: '400px', height: '400px' }}>
-            <ComponentCover>
+export default {
+    title: 'Component/Widget/ComponentCover',
+    component: ComponentCover,
+    decorators: [
+        storyFn => (
+            <div>
+                {storyFn()}
+                <style jsx>{`
+                    div {
+                        width: 400px;
+                        height: 400px;
+                        position: relative;
+                        border: 1px dotted grey;
+                    }
+                `}</style>
+            </div>
+        ),
+    ],
+}
+
+export const Default = () => (
+    <>
+        <ComponentCover />
+
+        <h1>Text behind the cover</h1>
+        <p>Lorem ipsum</p>
+    </>
+)
+
+export const Translucent = () => (
+    <>
+        <ComponentCover translucent />
+
+        <h1>Text behind the cover</h1>
+        <p>Lorem ipsum</p>
+    </>
+)
+
+export const WithClickHandler = () => (
+    <>
+        <ComponentCover onClick={() => alert('Cover was clicked')} />
+
+        <h1>Text behind the cover</h1>
+        <p>Lorem ipsum</p>
+    </>
+)
+
+export const NonBlocking = () => (
+    <>
+        <ComponentCover translucent pointerEvents="none" />
+
+        <h1>Text behind the cover</h1>
+        <p>
+            You can still select this text because the cover has pointer-event:
+            none.
+        </p>
+    </>
+)
+
+export const WithCenteredContentCircularLoader = () => (
+    <>
+        <ComponentCover translucent>
+            <CenteredContent>
                 <CircularLoader />
-            </ComponentCover>
+            </CenteredContent>
+        </ComponentCover>
 
-            <h1>Text behind the cover</h1>
-            <p>Lorem ipsum</p>
-        </div>
-    ))
-
-    .add('Modal', () => (
-        <div style={{ width: '400px', height: '400px', background: 'purple' }}>
-            <ComponentCover>
-                <div style={{ width: '200px', height: '200px' }}>
-                    <Card>Some text.</Card>
-                </div>
-            </ComponentCover>
-
-            <h1>Text behind the cover</h1>
-            <p>Lorem ipsum</p>
-        </div>
-    ))
+        <h1>Text behind the cover</h1>
+        <p>Lorem ipsum</p>
+    </>
+)

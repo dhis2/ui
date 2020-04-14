@@ -34,3 +34,11 @@ Feature: Selecting options
         And the MultiSelect is open
         When the disabled option is clicked
         Then the onchange handler is not called
+
+    Scenario: The user clicks an option twice to select and deselect it
+        Given a MultiSelect is rendered to which options can be added
+        And the MultiSelect is open
+        When an option is clicked
+        Then the clicked option is selected
+        When the selected option is clicked again
+        Then the previously selected option is deselected

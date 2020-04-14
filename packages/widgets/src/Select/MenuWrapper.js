@@ -1,11 +1,9 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import { resolve } from 'styled-jsx/css'
 
 import propTypes from '@dhis2/prop-types'
-import { layers } from '@dhis2/ui-constants'
 
-import { Card, Backdrop, Popper } from '../index.js'
+import { Card, Layer, Popper } from '../index.js'
 
 const MenuWrapper = ({
     children,
@@ -20,9 +18,13 @@ const MenuWrapper = ({
         max-height: ${maxHeight};
         overflow: auto;
     `
-    return ReactDOM.createPortal(
-        <Backdrop onClick={onClick} transparent zIndex={layers.applicationTop}>
-            <Popper reference={selectRef} placement="bottom">
+    return (
+        <Layer onClick={onClick} transparent>
+            <Popper
+                reference={selectRef}
+                placement="bottom"
+                observeReferenceResize
+            >
                 <div data-test={`${dataTest}-menuwrapper`}>
                     <Card className={cardClassName}>{children}</Card>
 
@@ -35,8 +37,7 @@ const MenuWrapper = ({
                     `}</style>
                 </div>
             </Popper>
-        </Backdrop>,
-        document.body
+        </Layer>
     )
 }
 

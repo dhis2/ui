@@ -23,8 +23,8 @@ When('the SingleSelect input is clicked', () => {
     cy.get('[data-test="dhis2-uicore-select-input"]').click()
 })
 
-When('the user clicks the backdrop', () => {
-    cy.get('[data-test="dhis2-uicore-backdrop"]').click()
+When('the user clicks the backdrop layer', () => {
+    cy.get('[data-test="dhis2-uicore-layer"]').click()
 })
 
 Then('the options are not displayed', () => {

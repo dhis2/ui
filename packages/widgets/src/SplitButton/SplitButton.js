@@ -1,13 +1,12 @@
 import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
 import React, { Component } from 'react'
-import { createPortal } from 'react-dom'
 import css from 'styled-jsx/css'
 
 import { ArrowDown, ArrowUp } from '@dhis2/ui-icons'
 import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
 
-import { Backdrop } from '../Backdrop/Backdrop.js'
+import { Layer } from '../Layer/Layer.js'
 import { Button } from '../Button/Button.js'
 import { Popper } from '../Popper/Popper.js'
 
@@ -113,19 +112,17 @@ class SplitButton extends Component {
                     {arrow}
                 </Button>
 
-                {open &&
-                    createPortal(
-                        <Backdrop onClick={this.onToggle} transparent>
-                            <Popper
-                                dataTest={`${dataTest}-menu`}
-                                placement="bottom-end"
-                                reference={this.anchorRef}
-                            >
-                                {component}
-                            </Popper>
-                        </Backdrop>,
-                        document.body
-                    )}
+                {open && (
+                    <Layer onClick={this.onToggle} transparent>
+                        <Popper
+                            dataTest={`${dataTest}-menu`}
+                            placement="bottom-end"
+                            reference={this.anchorRef}
+                        >
+                            {component}
+                        </Popper>
+                    </Layer>
+                )}
 
                 {rightButton.styles}
                 <style jsx>{`

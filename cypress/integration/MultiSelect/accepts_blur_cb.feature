@@ -4,5 +4,5 @@ Feature: Calls onBlur cb when blurred
         Given a MultiSelect with onBlur handler is rendered
         And the MultiSelect input is clicked
         And the MultiSelect has focus
-        When the user clicks the backdrop
+        When the user clicks the backdrop layer
         Then the onBlur handler is called
