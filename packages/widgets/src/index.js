@@ -1,5 +1,6 @@
 export { HeaderBar } from './HeaderBar/HeaderBar.js'
 export { OrganisationUnitTree } from './OrganisationUnitTree/OrganisationUnitTree.js'
+export { SharingDialog } from './SharingDialog/SharingDialog.js'
 
 /* Fields */
 export { CheckboxField } from './CheckboxField/CheckboxField.js'
