@@ -75,3 +75,33 @@ msgstr ""
 
 msgid "Previous"
 msgstr ""
+
+msgid "Could not load children"
+msgstr ""
+
+msgid "Sharing settings"
+msgstr ""
+
+msgid "Users and groups that have access"
+msgstr ""
+
+msgid "No access"
+msgstr ""
+
+msgid "Anyone logged in can find and view"
+msgstr ""
+
+msgid "Can find and view"
+msgstr ""
+
+msgid "View only"
+msgstr ""
+
+msgid "Anyone logged in can find, edit, and view"
+msgstr ""
+
+msgid "Can find, edit, and view"
+msgstr ""
+
+msgid "Edit and view"
+msgstr ""
