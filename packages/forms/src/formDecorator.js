@@ -25,6 +25,7 @@ class FormWithSpyAndSubmit extends React.Component {
     componentDidMount() {
         window.updateCypressProps = this.updateCypressProps
         window.clearCypressProps = this.clearCypressProps
+        this.forceUpdate()
     }
 
     componentWillUnmount() {

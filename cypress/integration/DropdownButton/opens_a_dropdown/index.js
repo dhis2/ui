@@ -12,8 +12,8 @@ Given('a DropdownButton with opened dropdown is rendered', () => {
     cy.get('[data-test="dhis2-uicore-dropdownbutton-popper"]').should('exist')
 })
 
-When('the Backdrop is clicked', () => {
-    cy.get('[data-test="dhis2-uicore-backdrop"]').click()
+When('the user clicks the backdrop Layer', () => {
+    cy.get('[data-test="dhis2-uicore-layer"]').click()
 })
 
 Then('the dropdown is not rendered', () => {

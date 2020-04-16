@@ -14,7 +14,7 @@ Given('an empty MultiSelect with custom empty component is rendered', () => {
 })
 
 Then('an empty menu is displayed', () => {
-    cy.get('[data-test="dhis2-uicore-backdrop"]').should('exist')
+    cy.get('[data-test="dhis2-uicore-layer"]').should('exist')
 })
 
 Then('the custom empty text is displayed', () => {

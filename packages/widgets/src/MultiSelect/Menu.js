@@ -15,7 +15,6 @@ const onDisabledClick = (_, e) => {
 
 const createHandler = ({ isActive, onChange, selected, value }) => (_, e) => {
     e.stopPropagation()
-    e.preventDefault()
 
     // If the option is currently selected remove it from the array of selected options
     if (isActive) {

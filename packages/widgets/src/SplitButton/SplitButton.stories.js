@@ -16,49 +16,54 @@ const onClick = (...args) => window.onClick(...args)
 const Simple = <span>Simplest thing</span>
 
 export const Default = () => (
-    <SplitButton name="default" value="nothing">
+    <SplitButton name="default" value="nothing" component={Simple}>
         Label me!
     </SplitButton>
 )
 
 export const WithClick = () => (
-    <SplitButton name="default" value="nothing" onClick={onClick}>
+    <SplitButton
+        name="default"
+        value="nothing"
+        onClick={onClick}
+        component={Simple}
+    >
         Label me!
     </SplitButton>
 )
 
 export const Primary = () => (
-    <SplitButton name="default" value="nothing" primary>
+    <SplitButton name="default" value="nothing" primary component={Simple}>
         Label me!
     </SplitButton>
 )
 
 export const Secondary = () => (
-    <SplitButton name="default" value="nothing" secondary>
+    <SplitButton name="default" value="nothing" secondary component={Simple}>
         Label me!
     </SplitButton>
 )
 
 export const Destructive = () => (
-    <SplitButton name="default" value="nothing" destructive>
+    <SplitButton name="default" value="nothing" destructive component={Simple}>
         Label me!
     </SplitButton>
 )
 
 export const Disabled = () => (
-    <SplitButton name="default" value="nothing" disabled>
+    <SplitButton name="default" value="nothing" disabled component={Simple}>
         Label me!
     </SplitButton>
 )
 
 export const Small = () => (
-    <SplitButton name="default" value="nothing" small>
+    <SplitButton name="default" value="nothing" small component={Simple}>
         Label me!
     </SplitButton>
 )
 
 export const Large = () => (
-    <SplitButton name="default" value="nothing" large>
+    <SplitButton name="default" value="nothing" large component={Simple}>
         Label me!
     </SplitButton>
 )
@@ -70,7 +75,7 @@ export const WithMenu = () => (
 )
 
 export const InitialFocus = () => (
-    <SplitButton name="default" value="nothing" initialFocus>
+    <SplitButton name="default" value="nothing" initialFocus component={Simple}>
         Label me!
     </SplitButton>
 )

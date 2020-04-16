@@ -37,20 +37,33 @@ class Popper extends Component {
         )
     }
 
-    deduplicateModifiers() {
-        const { modifiers } = this.props
-        // Deduplicate modifiers from props and baseModifiers,
-        // when duplicates are encountered (by name), use the
-        // modifier from props so each Popper can be fully custom
-        return Object.keys(baseModifiers)
-            .map(key => baseModifiers[key])
-            .filter(({ name }) => !modifiers.some(m => m.name === name))
-            .concat(modifiers)
-    }
-
     componentWillUnmount() {
         this.popperInstance && this.popperInstance.destroy()
         this.popperInstance = null
+    }
+
+    deduplicateModifiers() {
+        const {
+            modifiers,
+            observePopperResize: popper,
+            observeReferenceResize: reference,
+        } = this.props
+
+        const baseModifiersWithResizeObserver = {
+            ...baseModifiers,
+            resizeObserver: {
+                ...baseModifiers.resizeObserver,
+                options: { reference, popper },
+            },
+        }
+
+        // Deduplicate modifiers from props and baseModifiers,
+        // when duplicates are encountered (by name), use the
+        // modifier from props so each Popper can be fully custom
+        return Object.keys(baseModifiersWithResizeObserver)
+            .map(key => baseModifiersWithResizeObserver[key])
+            .filter(({ name }) => !modifiers.some(m => m.name === name))
+            .concat(modifiers)
     }
 
     render() {
@@ -89,6 +102,8 @@ Popper.defaultProps = {
  * @prop {string} [className]
  * @prop {string} [dataTest=dhis2-uicore-popper]
  * @prop {Array.<Modifier>} [modifiers=[]] A property of the `createPopper` options, {@link https://popper.js.org/docs/v2/constructors/|see constructor section of popper.js docs}
+ * @prop {Boolean} observePopperResize Makes the popper update position when the popper content changes size
+ * @prop {Boolean} observeReferenceResize Makes the popper update position when the reference element changes size
  * @prop {('absolute'|'fixed')} [strategy=absolute] A property of the `createPopper` options, {@link https://popper.js.org/docs/v2/constructors/|see constructor section of popper.js docs}
  * @prop {Function} [onFirstUpdate] A property of the `createPopper` options, {@link https://popper.js.org/docs/v2/constructors/|see constructor section of popper.js docs}
  * @prop {('auto'|'auto-start'|'auto-end'|'top'|'top-start'|'top-end'|'bottom'|'bottom-start'|'bottom-end'|'right'|'right-start'|'right-end'|'left'|'left-start'|'left-end')} [placement=top] A property of the `createPopper` options, {@link https://popper.js.org/docs/v2/constructors/|see constructor section of popper.js docs}
@@ -105,6 +120,8 @@ Popper.propTypes = {
             options: propTypes.object,
         })
     ),
+    observePopperResize: propTypes.bool,
+    observeReferenceResize: propTypes.bool,
     placement: sharedPropTypes.referencePlacementPropType,
     strategy: propTypes.oneOf(['absolute', 'fixed']), // defaults to 'absolute'
     onFirstUpdate: propTypes.func,

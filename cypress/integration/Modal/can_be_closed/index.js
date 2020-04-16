@@ -5,7 +5,7 @@ Given('a Modal with onClose handler is rendered', () => {
 })
 
 When('the Screencover is clicked', () => {
-    cy.get('[data-test="dhis2-uicore-screencover"]').click('topLeft')
+    cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
 })
 
 Then('the onClose handler is called', () => {

@@ -1,5 +1,4 @@
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
-import { ARROW_SIZE } from '../../../../src/Popover/Arrow'
 
 // Stories
 Given(
@@ -50,9 +49,7 @@ Given(
     'there is sufficient space between the bottom of the reference element and the bottom of the Popover to show the arrow',
     () => {
         getRefAndPopoverPositions().then(([refPos, popoverPos]) => {
-            expect(refPos.bottom).to.be.greaterThan(
-                popoverPos.bottom + ARROW_SIZE
-            )
+            expect(refPos.bottom).to.be.greaterThan(popoverPos.bottom + 8)
         })
     }
 )
@@ -103,7 +100,7 @@ Then('the popover is placed op top of the reference element', () => {
 
 Then('there is some space between the anchor and the popover', () => {
     getRefAndPopoverPositions().then(([refPos, popoverPos]) => {
-        expect(popoverPos.bottom + ARROW_SIZE).to.equal(refPos.top)
+        expect(popoverPos.bottom + 8).to.equal(refPos.top)
     })
 })
 

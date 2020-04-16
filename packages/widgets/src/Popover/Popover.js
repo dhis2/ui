@@ -1,11 +1,10 @@
 import React from 'react'
-import { createPortal } from 'react-dom'
 import propTypes from 'prop-types'
 
 import { colors, elevations, sharedPropTypes } from '@dhis2/ui-constants'
 
 import { Popper } from '../Popper/Popper.js'
-import { Backdrop } from '../Backdrop/Backdrop.js'
+import { Layer } from '../Layer/Layer.js'
 
 import { Arrow } from './Arrow.js'
 import { arrow, offset, hideArrowWhenDisplaced } from './modifiers.js'
@@ -31,33 +30,31 @@ const Popover = ({
     elevation,
     maxWidth,
     placement,
-    onBackdropClick,
-}) =>
-    createPortal(
-        <Backdrop onClick={onBackdropClick} transparent>
-            <Popper
-                dataTest={`${dataTest}-popper`}
-                placement={placement}
-                reference={reference}
-                modifiers={arrow ? arrowModifiers : []}
-                className={className}
-            >
-                <div>
-                    {children}
-                    {arrow && <Arrow />}
-                    <style jsx>{`
-                        div {
-                            max-width: ${maxWidth}px;
-                            box-shadow: ${elevation};
-                            background-color: ${colors.white};
-                            border-radius: 4px;
-                        }
-                    `}</style>
-                </div>
-            </Popper>
-        </Backdrop>,
-        document.body
-    )
+    onClickOutside,
+}) => (
+    <Layer onClick={onClickOutside} transparent>
+        <Popper
+            dataTest={`${dataTest}-popper`}
+            placement={placement}
+            reference={reference}
+            modifiers={arrow ? arrowModifiers : []}
+            className={className}
+        >
+            <div>
+                {children}
+                {arrow && <Arrow />}
+                <style jsx>{`
+                    div {
+                        max-width: ${maxWidth}px;
+                        box-shadow: ${elevation};
+                        background-color: ${colors.white};
+                        border-radius: 4px;
+                    }
+                `}</style>
+            </div>
+        </Popper>
+    </Layer>
+)
 
 Popover.defaultProps = {
     arrow: true,
@@ -77,7 +74,7 @@ Popover.defaultProps = {
  * @prop {string} [dataTest=dhis2-uicore-popover]
  * @prop {number} [maxWidth=360]
  * @prop {('auto'|'auto-start'|'auto-end'|'top'|'top-start'|'top-end'|'bottom'|'bottom-start'|'bottom-end'|'right'|'right-start'|'right-end'|'left'|'left-start'|'left-end')} [placement=top]
- * @prop {function} [onBackdropClick]
+ * @prop {function} [onClickOutside]
  */
 Popover.propTypes = {
     children: propTypes.node.isRequired,
@@ -85,9 +82,10 @@ Popover.propTypes = {
     arrow: propTypes.bool,
     className: propTypes.string,
     dataTest: propTypes.string,
+    elevation: propTypes.string,
     maxWidth: propTypes.number,
     placement: sharedPropTypes.referencePlacementPropType,
-    onBackdropClick: propTypes.func,
+    onClickOutside: propTypes.func,
 }
 
 export { Popover }

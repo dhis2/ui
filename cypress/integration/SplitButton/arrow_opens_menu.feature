@@ -10,6 +10,6 @@ Feature: The SplitButton renders a Popper
     Scenario: The user closes the Popper
         Given a SplitButton is rendered
         And the SplitButton menu is open
-        When the Backdrop is clicked
+        When the user clicks the backdrop Layer
         Then the menu is not visible
         And the component is not visible

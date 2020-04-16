@@ -20,7 +20,7 @@ When('an option is clicked', () => {
 })
 
 When('the selected option is clicked', () => {
-    cy.get('[data-test="dhis2-uicore-backdrop"]')
+    cy.get('[data-test="dhis2-uicore-layer"]')
         .contains('option one')
         .click()
 })
@@ -35,6 +35,12 @@ When("the chip's X is clicked", () => {
 
 When('the disabled option is clicked', () => {
     cy.contains('disabled option').click()
+})
+
+When('the selected option is clicked again', () => {
+    cy.get('[data-test="dhis2-uicore-multiselectoption"] label')
+        .contains('option one')
+        .click()
 })
 
 Then('the clicked option is selected', () => {
@@ -65,5 +71,12 @@ Then('the selected option is deselected', () => {
 Then('the onchange handler is not called', () => {
     cy.window().then(win => {
         expect(win.onChange).to.not.be.called
+    })
+})
+
+Then('the previously selected option is deselected', () => {
+    cy.window().then(win => {
+        expect(win.onChange).to.be.calledTwice
+        expect(win.onChange).to.be.calledWith({ selected: [] })
     })
 })

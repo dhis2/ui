@@ -27,10 +27,10 @@ Feature: Opening and closing the SingleSelect
         When the spacebar is pressed on the focused element
         Then the options are displayed
 
-    Scenario: The user clicks the backdrop to hide the options
+    Scenario: The user clicks the backdrop layer to hide the options
         Given a SingleSelect with options is rendered
         And the SingleSelect is open
-        When the user clicks the backdrop
+        When the user clicks the backdrop layer
         Then the options are not displayed
 
     Scenario: The user presses the escape key to hide the options

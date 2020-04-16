@@ -253,7 +253,7 @@ storiesOf('MultiSelect', module)
             </MultiSelect>
             <style jsx>{`
                 :global(#root) {
-                    margin-bottom: 2000px;
+                    height: 2000px !important;
                 }
             `}</style>
         </>
@@ -326,3 +326,27 @@ storiesOf('MultiSelect', module)
             <MultiSelectOption value="3" label="option three" />
         </MultiSelect>
     ))
+    .add('With options that can be added to the input', () => {
+        const [values, setValues] = React.useState([])
+        return (
+            <>
+                <MultiSelect
+                    className="select"
+                    selected={values}
+                    onChange={({ selected }) => {
+                        window.onChange && window.onChange({ selected })
+                        setValues(selected)
+                    }}
+                >
+                    <MultiSelectOption value="1" label="option one" />
+                    <MultiSelectOption value="2" label="option two" />
+                    <MultiSelectOption value="3" label="option three" />
+                </MultiSelect>
+                <style jsx>{`
+                    :global(#root) {
+                        height: 2000px !important;
+                    }
+                `}</style>
+            </>
+        )
+    })

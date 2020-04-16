@@ -1,13 +1,12 @@
 import propTypes from '@dhis2/prop-types'
 import React, { Component } from 'react'
-import { createPortal } from 'react-dom'
 import { resolve } from 'styled-jsx/css'
 
 import { spacers } from '@dhis2/ui-constants'
 import { ArrowDown, ArrowUp } from '@dhis2/ui-icons'
 
 import { Button } from '../Button/Button.js'
-import { Backdrop } from '../Backdrop/Backdrop.js'
+import { Layer } from '../Layer/Layer.js'
 import { Popper } from '../Popper/Popper.js'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 
@@ -88,19 +87,17 @@ class DropdownButton extends Component {
                     <ArrowIconComponent className={arrow.className} />
                 </Button>
 
-                {open &&
-                    createPortal(
-                        <Backdrop onClick={this.onToggle} transparent>
-                            <Popper
-                                dataTest={`${dataTest}-popper`}
-                                placement="bottom-end"
-                                reference={this.anchorRef}
-                            >
-                                {component}
-                            </Popper>
-                        </Backdrop>,
-                        document.body
-                    )}
+                {open && (
+                    <Layer onClick={this.onToggle} transparent>
+                        <Popper
+                            dataTest={`${dataTest}-popper`}
+                            placement="bottom-end"
+                            reference={this.anchorRef}
+                        >
+                            {component}
+                        </Popper>
+                    </Layer>
+                )}
 
                 {arrow.styles}
                 <style jsx>{`
