@@ -1,3 +1,10 @@
+# [5.0.0-alpha.6](https://github.com/dhis2/ui/compare/v5.0.0-alpha.5...v5.0.0-alpha.6) (2020-04-20)
+
+
+### Bug Fixes
+
+* **icons:** add missing icon file ([de0a157](https://github.com/dhis2/ui/commit/de0a1578ad70d127a184868f54d53723acedd29c))
+
 # [5.0.0-alpha.5](https://github.com/dhis2/ui/compare/v5.0.0-alpha.4...v5.0.0-alpha.5) (2020-04-16)
 
 ### Code Refactoring
