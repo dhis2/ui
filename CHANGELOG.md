@@ -1,6 +1,5 @@
 # [5.0.0-alpha.5](https://github.com/dhis2/ui/compare/v5.0.0-alpha.4...v5.0.0-alpha.5) (2020-04-16)
 
-
 ### Code Refactoring
 
 * layers and overlay components ([24ead4c](https://github.com/dhis2/ui/commit/24ead4c31a650cfedf3221a5086baf911ea1e544))
