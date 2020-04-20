@@ -41,6 +41,7 @@ const SelectionList = ({ selected, onChange, disabled, options }) => (
                     onRemove={onRemove}
                     disabled={isDisabled}
                     overflow
+                    dense
                 >
                     {selectedOption.props.label}
                 </Chip>

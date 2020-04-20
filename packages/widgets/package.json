@@ -25,7 +25,7 @@
     "dependencies": {
         "@dhis2/app-runtime": "^2.1.0",
         "@dhis2/d2-i18n": "^1",
-        "@dhis2/prop-types": "^1.5",
+        "@dhis2/prop-types": "^1.6.4",
         "@dhis2/ui-constants": "5.0.0-alpha.5",
         "@dhis2/ui-core": "5.0.0-alpha.5",
         "@dhis2/ui-icons": "5.0.0-alpha.5",
