@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 
 import propTypes from '@dhis2/prop-types'
+
 import { useDataQuery } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 

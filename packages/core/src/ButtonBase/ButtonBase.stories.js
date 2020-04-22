@@ -3,7 +3,7 @@ import React from 'react'
 import ButtonBase from './ButtonBase.js'
 
 export default {
-    title: 'Component/Core/ButtonBase',
+    title: 'Components/Base/ButtonBase',
     component: ButtonBase,
 }
 

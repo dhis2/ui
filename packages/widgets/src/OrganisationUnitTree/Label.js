@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from 'prop-types'
 import cx from 'classnames'
 
-import { Checkbox } from '../index.js'
+import { Checkbox } from '@dhis2/ui-core'
 import { colors } from '@dhis2/ui-constants'
 
 import { FolderOpen } from '@dhis2/ui-icons'

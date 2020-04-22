@@ -3,9 +3,8 @@ import propTypes from '@dhis2/prop-types'
 import css from 'styled-jsx/css'
 
 import i18n from '@dhis2/d2-i18n'
-import { Card, Divider, MenuItem } from '../../index.js'
+import { Card, Divider, MenuItem } from '@dhis2/ui-core'
 import { colors } from '@dhis2/ui-constants'
-
 import { Settings } from '@dhis2/ui-icons'
 import { Info } from '@dhis2/ui-icons'
 import { Help } from '@dhis2/ui-icons'

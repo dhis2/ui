@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import { Checkbox } from '@dhis2/ui-widgets'
-import { ToggleGroupField } from '@dhis2/ui-widgets'
+import { Checkbox } from '@dhis2/ui-core'
+import { ToggleGroupField } from '@dhis2/ui-core'
 
 import {
     hasError,

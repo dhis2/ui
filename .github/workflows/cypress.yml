@@ -3,11 +3,7 @@
 
 name: 'dhis2: test (cypress)'
 
-on:
-    push:
-        branches:
-            - master
-    pull_request:
+on: push
 
 env:
     SERVER_START_CMD: 'yarn cy:server'
@@ -23,7 +19,7 @@ jobs:
                 containers: [1, 2, 3]
         steps:
             - name: Checkout
-              uses: actions/checkout@v1
+              uses: actions/checkout@v2
 
             - name: Tests
               uses: cypress-io/github-action@v1

@@ -79,7 +79,7 @@ const styles = css`
     }
 `
 
-export function Regular({ className }) {
+export function SwitchRegular({ className }) {
     return (
         <svg
             viewBox="0 0 42 22"
@@ -122,6 +122,6 @@ export function Regular({ className }) {
         </svg>
     )
 }
-Regular.propTypes = {
+SwitchRegular.propTypes = {
     className: propTypes.string,
 }

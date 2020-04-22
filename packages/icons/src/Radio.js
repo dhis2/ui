@@ -43,7 +43,7 @@ const styles = css`
     }
 `
 
-export function Regular({ className }) {
+export function RadioRegular({ className }) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -66,11 +66,11 @@ export function Regular({ className }) {
         </svg>
     )
 }
-Regular.propTypes = {
+RadioRegular.propTypes = {
     className: propTypes.string,
 }
 
-export function Dense({ className }) {
+export function RadioDense({ className }) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -97,6 +97,6 @@ export function Dense({ className }) {
         </svg>
     )
 }
-Dense.propTypes = {
+RadioDense.propTypes = {
     className: propTypes.string,
 }

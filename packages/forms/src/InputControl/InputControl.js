@@ -1,6 +1,6 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import { InputField } from '@dhis2/ui-widgets'
+import { InputField } from '@dhis2/ui-core'
 
 import {
     createChangeHandler,
