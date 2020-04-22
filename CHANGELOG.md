@@ -1,3 +1,10 @@
+# [5.0.0-alpha.7](https://github.com/dhis2/ui/compare/v5.0.0-alpha.6...v5.0.0-alpha.7) (2020-04-22)
+
+
+### Bug Fixes
+
+* update final-form to fix setstate warning ([1bc62b9](https://github.com/dhis2/ui/commit/1bc62b9dc0d2215fc60f3cdacd2304f7a09730d3))
+
 # [5.0.0-alpha.6](https://github.com/dhis2/ui/compare/v5.0.0-alpha.5...v5.0.0-alpha.6) (2020-04-20)
 
 
