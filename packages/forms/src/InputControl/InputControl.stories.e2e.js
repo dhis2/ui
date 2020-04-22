@@ -2,19 +2,17 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { formDecorator } from '../formDecorator.js'
 
-import { FieldControl, InputControl, hasValue } from '../index.js'
+import { ReactFinalForm, InputControl, hasValue } from '../index.js'
+
+const { Field } = ReactFinalForm
 
 storiesOf('Testing:InputControl', module)
     .addDecorator(formDecorator)
     .add('Default', () => (
-        <FieldControl
-            component={InputControl}
-            name="agree"
-            label="Do you agree?"
-        />
+        <Field component={InputControl} name="agree" label="Do you agree?" />
     ))
     .add('Required', () => (
-        <FieldControl
+        <Field
             name="agree"
             component={InputControl}
             required

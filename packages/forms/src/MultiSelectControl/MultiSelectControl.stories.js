@@ -2,7 +2,9 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { formDecorator } from '../formDecorator.js'
 
-import { FieldControl, MultiSelectControl } from '../index.js'
+import { ReactFinalForm, MultiSelectControl } from '../index.js'
+
+const { Field } = ReactFinalForm
 
 const options = [
     { value: '1', label: 'one' },
@@ -22,7 +24,7 @@ const initialValue = ['3', '4', '9', '10']
 storiesOf('Form/MultiSelectControl', module)
     .addDecorator(formDecorator)
     .add('Default', () => (
-        <FieldControl
+        <Field
             component={MultiSelectControl}
             name="agree"
             label="Do you agree?"
@@ -30,7 +32,7 @@ storiesOf('Form/MultiSelectControl', module)
         />
     ))
     .add('InitialValue', () => (
-        <FieldControl
+        <Field
             component={MultiSelectControl}
             name="agree"
             label="Do you agree?"

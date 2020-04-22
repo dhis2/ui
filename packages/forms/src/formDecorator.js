@@ -2,8 +2,9 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import { Button } from '@dhis2/ui-widgets'
 
-import { FormControl } from './index.js'
-import { FormSpy } from './FormSpy.js'
+import { ReactFinalForm } from './index.js'
+
+const { FormSpy, Form } = ReactFinalForm
 
 const formProps = {
     onSubmit: values => {
@@ -47,7 +48,7 @@ class FormWithSpyAndSubmit extends React.Component {
 
     render() {
         return (
-            <FormControl {...formProps}>
+            <Form {...formProps}>
                 {formRenderProps => (
                     <form onSubmit={formRenderProps.handleSubmit}>
                         {this.props.renderChildren({
@@ -68,7 +69,7 @@ class FormWithSpyAndSubmit extends React.Component {
                         </FormSpy>
                     </form>
                 )}
-            </FormControl>
+            </Form>
         )
     }
 }

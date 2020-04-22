@@ -2,19 +2,17 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { formDecorator } from '../formDecorator.js'
 
-import { FieldControl, CheckboxControl, hasValue } from '../index.js'
+import { ReactFinalForm, CheckboxControl, hasValue } from '../index.js'
+
+const { Field } = ReactFinalForm
 
 storiesOf('Form/CheckboxControl', module)
     .addDecorator(formDecorator)
     .add('Default', () => (
-        <FieldControl
-            component={CheckboxControl}
-            name="agree"
-            label="Do you agree?"
-        />
+        <Field component={CheckboxControl} name="agree" label="Do you agree?" />
     ))
     .add('Required', () => (
-        <FieldControl
+        <Field
             name="agree"
             component={CheckboxControl}
             required
@@ -23,7 +21,7 @@ storiesOf('Form/CheckboxControl', module)
         />
     ))
     .add('Disabled', () => (
-        <FieldControl
+        <Field
             name="agree"
             component={CheckboxControl}
             disabled
@@ -31,7 +29,7 @@ storiesOf('Form/CheckboxControl', module)
         />
     ))
     .add('Help text', () => (
-        <FieldControl
+        <Field
             name="agree"
             component={CheckboxControl}
             label="Do you agree?"
@@ -40,21 +38,21 @@ storiesOf('Form/CheckboxControl', module)
     ))
     .add('Statuses', () => (
         <>
-            <FieldControl
+            <Field
                 name="valid"
                 component={CheckboxControl}
                 label="Valid"
                 valid
                 validationText="Validation text"
             />
-            <FieldControl
+            <Field
                 name="warning"
                 component={CheckboxControl}
                 label="Warning"
                 warning
                 validationText="Validation text"
             />
-            <FieldControl
+            <Field
                 name="error"
                 component={CheckboxControl}
                 label="Error"
@@ -65,13 +63,13 @@ storiesOf('Form/CheckboxControl', module)
     ))
     .add('Value when checked', () => (
         <>
-            <FieldControl
+            <Field
                 name="bool"
                 component={CheckboxControl}
                 label="I produce boolean form values"
                 helpText="Click submit and check the console"
             />
-            <FieldControl
+            <Field
                 name="string"
                 component={CheckboxControl}
                 label="I produce string form values"

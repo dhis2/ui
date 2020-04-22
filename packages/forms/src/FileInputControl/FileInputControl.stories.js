@@ -1,22 +1,24 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import { FieldControl, FileInputControl, hasValue } from '../index.js'
+import { ReactFinalForm, FileInputControl, hasValue } from '../index.js'
 import { formDecorator } from '../formDecorator.js'
+
+const { Field } = ReactFinalForm
 
 const files = [new File([], 'file1.txt'), new File([], 'file2.txt')]
 
 storiesOf('Form/FileInputControl', module)
     .addDecorator(formDecorator)
     .add('Default', () => (
-        <FieldControl
+        <Field
             component={FileInputControl}
             name="upload"
             label="This is a file upload"
         />
     ))
     .add('Required', () => (
-        <FieldControl
+        <Field
             component={FileInputControl}
             name="upload"
             label="This is a file upload"
@@ -25,7 +27,7 @@ storiesOf('Form/FileInputControl', module)
         />
     ))
     .add('Multifile', () => (
-        <FieldControl
+        <Field
             component={FileInputControl}
             name="upload"
             label="This is a file upload"
@@ -33,7 +35,7 @@ storiesOf('Form/FileInputControl', module)
         />
     ))
     .add('With values', () => (
-        <FieldControl
+        <Field
             component={FileInputControl}
             name="upload"
             label="This is a file upload"
@@ -44,7 +46,7 @@ storiesOf('Form/FileInputControl', module)
         />
     ))
     .add('Prevent placeholder', () => (
-        <FieldControl
+        <Field
             component={FileInputControl}
             name="upload"
             label="This is a file upload"

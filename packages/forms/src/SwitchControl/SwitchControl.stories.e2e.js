@@ -2,12 +2,14 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { formDecorator } from '../formDecorator.js'
 
-import { FieldControl, SwitchControl, hasValue } from '../index.js'
+import { ReactFinalForm, SwitchControl, hasValue } from '../index.js'
+
+const { Field } = ReactFinalForm
 
 storiesOf('Testing:SwitchControl', module)
     .addDecorator(formDecorator)
     .add('Unchecked', () => (
-        <FieldControl
+        <Field
             component={SwitchControl}
             className="switch"
             name="switch"
@@ -17,7 +19,7 @@ storiesOf('Testing:SwitchControl', module)
         />
     ))
     .add('Checked ', () => (
-        <FieldControl
+        <Field
             component={SwitchControl}
             className="switch"
             name="switch"
@@ -26,7 +28,7 @@ storiesOf('Testing:SwitchControl', module)
         />
     ))
     .add('Unchecked with value', () => (
-        <FieldControl
+        <Field
             component={SwitchControl}
             className="switch"
             name="switch"
@@ -35,7 +37,7 @@ storiesOf('Testing:SwitchControl', module)
         />
     ))
     .add('Checked with value', () => (
-        <FieldControl
+        <Field
             component={SwitchControl}
             className="switch"
             name="switch"

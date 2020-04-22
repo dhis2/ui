@@ -2,12 +2,14 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { formDecorator } from '../formDecorator.js'
 
-import { FieldControl, CheckboxControl, hasValue } from '../index.js'
+import { ReactFinalForm, CheckboxControl, hasValue } from '../index.js'
+
+const { Field } = ReactFinalForm
 
 storiesOf('Testing:Checkbox', module)
     .addDecorator(formDecorator)
     .add('Unchecked', () => (
-        <FieldControl
+        <Field
             component={CheckboxControl}
             className="checkbox"
             name="checkbox"
@@ -17,7 +19,7 @@ storiesOf('Testing:Checkbox', module)
         />
     ))
     .add('Checked ', () => (
-        <FieldControl
+        <Field
             component={CheckboxControl}
             className="checkbox"
             name="checkbox"
@@ -26,7 +28,7 @@ storiesOf('Testing:Checkbox', module)
         />
     ))
     .add('Unchecked with value', () => (
-        <FieldControl
+        <Field
             component={CheckboxControl}
             className="checkbox"
             name="checkbox"
@@ -35,7 +37,7 @@ storiesOf('Testing:Checkbox', module)
         />
     ))
     .add('Checked with value', () => (
-        <FieldControl
+        <Field
             component={CheckboxControl}
             className="checkbox"
             name="checkbox"

@@ -2,7 +2,7 @@ import '../common/index.js'
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a multi-file IputField is rendered', () => {
-    cy.visitStory('Testing:Forms', 'Standard form')
+    cy.visitStory('Testing:FileInput', 'Standard form')
 })
 
 When('a file is provided', () => {

@@ -2,19 +2,17 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { formDecorator } from '../formDecorator.js'
 
-import { FieldControl, SwitchControl, hasValue } from '../index.js'
+import { ReactFinalForm, SwitchControl, hasValue } from '../index.js'
+
+const { Field } = ReactFinalForm
 
 storiesOf('Form/SwitchControl', module)
     .addDecorator(formDecorator)
     .add('Default', () => (
-        <FieldControl
-            component={SwitchControl}
-            name="agree"
-            label="Do you agree?"
-        />
+        <Field component={SwitchControl} name="agree" label="Do you agree?" />
     ))
     .add('Required', () => (
-        <FieldControl
+        <Field
             name="agree"
             component={SwitchControl}
             required
@@ -23,7 +21,7 @@ storiesOf('Form/SwitchControl', module)
         />
     ))
     .add('Disabled', () => (
-        <FieldControl
+        <Field
             name="agree"
             component={SwitchControl}
             disabled
@@ -31,7 +29,7 @@ storiesOf('Form/SwitchControl', module)
         />
     ))
     .add('Help text', () => (
-        <FieldControl
+        <Field
             name="agree"
             component={SwitchControl}
             label="Do you agree?"
@@ -40,21 +38,21 @@ storiesOf('Form/SwitchControl', module)
     ))
     .add('Statuses', () => (
         <>
-            <FieldControl
+            <Field
                 name="valid"
                 component={SwitchControl}
                 label="Valid"
                 valid
                 validationText="Validation text"
             />
-            <FieldControl
+            <Field
                 name="warning"
                 component={SwitchControl}
                 label="Warning"
                 warning
                 validationText="Validation text"
             />
-            <FieldControl
+            <Field
                 name="error"
                 component={SwitchControl}
                 label="Error"
@@ -65,13 +63,13 @@ storiesOf('Form/SwitchControl', module)
     ))
     .add('Value when checked', () => (
         <>
-            <FieldControl
+            <Field
                 name="bool"
                 component={SwitchControl}
                 label="I produce boolean form values"
                 helpText="Click submit and check the console"
             />
-            <FieldControl
+            <Field
                 name="string"
                 component={SwitchControl}
                 label="I produce string form values"
