@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
-import { Button, InputField } from '../';
-import { AccessSelect } from './AccessSelect';
-import { shareBlockStyles } from "./SharingDialog.styles";
+
+import PropTypes from '@dhis2/prop-types'
+
+import i18n from '@dhis2/d2-i18n'
+
+import { Button, InputField } from '../'
+import { AccessSelect } from './AccessSelect'
+import { shareBlockStyles } from './SharingDialog.styles'
 
 export const ShareBlock = ({ onAdd }) => {
     const [userOrGroup, setUserOrGroup] = useState(undefined)
@@ -14,20 +19,28 @@ export const ShareBlock = ({ onAdd }) => {
         setAccess(undefined)
     }
 
-    return <div className="share-block">
-      <style jsx>{shareBlockStyles}</style>
-      <p>Share with users and groups</p>
-      <form onSubmit={onSubmit} className="sharing-inputs">
-        <InputField
-          placeholder="Search for user, group or role"
-          inputWidth="400px"
-          value={userOrGroup}
-          onChange={({ value }) => setUserOrGroup(value)}
-        />
-        <div className="select-wrap">
-          <AccessSelect access={access} onChange={setAccess} />
+    return (
+        <div className="share-block">
+            <style jsx>{shareBlockStyles}</style>
+            <p>{i18n.t('Share with users and groups')}</p>
+            <form onSubmit={onSubmit} className="sharing-inputs">
+                <InputField
+                    placeholder={i18n.t('Search for user, group or role')}
+                    inputWidth="400px"
+                    value={userOrGroup}
+                    onChange={({ value }) => setUserOrGroup(value)}
+                />
+                <div className="select-wrap">
+                    <AccessSelect access={access} onChange={setAccess} />
+                </div>
+                <Button type="submit" large disabled={!userOrGroup || !access}>
+                    {i18n.t('Share')}
+                </Button>
+            </form>
         </div>
-        <Button type="submit" large disabled={!userOrGroup || !access}>Share</Button>
-      </form>
-    </div>
-};
+    )
+}
+
+ShareBlock.propTypes = {
+    onAdd: PropTypes.func,
+}
