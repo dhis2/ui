@@ -24,8 +24,8 @@
         "@dhis2/ui-core": "5.0.0-alpha.6",
         "@dhis2/ui-widgets": "5.0.0-alpha.6",
         "classnames": "^2.2.6",
-        "final-form": "^4.18.5",
-        "react-final-form": "^6.3.0"
+        "final-form": "^4.19.1",
+        "react-final-form": "^6.4.0"
     },
     "files": [
         "build"
