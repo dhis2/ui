@@ -1,3 +1,10 @@
+# [5.0.0-alpha.8](https://github.com/dhis2/ui/compare/v5.0.0-alpha.7...v5.0.0-alpha.8) (2020-04-22)
+
+
+### Bug Fixes
+
+* update number range validation error to match actual bounds ([646f782](https://github.com/dhis2/ui/commit/646f782e7dbbc6bb2da4340d76ce55c7d5ab25db))
+
 # [5.0.0-alpha.7](https://github.com/dhis2/ui/compare/v5.0.0-alpha.6...v5.0.0-alpha.7) (2020-04-22)
 
 
