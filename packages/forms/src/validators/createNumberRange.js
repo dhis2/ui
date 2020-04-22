@@ -14,7 +14,7 @@ const createNumberRange = (lowerBound, upperBound, customMessage) => {
     const errorMessage =
         customMessage ||
         i18n.t(
-            'Please enter a number between {{lowerBound}} and {{upperBound}}',
+            'Number cannot be less than {{lowerBound}} or more than {{upperBound}}',
             { lowerBound, upperBound }
         )
 
