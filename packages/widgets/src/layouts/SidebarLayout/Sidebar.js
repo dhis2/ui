@@ -13,14 +13,14 @@ const isBooleanSpecified = x => x === true || x === false
 
 export const Sidebar = ({
     className,
-    side,
     style,
     toggleClassname,
     toggleStyle,
     children,
+    side = 'left',
     collapsed: forceCollapsed,
     collapsible = true,
-    collapseBreakpoint = sidebarSize * 2,
+    collapseBreakpoint = sidebarSize * 3,
     toggled: forceToggled,
 }) => {
     const [collapsed, setCollapsed] = useState(!!forceCollapsed)
@@ -28,11 +28,8 @@ export const Sidebar = ({
     const elementRef = useRef()
     const size = useParentSize(elementRef)
 
-    console.log(side)
-
     useEffect(() => {
         if (!isBooleanSpecified(forceCollapsed) && collapsible) {
-            console.log(size.width)
             setCollapsed(size.width < collapseBreakpoint)
         }
     }, [size])
