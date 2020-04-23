@@ -5,8 +5,8 @@ import { Topbar } from './TopbarLayout/Topbar.js'
 import { SidebarLayout } from './SidebarLayout/SidebarLayout.js'
 import { Sidebar } from './SidebarLayout/Sidebar.js'
 
-import { LogoIcon } from '../'
-import Button from '../Button/Button.js'
+import { LogoIcon } from '@dhis2/ui-widgets'
+import { Button } from '@dhis2/ui-widgets'
 
 const AppsIcon = () => (
     <svg
