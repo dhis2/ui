@@ -1,3 +1,15 @@
+# [5.0.0-alpha.10](https://github.com/dhis2/ui/compare/v5.0.0-alpha.9...v5.0.0-alpha.10) (2020-04-23)
+
+
+### Code Refactoring
+
+* **forms:** namespace final-form and react-final-form re-exports ([c59e0bb](https://github.com/dhis2/ui/commit/c59e0bb50ddb82a6c79589727a15483b98b45261))
+
+
+### BREAKING CHANGES
+
+* **forms:** final-form and react-final-form exports are now re-exported under the named exports FinalForm and ReactFinalForm respectively.
+
 # [5.0.0-alpha.9](https://github.com/dhis2/ui/compare/v5.0.0-alpha.8...v5.0.0-alpha.9) (2020-04-23)
 
 
