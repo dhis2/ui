@@ -1,3 +1,10 @@
+# [5.0.0-alpha.9](https://github.com/dhis2/ui/compare/v5.0.0-alpha.8...v5.0.0-alpha.9) (2020-04-23)
+
+
+### Bug Fixes
+
+* display submit errors ([9f74e89](https://github.com/dhis2/ui/commit/9f74e897f9ee60ae121b05e1442ff356aff9468a))
+
 # [5.0.0-alpha.8](https://github.com/dhis2/ui/compare/v5.0.0-alpha.7...v5.0.0-alpha.8) (2020-04-22)
 
 
