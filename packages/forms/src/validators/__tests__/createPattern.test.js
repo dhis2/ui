@@ -1,5 +1,5 @@
 import { createPattern, invalidPatternMessage } from '../createPattern.js'
-import { allowsEmptyValues } from './helpers/index.js'
+import { allowsEmptyValues } from '../test-helpers'
 
 describe('validator: createPattern', () => {
     const pattern = /^test$/

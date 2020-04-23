@@ -1,5 +1,5 @@
 import { dhis2Username, invalidUsernameMessage } from '../dhis2Username.js'
-import { testValidatorValues, allowsEmptyValues } from './helpers/index.js'
+import { testValidatorValues, allowsEmptyValues } from '../test-helpers'
 
 describe('validator: dhis2Username', () => {
     allowsEmptyValues(dhis2Username)
