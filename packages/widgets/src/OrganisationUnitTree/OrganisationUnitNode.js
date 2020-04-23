@@ -1,24 +1,16 @@
-/* eslint-disable */
-/**
- * REMOVE THE ESLINT-DISABLE
- * !!!!!!!!!!!!!!!!!!!!!!!!!
- * !!!!!!!!! BEFORE !!!!!!!!
- * !!!!!!!!!!!!!!!!!!!!!!!!!
- * APPROVING THE PR
- */
-import { CircularLoader, Node } from '../index.js';
+import { CircularLoader, Node } from '../index.js'
 import { resolve } from 'styled-jsx/css'
 import React, { useEffect } from 'react'
 import i18n from '@dhis2/d2-i18n'
 import propTypes from '@dhis2/prop-types'
 
-import { ErrorMessage } from './ErrorMessage';
-import { Label } from './Label';
-import { computeChildNodes } from './computeChildNodes';
-import { hasDescendantSelectedPaths } from './hasDescendantSelectedPaths';
-import { orgUnitIdPropType, orgUnitPathPropType } from './propTypes';
-import { useOpenState } from './useOpenState';
-import { useOrgData } from './useOrgData';
+import { ErrorMessage } from './ErrorMessage'
+import { Label } from './Label'
+import { computeChildNodes } from './computeChildNodes'
+import { hasDescendantSelectedPaths } from './hasDescendantSelectedPaths'
+import { orgUnitPathPropType } from './propTypes'
+import { useOpenState } from './useOpenState'
+import { useOrgData } from './useOrgData'
 
 const loadingSpinnerStyles = resolve`
     .small {
@@ -59,10 +51,11 @@ export const OrganisationUnitNode = ({
     onCollapse,
     onExpand,
 }) => {
-    const { loading, error, data } = useOrgData([id], { isUserDataViewFallback })
-    const childNodes = !loading && !error
-        ? computeChildNodes(data[id], filter)
-        : []
+    const { loading, error, data } = useOrgData([id], {
+        isUserDataViewFallback,
+    })
+    const childNodes =
+        !loading && !error ? computeChildNodes(data[id], filter) : []
     const hasChildren = !!childNodes.length
     const hasSelectedDescendants = hasDescendantSelectedPaths(path, selected)
     const isHighlighted = highlighted.includes(path)
@@ -77,14 +70,11 @@ export const OrganisationUnitNode = ({
 
     const isSelected = selected.includes(path)
 
-    useEffect(
-        () => {
-            if (!loading && !error && onChildrenLoaded) {
-                onChildrenLoaded(data)
-            }
-        },
-        [ loading, error, onChildrenLoaded ]
-    )
+    useEffect(() => {
+        if (!loading && !error && onChildrenLoaded) {
+            onChildrenLoaded(data)
+        }
+    }, [loading, error, onChildrenLoaded])
 
     const label = (
         <Label
@@ -134,33 +124,34 @@ export const OrganisationUnitNode = ({
                 </ErrorMessage>
             )}
             {showPlaceholder && <span data-test={`${dataTest}-placeholder`} />}
-            {showChildNodes && childNodes.map(child => {
-                const childPath = `${path}/${child.id}`
-                const grandChildNodes = computeChildNodes(child, filter)
+            {showChildNodes &&
+                childNodes.map(child => {
+                    const childPath = `${path}/${child.id}`
+                    const grandChildNodes = computeChildNodes(child, filter)
 
-                return (
-                    <OrganisationUnitNode
-                        key={childPath}
-                        autoExpandLoadingError={autoExpandLoadingError}
-                        childNodes={grandChildNodes}
-                        dataTest={dataTest}
-                        disableSelection={disableSelection}
-                        displayName={child.displayName}
-                        expanded={expanded}
-                        filter={filter}
-                        highlighted={highlighted}
-                        id={child.id}
-                        isUserDataViewFallback={isUserDataViewFallback}
-                        path={childPath}
-                        selected={selected}
-                        singleSelection={singleSelection}
-                        onChange={onChange}
-                        onChildrenLoaded={onChildrenLoaded}
-                        onCollapse={onCollapse}
-                        onExpand={onExpand}
-                    />
-                )
-            })}
+                    return (
+                        <OrganisationUnitNode
+                            key={childPath}
+                            autoExpandLoadingError={autoExpandLoadingError}
+                            childNodes={grandChildNodes}
+                            dataTest={dataTest}
+                            disableSelection={disableSelection}
+                            displayName={child.displayName}
+                            expanded={expanded}
+                            filter={filter}
+                            highlighted={highlighted}
+                            id={child.id}
+                            isUserDataViewFallback={isUserDataViewFallback}
+                            path={childPath}
+                            selected={selected}
+                            singleSelection={singleSelection}
+                            onChange={onChange}
+                            onChildrenLoaded={onChildrenLoaded}
+                            onCollapse={onCollapse}
+                            onExpand={onExpand}
+                        />
+                    )
+                })}
         </Node>
     )
 }
@@ -175,19 +166,13 @@ OrganisationUnitNode.propTypes = {
     displayName: propTypes.string,
     expanded: propTypes.arrayOf(orgUnitPathPropType),
     filter: propTypes.arrayOf(orgUnitPathPropType),
-    /**
-     * The parent already knows whether this node has children or not
-     * before we load the children's details, so we can use this information
-     * even during the loading phase
-     */
-    hasChildren: propTypes.bool,
     highlighted: propTypes.arrayOf(orgUnitPathPropType),
     isUserDataViewFallback: propTypes.bool,
     path: orgUnitPathPropType,
     selected: propTypes.arrayOf(orgUnitPathPropType),
     singleSelection: propTypes.bool,
 
+    onChildrenLoaded: propTypes.func,
     onCollapse: propTypes.func,
     onExpand: propTypes.func,
-    onChildrenLoaded: propTypes.func,
 }
