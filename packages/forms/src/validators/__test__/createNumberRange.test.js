@@ -4,7 +4,7 @@ import { requiredArgumentErrorMessage } from '../helpers/index.js'
 
 describe('validator: createNumberRange', () => {
     const betweenSixAndTen = createNumberRange(6, 10)
-    const errorMessage = 'Please enter a number between 6 and 10'
+    const errorMessage = 'Number cannot be less than 6 or more than 10'
 
     it('should throw an error when lower or upper bound are not a number', () => {
         expect(() => {
