@@ -1,5 +1,5 @@
 import { createMaxCharacterLength } from '../createMaxCharacterLength.js'
-import { testValidatorValues } from './helpers/index.js'
+import { testValidatorValues } from '../test-helpers'
 
 describe('validator: createMaxCharacterLength', () => {
     const maxSixChars = createMaxCharacterLength(6)

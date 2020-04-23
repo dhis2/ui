@@ -1,5 +1,5 @@
 import { createNumberRange } from '../createNumberRange.js'
-import { testValidatorValues, allowsEmptyValues } from './helpers/index.js'
+import { testValidatorValues, allowsEmptyValues } from '../test-helpers'
 import { requiredArgumentErrorMessage } from '../helpers/index.js'
 
 describe('validator: createNumberRange', () => {

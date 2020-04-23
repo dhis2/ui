@@ -1,5 +1,5 @@
 import { integer, invalidIntegerMessage } from '../integer.js'
-import { testValidatorValues, allowsEmptyValues } from './helpers/index.js'
+import { testValidatorValues, allowsEmptyValues } from '../test-helpers'
 
 describe('validator: integer', () => {
     allowsEmptyValues(integer)

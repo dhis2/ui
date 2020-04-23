@@ -1,5 +1,5 @@
 import { createMinCharacterLength } from '../createMinCharacterLength.js'
-import { testValidatorValues } from './helpers/index.js'
+import { testValidatorValues } from '../test-helpers'
 
 describe('validator: createMinCharacterLength', () => {
     const atLeastSixChars = createMinCharacterLength(6)

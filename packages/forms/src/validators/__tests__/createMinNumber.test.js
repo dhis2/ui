@@ -1,5 +1,5 @@
 import { createMinNumber } from '../createMinNumber.js'
-import { testValidatorValues } from './helpers/index.js'
+import { testValidatorValues } from '../test-helpers'
 
 describe('validator: createMinNumber', () => {
     const atLeastSix = createMinNumber(6)
