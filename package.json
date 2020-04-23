@@ -21,6 +21,7 @@
         "build:core": "yarn workspace @dhis2/ui-core build",
         "build:forms": "yarn workspace @dhis2/ui-forms build",
         "build:icons": "yarn workspace @dhis2/ui-icons build",
+        "build:layouts": "yarn workspace @dhis2/ui-layouts build",
         "build:ui": "yarn workspace @dhis2/ui build",
         "build:widgets": "yarn workspace @dhis2/ui-widgets build",
         "cy:server": "yarn build && STORYBOOK_TESTING=1 yarn watch:storybook",
@@ -41,6 +42,7 @@
         "watch:core": "yarn build:core --watch --dev",
         "watch:forms": "yarn build:forms --watch --dev",
         "watch:icons": "yarn build:icons --watch --dev",
+        "watch:layouts": "yarn build:layouts --watch --dev",
         "watch:storybook": "yarn workspace storybook start --quiet --ci",
         "watch:widgets": "yarn build:widgets --watch --dev"
     },
