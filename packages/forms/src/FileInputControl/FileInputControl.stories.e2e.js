@@ -6,7 +6,6 @@ import { formDecorator } from '../formDecorator.js'
 import {
     CheckboxControl,
     CheckboxGroupControl,
-    FieldControl,
     FileInputControl,
     InputControl,
     MultiSelectControl,
@@ -17,12 +16,15 @@ import {
     composeValidators,
     email,
     hasValue,
+    ReactFinalForm,
 } from '../index.js'
+
+const { Field } = ReactFinalForm
 
 const StandardForm = ({ values }) => {
     return (
         <div style={{ maxWidth: 830 }}>
-            <FieldControl
+            <Field
                 name="gender"
                 label="Gender"
                 component={SingleSelectControl}
@@ -39,7 +41,7 @@ const StandardForm = ({ values }) => {
                 ]}
             />
 
-            <FieldControl
+            <Field
                 required
                 label="First name"
                 name="fname"
@@ -48,7 +50,7 @@ const StandardForm = ({ values }) => {
                 helpText="Please enter your first name, excluding middle names"
             />
 
-            <FieldControl
+            <Field
                 required
                 label="Last name"
                 name="lname"
@@ -57,7 +59,7 @@ const StandardForm = ({ values }) => {
                 helpText="Please enter your first name, excluding middle names"
             />
 
-            <FieldControl
+            <Field
                 name="subscribe"
                 checkedValue="yes"
                 label="I want to receive updated and notifications about the latest changes?"
@@ -65,7 +67,7 @@ const StandardForm = ({ values }) => {
             />
 
             {values.subscribe && (
-                <FieldControl
+                <Field
                     required={values.subscribe}
                     label="E-mail address"
                     name="email1"
@@ -80,7 +82,7 @@ const StandardForm = ({ values }) => {
             )}
 
             {values.subscribe && (
-                <FieldControl
+                <Field
                     disabled={!values.subscribe}
                     required={values.subscribe}
                     label="E-mail address confirmation"
@@ -91,7 +93,7 @@ const StandardForm = ({ values }) => {
                 />
             )}
 
-            <FieldControl
+            <Field
                 name="food"
                 label="Food"
                 component={RadioGroupControl}
@@ -105,7 +107,7 @@ const StandardForm = ({ values }) => {
                 helpText="If we ever gather for food, what meal type would you like to eat"
             />
 
-            <FieldControl
+            <Field
                 label="Pizza toppings"
                 name="pizzaToppings"
                 component={CheckboxGroupControl}
@@ -119,7 +121,7 @@ const StandardForm = ({ values }) => {
                 helpText="If we ever order pizza, what ingredients would you like on top"
             />
 
-            <FieldControl
+            <Field
                 label="Sandwich toppings"
                 name="sandwhichToppings"
                 component={MultiSelectControl}
@@ -133,13 +135,13 @@ const StandardForm = ({ values }) => {
                 helpText="If we ever order sandwiches, what ingredients would you like on top"
             />
 
-            <FieldControl
+            <Field
                 name="message"
                 label="If you want to tell us anything, just add your message here"
                 component={TextAreaControl}
             />
 
-            <FieldControl
+            <Field
                 name="fileTxt"
                 accept=".txt"
                 label="If you want to send us a txt file, please attach it here"
@@ -155,7 +157,7 @@ const StandardForm = ({ values }) => {
                 component={FileInputControl}
             />
 
-            <FieldControl
+            <Field
                 multiple
                 accept="image/jpg"
                 name="fileJpgs"
@@ -173,7 +175,7 @@ const StandardForm = ({ values }) => {
                 component={FileInputControl}
             />
 
-            <FieldControl
+            <Field
                 required
                 name="tnc"
                 label="I accept the terms and conditions"
@@ -185,7 +187,7 @@ const StandardForm = ({ values }) => {
     )
 }
 
-storiesOf('Testing:Forms', module)
+storiesOf('Testing:FileInput', module)
     .addDecorator(formDecorator)
     .addParameters({ options: { showPanel: false } })
     .add('Standard form', ({ formRenderProps }) => (

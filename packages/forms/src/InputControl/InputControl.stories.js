@@ -2,19 +2,17 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 
 import { formDecorator } from '../formDecorator.js'
-import { FieldControl, InputControl, hasValue } from '../index.js'
+import { ReactFinalForm, InputControl, hasValue } from '../index.js'
+
+const { Field } = ReactFinalForm
 
 storiesOf('Form/InputControl', module)
     .addDecorator(formDecorator)
     .add('Default', () => (
-        <FieldControl
-            component={InputControl}
-            name="agree"
-            label="Do you agree?"
-        />
+        <Field component={InputControl} name="agree" label="Do you agree?" />
     ))
     .add('Required', () => (
-        <FieldControl
+        <Field
             name="agree"
             component={InputControl}
             required
@@ -23,7 +21,7 @@ storiesOf('Form/InputControl', module)
         />
     ))
     .add('Disabled', () => (
-        <FieldControl
+        <Field
             name="agree"
             component={InputControl}
             disabled
@@ -31,7 +29,7 @@ storiesOf('Form/InputControl', module)
         />
     ))
     .add('Help text', () => (
-        <FieldControl
+        <Field
             name="agree"
             component={InputControl}
             label="Do you agree?"
@@ -40,21 +38,21 @@ storiesOf('Form/InputControl', module)
     ))
     .add('Statuses', () => (
         <>
-            <FieldControl
+            <Field
                 name="valid"
                 component={InputControl}
                 label="Valid"
                 valid
                 validationText="Validation text"
             />
-            <FieldControl
+            <Field
                 name="warning"
                 component={InputControl}
                 label="Warning"
                 warning
                 validationText="Validation text"
             />
-            <FieldControl
+            <Field
                 name="error"
                 component={InputControl}
                 label="Error"

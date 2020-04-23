@@ -3,11 +3,13 @@ import { storiesOf } from '@storybook/react'
 import { formDecorator } from '../formDecorator.js'
 
 import {
-    FieldControl,
+    ReactFinalForm,
     CheckboxGroupControl,
     arrayWithIdObjects,
     hasValue,
 } from '../index.js'
+
+const { Field } = ReactFinalForm
 
 const options = [
     { label: 'Foo', value: 'foo' },
@@ -20,7 +22,7 @@ const multipleValue = ['bar', 'baz']
 storiesOf('Form/CheckboxGroupControl', module)
     .addDecorator(formDecorator)
     .add('Default - Checkbox', () => (
-        <FieldControl
+        <Field
             name="choice"
             label="Choose something"
             component={CheckboxGroupControl}
@@ -29,7 +31,7 @@ storiesOf('Form/CheckboxGroupControl', module)
         />
     ))
     .add('Required - Checkbox', () => (
-        <FieldControl
+        <Field
             name="choice"
             label="Choose something"
             component={CheckboxGroupControl}
@@ -42,13 +44,13 @@ storiesOf('Form/CheckboxGroupControl', module)
 
     .add('Different value transformers', () => (
         <>
-            <FieldControl
+            <Field
                 name="array"
                 label="My values are going to the form as an array of strings (default)"
                 component={CheckboxGroupControl}
                 options={options}
             />
-            <FieldControl
+            <Field
                 name="arrayWithIdObjects"
                 label="My values are going to the form as an array objects with an ID"
                 component={CheckboxGroupControl}

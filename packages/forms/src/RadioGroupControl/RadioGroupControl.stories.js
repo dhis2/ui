@@ -2,7 +2,9 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { formDecorator } from '../formDecorator.js'
 
-import { FieldControl, RadioGroupControl, hasValue } from '../index.js'
+import { ReactFinalForm, RadioGroupControl, hasValue } from '../index.js'
+
+const { Field } = ReactFinalForm
 
 const options = [
     { label: 'Foo', value: 'foo' },
@@ -13,7 +15,7 @@ const options = [
 storiesOf('Form/RadioGroupControl', module)
     .addDecorator(formDecorator)
     .add('Default - Radio', () => (
-        <FieldControl
+        <Field
             name="choice"
             label="Choose something"
             component={RadioGroupControl}
@@ -22,7 +24,7 @@ storiesOf('Form/RadioGroupControl', module)
         />
     ))
     .add('Required - Radio', () => (
-        <FieldControl
+        <Field
             name="choice"
             label="Choose something"
             component={RadioGroupControl}

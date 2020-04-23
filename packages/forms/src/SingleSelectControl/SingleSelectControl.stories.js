@@ -2,7 +2,9 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { formDecorator } from '../formDecorator.js'
 
-import { FieldControl, SingleSelectControl } from '../index.js'
+import { ReactFinalForm, SingleSelectControl } from '../index.js'
+
+const { Field } = ReactFinalForm
 
 const options = [
     { value: '1', label: 'one' },
@@ -20,7 +22,7 @@ const options = [
 storiesOf('Form/SingleSelectControl', module)
     .addDecorator(formDecorator)
     .add('Default', () => (
-        <FieldControl
+        <Field
             component={SingleSelectControl}
             name="agree"
             label="Do you agree?"
@@ -28,7 +30,7 @@ storiesOf('Form/SingleSelectControl', module)
         />
     ))
     .add('InitialValue', () => (
-        <FieldControl
+        <Field
             component={SingleSelectControl}
             name="agree"
             label="Do you agree?"

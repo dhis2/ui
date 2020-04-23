@@ -2,7 +2,9 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { formDecorator } from '../formDecorator.js'
 
-import { FieldControl, RadioGroupControl, hasValue } from '../index.js'
+import { ReactFinalForm, RadioGroupControl, hasValue } from '../index.js'
+
+const { Field } = ReactFinalForm
 
 const defaultOptions = [
     { label: 'Foo', value: 'foo' },
@@ -13,7 +15,7 @@ const defaultOptions = [
 storiesOf('Testing:RadioGroupControl', module)
     .addDecorator(formDecorator)
     .add('Default', ({ cypressProps }) => (
-        <FieldControl
+        <Field
             name="choice"
             label="Choose something"
             component={RadioGroupControl}
@@ -21,7 +23,7 @@ storiesOf('Testing:RadioGroupControl', module)
         />
     ))
     .add('Required', ({ cypressProps }) => (
-        <FieldControl
+        <Field
             name="choice"
             label="Choose something"
             component={RadioGroupControl}

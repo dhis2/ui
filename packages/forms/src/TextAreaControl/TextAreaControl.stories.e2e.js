@@ -2,19 +2,21 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { formDecorator } from '../formDecorator.js'
 
-import { FieldControl, TextAreaControl, hasValue } from '../index.js'
+import { ReactFinalForm, TextAreaControl, hasValue } from '../index.js'
+
+const { Field } = ReactFinalForm
 
 storiesOf('TextArea', module)
     .addDecorator(formDecorator)
     .add('Default', () => (
-        <FieldControl
+        <Field
             component={TextAreaControl}
             name="comment"
             label="Do you have any comments?"
         />
     ))
     .add('Required', () => (
-        <FieldControl
+        <Field
             required
             name="comment"
             component={TextAreaControl}

@@ -2,19 +2,17 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { formDecorator } from '../formDecorator.js'
 
-import { FieldControl, TextAreaControl, hasValue } from '../index.js'
+import { ReactFinalForm, TextAreaControl, hasValue } from '../index.js'
+
+const { Field } = ReactFinalForm
 
 storiesOf('Form/TextAreaControl', module)
     .addDecorator(formDecorator)
     .add('Default', () => (
-        <FieldControl
-            component={TextAreaControl}
-            name="agree"
-            label="Do you agree?"
-        />
+        <Field component={TextAreaControl} name="agree" label="Do you agree?" />
     ))
     .add('Autogrow', () => (
-        <FieldControl
+        <Field
             component={TextAreaControl}
             name="agree"
             label="Do you agree?"
@@ -22,7 +20,7 @@ storiesOf('Form/TextAreaControl', module)
         />
     ))
     .add('Required', () => (
-        <FieldControl
+        <Field
             name="agree"
             component={TextAreaControl}
             required
@@ -31,7 +29,7 @@ storiesOf('Form/TextAreaControl', module)
         />
     ))
     .add('Disabled', () => (
-        <FieldControl
+        <Field
             name="agree"
             component={TextAreaControl}
             disabled
@@ -39,7 +37,7 @@ storiesOf('Form/TextAreaControl', module)
         />
     ))
     .add('Help text', () => (
-        <FieldControl
+        <Field
             name="agree"
             component={TextAreaControl}
             label="Do you agree?"
@@ -48,21 +46,21 @@ storiesOf('Form/TextAreaControl', module)
     ))
     .add('Statuses', () => (
         <>
-            <FieldControl
+            <Field
                 name="valid"
                 component={TextAreaControl}
                 label="Valid"
                 valid
                 validationText="Validation text"
             />
-            <FieldControl
+            <Field
                 name="warning"
                 component={TextAreaControl}
                 label="Warning"
                 warning
                 validationText="Validation text"
             />
-            <FieldControl
+            <Field
                 name="error"
                 component={TextAreaControl}
                 label="Error"
