@@ -10,7 +10,7 @@ export const topbarLayoutStyles = css.resolve`
 export const topbarStyles = css.resolve`
     .topbarContainer {
         width: 100%;
-        min-height: 46px;
+        min-height: 48px;
         height: auto;
         padding: 8px;
 
