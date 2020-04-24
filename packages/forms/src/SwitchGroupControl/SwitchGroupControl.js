@@ -63,7 +63,6 @@ SwitchGroupControl.propTypes = {
     meta: metaPropType.isRequired,
     options: toggleGroupOptionsProp.isRequired,
 
-    checkedValue: propTypes.string,
     error: propTypes.bool,
     showValidStatus: propTypes.bool,
     valid: propTypes.bool,

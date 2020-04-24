@@ -4,14 +4,13 @@ import { storiesOf } from '@storybook/react'
 import { formDecorator } from '../formDecorator.js'
 
 import {
-    CheckboxControl,
     CheckboxGroupControl,
     FileInputControl,
     InputControl,
     MultiSelectControl,
     RadioGroupControl,
     SingleSelectControl,
-    SwitchControl,
+    SwitchGroupControl,
     TextAreaControl,
     composeValidators,
     email,
@@ -61,9 +60,15 @@ const StandardForm = ({ values }) => {
 
             <Field
                 name="subscribe"
-                checkedValue="yes"
-                label="I want to receive updated and notifications about the latest changes?"
-                component={SwitchControl}
+                options={[
+                    {
+                        label:
+                            'I want to receive updated and notifications about the latest changes?',
+                        value: 'yes',
+                    },
+                ]}
+                initialValue="yes"
+                component={SwitchGroupControl}
             />
 
             {values.subscribe && (
@@ -178,9 +183,16 @@ const StandardForm = ({ values }) => {
             <Field
                 required
                 name="tnc"
-                label="I accept the terms and conditions"
+                label=""
                 validate={hasValue}
-                component={CheckboxControl}
+                component={CheckboxGroupControl}
+                options={[
+                    {
+                        label: 'I accept the terms and conditions',
+                        value: 'accepted',
+                    },
+                ]}
+                initialValue="accepted"
                 className="checkbox"
             />
         </div>
