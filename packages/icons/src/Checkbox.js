@@ -40,7 +40,7 @@ const commonStyles = css`
     }
 `
 
-export function Regular({ className }) {
+export function CheckboxRegular({ className }) {
     return (
         <svg
             viewBox="0 0 18 18"
@@ -116,11 +116,11 @@ export function Regular({ className }) {
         </svg>
     )
 }
-Regular.propTypes = {
+CheckboxRegular.propTypes = {
     className: propTypes.string,
 }
 
-export function Dense({ className }) {
+export function CheckboxDense({ className }) {
     return (
         <svg
             viewBox="0 0 14 14"
@@ -204,6 +204,6 @@ export function Dense({ className }) {
         </svg>
     )
 }
-Dense.propTypes = {
+CheckboxDense.propTypes = {
     className: propTypes.string,
 }

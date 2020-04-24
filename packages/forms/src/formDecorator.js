@@ -1,6 +1,6 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import { Button } from '@dhis2/ui-widgets'
+import { Button } from '@dhis2/ui-core'
 
 import { ReactFinalForm } from './index.js'
 

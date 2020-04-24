@@ -2,7 +2,7 @@ import React from 'react'
 import css from 'styled-jsx/css'
 
 import { useDataQuery } from '@dhis2/app-runtime'
-import { LogoIconWhite } from '../index.js'
+import { LogoIconWhite } from '@dhis2/ui-core'
 
 const logoStyles = css.resolve`
     svg {
