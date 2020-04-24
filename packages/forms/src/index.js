@@ -4,6 +4,7 @@ export * from './InputControl/InputControl.js'
 export * from './MultiSelectControl/MultiSelectControl.js'
 export * from './RadioGroupControl/RadioGroupControl.js'
 export * from './SingleSelectControl/SingleSelectControl.js'
+export * from './SwitchGroupControl/SwitchGroupControl.js'
 export * from './TextAreaControl/TextAreaControl.js'
 
 export * from './transformers/index.js'
