@@ -1,81 +1,80 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import { MultiSelectOption } from '../MultiSelectOption/MultiSelectOption.js'
-
-import { MultiSelectField } from './MultiSelectField.js'
+import { SingleSelectOption } from '@dhis2/ui-core'
+import { SingleSelectField } from './SingleSelectField.js'
 
 const defaultProps = {
     label: 'Default label',
-    selected: ['1'],
+    selected: '1',
     onChange: selected =>
         alert(`Selected changed to: ${JSON.stringify(selected, null, 2)}`),
 }
 
 const options = [
-    <MultiSelectOption key="1" value="1" label="one" />,
-    <MultiSelectOption key="2" value="2" label="two" />,
-    <MultiSelectOption key="3" value="3" label="three" />,
-    <MultiSelectOption key="4" value="4" label="four" />,
-    <MultiSelectOption key="5" value="5" label="five" />,
-    <MultiSelectOption key="6" value="6" label="six" />,
-    <MultiSelectOption key="7" value="7" label="seven" />,
-    <MultiSelectOption key="8" value="8" label="eight" />,
-    <MultiSelectOption key="9" value="9" label="nine" />,
-    <MultiSelectOption key="10" value="10" label="ten" />,
+    <SingleSelectOption key="1" value="1" label="one" />,
+    <SingleSelectOption key="2" value="2" label="two" />,
+    <SingleSelectOption key="3" value="3" label="three" />,
+    <SingleSelectOption key="4" value="4" label="four" />,
+    <SingleSelectOption key="5" value="5" label="five" />,
+    <SingleSelectOption key="6" value="6" label="six" />,
+    <SingleSelectOption key="7" value="7" label="seven" />,
+    <SingleSelectOption key="8" value="8" label="eight" />,
+    <SingleSelectOption key="9" value="9" label="nine" />,
+    <SingleSelectOption key="10" value="10" label="ten" />,
 ]
 
-storiesOf('Components/Core/MultiSelectField', module)
+storiesOf('Components/Widgets/SingleSelectField', module)
     .add('Default', () => (
-        <MultiSelectField {...defaultProps}>{options}</MultiSelectField>
+        <SingleSelectField {...defaultProps}>{options}</SingleSelectField>
     ))
     .add('With Help text', () => (
-        <MultiSelectField {...defaultProps} helpText="A helpful text.">
+        <SingleSelectField {...defaultProps} helpText="A helpful text.">
             {options}
-        </MultiSelectField>
+        </SingleSelectField>
     ))
     .add('Status: Valid', () => (
-        <MultiSelectField
+        <SingleSelectField
             {...defaultProps}
             helpText="A helpful text."
             validationText="Totally valid"
             valid
         >
             {options}
-        </MultiSelectField>
+        </SingleSelectField>
     ))
     .add('Status: Warning', () => (
-        <MultiSelectField
+        <SingleSelectField
             {...defaultProps}
             helpText="A helpful text."
             validationText="Hm, not quite, I warn thee!"
             warning
         >
             {options}
-        </MultiSelectField>
+        </SingleSelectField>
     ))
     .add('Status: Error', () => (
-        <MultiSelectField
+        <SingleSelectField
             {...defaultProps}
             helpText="A helpful text."
             validationText="NO! TOTALLY WRONG!"
             error
         >
             {options}
-        </MultiSelectField>
+        </SingleSelectField>
     ))
     .add('Required', () => (
-        <MultiSelectField {...defaultProps} required>
+        <SingleSelectField {...defaultProps} required>
             {options}
-        </MultiSelectField>
+        </SingleSelectField>
     ))
     .add('Input width', () => (
-        <MultiSelectField
+        <SingleSelectField
             inputWidth="200px"
             {...defaultProps}
             label="A very long label indeed, well at least longer than the input field to show how it looks and works and stuff"
             required
         >
             {options}
-        </MultiSelectField>
+        </SingleSelectField>
     ))

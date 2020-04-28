@@ -1,47 +1,47 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
 
-import { SwitchField } from './SwitchField.js'
+import { CheckboxField } from './CheckboxField.js'
 
 const logger = ({ name, value, checked }) =>
     console.info(`name: ${name}, value: ${value}, checked: ${checked}`)
 
-storiesOf('Components/Core/SwitchField', module)
+storiesOf('Components/Widgets/CheckboxField', module)
     // Regular
     .add('Default', () => (
-        <SwitchField
+        <CheckboxField
             name="Ex"
-            label="SwitchField"
+            label="CheckboxField"
             value="default"
             onChange={logger}
         />
     ))
 
     .add('Focused unchecked', () => (
-        <SwitchField
+        <CheckboxField
             initialFocus
             name="Ex"
-            label="SwitchField"
+            label="CheckboxField"
             value="default"
             onChange={logger}
         />
     ))
 
     .add('Focused checked', () => (
-        <SwitchField
+        <CheckboxField
             initialFocus
             checked
             name="Ex"
-            label="SwitchField"
+            label="CheckboxField"
             value="default"
             onChange={logger}
         />
     ))
 
     .add('Checked', () => (
-        <SwitchField
+        <CheckboxField
             name="Ex"
-            label="SwitchField"
+            label="CheckboxField"
             checked
             value="checked"
             onChange={logger}
@@ -49,9 +49,9 @@ storiesOf('Components/Core/SwitchField', module)
     ))
 
     .add('Required', () => (
-        <SwitchField
+        <CheckboxField
             name="Ex"
-            label="SwitchField"
+            label="CheckboxField"
             required
             value="checked"
             onChange={logger}
@@ -60,16 +60,16 @@ storiesOf('Components/Core/SwitchField', module)
 
     .add('Disabled', () => (
         <>
-            <SwitchField
+            <CheckboxField
                 name="Ex"
-                label="SwitchField"
+                label="CheckboxField"
                 disabled
                 value="disabled"
                 onChange={logger}
             />
-            <SwitchField
+            <CheckboxField
                 name="Ex"
-                label="SwitchField"
+                label="CheckboxField"
                 disabled
                 checked
                 value="disabled"
@@ -80,16 +80,16 @@ storiesOf('Components/Core/SwitchField', module)
 
     .add('Help text', () => (
         <>
-            <SwitchField
+            <CheckboxField
                 name="Ex"
-                label="SwitchField"
+                label="CheckboxField"
                 value="disabled"
                 onChange={logger}
                 helpText="Help text"
             />
-            <SwitchField
+            <CheckboxField
                 name="Ex"
-                label="SwitchField"
+                label="CheckboxField"
                 error
                 validationText="Validation text (error state)"
                 helpText="Help text"
@@ -101,17 +101,17 @@ storiesOf('Components/Core/SwitchField', module)
 
     .add('Valid', () => (
         <>
-            <SwitchField
+            <CheckboxField
                 name="Ex"
-                label="SwitchField"
+                label="CheckboxField"
                 valid
                 validationText="I am a validation text"
                 value="valid"
                 onChange={logger}
             />
-            <SwitchField
+            <CheckboxField
                 name="Ex"
-                label="SwitchField"
+                label="CheckboxField"
                 valid
                 validationText="I am a validation text"
                 checked
@@ -123,17 +123,17 @@ storiesOf('Components/Core/SwitchField', module)
 
     .add('Warning', () => (
         <>
-            <SwitchField
+            <CheckboxField
                 name="Ex"
-                label="SwitchField"
+                label="CheckboxField"
                 warning
                 validationText="I am a validation text"
                 value="warning"
                 onChange={logger}
             />
-            <SwitchField
+            <CheckboxField
                 name="Ex"
-                label="SwitchField"
+                label="CheckboxField"
                 warning
                 validationText="I am a validation text"
                 checked
@@ -145,17 +145,17 @@ storiesOf('Components/Core/SwitchField', module)
 
     .add('Error', () => (
         <>
-            <SwitchField
+            <CheckboxField
                 name="Ex"
-                label="SwitchField"
+                label="CheckboxField"
                 error
                 validationText="I am a validation text"
                 value="error"
                 onChange={logger}
             />
-            <SwitchField
+            <CheckboxField
                 name="Ex"
-                label="SwitchField"
+                label="CheckboxField"
                 error
                 validationText="I am a validation text"
                 checked
@@ -166,7 +166,7 @@ storiesOf('Components/Core/SwitchField', module)
     ))
 
     .add('Image label', () => (
-        <SwitchField
+        <CheckboxField
             name="Ex"
             label={<img src="https://picsum.photos/id/82/200/100" />}
             value="with-help"
@@ -176,43 +176,43 @@ storiesOf('Components/Core/SwitchField', module)
 
     // Dense
     .add('Default - Dense', () => (
-        <SwitchField
+        <CheckboxField
             dense
             name="Ex"
-            label="SwitchField"
+            label="CheckboxField"
             value="default"
             onChange={logger}
         />
     ))
 
     .add('Focused unchecked - Dense', () => (
-        <SwitchField
+        <CheckboxField
             dense
             initialFocus
             name="Ex"
-            label="SwitchField"
+            label="CheckboxField"
             value="default"
             onChange={logger}
         />
     ))
 
     .add('Focused checked - Dense', () => (
-        <SwitchField
+        <CheckboxField
             dense
             initialFocus
             checked
             name="Ex"
-            label="SwitchField"
+            label="CheckboxField"
             value="default"
             onChange={logger}
         />
     ))
 
     .add('Checked - Dense', () => (
-        <SwitchField
+        <CheckboxField
             dense
             name="Ex"
-            label="SwitchField"
+            label="CheckboxField"
             checked
             value="checked"
             onChange={logger}
@@ -220,10 +220,10 @@ storiesOf('Components/Core/SwitchField', module)
     ))
 
     .add('Required - Dense', () => (
-        <SwitchField
+        <CheckboxField
             dense
             name="Ex"
-            label="SwitchField"
+            label="CheckboxField"
             required
             value="checked"
             onChange={logger}
@@ -232,18 +232,18 @@ storiesOf('Components/Core/SwitchField', module)
 
     .add('Disabled - Dense', () => (
         <>
-            <SwitchField
+            <CheckboxField
                 dense
                 name="Ex"
-                label="SwitchField"
+                label="CheckboxField"
                 disabled
                 value="disabled"
                 onChange={logger}
             />
-            <SwitchField
+            <CheckboxField
                 dense
                 name="Ex"
-                label="SwitchField"
+                label="CheckboxField"
                 disabled
                 checked
                 value="disabled"
@@ -254,19 +254,19 @@ storiesOf('Components/Core/SwitchField', module)
 
     .add('Valid - Dense', () => (
         <>
-            <SwitchField
+            <CheckboxField
                 dense
                 name="Ex"
-                label="SwitchField"
+                label="CheckboxField"
                 valid
                 validationText="I am a validation text"
                 value="valid"
                 onChange={logger}
             />
-            <SwitchField
+            <CheckboxField
                 dense
                 name="Ex"
-                label="SwitchField"
+                label="CheckboxField"
                 valid
                 validationText="I am a validation text"
                 checked
@@ -278,19 +278,19 @@ storiesOf('Components/Core/SwitchField', module)
 
     .add('Warning - Dense', () => (
         <>
-            <SwitchField
+            <CheckboxField
                 dense
                 name="Ex"
-                label="SwitchField"
+                label="CheckboxField"
                 warning
                 validationText="I am a validation text"
                 value="warning"
                 onChange={logger}
             />
-            <SwitchField
+            <CheckboxField
                 dense
                 name="Ex"
-                label="SwitchField"
+                label="CheckboxField"
                 warning
                 validationText="I am a validation text"
                 checked
@@ -302,19 +302,19 @@ storiesOf('Components/Core/SwitchField', module)
 
     .add('Error - Dense', () => (
         <>
-            <SwitchField
+            <CheckboxField
                 dense
                 name="Ex"
-                label="SwitchField"
+                label="CheckboxField"
                 error
                 validationText="I am a validation text"
                 value="error"
                 onChange={logger}
             />
-            <SwitchField
+            <CheckboxField
                 dense
                 name="Ex"
-                label="SwitchField"
+                label="CheckboxField"
                 error
                 validationText="I am a validation text"
                 checked
@@ -325,7 +325,7 @@ storiesOf('Components/Core/SwitchField', module)
     ))
 
     .add('Image label - Dense', () => (
-        <SwitchField
+        <CheckboxField
             dense
             name="Ex"
             label={<img src="https://picsum.photos/id/82/200/100" />}

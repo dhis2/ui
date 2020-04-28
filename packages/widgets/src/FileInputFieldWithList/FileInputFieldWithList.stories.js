@@ -10,7 +10,7 @@ const onChange = ({ files }) => {
     console.log('files: ', files)
 }
 
-storiesOf('Components/Core/FileInputFieldWithList', module).add(
+storiesOf('Components/Widgets/FileInputFieldWithList', module).add(
     'Default',
     () => (
         <FileInputFieldWithList

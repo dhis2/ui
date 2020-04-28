@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { storiesOf } from '@storybook/react'
-import { SingleSelectOption } from '../index.js'
+import { SingleSelectOption } from '@dhis2/ui-core'
 
 import { SingleSelectField } from './SingleSelectField.js'
 

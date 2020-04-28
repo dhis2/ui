@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import { FileListItem } from '../index.js'
+import { FileListItem } from '@dhis2/ui-core'
 
 import { FileInputField } from './FileInputField.js'
 
@@ -15,7 +15,7 @@ const onCancel = () => {
     console.log('onCancel')
 }
 
-storiesOf('Components/Core/FileInputField', module)
+storiesOf('Components/Widgets/FileInputField', module)
     .add('Default', () => (
         <FileInputField
             onChange={onChange}

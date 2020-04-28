@@ -3,11 +3,13 @@ import propTypes from '@dhis2/prop-types'
 
 import { sharedPropTypes } from '@dhis2/ui-constants'
 
-import { FileInput } from '../FileInput/FileInput.js'
-import { FileList } from '../FileList/FileList.js'
-import { FileListPlaceholder } from '../FileListPlaceholder/FileListPlaceholder.js'
-import { Field } from '../Field/Field.js'
-import { Label } from '../Label/Label.js'
+import {
+    FileInput,
+    FileList,
+    FileListPlaceholder,
+    Field,
+    Label,
+} from '@dhis2/ui-core'
 
 /**
  * @module

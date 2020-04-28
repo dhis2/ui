@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import { MultiSelectOption } from '../MultiSelectOption/MultiSelectOption.js'
+import { MultiSelectOption } from '@dhis2/ui-core'
 
 import { MultiSelectField } from './MultiSelectField.js'
 

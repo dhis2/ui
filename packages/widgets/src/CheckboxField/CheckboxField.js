@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { sharedPropTypes } from '@dhis2/ui-constants'
-import { Field, Checkbox, Required } from '../index.js'
+import { Field, Checkbox, Required } from '@dhis2/ui-core'
 
 const AddRequired = ({ label, required, dataTest }) => (
     <React.Fragment>

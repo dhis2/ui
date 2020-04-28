@@ -1,11 +1,11 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import { Checkbox, Radio, Switch } from '../index.js'
+import { Checkbox, Radio, Switch } from '@dhis2/ui-core'
 
 import { FieldSetField } from './FieldSetField.js'
 
-storiesOf('Components/Core/FieldSetField', module)
+storiesOf('Components/Widgets/FieldSetField', module)
     .add('With Checkbox', () => (
         <FieldSetField>
             <Checkbox value="first" label="First" />

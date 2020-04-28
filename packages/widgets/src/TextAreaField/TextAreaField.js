@@ -2,7 +2,7 @@ import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
 import { sharedPropTypes } from '@dhis2/ui-constants'
-import { Field, TextArea, Box } from '../index.js'
+import { Field, TextArea, Box } from '@dhis2/ui-core'
 
 /**
  * @module

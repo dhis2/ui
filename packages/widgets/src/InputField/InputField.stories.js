@@ -12,7 +12,7 @@ createStory('InputField', {
 })
 
 function createStory(name, props) {
-    return storiesOf(`Components/Core/${name}`, module)
+    return storiesOf(`Components/Widgets/${name}`, module)
         .add('Default', () => <InputField name="nolabel" onChange={logger} />)
 
         .add('No placeholder, no value', () => <InputField {...props} />)
