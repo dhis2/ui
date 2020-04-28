@@ -11,7 +11,7 @@ Given('the SingleSelect has one option', () => {
 })
 
 When('the user selects the first option', () => {
-    cy.get('form > div').selectSelectNthOption(1)
+    cy.get('[data-test="dhis2-uicore-select-input"]').selectSelectNthOption(0)
 })
 
 Then("the form state's value equals the first option's value", () => {
