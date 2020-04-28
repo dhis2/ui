@@ -5,14 +5,14 @@ import { formDecorator } from '../formDecorator.js'
 
 import {
     CheckboxControl,
-    CheckboxGroupControl,
     FileInputControl,
     InputControl,
     MultiSelectControl,
-    RadioGroupControl,
+    RadioControl,
     SingleSelectControl,
     SwitchControl,
     TextAreaControl,
+    GroupControl,
     composeValidators,
     email,
     hasValue,
@@ -61,7 +61,8 @@ const StandardForm = ({ values }) => {
 
             <Field
                 name="subscribe"
-                checkedValue="yes"
+                initialValue={true}
+                type="checkbox"
                 label="I want to receive updated and notifications about the latest changes?"
                 component={SwitchControl}
             />
@@ -93,33 +94,108 @@ const StandardForm = ({ values }) => {
                 />
             )}
 
-            <Field
+            <GroupControl
                 name="food"
                 label="Food"
-                component={RadioGroupControl}
-                options={[
-                    { value: '', label: "Don't care" },
-                    { value: 'vegan', label: 'Vegan' },
-                    { value: 'veggie', label: 'Vegetarian' },
-                    { value: 'fish', label: 'Fish' },
-                    { value: 'halal', label: 'Halal' },
-                ]}
+                required
                 helpText="If we ever gather for food, what meal type would you like to eat"
-            />
+            >
+                <Field
+                    type="radio"
+                    name="food"
+                    required
+                    component={RadioControl}
+                    value="anything"
+                    label="Don't care"
+                    validate={hasValue}
+                />
 
-            <Field
-                label="Pizza toppings"
+                <Field
+                    type="radio"
+                    name="food"
+                    component={RadioControl}
+                    required
+                    value="vegan"
+                    label="Vegan"
+                    validate={hasValue}
+                />
+
+                <Field
+                    type="radio"
+                    name="food"
+                    component={RadioControl}
+                    required
+                    value="vegetarian"
+                    label="Vegetarian"
+                    validate={hasValue}
+                />
+
+                <Field
+                    type="radio"
+                    name="food"
+                    component={RadioControl}
+                    required
+                    value="fish"
+                    label="Fish"
+                    validate={hasValue}
+                />
+
+                <Field
+                    type="radio"
+                    name="food"
+                    required
+                    component={RadioControl}
+                    value="Halal"
+                    label="halal"
+                    validate={hasValue}
+                />
+            </GroupControl>
+
+            <GroupControl
                 name="pizzaToppings"
-                component={CheckboxGroupControl}
-                options={[
-                    { value: '', label: 'All of the options' },
-                    { value: 'ham', label: 'Ham' },
-                    { value: 'salami', label: 'Salami' },
-                    { value: 'pineapple', label: 'Pineapple' },
-                    { value: 'bellpepper', label: 'Bellpepper' },
-                ]}
+                label="Pizza toppings"
                 helpText="If we ever order pizza, what ingredients would you like on top"
-            />
+            >
+                <Field
+                    type="checkbox"
+                    name="pizzaToppings"
+                    component={CheckboxControl}
+                    label="Everything"
+                    value="everything"
+                />
+
+                <Field
+                    type="checkbox"
+                    name="pizzaToppings"
+                    component={CheckboxControl}
+                    label="Ham"
+                    value="ham"
+                />
+
+                <Field
+                    type="checkbox"
+                    name="pizzaToppings"
+                    component={CheckboxControl}
+                    label="Salami"
+                    value="salami"
+                />
+
+                <Field
+                    type="checkbox"
+                    name="pizzaToppings"
+                    component={CheckboxControl}
+                    label="Pineapple"
+                    value="pineapple"
+                />
+
+                <Field
+                    type="checkbox"
+                    name="pizzaToppings"
+                    component={CheckboxControl}
+                    label="Bellpepper"
+                    value="bellpepper"
+                />
+            </GroupControl>
 
             <Field
                 label="Sandwich toppings"
@@ -181,6 +257,7 @@ const StandardForm = ({ values }) => {
                 label="I accept the terms and conditions"
                 validate={hasValue}
                 component={CheckboxControl}
+                type="checkbox"
                 className="checkbox"
             />
         </div>

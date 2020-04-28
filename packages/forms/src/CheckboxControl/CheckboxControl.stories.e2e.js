@@ -10,6 +10,7 @@ storiesOf('Testing:Checkbox', module)
     .addDecorator(formDecorator)
     .add('Unchecked', () => (
         <Field
+            type="checkbox"
             component={CheckboxControl}
             className="checkbox"
             name="checkbox"
@@ -20,6 +21,7 @@ storiesOf('Testing:Checkbox', module)
     ))
     .add('Checked ', () => (
         <Field
+            type="checkbox"
             component={CheckboxControl}
             className="checkbox"
             name="checkbox"
@@ -29,20 +31,22 @@ storiesOf('Testing:Checkbox', module)
     ))
     .add('Unchecked with value', () => (
         <Field
+            type="checkbox"
             component={CheckboxControl}
             className="checkbox"
             name="checkbox"
             label="Label text"
-            checkedValue="yes"
+            value="yes"
         />
     ))
     .add('Checked with value', () => (
         <Field
+            type="checkbox"
             component={CheckboxControl}
             className="checkbox"
             name="checkbox"
             label="Label text"
-            checkedValue="yes"
-            initialValue="yes"
+            value="yes"
+            initialValue={['yes']}
         />
     ))

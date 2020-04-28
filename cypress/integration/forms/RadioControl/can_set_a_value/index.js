@@ -1,10 +1,11 @@
 import '../common/index.js'
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('the RadioGroup has two options', () => {
+Given('the RadioControl has two options', () => {
     const options = [
-        { value: 'value1', label: 'Label 1' },
-        { value: 'value2', label: 'Label 2' },
+        { value: 'one', label: 'One' },
+        { value: 'two', label: 'Two' },
+        { value: 'three', label: 'Three' },
     ]
 
     cy.wrap(options).as('options')
@@ -14,11 +15,11 @@ Given('the RadioGroup has two options', () => {
 })
 
 When('the user selects the first option', () => {
-    cy.get('label:first').click()
+    cy.get('label:last').click()
 })
 
 Then("the form state's value equals the first option's value", () => {
     cy.get('@options').then(options => {
-        cy.verifyFormValue('choice', options[0].value)
+        cy.verifyFormValue('choice', options[2].value)
     })
 })

@@ -1,6 +1,6 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import { SwitchField } from '@dhis2/ui-core'
+import { Radio } from '@dhis2/ui-core'
 
 import {
     createToggleChangeHandler,
@@ -10,9 +10,10 @@ import {
     isValid,
     getValidationText,
 } from '../shared/helpers.js'
+
 import { metaPropType, inputPropType } from '../shared/propTypes.js'
 
-export const SwitchControl = ({
+export const RadioControl = ({
     error,
     input,
     meta,
@@ -23,11 +24,11 @@ export const SwitchControl = ({
     onFocus,
     ...rest
 }) => (
-    <SwitchField
+    <Radio
         {...rest}
-        checked={input.checked}
         name={input.name}
-        value={input.checked}
+        checked={input.checked}
+        value={input.value}
         error={hasError(meta, error)}
         valid={isValid(meta, valid, showValidStatus)}
         validationText={getValidationText(meta, validationText, error)}
@@ -37,7 +38,7 @@ export const SwitchControl = ({
     />
 )
 
-SwitchControl.propTypes = {
+RadioControl.propTypes = {
     input: inputPropType.isRequired,
     meta: metaPropType.isRequired,
 

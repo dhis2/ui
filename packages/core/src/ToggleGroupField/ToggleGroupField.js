@@ -19,38 +19,21 @@ import { Help } from '../Help/Help.js'
  */
 const ToggleGroupField = ({
     children,
-    value,
-    onChange,
-    name,
-    disabled,
-    valid,
-    warning,
-    error,
-    dense,
     className,
     label,
     helpText,
     validationText,
     required,
     dataTest,
+    valid,
+    error,
+    warning,
 }) => (
     <Field classname={className} dataTest={dataTest}>
         <FieldSet>
             {label && <Legend required={required}>{label}</Legend>}
 
-            <ToggleGroup
-                onChange={onChange}
-                name={name}
-                value={value}
-                className={className}
-                disabled={disabled}
-                valid={valid}
-                warning={warning}
-                error={error}
-                dense={dense}
-            >
-                {children}
-            </ToggleGroup>
+            <ToggleGroup>{children}</ToggleGroup>
 
             {helpText && <Help dataTest={`${dataTest}-help`}>{helpText}</Help>}
 
@@ -78,41 +61,28 @@ ToggleGroupField.defaultProps = {
  * @private
  *
  * @prop {Node} [children]
- * @prop {function} [onChange]
- * @prop {string} name
- * @prop {string|Array.<String>} [value]
  * @prop {string} [className]
- * @prop {boolean} [disabled]
- * @prop {boolean} [valid] - `valid`, `warning`, `error`, `loading`, are mutually exclusive
- * @prop {boolean} [warning]
- * @prop {boolean} [error]
- * @prop {boolean} [dense]
  *
  * @prop {string} [label]
  * @prop {string} [helpText]
  * @prop {string} [validationText]
  * @prop {boolean} [required]
  * @prop {string} [dataTest]
+ * @prop {boolean} [valid] - `valid`, `warning`, and `error`, are mutually exclusive
+ * @prop {boolean} [warning]
+ * @prop {boolean} [error]
  */
 ToggleGroupField.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
-    dense: propTypes.bool,
-    disabled: propTypes.bool,
     error: sharedPropTypes.statusPropType,
     helpText: propTypes.string,
     label: propTypes.string,
-    name: propTypes.string,
     required: propTypes.bool,
     valid: sharedPropTypes.statusPropType,
     validationText: propTypes.string,
-    value: propTypes.oneOfType([
-        propTypes.string,
-        propTypes.arrayOf(propTypes.string),
-    ]),
     warning: sharedPropTypes.statusPropType,
-    onChange: propTypes.func,
 }
 
 export { ToggleGroupField }

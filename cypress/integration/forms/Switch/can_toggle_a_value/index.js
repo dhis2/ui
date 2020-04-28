@@ -7,16 +7,16 @@ Given('an unchecked Switch with a value is rendered', () => {
 })
 
 Then('the form value that corresponds to the switch will be yes', () => {
-    cy.verifyFormValue('switch', 'yes')
+    cy.verifyFormArrayValue('switch', 'yes')
 })
 
 Given('a checked Switch with a value is rendered', () => {
     cy.visitStory('Testing:SwitchControl', 'Checked with value')
-    cy.verifyFormValue('switch', 'yes')
+    cy.verifyFormArrayValue('switch', 'yes')
 })
 
-Then('the form value that corresponds to the switch will be null', () => {
+Then('the form value that corresponds to the switch will be correct', () => {
     cy.window().then(win => {
-        expect(win.formValues.switch).to.equal(null)
+        expect(win.formValues.switch).to.deep.equal([])
     })
 })
