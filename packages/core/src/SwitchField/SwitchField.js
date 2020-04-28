@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { sharedPropTypes } from '@dhis2/ui-constants'
-import { Field, Switch, Help, Required } from '../index.js'
+import { Field, Switch, Required } from '../index.js'
 
 const AddRequired = ({ label, required, dataTest }) => (
     <React.Fragment>
@@ -48,7 +48,18 @@ const SwitchField = ({
     validationText,
     dataTest,
 }) => (
-    <Field className={className} dataTest={dataTest}>
+    <Field
+        className={className}
+        dataTest={dataTest}
+        helpText={helpText}
+        validationText={validationText}
+        error={error}
+        warning={warning}
+        valid={valid}
+        required={required}
+        name={name}
+        disabled={disabled}
+    >
         <Switch
             value={value}
             label={
@@ -71,19 +82,6 @@ const SwitchField = ({
             dense={dense}
             initialFocus={initialFocus}
         />
-
-        {helpText && <Help dataTest={`${dataTest}-help`}>{helpText}</Help>}
-
-        {validationText && (
-            <Help
-                error={error}
-                warning={warning}
-                valid={valid}
-                dataTest={`${dataTest}-validation`}
-            >
-                {validationText}
-            </Help>
-        )}
     </Field>
 )
 

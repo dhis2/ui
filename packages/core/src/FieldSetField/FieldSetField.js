@@ -2,56 +2,50 @@ import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
 import { sharedPropTypes } from '@dhis2/ui-constants'
-import { ToggleGroup } from '../ToggleGroup/ToggleGroup.js'
 import { Field } from '../Field/Field.js'
 import { FieldSet } from '../FieldSet/FieldSet.js'
 import { Legend } from '../Legend/Legend.js'
-import { Help } from '../Help/Help.js'
 
 /**
  * @module
- * @param {ToggleGroupField.PropTypes} props
+ * @param {FieldSetField.PropTypes} props
  * @returns {React.Component}
  *
- * @example import { ToggleGroupField } from '@dhis2/ui'
+ * @example import { FieldSetField } from '@dhis2/ui'
  *
- * @example import { ToggleGroupField } from '@dhis2/ui-widgets'
+ * @example import { FieldSetField } from '@dhis2/ui-widgets'
  */
-const ToggleGroupField = ({
+const FieldSetField = ({
     children,
     className,
-    label,
+    disabled,
     helpText,
     validationText,
+    legendText,
     required,
     dataTest,
     valid,
     error,
     warning,
 }) => (
-    <Field classname={className} dataTest={dataTest}>
-        <FieldSet>
-            {label && <Legend required={required}>{label}</Legend>}
+    <FieldSet classname={className} dataTest={dataTest}>
+        {legendText && <Legend required={required}>{legendText}</Legend>}
 
-            <ToggleGroup>{children}</ToggleGroup>
-
-            {helpText && <Help dataTest={`${dataTest}-help`}>{helpText}</Help>}
-
-            {validationText && (
-                <Help
-                    error={error}
-                    warning={warning}
-                    valid={valid}
-                    dataTest={`${dataTest}-validation`}
-                >
-                    {validationText}
-                </Help>
-            )}
-        </FieldSet>
-    </Field>
+        <Field
+            disabled={disabled}
+            required={required}
+            helpText={helpText}
+            validationText={validationText}
+            error={error}
+            warning={warning}
+            valid={valid}
+        >
+            {children}
+        </Field>
+    </FieldSet>
 )
 
-ToggleGroupField.defaultProps = {
+FieldSetField.defaultProps = {
     dataTest: 'dhis2-uicore-togglegroupfield',
 }
 
@@ -62,9 +56,9 @@ ToggleGroupField.defaultProps = {
  *
  * @prop {Node} [children]
  * @prop {string} [className]
- *
- * @prop {string} [label]
+ * @prop {boolean} [disabled]
  * @prop {string} [helpText]
+ * @prop {string} [legendText]
  * @prop {string} [validationText]
  * @prop {boolean} [required]
  * @prop {string} [dataTest]
@@ -72,17 +66,18 @@ ToggleGroupField.defaultProps = {
  * @prop {boolean} [warning]
  * @prop {boolean} [error]
  */
-ToggleGroupField.propTypes = {
+FieldSetField.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
+    disabled: propTypes.bool,
     error: sharedPropTypes.statusPropType,
     helpText: propTypes.string,
-    label: propTypes.string,
+    legendText: propTypes.string,
     required: propTypes.bool,
     valid: sharedPropTypes.statusPropType,
     validationText: propTypes.string,
     warning: sharedPropTypes.statusPropType,
 }
 
-export { ToggleGroupField }
+export { FieldSetField }

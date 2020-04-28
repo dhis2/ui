@@ -3,77 +3,77 @@ import { storiesOf } from '@storybook/react'
 
 import { Checkbox, Radio, Switch } from '../index.js'
 
-import { ToggleGroupField } from './ToggleGroupField.js'
+import { FieldSetField } from './FieldSetField.js'
 
-storiesOf('Components/Core/ToggleGroupField', module)
+storiesOf('Components/Core/FieldSetField', module)
     .add('With Checkbox', () => (
-        <ToggleGroupField>
+        <FieldSetField>
             <Checkbox value="first" label="First" />
             <Checkbox value="second" label="Second" />
             <Checkbox value="third" label="Third" />
-        </ToggleGroupField>
+        </FieldSetField>
     ))
 
     .add('With Radio', () => (
-        <ToggleGroupField>
+        <FieldSetField>
             <Radio value="first" label="First" />
             <Radio value="second" label="Second" checked />
             <Radio value="third" label="Third" />
             <Radio value="fourth" label="Fourth" />
-        </ToggleGroupField>
+        </FieldSetField>
     ))
 
     .add('With Switch', () => (
-        <ToggleGroupField>
+        <FieldSetField>
             <Switch value="first" label="First" />
             <Switch value="second" label="Second" />
             <Switch value="third" label="Third" />
             <Switch value="fourth" label="Fourth" />
-        </ToggleGroupField>
+        </FieldSetField>
     ))
 
     .add('With label', () => (
         <>
-            <ToggleGroupField label="I am a label">
+            <FieldSetField legendText="I am a legend">
                 <Checkbox value="first" label="First" />
                 <Checkbox value="second" label="Second" />
                 <Checkbox value="third" label="Third" />
-            </ToggleGroupField>
-            <ToggleGroupField label="I am a required label" required>
+            </FieldSetField>
+            <FieldSetField legendText="I am a required field" required>
                 <Checkbox value="first" label="First" />
                 <Checkbox value="second" label="Second" />
                 <Checkbox value="third" label="Third" />
-            </ToggleGroupField>
+            </FieldSetField>
         </>
     ))
 
     .add('Help and validation texts', () => (
         <>
-            <ToggleGroupField label="I am a label" helpText="Please help me!">
+            <FieldSetField legendText="I am a field" helpText="Please help me!">
                 <Checkbox value="first" label="First" />
                 <Checkbox value="second" label="Second" />
                 <Checkbox value="third" label="Third" />
-            </ToggleGroupField>
-            <ToggleGroupField
-                label="I am a label"
+            </FieldSetField>
+            <FieldSetField
+                legendText="I am a legend"
                 helpText="I am disabled"
                 disabled
             >
                 <Checkbox value="first" label="First" disabled />
                 <Checkbox value="second" label="Second" disabled />
                 <Checkbox value="third" label="Third" disabled />
-            </ToggleGroupField>
-            <ToggleGroupField
-                label="I am a label"
+            </FieldSetField>
+            <FieldSetField
+                legendText="I am a legend"
                 valid
                 validationText="I am valid"
             >
                 <Checkbox value="first" label="First" />
                 <Checkbox value="second" label="Second" checked />
                 <Checkbox value="third" label="Third" checked />
-            </ToggleGroupField>
-            <ToggleGroupField
-                label="I am a label"
+            </FieldSetField>
+            <FieldSetField
+                legendText="I am a legend"
                 name="warning"
                 warning
                 validationText="I have a warning"
@@ -81,15 +81,15 @@ storiesOf('Components/Core/ToggleGroupField', module)
                 <Checkbox value="first" label="First" />
                 <Checkbox value="second" label="Second" />
                 <Checkbox value="third" label="Third" />
-            </ToggleGroupField>
-            <ToggleGroupField
-                label="I am a label"
+            </FieldSetField>
+            <FieldSetField
+                legendText="I am a legend"
                 error
                 validationText="I have an error"
             >
                 <Checkbox value="first" label="First" />
                 <Checkbox value="second" label="Second" />
                 <Checkbox value="third" label="Third" />
-            </ToggleGroupField>
+            </FieldSetField>
         </>
     ))

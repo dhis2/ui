@@ -2,8 +2,7 @@ import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
 import { sharedPropTypes, spacers } from '@dhis2/ui-constants'
-import { FieldSet } from '../FieldSet/FieldSet.js'
-import { Legend } from '../Legend/Legend.js'
+import { Label } from '../Label/Label.js'
 import { Help } from '../Help/Help.js'
 import { Box } from '../Box/Box.js'
 
@@ -18,9 +17,11 @@ import { Box } from '../Box/Box.js'
  */
 const Field = ({
     children,
+    disabled,
     className,
-    label,
     helpText,
+    label,
+    name,
     validationText,
     required,
     dataTest,
@@ -28,8 +29,12 @@ const Field = ({
     error,
     warning,
 }) => (
-    <FieldSet classname={className} dataTest={dataTest}>
-        {label && <Legend required={required}>{label}</Legend>}
+    <Box className={className} dataTest={dataTest}>
+        {label && (
+            <Label required={required} disabled={disabled} htmlFor={name}>
+                {label}
+            </Label>
+        )}
 
         <Box marginTop={spacers.dp4}>{children}</Box>
 
@@ -45,7 +50,7 @@ const Field = ({
                 {validationText}
             </Help>
         )}
-    </FieldSet>
+    </Box>
 )
 
 Field.defaultProps = {
@@ -59,9 +64,10 @@ Field.defaultProps = {
  *
  * @prop {Node} [children]
  * @prop {string} [className]
- *
- * @prop {string} [label]
+ * @prop {boolean} [disabled]
  * @prop {string} [helpText]
+ * @prop {string} [label]
+ * @prop {string} [name]
  * @prop {string} [validationText]
  * @prop {boolean} [required]
  * @prop {string} [dataTest]
@@ -73,9 +79,11 @@ Field.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
+    disabled: propTypes.bool,
     error: sharedPropTypes.statusPropType,
     helpText: propTypes.string,
     label: propTypes.string,
+    name: propTypes.string,
     required: propTypes.bool,
     valid: propTypes.bool,
     validationText: propTypes.string,

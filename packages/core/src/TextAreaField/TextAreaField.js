@@ -2,7 +2,7 @@ import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
 import { sharedPropTypes } from '@dhis2/ui-constants'
-import { Field, Label, TextArea, Help, Box } from '../index.js'
+import { Field, TextArea, Box } from '../index.js'
 
 /**
  * @module
@@ -41,13 +41,19 @@ const TextAreaField = ({
     inputWidth,
     dataTest,
 }) => (
-    <Field className={className} dataTest={dataTest}>
-        {label && (
-            <Label required={required} disabled={disabled} htmlFor={name}>
-                {label}
-            </Label>
-        )}
-
+    <Field
+        className={className}
+        dataTest={dataTest}
+        disabled={disabled}
+        required={required}
+        name={name}
+        helpText={helpText}
+        validationText={validationText}
+        error={error}
+        warning={warning}
+        valid={valid}
+        label={label}
+    >
         <Box width={inputWidth} minWidth="220px">
             <TextArea
                 onFocus={onFocus}
@@ -70,19 +76,6 @@ const TextAreaField = ({
                 rows={rows}
             />
         </Box>
-
-        {helpText && <Help dataTest={`${dataTest}-help`}>{helpText}</Help>}
-
-        {validationText && (
-            <Help
-                error={error}
-                warning={warning}
-                valid={valid}
-                dataTest={`${dataTest}-validation`}
-            >
-                {validationText}
-            </Help>
-        )}
     </Field>
 )
 

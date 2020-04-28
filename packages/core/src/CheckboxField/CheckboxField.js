@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { sharedPropTypes } from '@dhis2/ui-constants'
-import { Field, Help, Checkbox, Required } from '../index.js'
+import { Field, Checkbox, Required } from '../index.js'
 
 const AddRequired = ({ label, required, dataTest }) => (
     <React.Fragment>
@@ -48,7 +48,16 @@ const CheckboxField = ({
     validationText,
     dataTest,
 }) => (
-    <Field className={className} dataTest={dataTest}>
+    <Field
+        className={className}
+        dataTest={dataTest}
+        helpText={helpText}
+        validationText={validationText}
+        error={error}
+        warning={warning}
+        valid={valid}
+        disabled={disabled}
+    >
         <Checkbox
             value={value}
             label={
@@ -71,19 +80,6 @@ const CheckboxField = ({
             dense={dense}
             initialFocus={initialFocus}
         />
-
-        {helpText && <Help dataTest={`${dataTest}-help`}>{helpText}</Help>}
-
-        {validationText && (
-            <Help
-                error={error}
-                warning={warning}
-                valid={valid}
-                dataTest={`${dataTest}-validation`}
-            >
-                {validationText}
-            </Help>
-        )}
     </Field>
 )
 

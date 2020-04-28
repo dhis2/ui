@@ -1,7 +1,7 @@
 import React from 'react'
 
 import propTypes from '@dhis2/prop-types'
-import { Field, Label, Help, SingleSelect, Box } from '../index.js'
+import { Field, SingleSelect, Box } from '../index.js'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 
 /**
@@ -52,13 +52,19 @@ class SingleSelectField extends React.Component {
         } = this.props
 
         return (
-            <Field className={className} dataTest={dataTest}>
-                {label && (
-                    <Label required={required} disabled={disabled}>
-                        {label}
-                    </Label>
-                )}
-
+            <Field
+                className={className}
+                dataTest={dataTest}
+                name={name}
+                disabled={disabled}
+                required={required}
+                label={label}
+                helpText={helpText}
+                validationText={validationText}
+                error={error}
+                warning={warning}
+                valid={valid}
+            >
                 <Box width={inputWidth} minWidth="100px">
                     <SingleSelect
                         selected={selected}
@@ -88,21 +94,6 @@ class SingleSelectField extends React.Component {
                         {children}
                     </SingleSelect>
                 </Box>
-
-                {helpText && (
-                    <Help dataTest={`${dataTest}-help`}>{helpText}</Help>
-                )}
-
-                {validationText && (
-                    <Help
-                        error={error}
-                        warning={warning}
-                        valid={valid}
-                        dataTest={`${dataTest}-validation`}
-                    >
-                        {validationText}
-                    </Help>
-                )}
             </Field>
         )
     }

@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { formDecorator } from '../formDecorator.js'
 
-import { ToggleGroupField } from '@dhis2/ui-core'
+import { FieldSetField } from '@dhis2/ui-core'
 
 import { ReactFinalForm, RadioControl } from '../index.js'
 
@@ -12,7 +12,7 @@ storiesOf('Form/RadioControl', module)
     .addDecorator(formDecorator)
 
     .add('Default', () => (
-        <ToggleGroupField>
+        <FieldSetField>
             <Field
                 type="radio"
                 component={RadioControl}
@@ -34,11 +34,11 @@ storiesOf('Form/RadioControl', module)
                 label="Three"
                 value="three"
             />
-        </ToggleGroupField>
+        </FieldSetField>
     ))
     .add('Statuses', () => (
         <>
-            <ToggleGroupField label="Valid">
+            <FieldSetField label="Valid">
                 <Field
                     type="radio"
                     name="valid"
@@ -47,8 +47,8 @@ storiesOf('Form/RadioControl', module)
                     value="valid"
                     valid
                 />
-            </ToggleGroupField>
-            <ToggleGroupField label="Warning">
+            </FieldSetField>
+            <FieldSetField label="Warning">
                 <Field
                     type="radio"
                     name="warning"
@@ -57,8 +57,8 @@ storiesOf('Form/RadioControl', module)
                     value="warning"
                     warning
                 />
-            </ToggleGroupField>
-            <ToggleGroupField label="Error">
+            </FieldSetField>
+            <FieldSetField label="Error">
                 <Field
                     type="radio"
                     name="error"
@@ -67,6 +67,6 @@ storiesOf('Form/RadioControl', module)
                     value="error"
                     error
                 />
-            </ToggleGroupField>
+            </FieldSetField>
         </>
     ))

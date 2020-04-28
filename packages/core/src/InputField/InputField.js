@@ -2,7 +2,7 @@ import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
 import { sharedPropTypes } from '@dhis2/ui-constants'
-import { Field, Label, Input, Help, Box } from '../index.js'
+import { Field, Input, Box } from '../index.js'
 
 /**
  * @module
@@ -43,17 +43,19 @@ class InputField extends React.Component {
         } = this.props
 
         return (
-            <Field className={className} dataTest={dataTest}>
-                {label && (
-                    <Label
-                        required={required}
-                        disabled={disabled}
-                        htmlFor={name}
-                    >
-                        {label}
-                    </Label>
-                )}
-
+            <Field
+                className={className}
+                dataTest={dataTest}
+                error={error}
+                warning={warning}
+                valid={valid}
+                helpText={helpText}
+                validationText={validationText}
+                label={label}
+                name={name}
+                disabled={disabled}
+                required={required}
+            >
                 <Box width={inputWidth} minWidth="72px">
                     <Input
                         onFocus={onFocus}
@@ -74,21 +76,6 @@ class InputField extends React.Component {
                         readOnly={readOnly}
                     />
                 </Box>
-
-                {helpText && (
-                    <Help dataTest={`${dataTest}-help`}>{helpText}</Help>
-                )}
-
-                {validationText && (
-                    <Help
-                        error={error}
-                        warning={warning}
-                        valid={valid}
-                        dataTest={`${dataTest}-validation`}
-                    >
-                        {validationText}
-                    </Help>
-                )}
             </Field>
         )
     }

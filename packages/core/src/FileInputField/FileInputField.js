@@ -8,7 +8,6 @@ import { FileList } from '../FileList/FileList.js'
 import { FileListPlaceholder } from '../FileListPlaceholder/FileListPlaceholder.js'
 import { Field } from '../Field/Field.js'
 import { Label } from '../Label/Label.js'
-import { Help } from '../Help/Help.js'
 
 /**
  * @module
@@ -45,7 +44,15 @@ const FileInputField = ({
     validationText,
     warning,
 }) => (
-    <Field className={className} dataTest={dataTest}>
+    <Field
+        className={className}
+        dataTest={dataTest}
+        helpText={helpText}
+        validationText={validationText}
+        error={error}
+        warning={warning}
+        valid={valid}
+    >
         {label && (
             <Label required={required} disabled={disabled} htmlFor={name}>
                 {label}
@@ -70,19 +77,6 @@ const FileInputField = ({
             valid={valid}
             warning={warning}
         />
-
-        {helpText && <Help dataTest={`${dataTest}-help`}>{helpText}</Help>}
-
-        {validationText && (
-            <Help
-                error={error}
-                warning={warning}
-                valid={valid}
-                dataTest={`${dataTest}-validation`}
-            >
-                {validationText}
-            </Help>
-        )}
 
         <FileList>
             {!children && placeholder ? (
