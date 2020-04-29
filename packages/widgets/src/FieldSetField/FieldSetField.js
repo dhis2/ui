@@ -19,7 +19,7 @@ const FieldSetField = ({
     disabled,
     helpText,
     validationText,
-    legendText,
+    label,
     required,
     dataTest,
     valid,
@@ -27,9 +27,8 @@ const FieldSetField = ({
     warning,
 }) => (
     <FieldSet classname={className} dataTest={dataTest}>
-        {legendText && <Legend required={required}>{legendText}</Legend>}
-
         <Field
+            label={label}
             disabled={disabled}
             required={required}
             helpText={helpText}
@@ -56,7 +55,7 @@ FieldSetField.defaultProps = {
  * @prop {string} [className]
  * @prop {boolean} [disabled]
  * @prop {string} [helpText]
- * @prop {string} [legendText]
+ * @prop {string} [label]
  * @prop {string} [validationText]
  * @prop {boolean} [required]
  * @prop {string} [dataTest]
@@ -71,7 +70,7 @@ FieldSetField.propTypes = {
     disabled: propTypes.bool,
     error: sharedPropTypes.statusPropType,
     helpText: propTypes.string,
-    legendText: propTypes.string,
+    label: propTypes.string,
     required: propTypes.bool,
     valid: sharedPropTypes.statusPropType,
     validationText: propTypes.string,
