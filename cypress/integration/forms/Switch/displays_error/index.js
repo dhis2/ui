@@ -8,7 +8,7 @@ Given('an unchecked Switch is rendered', () => {
 })
 
 Then('an error message is shown', () => {
-    cy.get('[data-test="dhis2-uicore-switchfield-validation"]').should(
+    cy.get('[data-test="dhis2-uiwidgets-switchfield-validation"]').should(
         'contain',
         hasValueMessage
     )
