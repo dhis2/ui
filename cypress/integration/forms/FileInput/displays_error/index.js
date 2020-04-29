@@ -7,8 +7,10 @@ When('a file with the wrong file type is provided', () => {
 })
 
 Then('an error message is shown', () => {
-    cy.get('.fileTxt .error').should(
-        'contain',
-        'The file you provided is not a txt file, received "md"'
-    )
+    cy.get('.fileTxt')
+        .get('[data-test="dhis2-uiwidgets-fileinputfield-validation"]')
+        .should(
+            'contain',
+            'The file you provided is not a txt file, received "md"'
+        )
 })

@@ -5,7 +5,8 @@ import propTypes from '@dhis2/prop-types'
 import i18n from '@dhis2/d2-i18n'
 
 import { colors, theme } from '@dhis2/ui-constants'
-import { Card, InputField } from '@dhis2/ui-core'
+import { Card } from '@dhis2/ui-core'
+import { InputField } from '../InputField/InputField.js'
 import { Settings, Apps as AppsIcon } from '@dhis2/ui-icons'
 
 const appIcon = css.resolve`

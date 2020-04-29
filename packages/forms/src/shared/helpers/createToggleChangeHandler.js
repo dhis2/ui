@@ -1,13 +1,9 @@
-// If the input has a value (checkedValue prop) the form value is: checkedValue || null
-// Otherwise the form-value is: true || false
-const getToggleValue = ({ checked, value }) => {
-    if (value) {
-        return checked ? value : null
-    }
-    return checked
-}
+const createToggleChangeHandler = (input, onChange) => (payload, event) => {
+    input.onChange(event)
 
-const createToggleChangeHandler = input => payload =>
-    input.onChange(getToggleValue(payload))
+    if (onChange && typeof onChange === 'function') {
+        onChange(payload, event)
+    }
+}
 
 export { createToggleChangeHandler }

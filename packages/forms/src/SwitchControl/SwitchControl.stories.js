@@ -70,10 +70,19 @@ storiesOf('Form/SwitchControl', module)
                 helpText="Click submit and check the console"
             />
             <Field
+                type="checkbox"
                 name="string"
                 component={SwitchControl}
                 label="I produce string form values"
-                checkedValue="value_when_checked"
+                value="value_when_checked"
+                helpText="Click submit and check the console"
+            />
+            <Field
+                type="checkbox"
+                name="string"
+                component={SwitchControl}
+                label="I also produce string form values"
+                value="another_value_when_checked"
                 helpText="Click submit and check the console"
             />
         </>

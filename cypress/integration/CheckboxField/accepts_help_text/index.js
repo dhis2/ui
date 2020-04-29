@@ -5,7 +5,7 @@ Given('a CheckboxField with help text is rendered', () => {
 })
 
 Then('the help text is visible', () => {
-    cy.get('[data-test="dhis2-uicore-checkboxfield-help"]')
+    cy.get('[data-test="dhis2-uiwidgets-checkboxfield-help"]')
         .contains('Help text')
         .should('be.visible')
 })

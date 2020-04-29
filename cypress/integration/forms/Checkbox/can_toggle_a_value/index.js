@@ -7,16 +7,16 @@ Given('an unchecked Checkbox with a value is rendered', () => {
 })
 
 Then('the form value that corresponds to the checkbox will be yes', () => {
-    cy.verifyFormValue('checkbox', 'yes')
+    cy.verifyFormArrayValue('checkbox', 'yes')
 })
 
 Given('a checked Checkbox with a value is rendered', () => {
     cy.visitStory('Testing:Checkbox', 'Checked with value')
-    cy.verifyFormValue('checkbox', 'yes')
+    cy.verifyFormArrayValue('checkbox', 'yes')
 })
 
-Then('the form value that corresponds to the checkbox will be null', () => {
+Then('the form value that corresponds to the checkbox will be correct', () => {
     cy.window().then(win => {
-        expect(win.formValues.checkbox).to.equal(null)
+        expect(win.formValues.checkbox).to.deep.equal([])
     })
 })

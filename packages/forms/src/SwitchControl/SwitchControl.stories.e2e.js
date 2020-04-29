@@ -16,6 +16,7 @@ storiesOf('Testing:SwitchControl', module)
             label="Label text"
             validate={hasValue}
             required
+            type="checkbox"
         />
     ))
     .add('Checked ', () => (
@@ -25,6 +26,7 @@ storiesOf('Testing:SwitchControl', module)
             name="switch"
             label="Label text"
             initialValue={true}
+            type="checkbox"
         />
     ))
     .add('Unchecked with value', () => (
@@ -33,7 +35,8 @@ storiesOf('Testing:SwitchControl', module)
             className="switch"
             name="switch"
             label="Label text"
-            checkedValue="yes"
+            value="yes"
+            type="checkbox"
         />
     ))
     .add('Checked with value', () => (
@@ -42,7 +45,8 @@ storiesOf('Testing:SwitchControl', module)
             className="switch"
             name="switch"
             label="Label text"
-            checkedValue="yes"
-            initialValue="yes"
+            value="yes"
+            initialValue={['yes']}
+            type="checkbox"
         />
     ))

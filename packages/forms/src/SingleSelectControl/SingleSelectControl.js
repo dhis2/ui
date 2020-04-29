@@ -1,6 +1,7 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import { SingleSelectField, SingleSelectOption } from '@dhis2/ui-core'
+import { SingleSelectField } from '@dhis2/ui-widgets'
+import { SingleSelectOption } from '@dhis2/ui-core'
 
 import {
     createSelectChangeHandler,

@@ -15,13 +15,16 @@ export const Box = ({
     width,
     minWidth,
     maxWidth,
+    marginTop,
     children,
     dataTest,
+    className,
 }) => (
-    <div data-test={dataTest}>
+    <div data-test={dataTest} className={className}>
         {children}
         <style jsx>{`
             div {
+                ${marginTop ? `margin-top: ${marginTop}` : ''}
                 ${height ? `height: ${height};` : ''}
                 ${minHeight ? `min-height: ${minHeight};` : ''}
                 ${maxHeight ? `max-height: ${maxHeight};` : ''}
@@ -42,6 +45,7 @@ Box.defaultProps = {
  * @typedef {Object} PropTypes
  * @static
  *
+ * @prop {string} [className]
  * @prop {string} [height]
  * @prop {string} [minHeight]
  * @prop {string} [maxHeight]
@@ -52,8 +56,10 @@ Box.defaultProps = {
  */
 Box.propTypes = {
     children: propTypes.node,
+    className: propTypes.string,
     dataTest: propTypes.string,
     height: propTypes.string,
+    marginTop: propTypes.string,
     maxHeight: propTypes.string,
     maxWidth: propTypes.string,
     minHeight: propTypes.string,

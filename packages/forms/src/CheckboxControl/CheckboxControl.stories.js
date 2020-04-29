@@ -9,19 +9,27 @@ const { Field } = ReactFinalForm
 storiesOf('Form/CheckboxControl', module)
     .addDecorator(formDecorator)
     .add('Default', () => (
-        <Field component={CheckboxControl} name="agree" label="Do you agree?" />
+        <Field
+            type="checkbox"
+            component={CheckboxControl}
+            name="agree"
+            label="Do you agree?"
+        />
     ))
     .add('Required', () => (
         <Field
+            type="checkbox"
             name="agree"
             component={CheckboxControl}
             required
             validate={hasValue}
             label="Do you agree?"
+            value="yes"
         />
     ))
     .add('Disabled', () => (
         <Field
+            type="checkbox"
             name="agree"
             component={CheckboxControl}
             disabled
@@ -30,6 +38,7 @@ storiesOf('Form/CheckboxControl', module)
     ))
     .add('Help text', () => (
         <Field
+            type="checkbox"
             name="agree"
             component={CheckboxControl}
             label="Do you agree?"
@@ -39,6 +48,7 @@ storiesOf('Form/CheckboxControl', module)
     .add('Statuses', () => (
         <>
             <Field
+                type="checkbox"
                 name="valid"
                 component={CheckboxControl}
                 label="Valid"
@@ -46,6 +56,7 @@ storiesOf('Form/CheckboxControl', module)
                 validationText="Validation text"
             />
             <Field
+                type="checkbox"
                 name="warning"
                 component={CheckboxControl}
                 label="Warning"
@@ -53,6 +64,7 @@ storiesOf('Form/CheckboxControl', module)
                 validationText="Validation text"
             />
             <Field
+                type="checkbox"
                 name="error"
                 component={CheckboxControl}
                 label="Error"
@@ -64,16 +76,26 @@ storiesOf('Form/CheckboxControl', module)
     .add('Value when checked', () => (
         <>
             <Field
+                type="checkbox"
                 name="bool"
                 component={CheckboxControl}
                 label="I produce boolean form values"
                 helpText="Click submit and check the console"
             />
             <Field
+                type="checkbox"
                 name="string"
                 component={CheckboxControl}
                 label="I produce string form values"
-                checkedValue="value_when_checked"
+                value="checked-value"
+                helpText="Click submit and check the console"
+            />
+            <Field
+                type="checkbox"
+                name="string"
+                component={CheckboxControl}
+                label="I also produce string form values"
+                value="another-checked-value"
                 helpText="Click submit and check the console"
             />
         </>

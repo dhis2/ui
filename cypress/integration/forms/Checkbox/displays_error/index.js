@@ -8,5 +8,8 @@ Given('an unchecked Checkbox is rendered', () => {
 })
 
 Then('an error message is shown', () => {
-    cy.get('.checkbox .error').should('contain', hasValueMessage)
+    cy.get('[data-test="dhis2-uiwidgets-checkboxfield-validation"]').should(
+        'contain',
+        hasValueMessage
+    )
 })

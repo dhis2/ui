@@ -5,7 +5,7 @@ Given('a CheckboxField with label and a required flag is rendered', () => {
 })
 
 Then('the required indicator is visible', () => {
-    cy.get('[data-test="dhis2-uicore-checkboxfield-required"]').should(
+    cy.get('[data-test="dhis2-uiwidgets-checkboxfield-required"]').should(
         'be.visible'
     )
 })

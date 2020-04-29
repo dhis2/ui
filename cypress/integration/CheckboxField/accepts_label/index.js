@@ -5,7 +5,7 @@ Given('a CheckboxField with a label is rendered', () => {
 })
 
 Then('the label is visible', () => {
-    cy.get('[data-test="dhis2-uicore-checkboxfield"]')
+    cy.get('[data-test="dhis2-uiwidgets-checkboxfield"]')
         .contains('The label')
         .should('be.visible')
 })

@@ -1,11 +1,11 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Input, Help } from '../index.js'
+import { Input } from '../index.js'
 import { Field } from './Field.js'
 
 storiesOf('Components/Core/Field', module).add('Default', () => (
     <>
-        <Field>
+        <Field helpText="Help me">
             <Input
                 onChange={() => {
                     console.log('Nothing happens')
@@ -13,9 +13,8 @@ storiesOf('Components/Core/Field', module).add('Default', () => (
                 name="input"
                 label="An input"
             />
-            <Help>A helpful text</Help>
         </Field>
-        <Field>
+        <Field helpText="Help!">
             <Input
                 onChange={() => {
                     console.log('Nothing happens')
@@ -23,7 +22,6 @@ storiesOf('Components/Core/Field', module).add('Default', () => (
                 name="input2"
                 label="An second input"
             />
-            <Help>A helpful text</Help>
         </Field>
     </>
 ))
