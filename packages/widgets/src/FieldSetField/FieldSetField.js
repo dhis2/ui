@@ -43,7 +43,7 @@ const FieldSetField = ({
 )
 
 FieldSetField.defaultProps = {
-    dataTest: 'dhis2-uicore-togglegroupfield',
+    dataTest: 'dhis2-uiwidgets-fieldsetfield',
 }
 
 /**

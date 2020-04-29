@@ -101,7 +101,7 @@ class SingleSelectField extends React.Component {
 
 SingleSelectField.defaultProps = {
     selected: '',
-    dataTest: 'dhis2-uicore-singleselectfield',
+    dataTest: 'dhis2-uiwidgets-singleselectfield',
 }
 
 /**

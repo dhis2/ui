@@ -92,7 +92,7 @@ const FileInputField = ({
 
 FileInputField.defaultProps = {
     accept: '*',
-    dataTest: 'dhis2-uicore-fileinputfield',
+    dataTest: 'dhis2-uiwidgets-fileinputfield',
 }
 
 /**

@@ -82,7 +82,7 @@ class InputField extends React.Component {
 }
 
 InputField.defaultProps = {
-    dataTest: 'dhis2-uicore-inputfield',
+    dataTest: 'dhis2-uiwidgets-inputfield',
 }
 
 /**

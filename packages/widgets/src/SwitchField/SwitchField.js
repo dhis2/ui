@@ -86,7 +86,7 @@ const SwitchField = ({
 )
 
 SwitchField.defaultProps = {
-    dataTest: 'dhis2-uicore-switchfield',
+    dataTest: 'dhis2-uiwidgets-switchfield',
 }
 
 /**

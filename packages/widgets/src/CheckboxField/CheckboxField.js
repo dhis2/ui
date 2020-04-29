@@ -84,7 +84,7 @@ const CheckboxField = ({
 )
 
 CheckboxField.defaultProps = {
-    dataTest: 'dhis2-uicore-checkboxfield',
+    dataTest: 'dhis2-uiwidgets-checkboxfield',
 }
 
 /**

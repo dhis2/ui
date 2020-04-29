@@ -101,7 +101,7 @@ class MultiSelectField extends React.Component {
 
 MultiSelectField.defaultProps = {
     selected: [],
-    dataTest: 'dhis2-uicore-multiselectfield',
+    dataTest: 'dhis2-uiwidgets-multiselectfield',
 }
 
 /**

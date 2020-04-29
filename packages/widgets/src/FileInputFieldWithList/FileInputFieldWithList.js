@@ -129,7 +129,7 @@ class FileInputFieldWithList extends Component {
 }
 
 FileInputFieldWithList.defaultProps = {
-    dataTest: 'dhis2-uicore-fileinputfieldwithlist',
+    dataTest: 'dhis2-uiwidgets-fileinputfieldwithlist',
     files: [],
 }
 
@@ -166,7 +166,7 @@ FileInputFieldWithList.defaultProps = {
  * @prop {FileListItem|Array.<FileListItem>} [children]
  * @prop {string} [accept=*] - the `accept` attribute of the [native file input]{@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept}
  * @prop {boolean} [multiple] - the `multiple` attribute of the [native file input]{@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple}
- * @prop {string} [dataTest=dhis2-uicore-fileinputfieldwithlist]
+ * @prop {string} [dataTest=dhis2-uiwidgets-fileinputfieldwithlist]
  */
 FileInputFieldWithList.propTypes = {
     onChange: propTypes.func.isRequired,
