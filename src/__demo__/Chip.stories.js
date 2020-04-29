@@ -42,6 +42,14 @@ storiesOf('Chip', module)
         </Chip>
     ))
 
+    .add('Dense', () => <Chip dense>I am dense</Chip>)
+
+    .add('Dense removeable', () => (
+        <Chip dense onRemove={onRemove}>
+            Removeable and dense
+        </Chip>
+    ))
+
 const Globe = () => (
     <svg role="img" viewBox="0 0 24 24" height="100px" width="100px">
         <title>LGTM icon</title>

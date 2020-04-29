@@ -58,6 +58,7 @@ export { SwitchGroupField } from './SwitchGroupField.js'
 export { Tag } from './Tag.js'
 export { TextArea } from './TextArea.js'
 export { TextAreaField } from './TextAreaField.js'
+export { Tooltip } from './Tooltip.js'
 
 /* Select */
 export { SingleSelect } from './SingleSelect.js'
@@ -66,6 +67,8 @@ export { SingleSelectOption } from './SingleSelectOption.js'
 export { MultiSelect } from './MultiSelect.js'
 export { MultiSelectField } from './MultiSelectField.js'
 export { MultiSelectOption } from './MultiSelectOption.js'
+export { Transfer } from './Transfer.js'
+export { TransferOption } from './TransferOption.js'
 
 /* table */
 export { TableBody } from './TableBody.js'

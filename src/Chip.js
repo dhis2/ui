@@ -18,6 +18,7 @@ import { Remove } from './Chip/Remove.js'
  */
 const Chip = ({
     selected,
+    dense,
     disabled,
     dragging,
     overflow,
@@ -36,6 +37,7 @@ const Chip = ({
         }}
         className={cx(className, {
             selected,
+            dense,
             disabled,
             dragging,
         })}
@@ -58,6 +60,12 @@ const Chip = ({
                 cursor: pointer;
                 user-select: none;
                 color: ${colors.grey900};
+            }
+
+            .dense {
+                height: 24px;
+                font-size: 13px;
+                line-height: 15px;
             }
 
             span:hover {
@@ -110,6 +118,7 @@ Chip.defaultProps = {
  * @prop {function} [onClick]
  * @prop {function} [onRemove]
  * @prop {boolean} [selected]
+ * @prop {boolean} [dense]
  * @prop {boolean} [disabled]
  * @prop {boolean} [dragging]
  * @prop {boolean} [overflow]
@@ -119,6 +128,7 @@ Chip.propTypes = {
     children: propTypes.string,
     className: propTypes.string,
     dataTest: propTypes.string,
+    dense: propTypes.bool,
     disabled: propTypes.bool,
     dragging: propTypes.bool,
     icon: propTypes.element,

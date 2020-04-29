@@ -2,30 +2,33 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import { css, resolve } from 'styled-jsx/css'
 
-import { Cancel } from '../icons/Cancel'
+import { CancelOutline } from '../icons/Cancel--outline.js'
 import { colors } from '../theme.js'
 
 const containerStyle = css`
     span {
-        display: block;
-        height: 18px;
-        width: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 20px;
+        width: 20px;
         margin-right: 4px;
+        border-radius: 12px;
+        margin-left: -8px;
+    }
+    span:hover {
+        background: ${colors.grey400};
     }
 `
 
 const removeIcon = resolve`
     svg {
-        color: ${colors.grey700};
-		height: 18px;
-		width: 18px;
+        fill: ${colors.grey600};
+		    height: 16px;
+		    width: 16px;
         cursor: pointer;
         opacity: 1;
         pointer-events: all;
-    }
-
-    svg:hover {
-        opacity: 0.82;
     }
 `
 
@@ -42,7 +45,7 @@ export const Remove = ({ onRemove, dataTest }) => {
             }}
             data-test={dataTest}
         >
-            <Cancel className={removeIcon.className} />
+            <CancelOutline className={removeIcon.className} />
             {removeIcon.styles}
 
             <style jsx>{containerStyle}</style>
