@@ -1,7 +1,7 @@
 import React from 'react'
 import { useField } from 'react-final-form'
 
-import { Field } from '@dhis2/ui-core'
+import { FieldSetField } from '@dhis2/ui-widgets'
 import propTypes from '@dhis2/prop-types'
 
 export const GroupControl = ({ name, label, children, required }) => {
@@ -23,14 +23,15 @@ export const GroupControl = ({ name, label, children, required }) => {
     }
 
     return (
-        <Field
+        <FieldSetField
             label={label}
             required={required}
             error={isError}
+            name={name}
             validationText={errorText}
         >
             {children}
-        </Field>
+        </FieldSetField>
     )
 }
 

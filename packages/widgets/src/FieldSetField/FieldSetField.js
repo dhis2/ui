@@ -20,6 +20,7 @@ const FieldSetField = ({
     helpText,
     validationText,
     label,
+    name,
     required,
     dataTest,
     valid,
@@ -36,6 +37,7 @@ const FieldSetField = ({
             error={error}
             warning={warning}
             valid={valid}
+            name={name}
         >
             {children}
         </Field>
@@ -56,6 +58,7 @@ FieldSetField.defaultProps = {
  * @prop {boolean} [disabled]
  * @prop {string} [helpText]
  * @prop {string} [label]
+ * @prop {string} [name]
  * @prop {string} [validationText]
  * @prop {boolean} [required]
  * @prop {string} [dataTest]
@@ -71,6 +74,7 @@ FieldSetField.propTypes = {
     error: sharedPropTypes.statusPropType,
     helpText: propTypes.string,
     label: propTypes.string,
+    name: propTypes.string,
     required: propTypes.bool,
     valid: sharedPropTypes.statusPropType,
     validationText: propTypes.string,
