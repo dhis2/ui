@@ -5,7 +5,7 @@ Given('a CheckboxField with validation text is rendered', () => {
 })
 
 Then('the validation text is visible', () => {
-    cy.get('[data-test="dhis2-uicore-checkboxfield-validation"]')
+    cy.get('[data-test="dhis2-uiwidgets-checkboxfield-validation"]')
         .contains('Validation text')
         .should('be.visible')
 })
