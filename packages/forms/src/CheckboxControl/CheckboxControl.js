@@ -31,11 +31,7 @@ export const CheckboxControl = ({
         value={input.value}
         error={hasError(meta, error)}
         valid={isValid(meta, valid, showValidStatus)}
-        validationText={
-            validationText
-                ? getValidationText(meta, validationText, error)
-                : null
-        }
+        validationText={getValidationText(meta, validationText, error)}
         onFocus={createFocusHandler(input, onFocus)}
         onChange={createToggleChangeHandler(input)}
         onBlur={createBlurHandler(input, onBlur)}
