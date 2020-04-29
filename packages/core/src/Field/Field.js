@@ -36,7 +36,7 @@ const Field = ({
             </Label>
         )}
 
-        <Box marginTop={spacers.dp4}>{children}</Box>
+        <Box marginTop={label ? spacers.dp4 : 0}>{children}</Box>
 
         {helpText && <Help dataTest={`${dataTest}-help`}>{helpText}</Help>}
 
