@@ -31,12 +31,22 @@ const Field = ({
 }) => (
     <Box className={className} dataTest={dataTest}>
         {label && (
-            <Label dataTest={`${dataTest}-label`} required={required} disabled={disabled} htmlFor={name}>
+            <Label
+                dataTest={`${dataTest}-label`}
+                required={required}
+                disabled={disabled}
+                htmlFor={name}
+            >
                 {label}
             </Label>
         )}
 
-        <Box dataTest={`${dataTest}-content`} marginTop={label ? spacers.dp4 : 0}>{children}</Box>
+        <Box
+            dataTest={`${dataTest}-content`}
+            marginTop={label ? spacers.dp4 : 0}
+        >
+            {children}
+        </Box>
 
         {helpText && <Help dataTest={`${dataTest}-help`}>{helpText}</Help>}
 

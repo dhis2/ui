@@ -14,11 +14,7 @@ export default {
 }
 
 export const Default = () => (
-    <GroupControl
-        label="Group label"
-        required
-        name="set"
-    >
+    <GroupControl label="Group label" required name="set">
         <Field
             type="checkbox"
             component={CheckboxControl}

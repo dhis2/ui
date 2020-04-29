@@ -34,12 +34,12 @@ storiesOf('Components/Widgets/FieldSetField', module)
 
     .add('With label', () => (
         <>
-            <FieldSetField legendText="I am a legend">
+            <FieldSetField label="I am a legend">
                 <Checkbox value="first" label="First" />
                 <Checkbox value="second" label="Second" />
                 <Checkbox value="third" label="Third" />
             </FieldSetField>
-            <FieldSetField legendText="I am a required field" required>
+            <FieldSetField label="I am a required field" required>
                 <Checkbox value="first" label="First" />
                 <Checkbox value="second" label="Second" />
                 <Checkbox value="third" label="Third" />
@@ -49,13 +49,13 @@ storiesOf('Components/Widgets/FieldSetField', module)
 
     .add('Help and validation texts', () => (
         <>
-            <FieldSetField legendText="I am a field" helpText="Please help me!">
+            <FieldSetField label="I am a field" helpText="Please help me!">
                 <Checkbox value="first" label="First" />
                 <Checkbox value="second" label="Second" />
                 <Checkbox value="third" label="Third" />
             </FieldSetField>
             <FieldSetField
-                legendText="I am a legend"
+                label="I am a legend"
                 helpText="I am disabled"
                 disabled
             >
@@ -64,7 +64,7 @@ storiesOf('Components/Widgets/FieldSetField', module)
                 <Checkbox value="third" label="Third" disabled />
             </FieldSetField>
             <FieldSetField
-                legendText="I am a legend"
+                label="I am a legend"
                 valid
                 validationText="I am valid"
             >
@@ -73,7 +73,7 @@ storiesOf('Components/Widgets/FieldSetField', module)
                 <Checkbox value="third" label="Third" checked />
             </FieldSetField>
             <FieldSetField
-                legendText="I am a legend"
+                label="I am a legend"
                 name="warning"
                 warning
                 validationText="I have a warning"
@@ -83,7 +83,7 @@ storiesOf('Components/Widgets/FieldSetField', module)
                 <Checkbox value="third" label="Third" />
             </FieldSetField>
             <FieldSetField
-                legendText="I am a legend"
+                label="I am a legend"
                 error
                 validationText="I have an error"
             >
