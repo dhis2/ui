@@ -13,7 +13,7 @@ const { Field } = ReactFinalForm
 
 storiesOf('Testing:RadioControl', module)
     .addDecorator(formDecorator)
-    .add('Default', () => (
+    .add('Required and no selected value', () => (
         <GroupControl name="choice">
             <Field
                 type="radio"

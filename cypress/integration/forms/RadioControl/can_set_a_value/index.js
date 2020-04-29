@@ -1,7 +1,7 @@
 import '../common/index.js'
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('the RadioControl has two options', () => {
+Given('there are three options', () => {
     const options = [
         { value: 'one', label: 'One' },
         { value: 'two', label: 'Two' },
