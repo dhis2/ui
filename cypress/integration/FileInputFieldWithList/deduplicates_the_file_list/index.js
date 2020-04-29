@@ -17,7 +17,7 @@ When('the file duplicate.md is selected', () => {
             const dataTransfer = new DataTransfer()
             dataTransfer.items.add(duplicate)
             $input[0].files = dataTransfer.files
-            cy.get($input).trigger('change', { force: true })
+            cy.wrap($input).trigger('change', { force: true })
         })
     })
 })
