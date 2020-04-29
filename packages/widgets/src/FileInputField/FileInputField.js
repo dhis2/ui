@@ -16,7 +16,7 @@ import {
  * @param {FileInputField.PropTypes} props
  * @returns {React.Component}
  *
- * @example import { FileInputField } from '@dhis2/ui-core'
+ * @example import { FileInputField } from '@dhis2/ui-widgets'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/fileinput.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/fileinputfield--default|Storybook}

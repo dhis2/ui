@@ -21,7 +21,7 @@ AddRequired.propTypes = {
  * @param {CheckboxField.PropTypes} props
  * @returns {React.Component}
  *
- * @example import { CheckboxField } from '@dhis2/ui-core'
+ * @example import { CheckboxField } from '@dhis2/ui-widgets'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/checkbox.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/checkboxfield--default|Storybook}
@@ -91,7 +91,7 @@ CheckboxField.defaultProps = {
  * @typedef {Object} PropTypes
  * @static
  * @prop {string} [value]
- * @prop {string} [label]
+ * @prop {Node} [label]
  *
  * @prop {string} [name]
  * @prop {string} [className]

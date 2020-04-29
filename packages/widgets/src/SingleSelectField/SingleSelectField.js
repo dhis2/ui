@@ -10,7 +10,7 @@ import { sharedPropTypes } from '@dhis2/ui-constants'
  * @param {SingleSelectField.PropTypes} props
  * @returns {React.Component}
  *
- * @example import { SingleSelectField } from '@dhis2/ui-core'
+ * @example import { SingleSelectField } from '@dhis2/ui-widgets'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/select.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/singleselectfield--default|Storybook}

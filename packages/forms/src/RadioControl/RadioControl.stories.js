@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { formDecorator } from '../formDecorator.js'
 
-import { FieldSetField } from '@dhis2/ui-core'
+import { FieldSetField } from '@dhis2/ui-widgets'
 
 import { ReactFinalForm, RadioControl } from '../index.js'
 

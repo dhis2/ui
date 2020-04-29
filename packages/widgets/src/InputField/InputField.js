@@ -9,7 +9,7 @@ import { Field, Input, Box } from '@dhis2/ui-core'
  * @param {InputField.PropTypes} props
  * @returns {React.Component}
  *
- * @example import { InputField } from '@dhis2/ui-core'
+ * @example import { InputField } from '@dhis2/ui-widgets'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/inputfield.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/inputfield--no-placeholder-no-value|Storybook}

@@ -9,7 +9,7 @@ import { Field, TextArea, Box } from '@dhis2/ui-core'
  * @param {TextAreaField.PropTypes} props
  * @returns {React.Component}
  *
- * @example import { TextAreaField } from '@dhis2/ui-core'
+ * @example import { TextAreaField } from '@dhis2/ui-widgets'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/update-input/atoms/inputfield.md#textarea|Design system}
  * @see Live demo: {@link /demo/?path=/story/textareafield--default|Storybook}

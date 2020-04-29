@@ -21,7 +21,7 @@ AddRequired.propTypes = {
  * @param {SwitchField.PropTypes} props
  * @returns {React.Component}
  *
- * @example import { SwitchField } from '@dhis2/ui-core'
+ * @example import { SwitchField } from '@dhis2/ui-widgets'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/switch.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/switchfield--default|Storybook}
