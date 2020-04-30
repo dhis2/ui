@@ -1,3 +1,10 @@
+# [5.0.0-alpha.14](https://github.com/dhis2/ui/compare/v5.0.0-alpha.13...v5.0.0-alpha.14) (2020-04-30)
+
+
+### Bug Fixes
+
+* **prop-types:** add missing dhis2 prop-types for ui-icons ([c207524](https://github.com/dhis2/ui/commit/c2075240b70c39ccc380d2817b387911a29cebc5))
+
 # [5.0.0-alpha.13](https://github.com/dhis2/ui/compare/v5.0.0-alpha.12...v5.0.0-alpha.13) (2020-04-30)
 
 
