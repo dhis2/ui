@@ -1,3 +1,36 @@
+# [4.19.0](https://github.com/dhis2/ui-core/compare/v4.18.0...v4.19.0) (2020-04-24)
+
+
+### Features
+
+* **transfer:** add component ([aaeaaa3](https://github.com/dhis2/ui-core/commit/aaeaaa3f60b793b85ef93d8647dd0c056e2c8c9e))
+
+# [4.18.0](https://github.com/dhis2/ui-core/compare/v4.17.1...v4.18.0) (2020-04-22)
+
+
+### Features
+
+* **tooltip:** introduce tooltip as a public component ([158a322](https://github.com/dhis2/ui-core/commit/158a322719e6e4515212bdbb5c0bb05b91e94656))
+
+## [4.17.1](https://github.com/dhis2/ui-core/compare/v4.17.0...v4.17.1) (2020-04-15)
+
+
+### Bug Fixes
+
+* **MultiSelect:** use dense chips for selections in input ([a3b9e20](https://github.com/dhis2/ui-core/commit/a3b9e20bb4317aa2fbd1f7c5c78692fc11844160))
+
+# [4.17.0](https://github.com/dhis2/ui-core/compare/v4.16.0...v4.17.0) (2020-04-14)
+
+
+### Bug Fixes
+
+* **chip:** adjust remove icon ([942265f](https://github.com/dhis2/ui-core/commit/942265f9917246b1a4a11420c8c367b2bb7517ba))
+
+
+### Features
+
+* **chip:** dense style ([9d7cb52](https://github.com/dhis2/ui-core/commit/9d7cb52bee32110c0bba2cba9d3671ec2b1f3da7))
+
 # [4.16.0](https://github.com/dhis2/ui-core/compare/v4.15.0...v4.16.0) (2020-03-25)
 
 
