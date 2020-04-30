@@ -1,3 +1,53 @@
+# [5.0.0-alpha.13](https://github.com/dhis2/ui/compare/v5.0.0-alpha.12...v5.0.0-alpha.13) (2020-04-30)
+
+
+### Bug Fixes
+
+* **noticebox:** add missing export ([ec2a739](https://github.com/dhis2/ui/commit/ec2a739d19215196b148459f1b00d6d627aa1d10))
+
+# [5.0.0-alpha.12](https://github.com/dhis2/ui/compare/v5.0.0-alpha.11...v5.0.0-alpha.12) (2020-04-30)
+
+
+### Bug Fixes
+
+* **field:** fix prop-type warning ([d55d049](https://github.com/dhis2/ui/commit/d55d0495e20590820e331d251642e528cea30add))
+
+# [5.0.0-alpha.11](https://github.com/dhis2/ui/compare/v5.0.0-alpha.10...v5.0.0-alpha.11) (2020-04-29)
+
+
+### Bug Fixes
+
+* **core:** no top margin if no label for field ([a2d0bad](https://github.com/dhis2/ui/commit/a2d0badea9e384d9047dc2f05a2a0705249a4561))
+
+
+### Code Refactoring
+
+* **core:** move fields to widgets ([3b763fa](https://github.com/dhis2/ui/commit/3b763fa8b3f1d36b8090cf037dd2d4135ca1d56c))
+* **core:** reimplement Field ([fbdafb8](https://github.com/dhis2/ui/commit/fbdafb800eb2033ad9b673350243bdc0d49a8f02))
+* move to more explicit final-form api ([a76da00](https://github.com/dhis2/ui/commit/a76da00bffed6e1a7fce2a6a29505ae58ea0db52))
+
+
+### BREAKING CHANGES
+
+* **core:** Relocate all *Field components to @dhis2/ui-widgets.
+They can be accessed from `@dhis2/ui` using named exports.
+* **core:** Field has been reimplemented to compose a field
+control, it now adds the Label, Help, Validation components instead of
+being a simple div wrapper, which allows us to avoid the code
+duplication in each *Field component.
+* **core:** ToggleGroup has been removed. Use a FieldSet for
+grouping form controls.
+
+BREKING CHANGE: ToggleGroupField has been renamed to FieldSetField,
+which adds the necessary Label, Help, and Validation components to an
+entire group of components.
+* Field now provides a composition to provide all
+necessary things for a *Field component.
+* RadioGroup has been deleted.
+* CheckboxGroup has been deleted.
+* CheckboxGroupControl has been deleted.
+* RadioGroupControl has been deleted.
+
 # [5.0.0-alpha.10](https://github.com/dhis2/ui/compare/v5.0.0-alpha.9...v5.0.0-alpha.10) (2020-04-23)
 
 
