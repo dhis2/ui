@@ -1,7 +1,7 @@
 {
     "name": "@dhis2/ui-core",
     "description": "Component primitives for DHIS2 user interfaces",
-    "version": "5.0.0-alpha.12",
+    "version": "5.0.0-alpha.13",
     "main": "build/cjs/lib.js",
     "module": "build/es/lib.js",
     "sideEffects": false,
@@ -25,8 +25,8 @@
     },
     "dependencies": {
         "@dhis2/prop-types": "^1.5.0",
-        "@dhis2/ui-constants": "5.0.0-alpha.12",
-        "@dhis2/ui-icons": "5.0.0-alpha.12",
+        "@dhis2/ui-constants": "5.0.0-alpha.13",
+        "@dhis2/ui-icons": "5.0.0-alpha.13",
         "@popperjs/core": "^2.1.0",
         "classnames": "^2.2.6"
     },

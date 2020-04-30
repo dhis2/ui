@@ -1,3 +1,10 @@
+# [5.0.0-alpha.13](https://github.com/dhis2/ui/compare/v5.0.0-alpha.12...v5.0.0-alpha.13) (2020-04-30)
+
+
+### Bug Fixes
+
+* **noticebox:** add missing export ([ec2a739](https://github.com/dhis2/ui/commit/ec2a739d19215196b148459f1b00d6d627aa1d10))
+
 # [5.0.0-alpha.12](https://github.com/dhis2/ui/compare/v5.0.0-alpha.11...v5.0.0-alpha.12) (2020-04-30)
 
 
