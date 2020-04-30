@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/ui-forms",
-    "version": "5.0.0-alpha.11",
+    "version": "5.0.0-alpha.12",
     "main": "./build/cjs/lib.js",
     "module": "./build/es/lib.js",
     "sideEffects": false,
@@ -21,7 +21,7 @@
     },
     "dependencies": {
         "@dhis2/prop-types": "^1.6.4",
-        "@dhis2/ui-core": "5.0.0-alpha.11",
+        "@dhis2/ui-core": "5.0.0-alpha.12",
         "classnames": "^2.2.6",
         "final-form": "^4.19.1",
         "react-final-form": "^6.4.0"

@@ -1,3 +1,10 @@
+# [5.0.0-alpha.12](https://github.com/dhis2/ui/compare/v5.0.0-alpha.11...v5.0.0-alpha.12) (2020-04-30)
+
+
+### Bug Fixes
+
+* **field:** fix prop-type warning ([d55d049](https://github.com/dhis2/ui/commit/d55d0495e20590820e331d251642e528cea30add))
+
 # [5.0.0-alpha.11](https://github.com/dhis2/ui/compare/v5.0.0-alpha.10...v5.0.0-alpha.11) (2020-04-29)
 
 
