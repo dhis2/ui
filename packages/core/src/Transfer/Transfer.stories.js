@@ -2,7 +2,8 @@
 import React, { useState } from 'react'
 
 import {
-    SingleSelectField,
+    Field,
+    SingleSelect,
     SingleSelectOption,
     Tab,
     TabBar,
@@ -380,14 +381,15 @@ const createCustomFilteringInHeader = hideFilterInput => {
 
             <p style={{ margin: 0, height: 10 }} />
 
-            <SingleSelectField
-                label="Year"
-                selected={selectedYear}
-                onChange={onSelectedYearChange}
-            >
-                <SingleSelectOption value="2020" label="2020" />
-                <SingleSelectOption value="2019" label="2019" />
-            </SingleSelectField>
+            <Field label="Year">
+                <SingleSelect
+                    selected={selectedYear}
+                    onChange={onSelectedYearChange}
+                >
+                    <SingleSelectOption value="2020" label="2020" />
+                    <SingleSelectOption value="2019" label="2019" />
+                </SingleSelect>
+            </Field>
         </>
     )
 
