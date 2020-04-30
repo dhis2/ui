@@ -43,7 +43,7 @@ const Field = ({
 
         <Box
             dataTest={`${dataTest}-content`}
-            marginTop={label ? spacers.dp4 : 0}
+            marginTop={label ? spacers.dp4 : '0'}
         >
             {children}
         </Box>
