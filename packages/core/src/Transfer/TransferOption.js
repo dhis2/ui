@@ -85,7 +85,6 @@ export const TransferOption = ({
 
 TransferOption.defaultProps = {
     dataTest: 'dhis2-uicore-transferoption',
-    addDecorator: {},
 }
 
 /**
