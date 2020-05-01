@@ -1,3 +1,10 @@
+## [4.19.1](https://github.com/dhis2/ui-core/compare/v4.19.0...v4.19.1) (2020-04-30)
+
+
+### Bug Fixes
+
+* **tooltip:** allow either function or node as children ([cecfc16](https://github.com/dhis2/ui-core/commit/cecfc162d7c78e26270ff20310cef1734dd2763b))
+
 # [4.19.0](https://github.com/dhis2/ui-core/compare/v4.18.0...v4.19.0) (2020-04-24)
 
 
