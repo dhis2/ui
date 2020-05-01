@@ -137,7 +137,7 @@ Tooltip.defaultProps = {
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {Node} [children]
+ * @prop {Node|function} [children]
  * @prop {string} [className]
  * @prop {Node} [content]
  * @prop {string} [dataTest=dhis2-uicore-tooltip]
@@ -145,7 +145,7 @@ Tooltip.defaultProps = {
  * @prop {('top'|'bottom'|'right'|'left')} [placement=top]
  */
 Tooltip.propTypes = {
-    children: propTypes.node,
+    children: propTypes.oneOfType([propTypes.node, propTypes.func]),
     className: propTypes.string,
     content: propTypes.node,
     dataTest: propTypes.string,
