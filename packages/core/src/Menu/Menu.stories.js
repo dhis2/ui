@@ -1,181 +1,50 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
 
-import { MenuItem, Divider, Switch } from '../index.js'
+import { MenuItem } from '../MenuItem/MenuItem.js'
 import { Menu } from './Menu.js'
 
-const Wrapper = fn => <div style={{}}>{fn()}</div>
+export default {
+    title: 'Components/Core/Menu',
+    component: Menu,
+}
 
-storiesOf('Components/Core/Menu', module)
-    .addDecorator(Wrapper)
+export const Default = () => (
+    <Menu>
+        <MenuItem label="Menu item" />
+        <MenuItem label="Menu item" />
+    </Menu>
+)
 
-    .add('Default', () => (
-        <Menu>
-            <MenuItem
-                label={
-                    <Switch
-                        label="Yahoo"
-                        name="radio"
-                        onChange={evt => {
-                            alert(`${evt.target.name}: ${evt.target.value}`)
-                        }}
-                    />
-                }
-            />
-            <Divider />
-            <MenuItem
-                label="Three"
-                value="three"
-                onClick={val => {
-                    alert(`this is ${val}`)
-                }}
-            />
-            <MenuItem label="One" value="one">
-                <Menu>
-                    <MenuItem label="Sub One" value="subone">
-                        <Menu>
-                            <MenuItem label="Sub One-One" value="suboneone">
-                                <Menu>
-                                    <MenuItem
-                                        label="Sub One-One-One"
-                                        value="suboneoneone"
-                                        onClick={val => {
-                                            alert(`this is ${val}`)
-                                        }}
-                                    />
-                                </Menu>
-                            </MenuItem>
-                        </Menu>
-                    </MenuItem>
-                </Menu>
-            </MenuItem>
+export const Dense = () => (
+    <Menu dense>
+        <MenuItem label="Menu item" />
+        <MenuItem label="Menu item" />
+    </Menu>
+)
 
-            <Divider />
-            <MenuItem
-                label="This is a long menu item name, that should span onto multiple lines"
-                value="two"
-                onClick={val => {
-                    alert(`this is ${val}`)
-                }}
-            />
-            <MenuItem
-                label="Three"
-                value="three"
-                onClick={val => {
-                    alert(`this is ${val}`)
-                }}
-            />
-            <MenuItem
-                disabled
-                label="Disabled menu item"
-                value="four"
-                onClick={val => {
-                    alert(`this is ${val}`)
-                }}
-            />
-            <MenuItem
-                destructive
-                label="Destructive menu item"
-                value="five"
-                onClick={val => {
-                    alert(`this is ${val}`)
-                }}
-            />
-        </Menu>
-    ))
-
-    .add('Short item labels', () => (
-        <Menu>
-            <MenuItem label="dog" />
-            <Divider />
-            <MenuItem label="cat" />
-            <MenuItem label="tree" />
-        </Menu>
-    ))
-
-    .add('Dense', () => (
-        <Menu>
-            <MenuItem
-                dense
-                label={
-                    <Switch
-                        label="Yahoo"
-                        name="uhu"
-                        onChange={v => {
-                            alert('would need state, but would set to: ' + v)
-                        }}
-                        checked={false}
-                    />
-                }
-            />
-            <Divider dense />
-            <MenuItem
-                dense
-                label="Three"
-                value="three"
-                onClick={val => {
-                    alert(`this is ${val}`)
-                }}
-            />
-            <MenuItem dense label="One" value="one">
-                <Menu>
-                    <MenuItem dense label="Sub One" value="subone">
-                        <Menu>
-                            <MenuItem
-                                dense
-                                label="Sub One-One"
-                                value="suboneone"
-                            >
-                                <Menu>
-                                    <MenuItem
-                                        dense
-                                        label="Sub One-One-One"
-                                        value="suboneoneone"
-                                        onClick={val => {
-                                            alert(`this is ${val}`)
-                                        }}
-                                    />
-                                </Menu>
-                            </MenuItem>
-                        </Menu>
-                    </MenuItem>
-                </Menu>
-            </MenuItem>
-
-            <Divider dense />
-            <MenuItem
-                dense
-                label="Two"
-                value="two"
-                onClick={val => {
-                    alert(`this is ${val}`)
-                }}
-            />
-            <MenuItem
-                dense
-                label="Three"
-                value="three"
-                onClick={val => {
-                    alert(`this is ${val}`)
-                }}
-            />
-            <MenuItem
-                dense
-                disabled
-                label="Disabled menu item"
-                value="four"
-                onClick={val => {
-                    alert(`this is ${val}`)
-                }}
-            />
-            <MenuItem
-                dense
-                destructive
-                label="Destructive menu item"
-                value="five"
-                onClick={val => {
-                    alert(`this is ${val}`)
-                }}
-            />
-        </Menu>
-    ))
+export const SideBarMenu = () => (
+    <main
+        style={{
+            display: 'flex',
+            height: '100%',
+            border: '1px solid grey',
+        }}
+    >
+        <aside style={{ width: 200, height: '100%', flexGrow: 0 }}>
+            <Menu>
+                <MenuItem label="Menu item" />
+                <MenuItem label="Menu item" />
+            </Menu>
+        </aside>
+        <section
+            style={{
+                backgroundColor: '#f3ffff',
+                flexGrow: 1,
+                padding: 20,
+                borderLeft: '1px solid grey',
+            }}
+        >
+            Main content
+        </section>
+    </main>
+)

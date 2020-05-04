@@ -23,7 +23,6 @@ const ComponentCover = ({
     className,
     dataTest,
     onClick,
-    pointerEvents,
     translucent,
 }) => (
     <div
@@ -40,7 +39,6 @@ const ComponentCover = ({
                 bottom: 0;
                 left: 0;
                 z-index: ${layers.applicationTop};
-                pointer-events: ${pointerEvents};
             }
             div.translucent {
                 background: rgba(33, 43, 54, 0.4);
@@ -51,7 +49,6 @@ const ComponentCover = ({
 
 ComponentCover.defaultProps = {
     dataTest: 'dhis2-uicore-componentcover',
-    pointerEvents: 'all',
 }
 
 /**
@@ -60,7 +57,6 @@ ComponentCover.defaultProps = {
  * @prop {string} [className]
  * @prop {Node} [children]
  * @prop {string} [dataTest=dhis2-uicore-componentcover]
- * @prop {string} [pointerEvents=all] - One of 'all', 'none'
  * @prop {boolean} [translucent] - When true a semi-transparent background is added
  * @prop {function} [onClick]
  */
@@ -68,7 +64,6 @@ ComponentCover.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
-    pointerEvents: propTypes.oneOf(['all', 'none']),
     translucent: propTypes.bool,
     onClick: propTypes.func,
 }

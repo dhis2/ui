@@ -1,7 +1,7 @@
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a MenuItem with target is rendered', () => {
-    cy.visitStory('MenuItem', 'With target')
+    cy.visitStory('MenuItem', 'With Target')
 })
 
 Then('a link is rendered with the target', () => {

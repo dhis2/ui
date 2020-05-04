@@ -30,13 +30,6 @@ export const WithChildren = () => (
     </ComponentCover>
 )
 
-export const NonBlocking = () => (
-    <>
-        <button onClick={window.onButtonClick}>Test</button>
-        <ComponentCover pointerEvents="none" />
-    </>
-)
-
 export const Blocking = () => (
     <>
         <button onClick={window.onButtonClick}>Test</button>

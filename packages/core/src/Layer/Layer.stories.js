@@ -34,18 +34,6 @@ export const WithClickHandler = () => (
     </>
 )
 
-export const NonBlocking = () => (
-    <>
-        <Layer translucent pointerEvents="none" />
-
-        <h1>Text behind the layer</h1>
-        <p>
-            You can still select this text because the layer has pointer-event:
-            none.
-        </p>
-    </>
-)
-
 export const WithCenteredContentCircularLoader = () => (
     <>
         <Layer translucent>

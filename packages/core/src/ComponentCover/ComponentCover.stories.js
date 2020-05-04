@@ -49,18 +49,6 @@ export const WithClickHandler = () => (
     </>
 )
 
-export const NonBlocking = () => (
-    <>
-        <ComponentCover translucent pointerEvents="none" />
-
-        <h1>Text behind the cover</h1>
-        <p>
-            You can still select this text because the cover has pointer-event:
-            none.
-        </p>
-    </>
-)
-
 export const WithCenteredContentCircularLoader = () => (
     <>
         <ComponentCover translucent>

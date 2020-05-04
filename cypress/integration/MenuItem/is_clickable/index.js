@@ -1,7 +1,7 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a MenuItem with onClick handler and value is rendered', () => {
-    cy.visitStory('MenuItem', 'With onClick and value')
+    cy.visitStory('MenuItem', 'With On Click And Value')
 })
 
 When('the MenuItem is clicked', () => {

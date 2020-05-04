@@ -1,12 +1,5 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given(
-    'a ComponentCover with pointerEvents none and a button below it is rendered',
-    () => {
-        cy.visitStory('ComponentCover', 'Non Blocking')
-    }
-)
-
 Given('a ComponentCover with a button below it is rendered', () => {
     cy.visitStory('ComponentCover', 'Blocking')
 })
