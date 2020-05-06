@@ -10,11 +10,13 @@ export default {
 }
 
 export const OneDisabled = ({ selected, onChange }) => (
-    <Transfer selected={selected} onChange={onChange}>
-        {[
+    <Transfer
+        selected={selected}
+        onChange={onChange}
+        options={[
             ...options.slice(0, 3),
-            React.cloneElement(options[3], { disabled: true }),
+            { ...options[3], disabled: true },
             ...options.slice(4),
         ]}
-    </Transfer>
+    />
 )

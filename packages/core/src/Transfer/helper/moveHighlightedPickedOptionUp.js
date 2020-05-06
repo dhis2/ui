@@ -2,19 +2,19 @@ import { findOptionIndex } from '../common'
 
 /**
  * @param {Object} args
- * @param {Option[]} args.selectedPlainOptions
- * @param {Option[]} args.highlightedPickedPlainOptions
+ * @param {Object[]} args.selectedOptions
+ * @param {Object[]} args.highlightedPickedOptions
  * @param {Function} args.onChange
  * @returns {void}
  */
 export const moveHighlightedPickedOptionUp = ({
-    selectedPlainOptions,
-    highlightedPickedPlainOptions,
+    selectedOptions,
+    highlightedPickedOptions,
     onChange,
 }) => {
     const optionIndex = findOptionIndex(
-        selectedPlainOptions,
-        highlightedPickedPlainOptions[0]
+        selectedOptions,
+        highlightedPickedOptions[0]
     )
 
     // Can't move up option at index 0 or non-existing option
@@ -22,10 +22,10 @@ export const moveHighlightedPickedOptionUp = ({
 
     // swap with previous item
     const reordered = [
-        ...selectedPlainOptions.slice(0, optionIndex - 1),
-        selectedPlainOptions[optionIndex],
-        selectedPlainOptions[optionIndex - 1],
-        ...selectedPlainOptions.slice(optionIndex + 1),
+        ...selectedOptions.slice(0, optionIndex - 1),
+        selectedOptions[optionIndex],
+        selectedOptions[optionIndex - 1],
+        ...selectedOptions.slice(optionIndex + 1),
     ]
 
     onChange({ selected: reordered })

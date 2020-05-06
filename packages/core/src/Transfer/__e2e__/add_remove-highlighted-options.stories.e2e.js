@@ -10,15 +10,16 @@ export default {
 }
 
 export const HasOptions = ({ onChange, selected }) => (
-    <Transfer filterable selected={selected} onChange={onChange}>
-        {options}
-    </Transfer>
+    <Transfer
+        filterable
+        selected={selected}
+        onChange={onChange}
+        options={options}
+    />
 )
 
 export const HasSelected = ({ onChange, selected }) => (
-    <Transfer onChange={onChange} selected={selected}>
-        {options}
-    </Transfer>
+    <Transfer onChange={onChange} selected={selected} options={options} />
 )
 
 HasSelected.story = {

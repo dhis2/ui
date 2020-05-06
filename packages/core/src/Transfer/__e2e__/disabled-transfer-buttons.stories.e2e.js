@@ -10,25 +10,23 @@ export default {
 }
 
 export const NoOptions = ({ selected, onChange }) => (
-    <Transfer selected={selected} onChange={onChange} />
+    <Transfer selected={selected} onChange={onChange} options={[]} />
 )
 
 export const HasOptions = ({ selected, onChange }) => (
-    <Transfer selected={selected} onChange={onChange}>
-        {options}
-    </Transfer>
+    <Transfer selected={selected} onChange={onChange} options={options} />
 )
 
 export const SomeOptionsSelected = ({ selected, onChange }) => (
-    <Transfer selected={selected} onChange={onChange}>
-        {options}
-    </Transfer>
+    <Transfer selected={selected} onChange={onChange} options={options} />
 )
 
 export const OnlyDisabledSourceOptions = ({ selected, onChange }) => (
-    <Transfer selected={selected} onChange={onChange}>
-        {React.cloneElement(options[0], { disabled: true })}
-    </Transfer>
+    <Transfer
+        selected={selected}
+        onChange={onChange}
+        options={[{ ...options[0], disabled: true }]}
+    />
 )
 
 SomeOptionsSelected.story = {
@@ -40,9 +38,7 @@ SomeOptionsSelected.story = {
 }
 
 export const AllOptionsSelected = ({ selected, onChange }) => (
-    <Transfer selected={selected} onChange={onChange}>
-        {options}
-    </Transfer>
+    <Transfer selected={selected} onChange={onChange} options={options} />
 )
 
 AllOptionsSelected.story = {

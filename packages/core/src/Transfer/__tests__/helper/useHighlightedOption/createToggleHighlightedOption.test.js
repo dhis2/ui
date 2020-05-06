@@ -1,5 +1,4 @@
 import { ADD_MODE, RANGE_MODE, REPLACE_MODE } from '../../../common.js'
-import { createChildren } from '../../common/createChildren.js'
 import { createToggleHighlightedOption } from '../../../helper/useHighlightedOptions/createToggleHighlightedOption.js'
 import { toggleAdd } from '../../../helper/useHighlightedOptions/toggleAdd.js'
 import { toggleRange } from '../../../helper/useHighlightedOptions/toggleRange.js'
@@ -28,10 +27,10 @@ describe('Transfer- useHighlightedOptions - createToggleHighlightedOption', () =
     const highlightedOptions = []
     const maxSelections = Infinity
     const setHighlightedOptions = jest.fn()
-    const reactOptions = createChildren()
+    const options = []
     const option = { value: 'foo', label: 'Foo' }
     const createToggleHighlightedOptionDefaultPayload = {
-        reactOptions,
+        options,
         disabled,
         highlightedOptions,
         lastClicked,

@@ -16,9 +16,8 @@ export const EmptyResult = ({ selected, onChange }) => (
         selected={selected}
         onChange={onChange}
         sourceEmptyPlaceholder={<span data-test="no-results">No results</span>}
-    >
-        {options}
-    </Transfer>
+        options={options}
+    />
 )
 
 export const SomeResults = ({ selected, onChange }) => (
@@ -27,9 +26,8 @@ export const SomeResults = ({ selected, onChange }) => (
         filterable
         initialSearchTerm="ANC"
         onChange={onChange}
-    >
-        {options}
-    </Transfer>
+        options={options}
+    />
 )
 
 export const UppercaseSearch = ({ selected, onChange }) => (
@@ -38,9 +36,8 @@ export const UppercaseSearch = ({ selected, onChange }) => (
         filterable
         initialSearchTerm="ANC"
         onChange={onChange}
-    >
-        {options}
-    </Transfer>
+        options={options}
+    />
 )
 
 export const LowercaseSearch = ({ selected, onChange }) => (
@@ -49,9 +46,8 @@ export const LowercaseSearch = ({ selected, onChange }) => (
         initialSearchTerm="anc"
         selected={selected}
         onChange={onChange}
-    >
-        {options}
-    </Transfer>
+        options={options}
+    />
 )
 
 export const AncCustomFilter = ({ selected, onChange }) => (
@@ -62,9 +58,8 @@ export const AncCustomFilter = ({ selected, onChange }) => (
         filterCallback={(options, filter) =>
             options.filter(({ label }) => label.match(`(^| )ANC .*${filter}`))
         }
-    >
-        {options}
-    </Transfer>
+        options={options}
+    />
 )
 
 window.customFilterCallback = (options, filter) => {
@@ -86,9 +81,8 @@ export const ControlledFilter = ({
         filterCallback={window.customFilterCallback}
         searchTerm={filter}
         onFilterChange={onFilterChange}
-    >
-        {options}
-    </Transfer>
+        options={options}
+    />
 )
 
 ControlledFilter.story = {

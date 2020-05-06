@@ -3,8 +3,8 @@ import { addOption, removeOption } from '../common'
 /**
  * @param {Object} args
  * @param {number} args.maxSelections
+ * @param {Object[]} args.selected
  * @param {Function} args.onChange
- * @param {Option[]} args.selectedPlainOptions
  * @param {Function} args.setHighlightedSourceOptions
  * @param {Function} args.setHighlightedPickedOptions
  * @returns void
@@ -12,18 +12,18 @@ import { addOption, removeOption } from '../common'
 export const createDoubleClickHandlers = ({
     maxSelections,
     onChange,
-    selectedPlainOptions,
+    selected,
     setHighlightedPickedOptions,
     setHighlightedSourceOptions,
 }) => {
     const selectSingleOption = ({ option }) => {
-        const newSelected = addOption(selectedPlainOptions, option)
+        const newSelected = addOption(selected, option)
         setHighlightedSourceOptions([])
         onChange({ selected: newSelected.slice(-1 * maxSelections) })
     }
 
     const deselectSingleOption = ({ option }) => {
-        const newSelected = removeOption(selectedPlainOptions, option)
+        const newSelected = removeOption(selected, option)
         setHighlightedPickedOptions([])
         onChange({ selected: newSelected })
     }

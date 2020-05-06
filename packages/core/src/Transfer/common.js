@@ -1,4 +1,3 @@
-import './types.js'
 import { colors } from '@dhis2/ui-constants'
 
 export const borderColor = colors.grey400
@@ -17,33 +16,33 @@ export const ADD_MODE = 'ADD_MODE'
 export const RANGE_MODE = 'RANGE_MODE'
 
 /**
- * @param {Option} left
- * @param {Option} left
+ * @param {Object} left
+ * @param {Object} left
  * @returns {bool}
  */
 export const isOption = (left, right) =>
     left.label === right.label && left.value === right.value
 
 /**
- * @param {Option[]} options
- * @param {Option} option
+ * @param {Object[]} options
+ * @param {Object} option
  * @returns {Int}
  */
 export const findOptionIndex = (options, option) =>
     options.findIndex(current => isOption(current, option))
 
 /**
- * @param {Option[]} options
- * @param {Option} option
- * @returns {Option}
+ * @param {Object[]} options
+ * @param {Object} option
+ * @returns {Object}
  */
 export const findOption = (options, option) =>
     options.find(current => isOption(current, option))
 
 /**
- * @param {Option[]} options
- * @param {Option} option
- * @returns {Option}
+ * @param {Object[]} options
+ * @param {Object} option
+ * @returns {Object}
  */
 export const addOption = (options, option) => {
     const found = findOption(options, option)
@@ -52,9 +51,9 @@ export const addOption = (options, option) => {
 }
 
 /**
- * @param {Option[]} options
- * @param {Option} option
- * @returns {Option}
+ * @param {Object[]} options
+ * @param {Object} option
+ * @returns {Object}
  */
 export const removeOption = (options, option) => {
     const index = findOptionIndex(options, option)
@@ -66,9 +65,9 @@ export const removeOption = (options, option) => {
 }
 
 /**
- * @param {Option[]} options
- * @param {Option} option
- * @returns {Option}
+ * @param {Object[]} options
+ * @param {Object} option
+ * @returns {Object}
  */
 export const toggleOption = (options, option) =>
     findOption(options, option)
@@ -76,10 +75,10 @@ export const toggleOption = (options, option) =>
         : addOption(options, option)
 
 /**
- * @param {Option[]} collection
- * @param {Option[]} options
+ * @param {Object[]} collection
+ * @param {Object[]} options
  * @param {Function} modifier
- * @returns {Option}
+ * @returns {Object}
  */
 export const toggleOptions = (
     collection,

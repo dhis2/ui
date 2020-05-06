@@ -1,10 +1,9 @@
-import '../../types.js'
 import { toggleOption } from '../../common'
 
 /**
  * @param {Object} args
- * @param {Option[]} args.highlightedOptions
- * @param {Option} args.option
+ * @param {Object[]} args.highlightedOptions
+ * @param {Object} args.option
  * @param {Function} args.setHighlightedOption
  * @returns {void}
  */

@@ -1,23 +1,22 @@
-import { Children } from 'react'
 import { addOption, isOption, toggleOptions } from '../common'
 
 /**
  * @param {Object} args
  * @param {bool} args.filterable
- * @param {ReactElement} args.filteredSourcePlainOptions
- * @param {Option[]} args.highlightedSourcePlainOptions
+ * @param {Object[]} args.filteredSourceOptions
+ * @param {Object[]} args.highlightedSourceOptions
+ * @param {Object[]} args.selectedOptions
  * @param {Function} args.onChange
- * @param {Option[]} args.selectedPlainOptions
  * @param {Function} args.setHighlightedSourceOptions
  * @returns void
  */
 export const addIndividualSourceOptions = ({
     filterable,
-    filteredSourcePlainOptions,
-    highlightedSourcePlainOptions,
+    filteredSourceOptions,
+    highlightedSourceOptions,
     maxSelections,
     onChange,
-    selectedPlainOptions,
+    selectedOptions,
     setHighlightedSourceOptions,
 }) => {
     /**
@@ -32,15 +31,15 @@ export const addIndividualSourceOptions = ({
      * clicks the "add individuals" button
      */
     const filteredHighlightedSourceOptions = filterable
-        ? highlightedSourcePlainOptions.filter(option =>
-              Children.toArray(filteredSourcePlainOptions)
-                  .map(({ props }) => props)
-                  .find(filteredOption => isOption(filteredOption, option))
+        ? highlightedSourceOptions.filter(option =>
+              filteredSourceOptions.find(filteredOption =>
+                  isOption(filteredOption, option)
+              )
           )
-        : highlightedSourcePlainOptions
+        : highlightedSourceOptions
 
     const newSelected = toggleOptions(
-        selectedPlainOptions,
+        selectedOptions,
         filteredHighlightedSourceOptions,
         addOption
     )

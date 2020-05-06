@@ -3,7 +3,7 @@ import { moveHighlightedPickedOptionDown } from '../../../Transfer/helper/moveHi
 describe('Transfer - moveHighlightedPickedOptionDown', () => {
     const onChange = jest.fn()
 
-    const selectedPlainOptions = [
+    const selectedOptions = [
         { label: 'Foo', value: 'foo' },
         { label: 'Bar', value: 'bar' },
         { label: 'Baz', value: 'baz' },
@@ -17,8 +17,8 @@ describe('Transfer - moveHighlightedPickedOptionDown', () => {
         const highlighted = [{ label: 'Bar', value: 'bar' }]
 
         moveHighlightedPickedOptionDown({
-            selectedPlainOptions,
-            highlightedPickedPlainOptions: highlighted,
+            selectedOptions,
+            highlightedPickedOptions: highlighted,
             onChange,
         })
 
@@ -35,8 +35,8 @@ describe('Transfer - moveHighlightedPickedOptionDown', () => {
         const highlighted = [{ label: 'Baz', value: 'baz' }]
 
         moveHighlightedPickedOptionDown({
-            selectedPlainOptions,
-            highlightedPickedPlainOptions: highlighted,
+            selectedOptions,
+            highlightedPickedOptions: highlighted,
             onChange,
         })
 
@@ -47,8 +47,8 @@ describe('Transfer - moveHighlightedPickedOptionDown', () => {
         const highlighted = [{ label: 'Foobar', value: 'foobar' }]
 
         moveHighlightedPickedOptionDown({
-            selectedPlainOptions,
-            highlightedPickedPlainOptions: highlighted,
+            selectedOptions,
+            highlightedPickedOptions: highlighted,
             onChange,
         })
 

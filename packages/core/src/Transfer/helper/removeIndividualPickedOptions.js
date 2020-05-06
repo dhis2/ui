@@ -2,21 +2,21 @@ import { removeOption, toggleOptions } from '../common'
 
 /**
  * @param {Object} args
- * @param {ReactElement} args.highlightedPickedReactOptions
+ * @param {Object[]} args.highlightedPickedReactOptions
+ * @param {Object[]} args.selectedOptions
  * @param {Function} args.setHighlightedPickedOptions
- * @param {Option[]} args.selectedPlainOptions
  * @param {Function} args.onChange
  * @returns {void}
  */
 export const removeIndividualPickedOptions = ({
-    highlightedPickedReactOptions,
+    highlightedPickedOptions,
     onChange,
-    selectedPlainOptions,
+    selectedOptions,
     setHighlightedPickedOptions,
 }) => {
     const newSelected = toggleOptions(
-        selectedPlainOptions,
-        highlightedPickedReactOptions,
+        selectedOptions,
+        highlightedPickedOptions,
         removeOption
     )
 

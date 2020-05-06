@@ -6,21 +6,14 @@ import { options, statefulDecorator } from './common.js'
 
 export default { title: 'Transfer Display Order' }
 
-window.options = options.map(child => {
-    const { label, value } = child.props
-    return { label, value }
-})
+window.options = options
 
 export const NoSelection = ({ selected, onChange }) => (
-    <Transfer selected={selected} onChange={onChange}>
-        {options}
-    </Transfer>
+    <Transfer selected={selected} onChange={onChange} options={options} />
 )
 
 export const SomeSelected = ({ selected, onChange }) => (
-    <Transfer selected={selected} onChange={onChange}>
-        {options}
-    </Transfer>
+    <Transfer selected={selected} onChange={onChange} options={options} />
 )
 
 SomeSelected.story = {

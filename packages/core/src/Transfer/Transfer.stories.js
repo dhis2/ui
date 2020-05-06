@@ -1,20 +1,13 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react'
 
-import {
-    SingleSelectField,
-    SingleSelectOption,
-    Tab,
-    TabBar,
-    Transfer,
-    TransferOption,
-} from '../index.js'
+import { SingleSelectField } from '@dhis2/ui-widgets'
+import { SingleSelectOption, Tab, TabBar, Transfer } from '../index.js'
 
 export default { title: 'Transfer' }
 
 const StatefulWrapper = ({ children, initialState }) => {
-    const initialSelected = initialState.map(child => child.props)
-    const [selected, setSelected] = useState(initialSelected)
+    const [selected, setSelected] = useState(initialState)
 
     return React.Children.map(children, child =>
         React.cloneElement(child, {
@@ -29,116 +22,96 @@ StatefulWrapper.defaultProps = {
 }
 
 const options = [
-    <TransferOption
-        label="ANC 1st visit"
-        value="ANC 1st visit"
-        key="ANC 1st visit"
-    />,
-    <TransferOption
-        label="ANC 2nd visit"
-        value="ANC 2nd visit"
-        key="ANC 2nd visit"
-    />,
-    <TransferOption
-        label="ANC 3rd visit"
-        value="ANC 3rd visit"
-        key="ANC 3rd visit"
-    />,
-    <TransferOption
-        label="ANC 4th or more visits"
-        value="ANC 4th or more visits"
-        key="ANC 4th or more visits"
-    />,
-    <TransferOption
-        label="ARI treated with antibiotics (pneumonia) follow-up"
-        value="ARI treated with antibiotics (pneumonia) follow-up"
-        key="ARI treated with antibiotics (pneumonia) follow-up"
-    />,
-    <TransferOption
-        label="ARI treated with antibiotics (pneumonia) new"
-        value="ARI treated with antibiotics (pneumonia) new"
-        key="ARI treated with antibiotics (pneumonia) new"
-    />,
-    <TransferOption
-        label="ARI treated with antibiotics (pneumonia) referrals"
-        value="ARI treated with antibiotics (pneumonia) referrals"
-        key="ARI treated with antibiotics (pneumonia) referrals"
-    />,
-    <TransferOption
-        label="ARI treated without antibiotics (cough) follow-up"
-        value="ARI treated without antibiotics (cough) follow-up"
-        key="ARI treated without antibiotics (cough) follow-up"
-    />,
-    <TransferOption
-        label="ARI treated without antibiotics (cough) new"
-        value="ARI treated without antibiotics (cough) new"
-        key="ARI treated without antibiotics (cough) new"
-    />,
-    <TransferOption
-        label="ARI treated without antibiotics (cough) referrals"
-        value="ARI treated without antibiotics (cough) referrals"
-        key="ARI treated without antibiotics (cough) referrals"
-    />,
-    <TransferOption
-        label="ART No clients who stopped TRT due to TRT failure"
-        value="ART No clients who stopped TRT due to TRT failure"
-        key="ART No clients who stopped TRT due to TRT failure"
-    />,
-    <TransferOption
-        label="ART No clients who stopped TRT due to adverse clinical status/event"
-        value="ART No clients who stopped TRT due to adverse clinical status/event"
-        key="ART No clients who stopped TRT due to adverse clinical status/event"
-    />,
-    <TransferOption
-        label="ART No clients with change of regimen due to drug toxicity"
-        value="ART No clients with change of regimen due to drug toxicity"
-        key="ART No clients with change of regimen due to drug toxicity"
-    />,
-    <TransferOption
-        label="ART No clients with new adverse drug reaction"
-        value="ART No clients with new adverse drug reaction"
-        key="ART No clients with new adverse drug reaction"
-    />,
-    <TransferOption
-        label="ART No started Opportunist Infection prophylaxis"
-        value="ART No started Opportunist Infection prophylaxis"
-        key="ART No started Opportunist Infection prophylaxis"
-    />,
-    <TransferOption
-        label="ART clients with new adverse clinical event"
-        value="ART clients with new adverse clinical event"
-        key="ART clients with new adverse clinical event"
-    />,
-    <TransferOption
-        label="ART defaulters"
-        value="ART defaulters"
-        key="ART defaulters"
-    />,
-    <TransferOption
-        label="ART enrollment stage 1"
-        value="ART enrollment stage 1"
-        key="ART enrollment stage 1"
-    />,
-    <TransferOption
-        label="ART enrollment stage 2"
-        value="ART enrollment stage 2"
-        key="ART enrollment stage 2"
-    />,
-    <TransferOption
-        label="ART enrollment stage 3"
-        value="ART enrollment stage 3"
-        key="ART enrollment stage 3"
-    />,
-    <TransferOption
-        label="ART enrollment stage 4"
-        value="ART enrollment stage 4"
-        key="ART enrollment stage 4"
-    />,
-    <TransferOption
-        label="ART entry point: No PMTCT"
-        value="ART entry point: No PMTCT"
-        key="ART entry point: No PMTCT"
-    />,
+    {
+        label: 'ANC 1st visit',
+        value: 'anc_1st_visit',
+    },
+    {
+        label: 'ANC 2nd visit',
+        value: 'anc_2nd_visit',
+    },
+    {
+        label: 'ANC 3rd visit',
+        value: 'anc_3rd_visit',
+    },
+    {
+        label: 'ANC 4th or more visits',
+        value: 'anc_4th_or_more_visits',
+    },
+    {
+        label: 'ARI treated with antibiotics (pneumonia) follow-up',
+        value: 'ari_treated_with_antibiotics_(pneumonia)_follow-up',
+    },
+    {
+        label: 'ARI treated with antibiotics (pneumonia) new',
+        value: 'ari_treated_with_antibiotics_(pneumonia)_new',
+    },
+    {
+        label: 'ARI treated with antibiotics (pneumonia) referrals',
+        value: 'ari_treated_with_antibiotics_(pneumonia)_referrals',
+    },
+    {
+        label: 'ARI treated without antibiotics (cough) follow-up',
+        value: 'ari_treated_without_antibiotics_(cough)_follow-up',
+    },
+    {
+        label: 'ARI treated without antibiotics (cough) new',
+        value: 'ari_treated_without_antibiotics_(cough)_new',
+    },
+    {
+        label: 'ARI treated without antibiotics (cough) referrals',
+        value: 'ari_treated_without_antibiotics_(cough)_referrals',
+    },
+    {
+        label: 'ART No clients who stopped TRT due to TRT failure',
+        value: 'art_no_clients_who_stopped_trt_due_to_trt_failure',
+    },
+    {
+        label:
+            'ART No clients who stopped TRT due to adverse clinical status/event',
+        value:
+            'art_no_clients_who_stopped_trt_due_to_adverse_clinical_status/event',
+    },
+    {
+        label: 'ART No clients with change of regimen due to drug toxicity',
+        value: 'art_no_clients_with_change_of_regimen_due_to_drug_toxicity',
+    },
+    {
+        label: 'ART No clients with new adverse drug reaction',
+        value: 'art_no_clients_with_new_adverse_drug_reaction',
+    },
+    {
+        label: 'ART No started Opportunist Infection prophylaxis',
+        value: 'art_no_started_opportunist_infection_prophylaxis',
+    },
+    {
+        label: 'ART clients with new adverse clinical event',
+        value: 'art_clients_with_new_adverse_clinical_event',
+    },
+    {
+        label: 'ART defaulters',
+        value: 'art_defaulters',
+    },
+    {
+        label: 'ART enrollment stage 1',
+        value: 'art_enrollment_stage_1',
+    },
+    {
+        label: 'ART enrollment stage 2',
+        value: 'art_enrollment_stage_2',
+    },
+    {
+        label: 'ART enrollment stage 3',
+        value: 'art_enrollment_stage_3',
+    },
+    {
+        label: 'ART enrollment stage 4',
+        value: 'art_enrollment_stage_4',
+    },
+    {
+        label: 'ART entry point: No PMTCT',
+        value: 'art_entry_point:_no_pmtct',
+    },
 ]
 
 export const SingleSelection = () => (
@@ -146,17 +119,17 @@ export const SingleSelection = () => (
         <Transfer
             maxSelections={1}
             onChange={() => console.log('Will be overriden')}
-        >
-            {options}
-        </Transfer>
+            options={options}
+        />
     </StatefulWrapper>
 )
 
 export const Multiple = () => (
     <StatefulWrapper>
-        <Transfer onChange={() => console.log('Will be overriden')}>
-            {options}
-        </Transfer>
+        <Transfer
+            onChange={() => console.log('Will be overriden')}
+            options={options.slice(0, 3)}
+        />
     </StatefulWrapper>
 )
 
@@ -165,9 +138,8 @@ export const Header = () => (
         <Transfer
             onChange={() => console.log('Will be overriden')}
             leftHeader={<h3>Header on the left side</h3>}
-        >
-            {options}
-        </Transfer>
+            options={options}
+        />
     </StatefulWrapper>
 )
 
@@ -187,9 +159,8 @@ export const OptionsFooter = () => (
                     Reload list
                 </a>
             }
-        >
-            {options}
-        </Transfer>
+            options={options}
+        />
     </StatefulWrapper>
 )
 
@@ -200,9 +171,8 @@ export const Filtered = () => (
             onChange={() => console.log('Will be overriden by StatefulWrapper')}
             initialSearchTerm="ANC"
             leftHeader={<h3>Header on the left side</h3>}
-        >
-            {options}
-        </Transfer>
+            options={options}
+        />
     </StatefulWrapper>
 )
 
@@ -233,17 +203,27 @@ export const CustomListOptions = () => (
                 onChange={() =>
                     console.log('Will be overriden by StatefulWrapper')
                 }
-                optionsComponent={CustomOption}
-            >
-                <CustomOption label="Foo" value="foo" />
-                <CustomOption label="Bar" value="bar" />
-                <CustomOption label="Baz" value="baz" />
-                <CustomOption label="Fo" value="foo" />
-                <CustomOption label="Ba" value="bar" />
-                <CustomOption label="Ba" value="baz" />
-            </Transfer>
+                optionComponent={CustomOption}
+                options={options}
+            />
         </StatefulWrapper>
     </>
+)
+
+export const IndividualCustomOption = () => (
+    <StatefulWrapper>
+        <Transfer
+            onChange={() => console.log('Will be overriden')}
+            addAllText="Add all"
+            addIndividualText="Add individual"
+            removeAllText="Remove all"
+            removeIndividualText="Remove individual"
+            options={[
+                { ...options[0], component: CustomOption },
+                ...options.slice(1),
+            ]}
+        />
+    </StatefulWrapper>
 )
 
 export const CustomButtonText = () => (
@@ -254,15 +234,15 @@ export const CustomButtonText = () => (
             addIndividualText="Add individual"
             removeAllText="Remove all"
             removeIndividualText="Remove individual"
-        >
-            {options}
-        </Transfer>
+            options={options}
+        />
     </StatefulWrapper>
 )
 
 export const SourceEmptyPlaceholder = () => (
     <Transfer
         onChange={() => console.log('Will be overriden')}
+        options={[]}
         sourceEmptyPlaceholder={
             <p style={{ textAlign: 'center' }}>
                 No options found.
@@ -284,16 +264,17 @@ export const PickedEmptyComponent = () => (
                 <br />
             </p>
         }
-    >
-        {options}
-    </Transfer>
+        options={options}
+    />
 )
 
 export const Reordering = () => (
     <StatefulWrapper initialState={options.slice(0, 4)}>
-        <Transfer enableOrderChange onChange={() => null}>
-            {options.slice(0, 4)}
-        </Transfer>
+        <Transfer
+            enableOrderChange
+            onChange={() => null}
+            options={options.slice(0, 4)}
+        />
     </StatefulWrapper>
 )
 
@@ -308,9 +289,8 @@ export const IncreasedOptionsHeight = () => (
                 }
                 height="400px"
                 leftHeader={<h3>Header on the left side</h3>}
-            >
-                {options}
-            </Transfer>
+                options={options}
+            />
         </StatefulWrapper>
     </div>
 )
@@ -324,34 +304,23 @@ export const DifferentWidths = () => (
             leftHeader={<h3>Header on the left side</h3>}
             optionsWidth="500px"
             selectedWidth="240px"
-        >
-            {options}
-        </Transfer>
+            options={options}
+        />
     </StatefulWrapper>
 )
 
 const createCustomFilteringInHeader = hideFilterInput => {
-    const relativePeriods = React.Children.map(
-        options.slice(0, 10),
-        (child, index) =>
-            React.cloneElement(child, {
-                additionalData: {
-                    relativePeriod: true,
-                    year: index < 5 ? '2020' : '2019',
-                },
-            })
-    )
+    const relativePeriods = options.slice(0, 10).map((option, index) => ({
+        ...option,
+        relativePeriod: true,
+        year: index < 5 ? '2020' : '2019',
+    }))
 
-    const fixedPeriods = React.Children.map(
-        options.slice(10, 20),
-        (child, index) =>
-            React.cloneElement(child, {
-                additionalData: {
-                    relativePeriod: false,
-                    year: index < 5 ? '2020' : '2019',
-                },
-            })
-    )
+    const fixedPeriods = options.slice(10, 20).map((option, index) => ({
+        ...option,
+        relativePeriod: false,
+        year: index < 5 ? '2020' : '2019',
+    }))
 
     const allOptions = [...relativePeriods, ...fixedPeriods]
 
@@ -394,10 +363,10 @@ const createCustomFilteringInHeader = hideFilterInput => {
     const CustomTransfer = props => {
         const [filter, setFilter] = useState('')
         const [relativePeriod, setRelativePeriod] = useState(true)
-        const [year, setYear] = useState({ label: '2020', value: '2020' })
+        const [year, setYear] = useState('2020')
         const filterCallback = (options, filter) => {
             const optionsWithYear = options.filter(
-                option => option.year === year.value
+                option => option.year === year
             )
 
             const optionsWithPeriod = optionsWithYear.filter(
@@ -440,7 +409,7 @@ const createCustomFilteringInHeader = hideFilterInput => {
     // eslint-disable-next-line react/display-name
     return () => (
         <StatefulWrapper>
-            <CustomTransfer>{allOptions}</CustomTransfer>
+            <CustomTransfer options={allOptions} />
         </StatefulWrapper>
     )
 }

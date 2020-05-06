@@ -8,21 +8,14 @@ export default {
     decorators: [statefulDecorator()],
 }
 
-window.options = options.map(child => {
-    const { label, value } = child.props
-    return { label, value }
-})
+window.options = options
 
 export const HasOptions = ({ selected, onChange }) => (
-    <Transfer selected={selected} onChange={onChange}>
-        {options}
-    </Transfer>
+    <Transfer selected={selected} onChange={onChange} options={options} />
 )
 
 export const SomeSelected = ({ selected, onChange }) => (
-    <Transfer selected={selected} onChange={onChange}>
-        {options}
-    </Transfer>
+    <Transfer selected={selected} onChange={onChange} options={options} />
 )
 
 SomeSelected.story = {

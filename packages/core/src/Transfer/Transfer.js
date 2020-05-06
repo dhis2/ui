@@ -1,6 +1,4 @@
-import './types.js'
-
-import React, { Children, useState } from 'react'
+import React, { useState } from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { Actions } from './Actions.js'
@@ -18,14 +16,13 @@ import { ReorderingActions } from './ReorderingActions.js'
 import { RightFooter } from './RightFooter.js'
 import { RightSide } from './RightSide.js'
 import { SourceOptions } from './SourceOptions.js'
+import { TransferOption } from './TransferOption'
 import {
     addAllSelectableSourceOptions,
     addIndividualSourceOptions,
     createDoubleClickHandlers,
-    extractPickedReactOptions,
     defaultFilterCallback,
-    filterOutOptions,
-    getSubsetByFilter,
+    getOptionClickHandlers,
     isReorderDownDisabled,
     isReorderUpDisabled,
     moveHighlightedPickedOptionDown,
@@ -34,7 +31,7 @@ import {
     removeIndividualPickedOptions,
     useHighlightedOptions,
 } from './helper/index.js'
-import { filterReactOptionsBy } from './helper/filterReactOptionsBy.js'
+import { isOption } from './common'
 
 // TODO: This will be refactored away to match the MultiSelect
 export const singleSelectedPropType = propTypes.shape({
@@ -75,9 +72,9 @@ export const multiSelectedPropType = propTypes.arrayOf(singleSelectedPropType)
  * rest of the library
  */
 export const Transfer = ({
+    options,
     onChange,
 
-    children,
     className,
     dataTest,
     disabled,
@@ -96,6 +93,7 @@ export const Transfer = ({
     leftFooter,
     leftHeader,
     maxSelections,
+    optionComponent: TransferOption,
     optionsWidth,
     rightFooter,
     searchTerm,
@@ -118,13 +116,14 @@ export const Transfer = ({
      * These are all the not-selected option react elements.
      * It will replace all selected options with null
      */
-    const sourceOptions = filterOutOptions(children, selected)
-    const filteredSourceOptions = getSubsetByFilter({
-        reactOptions: sourceOptions,
-        filter: actualFilter,
-        filterable,
-        filterCallback,
-    })
+    //const sourceOptions = filterOutOptions(children, selected)
+    const sourceOptions = options.filter(
+        ({ value }) =>
+            !selected.find(selectedOption => selectedOption.value === value)
+    )
+    const filteredSourceOptions = filterable
+        ? filterCallback(sourceOptions, actualFilter)
+        : sourceOptions
 
     /*
      * Extract the selected options. This way custom options are supported
@@ -134,10 +133,11 @@ export const Transfer = ({
      * This is done in order to cover the "append newly selected items
      * at the end" feature/behavior.
      */
-    const pickedOptions = extractPickedReactOptions({
-        reactOptions: children,
-        selectedPlainOptions: selected,
-    })
+    const pickedOptions = selected
+        .map(selectedOption =>
+            options.find(option => option.value === selectedOption.value)
+        )
+        .filter(v => v)
 
     /*
      * These are all the highlighted option react elements on the options side.
@@ -147,7 +147,7 @@ export const Transfer = ({
         setHighlightedOptions: setHighlightedSourceOptions,
         toggleHighlightedOption: toggleHighlightedSourceOption,
     } = useHighlightedOptions({
-        reactOptions: filteredSourceOptions,
+        options: filteredSourceOptions,
         disabled,
         maxSelections,
     })
@@ -160,7 +160,7 @@ export const Transfer = ({
         setHighlightedOptions: setHighlightedPickedOptions,
         toggleHighlightedOption: toggleHighlightedPickedOption,
     } = useHighlightedOptions({
-        reactOptions: pickedOptions,
+        options: pickedOptions,
         disabled,
         maxSelections,
     })
@@ -169,7 +169,7 @@ export const Transfer = ({
         selectSingleOption,
         deselectSingleOption,
     } = createDoubleClickHandlers({
-        selectedPlainOptions: selected,
+        selected,
         setHighlightedSourceOptions,
         setHighlightedPickedOptions,
         onChange,
@@ -202,13 +202,33 @@ export const Transfer = ({
                 <SourceOptions
                     dataTest={`${dataTest}-sourceoptions`}
                     sourceEmptyPlaceholder={sourceEmptyPlaceholder}
-                    toggleHighlightedSourceOption={
-                        toggleHighlightedSourceOption
-                    }
-                    highlightedSourceOptions={highlightedSourceOptions}
-                    selectSingleOption={selectSingleOption}
                 >
-                    {filteredSourceOptions}
+                    {filteredSourceOptions.map(option => {
+                        const OptionComponent =
+                            option.component || TransferOption
+
+                        return (
+                            <OptionComponent
+                                key={option.value}
+                                disabled={option.disabled}
+                                option={option}
+                                highlighted={
+                                    !!highlightedSourceOptions.find(
+                                        highlightedSourceOption =>
+                                            isOption(
+                                                highlightedSourceOption,
+                                                option
+                                            )
+                                    )
+                                }
+                                {...getOptionClickHandlers(
+                                    option,
+                                    selectSingleOption,
+                                    toggleHighlightedSourceOption
+                                )}
+                            />
+                        )
+                    })}
                 </SourceOptions>
 
                 {leftFooter && (
@@ -225,17 +245,14 @@ export const Transfer = ({
                         dataTest={`${dataTest}-actions-addall`}
                         disabled={
                             disabled ||
-                            !Children.count(
-                                filterReactOptionsBy(
-                                    ({ disabled }) => !disabled,
-                                    filteredSourceOptions
-                                )
-                            )
+                            filteredSourceOptions.filter(
+                                ({ disabled }) => !disabled
+                            ).length === 0
                         }
                         onClick={() =>
                             addAllSelectableSourceOptions({
-                                sourceReactOptions: filteredSourceOptions,
-                                selectedPlainOptions: selected,
+                                sourceOptions: filteredSourceOptions,
+                                selectedOptions: selected,
                                 onChange,
                                 setHighlightedSourceOptions,
                             })
@@ -250,9 +267,9 @@ export const Transfer = ({
                     onClick={() =>
                         addIndividualSourceOptions({
                             filterable,
-                            filteredSourcePlainOptions: filteredSourceOptions,
-                            highlightedSourcePlainOptions: highlightedSourceOptions,
-                            selectedPlainOptions: selected,
+                            filteredSourceOptions: filteredSourceOptions,
+                            highlightedSourceOptions: highlightedSourceOptions,
+                            selectedOptions: selected,
                             maxSelections,
                             onChange,
                             setHighlightedSourceOptions,
@@ -280,9 +297,9 @@ export const Transfer = ({
                     disabled={disabled || !highlightedPickedOptions.length}
                     onClick={() =>
                         removeIndividualPickedOptions({
-                            highlightedPickedReactOptions: highlightedPickedOptions,
+                            highlightedPickedOptions: highlightedPickedOptions,
                             onChange,
-                            selectedPlainOptions: selected,
+                            selectedOptions: selected,
                             setHighlightedPickedOptions,
                         })
                     }
@@ -293,13 +310,33 @@ export const Transfer = ({
                 <PickedOptions
                     dataTest={`${dataTest}-pickedoptions`}
                     selectedEmptyComponent={selectedEmptyComponent}
-                    highlightedPickedOptions={highlightedPickedOptions}
-                    toggleHighlightedPickedOption={
-                        toggleHighlightedPickedOption
-                    }
-                    deselectSingleOption={deselectSingleOption}
                 >
-                    {pickedOptions}
+                    {pickedOptions.map(option => {
+                        const OptionComponent =
+                            option.component || TransferOption
+
+                        return (
+                            <OptionComponent
+                                key={option.value}
+                                disabled={option.disabled}
+                                option={option}
+                                highlighted={
+                                    !!highlightedPickedOptions.find(
+                                        highlightedPickedOption =>
+                                            isOption(
+                                                highlightedPickedOption,
+                                                option
+                                            )
+                                    )
+                                }
+                                {...getOptionClickHandlers(
+                                    option,
+                                    deselectSingleOption,
+                                    toggleHighlightedPickedOption
+                                )}
+                            />
+                        )
+                    })}
                 </PickedOptions>
 
                 {(rightFooter || enableOrderChange) && (
@@ -308,24 +345,24 @@ export const Transfer = ({
                             <ReorderingActions
                                 dataTest={`${dataTest}-reorderingactions`}
                                 disabledDown={isReorderDownDisabled({
-                                    highlightedPickedPlainOptions: highlightedPickedOptions,
-                                    selectedPlainOptions: selected,
+                                    highlightedPickedOptions: highlightedPickedOptions,
+                                    selectedOptions: selected,
                                 })}
                                 disabledUp={isReorderUpDisabled({
-                                    highlightedPickedPlainOptions: highlightedPickedOptions,
-                                    selectedPlainOptions: selected,
+                                    highlightedPickedOptions: highlightedPickedOptions,
+                                    selectedOptions: selected,
                                 })}
                                 onChangeUp={() =>
                                     moveHighlightedPickedOptionUp({
-                                        selectedPlainOptions: selected,
-                                        highlightedPickedPlainOptions: highlightedPickedOptions,
+                                        selectedOptions: selected,
+                                        highlightedPickedOptions: highlightedPickedOptions,
                                         onChange,
                                     })
                                 }
                                 onChangeDown={() => {
                                     moveHighlightedPickedOptionDown({
-                                        selectedPlainOptions: selected,
-                                        highlightedPickedPlainOptions: highlightedPickedOptions,
+                                        selectedOptions: selected,
+                                        highlightedPickedOptions: highlightedPickedOptions,
                                         onChange,
                                     })
                                 }}
@@ -345,6 +382,7 @@ Transfer.defaultProps = {
     initialSearchTerm: '',
     selected: [],
     height: '240px',
+    optionComponent: TransferOption,
     optionsWidth: '320px',
     selectedWidth: '320px',
     maxSelections: Infinity,
@@ -378,16 +416,23 @@ Transfer.defaultProps = {
  * @prop {string} [removeIndividualText]
  * @prop {Node} [rightFooter]
  * @prop {string} [searchTerm]
- * @prop {Option|Option[]} selected
+ * @prop {Object[]} selected
  * @prop {string} [selectedWidth]
  * @prop {Function} [onFilterChange]
  */
 Transfer.propTypes = {
+    options: propTypes.arrayOf(
+        propTypes.shape({
+            label: propTypes.string.isRequired,
+            value: propTypes.string.isRequired,
+            component: propTypes.func,
+            disabled: propTypes.bool,
+        })
+    ).isRequired,
     onChange: propTypes.func.isRequired,
 
     addAllText: propTypes.string,
     addIndividualText: propTypes.string,
-    children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
     disabled: propTypes.bool,
@@ -401,6 +446,7 @@ Transfer.propTypes = {
     leftFooter: propTypes.node,
     leftHeader: propTypes.node,
     maxSelections: propTypes.oneOf([1, Infinity]),
+    optionComponent: propTypes.func,
     optionsWidth: propTypes.string,
     removeAllText: propTypes.string,
     removeIndividualText: propTypes.string,

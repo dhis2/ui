@@ -1,11 +1,9 @@
 /**
- * @param {Option[]} plainOptions
+ * @param {Object[]} options
  * @param {string} filter
- * @returns {Option[]}
+ * @returns {Object[]}
  */
-export const defaultFilterCallback = (plainOptions, filter) =>
+export const defaultFilterCallback = (options, filter) =>
     filter === ''
-        ? plainOptions
-        : plainOptions.filter(({ label }) =>
-              label.match(new RegExp(filter, 'i'))
-          )
+        ? options
+        : options.filter(({ label }) => label.match(new RegExp(filter, 'i')))

@@ -9,7 +9,7 @@ export const createToggleHighlightedOption = ({
     setHighlightedOptions,
     maxSelections,
     setLastClicked,
-    reactOptions,
+    options,
     lastClicked,
 }) => ({ option, mode }) => {
     if (disabled) return
@@ -30,7 +30,7 @@ export const createToggleHighlightedOption = ({
     if (mode === RANGE_MODE) {
         return toggleRange({
             highlightedOptions,
-            reactOptions,
+            options,
             option,
             setHighlightedOptions,
             lastClicked,

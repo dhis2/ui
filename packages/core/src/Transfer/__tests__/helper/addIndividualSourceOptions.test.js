@@ -1,44 +1,33 @@
-import { createElement } from 'react'
-
 import { addIndividualSourceOptions } from '../../helper/addIndividualSourceOptions.js'
-import { createChildren } from '../common/createChildren.js'
 
 describe('Transfer - addIndividualSourceOptions', () => {
     const onChange = jest.fn()
     const setHighlightedSourceOptions = jest.fn()
 
-    const filteredSourcePlainOptions = createChildren(
-        createElement('div', { key: 'foo', label: 'Foo', value: 'foo' }),
-        createElement('div', {
-            key: 'foobar',
-            label: 'Foobar',
-            value: 'foobar',
-        }),
-        createElement('div', {
-            key: 'foobaz',
-            label: 'Foobaz',
-            value: 'foobaz',
-        })
-    )
+    const filteredSourceOptions = [
+        { label: 'Foo', value: 'foo' },
+        { label: 'Foobar', value: 'foobar' },
+        { label: 'Foobaz', value: 'foobaz' },
+    ]
 
-    const highlightedSourcePlainOptions = [
+    const highlightedSourceOptions = [
         { label: 'Foobaz', value: 'foobaz' },
         { label: 'Bar', value: 'bar' },
     ]
 
-    const selectedPlainOptions = [{ label: 'Barfoo', value: 'barfoo' }]
+    const selectedOptions = [{ label: 'Barfoo', value: 'barfoo' }]
 
     afterEach(() => {
         onChange.mockClear()
         setHighlightedSourceOptions.mockClear()
     })
 
-    it('should add the highlighted source options to the selectedPlainOptions array', () => {
+    it('should add the highlighted source options to the selectedOptions array', () => {
         addIndividualSourceOptions({
-            highlightedSourcePlainOptions,
+            highlightedSourceOptions,
             maxSelections: Infinity,
             onChange,
-            selectedPlainOptions,
+            selectedOptions,
             setHighlightedSourceOptions,
         })
 
@@ -53,10 +42,10 @@ describe('Transfer - addIndividualSourceOptions', () => {
 
     it('should reset the highlighted source options', () => {
         addIndividualSourceOptions({
-            highlightedSourcePlainOptions,
+            highlightedSourceOptions,
             maxSelections: Infinity,
             onChange,
-            selectedPlainOptions,
+            selectedOptions,
             setHighlightedSourceOptions,
         })
 
@@ -67,11 +56,11 @@ describe('Transfer - addIndividualSourceOptions', () => {
         addIndividualSourceOptions({
             filterable: true,
             filter: 'oo',
-            filteredSourcePlainOptions,
-            highlightedSourcePlainOptions,
+            filteredSourceOptions,
+            highlightedSourceOptions,
             maxSelections: Infinity,
             onChange,
-            selectedPlainOptions,
+            selectedOptions,
             setHighlightedSourceOptions,
         })
 
@@ -87,14 +76,11 @@ describe('Transfer - addIndividualSourceOptions', () => {
         addIndividualSourceOptions({
             filterable: true,
             filter: 'oo',
-            filteredSourcePlainOptions,
-            highlightedSourcePlainOptions: highlightedSourcePlainOptions.slice(
-                0,
-                1
-            ),
+            filteredSourceOptions,
+            highlightedSourceOptions: highlightedSourceOptions.slice(0, 1),
             maxSelections: 1,
             onChange,
-            selectedPlainOptions: selectedPlainOptions.slice(0, 1),
+            selectedOptions: selectedOptions.slice(0, 1),
             setHighlightedSourceOptions,
         })
 

@@ -6,9 +6,12 @@ import { options, statefulDecorator } from './common.js'
 export default { title: 'Transfer Reorder Buttons' }
 
 export const HasSomeSelected = ({ selected, onChange }) => (
-    <Transfer enableOrderChange selected={selected} onChange={onChange}>
-        {options}
-    </Transfer>
+    <Transfer
+        enableOrderChange
+        selected={selected}
+        onChange={onChange}
+        options={options}
+    />
 )
 
 HasSomeSelected.story = {

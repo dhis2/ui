@@ -1,7 +1,7 @@
 import { defaultFilterCallback } from '../../../Transfer/helper/defaultFilterCallback.js'
 
 describe('Transfer - defaultFilterCallback', () => {
-    const plainOptions = [
+    const options = [
         { label: 'Foo', value: 'foo' },
         { label: 'FOO', value: 'fOO' },
         { label: 'Bar', value: 'bar' },
@@ -10,8 +10,8 @@ describe('Transfer - defaultFilterCallback', () => {
 
     it('should returl all options when the filter is empty', () => {
         const filter = ''
-        const expected = plainOptions
-        const actual = defaultFilterCallback(plainOptions, filter)
+        const expected = options
+        const actual = defaultFilterCallback(options, filter)
 
         expect(actual).toEqual(expected)
     })
@@ -22,7 +22,7 @@ describe('Transfer - defaultFilterCallback', () => {
             { label: 'Foo', value: 'foo' },
             { label: 'FOO', value: 'fOO' },
         ]
-        const actual = defaultFilterCallback(plainOptions, filter)
+        const actual = defaultFilterCallback(options, filter)
 
         expect(actual).toEqual(expected)
     })
@@ -30,7 +30,7 @@ describe('Transfer - defaultFilterCallback', () => {
     it('should return an empty array when there are no matches', () => {
         const filter = 'Baz'
         const expected = []
-        const actual = defaultFilterCallback(plainOptions, filter)
+        const actual = defaultFilterCallback(options, filter)
 
         expect(actual).toEqual(expected)
     })

@@ -1,25 +1,25 @@
 import { addOption, toggleOptions } from '../common'
-import { getPlainOptionsFromReactOptions } from './getPlainOptionsFromReactOptions'
 
 /**
  * @param {Object} args
- * @param {ReactElement} args.sourceReactOptions
- * @param {Option[]} args.selectedPlainOptions
+ * @param {Object[]} args.sourceReactOptions
+ * @param {Object[]} args.selectedOptions
  * @param {Function} args.onChange
  * @param {Function} arg.setHighlightedSourceOptions
  * @returns {void}
  */
 export const addAllSelectableSourceOptions = ({
-    sourceReactOptions,
+    sourceOptions,
     onChange,
-    selectedPlainOptions,
+    selectedOptions,
     setHighlightedSourceOptions,
 }) => {
-    const all = getPlainOptionsFromReactOptions(sourceReactOptions)
-    const allEnabled = all.filter(({ disabled }) => !disabled)
+    const enabledSourceOptions = sourceOptions.filter(
+        ({ disabled }) => !disabled
+    )
     const newSelected = toggleOptions(
-        selectedPlainOptions,
-        allEnabled,
+        selectedOptions,
+        enabledSourceOptions,
         addOption
     )
 

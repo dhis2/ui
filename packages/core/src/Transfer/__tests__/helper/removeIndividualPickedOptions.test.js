@@ -9,21 +9,21 @@ describe('Transfer - removeIndividualPickedOptions', () => {
         setHighlightedPickedOptions.mockClear()
     })
 
-    const selectedPlainOptions = [
+    const selectedOptions = [
         { label: 'Foo', value: 'foo' },
         { label: 'Bar', value: 'bar' },
         { label: 'Baz', value: 'baz' },
     ]
 
-    const highlightedPickedReactOptions = [
+    const highlightedPickedOptions = [
         { label: 'Bar', value: 'bar' },
         { label: 'Baz', value: 'baz' },
     ]
 
     it('should remove the highlighted picked options', () => {
         removeIndividualPickedOptions({
-            highlightedPickedReactOptions,
-            selectedPlainOptions,
+            highlightedPickedOptions,
+            selectedOptions,
             onChange,
             setHighlightedPickedOptions,
         })
@@ -35,8 +35,8 @@ describe('Transfer - removeIndividualPickedOptions', () => {
 
     it('should reset the highlighted picked options', () => {
         removeIndividualPickedOptions({
-            highlightedPickedReactOptions,
-            selectedPlainOptions,
+            highlightedPickedOptions,
+            selectedOptions,
             onChange,
             setHighlightedPickedOptions,
         })

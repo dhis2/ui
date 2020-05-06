@@ -150,7 +150,6 @@ Then(
             () => cy.get('{transfer-sourceoptions} {transferoption}'),
             () => cy.get('@deselectedOptions')
         ).then(([win, $selectableSourceOptions, deselectedOptions]) => {
-            console.log('deselectedOptions', deselectedOptions)
             const selectableSourceOptions = $selectableSourceOptions
                 .toArray()
                 .map(extractOptionFromElement)
@@ -169,9 +168,6 @@ Then(
                         value === deselectedOption.value
                 )
 
-                if (!result) {
-                    console.log('deselectedOption', deselectedOption)
-                }
                 return result
             })
             expect(hasAllOptions).to.equal(true)
@@ -205,8 +201,6 @@ Then(
                 .slice(transferredOptions.length * -1)
                 .map(extractOptionFromElement)
 
-            console.log('transferredOptions', transferredOptions)
-            console.log('lastSelectedOptions', lastSelectedOptions)
             expect(transferredOptions).to.eql(lastSelectedOptions)
         })
     }

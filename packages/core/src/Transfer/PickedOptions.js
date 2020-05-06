@@ -3,8 +3,6 @@ import propTypes from '@dhis2/prop-types'
 
 import { spacers } from '@dhis2/ui-constants'
 
-import { findOption, getModeByModifierKey } from './common.js'
-
 // TODO: This will be refactored away to match the MultiSelect
 export const multiSelectedPropType = propTypes.arrayOf(
     propTypes.shape({
@@ -16,28 +14,11 @@ export const multiSelectedPropType = propTypes.arrayOf(
 export const PickedOptions = ({
     children,
     dataTest,
-    toggleHighlightedPickedOption,
     selectedEmptyComponent,
-    highlightedPickedOptions,
-    deselectSingleOption,
 }) => (
     <div data-test={dataTest}>
         {!React.Children.count(children) && selectedEmptyComponent}
-        {React.Children.map(children, child => {
-            const option = {
-                label: child.props.label,
-                value: child.props.value,
-            }
-
-            return React.cloneElement(child, {
-                onClick: (_, event) => {
-                    const mode = getModeByModifierKey(event)
-                    toggleHighlightedPickedOption({ option, mode })
-                },
-                onDoubleClick: deselectSingleOption,
-                highlighted: !!findOption(highlightedPickedOptions, option),
-            })
-        })}
+        {children}
 
         <style jsx>{`
             div {
@@ -52,8 +33,5 @@ export const PickedOptions = ({
 PickedOptions.propTypes = {
     children: propTypes.node.isRequired,
     dataTest: propTypes.string.isRequired,
-    deselectSingleOption: propTypes.func.isRequired,
-    toggleHighlightedPickedOption: propTypes.func.isRequired,
-    highlightedPickedOptions: multiSelectedPropType,
     selectedEmptyComponent: propTypes.node,
 }

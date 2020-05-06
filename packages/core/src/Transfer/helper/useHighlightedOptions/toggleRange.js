@@ -1,20 +1,18 @@
-import '../../types.js'
 import { findOption, findOptionIndex } from '../../common'
-import { getPlainOptionsFromReactOptions } from '../getPlainOptionsFromReactOptions'
 
 /**
  * @param {Object} args
- * @param {Option[]} args.highlightedOptions
- * @param {ReactElement} args.reactOptions
- * @param {Option} args.option
- * @param {Function} args.setHighlightedOption
  * @param {number} args.maxSelections
- * @param {Option} args.lastClicked
+ * @param {Object[]} args.highlightedOptions
+ * @param {Object[]} args.options
+ * @param {Object} args.option
+ * @param {Object} args.lastClicked
+ * @param {Function} args.setHighlightedOption
  * @returns {void}
  */
 export const toggleRange = ({
     highlightedOptions,
-    reactOptions,
+    options,
     option,
     setHighlightedOptions,
     lastClicked,
@@ -25,7 +23,6 @@ export const toggleRange = ({
     } else {
         let from, to
 
-        const options = getPlainOptionsFromReactOptions(reactOptions)
         const clickedOptionIndex = findOptionIndex(options, option)
         const lastClickedSourceOptionWithoutRangeModeIndex = lastClicked
             ? findOptionIndex(options, lastClicked)

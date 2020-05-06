@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { TransferOption } from '../../index.js'
 
 export const extractOptionFromComponent = ({ props }) => ({
     label: props.label,
@@ -12,8 +11,7 @@ export const statefulDecorator = ({
     initialSearchTerm = '',
 } = {}) => fn =>
     React.createElement(() => {
-        const initialSelected = initialState.map(child => child.props)
-        const [selected, setSelected] = useState(initialSelected)
+        const [selected, setSelected] = useState(initialState)
         const [searchTerm, setSearchTerm] = useState(initialSearchTerm)
 
         return fn({
@@ -27,114 +25,94 @@ export const statefulDecorator = ({
     })
 
 export const options = [
-    <TransferOption
-        label="ANC 1st visit"
-        value="ANC 1st visit"
-        key="ANC 1st visit"
-    />,
-    <TransferOption
-        label="ANC 2nd visit"
-        value="ANC 2nd visit"
-        key="ANC 2nd visit"
-    />,
-    <TransferOption
-        label="ANC 3rd visit"
-        value="ANC 3rd visit"
-        key="ANC 3rd visit"
-    />,
-    <TransferOption
-        label="ANC 4th or more visits"
-        value="ANC 4th or more visits"
-        key="ANC 4th or more visits"
-    />,
-    <TransferOption
-        label="ARI treated with antibiotics (pneumonia) follow-up"
-        value="ARI treated with antibiotics (pneumonia) follow-up"
-        key="ARI treated with antibiotics (pneumonia) follow-up"
-    />,
-    <TransferOption
-        label="ARI treated with antibiotics (pneumonia) new"
-        value="ARI treated with antibiotics (pneumonia) new"
-        key="ARI treated with antibiotics (pneumonia) new"
-    />,
-    <TransferOption
-        label="ARI treated with antibiotics (pneumonia) referrals"
-        value="ARI treated with antibiotics (pneumonia) referrals"
-        key="ARI treated with antibiotics (pneumonia) referrals"
-    />,
-    <TransferOption
-        label="ARI treated without antibiotics (cough) follow-up"
-        value="ARI treated without antibiotics (cough) follow-up"
-        key="ARI treated without antibiotics (cough) follow-up"
-    />,
-    <TransferOption
-        label="ARI treated without antibiotics (cough) new"
-        value="ARI treated without antibiotics (cough) new"
-        key="ARI treated without antibiotics (cough) new"
-    />,
-    <TransferOption
-        label="ARI treated without antibiotics (cough) referrals"
-        value="ARI treated without antibiotics (cough) referrals"
-        key="ARI treated without antibiotics (cough) referrals"
-    />,
-    <TransferOption
-        label="ART No clients who stopped TRT due to TRT failure"
-        value="ART No clients who stopped TRT due to TRT failure"
-        key="ART No clients who stopped TRT due to TRT failure"
-    />,
-    <TransferOption
-        label="ART No clients who stopped TRT due to adverse clinical status/event"
-        value="ART No clients who stopped TRT due to adverse clinical status/event"
-        key="ART No clients who stopped TRT due to adverse clinical status/event"
-    />,
-    <TransferOption
-        label="ART No clients with change of regimen due to drug toxicity"
-        value="ART No clients with change of regimen due to drug toxicity"
-        key="ART No clients with change of regimen due to drug toxicity"
-    />,
-    <TransferOption
-        label="ART No clients with new adverse drug reaction"
-        value="ART No clients with new adverse drug reaction"
-        key="ART No clients with new adverse drug reaction"
-    />,
-    <TransferOption
-        label="ART No started Opportunist Infection prophylaxis"
-        value="ART No started Opportunist Infection prophylaxis"
-        key="ART No started Opportunist Infection prophylaxis"
-    />,
-    <TransferOption
-        label="ART clients with new adverse clinical event"
-        value="ART clients with new adverse clinical event"
-        key="ART clients with new adverse clinical event"
-    />,
-    <TransferOption
-        label="ART defaulters"
-        value="ART defaulters"
-        key="ART defaulters"
-    />,
-    <TransferOption
-        label="ART enrollment stage 1"
-        value="ART enrollment stage 1"
-        key="ART enrollment stage 1"
-    />,
-    <TransferOption
-        label="ART enrollment stage 2"
-        value="ART enrollment stage 2"
-        key="ART enrollment stage 2"
-    />,
-    <TransferOption
-        label="ART enrollment stage 3"
-        value="ART enrollment stage 3"
-        key="ART enrollment stage 3"
-    />,
-    <TransferOption
-        label="ART enrollment stage 4"
-        value="ART enrollment stage 4"
-        key="ART enrollment stage 4"
-    />,
-    <TransferOption
-        label="ART entry point: No PMTCT"
-        value="ART entry point: No PMTCT"
-        key="ART entry point: No PMTCT"
-    />,
+    {
+        label: 'ANC 1st visit',
+        value: 'anc_1st_visit',
+    },
+    {
+        label: 'ANC 2nd visit',
+        value: 'anc_2nd_visit',
+    },
+    {
+        label: 'ANC 3rd visit',
+        value: 'anc_3rd_visit',
+    },
+    {
+        label: 'ANC 4th or more visits',
+        value: 'anc_4th_or_more_visits',
+    },
+    {
+        label: 'ARI treated with antibiotics (pneumonia) follow-up',
+        value: 'ari_treated_with_antibiotics_(pneumonia)_follow-up',
+    },
+    {
+        label: 'ARI treated with antibiotics (pneumonia) new',
+        value: 'ari_treated_with_antibiotics_(pneumonia)_new',
+    },
+    {
+        label: 'ARI treated with antibiotics (pneumonia) referrals',
+        value: 'ari_treated_with_antibiotics_(pneumonia)_referrals',
+    },
+    {
+        label: 'ARI treated without antibiotics (cough) follow-up',
+        value: 'ari_treated_without_antibiotics_(cough)_follow-up',
+    },
+    {
+        label: 'ARI treated without antibiotics (cough) new',
+        value: 'ari_treated_without_antibiotics_(cough)_new',
+    },
+    {
+        label: 'ARI treated without antibiotics (cough) referrals',
+        value: 'ari_treated_without_antibiotics_(cough)_referrals',
+    },
+    {
+        label: 'ART No clients who stopped TRT due to TRT failure',
+        value: 'art_no_clients_who_stopped_trt_due_to_trt_failure',
+    },
+    {
+        label:
+            'ART No clients who stopped TRT due to adverse clinical status/event',
+        value:
+            'art_no_clients_who_stopped_trt_due_to_adverse_clinical_status/event',
+    },
+    {
+        label: 'ART No clients with change of regimen due to drug toxicity',
+        value: 'art_no_clients_with_change_of_regimen_due_to_drug_toxicity',
+    },
+    {
+        label: 'ART No clients with new adverse drug reaction',
+        value: 'art_no_clients_with_new_adverse_drug_reaction',
+    },
+    {
+        label: 'ART No started Opportunist Infection prophylaxis',
+        value: 'art_no_started_opportunist_infection_prophylaxis',
+    },
+    {
+        label: 'ART clients with new adverse clinical event',
+        value: 'art_clients_with_new_adverse_clinical_event',
+    },
+    {
+        label: 'ART defaulters',
+        value: 'art_defaulters',
+    },
+    {
+        label: 'ART enrollment stage 1',
+        value: 'art_enrollment_stage_1',
+    },
+    {
+        label: 'ART enrollment stage 2',
+        value: 'art_enrollment_stage_2',
+    },
+    {
+        label: 'ART enrollment stage 3',
+        value: 'art_enrollment_stage_3',
+    },
+    {
+        label: 'ART enrollment stage 4',
+        value: 'art_enrollment_stage_4',
+    },
+    {
+        label: 'ART entry point: No PMTCT',
+        value: 'art_entry_point:_no_pmtct',
+    },
 ]

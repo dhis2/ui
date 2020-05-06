@@ -20,12 +20,10 @@ export const TransferOption = ({
     className,
     disabled,
     dataTest,
-    label,
     highlighted,
     onClick,
     onDoubleClick,
-    value,
-    additionalData,
+    option,
 }) => {
     const doubleClickTimeout = useRef(null)
 
@@ -34,8 +32,6 @@ export const TransferOption = ({
             data-test={dataTest}
             onClick={event => {
                 if (disabled) return
-
-                const option = { label, value, ...additionalData }
 
                 if (doubleClickTimeout.current) {
                     clearTimeout(doubleClickTimeout.current)
@@ -51,10 +47,10 @@ export const TransferOption = ({
                     onClick({ option }, event)
                 }
             }}
-            data-value={value}
+            data-value={option.value}
             className={cx(className, { highlighted, disabled })}
         >
-            {label}
+            {option.label}
 
             <style jsx>{`
                 div {
@@ -85,7 +81,6 @@ export const TransferOption = ({
 
 TransferOption.defaultProps = {
     dataTest: 'dhis2-uicore-transferoption',
-    addDecorator: {},
 }
 
 /**
@@ -103,9 +98,10 @@ TransferOption.defaultProps = {
  * @prop {Function} [onDoubleClick]
  */
 TransferOption.propTypes = {
-    label: propTypes.string.isRequired,
-    value: propTypes.string.isRequired,
-    additionalData: propTypes.object,
+    option: propTypes.shape({
+        label: propTypes.string.isRequired,
+        value: propTypes.string.isRequired,
+    }).isRequired,
     className: propTypes.string,
     dataTest: propTypes.string,
     disabled: propTypes.bool,

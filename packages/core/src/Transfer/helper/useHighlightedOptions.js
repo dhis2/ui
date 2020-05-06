@@ -1,5 +1,3 @@
-import '../types.js'
-
 import { useState } from 'react'
 
 import { createToggleHighlightedOption } from './useHighlightedOptions/createToggleHighlightedOption'
@@ -8,14 +6,10 @@ import { createToggleHighlightedOption } from './useHighlightedOptions/createTog
  * @param {Object} args
  * @param {bool} args.disabled
  * @param {number} args.maxSelection
- * @param {ReactElement} args.reactOptions
+ * @param {Object[]} args.options
  * @returns {Object} highlighted options & helpers
  */
-export const useHighlightedOptions = ({
-    disabled,
-    maxSelections,
-    reactOptions,
-}) => {
+export const useHighlightedOptions = ({ disabled, maxSelections, options }) => {
     /**
      * These are important so the stored element can be used
      * as range-start when using shift multiple times consecutively
@@ -29,7 +23,7 @@ export const useHighlightedOptions = ({
         setHighlightedOptions,
         maxSelections,
         setLastClicked,
-        reactOptions,
+        options,
         lastClicked,
     })
 
