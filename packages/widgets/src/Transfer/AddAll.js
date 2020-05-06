@@ -1,18 +1,18 @@
+import { Button } from '@dhis2/ui-core'
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
-import { Button } from '../Button/Button.js'
-import { IconAddIndividual } from './icons.js'
+import { IconAddAll } from './icons.js'
 
-export const AddIndividual = ({ label, dataTest, disabled, onClick }) => (
+export const AddAll = ({ label, dataTest, disabled, onClick }) => (
     <Button
         dataTest={dataTest}
         disabled={disabled}
         onClick={onClick}
         icon={
-            <IconAddIndividual
+            <IconAddAll
+                dataTest={`${dataTest}-iconaddall`}
                 disabled={disabled}
-                dataTest={`${dataTest}-iconaddindividual`}
             />
         }
     >
@@ -20,7 +20,7 @@ export const AddIndividual = ({ label, dataTest, disabled, onClick }) => (
     </Button>
 )
 
-AddIndividual.propTypes = {
+AddAll.propTypes = {
     dataTest: propTypes.string.isRequired,
     onClick: propTypes.func.isRequired,
     disabled: propTypes.bool,

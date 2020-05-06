@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
+import { SingleSelectOption, Tab, TabBar } from '@dhis2/ui-core'
 import React, { useState } from 'react'
 
-import { SingleSelectField } from '@dhis2/ui-widgets'
-import { SingleSelectOption, Tab, TabBar, Transfer } from '../index.js'
+import { SingleSelectField, Transfer } from '../index.js'
 
-export default { title: 'Transfer' }
+export default { title: 'Components/widgets/Transfer' }
 
 const StatefulWrapper = ({ children, initialState }) => {
     const [selected, setSelected] = useState(initialState)
