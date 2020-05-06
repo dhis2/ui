@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { createToggleHighlightedOption } from './useHighlightedOptions/createToggleHighlightedOption'
+import { createToggleHighlightedOption } from './useHighlightedOptions/createToggleHighlightedOption.js'
 
 /**
  * @param {Object} args

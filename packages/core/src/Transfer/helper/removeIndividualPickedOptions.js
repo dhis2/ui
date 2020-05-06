@@ -1,4 +1,4 @@
-import { removeOption, toggleOptions } from '../common'
+import { removeOption, toggleOptions } from '../common.js'
 
 /**
  * @param {Object} args

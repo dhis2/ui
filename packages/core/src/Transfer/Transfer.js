@@ -16,7 +16,7 @@ import { ReorderingActions } from './ReorderingActions.js'
 import { RightFooter } from './RightFooter.js'
 import { RightSide } from './RightSide.js'
 import { SourceOptions } from './SourceOptions.js'
-import { TransferOption } from './TransferOption'
+import { TransferOption } from './TransferOption.js'
 import {
     addAllSelectableSourceOptions,
     addIndividualSourceOptions,
@@ -31,16 +31,7 @@ import {
     removeIndividualPickedOptions,
     useHighlightedOptions,
 } from './helper/index.js'
-import { isOption } from './common'
-
-// TODO: This will be refactored away to match the MultiSelect
-export const singleSelectedPropType = propTypes.shape({
-    label: propTypes.string,
-    value: propTypes.string,
-})
-
-export const multiSelectedPropType = propTypes.arrayOf(singleSelectedPropType)
-// ODOT
+import { isOption } from './common.js'
 
 /**
  * @module
@@ -388,6 +379,15 @@ Transfer.defaultProps = {
     maxSelections: Infinity,
     filterCallback: defaultFilterCallback,
 }
+
+// TODO: This will be refactored away to match the MultiSelect
+export const singleSelectedPropType = propTypes.shape({
+    label: propTypes.string,
+    value: propTypes.string,
+})
+
+export const multiSelectedPropType = propTypes.arrayOf(singleSelectedPropType)
+// ODOT
 
 /**
  * @typedef {Object} PropTypes

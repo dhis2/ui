@@ -3,14 +3,6 @@ import propTypes from '@dhis2/prop-types'
 
 import { spacers } from '@dhis2/ui-constants'
 
-// TODO: This will be refactored away to match the MultiSelect
-export const multiSelectedPropType = propTypes.arrayOf(
-    propTypes.shape({
-        label: propTypes.string,
-        value: propTypes.string,
-    })
-)
-
 export const PickedOptions = ({
     children,
     dataTest,

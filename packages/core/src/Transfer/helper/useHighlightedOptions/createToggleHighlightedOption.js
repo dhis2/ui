@@ -1,7 +1,7 @@
-import { ADD_MODE, RANGE_MODE } from '../../common'
-import { toggleAdd } from './toggleAdd'
-import { toggleRange } from './toggleRange'
-import { toggleReplace } from './toggleReplace'
+import { ADD_MODE, RANGE_MODE } from '../../common.js'
+import { toggleAdd } from './toggleAdd.js'
+import { toggleRange } from './toggleRange.js'
+import { toggleReplace } from './toggleReplace.js'
 
 export const createToggleHighlightedOption = ({
     disabled,

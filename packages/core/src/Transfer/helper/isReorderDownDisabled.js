@@ -1,4 +1,4 @@
-import { findOptionIndex } from '../common'
+import { findOptionIndex } from '../common.js'
 
 /**
  * @param {Object} args
