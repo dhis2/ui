@@ -1,21 +1,21 @@
-import { ADD_MODE, RANGE_MODE, REPLACE_MODE } from '../../../common.js'
-import { createToggleHighlightedOption } from '../../../helper/useHighlightedOptions/createToggleHighlightedOption.js'
-import { toggleAdd } from '../../../helper/useHighlightedOptions/toggleAdd.js'
-import { toggleRange } from '../../../helper/useHighlightedOptions/toggleRange.js'
-import { toggleReplace } from '../../../helper/useHighlightedOptions/toggleReplace.js'
+import { ADD_MODE, RANGE_MODE, REPLACE_MODE } from '../../../common/index.js'
+import { createToggleHighlightedOption } from '../../../Transfer/useHighlightedOptions/createToggleHighlightedOption.js'
+import { toggleAdd } from '../../../Transfer/useHighlightedOptions/toggleAdd.js'
+import { toggleRange } from '../../../Transfer/useHighlightedOptions/toggleRange.js'
+import { toggleReplace } from '../../../Transfer/useHighlightedOptions/toggleReplace.js'
 
 jest.mock(
-    '../../../../Transfer/helper/useHighlightedOptions/toggleAdd',
+    '../../../../Transfer/Transfer/useHighlightedOptions/toggleAdd',
     () => ({ toggleAdd: jest.fn() })
 )
 
 jest.mock(
-    '../../../../Transfer/helper/useHighlightedOptions/toggleRange',
+    '../../../../Transfer/Transfer/useHighlightedOptions/toggleRange',
     () => ({ toggleRange: jest.fn() })
 )
 
 jest.mock(
-    '../../../../Transfer/helper/useHighlightedOptions/toggleReplace',
+    '../../../../Transfer/Transfer/useHighlightedOptions/toggleReplace',
     () => ({ toggleReplace: jest.fn() })
 )
 

@@ -1,4 +1,4 @@
-import { removeIndividualPickedOptions } from '../../../Transfer/helper/removeIndividualPickedOptions.js'
+import { removeIndividualPickedOptions } from '../../../Transfer/Transfer/removeIndividualPickedOptions.js'
 
 describe('Transfer - removeIndividualPickedOptions', () => {
     const onChange = jest.fn()

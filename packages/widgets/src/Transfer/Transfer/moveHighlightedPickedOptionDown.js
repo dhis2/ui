@@ -1,4 +1,4 @@
-import { findOptionIndex } from '../common.js'
+import { findOptionIndex } from '../common/index.js'
 
 /**
  * @param {Object} args
@@ -7,7 +7,7 @@ import { findOptionIndex } from '../common.js'
  * @param {Function} args.onChange
  * @returns {void}
  */
-export const moveHighlightedPickedOptionUp = ({
+export const moveHighlightedPickedOptionDown = ({
     selectedOptions,
     highlightedPickedOptions,
     onChange,
@@ -17,15 +17,15 @@ export const moveHighlightedPickedOptionUp = ({
         highlightedPickedOptions[0]
     )
 
-    // Can't move up option at index 0 or non-existing option
-    if (optionIndex < 1) return
+    // Can't move down last or non-existing option
+    if (optionIndex === -1 || optionIndex > selectedOptions.length - 2) return
 
-    // swap with previous item
+    // swap with next item
     const reordered = [
-        ...selectedOptions.slice(0, optionIndex - 1),
+        ...selectedOptions.slice(0, optionIndex),
+        selectedOptions[optionIndex + 1],
         selectedOptions[optionIndex],
-        selectedOptions[optionIndex - 1],
-        ...selectedOptions.slice(optionIndex + 1),
+        ...selectedOptions.slice(optionIndex + 2),
     ]
 
     onChange({ selected: reordered })

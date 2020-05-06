@@ -1,4 +1,4 @@
-import { toggleReplace } from '../../../../Transfer/helper/useHighlightedOptions/toggleReplace.js'
+import { toggleReplace } from '../../../../Transfer/Transfer/useHighlightedOptions/toggleReplace.js'
 
 describe('Transfer - useHighlightedOptions - toggleReplace', () => {
     const setHighlightedOptions = jest.fn()

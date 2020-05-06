@@ -1,4 +1,4 @@
-import { addIndividualSourceOptions } from '../../helper/addIndividualSourceOptions.js'
+import { addIndividualSourceOptions } from '../../Transfer/addIndividualSourceOptions.js'
 
 describe('Transfer - addIndividualSourceOptions', () => {
     const onChange = jest.fn()

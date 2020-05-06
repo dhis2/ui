@@ -30,8 +30,8 @@ import {
     removeAllPickedOptions,
     removeIndividualPickedOptions,
     useHighlightedOptions,
-} from './helper/index.js'
-import { isOption } from './common.js'
+} from './Transfer/index.js'
+import { isOption } from './common/index.js'
 
 /**
  * @module

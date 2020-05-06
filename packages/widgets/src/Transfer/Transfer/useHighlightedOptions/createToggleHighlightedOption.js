@@ -1,4 +1,4 @@
-import { ADD_MODE, RANGE_MODE } from '../../common.js'
+import { ADD_MODE, RANGE_MODE } from '../../common/index.js'
 import { toggleAdd } from './toggleAdd.js'
 import { toggleRange } from './toggleRange.js'
 import { toggleReplace } from './toggleReplace.js'

@@ -1,4 +1,4 @@
-import { defaultFilterCallback } from '../../../Transfer/helper/defaultFilterCallback.js'
+import { defaultFilterCallback } from '../../../Transfer/Transfer/defaultFilterCallback.js'
 
 describe('Transfer - defaultFilterCallback', () => {
     const options = [

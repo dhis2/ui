@@ -1,8 +1,8 @@
-import { createToggleHighlightedOption } from '../../../Transfer/helper/useHighlightedOptions/createToggleHighlightedOption.js'
-import { useHighlightedOptions } from '../../../Transfer/helper/useHighlightedOptions.js'
+import { createToggleHighlightedOption } from '../../../Transfer/Transfer/useHighlightedOptions/createToggleHighlightedOption.js'
+import { useHighlightedOptions } from '../../../Transfer/Transfer/useHighlightedOptions.js'
 
 jest.mock(
-    '../../../Transfer/helper/useHighlightedOptions/createToggleHighlightedOption',
+    '../../../Transfer/Transfer/useHighlightedOptions/createToggleHighlightedOption',
     () => ({
         createToggleHighlightedOption: jest.fn(),
     })

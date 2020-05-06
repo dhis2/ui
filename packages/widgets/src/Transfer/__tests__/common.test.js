@@ -6,7 +6,7 @@ import {
     removeOption,
     toggleOption,
     toggleOptions,
-} from '../../Transfer/common.js'
+} from '../../Transfer/common/index.js'
 
 describe('Transfer - isOption', () => {
     it('should return true when the options are the same', () => {

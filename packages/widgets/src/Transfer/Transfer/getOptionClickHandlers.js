@@ -1,4 +1,4 @@
-import { getModeByModifierKey } from '../common.js'
+import { getModeByModifierKey } from '../common/index.js'
 
 export const getOptionClickHandlers = (
     option,

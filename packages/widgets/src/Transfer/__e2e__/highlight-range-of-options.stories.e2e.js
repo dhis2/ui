@@ -2,7 +2,8 @@
 import React from 'react'
 
 import { Transfer } from '../../index.js'
-import { options, statefulDecorator } from './common.js'
+import { statefulDecorator } from './common/statefulDecorator'
+import { options } from './common/options'
 
 export default {
     title: 'Transfer highlight range of options',

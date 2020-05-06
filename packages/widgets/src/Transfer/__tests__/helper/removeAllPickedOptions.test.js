@@ -1,4 +1,4 @@
-import { removeAllPickedOptions } from '../../../Transfer/helper/removeAllPickedOptions.js'
+import { removeAllPickedOptions } from '../../../Transfer/Transfer/removeAllPickedOptions.js'
 
 describe('Transfer - removeAllPickedOptions', () => {
     const onChange = jest.fn()

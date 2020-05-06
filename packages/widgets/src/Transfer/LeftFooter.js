@@ -3,7 +3,7 @@ import propTypes from '@dhis2/prop-types'
 
 import { spacers } from '@dhis2/ui-constants'
 
-import { borderColor } from './common.js'
+import { borderColor } from './common/index.js'
 
 export const LeftFooter = ({ children, dataTest }) => (
     <div data-test={dataTest}>

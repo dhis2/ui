@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
-import { borderColor, borderRadius } from './common.js'
+import { borderColor, borderRadius } from './common/index.js'
 
 export const RightSide = ({ children, dataTest, width }) => (
     <div data-test={dataTest}>

@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 
-import { options, statefulDecorator } from './common.js'
+import { statefulDecorator } from './common/statefulDecorator'
+import { options } from './common/options'
 import { Transfer } from '../../index.js'
 
 export default {
