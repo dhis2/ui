@@ -19,14 +19,18 @@ export const AccessSelect = ({ access, onChange, showNoAccessOption }) => (
         {Object.entries(accessStrings).map(
             ([value, strings]) =>
                 (value !== ACCESS_NONE || showNoAccessOption) && (
-                    <SingleSelectOption label={strings.option} value={value} />
+                    <SingleSelectOption
+                        key={value}
+                        label={strings.option}
+                        value={value}
+                    />
                 )
         )}
     </SingleSelect>
 )
 
 AccessSelect.propTypes = {
-    access: PropTypes.object,
+    access: PropTypes.string,
     showNoAccessOption: PropTypes.bool,
     onChange: PropTypes.func,
 }
