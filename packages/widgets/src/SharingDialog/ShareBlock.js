@@ -4,7 +4,8 @@ import PropTypes from '@dhis2/prop-types'
 
 import i18n from '@dhis2/d2-i18n'
 
-import { Button, InputField } from '../'
+import { Button } from '@dhis2/ui-core'
+import { InputField } from '../'
 import { AccessSelect } from './AccessSelect'
 import { shareBlockStyles } from './SharingDialog.styles'
 

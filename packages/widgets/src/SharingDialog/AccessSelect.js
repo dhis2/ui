@@ -4,7 +4,7 @@ import PropTypes from '@dhis2/prop-types'
 
 import i18n from '@dhis2/d2-i18n'
 
-import { SingleSelect, SingleSelectOption } from '../'
+import { SingleSelect, SingleSelectOption } from '@dhis2/ui-core'
 import { accessStrings, ACCESS_NONE } from './sharingConstants'
 import { accessSelectStyles } from './SharingDialog.styles'
 

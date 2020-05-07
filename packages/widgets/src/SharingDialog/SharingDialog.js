@@ -10,7 +10,7 @@ import {
     ModalActions,
     ButtonStrip,
     Button,
-} from '../'
+} from '@dhis2/ui-core'
 import { SharingList } from './SharingList'
 import { ShareBlock } from './ShareBlock'
 import {
