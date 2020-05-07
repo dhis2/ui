@@ -78,3 +78,17 @@ storiesOf('Components/Widgets/SingleSelectField', module)
             {options}
         </SingleSelectField>
     ))
+    .add('Default: clearText', () => (
+        <SingleSelectField selected="1" clearable>
+            <SingleSelectOption
+                key="1"
+                value="1"
+                label="Not translated, just for showing clear button"
+            />
+        </SingleSelectField>
+    ))
+    .add('Default: filterPlaceholder and noMatchText', () => (
+        <SingleSelectField filterable />
+    ))
+    .add('Default: loadingText', () => <SingleSelectField loading />)
+    .add('Default: empty', () => <SingleSelectField />)
