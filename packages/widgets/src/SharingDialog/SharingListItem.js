@@ -49,7 +49,7 @@ export const SharingListItem = ({
 )
 
 SharingListItem.propTypes = {
-    access: PropTypes.object,
+    access: PropTypes.string,
     name: PropTypes.string,
     target: PropTypes.string,
     onChange: PropTypes.func,
