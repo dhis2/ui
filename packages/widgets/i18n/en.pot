@@ -79,10 +79,34 @@ msgstr ""
 msgid "Could not load children"
 msgstr ""
 
+msgid "Select access"
+msgstr ""
+
+msgid "Share with users and groups"
+msgstr ""
+
+msgid "Search for user, group or role"
+msgstr ""
+
+msgid "Share"
+msgstr ""
+
 msgid "Sharing settings"
 msgstr ""
 
+msgid "Hide"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
 msgid "Users and groups that have access"
+msgstr ""
+
+msgid "External"
+msgstr ""
+
+msgid "Public"
 msgstr ""
 
 msgid "No access"
