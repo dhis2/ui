@@ -34,11 +34,11 @@ export const SharingList = ({ sharingSettings, onChange }) => (
                         onChange({ ...sharingSettings, public: access })
                     }
                 />
-                {Object.entries(sharingSettings.groups).map(
-                    ([group, access]) => (
+                {Object.values(sharingSettings.groups).map(
+                    ({ id, name, access }) => (
                         <SharingListItem
-                            key={group}
-                            name={group}
+                            key={id}
+                            name={name}
                             target={SHARE_TARGET_GROUP}
                             access={access}
                             onChange={newAccess =>
@@ -46,18 +46,29 @@ export const SharingList = ({ sharingSettings, onChange }) => (
                                     ...sharingSettings,
                                     groups: {
                                         ...sharingSettings.groups,
-                                        [group]: newAccess,
+                                        [id]: {
+                                            ...sharingSettings.groups[id],
+                                            access: newAccess,
+                                        },
                                     },
                                 })
                             }
+                            onRemove={() => {
+                                const updatedSharingSettings = {
+                                    ...sharingSettings,
+                                }
+                                delete updatedSharingSettings.groups[id]
+                                onChange(updatedSharingSettings)
+                            }}
                         />
                     )
                 )}
-                {Object.entries(sharingSettings.users).map(
-                    ([user, access]) =>
+                {Object.values(sharingSettings.users).map(
+                    ({ id, name, access }) =>
                         access && (
                             <SharingListItem
-                                name={user}
+                                key={id}
+                                name={name}
                                 target={SHARE_TARGET_USER}
                                 access={access}
                                 onChange={newAccess =>
@@ -65,19 +76,21 @@ export const SharingList = ({ sharingSettings, onChange }) => (
                                         ...sharingSettings,
                                         users: {
                                             ...sharingSettings.users,
-                                            [user]: newAccess,
+                                            [id]: {
+                                                ...sharingSettings.users[id],
+                                                access: newAccess,
+                                            },
                                         },
                                     })
                                 }
-                                onRemove={() =>
-                                    onChange({
+                                onRemove={() => {
+                                    const updatedSharingSettings = {
                                         ...sharingSettings,
-                                        users: {
-                                            ...sharingSettings.users,
-                                            [user]: undefined,
-                                        },
-                                    })
-                                }
+                                    }
+                                    delete updatedSharingSettings.users[id]
+
+                                    onChange(updatedSharingSettings)
+                                }}
                             />
                         )
                 )}

@@ -26,13 +26,17 @@ export const SharingDialog = ({
         initialSharingSettings
     )
 
-    const addUserOrGroupAccess = ({ type, id, access }) => {
-        console.log(type, id, access)
+    const addUserOrGroupAccess = ({ type, id, name, access }) => {
+        console.log(type, id, name, access)
         updateSharingSettings({
             ...sharingSettings,
             [`${type}s`]: {
                 ...sharingSettings[`${type}s`],
-                [id]: access,
+                [id]: {
+                    id,
+                    name,
+                    access,
+                },
             },
         })
     }
