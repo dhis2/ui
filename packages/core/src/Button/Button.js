@@ -1,10 +1,7 @@
+import { sharedPropTypes } from '@dhis2/ui-constants'
+import React, { useEffect, useRef } from 'react'
 import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
-import React, { Component, createRef } from 'react'
-
-import { sharedPropTypes } from '@dhis2/ui-constants'
-
-import ButtonBase from '../ButtonBase/ButtonBase.js'
 
 import styles from './Button.styles.js'
 
@@ -18,85 +15,63 @@ import styles from './Button.styles.js'
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/button.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/button-basic--default|Storybook}
  */
-export class Button extends Component {
-    buttonRef = createRef()
+export const Button = ({
+    children,
+    className,
+    dataTest,
+    destructive,
+    disabled,
+    icon,
+    initialFocus,
+    large,
+    name,
+    primary,
+    secondary,
+    small,
+    tabIndex,
+    type,
+    value,
+    onBlur,
+    onClick,
+    onFocus,
+}) => {
+    const ref = useRef()
 
-    componentDidMount() {
-        if (this.props.initialFocus) {
-            this.buttonRef.current.focus()
-        }
-    }
+    useEffect(() => {
+        if (initialFocus && ref.current) ref.current.focus()
+    }, [initialFocus, ref.current])
 
-    handleClick = e => {
-        if (this.props.onClick) {
-            this.props.onClick(this.createHandlerPayload(), e)
-        }
-    }
+    const handleClick = event => onClick && onClick({ value, name }, event)
+    const handleBlur = event => onBlur && onBlur({ value, name }, event)
+    const handleFocus = event => onFocus && onFocus({ value, name }, event)
 
-    handleBlur = e => {
-        if (this.props.onBlur) {
-            this.props.onBlur(this.createHandlerPayload(), e)
-        }
-    }
+    const iconOnly = icon && !children
+    const buttonClassName = cx(className, {
+        primary,
+        secondary,
+        destructive,
+        small,
+        large,
+        'icon-only': iconOnly,
+    })
 
-    handleFocus = e => {
-        if (this.props.onFocus) {
-            this.props.onFocus(this.createHandlerPayload(), e)
-        }
-    }
-
-    createHandlerPayload() {
-        return {
-            value: this.props.value,
-            name: this.props.name,
-        }
-    }
-
-    render() {
-        const {
-            children,
-            className,
-            dataTest,
-            destructive,
-            disabled,
-            icon,
-            large,
-            name,
-            primary,
-            secondary,
-            small,
-            tabIndex,
-            type,
-            value,
-        } = this.props
-
-        return (
-            <ButtonBase
-                className={cx(className, {
-                    'icon-only': icon && !children,
-                })}
-                primary={primary}
-                secondary={secondary}
-                destructive={destructive}
-                small={small}
-                large={large}
-                dataTest={dataTest}
-                disabled={disabled}
-                name={name}
-                onBlur={this.handleBlur}
-                onClick={this.handleClick}
-                onFocus={this.handleFocus}
-                ref={this.buttonRef}
-                tabIndex={tabIndex}
-                type={type}
-                value={value}
-            >
-                {icon && <span className="button-icon">{icon}</span>}
-                {children}
-                <style jsx>{styles}</style>
-            </ButtonBase>
-        )
-    }
+    return (
+        <button
+            ref={ref}
+            className={buttonClassName}
+            data-test={dataTest}
+            disabled={disabled}
+            tabIndex={tabIndex}
+            type={type}
+            onBlur={handleBlur}
+            onClick={handleClick}
+            onFocus={handleFocus}
+        >
+            {icon && <span className="button-icon">{icon}</span>}
+            {children}
+            <style jsx>{styles}</style>
+        </button>
+    )
 }
 
 Button.defaultProps = {
@@ -154,5 +129,3 @@ Button.propTypes = {
     onClick: propTypes.func,
     onFocus: propTypes.func,
 }
-
-export default Button
