@@ -3,6 +3,7 @@ import propTypes from '@dhis2/prop-types'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import { InputWrapper } from './InputWrapper.js'
 import { MenuWrapper } from './MenuWrapper.js'
+import { debounce } from './debounce'
 
 // Keycodes for the keypress event handlers
 const ESCAPE_KEY = 27
@@ -32,7 +33,16 @@ export class Select extends Component {
         window.removeEventListener('resize', this.setMenuWidth)
     }
 
-    setMenuWidth = () => {
+    /**
+     * We're debouncing this so it doesn't fire continually during a resize.
+     *
+     * Additionally we should use requestPostAnimationFrame to not trigger a forced
+     * layout, but that's just a proposal, and the added complexity of solving this
+     * in another manner does not seem worth it, considering the minor perf penalty.
+     *
+     * See: https://nolanlawson.com/2018/09/25/accurately-measuring-layout-on-the-web
+     */
+    setMenuWidth = debounce(() => {
         const inputWidth = `${this.inputRef.current.offsetWidth}px`
 
         if (this.state.menuWidth !== inputWidth) {
@@ -40,7 +50,7 @@ export class Select extends Component {
                 menuWidth: inputWidth,
             })
         }
-    }
+    }, 50)
 
     handleFocusInput = () => {
         this.inputRef.current.focus()
