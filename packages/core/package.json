@@ -27,8 +27,9 @@
         "@dhis2/prop-types": "^1.6.4",
         "@dhis2/ui-constants": "5.0.0-alpha.14",
         "@dhis2/ui-icons": "5.0.0-alpha.14",
-        "@popperjs/core": "^2.1.0",
-        "classnames": "^2.2.6"
+        "@popperjs/core": "^2.4.0",
+        "classnames": "^2.2.6",
+        "react-popper": "^2.2.3"
     },
     "files": [
         "build"

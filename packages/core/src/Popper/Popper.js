@@ -1,10 +1,9 @@
-import React, { Component, createRef } from 'react'
+import React, { useState, useMemo } from 'react'
 import propTypes from '@dhis2/prop-types'
-import { createPopper } from '@popperjs/core'
-
 import { sharedPropTypes } from '@dhis2/ui-constants'
+import { usePopper } from 'react-popper'
 
-import * as baseModifiers from './modifiers.js'
+import { deduplicateModifiers } from './deduplicateModifiers.js'
 
 /**
  * @module
@@ -18,67 +17,48 @@ import * as baseModifiers from './modifiers.js'
  * @see Popper js: {@link https://popper.js.org/docs/v2/|Documentation}
  */
 
-class Popper extends Component {
-    popperInstance = null
-    popperRef = createRef()
+const Popper = ({
+    children,
+    className,
+    dataTest,
+    modifiers,
+    observePopperResize,
+    observeReferenceResize,
+    onFirstUpdate,
+    placement,
+    reference,
+    strategy,
+}) => {
+    const [popperElement, setPopperElement] = useState(null)
 
-    componentDidMount() {
-        const { reference, strategy, onFirstUpdate, placement } = this.props
+    const deduplicatedModifiers = useMemo(
+        () =>
+            deduplicateModifiers(
+                modifiers,
+                observePopperResize,
+                observeReferenceResize
+            ),
+        [modifiers, observePopperResize, observeReferenceResize]
+    )
 
-        this.popperInstance = createPopper(
-            reference.current,
-            this.popperRef.current,
-            {
-                strategy,
-                onFirstUpdate,
-                placement,
-                modifiers: this.deduplicateModifiers(),
-            }
-        )
-    }
+    const { styles, attributes } = usePopper(reference.current, popperElement, {
+        strategy,
+        onFirstUpdate,
+        placement,
+        modifiers: deduplicatedModifiers,
+    })
 
-    componentWillUnmount() {
-        this.popperInstance && this.popperInstance.destroy()
-        this.popperInstance = null
-    }
-
-    deduplicateModifiers() {
-        const {
-            modifiers,
-            observePopperResize: popper,
-            observeReferenceResize: reference,
-        } = this.props
-
-        const baseModifiersWithResizeObserver = {
-            ...baseModifiers,
-            resizeObserver: {
-                ...baseModifiers.resizeObserver,
-                options: { reference, popper },
-            },
-        }
-
-        // Deduplicate modifiers from props and baseModifiers,
-        // when duplicates are encountered (by name), use the
-        // modifier from props so each Popper can be fully custom
-        return Object.keys(baseModifiersWithResizeObserver)
-            .map(key => baseModifiersWithResizeObserver[key])
-            .filter(({ name }) => !modifiers.some(m => m.name === name))
-            .concat(modifiers)
-    }
-
-    render() {
-        const { children, dataTest, className } = this.props
-
-        return (
-            <div
-                className={className}
-                data-test={dataTest}
-                ref={this.popperRef}
-            >
-                {children}
-            </div>
-        )
-    }
+    return (
+        <div
+            className={className}
+            data-test={dataTest}
+            ref={setPopperElement}
+            style={styles.popper}
+            {...attributes.popper}
+        >
+            {children}
+        </div>
+    )
 }
 
 Popper.defaultProps = {
