@@ -1,4 +1,5 @@
 -   [**Getting started**](getting-started)
 -   [**API**](api)
+-   [**Concepts**](concepts)
 -   [**Live demos**](/demo/ ':ignore Live demos')
 -   [**Troubleshooting**](troubleshooting)
