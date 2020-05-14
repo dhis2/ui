@@ -3,6 +3,7 @@ import ResizeObserver from 'resize-observer-polyfill'
 export const preventOverflow = {
     name: 'preventOverflow',
     options: {
+        altAxis: true,
         rootBoundary: 'document',
         boundary: document.body,
     },
