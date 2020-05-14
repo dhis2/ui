@@ -22,7 +22,7 @@ const MenuWrapper = ({
         <Layer onClick={onClick} transparent>
             <Popper
                 reference={selectRef}
-                placement="bottom"
+                placement="bottom-start"
                 observeReferenceResize
             >
                 <div data-test={`${dataTest}-menuwrapper`}>
