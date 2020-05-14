@@ -11,7 +11,7 @@ turn go get this version into a stable one:
 
 ## Monorepo
 
-UI is a monorepo that contains all the UI-related packages for DHIS2.
+UI is a monorepo that contains all the UI-related packages for DHIS 2.
 
 ### Why a monorepo instead of one repository
 
@@ -25,11 +25,11 @@ need to work on all of them at once, so the best thing to do is to combine them
 into one thing.
 
 This is a fallacy of perception, we need to "zoom out" to understand the scope
-of each individual library and how they fit into the global DHIS2 developer
+of each individual library and how they fit into the global DHIS 2 developer
 ecosystem.
 
 We have 15 core developers, but there are hundreds to thousands of external
-developers building DHIS2 apps.
+developers building DHIS 2 apps.
 
 ### Reasons for having switched from several repositories to a monorepo
 
@@ -38,7 +38,7 @@ developers building DHIS2 apps.
 We can move components from core to widgets and maintain a proper split between
 all the UI libraries, and the drawback is when developing a molecule that needs
 new atoms in core, then they first have be merged to core or the developer has
-to link the libraries locally. Matters are made worse if the dev is working on
+to link the libraries locally. Matters are made worse if the developer is working on
 a form component that needs something in widgets and that triggers work in
 core.
 
@@ -48,7 +48,7 @@ nor waiting for a PR.
 
 #### Problem: How can I find the component I need?
 
-> (Ideally I think we would have a way of organising our components that is
+> (Ideally I think we would have a way of organizing our components that is
 > clear to us and our users. So that neither groups have to do too much
 > thinking about what belongs/can be found where.)
 
@@ -58,9 +58,9 @@ specifically, but more likely, the user will install @dhis2/ui and then use it:
 
 #### Problem: Version consistency
 
-Right now, consolidating the UI-core versions across Apps, App Shell, ui-forms,
+Right now, consolidating the UI-core versions across apps, the app shell, ui-forms,
 ui-widgets, etc. can be tricky. We do some tricks to make ui-core external and
-use it as a peer dependency, but if someone has it as a straight dep there is a
+use it as a peer dependency, but if someone has it as a straight dependency there is a
 possibility that ui-core becomes out of sync between app and ui-widgets, and
 can result in unpredictable behavior. If we at least lock the versions together
 in a monorepo, then it becomes easier to debug and resolve those errors.
@@ -94,52 +94,88 @@ The @dhis2/prop-types library does not force development practices on
 developers, they can be used pretty much anywhere. This is the "have it your
 way" libraries.
 
-### Core
-
-The **@dhis2/ui-core** library is the reference implementation of the building
-blocks in the design system. These components are pure style and structure and
-should be usable by any application that satisfies the requirements (React
-16.3), no matter if it is a DHIS2 App or something entirely different.
-Furthermore they are used as building blocks to create the components ready to
-be used in user interfaces found in, e.g. **@dhis2/ui-widgets**.
-
 ### Icons
 
 The **@dhis2/ui-icons** library does not force development practices on
 developers, they can be used pretty much anywhere. This is the "have it your
 way" libraries.
 
-### Layouts
+### Core
 
-The **@dhis2/ui-layouts** library does not force development practices on
-developers, they can be used pretty much anywhere. This is the "have it your
-way" libraries.
+The **@dhis2/ui-core** library is the reference implementation of the
+**building blocks** in the design system. These components are pure style and
+structure and should be usable by any application that satisfies the
+requirements, no matter if it is a DHIS 2 App or something entirely different.
 
 ### Widgets
 
-The **@dhis2/ui-widgets** library is built on our core components and adds
-DHIS2 specific business logic into the mix. This might be tight coupling to the
-DHIS2 API, or that the composed component should behave in a DHIS2 specific way
-which doesn't make sense for other applications.
+Currently the @dhis2/ui-widgets does not have a specific purpose, but combines
+everything that does not fit into either one of the above or one of the more
+specialized libraries down below. The following list contains thematic
+concepts that can be found in the widgets sub-package. **This will likely be
+subject to change in the near future. There's no clear idea of how to divide
+these components or what sub-packages we want to have. But regardless of what
+conclusion we'll arrive at, they'll always be exported from the `@dhis2/ui`
+library**.
 
-This is subtle and important. There needs to be some friction here to flush out
-what can be general for any application and what is special for a DHIS2
-application.
+It's also noteworthy that many components in `widgets` combine several of the
+following thematic concepts, which complicates refactoring these into several
+libraries.
+
+#### Built-in DHIS 2-Api
+
+Some components, like the `HeaderBar`, request specific DHIS 2 endpoints.
+This limits the use case to DHIS 2 apps and therefore needs to be separated
+from the libraries listed above.
+
+#### DHIS 2 data structure
+
+Just like components using DHIS 2 endpoints can be used in DHIS 2 apps only,
+some components, albeit not requesting any data, operate on data that's
+specific to DHIS 2 application.
+
+#### Translations
+
+We consider translations to be very similar to DHIS 2 data. As translations
+always convey a specific meaning.
+
+#### Complex components
+
+Some of our components are quite complex (`Transfer`, `*Field`).
+These are not really building blocks anymore and have a very opinionated
+structure built into them, so we keep them separate from our more composable
+components in `core`.
+
+#### External dependencies
 
 A "widget" can also be a component which requires specific external
 dependencies to function, where-as our core components should never require
 additional dependencies to function.
 
+#### DHIS 2 development practices
+
 At the "widget" level we are forcing our development practices on developers,
 so if they want to use our complex components, they need to be on-board with
 that (e.g. the DataProvider pattern, React Hooks).
-
 If they do not want that, they can drop down to ui-core, where we do not force
 our way of building applications much more than a HTML component forces it.
 
 ### Forms
 
-**@dhis2/ui-forms**
+The **@dhis2/ui-forms** library has two purposes:
+
+#### Bridge between our components and React Final Form
+
+All our `*Field` components can be found in this repository as well.
+Functional-wise they're the same as the other components but the api has been
+adjusted to work with React Final Form, so you can just provided them via the
+`component={*Field}` prop and everything else (expect the `type` prop) will be
+taken care of.
+
+#### Form validators
+
+We also offer a (so far) limited set of validator functions that work with
+React Final Form as well, but they could be used in other contexts as well.
 
 ## Development
 
@@ -150,40 +186,16 @@ lies at the center of many things, not least what goes where.
 
 The scopes of ui-core and ui-widgets are inverted. The bar to add components to
 ui-core should be high, and the bar to add components to ui-widgets should be
-low. We behave the other way around.
-
-The **@dhis2/ui-core** library consists solely of atoms -- no molecules and no
-organisms. The molecules would be formed in apps or in **@dhis2/ui-widgets**.
-This keeps the core components very small, simple, and standalone.
-
-Molecules and Organisms have the definitions:
-
-> [...] Molecules are relatively simple groups of UI elements functioning
-> together as a unit.
-> [...] Organisms are relatively complex UI components composed of groups of
-> molecules and/or atoms and/or other organisms.
-
-Relatively simple vs. relatively complex is hard to define. The idea is to move
-them all to widgets and removing the "relatively" from the mix and make it
-clear that if it's not an atom, it's a widget.
-
-Apply atomic design principles. For example, translations never belong in an
-Atom, and the best way to enforce this is to provide a boundary as we have done
-here.
+low.
 
 ## Future
 
-### Unambiguous names
+We just moved to a monorepo and we're expecting some breaking changes in the
+near future. There are some issues we have with the current organization of our
+libraries but we don't want to start over again and again.
 
-> I think it'd be good to give the icons unique names, they don't need to be
-> easily "human" readable, as long as they're unique (e. g. D2ICON1, D2ICON2,
-> etc) . . . This way people don't interpret too much, but rather look at the
-> styleguide for when to use which icon (i. e. when looking for an arrow
-> pointing right and there are several available but the styleguide has rules
-> for them as they should only be used in a certain context)
-> (By @Mohammer5; [Source](https://github.com/dhis2/ui/pull/2#issuecomment-598169399))
+The monorepo will allow us to change the internal organization of the code
+while not introducing a breaking change in the `ui` repository.
 
-> we have "cryptic naming schemes" for spacers (dp4, dp24, ...) and colors
-> (blue900, gray050, ...) so that the style guide references, so keeping icons
-> inline with that seems like a good option to keep it unambiguous.
-> (By @varl; [Source](https://github.com/dhis2/ui/pull/2#issuecomment-598177570))
+Our main goal is to change the `widgets` package as it does not have a clear
+purpose but rather is a collection of components that don't fit anywhere else.
