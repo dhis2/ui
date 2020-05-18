@@ -3,7 +3,7 @@ import propTypes from '@dhis2/prop-types'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import { usePopper } from 'react-popper'
 
-import { deduplicateModifiers } from './deduplicateModifiers.js'
+import { deduplicateModifiers } from './modifiers.js'
 
 /**
  * @module
@@ -33,11 +33,10 @@ const Popper = ({
 
     const deduplicatedModifiers = useMemo(
         () =>
-            deduplicateModifiers(
-                modifiers,
+            deduplicateModifiers(modifiers, {
                 observePopperResize,
-                observeReferenceResize
-            ),
+                observeReferenceResize,
+            }),
         [modifiers, observePopperResize, observeReferenceResize]
     )
 

@@ -1,15 +1,12 @@
-import React from 'react'
+import React, { useState, useMemo } from 'react'
 import propTypes from 'prop-types'
-
+import { usePopper } from 'react-popper'
 import { colors, elevations, sharedPropTypes } from '@dhis2/ui-constants'
 
-import { Popper } from '../Popper/Popper.js'
 import { Layer } from '../Layer/Layer.js'
-
+import { combineModifiers } from './modifiers.js'
 import { Arrow } from './Arrow.js'
-import { arrow, offset, hideArrowWhenDisplaced } from './modifiers.js'
 
-const arrowModifiers = [arrow, offset, hideArrowWhenDisplaced]
 /**
  * @module
  * @param {Popover.PropTypes} props
@@ -29,20 +26,43 @@ const Popover = ({
     dataTest,
     elevation,
     maxWidth,
+    observePopperResize,
+    observeReferenceResize,
     placement,
     onClickOutside,
-}) => (
-    <Layer onClick={onClickOutside} transparent>
-        <Popper
-            dataTest={`${dataTest}-popper`}
-            placement={placement}
-            reference={reference}
-            modifiers={arrow ? arrowModifiers : []}
-            className={className}
-        >
-            <div>
+}) => {
+    const [popperElement, setPopperElement] = useState(null)
+    const [arrowElement, setArrowElement] = useState(null)
+    const modifiers = useMemo(
+        () =>
+            combineModifiers(arrow, arrowElement, {
+                observePopperResize,
+                observeReferenceResize,
+            }),
+        [arrow, arrowElement]
+    )
+    const { styles, attributes } = usePopper(reference.current, popperElement, {
+        placement,
+        modifiers,
+    })
+
+    return (
+        <Layer onClick={onClickOutside} transparent>
+            <div
+                data-test={dataTest}
+                className={className}
+                ref={setPopperElement}
+                style={styles.popper}
+                {...attributes.popper}
+            >
                 {children}
-                {arrow && <Arrow />}
+                {arrow && (
+                    <Arrow
+                        attributes={attributes}
+                        ref={setArrowElement}
+                        styles={styles.arrow}
+                    />
+                )}
                 <style jsx>{`
                     div {
                         max-width: ${maxWidth}px;
@@ -52,9 +72,9 @@ const Popover = ({
                     }
                 `}</style>
             </div>
-        </Popper>
-    </Layer>
-)
+        </Layer>
+    )
+}
 
 Popover.defaultProps = {
     arrow: true,
@@ -73,6 +93,8 @@ Popover.defaultProps = {
  * @prop {string} [className]
  * @prop {string} [dataTest=dhis2-uicore-popover]
  * @prop {number} [maxWidth=360]
+ * @prop {Boolean} observePopperResize Makes the popper update position when the popper content changes size
+ * @prop {Boolean} observeReferenceResize Makes the popper update position when the reference element changes size
  * @prop {('auto'|'auto-start'|'auto-end'|'top'|'top-start'|'top-end'|'bottom'|'bottom-start'|'bottom-end'|'right'|'right-start'|'right-end'|'left'|'left-start'|'left-end')} [placement=top]
  * @prop {function} [onClickOutside]
  */
@@ -84,6 +106,8 @@ Popover.propTypes = {
     dataTest: propTypes.string,
     elevation: propTypes.string,
     maxWidth: propTypes.number,
+    observePopperResize: propTypes.bool,
+    observeReferenceResize: propTypes.bool,
     placement: sharedPropTypes.referencePlacementPropType,
     onClickOutside: propTypes.func,
 }
