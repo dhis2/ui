@@ -20,7 +20,6 @@ const Arrow = forwardRef(({ attributes, styles }, ref) => {
         >
             <style jsx>{`
                 div {
-                    pointer-events: none;
                     width: ${ARROW_SIZE}px;
                     height: ${ARROW_SIZE}px;
                 }
