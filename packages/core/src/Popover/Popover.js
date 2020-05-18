@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react'
-import propTypes from 'prop-types'
+import propTypes from '@dhis2/prop-types'
 import { usePopper } from 'react-popper'
 import { colors, elevations, sharedPropTypes } from '@dhis2/ui-constants'
 
