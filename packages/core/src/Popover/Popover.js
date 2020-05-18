@@ -47,7 +47,7 @@ const Popover = ({
     })
 
     return (
-        <Layer onClick={onClickOutside} transparent>
+        <Layer onClick={onClickOutside}>
             <div
                 data-test={dataTest}
                 className={className}
