@@ -1,3 +1,10 @@
+# [5.0.0-alpha.15](https://github.com/dhis2/ui/compare/v5.0.0-alpha.14...v5.0.0-alpha.15) (2020-05-19)
+
+
+### Features
+
+* **constants:** export constants as well ([51c2eb0](https://github.com/dhis2/ui/commit/51c2eb0b62fdb222708b8a08c13d1aab0192a2b6))
+
 # [5.0.0-alpha.14](https://github.com/dhis2/ui/compare/v5.0.0-alpha.13...v5.0.0-alpha.14) (2020-04-30)
 
 
