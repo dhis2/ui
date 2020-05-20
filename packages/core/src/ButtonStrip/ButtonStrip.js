@@ -13,21 +13,32 @@ import { spacers } from '@dhis2/ui-constants'
  * @see Live demo: {@link /demo/?path=/story/buttonstrip--default|Storybook}
  */
 const ButtonStrip = ({ className, children, middle, end, dataTest }) => (
-    <div className={cx(className, { middle, end })} data-test={dataTest}>
+    <div
+        className={cx(className, { start: !middle && !end, middle, end })}
+        data-test={dataTest}
+    >
         {children}
 
         <style jsx>{`
             div {
                 display: flex;
             }
+
             div.middle {
                 justify-content: center;
             }
+
             div.end {
                 justify-content: flex-end;
             }
+
             div > :global(button) {
                 margin-left: ${spacers.dp16};
+            }
+
+            div.start > :global(button):first-child,
+            div.middle > :global(button):first-child {
+                margin-left: 0;
             }
         `}</style>
     </div>
