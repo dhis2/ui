@@ -1,3 +1,10 @@
+# [5.0.0-alpha.17](https://github.com/dhis2/ui/compare/v5.0.0-alpha.16...v5.0.0-alpha.17) (2020-05-20)
+
+
+### Bug Fixes
+
+* **select:** debounce menu width measurement ([0e17c59](https://github.com/dhis2/ui/commit/0e17c598e1e82d40c5145e5135007bffe507200f))
+
 # [5.0.0-alpha.16](https://github.com/dhis2/ui/compare/v5.0.0-alpha.15...v5.0.0-alpha.16) (2020-05-20)
 
 
