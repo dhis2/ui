@@ -34,3 +34,15 @@ storiesOf('SingleSelectField', module)
             <SingleSelectOption value="3" label="three" />
         </SingleSelectField>
     ))
+    .add('With clearable and selected option', () => (
+        <SingleSelectField selected="1" clearable>
+            <SingleSelectOption key="1" value="1" label="One" />
+        </SingleSelectField>
+    ))
+    .add('With filterable', () => (
+        <SingleSelectField filterable>
+            <SingleSelectOption key="1" value="1" label="One" />
+        </SingleSelectField>
+    ))
+    .add('With loading', () => <SingleSelectField loading />)
+    .add('Without options', () => <SingleSelectField />)

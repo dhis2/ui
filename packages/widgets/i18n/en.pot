@@ -5,8 +5,17 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-02-18T13:19:29.126Z\n"
-"PO-Revision-Date: 2020-02-18T13:19:29.126Z\n"
+"POT-Creation-Date: 2020-05-14T13:50:41.269Z\n"
+"PO-Revision-Date: 2020-05-14T13:50:41.269Z\n"
+
+msgid "Upload a file"
+msgstr ""
+
+msgid "No file uploaded yet"
+msgstr ""
+
+msgid "Remove"
+msgstr ""
 
 msgid "Search apps"
 msgstr ""
@@ -29,5 +38,20 @@ msgstr ""
 msgid "Logout"
 msgstr ""
 
-msgid "Something went wrong with loading the children."
+msgid "Clear"
+msgstr ""
+
+msgid "No data found"
+msgstr ""
+
+msgid "Type to filter options"
+msgstr ""
+
+msgid "Loading options"
+msgstr ""
+
+msgid "No options found"
+msgstr ""
+
+msgid "Could not load children"
 msgstr ""

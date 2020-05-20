@@ -79,3 +79,17 @@ storiesOf('Components/Widgets/MultiSelectField', module)
             {options}
         </MultiSelectField>
     ))
+    .add('Default: clearText', () => (
+        <MultiSelectField selected={['1']} clearable>
+            <MultiSelectOption
+                key="1"
+                value="1"
+                label="Not translated, just for showing clear button"
+            />
+        </MultiSelectField>
+    ))
+    .add('Default: filterPlaceholder and noMatchText', () => (
+        <MultiSelectField filterable />
+    ))
+    .add('Default: loadingText', () => <MultiSelectField loading />)
+    .add('Default: empty', () => <MultiSelectField />)

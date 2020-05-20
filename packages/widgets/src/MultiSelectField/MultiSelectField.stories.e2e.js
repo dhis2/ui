@@ -34,3 +34,15 @@ storiesOf('MultiSelectField', module)
             <MultiSelectOption value="3" label="three" />
         </MultiSelectField>
     ))
+    .add('With clearable and selected option', () => (
+        <MultiSelectField selected={['1']} clearable>
+            <MultiSelectOption key="1" value="1" label="One" />
+        </MultiSelectField>
+    ))
+    .add('With filterable', () => (
+        <MultiSelectField filterable>
+            <MultiSelectOption key="1" value="1" label="One" />
+        </MultiSelectField>
+    ))
+    .add('With loading', () => <MultiSelectField loading />)
+    .add('Without options', () => <MultiSelectField />)

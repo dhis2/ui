@@ -62,3 +62,13 @@ storiesOf('FileInputFieldWithList', module)
             onChange={onChange}
         />
     ))
+    .add('With file and default texts', () => (
+        <FileInputFieldWithList
+            name="upload"
+            files={singleFileArray}
+            onChange={onChange}
+        />
+    ))
+    .add('With default texts', () => (
+        <FileInputFieldWithList name="upload" onChange={onChange} />
+    ))

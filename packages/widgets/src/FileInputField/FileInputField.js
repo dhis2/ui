@@ -1,5 +1,6 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
+import i18n from '@dhis2/d2-i18n'
 
 import { sharedPropTypes } from '@dhis2/ui-constants'
 
@@ -10,6 +11,7 @@ import {
     Field,
     Label,
 } from '@dhis2/ui-core'
+import translate from '../translate'
 
 /**
  * @module
@@ -63,7 +65,7 @@ const FileInputField = ({
 
         <FileInput
             accept={accept}
-            buttonLabel={buttonLabel}
+            buttonLabel={translate(buttonLabel)}
             className={className}
             disabled={disabled}
             error={error}
@@ -81,10 +83,12 @@ const FileInputField = ({
         />
 
         <FileList>
-            {!children && placeholder ? (
-                <FileListPlaceholder>{placeholder}</FileListPlaceholder>
-            ) : (
+            {children ? (
                 children
+            ) : (
+                <FileListPlaceholder>
+                    {translate(placeholder)}
+                </FileListPlaceholder>
             )}
         </FileList>
     </Field>
@@ -93,6 +97,9 @@ const FileInputField = ({
 FileInputField.defaultProps = {
     accept: '*',
     dataTest: 'dhis2-uiwidgets-fileinputfield',
+
+    buttonLabel: () => i18n.t('Upload a file'),
+    placeholder: () => i18n.t('No file uploaded yet'),
 }
 
 /**
@@ -104,9 +111,9 @@ FileInputField.defaultProps = {
  * @prop {function} [onBlur]
  * @prop {function} [onFocus]
  * @prop {string} [label]
- * @prop {string} [buttonLabel]
+ * @prop {string|function} [buttonLabel]
  * @prop {string} [className]
- * @prop {string} [placeholder]
+ * @prop {string|function} [placeholder]
  * @prop {string} [tabIndex]
  *
  * @prop {boolean} [required]
@@ -130,7 +137,7 @@ FileInputField.defaultProps = {
  */
 FileInputField.propTypes = {
     accept: propTypes.string,
-    buttonLabel: propTypes.string,
+    buttonLabel: propTypes.oneOfType([propTypes.string, propTypes.func]),
     children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
@@ -142,7 +149,7 @@ FileInputField.propTypes = {
     large: sharedPropTypes.sizePropType,
     multiple: propTypes.bool,
     name: propTypes.string,
-    placeholder: propTypes.string,
+    placeholder: propTypes.oneOfType([propTypes.string, propTypes.func]),
     required: propTypes.bool,
     small: sharedPropTypes.sizePropType,
     tabIndex: propTypes.string,

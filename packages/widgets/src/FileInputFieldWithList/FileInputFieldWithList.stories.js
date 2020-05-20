@@ -10,9 +10,8 @@ const onChange = ({ files }) => {
     console.log('files: ', files)
 }
 
-storiesOf('Components/Widgets/FileInputFieldWithList', module).add(
-    'Default',
-    () => (
+storiesOf('Components/Widgets/FileInputFieldWithList', module)
+    .add('Default', () => (
         <FileInputFieldWithList
             multiple
             onChange={onChange}
@@ -21,5 +20,15 @@ storiesOf('Components/Widgets/FileInputFieldWithList', module).add(
             files={files}
             removeText="remove"
         />
-    )
-)
+    ))
+    .add('Default: buttonLabel and removeText', () => (
+        <FileInputFieldWithList
+            multiple
+            onChange={onChange}
+            name="upload"
+            files={files}
+        />
+    ))
+    .add('Default: placeholder', () => (
+        <FileInputFieldWithList multiple onChange={onChange} name="upload" />
+    ))

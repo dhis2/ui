@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import propTypes from '@dhis2/prop-types'
 import { sharedPropTypes } from '@dhis2/ui-constants'
+import i18n from '@dhis2/d2-i18n'
 
 import { FileInputField } from '../FileInputField/FileInputField.js'
-
 import { FileListItemWithRemove } from './FileListItemWithRemove.js'
+import translate from '../translate'
 
 /**
  * @module
@@ -92,7 +93,7 @@ class FileInputFieldWithList extends Component {
         return (
             <FileInputField
                 accept={accept}
-                buttonLabel={buttonLabel}
+                buttonLabel={translate(buttonLabel)}
                 className={className}
                 dataTest={dataTest}
                 disabled={disabled || (!multiple && files.length >= 1)}
@@ -106,7 +107,7 @@ class FileInputFieldWithList extends Component {
                 onBlur={onBlur}
                 onChange={this.handleChange}
                 onFocus={onFocus}
-                placeholder={placeholder}
+                placeholder={translate(placeholder)}
                 required={required}
                 small={small}
                 tabIndex={tabIndex}
@@ -114,15 +115,16 @@ class FileInputFieldWithList extends Component {
                 validationText={validationText}
                 warning={warning}
             >
-                {files.map(file => (
-                    <FileListItemWithRemove
-                        key={file.name}
-                        label={file.name}
-                        removeText={removeText}
-                        onRemove={this.handleRemove}
-                        file={file}
-                    />
-                ))}
+                {files.length > 0 &&
+                    files.map(file => (
+                        <FileListItemWithRemove
+                            key={file.name}
+                            label={file.name}
+                            removeText={translate(removeText)}
+                            onRemove={this.handleRemove}
+                            file={file}
+                        />
+                    ))}
             </FileInputField>
         )
     }
@@ -131,22 +133,26 @@ class FileInputFieldWithList extends Component {
 FileInputFieldWithList.defaultProps = {
     dataTest: 'dhis2-uiwidgets-fileinputfieldwithlist',
     files: [],
+
+    buttonLabel: () => i18n.t('Upload a file'),
+    placeholder: () => i18n.t('No file uploaded yet'),
+    removeText: () => i18n.t('Remove'),
 }
 
 /**
  * @typedef {Object} PropTypes
  * @static
  *
- * @prop {string} [removeText]
+ * @prop {string|function} [removeText]
  * @prop {function} onChange
  * @prop {Array<File>} [files=[]] - an array of File instances (NOTE: not a FileList instance)
  * @prop {string} [name]
  * @prop {function} [onBlur]
  * @prop {function} [onFocus]
  * @prop {string} [label]
- * @prop {string} [buttonLabel]
+ * @prop {string|function} [buttonLabel]
  * @prop {string} [className]
- * @prop {string} [placeholder]
+ * @prop {string|function} [placeholder]
  * @prop {string} [tabIndex]
  *
  * @prop {boolean} [required]
@@ -171,7 +177,7 @@ FileInputFieldWithList.defaultProps = {
 FileInputFieldWithList.propTypes = {
     onChange: propTypes.func.isRequired,
     accept: propTypes.string,
-    buttonLabel: propTypes.string,
+    buttonLabel: propTypes.oneOfType([propTypes.string, propTypes.func]),
     className: propTypes.string,
     dataTest: propTypes.string,
     disabled: propTypes.bool,
@@ -183,8 +189,8 @@ FileInputFieldWithList.propTypes = {
     large: sharedPropTypes.sizePropType,
     multiple: propTypes.bool,
     name: propTypes.string,
-    placeholder: propTypes.string,
-    removeText: propTypes.string,
+    placeholder: propTypes.oneOfType([propTypes.string, propTypes.func]),
+    removeText: propTypes.oneOfType([propTypes.string, propTypes.func]),
     required: propTypes.bool,
     small: sharedPropTypes.sizePropType,
     tabIndex: propTypes.string,

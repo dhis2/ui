@@ -1,8 +1,10 @@
 import React from 'react'
 
+import i18n from '@dhis2/d2-i18n'
 import propTypes from '@dhis2/prop-types'
 import { Field, SingleSelect, Box } from '@dhis2/ui-core'
 import { sharedPropTypes } from '@dhis2/ui-constants'
+import translate from '../translate'
 
 /**
  * @module
@@ -80,14 +82,14 @@ class SingleSelectField extends React.Component {
                         valid={valid}
                         disabled={disabled}
                         clearable={clearable}
-                        clearText={clearText}
+                        clearText={translate(clearText)}
                         filterable={filterable}
-                        filterPlaceholder={filterPlaceholder}
+                        filterPlaceholder={translate(filterPlaceholder)}
                         placeholder={placeholder}
                         prefix={prefix}
-                        empty={empty}
-                        loadingText={loadingText}
-                        noMatchText={noMatchText}
+                        empty={translate(empty)}
+                        loadingText={translate(loadingText)}
+                        noMatchText={translate(noMatchText)}
                         initialFocus={initialFocus}
                         dense={dense}
                     >
@@ -100,8 +102,14 @@ class SingleSelectField extends React.Component {
 }
 
 SingleSelectField.defaultProps = {
-    selected: '',
     dataTest: 'dhis2-uiwidgets-singleselectfield',
+    selected: '',
+
+    clearText: () => i18n.t('Clear'),
+    empty: () => i18n.t('No data found'),
+    filterPlaceholder: () => i18n.t('Type to filter options'),
+    loadingText: () => i18n.t('Loading options'),
+    noMatchText: () => i18n.t('No options found'),
 }
 
 /**
@@ -126,16 +134,16 @@ SingleSelectField.defaultProps = {
  * @prop {boolean} [initialFocus]
  * @prop {string} [validationText]
  * @prop {string} [helpText]
- * @prop {string} [clearText] - Only required if clearable is true
+ * @prop {string|function} [clearText]
  * @prop {boolean} [clearable]
- * @prop {Node} [empty]
- * @prop {string} [filterPlaceholder]
+ * @prop {Node|function} [empty]
+ * @prop {string|function} [filterPlaceholder]
  * @prop {boolean} [filterable]
- * @prop {string} [loadingText]
+ * @prop {string|function} [loadingText]
  * @prop {string} [maxHeight]
  * @prop {string} [inputMaxHeight]
  * @prop {string} [inputWidth]
- * @prop {string} [noMatchText] - Only required if filterable is true
+ * @prop {string|function} [noMatchText]
  * @prop {string} [placeholder]
  * @prop {string} [prefix]
  * @prop {string} [dataTest]
@@ -143,14 +151,14 @@ SingleSelectField.defaultProps = {
 SingleSelectField.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
-    clearText: propTypes.requiredIf(props => props.clearable, propTypes.string),
+    clearText: propTypes.oneOfType([propTypes.string, propTypes.func]),
     clearable: propTypes.bool,
     dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
-    empty: propTypes.node,
+    empty: propTypes.oneOfType([propTypes.node, propTypes.func]),
     error: sharedPropTypes.statusPropType,
-    filterPlaceholder: propTypes.string,
+    filterPlaceholder: propTypes.oneOfType([propTypes.node, propTypes.func]),
     filterable: propTypes.bool,
     helpText: propTypes.string,
     initialFocus: propTypes.bool,
@@ -158,12 +166,9 @@ SingleSelectField.propTypes = {
     inputWidth: propTypes.string,
     label: propTypes.string,
     loading: propTypes.bool,
-    loadingText: propTypes.string,
+    loadingText: propTypes.oneOfType([propTypes.string, propTypes.func]),
     maxHeight: propTypes.string,
-    noMatchText: propTypes.requiredIf(
-        props => props.filterable,
-        propTypes.string
-    ),
+    noMatchText: propTypes.oneOfType([propTypes.string, propTypes.func]),
     placeholder: propTypes.string,
     prefix: propTypes.string,
     required: propTypes.bool,

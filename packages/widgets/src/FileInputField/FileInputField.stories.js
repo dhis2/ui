@@ -207,3 +207,6 @@ storiesOf('Components/Widgets/FileInputField', module)
             name="upload"
         />
     ))
+    .add('Default: buttonLabel and placeholder', () => (
+        <FileInputField onChange={onChange} name="upload" />
+    ))
