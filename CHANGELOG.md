@@ -1,3 +1,10 @@
+# [5.0.0-alpha.16](https://github.com/dhis2/ui/compare/v5.0.0-alpha.15...v5.0.0-alpha.16) (2020-05-20)
+
+
+### Bug Fixes
+
+* **widgets:** add translated default texts ([c85342d](https://github.com/dhis2/ui/commit/c85342df741a960cd44a8f53a9a250be9e56d7f1))
+
 # [5.0.0-alpha.15](https://github.com/dhis2/ui/compare/v5.0.0-alpha.14...v5.0.0-alpha.15) (2020-05-19)
 
 
