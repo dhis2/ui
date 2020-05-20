@@ -58,14 +58,14 @@ ButtonStrip.defaultProps = {
  * @static
  *
  * @prop {string} [className]
- * @prop {Array.<Button>} [children]
+ * @prop {Node} [children]
  * @prop {boolean} [middle] - The props `middle`, and `end` are
  * mutually exlusive
  * @prop {boolean} [end]
  * @prop {string} [dataTest]
  */
 ButtonStrip.propTypes = {
-    children: propTypes.arrayOf(propTypes.element),
+    children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
     end: alignmentPropType,
