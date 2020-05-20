@@ -30,38 +30,78 @@ When('the window is scrolled down', () => {
 })
 
 Then('the top of the menu is aligned with the bottom of the input', () => {
-    // This test is used by the window scroll scenario
-    // so needs to take y into account for the anchor
-    getAnchorAndMenuRects().then(([anchorRect, menuRect]) => {
-        expect(menuRect.top).to.equal(anchorRect.bottom - anchorRect.y)
+    const selectDataTest = '[data-test="dhis2-uicore-singleselect"]'
+    const menuDataTest = '[data-test="dhis2-uicore-select-menu-menuwrapper"]'
+
+    cy.getAll(selectDataTest, menuDataTest).should(([selects, menus]) => {
+        expect(selects.length).to.equal(1)
+        expect(menus.length).to.equal(1)
+
+        const $select = selects[0]
+        const $menu = menus[0]
+
+        const selectRect = $select.getBoundingClientRect()
+        const menuRect = $menu.getBoundingClientRect()
+
+        expect(menuRect.top).to.equal(selectRect.bottom)
     })
 })
 
 Then('the bottom of the menu is aligned with the top of the input', () => {
-    getAnchorAndMenuRects().then(([anchorRect, menuRect]) => {
-        expect(anchorRect.top).to.equal(menuRect.bottom)
+    const selectDataTest = '[data-test="dhis2-uicore-singleselect"]'
+    const menuDataTest = '[data-test="dhis2-uicore-select-menu-menuwrapper"]'
+
+    cy.getAll(selectDataTest, menuDataTest).should(([selects, menus]) => {
+        expect(selects.length).to.equal(1)
+        expect(menus.length).to.equal(1)
+
+        const $select = selects[0]
+        const $menu = menus[0]
+
+        const selectRect = $select.getBoundingClientRect()
+        const menuRect = $menu.getBoundingClientRect()
+
+        expect(selectRect.top).to.equal(menuRect.bottom)
     })
 })
 
 Then('it is rendered on top of the SingleSelect', () => {
-    getAnchorAndMenuRects().then(([anchorRect, menuRect]) => {
-        expect(anchorRect.top).to.be.greaterThan(menuRect.top)
-        expect(menuRect.bottom).to.be.greaterThan(anchorRect.bottom)
+    const selectDataTest = '[data-test="dhis2-uicore-singleselect"]'
+    const menuDataTest = '[data-test="dhis2-uicore-select-menu-menuwrapper"]'
+
+    cy.getAll(selectDataTest, menuDataTest).should(([selects, menus]) => {
+        expect(selects.length).to.equal(1)
+        expect(menus.length).to.equal(1)
+
+        const $select = selects[0]
+        const $menu = menus[0]
+
+        const selectRect = $select.getBoundingClientRect()
+        const menuRect = $menu.getBoundingClientRect()
+
+        expect(selectRect.top).to.be.greaterThan(menuRect.top)
+        expect(menuRect.bottom).to.be.greaterThan(selectRect.bottom)
     })
 })
 
 Then(
     'the left of the SingleSelect is aligned with the left of the anchor',
     () => {
-        getAnchorAndMenuRects().then(([anchorRect, menuRect]) => {
-            expect(anchorRect.left).to.equal(menuRect.left)
+        const selectDataTest = '[data-test="dhis2-uicore-singleselect"]'
+        const menuDataTest =
+            '[data-test="dhis2-uicore-select-menu-menuwrapper"]'
+
+        cy.getAll(selectDataTest, menuDataTest).should(([selects, menus]) => {
+            expect(selects.length).to.equal(1)
+            expect(menus.length).to.equal(1)
+
+            const $select = selects[0]
+            const $menu = menus[0]
+
+            const selectRect = $select.getBoundingClientRect()
+            const menuRect = $menu.getBoundingClientRect()
+
+            expect(selectRect.left).to.equal(menuRect.left)
         })
     }
 )
-
-function getAnchorAndMenuRects() {
-    return cy.getPositionsBySelectors(
-        '[data-test="dhis2-uicore-singleselect"]',
-        '[data-test="dhis2-uicore-select-menu-menuwrapper"]'
-    )
-}

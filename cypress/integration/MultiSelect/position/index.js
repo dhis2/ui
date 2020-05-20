@@ -31,105 +31,129 @@ When('the window is scrolled down', () => {
 })
 
 When('the window is resized to a greater width', () => {
-    waitForResizeObserver(() => {
-        cy.viewport(1200, 660)
-    })
+    cy.viewport(1200, 660)
 })
 
 When('an option is clicked', () => {
-    waitForResizeObserver(() => {
-        cy.contains('option one').click()
-    })
+    cy.contains('option one').click()
 })
 
 Then('the input is empty', () => {
-    cy.get('[data-test="dhis2-uicore-select-input"]').then($el => {
-        cy.wrap($el.outerHeight()).as('emptyInputHeight')
+    cy.get('[data-test="dhis2-uicore-select-input"]').then(inputs => {
+        expect(inputs.length).to.equal(1)
+
+        const $input = inputs[0]
+        const inputRect = $input.getBoundingClientRect()
+
+        cy.wrap(inputRect.height).as('emptyInputHeight')
     })
+
     cy.get('[data-test="dhis2-uicore-select-input"] .root').should('be.empty')
 })
 
 Then('the Input grows in height', () => {
-    cy.get('@emptyInputHeight').then(emptyInputHeight => {
-        cy.get('[data-test="dhis2-uicore-select-input"]').then($el => {
-            expect($el.outerHeight()).to.be.greaterThan(emptyInputHeight)
-        })
-    })
+    const emptyInputHeight = '@emptyInputHeight'
+    const inputDataTest = '[data-test="dhis2-uicore-select-input"]'
+
+    cy.getAll(emptyInputHeight, inputDataTest).should(
+        ([emptyInputHeight, inputs]) => {
+            expect(inputs.length).to.equal(1)
+
+            const $input = inputs[0]
+            const inputRect = $input.getBoundingClientRect()
+
+            expect(inputRect.height).to.be.greaterThan(emptyInputHeight)
+        }
+    )
 })
 
 Then('the top of the menu is aligned with the bottom of the input', () => {
-    // This test is used by the window scroll scenario
-    // so needs to take y into account for the anchor
-    getAnchorAndMenuRects().then(([anchorRect, menuRect]) => {
-        expect(menuRect.top).to.equal(
-            anchorRect.y - anchorRect.top + anchorRect.height
-        )
+    const selectDataTest = '[data-test="dhis2-uicore-multiselect"]'
+    const menuDataTest = '[data-test="dhis2-uicore-select-menu-menuwrapper"]'
+
+    cy.getAll(selectDataTest, menuDataTest).should(([selects, menus]) => {
+        expect(selects.length).to.equal(1)
+        expect(menus.length).to.equal(1)
+
+        const $select = selects[0]
+        const $menu = menus[0]
+
+        const selectRect = $select.getBoundingClientRect()
+        const menuRect = $menu.getBoundingClientRect()
+
+        expect(menuRect.top).to.equal(selectRect.bottom)
     })
 })
 
 Then('the bottom of the menu is aligned with the top of the input', () => {
-    getAnchorAndMenuRects().then(([anchorRect, menuRect]) => {
-        expect(anchorRect.top).to.equal(menuRect.bottom)
+    const selectDataTest = '[data-test="dhis2-uicore-multiselect"]'
+    const menuDataTest = '[data-test="dhis2-uicore-select-menu-menuwrapper"]'
+
+    cy.getAll(selectDataTest, menuDataTest).should(([selects, menus]) => {
+        expect(selects.length).to.equal(1)
+        expect(menus.length).to.equal(1)
+
+        const $select = selects[0]
+        const $menu = menus[0]
+
+        const selectRect = $select.getBoundingClientRect()
+        const menuRect = $menu.getBoundingClientRect()
+
+        expect(selectRect.top).to.equal(menuRect.bottom)
     })
 })
 
 Then('it is rendered on top of the MultiSelect', () => {
-    getAnchorAndMenuRects().then(([anchorRect, menuRect]) => {
-        expect(anchorRect.top).to.be.greaterThan(menuRect.top)
-        expect(menuRect.bottom).to.be.greaterThan(anchorRect.bottom)
+    const selectDataTest = '[data-test="dhis2-uicore-multiselect"]'
+    const menuDataTest = '[data-test="dhis2-uicore-select-menu-menuwrapper"]'
+
+    cy.getAll(selectDataTest, menuDataTest).should(([selects, menus]) => {
+        expect(selects.length).to.equal(1)
+        expect(menus.length).to.equal(1)
+
+        const $select = selects[0]
+        const $menu = menus[0]
+
+        const selectRect = $select.getBoundingClientRect()
+        const menuRect = $menu.getBoundingClientRect()
+
+        expect(selectRect.top).to.be.greaterThan(menuRect.top)
+        expect(menuRect.bottom).to.be.greaterThan(selectRect.bottom)
     })
 })
 
 Then('the left of the Menu is aligned with the left of the Input', () => {
-    getAnchorAndMenuRects().then(([anchorRect, menuRect]) => {
-        expect(anchorRect.left).to.equal(menuRect.left)
+    const selectDataTest = '[data-test="dhis2-uicore-multiselect"]'
+    const menuDataTest = '[data-test="dhis2-uicore-select-menu-menuwrapper"]'
+
+    cy.getAll(selectDataTest, menuDataTest).should(([selects, menus]) => {
+        expect(selects.length).to.equal(1)
+        expect(menus.length).to.equal(1)
+
+        const $select = selects[0]
+        const $menu = menus[0]
+
+        const selectRect = $select.getBoundingClientRect()
+        const menuRect = $menu.getBoundingClientRect()
+
+        expect(selectRect.left).to.equal(menuRect.left)
     })
 })
 
 Then('the Menu and the Input have an equal width', () => {
-    cy.get('[data-test="dhis2-uicore-multiselect"] .root-input').then(
-        $input => {
-            cy.get('[data-test="dhis2-uicore-select-menu-menuwrapper"]').then(
-                $menu => {
-                    expect($input.outerWidth()).to.equal($menu.outerWidth())
-                }
-            )
-        }
-    )
-})
+    const inputDataTest = '[data-test="dhis2-uicore-multiselect"] .root-input'
+    const menuDataTest = '[data-test="dhis2-uicore-select-menu-menuwrapper"]'
 
-function getAnchorAndMenuRects() {
-    return cy.getPositionsBySelectors(
-        '[data-test="dhis2-uicore-multiselect"]',
-        '[data-test="dhis2-uicore-select-menu-menuwrapper"]'
-    )
-}
+    cy.getAll(inputDataTest, menuDataTest).should(([inputs, menus]) => {
+        expect(inputs.length).to.equal(1)
+        expect(menus.length).to.equal(1)
 
-function waitForResizeObserver(callback) {
-    cy.window().then(() => {
-        const id = 'resize-observer-callback-executed'
-        const oldNode = document.getElementById(id)
+        const $input = inputs[0]
+        const $menu = menus[0]
 
-        // Cleanup
-        if (oldNode) {
-            oldNode.parentNode.removeChild(oldNode)
-        }
+        const inputRect = $input.getBoundingClientRect()
+        const menuRect = $menu.getBoundingClientRect()
 
-        cy.get('[data-test="dhis2-uicore-select"]').then($el => {
-            const el = $el[0]
-            const observer = new ResizeObserver(() => {
-                // Create element to wait for when resizeObserver callback is executed
-                const newNode = document.createElement('div')
-                newNode.setAttribute('id', id)
-                el.parentNode.appendChild(newNode)
-            })
-
-            observer.observe(el)
-
-            callback()
-
-            // Wait for element and DOM redraw
-            return cy.get(`#${id}`).then(() => cy.wait(1))
-        })
+        expect(inputRect.width).to.equal(menuRect.width)
     })
-}
+})
