@@ -11,7 +11,7 @@ When('the Alertbar is hidden', () => {
 })
 
 Then('the onHidden handler is called', () => {
-    cy.window().then(win => {
+    cy.window().should(win => {
         expect(win.onHidden).to.be.calledOnce
         expect(win.onHidden).to.be.calledWith({}, null)
     })

@@ -37,7 +37,7 @@ Then('the second unit is selected', () => {
 })
 
 Then('no unit is selected', () => {
-    cy.get('[data-test="dhis2-uiwidgets-orgunittree-node"]').then($nodes => {
+    cy.get('[data-test="dhis2-uiwidgets-orgunittree-node"]').should($nodes => {
         $nodes.each((index, node) => {
             cy.wrap(Cypress.$(node)).shouldNotBeASelectedOrgUnitNode()
         })

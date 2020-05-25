@@ -16,7 +16,7 @@ When('the clear button is clicked', () => {
 })
 
 Then('the MultiSelect is cleared', () => {
-    cy.window().then(win => {
+    cy.window().should(win => {
         expect(win.onChange).to.be.calledOnce
         expect(win.onChange).to.be.calledWith({ selected: [] })
     })

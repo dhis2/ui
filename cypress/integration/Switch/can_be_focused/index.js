@@ -9,7 +9,7 @@ When('the Switch is focused', () => {
 })
 
 Then('the onFocus handler is called', () => {
-    cy.window().then(win => {
+    cy.window().should(win => {
         expect(win.onFocus).to.be.calledWith({
             value: 'default',
             name: 'Ex',

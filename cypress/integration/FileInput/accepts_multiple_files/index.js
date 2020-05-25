@@ -16,8 +16,12 @@ When('the user selected multiple files', () => {
 })
 
 Then("the onChange handler's payload contains multiple files", () => {
-    cy.get('@payload').then(payload => {
+    cy.window().should(win => {
+        const calls = win.onChange.getCalls()
+        const callArgs = calls[0].args
+        const payload = callArgs[0]
         const files = payload.files
+
         expect(files).to.have.lengthOf(2)
 
         const file1 = files[0]

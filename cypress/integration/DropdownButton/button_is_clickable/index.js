@@ -6,7 +6,7 @@ Given('a DropdownButton with onClick handler is rendered', () => {
 })
 
 Then('the onClick handler is called', () => {
-    cy.window().then(win => {
+    cy.window().should(win => {
         expect(win.onClick).to.be.calledWith({
             name: 'Button',
             value: 'default',

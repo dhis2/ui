@@ -9,7 +9,7 @@ When('the TextArea is blurred', () => {
 })
 
 Then('the onBlur handler is called', () => {
-    cy.window().then(win => {
+    cy.window().should(win => {
         expect(win.onBlur).to.be.calledWith({
             value: '',
             name: 'textarea',

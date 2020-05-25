@@ -9,7 +9,7 @@ When('the Checkbox is clicked', () => {
 })
 
 Then('the onChange handler is called', () => {
-    cy.window().then(win => {
+    cy.window().should(win => {
         expect(win.onChange).to.be.calledWith({
             value: 'default',
             name: 'Ex',

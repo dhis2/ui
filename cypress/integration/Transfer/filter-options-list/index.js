@@ -81,7 +81,7 @@ Then('all the matching items should be shown in the options list', () => {
     cy.all(
         () => cy.get('{transfer-filter}'),
         () => cy.get('{transferoption}')
-    ).then(([$filter, $options]) => {
+    ).should(([$filter, $options]) => {
         const searchTerm = $filter.val()
 
         expect($options).to.have.length.of.at.least(1)
@@ -104,7 +104,7 @@ Then('the same options should be shown', () => {
     cy.all(
         () => cy.get('@firstCaseOptions'),
         () => cy.get('{transfer-sourceoptions} {transferoption}')
-    ).then(([$firstCaseOptions, $secondCaseOptions]) => {
+    ).should(([$firstCaseOptions, $secondCaseOptions]) => {
         const firstCaseOptions = $firstCaseOptions
             .toArray()
             .map(extractOptionFromElement)
@@ -123,7 +123,7 @@ Then('only the results including the word "ANC" are included', () => {
 })
 
 Then('the onFilterChange callback will be called with the new value', () => {
-    cy.window().then(win => {
+    cy.window().should(win => {
         expect(win.customFilterCallback.callCount).to.equal(4)
         expect(win.customFilterCallback.getCall(0).args[1]).to.equal('')
         expect(win.customFilterCallback.getCall(1).args[1]).to.equal('A')

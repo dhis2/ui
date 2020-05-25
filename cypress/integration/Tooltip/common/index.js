@@ -25,7 +25,7 @@ Then('the Tooltip is rendered above the anchor', () => {
     cy.getPositionsBySelectors(
         '[data-test="dhis2-uicore-tooltip-reference"]',
         '[data-test="dhis2-uicore-tooltip-content"]'
-    ).then(([refPos, contentPos]) => {
+    ).should(([refPos, contentPos]) => {
         expect(refPos.top).to.be.greaterThan(contentPos.bottom)
     })
 })
@@ -40,7 +40,7 @@ Then('the Tooltip is rendered on top of the anchor', () => {
     cy.getPositionsBySelectors(
         '[data-test="dhis2-uicore-tooltip-reference"]',
         '[data-test="dhis2-uicore-tooltip-content"]'
-    ).then(([refPos, contentPos]) => {
+    ).should(([refPos, contentPos]) => {
         expect(contentPos.bottom).to.be.greaterThan(refPos.top)
         expect(refPos.top).to.be.greaterThan(contentPos.top)
     })

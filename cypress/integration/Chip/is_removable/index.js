@@ -9,7 +9,7 @@ When('the remove icon is clicked', () => {
 })
 
 Then('the onRemove handler is called', () => {
-    cy.window().then(win => {
+    cy.window().should(win => {
         expect(win.onRemove).to.be.calledWith({})
     })
 })

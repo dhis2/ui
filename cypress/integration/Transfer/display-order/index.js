@@ -75,7 +75,7 @@ Then(
         cy.all(
             () => cy.window(),
             () => cy.get('{transfer-sourceoptions} {transferoption}')
-        ).then(([win, $options]) => {
+        ).should(([win, $options]) => {
             const { options } = win
             const selectableSourceOptions = $options
                 .toArray()
@@ -92,7 +92,7 @@ Then(
         cy.all(
             () => cy.window(),
             () => cy.get('{transfer-sourceoptions} {transferoption}')
-        ).then(([win, $options]) => {
+        ).should(([win, $options]) => {
             const selectableSourceOptions = $options
                 .toArray()
                 .map(extractOptionFromElement)
@@ -116,7 +116,7 @@ Then(
             () => cy.window(),
             () => cy.get('{transfer-sourceoptions} {transferoption}'),
             () => cy.get('@deselectedOptions')
-        ).then(([win, $selectableSourceOptions, deselectedOptions]) => {
+        ).should(([win, $selectableSourceOptions, deselectedOptions]) => {
             // filter out non-selectable options and compare with selectable options
             // this confirms that the order is correct
             const selectableSourceOptions = $selectableSourceOptions
@@ -149,7 +149,7 @@ Then(
             () => cy.window(),
             () => cy.get('{transfer-sourceoptions} {transferoption}'),
             () => cy.get('@deselectedOptions')
-        ).then(([win, $selectableSourceOptions, deselectedOptions]) => {
+        ).should(([win, $selectableSourceOptions, deselectedOptions]) => {
             console.log('deselectedOptions', deselectedOptions)
             const selectableSourceOptions = $selectableSourceOptions
                 .toArray()
@@ -183,7 +183,7 @@ Then('it should be added to the end of the selected options list', () => {
     cy.all(
         () => cy.get('@selectedOptions'),
         () => cy.get('{transfer-pickedoptions} {transferoption}')
-    ).then(([transferredOptions, $selectedOptions]) => {
+    ).should(([transferredOptions, $selectedOptions]) => {
         const lastSelectedOptions = $selectedOptions
             .toArray()
             .slice(transferredOptions.length * -1)
@@ -199,7 +199,7 @@ Then(
         cy.all(
             () => cy.get('@selectedOptions'),
             () => cy.get('{transfer-pickedoptions} {transferoption}')
-        ).then(([transferredOptions, $selectedOptions]) => {
+        ).should(([transferredOptions, $selectedOptions]) => {
             const lastSelectedOptions = $selectedOptions
                 .toArray()
                 .slice(transferredOptions.length * -1)

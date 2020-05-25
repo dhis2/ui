@@ -146,7 +146,7 @@ Then('only the previously highlighted items are highlighted', () => {
     cy.all(
         () => cy.get('{transfer-sourceoptions} {transferoption}'),
         () => cy.get('@enabledHighlightedSourceOptions')
-    ).then(([$sourceOptions, $previouslyHighlightedOptions]) => {
+    ).should(([$sourceOptions, $previouslyHighlightedOptions]) => {
         const sourceOptions = $sourceOptions
             .toArray()
             .map(extractOptionFromElement)
@@ -178,12 +178,14 @@ Then('the enabled options in the range are highlighted', () => {
         () => cy.get('{transfer-sourceoptions} {transferoption}'),
         () => cy.get('@clickedEnabledOption'),
         () => cy.get('@clickedWithShiftEnabledOption')
-    ).then(([$all, $clickedEnabledOption, $clickedWithShiftEnabledOption]) => {
-        const from = $clickedEnabledOption.index()
-        const to = $clickedWithShiftEnabledOption.index()
-        const $allInRange = $all.slice(from, to + 1)
-        const $allInRangeEnabled = $allInRange.filter(':not(.disabled)')
+    ).should(
+        ([$all, $clickedEnabledOption, $clickedWithShiftEnabledOption]) => {
+            const from = $clickedEnabledOption.index()
+            const to = $clickedWithShiftEnabledOption.index()
+            const $allInRange = $all.slice(from, to + 1)
+            const $allInRangeEnabled = $allInRange.filter(':not(.disabled)')
 
-        expect($allInRangeEnabled).to.have.class('highlighted')
-    })
+            expect($allInRangeEnabled).to.have.class('highlighted')
+        }
+    )
 })

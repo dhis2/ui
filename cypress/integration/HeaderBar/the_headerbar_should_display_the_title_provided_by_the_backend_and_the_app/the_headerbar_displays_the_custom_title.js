@@ -14,7 +14,7 @@ Given(
 )
 
 Then('the displayed title should be "Barbaz - Example!"', () => {
-    cy.get('[data-test="headerbar-title"]').then($title => {
+    cy.get('[data-test="headerbar-title"]').should($title => {
         expect($title.text()).to.equal('Barbaz - Example!')
     })
 })

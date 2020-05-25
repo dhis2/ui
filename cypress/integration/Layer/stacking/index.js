@@ -34,19 +34,35 @@ Given(
 )
 
 Then('the second layer is on top of the first layer', () => {
-    assertLayerIsOnTop('second')
+    cy.get('body').click()
+    cy.window().should(win => {
+        expect(win.onLayerClick).to.be.calledOnce
+        expect(win.onLayerClick).to.be.calledWith('second')
+    })
 })
 
 Then('the alert layer is on top', () => {
-    assertLayerIsOnTop('alert')
+    cy.get('body').click()
+    cy.window().should(win => {
+        expect(win.onLayerClick).to.be.calledOnce
+        expect(win.onLayerClick).to.be.calledWith('alert')
+    })
 })
 
 Then('the layer with level 1001 is on top', () => {
-    assertLayerIsOnTop('1001')
+    cy.get('body').click()
+    cy.window().should(win => {
+        expect(win.onLayerClick).to.be.calledOnce
+        expect(win.onLayerClick).to.be.calledWith('1001')
+    })
 })
 
 Then('the blocking layer is on top', () => {
-    assertLayerIsOnTop('blocking')
+    cy.get('body').click()
+    cy.window().should(win => {
+        expect(win.onLayerClick).to.be.calledOnce
+        expect(win.onLayerClick).to.be.calledWith('blocking')
+    })
 })
 
 Then('the blocking layer is a child of the alert layer', () => {
@@ -60,11 +76,3 @@ Then('the alert layer is a sibling of the blocking layer', () => {
         .next()
         .should('have.data', 'test', 'alert')
 })
-
-function assertLayerIsOnTop(layerName) {
-    cy.get('body').click()
-    cy.window().then(win => {
-        expect(win.onLayerClick).to.be.calledOnce
-        expect(win.onLayerClick).to.be.calledWith(layerName)
-    })
-}

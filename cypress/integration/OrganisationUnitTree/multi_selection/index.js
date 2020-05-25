@@ -5,7 +5,7 @@ Given('an OrganisationUnitTree with two levels is rendered', () => {
 })
 
 Given('no unit is selected', () => {
-    cy.window().then(win => {
+    cy.window().should(win => {
         expect(win.selection).to.eql([])
     })
 })
@@ -52,13 +52,13 @@ When('the user selects the second unit on the second level', () => {
 })
 
 Then('a unit is selected', () => {
-    cy.window().then(win => {
+    cy.window().should(win => {
         expect(win.selection).to.eql(['/A0000000000'])
     })
 })
 
 Then('the unit on the second level is selected', () => {
-    cy.window().then(win => {
+    cy.window().should(win => {
         expect(win.selection).to.eql(['/A0000000000/A0000000001'])
     })
 })
@@ -68,26 +68,26 @@ Then('the unit on the first level is marked as selected intermediately', () => {
         .find(
             '[data-test="dhis2-uiwidgets-orgunittree-node-label"] [data-test="dhis2-uicore-checkbox"] input'
         )
-        .then($input => {
+        .should($input => {
             expect($input[0].indeterminate).to.be.true
         })
 })
 
 Then('the root unit is marked as selected', () => {
-    cy.window().then(win => {
+    cy.window().should(win => {
         expect(win.selection.includes('/A0000000000')).to.be.true
     })
 })
 
 Then('the first unit is selected', () => {
-    cy.window().then(win => {
+    cy.window().should(win => {
         expect(win.selection.includes('/A0000000000/A0000000001')).to.be.true
         expect(win.selection).to.have.length(2)
     })
 })
 
 Then('the second unit is selected', () => {
-    cy.window().then(win => {
+    cy.window().should(win => {
         expect(win.selection.includes('/A0000000000/A0000000002')).to.be.true
         expect(win.selection).to.have.length(2)
     })

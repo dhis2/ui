@@ -48,7 +48,7 @@ Given(
 Given(
     'there is sufficient space between the bottom of the reference element and the bottom of the Popover to show the arrow',
     () => {
-        getRefAndPopoverPositions().then(([refPos, popoverPos]) => {
+        getRefAndPopoverPositions().should(([refPos, popoverPos]) => {
             expect(refPos.bottom).to.be.greaterThan(popoverPos.bottom + 8)
         })
     }
@@ -71,7 +71,7 @@ Then('the arrow is showing', () => {
 Then(
     'the horizontal center of the popover is aligned with the horizontal center of the reference element',
     () => {
-        getRefAndPopoverPositions().then(([refPos, popoverPos]) => {
+        getRefAndPopoverPositions().should(([refPos, popoverPos]) => {
             const refCenter = refPos.left + refPos.width / 2
             const popoverCenter = popoverPos.left + popoverPos.width / 2
             expect(refCenter).to.equal(popoverCenter)
@@ -80,26 +80,26 @@ Then(
 )
 
 Then('the popover is placed above the reference element', () => {
-    getRefAndPopoverPositions().then(([refPos, popoverPos]) => {
+    getRefAndPopoverPositions().should(([refPos, popoverPos]) => {
         expect(refPos.top).to.be.greaterThan(popoverPos.bottom)
     })
 })
 
 Then('the popover is placed below the reference element', () => {
-    getRefAndPopoverPositions().then(([refPos, popoverPos]) => {
+    getRefAndPopoverPositions().should(([refPos, popoverPos]) => {
         expect(popoverPos.top).to.be.greaterThan(refPos.bottom)
     })
 })
 
 Then('the popover is placed op top of the reference element', () => {
-    getRefAndPopoverPositions().then(([refPos, popoverPos]) => {
+    getRefAndPopoverPositions().should(([refPos, popoverPos]) => {
         expect(popoverPos.bottom).to.be.greaterThan(refPos.top)
         expect(refPos.top).to.be.greaterThan(popoverPos.top)
     })
 })
 
 Then('there is some space between the anchor and the popover', () => {
-    getRefAndPopoverPositions().then(([refPos, popoverPos]) => {
+    getRefAndPopoverPositions().should(([refPos, popoverPos]) => {
         expect(popoverPos.bottom + 8).to.equal(refPos.top)
     })
 })

@@ -6,7 +6,7 @@ Given('a SingleSelect with onBlur handler is rendered', () => {
 })
 
 Then('the onBlur handler is called', () => {
-    cy.window().then(win => {
+    cy.window().should(win => {
         expect(win.onBlur).to.be.calledOnce
         expect(win.onBlur).to.be.calledWith({
             selected: '',
