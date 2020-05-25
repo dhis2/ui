@@ -9,7 +9,7 @@ Given('the checkbox is not marked as indeterminate', () => {
 })
 
 Then("its input-element's indeterminate prop is {word}", bool => {
-    cy.get('input').then($input => {
+    cy.get('input').should($input => {
         if (bool === 'true') {
             expect($input[0].indeterminate).to.be.true
         } else {

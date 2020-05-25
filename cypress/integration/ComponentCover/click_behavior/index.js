@@ -35,25 +35,25 @@ When('the user clicks on the button coordinates', () => {
 })
 
 Then('the onClick handler of the button is called', () => {
-    cy.window().then(win => {
+    cy.window().should(win => {
         expect(win.onButtonClick).to.be.calledOnce
     })
 })
 
 Then('the onClick handler of the ComponentCover is called', () => {
-    cy.window().then(win => {
+    cy.window().should(win => {
         expect(win.onComponentCoverClick).to.be.calledOnce
     })
 })
 
 Then('the onClick handler of the button is not called', () => {
-    cy.window().then(win => {
+    cy.window().should(win => {
         expect(win.onButtonClick).to.have.callCount(0)
     })
 })
 
 Then('the onClick handler of the ComponentCover is not called', () => {
-    cy.window().then(win => {
+    cy.window().should(win => {
         expect(win.onComponentCoverClick).to.have.callCount(0)
     })
 })

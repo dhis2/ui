@@ -24,7 +24,7 @@ When('the disabled option is clicked', () => {
 })
 
 Then('the clicked option is selected', () => {
-    cy.window().then(win => {
+    cy.window().should(win => {
         expect(win.onChange).to.be.calledOnce
         expect(win.onChange).to.be.calledWith({
             selected: '1',
@@ -33,7 +33,7 @@ Then('the clicked option is selected', () => {
 })
 
 Then('the onchange handler is not called', () => {
-    cy.window().then(win => {
+    cy.window().should(win => {
         expect(win.onChange).to.not.be.called
     })
 })

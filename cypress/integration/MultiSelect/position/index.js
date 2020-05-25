@@ -22,6 +22,21 @@ Given(
     }
 )
 
+Given('the input is empty', () => {
+    cy.get('[data-test="dhis2-uicore-select-input"]')
+        .should('exist')
+        .should('have.length', 1)
+        .then(inputs => {
+            const $input = inputs[0]
+            const inputRect = $input.getBoundingClientRect()
+
+            return inputRect.height
+        })
+        .as('emptyInputHeight')
+
+    cy.get('[data-test="dhis2-uicore-select-input"] .root').should('be.empty')
+})
+
 When('the MultiSelect is clicked', () => {
     cy.get('[data-test="dhis2-uicore-multiselect"]').click()
 })
@@ -36,19 +51,6 @@ When('the window is resized to a greater width', () => {
 
 When('an option is clicked', () => {
     cy.contains('option one').click()
-})
-
-Then('the input is empty', () => {
-    cy.get('[data-test="dhis2-uicore-select-input"]').then(inputs => {
-        expect(inputs.length).to.equal(1)
-
-        const $input = inputs[0]
-        const inputRect = $input.getBoundingClientRect()
-
-        cy.wrap(inputRect.height).as('emptyInputHeight')
-    })
-
-    cy.get('[data-test="dhis2-uicore-select-input"] .root').should('be.empty')
 })
 
 Then('the Input grows in height', () => {

@@ -191,7 +191,7 @@ Then('the option is not highlighted', () => {
     cy.all(
         () => cy.get('@hiddenHighlighted'),
         () => cy.get('{transfer-sourceoptions} {transferoption}')
-    ).then(([hiddenHighlighted, $options]) => {
+    ).should(([hiddenHighlighted, $options]) => {
         const $hiddenHighlighted = $options.filter((index, optionEl) => {
             const option = extractOptionFromElement(optionEl)
 
@@ -209,7 +209,7 @@ Then('the clicked options should be highlighted', () => {
     cy.all(
         () => cy.get('@initiallyHighlighted'),
         () => cy.get('@secondBelowInitiallyHighlighted')
-    ).then(([$initiallyHighlighted, $secondBelowInitiallyHighlighted]) => {
+    ).should(([$initiallyHighlighted, $secondBelowInitiallyHighlighted]) => {
         expect($initiallyHighlighted).to.have.class('highlighted')
         expect($secondBelowInitiallyHighlighted).to.have.class('highlighted')
     })
@@ -261,7 +261,7 @@ Then(
                     .last()
                     .invoke('index'),
             () => cy.get('@initiallyHighlightedMultiple')
-        ).then(
+        ).should(
             ([
                 lastInitiallyHighlightedIndex,
                 $initiallyHighlightedMultiple,
@@ -287,25 +287,29 @@ Then(
             () => cy.get('@initiallyHighlightedMultiple'),
             () => cy.get('@firstShiftClicked'),
             () => cy.get('@list').find('{transferoption}')
-        ).then(([$initiallyHighlightedMultiple, $firstShiftClicked, $all]) => {
-            const firstVisibleHighlightedIndex = $initiallyHighlightedMultiple
-                .filter(':visible')
-                .eq(0)
-                .index()
-            const shiftIndex = $firstShiftClicked.index()
-            const from = Math.min(firstVisibleHighlightedIndex, shiftIndex)
-            const to = Math.max(firstVisibleHighlightedIndex, shiftIndex)
-            const $insideRange = $all.slice(from, to + 1)
-            const $outsideRange = $all.slice(0, from).add($all.slice(to + 1))
+        ).should(
+            ([$initiallyHighlightedMultiple, $firstShiftClicked, $all]) => {
+                const firstVisibleHighlightedIndex = $initiallyHighlightedMultiple
+                    .filter(':visible')
+                    .eq(0)
+                    .index()
+                const shiftIndex = $firstShiftClicked.index()
+                const from = Math.min(firstVisibleHighlightedIndex, shiftIndex)
+                const to = Math.max(firstVisibleHighlightedIndex, shiftIndex)
+                const $insideRange = $all.slice(from, to + 1)
+                const $outsideRange = $all
+                    .slice(0, from)
+                    .add($all.slice(to + 1))
 
-            $insideRange.each((index, option) => {
-                expect(Cypress.$(option)).to.have.class('highlighted')
-            })
+                $insideRange.each((index, option) => {
+                    expect(Cypress.$(option)).to.have.class('highlighted')
+                })
 
-            $outsideRange.each(option =>
-                expect(Cypress.$(option)).to.not.have.class('highlighted')
-            )
-        })
+                $outsideRange.each(option =>
+                    expect(Cypress.$(option)).to.not.have.class('highlighted')
+                )
+            }
+        )
     }
 )
 
@@ -316,7 +320,7 @@ Then(
             () => cy.get('@firstClickedIndexWithShift'),
             () => cy.get('@secondClickedIndexWithShift'),
             () => cy.get('@list').find('{transferoption}')
-        ).then(
+        ).should(
             ([
                 firstClickedIndexWithShift,
                 secondClickedIndexWithShift,

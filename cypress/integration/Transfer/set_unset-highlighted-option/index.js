@@ -75,7 +75,7 @@ Then('the option is visible', () => {
     cy.all(
         () => cy.get('@hiddenHighlighted'),
         () => cy.get('{transfer-sourceoptions} {transferoption}')
-    ).then(([hiddenHighlighted, $options]) => {
+    ).should(([hiddenHighlighted, $options]) => {
         const $hiddenHighlighted = $options.filter((index, optionEl) => {
             const option = extractOptionFromElement(optionEl)
 
@@ -93,7 +93,7 @@ Then('the option is highlighted', () => {
     cy.all(
         () => cy.get('@hiddenHighlighted'),
         () => cy.get('{transfer-sourceoptions} {transferoption}')
-    ).then(([hiddenHighlighted, $options]) => {
+    ).should(([hiddenHighlighted, $options]) => {
         const $hiddenHighlighted = $options.filter((index, optionEl) => {
             const option = extractOptionFromElement(optionEl)
 
@@ -111,7 +111,7 @@ Then('the option is not highlighted', () => {
     cy.all(
         () => cy.get('@hiddenHighlighted'),
         () => cy.get('{transfer-sourceoptions} {transferoption}')
-    ).then(([hiddenHighlighted, $options]) => {
+    ).should(([hiddenHighlighted, $options]) => {
         const $hiddenHighlighted = $options.filter((index, optionEl) => {
             const option = extractOptionFromElement(optionEl)
 

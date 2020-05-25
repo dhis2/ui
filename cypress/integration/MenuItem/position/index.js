@@ -28,7 +28,7 @@ When('the user hovers over the MenuItem', () => {
 Then(
     'the right of the MenuItem is aligned with the left of the SubMenu',
     () => {
-        getMenuItemAndSubMenuRects().then(([menuItemRect, subMenuRect]) => {
+        getMenuItemAndSubMenuRects().should(([menuItemRect, subMenuRect]) => {
             expect(menuItemRect.right).to.equal(subMenuRect.left)
         })
     }
@@ -37,14 +37,14 @@ Then(
 Then(
     'the left of the MenuItem is aligned with the right of the SubMenu',
     () => {
-        getMenuItemAndSubMenuRects().then(([menuItemRect, subMenuRect]) => {
+        getMenuItemAndSubMenuRects().should(([menuItemRect, subMenuRect]) => {
             expect(menuItemRect.left).to.equal(subMenuRect.right)
         })
     }
 )
 
 Then('the SubMenu is rendered on top of the MenuItem', () => {
-    getMenuItemAndSubMenuRects().then(([menuItemRect, subMenuRect]) => {
+    getMenuItemAndSubMenuRects().should(([menuItemRect, subMenuRect]) => {
         expect(menuItemRect.right).to.be.greaterThan(subMenuRect.left)
         expect(subMenuRect.right).to.be.greaterThan(menuItemRect.right)
     })
@@ -56,7 +56,7 @@ Then(
         cy.getPositionsBySelectors(
             '[data-test="dhis2-uicore-menuitem"]',
             '[data-test="dhis2-uicore-popper"]'
-        ).then(([menuItemRect, popperRect]) => {
+        ).should(([menuItemRect, popperRect]) => {
             expect(menuItemRect.top).to.equal(popperRect.top)
         })
     }

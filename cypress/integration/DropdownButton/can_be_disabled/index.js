@@ -11,7 +11,7 @@ When('the DropdownButton is clicked', () => {
 })
 
 Then('the onClick handler is not called', () => {
-    cy.window().then(win => {
+    cy.window().should(win => {
         expect(win.onClick).not.to.be.called
     })
 })

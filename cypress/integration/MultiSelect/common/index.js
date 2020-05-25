@@ -13,6 +13,7 @@ Given(
 
 Given('a MultiSelect is rendered to which options can be added', () => {
     cy.visitStory('MultiSelect', 'With options that can be added to the input')
+    cy.get('[data-test="dhis2-uicore-multiselect"]').should('exist')
 })
 
 Given('the MultiSelect is open', () => {

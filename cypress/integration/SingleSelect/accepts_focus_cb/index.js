@@ -6,7 +6,7 @@ Given('a SingleSelect with onFocus handler is rendered', () => {
 })
 
 Then('the onFocus handler is called', () => {
-    cy.window().then(win => {
+    cy.window().should(win => {
         expect(win.onFocus).to.be.calledOnce
         expect(win.onFocus).to.be.calledWith({
             selected: '',

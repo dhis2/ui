@@ -1,27 +1,5 @@
 import { Before, Given } from 'cypress-cucumber-preprocessor/steps'
 
-/**
- * Will be executed before any `Given` statement,
- * so these can be overriden by using a different fixture, e. g:
- *
- * Given('foo bar baz', () => {
- *   cy.fixture('HeaderBar/systemInfoBarbaz').as('systemInfoFixture')
- * })
- *
- * or
- *
- * Given('foo bar baz', () => {
- *   cy.fixture('HeaderBar/systemInfo')
- *      then(response => ({
- *          ...response,
- *          foo: {
- *              ...response.foo,
- *              bar: 'baz'
- *          }
- *      })).as('systemInfoFixture')
- * })
- *
- */
 Before(() => {
     cy.fixture('HeaderBar/systemInfo').as('systemInfoFixture')
     cy.fixture('HeaderBar/me').as('meFixture')

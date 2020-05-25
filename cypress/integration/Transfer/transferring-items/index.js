@@ -83,7 +83,7 @@ Then('the highlighted items should be removed from the options list', () => {
     cy.all(
         () => cy.get('@itemsToBeSelected'),
         () => cy.get('{transfer-sourceoptions} {transferoption}')
-    ).then(([itemsToBeSelected, $selectableSourceOptions]) => {
+    ).should(([itemsToBeSelected, $selectableSourceOptions]) => {
         const selectableSourceOptions = $selectableSourceOptions
             .toArray()
             .map(extractOptionFromElement)
@@ -107,7 +107,7 @@ Then('the highlighted items should be visible in the selected list', () => {
     cy.all(
         () => cy.get('@itemsToBeSelected'),
         () => cy.get('{transfer-pickedoptions} {transferoption}')
-    ).then(([itemsToBeSelected, $selectedOptions]) => {
+    ).should(([itemsToBeSelected, $selectedOptions]) => {
         const selectedOptions = $selectedOptions
             .toArray()
             .map(extractOptionFromElement)
@@ -129,7 +129,7 @@ Then(
         cy.all(
             () => cy.get('@itemsToBeSelected'),
             () => cy.get('{transfer-pickedoptions} {transferoption}')
-        ).then(([itemsToBeSelected, $selectedOptions]) => {
+        ).should(([itemsToBeSelected, $selectedOptions]) => {
             const lastNSelectedOptions = $selectedOptions
                 .toArray()
                 .map(extractOptionFromElement)
@@ -144,7 +144,7 @@ Then('the highlighted items should be removed from the selected list', () => {
     cy.all(
         () => cy.get('@itemsToBeDeselected'),
         () => cy.get('{transfer-pickedoptions} {transferoption}')
-    ).then(([itemsToBeDeselected, $selectedOptions]) => {
+    ).should(([itemsToBeDeselected, $selectedOptions]) => {
         const selectedOptions = $selectedOptions
             .toArray()
             .map(extractOptionFromElement)
@@ -168,7 +168,7 @@ Then('the highlighted items should be visible in the options list', () => {
     cy.all(
         () => cy.get('@itemsToBeDeselected'),
         () => cy.get('{transfer-sourceoptions} {transferoption}')
-    ).then(([itemsToBeDeselected, $selectedOptions]) => {
+    ).should(([itemsToBeDeselected, $selectedOptions]) => {
         const selectedOptions = $selectedOptions
             .toArray()
             .map(extractOptionFromElement)
@@ -193,7 +193,7 @@ Then(
             () => cy.window(),
             () => cy.get('{transfer-sourceoptions} {transferoption}'),
             () => cy.get('{transfer-pickedoptions} {transferoption}')
-        ).then(([win, $selectableSourceOptions, $selectedOptions]) => {
+        ).should(([win, $selectableSourceOptions, $selectedOptions]) => {
             const selectedOptions = $selectedOptions
                 .toArray()
                 .map(extractOptionFromElement)
@@ -222,7 +222,7 @@ Then(
         cy.all(
             () => cy.get('@itemsToBeSelected'),
             () => cy.get('{transfer-pickedoptions} {transferoption}')
-        ).then(([itemsToBeSelected, $selectedOptions]) => {
+        ).should(([itemsToBeSelected, $selectedOptions]) => {
             const selectedOptions = $selectedOptions
                 .toArray()
                 .map(extractOptionFromElement)
@@ -244,7 +244,7 @@ Then(
         cy.all(
             () => cy.get('@itemsToBeSelected'),
             () => cy.get('{transfer-pickedoptions} {transferoption}')
-        ).then(([itemsToBeSelected, $selectedOptions]) => {
+        ).should(([itemsToBeSelected, $selectedOptions]) => {
             const selectedOptions = $selectedOptions
                 .toArray()
                 .map(extractOptionFromElement)
@@ -267,7 +267,7 @@ Then(
         cy.all(
             () => cy.get('@itemsToBeDeselected'),
             () => cy.get('{transfer-sourceoptions} {transferoption}')
-        ).then(([itemsToBeDeselected, $selectableSourceOptions]) => {
+        ).should(([itemsToBeDeselected, $selectableSourceOptions]) => {
             const selectableSourceOptions = $selectableSourceOptions
                 .toArray()
                 .map(extractOptionFromElement)
@@ -289,7 +289,7 @@ Then(
         cy.all(
             () => cy.get('@itemsToBeSelected'),
             () => cy.get('{transfer-pickedoptions} {transferoption}')
-        ).then(([itemsToBeSelected, $selectedOptions]) => {
+        ).should(([itemsToBeSelected, $selectedOptions]) => {
             const selectedOptions = $selectedOptions
                 .toArray()
                 .map(extractOptionFromElement)
@@ -312,7 +312,7 @@ Then('the options list items should be ordered in the original order', () => {
                     parseSelectorWithDataTest('{transferoption}')
                 )
             })
-    ).then(([win, $selectableSourceOptions, $pickedOptions]) => {
+    ).should(([win, $selectableSourceOptions, $pickedOptions]) => {
         const pickedPlainOptions = $pickedOptions
             .toArray()
             .map(extractOptionFromElement)
@@ -339,7 +339,7 @@ Then('the item should be removed from its options list', () => {
     cy.all(
         () => cy.get('@doubleClickedPlainOption'),
         () => cy.get('{transfer-sourceoptions} {transferoption}')
-    ).then(([doubleClickedPlainOption, $sourceOptions]) => {
+    ).should(([doubleClickedPlainOption, $sourceOptions]) => {
         const sourcePlainOptions = $sourceOptions
             .toArray()
             .map(extractOptionFromElement)
@@ -358,7 +358,7 @@ Then('the item should be visible at the bottom of the selected list', () => {
     cy.all(
         () => cy.get('@doubleClickedPlainOption'),
         () => cy.get('{transfer-pickedoptions} {transferoption}')
-    ).then(([doubleClickedPlainOption, $pickedOptions]) => {
+    ).should(([doubleClickedPlainOption, $pickedOptions]) => {
         const lastSourcePlainOption = $pickedOptions
             .last()
             .toArray()
@@ -377,7 +377,7 @@ Then('the item should be removed from the selected list', () => {
     cy.all(
         () => cy.get('@doubleClickedPlainOption'),
         () => cy.get('{transfer-pickedoptions} {transferoption}')
-    ).then(([doubleClickedPlainOption, $pickedOptions]) => {
+    ).should(([doubleClickedPlainOption, $pickedOptions]) => {
         const pickedPlainOptions = $pickedOptions
             .toArray()
             .map(extractOptionFromElement)

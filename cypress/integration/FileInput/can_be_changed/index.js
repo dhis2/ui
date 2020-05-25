@@ -13,8 +13,12 @@ When('a file is selected', () => {
 })
 
 Then("the onChange handler's payload contains the file", () => {
-    cy.get('@payload').then(payload => {
+    cy.window().should(win => {
+        const calls = win.onChange.getCalls()
+        const callArgs = calls[0].args
+        const payload = callArgs[0]
         const files = payload.files
+
         expect(files).to.have.lengthOf(1)
 
         const file1 = files[0]

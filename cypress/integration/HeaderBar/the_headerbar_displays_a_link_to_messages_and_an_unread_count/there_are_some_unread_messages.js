@@ -11,7 +11,7 @@ Given('there are 5 unread messages', () => {
 })
 
 Then('the messages link contains an icon with the number 5', () => {
-    cy.get('[data-test="headerbar-messages-count"]').then($count => {
+    cy.get('[data-test="headerbar-messages-count"]').should($count => {
         expect($count.text()).to.equal('5')
     })
 })

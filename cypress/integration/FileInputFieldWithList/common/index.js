@@ -5,7 +5,7 @@ Given('a FileInputFieldWithList with multiple files is rendered', () => {
 })
 
 Then('the onChange handler is called', () => {
-    cy.window().then(win => {
+    cy.window().should(win => {
         const calls = win.onChange.getCalls()
         expect(calls).to.have.lengthOf(1)
 
@@ -14,7 +14,5 @@ Then('the onChange handler is called', () => {
 
         const payload = callArgs[0]
         expect(Object.keys(payload)).to.include.members(['files', 'name'])
-
-        cy.wrap(payload).as('payload')
     })
 })
