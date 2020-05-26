@@ -1,12 +1,5 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given(
-    'a Layer with pointerEvents none and a button below it is rendered',
-    () => {
-        cy.visitStory('Layer', 'Non Blocking')
-    }
-)
-
 Given('a Layer with a button below it is rendered', () => {
     cy.visitStory('Layer', 'Blocking')
 })

@@ -3,26 +3,26 @@ import { Given, Then, When } from 'cypress-cucumber-preprocessor/steps'
 Given(
     'there is enough space to the right of the MenuItem to fit the SubMenu',
     () => {
-        cy.visitStory('MenuItem', 'Default position')
+        cy.visitStory('FlyoutMenu', 'Default Position')
     }
 )
 
 Given(
     'there is not enough space to the right of the MenuItem to fit the SubMenu',
     () => {
-        cy.visitStory('MenuItem', 'Flipped position')
+        cy.visitStory('FlyoutMenu', 'Flipped Position')
     }
 )
 
 Given(
     'there is not enough space to the right or the left of the MenuItem to fit the SubMenu',
     () => {
-        cy.visitStory('MenuItem', 'Shift into view')
+        cy.visitStory('FlyoutMenu', 'Shift Into View')
     }
 )
 
-When('the user hovers over the MenuItem', () => {
-    cy.get('[data-test="dhis2-uicore-menuitem"]').trigger('mouseover')
+When('the user clicks on the MenuItem', () => {
+    cy.get('[data-test="dhis2-uicore-menuitem"]').click()
 })
 
 Then(
@@ -65,6 +65,6 @@ Then(
 function getMenuItemAndSubMenuRects() {
     return cy.getPositionsBySelectors(
         '[data-test="dhis2-uicore-menuitem"]',
-        '[data-test="submenu"]'
+        '[data-test="dhis2-uicore-popper"]'
     )
 }

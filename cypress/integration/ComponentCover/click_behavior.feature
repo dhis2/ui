@@ -1,10 +1,5 @@
 Feature: The ComponentCover has configurable click behaviour
 
-    Scenario: A non-blocking ComponentCover
-        Given a ComponentCover with pointerEvents none and a button below it is rendered
-        When the user clicks the button
-        Then the onClick handler of the button is called
-
     Scenario: A blocking ComponentCover
         Given a ComponentCover with a button below it is rendered
         When the user clicks on the button coordinates

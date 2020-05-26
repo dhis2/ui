@@ -1,63 +1,67 @@
-import { storiesOf } from '@storybook/react'
-import React from 'react'
+import React, { useState } from 'react'
+import { resolve } from 'styled-jsx/css'
 
-import { Menu } from '../index.js'
+import { Menu } from '../Menu/Menu.js'
 import { MenuItem } from './MenuItem.js'
+import { Apps } from '@dhis2/ui-icons'
 
-window.onClick = window.Cypress && window.Cypress.cy.stub()
+export default {
+    title: 'Components/Core/MenuItem',
+    component: MenuItem,
+    decorators: [storyFn => <Menu>{storyFn()}</Menu>],
+}
 
-const MenuItemPositions = () => (
-    <Menu>
-        <MenuItem label="One" value="one">
-            <Menu>
-                <MenuItem
-                    label="Sub One"
-                    value="subone"
-                    dataTest="submenu"
-                ></MenuItem>
-            </Menu>
-        </MenuItem>
-    </Menu>
+export const Default = () => <MenuItem label="Menu item" />
+
+export const Active = () => <MenuItem active label="Menu item" />
+
+export const Chevron = () => <MenuItem chevron label="Menu item" />
+
+export const Dense = () => <MenuItem dense label="Menu item" />
+
+export const Destructive = () => <MenuItem destructive label="Menu item" />
+
+export const Disabled = () => <MenuItem disabled label="Menu item" />
+
+export const Link = () => (
+    <MenuItem target="_blank" href="http://dhis2.org" label="Menu item" />
 )
 
-storiesOf('Components/Core/MenuItem', module)
-    .add('With onClick and value', () => (
-        <MenuItem label="Menu item" value="Value" onClick={window.onClick} />
-    ))
-    .add('With href', () => <MenuItem label="Menu item" href="url.test" />)
-    .add('With target', () => (
-        <MenuItem label="Menu item" href="url.test" target="_blank" />
-    ))
-    .add('With icon', () => (
-        <MenuItem label="Menu item" icon={<div>Icon</div>} />
-    ))
-    .add('With label', () => <MenuItem label="Label" />)
-    .add('Default position', () => <MenuItemPositions />)
-    .add('Flipped position', () => (
-        <div>
-            <MenuItemPositions />
-            <style jsx>{`
-                div {
-                    text-align: right;
-                }
-            `}</style>
-        </div>
-    ))
-    .add('Shift into view', () => (
-        <div>
-            <MenuItemPositions />
-            <style jsx>{`
-                :global(html),
-                :global(body),
-                :global(#root) {
-                    position: relative;
-                    width: 180px;
-                    max-width: 180px;
-                    overflow: hidden;
-                }
-                :global(#root) {
-                    border: 3px dashed grey;
-                }
-            `}</style>
-        </div>
-    ))
+export const Icon = () => {
+    const { className, styles } = resolve`
+        fill: magenta;
+    `
+
+    return (
+        <>
+            <MenuItem icon={<Apps />} label="Menu item" />
+            <MenuItem
+                icon={<Apps className={className} />}
+                label="Menu item - with custom icon fill"
+            />
+
+            {styles}
+        </>
+    )
+}
+
+export const OnClick = () => (
+    <MenuItem
+        onClick={(payload, event) => {
+            console.log(payload.value, event.target)
+        }}
+        value="myValue"
+        label="Menu item"
+    />
+)
+
+export const ToggleMenuItem = () => {
+    const [on, setOn] = useState(false)
+    const toggleOn = () => setOn(!on)
+    const checkMarkStyle = { fontSize: '24px', lineHeight: '24px' }
+    const icon = on ? <span style={checkMarkStyle}>✓</span> : <span />
+
+    return (
+        <MenuItem onClick={toggleOn} icon={icon} label="A toggle menu item" />
+    )
+}

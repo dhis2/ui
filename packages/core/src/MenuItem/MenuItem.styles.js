@@ -3,14 +3,23 @@ import { colors, spacers } from '@dhis2/ui-constants'
 
 export default css`
     li {
-        position: relative;
+        display: flex;
+        align-items: stretch;
         padding: 0;
         cursor: pointer;
         list-style: none;
+        transition: background-color 150ms ease-in-out;
+        background-color: ${colors.white};
+        color: ${colors.grey900};
+        fill: ${colors.grey900};
+        font-size: 15px;
+        line-height: 18px;
+        user-select: none;
     }
 
-    li div.label:not(:first-child) {
-        margin-left: ${spacers.dp8};
+    li.dense {
+        font-size: 14px;
+        line-height: 16px;
     }
 
     li:hover {
@@ -22,70 +31,88 @@ export default css`
         background-color: ${colors.grey400};
     }
 
-    .dense .link {
-        padding: ${spacers.dp8} ${spacers.dp12};
-    }
-
-    .dense .label {
-        font-size: 14px;
-        line-height: 16px;
-    }
-
-    .dense .icon {
-        font-size: 20px;
-    }
-
-    .disabled {
-        cursor: not-allowed;
-        pointer-events: none;
-        user-select: none;
-    }
-
-    .disabled .icon,
-    .disabled .label {
-        color: ${colors.grey500};
-    }
-
-    .destructive .label {
+    li.destructive {
         color: ${colors.red700};
-    }
-
-    .destructive .icon {
-        color: ${colors.red600};
+        fill: ${colors.red600};
     }
 
     li.destructive:hover {
         background-color: ${colors.red050};
     }
 
-    li.destructive:active {
+    li.destructive:active,
+    li.destructive.active {
         background-color: ${colors.red100};
     }
 
-    .link {
-        display: block;
-        height: 100%;
-        padding: 15px ${spacers.dp24};
-        text-decoration: none;
-        display: flex;
-        flex-direction: row;
+    li.disabled {
+        cursor: not-allowed;
+        color: ${colors.grey500};
+        fill: ${colors.grey500};
+    }
+
+    li.disabled:hover {
+        background-color: ${colors.white};
+    }
+
+    a {
+        display: inline-flex;
+        flex-grow: 1;
         align-items: center;
+        padding: 0 ${spacers.dp24};
+        min-height: 48px;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    li.with-chevron a {
+        padding-right: ${spacers.dp8};
+    }
+
+    li.dense a {
+        padding: 0 ${spacers.dp12};
+        min-height: 32px;
+    }
+
+    li.with-chevron.dense a {
+        padding-right: ${spacers.dp4};
     }
 
     .label {
-        color: ${colors.grey900};
-        font-size: 15px;
-        line-height: 18px;
-        user-select: none;
+        flex-grow: 1;
+        padding: 15px 0;
+    }
+
+    li.dense .label {
+        padding: 8px 0;
     }
 
     .icon {
-        box-sizing: border-box;
-
+        flex-grow: 0;
         margin-right: ${spacers.dp16};
-        color: #404040;
-        font-size: 24px;
-        pointer-events: none;
-        user-select: none;
+        width: 24px;
+        height: 24px;
+    }
+
+    .chevron {
+        flex-grow: 0;
+        margin-left: ${spacers.dp48};
+    }
+
+    li.dense .icon {
+        margin-right: ${spacers.dp8};
+        width: 16px;
+        height: 16px;
+    }
+
+    li .icon > :global(svg) {
+        width: 24px;
+        height: 24px;
+    }
+
+    li.dense .icon > :global(svg),
+    li .chevron > :global(svg) {
+        width: 16px;
+        height: 16px;
     }
 `

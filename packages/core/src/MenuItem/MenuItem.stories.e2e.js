@@ -1,62 +1,28 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
+
+import { Menu } from '../Menu/Menu.js'
 import { MenuItem } from './MenuItem.js'
-import { Menu } from '../index.js'
 
 window.onClick = window.Cypress && window.Cypress.cy.stub()
 
-const MenuItemPositions = () => (
-    <Menu>
-        <MenuItem label="One" value="one">
-            <Menu>
-                <MenuItem
-                    label="Sub One"
-                    value="subone"
-                    dataTest="submenu"
-                ></MenuItem>
-            </Menu>
-        </MenuItem>
-    </Menu>
+export default {
+    title: 'MenuItem',
+    component: MenuItem,
+    decorators: [storyFn => <Menu>{storyFn()}</Menu>],
+}
+
+export const WithLabel = () => <MenuItem label="label" />
+
+export const WithOnClickAndValue = () => (
+    <MenuItem value="Value" onClick={window.onClick} label="Menu item" />
 )
 
-storiesOf('MenuItem', module)
-    .add('With onClick and value', () => (
-        <MenuItem label="Menu item" value="Value" onClick={window.onClick} />
-    ))
-    .add('With href', () => <MenuItem label="Menu item" href="url.test" />)
-    .add('With target', () => (
-        <MenuItem label="Menu item" href="url.test" target="_blank" />
-    ))
-    .add('With icon', () => (
-        <MenuItem label="Menu item" icon={<div>Icon</div>} />
-    ))
-    .add('With label', () => <MenuItem label="Label" />)
-    .add('Default position', () => <MenuItemPositions />)
-    .add('Flipped position', () => (
-        <div>
-            <MenuItemPositions />
-            <style jsx>{`
-                div {
-                    text-align: right;
-                }
-            `}</style>
-        </div>
-    ))
-    .add('Shift into view', () => (
-        <div>
-            <MenuItemPositions />
-            <style jsx>{`
-                :global(html),
-                :global(body),
-                :global(#root) {
-                    position: relative;
-                    width: 180px;
-                    max-width: 180px;
-                    overflow: hidden;
-                }
-                :global(#root) {
-                    border: 3px dashed grey;
-                }
-            `}</style>
-        </div>
-    ))
+export const WithHref = () => <MenuItem href="url.test" label="Menu item" />
+
+export const WithTarget = () => (
+    <MenuItem href="url.test" target="_blank" label="Menu item" />
+)
+
+export const WithIcon = () => (
+    <MenuItem icon={<div>Icon</div>} label="Menu item" />
+)

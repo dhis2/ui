@@ -9,6 +9,8 @@ const LayerContext = createContext({
     level: 0,
 })
 
+const useLayerContext = () => useContext(LayerContext)
+
 const createClickHandler = onClick => event => {
     // don't respond to clicks that originated in the children
     if (onClick && event.target === event.currentTarget) {
@@ -29,11 +31,10 @@ const Layer = ({
     dataTest,
     level,
     onClick,
-    pointerEvents,
     position,
     translucent,
 }) => {
-    const parentLayer = useContext(LayerContext)
+    const parentLayer = useLayerContext()
     const [layerEl, setLayerEl] = useState(null)
     const nextLayer = {
         node: layerEl,
@@ -59,7 +60,6 @@ const Layer = ({
             <style jsx>{`
                 div {
                     z-index: ${level};
-                    pointer-events: ${pointerEvents};
                 }
             `}</style>
             <style jsx>{`
@@ -91,7 +91,6 @@ const Layer = ({
 Layer.defaultProps = {
     position: 'fixed',
     dataTest: 'dhis2-uicore-layer',
-    pointerEvents: 'all',
     level: layers.applicationTop,
 }
 
@@ -102,7 +101,6 @@ Layer.defaultProps = {
  * @prop {Node} [children]
  * @prop {string} [dataTest=dhis2-uicore-layer]
  * @prop {number} [level=layers.applicationTop]
- * @prop {string} [pointerEvents=all] - One of 'all', 'none'
  * @prop {boolean} [translucent] - When true a semi-transparent background is added
  * @prop {function} [onClick]
  */
@@ -111,10 +109,9 @@ Layer.propTypes = {
     className: propTypes.string,
     dataTest: propTypes.string,
     level: propTypes.number,
-    pointerEvents: propTypes.oneOf(['all', 'none']),
     position: propTypes.oneOf(['absolute', 'fixed']),
     translucent: propTypes.bool,
     onClick: propTypes.func,
 }
 
-export { Layer }
+export { Layer, useLayerContext }

@@ -18,13 +18,6 @@ export const Default = () => (
     </Layer>
 )
 
-export const NonBlocking = () => (
-    <>
-        <button onClick={window.onButtonClick}>Test</button>
-        <Layer pointerEvents="none" />
-    </>
-)
-
 export const Blocking = () => (
     <>
         <button onClick={window.onButtonClick}>Test</button>

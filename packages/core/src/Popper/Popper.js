@@ -84,6 +84,7 @@ class Popper extends Component {
 Popper.defaultProps = {
     dataTest: 'dhis2-uicore-popper',
     modifiers: [],
+    placement: 'auto',
 }
 
 /**
