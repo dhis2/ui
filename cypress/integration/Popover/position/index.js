@@ -58,17 +58,11 @@ Given(
 )
 
 Then('the arrow is hiding', () => {
-    cy.get('[data-test="dhis2-uicore-popover-popper"]').should(
-        'have.attr',
-        'data-popper-arrow-displaced'
-    )
+    cy.get('[data-test="dhis2-uicore-popoverarrow"]').should('not.be.visible')
 })
 
 Then('the arrow is showing', () => {
-    cy.get('[data-test="dhis2-uicore-popover-popper"]').should(
-        'not.have.attr',
-        'data-popper-arrow-displaced'
-    )
+    cy.get('[data-test="dhis2-uicore-popoverarrow"]').should('be.visible')
 })
 
 Then(
@@ -111,6 +105,6 @@ Then('there is some space between the anchor and the popover', () => {
 function getRefAndPopoverPositions() {
     return cy.getPositionsBySelectors(
         '[data-test="reference-element"]',
-        '[data-test="dhis2-uicore-popover-popper"]'
+        '[data-test="dhis2-uicore-popover"]'
     )
 }

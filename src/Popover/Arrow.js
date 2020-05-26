@@ -1,42 +1,42 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
+import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
+
 import { colors } from '../theme.js'
+import { getArrowPosition } from './getArrowPosition.js'
 
 const ARROW_SIZE = 8
 
-/**
- * Note: the `data-popper-placement` attribute is automatically updated
- * by popper.js in case of flipping etc. So be aware that the value of
- * the `placement` prop that was initially passed to the Popper component
- * and the value of `data-popper-placement` do not always match
- */
-
-const Arrow = ({ className }) => (
-    <div data-popper-arrow className={className}>
+const Arrow = forwardRef(({ hidden, popperPlacement, styles }, ref) => (
+    <div
+        data-test="dhis2-uicore-popoverarrow"
+        className={cx(getArrowPosition(popperPlacement), { hidden })}
+        style={styles}
+        ref={ref}
+    >
         <style jsx>{`
             div {
-                pointer-events: none;
                 width: ${ARROW_SIZE}px;
                 height: ${ARROW_SIZE}px;
             }
 
-            :global([data-popper-placement^='top']) div {
-                bottom: -${ARROW_SIZE / 2}px;
-            }
-
-            :global([data-popper-placement^='bottom']) div {
+            div.top {
                 top: -${ARROW_SIZE / 2}px;
             }
 
-            :global([data-popper-placement^='left']) div {
+            div.right {
                 right: -${ARROW_SIZE / 2}px;
             }
 
-            :global([data-popper-placement^='right']) div {
+            div.bottom {
+                bottom: -${ARROW_SIZE / 2}px;
+            }
+
+            div.left {
                 left: -${ARROW_SIZE / 2}px;
             }
 
-            :global([data-popper-arrow-displaced]) div {
+            div.hidden {
                 visibility: hidden;
             }
 
@@ -53,27 +53,35 @@ const Arrow = ({ className }) => (
                     -3px 3px 8px -6px rgba(64, 75, 90, 0.15);
             }
 
-            :global([data-popper-placement^='top']) div::after {
+            div.bottom::after {
                 transform: rotate(-45deg);
             }
 
-            :global([data-popper-placement^='bottom']) div::after {
+            div.top::after {
                 transform: rotate(135deg);
             }
 
-            :global([data-popper-placement^='left']) div::after {
+            div.right::after {
                 transform: rotate(-135deg);
             }
 
-            :global([data-popper-placement^='right']) div::after {
+            div.left::after {
                 transform: rotate(45deg);
             }
         `}</style>
     </div>
-)
+))
+Arrow.displayName = 'Arrow'
 
 Arrow.propTypes = {
-    className: propTypes.string,
+    hidden: propTypes.bool,
+    popperPlacement: propTypes.string,
+    styles: propTypes.shape({
+        left: propTypes.string,
+        position: propTypes.string,
+        top: propTypes.string,
+        transform: propTypes.string,
+    }),
 }
 
 export { Arrow, ARROW_SIZE }

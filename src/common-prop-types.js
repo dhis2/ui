@@ -28,7 +28,7 @@ export const insideAlignmentPropType = propTypes.oneOf([
     'bottom',
 ])
 
-export const referencePlacementPropType = propTypes.oneOf([
+export const popperPlacementPropType = propTypes.oneOf([
     'auto',
     'auto-start',
     'auto-end',
@@ -46,7 +46,11 @@ export const referencePlacementPropType = propTypes.oneOf([
     'left-end',
 ])
 
-export const elementRefPropType = propTypes.oneOfType([
-    propTypes.func,
+export const popperReferencePropType = propTypes.oneOfType([
+    // DOM node
+    propTypes.instanceOf(Element),
+    // React ref - React.useRef() or React.createRef()
     propTypes.shape({ current: propTypes.instanceOf(Element) }),
+    // Virtual element
+    propTypes.shape({ getBoundingClientRect: propTypes.func }),
 ])

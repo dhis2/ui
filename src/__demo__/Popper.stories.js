@@ -120,3 +120,43 @@ export const LeftEnd = ({ referenceElement }) => (
         <div style={popperStyle}>Left end</div>
     </Popper>
 )
+export const ElementRef = () => {
+    const anchor = document.createElement('div')
+    document.body.appendChild(anchor)
+
+    return (
+        <Popper reference={anchor} placement="left-end">
+            <div style={popperStyle}>Left end</div>
+            <style jsx>{`
+                :global(.reference-element) {
+                    display: none !important;
+                }
+            `}</style>
+        </Popper>
+    )
+}
+export const VirtualElementRef = () => {
+    const virtualElement = {
+        getBoundingClientRect: () => ({
+            width: 0,
+            height: 0,
+            top: 100,
+            right: 0,
+            bottom: 0,
+            left: 200,
+            x: 200,
+            y: 100,
+        }),
+    }
+
+    return (
+        <Popper reference={virtualElement} placement="left-end">
+            <div style={popperStyle}>Left end</div>
+            <style jsx>{`
+                :global(.reference-element) {
+                    display: none !important;
+                }
+            `}</style>
+        </Popper>
+    )
+}

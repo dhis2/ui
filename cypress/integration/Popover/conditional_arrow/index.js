@@ -7,8 +7,8 @@ Given('a Popover is rendered with the arrow prop set to false', () => {
     cy.visitStory('Popover', 'No Arrow')
 })
 Then('there is an arrow element in the Popover', () => {
-    cy.get('[data-popper-arrow="true"]').should('exist')
+    cy.get('[data-test="dhis2-uicore-popoverarrow"]').should('exist')
 })
 Then('there is no arrow element in the Popover', () => {
-    cy.get('[data-popper-arrow="true"]').should('not.exist')
+    cy.get('[data-test="dhis2-uicore-popoverarrow"]').should('not.exist')
 })

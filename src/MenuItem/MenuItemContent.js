@@ -72,8 +72,8 @@ const MenuItemContent = forwardRef(
                     target={target}
                     {...linkElementProps}
                 >
-                    {icon}
-                    <div className="label">{label}</div>
+                    {icon && <span className="icon">{icon}</span>}
+                    <span className="label">{label}</span>
 
                     {showChevron && (
                         <ChevronRight className={subChevron.className} />

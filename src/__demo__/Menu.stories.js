@@ -2,6 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 
 import { Menu, MenuItem, Divider, Switch } from '../index.js'
+import { ArrowUp } from '../icons/Arrow.js'
 
 const Wrapper = fn => <div style={{}}>{fn()}</div>
 
@@ -53,6 +54,7 @@ storiesOf('Menu', module)
             <MenuItem
                 label="This is a long menu item name, that should span onto multiple lines"
                 value="two"
+                icon={<ArrowUp />}
                 onClick={val => {
                     alert(`this is ${val}`)
                 }}
@@ -60,6 +62,7 @@ storiesOf('Menu', module)
             <MenuItem
                 label="Three"
                 value="three"
+                icon={<ArrowUp />}
                 onClick={val => {
                     alert(`this is ${val}`)
                 }}
