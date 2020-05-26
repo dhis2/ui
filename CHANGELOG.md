@@ -1,3 +1,21 @@
+# [5.0.0-alpha.19](https://github.com/dhis2/ui/compare/v5.0.0-alpha.18...v5.0.0-alpha.19) (2020-05-26)
+
+
+### Bug Fixes
+
+* **popover:** fix arrow rotation ([880395b](https://github.com/dhis2/ui/commit/880395b7631a62281b66aced1a7044d70ed6c878))
+* fix improper merge resolution ([0daeffb](https://github.com/dhis2/ui/commit/0daeffb88f0e3791352f25945f442a0d6b3624e6))
+
+
+### Code Refactoring
+
+* rename popover prop ([f7d5c20](https://github.com/dhis2/ui/commit/f7d5c20dd111789fa7230aa0f84eeaf0487df4be))
+
+
+### BREAKING CHANGES
+
+* The Popover's `onBackdropClick` prop has been renamed to `onClickOutside`
+
 # [5.0.0-alpha.18](https://github.com/dhis2/ui/compare/v5.0.0-alpha.17...v5.0.0-alpha.18) (2020-05-26)
 
 
