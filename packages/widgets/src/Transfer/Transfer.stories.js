@@ -2,7 +2,7 @@
 import { SingleSelectOption, Tab, TabBar } from '@dhis2/ui-core'
 import React, { useState } from 'react'
 
-import { SingleSelectField, Transfer } from '../index.js'
+import { SingleSelectField, Transfer, TransferOption } from '../index.js'
 
 export default { title: 'Components/widgets/Transfer' }
 
@@ -176,7 +176,7 @@ export const Filtered = () => (
     </StatefulWrapper>
 )
 
-const CustomOption = ({ label, value, onClick, highlighted }) => (
+const renderOption = ({ label, value, onClick, highlighted }) => (
     <p
         onClick={event => onClick({ label, value }, event)}
         style={{ background: highlighted ? 'green' : 'blue' }}
@@ -189,7 +189,7 @@ export const CustomListOptions = () => (
     <>
         <strong>Custom option code:</strong>
         <code>
-            <pre>{`const CustomOption = ({ label, value, onClick, highlighted }) => (
+            <pre>{`const renderOption = ({ label, value, onClick, highlighted }) => (
     <p
         onClick={event => onClick({ label, value }, event)}
         style={{ background: highlighted ? 'green' : 'blue' }}
@@ -203,7 +203,7 @@ export const CustomListOptions = () => (
                 onChange={() =>
                     console.log('Will be overriden by StatefulWrapper')
                 }
-                optionComponent={CustomOption}
+                renderOption={renderOption}
                 options={options}
             />
         </StatefulWrapper>
@@ -218,10 +218,14 @@ export const IndividualCustomOption = () => (
             addIndividualText="Add individual"
             removeAllText="Remove all"
             removeIndividualText="Remove individual"
-            options={[
-                { ...options[0], component: CustomOption },
-                ...options.slice(1),
-            ]}
+            renderOption={args => {
+                if (args.option.value === options[0].value) {
+                    return renderOption(args)
+                }
+
+                return <TransferOption {...args} />
+            }}
+            options={options}
         />
     </StatefulWrapper>
 )

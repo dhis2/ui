@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { Actions } from './Actions.js'
@@ -85,8 +85,8 @@ export const Transfer = ({
     leftFooter,
     leftHeader,
     maxSelections,
-    optionComponent: TransferOption,
     optionsWidth,
+    renderOption,
     rightFooter,
     searchTerm,
     selected,
@@ -203,24 +203,26 @@ export const Transfer = ({
                     sourceEmptyPlaceholder={sourceEmptyPlaceholder}
                 >
                     {sourceOptions.map(option => {
-                        const Option = option.component || TransferOption
                         const highlighted = !!highlightedSourceOptions.find(
                             highlightedSourceOption =>
                                 highlightedSourceOption === option.value
                         )
 
+                        const data = {
+                            highlighted,
+                            disabled: option.disabled,
+                            option: option,
+                            ...getOptionClickHandlers(
+                                option,
+                                selectSingleOption,
+                                toggleHighlightedSourceOption
+                            ),
+                        }
+
                         return (
-                            <Option
-                                key={option.value}
-                                disabled={option.disabled}
-                                option={option}
-                                highlighted={highlighted}
-                                {...getOptionClickHandlers(
-                                    option,
-                                    selectSingleOption,
-                                    toggleHighlightedSourceOption
-                                )}
-                            />
+                            <Fragment key={option.value}>
+                                {renderOption(data)}
+                            </Fragment>
                         )
                     })}
                 </SourceOptions>
@@ -301,23 +303,25 @@ export const Transfer = ({
                     selectedEmptyComponent={selectedEmptyComponent}
                 >
                     {pickedOptions.map(option => {
-                        const Option = option.component || TransferOption
                         const highlighted = !!highlightedPickedOptions.find(
                             value => option.value === value
                         )
 
+                        const data = {
+                            highlighted,
+                            disabled: option.disabled,
+                            option,
+                            ...getOptionClickHandlers(
+                                option,
+                                deselectSingleOption,
+                                toggleHighlightedPickedOption
+                            ),
+                        }
+
                         return (
-                            <Option
-                                key={option.value}
-                                disabled={option.disabled}
-                                option={option}
-                                highlighted={highlighted}
-                                {...getOptionClickHandlers(
-                                    option,
-                                    deselectSingleOption,
-                                    toggleHighlightedPickedOption
-                                )}
-                            />
+                            <Fragment key={option.value}>
+                                {renderOption(data)}
+                            </Fragment>
                         )
                     })}
                 </PickedOptions>
@@ -360,13 +364,15 @@ export const Transfer = ({
     )
 }
 
+const defaultRenderOption = option => <TransferOption {...option} />
+
 Transfer.defaultProps = {
     dataTest: 'dhis2-uicore-transfer',
     height: '240px',
     initialSearchTerm: '',
     maxSelections: Infinity,
-    optionComponent: TransferOption,
     optionsWidth: '320px',
+    renderOption: defaultRenderOption,
     selected: [],
     selectedWidth: '320px',
     filterCallback: defaultFilterCallback,
@@ -408,7 +414,6 @@ Transfer.propTypes = {
         propTypes.shape({
             label: propTypes.string.isRequired,
             value: propTypes.string.isRequired,
-            component: propTypes.func,
             disabled: propTypes.bool,
         })
     ).isRequired,
@@ -429,10 +434,10 @@ Transfer.propTypes = {
     leftFooter: propTypes.node,
     leftHeader: propTypes.node,
     maxSelections: propTypes.oneOf([1, Infinity]),
-    optionComponent: propTypes.func,
     optionsWidth: propTypes.string,
     removeAllText: propTypes.string,
     removeIndividualText: propTypes.string,
+    renderOption: propTypes.func,
     rightFooter: propTypes.node,
     searchTerm: propTypes.string,
     selected: propTypes.arrayOf(propTypes.string),
