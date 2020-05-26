@@ -90,8 +90,8 @@ export const Customization = () => {
                 elevation={elevations.e200}
                 maxWidth={400}
                 placement="bottom-start"
-                onBackdropClick={() => {
-                    console.log('backdrop was closed....')
+                onClickOutside={() => {
+                    console.log('backdrop was clicked....')
                 }}
             >
                 <div>

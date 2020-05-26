@@ -29,7 +29,7 @@ const Popover = ({
     observePopperResize,
     observeReferenceResize,
     placement,
-    onBackdropClick,
+    onClickOutside,
 }) => {
     const referenceElement = getReferenceElement(reference)
     const [popperElement, setPopperElement] = useState(null)
@@ -48,7 +48,7 @@ const Popover = ({
     })
 
     return (
-        <Layer onClick={onBackdropClick}>
+        <Layer onClick={onClickOutside}>
             <div
                 data-test={dataTest}
                 className={className}
@@ -115,7 +115,7 @@ Popover.propTypes = {
     observeReferenceResize: propTypes.bool,
     placement: sharedPropTypes.popperPlacementPropType,
     reference: sharedPropTypes.popperReferencePropType,
-    onBackdropClick: propTypes.func,
+    onClickOutside: propTypes.func,
 }
 
 export { Popover }
