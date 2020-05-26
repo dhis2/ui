@@ -78,13 +78,13 @@ Popover.defaultProps = {
  */
 Popover.propTypes = {
     children: propTypes.node.isRequired,
-    reference: sharedPropTypes.elementRefPropType.isRequired,
+    reference: sharedPropTypes.popperReferencePropType.isRequired,
     arrow: propTypes.bool,
     className: propTypes.string,
     dataTest: propTypes.string,
     elevation: propTypes.string,
     maxWidth: propTypes.number,
-    placement: sharedPropTypes.referencePlacementPropType,
+    placement: sharedPropTypes.popperPlacementPropType,
     onClickOutside: propTypes.func,
 }
 

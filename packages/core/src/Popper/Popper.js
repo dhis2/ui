@@ -1,10 +1,10 @@
-import React, { Component, createRef } from 'react'
+import React, { useState, useMemo } from 'react'
 import propTypes from '@dhis2/prop-types'
-import { createPopper } from '@popperjs/core'
-
+import { usePopper } from 'react-popper'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 
-import * as baseModifiers from './modifiers.js'
+import { deduplicateModifiers } from './Popper/modifiers.js'
+import { getReferenceElement } from './Popper/getReferenceElement.js'
 
 /**
  * @module
@@ -18,67 +18,48 @@ import * as baseModifiers from './modifiers.js'
  * @see Popper js: {@link https://popper.js.org/docs/v2/|Documentation}
  */
 
-class Popper extends Component {
-    popperInstance = null
-    popperRef = createRef()
+const Popper = ({
+    children,
+    className,
+    dataTest,
+    modifiers,
+    observePopperResize,
+    observeReferenceResize,
+    onFirstUpdate,
+    placement,
+    reference,
+    strategy,
+}) => {
+    const referenceElement = getReferenceElement(reference)
+    const [popperElement, setPopperElement] = useState(null)
 
-    componentDidMount() {
-        const { reference, strategy, onFirstUpdate, placement } = this.props
+    const deduplicatedModifiers = useMemo(
+        () =>
+            deduplicateModifiers(modifiers, {
+                observePopperResize,
+                observeReferenceResize,
+            }),
+        [modifiers, observePopperResize, observeReferenceResize]
+    )
 
-        this.popperInstance = createPopper(
-            reference.current,
-            this.popperRef.current,
-            {
-                strategy,
-                onFirstUpdate,
-                placement,
-                modifiers: this.deduplicateModifiers(),
-            }
-        )
-    }
+    const { styles, attributes } = usePopper(referenceElement, popperElement, {
+        strategy,
+        onFirstUpdate,
+        placement,
+        modifiers: deduplicatedModifiers,
+    })
 
-    componentWillUnmount() {
-        this.popperInstance && this.popperInstance.destroy()
-        this.popperInstance = null
-    }
-
-    deduplicateModifiers() {
-        const {
-            modifiers,
-            observePopperResize: popper,
-            observeReferenceResize: reference,
-        } = this.props
-
-        const baseModifiersWithResizeObserver = {
-            ...baseModifiers,
-            resizeObserver: {
-                ...baseModifiers.resizeObserver,
-                options: { reference, popper },
-            },
-        }
-
-        // Deduplicate modifiers from props and baseModifiers,
-        // when duplicates are encountered (by name), use the
-        // modifier from props so each Popper can be fully custom
-        return Object.keys(baseModifiersWithResizeObserver)
-            .map(key => baseModifiersWithResizeObserver[key])
-            .filter(({ name }) => !modifiers.some(m => m.name === name))
-            .concat(modifiers)
-    }
-
-    render() {
-        const { children, dataTest, className } = this.props
-
-        return (
-            <div
-                className={className}
-                data-test={dataTest}
-                ref={this.popperRef}
-            >
-                {children}
-            </div>
-        )
-    }
+    return (
+        <div
+            className={className}
+            data-test={dataTest}
+            ref={setPopperElement}
+            style={styles.popper}
+            {...attributes.popper}
+        >
+            {children}
+        </div>
+    )
 }
 
 Popper.defaultProps = {
@@ -99,7 +80,7 @@ Popper.defaultProps = {
  * @static
  *
  * @prop {Node} children
- * @prop {React.Ref} reference A React ref that refers to the element the Popover should position against
+ * @prop {React.Ref|Element|VirtualElement} reference A React ref, DOM node, or {@link https://popper.js.org/docs/v2/virtual-elements/|popper.js virtual element} for the Popper to position itself against.
  * @prop {string} [className]
  * @prop {string} [dataTest=dhis2-uicore-popper]
  * @prop {Array.<Modifier>} [modifiers=[]] A property of the `createPopper` options, {@link https://popper.js.org/docs/v2/constructors/|see constructor section of popper.js docs}
@@ -112,7 +93,6 @@ Popper.defaultProps = {
 // Prop names follow the names here: https://popper.js.org/docs/v2/constructors/
 Popper.propTypes = {
     children: propTypes.node.isRequired,
-    reference: sharedPropTypes.elementRefPropType.isRequired,
     className: propTypes.string,
     dataTest: propTypes.string,
     modifiers: propTypes.arrayOf(
@@ -123,7 +103,8 @@ Popper.propTypes = {
     ),
     observePopperResize: propTypes.bool,
     observeReferenceResize: propTypes.bool,
-    placement: sharedPropTypes.referencePlacementPropType,
+    placement: sharedPropTypes.popperPlacementPropType,
+    reference: sharedPropTypes.elementRefPropType,
     strategy: propTypes.oneOf(['absolute', 'fixed']), // defaults to 'absolute'
     onFirstUpdate: propTypes.func,
 }
