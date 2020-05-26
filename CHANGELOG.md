@@ -1,3 +1,20 @@
+# [5.0.0-alpha.18](https://github.com/dhis2/ui/compare/v5.0.0-alpha.17...v5.0.0-alpha.18) (2020-05-26)
+
+
+### Code Refactoring
+
+* make menu click-based and reorganise related components ([a8b26a0](https://github.com/dhis2/ui/commit/a8b26a0984f892ec9ea61a2c40bb6226e66903a9))
+
+
+### BREAKING CHANGES
+
+* Fully overhauled Menu and related components:
+- MenuList was renamed to Menu
+- Menu was renamed to FlyoutMenu
+- The sub-menus now open on click instead of hover
+- We have introduced a dedicated `MenuDivider` and `MenuSectionHeader`
+- To create sub-menus, you can now add MenuItems directly under a parent MenuItem, no need to wrap them in a Menu/FlyoutMenu anymore
+
 # [5.0.0-alpha.17](https://github.com/dhis2/ui/compare/v5.0.0-alpha.16...v5.0.0-alpha.17) (2020-05-20)
 
 
