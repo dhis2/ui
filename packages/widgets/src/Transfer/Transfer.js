@@ -208,20 +208,17 @@ export const Transfer = ({
                                 highlightedSourceOption === option.value
                         )
 
-                        const data = {
-                            highlighted,
-                            disabled: option.disabled,
-                            option: option,
-                            ...getOptionClickHandlers(
-                                option,
-                                selectSingleOption,
-                                toggleHighlightedSourceOption
-                            ),
-                        }
-
                         return (
                             <Fragment key={option.value}>
-                                {renderOption(data)}
+                                {renderOption({
+                                    ...option,
+                                    ...getOptionClickHandlers(
+                                        option,
+                                        selectSingleOption,
+                                        toggleHighlightedSourceOption
+                                    ),
+                                    highlighted,
+                                })}
                             </Fragment>
                         )
                     })}
@@ -307,20 +304,17 @@ export const Transfer = ({
                             value => option.value === value
                         )
 
-                        const data = {
-                            highlighted,
-                            disabled: option.disabled,
-                            option,
-                            ...getOptionClickHandlers(
-                                option,
-                                deselectSingleOption,
-                                toggleHighlightedPickedOption
-                            ),
-                        }
-
                         return (
                             <Fragment key={option.value}>
-                                {renderOption(data)}
+                                {renderOption({
+                                    ...option,
+                                    ...getOptionClickHandlers(
+                                        option,
+                                        deselectSingleOption,
+                                        toggleHighlightedPickedOption
+                                    ),
+                                    highlighted,
+                                })}
                             </Fragment>
                         )
                     })}

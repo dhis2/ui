@@ -23,7 +23,8 @@ export const TransferOption = ({
     highlighted,
     onClick,
     onDoubleClick,
-    option,
+    label,
+    value,
 }) => {
     const doubleClickTimeout = useRef(null)
 
@@ -37,20 +38,20 @@ export const TransferOption = ({
                     clearTimeout(doubleClickTimeout.current)
                     doubleClickTimeout.current = null
 
-                    onDoubleClick({ option }, event)
+                    onDoubleClick({ value }, event)
                 } else {
                     doubleClickTimeout.current = setTimeout(() => {
                         clearTimeout(doubleClickTimeout.current)
                         doubleClickTimeout.current = null
                     }, DOUBLE_CLICK_MAX_DELAY)
 
-                    onClick({ option }, event)
+                    onClick({ value }, event)
                 }
             }}
-            data-value={option.value}
+            data-value={value}
             className={cx(className, { highlighted, disabled })}
         >
-            {option.label}
+            {label}
 
             <style jsx>{`
                 div {
@@ -98,10 +99,8 @@ TransferOption.defaultProps = {
  * @prop {Function} [onDoubleClick]
  */
 TransferOption.propTypes = {
-    option: propTypes.shape({
-        label: propTypes.string.isRequired,
-        value: propTypes.string.isRequired,
-    }).isRequired,
+    label: propTypes.string.isRequired,
+    value: propTypes.string.isRequired,
     className: propTypes.string,
     dataTest: propTypes.string,
     disabled: propTypes.bool,

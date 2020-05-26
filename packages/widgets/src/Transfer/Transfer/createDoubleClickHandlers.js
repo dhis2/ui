@@ -14,18 +14,18 @@ export const createDoubleClickHandlers = ({
     setHighlightedPickedOptions,
     setHighlightedSourceOptions,
 }) => {
-    const selectSingleOption = ({ option }) => {
-        const newSelected = selected.includes(option.value)
+    const selectSingleOption = ({ value }) => {
+        const newSelected = selected.includes(value)
             ? selected
-            : [...selected, option.value]
+            : [...selected, value]
 
         setHighlightedSourceOptions([])
         onChange({ selected: newSelected.slice(-1 * maxSelections) })
     }
 
-    const deselectSingleOption = ({ option }) => {
+    const deselectSingleOption = ({ value }) => {
         const newSelected = selected.filter(
-            curSelected => curSelected !== option.value
+            curSelected => curSelected !== value
         )
 
         setHighlightedPickedOptions([])
