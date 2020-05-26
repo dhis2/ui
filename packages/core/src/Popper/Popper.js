@@ -3,8 +3,8 @@ import propTypes from '@dhis2/prop-types'
 import { usePopper } from 'react-popper'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 
-import { deduplicateModifiers } from './Popper/modifiers.js'
-import { getReferenceElement } from './Popper/getReferenceElement.js'
+import { deduplicateModifiers } from './modifiers.js'
+import { getReferenceElement } from './getReferenceElement.js'
 
 /**
  * @module
@@ -14,7 +14,7 @@ import { getReferenceElement } from './Popper/getReferenceElement.js'
  *
  * @example import { Popper } from '@dhis2/ui-core'
  *
- * @see Live demo: {@link /demo/?path=/story/popper--default|Storybook}
+ * @see Live demo: {@link /demo/?path=/story/components-core-popper--top|Storybook}
  * @see Popper js: {@link https://popper.js.org/docs/v2/|Documentation}
  */
 

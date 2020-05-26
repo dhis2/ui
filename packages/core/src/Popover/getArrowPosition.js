@@ -1,8 +1,6 @@
-const getArrowPosition = popperAttribute => {
-    const placement =
-        popperAttribute && popperAttribute['data-popper-placement']
+const getArrowPosition = popperPlacement => {
     const direction =
-        typeof placement === 'string' ? placement.split('-')[0] : ''
+        typeof popperPlacement === 'string' ? popperPlacement.split('-')[0] : ''
 
     switch (direction) {
         case 'top':
