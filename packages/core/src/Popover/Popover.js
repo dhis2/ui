@@ -1,15 +1,12 @@
-import React from 'react'
+import React, { useState, useMemo } from 'react'
 import propTypes from 'prop-types'
-
+import { usePopper } from 'react-popper'
 import { colors, elevations, sharedPropTypes } from '@dhis2/ui-constants'
-
-import { Popper } from '../Popper/Popper.js'
 import { Layer } from '../Layer/Layer.js'
-
 import { Arrow } from './Arrow.js'
-import { arrow, offset, hideArrowWhenDisplaced } from './modifiers.js'
+import { combineModifiers } from './modifiers.js'
+import { getReferenceElement } from '../Popper/getReferenceElement.js'
 
-const arrowModifiers = [arrow, offset, hideArrowWhenDisplaced]
 /**
  * @module
  * @param {Popover.PropTypes} props
@@ -29,20 +26,51 @@ const Popover = ({
     dataTest,
     elevation,
     maxWidth,
+    observePopperResize,
+    observeReferenceResize,
     placement,
-    onClickOutside,
-}) => (
-    <Layer onClick={onClickOutside} transparent>
-        <Popper
-            dataTest={`${dataTest}-popper`}
-            placement={placement}
-            reference={reference}
-            modifiers={arrow ? arrowModifiers : []}
-            className={className}
-        >
-            <div>
+    onBackdropClick,
+}) => {
+    const referenceElement = getReferenceElement(reference)
+    const [popperElement, setPopperElement] = useState(null)
+    const [arrowElement, setArrowElement] = useState(null)
+    const modifiers = useMemo(
+        () =>
+            combineModifiers(arrow, arrowElement, {
+                observePopperResize,
+                observeReferenceResize,
+            }),
+        [arrow, arrowElement, observePopperResize, observeReferenceResize]
+    )
+    const { styles, attributes } = usePopper(referenceElement, popperElement, {
+        placement,
+        modifiers,
+    })
+
+    return (
+        <Layer onClick={onBackdropClick}>
+            <div
+                data-test={dataTest}
+                className={className}
+                ref={setPopperElement}
+                style={styles.popper}
+                {...attributes.popper}
+            >
                 {children}
-                {arrow && <Arrow />}
+                {arrow && (
+                    <Arrow
+                        hidden={
+                            attributes.arrow &&
+                            attributes.arrow['data-arrow-hidden']
+                        }
+                        popperPlacement={
+                            attributes.popper &&
+                            attributes.popper['data-popper-placement']
+                        }
+                        ref={setArrowElement}
+                        styles={styles.arrow}
+                    />
+                )}
                 <style jsx>{`
                     div {
                         max-width: ${maxWidth}px;
@@ -52,9 +80,9 @@ const Popover = ({
                     }
                 `}</style>
             </div>
-        </Popper>
-    </Layer>
-)
+        </Layer>
+    )
+}
 
 Popover.defaultProps = {
     arrow: true,
@@ -78,14 +106,16 @@ Popover.defaultProps = {
  */
 Popover.propTypes = {
     children: propTypes.node.isRequired,
-    reference: sharedPropTypes.popperReferencePropType.isRequired,
     arrow: propTypes.bool,
     className: propTypes.string,
     dataTest: propTypes.string,
     elevation: propTypes.string,
     maxWidth: propTypes.number,
+    observePopperResize: propTypes.bool,
+    observeReferenceResize: propTypes.bool,
     placement: sharedPropTypes.popperPlacementPropType,
-    onClickOutside: propTypes.func,
+    reference: sharedPropTypes.popperReferencePropType,
+    onBackdropClick: propTypes.func,
 }
 
 export { Popover }

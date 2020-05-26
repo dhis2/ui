@@ -3,8 +3,8 @@ import propTypes from '@dhis2/prop-types'
 import { usePopper } from 'react-popper'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 
-import { deduplicateModifiers } from './Popper/modifiers.js'
-import { getReferenceElement } from './Popper/getReferenceElement.js'
+import { deduplicateModifiers } from './modifiers.js'
+import { getReferenceElement } from './getReferenceElement.js'
 
 /**
  * @module
