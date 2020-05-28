@@ -1,3 +1,11 @@
+## [2.1.1](https://github.com/dhis2/ui-widgets/compare/v2.1.0...v2.1.1) (2020-05-19)
+
+
+### Bug Fixes
+
+* correctly select and use user locale and application title text [DHIS2-8525] [DHIS2-8723] ([#399](https://github.com/dhis2/ui-widgets/issues/399)) ([404428a](https://github.com/dhis2/ui-widgets/commit/404428aad6fc17f3ac6dede7702bf6e7dbe5a9d3))
+* escape regex special chars in search ([451284a](https://github.com/dhis2/ui-widgets/commit/451284a5e4ea897392f57d7e268f890db5cff255))
+
 # [2.1.0](https://github.com/dhis2/ui-widgets/compare/v2.0.8...v2.1.0) (2020-03-02)
 
 
