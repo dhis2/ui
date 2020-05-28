@@ -13,6 +13,7 @@ import { joinPath } from './joinPath.js'
  */
 
 const hasAuthority = (userAuthorities, authId) =>
+    Array.isArray(userAuthorities) &&
     userAuthorities.some(
         userAuthId => userAuthId === 'ALL' || userAuthId === authId
     )
