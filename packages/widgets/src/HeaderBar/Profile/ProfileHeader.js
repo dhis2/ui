@@ -1,10 +1,11 @@
+import { useConfig } from '@dhis2/app-runtime'
 import React from 'react'
+import i18n from '@dhis2/d2-i18n'
 import propTypes from '@dhis2/prop-types'
 
-import i18n from '@dhis2/d2-i18n'
-
-import { TextIcon } from '../TextIcon.js'
 import { ImageIcon } from '../ImageIcon.js'
+import { TextIcon } from '../TextIcon.js'
+import { joinPath } from '../joinPath.js'
 
 const ProfileName = ({ children }) => (
     <div data-test="headerbar-profile-username">
@@ -40,36 +41,38 @@ ProfileEmail.propTypes = {
     children: propTypes.string,
 }
 
-const ProfileEdit = ({ children, contextPath }) => (
-    <a
-        href={`${contextPath}/dhis-web-user-profile/#/profile`}
-        data-test="headerbar-profile-edit-profile-link"
-    >
-        {children}
+const ProfileEdit = ({ children }) => {
+    const { baseUrl } = useConfig()
 
-        <style jsx>{`
-            a {
-                color: rgba(0, 0, 0, 0.87);
-                font-size: 12px;
-                line-height: 14px;
-                text-decoration: underline;
-                cursor: pointer;
-            }
-        `}</style>
-    </a>
-)
-ProfileEdit.propTypes = {
-    children: propTypes.string,
-    contextPath: propTypes.string,
+    return (
+        <a
+            href={joinPath(baseUrl, 'dhis-web-user-profile/#/profile')}
+            data-test="headerbar-profile-edit-profile-link"
+        >
+            {children}
+
+            <style jsx>{`
+                a {
+                    color: rgba(0, 0, 0, 0.87);
+                    font-size: 12px;
+                    line-height: 14px;
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            `}</style>
+        </a>
+    )
 }
 
-const ProfileDetails = ({ name, email, contextPath }) => (
+ProfileEdit.propTypes = {
+    children: propTypes.string,
+}
+
+const ProfileDetails = ({ name, email }) => (
     <div>
         <ProfileName>{name}</ProfileName>
         <ProfileEmail>{email}</ProfileEmail>
-        <ProfileEdit contextPath={contextPath}>
-            {i18n.t('Edit profile')}
-        </ProfileEdit>
+        <ProfileEdit>{i18n.t('Edit profile')}</ProfileEdit>
 
         <style jsx>{`
             div {
@@ -83,17 +86,17 @@ const ProfileDetails = ({ name, email, contextPath }) => (
         `}</style>
     </div>
 )
+
 ProfileDetails.propTypes = {
-    contextPath: propTypes.string,
     email: propTypes.string,
     name: propTypes.string,
 }
 
-export const ProfileHeader = ({ name, email, img, contextPath }) => (
+export const ProfileHeader = ({ name, email, img }) => (
     <div>
         {img ? <ImageIcon src={img} /> : <TextIcon name={name} />}
 
-        <ProfileDetails name={name} email={email} contextPath={contextPath} />
+        <ProfileDetails name={name} email={email} />
 
         <style jsx>{`
             div {
@@ -107,7 +110,6 @@ export const ProfileHeader = ({ name, email, img, contextPath }) => (
 )
 
 ProfileHeader.propTypes = {
-    contextPath: propTypes.string.isRequired,
     email: propTypes.string,
     img: propTypes.string,
     name: propTypes.string,

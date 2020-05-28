@@ -3,13 +3,13 @@ import { Then, Given } from 'cypress-cucumber-preprocessor/steps'
 
 Given(
     'the custom title is {string} and the app title is "Example!"',
-    systemName => {
-        cy.fixture('HeaderBar/systemInfo')
+    applicationTitle => {
+        cy.fixture('HeaderBar/applicationTitle')
             .then(response => ({
                 ...response,
-                systemName,
+                applicationTitle,
             }))
-            .as('systemInfoFixture')
+            .as('applicationTitleFixture')
     }
 )
 

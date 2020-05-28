@@ -1,13 +1,14 @@
+import { Card } from '@dhis2/ui-core'
+import { Settings, Apps as AppsIcon } from '@dhis2/ui-icons'
+import { colors, theme } from '@dhis2/ui-constants'
+import { useConfig } from '@dhis2/app-runtime'
 import React from 'react'
 import css from 'styled-jsx/css'
-
-import propTypes from '@dhis2/prop-types'
 import i18n from '@dhis2/d2-i18n'
+import propTypes from '@dhis2/prop-types'
 
-import { colors, theme } from '@dhis2/ui-constants'
-import { Card } from '@dhis2/ui-core'
 import { InputField } from '../InputField/InputField.js'
-import { Settings, Apps as AppsIcon } from '@dhis2/ui-icons'
+import { joinPath } from './joinPath.js'
 
 const appIcon = css.resolve`
     svg {
@@ -28,7 +29,9 @@ const settingsIcon = css.resolve`
     }
 `
 
-function Search({ value, onChange, contextPath }) {
+function Search({ value, onChange }) {
+    const { baseUrl } = useConfig()
+
     return (
         <div>
             <span>
@@ -42,7 +45,7 @@ function Search({ value, onChange, contextPath }) {
             </span>
 
             <span>
-                <a href={`${contextPath}/dhis-web-menu-management`}>
+                <a href={joinPath(baseUrl, 'dhis-web-menu-management')}>
                     <Settings className={settingsIcon.className} />
                 </a>
             </span>
@@ -70,7 +73,6 @@ function Search({ value, onChange, contextPath }) {
 }
 
 Search.propTypes = {
-    contextPath: propTypes.string.isRequired,
     value: propTypes.string.isRequired,
     onChange: propTypes.func.isRequired,
 }
@@ -205,17 +207,10 @@ export default class Apps extends React.Component {
 
     onChange = ({ value }) => this.setState({ filter: value })
 
-    onIconClick = () => this.setState({ filter: '' })
-
     AppMenu = apps => (
         <div data-test="headerbar-apps-menu">
             <Card>
-                <Search
-                    value={this.state.filter}
-                    onChange={this.onChange}
-                    onIconClick={this.onIconClick}
-                    contextPath={this.props.contextPath}
-                />
+                <Search value={this.state.filter} onChange={this.onChange} />
                 <List apps={apps} filter={this.state.filter} />
             </Card>
 
@@ -261,5 +256,4 @@ export default class Apps extends React.Component {
 
 Apps.propTypes = {
     apps: propTypes.array.isRequired,
-    contextPath: propTypes.string.isRequired,
 }

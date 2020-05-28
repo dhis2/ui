@@ -1,7 +1,9 @@
 import { Before, Given } from 'cypress-cucumber-preprocessor/steps'
 
+export const baseUrl = 'https://domain.tld/'
+
 Before(() => {
-    cy.fixture('HeaderBar/systemInfo').as('systemInfoFixture')
+    cy.fixture('HeaderBar/applicationTitle').as('applicationTitleFixture')
     cy.fixture('HeaderBar/me').as('meFixture')
     cy.fixture('HeaderBar/getModules').as('modulesFixture')
     cy.fixture('HeaderBar/dashboard').as('dashboardFixture')
@@ -11,37 +13,37 @@ Before(() => {
 Given('the HeaderBar loads without an error', () => {
     cy.server()
 
-    cy.get('@systemInfoFixture').then(fx => {
+    cy.get('@applicationTitleFixture').then(fx => {
         cy.route({
-            url: 'https://domain.tld/api/system/info',
+            url: `${baseUrl}/api/systemSettings/applicationTitle`,
             response: fx,
-        }).as('systemInfo')
+        }).as('applicationTitle')
     })
 
     cy.get('@meFixture').then(fx => {
         cy.route({
-            url: 'https://domain.tld/api/me',
+            url: `${baseUrl}/api/me`,
             response: fx,
-        }).as('systemInfo')
+        }).as('me')
     })
 
     cy.get('@modulesFixture').then(fx => {
         cy.route({
-            url: 'https://domain.tld/dhis-web-commons/menu/getModules.action',
+            url: `${baseUrl}/dhis-web-commons/menu/getModules.action`,
             response: fx,
         }).as('modules')
     })
 
     cy.get('@dashboardFixture').then(fx => {
         cy.route({
-            url: 'https://domain.tld/api/me/dashboard',
+            url: `${baseUrl}/api/me/dashboard`,
             response: fx,
         }).as('dashboard')
     })
 
     cy.get('@logoFixture').then(fx => {
         cy.route({
-            url: 'https://domain.tld/api/staticContent/logo_banner',
+            url: `${baseUrl}/api/staticContent/logo_banner`,
             response: fx,
         }).as('logo_banner')
     })
