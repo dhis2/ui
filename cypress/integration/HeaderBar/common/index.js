@@ -1,6 +1,7 @@
 import { Before, Given } from 'cypress-cucumber-preprocessor/steps'
 
 export const baseUrl = 'https://domain.tld/'
+export const webCommons = 'https://domain.tld/dhis-web-commons/'
 
 Before(() => {
     cy.fixture('HeaderBar/applicationTitle').as('applicationTitleFixture')
@@ -8,9 +9,6 @@ Before(() => {
     cy.fixture('HeaderBar/getModules').as('modulesFixture')
     cy.fixture('HeaderBar/dashboard').as('dashboardFixture')
     cy.fixture('HeaderBar/logo_banner').as('logoFixture')
-})
-
-Given('the HeaderBar loads without an error', () => {
     cy.server()
 
     cy.get('@applicationTitleFixture').then(fx => {
@@ -47,6 +45,8 @@ Given('the HeaderBar loads without an error', () => {
             response: fx,
         }).as('logo_banner')
     })
+})
 
+Given('the HeaderBar loads without an error', () => {
     cy.visitStory('HeaderBarTesting', 'Default')
 })
