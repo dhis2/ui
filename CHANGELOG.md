@@ -1,3 +1,11 @@
+# [5.0.0-alpha.21](https://github.com/dhis2/ui/compare/v5.0.0-alpha.20...v5.0.0-alpha.21) (2020-05-28)
+
+
+### Bug Fixes
+
+* correctly select and use user locale and application title text ([1c9d055](https://github.com/dhis2/ui/commit/1c9d055e735f6e32706b91e4f75d8be6e6096860))
+* escape regex special chars in search ([2f11c96](https://github.com/dhis2/ui/commit/2f11c96d27398a612ce80beeb52046255d4f8776))
+
 # [5.0.0-alpha.20](https://github.com/dhis2/ui/compare/v5.0.0-alpha.19...v5.0.0-alpha.20) (2020-05-28)
 
 
