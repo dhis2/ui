@@ -23,7 +23,7 @@
         "@dhis2/prop-types": "^1.6.4",
         "@dhis2/ui-core": "5.0.0",
         "classnames": "^2.2.6",
-        "final-form": "^4.19.1",
+        "final-form": "^4.20.0",
         "react-final-form": "^6.4.0"
     },
     "files": [
