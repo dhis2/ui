@@ -68,6 +68,7 @@ export const HeaderBar = ({ appName, className }) => {
                             data.notifications.unreadInterpretations
                         }
                         messages={data.notifications.unreadMessageConversations}
+                        userAuthorities={data.user.authorities}
                     />
                     <Apps apps={apps} />
                     <Profile user={data.user} baseUrl={baseUrl} />

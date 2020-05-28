@@ -5,25 +5,45 @@ import propTypes from '@dhis2/prop-types'
 import { NotificationIcon } from './NotificationIcon.js'
 import { joinPath } from './joinPath.js'
 
-export const Notifications = ({ interpretations, messages }) => {
+/*
+ AUTHORITIES:
+ - ALL: superuser
+ - M_dhis-web-interpretation: access to interpretations app
+ - M_dhis-web-messaging: access to messaging app
+ */
+
+const hasAuthority = (userAuthorities, authId) =>
+    userAuthorities.some(
+        userAuthId => userAuthId === 'ALL' || userAuthId === authId
+    )
+
+export const Notifications = ({
+    interpretations,
+    messages,
+    userAuthorities,
+}) => {
     const { baseUrl } = useConfig()
 
     return (
         <div data-test="headerbar-notifications">
-            <NotificationIcon
-                count={interpretations}
-                href={joinPath(baseUrl, 'dhis-web-interpretation')}
-                kind="message"
-                dataTestId="headerbar-interpretations"
-            />
+            {hasAuthority(userAuthorities, 'M_dhis-web-interpretation') && (
+                <NotificationIcon
+                    count={interpretations}
+                    href={joinPath(baseUrl, 'dhis-web-interpretation')}
+                    kind="message"
+                    dataTestId="headerbar-interpretations"
+                />
+            )}
 
-            <NotificationIcon
-                message="email"
-                count={messages}
-                href={joinPath(baseUrl, 'dhis-web-messaging')}
-                kind="interpretation"
-                dataTestId="headerbar-messages"
-            />
+            {hasAuthority(userAuthorities, 'M_dhis-web-messaging') && (
+                <NotificationIcon
+                    message="email"
+                    count={messages}
+                    href={joinPath(baseUrl, 'dhis-web-messaging')}
+                    kind="interpretation"
+                    dataTestId="headerbar-messages"
+                />
+            )}
 
             <style jsx>{`
                 div {
@@ -40,4 +60,5 @@ export const Notifications = ({ interpretations, messages }) => {
 Notifications.propTypes = {
     interpretations: propTypes.number,
     messages: propTypes.number,
+    userAuthorities: propTypes.arrayOf(propTypes.string),
 }
