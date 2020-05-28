@@ -1,13 +1,16 @@
-import '../common/index.js'
+import { webCommons } from '../common/index.js'
 import { When, Then, Given } from 'cypress-cucumber-preprocessor/steps'
 
 Given('there are 5 apps available to the user', () => {
-    cy.fixture('HeaderBar/getModules')
-        .then(response => ({
-            ...response,
-            modules: response.modules.slice(0, 5),
-        }))
-        .as('modulesFixture')
+    cy.get('@modulesFixture').then(fx => {
+        cy.route({
+            url: `${webCommons}menu/getModules.action`,
+            response: {
+                ...fx,
+                modules: fx.modules.slice(0, 5),
+            },
+        }).as('modules')
+    })
 })
 
 When('the user clicks on the menu icons', () => {

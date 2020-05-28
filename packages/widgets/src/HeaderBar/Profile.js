@@ -1,17 +1,17 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
-import { ProfileMenu } from './Profile/ProfileMenu.js'
-
-import { TextIcon } from './TextIcon.js'
 import { ImageIcon } from './ImageIcon.js'
+import { ProfileMenu } from './Profile/ProfileMenu.js'
+import { TextIcon } from './TextIcon.js'
+import { joinPath } from './joinPath.js'
 
-function avatarPath(avatar, contextPath) {
+function avatarPath(avatar, baseUrl) {
     if (!avatar) {
         return null
     }
 
-    return `${contextPath}/api/fileResources/${avatar.id}/data`
+    return joinPath(baseUrl, 'api/fileResources', avatar.id, 'data')
 }
 
 export default class Profile extends React.Component {
@@ -35,8 +35,8 @@ export default class Profile extends React.Component {
 
     onToggle = () => this.setState({ show: !this.state.show })
 
-    userIcon(me, contextPath) {
-        const avatar = avatarPath(me.avatar, contextPath)
+    userIcon(me, baseUrl) {
+        const avatar = avatarPath(me.avatar, baseUrl)
 
         if (avatar) {
             return (
@@ -58,21 +58,20 @@ export default class Profile extends React.Component {
     }
 
     render() {
-        const { user, contextPath } = this.props
+        const { user, baseUrl } = this.props
 
         return (
             <div
                 ref={c => (this.elContainer = c)}
                 data-test="headerbar-profile"
             >
-                {this.userIcon(user, contextPath)}
+                {this.userIcon(user, baseUrl)}
 
                 {this.state.show ? (
                     <ProfileMenu
-                        avatar={avatarPath(user.avatar, contextPath)}
+                        avatar={avatarPath(user.avatar, baseUrl)}
                         name={user.name}
                         email={user.email}
-                        contextPath={contextPath}
                     />
                 ) : null}
 
@@ -90,6 +89,6 @@ export default class Profile extends React.Component {
 }
 
 Profile.propTypes = {
-    contextPath: propTypes.string.isRequired,
+    baseUrl: propTypes.string.isRequired,
     user: propTypes.object.isRequired,
 }

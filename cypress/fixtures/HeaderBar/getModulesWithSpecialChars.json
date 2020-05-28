@@ -1,0 +1,229 @@
+{
+    "modules": [
+        {
+            "name": "/",
+            "namespace": "//",
+            "defaultAction": "..//.action",
+            "displayName": "A / character",
+            "icon": "../icons/dhis-web-dashboard.png",
+            "description": ""
+        },
+        {
+            "name": "-",
+            "namespace": "/-",
+            "defaultAction": "../-.action",
+            "displayName": "A - character",
+            "icon": "../icons/dhis-web-dashboard.png",
+            "description": ""
+        },
+        {
+            "name": "(",
+            "namespace": "/(",
+            "defaultAction": "../(.action",
+            "displayName": "A ( character",
+            "icon": "../icons/dhis-web-data-visualizer.png",
+            "description": ""
+        },
+        {
+            "name": ")",
+            "namespace": "/)",
+            "defaultAction": "../).action",
+            "displayName": "A ) character",
+            "icon": "../icons/dhis-web-data-visualizer.png",
+            "description": ""
+        },
+        {
+            "name": "[",
+            "namespace": "/[",
+            "defaultAction": "../[.action",
+            "displayName": "A [ character",
+            "icon": "../icons/dhis-web-data-visualizer.png",
+            "description": ""
+        },
+        {
+            "name": "]",
+            "namespace": "/]",
+            "defaultAction": "../].action",
+            "displayName": "A ] character",
+            "icon": "../icons/dhis-web-data-visualizer.png",
+            "description": ""
+        },
+        {
+            "name": "{",
+            "namespace": "/{",
+            "defaultAction": "../{.action",
+            "displayName": "A { character",
+            "icon": "../icons/dhis-web-data-visualizer.png",
+            "description": ""
+        },
+        {
+            "name": "}",
+            "namespace": "/}",
+            "defaultAction": "../}.action",
+            "displayName": "A } character",
+            "icon": "../icons/dhis-web-data-visualizer.png",
+            "description": ""
+        },
+        {
+            "name": "*",
+            "namespace": "/*",
+            "defaultAction": "../*.action",
+            "displayName": "A * character",
+            "icon": "../icons/dhis-web-data-visualizer.png",
+            "description": ""
+        },
+        {
+            "name": "+",
+            "namespace": "/+",
+            "defaultAction": "../+.action",
+            "displayName": "A + character",
+            "icon": "../icons/dhis-web-data-visualizer.png",
+            "description": ""
+        },
+        {
+            "name": "?",
+            "namespace": "/?",
+            "defaultAction": "../?.action",
+            "displayName": "A ? character",
+            "icon": "../icons/dhis-web-data-visualizer.png",
+            "description": ""
+        },
+        {
+            "name": ".",
+            "namespace": "/.",
+            "defaultAction": "../..action",
+            "displayName": "A . character",
+            "icon": "../icons/dhis-web-data-visualizer.png",
+            "description": ""
+        },
+        {
+            "name": ",",
+            "namespace": "/,",
+            "defaultAction": "../,.action",
+            "displayName": "A , character",
+            "icon": "../icons/dhis-web-data-visualizer.png",
+            "description": ""
+        },
+        {
+            "name": "^",
+            "namespace": "/^",
+            "defaultAction": "../^.action",
+            "displayName": "A ^ character",
+            "icon": "../icons/dhis-web-data-visualizer.png",
+            "description": ""
+        },
+        {
+            "name": "$",
+            "namespace": "/$",
+            "defaultAction": "../$.action",
+            "displayName": "A $ character",
+            "icon": "../icons/dhis-web-data-visualizer.png",
+            "description": ""
+        },
+        {
+            "name": "|",
+            "namespace": "/|",
+            "defaultAction": "../|.action",
+            "displayName": "A | character",
+            "icon": "../icons/dhis-web-data-visualizer.png",
+            "description": ""
+        },
+        {
+            "name": "#",
+            "namespace": "/#",
+            "defaultAction": "../#.action",
+            "displayName": "A # character",
+            "icon": "../icons/dhis-web-data-visualizer.png",
+            "description": ""
+        },
+        {
+            "name": "\\s",
+            "namespace": "/\\s",
+            "defaultAction": "../\\s.action",
+            "displayName": "A \\s character",
+            "icon": "../icons/dhis-web-data-visualizer.png",
+            "description": ""
+        },
+        {
+            "name": "\\",
+            "namespace": "/\\",
+            "defaultAction": "../\\.action",
+            "displayName": "A \\ character",
+            "icon": "../icons/dhis-web-data-visualizer.png",
+            "description": ""
+        },
+
+        {
+            "name": "dhis-web-dashboard",
+            "namespace": "/dhis-web-dashboard",
+            "defaultAction": "../dhis-web-dashboard/index.action",
+            "displayName": "Dashboard",
+            "icon": "../icons/dhis-web-dashboard.png",
+            "description": ""
+        },
+        {
+            "name": "dhis-web-capture",
+            "namespace": "/dhis-web-capture",
+            "defaultAction": "../dhis-web-capture/index.action",
+            "displayName": "Capture",
+            "icon": "../icons/dhis-web-capture.png",
+            "description": ""
+        },
+        {
+            "name": "dhis-web-maintenance",
+            "namespace": "/dhis-web-maintenance",
+            "defaultAction": "../dhis-web-maintenance/index.action",
+            "displayName": "Maintenance",
+            "icon": "../icons/dhis-web-maintenance.png",
+            "description": ""
+        },
+        {
+            "name": "dhis-web-maps",
+            "namespace": "/dhis-web-maps",
+            "defaultAction": "../dhis-web-maps/index.action",
+            "displayName": "Maps",
+            "icon": "../icons/dhis-web-maps.png",
+            "description": ""
+        },
+        {
+            "name": "dhis-web-event-reports",
+            "namespace": "/dhis-web-event-reports",
+            "defaultAction": "../dhis-web-event-reports/index.action",
+            "displayName": "Event Reports",
+            "icon": "../icons/dhis-web-event-reports.png",
+            "description": ""
+        },
+        {
+            "name": "dhis-web-interpretation",
+            "namespace": "/dhis-web-interpretation",
+            "defaultAction": "../dhis-web-interpretation/index.action",
+            "displayName": "Interpretations",
+            "icon": "../icons/dhis-web-interpretation.png",
+            "description": ""
+        },
+        {
+            "name": "dhis-web-import-export",
+            "namespace": "/dhis-web-import-export",
+            "defaultAction": "../dhis-web-import-export/index.action",
+            "displayName": "Import/Export",
+            "icon": "../icons/dhis-web-importexport.png",
+            "description": ""
+        },
+        {
+            "name": "WHO Metadata browser",
+            "namespace": "WHO Metadata browser",
+            "defaultAction": "https://debug.dhis2.org/dev/api/apps/WHO-Metadata-browser/index.html",
+            "displayName": "",
+            "icon": "https://debug.dhis2.org/dev/api/apps/WHO-Metadata-browser/icons/medicine-48.png",
+            "description": ""
+        },
+        {
+            "name": "Dashboard Classic",
+            "namespace": "Dashboard Classic",
+            "defaultAction": "https://debug.dhis2.org/dev/api/apps/Dashboard-Classic/index.html",
+            "displayName": "",
+            "icon": "https://debug.dhis2.org/dev/api/apps/Dashboard-Classic/icon.png",
+            "description": "DHIS2 Legacy Dashboard App"
+        }
+    ]
+}

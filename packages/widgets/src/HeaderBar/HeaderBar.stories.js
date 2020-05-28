@@ -1,14 +1,18 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { CustomDataProvider } from '@dhis2/app-runtime'
+import { CustomDataProvider, Provider } from '@dhis2/app-runtime'
 //import { Provider } from '@dhis2/app-runtime'
 
 import { HeaderBar } from './HeaderBar.js'
 
+const mockConfig = {
+    baseUrl: 'https://debug.dhis2.org/dev/',
+    apiVersion: 33,
+}
+
 const customData = {
-    'system/info': {
-        systemName: 'Foobar',
-        contextPath: 'https://play.dhis2.org/2.32.0',
+    'systemSettings/applicationTitle': {
+        applicationTitle: 'Foobar',
     },
     me: {
         name: 'John Doe',
@@ -76,31 +80,31 @@ const customData = {
                 description: '',
             },
             {
-                name: 'dhis-web-importexport',
-                namespace: '/dhis-web-importexport',
-                defaultAction: '../dhis-web-importexport/index.action',
+                name: 'dhis-web-import-export',
+                namespace: '/dhis-web-import-export',
+                defaultAction: '../dhis-web-import-export/index.action',
                 displayName: 'Import/Export',
-                icon: '../icons/dhis-web-importexport.png',
+                icon: '../icons/dhis-web-import-export.png',
                 description: '',
             },
             {
                 name: 'WHO Metadata browser',
                 namespace: 'WHO Metadata browser',
                 defaultAction:
-                    'https://play.dhis2.org/2.32.0/api/apps/WHO-Metadata-browser/index.html',
+                    'https://debug.dhis2.org/dev/api/apps/WHO-Metadata-browser/index.html',
                 displayName: '',
                 icon:
-                    'https://play.dhis2.org/2.32.0/api/apps/WHO-Metadata-browser/icons/medicine-48.png',
+                    'https://debug.dhis2.org/dev/api/apps/WHO-Metadata-browser/icons/medicine-48.png',
                 description: '',
             },
             {
                 name: 'Dashboard Classic',
                 namespace: 'Dashboard Classic',
                 defaultAction:
-                    'https://play.dhis2.org/2.32.0/api/apps/Dashboard-Classic/index.html',
-                displayName: '',
+                    'https://debug.dhis2.org/dev/api/apps/Dashboard-Classic/index.html',
+                displayName: 'Dashboard Classic',
                 icon:
-                    'https://play.dhis2.org/2.32.0/api/apps/Dashboard-Classic/icon.png',
+                    'https://debug.dhis2.org/dev/api/apps/Dashboard-Classic/icon.png',
                 description: 'DHIS2 Legacy Dashboard App',
             },
         ],
@@ -111,7 +115,7 @@ const customData = {
     },
 }
 
-const customLogo = {
+const customLogoData = {
     ...customData,
     'staticContent/logo_banner': {
         images: {
@@ -120,26 +124,60 @@ const customLogo = {
     },
 }
 
+const customLocaleData = {
+    ...customData,
+    'systemSettings/applicationTitle': {
+        applicationTitle: 'Le Gros Foobar',
+    },
+    me: {
+        ...customData.me,
+        settings: {
+            keyUiLocale: 'fr',
+        },
+    },
+    'action::menu/getModules': {
+        modules: customData['action::menu/getModules'].modules.map(mod => ({
+            ...mod,
+            displayName: `Le ${mod.displayName}`,
+        })),
+    },
+}
+
 storiesOf('Components/Widgets/HeaderBar', module)
     .add('Default', () => (
-        <CustomDataProvider data={customData}>
-            <HeaderBar appName="Example!" />
-        </CustomDataProvider>
+        <Provider config={mockConfig}>
+            <CustomDataProvider data={customData}>
+                <HeaderBar appName="Example!" />
+            </CustomDataProvider>
+        </Provider>
     ))
     .add('Custom Logo (wide dimension)', () => (
-        <CustomDataProvider data={customLogo}>
-            <HeaderBar appName="Example!" />
-        </CustomDataProvider>
+        <Provider config={mockConfig}>
+            <CustomDataProvider data={customLogoData}>
+                <HeaderBar appName="Example!" />
+            </CustomDataProvider>
+        </Provider>
+    ))
+    .add('Non-english user locale', () => (
+        <Provider config={mockConfig}>
+            <CustomDataProvider data={customLocaleData}>
+                <HeaderBar appName="Exemple!" />
+            </CustomDataProvider>
+        </Provider>
     ))
     .add('Loading...', () => (
-        <CustomDataProvider options={{ loadForever: true }}>
-            <HeaderBar appName="Example!" />
-        </CustomDataProvider>
+        <Provider config={mockConfig}>
+            <CustomDataProvider options={{ loadForever: true }}>
+                <HeaderBar appName="Example!" />
+            </CustomDataProvider>
+        </Provider>
     ))
     .add('Error!', () => (
-        <CustomDataProvider data={{}}>
-            <HeaderBar appName="Example!" />
-        </CustomDataProvider>
+        <Provider config={mockConfig}>
+            <CustomDataProvider data={{}}>
+                <HeaderBar appName="Example!" />
+            </CustomDataProvider>
+        </Provider>
     ))
 
 /*

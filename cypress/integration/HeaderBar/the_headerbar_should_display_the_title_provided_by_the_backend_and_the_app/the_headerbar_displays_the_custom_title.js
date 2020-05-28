@@ -1,15 +1,15 @@
-import '../common/index'
+import { baseUrl } from '../common/index'
 import { Then, Given } from 'cypress-cucumber-preprocessor/steps'
 
 Given(
     'the custom title is {string} and the app title is "Example!"',
-    systemName => {
-        cy.fixture('HeaderBar/systemInfo')
-            .then(response => ({
-                ...response,
-                systemName,
-            }))
-            .as('systemInfoFixture')
+    applicationTitle => {
+        cy.get('@applicationTitleFixture').then(fx => {
+            cy.route({
+                url: `${baseUrl}api/systemSettings/applicationTitle`,
+                response: { ...fx, applicationTitle },
+            }).as('applicationTitle')
+        })
     }
 )
 
