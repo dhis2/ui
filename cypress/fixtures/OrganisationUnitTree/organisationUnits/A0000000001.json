@@ -1,0 +1,16 @@
+{
+    "path": "/A0000000000/A0000000001",
+    "displayName": "Org Unit 2",
+    "children": [
+        {
+            "id": "A0000000003",
+            "displayName": "Org Unit 4",
+            "children": []
+        },
+        {
+            "id": "A0000000004",
+            "displayName": "Org Unit 5",
+            "children": []
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "name": "storybook",
+    "version": "5.0.0-alpha.21",
+    "description": "Stories for DHIS2 UI",
+    "main": "index.js",
+    "license": "BSD-3-Clause",
+    "private": true,
+    "scripts": {
+        "build": "EXTEND_ESLINT=true build-storybook",
+        "start": "EXTEND_ESLINT=true start-storybook --port 5000"
+    },
+    "devDependencies": {
+        "@dhis2/cli-app-scripts": "^3.2.5",
+        "@storybook/addons": "^5.3.9",
+        "@storybook/components": "^5.3.13",
+        "@storybook/csf": "^0.0.1",
+        "@storybook/preset-create-react-app": "^1.5.2",
+        "@storybook/react": "^5.3.13",
+        "storybook-addon-jsx": "^7.1.14",
+        "storybook-addon-react-docgen": "^1.2.28",
+        "typeface-roboto": "^0.0.75"
+    },
+    "dependencies": {
+        "@dhis2/ui": "5.0.0-alpha.21",
+        "@dhis2/ui-constants": "5.0.0-alpha.21",
+        "@dhis2/ui-core": "5.0.0-alpha.21",
+        "@dhis2/ui-forms": "5.0.0-alpha.21",
+        "@dhis2/ui-icons": "5.0.0-alpha.21",
+        "@dhis2/ui-widgets": "5.0.0-alpha.21"
+    }
+}
