@@ -1,3 +1,22 @@
+# [5.0.0-alpha.20](https://github.com/dhis2/ui/compare/v5.0.0-alpha.19...v5.0.0-alpha.20) (2020-05-28)
+
+
+### Code Refactoring
+
+* **transfer:** align with select & monorepo structure ([c15477d](https://github.com/dhis2/ui/commit/c15477dcaa582fc059dab35adfc24a19527b7f0c)), closes [#50](https://github.com/dhis2/ui/issues/50)
+* **transfer:** align with select & monorepo structure ([d50f960](https://github.com/dhis2/ui/commit/d50f960a675941d8052bae473003895c837a737a))
+
+
+### BREAKING CHANGES
+
+* **transfer:** The Transfer component now expects options to be passed in as objects, not as children. Custom components can be provided via the optionComponent prop for all options or via the component property on an individual option.
+* **transfer:** The Transfer component now expects strings as selected
+values instead of option objects.
+* **transfer:** The Transfer component is now part of widgets
+* **transfer:** The Transfer component now expects strings as selected
+values instead of option objects.
+* **transfer:** The Transfer component is now part of `widgets`
+
 # [5.0.0-alpha.19](https://github.com/dhis2/ui/compare/v5.0.0-alpha.18...v5.0.0-alpha.19) (2020-05-26)
 
 
