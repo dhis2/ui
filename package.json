@@ -65,7 +65,7 @@
         "react-dev-utils": "^10.2.1",
         "react-docgen": "^5.3.0",
         "react-dom": "16.8",
-        "styled-jsx": "^3.2.4",
+        "styled-jsx": "^3.3.0",
         "typeface-roboto": "^0.0.75",
         "wait-on": "^4.0.1"
     }
