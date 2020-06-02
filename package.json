@@ -26,9 +26,9 @@
         "build:icons": "yarn workspace @dhis2/ui-icons build",
         "build:ui": "yarn workspace @dhis2/ui build",
         "build:widgets": "yarn workspace @dhis2/ui-widgets build",
-        "cy:server": "yarn build && STORYBOOK_TESTING=1 yarn watch:storybook",
-        "cy:open": "concurrently --kill-others --success --first -n cy:server,cy:open 'yarn cy:server' 'wait-on http-get://localhost:5000 && d2-utils-cypress open'",
-        "cy:run": "concurrently --kill-others --success --first -n cy:server,cy:run 'yarn cy:server' 'wait-on http-get://localhost:5000 && d2-utils-cypress run'",
+        "cy:server": "yarn build && STORYBOOK_TESTING=1 yarn workspace storybook start:cypress --quiet --ci",
+        "cy:open": "d2-utils-cypress open --appStart 'yarn cy:server' --waitOn 'http-get://localhost:5001'",
+        "cy:run": "d2-utils-cypress run --appStart 'yarn cy:server' --waitOn 'http-get://localhost:5001'",
         "demo": "yarn workspace storybook build -o ../dist/demo --quiet",
         "docs": "d2-utils-docsite build ./docs -o ./dist --jsdoc ./packages/**/src --jsdoc-output-file api.md",
         "format": "yarn format:js && yarn format:text",
@@ -66,7 +66,6 @@
         "react-docgen": "^5.3.0",
         "react-dom": "16.8",
         "styled-jsx": "^3.3.0",
-        "typeface-roboto": "^0.0.75",
-        "wait-on": "^4.0.1"
+        "typeface-roboto": "^0.0.75"
     }
 }
