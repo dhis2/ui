@@ -1318,12 +1318,12 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/app-adapter@3.2.9":
-  version "3.2.9"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-adapter/-/app-adapter-3.2.9.tgz#5bc2c8b77b0edbef84f5b256845fcba52f5cd49f"
-  integrity sha512-lV/qHmwzs0yc+jaWrqlnACwF7kJq0EK6z6d0iRb4p15bLvHgWSUyPuJ2sRX8DXwfiBotlVs9Vc2wnDBggKga4Q==
+"@dhis2/app-adapter@4.0.7":
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-adapter/-/app-adapter-4.0.7.tgz#91da01be6941e93f3c9cadd94e54ec81739ff7a3"
+  integrity sha512-5fAH46tBczfW+1FK3v8MERDF25cjNmOgze4Kl03wkvUmNVv68tvPPcXQXdbcAwKjZdUC4bbuphucpm4tv5VTQQ==
   dependencies:
-    "@dhis2/ui-widgets" "^2.0.4"
+    "@dhis2/ui-widgets" "^2.1.1"
     moment "^2.24.0"
 
 "@dhis2/app-runtime@^2.0.4", "@dhis2/app-runtime@^2.2.1":
@@ -1344,12 +1344,12 @@
   resolved "https://registry.yarnpkg.com/@dhis2/app-service-data/-/app-service-data-2.2.1.tgz#b418a9624761cedded3ebddc3459db90bdaa3c16"
   integrity sha512-XeAmjjt8sL1sbu8rsEEQDBQyc//cHww79kCGXpuFHR5tytzhT31cQ457/zNqU3DW61xKgv+bCWk845kuD26UbQ==
 
-"@dhis2/app-shell@3.2.9":
-  version "3.2.9"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-shell/-/app-shell-3.2.9.tgz#01c9ee8d7e3d7be01b9d5d6028b86c4462a4d020"
-  integrity sha512-wEugRAUrwXkfxp6KyTtg7RZUKowBkNWCGhh/orz0ag8t6JtxAabOMtIg6IcAqwvbZ8Xu6QMQQdrmZlFj7Lstpg==
+"@dhis2/app-shell@4.0.7":
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-shell/-/app-shell-4.0.7.tgz#cbbe010fc4cf015ba4a09aceaeedeb566eda38da"
+  integrity sha512-JW1umtLWUpYwDLtN4Jk2bzW52o+hC6WV5dIUyFmXncWE+RJbp7h7/YxV/TkdXBKtvUXtHjx5z+mbaFtcmf2t3w==
   dependencies:
-    "@dhis2/app-adapter" "3.2.9"
+    "@dhis2/app-adapter" "4.0.7"
     "@dhis2/app-runtime" "^2.0.4"
     "@dhis2/d2-i18n" "^1.0.5"
     "@dhis2/ui-core" "^4.6.1"
@@ -1364,10 +1364,10 @@
     typeface-roboto "^0.0.75"
     typescript "^3.6.3"
 
-"@dhis2/cli-app-scripts@^3.2.5", "@dhis2/cli-app-scripts@^3.2.9":
-  version "3.2.9"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-app-scripts/-/cli-app-scripts-3.2.9.tgz#39111e3aa63e8dd23464ddd8cb1a7a0c86dbd3c0"
-  integrity sha512-+VMUPBQ4t9j2Vk3FAFJqtTMcqC8U3e1hhaBgZqOkCe+eGKVagJwWwEWfvZcGF74+bC11VIiqUryaUqcMPVoRCA==
+"@dhis2/cli-app-scripts@^4.0.7":
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-app-scripts/-/cli-app-scripts-4.0.7.tgz#df8eb37d4d84c684f02af4e3736a2a00a40b0d51"
+  integrity sha512-S3YqnTq1hj6HmLVxk4sPYrR1GD1H8OSz0wMdVdqsX4dzOULsFE+cJ8Y6Clb5q2pQ+ZW2rGOWmhgQ0roWVgJRZA==
   dependencies:
     "@babel/core" "^7.6.2"
     "@babel/plugin-proposal-class-properties" "^7.8.3"
@@ -1380,7 +1380,7 @@
     "@babel/preset-env" "^7.6.2"
     "@babel/preset-react" "^7.0.0"
     "@babel/preset-typescript" "^7.6.0"
-    "@dhis2/app-shell" "3.2.9"
+    "@dhis2/app-shell" "4.0.7"
     "@dhis2/cli-helpers-engine" "^1.5.0"
     archiver "^3.1.1"
     babel-jest "^24.9.0"
@@ -1488,7 +1488,7 @@
     i18next "^10.3"
     moment "^2.24.0"
 
-"@dhis2/prop-types@^1.5", "@dhis2/prop-types@^1.6.4":
+"@dhis2/prop-types@^1.6", "@dhis2/prop-types@^1.6.4":
   version "1.6.4"
   resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-1.6.4.tgz#ec4d256c9440d4d00071524422a727c61ddaa6f6"
   integrity sha512-qkVj8OuyjDmSxzYDlCWZllvC9hIbrIImMp79/U5CVsIRbjUF0zA/tfbv4rWnsWALmwEHOQFbzl5GnO5D8RNneA==
@@ -1504,12 +1504,12 @@
     "@popperjs/core" "^2.1.0"
     classnames "^2.2.6"
 
-"@dhis2/ui-widgets@^2.0.4":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-widgets/-/ui-widgets-2.1.0.tgz#2accfdfea4c9564d7d35f8748ff7e113cac14032"
-  integrity sha512-S/vs7UrJxKcFO0TQhXx0jkKP9MqRGA48vkuBMVston+aZneIpVjLUtPvwP4P87uyK97DvHPkZm4gzniN6Beazg==
+"@dhis2/ui-widgets@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-widgets/-/ui-widgets-2.1.1.tgz#23b1887c0190e83bb7a41e6b570dfd41ba99d838"
+  integrity sha512-tLLXgQ2x0IDVcCg2AdK4J8B0Zj6DHOimI/5xTtp/xoaLDYDwJN3VDIJU0TSh5YIEZPzUmh2nqmdmNHDUXereFw==
   dependencies:
-    "@dhis2/prop-types" "^1.5"
+    "@dhis2/prop-types" "^1.6"
     classnames "^2.2.6"
 
 "@emotion/cache@^10.0.27":

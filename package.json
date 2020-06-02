@@ -48,7 +48,7 @@
         "watch:widgets": "yarn build:widgets --watch --dev"
     },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^3.2.9",
+        "@dhis2/cli-app-scripts": "^4.0.7",
         "@dhis2/cli-style": "^7.0.0",
         "@dhis2/cli-utils-cypress": "^2.2.1",
         "@dhis2/cli-utils-docsite": "^2.0.0",
