@@ -17,7 +17,7 @@
         "@storybook/preset-create-react-app": "^1.5.2",
         "@storybook/react": "^5.3.13",
         "storybook-addon-jsx": "^7.1.14",
-        "storybook-addon-react-docgen": "^1.2.28",
+        "storybook-addon-react-docgen": "^1.2.33",
         "typeface-roboto": "^0.0.75"
     },
     "dependencies": {
