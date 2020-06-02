@@ -1466,10 +1466,10 @@
     inquirer "^7.0.4"
     wait-on "^4.0.2"
 
-"@dhis2/cli-utils-docsite@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-utils-docsite/-/cli-utils-docsite-1.3.0.tgz#62be0cfc0223f7cd766d8bb24248f21082e038c0"
-  integrity sha512-A5bpLawOa/+GuCj4BnqlOTA14tpKVPY7ShIAKFgmStW+SnE1XFZqhjs16ADWsnhG0M/2jFiaGjen9MGpmj3FGw==
+"@dhis2/cli-utils-docsite@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-utils-docsite/-/cli-utils-docsite-2.0.0.tgz#e9a4a0796598a1f363def9278551c2684c5e30f9"
+  integrity sha512-qxE+BPZr019StXr6qfLQAECz8xc9cy3wwterL4PsKHMDOgMaLVp7OCKRot3Vm+NwEA+t/ATwduShYm2GQjW41Q==
   dependencies:
     "@dhis2/cli-helpers-engine" "^1.5.0"
     "@dhis2/cli-helpers-template" "^1.0.2"
