@@ -67,6 +67,6 @@
         "react-dom": "16.8",
         "styled-jsx": "^3.3.0",
         "typeface-roboto": "^0.0.75",
-        "wait-on": "^4.0.1"
+        "wait-on": "^5.0.0"
     }
 }
