@@ -1,7 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { CustomDataProvider, Provider } from '@dhis2/app-runtime'
-//import { Provider } from '@dhis2/app-runtime'
 
 import { HeaderBar } from './HeaderBar.js'
 
@@ -20,6 +19,7 @@ const customData = {
         settings: {
             keyUiLocale: 'en',
         },
+        authorities: ['ALL'],
     },
     'action::menu/getModules': {
         modules: [
@@ -143,6 +143,14 @@ const customLocaleData = {
     },
 }
 
+const customAuthoritiesData = {
+    ...customData,
+    me: {
+        ...customData.me,
+        authorities: ['M_dhis-web-messaging'],
+    },
+}
+
 storiesOf('Components/Widgets/HeaderBar', module)
     .add('Default', () => (
         <Provider config={mockConfig}>
@@ -161,6 +169,13 @@ storiesOf('Components/Widgets/HeaderBar', module)
     .add('Non-english user locale', () => (
         <Provider config={mockConfig}>
             <CustomDataProvider data={customLocaleData}>
+                <HeaderBar appName="Exemple!" />
+            </CustomDataProvider>
+        </Provider>
+    ))
+    .add('No authority for interpretations app', () => (
+        <Provider config={mockConfig}>
+            <CustomDataProvider data={customAuthoritiesData}>
                 <HeaderBar appName="Exemple!" />
             </CustomDataProvider>
         </Provider>
