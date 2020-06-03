@@ -3,3 +3,5 @@
 -   [**Concepts**](concepts)
 -   [**Live demos**](/demo/ ':ignore Live demos')
 -   [**Troubleshooting**](troubleshooting)
+-   &nbsp;
+-   [Changelog](CHANGELOG.md)
