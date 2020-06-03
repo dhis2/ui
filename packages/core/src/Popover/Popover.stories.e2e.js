@@ -22,7 +22,12 @@ class PopperInBoxWithCenteredReferenceElement extends Component {
     ref = createRef()
 
     render() {
-        const { paddingTop, ...popoverProps } = this.props
+        const {
+            paddingTop,
+            popoverHeight,
+            popoverWidth,
+            ...popoverProps
+        } = this.props
         return (
             <div style={{ ...boxStyle, paddingTop, height: paddingTop + 100 }}>
                 <div
@@ -35,9 +40,10 @@ class PopperInBoxWithCenteredReferenceElement extends Component {
                 <Popover reference={this.ref} {...popoverProps}>
                     <div
                         data-test="popover-content"
-                        style={{ width: 336, height: 200 }}
+                        style={{ width: popoverWidth, height: popoverHeight }}
                     >
-                        I am in a box with width: 360px and height: 200px
+                        I am in a box with width: {popoverWidth}px and height:{' '}
+                        {popoverHeight}px
                     </div>
                 </Popover>
             </div>
@@ -46,9 +52,13 @@ class PopperInBoxWithCenteredReferenceElement extends Component {
 }
 PopperInBoxWithCenteredReferenceElement.defaultProps = {
     paddingTop: 220,
+    popoverHeight: 200,
+    popoverWidth: 336,
 }
 PopperInBoxWithCenteredReferenceElement.propTypes = {
     paddingTop: propTypes.number,
+    popoverHeight: propTypes.number,
+    popoverWidth: propTypes.number,
 }
 
 window.onClickOutside = window.Cypress && window.Cypress.cy.stub()
@@ -71,5 +81,49 @@ export const NoArrow = () => (
 export const WithOnClickOutside = () => (
     <PopperInBoxWithCenteredReferenceElement
         onClickOutside={window.onClickOutside}
+    />
+)
+export const PlacementTop = () => (
+    <PopperInBoxWithCenteredReferenceElement
+        popoverHeight={40}
+        popoverWidth={180}
+        paddingTop={50}
+        placement="top"
+    />
+)
+
+export const PlacementRight = () => (
+    <PopperInBoxWithCenteredReferenceElement
+        popoverHeight={60}
+        popoverWidth={130}
+        paddingTop={50}
+        placement="right"
+    />
+)
+
+export const PlacementBottom = () => (
+    <PopperInBoxWithCenteredReferenceElement
+        popoverHeight={40}
+        popoverWidth={180}
+        paddingTop={50}
+        placement="bottom"
+    />
+)
+
+export const PlacementLeft = () => (
+    <PopperInBoxWithCenteredReferenceElement
+        popoverHeight={60}
+        popoverWidth={130}
+        paddingTop={50}
+        placement="left"
+    />
+)
+
+export const ShiftedArrow = () => (
+    <PopperInBoxWithCenteredReferenceElement
+        popoverHeight={160}
+        popoverWidth={130}
+        paddingTop={1}
+        placement="left"
     />
 )

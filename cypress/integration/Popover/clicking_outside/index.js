@@ -3,7 +3,7 @@ import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 Given('a default Popper is rendered with arrow set to true', () => {
     cy.visitStory('Popover', 'Default')
 })
-Given('a default Popper is rendered with an onClickOutside handler', () => {
+Given('a default Popover is rendered with an onClickOutside handler', () => {
     cy.visitStory('Popover', 'With On Click Outside')
 })
 When('the user clicks outside of the Popover', () => {
