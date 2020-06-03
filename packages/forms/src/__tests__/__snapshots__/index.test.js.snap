@@ -45,7 +45,7 @@ Array [
 ]
 `;
 
-exports[`react-final-form named export should re-export the expected type for Field 1`] = `"object"`;
+exports[`react-final-form named export should re-export the expected type for Field 1`] = `"function"`;
 
 exports[`react-final-form named export should re-export the expected type for Form 1`] = `"function"`;
 
