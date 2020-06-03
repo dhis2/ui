@@ -1,3 +1,12 @@
+## [5.0.1](https://github.com/dhis2/ui/compare/v5.0.0...v5.0.1) (2020-06-03)
+
+
+### Bug Fixes
+
+* **headerbar:** hide app links from unprivileged users ([7d12f40](https://github.com/dhis2/ui/commit/7d12f40aad13e28768befadb63939d10334eb6c2))
+* **headerbar:** hide app links from unprivileged users ([4cf5ed8](https://github.com/dhis2/ui/commit/4cf5ed8f74fee26aacbc3f2d3d4af7fde8649416))
+* **headerbar:** prevent error if authorities is not an array ([ecd1ba4](https://github.com/dhis2/ui/commit/ecd1ba4201cf70f767a87af2772d13b36349a0ef))
+
 # [5.0.0](https://github.com/dhis2/ui/compare/v4.0.0...v5.0.0) (2020-05-28)
 
 
