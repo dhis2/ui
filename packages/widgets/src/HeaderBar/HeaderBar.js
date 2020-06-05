@@ -53,8 +53,9 @@ export const HeaderBar = ({ appName, className }) => {
         i18n.changeLanguage(locale)
     }
 
+    // TODO: Remove dir="ltr" when rtl element flow is supported (DHIS2-8648)
     return (
-        <header className={className}>
+        <header className={className} dir="ltr">
             {!loading && !error && (
                 <>
                     <Logo />
