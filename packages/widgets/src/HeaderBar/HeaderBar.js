@@ -11,7 +11,7 @@ import { Logo } from './Logo.js'
 import { Title } from './Title.js'
 import { Notifications } from './Notifications.js'
 
-import i18n from '@dhis2/d2-i18n'
+import i18n from '../locales'
 import { joinPath } from './joinPath.js'
 
 const query = {

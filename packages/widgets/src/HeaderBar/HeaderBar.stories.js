@@ -143,6 +143,25 @@ const customLocaleData = {
     },
 }
 
+const customRtlData = {
+    ...customData,
+    'systemSettings/applicationTitle': {
+        applicationTitle: 'الأعظم في كل الأوقات', // The greatest of all time
+    },
+    me: {
+        ...customData.me,
+        settings: {
+            keyUiLocale: 'ar',
+        },
+    },
+    'action::menu/getModules': {
+        modules: customData['action::menu/getModules'].modules.map(mod => ({
+            ...mod,
+            displayName: 'مرحبا بالعالم', // Hello, world
+        })),
+    },
+}
+
 const customAuthoritiesData = {
     ...customData,
     me: {
@@ -166,13 +185,25 @@ storiesOf('Components/Widgets/HeaderBar', module)
             </CustomDataProvider>
         </Provider>
     ))
-    .add('Non-english user locale', () => (
+    .add('locale: French', () => (
         <Provider config={mockConfig}>
             <CustomDataProvider data={customLocaleData}>
                 <HeaderBar appName="Exemple!" />
             </CustomDataProvider>
         </Provider>
     ))
+    .add('locale: Arabic (right-to-left)', () => {
+        const appName = 'تتريس' // Tetris
+        return (
+            <Provider config={mockConfig}>
+                <CustomDataProvider data={customRtlData}>
+                    <div dir="rtl">
+                        <HeaderBar appName={appName} />
+                    </div>
+                </CustomDataProvider>
+            </Provider>
+        )
+    })
     .add('No authority for interpretations app', () => (
         <Provider config={mockConfig}>
             <CustomDataProvider data={customAuthoritiesData}>
