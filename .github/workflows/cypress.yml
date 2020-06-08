@@ -28,7 +28,7 @@ jobs:
                   parallel: true
                   start: ${{ env.SERVER_START_CMD }}
                   wait-on: ${{ env.SERVER_URL }}
-                  wait-on-timeout: 60
+                  wait-on-timeout: 300
                   group: 'e2e'
               env:
                   CI: true
