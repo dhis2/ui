@@ -18,6 +18,7 @@ const Arrow = forwardRef(({ hidden, popperPlacement, styles }, ref) => (
             div {
                 width: ${ARROW_SIZE}px;
                 height: ${ARROW_SIZE}px;
+                position: absolute;
             }
 
             div.top {

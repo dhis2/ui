@@ -104,7 +104,7 @@ Popper.propTypes = {
     observePopperResize: propTypes.bool,
     observeReferenceResize: propTypes.bool,
     placement: sharedPropTypes.popperPlacementPropType,
-    reference: sharedPropTypes.elementRefPropType,
+    reference: sharedPropTypes.popperReferencePropType,
     strategy: propTypes.oneOf(['absolute', 'fixed']), // defaults to 'absolute'
     onFirstUpdate: propTypes.func,
 }
