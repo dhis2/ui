@@ -13375,6 +13375,11 @@ prettier@^1.19.1:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.19.1.tgz#f7d7f5ff8a9cd872a7be4ca142095956a60797cb"
   integrity sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==
 
+prettier@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.0.5.tgz#d6d56282455243f2f92cc1716692c08aa31522d4"
+  integrity sha512-7PtVymN48hGcO4fGjybyBSIWDsLU4H4XlvOHfq91pz9kkGlonzwTfYkaIEwiRg/dAJF9YlbsduBAgtYLi+8cFg==
+
 pretty-bytes@5.3.0, pretty-bytes@^5.1.0:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/pretty-bytes/-/pretty-bytes-5.3.0.tgz#f2849e27db79fb4d6cfe24764fc4134f165989f2"
@@ -15619,15 +15624,23 @@ storybook-addon-jsx@^7.1.14:
     js-beautify "^1.8.8"
     react-element-to-jsx-string "^14.3.1"
 
-storybook-addon-react-docgen@^1.2.34:
-  version "1.2.34"
-  resolved "https://registry.yarnpkg.com/storybook-addon-react-docgen/-/storybook-addon-react-docgen-1.2.34.tgz#a58dd9aa343099254ba1538b88eccbf72212ad0b"
-  integrity sha512-ImI7zc0hrsvLyq0kYwcMmZNDjRa4UoPOEBGxOs8e0mJSQESEgt4lv/p2QeCPd4iRjj2QaoPhjpw6308vDAXMpA==
+storybook-addon-react-docgen@^1.2.35:
+  version "1.2.35"
+  resolved "https://registry.yarnpkg.com/storybook-addon-react-docgen/-/storybook-addon-react-docgen-1.2.35.tgz#cbece9df94004db95047933defb2fc7e9054b9b7"
+  integrity sha512-tqWh1apJrczBaRNnxpKldI56EbZAtgKhDkRMqPoKq8b6bALfZwsjBiSbNtvL4G27S4Tag8YjWdLAKbxXBTpVoQ==
   dependencies:
     nested-object-assign "^1.0.3"
     prop-types "^15.6.2"
     react-addons-create-fragment "^15.6.2"
     react-lifecycles-compat "^3.0.4"
+    storybook-pretty-props "^1.1.1"
+
+storybook-pretty-props@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/storybook-pretty-props/-/storybook-pretty-props-1.1.1.tgz#91066f72217b897f6fb4bab41d43e54399111a23"
+  integrity sha512-JAYqbzxBXD1TGbU/h10KQ6iozuRNsz/rUs8NNFGwJS+B2X3rUom787OaEZpM4nhLauUGUf4/UU5F9L2clWe8QA==
+  dependencies:
+    prettier "^2.0.5"
 
 stream-browserify@^2.0.0, stream-browserify@^2.0.1:
   version "2.0.2"
