@@ -1,3 +1,10 @@
+## [5.0.2](https://github.com/dhis2/ui/compare/v5.0.1...v5.0.2) (2020-06-09)
+
+
+### Bug Fixes
+
+* **popper:** use correct sharedPropType name for reference prop ([262ac0a](https://github.com/dhis2/ui/commit/262ac0aa62bd134b8346250ade027ceba1bc9982))
+
 ## [5.0.1](https://github.com/dhis2/ui/compare/v5.0.0...v5.0.1) (2020-06-03)
 
 
