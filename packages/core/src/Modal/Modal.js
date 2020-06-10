@@ -15,6 +15,8 @@ const scrollBoxCard = resolve`
     div {
         display: flex;
         flex-direction: column;
+        max-height: calc(100vh - ${2 * spacersNum.dp64}px);
+        max-width: calc(100vw - ${2 * spacersNum.dp64}px);
     }
 `
 
