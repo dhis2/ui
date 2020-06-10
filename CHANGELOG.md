@@ -1,3 +1,10 @@
+## [5.0.3](https://github.com/dhis2/ui/compare/v5.0.2...v5.0.3) (2020-06-10)
+
+
+### Bug Fixes
+
+* **modal:** add max height and width so Modal become scrollable ([61bf5b8](https://github.com/dhis2/ui/commit/61bf5b8457bdb4d4647b4d0c74aa75a78deb54ff))
+
 ## [5.0.2](https://github.com/dhis2/ui/compare/v5.0.1...v5.0.2) (2020-06-09)
 
 
