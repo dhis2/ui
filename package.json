@@ -67,5 +67,11 @@
         "react-dom": "16.8",
         "styled-jsx": "^3.3.0",
         "typeface-roboto": "^0.0.75"
+    },
+    "d2": {
+        "docsite": {
+            "name": "DHIS2 UI Components",
+            "description": "Components and related resources for the DHIS2 design system"
+        }
     }
 }
