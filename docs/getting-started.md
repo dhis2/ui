@@ -1,6 +1,6 @@
 # Getting Started
 
-[![npm](https://img.shields.io/npm/v/@dhis2/ui-core.svg)](https://www.npmjs.com/package/@dhis2/ui-core)
+[![npm](https://img.shields.io/npm/v/@dhis2/ui.svg)](https://www.npmjs.com/package/@dhis2/ui)
 
 ## Installation
 
