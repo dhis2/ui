@@ -5,7 +5,7 @@
 ## Installation
 
 ```bash
-yarn add @dhis2/ui-core
+yarn add @dhis2/ui
 ```
 
 ## Requirements
