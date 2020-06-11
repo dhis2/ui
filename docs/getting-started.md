@@ -13,7 +13,3 @@ yarn add @dhis2/ui
 ### React >= 16.3
 
 This library uses the official React Context API (introduced in 16.3) and React Fragments.
-
-### Polyfills
-
-> TODO
