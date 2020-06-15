@@ -1,14 +1,5 @@
 # Conceptual design of @dhis2/ui
 
-## :warning: UNDER CONSTRUCTION :warning:
-
-The alpha version is still under construction, these are the steps we need to
-turn go get this version into a stable one:
-
--   [x] Move components from `ui-core` & `ui-widget` to the `ui` monorepo
--   [ ] Add breaking changes
--   [ ] Re-organize library
-
 ## Monorepo
 
 UI is a monorepo that contains all the UI-related packages for DHIS 2.
