@@ -23,7 +23,7 @@ const CustomCell = props => (
     </td>
 )
 
-storiesOf('Components/Core/StackedTable', module)
+storiesOf('StackedTable', module)
     .add('Default', () => (
         <StackedTable>
             <StackedTableHead>

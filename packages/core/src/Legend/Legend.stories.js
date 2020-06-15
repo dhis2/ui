@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Legend } from './Legend.js'
 
-storiesOf('Components/Core/Legend', module)
+storiesOf('Legend', module)
     .add('Default', () => (
         <Legend>I am wrapped in a legend which has some styling</Legend>
     ))

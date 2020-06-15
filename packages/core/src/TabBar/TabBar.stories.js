@@ -24,7 +24,7 @@ window.onClick = (payload, event) => {
 
 const onClick = (...args) => window.onClick(...args)
 
-storiesOf('Components/Core/TabBar', module)
+storiesOf('TabBar', module)
     .addDecorator(Wrapper)
     .add('Default (fluid)', () => (
         <TabBar>

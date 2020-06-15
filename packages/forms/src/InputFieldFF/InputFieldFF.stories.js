@@ -6,7 +6,7 @@ import { ReactFinalForm, InputFieldFF, hasValue } from '../index.js'
 
 const { Field } = ReactFinalForm
 
-storiesOf('Form/InputFieldFF', module)
+storiesOf('InputFieldFF', module)
     .addDecorator(formDecorator)
     .add('Default', () => (
         <Field component={InputFieldFF} name="agree" label="Do you agree?" />

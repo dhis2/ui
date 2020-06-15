@@ -8,7 +8,7 @@ import { ReactFinalForm, RadioFieldFF } from '../index.js'
 
 const { Field } = ReactFinalForm
 
-storiesOf('Form/RadioFieldFF', module)
+storiesOf('RadioFieldFF', module)
     .addDecorator(formDecorator)
 
     .add('Default', () => (

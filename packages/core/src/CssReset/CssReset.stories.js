@@ -5,7 +5,7 @@ import { CssReset } from './CssReset.js'
 // eslint-disable-next-line react/prop-types
 const App = ({ children }) => <div>{children}</div>
 
-storiesOf('Utility/CssReset', module).add('Default', () => (
+storiesOf('CssReset', module).add('Default', () => (
     <App>
         <CssReset />
 

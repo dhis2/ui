@@ -10,7 +10,7 @@ import { MenuSectionHeader } from '../MenuSectionHeader/MenuSectionHeader.js'
 import { FlyoutMenu } from './FlyoutMenu.js'
 
 export default {
-    title: 'Components/Core/FlyoutMenu',
+    title: 'FlyoutMenu',
     component: FlyoutMenu,
 }
 

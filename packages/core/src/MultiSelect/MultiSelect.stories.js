@@ -16,7 +16,7 @@ CustomMultiSelectOption.propTypes = {
     onClick: propTypes.func,
 }
 
-storiesOf('Components/Core/MultiSelect', module)
+storiesOf('MultiSelect', module)
     .add('With options', () => (
         <MultiSelect className="select">
             <MultiSelectOption value="1" label="option one" />

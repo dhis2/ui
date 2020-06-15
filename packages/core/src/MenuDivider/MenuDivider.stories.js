@@ -4,7 +4,7 @@ import { Menu } from '../Menu/Menu.js'
 import { MenuDivider } from './MenuDivider.js'
 
 export default {
-    title: 'Components/Core/MenuDivider',
+    title: 'MenuDivider',
     component: MenuDivider,
     decorators: [storyFn => <Menu>{storyFn()}</Menu>],
 }

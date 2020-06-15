@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { Input } from '../index.js'
 import { Field } from './Field.js'
 
-storiesOf('Components/Core/Field', module).add('Default', () => (
+storiesOf('Field', module).add('Default', () => (
     <>
         <Field helpText="Help me">
             <Input

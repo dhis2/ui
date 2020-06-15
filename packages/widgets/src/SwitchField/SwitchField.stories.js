@@ -6,7 +6,7 @@ import { SwitchField } from './SwitchField.js'
 const logger = ({ name, value, checked }) =>
     console.info(`name: ${name}, value: ${value}, checked: ${checked}`)
 
-storiesOf('Components/Widgets/SwitchField', module)
+storiesOf('SwitchField', module)
     // Regular
     .add('Default', () => (
         <SwitchField

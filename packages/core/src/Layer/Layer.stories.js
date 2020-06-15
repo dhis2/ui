@@ -3,7 +3,7 @@ import { Layer } from './Layer.js'
 import { CircularLoader, CenteredContent } from '../index.js'
 
 export default {
-    title: 'Components/Core/Layer',
+    title: 'Layer',
     component: Layer,
 }
 

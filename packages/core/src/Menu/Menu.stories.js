@@ -4,7 +4,7 @@ import { MenuItem } from '../MenuItem/MenuItem.js'
 import { Menu } from './Menu.js'
 
 export default {
-    title: 'Components/Core/Menu',
+    title: 'Menu',
     component: Menu,
 }
 

@@ -8,7 +8,7 @@ const { Field } = ReactFinalForm
 
 const files = [new File([], 'file1.txt'), new File([], 'file2.txt')]
 
-storiesOf('Form/FileInputFieldFF', module)
+storiesOf('FileInputFieldFF', module)
     .addDecorator(formDecorator)
     .add('Default', () => (
         <Field
