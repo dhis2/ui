@@ -4,7 +4,7 @@ import propTypes from '@dhis2/prop-types'
 import { Popper } from './Popper.js'
 
 export default {
-    title: 'Components/Core/Popper',
+    title: 'Popper',
     component: Popper,
     decorators: [
         storyFN => <BoxWithCenteredReferenceElement renderChildren={storyFN} />,

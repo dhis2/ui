@@ -5,7 +5,7 @@ import { Checkbox, Radio, Switch } from '@dhis2/ui-core'
 
 import { FieldGroup } from './FieldGroup.js'
 
-storiesOf('Components/Widgets/FieldGroup', module)
+storiesOf('FieldGroup', module)
     .add('With Checkbox', () => (
         <FieldGroup>
             <Checkbox value="first" label="First" />

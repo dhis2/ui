@@ -5,7 +5,7 @@ import { LinearLoader } from './LinearLoader.js'
 import { Layer, CenteredContent, ComponentCover } from '../index.js'
 
 export default {
-    title: 'Components/Core/LinearLoader',
+    title: 'LinearLoader',
     component: LinearLoader,
 }
 

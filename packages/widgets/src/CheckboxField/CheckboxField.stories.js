@@ -6,7 +6,7 @@ import { CheckboxField } from './CheckboxField.js'
 const logger = ({ name, value, checked }) =>
     console.info(`name: ${name}, value: ${value}, checked: ${checked}`)
 
-storiesOf('Components/Widgets/CheckboxField', module)
+storiesOf('CheckboxField', module)
     // Regular
     .add('Default', () => (
         <CheckboxField

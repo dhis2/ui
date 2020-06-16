@@ -3,7 +3,7 @@ import { ComponentCover } from './ComponentCover.js'
 import { CircularLoader, CenteredContent } from '../index.js'
 
 export default {
-    title: 'Components/Core/ComponentCover',
+    title: 'ComponentCover',
     component: ComponentCover,
     decorators: [
         storyFn => (

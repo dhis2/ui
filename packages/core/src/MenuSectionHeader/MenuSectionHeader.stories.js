@@ -4,7 +4,7 @@ import { Menu } from '../Menu/Menu.js'
 import { MenuSectionHeader } from './MenuSectionHeader.js'
 
 export default {
-    title: 'Components/Core/MenuSectionHeader',
+    title: 'MenuSectionHeader',
     component: MenuSectionHeader,
     decorators: [storyFn => <Menu>{storyFn()}</Menu>],
 }

@@ -21,7 +21,7 @@ const options = [
 
 const initialValue = ['3', '4', '9', '10']
 
-storiesOf('Form/MultiSelectFieldFF', module)
+storiesOf('MultiSelectFieldFF', module)
     .addDecorator(formDecorator)
     .add('Default', () => (
         <Field

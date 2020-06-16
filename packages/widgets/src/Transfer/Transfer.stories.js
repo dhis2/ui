@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 
 import { SingleSelectField, Transfer, TransferOption } from '../index.js'
 
-export default { title: 'Components/widgets/Transfer' }
+export default { title: 'Transfer' }
 
 const StatefulWrapper = ({ children, initialState }) => {
     const [selected, setSelected] = useState(initialState)

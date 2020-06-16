@@ -4,7 +4,7 @@ import { elevations } from '@dhis2/ui-constants'
 
 import { Popover } from './Popover.js'
 
-export default { title: 'Components/Core/Popover', component: Popover }
+export default { title: 'Popover', component: Popover }
 
 const boxStyle = {
     display: 'flex',

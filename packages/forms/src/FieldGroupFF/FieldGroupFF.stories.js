@@ -8,7 +8,7 @@ import { FieldGroupFF } from './FieldGroupFF.js'
 const { Field } = ReactFinalForm
 
 export default {
-    title: 'Form/FieldGroupFF',
+    title: 'FieldGroupFF',
     component: FieldGroupFF,
     decorators: [formDecorator],
 }

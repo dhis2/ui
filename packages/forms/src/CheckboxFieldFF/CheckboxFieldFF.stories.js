@@ -6,7 +6,7 @@ import { ReactFinalForm, CheckboxFieldFF, hasValue } from '../index.js'
 
 const { Field } = ReactFinalForm
 
-storiesOf('Form/CheckboxFieldFF', module)
+storiesOf('CheckboxFieldFF', module)
     .addDecorator(formDecorator)
     .add('Default', () => (
         <Field

@@ -6,7 +6,7 @@ import { ReactFinalForm, TextAreaFieldFF, hasValue } from '../index.js'
 
 const { Field } = ReactFinalForm
 
-storiesOf('Form/TextAreaFieldFF', module)
+storiesOf('TextAreaFieldFF', module)
     .addDecorator(formDecorator)
     .add('Default', () => (
         <Field component={TextAreaFieldFF} name="agree" label="Do you agree?" />

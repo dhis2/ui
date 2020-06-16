@@ -18,7 +18,7 @@ CustomSingleSelectOption.propTypes = {
     onClick: propTypes.func,
 }
 
-storiesOf('Components/Core/SingleSelect', module)
+storiesOf('SingleSelect', module)
     .add('With options', () => (
         <SingleSelect className="select">
             <SingleSelectOption value="1" label="option one" />

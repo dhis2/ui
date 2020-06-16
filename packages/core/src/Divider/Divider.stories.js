@@ -3,7 +3,7 @@ import React from 'react'
 import { Divider } from './Divider.js'
 
 export default {
-    title: 'Components/Core/Divider',
+    title: 'Divider',
     component: Divider,
 }
 

@@ -6,7 +6,7 @@ import { MenuItem } from './MenuItem.js'
 import { Apps } from '@dhis2/ui-icons'
 
 export default {
-    title: 'Components/Core/MenuItem',
+    title: 'MenuItem',
     component: MenuItem,
     decorators: [storyFn => <Menu>{storyFn()}</Menu>],
 }

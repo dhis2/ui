@@ -151,7 +151,7 @@ const customAuthoritiesData = {
     },
 }
 
-storiesOf('Components/Widgets/HeaderBar', module)
+storiesOf('HeaderBar', module)
     .add('Default', () => (
         <Provider config={mockConfig}>
             <CustomDataProvider data={customData}>

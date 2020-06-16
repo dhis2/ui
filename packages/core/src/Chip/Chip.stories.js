@@ -15,7 +15,7 @@ window.onRemove = (payload, event) => {
 const onClick = (...args) => window.onClick(...args)
 const onRemove = (...args) => window.onRemove(...args)
 
-storiesOf('Components/Core/Chip', module)
+storiesOf('Chip', module)
     .add('Default', () => <Chip onClick={onClick}>Chippy</Chip>)
 
     .add('Selected', () => (

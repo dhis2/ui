@@ -7,7 +7,7 @@ const onChange = () => {
     console.log('Radio was clicked, nothing else will happen')
 }
 
-storiesOf('Components/Core/FieldSet', module)
+storiesOf('FieldSet', module)
     .add('Default', () => (
         <FieldSet>
             It renders something in a fieldset element without the browser

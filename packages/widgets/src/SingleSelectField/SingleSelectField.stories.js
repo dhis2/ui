@@ -24,7 +24,7 @@ const options = [
     <SingleSelectOption key="10" value="10" label="ten" />,
 ]
 
-storiesOf('Components/Widgets/SingleSelectField', module)
+storiesOf('SingleSelectField', module)
     .add('Default', () => (
         <SingleSelectField {...defaultProps}>{options}</SingleSelectField>
     ))

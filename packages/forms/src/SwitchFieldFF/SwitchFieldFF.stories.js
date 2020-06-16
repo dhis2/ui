@@ -6,7 +6,7 @@ import { ReactFinalForm, SwitchFieldFF, hasValue } from '../index.js'
 
 const { Field } = ReactFinalForm
 
-storiesOf('Form/SwitchFieldFF', module)
+storiesOf('SwitchFieldFF', module)
     .addDecorator(formDecorator)
     .add('Default', () => (
         <Field component={SwitchFieldFF} name="agree" label="Do you agree?" />

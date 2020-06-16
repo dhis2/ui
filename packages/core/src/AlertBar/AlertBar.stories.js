@@ -18,7 +18,7 @@ const Wrapper = fn => (
     </div>
 )
 
-storiesOf('Components/Core/AlertBar', module)
+storiesOf('AlertBar', module)
     .addDecorator(Wrapper)
     .add('Default', () => <AlertBar>Default - I will autohide</AlertBar>)
     .add('States', () => (

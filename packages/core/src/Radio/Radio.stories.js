@@ -22,7 +22,7 @@ const onChange = (...args) => window.onChange(...args)
 const onFocus = (...args) => window.onFocus(...args)
 const onBlur = (...args) => window.onBlur(...args)
 
-storiesOf('Components/Core/Radio', module)
+storiesOf('Radio', module)
     // Regular
     .add('Default', () => (
         <Radio
