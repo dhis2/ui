@@ -1,6 +1,6 @@
 # DHIS2 UI
 
-[![@dhis2/ui on npm](https://img.shields.io/npm/v/@dhis2/ui.svg)](https://www.npmjs.com/package/@dhis2/ui)
+[![@dhis2/ui on npm](https://badge.fury.io/js/%40dhis2%2Fui.svg)](https://www.npmjs.com/package/@dhis2/ui)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 [![conventional commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
