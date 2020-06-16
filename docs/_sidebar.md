@@ -1,7 +1,7 @@
 -   [**Getting started**](getting-started)
 -   [**API**](api)
--   [**Concepts**](concepts)
 -   [**Live demos**](/demo/ ':ignore Live demos')
 -   [**Troubleshooting**](troubleshooting)
+-   [**Advanced usage**](advanced-usage)
 -   &nbsp;
 -   [Changelog](CHANGELOG.md)
