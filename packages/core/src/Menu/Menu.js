@@ -24,7 +24,7 @@ const Menu = ({ children, className, dataTest, dense }) => (
                           typeof child.props.hideDivider !== 'boolean' &&
                           index === 0
                               ? true
-                              : child.props.dense,
+                              : child.props.hideDivider,
                   })
                 : child
         )}
