@@ -27,7 +27,7 @@
         "@dhis2/prop-types": "^1.6.4",
         "@dhis2/ui-constants": "5.0.3",
         "@dhis2/ui-icons": "5.0.3",
-        "@popperjs/core": "^2.4.0",
+        "@popperjs/core": "^2.4.2",
         "classnames": "^2.2.6",
         "react-popper": "^2.2.3",
         "resize-observer-polyfill": "^1.5.1"
