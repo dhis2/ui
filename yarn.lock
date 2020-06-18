@@ -15619,15 +15619,21 @@ storybook-addon-jsx@^7.1.14:
     js-beautify "^1.8.8"
     react-element-to-jsx-string "^14.3.1"
 
-storybook-addon-react-docgen@^1.2.34:
-  version "1.2.34"
-  resolved "https://registry.yarnpkg.com/storybook-addon-react-docgen/-/storybook-addon-react-docgen-1.2.34.tgz#a58dd9aa343099254ba1538b88eccbf72212ad0b"
-  integrity sha512-ImI7zc0hrsvLyq0kYwcMmZNDjRa4UoPOEBGxOs8e0mJSQESEgt4lv/p2QeCPd4iRjj2QaoPhjpw6308vDAXMpA==
+storybook-addon-react-docgen@^1.2.39:
+  version "1.2.39"
+  resolved "https://registry.yarnpkg.com/storybook-addon-react-docgen/-/storybook-addon-react-docgen-1.2.39.tgz#4e1293a7788513121b7c74d20e8c4ae9ab99c9d9"
+  integrity sha512-h8C/TtgzZeKpZPf4pT41LyaWhBaSuT4fZeMjY5CsGi0hljfXpEhGS9Ry8l4XY81nCUTS4bmfOBvR2kmWLaqArg==
   dependencies:
     nested-object-assign "^1.0.3"
     prop-types "^15.6.2"
     react-addons-create-fragment "^15.6.2"
     react-lifecycles-compat "^3.0.4"
+    storybook-pretty-props "^1.2.1"
+
+storybook-pretty-props@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/storybook-pretty-props/-/storybook-pretty-props-1.2.1.tgz#04c6e7c80efc0190a5dd94dceaf50579c159e182"
+  integrity sha512-3dUtu0UbBA6idA3Qo0i+CYGGz8GiqlXzhgCJdT065jnuJ3y9intKxZpv05ZbnQXCPnsPVSDos+hgOZ444hf6xA==
 
 stream-browserify@^2.0.0, stream-browserify@^2.0.1:
   version "2.0.2"
