@@ -1,3 +1,10 @@
+## [5.0.4](https://github.com/dhis2/ui/compare/v5.0.3...v5.0.4) (2020-06-23)
+
+
+### Bug Fixes
+
+* **select:** check if select has been mounted before accessing ref ([d1d70cb](https://github.com/dhis2/ui/commit/d1d70cba311729b52ae2bf13b49bf2882156b4f4))
+
 ## [5.0.3](https://github.com/dhis2/ui/compare/v5.0.2...v5.0.3) (2020-06-10)
 
 
