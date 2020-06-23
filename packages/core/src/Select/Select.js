@@ -43,12 +43,17 @@ export class Select extends Component {
      * See: https://nolanlawson.com/2018/09/25/accurately-measuring-layout-on-the-web
      */
     setMenuWidth = debounce(() => {
-        const inputWidth = `${this.inputRef.current.offsetWidth}px`
+        const hasOffsetWidth =
+            this.inputRef.current && this.inputRef.current.offsetWidth
 
-        if (this.state.menuWidth !== inputWidth) {
-            this.setState({
-                menuWidth: inputWidth,
-            })
+        if (hasOffsetWidth) {
+            const inputWidth = `${this.inputRef.current.offsetWidth}px`
+
+            if (this.state.menuWidth !== inputWidth) {
+                this.setState({
+                    menuWidth: inputWidth,
+                })
+            }
         }
     }, 50)
 
