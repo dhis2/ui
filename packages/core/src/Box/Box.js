@@ -24,7 +24,7 @@ export const Box = ({
         {children}
         <style jsx>{`
             div {
-                ${marginTop ? `margin-top: ${marginTop}` : ''}
+                ${marginTop ? `margin-top: ${marginTop};` : ''}
                 ${height ? `height: ${height};` : ''}
                 ${minHeight ? `min-height: ${minHeight};` : ''}
                 ${maxHeight ? `max-height: ${maxHeight};` : ''}
