@@ -1,6 +1,6 @@
 {
     "name": "storybook",
-    "version": "5.0.4",
+    "version": "5.0.5",
     "description": "Stories for DHIS2 UI",
     "main": "index.js",
     "license": "BSD-3-Clause",
@@ -22,11 +22,11 @@
         "typeface-roboto": "^0.0.75"
     },
     "dependencies": {
-        "@dhis2/ui": "5.0.4",
-        "@dhis2/ui-constants": "5.0.4",
-        "@dhis2/ui-core": "5.0.4",
-        "@dhis2/ui-forms": "5.0.4",
-        "@dhis2/ui-icons": "5.0.4",
-        "@dhis2/ui-widgets": "5.0.4"
+        "@dhis2/ui": "5.0.5",
+        "@dhis2/ui-constants": "5.0.5",
+        "@dhis2/ui-core": "5.0.5",
+        "@dhis2/ui-forms": "5.0.5",
+        "@dhis2/ui-icons": "5.0.5",
+        "@dhis2/ui-widgets": "5.0.5"
     }
 }

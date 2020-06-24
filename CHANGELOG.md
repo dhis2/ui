@@ -1,3 +1,10 @@
+## [5.0.5](https://github.com/dhis2/ui/compare/v5.0.4...v5.0.5) (2020-06-24)
+
+
+### Bug Fixes
+
+* **box:** add missing semicolon to fix styles not being applied ([2ea7ca0](https://github.com/dhis2/ui/commit/2ea7ca0a07fcb8ccbff7316c0c6169e9e29e53f7))
+
 ## [5.0.4](https://github.com/dhis2/ui/compare/v5.0.3...v5.0.4) (2020-06-23)
 
 
