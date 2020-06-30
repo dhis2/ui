@@ -14,9 +14,9 @@ Read our blogpost for the release of `@dhis2/ui` version 5 here: https://develop
 
 ---
 
-| Package             | Link                                           |
-| ------------------- | ---------------------------------------------- |
-| @dhis2/ui           | [packages/ui](packages/ui)                     |
+| Package             | Link                                     |
+| ------------------- | ---------------------------------------- |
+| @dhis2/ui           | [packages/ui](packages/ui)               |
 | @dhis2/ui-constants | [packages/constants](packages/constants) |
 | @dhis2/ui-core      | [packages/core](packages/core)           |
 | @dhis2/ui-forms     | [packages/forms](packages/forms)         |
