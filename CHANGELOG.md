@@ -1,3 +1,10 @@
+## [5.0.6](https://github.com/dhis2/ui/compare/v5.0.5...v5.0.6) (2020-07-02)
+
+
+### Bug Fixes
+
+* **switchfield:** use correct prop-type for value prop ([05576c2](https://github.com/dhis2/ui/commit/05576c2a4c9d96eaefac90fab5de7ed8912dad8e))
+
 ## [5.0.5](https://github.com/dhis2/ui/compare/v5.0.4...v5.0.5) (2020-06-24)
 
 
