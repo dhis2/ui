@@ -133,7 +133,7 @@ SwitchField.propTypes = {
     tabIndex: propTypes.string,
     valid: sharedPropTypes.statusPropType,
     validationText: propTypes.string,
-    value: propTypes.oneOfType([propTypes.string, propTypes.bool]),
+    value: propTypes.string,
     warning: sharedPropTypes.statusPropType,
     onBlur: propTypes.func,
     onChange: propTypes.func,
