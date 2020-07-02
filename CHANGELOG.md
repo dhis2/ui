@@ -1,3 +1,10 @@
+## [5.0.7](https://github.com/dhis2/ui/compare/v5.0.6...v5.0.7) (2020-07-02)
+
+
+### Bug Fixes
+
+* **switch:** use input value for value instead of checked prop ([65c6406](https://github.com/dhis2/ui/commit/65c64067e5ddef49f22f4c08ed898c0daf9e3482))
+
 ## [5.0.6](https://github.com/dhis2/ui/compare/v5.0.5...v5.0.6) (2020-07-02)
 
 
