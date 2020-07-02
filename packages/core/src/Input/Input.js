@@ -194,7 +194,7 @@ Input.defaultProps = {
  * @prop {function} [onFocus]
  * @prop {string} [className]
  * @prop {string} [placeholder]
- * @prop {string} [value]
+ * @prop {(string|number)} [value]
  * @prop {string} [tabIndex]
  *
  * @prop {boolean} [disabled]
@@ -237,7 +237,7 @@ Input.propTypes = {
         'search',
     ]),
     valid: sharedPropTypes.statusPropType,
-    value: propTypes.string,
+    value: propTypes.oneOfType([propTypes.string, propTypes.number]),
     warning: sharedPropTypes.statusPropType,
     onBlur: propTypes.func,
     onChange: propTypes.func,

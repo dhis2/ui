@@ -97,7 +97,7 @@ InputField.defaultProps = {
  * @prop {string} [label]
  * @prop {string} [className]
  * @prop {string} [placeholder]
- * @prop {string} [value]
+ * @prop {(string|number)} [value]
  * @prop {string} [tabIndex]
  * @prop {string} [inputWidth]
  *
@@ -136,7 +136,7 @@ InputField.propTypes = {
     type: Input.propTypes.type,
     valid: sharedPropTypes.statusPropType,
     validationText: propTypes.string,
-    value: propTypes.string,
+    value: propTypes.oneOfType([propTypes.string, propTypes.number]),
     warning: sharedPropTypes.statusPropType,
     onBlur: propTypes.func,
     onChange: propTypes.func,
