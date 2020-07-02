@@ -27,7 +27,7 @@ export const SwitchFieldFF = ({
         {...rest}
         checked={input.checked}
         name={input.name}
-        value={input.checked}
+        value={input.value}
         error={hasError(meta, error)}
         valid={isValid(meta, valid, showValidStatus)}
         validationText={getValidationText(meta, validationText, error)}
