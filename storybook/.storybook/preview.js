@@ -1,7 +1,7 @@
 import 'typeface-roboto'
 import React, { Fragment } from 'react'
 import { jsxDecorator } from 'storybook-addon-jsx'
-import { addDecorator } from '@storybook/react'
+import { addDecorator, addParameters } from '@storybook/react'
 import { CssReset } from '@dhis2/ui-core'
 
 addDecorator(jsxDecorator)
@@ -32,3 +32,13 @@ addDecorator(fn => (
         `}</style>
     </Fragment>
 ))
+
+//https://storybook.js.org/docs/configurations/options-parameter/#sorting-stories
+addParameters({
+    options: {
+        storySort: (a, b) =>
+            a[1].kind === b[1].kind 
+            ? 0 
+            : a[1].id.localeCompare(b[1].id, undefined, { numeric: true }),
+    },
+})
