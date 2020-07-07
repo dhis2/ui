@@ -15619,10 +15619,10 @@ storybook-addon-jsx@^7.1.14:
     js-beautify "^1.8.8"
     react-element-to-jsx-string "^14.3.1"
 
-storybook-addon-react-docgen@^1.2.39:
-  version "1.2.39"
-  resolved "https://registry.yarnpkg.com/storybook-addon-react-docgen/-/storybook-addon-react-docgen-1.2.39.tgz#4e1293a7788513121b7c74d20e8c4ae9ab99c9d9"
-  integrity sha512-h8C/TtgzZeKpZPf4pT41LyaWhBaSuT4fZeMjY5CsGi0hljfXpEhGS9Ry8l4XY81nCUTS4bmfOBvR2kmWLaqArg==
+storybook-addon-react-docgen@^1.2.41:
+  version "1.2.41"
+  resolved "https://registry.yarnpkg.com/storybook-addon-react-docgen/-/storybook-addon-react-docgen-1.2.41.tgz#eabf0b8ea9b06a8c09f48ee47bbe53fb2453a226"
+  integrity sha512-/C9qZgO3Jt/H96NfzGQxQHYUTPneY67WQNFj+ZddyWTnhzQXg3mPKy4Bgk+uTJi2N8bOtOb9V+PwNvD1Ot+Ycg==
   dependencies:
     nested-object-assign "^1.0.3"
     prop-types "^15.6.2"
