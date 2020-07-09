@@ -253,7 +253,10 @@ const Label = ({
             singleSelection,
         })
 
-        onChange({ id, path, checked, selected: newSelected }, event)
+        onChange(
+            { id, path, checked, displayName, selected: newSelected },
+            event
+        )
     }
 
     if (disableSelection) {
