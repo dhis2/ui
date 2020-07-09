@@ -1,3 +1,10 @@
+# [5.1.0](https://github.com/dhis2/ui/compare/v5.0.7...v5.1.0) (2020-07-09)
+
+
+### Features
+
+* **organisation-unit-tree:** include displayName in onChange payload ([23f0eed](https://github.com/dhis2/ui/commit/23f0eedc17d9f28b8694b670a25271f9a917f881))
+
 ## [5.0.7](https://github.com/dhis2/ui/compare/v5.0.6...v5.0.7) (2020-07-02)
 
 

@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/ui-icons",
-    "version": "5.0.7",
+    "version": "5.1.0",
     "description": "Icons used in the UI libs",
     "main": "build/cjs/lib.js",
     "module": "build/es/lib.js",
