@@ -138,6 +138,7 @@ export const Header = () => (
         <Transfer
             onChange={() => console.log('Will be overriden')}
             leftHeader={<h3>Header on the left side</h3>}
+            rightHeader={<h4>Header on the right side</h4>}
             options={options}
         />
     </StatefulWrapper>
@@ -171,6 +172,7 @@ export const Filtered = () => (
             onChange={() => console.log('Will be overriden by StatefulWrapper')}
             initialSearchTerm="ANC"
             leftHeader={<h3>Header on the left side</h3>}
+            rightHeader={<h4>Header on the right side</h4>}
             options={options}
         />
     </StatefulWrapper>
@@ -307,6 +309,7 @@ export const IncreasedOptionsHeight = () => (
                 }
                 height="400px"
                 leftHeader={<h3>Header on the left side</h3>}
+                rightHeader={<h4>Header on the right side</h4>}
                 options={options}
             />
         </StatefulWrapper>
@@ -320,6 +323,7 @@ export const DifferentWidths = () => (
             onChange={() => console.log('Will be overriden by StatefulWrapper')}
             initialSearchTerm="Ba"
             leftHeader={<h3>Header on the left side</h3>}
+            rightHeader={<h4>Header on the right side</h4>}
             optionsWidth="500px"
             selectedWidth="240px"
             options={options}
@@ -417,6 +421,11 @@ const createCustomFilteringInHeader = hideFilterInput => {
                 searchTerm={filter}
                 filterCallback={filterCallback}
                 leftHeader={header}
+                rightHeader={
+                    <p>
+                        <b>Selected Periods</b>
+                    </p>
+                }
                 onFilterChange={({ value }) => setFilter(value)}
                 height="400px"
                 filterLabel="Filter options"
