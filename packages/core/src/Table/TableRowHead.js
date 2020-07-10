@@ -11,8 +11,17 @@ import { TableRow } from './TableRow.js'
  * @example import { TableRowHead } from '@dhis2/ui-core'
  * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
  */
-export const TableRowHead = ({ children, className, dataTest }) => (
-    <TableRow className={className} dataTest={dataTest}>
+export const TableRowHead = ({
+    children,
+    className,
+    dataTest,
+    suppressZebraStriping,
+}) => (
+    <TableRow
+        className={className}
+        dataTest={dataTest}
+        suppressZebraStriping={suppressZebraStriping}
+    >
         {children}
     </TableRow>
 )
@@ -32,4 +41,5 @@ TableRowHead.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
+    suppressZebraStriping: propTypes.bool,
 }

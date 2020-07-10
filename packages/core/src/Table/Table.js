@@ -1,6 +1,7 @@
 import React from 'react'
 import css from 'styled-jsx/css'
 import propTypes from '@dhis2/prop-types'
+import { Provider } from './TableContext.js'
 
 const tableStyles = css`
     table {
@@ -20,12 +21,19 @@ const tableStyles = css`
  * @example import { Table } from '@dhis2/ui-core'
  * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
  */
-export const Table = ({ children, className, dataTest }) => (
-    <table className={className} data-test={dataTest}>
-        {children}
+export const Table = ({
+    children,
+    className,
+    dataTest,
+    suppressZebraStriping,
+}) => (
+    <Provider value={{ suppressZebraStriping }}>
+        <table className={className} data-test={dataTest}>
+            {children}
 
-        <style jsx>{tableStyles}</style>
-    </table>
+            <style jsx>{tableStyles}</style>
+        </table>
+    </Provider>
 )
 
 Table.defaultProps = {
@@ -38,9 +46,11 @@ Table.defaultProps = {
  * @prop {TableHead|TableBody|TableFoot|Array.<TableHead|TableBody|TableFoot>} [children]
  * @prop {string} [className]
  * @prop {string} [dataTest]
+ * @prop {bool} [suppressZebraStriping]
  */
 Table.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
+    suppressZebraStriping: propTypes.bool,
 }

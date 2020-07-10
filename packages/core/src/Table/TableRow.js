@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import css from 'styled-jsx/css'
 import propTypes from '@dhis2/prop-types'
+import cx from 'classnames'
+import { TableContext } from './TableContext'
 
 const tableRowStyles = css`
-    tr:nth-child(even) {
+    .zebraStriping:nth-child(even) {
         background: #fbfcfd;
     }
 `
@@ -15,13 +17,29 @@ const tableRowStyles = css`
  * @example import { TableRow } from '@dhis2/ui-core'
  * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
  */
-export const TableRow = ({ children, className, dataTest }) => (
-    <tr className={className} data-test={dataTest}>
-        {children}
+export const TableRow = ({
+    children,
+    className,
+    dataTest,
+    suppressZebraStriping,
+}) => {
+    const {
+        suppressZebraStriping: suppressZebraStripingFromContext,
+    } = useContext(TableContext)
 
-        <style jsx>{tableRowStyles}</style>
-    </tr>
-)
+    const zebraStriping =
+        typeof suppressZebraStriping !== 'undefined'
+            ? !suppressZebraStriping
+            : !suppressZebraStripingFromContext
+
+    return (
+        <tr className={cx(className, { zebraStriping })} data-test={dataTest}>
+            {children}
+
+            <style jsx>{tableRowStyles}</style>
+        </tr>
+    )
+}
 
 TableRow.defaultProps = {
     dataTest: 'dhis2-uicore-tablerow',
@@ -38,4 +56,5 @@ TableRow.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
+    suppressZebraStriping: propTypes.bool,
 }
