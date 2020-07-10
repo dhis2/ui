@@ -172,8 +172,18 @@ export const Filtered = () => (
             initialSearchTerm="ANC"
             leftHeader={<h3>Header on the left side</h3>}
             options={options}
-            filterLabel="Filter with label and placeholder"
-            filterPlaceholder="Filter placeholder"
+        />
+    </StatefulWrapper>
+)
+
+export const FilterPlaceholder = () => (
+    <StatefulWrapper>
+        <Transfer
+            filterable
+            onChange={() => console.log('Will be overriden by StatefulWrapper')}
+            options={options}
+            filterLabel="Filter with placeholder"
+            filterPlaceholder="Search"
         />
     </StatefulWrapper>
 )
