@@ -172,6 +172,8 @@ export const Filtered = () => (
             initialSearchTerm="ANC"
             leftHeader={<h3>Header on the left side</h3>}
             options={options}
+            filterLabel="Filter with label and placeholder"
+            filterPlaceholder="Filter placeholder"
         />
     </StatefulWrapper>
 )
@@ -408,6 +410,7 @@ const createCustomFilteringInHeader = hideFilterInput => {
                 onFilterChange={({ value }) => setFilter(value)}
                 height="400px"
                 filterLabel="Filter options"
+                filterPlaceholder="Search"
             />
         )
     }

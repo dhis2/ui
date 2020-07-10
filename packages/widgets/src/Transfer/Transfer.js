@@ -74,6 +74,7 @@ export const Transfer = ({
     selectedEmptyComponent,
     enableOrderChange,
     filterLabel,
+    filterPlaceholder,
     filterCallback,
     filterable,
     height,
@@ -185,6 +186,7 @@ export const Transfer = ({
                         {filterable && !hideFilterInput && (
                             <Filter
                                 label={filterLabel}
+                                placeholder={filterPlaceholder}
                                 dataTest={`${dataTest}-filter`}
                                 filter={actualFilter}
                                 onChange={
@@ -387,6 +389,7 @@ Transfer.defaultProps = {
  * @prop {bool} [hideFilterInput] Automatically true when "hideFilterInput" is true
  * @prop {bool} [enableOrderChange]
  * @prop {string} [filterLabel]
+ * @prop {string} [filterPlaceholder]
  * @prop {Function} [filterCallback]
  * @prop {string} [height]
  * @prop {bool} [hideFilterInput]
@@ -421,6 +424,7 @@ Transfer.propTypes = {
     enableOrderChange: propTypes.bool,
     filterCallback: propTypes.func,
     filterLabel: propTypes.string,
+    filterPlaceholder: propTypes.string,
     filterable: propTypes.bool,
     height: propTypes.string,
     hideFilterInput: propTypes.bool,
