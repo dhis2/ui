@@ -13,6 +13,7 @@ import { PickedOptions } from './PickedOptions.js'
 import { RemoveAll } from './RemoveAll.js'
 import { RemoveIndividual } from './RemoveIndividual.js'
 import { ReorderingActions } from './ReorderingActions.js'
+import { RightHeader } from './RightHeader.js'
 import { RightFooter } from './RightFooter.js'
 import { RightSide } from './RightSide.js'
 import { SourceOptions } from './SourceOptions.js'
@@ -87,6 +88,7 @@ export const Transfer = ({
     maxSelections,
     optionsWidth,
     renderOption,
+    rightHeader,
     rightFooter,
     searchTerm,
     selected,
@@ -295,6 +297,11 @@ export const Transfer = ({
             </Actions>
 
             <RightSide dataTest={`${dataTest}-rightside`} width={selectedWidth}>
+                {rightHeader && (
+                    <RightHeader dataTest={`${dataTest}-rightheader`}>
+                        {rightHeader}
+                    </RightHeader>
+                )}
                 <PickedOptions
                     dataTest={`${dataTest}-pickedoptions`}
                     selectedEmptyComponent={selectedEmptyComponent}
@@ -397,6 +404,7 @@ Transfer.defaultProps = {
  * @prop {string} [optionsWidth]
  * @prop {string} [removeAllText]
  * @prop {string} [removeIndividualText]
+ * @prop {Node} [rightHeader]
  * @prop {Node} [rightFooter]
  * @prop {string} [searchTerm]
  * @prop {string[]} selected
@@ -433,6 +441,7 @@ Transfer.propTypes = {
     removeIndividualText: propTypes.string,
     renderOption: propTypes.func,
     rightFooter: propTypes.node,
+    rightHeader: propTypes.node,
     searchTerm: propTypes.string,
     selected: propTypes.arrayOf(propTypes.string),
     selectedEmptyComponent: propTypes.node,
