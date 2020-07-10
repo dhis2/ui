@@ -1,3 +1,10 @@
+## [5.1.2](https://github.com/dhis2/ui/compare/v5.1.1...v5.1.2) (2020-07-10)
+
+
+### Bug Fixes
+
+* add prop selected to renderOption ([4a61df0](https://github.com/dhis2/ui/commit/4a61df0f8c752e5f07ad0a2dc57d2c8369aff2ef))
+
 ## [5.1.1](https://github.com/dhis2/ui/compare/v5.1.0...v5.1.1) (2020-07-10)
 
 
