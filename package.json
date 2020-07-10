@@ -6,6 +6,13 @@
         "url": "https://github.com/dhis2/ui.git"
     },
     "author": "Viktor Varland <viktor@dhis2.org>",
+    "contributors": [
+        {
+            "name": "Jan-Gerke Salomon",
+            "email": "jan-gerke@dhis2.org",
+            "url": "http://functionalprogramming.ninja"
+        }
+    ],
     "license": "BSD-3-Clause",
     "private": true,
     "workspaces": {
