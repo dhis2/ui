@@ -3,12 +3,13 @@ import { spacers } from '@dhis2/ui-constants'
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
-export const Filter = ({ dataTest, filter, onChange, label }) => (
+export const Filter = ({ dataTest, filter, onChange, label, placeholder }) => (
     <div data-test={dataTest}>
         <Field label={label} name={dataTest} dataTest={`${dataTest}-field`}>
             <Input
                 dataTest={`${dataTest}-input`}
                 type="search"
+                placeholder={placeholder}
                 name={dataTest}
                 value={filter}
                 onChange={onChange}
@@ -32,4 +33,5 @@ Filter.propTypes = {
     filter: propTypes.string.isRequired,
     onChange: propTypes.func.isRequired,
     label: propTypes.string,
+    placeholder: propTypes.string,
 }

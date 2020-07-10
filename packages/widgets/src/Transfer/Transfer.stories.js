@@ -176,6 +176,18 @@ export const Filtered = () => (
     </StatefulWrapper>
 )
 
+export const FilterPlaceholder = () => (
+    <StatefulWrapper>
+        <Transfer
+            filterable
+            onChange={() => console.log('Will be overriden by StatefulWrapper')}
+            options={options}
+            filterLabel="Filter with placeholder"
+            filterPlaceholder="Search"
+        />
+    </StatefulWrapper>
+)
+
 const renderOption = ({ label, value, onClick, highlighted }) => (
     <p
         onClick={event => onClick({ label, value }, event)}
@@ -408,6 +420,7 @@ const createCustomFilteringInHeader = hideFilterInput => {
                 onFilterChange={({ value }) => setFilter(value)}
                 height="400px"
                 filterLabel="Filter options"
+                filterPlaceholder="Search"
             />
         )
     }
