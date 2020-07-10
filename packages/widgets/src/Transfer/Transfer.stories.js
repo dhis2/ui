@@ -176,10 +176,13 @@ export const Filtered = () => (
     </StatefulWrapper>
 )
 
-const renderOption = ({ label, value, onClick, highlighted }) => (
+const renderOption = ({ label, value, onClick, highlighted, selected }) => (
     <p
         onClick={event => onClick({ label, value }, event)}
-        style={{ background: highlighted ? 'green' : 'blue' }}
+        style={{
+            background: highlighted ? 'green' : 'blue',
+            color: selected ? 'orange' : 'white',
+        }}
     >
         Custom: {label} (label), {value} (value)
     </p>
@@ -189,10 +192,13 @@ export const CustomListOptions = () => (
     <>
         <strong>Custom option code:</strong>
         <code>
-            <pre>{`const renderOption = ({ label, value, onClick, highlighted }) => (
+            <pre>{`const renderOption = ({ label, value, onClick, highlighted, selected }) => (
     <p
         onClick={event => onClick({ label, value }, event)}
-        style={{ background: highlighted ? 'green' : 'blue' }}
+        style={{
+            background: highlighted ? 'green' : 'blue',
+            color: selected ? 'orange' : 'white',
+        }}
     >
         Custom: {label} (label), {value} (value)
     </p>
