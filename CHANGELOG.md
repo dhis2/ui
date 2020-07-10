@@ -1,3 +1,11 @@
+## [5.1.1](https://github.com/dhis2/ui/compare/v5.1.0...v5.1.1) (2020-07-10)
+
+
+### Bug Fixes
+
+* add prop placeholder to Filter and filterPlaceholder to Transfer ([388b556](https://github.com/dhis2/ui/commit/388b55686ff91e6c132b8f06e2fa86fcdbf9ef00))
+* add prop rightHeader to Transfer ([f9a1042](https://github.com/dhis2/ui/commit/f9a1042fb495effa3444792fc1db9f0b43f73bbb))
+
 # [5.1.0](https://github.com/dhis2/ui/compare/v5.0.7...v5.1.0) (2020-07-09)
 
 
