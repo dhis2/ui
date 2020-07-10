@@ -204,7 +204,9 @@ export const CustomListOptions = () => (
     </p>
 )`}</pre>
         </code>
-        <StatefulWrapper>
+        <StatefulWrapper
+            initialState={options.slice(0, 2).map(({ value }) => value)}
+        >
             <Transfer
                 onChange={() =>
                     console.log('Will be overriden by StatefulWrapper')
