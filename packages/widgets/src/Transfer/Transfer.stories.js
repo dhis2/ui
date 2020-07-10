@@ -190,10 +190,13 @@ export const FilterPlaceholder = () => (
     </StatefulWrapper>
 )
 
-const renderOption = ({ label, value, onClick, highlighted }) => (
+const renderOption = ({ label, value, onClick, highlighted, selected }) => (
     <p
         onClick={event => onClick({ label, value }, event)}
-        style={{ background: highlighted ? 'green' : 'blue' }}
+        style={{
+            background: highlighted ? 'green' : 'blue',
+            color: selected ? 'orange' : 'white',
+        }}
     >
         Custom: {label} (label), {value} (value)
     </p>
@@ -203,16 +206,21 @@ export const CustomListOptions = () => (
     <>
         <strong>Custom option code:</strong>
         <code>
-            <pre>{`const renderOption = ({ label, value, onClick, highlighted }) => (
+            <pre>{`const renderOption = ({ label, value, onClick, highlighted, selected }) => (
     <p
         onClick={event => onClick({ label, value }, event)}
-        style={{ background: highlighted ? 'green' : 'blue' }}
+        style={{
+            background: highlighted ? 'green' : 'blue',
+            color: selected ? 'orange' : 'white',
+        }}
     >
         Custom: {label} (label), {value} (value)
     </p>
 )`}</pre>
         </code>
-        <StatefulWrapper>
+        <StatefulWrapper
+            initialState={options.slice(0, 2).map(({ value }) => value)}
+        >
             <Transfer
                 onChange={() =>
                     console.log('Will be overriden by StatefulWrapper')

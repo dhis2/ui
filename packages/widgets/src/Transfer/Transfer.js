@@ -222,6 +222,7 @@ export const Transfer = ({
                                         toggleHighlightedSourceOption
                                     ),
                                     highlighted,
+                                    selected: false,
                                 })}
                             </Fragment>
                         )
@@ -323,6 +324,7 @@ export const Transfer = ({
                                         toggleHighlightedPickedOption
                                     ),
                                     highlighted,
+                                    selected: true,
                                 })}
                             </Fragment>
                         )
