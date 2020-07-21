@@ -15,6 +15,7 @@ const ButtonBase = React.forwardRef(
         {
             children,
             className,
+            dataTest,
             primary,
             secondary,
             destructive,
@@ -27,6 +28,7 @@ const ButtonBase = React.forwardRef(
     ) => (
         <button
             {...props}
+            data-test={dataTest}
             className={cx(className, {
                 primary,
                 secondary,
@@ -50,6 +52,7 @@ ButtonBase.displayName = 'ButtonBase'
  * @static
  * @prop {Node} [children]
  * @prop {string} [className]
+ * @prop {string} [dataTest]
  * @prop {boolean} [small]
  * @prop {boolean} [large]
  * @prop {boolean } [primary]
@@ -58,6 +61,7 @@ ButtonBase.displayName = 'ButtonBase'
  * @prop {boolean} [disabled]
  */
 ButtonBase.propTypes = {
+    dataTest: propTypes.string.isRequired,
     children: propTypes.node,
     className: propTypes.string,
     destructive: propTypes.bool,
