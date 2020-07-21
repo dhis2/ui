@@ -80,7 +80,7 @@ export class Button extends Component {
                 destructive={destructive}
                 small={small}
                 large={large}
-                data-test={dataTest}
+                dataTest={dataTest}
                 disabled={disabled}
                 name={name}
                 onBlur={this.handleBlur}
