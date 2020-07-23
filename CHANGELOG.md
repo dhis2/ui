@@ -1,3 +1,11 @@
+## [5.1.3](https://github.com/dhis2/ui/compare/v5.1.2...v5.1.3) (2020-07-23)
+
+
+### Bug Fixes
+
+* **button:** fix padding of icon only button & don't use ButtonBase ([39564cc](https://github.com/dhis2/ui/commit/39564cc5d42235598e57b7bc0dd0a1657d8fec06))
+* **button:** use correct padding when displaying only the icon ([a2445b9](https://github.com/dhis2/ui/commit/a2445b90646f9b0737636d87b59347c4b8ca45f9))
+
 ## [5.1.2](https://github.com/dhis2/ui/compare/v5.1.1...v5.1.2) (2020-07-10)
 
 
