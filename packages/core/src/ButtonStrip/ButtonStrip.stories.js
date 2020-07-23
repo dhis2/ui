@@ -1,12 +1,12 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { ButtonStrip } from './ButtonStrip.js'
-import { Button } from '../index.js'
+import { Button, SplitButton } from '../index.js'
 
 const Wrapper = fn => (
     <div
         style={{
-            width: '450px',
+            display: 'inline-block',
             border: '1px solid #c4c9cc',
             padding: 8,
         }}
@@ -23,6 +23,7 @@ storiesOf('ButtonStrip', module)
             <Button>Save</Button>
             <Button>Save</Button>
             <Button>Save</Button>
+            <SplitButton>Label?</SplitButton>
         </ButtonStrip>
     ))
     .add('Default - aligned middle', () => (
