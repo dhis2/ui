@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Children } from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
@@ -17,7 +17,9 @@ const ButtonStrip = ({ className, children, middle, end, dataTest }) => (
         className={cx(className, { start: !middle && !end, middle, end })}
         data-test={dataTest}
     >
-        {children}
+        {Children.map(children, child => (
+            <div className="box">{child}</div>
+        ))}
 
         <style jsx>{`
             div {
@@ -32,12 +34,11 @@ const ButtonStrip = ({ className, children, middle, end, dataTest }) => (
                 justify-content: flex-end;
             }
 
-            div > :global(button) {
+            .box {
                 margin-left: ${spacers.dp16};
             }
 
-            div.start > :global(button):first-child,
-            div.middle > :global(button):first-child {
+            .box:first-child {
                 margin-left: 0;
             }
         `}</style>
