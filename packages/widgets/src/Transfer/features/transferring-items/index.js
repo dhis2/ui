@@ -1,6 +1,6 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-import { parseSelectorWithDataTest } from '../../../support/common/parseSelectorWithDataTest'
+import { parseSelectorWithDataTest } from '../../../../../../cypress/support/common/parseSelectorWithDataTest'
 import { extractOptionFromElement } from '../common'
 
 Given('some options are selectable', () => {

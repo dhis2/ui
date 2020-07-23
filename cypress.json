@@ -2,5 +2,6 @@
     "baseUrl": "http://localhost:5001",
     "testFiles": "**/*.feature",
     "video": false,
-    "projectId": "vyavbk"
+    "projectId": "vyavbk",
+    "integrationFolder": "packages"
 }

@@ -1,10 +1,13 @@
-import '../../common/submit.js'
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
-import { hasValueMessage } from '../../../../../packages/forms/src/validators/hasValue.js'
+import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { hasValueMessage } from '../../../validators/hasValue.js'
 
 Given('an unchecked Switch is rendered', () => {
     cy.visitStory('Testing:SwitchFieldFF', 'Unchecked')
     cy.verifyFormValue('switch', undefined)
+})
+
+When('the user submits the form', () => {
+    cy.get('button[type="submit"]').click()
 })
 
 Then('an error message is shown', () => {
