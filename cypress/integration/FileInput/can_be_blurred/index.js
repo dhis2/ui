@@ -5,6 +5,7 @@ Given('an FileInput with initialFocus and onBlur handler is rendered', () => {
 })
 
 When('the FileInput is blurred', () => {
+    cy.focused()
     cy.get('[data-test="dhis2-uicore-fileinput"] button').blur()
 })
 
