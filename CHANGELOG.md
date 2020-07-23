@@ -1,3 +1,11 @@
+# [5.2.0](https://github.com/dhis2/ui/compare/v5.1.3...v5.2.0) (2020-07-23)
+
+
+### Features
+
+* **table:** add alternateRowBgColor prop (default: true) (TECH-416) ([c33168f](https://github.com/dhis2/ui/commit/c33168fd90f1e8967bb194e931eed094f824eb5a))
+* **table:** add alternateRowBgColor prop (default: true) (TECH-416) ([fec8008](https://github.com/dhis2/ui/commit/fec8008029f228dd7b1b4ae9cd0c5417e7bc28e8))
+
 ## [5.1.3](https://github.com/dhis2/ui/compare/v5.1.2...v5.1.3) (2020-07-23)
 
 
