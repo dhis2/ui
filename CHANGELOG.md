@@ -1,3 +1,10 @@
+# [5.3.0](https://github.com/dhis2/ui/compare/v5.2.0...v5.3.0) (2020-07-28)
+
+
+### Features
+
+* **intersectiondetector:** add component ([4d96be1](https://github.com/dhis2/ui/commit/4d96be19a9330dc403af1cb65615f2aa55c6b7c0))
+
 # [5.2.0](https://github.com/dhis2/ui/compare/v5.1.3...v5.2.0) (2020-07-23)
 
 
