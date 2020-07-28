@@ -1,3 +1,4 @@
+import { CircularLoader } from '@dhis2/ui-core'
 import { spacers } from '@dhis2/ui-constants'
 import React, { Fragment, useEffect, useRef, useState } from 'react'
 import propTypes from '@dhis2/prop-types'
@@ -10,6 +11,7 @@ export const OptionsContainer = ({
     onEndReached,
     getOptionClickHandlers,
     highlightedOptions,
+    loading,
     renderOption,
     options,
     selectionHandler,
@@ -42,49 +44,80 @@ export const OptionsContainer = ({
     }, [onEndReached, wrapperRef.current, setRemountCounter])
 
     return (
-        <div className="container" data-test={dataTest} ref={optionsRef}>
-            <div className="content-container" ref={wrapperRef}>
-                {!options.length && emptyComponent}
-                {options.map(option => {
-                    const highlighted = !!highlightedOptions.find(
-                        highlightedSourceOption =>
-                            highlightedSourceOption === option.value
-                    )
+        <div className="optionsContainer">
+            {loading && (
+                <div className="loading">
+                    <CircularLoader />
+                </div>
+            )}
 
-                    return (
-                        <Fragment key={option.value}>
-                            {renderOption({
-                                ...option,
-                                ...getOptionClickHandlers(
-                                    option,
-                                    selectionHandler,
-                                    toggleHighlightedOption
-                                ),
-                                highlighted,
-                                selected: false,
-                            })}
-                        </Fragment>
-                    )
-                })}
+            <div className="container" data-test={dataTest} ref={optionsRef}>
+                <div className="content-container" ref={wrapperRef}>
+                    {!options.length && emptyComponent}
+                    {options.map(option => {
+                        const highlighted = !!highlightedOptions.find(
+                            highlightedSourceOption =>
+                                highlightedSourceOption === option.value
+                        )
 
-                {onEndReached && resizeObserver && (
-                    <EndIntersectionDetector
-                        key={`key-${remountCounter}`}
-                        rootRef={optionsRef}
-                        onEndReached={onEndReached}
-                    />
-                )}
+                        return (
+                            <Fragment key={option.value}>
+                                {renderOption({
+                                    ...option,
+                                    ...getOptionClickHandlers(
+                                        option,
+                                        selectionHandler,
+                                        toggleHighlightedOption
+                                    ),
+                                    highlighted,
+                                    selected: false,
+                                })}
+                            </Fragment>
+                        )
+                    })}
+
+                    {onEndReached && resizeObserver && (
+                        <EndIntersectionDetector
+                            key={`key-${remountCounter}`}
+                            rootRef={optionsRef}
+                            onEndReached={onEndReached}
+                        />
+                    )}
+                </div>
             </div>
 
             <style jsx>{`
-                .container {
-                    padding: ${spacers.dp4} 0;
+                .optionsContainer {
                     flex-grow: 1;
+                    padding: ${spacers.dp4} 0;
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                .container {
                     overflow-y: auto;
+                    height: 100%;
+                }
+
+                .loading {
+                    display: flex;
+                    height: 100%;
+                    width: 100%;
+                    align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                    z-index: 2;
+                    top: 0;
+                    left: 0;
                 }
 
                 .content-container {
+                    z-index: 1;
                     position: relative;
+                }
+
+                .loading + .container .content-container {
+                    filter: blur(2px);
                 }
             `}</style>
         </div>
@@ -96,6 +129,7 @@ OptionsContainer.propTypes = {
     getOptionClickHandlers: propTypes.func.isRequired,
     emptyComponent: propTypes.node,
     highlightedOptions: propTypes.arrayOf(propTypes.string),
+    loading: propTypes.bool,
     options: propTypes.arrayOf(
         propTypes.shape({
             label: propTypes.string.isRequired,

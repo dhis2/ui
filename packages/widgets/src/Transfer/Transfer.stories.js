@@ -482,6 +482,7 @@ export const CustomFilteringWithoutFilterInput = createCustomFilteringInHeader(
 const sliceLength = 6
 
 export const InifiniteLoading = ({ selected, onChange }) => {
+    const [loading, setLoading] = useState(false)
     const [optionsLength, setOptionsLength] = useState(sliceLength)
     const [optionsSlice, setOptionsSlice] = useState(
         options.slice(0, optionsLength)
@@ -489,16 +490,24 @@ export const InifiniteLoading = ({ selected, onChange }) => {
 
     useEffect(() => {
         if (sliceLength !== optionsLength) {
-            setOptionsSlice(options.slice(0, optionsLength))
+            setTimeout(() => {
+                setOptionsSlice(options.slice(0, optionsLength))
+                setLoading(false)
+            }, 1000)
+
+            setLoading(true)
         }
     }, [optionsLength])
 
     return (
         <Transfer
+            loadingSource={loading}
             options={optionsSlice}
             selected={selected}
             onChange={onChange}
             onSourceEndReached={() => {
+                if (loading) return
+
                 const newOptionsLength = Math.min(
                     optionsLength + sliceLength,
                     options.length
@@ -508,4 +517,34 @@ export const InifiniteLoading = ({ selected, onChange }) => {
             }}
         />
     )
+}
+
+export const LoadingSource = ({ selected, onChange }) => (
+    <Transfer
+        loadingSource
+        onChange={onChange}
+        selected={selected}
+        options={options.slice(0, 3)}
+        leftHeader={<h4>Left header</h4>}
+        leftFooter={<h4>Left footer</h4>}
+    />
+)
+
+export const LoadingPicked = ({ selected, onChange }) => (
+    <Transfer
+        loadingPicked
+        onChange={onChange}
+        selected={selected}
+        options={options.slice(0, 3)}
+        rightHeader={<h4>Right header</h4>}
+        rightFooter={<h4>Right footer</h4>}
+    />
+)
+
+LoadingPicked.story = {
+    decorators: [
+        statefulDecorator({
+            initialState: options.slice(0, 2).map(({ value }) => value),
+        }),
+    ],
 }

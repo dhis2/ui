@@ -88,6 +88,8 @@ export const Transfer = ({
     initialSearchTermPicked,
     leftFooter,
     leftHeader,
+    loadingPicked,
+    loadingSource,
     maxSelections,
     optionsWidth,
     removeAllText,
@@ -226,9 +228,10 @@ export const Transfer = ({
 
                 <OptionsContainer
                     dataTest={`${dataTest}-sourceoptions`}
-                    getOptionClickHandlers={getOptionClickHandlers}
                     emptyPlaceholder={sourceEmptyPlaceholder}
+                    getOptionClickHandlers={getOptionClickHandlers}
                     highlightedOptions={highlightedSourceOptions}
+                    loading={loadingSource}
                     options={sourceOptions}
                     renderOption={renderOption}
                     selectionHandler={selectSingleOption}
@@ -332,9 +335,10 @@ export const Transfer = ({
 
                 <OptionsContainer
                     dataTest={`${dataTest}-sourceoptions`}
-                    getOptionClickHandlers={getOptionClickHandlers}
                     emptyComponent={selectedEmptyComponent}
+                    getOptionClickHandlers={getOptionClickHandlers}
                     highlightedOptions={highlightedPickedOptions}
+                    loading={loadingPicked}
                     options={pickedOptions}
                     renderOption={renderOption}
                     selectionHandler={deselectSingleOption}
@@ -460,6 +464,8 @@ Transfer.propTypes = {
     initialSearchTermPicked: propTypes.string,
     leftFooter: propTypes.node,
     leftHeader: propTypes.node,
+    loadingPicked: propTypes.bool,
+    loadingSource: propTypes.bool,
     maxSelections: propTypes.oneOf([1, Infinity]),
     optionsWidth: propTypes.string,
     removeAllText: propTypes.string,
