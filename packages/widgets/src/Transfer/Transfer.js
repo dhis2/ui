@@ -74,12 +74,18 @@ export const Transfer = ({
     disabled,
     enableOrderChange,
     filterCallback,
+    filterCallbackPicked,
     filterLabel,
+    filterLabelPicked,
     filterPlaceholder,
+    filterPlaceholderPicked,
     filterable,
+    filterablePicked,
     height,
     hideFilterInput,
+    hideFilterInputPicked,
     initialSearchTerm,
+    initialSearchTermPicked,
     leftFooter,
     leftHeader,
     maxSelections,
@@ -90,11 +96,13 @@ export const Transfer = ({
     rightFooter,
     rightHeader,
     searchTerm,
+    searchTermPicked,
     selected,
     selectedEmptyComponent,
     selectedWidth,
     sourceEmptyPlaceholder,
     onFilterChange,
+    onFilterPickedChange,
     onSourceEndReached,
     onPickedEndReached,
 }) => {
@@ -109,6 +117,16 @@ export const Transfer = ({
     const actualFilter = onFilterChange ? searchTerm : internalFilter
     const actualFilterCallback = filterable ? filterCallback : identity
 
+    const [internalFilterPicked, setInternalFilterPicked] = useState(
+        initialSearchTermPicked
+    )
+    const actualFilterPicked = onFilterPickedChange
+        ? searchTermPicked
+        : internalFilterPicked
+    const actualFilterPickedCallback = filterablePicked
+        ? filterCallbackPicked
+        : identity
+
     /*
      * Extract the not-selected options.
      * Filters options if filterable is true.
@@ -122,11 +140,14 @@ export const Transfer = ({
      * Extract the selected options. Can't use `options.filter`
      * because we need to keep the order of `selected`
      */
-    const pickedOptions = selected
-        .map(value => options.find(option => value === option.value))
-        // filter -> in case a selected value has been provided
-        // that does not exist as option
-        .filter(identity)
+    const pickedOptions = actualFilterPickedCallback(
+        selected
+            .map(value => options.find(option => value === option.value))
+            // filter -> in case a selected value has been provided
+            // that does not exist as option
+            .filter(identity),
+        actualFilterPicked
+    )
 
     /*
      * These are all the highlighted options on the options side.
@@ -276,6 +297,8 @@ export const Transfer = ({
                     disabled={isRemoveIndividualDisabled}
                     onClick={() =>
                         removeIndividualPickedOptions({
+                            filterablePicked,
+                            pickedOptions,
                             highlightedPickedOptions,
                             onChange,
                             selected,
@@ -286,9 +309,24 @@ export const Transfer = ({
             </Actions>
 
             <RightSide dataTest={`${dataTest}-rightside`} width={selectedWidth}>
-                {rightHeader && (
+                {(rightHeader || filterablePicked) && (
                     <RightHeader dataTest={`${dataTest}-rightheader`}>
                         {rightHeader}
+
+                        {filterablePicked && !hideFilterInputPicked && (
+                            <Filter
+                                label={filterLabelPicked}
+                                placeholder={filterPlaceholderPicked}
+                                dataTest={`${dataTest}-filter`}
+                                filter={actualFilterPicked}
+                                onChange={
+                                    onFilterPickedChange
+                                        ? onFilterPickedChange
+                                        : ({ value }) =>
+                                              setInternalFilterPicked(value)
+                                }
+                            />
+                        )}
                     </RightHeader>
                 )}
 
@@ -348,12 +386,14 @@ Transfer.defaultProps = {
     dataTest: 'dhis2-uicore-transfer',
     height: '240px',
     initialSearchTerm: '',
+    initialSearchTermPicked: '',
     maxSelections: Infinity,
     optionsWidth: '320px',
     renderOption: defaultRenderOption,
     selected: [],
     selectedWidth: '320px',
     filterCallback: defaultFilterCallback,
+    filterCallbackPicked: defaultFilterCallback,
 }
 
 /**
@@ -406,12 +446,18 @@ Transfer.propTypes = {
     disabled: propTypes.bool,
     enableOrderChange: propTypes.bool,
     filterCallback: propTypes.func,
+    filterCallbackPicked: propTypes.func,
     filterLabel: propTypes.string,
+    filterLabelPicked: propTypes.string,
     filterPlaceholder: propTypes.string,
+    filterPlaceholderPicked: propTypes.string,
     filterable: propTypes.bool,
+    filterablePicked: propTypes.bool,
     height: propTypes.string,
     hideFilterInput: propTypes.bool,
+    hideFilterInputPicked: propTypes.bool,
     initialSearchTerm: propTypes.string,
+    initialSearchTermPicked: propTypes.string,
     leftFooter: propTypes.node,
     leftHeader: propTypes.node,
     maxSelections: propTypes.oneOf([1, Infinity]),
@@ -422,11 +468,13 @@ Transfer.propTypes = {
     rightFooter: propTypes.node,
     rightHeader: propTypes.node,
     searchTerm: propTypes.string,
+    searchTermPicked: propTypes.string,
     selected: propTypes.arrayOf(propTypes.string),
     selectedEmptyComponent: propTypes.node,
     selectedWidth: propTypes.string,
     sourceEmptyPlaceholder: propTypes.node,
     onFilterChange: propTypes.func,
+    onFilterPickedChange: propTypes.func,
     onPickedEndReached: propTypes.func,
     onSourceEndReached: propTypes.func,
 }

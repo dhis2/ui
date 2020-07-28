@@ -168,6 +168,26 @@ export const Filtered = ({ selected, onChange }) => (
     />
 )
 
+export const FilteredPicked = ({ selected, onChange }) => (
+    <Transfer
+        filterablePicked
+        onChange={onChange}
+        selected={selected}
+        initialSearchTermPicked="ANC"
+        leftHeader={<h3>Header on the left side</h3>}
+        rightHeader={<h4>Header on the right side</h4>}
+        options={options}
+    />
+)
+
+FilteredPicked.story = {
+    decorators: [
+        statefulDecorator({
+            initialState: options.map(({ value }) => value),
+        }),
+    ],
+}
+
 export const FilterPlaceholder = ({ selected, onChange }) => (
     <Transfer
         filterable
