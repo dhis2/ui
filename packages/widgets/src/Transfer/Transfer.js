@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { useState } from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { Actions } from './Actions.js'
@@ -9,14 +9,13 @@ import { Filter } from './Filter.js'
 import { LeftFooter } from './LeftFooter.js'
 import { LeftHeader } from './LeftHeader.js'
 import { LeftSide } from './LeftSide.js'
-import { PickedOptions } from './PickedOptions.js'
+import { OptionsContainer } from './OptionsContainer.js'
 import { RemoveAll } from './RemoveAll.js'
 import { RemoveIndividual } from './RemoveIndividual.js'
 import { ReorderingActions } from './ReorderingActions.js'
 import { RightHeader } from './RightHeader.js'
 import { RightFooter } from './RightFooter.js'
 import { RightSide } from './RightSide.js'
-import { SourceOptions } from './SourceOptions.js'
 import { TransferOption } from './TransferOption.js'
 import {
     addAllSelectableSourceOptions,
@@ -68,34 +67,36 @@ export const Transfer = ({
     options,
     onChange,
 
+    addAllText,
+    addIndividualText,
     className,
     dataTest,
     disabled,
-    sourceEmptyPlaceholder,
-    selectedEmptyComponent,
     enableOrderChange,
+    filterCallback,
     filterLabel,
     filterPlaceholder,
-    filterCallback,
     filterable,
     height,
+    hideFilterInput,
     initialSearchTerm,
-    addAllText,
-    addIndividualText,
-    removeAllText,
-    removeIndividualText,
     leftFooter,
     leftHeader,
     maxSelections,
     optionsWidth,
+    removeAllText,
+    removeIndividualText,
     renderOption,
-    rightHeader,
     rightFooter,
+    rightHeader,
     searchTerm,
     selected,
+    selectedEmptyComponent,
     selectedWidth,
-    hideFilterInput,
+    sourceEmptyPlaceholder,
     onFilterChange,
+    onSourceEndReached,
+    onPickedEndReached,
 }) => {
     /*
      * Used in the "Filter" section and for
@@ -202,32 +203,17 @@ export const Transfer = ({
                     </LeftHeader>
                 )}
 
-                <SourceOptions
+                <OptionsContainer
                     dataTest={`${dataTest}-sourceoptions`}
-                    sourceEmptyPlaceholder={sourceEmptyPlaceholder}
-                >
-                    {sourceOptions.map(option => {
-                        const highlighted = !!highlightedSourceOptions.find(
-                            highlightedSourceOption =>
-                                highlightedSourceOption === option.value
-                        )
-
-                        return (
-                            <Fragment key={option.value}>
-                                {renderOption({
-                                    ...option,
-                                    ...getOptionClickHandlers(
-                                        option,
-                                        selectSingleOption,
-                                        toggleHighlightedSourceOption
-                                    ),
-                                    highlighted,
-                                    selected: false,
-                                })}
-                            </Fragment>
-                        )
-                    })}
-                </SourceOptions>
+                    getOptionClickHandlers={getOptionClickHandlers}
+                    emptyPlaceholder={sourceEmptyPlaceholder}
+                    highlightedOptions={highlightedSourceOptions}
+                    options={sourceOptions}
+                    renderOption={renderOption}
+                    selectionHandler={selectSingleOption}
+                    toggleHighlightedOption={toggleHighlightedSourceOption}
+                    onEndReached={onSourceEndReached}
+                />
 
                 {leftFooter && (
                     <LeftFooter dataTest={`${dataTest}-leftfooter`}>
@@ -305,31 +291,18 @@ export const Transfer = ({
                         {rightHeader}
                     </RightHeader>
                 )}
-                <PickedOptions
-                    dataTest={`${dataTest}-pickedoptions`}
-                    selectedEmptyComponent={selectedEmptyComponent}
-                >
-                    {pickedOptions.map(option => {
-                        const highlighted = !!highlightedPickedOptions.find(
-                            value => option.value === value
-                        )
 
-                        return (
-                            <Fragment key={option.value}>
-                                {renderOption({
-                                    ...option,
-                                    ...getOptionClickHandlers(
-                                        option,
-                                        deselectSingleOption,
-                                        toggleHighlightedPickedOption
-                                    ),
-                                    highlighted,
-                                    selected: true,
-                                })}
-                            </Fragment>
-                        )
-                    })}
-                </PickedOptions>
+                <OptionsContainer
+                    dataTest={`${dataTest}-sourceoptions`}
+                    getOptionClickHandlers={getOptionClickHandlers}
+                    emptyComponent={selectedEmptyComponent}
+                    highlightedOptions={highlightedPickedOptions}
+                    options={pickedOptions}
+                    renderOption={renderOption}
+                    selectionHandler={deselectSingleOption}
+                    toggleHighlightedOption={toggleHighlightedPickedOption}
+                    onEndReached={onPickedEndReached}
+                />
 
                 {(rightFooter || enableOrderChange) && (
                     <RightFooter dataTest={`${dataTest}-rightfooter`}>
@@ -454,4 +427,6 @@ Transfer.propTypes = {
     selectedWidth: propTypes.string,
     sourceEmptyPlaceholder: propTypes.node,
     onFilterChange: propTypes.func,
+    onPickedEndReached: propTypes.func,
+    onSourceEndReached: propTypes.func,
 }
