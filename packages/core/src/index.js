@@ -24,6 +24,7 @@ export { FileListPlaceholder } from './FileListPlaceholder/FileListPlaceholder.j
 export { FlyoutMenu } from './FlyoutMenu/FlyoutMenu.js'
 export { Help } from './Help/Help.js'
 export { Input } from './Input/Input.js'
+export { IntersectionDetector } from './IntersectionDetector/IntersectionDetector.js'
 export { Label } from './Label/Label.js'
 export { Layer, useLayerContext } from './Layer/Layer.js'
 export { Legend } from './Legend/Legend.js'
