@@ -228,7 +228,7 @@ export const Transfer = ({
 
                 <OptionsContainer
                     dataTest={`${dataTest}-sourceoptions`}
-                    emptyPlaceholder={sourceEmptyPlaceholder}
+                    emptyComponent={sourceEmptyPlaceholder}
                     getOptionClickHandlers={getOptionClickHandlers}
                     highlightedOptions={highlightedSourceOptions}
                     loading={loadingSource}
@@ -334,7 +334,7 @@ export const Transfer = ({
                 )}
 
                 <OptionsContainer
-                    dataTest={`${dataTest}-sourceoptions`}
+                    dataTest={`${dataTest}-pickedoptions`}
                     emptyComponent={selectedEmptyComponent}
                     getOptionClickHandlers={getOptionClickHandlers}
                     highlightedOptions={highlightedPickedOptions}
