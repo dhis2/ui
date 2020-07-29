@@ -78,6 +78,7 @@ export const OptionsContainer = ({
 
                     {onEndReached && resizeObserver && (
                         <EndIntersectionDetector
+                            dataTest={`${dataTest}-endintersectiondetector`}
                             key={`key-${remountCounter}`}
                             rootRef={optionsRef}
                             onEndReached={onEndReached}
