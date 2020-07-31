@@ -8,6 +8,12 @@
 yarn add @dhis2/ui
 ```
 
+In some cases you might need to install `styled-jsx` as peer dependency. To do so run
+
+```bash
+yarn add styled-jsx -P
+```
+
 ## Requirements
 
 ### React >= 16.3
