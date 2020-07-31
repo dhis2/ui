@@ -8,10 +8,16 @@
 yarn add @dhis2/ui
 ```
 
-In some cases you might need to install `styled-jsx` as peer dependency. To do so run
+When not using the dhis2 app platform, then the ui library requires you to install some peer dependencies:
+
+-   `react`
+-   `react-dom`
+-   `styled-jsx`
+
+Using the dhis2 app platform you won't have to install them as they're bundled with the platform scripts.
 
 ```bash
-yarn add styled-jsx -P
+yarn add react react-dom styled-jsx -P
 ```
 
 ## Requirements
