@@ -1996,7 +1996,7 @@
   dependencies:
     core-js "^3.0.1"
 
-"@storybook/components@5.3.19", "@storybook/components@^5.2.5", "@storybook/components@^5.3.19":
+"@storybook/components@5.3.19", "@storybook/components@^5.3.19":
   version "5.3.19"
   resolved "https://registry.yarnpkg.com/@storybook/components/-/components-5.3.19.tgz#aac1f9eea1247cc85bd93b10fca803876fb84a6b"
   integrity sha512-3g23/+ktlocaHLJKISu9Neu3XKa6aYP2ctDYkRtGchSB0Q55hQsUVGO+BEVuT7Pk2D59mVCxboBjxcRoPUY4pw==
@@ -15609,15 +15609,15 @@ store2@^2.7.1:
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.11.0.tgz#307636a239014ef4d8f1c8b47afe903509484fc8"
   integrity sha512-WeIZ5+c/KzBSutSqOjUCAkk1qTLVBcYUuvrhNx8ndjLZKdZRfP6Vv7AOxlynuL6tVU/6zt6e2CTHwWI5KE+fKg==
 
-storybook-addon-jsx@^7.1.14:
-  version "7.1.15"
-  resolved "https://registry.yarnpkg.com/storybook-addon-jsx/-/storybook-addon-jsx-7.1.15.tgz#e43b8be4c67cef61273ec647f7820437e562d375"
-  integrity sha512-Z2FWukjv8k4f5oP/c/0lbgWJItL3PNQ3SE3KLZ6rvhYeuAPCoMJppEYSs/FYeMZP5Z3LgygtD1v0R5kqwbb2Aw==
+storybook-addon-jsx@^7.3.3:
+  version "7.3.3"
+  resolved "https://registry.yarnpkg.com/storybook-addon-jsx/-/storybook-addon-jsx-7.3.3.tgz#40a85783466809e207203039328df62ba4559bf8"
+  integrity sha512-GN793xr8Q5E0ou/6l1TgPoA86K1Xw68brgDDREEsUwXp3bZz7wpsJaumm/sclgfLKC3AVcxnd09BKrITVVDRNg==
   dependencies:
-    "@storybook/components" "^5.2.5"
     copy-to-clipboard "^3.0.8"
     js-beautify "^1.8.8"
     react-element-to-jsx-string "^14.3.1"
+    storybook-pretty-props "^1.0.3"
 
 storybook-addon-react-docgen@^1.2.39:
   version "1.2.39"
@@ -15630,7 +15630,7 @@ storybook-addon-react-docgen@^1.2.39:
     react-lifecycles-compat "^3.0.4"
     storybook-pretty-props "^1.2.1"
 
-storybook-pretty-props@^1.2.1:
+storybook-pretty-props@^1.0.3, storybook-pretty-props@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/storybook-pretty-props/-/storybook-pretty-props-1.2.1.tgz#04c6e7c80efc0190a5dd94dceaf50579c159e182"
   integrity sha512-3dUtu0UbBA6idA3Qo0i+CYGGz8GiqlXzhgCJdT065jnuJ3y9intKxZpv05ZbnQXCPnsPVSDos+hgOZ444hf6xA==
