@@ -1,3 +1,10 @@
+## [5.3.1](https://github.com/dhis2/ui/compare/v5.3.0...v5.3.1) (2020-08-10)
+
+
+### Bug Fixes
+
+* **button:** reduce small button icon only padding ([92d7058](https://github.com/dhis2/ui/commit/92d70588d3274271f6169d6da1356d69e0e0a228))
+
 # [5.3.0](https://github.com/dhis2/ui/compare/v5.2.0...v5.3.0) (2020-07-28)
 
 
