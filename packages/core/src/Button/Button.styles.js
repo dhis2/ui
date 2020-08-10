@@ -233,4 +233,12 @@ export default css`
         vertical-align: middle;
         pointer-events: none;
     }
+
+    .small.icon-only {
+        padding: 0 0 0 2px;
+    }
+
+    .small .button-icon {
+        margin-right: 2px;
+    }
 `
