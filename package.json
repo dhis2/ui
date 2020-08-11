@@ -55,10 +55,12 @@
         "watch:widgets": "yarn build:widgets --watch --dev"
     },
     "devDependencies": {
+        "@dhis2/app-runtime": "^2.2.2",
         "@dhis2/cli-app-scripts": "^4.0.8",
         "@dhis2/cli-style": "^7.0.0",
         "@dhis2/cli-utils-cypress": "^2.2.1",
         "@dhis2/cli-utils-docsite": "^2.0.2",
+        "@dhis2/d2-i18n": "^1.0.6",
         "@storybook/addons": "^5.3.9",
         "@storybook/components": "^5.3.19",
         "@storybook/csf": "^0.0.1",
