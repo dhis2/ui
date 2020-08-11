@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { Actions } from './Actions.js'
@@ -29,6 +29,7 @@ import {
     moveHighlightedPickedOptionUp,
     removeAllPickedOptions,
     removeIndividualPickedOptions,
+    useFilter,
     useHighlightedOptions,
 } from './Transfer/index.js'
 
@@ -108,28 +109,23 @@ export const Transfer = ({
     onSourceEndReached,
     onPickedEndReached,
 }) => {
-    /*
-     * Used in the "Filter" section and for
-     * limiting the selectable source options
-     *
-     * Filter can be controlled & uncontrolled.
-     * Providing the "onFilterChange" callback will make it a controlled value
-     */
-    const [internalFilter, setInternalFilter] = useState(initialSearchTerm)
-    const actualFilter = onFilterChange ? searchTerm : internalFilter
-    const actualFilterCallback = filterable ? filterCallback : identity
-
-    const [internalFilterPicked, setInternalFilterPicked] = useState(
-        initialSearchTermPicked
-    )
-    const actualFilterPicked = onFilterPickedChange
-        ? searchTermPicked
-        : internalFilterPicked
-    const actualFilterPickedCallback = filterablePicked
-        ? filterCallbackPicked
-        : identity
+    /* Source options search value:
+     * Depending on whether the onFilterChange callback has been provided
+     * either the internal or external search value is used */
+    const {
+        filterValue: actualFilter,
+        filter: actualFilterCallback,
+        setInternalFilter,
+    } = useFilter({
+        initialSearchTerm,
+        onFilterChange,
+        externalSearchTerm: searchTerm,
+        filterable,
+        filterCallback,
+    })
 
     /*
+     * Actual source options:
      * Extract the not-selected options.
      * Filters options if filterable is true.
      */
@@ -139,6 +135,36 @@ export const Transfer = ({
     )
 
     /*
+     * Source options highlighting:
+     * These are all the highlighted options on the selected side.
+     */
+    const {
+        highlightedOptions: highlightedPickedOptions,
+        setHighlightedOptions: setHighlightedPickedOptions,
+        toggleHighlightedOption: toggleHighlightedPickedOption,
+    } = useHighlightedOptions({
+        options: pickedOptions,
+        disabled,
+        maxSelections,
+    })
+
+    /* Picked options search value:
+     * Depending on whether the onFilterPickedChange callback has been provided
+     * either the internal or external search value is used */
+    const {
+        filterValue: actualFilterPicked,
+        filter: actualFilterPickedCallback,
+        setInternalFilter: setInternalFilterPicked,
+    } = useFilter({
+        filterable: filterablePicked,
+        initialSearchTerm: initialSearchTermPicked,
+        onFilterChange: onFilterPickedChange,
+        externalSearchTerm: searchTermPicked,
+        filterCallback: filterCallbackPicked,
+    })
+
+    /*
+     * Actual picked options:
      * Extract the selected options. Can't use `options.filter`
      * because we need to keep the order of `selected`
      */
@@ -152,6 +178,7 @@ export const Transfer = ({
     )
 
     /*
+     * Picked options highlighting:
      * These are all the highlighted options on the options side.
      */
     const {
@@ -165,19 +192,7 @@ export const Transfer = ({
     })
 
     /*
-     * These are all the highlighted options on the selected side.
-     */
-    const {
-        highlightedOptions: highlightedPickedOptions,
-        setHighlightedOptions: setHighlightedPickedOptions,
-        toggleHighlightedOption: toggleHighlightedPickedOption,
-    } = useHighlightedOptions({
-        options: pickedOptions,
-        disabled,
-        maxSelections,
-    })
-
-    /*
+     * Source & Picked options:
      * These are the double click handlers for (de-)selection
      */
     const {
