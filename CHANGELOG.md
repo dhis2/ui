@@ -1,3 +1,13 @@
+## [5.3.2](https://github.com/dhis2/ui/compare/v5.3.1...v5.3.2) (2020-08-11)
+
+
+### Bug Fixes
+
+* remove margin of first child conditionally for correct alignment ([d212ced](https://github.com/dhis2/ui/commit/d212ced73920062a06c7b43f91b9589549239387))
+* **button strip:** allow everything as children ([db6a725](https://github.com/dhis2/ui/commit/db6a7259168cd858cc801223aa47951f947ea6df))
+* **button strip:** ensure spacing by wrapping children with div ([82532f2](https://github.com/dhis2/ui/commit/82532f2f384153f2f69b972bf7e6fc918ce80445))
+* **button strip:** remove margin of first child for correct alignment ([a2b5c2e](https://github.com/dhis2/ui/commit/a2b5c2e18917021ff485c4f6cc4145af79759a18))
+
 ## [5.3.1](https://github.com/dhis2/ui/compare/v5.3.0...v5.3.1) (2020-08-10)
 
 
