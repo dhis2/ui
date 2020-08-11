@@ -135,15 +135,15 @@ export const Transfer = ({
     )
 
     /*
-     * Source options highlighting:
-     * These are all the highlighted options on the selected side.
+     * Picked options highlighting:
+     * These are all the highlighted options on the options side.
      */
     const {
-        highlightedOptions: highlightedPickedOptions,
-        setHighlightedOptions: setHighlightedPickedOptions,
-        toggleHighlightedOption: toggleHighlightedPickedOption,
+        highlightedOptions: highlightedSourceOptions,
+        setHighlightedOptions: setHighlightedSourceOptions,
+        toggleHighlightedOption: toggleHighlightedSourceOption,
     } = useHighlightedOptions({
-        options: pickedOptions,
+        options: sourceOptions,
         disabled,
         maxSelections,
     })
@@ -178,15 +178,15 @@ export const Transfer = ({
     )
 
     /*
-     * Picked options highlighting:
-     * These are all the highlighted options on the options side.
+     * Source options highlighting:
+     * These are all the highlighted options on the selected side.
      */
     const {
-        highlightedOptions: highlightedSourceOptions,
-        setHighlightedOptions: setHighlightedSourceOptions,
-        toggleHighlightedOption: toggleHighlightedSourceOption,
+        highlightedOptions: highlightedPickedOptions,
+        setHighlightedOptions: setHighlightedPickedOptions,
+        toggleHighlightedOption: toggleHighlightedPickedOption,
     } = useHighlightedOptions({
-        options: sourceOptions,
+        options: pickedOptions,
         disabled,
         maxSelections,
     })
