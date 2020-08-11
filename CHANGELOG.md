@@ -1,3 +1,10 @@
+## [5.3.3](https://github.com/dhis2/ui/compare/v5.3.2...v5.3.3) (2020-08-11)
+
+
+### Bug Fixes
+
+* move internal and singleton dependencies to peerDependencies ([7e8a827](https://github.com/dhis2/ui/commit/7e8a827d6ad0de7d810e4e643fa6f3a6f801e540))
+
 ## [5.3.2](https://github.com/dhis2/ui/compare/v5.3.1...v5.3.2) (2020-08-11)
 
 
