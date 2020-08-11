@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Children } from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
@@ -13,21 +13,33 @@ import { spacers } from '@dhis2/ui-constants'
  * @see Live demo: {@link /demo/?path=/story/buttonstrip--default|Storybook}
  */
 const ButtonStrip = ({ className, children, middle, end, dataTest }) => (
-    <div className={cx(className, { middle, end })} data-test={dataTest}>
-        {children}
+    <div
+        className={cx(className, { start: !middle && !end, middle, end })}
+        data-test={dataTest}
+    >
+        {Children.map(children, child => (
+            <div className="box">{child}</div>
+        ))}
 
         <style jsx>{`
             div {
                 display: flex;
             }
+
             div.middle {
                 justify-content: center;
             }
+
             div.end {
                 justify-content: flex-end;
             }
-            div > :global(button) {
+
+            .box {
                 margin-left: ${spacers.dp16};
+            }
+
+            .box:first-child {
+                margin-left: 0;
             }
         `}</style>
     </div>
@@ -47,14 +59,14 @@ ButtonStrip.defaultProps = {
  * @static
  *
  * @prop {string} [className]
- * @prop {Array.<Button>} [children]
+ * @prop {Node} [children]
  * @prop {boolean} [middle] - The props `middle`, and `end` are
  * mutually exlusive
  * @prop {boolean} [end]
  * @prop {string} [dataTest]
  */
 ButtonStrip.propTypes = {
-    children: propTypes.arrayOf(propTypes.element),
+    children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
     end: alignmentPropType,
