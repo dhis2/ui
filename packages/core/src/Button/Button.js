@@ -29,6 +29,7 @@ export const Button = ({
     secondary,
     small,
     tabIndex,
+    toggled,
     type,
     value,
     onBlur,
@@ -53,6 +54,7 @@ export const Button = ({
         small,
         large,
         'icon-only': iconOnly,
+        toggled,
     })
 
     return (
@@ -123,6 +125,7 @@ Button.propTypes = {
     secondary: sharedPropTypes.buttonVariantPropType,
     small: sharedPropTypes.sizePropType,
     tabIndex: propTypes.string,
+    toggled: propTypes.bool,
     type: propTypes.oneOf(['submit', 'reset', 'button']),
     value: propTypes.string,
     onBlur: propTypes.func,

@@ -241,4 +241,29 @@ export default css`
     .small .button-icon {
         margin-right: 2px;
     }
+
+    .toggled {
+        background: ${colors.grey700};
+        border: 1px solid ${colors.grey900};
+        color: ${colors.white};
+        fill: ${colors.white};
+    }
+
+    .toggled:focus {
+        background: ${colors.grey800};
+        border: 1px solid ${colors.yellow300};
+    }
+
+    .toggled:hover {
+        background: ${colors.grey800};
+    }
+
+    .toggled:focus::after {
+        border-color: ${colors.yellow300};
+    }
+
+    .toggled:active,
+    .toggled:active:focus {
+        background: ${colors.grey800};
+    }
 `

@@ -20,4 +20,19 @@ describe('<Button>', () => {
 
         expect(actual.length).toBe(1)
     })
+
+    describe('toggle', () => {
+        it('should have class "toggled" if toggled-prop is true', () => {
+            const wrapper = mount(<Button toggled />)
+
+            const actual = wrapper.find('button')
+            expect(actual.hasClass('toggled')).toBe(true)
+        })
+        it('should not have class "toggled" if toggled-prop is not passed', () => {
+            const wrapper = mount(<Button />)
+
+            const actual = wrapper.find('button')
+            expect(actual.hasClass('toggled')).toBe(false)
+        })
+    })
 })
