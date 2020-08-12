@@ -1,3 +1,10 @@
+# [5.4.0](https://github.com/dhis2/ui/compare/v5.3.3...v5.4.0) (2020-08-12)
+
+
+### Features
+
+* **togglebutton:** add toggled as button prop ([cf79513](https://github.com/dhis2/ui/commit/cf79513017614fd4717c6a3f4249dcd6fb4ed3e7))
+
 ## [5.3.3](https://github.com/dhis2/ui/compare/v5.3.2...v5.3.3) (2020-08-11)
 
 
