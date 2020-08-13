@@ -266,4 +266,12 @@ export default css`
     .toggled:active:focus {
         background: ${colors.grey800};
     }
+
+    .toggled:disabled {
+        background: ${colors.grey500};
+        border-color: ${colors.grey600};
+        color: ${colors.grey050};
+        fill: ${colors.grey050};
+        opacity: 1;
+    }
 `
