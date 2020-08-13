@@ -1,3 +1,11 @@
+## [5.4.1](https://github.com/dhis2/ui/compare/v5.4.0...v5.4.1) (2020-08-13)
+
+
+### Bug Fixes
+
+* **button:** add disabled style for toggled button ([626f88d](https://github.com/dhis2/ui/commit/626f88dc9e1d20e0cca23ea6df930bd8c71b80cc))
+* **button:** minor style changes for toggled-button ([f2542a1](https://github.com/dhis2/ui/commit/f2542a1ef8aa302ecaff33d7e27730c732e46419))
+
 # [5.4.0](https://github.com/dhis2/ui/compare/v5.3.3...v5.4.0) (2020-08-12)
 
 
