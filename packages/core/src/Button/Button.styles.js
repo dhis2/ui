@@ -245,8 +245,8 @@ export default css`
     .toggled {
         background: ${colors.grey700};
         border: 1px solid ${colors.grey900};
-        color: ${colors.white};
-        fill: ${colors.white};
+        color: ${colors.grey050};
+        fill: ${colors.grey050};
     }
 
     .toggled:focus {
@@ -256,6 +256,7 @@ export default css`
 
     .toggled:hover {
         background: ${colors.grey800};
+        border-color: ${colors.grey900};
     }
 
     .toggled:focus::after {
@@ -264,7 +265,8 @@ export default css`
 
     .toggled:active,
     .toggled:active:focus {
-        background: ${colors.grey800};
+        background: ${colors.grey900};
+        border-color: ${colors.grey900};
     }
 
     .toggled:disabled {
