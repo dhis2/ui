@@ -110,6 +110,7 @@ class Radio extends Component {
                 <style jsx>{`
                     label {
                         display: flex;
+                        position: relative;
                         flex-direction: row;
                         align-items: center;
                         justify-content: flex-start;
