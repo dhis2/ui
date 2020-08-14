@@ -1,3 +1,10 @@
+## [5.4.2](https://github.com/dhis2/ui/compare/v5.4.1...v5.4.2) (2020-08-14)
+
+
+### Bug Fixes
+
+* **radio:** position: relative on label to fix modal jumps ([c8a2671](https://github.com/dhis2/ui/commit/c8a26712e5d703a64fc10c6a806d7fdbd3da74f1))
+
 ## [5.4.1](https://github.com/dhis2/ui/compare/v5.4.0...v5.4.1) (2020-08-13)
 
 
