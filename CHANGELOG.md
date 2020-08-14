@@ -1,3 +1,13 @@
+# [5.5.0](https://github.com/dhis2/ui/compare/v5.4.2...v5.5.0) (2020-08-14)
+
+
+### Features
+
+* **transfer:** add loading props ([ce6fa84](https://github.com/dhis2/ui/commit/ce6fa8465f5e7763a1a99846246f754d6ed5fb1e))
+* **transfer:** add onSourceEndReached & onPickedEndReached callbacks ([2a51e79](https://github.com/dhis2/ui/commit/2a51e79f147b0355531dae8a2d1c6c3cc1dfd74f))
+* **transfer:** add requested improvements ([5ccddf3](https://github.com/dhis2/ui/commit/5ccddf3bf816b9c23d37d45ae37b33bf75c6d7a5))
+* **transfer:** allow filtering the picked options ([479c091](https://github.com/dhis2/ui/commit/479c091652c8378476d758683dddd68dedc9ce15))
+
 ## [5.4.2](https://github.com/dhis2/ui/compare/v5.4.1...v5.4.2) (2020-08-14)
 
 
