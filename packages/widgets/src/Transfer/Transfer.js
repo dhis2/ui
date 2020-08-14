@@ -90,7 +90,7 @@ export const Transfer = ({
     leftFooter,
     leftHeader,
     loadingPicked,
-    loadingSource,
+    loading,
     maxSelections,
     optionsWidth,
     removeAllText,
@@ -105,9 +105,9 @@ export const Transfer = ({
     selectedWidth,
     sourceEmptyPlaceholder,
     onFilterChange,
-    onFilterPickedChange,
-    onSourceEndReached,
-    onPickedEndReached,
+    onFilterChangePicked,
+    onEndReached,
+    onEndReachedPicked,
 }) => {
     /* Source options search value:
      * Depending on whether the onFilterChange callback has been provided
@@ -149,7 +149,7 @@ export const Transfer = ({
     })
 
     /* Picked options search value:
-     * Depending on whether the onFilterPickedChange callback has been provided
+     * Depending on whether the onFilterChangePicked callback has been provided
      * either the internal or external search value is used */
     const {
         filterValue: actualFilterPicked,
@@ -158,7 +158,7 @@ export const Transfer = ({
     } = useFilter({
         filterable: filterablePicked,
         initialSearchTerm: initialSearchTermPicked,
-        onFilterChange: onFilterPickedChange,
+        onFilterChange: onFilterChangePicked,
         externalSearchTerm: searchTermPicked,
         filterCallback: filterCallbackPicked,
     })
@@ -246,12 +246,12 @@ export const Transfer = ({
                     emptyComponent={sourceEmptyPlaceholder}
                     getOptionClickHandlers={getOptionClickHandlers}
                     highlightedOptions={highlightedSourceOptions}
-                    loading={loadingSource}
+                    loading={loading}
                     options={sourceOptions}
                     renderOption={renderOption}
                     selectionHandler={selectSingleOption}
                     toggleHighlightedOption={toggleHighlightedSourceOption}
-                    onEndReached={onSourceEndReached}
+                    onEndReached={onEndReached}
                 />
 
                 {leftFooter && (
@@ -338,8 +338,8 @@ export const Transfer = ({
                                 dataTest={`${dataTest}-filter`}
                                 filter={actualFilterPicked}
                                 onChange={
-                                    onFilterPickedChange
-                                        ? onFilterPickedChange
+                                    onFilterChangePicked
+                                        ? onFilterChangePicked
                                         : ({ value }) =>
                                               setInternalFilterPicked(value)
                                 }
@@ -358,7 +358,7 @@ export const Transfer = ({
                     renderOption={renderOption}
                     selectionHandler={deselectSingleOption}
                     toggleHighlightedOption={toggleHighlightedPickedOption}
-                    onEndReached={onPickedEndReached}
+                    onEndReached={onEndReachedPicked}
                 />
 
                 {(rightFooter || enableOrderChange) && (
@@ -479,8 +479,8 @@ Transfer.propTypes = {
     initialSearchTermPicked: propTypes.string,
     leftFooter: propTypes.node,
     leftHeader: propTypes.node,
+    loading: propTypes.bool,
     loadingPicked: propTypes.bool,
-    loadingSource: propTypes.bool,
     maxSelections: propTypes.oneOf([1, Infinity]),
     optionsWidth: propTypes.string,
     removeAllText: propTypes.string,
@@ -494,8 +494,8 @@ Transfer.propTypes = {
     selectedEmptyComponent: propTypes.node,
     selectedWidth: propTypes.string,
     sourceEmptyPlaceholder: propTypes.node,
+    onEndReached: propTypes.func,
+    onEndReachedPicked: propTypes.func,
     onFilterChange: propTypes.func,
-    onFilterPickedChange: propTypes.func,
-    onPickedEndReached: propTypes.func,
-    onSourceEndReached: propTypes.func,
+    onFilterChangePicked: propTypes.func,
 }

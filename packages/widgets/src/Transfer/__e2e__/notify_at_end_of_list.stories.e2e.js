@@ -10,20 +10,20 @@ export default {
     decorators: [statefulDecorator()],
 }
 
-window.onSourceEndReached = window.Cypress
+window.onEndReached = window.Cypress
     ? window.Cypress.cy.stub()
-    : () => console.log('onSourceEndReached')
+    : () => console.log('onEndReached')
 
-window.onPickedEndReached = window.Cypress
+window.onEndReachedPicked = window.Cypress
     ? window.Cypress.cy.stub()
-    : () => console.log('onPickedEndReached')
+    : () => console.log('onEndReachedPicked')
 
 export const FullSourceList = ({ selected, onChange }) => (
     <Transfer
         options={options}
         selected={selected}
         onChange={onChange}
-        onSourceEndReached={window.onSourceEndReached}
+        onEndReached={window.onEndReached}
     />
 )
 
@@ -32,7 +32,7 @@ export const FullPickedList = ({ selected, onChange }) => (
         options={options}
         selected={selected}
         onChange={onChange}
-        onPickedEndReached={window.onPickedEndReached}
+        onEndReachedPicked={window.onEndReachedPicked}
     />
 )
 
@@ -49,7 +49,7 @@ export const PartialSourceList = ({ selected, onChange }) => (
         options={options.slice(0, 4)}
         selected={selected}
         onChange={onChange}
-        onSourceEndReached={window.onSourceEndReached}
+        onEndReached={window.onEndReached}
     />
 )
 
@@ -58,7 +58,7 @@ export const PartialPickedList = ({ selected, onChange }) => (
         options={options}
         selected={selected}
         onChange={onChange}
-        onPickedEndReached={window.onPickedEndReached}
+        onEndReachedPicked={window.onEndReachedPicked}
     />
 )
 

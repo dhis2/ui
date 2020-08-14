@@ -6,12 +6,7 @@ import { options } from './common/options'
 export default { title: 'Transfer Loading Lists' }
 
 export const LoadingSource = () => (
-    <Transfer
-        loadingSource
-        selected={[]}
-        onChange={() => null}
-        options={options}
-    />
+    <Transfer loading selected={[]} onChange={() => null} options={options} />
 )
 
 export const LoadingPicked = () => (

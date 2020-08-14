@@ -61,9 +61,7 @@ Then('the callback for reaching the end should not be called', () => {
         () => cy.get('@listType')
     ).should(([win, listType]) => {
         const callback =
-            listType === 'source'
-                ? win.onSourceEndReached
-                : win.onPickedEndReached
+            listType === 'source' ? win.onEndReached : win.onEndReachedPicked
 
         expect(callback).to.not.be.called
     })
@@ -75,9 +73,7 @@ Then('the callback for reaching the end should be called', () => {
         () => cy.get('@listType')
     ).should(([win, listType]) => {
         const callback =
-            listType === 'source'
-                ? win.onSourceEndReached
-                : win.onPickedEndReached
+            listType === 'source' ? win.onEndReached : win.onEndReachedPicked
 
         expect(callback).to.be.calledOnce
     })
