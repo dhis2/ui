@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { Actions } from './Actions.js'
@@ -9,14 +9,13 @@ import { Filter } from './Filter.js'
 import { LeftFooter } from './LeftFooter.js'
 import { LeftHeader } from './LeftHeader.js'
 import { LeftSide } from './LeftSide.js'
-import { PickedOptions } from './PickedOptions.js'
+import { OptionsContainer } from './OptionsContainer.js'
 import { RemoveAll } from './RemoveAll.js'
 import { RemoveIndividual } from './RemoveIndividual.js'
 import { ReorderingActions } from './ReorderingActions.js'
 import { RightHeader } from './RightHeader.js'
 import { RightFooter } from './RightFooter.js'
 import { RightSide } from './RightSide.js'
-import { SourceOptions } from './SourceOptions.js'
 import { TransferOption } from './TransferOption.js'
 import {
     addAllSelectableSourceOptions,
@@ -30,6 +29,7 @@ import {
     moveHighlightedPickedOptionUp,
     removeAllPickedOptions,
     removeIndividualPickedOptions,
+    useFilter,
     useHighlightedOptions,
 } from './Transfer/index.js'
 
@@ -68,47 +68,64 @@ export const Transfer = ({
     options,
     onChange,
 
+    addAllText,
+    addIndividualText,
     className,
     dataTest,
     disabled,
-    sourceEmptyPlaceholder,
-    selectedEmptyComponent,
     enableOrderChange,
-    filterLabel,
-    filterPlaceholder,
     filterCallback,
+    filterCallbackPicked,
+    filterLabel,
+    filterLabelPicked,
+    filterPlaceholder,
+    filterPlaceholderPicked,
     filterable,
+    filterablePicked,
     height,
+    hideFilterInput,
+    hideFilterInputPicked,
     initialSearchTerm,
-    addAllText,
-    addIndividualText,
-    removeAllText,
-    removeIndividualText,
+    initialSearchTermPicked,
     leftFooter,
     leftHeader,
+    loadingPicked,
+    loading,
     maxSelections,
     optionsWidth,
+    removeAllText,
+    removeIndividualText,
     renderOption,
-    rightHeader,
     rightFooter,
+    rightHeader,
     searchTerm,
+    searchTermPicked,
     selected,
+    selectedEmptyComponent,
     selectedWidth,
-    hideFilterInput,
+    sourceEmptyPlaceholder,
     onFilterChange,
+    onFilterChangePicked,
+    onEndReached,
+    onEndReachedPicked,
 }) => {
-    /*
-     * Used in the "Filter" section and for
-     * limiting the selectable source options
-     *
-     * Filter can be controlled & uncontrolled.
-     * Providing the "onFilterChange" callback will make it a controlled value
-     */
-    const [internalFilter, setInternalFilter] = useState(initialSearchTerm)
-    const actualFilter = onFilterChange ? searchTerm : internalFilter
-    const actualFilterCallback = filterable ? filterCallback : identity
+    /* Source options search value:
+     * Depending on whether the onFilterChange callback has been provided
+     * either the internal or external search value is used */
+    const {
+        filterValue: actualFilter,
+        filter: actualFilterCallback,
+        setInternalFilter,
+    } = useFilter({
+        initialSearchTerm,
+        onFilterChange,
+        externalSearchTerm: searchTerm,
+        filterable,
+        filterCallback,
+    })
 
     /*
+     * Actual source options:
      * Extract the not-selected options.
      * Filters options if filterable is true.
      */
@@ -118,16 +135,7 @@ export const Transfer = ({
     )
 
     /*
-     * Extract the selected options. Can't use `options.filter`
-     * because we need to keep the order of `selected`
-     */
-    const pickedOptions = selected
-        .map(value => options.find(option => value === option.value))
-        // filter -> in case a selected value has been provided
-        // that does not exist as option
-        .filter(identity)
-
-    /*
+     * Picked options highlighting:
      * These are all the highlighted options on the options side.
      */
     const {
@@ -140,7 +148,37 @@ export const Transfer = ({
         maxSelections,
     })
 
+    /* Picked options search value:
+     * Depending on whether the onFilterChangePicked callback has been provided
+     * either the internal or external search value is used */
+    const {
+        filterValue: actualFilterPicked,
+        filter: actualFilterPickedCallback,
+        setInternalFilter: setInternalFilterPicked,
+    } = useFilter({
+        filterable: filterablePicked,
+        initialSearchTerm: initialSearchTermPicked,
+        onFilterChange: onFilterChangePicked,
+        externalSearchTerm: searchTermPicked,
+        filterCallback: filterCallbackPicked,
+    })
+
     /*
+     * Actual picked options:
+     * Extract the selected options. Can't use `options.filter`
+     * because we need to keep the order of `selected`
+     */
+    const pickedOptions = actualFilterPickedCallback(
+        selected
+            .map(value => options.find(option => value === option.value))
+            // filter -> in case a selected value has been provided
+            // that does not exist as option
+            .filter(identity),
+        actualFilterPicked
+    )
+
+    /*
+     * Source options highlighting:
      * These are all the highlighted options on the selected side.
      */
     const {
@@ -154,6 +192,7 @@ export const Transfer = ({
     })
 
     /*
+     * Source & Picked options:
      * These are the double click handlers for (de-)selection
      */
     const {
@@ -202,32 +241,18 @@ export const Transfer = ({
                     </LeftHeader>
                 )}
 
-                <SourceOptions
+                <OptionsContainer
                     dataTest={`${dataTest}-sourceoptions`}
-                    sourceEmptyPlaceholder={sourceEmptyPlaceholder}
-                >
-                    {sourceOptions.map(option => {
-                        const highlighted = !!highlightedSourceOptions.find(
-                            highlightedSourceOption =>
-                                highlightedSourceOption === option.value
-                        )
-
-                        return (
-                            <Fragment key={option.value}>
-                                {renderOption({
-                                    ...option,
-                                    ...getOptionClickHandlers(
-                                        option,
-                                        selectSingleOption,
-                                        toggleHighlightedSourceOption
-                                    ),
-                                    highlighted,
-                                    selected: false,
-                                })}
-                            </Fragment>
-                        )
-                    })}
-                </SourceOptions>
+                    emptyComponent={sourceEmptyPlaceholder}
+                    getOptionClickHandlers={getOptionClickHandlers}
+                    highlightedOptions={highlightedSourceOptions}
+                    loading={loading}
+                    options={sourceOptions}
+                    renderOption={renderOption}
+                    selectionHandler={selectSingleOption}
+                    toggleHighlightedOption={toggleHighlightedSourceOption}
+                    onEndReached={onEndReached}
+                />
 
                 {leftFooter && (
                     <LeftFooter dataTest={`${dataTest}-leftfooter`}>
@@ -290,6 +315,8 @@ export const Transfer = ({
                     disabled={isRemoveIndividualDisabled}
                     onClick={() =>
                         removeIndividualPickedOptions({
+                            filterablePicked,
+                            pickedOptions,
                             highlightedPickedOptions,
                             onChange,
                             selected,
@@ -300,36 +327,39 @@ export const Transfer = ({
             </Actions>
 
             <RightSide dataTest={`${dataTest}-rightside`} width={selectedWidth}>
-                {rightHeader && (
+                {(rightHeader || filterablePicked) && (
                     <RightHeader dataTest={`${dataTest}-rightheader`}>
                         {rightHeader}
+
+                        {filterablePicked && !hideFilterInputPicked && (
+                            <Filter
+                                label={filterLabelPicked}
+                                placeholder={filterPlaceholderPicked}
+                                dataTest={`${dataTest}-filter`}
+                                filter={actualFilterPicked}
+                                onChange={
+                                    onFilterChangePicked
+                                        ? onFilterChangePicked
+                                        : ({ value }) =>
+                                              setInternalFilterPicked(value)
+                                }
+                            />
+                        )}
                     </RightHeader>
                 )}
-                <PickedOptions
-                    dataTest={`${dataTest}-pickedoptions`}
-                    selectedEmptyComponent={selectedEmptyComponent}
-                >
-                    {pickedOptions.map(option => {
-                        const highlighted = !!highlightedPickedOptions.find(
-                            value => option.value === value
-                        )
 
-                        return (
-                            <Fragment key={option.value}>
-                                {renderOption({
-                                    ...option,
-                                    ...getOptionClickHandlers(
-                                        option,
-                                        deselectSingleOption,
-                                        toggleHighlightedPickedOption
-                                    ),
-                                    highlighted,
-                                    selected: true,
-                                })}
-                            </Fragment>
-                        )
-                    })}
-                </PickedOptions>
+                <OptionsContainer
+                    dataTest={`${dataTest}-pickedoptions`}
+                    emptyComponent={selectedEmptyComponent}
+                    getOptionClickHandlers={getOptionClickHandlers}
+                    highlightedOptions={highlightedPickedOptions}
+                    loading={loadingPicked}
+                    options={pickedOptions}
+                    renderOption={renderOption}
+                    selectionHandler={deselectSingleOption}
+                    toggleHighlightedOption={toggleHighlightedPickedOption}
+                    onEndReached={onEndReachedPicked}
+                />
 
                 {(rightFooter || enableOrderChange) && (
                     <RightFooter dataTest={`${dataTest}-rightfooter`}>
@@ -375,12 +405,14 @@ Transfer.defaultProps = {
     dataTest: 'dhis2-uicore-transfer',
     height: '240px',
     initialSearchTerm: '',
+    initialSearchTermPicked: '',
     maxSelections: Infinity,
     optionsWidth: '320px',
     renderOption: defaultRenderOption,
     selected: [],
     selectedWidth: '320px',
     filterCallback: defaultFilterCallback,
+    filterCallbackPicked: defaultFilterCallback,
 }
 
 /**
@@ -433,14 +465,22 @@ Transfer.propTypes = {
     disabled: propTypes.bool,
     enableOrderChange: propTypes.bool,
     filterCallback: propTypes.func,
+    filterCallbackPicked: propTypes.func,
     filterLabel: propTypes.string,
+    filterLabelPicked: propTypes.string,
     filterPlaceholder: propTypes.string,
+    filterPlaceholderPicked: propTypes.string,
     filterable: propTypes.bool,
+    filterablePicked: propTypes.bool,
     height: propTypes.string,
     hideFilterInput: propTypes.bool,
+    hideFilterInputPicked: propTypes.bool,
     initialSearchTerm: propTypes.string,
+    initialSearchTermPicked: propTypes.string,
     leftFooter: propTypes.node,
     leftHeader: propTypes.node,
+    loading: propTypes.bool,
+    loadingPicked: propTypes.bool,
     maxSelections: propTypes.oneOf([1, Infinity]),
     optionsWidth: propTypes.string,
     removeAllText: propTypes.string,
@@ -449,9 +489,13 @@ Transfer.propTypes = {
     rightFooter: propTypes.node,
     rightHeader: propTypes.node,
     searchTerm: propTypes.string,
+    searchTermPicked: propTypes.string,
     selected: propTypes.arrayOf(propTypes.string),
     selectedEmptyComponent: propTypes.node,
     selectedWidth: propTypes.string,
     sourceEmptyPlaceholder: propTypes.node,
+    onEndReached: propTypes.func,
+    onEndReachedPicked: propTypes.func,
     onFilterChange: propTypes.func,
+    onFilterChangePicked: propTypes.func,
 }

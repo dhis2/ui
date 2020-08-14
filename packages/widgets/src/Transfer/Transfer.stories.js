@@ -1,25 +1,18 @@
 /* eslint-disable react/prop-types */
 import { SingleSelectOption, Tab, TabBar } from '@dhis2/ui-core'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { SingleSelectField, Transfer, TransferOption } from '../index.js'
 
-export default { title: 'Transfer' }
+const statefulDecorator = ({ initialState = [] } = {}) => fn =>
+    React.createElement(() => {
+        const [selected, setSelected] = useState(initialState)
 
-const StatefulWrapper = ({ children, initialState }) => {
-    const [selected, setSelected] = useState(initialState)
-
-    return React.Children.map(children, child =>
-        React.cloneElement(child, {
+        return fn({
             selected,
-            onChange: ({ selected }) => setSelected(selected),
+            onChange: payload => setSelected(payload.selected),
         })
-    )
-}
-
-StatefulWrapper.defaultProps = {
-    initialState: [],
-}
+    })
 
 const options = [
     {
@@ -114,80 +107,96 @@ const options = [
     },
 ]
 
-export const SingleSelection = () => (
-    <StatefulWrapper>
-        <Transfer
-            maxSelections={1}
-            onChange={() => console.log('Will be overriden')}
-            options={options}
-        />
-    </StatefulWrapper>
+export default { title: 'Transfer', decorators: [statefulDecorator()] }
+
+export const SingleSelection = ({ selected, onChange }) => (
+    <Transfer
+        maxSelections={1}
+        onChange={onChange}
+        selected={selected}
+        options={options}
+    />
 )
 
-export const Multiple = () => (
-    <StatefulWrapper>
-        <Transfer
-            onChange={() => console.log('Will be overriden')}
-            options={options.slice(0, 3)}
-        />
-    </StatefulWrapper>
+export const Multiple = ({ selected, onChange }) => (
+    <Transfer
+        onChange={onChange}
+        selected={selected}
+        options={options.slice(0, 3)}
+    />
 )
 
-export const Header = () => (
-    <StatefulWrapper>
-        <Transfer
-            onChange={() => console.log('Will be overriden')}
-            leftHeader={<h3>Header on the left side</h3>}
-            rightHeader={<h4>Header on the right side</h4>}
-            options={options}
-        />
-    </StatefulWrapper>
+export const Header = ({ selected, onChange }) => (
+    <Transfer
+        onChange={onChange}
+        selected={selected}
+        leftHeader={<h3>Header on the left side</h3>}
+        rightHeader={<h4>Header on the right side</h4>}
+        options={options}
+    />
 )
 
-export const OptionsFooter = () => (
-    <StatefulWrapper>
-        <Transfer
-            onChange={() => console.log('Will be overriden')}
-            leftFooter={
-                <a
-                    href="#"
-                    style={{
-                        color: 'grey',
-                        padding: '8px 0',
-                        display: 'block',
-                    }}
-                >
-                    Reload list
-                </a>
-            }
-            options={options}
-        />
-    </StatefulWrapper>
+export const OptionsFooter = ({ selected, onChange }) => (
+    <Transfer
+        onChange={onChange}
+        selected={selected}
+        leftFooter={
+            <a
+                href="#"
+                style={{
+                    color: 'grey',
+                    padding: '8px 0',
+                    display: 'block',
+                }}
+            >
+                Reload list
+            </a>
+        }
+        options={options}
+    />
 )
 
-export const Filtered = () => (
-    <StatefulWrapper>
-        <Transfer
-            filterable
-            onChange={() => console.log('Will be overriden by StatefulWrapper')}
-            initialSearchTerm="ANC"
-            leftHeader={<h3>Header on the left side</h3>}
-            rightHeader={<h4>Header on the right side</h4>}
-            options={options}
-        />
-    </StatefulWrapper>
+export const Filtered = ({ selected, onChange }) => (
+    <Transfer
+        filterable
+        onChange={onChange}
+        selected={selected}
+        initialSearchTerm="ANC"
+        leftHeader={<h3>Header on the left side</h3>}
+        rightHeader={<h4>Header on the right side</h4>}
+        options={options}
+    />
 )
 
-export const FilterPlaceholder = () => (
-    <StatefulWrapper>
-        <Transfer
-            filterable
-            onChange={() => console.log('Will be overriden by StatefulWrapper')}
-            options={options}
-            filterLabel="Filter with placeholder"
-            filterPlaceholder="Search"
-        />
-    </StatefulWrapper>
+export const FilteredPicked = ({ selected, onChange }) => (
+    <Transfer
+        filterablePicked
+        onChange={onChange}
+        selected={selected}
+        initialSearchTermPicked="ANC"
+        leftHeader={<h3>Header on the left side</h3>}
+        rightHeader={<h4>Header on the right side</h4>}
+        options={options}
+    />
+)
+
+FilteredPicked.story = {
+    decorators: [
+        statefulDecorator({
+            initialState: options.map(({ value }) => value),
+        }),
+    ],
+}
+
+export const FilterPlaceholder = ({ selected, onChange }) => (
+    <Transfer
+        filterable
+        onChange={onChange}
+        selected={selected}
+        options={options}
+        filterLabel="Filter with placeholder"
+        filterPlaceholder="Search"
+    />
 )
 
 const renderOption = ({ label, value, onClick, highlighted, selected }) => (
@@ -202,7 +211,7 @@ const renderOption = ({ label, value, onClick, highlighted, selected }) => (
     </p>
 )
 
-export const CustomListOptions = () => (
+const RenderOptionCode = () => (
     <>
         <strong>Custom option code:</strong>
         <code>
@@ -218,56 +227,64 @@ export const CustomListOptions = () => (
     </p>
 )`}</pre>
         </code>
-        <StatefulWrapper
-            initialState={options.slice(0, 2).map(({ value }) => value)}
-        >
-            <Transfer
-                onChange={() =>
-                    console.log('Will be overriden by StatefulWrapper')
-                }
-                renderOption={renderOption}
-                options={options}
-            />
-        </StatefulWrapper>
     </>
 )
 
-export const IndividualCustomOption = () => (
-    <StatefulWrapper>
-        <Transfer
-            onChange={() => console.log('Will be overriden')}
-            addAllText="Add all"
-            addIndividualText="Add individual"
-            removeAllText="Remove all"
-            removeIndividualText="Remove individual"
-            renderOption={args => {
-                if (args.option.value === options[0].value) {
-                    return renderOption(args)
-                }
+export const CustomListOptions = ({ selected, onChange }) => (
+    <>
+        <RenderOptionCode />
 
-                return <TransferOption {...args} />
-            }}
+        <Transfer
+            onChange={onChange}
+            selected={selected}
+            renderOption={renderOption}
             options={options}
         />
-    </StatefulWrapper>
+    </>
 )
 
-export const CustomButtonText = () => (
-    <StatefulWrapper>
-        <Transfer
-            onChange={() => console.log('Will be overriden')}
-            addAllText="Add all"
-            addIndividualText="Add individual"
-            removeAllText="Remove all"
-            removeIndividualText="Remove individual"
-            options={options}
-        />
-    </StatefulWrapper>
-)
+CustomListOptions.story = {
+    decorators: [
+        statefulDecorator({
+            initialState: options.slice(0, 2).map(({ value }) => value),
+        }),
+    ],
+}
 
-export const SourceEmptyPlaceholder = () => (
+export const IndividualCustomOption = ({ selected, onChange }) => (
     <Transfer
-        onChange={() => console.log('Will be overriden')}
+        onChange={onChange}
+        selected={selected}
+        addAllText="Add all"
+        addIndividualText="Add individual"
+        removeAllText="Remove all"
+        removeIndividualText="Remove individual"
+        renderOption={option => {
+            if (option.value === options[0].value) {
+                return renderOption(option)
+            }
+
+            return <TransferOption {...option} />
+        }}
+        options={options}
+    />
+)
+
+export const CustomButtonText = ({ selected, onChange }) => (
+    <Transfer
+        onChange={onChange}
+        selected={selected}
+        addAllText="Add all"
+        addIndividualText="Add individual"
+        removeAllText="Remove all"
+        removeIndividualText="Remove individual"
+        options={options}
+    />
+)
+
+export const SourceEmptyPlaceholder = ({ onChange }) => (
+    <Transfer
+        onChange={onChange}
         options={[]}
         sourceEmptyPlaceholder={
             <p style={{ textAlign: 'center' }}>
@@ -281,9 +298,10 @@ export const SourceEmptyPlaceholder = () => (
     />
 )
 
-export const PickedEmptyComponent = () => (
+export const PickedEmptyComponent = ({ selected, onChange }) => (
     <Transfer
-        onChange={() => console.log('Will be overriden')}
+        selected={selected}
+        onChange={onChange}
         selectedEmptyComponent={
             <p style={{ textAlign: 'center' }}>
                 You have not selected anything yet
@@ -294,49 +312,50 @@ export const PickedEmptyComponent = () => (
     />
 )
 
-export const Reordering = () => (
-    <StatefulWrapper
-        initialState={options.slice(0, 4).map(({ value }) => value)}
-    >
-        <Transfer
-            enableOrderChange
-            onChange={() => null}
-            options={options.slice(0, 4)}
-        />
-    </StatefulWrapper>
+export const Reordering = ({ selected, onChange }) => (
+    <Transfer
+        enableOrderChange
+        onChange={onChange}
+        selected={selected}
+        options={options.slice(0, 4)}
+    />
 )
 
-export const IncreasedOptionsHeight = () => (
+Reordering.story = {
+    decorators: [
+        statefulDecorator({
+            initialState: options.slice(0, 4).map(({ value }) => value),
+        }),
+    ],
+}
+
+export const IncreasedOptionsHeight = ({ selected, onChange }) => (
     <div style={{ maxHeight: 400 }}>
-        <StatefulWrapper>
-            <Transfer
-                maxSelections={Infinity}
-                filterable
-                onChange={() =>
-                    console.log('Will be overriden by StatefulWrapper')
-                }
-                height="400px"
-                leftHeader={<h3>Header on the left side</h3>}
-                rightHeader={<h4>Header on the right side</h4>}
-                options={options}
-            />
-        </StatefulWrapper>
+        <Transfer
+            maxSelections={Infinity}
+            filterable
+            onChange={onChange}
+            selected={selected}
+            height="400px"
+            leftHeader={<h3>Header on the left side</h3>}
+            rightHeader={<h4>Header on the right side</h4>}
+            options={options}
+        />
     </div>
 )
 
-export const DifferentWidths = () => (
-    <StatefulWrapper>
-        <Transfer
-            filterable
-            onChange={() => console.log('Will be overriden by StatefulWrapper')}
-            initialSearchTerm="Ba"
-            leftHeader={<h3>Header on the left side</h3>}
-            rightHeader={<h4>Header on the right side</h4>}
-            optionsWidth="500px"
-            selectedWidth="240px"
-            options={options}
-        />
-    </StatefulWrapper>
+export const DifferentWidths = ({ selected, onChange }) => (
+    <Transfer
+        filterable
+        onChange={onChange}
+        selected={selected}
+        initialSearchTerm="Ba"
+        leftHeader={<h3>Header on the left side</h3>}
+        rightHeader={<h4>Header on the right side</h4>}
+        optionsWidth="500px"
+        selectedWidth="240px"
+        options={options}
+    />
 )
 
 const createCustomFilteringInHeader = hideFilterInput => {
@@ -443,10 +462,12 @@ const createCustomFilteringInHeader = hideFilterInput => {
     }
 
     // eslint-disable-next-line react/display-name
-    return () => (
-        <StatefulWrapper>
-            <CustomTransfer options={allOptions} />
-        </StatefulWrapper>
+    return ({ selected, onChange }) => (
+        <CustomTransfer
+            options={allOptions}
+            onChange={onChange}
+            selected={selected}
+        />
     )
 }
 
@@ -457,3 +478,73 @@ export const CustomFilteringWithFilterInput = createCustomFilteringInHeader(
 export const CustomFilteringWithoutFilterInput = createCustomFilteringInHeader(
     true
 )
+
+const sliceLength = 6
+
+export const InifiniteLoading = ({ selected, onChange }) => {
+    const [loading, setLoading] = useState(false)
+    const [optionsLength, setOptionsLength] = useState(sliceLength)
+    const [optionsSlice, setOptionsSlice] = useState(
+        options.slice(0, optionsLength)
+    )
+
+    useEffect(() => {
+        if (sliceLength !== optionsLength) {
+            setTimeout(() => {
+                setOptionsSlice(options.slice(0, optionsLength))
+                setLoading(false)
+            }, 1000)
+
+            setLoading(true)
+        }
+    }, [optionsLength])
+
+    return (
+        <Transfer
+            loadingSource={loading}
+            options={optionsSlice}
+            selected={selected}
+            onChange={onChange}
+            onSourceEndReached={() => {
+                if (loading) return
+
+                const newOptionsLength = Math.min(
+                    optionsLength + sliceLength,
+                    options.length
+                )
+
+                setOptionsLength(newOptionsLength)
+            }}
+        />
+    )
+}
+
+export const LoadingSource = ({ selected, onChange }) => (
+    <Transfer
+        loadingSource
+        onChange={onChange}
+        selected={selected}
+        options={options.slice(0, 3)}
+        leftHeader={<h4>Left header</h4>}
+        leftFooter={<h4>Left footer</h4>}
+    />
+)
+
+export const LoadingPicked = ({ selected, onChange }) => (
+    <Transfer
+        loadingPicked
+        onChange={onChange}
+        selected={selected}
+        options={options.slice(0, 3)}
+        rightHeader={<h4>Right header</h4>}
+        rightFooter={<h4>Right footer</h4>}
+    />
+)
+
+LoadingPicked.story = {
+    decorators: [
+        statefulDecorator({
+            initialState: options.slice(0, 2).map(({ value }) => value),
+        }),
+    ],
+}
