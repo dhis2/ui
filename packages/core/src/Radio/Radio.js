@@ -141,7 +141,7 @@ class Radio extends Component {
                     .icon {
                         pointer-events: none;
                         user-select: none;
-                        margin-right: 5px;
+                        margin-right: ${label ? '5px' : 0};
                         border: 2px solid transparent;
                         padding: 1px;
                         border-radius: 50%;
