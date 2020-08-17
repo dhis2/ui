@@ -481,7 +481,7 @@ export const CustomFilteringWithoutFilterInput = createCustomFilteringInHeader(
 
 const sliceLength = 6
 
-export const InifiniteLoading = ({ selected, onChange }) => {
+export const InfiniteLoading = ({ selected, onChange }) => {
     const [loading, setLoading] = useState(false)
     const [optionsLength, setOptionsLength] = useState(sliceLength)
     const [optionsSlice, setOptionsSlice] = useState(
@@ -501,11 +501,11 @@ export const InifiniteLoading = ({ selected, onChange }) => {
 
     return (
         <Transfer
-            loadingSource={loading}
+            loading={loading}
             options={optionsSlice}
             selected={selected}
             onChange={onChange}
-            onSourceEndReached={() => {
+            onEndReached={() => {
                 if (loading) return
 
                 const newOptionsLength = Math.min(
@@ -521,7 +521,7 @@ export const InifiniteLoading = ({ selected, onChange }) => {
 
 export const LoadingSource = ({ selected, onChange }) => (
     <Transfer
-        loadingSource
+        loading
         onChange={onChange}
         selected={selected}
         options={options.slice(0, 3)}
