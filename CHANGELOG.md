@@ -1,3 +1,11 @@
+## [5.5.1](https://github.com/dhis2/ui/compare/v5.5.0...v5.5.1) (2020-08-20)
+
+
+### Bug Fixes
+
+* **transfer:** pass correct "selected" value to renderOption call ([96c19db](https://github.com/dhis2/ui/commit/96c19dbedbec8b468fb832157c298ff3339f737d))
+* **transfer:** pass correct selected value to renderOption ([5cc0242](https://github.com/dhis2/ui/commit/5cc0242d952807ffee8d4fa288c821b82d604551))
+
 # [5.5.0](https://github.com/dhis2/ui/compare/v5.4.2...v5.5.0) (2020-08-14)
 
 
