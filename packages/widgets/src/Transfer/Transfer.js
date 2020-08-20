@@ -349,6 +349,7 @@ export const Transfer = ({
                 )}
 
                 <OptionsContainer
+                    selected
                     dataTest={`${dataTest}-pickedoptions`}
                     emptyComponent={selectedEmptyComponent}
                     getOptionClickHandlers={getOptionClickHandlers}

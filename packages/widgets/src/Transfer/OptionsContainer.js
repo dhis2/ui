@@ -14,6 +14,7 @@ export const OptionsContainer = ({
     loading,
     renderOption,
     options,
+    selected,
     selectionHandler,
     toggleHighlightedOption,
 }) => {
@@ -70,7 +71,7 @@ export const OptionsContainer = ({
                                         toggleHighlightedOption
                                     ),
                                     highlighted,
-                                    selected: false,
+                                    selected,
                                 })}
                             </Fragment>
                         )
@@ -125,6 +126,10 @@ export const OptionsContainer = ({
     )
 }
 
+OptionsContainer.defaultProps = {
+    selected: false,
+}
+
 OptionsContainer.propTypes = {
     dataTest: propTypes.string.isRequired,
     getOptionClickHandlers: propTypes.func.isRequired,
@@ -138,6 +143,7 @@ OptionsContainer.propTypes = {
         })
     ),
     renderOption: propTypes.func,
+    selected: propTypes.bool,
     selectionHandler: propTypes.func,
     toggleHighlightedOption: propTypes.func,
     onEndReached: propTypes.func,
