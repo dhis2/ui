@@ -16,7 +16,7 @@
         "@storybook/components": "^5.3.19",
         "@storybook/csf": "^0.0.1",
         "@storybook/preset-create-react-app": "^3.0.0",
-        "@storybook/react": "^5.3.19",
+        "@storybook/react": "^6.0.16",
         "storybook-addon-jsx": "^7.1.14",
         "storybook-addon-react-docgen": "^1.2.42",
         "typeface-roboto": "^0.0.75"
