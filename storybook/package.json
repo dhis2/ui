@@ -11,7 +11,7 @@
         "start:cypress": "EXTEND_ESLINT=true start-storybook --port 5001"
     },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^4.0.8",
+        "@dhis2/cli-app-scripts": "^5.0.0",
         "@storybook/addons": "^5.3.9",
         "@storybook/components": "^5.3.19",
         "@storybook/csf": "^0.0.1",
