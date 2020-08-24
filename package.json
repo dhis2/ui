@@ -67,7 +67,7 @@
         "@storybook/preset-create-react-app": "^3.0.0",
         "@storybook/react": "^5.3.19",
         "@wertarbyte/react-props-md-table": "^1.1.1",
-        "concurrently": "^5.1.0",
+        "concurrently": "^5.3.0",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.2",
         "react": "16.8",
