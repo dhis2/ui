@@ -1,3 +1,10 @@
+## [5.5.2](https://github.com/dhis2/ui/compare/v5.5.1...v5.5.2) (2020-08-24)
+
+
+### Bug Fixes
+
+* **radio:** no margin if no label ([5cae414](https://github.com/dhis2/ui/commit/5cae414c8381ddf5fba260803fabb05e43952acc))
+
 ## [5.5.1](https://github.com/dhis2/ui/compare/v5.5.0...v5.5.1) (2020-08-20)
 
 
