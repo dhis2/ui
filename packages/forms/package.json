@@ -23,7 +23,7 @@
     "dependencies": {
         "@dhis2/prop-types": "^1.6.4",
         "classnames": "^2.2.6",
-        "final-form": "^4.20.0",
+        "final-form": "^4.20.1",
         "react-final-form": "^6.5.1"
     },
     "files": [
