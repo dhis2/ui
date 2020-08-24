@@ -371,3 +371,13 @@ storiesOf('Radio', module)
             onBlur={onBlur}
         />
     ))
+    .add('No Label', () => (
+        <Radio
+            name="Ex"
+            value="with-help"
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            className="some-name"
+        />
+    ))
