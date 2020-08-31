@@ -8,9 +8,9 @@
  * render, we can be certain that i18n will have initialized.
  */
 
-const translate = prop => {
+const translate = (prop, interpolationObject) => {
     if (typeof prop === 'function') {
-        return prop()
+        return prop(interpolationObject)
     }
 
     return prop

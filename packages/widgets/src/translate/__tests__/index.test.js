@@ -9,6 +9,16 @@ describe('translate', () => {
         expect(result).toBe('translated string')
     })
 
+    it('should pass the interpolationObject as an argument to the prop function', () => {
+        const spy = jest.fn(() => 'translated string')
+        const interpolationObject = { name: 'Test' }
+
+        translate(spy, interpolationObject)
+
+        expect(spy).toHaveBeenCalled()
+        expect(spy).toHaveBeenCalledWith(interpolationObject)
+    })
+
     it('should return prop as is if it is not a function', () => {
         const result = translate('just a string')
 

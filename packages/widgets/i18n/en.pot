@@ -58,3 +58,20 @@ msgstr ""
 
 msgid "Error: {{ ERRORMESSAGE }}"
 msgstr ""
+
+msgid "Next"
+msgstr ""
+
+msgid "Page"
+msgstr ""
+
+msgid "Items per page"
+msgstr ""
+
+msgid ""
+"Page {{page}} of {{pageCount}}, items {{firstItem}}-{{lastItem}} of "
+"{{total}}"
+msgstr ""
+
+msgid "Previous"
+msgstr ""
