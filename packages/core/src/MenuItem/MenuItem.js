@@ -67,8 +67,13 @@ const MenuItem = ({
                     target={target}
                     href={!disabled && href ? href : undefined}
                     onClick={
-                        !disabled &&
-                        createOnClickHandler(onClick, toggleSubMenu, value)
+                        !disabled
+                            ? createOnClickHandler(
+                                  onClick,
+                                  toggleSubMenu,
+                                  value
+                              )
+                            : undefined
                     }
                 >
                     {icon && <span className="icon">{icon}</span>}
