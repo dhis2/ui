@@ -1,3 +1,10 @@
+## [5.5.3](https://github.com/dhis2/ui/compare/v5.5.2...v5.5.3) (2020-08-31)
+
+
+### Bug Fixes
+
+* **menu-item:** make sure onClick is undefined when disabled ([1bcd1f8](https://github.com/dhis2/ui/commit/1bcd1f8117cf2afb928bc50984f8611f701f5d65))
+
 ## [5.5.2](https://github.com/dhis2/ui/compare/v5.5.1...v5.5.2) (2020-08-24)
 
 
