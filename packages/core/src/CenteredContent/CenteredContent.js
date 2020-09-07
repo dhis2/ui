@@ -12,24 +12,31 @@ import propTypes from '@dhis2/prop-types'
  */
 const CenteredContent = forwardRef(
     ({ className, dataTest, children, position }, ref) => (
-        <div className={cx(className, position)} data-test={dataTest} ref={ref}>
-            {children}
+        <div
+            className={cx('centered-content', className, position)}
+            data-test={dataTest}
+            ref={ref}
+        >
+            <div className="centered-inner-content">{children}</div>
+
             <style jsx>{`
-                div {
-                    position: absolute;
-                    left: 50%;
+                .centered-content {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: space-around;
+                    flex-direction: row;
+                    pointer-events: none;
+                    align-items: center;
                 }
-                div.middle {
-                    top: 50%;
-                    transform: translate(-50%, -50%);
+                .centered-content.top {
+                    align-items: flex-start;
                 }
-                div.top {
-                    top: 0;
-                    transform: translate(-50%, 0);
+                .centered-content.bottom {
+                    align-items: flex-end;
                 }
-                div.bottom {
-                    bottom: 0;
-                    transform: translate(-50%, 0);
+                .centered-inner-content {
+                    pointer-events: all;
                 }
             `}</style>
         </div>

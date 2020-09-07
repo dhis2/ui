@@ -67,28 +67,33 @@ export const Modal = ({
                 <Card className={scrollBoxCard.className}>{children}</Card>
             </aside>
             {scrollBoxCard.styles}
-            <style jsx>{`
-                aside {
-                    overflow-y: hidden;
-                    height: auto;
-                    max-height: calc(100vh - ${2 * spacersNum.dp64}px);
-                    max-width: calc(100vw - ${2 * spacersNum.dp64}px);
-                    width: 600px;
-                }
-                aside.top {
-                    transform: translateY(${spacers.dp64});
-                }
-                aside.bottom {
-                    transform: translateY(-${spacers.dp64});
-                }
-                aside.small {
-                    width: 400px;
-                }
-                aside.large {
-                    width: 800px;
-                }
-            `}</style>
         </CenteredContent>
+
+        <style jsx>{`
+            aside {
+                overflow-y: hidden;
+                height: auto;
+                max-height: calc(100vh - ${2 * spacersNum.dp64}px);
+                max-width: calc(100vw - ${2 * spacersNum.dp64}px);
+                width: 600px;
+            }
+
+            aside.top {
+                margin-top: ${spacers.dp64};
+            }
+
+            aside.bottom {
+                margin-bottom: ${spacers.dp64};
+            }
+
+            aside.small {
+                width: 400px;
+            }
+
+            aside.large {
+                width: 800px;
+            }
+        `}</style>
     </Layer>
 )
 
