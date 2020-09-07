@@ -1,3 +1,10 @@
+## [5.5.4](https://github.com/dhis2/ui/compare/v5.5.3...v5.5.4) (2020-09-07)
+
+
+### Bug Fixes
+
+* stop using css transform for centering modal and centered-content ([2b326d0](https://github.com/dhis2/ui/commit/2b326d09c82db78a5abc5341c73fecfebf60e8b2))
+
 ## [5.5.3](https://github.com/dhis2/ui/compare/v5.5.2...v5.5.3) (2020-08-31)
 
 
