@@ -1,3 +1,10 @@
+## [5.5.5](https://github.com/dhis2/ui/compare/v5.5.4...v5.5.5) (2020-09-07)
+
+
+### Bug Fixes
+
+* **checkbox:** set label position to relative ([6f48565](https://github.com/dhis2/ui/commit/6f4856525e382aea0b1963f848ae5364ae811e50))
+
 ## [5.5.4](https://github.com/dhis2/ui/compare/v5.5.3...v5.5.4) (2020-09-07)
 
 
