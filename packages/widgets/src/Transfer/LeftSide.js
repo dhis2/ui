@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
-import { borderColor, borderRadius } from './common/index.js'
+import { backgroundColor, borderColor, borderRadius } from './common/index.js'
 
 export const LeftSide = ({ children, dataTest, width }) => (
     <div data-test={dataTest}>
@@ -17,6 +17,7 @@ export const LeftSide = ({ children, dataTest, width }) => (
             div {
                 display: flex;
                 flex-direction: column;
+                background-color: ${backgroundColor};
                 border-radius: ${borderRadius};
                 border: 1px solid ${borderColor};
                 min-height: 240px;
