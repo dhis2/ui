@@ -1,3 +1,10 @@
+## [5.5.6](https://github.com/dhis2/ui/compare/v5.5.5...v5.5.6) (2020-09-15)
+
+
+### Bug Fixes
+
+* add background to transfer option containers ([a0fa81f](https://github.com/dhis2/ui/commit/a0fa81fe8c6c9d743bfce27b0c0a07d7ed62c093))
+
 ## [5.5.5](https://github.com/dhis2/ui/compare/v5.5.4...v5.5.5) (2020-09-07)
 
 
