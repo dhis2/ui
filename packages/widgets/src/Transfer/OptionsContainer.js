@@ -21,7 +21,6 @@ export const OptionsContainer = ({
 }) => {
     const optionsRef = useRef(null)
     const wrapperRef = useRef(null)
-
     const resizeCounter = useResizeCounter(wrapperRef.current)
 
     return (
