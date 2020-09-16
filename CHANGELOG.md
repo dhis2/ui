@@ -1,3 +1,11 @@
+## [5.5.8](https://github.com/dhis2/ui/compare/v5.5.7...v5.5.8) (2020-09-16)
+
+
+### Bug Fixes
+
+* **intersection detector:** remove observer state variabe and condition ([3fc4637](https://github.com/dhis2/ui/commit/3fc4637029da277eef0e8d7049f64ba44f73aa85))
+* **transfer:** make inifinite loading work when selecting options ([#257](https://github.com/dhis2/ui/issues/257)) ([04f0884](https://github.com/dhis2/ui/commit/04f0884dff80c35230f57d7a4c870aae5c68fe34))
+
 ## [5.5.7](https://github.com/dhis2/ui/compare/v5.5.6...v5.5.7) (2020-09-16)
 
 
