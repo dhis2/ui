@@ -137,13 +137,11 @@ export default css`
     }
 
     .primary:disabled {
-        border-color: ${theme.primary800};
-        background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
-        background-color: #b6c8e2;
+        border-color: #93a6bd;
+        background: #b3c6de;
         box-shadow: none;
         color: ${colors.white};
         fill: ${colors.white};
-        opacity: 0.33;
     }
 
     .secondary {
@@ -212,13 +210,11 @@ export default css`
     }
 
     .destructive:disabled {
-        border-color: #a10b0b;
-        background: linear-gradient(180deg, #d32f2f 0%, #b71c1c 100%);
-        background-color: #e5b5b7;
+        border-color: #c59898;
+        background: #d6a8a8;
         box-shadow: none;
         color: ${colors.white};
         fill: ${colors.white};
-        opacity: 0.33;
     }
 
     .icon-only {
@@ -274,6 +270,5 @@ export default css`
         border-color: ${colors.grey600};
         color: ${colors.grey050};
         fill: ${colors.grey050};
-        opacity: 1;
     }
 `

@@ -38,9 +38,43 @@ export const Destructive = () => (
 )
 
 export const Disabled = () => (
-    <Button disabled name="Disabled button" value="default" onClick={logger}>
-        Label me!
-    </Button>
+    <>
+        <Button
+            disabled
+            name="Disabled button"
+            value="default"
+            onClick={logger}
+        >
+            Label me!
+        </Button>
+        <Button
+            primary
+            disabled
+            name="Disabled primary button"
+            value="default"
+            onClick={logger}
+        >
+            Label me!
+        </Button>
+        <Button
+            secondary
+            disabled
+            name="Disabled secondary button"
+            value="default"
+            onClick={logger}
+        >
+            Label me!
+        </Button>
+        <Button
+            destructive
+            disabled
+            name="Disabled destructive button"
+            value="default"
+            onClick={logger}
+        >
+            Label me!
+        </Button>
+    </>
 )
 
 export const Small = () => (
