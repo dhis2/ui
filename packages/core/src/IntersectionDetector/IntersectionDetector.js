@@ -13,6 +13,7 @@ export const IntersectionDetector = ({
     onChange,
     children,
     className,
+    dataTest,
     rootRef,
 }) => {
     // Use useRef instead of useState to prevent unnecessary re-render:
@@ -20,10 +21,6 @@ export const IntersectionDetector = ({
     //   so there's no need for re-rendering the (potentially computational
     //   heavy) children.  Also: If the parent re-renders (e. g. due to a state
     //   change), then this component will re-render as well.
-
-    // @var {Object}
-    // @prop {IntersectionObserver} current
-    const observer = useRef()
 
     // @var {Object}
     // @prop {bool} current
@@ -37,7 +34,7 @@ export const IntersectionDetector = ({
         const rootEl = rootRef.current
         const intersectionEl = intersectionRef.current
 
-        if (rootEl && intersectionEl && !observer.current) {
+        if (rootEl && intersectionEl) {
             const onIntersection = entries => {
                 // Currently there's no way to supply multiple thresholds,
                 // so a single entry can be assumed safely
@@ -63,7 +60,6 @@ export const IntersectionDetector = ({
             )
 
             intersectionObserver.observe(intersectionEl)
-            observer.current = intersectionObserver
 
             // Make sure to clean up everything when un-mounting.
             // Using an arrow function instead of just returning
@@ -73,7 +69,7 @@ export const IntersectionDetector = ({
     }, [rootRef.current, intersectionRef.current])
 
     return (
-        <div ref={intersectionRef} className={className}>
+        <div ref={intersectionRef} className={className} data-test={dataTest}>
             {children}
 
             <style jsx>{`
@@ -90,6 +86,7 @@ export const IntersectionDetector = ({
 
 IntersectionDetector.defaultProps = {
     threshold: 0,
+    dataTest: 'dhis2-uicore-intersectiondetector',
 }
 
 /**
@@ -112,5 +109,6 @@ IntersectionDetector.propTypes = {
 
     children: PropTypes.any,
     className: PropTypes.string,
+    dataTest: PropTypes.string,
     threshold: PropTypes.number,
 }

@@ -1,9 +1,10 @@
 import { CircularLoader } from '@dhis2/ui-core'
 import { spacers } from '@dhis2/ui-constants'
-import React, { Fragment, useEffect, useRef, useState } from 'react'
+import React, { Fragment, useRef } from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { EndIntersectionDetector } from './EndIntersectionDetector.js'
+import { useResizeCounter } from './useResizeCounter'
 
 export const OptionsContainer = ({
     dataTest,
@@ -18,31 +19,9 @@ export const OptionsContainer = ({
     selectionHandler,
     toggleHighlightedOption,
 }) => {
-    const [remountCounter, setRemountCounter] = useState(0)
-    const [resizeObserver, setResizeObserver] = useState(null)
     const optionsRef = useRef(null)
     const wrapperRef = useRef(null)
-
-    useEffect(() => {
-        if (onEndReached && wrapperRef.current) {
-            // The initial call is irrelevant as there has been
-            // no resize yet that we want to react to
-            let firstCall = false
-
-            const observer = new ResizeObserver(() => {
-                if (!firstCall) {
-                    const newCounter = remountCounter + 1
-                    setRemountCounter(newCounter)
-                    firstCall = true
-                }
-            })
-
-            observer.observe(wrapperRef.current)
-            setResizeObserver(observer)
-
-            return () => observer.disconnect()
-        }
-    }, [onEndReached, wrapperRef.current, setRemountCounter])
+    const resizeCounter = useResizeCounter(wrapperRef.current)
 
     return (
         <div className="optionsContainer">
@@ -77,10 +56,10 @@ export const OptionsContainer = ({
                         )
                     })}
 
-                    {onEndReached && resizeObserver && (
+                    {onEndReached && (
                         <EndIntersectionDetector
                             dataTest={`${dataTest}-endintersectiondetector`}
-                            key={`key-${remountCounter}`}
+                            key={`key-${resizeCounter}`}
                             rootRef={optionsRef}
                             onEndReached={onEndReached}
                         />
