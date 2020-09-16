@@ -1,3 +1,10 @@
+## [5.5.9](https://github.com/dhis2/ui/compare/v5.5.8...v5.5.9) (2020-09-16)
+
+
+### Bug Fixes
+
+* remove name property for select field labels ([b993e27](https://github.com/dhis2/ui/commit/b993e27a5733afdde29d9bce131addfeb8603574))
+
 ## [5.5.8](https://github.com/dhis2/ui/compare/v5.5.7...v5.5.8) (2020-09-16)
 
 
