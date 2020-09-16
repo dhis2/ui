@@ -10,7 +10,7 @@ export const styles = css`
         padding: 8px 12px;
 
         color: ${colors.grey900};
-        background-color: transparent;
+        background-color: white;
 
         border: 1px solid ${colors.grey500};
         border-radius: 3px;
