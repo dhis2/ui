@@ -1,3 +1,10 @@
+## [5.5.7](https://github.com/dhis2/ui/compare/v5.5.6...v5.5.7) (2020-09-16)
+
+
+### Bug Fixes
+
+* use white background color for textarea instead of transparent ([e8c8f9d](https://github.com/dhis2/ui/commit/e8c8f9d766135d34cddea7fad5dd08c6dbc5418f))
+
 ## [5.5.6](https://github.com/dhis2/ui/compare/v5.5.5...v5.5.6) (2020-09-15)
 
 
