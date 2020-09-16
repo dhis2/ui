@@ -57,7 +57,6 @@ class SingleSelectField extends React.Component {
             <Field
                 className={className}
                 dataTest={dataTest}
-                name={name}
                 disabled={disabled}
                 required={required}
                 label={label}
