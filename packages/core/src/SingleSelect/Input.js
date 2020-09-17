@@ -20,7 +20,7 @@ const Input = ({
     disabled,
     inputMaxHeight,
 }) => {
-    const hasSelection = selected && typeof selected === 'string'
+    const hasSelection = typeof selected === 'string'
     const onClear = (_, e) => {
         const data = { selected: '' }
 

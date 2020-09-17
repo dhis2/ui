@@ -118,7 +118,6 @@ const SingleSelect = ({
 }
 
 SingleSelect.defaultProps = {
-    selected: '',
     dataTest: 'dhis2-uicore-singleselect',
 }
 

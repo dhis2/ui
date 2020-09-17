@@ -102,7 +102,6 @@ class SingleSelectField extends React.Component {
 
 SingleSelectField.defaultProps = {
     dataTest: 'dhis2-uiwidgets-singleselectfield',
-    selected: '',
 
     clearText: () => i18n.t('Clear'),
     empty: () => i18n.t('No data found'),
