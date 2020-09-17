@@ -4,8 +4,10 @@ import propTypes from 'prop-types'
 
 export const RootError = ({ dataTest, error }) => (
     <div data-test={`${dataTest}-loading`}>
-        {i18n.t('Error: ')}
-        {error}
+        {i18n.t('Error: {{ ERRORMESSAGE }}', {
+            ERRORMESSAGE: error,
+            nsSeparator: '>',
+        })}
     </div>
 )
 
