@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-05-14T13:50:41.269Z\n"
-"PO-Revision-Date: 2020-05-14T13:50:41.269Z\n"
+"POT-Creation-Date: 2020-09-17T12:14:04.736Z\n"
+"PO-Revision-Date: 2020-09-17T12:14:04.736Z\n"
 
 msgid "Upload a file"
 msgstr ""
@@ -54,4 +54,7 @@ msgid "No options found"
 msgstr ""
 
 msgid "Could not load children"
+msgstr ""
+
+msgid "Error: {{ ERRORMESSAGE }}"
 msgstr ""
