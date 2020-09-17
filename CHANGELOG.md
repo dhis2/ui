@@ -1,3 +1,10 @@
+## [5.5.11](https://github.com/dhis2/ui/compare/v5.5.10...v5.5.11) (2020-09-17)
+
+
+### Bug Fixes
+
+* use > as ns separator for translation with : ([f52499d](https://github.com/dhis2/ui/commit/f52499dc0fbca8d612be72251087e2b2ae4639ac))
+
 ## [5.5.10](https://github.com/dhis2/ui/compare/v5.5.9...v5.5.10) (2020-09-17)
 
 
