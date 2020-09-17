@@ -1,3 +1,10 @@
+## [5.5.10](https://github.com/dhis2/ui/compare/v5.5.9...v5.5.10) (2020-09-17)
+
+
+### Bug Fixes
+
+* **button:** adjust disabled styles ([0001fd0](https://github.com/dhis2/ui/commit/0001fd002cf7fde3a9a7625c224d61f0d1064126))
+
 ## [5.5.9](https://github.com/dhis2/ui/compare/v5.5.8...v5.5.9) (2020-09-16)
 
 
