@@ -1,3 +1,10 @@
+# [5.6.0](https://github.com/dhis2/ui/compare/v5.5.11...v5.6.0) (2020-09-17)
+
+
+### Features
+
+* introduce pagination component with unit-tests, docs and demo ([d309081](https://github.com/dhis2/ui/commit/d30908113b80719d7f3a7603c20c59e811484163))
+
 ## [5.5.11](https://github.com/dhis2/ui/compare/v5.5.10...v5.5.11) (2020-09-17)
 
 
