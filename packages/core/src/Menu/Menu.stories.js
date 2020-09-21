@@ -2,6 +2,7 @@ import React from 'react'
 
 import { MenuItem } from '../MenuItem/MenuItem.js'
 import { Menu } from './Menu.js'
+import { MenuSectionHeader } from '../MenuSectionHeader/MenuSectionHeader.js'
 
 export default {
     title: 'Menu',
@@ -19,6 +20,13 @@ export const Dense = () => (
     <Menu dense>
         <MenuItem label="Menu item" />
         <MenuItem label="Menu item" />
+    </Menu>
+)
+
+export const AutoHideFirstSectionHeaderDivider = () => (
+    <Menu>
+        <MenuSectionHeader label="First - no divider above" />
+        <MenuSectionHeader label="Second - with divider above" />
     </Menu>
 )
 
