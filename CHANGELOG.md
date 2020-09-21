@@ -1,3 +1,10 @@
+## [5.6.1](https://github.com/dhis2/ui/compare/v5.6.0...v5.6.1) (2020-09-21)
+
+
+### Bug Fixes
+
+* **menu:** stop using child's dense prop to set value of hideDivider ([162924d](https://github.com/dhis2/ui/commit/162924db1e41ee3db10263c8d16dcabf8fda39df))
+
 # [5.6.0](https://github.com/dhis2/ui/compare/v5.5.11...v5.6.0) (2020-09-17)
 
 
