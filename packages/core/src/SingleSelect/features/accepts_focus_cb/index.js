@@ -9,7 +9,7 @@ Then('the onFocus handler is called', () => {
     cy.window().should(win => {
         expect(win.onFocus).to.be.calledOnce
         expect(win.onFocus).to.be.calledWith({
-            selected: '',
+            selected: undefined,
         })
     })
 })
