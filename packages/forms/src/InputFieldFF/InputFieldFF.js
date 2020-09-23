@@ -29,6 +29,7 @@ export const InputFieldFF = ({
     <InputField
         {...rest}
         name={input.name}
+        type={input.type}
         error={hasError(meta, error)}
         valid={isValid(meta, valid, showValidStatus)}
         loading={isLoading(meta, loading, showLoadingStatus)}
