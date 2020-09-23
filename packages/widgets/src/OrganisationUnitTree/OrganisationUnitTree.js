@@ -46,6 +46,7 @@ const OrganisationUnitTree = ({
     filter,
     selected,
     singleSelection,
+    suppressAlphabeticalSorting,
 
     onExpand,
     onCollapse,
@@ -56,6 +57,7 @@ const OrganisationUnitTree = ({
     const { loading, error, data, refetch } = useOrgData(rootIds, {
         withChildren: false,
         isUserDataViewFallback,
+        suppressAlphabeticalSorting,
     })
     const { expanded, handleExpand, handleCollapse } = useExpanded(
         initiallyExpanded,
@@ -95,6 +97,9 @@ const OrganisationUnitTree = ({
                             path={rootPath}
                             selected={selected}
                             singleSelection={singleSelection}
+                            suppressAlphabeticalSorting={
+                                suppressAlphabeticalSorting
+                            }
                             onChange={onChange}
                             onChildrenLoaded={onChildrenLoaded}
                             onCollapse={handleCollapse}
@@ -190,6 +195,7 @@ OrganisationUnitTree.propTypes = {
     isUserDataViewFallback: propTypes.bool,
     selected: propTypes.arrayOf(orgUnitPathPropType),
     singleSelection: propTypes.bool,
+    suppressAlphabeticalSorting: propTypes.bool,
     onChildrenLoaded: propTypes.func,
     onCollapse: propTypes.func,
     onExpand: propTypes.func,

@@ -447,6 +447,7 @@ storiesOf('OrganisationUnitTree', module)
             </div>
             <Wrapper
                 //initiallyExpanded={['/ImspTQPwCqd/eIQbndfxQMb']}
+                suppressAlphabeticalSorting
                 roots="ImspTQPwCqd"
             />
         </div>

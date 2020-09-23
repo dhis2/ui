@@ -2,6 +2,7 @@ import { useDataQuery } from '@dhis2/app-runtime'
 
 import {
     addMissingDisplayNameProps,
+    sortNodeChildrenAlphabetically,
     createQuery,
 } from '../useOrgData/helpers.js'
 import { useOrgData } from '../useOrgData.js'
@@ -12,7 +13,8 @@ jest.mock('@dhis2/app-runtime', () => ({
 
 jest.mock('../useOrgData/helpers', () => ({
     createQuery: jest.fn(() => 'createQuery'),
-    addMissingDisplayNameProps: jest.fn(() => 'addMissingDisplayNameProps'),
+    addMissingDisplayNameProps: jest.fn(() => ({})),
+    sortNodeChildrenAlphabetically: jest.fn(() => []),
 }))
 
 describe('OrganisationUnitTree - useOrgData', () => {
@@ -22,6 +24,7 @@ describe('OrganisationUnitTree - useOrgData', () => {
         createQuery.mockClear()
         useDataQuery.mockClear()
         addMissingDisplayNameProps.mockClear()
+        sortNodeChildrenAlphabetically.mockClear()
     })
 
     it('create the query from the ids', () => {
@@ -44,10 +47,22 @@ describe('OrganisationUnitTree - useOrgData', () => {
         expect(addMissingDisplayNameProps).toHaveBeenCalledWith(data)
     })
 
-    it('should return the data from addMissingDisplayNameProps as data when there are nodes', () => {
+    it('should return the data from addMissingDisplayNameProps as data when there are nodes and children are not being sorted', () => {
         const data = { id1: {} }
         useDataQuery.mockReturnValueOnce({ loading: false, error: null, data })
         addMissingDisplayNameProps.mockImplementationOnce(input => input)
+        const { data: actual } = useOrgData(ids, {
+            suppressAlphabeticalSorting: true,
+        })
+
+        expect(actual).toEqual(data)
+    })
+
+    it('should return the data from the sorting process as data when there are nodes and children are being sorted', () => {
+        const data = { id1: { id: 'id1' }, id2: { id: 'id2' } }
+        useDataQuery.mockReturnValueOnce({ loading: false, error: null, data })
+        addMissingDisplayNameProps.mockImplementationOnce(input => input)
+        sortNodeChildrenAlphabetically.mockImplementation(input => input)
         const { data: actual } = useOrgData(ids)
 
         expect(actual).toEqual(data)
