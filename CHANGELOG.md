@@ -1,3 +1,11 @@
+## [5.6.2](https://github.com/dhis2/ui/compare/v5.6.1...v5.6.2) (2020-09-23)
+
+
+### Bug Fixes
+
+* **input field ff:** forward type property of Field component ([a90ae09](https://github.com/dhis2/ui/commit/a90ae099306e6801d99f799ed5f15924dd7d97ae))
+* **input field ff:** forward type property of Field component ([855e93c](https://github.com/dhis2/ui/commit/855e93c94609831047812b176d4227925a01bf75))
+
 ## [5.6.1](https://github.com/dhis2/ui/compare/v5.6.0...v5.6.1) (2020-09-21)
 
 
