@@ -12,14 +12,65 @@ import { SingleSelectField, Transfer, TransferOption } from '../index.js'
  * For the sake of getting the new linting active I'll disable it, but the
  * proper eventual solution would be to use JSX here.
  */
+const sliceLength = 6
 
 const statefulDecorator = ({ initialState = [] } = {}) => fn =>
     React.createElement(() => {
         const [selected, setSelected] = useState(initialState)
+        const [loading, setLoading] = useState(false)
+        const [cursor, setCursor] = useState(0)
+        const [filter, setFilter] = useState('')
+
+        const [optionsLength, setOptionsLength] = useState(sliceLength)
+        const [optionsSlice, setOptionsSlice] = useState(
+            options.slice(0, optionsLength)
+        )
+
+        const onChange = ({ selected }) => setSelected(selected)
+        const onFilterChange = ({ value }) => {
+            setFilter(value)
+            setCursor(0)
+        }
+        const onEndReached = () => {
+            if (loading) return
+
+            const newOptionsLength = Math.min(
+                optionsLength + sliceLength,
+                options.length
+            )
+
+            setOptionsLength(newOptionsLength)
+        }
+
+        useEffect(() => {
+            let innerCursor = cursor
+
+            if (sliceLength !== optionsLength) {
+                setTimeout(() => {
+                    setOptionsSlice(options.slice(0, optionsLength))
+
+                    innerCursor++
+                    setCursor(innerCursor)
+
+                    setLoading(false)
+                }, 1000)
+
+                setLoading(true)
+            }
+        }, [optionsLength])
 
         return fn({
+            cursor,
+            filter,
+            loading,
+            onChange,
+            onEndReached,
+            onFilterChange,
+            optionsLength,
+            optionsSlice,
             selected,
-            onChange: payload => setSelected(payload.selected),
+            setCursor,
+            setLoading,
         })
     })
 /* eslint-enable */
@@ -490,45 +541,46 @@ export const CustomFilteringWithoutFilterInput = createCustomFilteringInHeader(
     true
 )
 
-const sliceLength = 6
+export const InfiniteLoading = ({
+    cursor,
+    selected,
+    onChange,
+    onEndReached,
+    loading,
+    optionsSlice,
+}) => (
+    <Transfer
+        filterable
+        cursor={cursor}
+        loading={loading}
+        options={optionsSlice}
+        selected={selected}
+        onChange={onChange}
+        onEndReached={onEndReached}
+    />
+)
 
-export const InfiniteLoading = ({ selected, onChange }) => {
-    const [loading, setLoading] = useState(false)
-    const [optionsLength, setOptionsLength] = useState(sliceLength)
-    const [optionsSlice, setOptionsSlice] = useState(
-        options.slice(0, optionsLength)
-    )
-
-    useEffect(() => {
-        if (sliceLength !== optionsLength) {
-            setTimeout(() => {
-                setOptionsSlice(options.slice(0, optionsLength))
-                setLoading(false)
-            }, 1000)
-
-            setLoading(true)
-        }
-    }, [optionsLength])
-
-    return (
-        <Transfer
-            loading={loading}
-            options={optionsSlice}
-            selected={selected}
-            onChange={onChange}
-            onEndReached={() => {
-                if (loading) return
-
-                const newOptionsLength = Math.min(
-                    optionsLength + sliceLength,
-                    options.length
-                )
-
-                setOptionsLength(newOptionsLength)
-            }}
-        />
-    )
-}
+export const Cursor = ({
+    cursor,
+    filter,
+    setFilter,
+    selected,
+    loading,
+    optionsSlice,
+    onChange,
+    onEndReached,
+}) => (
+    <Transfer
+        searchTerm={filter}
+        cursor={cursor}
+        loading={loading}
+        options={optionsSlice}
+        selected={selected}
+        onChange={onChange}
+        onEndReached={onEndReached}
+        onFilterChange={setFilter}
+    />
+)
 
 export const LoadingSource = ({ selected, onChange }) => (
     <Transfer

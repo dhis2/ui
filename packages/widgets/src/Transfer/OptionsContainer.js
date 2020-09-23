@@ -7,6 +7,7 @@ import { EndIntersectionDetector } from './EndIntersectionDetector.js'
 import { useResizeCounter } from './useResizeCounter'
 
 export const OptionsContainer = ({
+    cursor,
     dataTest,
     emptyComponent,
     onEndReached,
@@ -22,6 +23,38 @@ export const OptionsContainer = ({
     const optionsRef = useRef(null)
     const wrapperRef = useRef(null)
     const resizeCounter = useResizeCounter(wrapperRef.current)
+
+    useEffect(() => {
+        console.log(
+            'cursor === 0 && wrapperRef.current',
+            !!(cursor === 0 && wrapperRef.current)
+        )
+        if (cursor === 0 && wrapperRef.current) {
+            // scrollTop
+            wrapperRef.current.scrollTo(0, 0)
+        }
+    }, [cursor, options, wrapperRef.current])
+
+    useEffect(() => {
+        if (onEndReached && wrapperRef.current) {
+            // The initial call is irrelevant as there has been
+            // no resize yet that we want to react to
+            let firstCall = false
+
+            const observer = new ResizeObserver(() => {
+                if (!firstCall) {
+                    const newCounter = remountCounter + 1
+                    setRemountCounter(newCounter)
+                    firstCall = true
+                }
+            })
+
+            observer.observe(wrapperRef.current)
+            setResizeObserver(observer)
+
+            return () => observer.disconnect()
+        }
+    }, [onEndReached, wrapperRef.current, setRemountCounter])
 
     return (
         <div className="optionsContainer">
@@ -106,12 +139,14 @@ export const OptionsContainer = ({
 }
 
 OptionsContainer.defaultProps = {
+    cursor: 0,
     selected: false,
 }
 
 OptionsContainer.propTypes = {
     dataTest: propTypes.string.isRequired,
     getOptionClickHandlers: propTypes.func.isRequired,
+    cursor: propTypes.number,
     emptyComponent: propTypes.node,
     highlightedOptions: propTypes.arrayOf(propTypes.string),
     loading: propTypes.bool,

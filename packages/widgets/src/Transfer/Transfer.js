@@ -71,6 +71,8 @@ export const Transfer = ({
     addAllText,
     addIndividualText,
     className,
+    cursor,
+    cursorPicked,
     dataTest,
     disabled,
     enableOrderChange,
@@ -242,6 +244,7 @@ export const Transfer = ({
                 )}
 
                 <OptionsContainer
+                    cursor={cursor}
                     dataTest={`${dataTest}-sourceoptions`}
                     emptyComponent={sourceEmptyPlaceholder}
                     getOptionClickHandlers={getOptionClickHandlers}
@@ -350,6 +353,7 @@ export const Transfer = ({
 
                 <OptionsContainer
                     selected
+                    cursor={cursorPicked}
                     dataTest={`${dataTest}-pickedoptions`}
                     emptyComponent={selectedEmptyComponent}
                     getOptionClickHandlers={getOptionClickHandlers}
@@ -403,6 +407,8 @@ export const Transfer = ({
 const defaultRenderOption = option => <TransferOption {...option} />
 
 Transfer.defaultProps = {
+    cursor: 0,
+    cursorPicked: 0,
     dataTest: 'dhis2-uicore-transfer',
     height: '240px',
     initialSearchTerm: '',
@@ -462,6 +468,8 @@ Transfer.propTypes = {
     addAllText: propTypes.string,
     addIndividualText: propTypes.string,
     className: propTypes.string,
+    cursor: propTypes.number,
+    cursorPicked: propTypes.number,
     dataTest: propTypes.string,
     disabled: propTypes.bool,
     enableOrderChange: propTypes.bool,
