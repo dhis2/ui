@@ -1,6 +1,9 @@
 import { useDataQuery } from '@dhis2/app-runtime'
-
-import { addMissingDisplayNameProps, createQuery } from './useOrgData/helpers'
+import {
+    addMissingDisplayNameProps,
+    createQuery,
+    sortNodeChildrenAlphabetically,
+} from './useOrgData/helpers'
 
 /**
  * @param {string[]} ids
@@ -11,12 +14,29 @@ import { addMissingDisplayNameProps, createQuery } from './useOrgData/helpers'
  */
 export const useOrgData = (
     ids,
-    { withChildren = true, isUserDataViewFallback } = {}
+    {
+        withChildren = true,
+        isUserDataViewFallback,
+        suppressAlphabeticalSorting,
+    } = {}
 ) => {
     const query = createQuery(ids)
     const variables = { withChildren, isUserDataViewFallback }
     const { loading, error, data, refetch } = useDataQuery(query, { variables })
     const nodes = data ? addMissingDisplayNameProps(data) : {}
 
-    return { loading, error, data: nodes, refetch }
+    let sorted = nodes
+    if (!suppressAlphabeticalSorting) {
+        sorted = Object.values(nodes)
+            .map(sortNodeChildrenAlphabetically)
+            .reduce(
+                (current, node) => ({
+                    ...current,
+                    [node.id]: node,
+                }),
+                {}
+            )
+    }
+
+    return { loading, error, data: sorted, refetch }
 }

@@ -46,6 +46,7 @@ export const OrganisationUnitNode = ({
     selected,
     singleSelection,
     filter,
+    suppressAlphabeticalSorting,
     onChange,
     onChildrenLoaded,
     onCollapse,
@@ -53,6 +54,7 @@ export const OrganisationUnitNode = ({
 }) => {
     const { loading, error, data } = useOrgData([id], {
         isUserDataViewFallback,
+        suppressAlphabeticalSorting,
     })
     const childNodes =
         !loading && !error ? computeChildNodes(data[id], filter) : []
@@ -142,6 +144,9 @@ export const OrganisationUnitNode = ({
                             highlighted={highlighted}
                             id={child.id}
                             isUserDataViewFallback={isUserDataViewFallback}
+                            suppressAlphabeticalSorting={
+                                suppressAlphabeticalSorting
+                            }
                             path={childPath}
                             selected={selected}
                             singleSelection={singleSelection}
@@ -171,6 +176,7 @@ OrganisationUnitNode.propTypes = {
     path: orgUnitPathPropType,
     selected: propTypes.arrayOf(orgUnitPathPropType),
     singleSelection: propTypes.bool,
+    suppressAlphabeticalSorting: propTypes.bool,
 
     onChildrenLoaded: propTypes.func,
     onCollapse: propTypes.func,
