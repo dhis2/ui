@@ -1,3 +1,11 @@
+# [5.7.0](https://github.com/dhis2/ui/compare/v5.6.2...v5.7.0) (2020-09-24)
+
+
+### Features
+
+* **orgunittree:** sort org units alphabetically ([1273d76](https://github.com/dhis2/ui/commit/1273d76e69e0cb12dd26c36980d1de26aeb0356c))
+* **orgunittree:** sort org units alphabetically ([36c0369](https://github.com/dhis2/ui/commit/36c03698f38bc18b6acffb5c447e108d1e384fdb))
+
 ## [5.6.2](https://github.com/dhis2/ui/compare/v5.6.1...v5.6.2) (2020-09-23)
 
 
