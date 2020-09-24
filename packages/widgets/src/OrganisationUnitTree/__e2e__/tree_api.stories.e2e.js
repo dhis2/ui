@@ -16,7 +16,7 @@ window.dataProviderData = {
         ],
     },
     'organisationUnits/A0000000001': {
-        ...dataProviderData['organisationUnits/A0000000000'],
+        ...dataProviderData['organisationUnits/A0000000001'],
         children: [],
     },
 }
