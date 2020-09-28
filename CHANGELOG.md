@@ -1,3 +1,10 @@
+## [5.7.1](https://github.com/dhis2/ui/compare/v5.7.0...v5.7.1) (2020-09-28)
+
+
+### Bug Fixes
+
+* **button:** adjust icon button sizes ([d811515](https://github.com/dhis2/ui/commit/d811515f63a580a3702f449b489e1e722cfcf33b))
+
 # [5.7.0](https://github.com/dhis2/ui/compare/v5.6.2...v5.7.0) (2020-09-24)
 
 
