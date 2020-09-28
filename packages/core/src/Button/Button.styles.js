@@ -218,7 +218,7 @@ export default css`
     }
 
     .icon-only {
-        padding: 0 0 0 6px;
+        padding: 0 0 0 5px;
     }
 
     .button-icon {
@@ -230,12 +230,20 @@ export default css`
         pointer-events: none;
     }
 
+    .icon-only .button-icon {
+        margin-right: 5px;
+    }
+
     .small.icon-only {
-        padding: 0 0 0 2px;
+        padding: 0 0 0 1px;
     }
 
     .small .button-icon {
         margin-right: 2px;
+    }
+
+    .small.icon-only .button-icon {
+        margin-right: 1px;
     }
 
     .toggled {
