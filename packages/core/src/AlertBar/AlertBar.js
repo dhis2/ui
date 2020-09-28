@@ -24,34 +24,19 @@ class AlertBar extends Component {
     // visible is used to control the show/hide animation
     // hidden is used to stop rendering entirely after hide animation
     state = {
-        visible: false,
+        visible: true,
         hidden: false,
     }
 
     componentDidMount() {
-        this.init()
-    }
-
-    componentDidUpdate(_prevProps, prevState) {
-        // Only re-init when props change, ignore state changes
-        if (
-            prevState.visible === this.state.visible &&
-            prevState.hidden === this.state.hidden
-        ) {
-            this.init()
-        }
+        this.startTime = Date.now()
+        this.timeRemaining = this.props.duration
+        this.startDisplayTimeout()
     }
 
     componentWillUnmount() {
         clearTimeout(this.displayTimeout)
         clearTimeout(this.onHiddenTimeout)
-    }
-
-    init() {
-        this.startTime = Date.now()
-        this.timeRemaining = this.props.duration
-        this.startDisplayTimeout()
-        this.show()
     }
 
     startDisplayTimeout = () => {
@@ -80,12 +65,6 @@ class AlertBar extends Component {
                 () => this.props.onHidden && this.props.onHidden({}, event)
             )
         }, ANIMATION_TIME)
-    }
-
-    show() {
-        requestAnimationFrame(() => {
-            this.setState({ visible: true })
-        })
     }
 
     shouldAutoHide() {
