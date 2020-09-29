@@ -1,0 +1,13 @@
+const prepareTargetDirSync = require('./prepareTargetDirSync')
+const generateIconComponentsSync = require('./generateIconComponentsSync')
+const createIndexFileSync = require('./createIndexFileSync')
+const createStoriesFileSync = require('./createStoriesFileSync')
+const createReadmeFileSync = require('./createReadmeFileSync')
+const generateProcessingReportSync = require('./generateProcessingReportSync')
+
+prepareTargetDirSync()
+const results = generateIconComponentsSync()
+createIndexFileSync(results)
+createStoriesFileSync(results)
+createReadmeFileSync(results)
+generateProcessingReportSync(results)

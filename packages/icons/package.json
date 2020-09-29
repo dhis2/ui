@@ -16,7 +16,8 @@
         "access": "public"
     },
     "scripts": {
-        "build": "d2-app-scripts build"
+        "build": "d2-app-scripts build",
+        "generate": "node generator"
     },
     "dependencies": {
         "@dhis2/prop-types": "^1.6.4"
