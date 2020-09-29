@@ -8,28 +8,20 @@ export default css`
         display: flex;
         justify-content: space-between;
         align-items: center;
-
         border-radius: 4px;
         box-shadow: ${elevations.e300};
-
         padding-top: ${spacers.dp12};
         padding-right: ${spacers.dp16};
         padding-bottom: ${spacers.dp12};
         padding-left: ${spacers.dp24};
-
         margin-bottom: ${spacers.dp16};
-
         max-width: 600px;
-
         font-size: 14px;
-
-        transform: translateY(1000px);
-        transition: transform ${ANIMATION_TIME}ms cubic-bezier(0.4, 0, 0.6, 1);
-
         pointer-events: all;
     }
 
     /* States */
+
     div.info {
         background-color: ${colors.grey900};
         color: ${colors.white};
@@ -60,7 +52,41 @@ export default css`
     }
 
     /* Animation */
+
+    @keyframes slidein {
+        from {
+            transform: translateY(1000px);
+        }
+        to {
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideout {
+        from {
+            transform: translateY(0);
+        }
+        to {
+            transform: translateY(1000px);
+        }
+    }
+
+    /**
+     * The AlertBar starts out visible. This triggers the slidein animation.
+     * Removing the .visible class triggers the slideout animation.
+     */
+
     div.visible {
-        transform: translateY(0px);
+        animation-duration: ${ANIMATION_TIME}ms;
+        animation-name: slidein;
+        animation-fill-mode: forwards;
+        animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+    }
+
+    div {
+        animation-duration: ${ANIMATION_TIME}ms;
+        animation-name: slideout;
+        animation-fill-mode: forwards;
+        animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
     }
 `
