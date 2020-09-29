@@ -1,3 +1,10 @@
+## [5.7.2](https://github.com/dhis2/ui/compare/v5.7.1...v5.7.2) (2020-09-29)
+
+
+### Bug Fixes
+
+* **alertbar:** skip init on component update ([a6171a4](https://github.com/dhis2/ui/commit/a6171a4c42e6b0b27646c9d41440a5ab457cc69c))
+
 ## [5.7.1](https://github.com/dhis2/ui/compare/v5.7.0...v5.7.1) (2020-09-28)
 
 
