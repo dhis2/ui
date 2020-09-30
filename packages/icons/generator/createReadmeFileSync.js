@@ -10,24 +10,19 @@ const findLongest = arr =>
 const createColumnPadder = columnArrays => {
     const colWidths = columnArrays.map(findLongest)
 
-    return (str, colIndex, padChar = ' ') => {
-        return str.padEnd(colWidths[colIndex], padChar)
-    }
+    return (str, colIndex) => str.padEnd(colWidths[colIndex])
 }
 
-const markdowTableRow = (cells, pad) =>
-    `| ${cells.map((str, i) => pad(str, i)).join(' | ')} |`
+const markdowTableRow = cells => `| ${cells.join(' | ')} |`
 
-const markdownTableHeader = (cells, pad) =>
+const DASH = '-'
+const markdownTableHeader = cells =>
     [
-        markdowTableRow(cells, pad),
-        markdowTableRow(
-            cells.map((_, i) => pad('', i, '-')),
-            pad
-        ),
+        markdowTableRow(cells),
+        markdowTableRow(cells.map(cell => DASH.repeat(cell.length))),
     ].join('\n')
 
-const toAvailabilityStr = variant => (variant.svgStr ? '✔️' : ' ')
+const isAvailable = variant => (variant.svgStr ? '✔️' : ' ')
 
 const targetPath = path.join(TARGET_DIR, 'README.md')
 
@@ -47,11 +42,11 @@ module.exports = function(results) {
         ...sizeHeaders.map(h => [h]),
     ])
 
-    const headerStr = markdownTableHeader([nameHeader, ...sizeHeaders], pad)
+    const headerStr = markdownTableHeader([nameHeader, ...sizeHeaders].map(pad))
 
     const rowStr = createdComponents
         .map(({ name, variants }) =>
-            markdowTableRow([name, ...variants.map(toAvailabilityStr)], pad)
+            markdowTableRow([name, ...variants.map(isAvailable)].map(pad))
         )
         .join('\n')
 
