@@ -19,14 +19,14 @@ module.exports = {
 
     stories: isTesting
         ? [
-            '@dhis2/ui-core/src/**/*.stories.e2e.js',
-            '@dhis2/ui-forms/src/**/*.stories.e2e.js',
-            '@dhis2/ui-widgets/src/**/*.stories.e2e.js',
+            '../../packages/core/src/**/*.stories.e2e.js',
+            '../../packages/forms/src/**/*.stories.e2e.js',
+            '../../packages/widgets/src/**/*.stories.e2e.js',
         ]
         : [
-            '@dhis2/ui-core/src/**/*.stories.js',
-            '@dhis2/ui-forms/src/**/*.stories.js',
-            '@dhis2/ui-widgets/src/**/*.stories.js',
+            '../../packages/core/src/**/*.stories.js',
+            '../../packages/forms/src/**/*.stories.js',
+            '../../packages/widgets/src/**/*.stories.js',
         ],
 
     addons: [
