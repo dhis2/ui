@@ -9,7 +9,7 @@ const IconVisualizationGauge16 = ({ className, color }) => (
         width="16"
         xmlns="http://www.w3.org/2000/svg"
     >
-        <g fill="none" fillRule="nonzero">
+        <g fill="inherit" fillRule="nonzero">
             <path
                 d="m8 4c4.418278 0 8 3.581722 8 8h-1c0-3.86599325-3.1340068-7-7-7-3.86599325 0-7 3.13400675-7 7h-1l.00380682-.2491793c.13165031-4.30298293 3.66127892-7.7508207 7.99619318-7.7508207z"
                 fill="inherit"

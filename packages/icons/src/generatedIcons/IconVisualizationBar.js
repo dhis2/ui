@@ -9,7 +9,7 @@ const IconVisualizationBar16 = ({ className, color }) => (
         width="16"
         xmlns="http://www.w3.org/2000/svg"
     >
-        <g fill="none" fillRule="evenodd">
+        <g fill="inherit" fillRule="evenodd">
             <path d="m0 0h1v15h15v1h-16z" fill="inherit" />
             <path
                 d="m14 10v3h-13v-3zm-3-5v3h-10v-3zm-5-5v3h-5v-3z"

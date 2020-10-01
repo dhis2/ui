@@ -9,7 +9,7 @@ const IconVisualizationAreaStacked16 = ({ className, color }) => (
         width="16"
         xmlns="http://www.w3.org/2000/svg"
     >
-        <g fill="none" fillRule="evenodd">
+        <g fill="inherit" fillRule="evenodd">
             <path d="m0 0h1v15h15v1h-16z" fill="inherit" />
             <path
                 d="m15 9v5h-13v-3l4-2 4 3zm-5-6 5 2v2l-5 3-4-3-4 2v-6l4 2z"

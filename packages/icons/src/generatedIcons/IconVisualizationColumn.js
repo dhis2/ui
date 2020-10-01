@@ -9,7 +9,7 @@ const IconVisualizationColumn16 = ({ className, color }) => (
         width="16"
         xmlns="http://www.w3.org/2000/svg"
     >
-        <g fill="none" fillRule="evenodd">
+        <g fill="inherit" fillRule="evenodd">
             <path d="m0 0h1v15h15v1h-16z" fill="inherit" />
             <path
                 d="m16 8v7h-3v-7zm-5-6v13h-3v-13zm-5 2v11h-3v-11z"

@@ -11,7 +11,7 @@ const IconDimensionCategoryOptionGroupset16 = ({ className, color }) => (
     >
         <path
             d="m14 1c.5522847 0 1 .44771525 1 1v12c0 .5522847-.4477153 1-1 1h-12c-.55228475 0-1-.4477153-1-1v-12c0-.55228475.44771525-1 1-1zm0 1h-12v12h12zm-5 8-1 1-1-1zm2-2-1 1h-4l-1-1zm2-2-1 1h-8l-1-1z"
-            fill="#404b5a"
+            fill="inherit"
             fillRule="evenodd"
         />
         <style jsx>{`

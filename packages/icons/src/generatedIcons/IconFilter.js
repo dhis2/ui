@@ -11,7 +11,7 @@ const IconFilter16 = ({ className, color }) => (
     >
         <path
             d="m10 10-1 1h-2l-1-1zm3-3-1 1h-8l-1-1zm2-3-1 1h-12l-1-1z"
-            fill="#404b5a"
+            fill="inherit"
             fillRule="evenodd"
         />
         <style jsx>{`
