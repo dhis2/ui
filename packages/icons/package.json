@@ -16,10 +16,10 @@
         "access": "public"
     },
     "scripts": {
-        "build": "d2-app-scripts build"
+        "build": "svgr -d build src"
     },
     "dependencies": {
-        "@dhis2/prop-types": "^1.6.4"
+        "@svgr/cli": "^5.4.0"
     },
     "files": [
         "build"
