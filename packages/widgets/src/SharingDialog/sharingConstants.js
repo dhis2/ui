@@ -5,6 +5,7 @@ export const ACCESS_VIEW_ONLY = 'ACCESS_VIEW_ONLY'
 export const ACCESS_VIEW_AND_EDIT = 'ACCESS_VIEW_AND_EDIT'
 
 const noAccess = i18n.t('No access')
+
 export const accessStrings = {
     [ACCESS_NONE]: {
         publicDescription: noAccess,
@@ -12,14 +13,14 @@ export const accessStrings = {
         option: noAccess,
     },
     [ACCESS_VIEW_ONLY]: {
-        publicDescription: i18n.t('Anyone logged in can find and view'),
-        description: i18n.t('Can find and view'),
+        publicDescription: i18n.t('Anyone logged in can view'),
+        description: i18n.t('Can view'),
         option: i18n.t('View only'),
     },
     [ACCESS_VIEW_AND_EDIT]: {
-        publicDescription: i18n.t('Anyone logged in can find, edit, and view'),
-        description: i18n.t('Can find, edit, and view'),
-        option: i18n.t('Edit and view'),
+        publicDescription: i18n.t('Anyone logged in can view and edit'),
+        description: i18n.t('Can view and edit'),
+        option: i18n.t('View and edit'),
     },
 }
 
@@ -32,24 +33,41 @@ export const isPermanentTarget = target =>
     [SHARE_TARGET_EXTERNAL, SHARE_TARGET_PUBLIC].includes(target)
 
 export const defaultSharingSettings = {
+    name: '',
+    allowExternal: true,
+    allowPublic: true,
     external: ACCESS_NONE,
-    public: ACCESS_VIEW_ONLY,
+    public: ACCESS_NONE,
     groups: {},
     users: {},
 }
 
-export const sharingSettingsAreEqual = (a, b) => {
-    const aGroups = Object.values(a.groups).filter(({ access }) => !!access)
-    const aUsers = Object.values(a.users).filter(({ access }) => !!access)
-    const bGroups = Object.values(b.groups).filter(({ access }) => !!access)
-    const bUsers = Object.values(b.users).filter(({ access }) => !!access)
-    console.log('a U', aUsers, 'b U', bUsers, 'a G', aGroups, 'b G', bGroups)
-    return (
-        a.external === b.external &&
-        a.public === b.public &&
-        aGroups.length === bGroups.length &&
-        aGroups.every(({ id, access }) => b.groups[id] === access) &&
-        aUsers.length === bUsers.length &&
-        aUsers.every(({ id, access }) => b.users[id] === access)
-    )
+export const convertAccessToConstant = access => {
+    if (typeof access === 'boolean') {
+        return access ? ACCESS_VIEW_ONLY : ACCESS_NONE
+    }
+
+    switch (access) {
+        case 'rw------':
+            return ACCESS_VIEW_AND_EDIT
+        case 'r-------':
+            return ACCESS_VIEW_ONLY
+        case '--------':
+            return ACCESS_NONE
+        default:
+            return defaultSharingSettings.public
+    }
+}
+
+export const convertConstantToAccess = (constant, useBoolean) => {
+    switch (constant) {
+        case ACCESS_NONE:
+            return useBoolean ? false : '--------'
+        case ACCESS_VIEW_ONLY:
+            return useBoolean ? true : 'r-------'
+        case ACCESS_VIEW_AND_EDIT:
+            return useBoolean ? true : 'rw------'
+        default:
+            return useBoolean ? true : '--------'
+    }
 }
