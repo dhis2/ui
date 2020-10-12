@@ -3,34 +3,85 @@ import React from 'react'
 import PropTypes from '@dhis2/prop-types'
 
 import i18n from '@dhis2/d2-i18n'
+import { MenuDivider, MenuItem, SingleSelectField } from '@dhis2/ui'
 
-import { SingleSelect, SingleSelectOption } from '@dhis2/ui-core'
-import { accessStrings, ACCESS_NONE } from './sharingConstants'
+import { accessStrings } from './sharingConstants'
 import { accessSelectStyles } from './SharingDialog.styles'
 
-export const AccessSelect = ({ access, onChange, showNoAccessOption }) => (
-    <SingleSelect
+export const AccessSelect = ({
+    label,
+    placeholder,
+    prefix,
+    access,
+    accessOptions,
+    showRemoveOption,
+    disabled,
+    onChange,
+}) => (
+    <SingleSelectField
         className="share-select"
-        placeholder={i18n.t('Select access')}
+        label={label}
+        placeholder={placeholder}
+        prefix={prefix}
+        disabled={disabled}
         selected={access}
         onChange={({ selected }) => onChange(selected)}
     >
         <style jsx>{accessSelectStyles}</style>
-        {Object.entries(accessStrings).map(
-            ([value, strings]) =>
-                (value !== ACCESS_NONE || showNoAccessOption) && (
-                    <SingleSelectOption
-                        key={value}
-                        label={strings.option}
-                        value={value}
-                    />
-                )
+        {accessOptions.map(value => (
+            <CustomSingleSelectOption
+                key={value}
+                label={accessStrings[value].option}
+                value={value}
+                active={value === access}
+            />
+        ))}
+        {showRemoveOption && (
+            <CustomSingleSelectOption
+                key="remove"
+                label={i18n.t('Remove access')}
+                value="remove"
+                destructive
+            />
         )}
-    </SingleSelect>
+    </SingleSelectField>
 )
 
 AccessSelect.propTypes = {
     access: PropTypes.string,
-    showNoAccessOption: PropTypes.bool,
+    accessOptions: PropTypes.array,
+    disabled: PropTypes.bool,
+    label: PropTypes.string,
+    placeholder: PropTypes.string,
+    prefix: PropTypes.string,
+    showRemoveOption: PropTypes.bool,
     onChange: PropTypes.func,
+}
+
+const CustomSingleSelectOption = ({
+    label,
+    value,
+    active,
+    destructive,
+    onClick,
+}) => (
+    <>
+        {destructive && <MenuDivider dense />}
+        <MenuItem
+            label={label}
+            value={value}
+            active={active}
+            destructive={destructive}
+            onClick={(_, e) => onClick({ selected: value }, e)}
+            dense
+        />
+    </>
+)
+
+CustomSingleSelectOption.propTypes = {
+    active: PropTypes.bool,
+    destructive: PropTypes.bool,
+    label: PropTypes.string,
+    value: PropTypes.string,
+    onClick: PropTypes.func,
 }
