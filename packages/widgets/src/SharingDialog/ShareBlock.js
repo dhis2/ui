@@ -4,11 +4,12 @@ import PropTypes from '@dhis2/prop-types'
 
 import i18n from '@dhis2/d2-i18n'
 import { useDataQuery } from '@dhis2/app-runtime'
+import { Button, Divider } from '@dhis2/ui-core'
 
-import { Button } from '@dhis2/ui-core'
+import { ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT } from './sharingConstants'
 import { Autocomplete } from './Autocomplete/Autocomplete'
 import { AccessSelect } from './AccessSelect'
-import { shareBlockStyles } from './SharingDialog.styles'
+import { sharingCommonStyles, shareBlockStyles } from './SharingDialog.styles'
 
 import { debounce } from './helpers'
 
@@ -55,7 +56,6 @@ export const ShareBlock = ({ onAdd }) => {
     }, [data])
 
     const fetchData = debounce(text => {
-        console.log('text', text)
         refetch({ search: text })
     }, 500)
 
@@ -69,7 +69,7 @@ export const ShareBlock = ({ onAdd }) => {
         }
 
         if (error) {
-            console.log('onSearch error', error)
+            console.error('onSearch error', error)
         }
     }
 
@@ -86,23 +86,30 @@ export const ShareBlock = ({ onAdd }) => {
 
     const onSubmit = e => {
         e.preventDefault()
+
         onAdd({
             type: userOrGroup.type,
             id: userOrGroup.id,
             name: userOrGroup.displayName || userOrGroup.name,
             access,
         })
+
         setUserOrGroup(undefined)
         setAccess(undefined)
     }
 
     return (
-        <div className="share-block">
+        <div>
+            <style jsx>{sharingCommonStyles}</style>
             <style jsx>{shareBlockStyles}</style>
-            <p>{i18n.t('Share with users and groups')}</p>
-            <form onSubmit={onSubmit} className="sharing-inputs">
+            <p className="sharing-subtitle">
+                {i18n.t('Give access to a user, group or role')}
+            </p>
+            <Divider />
+            <form onSubmit={onSubmit} className="share-block sharing-inputs">
                 <Autocomplete
-                    placeholder={i18n.t('Search for user, group or role')}
+                    placeholder={i18n.t('Search')}
+                    label={i18n.t('User, group or role')}
                     inputWidth="400px"
                     value={userOrGroup?.name}
                     searchResults={searchResults}
@@ -111,14 +118,20 @@ export const ShareBlock = ({ onAdd }) => {
                     onSearch={onSearch}
                 />
                 <div className="select-wrap">
-                    <AccessSelect access={access} onChange={setAccess} />
+                    <AccessSelect
+                        label={i18n.t('Access level')}
+                        placeholder={i18n.t('Select a level')}
+                        access={access}
+                        accessOptions={[ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT]}
+                        onChange={setAccess}
+                    />
                 </div>
                 <Button
                     type="submit"
                     large
                     disabled={!userOrGroup?.id || !access}
                 >
-                    {i18n.t('Share')}
+                    {i18n.t('Give access')}
                 </Button>
             </form>
         </div>
