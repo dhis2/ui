@@ -2,36 +2,61 @@ import React from 'react'
 
 import PropTypes from '@dhis2/prop-types'
 import i18n from '@dhis2/d2-i18n'
+import {
+    Divider,
+    Table,
+    TableHead,
+    TableRowHead,
+    TableCellHead,
+    TableBody,
+} from '@dhis2/ui'
 
-import { sharingListStyles } from './SharingDialog.styles'
+import { sharingCommonStyles } from './SharingDialog.styles'
 import {
     SHARE_TARGET_PUBLIC,
     SHARE_TARGET_EXTERNAL,
     SHARE_TARGET_GROUP,
     SHARE_TARGET_USER,
+    accessStrings,
+    ACCESS_NONE,
+    ACCESS_VIEW_ONLY,
+    ACCESS_VIEW_AND_EDIT,
 } from './sharingConstants'
 import { SharingListItem } from './SharingListItem'
 
-export const SharingList = ({ sharingSettings, onChange }) => (
+export const SharingList = ({ sharingSettings, onChange, onRemove }) => (
     <div>
-        <style jsx>{sharingListStyles}</style>
-        <p>{i18n.t('Users and groups that have access')}</p>
-        <table>
-            <tbody>
+        <style jsx>{sharingCommonStyles}</style>
+        <p className="sharing-subtitle">
+            {i18n.t('Users, groups and roles that currently have access')}
+        </p>
+        <Divider />
+        <Table suppressZebraStriping>
+            <TableHead>
+                <TableRowHead>
+                    <TableCellHead>
+                        {i18n.t('User / Group / Role')}
+                    </TableCellHead>
+                    <TableCellHead>{i18n.t('Access level')}</TableCellHead>
+                </TableRowHead>
+            </TableHead>
+            <TableBody>
                 <SharingListItem
                     name={i18n.t('External')}
                     target={SHARE_TARGET_EXTERNAL}
                     access={sharingSettings.external}
-                    onChange={access =>
-                        onChange({ ...sharingSettings, external: access })
-                    }
+                    accessOptions={[ACCESS_NONE, ACCESS_VIEW_ONLY]}
+                    disabled={!sharingSettings.allowExternal}
+                    onChange={access => onChange({ type: 'external', access })}
                 />
                 <SharingListItem
                     name={i18n.t('Public')}
                     target={SHARE_TARGET_PUBLIC}
                     access={sharingSettings.public}
-                    onChange={access =>
-                        onChange({ ...sharingSettings, public: access })
+                    accessOptions={Object.keys(accessStrings)}
+                    disabled={!sharingSettings.allowPublic}
+                    onChange={newAccess =>
+                        onChange({ type: 'public', access: newAccess })
                     }
                 />
                 {Object.values(sharingSettings.groups).map(
@@ -41,25 +66,18 @@ export const SharingList = ({ sharingSettings, onChange }) => (
                             name={name}
                             target={SHARE_TARGET_GROUP}
                             access={access}
+                            accessOptions={[
+                                ACCESS_VIEW_ONLY,
+                                ACCESS_VIEW_AND_EDIT,
+                            ]}
                             onChange={newAccess =>
                                 onChange({
-                                    ...sharingSettings,
-                                    groups: {
-                                        ...sharingSettings.groups,
-                                        [id]: {
-                                            ...sharingSettings.groups[id],
-                                            access: newAccess,
-                                        },
-                                    },
+                                    type: 'group',
+                                    id,
+                                    access: newAccess,
                                 })
                             }
-                            onRemove={() => {
-                                const updatedSharingSettings = {
-                                    ...sharingSettings,
-                                }
-                                delete updatedSharingSettings.groups[id]
-                                onChange(updatedSharingSettings)
-                            }}
+                            onRemove={() => onRemove({ type: 'group', id })}
                         />
                     )
                 )}
@@ -71,35 +89,28 @@ export const SharingList = ({ sharingSettings, onChange }) => (
                                 name={name}
                                 target={SHARE_TARGET_USER}
                                 access={access}
+                                accessOptions={[
+                                    ACCESS_VIEW_ONLY,
+                                    ACCESS_VIEW_AND_EDIT,
+                                ]}
                                 onChange={newAccess =>
                                     onChange({
-                                        ...sharingSettings,
-                                        users: {
-                                            ...sharingSettings.users,
-                                            [id]: {
-                                                ...sharingSettings.users[id],
-                                                access: newAccess,
-                                            },
-                                        },
+                                        type: 'user',
+                                        id,
+                                        access: newAccess,
                                     })
                                 }
-                                onRemove={() => {
-                                    const updatedSharingSettings = {
-                                        ...sharingSettings,
-                                    }
-                                    delete updatedSharingSettings.users[id]
-
-                                    onChange(updatedSharingSettings)
-                                }}
+                                onRemove={() => onRemove({ type: 'user', id })}
                             />
                         )
                 )}
-            </tbody>
-        </table>
+            </TableBody>
+        </Table>
     </div>
 )
 
 SharingList.propTypes = {
     sharingSettings: PropTypes.object,
     onChange: PropTypes.func,
+    onRemove: PropTypes.func,
 }
