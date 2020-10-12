@@ -2,8 +2,8 @@
     "name": "@dhis2/ui-icons",
     "version": "5.7.2",
     "description": "Icons used in the UI libs",
-    "main": "build/cjs/lib.js",
-    "module": "build/es/lib.js",
+    "main": "build/index.js",
+    "module": "build/index.js",
     "author": "Viktor Varland <viktor@dhis2.org>",
     "license": "BSD-3-Clause",
     "private": false,
@@ -16,7 +16,8 @@
         "access": "public"
     },
     "scripts": {
-        "build": "svgr -d build src"
+        "build": "svgr -d build src",
+        "build:storybook": "svgr -d storybook src"
     },
     "dependencies": {
         "@svgr/cli": "^5.4.0"

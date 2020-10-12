@@ -15,6 +15,7 @@ node_modules/
 # production
 build/
 dist/
+packages/icons/storybook
 
 # misc
 .DS_Store
