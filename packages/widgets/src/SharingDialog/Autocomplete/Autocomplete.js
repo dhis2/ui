@@ -1,7 +1,8 @@
 import React, { createRef, useState, useEffect } from 'react'
 import propTypes from '@dhis2/prop-types'
 
-import { Menu, MenuItem } from '@dhis2/ui-core'
+import { Menu, MenuItem } from '@dhis2/ui'
+
 import { InputField } from '../../'
 import { MenuWrapper } from './MenuWrapper'
 
@@ -34,6 +35,7 @@ SearchResults.propTypes = {
 }
 
 export const Autocomplete = ({
+    label,
     placeholder,
     onChange,
     onClose,
@@ -51,7 +53,6 @@ export const Autocomplete = ({
 
     useEffect(() => {
         if (inputRef.current) {
-            console.log('set menu width', inputRef.current.offsetWidth)
             setMenuWidth(`${inputRef.current.offsetWidth}px`)
         }
     }, [])
@@ -69,6 +70,7 @@ export const Autocomplete = ({
         <div className="autocomplete-block" ref={menuRef}>
             <div ref={inputRef}>
                 <InputField
+                    label={label}
                     placeholder={placeholder}
                     onChange={onInputChange}
                     value={value}
@@ -99,7 +101,8 @@ Autocomplete.defaultProps = {
 
 Autocomplete.propTypes = {
     dataTest: propTypes.string,
-    inputWidth: propTypes.number,
+    inputWidth: propTypes.string,
+    label: propTypes.string,
     maxHeight: propTypes.string,
     placeholder: propTypes.string,
     searchResults: propTypes.array,
