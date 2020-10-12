@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react'
 
 import { statefulDecorator } from './common/statefulDecorator'
@@ -10,7 +9,7 @@ export default {
     decorators: [statefulDecorator()],
 }
 
-export const EmptyResult = ({ selected, onChange }) => (
+export const EmptyResult = (_, { selected, onChange }) => (
     <Transfer
         filterable
         initialSearchTerm="Foobarbaz"
@@ -21,7 +20,7 @@ export const EmptyResult = ({ selected, onChange }) => (
     />
 )
 
-export const SomeResults = ({ selected, onChange }) => (
+export const SomeResults = (_, { selected, onChange }) => (
     <Transfer
         selected={selected}
         filterable
@@ -31,7 +30,7 @@ export const SomeResults = ({ selected, onChange }) => (
     />
 )
 
-export const UppercaseSearch = ({ selected, onChange }) => (
+export const UppercaseSearch = (_, { selected, onChange }) => (
     <Transfer
         selected={selected}
         filterable
@@ -41,7 +40,7 @@ export const UppercaseSearch = ({ selected, onChange }) => (
     />
 )
 
-export const LowercaseSearch = ({ selected, onChange }) => (
+export const LowercaseSearch = (_, { selected, onChange }) => (
     <Transfer
         filterable
         initialSearchTerm="anc"
@@ -51,7 +50,7 @@ export const LowercaseSearch = ({ selected, onChange }) => (
     />
 )
 
-export const AncCustomFilter = ({ selected, onChange }) => (
+export const AncCustomFilter = (_, { selected, onChange }) => (
     <Transfer
         filterable
         selected={selected}
@@ -69,12 +68,10 @@ window.customFilterCallback = (options, filter) => {
 
 window.Cypress && window.Cypress.cy.spy(window, 'customFilterCallback')
 
-export const ControlledFilter = ({
-    filter,
-    onChange,
-    onFilterChange,
-    selected,
-}) => (
+export const ControlledFilter = (
+    _,
+    { filter, onChange, onFilterChange, selected }
+) => (
     <Transfer
         selected={selected}
         onChange={onChange}

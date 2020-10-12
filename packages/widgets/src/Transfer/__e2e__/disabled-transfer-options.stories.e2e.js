@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react'
 
 import { Transfer } from '../../index.js'
@@ -10,7 +9,7 @@ export default {
     decorators: [statefulDecorator()],
 }
 
-export const OneDisabled = ({ selected, onChange }) => (
+export const OneDisabled = (_, { selected, onChange }) => (
     <Transfer
         selected={selected}
         onChange={onChange}

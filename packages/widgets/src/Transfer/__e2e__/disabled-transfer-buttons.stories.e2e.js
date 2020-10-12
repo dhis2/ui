@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react'
 
 import { Transfer } from '../../index.js'
@@ -10,19 +9,19 @@ export default {
     decorators: [statefulDecorator()],
 }
 
-export const NoOptions = ({ selected, onChange }) => (
+export const NoOptions = (_, { selected, onChange }) => (
     <Transfer selected={selected} onChange={onChange} options={[]} />
 )
 
-export const HasOptions = ({ selected, onChange }) => (
+export const HasOptions = (_, { selected, onChange }) => (
     <Transfer selected={selected} onChange={onChange} options={options} />
 )
 
-export const SomeOptionsSelected = ({ selected, onChange }) => (
+export const SomeOptionsSelected = (_, { selected, onChange }) => (
     <Transfer selected={selected} onChange={onChange} options={options} />
 )
 
-export const OnlyDisabledSourceOptions = ({ selected, onChange }) => (
+export const OnlyDisabledSourceOptions = (_, { selected, onChange }) => (
     <Transfer
         selected={selected}
         onChange={onChange}
@@ -38,7 +37,7 @@ SomeOptionsSelected.story = {
     ],
 }
 
-export const AllOptionsSelected = ({ selected, onChange }) => (
+export const AllOptionsSelected = (_, { selected, onChange }) => (
     <Transfer selected={selected} onChange={onChange} options={options} />
 )
 

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react'
 
 import { Transfer } from '../../index.js'
@@ -9,11 +8,11 @@ export default { title: 'Transfer Display Order' }
 
 window.options = options
 
-export const NoSelection = ({ selected, onChange }) => (
+export const NoSelection = (_, { selected, onChange }) => (
     <Transfer selected={selected} onChange={onChange} options={options} />
 )
 
-export const SomeSelected = ({ selected, onChange }) => (
+export const SomeSelected = (_, { selected, onChange }) => (
     <Transfer selected={selected} onChange={onChange} options={options} />
 )
 
