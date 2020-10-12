@@ -8,7 +8,7 @@ window.onChange = window.Cypress && window.Cypress.cy.stub()
 window.onFocus = window.Cypress && window.Cypress.cy.stub()
 window.onBlur = window.Cypress && window.Cypress.cy.stub()
 
-const customData = {
+const customSearchData = {
     'sharing/search': {
         userGroups: [
             {
@@ -47,14 +47,89 @@ const customData = {
     },
 }
 
+const customDefaultData = {
+    sharing: {
+        meta: {
+            allowExternalAccess: true,
+            allowPublicAccess: true,
+        },
+        object: {
+            name: '',
+            displayName: '',
+            externalAccess: false,
+            publicAccess: '--------',
+            userAccesses: [],
+            userGroupAccesses: [],
+        },
+    },
+    ...customSearchData,
+}
+
+const customData = {
+    ...customDefaultData,
+    sharing: {
+        ...customDefaultData.sharing,
+        object: {
+            ...customDefaultData.sharing.object,
+            name: 'Sharing test',
+            displayName: 'Sharing test',
+        },
+    },
+}
+
+const customDataDisabledAccess = {
+    ...customData,
+    sharing: {
+        ...customData.sharing,
+        meta: {
+            allowExternalAccess: false,
+            allowPublicAccess: false,
+        },
+    },
+}
+
+const customDataWithUserGroupAccesses = {
+    ...customData,
+    sharing: {
+        ...customData.sharing,
+        object: {
+            ...customData.sharing.object,
+            userAccesses: [
+                {
+                    id: 'user-1',
+                    name: 'Kvist',
+                    access: 'rw------',
+                },
+            ],
+            userGroupAccesses: [
+                {
+                    id: 'group-1',
+                    name: 'Trolls',
+                    access: 'r-------',
+                },
+            ],
+        },
+    },
+}
+
 storiesOf('Component/Connected/SharingDialog', module)
     .add('Simple', () => (
-        <CustomDataProvider data={customData}>
-            <SharingDialog />
+        <CustomDataProvider data={customDefaultData}>
+            <SharingDialog type="dashboard" id="sharing-test" />
         </CustomDataProvider>
     ))
     .add('With name', () => (
         <CustomDataProvider data={customData}>
-            <SharingDialog name="Malaria cases" />
+            <SharingDialog type="dashboard" id="sharing-test" />
+        </CustomDataProvider>
+    ))
+    .add('With disabled access', () => (
+        <CustomDataProvider data={customDataDisabledAccess}>
+            <SharingDialog type="dashboard" id="sharing-test" />
+        </CustomDataProvider>
+    ))
+    .add('With user and group accesses', () => (
+        <CustomDataProvider data={customDataWithUserGroupAccesses}>
+            <SharingDialog type="dashboard" id="sharing-test" />
         </CustomDataProvider>
     ))
