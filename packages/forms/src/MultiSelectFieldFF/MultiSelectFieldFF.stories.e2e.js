@@ -12,7 +12,7 @@ const defaultOptions = [
 storiesOf('Testing:MultiSelectFieldFF', module)
     .addDecorator(formDecorator)
     .addParameters({ options: { showPanel: false } })
-    .add('Required', ({ cypressProps }) => (
+    .add('Required', (_, { cypressProps }) => (
         <Field
             required
             name="multiSelect"
