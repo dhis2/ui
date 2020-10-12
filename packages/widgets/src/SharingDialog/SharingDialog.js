@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from '@dhis2/prop-types'
 
 import i18n from '@dhis2/d2-i18n'
+import { useDataQuery, useDataMutation } from '@dhis2/app-runtime'
 
 import {
     Modal,
@@ -15,54 +16,243 @@ import { SharingList } from './SharingList'
 import { ShareBlock } from './ShareBlock'
 import {
     defaultSharingSettings,
-    sharingSettingsAreEqual,
+    convertAccessToConstant,
+    convertConstantToAccess,
 } from './sharingConstants'
 
+const query = {
+    sharing: {
+        resource: 'sharing',
+        params: ({ type, id }) => ({
+            type,
+            id,
+        }),
+    },
+}
+
+const mutation = {
+    resource: 'sharing',
+    params: ({ type, id }) => ({
+        type,
+        id,
+    }),
+    type: 'update',
+    data: ({ sharing }) => ({
+        object: sharing.object,
+    }),
+}
+
 export const SharingDialog = ({
-    name,
     initialSharingSettings = defaultSharingSettings,
+    id,
+    type,
+    onClose,
+    onError,
 }) => {
     const [sharingSettings, updateSharingSettings] = useState(
         initialSharingSettings
     )
+    const [isDirty, setIsDirty] = useState(false)
 
-    const addUserOrGroupAccess = ({ type, id, name, access }) => {
-        console.log(type, id, name, access)
-        updateSharingSettings({
-            ...sharingSettings,
+    const { data, fetchError, refetch } = useDataQuery(query, { lazy: true })
+    const fetchSharingSettings = (type, id) => refetch({ type, id })
+
+    const [mutate, { mutateError }] = useDataMutation(mutation)
+    const mutateSharingSettings = async sharing => {
+        await mutate({
+            type,
+            id,
+            sharing,
+        })
+    }
+
+    // TODO fix error handling
+    if (fetchError || mutateError) {
+        onError(fetchError || mutateError)
+
+        // with mutateError
+        // what happens to the state? it won't reflect the stored sharing settings
+    }
+
+    // refresh sharing settings if type/id changes
+    useEffect(() => {
+        fetchSharingSettings(type, id)
+    }, [type, id])
+
+    // update state after fetch
+    useEffect(() => {
+        if (data?.sharing) {
+            if (data.sharing.object.userAccesses.length) {
+                data.sharing.object.userAccesses.forEach(userAccess =>
+                    addUserOrGroupAccess({
+                        type: 'user',
+                        id: userAccess.id,
+                        name: userAccess.name,
+                        access: convertAccessToConstant(userAccess.access),
+                    })
+                )
+            }
+
+            if (data.sharing.object.userGroupAccesses.length) {
+                data.sharing.object.userGroupAccesses.forEach(groupAccess =>
+                    addUserOrGroupAccess({
+                        type: 'group',
+                        id: groupAccess.id,
+                        name: groupAccess.name,
+                        access: convertAccessToConstant(groupAccess.access),
+                    })
+                )
+            }
+
+            updateSharingSettings(prevState => ({
+                ...prevState,
+                allowExternal: data.sharing.meta.allowExternalAccess,
+                allowPublic: data.sharing.meta.allowPublicAccess,
+                external: convertAccessToConstant(
+                    data.sharing.object.externalAccess
+                ),
+                public: convertAccessToConstant(
+                    data.sharing.object.publicAccess
+                ),
+                name:
+                    data.sharing.object.displayName || data.sharing.object.name,
+            }))
+        }
+    }, [data])
+
+    // PUT when state change (but not when setting state after fetch)
+    useEffect(() => {
+        if (isDirty) {
+            saveSharingSettings(sharingSettings)
+        }
+    }, [sharingSettings, isDirty])
+
+    const addUserOrGroupAccess = ({ type, id, name, access }) =>
+        updateSharingSettings(prevState => ({
+            ...prevState,
             [`${type}s`]: {
-                ...sharingSettings[`${type}s`],
+                ...prevState[`${type}s`],
                 [id]: {
                     id,
                     name,
                     access,
                 },
             },
+        }))
+
+    const removeUserOrGroupAccess = ({ type, id }) => {
+        updateSharingSettings(prevState => {
+            const usersOrGroups = prevState[`${type}s`]
+
+            delete usersOrGroups[id]
+
+            return {
+                ...prevState,
+                [`${type}s`]: {
+                    ...usersOrGroups,
+                },
+            }
         })
     }
 
-    const dirty = !sharingSettingsAreEqual(
-        initialSharingSettings,
-        sharingSettings
-    )
+    const changeAccess = ({ type, id, access }) => {
+        const updatedAccess = {}
+
+        switch (type) {
+            case 'external':
+                updatedAccess.external = access
+                break
+            case 'public':
+                updatedAccess.public = access
+                break
+            case 'group':
+            case 'user': {
+                const pluralType = `${type}s`
+
+                updatedAccess[pluralType] = {
+                    ...sharingSettings[pluralType],
+                    [id]: {
+                        ...sharingSettings[pluralType][id],
+                        access,
+                    },
+                }
+                break
+            }
+        }
+
+        updateSharingSettings(prevState => ({
+            ...prevState,
+            ...updatedAccess,
+        }))
+    }
+
+    const saveSharingSettings = sharingSettings => {
+        // prepare payload
+        const payload = {
+            object: {
+                publicAccess: convertConstantToAccess(sharingSettings.public),
+                externalAccess: convertConstantToAccess(
+                    sharingSettings.external,
+                    true
+                ),
+                userAccesses: Object.values(sharingSettings.users).map(
+                    userSharingSettings => ({
+                        ...userSharingSettings,
+                        access: convertConstantToAccess(
+                            userSharingSettings.access
+                        ),
+                    })
+                ),
+                userGroupAccesses: Object.values(sharingSettings.groups).map(
+                    groupSharingSettings => ({
+                        ...groupSharingSettings,
+                        access: convertConstantToAccess(
+                            groupSharingSettings.access
+                        ),
+                    })
+                ),
+            },
+        }
+
+        mutateSharingSettings(payload)
+    }
+
+    const onAdd = data => {
+        setIsDirty(true)
+
+        addUserOrGroupAccess(data)
+    }
+
+    const onChange = data => {
+        setIsDirty(true)
+
+        changeAccess(data)
+    }
+
+    const onRemove = data => {
+        setIsDirty(true)
+
+        removeUserOrGroupAccess(data)
+    }
+
     return (
-        <Modal large>
+        <Modal large position="top" onClose={onClose}>
             <ModalTitle>
-                {i18n.t('Sharing settings')}
-                {name && `: ${name}`}
+                {i18n.t('Sharing & Access') +
+                    (sharingSettings.name ? `: ${sharingSettings.name}` : '')}
             </ModalTitle>
             <ModalContent>
-                <ShareBlock onAdd={addUserOrGroupAccess} />
+                <ShareBlock onAdd={onAdd} />
                 <SharingList
                     sharingSettings={sharingSettings}
-                    onChange={updateSharingSettings}
+                    onChange={onChange}
+                    onRemove={onRemove}
                 />
             </ModalContent>
             <ModalActions>
                 <ButtonStrip end>
-                    <Button>{i18n.t('Hide')}</Button>
-                    <Button primary disabled={!dirty}>
-                        {i18n.t('Save')}
+                    <Button type="button" secondary onClick={onClose}>
+                        {i18n.t('Close')}
                     </Button>
                 </ButtonStrip>
             </ModalActions>
@@ -71,6 +261,9 @@ export const SharingDialog = ({
 }
 
 SharingDialog.propTypes = {
+    id: PropTypes.string,
     initialSharingSettings: PropTypes.object,
-    name: PropTypes.string,
+    type: PropTypes.string,
+    onClose: PropTypes.func,
+    onError: PropTypes.func,
 }
