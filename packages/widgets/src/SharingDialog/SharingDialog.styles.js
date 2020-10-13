@@ -24,40 +24,73 @@ export const shareBlockStyles = css`
         align-items: flex-end;
         width: 100%;
     }
+`
 
-    .select-wrap {
-        width: 172px;
+export const sharingListStyles = css`
+    .sharing-headers {
+        display: flex;
+        width: 100%;
+        padding: 10px 8px;
+        margin: 0 0 8px 0;
+        background-color: ${colors.grey200};
+        color: ${colors.grey800};
+        font-size: 13px;
+    }
+
+    .sharing-header-1 {
+        flex: 2;
+    }
+
+    .sharing-header-2 {
+        flex: 1;
+    }
+
+    .sharing-list {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        overflow-y: auto;
     }
 `
 
 export const sharingListItemStyles = css`
-    .icon {
-        width: 56px;
-        text-align: center;
+    .sharing-list-item {
+        display: flex;
+        padding: 4px 8px;
+    }
+
+    .share-details-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .share-details-text {
+        margin-left: 8px;
     }
 
     div.share-details {
         display: flex;
+        flex: 2;
     }
 
     p.share-entity {
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 500;
         color: ${colors.grey900};
-        margin-bottom: 4px;
-        margin-top: 0px;
+        margin: 0;
+        padding: 0;
     }
 
     p.share-context {
         font-size: 14px;
         color: ${colors.grey700};
-        margin-top: 4px;
-        margin-bottom: 8px;
+        margin: 6px 0 0 0;
+        padding: 0;
     }
 `
 
 export const accessSelectStyles = css`
     .share-select {
-        width: 150px;
+        flex: 1;
     }
 `
