@@ -61,7 +61,7 @@
         "@dhis2/cli-utils-cypress": "^2.2.1",
         "@dhis2/cli-utils-docsite": "^2.0.2",
         "@dhis2/d2-i18n": "^1.0.6",
-        "@storybook/addons": "^6.0.22",
+        "@storybook/addons": "^6.0.26",
         "@storybook/components": "^6.0.26",
         "@storybook/csf": "^0.0.1",
         "@storybook/preset-create-react-app": "^3.0.0",
