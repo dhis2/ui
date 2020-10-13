@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react'
 
 import { Transfer } from '../Transfer'
@@ -18,7 +17,7 @@ window.onEndReachedPicked = window.Cypress
     ? window.Cypress.cy.stub()
     : () => console.log('onEndReachedPicked')
 
-export const FullSourceList = ({ selected, onChange }) => (
+export const FullSourceList = (_, { selected, onChange }) => (
     <Transfer
         options={options}
         selected={selected}
@@ -27,7 +26,7 @@ export const FullSourceList = ({ selected, onChange }) => (
     />
 )
 
-export const FullPickedList = ({ selected, onChange }) => (
+export const FullPickedList = (_, { selected, onChange }) => (
     <Transfer
         options={options}
         selected={selected}
@@ -44,7 +43,7 @@ FullPickedList.story = {
     ],
 }
 
-export const PartialSourceList = ({ selected, onChange }) => (
+export const PartialSourceList = (_, { selected, onChange }) => (
     <Transfer
         options={options.slice(0, 4)}
         selected={selected}
@@ -53,7 +52,7 @@ export const PartialSourceList = ({ selected, onChange }) => (
     />
 )
 
-export const PartialPickedList = ({ selected, onChange }) => (
+export const PartialPickedList = (_, { selected, onChange }) => (
     <Transfer
         options={options}
         selected={selected}

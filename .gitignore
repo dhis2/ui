@@ -38,3 +38,6 @@ cypress.env.json
 .d2/
 locales/
 packages/forms/i18n/
+
+# storybook
+storybook/storybook-static

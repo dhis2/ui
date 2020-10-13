@@ -1,5 +1,7 @@
 import { Given, Then, When } from 'cypress-cucumber-preprocessor/steps'
 
+const CLOSE_TO_DELTA = 1
+
 Given(
     'there is enough space to the right of the MenuItem to fit the SubMenu',
     () => {
@@ -29,7 +31,10 @@ Then(
     'the right of the MenuItem is aligned with the left of the SubMenu',
     () => {
         getMenuItemAndSubMenuRects().should(([menuItemRect, subMenuRect]) => {
-            expect(menuItemRect.right).to.equal(subMenuRect.left)
+            expect(menuItemRect.right).to.closeTo(
+                subMenuRect.left,
+                CLOSE_TO_DELTA
+            )
         })
     }
 )
@@ -38,15 +43,24 @@ Then(
     'the left of the MenuItem is aligned with the right of the SubMenu',
     () => {
         getMenuItemAndSubMenuRects().should(([menuItemRect, subMenuRect]) => {
-            expect(menuItemRect.left).to.equal(subMenuRect.right)
+            expect(menuItemRect.left).to.closeTo(
+                subMenuRect.right,
+                CLOSE_TO_DELTA
+            )
         })
     }
 )
 
 Then('the SubMenu is rendered on top of the MenuItem', () => {
     getMenuItemAndSubMenuRects().should(([menuItemRect, subMenuRect]) => {
-        expect(menuItemRect.right).to.be.greaterThan(subMenuRect.left)
-        expect(subMenuRect.right).to.be.greaterThan(menuItemRect.right)
+        expect(menuItemRect.left).to.be.closeTo(
+            subMenuRect.left,
+            CLOSE_TO_DELTA
+        )
+        expect(subMenuRect.right).to.be.closeTo(
+            menuItemRect.right,
+            CLOSE_TO_DELTA
+        )
     })
 })
 
@@ -57,7 +71,7 @@ Then(
             '[data-test="dhis2-uicore-menuitem"]',
             '[data-test="dhis2-uicore-popper"]'
         ).should(([menuItemRect, popperRect]) => {
-            expect(menuItemRect.top).to.equal(popperRect.top)
+            expect(menuItemRect.top).to.closeTo(popperRect.top, CLOSE_TO_DELTA)
         })
     }
 )

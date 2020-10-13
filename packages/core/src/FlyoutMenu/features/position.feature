@@ -1,4 +1,5 @@
 Feature: Position of a SubMenu component
+
     Scenario: Default rendering
         Given there is enough space to the right of the MenuItem to fit the SubMenu
         When the user clicks on the MenuItem

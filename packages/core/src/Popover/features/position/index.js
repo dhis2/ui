@@ -1,5 +1,7 @@
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
+const CLOSE_TO_DELTA = 1
+
 // Stories
 Given(
     'there is sufficient space to place the Popover above the reference element',
@@ -40,7 +42,7 @@ Given(
 Given(
     'there is not enough space between the top of the reference element and the top of the Popover to show the arrow',
     () => {
-        cy.viewport(1000, 400)
+        cy.viewport(1000, 380)
     }
 )
 
@@ -48,7 +50,7 @@ Given(
 Given(
     'there is sufficient space between the bottom of the reference element and the bottom of the Popover to show the arrow',
     () => {
-        getRefAndPopoverPositions().then(([refPos, popoverPos]) => {
+        compareRefAndPopoverPositions((refPos, popoverPos) => {
             expect(refPos.bottom).to.be.greaterThan(popoverPos.bottom + 8)
         })
     }
@@ -65,43 +67,51 @@ Then('the arrow is showing', () => {
 Then(
     'the horizontal center of the popover is aligned with the horizontal center of the reference element',
     () => {
-        getRefAndPopoverPositions().then(([refPos, popoverPos]) => {
+        compareRefAndPopoverPositions((refPos, popoverPos) => {
             const refCenter = refPos.left + refPos.width / 2
             const popoverCenter = popoverPos.left + popoverPos.width / 2
-            expect(refCenter).to.equal(popoverCenter)
+            expect(refCenter).to.be.closeTo(popoverCenter, CLOSE_TO_DELTA)
         })
     }
 )
 
 Then('the popover is placed above the reference element', () => {
-    getRefAndPopoverPositions().then(([refPos, popoverPos]) => {
+    compareRefAndPopoverPositions((refPos, popoverPos) => {
         expect(refPos.top).to.be.greaterThan(popoverPos.bottom)
     })
 })
 
 Then('the popover is placed below the reference element', () => {
-    getRefAndPopoverPositions().then(([refPos, popoverPos]) => {
+    compareRefAndPopoverPositions((refPos, popoverPos) => {
         expect(popoverPos.top).to.be.greaterThan(refPos.bottom)
     })
 })
 
 Then('the popover is placed op top of the reference element', () => {
-    getRefAndPopoverPositions().then(([refPos, popoverPos]) => {
+    compareRefAndPopoverPositions((refPos, popoverPos) => {
         expect(popoverPos.bottom).to.be.greaterThan(refPos.top)
         expect(refPos.top).to.be.greaterThan(popoverPos.top)
     })
 })
 
 Then('there is some space between the anchor and the popover', () => {
-    getRefAndPopoverPositions().then(([refPos, popoverPos]) => {
-        expect(popoverPos.bottom + 8).to.equal(refPos.top)
+    compareRefAndPopoverPositions((refPos, popoverPos) => {
+        expect(popoverPos.bottom + 8).to.be.closeTo(refPos.top, CLOSE_TO_DELTA)
     })
 })
 
 // helper
-function getRefAndPopoverPositions() {
-    return cy.getPositionsBySelectors(
-        '[data-test="reference-element"]',
-        '[data-test="dhis2-uicore-popover"]'
-    )
+const compareRefAndPopoverPositions = callback => {
+    // this needs to be done as the cypress reference to the popover is lost
+    // once react re-renders it to adjust to the changed viewport size,
+    // which happens async
+    cy.get('body').should($body => {
+        const body = $body.get(0)
+        const ref = body.querySelector('[data-test="reference-element"]')
+        const popover = body.querySelector('[data-test="dhis2-uicore-popover"]')
+        const refPos = ref.getBoundingClientRect()
+        const popoverPos = popover.getBoundingClientRect()
+
+        callback(refPos, popoverPos)
+    })
 }

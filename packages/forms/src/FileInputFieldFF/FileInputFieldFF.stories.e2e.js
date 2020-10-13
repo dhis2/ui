@@ -267,6 +267,6 @@ const StandardForm = ({ values }) => {
 storiesOf('Testing:FileInput', module)
     .addDecorator(formDecorator)
     .addParameters({ options: { showPanel: false } })
-    .add('Standard form', ({ formRenderProps }) => (
+    .add('Standard form', (_, { formRenderProps }) => (
         <StandardForm {...formRenderProps} />
     ))

@@ -66,23 +66,28 @@ window.onClickOutside = window.Cypress && window.Cypress.cy.stub()
 export default { title: 'Popover', component: Popover }
 
 export const Default = () => <PopperInBoxWithCenteredReferenceElement />
+
 export const Flipped = () => (
     // default viewport-height for flipped popover
     // viePort height 400px for diplaced with arrow
-    <PopperInBoxWithCenteredReferenceElement paddingTop={180} />
+    <PopperInBoxWithCenteredReferenceElement paddingTop={160} />
 )
+
 export const HiddenArrow = () => (
     // viewPort height 325px
-    <PopperInBoxWithCenteredReferenceElement paddingTop={130} />
+    <PopperInBoxWithCenteredReferenceElement paddingTop={110} />
 )
+
 export const NoArrow = () => (
     <PopperInBoxWithCenteredReferenceElement arrow={false} />
 )
+
 export const WithOnClickOutside = () => (
     <PopperInBoxWithCenteredReferenceElement
         onClickOutside={window.onClickOutside}
     />
 )
+
 export const PlacementTop = () => (
     <PopperInBoxWithCenteredReferenceElement
         popoverHeight={40}

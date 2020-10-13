@@ -22,7 +22,9 @@ Given('the {int}. item is highlighted', previousPisition => {
 })
 
 Given('no items are highlighted in the list', () => {
-    cy.get('{transfer-pickedoptions} {transferoption}').should('not.exist')
+    cy.get('{transfer-pickedoptions} {transferoption}.highlighted').should(
+        'not.exist'
+    )
 })
 
 Given('more than one item is highlighted in the list', () => {
