@@ -99,7 +99,7 @@ export const ShareBlock = ({ onAdd }) => {
     }
 
     return (
-        <div>
+        <>
             <style jsx>{sharingCommonStyles}</style>
             <style jsx>{shareBlockStyles}</style>
             <p className="sharing-subtitle">
@@ -117,24 +117,18 @@ export const ShareBlock = ({ onAdd }) => {
                     onChange={onChange}
                     onSearch={onSearch}
                 />
-                <div className="select-wrap">
-                    <AccessSelect
-                        label={i18n.t('Access level')}
-                        placeholder={i18n.t('Select a level')}
-                        access={access}
-                        accessOptions={[ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT]}
-                        onChange={setAccess}
-                    />
-                </div>
-                <Button
-                    type="submit"
-                    large
-                    disabled={!userOrGroup?.id || !access}
-                >
+                <AccessSelect
+                    label={i18n.t('Access level')}
+                    placeholder={i18n.t('Select a level')}
+                    access={access}
+                    accessOptions={[ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT]}
+                    onChange={setAccess}
+                />
+                <Button type="submit" disabled={!userOrGroup?.id || !access}>
                     {i18n.t('Give access')}
                 </Button>
             </form>
-        </div>
+        </>
     )
 }
 
