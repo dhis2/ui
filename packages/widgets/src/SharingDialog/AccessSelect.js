@@ -18,33 +18,34 @@ export const AccessSelect = ({
     disabled,
     onChange,
 }) => (
-    <SingleSelectField
-        className="share-select"
-        label={label}
-        placeholder={placeholder}
-        prefix={prefix}
-        disabled={disabled}
-        selected={access}
-        onChange={({ selected }) => onChange(selected)}
-    >
+    <div className="share-select">
         <style jsx>{accessSelectStyles}</style>
-        {accessOptions.map(value => (
-            <CustomSingleSelectOption
-                key={value}
-                label={accessStrings[value].option}
-                value={value}
-                active={value === access}
-            />
-        ))}
-        {showRemoveOption && (
-            <CustomSingleSelectOption
-                key="remove"
-                label={i18n.t('Remove access')}
-                value="remove"
-                destructive
-            />
-        )}
-    </SingleSelectField>
+        <SingleSelectField
+            label={label}
+            placeholder={placeholder}
+            prefix={prefix}
+            disabled={disabled}
+            selected={access}
+            onChange={({ selected }) => onChange(selected)}
+        >
+            {accessOptions.map(value => (
+                <CustomSingleSelectOption
+                    key={value}
+                    label={accessStrings[value].option}
+                    value={value}
+                    active={value === access}
+                />
+            ))}
+            {showRemoveOption && (
+                <CustomSingleSelectOption
+                    key="remove"
+                    label={i18n.t('Remove access')}
+                    value="remove"
+                    destructive
+                />
+            )}
+        </SingleSelectField>
+    </div>
 )
 
 AccessSelect.propTypes = {
