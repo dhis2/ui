@@ -19,7 +19,7 @@
         "@storybook/react": "^6.0.22",
         "storybook-addon-jsx": "^7.3.4",
         "storybook-addon-react-docgen": "^1.2.42",
-        "typeface-roboto": "^0.0.75"
+        "typeface-roboto": "^1.1.13"
     },
     "dependencies": {
         "@dhis2/ui": "5.7.2",
