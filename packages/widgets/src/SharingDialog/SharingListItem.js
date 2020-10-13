@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from '@dhis2/prop-types'
 
 import i18n from '@dhis2/d2-i18n'
-import { TableRow, TableCell } from '@dhis2/ui'
+import { Divider } from '@dhis2/ui'
 
 import { sharingListItemStyles } from './SharingDialog.styles'
 import { IconExternal } from './icons/IconExternal'
@@ -22,12 +22,12 @@ export const SharingListItem = ({
     onChange,
     onRemove,
 }) => (
-    <TableRow>
-        <style jsx>{sharingListItemStyles}</style>
-        <TableCell>
+    <>
+        <div className="sharing-list-item">
+            <style jsx>{sharingListItemStyles}</style>
             <div className="share-details">
-                <IconExternal className="icon" />
-                <div>
+                <IconExternal className="share-details-icon" />
+                <div className="share-details-text">
                     <p className="share-entity">{name}</p>
                     <p className="share-context">
                         {target === SHARE_TARGET_PUBLIC
@@ -36,8 +36,6 @@ export const SharingListItem = ({
                     </p>
                 </div>
             </div>
-        </TableCell>
-        <TableCell>
             <AccessSelect
                 prefix={i18n.t('Access')}
                 access={access}
@@ -48,8 +46,9 @@ export const SharingListItem = ({
                     selected === 'remove' ? onRemove() : onChange(selected)
                 }
             />
-        </TableCell>
-    </TableRow>
+        </div>
+        <Divider />
+    </>
 )
 
 SharingListItem.propTypes = {
