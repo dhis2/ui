@@ -1,5 +1,5 @@
 import React, { createRef, useState, useEffect } from 'react'
-import propTypes from '@dhis2/prop-types'
+import PropTypes from '@dhis2/prop-types'
 
 import { Menu, MenuItem } from '@dhis2/ui'
 
@@ -30,8 +30,8 @@ const SearchResults = ({ searchResults, onClick }) => (
 )
 
 SearchResults.propTypes = {
-    searchResults: propTypes.array,
-    onClick: propTypes.func,
+    searchResults: PropTypes.array,
+    onClick: PropTypes.func,
 }
 
 export const Autocomplete = ({
@@ -100,14 +100,14 @@ Autocomplete.defaultProps = {
 }
 
 Autocomplete.propTypes = {
-    dataTest: propTypes.string,
-    inputWidth: propTypes.string,
-    label: propTypes.string,
-    maxHeight: propTypes.string,
-    placeholder: propTypes.string,
-    searchResults: propTypes.array,
-    value: propTypes.string,
-    onChange: propTypes.func,
-    onClose: propTypes.func,
-    onSearch: propTypes.func,
+    dataTest: PropTypes.string,
+    inputWidth: PropTypes.string,
+    label: PropTypes.string,
+    maxHeight: PropTypes.string,
+    placeholder: PropTypes.string,
+    searchResults: PropTypes.array,
+    value: PropTypes.string,
+    onChange: PropTypes.func,
+    onClose: PropTypes.func,
+    onSearch: PropTypes.func,
 }
