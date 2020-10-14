@@ -6,8 +6,10 @@ import { Divider } from '@dhis2/ui'
 
 import { sharingListItemStyles } from './SharingDialog.styles'
 import { IconExternal } from './icons/IconExternal'
+import { Avatar } from './icons/Avatar'
 import {
     SHARE_TARGET_PUBLIC,
+    SHARE_TARGET_USER,
     isPermanentTarget,
     accessStrings,
 } from './sharingConstants'
@@ -26,7 +28,11 @@ export const SharingListItem = ({
         <div className="sharing-list-item">
             <style jsx>{sharingListItemStyles}</style>
             <div className="share-details">
-                <IconExternal className="share-details-icon" />
+                {target === SHARE_TARGET_USER ? (
+                    <Avatar name={name} />
+                ) : (
+                    <IconExternal className="share-details-icon" />
+                )}
                 <div className="share-details-text">
                     <p className="share-entity">{name}</p>
                     <p className="share-context">
