@@ -17,9 +17,9 @@
         "@storybook/csf": "^0.0.1",
         "@storybook/preset-create-react-app": "^3.1.4",
         "@storybook/react": "^6.0.22",
+        "fontsource-roboto": "^3.0.3",
         "storybook-addon-jsx": "^7.3.4",
-        "storybook-addon-react-docgen": "^1.2.42",
-        "typeface-roboto": "^0.0.75"
+        "storybook-addon-react-docgen": "^1.2.42"
     },
     "dependencies": {
         "@dhis2/ui": "5.7.2",
