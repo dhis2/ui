@@ -1,5 +1,5 @@
 import React from 'react'
-import propTypes from '@dhis2/prop-types'
+import PropTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 import { ArrowDown } from './ArrowDown.js'
 import { colors, theme, sharedPropTypes } from '@dhis2/ui-constants'
@@ -98,14 +98,14 @@ InputWrapper.defaultProps = {
 }
 
 InputWrapper.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    inputRef: propTypes.object.isRequired,
-    tabIndex: propTypes.string.isRequired,
-    onToggle: propTypes.func.isRequired,
-    children: propTypes.element,
-    className: propTypes.string,
-    dense: propTypes.bool,
-    disabled: propTypes.bool,
+    dataTest: PropTypes.string.isRequired,
+    inputRef: PropTypes.object.isRequired,
+    tabIndex: PropTypes.string.isRequired,
+    onToggle: PropTypes.func.isRequired,
+    children: PropTypes.element,
+    className: PropTypes.string,
+    dense: PropTypes.bool,
+    disabled: PropTypes.bool,
     error: sharedPropTypes.statusPropType,
     valid: sharedPropTypes.statusPropType,
     warning: sharedPropTypes.statusPropType,
