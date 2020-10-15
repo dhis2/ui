@@ -1,8 +1,17 @@
-/* eslint-disable react/prop-types */
 import { SingleSelectOption, Tab, TabBar } from '@dhis2/ui-core'
 import React, { useEffect, useState } from 'react'
-
 import { SingleSelectField, Transfer, TransferOption } from '../index.js'
+
+/* eslint-disable */
+
+/**
+ * This was throwing an react/display-name error in eslint, which is correct.
+ * Since it's not critical, I disabled the display-name rule, which caused an
+ * error stating that display-name was disabled incorrectly. So the only way
+ * to resolve this is either to use JSX, or to disable eslint for this area.
+ * For the sake of getting the new linting active I'll disable it, but the
+ * proper eventual solution would be to use JSX here.
+ */
 
 const statefulDecorator = ({ initialState = [] } = {}) => fn =>
     React.createElement(() => {
@@ -13,6 +22,8 @@ const statefulDecorator = ({ initialState = [] } = {}) => fn =>
             onChange: payload => setSelected(payload.selected),
         })
     })
+/* eslint-enable */
+/* eslint-disable react/prop-types */
 
 const options = [
     {

@@ -5,7 +5,5 @@ Given('a Checkbox with initialFocus is rendered', () => {
 })
 
 Then('the Checkbox is focused', () => {
-    cy.focused()
-        .parent('[data-test="dhis2-uicore-checkbox"]')
-        .should('exist')
+    cy.focused().parent('[data-test="dhis2-uicore-checkbox"]').should('exist')
 })

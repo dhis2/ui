@@ -45,9 +45,7 @@ When("the user clicks the 'move down' button", () => {
 
 Then('the highlighted item should be moved to the {int}. place', next => {
     const index = next - 1
-    cy.get('@previous')
-        .invoke('index')
-        .should('equal', index)
+    cy.get('@previous').invoke('index').should('equal', index)
 })
 
 Then("the 'move up' and 'move down' buttons should be disabled", () => {

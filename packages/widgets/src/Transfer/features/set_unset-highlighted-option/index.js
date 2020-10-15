@@ -13,9 +13,7 @@ Given('the selected list has one or more items', () => {
 })
 
 Given('no item is highlighted', () => {
-    cy.get('@list')
-        .find('.highlighted')
-        .should('not.exist')
+    cy.get('@list').find('.highlighted').should('not.exist')
 })
 
 Given('one item is highlighted', () => {
@@ -50,9 +48,7 @@ When('the user clicks an item in the list that is not highlighted', () => {
 })
 
 When('the user clicks an item in the list that is highlighted', () => {
-    cy.get('@initiallyHighlighted')
-        .wait(500)
-        .click()
+    cy.get('@initiallyHighlighted').wait(500).click()
 })
 
 When('the user selects the visible, highlighted options', () => {

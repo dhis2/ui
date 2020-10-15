@@ -1,3 +1,5 @@
+/* eslint-disable import/namespace */
+
 import { FinalForm, ReactFinalForm } from '../index.js'
 
 describe('final-form named export', () => {

@@ -5,7 +5,5 @@ Given('a Input with initialFocus is rendered', () => {
 })
 
 Then('the Input is focused', () => {
-    cy.focused()
-        .parent('[data-test="dhis2-uicore-input"]')
-        .should('exist')
+    cy.focused().parent('[data-test="dhis2-uicore-input"]').should('exist')
 })

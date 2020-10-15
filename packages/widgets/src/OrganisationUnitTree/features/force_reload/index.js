@@ -5,9 +5,7 @@ Given('a OrganisationUnitTree with three levels is rendered', () => {
 })
 
 Given('the two parent levels are opened', () => {
-    cy.getOrgUnitByLabel('Org Unit 1')
-        .as('rootNode')
-        .openOrgUnitNode()
+    cy.getOrgUnitByLabel('Org Unit 1').as('rootNode').openOrgUnitNode()
 
     cy.getOrgUnitByLabel('Org Unit 2').openOrgUnitNode()
 

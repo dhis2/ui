@@ -61,9 +61,7 @@ Given(
 )
 
 When('the user clicks a disabled option', () => {
-    cy.get(disabledSourceOptionSelector)
-        .click()
-        .as('clickedDisabledOption')
+    cy.get(disabledSourceOptionSelector).click().as('clickedDisabledOption')
 })
 
 When('the user double clicks a disabled option', () => {
