@@ -1,6 +1,6 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
+import React from 'react'
 import css from 'styled-jsx/css'
 
 const styles = css`

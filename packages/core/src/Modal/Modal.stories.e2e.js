@@ -1,5 +1,5 @@
-import React from 'react'
 import { storiesOf } from '@storybook/react'
+import React from 'react'
 import {
     Button,
     ButtonStrip,
@@ -7,7 +7,6 @@ import {
     ModalActions,
     ModalContent,
 } from '../index.js'
-
 import { Modal } from './Modal.js'
 
 window.onClose = window.Cypress && window.Cypress.cy.stub()

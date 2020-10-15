@@ -1,12 +1,10 @@
-import React, { useState, useRef } from 'react'
 import { ArrowDown } from '@dhis2/ui-icons'
-
+import React, { useState, useRef } from 'react'
 import { Layer } from '../Layer/Layer.js'
-import { Popper } from '../Popper/Popper.js'
-import { MenuItem } from '../MenuItem/MenuItem.js'
 import { MenuDivider } from '../MenuDivider/MenuDivider.js'
+import { MenuItem } from '../MenuItem/MenuItem.js'
 import { MenuSectionHeader } from '../MenuSectionHeader/MenuSectionHeader.js'
-
+import { Popper } from '../Popper/Popper.js'
 import { FlyoutMenu } from './FlyoutMenu.js'
 
 export default {

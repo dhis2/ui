@@ -1,11 +1,10 @@
-import React, { Component } from 'react'
+import i18n from '@dhis2/d2-i18n'
 import propTypes from '@dhis2/prop-types'
 import { sharedPropTypes } from '@dhis2/ui-constants'
-import i18n from '@dhis2/d2-i18n'
-
+import React, { Component } from 'react'
 import { FileInputField } from '../FileInputField/FileInputField.js'
-import { FileListItemWithRemove } from './FileListItemWithRemove.js'
 import translate from '../translate'
+import { FileListItemWithRemove } from './FileListItemWithRemove.js'
 
 /**
  * @module

@@ -1,8 +1,6 @@
 import React from 'react'
-
 import { formDecorator } from '../formDecorator.js'
 import { ReactFinalForm, CheckboxFieldFF, hasValue } from '../index.js'
-
 import { FieldGroupFF } from './FieldGroupFF.js'
 
 const { Field } = ReactFinalForm

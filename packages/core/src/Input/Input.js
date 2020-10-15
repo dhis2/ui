@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
-import css from 'styled-jsx/css'
-import cx from 'classnames'
-
 import propTypes from '@dhis2/prop-types'
 import { theme, colors, spacers, sharedPropTypes } from '@dhis2/ui-constants'
 import { StatusIcon } from '@dhis2/ui-icons'
+import cx from 'classnames'
+import React, { Component } from 'react'
+import css from 'styled-jsx/css'
 
 const styles = css`
     .input {

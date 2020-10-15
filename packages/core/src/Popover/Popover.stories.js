@@ -1,7 +1,5 @@
-import React, { useRef } from 'react'
-
 import { elevations } from '@dhis2/ui-constants'
-
+import React, { useRef } from 'react'
 import { Popover } from './Popover.js'
 
 export default { title: 'Popover', component: Popover }

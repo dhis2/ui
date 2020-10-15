@@ -1,8 +1,7 @@
-import React, { Children, cloneElement, isValidElement, useState } from 'react'
 import propTypes from '@dhis2/prop-types'
 import { spacers } from '@dhis2/ui-constants'
+import React, { Children, cloneElement, isValidElement, useState } from 'react'
 import { resolve } from 'styled-jsx/css'
-
 import { Card } from '../Card/Card.js'
 import { Menu } from '../Menu/Menu.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718

@@ -1,12 +1,11 @@
-import { Card } from '@dhis2/ui-core'
-import { Settings, Apps as AppsIcon } from '@dhis2/ui-icons'
-import { colors, theme } from '@dhis2/ui-constants'
 import { useConfig } from '@dhis2/app-runtime'
-import React from 'react'
-import css from 'styled-jsx/css'
 import i18n from '@dhis2/d2-i18n'
 import propTypes from '@dhis2/prop-types'
-
+import { colors, theme } from '@dhis2/ui-constants'
+import { Card } from '@dhis2/ui-core'
+import { Settings, Apps as AppsIcon } from '@dhis2/ui-icons'
+import React from 'react'
+import css from 'styled-jsx/css'
 import { InputField } from '../InputField/InputField.js'
 import { joinPath } from './joinPath.js'
 

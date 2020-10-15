@@ -1,5 +1,5 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
+import React from 'react'
 
 export const Container = ({ children, dataTest, className, height }) => (
     <div data-test={dataTest} className={className}>

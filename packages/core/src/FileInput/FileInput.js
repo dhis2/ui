@@ -1,11 +1,8 @@
-import React, { createRef, Component } from 'react'
-import cx from 'classnames'
-
 import propTypes from '@dhis2/prop-types'
-
 import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
 import { Upload, StatusIcon } from '@dhis2/ui-icons'
-
+import cx from 'classnames'
+import React, { createRef, Component } from 'react'
 import { Button } from '../Button/Button.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 

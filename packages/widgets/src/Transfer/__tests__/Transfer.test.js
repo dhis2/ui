@@ -1,6 +1,5 @@
 import { mount } from 'enzyme'
 import React from 'react'
-
 import { Transfer } from '../Transfer'
 
 const options = [

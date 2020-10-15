@@ -1,6 +1,5 @@
-import React, { Component, createRef } from 'react'
 import propTypes from '@dhis2/prop-types'
-
+import React, { Component, createRef } from 'react'
 import { Popper } from './Popper.js'
 
 export default {

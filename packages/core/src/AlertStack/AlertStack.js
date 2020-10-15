@@ -1,9 +1,8 @@
+import propTypes from '@dhis2/prop-types'
+import { layers } from '@dhis2/ui-constants'
+import cx from 'classnames'
 import React from 'react'
 import { createPortal } from 'react-dom'
-import propTypes from '@dhis2/prop-types'
-import cx from 'classnames'
-
-import { layers } from '@dhis2/ui-constants'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**

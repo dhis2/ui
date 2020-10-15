@@ -1,10 +1,8 @@
+import propTypes from '@dhis2/prop-types'
+import { colors, layers } from '@dhis2/ui-constants'
 import React, { Component, createRef } from 'react'
 import { createPortal } from 'react-dom'
 import { resolve } from 'styled-jsx/css'
-
-import propTypes from '@dhis2/prop-types'
-import { colors, layers } from '@dhis2/ui-constants'
-
 import { Popper } from '../Popper/Popper.js'
 
 const TOOLTIP_OFFSET = 4

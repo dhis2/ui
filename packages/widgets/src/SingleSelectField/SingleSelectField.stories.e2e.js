@@ -1,8 +1,6 @@
-import React from 'react'
-
-import { storiesOf } from '@storybook/react'
 import { SingleSelectOption } from '@dhis2/ui-core'
-
+import { storiesOf } from '@storybook/react'
+import React from 'react'
 import { SingleSelectField } from './SingleSelectField.js'
 
 storiesOf('SingleSelectField', module)

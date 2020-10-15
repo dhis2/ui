@@ -1,8 +1,6 @@
-import React from 'react'
-import { storiesOf } from '@storybook/react'
-
 import { AttachFile } from '@dhis2/ui-icons'
-
+import { storiesOf } from '@storybook/react'
+import React from 'react'
 import { Tab } from '../index.js'
 import { TabBar } from './TabBar.js'
 

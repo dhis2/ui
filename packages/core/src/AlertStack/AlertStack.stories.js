@@ -1,7 +1,7 @@
-import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { AlertStack } from './AlertStack.js'
+import React from 'react'
 import { AlertBar } from '../index.js'
+import { AlertStack } from './AlertStack.js'
 
 storiesOf('AlertStack', module).add('Default', () => (
     <AlertStack>

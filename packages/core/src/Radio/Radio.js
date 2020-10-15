@@ -1,9 +1,8 @@
-import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
-import React, { Component, createRef } from 'react'
-
-import { RadioRegular, RadioDense } from '@dhis2/ui-icons'
 import { colors, theme, sharedPropTypes } from '@dhis2/ui-constants'
+import { RadioRegular, RadioDense } from '@dhis2/ui-icons'
+import cx from 'classnames'
+import React, { Component, createRef } from 'react'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**

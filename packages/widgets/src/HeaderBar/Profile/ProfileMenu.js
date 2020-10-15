@@ -1,18 +1,17 @@
-import { Account } from '@dhis2/ui-icons'
+import { useConfig } from '@dhis2/app-runtime'
+import i18n from '@dhis2/d2-i18n'
+import propTypes from '@dhis2/prop-types'
+import { colors } from '@dhis2/ui-constants'
 import { Card, Divider, MenuItem } from '@dhis2/ui-core'
+import { Account } from '@dhis2/ui-icons'
 import { Exit } from '@dhis2/ui-icons'
 import { Help } from '@dhis2/ui-icons'
 import { Info } from '@dhis2/ui-icons'
 import { Settings } from '@dhis2/ui-icons'
-import { colors } from '@dhis2/ui-constants'
-import { useConfig } from '@dhis2/app-runtime'
 import React from 'react'
 import css from 'styled-jsx/css'
-import i18n from '@dhis2/d2-i18n'
-import propTypes from '@dhis2/prop-types'
-
-import { ProfileHeader } from './ProfileHeader.js'
 import { joinPath } from '../joinPath.js'
+import { ProfileHeader } from './ProfileHeader.js'
 
 const iconStyle = css.resolve`
     svg {

@@ -1,13 +1,11 @@
-import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
+import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
+import { ArrowDown, ArrowUp } from '@dhis2/ui-icons'
+import cx from 'classnames'
 import React, { Component } from 'react'
 import css from 'styled-jsx/css'
-
-import { ArrowDown, ArrowUp } from '@dhis2/ui-icons'
-import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
-
-import { Layer } from '../Layer/Layer.js'
 import { Button } from '../Button/Button.js'
+import { Layer } from '../Layer/Layer.js'
 import { Popper } from '../Popper/Popper.js'
 
 const rightButton = css.resolve`

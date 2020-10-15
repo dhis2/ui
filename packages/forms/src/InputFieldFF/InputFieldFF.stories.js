@@ -1,6 +1,5 @@
-import React from 'react'
 import { storiesOf } from '@storybook/react'
-
+import React from 'react'
 import { formDecorator } from '../formDecorator.js'
 import { ReactFinalForm, InputFieldFF, hasValue } from '../index.js'
 

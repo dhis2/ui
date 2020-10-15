@@ -1,7 +1,7 @@
-import React from 'react'
-import css from 'styled-jsx/css'
 import propTypes from '@dhis2/prop-types'
 import { theme } from '@dhis2/ui-constants'
+import React from 'react'
+import css from 'styled-jsx/css'
 
 const centerButtonStyles = css`
     svg {

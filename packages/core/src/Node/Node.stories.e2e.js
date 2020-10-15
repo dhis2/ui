@@ -1,5 +1,5 @@
-import React from 'react'
 import { storiesOf } from '@storybook/react'
+import React from 'react'
 import { Node } from './Node.js'
 
 window.onClose = window.Cypress && window.Cypress.cy.stub()

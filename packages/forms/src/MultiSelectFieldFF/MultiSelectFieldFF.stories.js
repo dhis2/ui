@@ -1,7 +1,6 @@
-import React from 'react'
 import { storiesOf } from '@storybook/react'
+import React from 'react'
 import { formDecorator } from '../formDecorator.js'
-
 import { ReactFinalForm, MultiSelectFieldFF } from '../index.js'
 
 const { Field } = ReactFinalForm

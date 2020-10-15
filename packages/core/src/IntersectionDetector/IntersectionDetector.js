@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react'
 import { PropTypes } from '@dhis2/prop-types'
+import React, { useEffect, useRef } from 'react'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**

@@ -1,8 +1,7 @@
-import React from 'react'
 import i18n from '@dhis2/d2-i18n'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
-
+import React from 'react'
 import { PageControls } from './PageControls'
 import { PageSelect } from './PageSelect'
 import { PageSizeSelect } from './PageSizeSelect.js'

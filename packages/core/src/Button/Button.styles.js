@@ -1,6 +1,5 @@
-import css from 'styled-jsx/css'
-
 import { colors, theme, spacers } from '@dhis2/ui-constants'
+import css from 'styled-jsx/css'
 
 export default css`
     button {

@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-
 import { Checkbox } from './Checkbox.js'
 
 window.onChange = (payload, event) => {

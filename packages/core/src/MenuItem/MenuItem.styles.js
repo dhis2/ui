@@ -1,5 +1,5 @@
-import css from 'styled-jsx/css'
 import { colors, spacers } from '@dhis2/ui-constants'
+import css from 'styled-jsx/css'
 
 export default css`
     li {

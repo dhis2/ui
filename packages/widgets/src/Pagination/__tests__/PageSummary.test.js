@@ -1,8 +1,8 @@
-import React from 'react'
 import { shallow } from 'enzyme'
+import React from 'react'
+import * as mockPagers from '../__fixtures__'
 import { PageSummary, getItemRange } from '../PageSummary'
 import { Pagination } from '../Pagination'
-import * as mockPagers from '../__fixtures__'
 
 describe('<PageSummary />', () => {
     const props = {

@@ -1,14 +1,12 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
 import { StatusIcon } from '@dhis2/ui-icons'
-
-import { Select } from '../Select/Select.js'
+import React from 'react'
 import { Loading } from '../Select/Loading.js'
-
+import { Select } from '../Select/Select.js'
+import { FilterableMenu } from './FilterableMenu.js'
 import { Input } from './Input.js'
 import { Menu } from './Menu.js'
-import { FilterableMenu } from './FilterableMenu.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**

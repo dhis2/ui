@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
-import React from 'react'
 import { storiesOf } from '@storybook/react'
+import React from 'react'
 import { formDecorator } from '../formDecorator.js'
-
 import {
     CheckboxFieldFF,
     FileInputFieldFF,

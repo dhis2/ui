@@ -1,8 +1,7 @@
-import React from 'react'
 import { storiesOf } from '@storybook/react'
-
-import { ReactFinalForm, FileInputFieldFF, hasValue } from '../index.js'
+import React from 'react'
 import { formDecorator } from '../formDecorator.js'
+import { ReactFinalForm, FileInputFieldFF, hasValue } from '../index.js'
 
 const { Field } = ReactFinalForm
 

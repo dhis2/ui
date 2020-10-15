@@ -1,5 +1,5 @@
-import { baseUrl } from '../common/index'
 import { Then, Given } from 'cypress-cucumber-preprocessor/steps'
+import { baseUrl } from '../common/index'
 
 Given(
     'the custom title is {string} and the app title is "Example!"',

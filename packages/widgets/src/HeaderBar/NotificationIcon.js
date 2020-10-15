@@ -1,11 +1,9 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import css from 'styled-jsx/css'
-
 import { colors, theme } from '@dhis2/ui-constants'
-
 import { Email } from '@dhis2/ui-icons'
 import { Message } from '@dhis2/ui-icons'
+import React from 'react'
+import css from 'styled-jsx/css'
 
 const messageIcon = css.resolve`
     svg {

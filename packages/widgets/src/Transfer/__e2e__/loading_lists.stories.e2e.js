@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { Transfer } from '../Transfer'
 import { options } from './common/options'
 

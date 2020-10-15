@@ -1,14 +1,12 @@
-import React from 'react'
-import propTypes from 'prop-types'
-import cx from 'classnames'
-
-import { Checkbox } from '@dhis2/ui-core'
 import { colors } from '@dhis2/ui-constants'
-
+import { Checkbox } from '@dhis2/ui-core'
 import { FolderOpen } from '@dhis2/ui-icons'
 import { FolderClosed } from '@dhis2/ui-icons'
 import { Single } from '@dhis2/ui-icons'
 import { Empty } from '@dhis2/ui-icons'
+import cx from 'classnames'
+import propTypes from 'prop-types'
+import React from 'react'
 import { orgUnitPathPropType } from './propTypes'
 
 /**

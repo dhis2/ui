@@ -1,9 +1,7 @@
-import React, { useRef } from 'react'
-import cx from 'classnames'
-
 import propTypes from '@dhis2/prop-types'
-
 import { colors } from '@dhis2/ui-constants'
+import cx from 'classnames'
+import React, { useRef } from 'react'
 
 const DOUBLE_CLICK_MAX_DELAY = 500
 

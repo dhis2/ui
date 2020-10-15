@@ -1,9 +1,8 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import { css, resolve } from 'styled-jsx/css'
-
-import { CancelOutline } from '@dhis2/ui-icons'
 import { colors } from '@dhis2/ui-constants'
+import { CancelOutline } from '@dhis2/ui-icons'
+import React from 'react'
+import { css, resolve } from 'styled-jsx/css'
 
 const containerStyle = css`
     span {

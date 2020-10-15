@@ -1,6 +1,5 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
-
+import React from 'react'
 import { Actions } from './Actions.js'
 import { AddAll } from './AddAll.js'
 import { AddIndividual } from './AddIndividual.js'
@@ -13,10 +12,9 @@ import { OptionsContainer } from './OptionsContainer.js'
 import { RemoveAll } from './RemoveAll.js'
 import { RemoveIndividual } from './RemoveIndividual.js'
 import { ReorderingActions } from './ReorderingActions.js'
-import { RightHeader } from './RightHeader.js'
 import { RightFooter } from './RightFooter.js'
+import { RightHeader } from './RightHeader.js'
 import { RightSide } from './RightSide.js'
-import { TransferOption } from './TransferOption.js'
 import {
     addAllSelectableSourceOptions,
     addIndividualSourceOptions,
@@ -32,6 +30,7 @@ import {
     useFilter,
     useHighlightedOptions,
 } from './Transfer/index.js'
+import { TransferOption } from './TransferOption.js'
 
 const identity = value => value
 

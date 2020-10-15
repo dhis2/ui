@@ -1,8 +1,7 @@
 import React from 'react'
-
 import { MenuItem } from '../MenuItem/MenuItem.js'
-import { Menu } from './Menu.js'
 import { MenuSectionHeader } from '../MenuSectionHeader/MenuSectionHeader.js'
+import { Menu } from './Menu.js'
 
 export default {
     title: 'Menu',

@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
 import propTypes from '@dhis2/prop-types'
+import React, { useState } from 'react'
 
 export const namespace = 'OrganisationUnitTree'
 

@@ -1,9 +1,7 @@
-import React from 'react'
-import { storiesOf } from '@storybook/react'
-import { formDecorator } from '../formDecorator.js'
-
 import { FieldGroup } from '@dhis2/ui-widgets'
-
+import { storiesOf } from '@storybook/react'
+import React from 'react'
+import { formDecorator } from '../formDecorator.js'
 import { ReactFinalForm, RadioFieldFF } from '../index.js'
 
 const { Field } = ReactFinalForm

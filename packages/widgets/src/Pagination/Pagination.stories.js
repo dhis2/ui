@@ -1,6 +1,6 @@
 import React from 'react'
-import { Pagination } from './Pagination.js'
 import * as pagers from './__fixtures__'
+import { Pagination } from './Pagination.js'
 
 export default { title: 'Pagination', component: Pagination }
 

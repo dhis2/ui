@@ -1,10 +1,7 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
-
 import { colors } from '@dhis2/ui-constants'
-
+import React from 'react'
 import { Consumer } from '../StackedTable/TableContext.js'
-
 import { addColNumToChildren } from './addColNumToChildren'
 import { supplyHeaderLabelsToChildren } from './supplyHeaderLabelsToChildren'
 

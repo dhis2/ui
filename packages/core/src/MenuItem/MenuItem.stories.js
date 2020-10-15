@@ -1,9 +1,8 @@
+import { Apps } from '@dhis2/ui-icons'
 import React, { useState } from 'react'
 import { resolve } from 'styled-jsx/css'
-
 import { Menu } from '../Menu/Menu.js'
 import { MenuItem } from './MenuItem.js'
-import { Apps } from '@dhis2/ui-icons'
 
 export default {
     title: 'MenuItem',

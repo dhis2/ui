@@ -1,8 +1,8 @@
-import { Field } from 'react-final-form'
-import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { MultiSelectFieldFF, hasValue } from '../index.js'
+import React from 'react'
+import { Field } from 'react-final-form'
 import { formDecorator } from '../formDecorator.js'
+import { MultiSelectFieldFF, hasValue } from '../index.js'
 
 const defaultOptions = [
     { value: 'first', label: 'First' },

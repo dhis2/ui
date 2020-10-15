@@ -1,6 +1,6 @@
 import { CircularLoader } from '@dhis2/ui-core'
-import React from 'react'
 import propTypes from 'prop-types'
+import React from 'react'
 
 export const RootLoading = ({ dataTest }) => (
     <div data-test={`${dataTest}-loading`}>

@@ -1,9 +1,8 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
+import { spacers } from '@dhis2/ui-constants'
 import { Button } from '@dhis2/ui-core'
 import { ChevronRight, ChevronLeft } from '@dhis2/ui-icons'
-import { spacers } from '@dhis2/ui-constants'
-
+import React from 'react'
 import translate from '../translate'
 
 const PageControls = ({

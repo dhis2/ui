@@ -1,7 +1,7 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import { colors, spacers } from '@dhis2/ui-constants'
 import { Info, Warning, Error as ErrorIcon } from '@dhis2/ui-icons'
+import React from 'react'
 import css from 'styled-jsx/css'
 
 const getIconStyles = color =>

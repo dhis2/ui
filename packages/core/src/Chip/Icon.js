@@ -1,7 +1,6 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
-
 import { spacers } from '@dhis2/ui-constants'
+import React from 'react'
 
 export const Icon = ({ icon, dataTest }) => {
     if (!icon) {

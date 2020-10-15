@@ -1,8 +1,7 @@
 /* eslint-disable react/no-unescaped-entities,react/prop-types */
-import React, { useEffect, useState } from 'react'
-import { storiesOf } from '@storybook/react'
 import { CustomDataProvider, DataProvider } from '@dhis2/app-runtime'
-
+import { storiesOf } from '@storybook/react'
+import React, { useEffect, useState } from 'react'
 import { OrganisationUnitTree } from './OrganisationUnitTree.js'
 
 const log = true

@@ -1,9 +1,8 @@
-import React from 'react'
-
 import i18n from '@dhis2/d2-i18n'
 import propTypes from '@dhis2/prop-types'
-import { Field, SingleSelect, Box } from '@dhis2/ui-core'
 import { sharedPropTypes } from '@dhis2/ui-constants'
+import { Field, SingleSelect, Box } from '@dhis2/ui-core'
+import React from 'react'
 import translate from '../translate'
 
 /**

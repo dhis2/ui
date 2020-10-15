@@ -1,8 +1,7 @@
-import { CircularLoader } from '@dhis2/ui-core'
-import { spacers } from '@dhis2/ui-constants'
-import React, { Fragment, useRef } from 'react'
 import propTypes from '@dhis2/prop-types'
-
+import { spacers } from '@dhis2/ui-constants'
+import { CircularLoader } from '@dhis2/ui-core'
+import React, { Fragment, useRef } from 'react'
 import { EndIntersectionDetector } from './EndIntersectionDetector.js'
 import { useResizeCounter } from './useResizeCounter'
 

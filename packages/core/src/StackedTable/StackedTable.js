@@ -1,9 +1,8 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
-
+import React from 'react'
 import { extractHeaderLabels } from './extractHeaderLabels.js'
-import { Provider } from './TableContext.js'
 import { Table } from './Table.js'
+import { Provider } from './TableContext.js'
 
 /**
  * @module

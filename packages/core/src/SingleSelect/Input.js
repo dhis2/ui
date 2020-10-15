@@ -1,11 +1,11 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import cx from 'classnames'
 import { colors } from '@dhis2/ui-constants'
-import { Selection } from './Selection.js'
+import cx from 'classnames'
+import React from 'react'
+import { InputClearButton } from '../Select/InputClearButton.js'
 import { InputPlaceholder } from '../Select/InputPlaceholder.js'
 import { InputPrefix } from '../Select/InputPrefix.js'
-import { InputClearButton } from '../Select/InputClearButton.js'
+import { Selection } from './Selection.js'
 
 const Input = ({
     selected,
