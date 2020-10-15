@@ -23,11 +23,8 @@ env:
     GIT_COMMITTER_EMAIL: 'apps@dhis2.org'
     NPM_TOKEN: ${{secrets.DHIS2_BOT_NPM_TOKEN}}
     GH_TOKEN: ${{secrets.DHIS2_BOT_GITHUB_TOKEN}}
-    SERVER_START_CMD: 'yarn cy:server'
-    SERVER_URL: 'http://localhost:5001'
     CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
     CI: true
-    STORYBOOK_TESTING: true
 
 jobs:
     install:
@@ -167,6 +164,12 @@ jobs:
                   wait-on-timeout: 300
                   cache-key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
                   group: 'e2e'
+                  tag: ${{ github.event_name }}
+              env:
+                  COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
+                  STORYBOOK_TESTING: true
+                  SERVER_START_CMD: 'yarn cy:server'
+                  SERVER_URL: 'http://localhost:5001'
 
     publish:
         runs-on: ubuntu-latest
