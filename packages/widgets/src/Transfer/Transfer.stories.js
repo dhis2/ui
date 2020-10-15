@@ -1,4 +1,5 @@
-/* eslint-disable react/prop-types */
+/* eslint-disable react/prop-types, react/display-name */
+
 import { SingleSelectOption, Tab, TabBar } from '@dhis2/ui-core'
 import React, { useEffect, useState } from 'react'
 
