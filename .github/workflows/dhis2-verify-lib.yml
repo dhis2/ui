@@ -126,16 +126,13 @@ jobs:
               with:
                   name: lib-build
 
-            - name: Display structure of downloaded files
-              run: ls -R
-
             - name: Unit tests
               run: yarn test
 
     e2e:
         runs-on: ubuntu-latest
         if: "!contains(github.event.head_commit.message, '[skip ci]')"
-        needs: install
+        needs: [install, build]
 
         strategy:
             matrix:
@@ -155,14 +152,20 @@ jobs:
               if: steps.yarn-cache.outputs.cache-hit != 'true'
               run: yarn install --frozen-lockfile
 
-            - name: End-to-End tests
-              uses: cypress-io/github-action@v1
+            - uses: actions/download-artifact@v2
               with:
+                  name: lib-build
+
+            - name: End-to-End tests
+              uses: cypress-io/github-action@v2
+              with:
+                  install: false
                   record: true
                   parallel: true
                   start: ${{ env.SERVER_START_CMD }}
                   wait-on: ${{ env.SERVER_URL }}
                   wait-on-timeout: 300
+                  cache-key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
                   group: 'e2e'
 
     publish:
