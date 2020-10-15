@@ -96,6 +96,10 @@ jobs:
               if: steps.yarn-cache.outputs.cache-hit != 'true'
               run: yarn install --frozen-lockfile
 
+            - uses: actions/download-artifact@v2
+              with:
+                  name: lib-build
+
             - name: Lint
               run: yarn lint
 
