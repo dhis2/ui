@@ -40,9 +40,7 @@ jobs:
             - uses: actions/cache@v2
               id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
               with:
-                  path: |
-                      '**/node_modules'
-                      '~/.cache/Cypress'
+                  path: '**/node_modules'
                   key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
             - name: Install
@@ -162,6 +160,9 @@ jobs:
             - uses: actions/download-artifact@v2
               with:
                   name: lib-build
+
+            - name: Install Cypress binary
+              run: yarn cypress install
 
             - name: End-to-End tests
               uses: cypress-io/github-action@v2
