@@ -5,7 +5,5 @@ Given('a MenuItem with href is rendered', () => {
 })
 
 Then('a link is rendered with the href', () => {
-    cy.get('a')
-        .should('have.attr', 'href')
-        .and('include', 'url.test')
+    cy.get('a').should('have.attr', 'href').and('include', 'url.test')
 })

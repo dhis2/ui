@@ -6,9 +6,7 @@ Given('a TextArea with onChange handler is rendered', () => {
 })
 
 When('the TextArea is filled with a character', () => {
-    cy.get('[data-test="dhis2-uicore-textarea"]')
-        .click()
-        .type('a')
+    cy.get('[data-test="dhis2-uicore-textarea"]').click().type('a')
 })
 
 Then('the onChange handler is called', () => {

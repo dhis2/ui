@@ -1,3 +1,5 @@
+/* eslint-disable react/display-name */
+
 import React, { useState } from 'react'
 
 const WithState = ({ fn, initialState, initialSearchTerm, controlFilter }) => {

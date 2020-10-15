@@ -20,9 +20,7 @@ When('an option is clicked', () => {
 })
 
 When('the selected option is clicked', () => {
-    cy.get('[data-test="dhis2-uicore-layer"]')
-        .contains('option one')
-        .click()
+    cy.get('[data-test="dhis2-uicore-layer"]').contains('option one').click()
 })
 
 When('another option is clicked', () => {

@@ -56,9 +56,7 @@ Given('the selected list has many items', () => {
 })
 
 Given('no item is highlighted', () => {
-    cy.get('@list')
-        .find('.highlighted')
-        .should('not.exist')
+    cy.get('@list').find('.highlighted').should('not.exist')
 })
 
 Given('one item is highlighted', () => {
@@ -83,12 +81,7 @@ Given('there are at least two options following the highlighted option', () => {
 Given('several options are highlighted', () => {
     cy.get('@list')
         .find('{transferoption}')
-        .then($option =>
-            $option
-                .eq(0)
-                .add($option.eq(4))
-                .add($option.eq(6))
-        )
+        .then($option => $option.eq(0).add($option.eq(4)).add($option.eq(6)))
         .as('initiallyHighlightedMultiple')
         .each($option => cy.wrap($option).clickWith('ctrl'))
 })
@@ -116,9 +109,7 @@ When('the user clicks an item with the SHIFT modifier key', () => {
 })
 
 When('the user clicks the highlighted item with the SHIFT modifier key', () => {
-    cy.get('@initiallyHighlighted')
-        .clickWith('shift')
-        .as('hiddenHighlighted')
+    cy.get('@initiallyHighlighted').clickWith('shift').as('hiddenHighlighted')
 })
 
 When(
@@ -166,19 +157,13 @@ When('the user SHIFT-clicks a non-highlighted option', () => {
 })
 
 When('the user SHIFT-clicks an option', () => {
-    cy.get('@list')
-        .find('{transferoption}')
-        .eq(0)
-        .clickWith('shift')
+    cy.get('@list').find('{transferoption}').eq(0).clickWith('shift')
 
     cy.wrap(0).as('firstClickedIndexWithShift')
 })
 
 When('the user SHIFT-clicks another option', () => {
-    cy.get('@list')
-        .find('{transferoption}')
-        .eq(5)
-        .clickWith('shift')
+    cy.get('@list').find('{transferoption}').eq(5).clickWith('shift')
 
     cy.wrap(5).as('secondClickedIndexWithShift')
 })
@@ -256,10 +241,7 @@ Then(
     () => {
         cy.all(
             () =>
-                cy
-                    .get('@initiallyHighlightedMultiple')
-                    .last()
-                    .invoke('index'),
+                cy.get('@initiallyHighlightedMultiple').last().invoke('index'),
             () => cy.get('@initiallyHighlightedMultiple')
         ).should(
             ([

@@ -7,9 +7,7 @@ const shouldBeASelectedOrgUnitNode = (subject, singleSelection = false) => {
         .first()
         .then($label => {
             if (singleSelection) {
-                cy.wrap($label)
-                    .find('.checked', { log: false })
-                    .should('exist')
+                cy.wrap($label).find('.checked', { log: false }).should('exist')
             } else {
                 cy.wrap($label)
                     .find('input', { log: false })

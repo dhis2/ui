@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier, react/prop-types */
+/* eslint-disable prettier/prettier, react/prop-types, react/display-name */
 import React, { useState, useRef } from 'react'
 import { IntersectionDetector } from './IntersectionDetector.js'
 
