@@ -29,9 +29,7 @@ Then('the root node remains unselected', () => {
         .find('.checked')
         .should('not.exist')
 
-    cy.get('@rootLabel')
-        .find('input')
-        .should('not.exist')
+    cy.get('@rootLabel').find('input').should('not.exist')
 })
 
 Then('the second level is expanded', () => {

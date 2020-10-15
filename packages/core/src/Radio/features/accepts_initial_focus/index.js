@@ -5,7 +5,5 @@ Given('a Radio with initialFocus is rendered', () => {
 })
 
 Then('the Radio is focused', () => {
-    cy.focused()
-        .parent('[data-test="dhis2-uicore-radio"]')
-        .should('exist')
+    cy.focused().parent('[data-test="dhis2-uicore-radio"]').should('exist')
 })

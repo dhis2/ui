@@ -5,9 +5,7 @@ Given('a OrganisationUnitTree with two levels is rendered', () => {
 })
 
 Given('the root level is closed', () => {
-    cy.getOrgUnitByLabel('Org Unit 1')
-        .as('rootUnit')
-        .shouldBeAClosedNode()
+    cy.getOrgUnitByLabel('Org Unit 1').as('rootUnit').shouldBeAClosedNode()
 })
 
 When('the root level is opened', () => {

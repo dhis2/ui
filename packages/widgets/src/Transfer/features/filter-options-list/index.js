@@ -61,9 +61,7 @@ When('the user uses the same search term but {string}', secondCase => {
             secondCaseTerm = firstCaseTerm.toLowerCase()
         }
 
-        cy.wrap($filterInput)
-            .clear()
-            .type(secondCaseTerm)
+        cy.wrap($filterInput).clear().type(secondCaseTerm)
     })
 })
 

@@ -5,7 +5,5 @@ Given('a Switch with initialFocus is rendered', () => {
 })
 
 Then('the Switch is focused', () => {
-    cy.focused()
-        .parent('[data-test="dhis2-uicore-switch"]')
-        .should('exist')
+    cy.focused().parent('[data-test="dhis2-uicore-switch"]').should('exist')
 })

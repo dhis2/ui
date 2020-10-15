@@ -5,7 +5,5 @@ Given('a TextArea with initialFocus is rendered', () => {
 })
 
 Then('the TextArea is focused', () => {
-    cy.focused()
-        .parent('[data-test="dhis2-uicore-textarea"]')
-        .should('exist')
+    cy.focused().parent('[data-test="dhis2-uicore-textarea"]').should('exist')
 })

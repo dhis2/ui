@@ -5,9 +5,7 @@ Given('a Input with onChange handler is rendered', () => {
 })
 
 When('the Input is filled with a character', () => {
-    cy.get('[data-test="dhis2-uicore-input"]')
-        .click()
-        .type('a')
+    cy.get('[data-test="dhis2-uicore-input"]').click().type('a')
 })
 
 Then('the onChange handler is called', () => {

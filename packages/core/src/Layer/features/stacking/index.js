@@ -72,7 +72,5 @@ Then('the blocking layer is a child of the alert layer', () => {
 })
 
 Then('the alert layer is a sibling of the blocking layer', () => {
-    cy.get('[data-test="blocking"]')
-        .next()
-        .should('have.data', 'test', 'alert')
+    cy.get('[data-test="blocking"]').next().should('have.data', 'test', 'alert')
 })

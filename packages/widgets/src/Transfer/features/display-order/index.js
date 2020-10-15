@@ -14,9 +14,7 @@ Given('some selectable options are selectable', () => {
 })
 
 When('the user deselects one selected option', () => {
-    cy.get('{transfer-pickedoptions} {transferoption}')
-        .first()
-        .click()
+    cy.get('{transfer-pickedoptions} {transferoption}').first().click()
     cy.get('{transfer-pickedoptions}')
         .find('.highlighted')
         .then($el => $el.toArray().map(extractOptionFromElement))
@@ -42,9 +40,7 @@ When('the user deselects multiple selected options', () => {
 })
 
 When('the user selects one option', () => {
-    cy.get('{transfer-sourceoptions} {transferoption}')
-        .first()
-        .click()
+    cy.get('{transfer-sourceoptions} {transferoption}').first().click()
     cy.get('{transfer-sourceoptions}')
         .find('.highlighted')
         .then($el => $el.toArray().map(extractOptionFromElement))
