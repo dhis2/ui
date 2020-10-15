@@ -126,6 +126,9 @@ jobs:
               with:
                   name: lib-build
 
+            - name: Display structure of downloaded files
+              run: ls -R
+
             - name: Unit tests
               run: yarn test
 
