@@ -1,0 +1,203 @@
+name: 'dhis2: verify (lib)'
+
+on:
+    push:
+        branches:
+            # match branches in:
+            # https://github.com/semantic-release/semantic-release/blob/master/docs/usage/configuration.md#branches
+            - master
+            - next
+            - next-major
+            - alpha
+            - beta
+            - '[0-9]+.x'
+            - '[0-9]+.x.x'
+            - '[0-9]+.[0-9]+.x'
+
+    pull_request:
+
+env:
+    GIT_AUTHOR_NAME: '@dhis2-bot'
+    GIT_AUTHOR_EMAIL: 'apps@dhis2.org'
+    GIT_COMMITTER_NAME: '@dhis2-bot'
+    GIT_COMMITTER_EMAIL: 'apps@dhis2.org'
+    NPM_TOKEN: ${{secrets.DHIS2_BOT_NPM_TOKEN}}
+    GH_TOKEN: ${{secrets.DHIS2_BOT_GITHUB_TOKEN}}
+    CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+    CI: true
+
+jobs:
+    install:
+        runs-on: ubuntu-latest
+        if: "!contains(github.event.head_commit.message, '[skip ci]')"
+
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12.x
+
+            - uses: actions/cache@v2
+              id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+              with:
+                  path: '**/node_modules'
+                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
+            - name: Install
+              if: steps.yarn-cache.outputs.cache-hit != 'true'
+              run: yarn install --frozen-lockfile
+
+    build:
+        runs-on: ubuntu-latest
+        needs: install
+        if: "!contains(github.event.head_commit.message, '[skip ci]')"
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12.x
+
+            - uses: actions/cache@v2
+              id: yarn-cache
+              with:
+                  path: '**/node_modules'
+                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
+            - name: Install
+              if: steps.yarn-cache.outputs.cache-hit != 'true'
+              run: yarn install --frozen-lockfile
+
+            - name: Build
+              run: yarn build
+
+            - uses: actions/upload-artifact@v2
+              with:
+                  name: lib-build
+                  path: '**/build'
+                  retention-days: 1
+
+    lint:
+        runs-on: ubuntu-latest
+        needs: [install, build]
+        if: "!contains(github.event.head_commit.message, '[skip ci]')"
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12.x
+
+            - uses: actions/cache@v2
+              id: yarn-cache
+              with:
+                  path: '**/node_modules'
+                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
+            - name: Install
+              if: steps.yarn-cache.outputs.cache-hit != 'true'
+              run: yarn install --frozen-lockfile
+
+            - uses: actions/download-artifact@v2
+              with:
+                  name: lib-build
+
+            - name: Lint
+              run: yarn lint
+
+    test:
+        runs-on: ubuntu-latest
+        needs: [install, build]
+        if: "!contains(github.event.head_commit.message, '[skip ci]')"
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12.x
+
+            - uses: actions/cache@v2
+              id: yarn-cache
+              with:
+                  path: '**/node_modules'
+                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
+            - name: Install
+              if: steps.yarn-cache.outputs.cache-hit != 'true'
+              run: yarn install --frozen-lockfile
+
+            - uses: actions/download-artifact@v2
+              with:
+                  name: lib-build
+
+            - name: Unit tests
+              run: yarn test
+
+    e2e:
+        runs-on: ubuntu-latest
+        if: "!contains(github.event.head_commit.message, '[skip ci]')"
+        needs: [install, build]
+
+        strategy:
+            matrix:
+                containers: [1, 2, 3]
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12.x
+
+            - uses: actions/cache@v2
+              id: yarn-cache
+              with:
+                  path: '**/node_modules'
+                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
+            - name: Install
+              if: steps.yarn-cache.outputs.cache-hit != 'true'
+              run: yarn install --frozen-lockfile
+
+            - uses: actions/download-artifact@v2
+              with:
+                  name: lib-build
+
+            - name: Install Cypress binary
+              run: yarn cypress install
+
+            - name: End-to-End tests
+              uses: cypress-io/github-action@v2
+              with:
+                  install: false
+                  record: true
+                  parallel: true
+                  start: ${{ env.SERVER_START_CMD }}
+                  wait-on: ${{ env.SERVER_URL }}
+                  wait-on-timeout: 300
+                  cache-key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                  group: 'e2e'
+                  tag: ${{ github.event_name }}
+              env:
+                  COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
+                  STORYBOOK_TESTING: true
+                  SERVER_START_CMD: 'yarn cy:server'
+                  SERVER_URL: 'http://localhost:5001'
+
+    publish:
+        runs-on: ubuntu-latest
+        needs: [build, lint, test, e2e]
+        if: "github.event_name != 'pull_request' && !contains(github.event.head_commit.message, '[skip ci]')"
+        steps:
+            - uses: actions/checkout@v2
+              with:
+                  token: ${{env.GH_TOKEN}}
+
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12.x
+
+            - uses: actions/download-artifact@v2
+              with:
+                  name: lib-build
+
+            - name: Publish to NPM
+              run: npx @dhis2/cli-utils release --publish npm
