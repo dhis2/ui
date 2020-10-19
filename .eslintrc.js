@@ -6,16 +6,4 @@ module.exports = {
         cy: 'readonly',
         Cypress: 'readonly',
     },
-    rules: {
-        'import/order': [
-            'error',
-            {
-                'newlines-between': 'never',
-                alphabetize: {
-                    order: 'asc',
-                    caseInsensitive: true,
-                },
-            },
-        ],
-    },
 }
