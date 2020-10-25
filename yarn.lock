@@ -1979,16 +1979,7 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@babel/types@^7.0.0", "@babel/types@^7.3.0", "@babel/types@^7.4.0", "@babel/types@^7.4.4", "@babel/types@^7.7.0", "@babel/types@^7.8.3", "@babel/types@^7.8.6", "@babel/types@^7.9.0":
-  version "7.9.0"
-  resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.9.0.tgz#00b064c3df83ad32b2dbf5ff07312b15c7f1efb5"
-  integrity sha512-BS9JKfXkzzJl8RluW4JGknzpiUV7ZrvTayM6yfqLTVBEnFtyowVIOu6rqxRd5cVO6yGoWf4T8u8dgK9oB+GCng==
-  dependencies:
-    "@babel/helper-validator-identifier" "^7.9.0"
-    lodash "^4.17.13"
-    to-fast-properties "^2.0.0"
-
-"@babel/types@^7.10.4", "@babel/types@^7.10.5", "@babel/types@^7.11.0", "@babel/types@^7.11.5", "@babel/types@^7.9.5":
+"@babel/types@^7.0.0", "@babel/types@^7.10.4", "@babel/types@^7.10.5", "@babel/types@^7.11.0", "@babel/types@^7.11.5", "@babel/types@^7.3.0", "@babel/types@^7.4.0", "@babel/types@^7.4.4", "@babel/types@^7.7.0", "@babel/types@^7.8.3", "@babel/types@^7.8.6", "@babel/types@^7.9.0", "@babel/types@^7.9.5":
   version "7.11.5"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.11.5.tgz#d9de577d01252d77c6800cee039ee64faf75662d"
   integrity sha512-bvM7Qz6eKnJVFIn+1LPtjlBFPVN5jNDc1XmN15vWe7Q3DPBufWWsLiIvUu7xW87uTG6QoggpIDnUgLQvPheU+Q==
@@ -17618,10 +17609,10 @@ style-loader@^1.2.1:
     loader-utils "^2.0.0"
     schema-utils "^2.6.6"
 
-styled-jsx@^3.2.2, styled-jsx@^3.2.5, styled-jsx@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/styled-jsx/-/styled-jsx-3.3.0.tgz#32335c1a3ecfc923ba4f9c056eeb3d4699006b09"
-  integrity sha512-sh8BI5eGKyJlwL4kNXHjb27/a/GJV8wP4ElRIkRXrGW3sHKOsY9Pa1VZRNxyvf3+lisdPwizD9JDkzVO9uGwZw==
+styled-jsx@^3.2.2, styled-jsx@^3.2.5, styled-jsx@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/styled-jsx/-/styled-jsx-3.3.1.tgz#d79f306c42c99cefbe8e76f35dad8100dc5c9ecc"
+  integrity sha512-RhW71t3k95E3g7Zq3lEBk+kmf+p4ZME7c5tfsYf9M5mq6CgIvFXkbvhawL2gWriXLRlMyKAYACE89Qa2JnTqUw==
   dependencies:
     "@babel/types" "7.8.3"
     babel-plugin-syntax-jsx "6.18.0"
