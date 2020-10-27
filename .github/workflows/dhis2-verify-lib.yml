@@ -70,8 +70,8 @@ jobs:
               with:
                   name: lib-build
                   path: |
-                      '**/build'
-                      '!node_modules'
+                      **/build
+                      !node_modules
                   retention-days: 1
 
     lint:
