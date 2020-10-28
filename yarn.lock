@@ -2411,10 +2411,10 @@
     i18next "^10.3"
     moment "^2.24.0"
 
-"@dhis2/prop-types@^1.6.4":
-  version "1.6.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-1.6.4.tgz#ec4d256c9440d4d00071524422a727c61ddaa6f6"
-  integrity sha512-qkVj8OuyjDmSxzYDlCWZllvC9hIbrIImMp79/U5CVsIRbjUF0zA/tfbv4rWnsWALmwEHOQFbzl5GnO5D8RNneA==
+"@dhis2/prop-types@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-2.0.1.tgz#229e6d8e7b6235aa7a88c4d6213178f9d8a8c1d8"
+  integrity sha512-JFYchgh1CpQP1K7csCYXtSJaQcjpWz0WPPIoXgMq0yr6FL9WHzUrqudD2nRujOippNDYmKXqdUVp2WA0ZB1itA==
   dependencies:
     prop-types "^15"
 

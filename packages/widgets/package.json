@@ -28,7 +28,7 @@
         "@dhis2/d2-i18n": "^1"
     },
     "dependencies": {
-        "@dhis2/prop-types": "^1.6.4",
+        "@dhis2/prop-types": "^2.0.1",
         "classnames": "^2.2.6"
     },
     "files": [
