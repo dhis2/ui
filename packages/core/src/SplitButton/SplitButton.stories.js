@@ -79,3 +79,14 @@ export const InitialFocus = () => (
         Label me!
     </SplitButton>
 )
+
+export const WithIcon = () => (
+    <SplitButton
+        name="Button"
+        value="default"
+        component={<div>Component</div>}
+        icon={<div>Icon</div>}
+    >
+        Children
+    </SplitButton>
+)
