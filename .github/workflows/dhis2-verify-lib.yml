@@ -1,18 +1,6 @@
 name: 'dhis2: verify (lib)'
 
-on:
-    push:
-        branches:
-            # match branches in:
-            # https://github.com/semantic-release/semantic-release/blob/master/docs/usage/configuration.md#branches
-            - master
-            - next
-            - next-major
-            - alpha
-            - beta
-            - '[0-9]+.x'
-            - '[0-9]+.x.x'
-            - '[0-9]+.[0-9]+.x'
+on: push
 
 env:
     GIT_AUTHOR_NAME: '@dhis2-bot'
