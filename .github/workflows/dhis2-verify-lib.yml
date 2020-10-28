@@ -1,6 +1,8 @@
 name: 'dhis2: verify (lib)'
 
-on: push
+on:
+    push:
+        branches:
 
 env:
     GIT_AUTHOR_NAME: '@dhis2-bot'
@@ -9,7 +11,6 @@ env:
     GIT_COMMITTER_EMAIL: 'apps@dhis2.org'
     NPM_TOKEN: ${{secrets.DHIS2_BOT_NPM_TOKEN}}
     GH_TOKEN: ${{secrets.DHIS2_BOT_GITHUB_TOKEN}}
-    CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
     CI: true
 
 jobs:
@@ -150,6 +151,7 @@ jobs:
                   group: 'e2e'
                   tag: ${{ github.event_name }}
               env:
+                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
                   COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
                   STORYBOOK_TESTING: true
                   SERVER_START_CMD: 'yarn cy:server'
