@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-09-17T12:14:04.736Z\n"
-"PO-Revision-Date: 2020-09-17T12:14:04.736Z\n"
+"POT-Creation-Date: 2020-10-16T08:34:56.738Z\n"
+"PO-Revision-Date: 2020-10-16T08:34:56.738Z\n"
 
 msgid "Upload a file"
 msgstr ""
@@ -76,56 +76,65 @@ msgstr ""
 msgid "Previous"
 msgstr ""
 
-msgid "Could not load children"
+msgid "Remove access"
 msgstr ""
 
-msgid "Select access"
+msgid "Give access to a user, group or role"
 msgstr ""
 
-msgid "Share with users and groups"
+msgid "Search"
 msgstr ""
 
-msgid "Search for user, group or role"
+msgid "User, group or role"
 msgstr ""
 
-msgid "Share"
+msgid "Access level"
 msgstr ""
 
-msgid "Sharing settings"
+msgid "Select a level"
 msgstr ""
 
-msgid "Hide"
+msgid "Give access"
 msgstr ""
 
-msgid "Save"
+msgid "Sharing & Access"
 msgstr ""
 
-msgid "Users and groups that have access"
+msgid "Close"
 msgstr ""
 
-msgid "External"
+msgid "Users, groups and roles that currently have access"
 msgstr ""
 
-msgid "Public"
+msgid "User / Group / Role"
+msgstr ""
+
+msgid "External users"
+msgstr ""
+
+msgid "All users"
+msgstr ""
+
+msgid "Access"
 msgstr ""
 
 msgid "No access"
 msgstr ""
 
-msgid "Anyone logged in can find and view"
+msgid "Anyone logged in can view"
 msgstr ""
 
-msgid "Can find and view"
+msgid "Can view"
 msgstr ""
 
 msgid "View only"
 msgstr ""
 
-msgid "Anyone logged in can find, edit, and view"
+msgid "Anyone logged in can view and edit"
 msgstr ""
 
-msgid "Can find, edit, and view"
+msgid "Can view and edit"
 msgstr ""
 
-msgid "Edit and view"
+msgid "View and edit"
 msgstr ""
