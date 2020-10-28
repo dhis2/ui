@@ -1,0 +1,16 @@
+version: 2
+updates:
+    - package-ecosystem: npm
+      directory: '/'
+      schedule:
+          interval: daily
+      open-pull-requests-limit: 10
+      target-branch: master
+      versioning-strategy: increase
+      ignore:
+          - dependency-name: react
+            versions:
+                - '>=16.9.x'
+          - dependency-name: react-dom
+            versions:
+                - '>=16.9.x'
