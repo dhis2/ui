@@ -96,7 +96,6 @@ class SplitButton extends Component {
                 <Button
                     name={name}
                     value={value}
-                    icon={icon}
                     small={small}
                     large={large}
                     primary={primary}
