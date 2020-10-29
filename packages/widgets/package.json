@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/ui-widgets",
-    "version": "5.7.2",
+    "version": "5.7.3",
     "main": "build/cjs/lib.js",
     "module": "build/es/lib.js",
     "sideEffects": false,
@@ -21,9 +21,9 @@
         "react": "^16.8",
         "react-dom": "^16.8",
         "styled-jsx": "^3.2",
-        "@dhis2/ui-core": "5.7.2",
-        "@dhis2/ui-icons": "5.7.2",
-        "@dhis2/ui-constants": "5.7.2",
+        "@dhis2/ui-core": "5.7.3",
+        "@dhis2/ui-icons": "5.7.3",
+        "@dhis2/ui-constants": "5.7.3",
         "@dhis2/app-runtime": "^2",
         "@dhis2/d2-i18n": "^1"
     },

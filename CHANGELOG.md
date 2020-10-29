@@ -1,3 +1,11 @@
+## [5.7.3](https://github.com/dhis2/ui/compare/v5.7.2...v5.7.3) (2020-10-29)
+
+
+### Bug Fixes
+
+* **split-button:** adjust test and add demo story ([3b36404](https://github.com/dhis2/ui/commit/3b364048a6eb70a0eccb8bae36103d32258e7d06))
+* **split-button:** stop showing icon in right button ([ec34e40](https://github.com/dhis2/ui/commit/ec34e404287b3a4ab2c24d400edae1404d70a04a))
+
 ## [5.7.2](https://github.com/dhis2/ui/compare/v5.7.1...v5.7.2) (2020-09-29)
 
 
