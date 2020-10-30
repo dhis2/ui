@@ -1,4 +1,4 @@
-import '@dhis2/cli-utils-cypress/support'
+import '@dhis2/cypress-commands'
 
 // Add additional support functions here
 import './all'
