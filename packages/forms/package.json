@@ -21,7 +21,7 @@
         "react-dom": "^16.8"
     },
     "dependencies": {
-        "@dhis2/prop-types": "^1.6.4",
+        "@dhis2/prop-types": "^2.0.2",
         "classnames": "^2.2.6",
         "final-form": "^4.20.1",
         "react-final-form": "^6.5.1"
