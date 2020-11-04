@@ -2403,10 +2403,10 @@
     live-server "^1.2.1"
     match-all "^1.2.5"
 
-"@dhis2/cypress-commands@^3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-3.0.2.tgz#dba3f75346178f7ecfb2dc6c0175851da1c62ce9"
-  integrity sha512-YgJDHu3w3RvLSSS9vHW4sQAjGAOEjAdF4FVpQ4hY3mxUSCrctNHl0eeIQdkGL3RwK2kTIvZ/AS+faaEWn0/3fQ==
+"@dhis2/cypress-commands@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-3.1.0.tgz#d1599f258d9a2db83c1116808b175a184a0eb740"
+  integrity sha512-93oBYeP7rI6zgLQ4k1UvcYTIEHQDED3fbn3cp2CyhXTaiaNIgTEnW28xjVnqCn/CydjDuSMPCxQPsUCciVlehA==
 
 "@dhis2/d2-i18n@^1.0.5", "@dhis2/d2-i18n@^1.0.6":
   version "1.0.6"
