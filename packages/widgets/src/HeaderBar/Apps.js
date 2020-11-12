@@ -243,16 +243,22 @@ export default class Apps extends React.Component {
         const apps = this.props.apps
         return (
             <div ref={c => (this.elContainer = c)} data-test="headerbar-apps">
-                <a onClick={this.onToggle} data-test="headerbar-apps-icon">
+                <button onClick={this.onToggle} data-test="headerbar-apps-icon">
                     <AppsIcon className={appIcon.className} />
-                </a>
+                </button>
 
                 {this.state.show && this.AppMenu(apps)}
 
                 {appIcon.styles}
                 <style jsx>{`
-                    a {
+                    button {
                         display: block;
+                        background: transparent;
+                        padding: 0;
+                        border: 0;
+                    }
+                    button:focus {
+                        outline: 1px dotted white;
                     }
 
                     div {
