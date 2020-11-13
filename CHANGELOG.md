@@ -1,3 +1,10 @@
+## [5.7.4](https://github.com/dhis2/ui/compare/v5.7.3...v5.7.4) (2020-11-13)
+
+
+### Bug Fixes
+
+* cut release to finish jira migration ([ddf3bf4](https://github.com/dhis2/ui/commit/ddf3bf4f376a81cc4bed2cbf34931c60feb8434d))
+
 ## [5.7.3](https://github.com/dhis2/ui/compare/v5.7.2...v5.7.3) (2020-10-29)
 
 
