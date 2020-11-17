@@ -23,7 +23,7 @@ const iconStyle = css.resolve`
     }
 `
 
-const getMenuList = () => [
+const getMenuList = (helpUrl) => [
     {
         icon: <Settings className={iconStyle.className} />,
         label: i18n.t('Settings'),
@@ -40,8 +40,9 @@ const getMenuList = () => [
         icon: <Help className={iconStyle.className} />,
         label: i18n.t('Help'),
         value: 'help',
-        link:
-            'https://docs.dhis2.org/master/en/user/html/dhis2_user_manual_en.html',
+        link: helpUrl
+            ? helpUrl
+            : 'https://docs.dhis2.org/master/en/user/html/dhis2_user_manual_en.html',
         nobase: true,
     },
     {
@@ -58,7 +59,7 @@ const getMenuList = () => [
     },
 ]
 
-const ProfileContents = ({ name, email, avatar }) => {
+const ProfileContents = ({ name, email, avatar, helpUrl }) => {
     const { baseUrl } = useConfig()
 
     return (
@@ -67,7 +68,7 @@ const ProfileContents = ({ name, email, avatar }) => {
                 <ProfileHeader name={name} email={email} img={avatar} />
                 <Divider margin="13px 0 7px 0" />
                 <ul data-test="headerbar-profile-menu">
-                    {getMenuList().map(
+                    {getMenuList(helpUrl).map(
                         ({ label, value, icon, link, nobase }) => (
                             <MenuItem
                                 href={nobase ? link : joinPath(baseUrl, link)}
@@ -110,11 +111,12 @@ ProfileContents.propTypes = {
     avatar: propTypes.element,
     email: propTypes.string,
     name: propTypes.string,
+    helpUrl: propTypes.string,
 }
 
-export const ProfileMenu = ({ avatar, name, email }) => (
+export const ProfileMenu = ({ avatar, name, email, helpUrl }) => (
     <div data-test="headerbar-profile-menu">
-        <ProfileContents name={name} email={email} avatar={avatar} />
+        <ProfileContents name={name} email={email} avatar={avatar} helpUrl={helpUrl} />
         <style jsx>{`
             div {
                 z-index: 10000;
@@ -132,4 +134,5 @@ ProfileMenu.propTypes = {
     avatar: propTypes.element,
     email: propTypes.string,
     name: propTypes.string,
+    helpUrl: propTypes.string,
 }

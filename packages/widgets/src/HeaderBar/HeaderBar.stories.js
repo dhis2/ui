@@ -13,6 +13,9 @@ const customData = {
     'systemSettings/applicationTitle': {
         applicationTitle: 'Foobar',
     },
+    'systemSettings/helpLink': {
+        helpLink: '//custom-help-link',
+    },
     me: {
         name: 'John Doe',
         email: 'john_doe@dhis2.org',
