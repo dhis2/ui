@@ -1,3 +1,10 @@
+## [5.7.6](https://github.com/dhis2/ui/compare/v5.7.5...v5.7.6) (2020-11-17)
+
+
+### Bug Fixes
+
+* **popover:** attach portal to current layer root ([e187ebf](https://github.com/dhis2/ui/commit/e187ebf7ddb9c656822f3ac9c7089e7e380f7573))
+
 ## [5.7.5](https://github.com/dhis2/ui/compare/v5.7.4...v5.7.5) (2020-11-17)
 
 
