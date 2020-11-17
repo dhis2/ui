@@ -1,4 +1,4 @@
-import React, { Component, createRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { resolve } from 'styled-jsx/css'
 
@@ -34,97 +34,87 @@ const CLOSE_DELAY = 400
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/tooltip.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/tooltips--default-fluid|Storybook}
  */
-class Tooltip extends Component {
-    state = { open: false }
-    ref = createRef()
-    openTimeout = null
-    closeTimeout = null
+const Tooltip = ({
+    children,
+    className,
+    content,
+    dataTest,
+    maxWidth,
+    placement,
+}) => {
+    const [open, setOpen] = useState(false)
+    const popperReference = useRef()
+    const openTimerRef = useRef(null)
+    const closeTimerRef = useRef(null)
 
-    componentWillUnmount() {
-        clearTimeout(this.openTimeout)
-        clearTimeout(this.closeTimeout)
-    }
+    const onMouseOver = () => {
+        clearTimeout(closeTimerRef.current)
 
-    onMouseOver = () => {
-        clearTimeout(this.closeTimeout)
-
-        this.openTimeout = setTimeout(() => {
-            this.setState({ open: true })
+        openTimerRef.current = setTimeout(() => {
+            setOpen(true)
         }, OPEN_DELAY)
     }
 
-    onMouseOut = () => {
-        clearTimeout(this.openTimeout)
+    const onMouseOut = () => {
+        clearTimeout(openTimerRef.current)
 
-        this.closeTimeout = setTimeout(() => {
-            this.setState({ open: false })
+        closeTimerRef.current = setTimeout(() => {
+            setOpen(false)
         }, CLOSE_DELAY)
     }
 
-    render() {
-        const {
-            children,
-            className,
-            content,
-            dataTest,
-            maxWidth,
-            placement,
-        } = this.props
-        const { open } = this.state
+    return (
+        <>
+            {typeof children === 'function' ? (
+                children({
+                    onMouseOver: onMouseOver,
+                    onMouseOut: onMouseOut,
+                    ref: popperReference,
+                })
+            ) : (
+                <span
+                    onMouseOver={onMouseOver}
+                    onMouseOut={onMouseOut}
+                    ref={popperReference}
+                    data-test={`${dataTest}-reference`}
+                >
+                    {children}
+                </span>
+            )}
 
-        return (
-            <>
-                {typeof children === 'function' ? (
-                    children({
-                        onMouseOver: this.onMouseOver,
-                        onMouseOut: this.onMouseOut,
-                        ref: this.ref,
-                    })
-                ) : (
-                    <span
-                        onMouseOver={this.onMouseOver}
-                        onMouseOut={this.onMouseOut}
-                        ref={this.ref}
-                        data-test={`${dataTest}-reference`}
+            {open &&
+                createPortal(
+                    <Popper
+                        className={popperStyle.className}
+                        placement={placement}
+                        reference={popperReference}
+                        modifiers={[offsetModifier]}
                     >
-                        {children}
-                    </span>
-                )}
-
-                {open &&
-                    createPortal(
-                        <Popper
-                            className={popperStyle.className}
-                            placement={placement}
-                            reference={this.ref}
-                            modifiers={[offsetModifier]}
+                        <div
+                            className={className}
+                            data-test={`${dataTest}-content`}
                         >
-                            <div
-                                className={className}
-                                data-test={`${dataTest}-content`}
-                            >
-                                {content}
-                            </div>
-                        </Popper>,
-                        document.body
-                    )}
-                {popperStyle.styles}
-                <style jsx>{`
-                    div {
-                        max-width: ${maxWidth}px;
-                    }
-                    div {
-                        padding: 6px 8px;
-                        background-color: ${colors.grey800};
-                        border-radius: 3px;
-                        color: ${colors.white};
-                        font-size: 12px;
-                        line-height: 16px;
-                    }
-                `}</style>
-            </>
-        )
-    }
+                            {content}
+                        </div>
+                    </Popper>,
+                    document.body
+                )}
+            {popperStyle.styles}
+            <style jsx>{`
+                div {
+                    max-width: ${maxWidth}px;
+                }
+                div {
+                    padding: 6px 8px;
+                    background-color: ${colors.grey800};
+                    border-radius: 3px;
+                    color: ${colors.white};
+                    font-size: 12px;
+                    line-height: 16px;
+                }
+            `}</style>
+        </>
+    )
 }
 
 Tooltip.defaultProps = {
