@@ -5,6 +5,7 @@ import { resolve } from 'styled-jsx/css'
 import propTypes from '@dhis2/prop-types'
 import { colors, layers } from '@dhis2/ui-constants'
 
+import { useLayerContext } from '../Layer/Layer.js'
 import { Popper } from '../Popper/Popper.js'
 
 const TOOLTIP_OFFSET = 4
@@ -46,6 +47,7 @@ const Tooltip = ({
     const popperReference = useRef()
     const openTimerRef = useRef(null)
     const closeTimerRef = useRef(null)
+    const { node: portalRootNode } = useLayerContext()
 
     const onMouseOver = () => {
         clearTimeout(closeTimerRef.current)
@@ -97,7 +99,7 @@ const Tooltip = ({
                             {content}
                         </div>
                     </Popper>,
-                    document.body
+                    portalRootNode
                 )}
             {popperStyle.styles}
             <style jsx>{`
