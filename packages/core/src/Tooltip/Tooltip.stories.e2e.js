@@ -2,6 +2,7 @@ import React from 'react'
 import css from 'styled-jsx/css'
 
 import { Tooltip } from './Tooltip.js'
+import { Modal } from '../Modal/Modal.js'
 
 const noPaddingStyles = css`
     :global(#root) {
@@ -72,4 +73,22 @@ export const ShiftingPosition = () => (
             }
         `}</style>
     </p>
+)
+
+export const ModalWithTooltip = () => (
+    <Modal>
+        <p>
+            I am a <Tooltip content="Short content">paragraph</Tooltip> that
+            contains a tooltip.
+        </p>
+        {/* 
+            Added pointer-events: all to the popper element to circumvent
+            a cypress bug: https://github.com/cypress-io/cypress/issues/9227
+         */}
+        <style jsx>{`
+            :global([data-test='dhis2-uicore-popper']) {
+                pointer-events: all;
+            }
+        `}</style>
+    </Modal>
 )
