@@ -53,6 +53,9 @@ export const NotificationIcon = ({ count, href, kind, dataTestId }) => (
                 margin: 8px 24px 0 0;
                 cursor: pointer;
             }
+            a:focus {
+                outline: 1px dotted white;
+            }
 
             span {
                 z-index: 1;
