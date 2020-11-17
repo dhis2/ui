@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/ui-forms",
-    "version": "5.7.4",
+    "version": "5.7.5",
     "main": "./build/cjs/lib.js",
     "module": "./build/es/lib.js",
     "sideEffects": false,
@@ -16,7 +16,7 @@
         "build": "d2-app-scripts build"
     },
     "peerDependencies": {
-        "@dhis2/ui-core": "5.7.4",
+        "@dhis2/ui-core": "5.7.5",
         "react": "^16.8",
         "react-dom": "^16.8"
     },

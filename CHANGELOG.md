@@ -1,3 +1,11 @@
+## [5.7.5](https://github.com/dhis2/ui/compare/v5.7.4...v5.7.5) (2020-11-17)
+
+
+### Bug Fixes
+
+* **headerbar:** adjust focus styles for accessibility ([ac85384](https://github.com/dhis2/ui/commit/ac85384f7a75d7d385bb7003837340d7afbc0f4b))
+* **headerbar:** allow keyboard focus on apps drawer trigger ([16c847b](https://github.com/dhis2/ui/commit/16c847b89ad61d6982e299ed00d52f13f9b7c2cd))
+
 ## [5.7.4](https://github.com/dhis2/ui/compare/v5.7.3...v5.7.4) (2020-11-13)
 
 
