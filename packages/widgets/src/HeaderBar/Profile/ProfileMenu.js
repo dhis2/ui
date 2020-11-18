@@ -23,43 +23,12 @@ const iconStyle = css.resolve`
     }
 `
 
-const getMenuList = () => [
-    {
-        icon: <Settings className={iconStyle.className} />,
-        label: i18n.t('Settings'),
-        value: 'settings',
-        link: 'dhis-web-user-profile/#/settings',
-    },
-    {
-        icon: <Account className={iconStyle.className} />,
-        label: i18n.t('Account'),
-        value: 'account',
-        link: 'dhis-web-user-profile/#/account',
-    },
-    {
-        icon: <Help className={iconStyle.className} />,
-        label: i18n.t('Help'),
-        value: 'help',
-        link:
-            'https://docs.dhis2.org/master/en/user/html/dhis2_user_manual_en.html',
-        nobase: true,
-    },
-    {
-        icon: <Info className={iconStyle.className} />,
-        label: i18n.t('About DHIS2'),
-        value: 'about',
-        link: 'dhis-web-user-profile/#/aboutPage',
-    },
-    {
-        icon: <Exit className={iconStyle.className} />,
-        label: i18n.t('Logout'),
-        value: 'logout',
-        link: 'dhis-web-commons-security/logout.action',
-    },
-]
-
-const ProfileContents = ({ name, email, avatar }) => {
+const ProfileContents = ({ name, email, avatar, helpUrl }) => {
     const { baseUrl } = useConfig()
+
+    const help = helpUrl
+        ? helpUrl
+        : 'https://docs.dhis2.org/master/en/user/html/dhis2_user_manual_en.html'
 
     return (
         <Card>
@@ -67,17 +36,48 @@ const ProfileContents = ({ name, email, avatar }) => {
                 <ProfileHeader name={name} email={email} img={avatar} />
                 <Divider margin="13px 0 7px 0" />
                 <ul data-test="headerbar-profile-menu">
-                    {getMenuList().map(
-                        ({ label, value, icon, link, nobase }) => (
-                            <MenuItem
-                                href={nobase ? link : joinPath(baseUrl, link)}
-                                key={`h-mi-${value}`}
-                                label={label}
-                                value={value}
-                                icon={icon}
-                            />
-                        )
-                    )}
+                    <MenuItem
+                        href={joinPath(
+                            baseUrl,
+                            'dhis-web-user-profile/#/settings'
+                        )}
+                        label={i18n.t('Settings')}
+                        value="settings"
+                        icon={<Settings className={iconStyle.className} />}
+                    />
+                    <MenuItem
+                        href={joinPath(
+                            baseUrl,
+                            'dhis-web-user-profile/#/account'
+                        )}
+                        label={i18n.t('Account')}
+                        value="account"
+                        icon={<Account className={iconStyle.className} />}
+                    />
+                    <MenuItem
+                        href={help}
+                        label={i18n.t('Help')}
+                        value="help"
+                        icon={<Help className={iconStyle.className} />}
+                    />
+                    <MenuItem
+                        href={joinPath(
+                            baseUrl,
+                            'dhis-web-user-profile/#/aboutPage'
+                        )}
+                        label={i18n.t('About DHIS2')}
+                        value="about"
+                        icon={<Info className={iconStyle.className} />}
+                    />
+                    <MenuItem
+                        href={joinPath(
+                            baseUrl,
+                            'dhis-web-commons-security/logout.action'
+                        )}
+                        label={i18n.t('Logout')}
+                        value="logout"
+                        icon={<Exit className={iconStyle.className} />}
+                    />
                 </ul>
             </div>
 
@@ -109,12 +109,18 @@ const ProfileContents = ({ name, email, avatar }) => {
 ProfileContents.propTypes = {
     avatar: propTypes.element,
     email: propTypes.string,
+    helpUrl: propTypes.string,
     name: propTypes.string,
 }
 
-export const ProfileMenu = ({ avatar, name, email }) => (
+export const ProfileMenu = ({ avatar, name, email, helpUrl }) => (
     <div data-test="headerbar-profile-menu">
-        <ProfileContents name={name} email={email} avatar={avatar} />
+        <ProfileContents
+            name={name}
+            email={email}
+            avatar={avatar}
+            helpUrl={helpUrl}
+        />
         <style jsx>{`
             div {
                 z-index: 10000;
@@ -131,5 +137,6 @@ export const ProfileMenu = ({ avatar, name, email }) => (
 ProfileMenu.propTypes = {
     avatar: propTypes.element,
     email: propTypes.string,
+    helpUrl: propTypes.string,
     name: propTypes.string,
 }

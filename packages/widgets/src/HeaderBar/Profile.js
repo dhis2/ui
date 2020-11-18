@@ -58,7 +58,7 @@ export default class Profile extends React.Component {
     }
 
     render() {
-        const { user, baseUrl } = this.props
+        const { user, baseUrl, helpUrl } = this.props
 
         return (
             <div
@@ -72,6 +72,7 @@ export default class Profile extends React.Component {
                         avatar={avatarPath(user.avatar, baseUrl)}
                         name={user.name}
                         email={user.email}
+                        helpUrl={helpUrl}
                     />
                 ) : null}
 
@@ -91,4 +92,5 @@ export default class Profile extends React.Component {
 Profile.propTypes = {
     baseUrl: propTypes.string.isRequired,
     user: propTypes.object.isRequired,
+    helpUrl: propTypes.string,
 }
