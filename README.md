@@ -22,3 +22,14 @@ Read our blogpost for the release of `@dhis2/ui` version 5 here: https://develop
 | @dhis2/ui-forms     | [packages/forms](packages/forms)         |
 | @dhis2/ui-icons     | [packages/icons](packages/icons)         |
 | @dhis2/ui-widgets   | [packages/widgets](packages/widgets)     |
+
+## Report an issue
+
+The issue tracker can be found in [DHIS2 JIRA](https://jira.dhis2.org)
+under the [CLI](https://jira.dhis2.org/projects/CLI) project.
+
+Deep links:
+
+-   [Bug](https://jira.dhis2.org/secure/CreateIssueDetails!init.jspa?pid=10703&issuetype=10006&components=11015)
+-   [Feature](https://jira.dhis2.org/secure/CreateIssueDetails!init.jspa?pid=10703&issuetype=10300&components=11015)
+-   [Task](https://jira.dhis2.org/secure/CreateIssueDetails!init.jspa?pid=10703&issuetype=10003&components=11015)
