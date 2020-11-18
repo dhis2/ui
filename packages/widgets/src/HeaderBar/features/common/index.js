@@ -22,7 +22,7 @@ Before(() => {
     cy.get('@helpLinkFixture').then(fx => {
         cy.route({
             url: `${baseUrl}/api/systemSettings/helpLink`,
-            respose: fx,
+            response: fx,
         }).as('helpLink')
     })
 
