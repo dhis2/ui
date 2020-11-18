@@ -1,3 +1,10 @@
+## [5.7.7](https://github.com/dhis2/ui/compare/v5.7.6...v5.7.7) (2020-11-18)
+
+
+### Bug Fixes
+
+* use helpLink from settings end-point ([e2a1ac6](https://github.com/dhis2/ui/commit/e2a1ac6dbbd4b43331896678f0e8ca9e758f6a81))
+
 ## [5.7.6](https://github.com/dhis2/ui/compare/v5.7.5...v5.7.6) (2020-11-17)
 
 
