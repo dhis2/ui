@@ -58,7 +58,7 @@
         "@dhis2/app-runtime": "^2.4.0",
         "@dhis2/cli-app-scripts": "^5.3.0",
         "@dhis2/cli-style": "^7.2.2",
-        "@dhis2/cli-utils-cypress": "^3.0.2",
+        "@dhis2/cli-utils-cypress": "^3.1.2",
         "@dhis2/cli-utils-docsite": "^2.0.2",
         "@dhis2/cypress-commands": "^3.0.2",
         "@dhis2/d2-i18n": "^1.0.6",
