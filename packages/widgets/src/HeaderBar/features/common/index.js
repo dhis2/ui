@@ -5,6 +5,7 @@ export const webCommons = 'https://domain.tld/dhis-web-commons/'
 
 Before(() => {
     cy.fixture('HeaderBar/applicationTitle').as('applicationTitleFixture')
+    cy.fixture('HeaderBar/helpLink').as('helpLinkFixture')
     cy.fixture('HeaderBar/me').as('meFixture')
     cy.fixture('HeaderBar/getModules').as('modulesFixture')
     cy.fixture('HeaderBar/dashboard').as('dashboardFixture')
@@ -16,6 +17,13 @@ Before(() => {
             url: `${baseUrl}/api/systemSettings/applicationTitle`,
             response: fx,
         }).as('applicationTitle')
+    })
+
+    cy.get('@helpLinkFixture').then(fx => {
+        cy.route({
+            url: `${baseUrl}/api/systemSettings/helpLink`,
+            respose: fx,
+        }).as('helpLink')
     })
 
     cy.get('@meFixture').then(fx => {
