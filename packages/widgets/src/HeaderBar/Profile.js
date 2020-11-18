@@ -92,4 +92,5 @@ export default class Profile extends React.Component {
 Profile.propTypes = {
     baseUrl: propTypes.string.isRequired,
     user: propTypes.object.isRequired,
+    helpUrl: propTypes.string,
 }

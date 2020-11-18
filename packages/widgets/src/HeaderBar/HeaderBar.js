@@ -74,7 +74,11 @@ export const HeaderBar = ({ appName, className }) => {
                         userAuthorities={data.user.authorities}
                     />
                     <Apps apps={apps} />
-                    <Profile user={data.user} baseUrl={baseUrl} helpUrl={data.help.helpLink}/>
+                    <Profile
+                        user={data.user}
+                        baseUrl={baseUrl}
+                        helpUrl={data.help.helpLink}
+                    />
                 </>
             )}
 

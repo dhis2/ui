@@ -26,7 +26,9 @@ const iconStyle = css.resolve`
 const ProfileContents = ({ name, email, avatar, helpUrl }) => {
     const { baseUrl } = useConfig()
 
-    const help = helpUrl ? helpUrl : 'https://docs.dhis2.org/master/en/user/html/dhis2_user_manual_en.html'
+    const help = helpUrl
+        ? helpUrl
+        : 'https://docs.dhis2.org/master/en/user/html/dhis2_user_manual_en.html'
 
     return (
         <Card>
@@ -35,33 +37,45 @@ const ProfileContents = ({ name, email, avatar, helpUrl }) => {
                 <Divider margin="13px 0 7px 0" />
                 <ul data-test="headerbar-profile-menu">
                     <MenuItem
-                        href={joinPath(baseUrl, 'dhis-web-user-profile/#/settings')}
+                        href={joinPath(
+                            baseUrl,
+                            'dhis-web-user-profile/#/settings'
+                        )}
                         label={i18n.t('Settings')}
-                        value='settings'
+                        value="settings"
                         icon={<Settings className={iconStyle.className} />}
                     />
                     <MenuItem
-                        href={joinPath(baseUrl, 'dhis-web-user-profile/#/account')}
+                        href={joinPath(
+                            baseUrl,
+                            'dhis-web-user-profile/#/account'
+                        )}
                         label={i18n.t('Account')}
-                        value='account'
+                        value="account"
                         icon={<Account className={iconStyle.className} />}
                     />
                     <MenuItem
                         href={help}
                         label={i18n.t('Help')}
-                        value='help'
+                        value="help"
                         icon={<Help className={iconStyle.className} />}
                     />
                     <MenuItem
-                        href={joinPath(baseUrl, 'dhis-web-user-profile/#/aboutPage')}
+                        href={joinPath(
+                            baseUrl,
+                            'dhis-web-user-profile/#/aboutPage'
+                        )}
                         label={i18n.t('About DHIS2')}
-                        value='about'
+                        value="about"
                         icon={<Info className={iconStyle.className} />}
                     />
                     <MenuItem
-                        href={joinPath(baseUrl, 'dhis-web-commons-security/logout.action')}
+                        href={joinPath(
+                            baseUrl,
+                            'dhis-web-commons-security/logout.action'
+                        )}
                         label={i18n.t('Logout')}
-                        value='logout'
+                        value="logout"
                         icon={<Exit className={iconStyle.className} />}
                     />
                 </ul>
@@ -95,13 +109,18 @@ const ProfileContents = ({ name, email, avatar, helpUrl }) => {
 ProfileContents.propTypes = {
     avatar: propTypes.element,
     email: propTypes.string,
-    name: propTypes.string,
     helpUrl: propTypes.string,
+    name: propTypes.string,
 }
 
 export const ProfileMenu = ({ avatar, name, email, helpUrl }) => (
     <div data-test="headerbar-profile-menu">
-        <ProfileContents name={name} email={email} avatar={avatar} helpUrl={helpUrl} />
+        <ProfileContents
+            name={name}
+            email={email}
+            avatar={avatar}
+            helpUrl={helpUrl}
+        />
         <style jsx>{`
             div {
                 z-index: 10000;
@@ -118,6 +137,6 @@ export const ProfileMenu = ({ avatar, name, email, helpUrl }) => (
 ProfileMenu.propTypes = {
     avatar: propTypes.element,
     email: propTypes.string,
-    name: propTypes.string,
     helpUrl: propTypes.string,
+    name: propTypes.string,
 }
