@@ -145,8 +145,8 @@ AlertBar.defaultProps = {
  * @prop {string} [className]
  * @prop {boolean} [success] - `success`, `warning`, and `critical` are
  * mutually exclusive props.
- * @prop {boolean} [warning]
- * @prop {boolean} [critical]
+ * @prop {boolean} [warning] - `AlertBar`s with `warning` will not autohide
+ * @prop {boolean} [critical] - `AlertBar`s with `critical` will not autohide
  *
  * @prop {(Element|boolean)} [icon=true]
  *
