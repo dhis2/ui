@@ -47,15 +47,14 @@ export const convertAccessToConstant = access => {
         return access ? ACCESS_VIEW_ONLY : ACCESS_NONE
     }
 
-    switch (access) {
-        case 'rw------':
-            return ACCESS_VIEW_AND_EDIT
-        case 'r-------':
-            return ACCESS_VIEW_ONLY
-        case '--------':
-            return ACCESS_NONE
-        default:
-            return defaultSharingSettings.public
+    if (/^rw/.test(access)) {
+        return ACCESS_VIEW_AND_EDIT
+    } else if (/^r-/.test(access)) {
+        return ACCESS_VIEW_ONLY
+    } else if (/^--/.test(access)) {
+        return ACCESS_NONE
+    } else {
+        return defaultSharingSettings.public
     }
 }
 
