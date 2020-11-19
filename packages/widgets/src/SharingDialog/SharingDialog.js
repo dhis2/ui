@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from '@dhis2/prop-types'
 
 import i18n from '@dhis2/d2-i18n'
-import { useDataQuery, useDataMutation } from '@dhis2/app-runtime'
+import { useAlert, useDataQuery, useDataMutation } from '@dhis2/app-runtime'
 
 import {
     Modal,
@@ -54,14 +54,31 @@ export const SharingDialog = ({
         initialSharingSettings
     )
     const [isDirty, setIsDirty] = useState(false)
+    const { show } = useAlert(error => error, { critical: true })
+
+    const onDataEngineError = error => {
+        show(error)
+
+        onError(error)
+    }
+
+    const onMutateError = error => {
+        onDataEngineError(error)
+        // after a mutate error the state won't reflect the stored sharing settings
+        // a refetch is needed
+        fetchSharingSettings(type, id)
+    }
 
     const { data, refetch } = useDataQuery(query, {
         lazy: true,
-        onError,
+        onError: onDataEngineError,
     })
     const fetchSharingSettings = (type, id) => refetch({ type, id })
 
-    const [mutate] = useDataMutation(mutation, { onError, onComplete: onSave })
+    const [mutate] = useDataMutation(mutation, {
+        onError: onMutateError,
+        onComplete: onSave,
+    })
     const mutateSharingSettings = sharing => {
         mutate({
             type,
@@ -69,10 +86,6 @@ export const SharingDialog = ({
             sharing,
         })
     }
-
-    // XXX with mutateError
-    // what happens to the state? it won't reflect the stored sharing settings
-    // need to refetch
 
     // refresh sharing settings if type/id changes
     useEffect(() => {
@@ -103,6 +116,8 @@ export const SharingDialog = ({
                     })
                 )
             }
+
+            setIsDirty(false)
 
             updateSharingSettings(prevState => ({
                 ...prevState,
@@ -140,7 +155,7 @@ export const SharingDialog = ({
             },
         }))
 
-    const removeUserOrGroupAccess = ({ type, id }) => {
+    const removeUserOrGroupAccess = ({ type, id }) =>
         updateSharingSettings(prevState => {
             const usersOrGroups = prevState[`${type}s`]
 
@@ -153,7 +168,6 @@ export const SharingDialog = ({
                 },
             }
         })
-    }
 
     const changeAccess = ({ type, id, access }) => {
         const updatedAccess = {}
