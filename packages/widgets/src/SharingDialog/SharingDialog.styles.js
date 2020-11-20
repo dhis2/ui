@@ -59,11 +59,6 @@ export const sharingListItemStyles = css`
         padding: 4px 8px;
     }
 
-    .share-details-icon {
-        width: 24px;
-        height: 24px;
-    }
-
     .share-details-text {
         margin-left: 8px;
     }
