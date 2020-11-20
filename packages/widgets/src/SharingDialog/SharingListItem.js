@@ -5,11 +5,14 @@ import i18n from '@dhis2/d2-i18n'
 import { Divider } from '@dhis2/ui'
 
 import { sharingListItemStyles } from './SharingDialog.styles'
-import { IconExternal } from './icons/IconExternal'
+import { World as WorldIcon } from './icons/World'
+import { UserGroup as UserGroupIcon } from './icons/UserGroup'
 import { Avatar } from './icons/Avatar'
 import {
+    SHARE_TARGET_EXTERNAL,
     SHARE_TARGET_PUBLIC,
     SHARE_TARGET_USER,
+    SHARE_TARGET_GROUP,
     isPermanentTarget,
     accessStrings,
 } from './sharingConstants'
@@ -23,39 +26,49 @@ export const SharingListItem = ({
     disabled,
     onChange,
     onRemove,
-}) => (
-    <>
-        <div className="sharing-list-item">
-            <style jsx>{sharingListItemStyles}</style>
-            <div className="share-details">
-                {target === SHARE_TARGET_USER ? (
-                    <Avatar name={name} />
-                ) : (
-                    <IconExternal className="share-details-icon" />
-                )}
-                <div className="share-details-text">
-                    <p className="share-entity">{name}</p>
-                    <p className="share-context">
-                        {target === SHARE_TARGET_PUBLIC
-                            ? accessStrings[access]?.publicDescription
-                            : accessStrings[access]?.description}
-                    </p>
+}) => {
+    const getIcon = target => {
+        switch (target) {
+            case SHARE_TARGET_EXTERNAL:
+                return <WorldIcon />
+            case SHARE_TARGET_PUBLIC:
+            case SHARE_TARGET_GROUP:
+                return <UserGroupIcon />
+            case SHARE_TARGET_USER:
+                return <Avatar name={name} />
+        }
+    }
+
+    return (
+        <>
+            <div className="sharing-list-item">
+                <style jsx>{sharingListItemStyles}</style>
+                <div className="share-details">
+                    {getIcon(target)}
+                    <div className="share-details-text">
+                        <p className="share-entity">{name}</p>
+                        <p className="share-context">
+                            {target === SHARE_TARGET_PUBLIC
+                                ? accessStrings[access]?.publicDescription
+                                : accessStrings[access]?.description}
+                        </p>
+                    </div>
                 </div>
+                <AccessSelect
+                    prefix={i18n.t('Access')}
+                    access={access}
+                    accessOptions={accessOptions}
+                    disabled={disabled}
+                    showRemoveOption={!isPermanentTarget(target)}
+                    onChange={selected =>
+                        selected === 'remove' ? onRemove() : onChange(selected)
+                    }
+                />
             </div>
-            <AccessSelect
-                prefix={i18n.t('Access')}
-                access={access}
-                accessOptions={accessOptions}
-                disabled={disabled}
-                showRemoveOption={!isPermanentTarget(target)}
-                onChange={selected =>
-                    selected === 'remove' ? onRemove() : onChange(selected)
-                }
-            />
-        </div>
-        <Divider />
-    </>
-)
+            <Divider />
+        </>
+    )
+}
 
 SharingListItem.propTypes = {
     access: PropTypes.string,
