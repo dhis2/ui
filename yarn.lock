@@ -2375,10 +2375,10 @@
     semver "^7.3.2"
     yargs "^16.1.0"
 
-"@dhis2/cli-utils-cypress@^3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-utils-cypress/-/cli-utils-cypress-3.0.2.tgz#7a4ab901f9222b47b8ad07ce3ef4544129faad4a"
-  integrity sha512-n5ds3eD8tg25/wSoRk4QMJy1iQTWYbRi4aPV70k0Bp7kx/d35KNUWECagFK0yFs+P2pksnauC26RWDusKZNj0g==
+"@dhis2/cli-utils-cypress@^3.1.3":
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-utils-cypress/-/cli-utils-cypress-3.1.3.tgz#3d5dcfb97b2f60af3e714171e45a57145d339865"
+  integrity sha512-gRjWIH/UHUO8gELAE/HM6zaROmMsWAcVAjdPVjbFszp6A+WFhPDWckSzTop5Orw6e7nPFMCLHmUGp9D0j6PRvw==
   dependencies:
     "@dhis2/cli-helpers-engine" "^1.5.0"
     concurrently "^5.2.0"
