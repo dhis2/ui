@@ -49,8 +49,8 @@ export const SharingListItem = ({
                         <p className="share-entity">{name}</p>
                         <p className="share-context">
                             {target === SHARE_TARGET_PUBLIC
-                                ? accessStrings[access]?.publicDescription
-                                : accessStrings[access]?.description}
+                                ? accessStrings[access]?.publicDescription()
+                                : accessStrings[access]?.description()}
                         </p>
                     </div>
                 </div>
