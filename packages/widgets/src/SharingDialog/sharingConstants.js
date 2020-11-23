@@ -8,18 +8,18 @@ const noAccess = i18n.t('No access')
 
 export const accessStrings = {
     [ACCESS_NONE]: {
-        publicDescription: noAccess,
-        description: noAccess,
+        publicDescription: () => noAccess,
+        description: () => noAccess,
         option: noAccess,
     },
     [ACCESS_VIEW_ONLY]: {
-        publicDescription: i18n.t('Anyone logged in can view'),
-        description: i18n.t('Can view'),
+        publicDescription: () => i18n.t('Anyone logged in can view'),
+        description: () => i18n.t('Can view'),
         option: i18n.t('View only'),
     },
     [ACCESS_VIEW_AND_EDIT]: {
-        publicDescription: i18n.t('Anyone logged in can view and edit'),
-        description: i18n.t('Can view and edit'),
+        publicDescription: () => i18n.t('Anyone logged in can view and edit'),
+        description: () => i18n.t('Can view and edit'),
         option: i18n.t('View and edit'),
     },
 }
