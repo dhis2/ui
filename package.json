@@ -63,7 +63,7 @@
         "@dhis2/cypress-commands": "^3.0.2",
         "@dhis2/d2-i18n": "^1.0.6",
         "@storybook/addons": "^6.0.26",
-        "@storybook/components": "^6.0.26",
+        "@storybook/components": "^6.1.4",
         "@storybook/csf": "^0.0.1",
         "@storybook/preset-create-react-app": "^3.0.0",
         "@storybook/react": "^6.0.26",
