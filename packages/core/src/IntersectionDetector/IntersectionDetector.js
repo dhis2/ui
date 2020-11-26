@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { PropTypes } from '@dhis2/prop-types'
+import propTypes from '@dhis2/prop-types'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
@@ -101,14 +101,14 @@ IntersectionDetector.defaultProps = {
  * @prop {number} [threshold]
  */
 IntersectionDetector.propTypes = {
-    rootRef: PropTypes.shape({
+    rootRef: propTypes.shape({
         // not required so `current` can be `null`
-        current: PropTypes.instanceOf(HTMLElement),
+        current: propTypes.instanceOf(HTMLElement),
     }).isRequired,
-    onChange: PropTypes.func.isRequired,
+    onChange: propTypes.func.isRequired,
 
-    children: PropTypes.any,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    threshold: PropTypes.number,
+    children: propTypes.any,
+    className: propTypes.string,
+    dataTest: propTypes.string,
+    threshold: propTypes.number,
 }
