@@ -1,6 +1,6 @@
 {
     "name": "root",
-    "version": "5.7.7",
+    "version": "5.7.8",
     "repository": {
         "type": "git",
         "url": "https://github.com/dhis2/ui.git"

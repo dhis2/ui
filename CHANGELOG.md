@@ -1,3 +1,10 @@
+## [5.7.8](https://github.com/dhis2/ui/compare/v5.7.7...v5.7.8) (2020-11-27)
+
+
+### Bug Fixes
+
+* **IntersectionDetector:** use mixed export prop-types style ([6b18d8f](https://github.com/dhis2/ui/commit/6b18d8ffe58ab717f96224b462a45c467ec1b0d7))
+
 ## [5.7.7](https://github.com/dhis2/ui/compare/v5.7.6...v5.7.7) (2020-11-18)
 
 
