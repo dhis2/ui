@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import { AttachFile } from '@dhis2/ui-icons'
+import { AttachFile } from '../Icons/index.js'
 
 import { Tab } from '../index.js'
 import { TabBar } from './TabBar.js'

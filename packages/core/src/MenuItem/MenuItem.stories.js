@@ -3,7 +3,7 @@ import { resolve } from 'styled-jsx/css'
 
 import { Menu } from '../Menu/Menu.js'
 import { MenuItem } from './MenuItem.js'
-import { Apps } from '@dhis2/ui-icons'
+import { Apps } from '../Icons/index.js'
 
 export default {
     title: 'MenuItem',

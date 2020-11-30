@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import cx from 'classnames'
 
 import { sharedPropTypes } from '@dhis2/ui-constants'
-import { StatusIcon } from '@dhis2/ui-icons'
+import { StatusIcon } from '../Icons/index.js'
 
 import { styles } from './TextArea.styles.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
