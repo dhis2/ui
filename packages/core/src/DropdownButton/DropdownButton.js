@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { resolve } from 'styled-jsx/css'
 
 import { spacers } from '@dhis2/ui-constants'
-import { ArrowDown, ArrowUp } from '@dhis2/ui-icons'
+import { ArrowDown, ArrowUp } from '../Icons/index.js'
 
 import { Button } from '../Button/Button.js'
 import { Layer } from '../Layer/Layer.js'
