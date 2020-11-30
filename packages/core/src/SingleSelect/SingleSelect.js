@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
-import { StatusIcon } from '@dhis2/ui-icons'
+import { StatusIcon } from '../Icons/index.js'
 import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
 
 import { Select } from '../Select/Select.js'

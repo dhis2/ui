@@ -21,7 +21,6 @@
     },
     "peerDependencies": {
         "@dhis2/ui-constants": "5.7.8",
-        "@dhis2/ui-icons": "5.7.8",
         "react": "^16.8",
         "react-dom": "^16.8",
         "styled-jsx": "^3.2"
