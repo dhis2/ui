@@ -18,9 +18,11 @@ module.exports = {
         ],
     },
 
-    // Replace hardcoded fills on paths, so that it can be overridden
+    /**
+     * Replace hardcoded fills on paths, so that it can be overridden
+     * by setting the `color` prop
+     */
     replaceAttrValues: {
-        // For example, say our svg paths use red by default
-        red: 'inherit',
+        '#010101': 'currentColor',
     },
 }
