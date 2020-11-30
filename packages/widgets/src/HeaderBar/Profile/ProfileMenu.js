@@ -1,9 +1,4 @@
-import { Account } from '@dhis2/ui-icons'
 import { Card, Divider, MenuItem } from '@dhis2/ui-core'
-import { Exit } from '@dhis2/ui-icons'
-import { Help } from '@dhis2/ui-icons'
-import { Info } from '@dhis2/ui-icons'
-import { Settings } from '@dhis2/ui-icons'
 import { colors } from '@dhis2/ui-constants'
 import { useConfig } from '@dhis2/app-runtime'
 import React from 'react'
@@ -11,6 +6,7 @@ import css from 'styled-jsx/css'
 import i18n from '@dhis2/d2-i18n'
 import propTypes from '@dhis2/prop-types'
 
+import { Account, Exit, Help, Info, Settings } from '../../Icons/index.js'
 import { ProfileHeader } from './ProfileHeader.js'
 import { joinPath } from '../joinPath.js'
 

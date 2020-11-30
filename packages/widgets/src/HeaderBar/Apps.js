@@ -1,5 +1,5 @@
 import { Card } from '@dhis2/ui-core'
-import { Settings, Apps as AppsIcon } from '@dhis2/ui-icons'
+import { Settings, Apps as AppsIcon } from '../Icons/index.js'
 import { colors, theme } from '@dhis2/ui-constants'
 import { useConfig } from '@dhis2/app-runtime'
 import React from 'react'
