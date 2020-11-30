@@ -4,8 +4,7 @@ import css from 'styled-jsx/css'
 
 import { colors, theme } from '@dhis2/ui-constants'
 
-import { Email } from '@dhis2/ui-icons'
-import { Message } from '@dhis2/ui-icons'
+import { Email, Message } from '../Icons/index.js'
 
 const messageIcon = css.resolve`
     svg {
