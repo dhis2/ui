@@ -28,6 +28,7 @@
     ],
     "devDependencies": {
         "@svgr/cli": "^5.5.0",
+        "execa": "^4.1.0",
         "mkdirp": "^1.0.4",
         "rimraf": "^3.0.2"
     }
