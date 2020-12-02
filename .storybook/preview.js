@@ -4,17 +4,16 @@ import { jsxDecorator } from 'storybook-addon-jsx'
 import { addDecorator, addParameters } from '@storybook/react'
 import { CssReset } from '@dhis2/ui-core'
 
+// Enable storybook jsx visualization
 addDecorator(jsxDecorator)
 
+/**
+ * Basic wrapper for all our components, styles the root elements and applies
+ * our css reset for consistency/
+ */
 addDecorator(fn => (
     <Fragment>
         <CssReset />
-        {fn()}
-    </Fragment>
-))
-
-addDecorator(fn => (
-    <Fragment>
         {fn()}
 
         <style jsx>{`
@@ -33,7 +32,11 @@ addDecorator(fn => (
     </Fragment>
 ))
 
-//https://storybook.js.org/docs/configurations/options-parameter/#sorting-stories
+/**
+ * Sort all our stories alphabetically
+ *
+ * See: https://storybook.js.org/docs/configurations/options-parameter/#sorting-stories
+ */
 addParameters({
     options: {
         storySort: (a, b) =>
