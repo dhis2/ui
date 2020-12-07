@@ -6,5 +6,4 @@ module.exports = {
         '/node_modules/',
         'Transfer/__tests__/common/createChildren.js',
     ],
-    watchPathIgnorePatterns: ['<rootDir>/packages/icons/test/'],
 }
