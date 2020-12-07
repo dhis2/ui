@@ -14,7 +14,7 @@ A PR is always welcome. We recommend discussing the proposed change first by ope
 
 The `@dhis2/ui-icons` build process will take care of most things for you. If you want to add an icon you can follow these steps:
 
--   Add the icon as an svg to `packages/icons/src`
+-   Add the icon as an svg to `packages/icons/src/svg`
 -   Ensure that you're matching the existing naming conventions, i.e. snake-case and icon name followed by the variant and then the size
 -   The svg does not have to be optimized, the build process already includes svgo
 -   Any path fill colors should be set to `#010101` so that we can set all path fill colors to `inherit`
