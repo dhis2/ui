@@ -14,7 +14,7 @@ describe('svg build', () => {
         expect(fs.existsSync(componentPath)).toBe(false)
 
         // Generate the component with svgr-cli
-        await execa.command('npx svgr -d test src/add-16.svg', {
+        await execa.command('npx svgr -d test src/svg/add-16.svg', {
             // svgr-cli locates files relative to process.cwd() so we need to set the cwd explicitly
             cwd: packageRoot,
         })

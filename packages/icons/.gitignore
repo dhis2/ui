@@ -1,3 +1,10 @@
 # Files in this directory are generated during our
 # unit tests and should not be in version control
 /test/
+
+# Intermediate build directory. Our build tooling
+# currently only supports building from code in ./src
+# So we generate the react components in the src
+# folder, but since they're build artefacts, we
+# don't want them in version control.
+/src/react/
