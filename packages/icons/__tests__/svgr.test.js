@@ -1,27 +1,17 @@
 import path from 'path'
-import fs from 'fs'
-import rimraf from 'rimraf'
 import execa from 'execa'
 
 describe('svg build', () => {
     it('should generate the expected component', async () => {
-        const packageRoot = path.join(__dirname, '..')
-        const testPath = path.join(packageRoot, 'test')
-        const componentPath = path.join(testPath, 'Add16.js')
+        const cwd = path.join(__dirname, '..')
+        const command = 'npx svgr src/svg/add-16.svg'
 
-        // First remove the target dir to ensure we're not testing against an older file
-        rimraf.sync(testPath)
-        expect(fs.existsSync(componentPath)).toBe(false)
+        /**
+         * svgr-cli locates files relative to process.cwd() so we
+         * need to set the cwd to the package root explicitly
+         */
+        const { stdout } = await execa.command(command, { cwd })
 
-        // Generate the component with svgr-cli
-        await execa.command('npx svgr -d test src/svg/add-16.svg', {
-            // svgr-cli locates files relative to process.cwd() so we need to set the cwd explicitly
-            cwd: packageRoot,
-        })
-
-        // Assert that the file has been generated and that it matches our expectations
-        expect(fs.existsSync(componentPath)).toBe(true)
-        const componentBuffer = fs.readFileSync(componentPath)
-        expect(componentBuffer.toString()).toMatchSnapshot()
+        expect(stdout).toMatchSnapshot()
     })
 })
