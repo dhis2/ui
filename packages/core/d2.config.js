@@ -1,6 +1,6 @@
 module.exports = {
     type: 'lib',
-    entryPoint: {
+    entryPoints: {
         lib: 'src/index.js',
     },
 }
