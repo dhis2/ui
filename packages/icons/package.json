@@ -20,9 +20,6 @@
         "build": "yarn run clean && svgr -d build src",
         "clean": "rimraf ./build && mkdirp build"
     },
-    "dependencies": {
-        "@dhis2/prop-types": "^1.6.4"
-    },
     "files": [
         "build"
     ],
