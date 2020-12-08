@@ -6,6 +6,12 @@
     "author": "Viktor Varland <viktor@dhis2.org>",
     "license": "BSD-3-Clause",
     "private": false,
+    "homepage": "https://github.com/dhis2/ui#readme",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dhis2/ui.git",
+        "directory": "packages/ui"
+    },
     "scripts": {
         "build": "d2-app-scripts build"
     },
