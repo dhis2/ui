@@ -10,7 +10,8 @@
     "sideEffects": false,
     "repository": {
         "type": "git",
-        "url": "https://github.com/dhis2/ui.git"
+        "url": "https://github.com/dhis2/ui.git",
+        "directory": "packages/constants"
     },
     "publishConfig": {
         "access": "public"
