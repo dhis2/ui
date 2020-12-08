@@ -7,7 +7,7 @@
     "sideEffects": false,
     "repository": {
         "type": "git",
-        "url": "https://github.com/dhis2/ui-core.git"
+        "url": "https://github.com/dhis2/ui.git"
     },
     "author": "Viktor Varland <viktor@dhis2.org>",
     "license": "BSD-3-Clause",

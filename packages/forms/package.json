@@ -4,7 +4,10 @@
     "main": "./build/cjs/lib.js",
     "module": "./build/es/lib.js",
     "sideEffects": false,
-    "repository": "git@github.com:dhis2/ui-forms.git",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dhis2/ui.git"
+    },
     "author": "Jan-Gerke Salomon <jan-gerke@dhis2.org>",
     "contributors": [],
     "license": "BSD-3-Clause",
