@@ -10,7 +10,7 @@
     "sideEffects": false,
     "repository": {
         "type": "git",
-        "url": "https://github.com/dhis2/ui-core.git"
+        "url": "https://github.com/dhis2/ui.git"
     },
     "publishConfig": {
         "access": "public"

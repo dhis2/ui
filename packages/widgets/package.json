@@ -4,7 +4,10 @@
     "main": "build/cjs/lib.js",
     "module": "build/es/lib.js",
     "sideEffects": false,
-    "repository": "git@github.com:dhis2/ui-widgets.git",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dhis2/ui.git"
+    },
     "author": "Edoardo Sabadelli <edoardo@dhis2.org>",
     "contributors": [
         "Viktor Varland <viktor@dhis2.org>"
