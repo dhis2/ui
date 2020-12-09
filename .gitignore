@@ -1,8 +1,5 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
-# We use the newer format, .yarnrc.yml
-.yarnrc
-
 # Editor settings
 /.vscode
 
