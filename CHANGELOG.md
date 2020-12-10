@@ -1,3 +1,33 @@
+# [6.0.0](https://github.com/dhis2/ui/compare/v5.7.8...v6.0.0) (2020-12-10)
+
+
+### Bug Fixes
+
+* **ui-icons:** change world-16 icon color to black ([10790d3](https://github.com/dhis2/ui/commit/10790d3131477232cebe940bc601cc8e78134fd5))
+* **ui-icons:** fix svg fill colors ([6d040fb](https://github.com/dhis2/ui/commit/6d040fbc7b7081f096f74e7e92972e78eb820972))
+
+
+### Code Refactoring
+
+* **ui-icons:** remove legacy icons ([d39857b](https://github.com/dhis2/ui/commit/d39857b91130b50099c38db91960c50317ac8ca0))
+
+
+### Features
+
+* **ui-icons:** add new icons ([e1a994e](https://github.com/dhis2/ui/commit/e1a994ed30e3ebbbca97d7a6dafff76e1e77b3ae))
+
+
+### BREAKING CHANGES
+
+* **ui-icons:** the existing ui-icons have been removed. These were
+mostly meant for internal use. The components that have been removed
+are: Account, Apps, ArrowDown, ArrowUp, AttachFile, CancelOutline,
+Cancel, CheckboxRegular, CheckboxDense, ChevronRight, ChevronLeft,
+Close, Email, Empty, Exit, FileUpload, FolderClosed, FolderOpen, Help,
+Info, Message, RadioRegular, RadioDense, Settings, Single, Valid,
+Warning, Info, Loading, StatusIcon, SwitchRegular and Upload. Please
+ensure that you are not depending on these components before upgrading.
+
 ## [5.7.8](https://github.com/dhis2/ui/compare/v5.7.7...v5.7.8) (2020-11-27)
 
 
