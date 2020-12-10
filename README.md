@@ -57,7 +57,7 @@ import { IconApps16 } from '@dhis2/ui'
 
 For a list of all the available icons see [the ui-icons package](https://github.com/dhis2/ui/tree/master/packages/icons/src). Note that during their transformation to React components the svg filenames are PascalCased and prefixed with `Icon`. So `apps-16.svg` becomes `IconApps16` and can then be imported as in the example above.
 
-The default `color` value for our icons is `currentColor`, but this can be overridden. To set the color of an icon you can use the `color` prop with our icons like so:
+The default fill of our icons is inherited from `color` with `currentColor`. To set a custom icon color you can use the `color` prop like so:
 
 ```jsx
 <IconApps16 color="#DE683D" />
