@@ -57,6 +57,12 @@ import { IconApps16 } from '@dhis2/ui'
 
 For a list of all the available icons see [the ui-icons package](https://github.com/dhis2/ui/tree/master/packages/icons/src). Note that during their transformation to React components the svg filenames are PascalCased and prefixed with `Icon`. So `apps-16.svg` becomes `IconApps16` and can then be imported as in the example above.
 
+All props passed to our icon components will be spread onto the root `svg` node of the icon. The default `color` value for our icons is `inherit`, but this can be overridden. To set the color of an icon you can use the `color` prop with our icons like so:
+
+```jsx
+<IconApps16 color="#DE683D" />
+```
+
 ### `@dhis2/ui-core`
 
 This package provides the low level building blocks for all our components. We use them as building blocks for our more elaborate components and they can be used in applications for the same purpose. Any of our core components can be imported in the following manner:
