@@ -17,5 +17,5 @@ The `@dhis2/ui-icons` build process will take care of most things for you. If yo
 -   Add the icon as an svg to `packages/icons/src/svg`
 -   Ensure that you're matching the existing naming conventions, i.e. kebab-case and icon name followed by the variant and then the size
 -   The svg does not have to be optimized, the build process already includes svgo
--   Any path fill colors should be set to `#010101` so that we can set all path fill colors to `inherit`
+-   Any path fill colors should be set to `#010101` so that we can set all path fills to `currentColor`
 -   Use `feat` as your conventional commit type, so that the change will be published automatically when the PR is merged
