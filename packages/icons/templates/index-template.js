@@ -1,5 +1,9 @@
 const path = require('path')
 
+/**
+ * https://react-svgr.com/docs/custom-templates/#custom-index-template
+ */
+
 function defaultIndexTemplate(filePaths) {
     const exportEntries = filePaths.map(filePath => {
         const { name, base } = path.parse(filePath)
