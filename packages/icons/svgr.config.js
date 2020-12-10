@@ -7,6 +7,14 @@ module.exports = {
     // This controls how the svgs are transformed to jsx
     template,
 
+    // Do not pass props on to the root svg node
+    expandProps: false,
+
+    // Pass the color prop on to the root svg node
+    svgProps: {
+        color: '{color}',
+    },
+
     // Compress svgs
     svgo: true,
     svgoConfig: {
