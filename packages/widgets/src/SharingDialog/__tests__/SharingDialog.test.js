@@ -42,11 +42,9 @@ describe('SharingDialog widget', () => {
             name: 'test object',
         }
 
-        expect(
-            getSharingDialogWidget(props)
-                .find(ModalTitle)
-                .html()
-        ).toMatch(props.initialSharingSettings.name)
+        expect(getSharingDialogWidget(props).find(ModalTitle).html()).toMatch(
+            props.initialSharingSettings.name
+        )
     })
 
     it('renders a ShareBlock component', () =>
