@@ -2,11 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { CustomDataProvider } from '@dhis2/app-runtime'
 
-import { SharingDialog } from '../index.js'
-
-window.onChange = window.Cypress && window.Cypress.cy.stub()
-window.onFocus = window.Cypress && window.Cypress.cy.stub()
-window.onBlur = window.Cypress && window.Cypress.cy.stub()
+import { SharingDialog } from './SharingDialog.js'
 
 const customSearchData = {
     'sharing/search': {
@@ -112,7 +108,7 @@ const customDataWithUserGroupAccesses = {
     },
 }
 
-storiesOf('Component/Connected/SharingDialog', module)
+storiesOf('SharingDialog', module)
     .add('Simple', () => (
         <CustomDataProvider data={customDefaultData}>
             <SharingDialog type="dashboard" id="sharing-test" />
