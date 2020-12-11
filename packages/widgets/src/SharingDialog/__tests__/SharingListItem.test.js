@@ -52,16 +52,12 @@ describe('SharingDialog widget - SharingListItem component', () => {
 
         it('renders the label for external access', () =>
             expect(
-                getSharingListItemComponent(props)
-                    .find('.share-entity')
-                    .html()
+                getSharingListItemComponent(props).find('.share-entity').html()
             ).toMatch(props.name))
 
         it('renders the description for external access', () =>
             expect(
-                getSharingListItemComponent(props)
-                    .find('.share-context')
-                    .html()
+                getSharingListItemComponent(props).find('.share-context').html()
             ).toMatch(accessStrings[props.access].description()))
     })
 
@@ -86,16 +82,12 @@ describe('SharingDialog widget - SharingListItem component', () => {
 
         it('renders the label for public access', () =>
             expect(
-                getSharingListItemComponent(props)
-                    .find('.share-entity')
-                    .html()
+                getSharingListItemComponent(props).find('.share-entity').html()
             ).toMatch(props.name))
 
         it('renders the description for public access', () =>
             expect(
-                getSharingListItemComponent(props)
-                    .find('.share-context')
-                    .html()
+                getSharingListItemComponent(props).find('.share-context').html()
             ).toMatch(accessStrings[props.access].publicDescription()))
     })
 
@@ -120,16 +112,12 @@ describe('SharingDialog widget - SharingListItem component', () => {
 
         it('renders the label for group access', () =>
             expect(
-                getSharingListItemComponent(props)
-                    .find('.share-entity')
-                    .html()
+                getSharingListItemComponent(props).find('.share-entity').html()
             ).toMatch(props.name))
 
         it('renders the description for group access', () =>
             expect(
-                getSharingListItemComponent(props)
-                    .find('.share-context')
-                    .html()
+                getSharingListItemComponent(props).find('.share-context').html()
             ).toMatch(accessStrings[props.access].description()))
     })
 
@@ -154,16 +142,12 @@ describe('SharingDialog widget - SharingListItem component', () => {
 
         it('renders the label for user access', () =>
             expect(
-                getSharingListItemComponent(props)
-                    .find('.share-entity')
-                    .html()
+                getSharingListItemComponent(props).find('.share-entity').html()
             ).toMatch(props.name))
 
         it('renders the description for user access', () =>
             expect(
-                getSharingListItemComponent(props)
-                    .find('.share-context')
-                    .html()
+                getSharingListItemComponent(props).find('.share-context').html()
             ).toMatch(accessStrings[props.access].description()))
     })
 })
