@@ -1,10 +1,9 @@
 import React from 'react'
+import { Field } from 'react-final-form'
 import { storiesOf } from '@storybook/react'
 import { formDecorator } from '../formDecorator.js'
-
-import { ReactFinalForm, SwitchFieldFF, hasValue } from '../index.js'
-
-const { Field } = ReactFinalForm
+import { hasValue } from '../validators/index.js'
+import { SwitchFieldFF } from './SwitchFieldFF.js'
 
 storiesOf('Testing:SwitchFieldFF', module)
     .addDecorator(formDecorator)

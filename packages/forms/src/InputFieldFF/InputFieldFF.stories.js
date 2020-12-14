@@ -1,10 +1,9 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-
+import { Field } from 'react-final-form'
 import { formDecorator } from '../formDecorator.js'
-import { ReactFinalForm, InputFieldFF, hasValue } from '../index.js'
-
-const { Field } = ReactFinalForm
+import { hasValue } from '../validators/index.js'
+import { InputFieldFF } from './InputFieldFF.js'
 
 storiesOf('InputFieldFF', module)
     .addDecorator(formDecorator)
