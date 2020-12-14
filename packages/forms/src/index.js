@@ -1,3 +1,6 @@
+import * as ReactFinalForm from 'react-final-form'
+import * as FinalForm from 'final-form'
+
 export * from './CheckboxFieldFF/CheckboxFieldFF.js'
 export * from './FileInputFieldFF/FileInputFieldFF.js'
 export * from './InputFieldFF/InputFieldFF.js'
@@ -10,9 +13,6 @@ export * from './FieldGroupFF/FieldGroupFF.js'
 
 export * from './transformers/index.js'
 export * from './validators/index.js'
-
-import * as ReactFinalForm from 'react-final-form'
-import * as FinalForm from 'final-form'
 
 /**
  * @module

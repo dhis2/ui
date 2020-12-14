@@ -1,10 +1,8 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { formDecorator } from '../formDecorator.js'
-
-import { ReactFinalForm, MultiSelectFieldFF } from '../index.js'
-
-const { Field } = ReactFinalForm
+import { Field } from 'react-final-form'
+import { MultiSelectFieldFF } from './MultiSelectFieldFF.js'
 
 const options = [
     { value: '1', label: 'one' },

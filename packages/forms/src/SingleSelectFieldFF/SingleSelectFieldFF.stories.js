@@ -1,10 +1,8 @@
 import React from 'react'
+import { Field } from 'react-final-form'
 import { storiesOf } from '@storybook/react'
 import { formDecorator } from '../formDecorator.js'
-
-import { ReactFinalForm, SingleSelectFieldFF } from '../index.js'
-
-const { Field } = ReactFinalForm
+import { SingleSelectFieldFF } from './SingleSelectFieldFF.js'
 
 const options = [
     { value: '1', label: 'one' },
