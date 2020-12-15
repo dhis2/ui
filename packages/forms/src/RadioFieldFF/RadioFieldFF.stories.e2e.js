@@ -1,15 +1,10 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { Field } from 'react-final-form'
 import { formDecorator } from '../formDecorator.js'
-
-import {
-    ReactFinalForm,
-    RadioFieldFF,
-    FieldGroupFF,
-    hasValue,
-} from '../index.js'
-
-const { Field } = ReactFinalForm
+import { hasValue } from '../validators/index.js'
+import { FieldGroupFF } from '../FieldGroupFF/FieldGroupFF.js'
+import { RadioFieldFF } from './RadioFieldFF.js'
 
 storiesOf('Testing:RadioFieldFF', module)
     .addDecorator(formDecorator)

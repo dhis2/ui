@@ -3,7 +3,8 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { formDecorator } from '../formDecorator.js'
 
-import { SingleSelectFieldFF, hasValue } from '../index.js'
+import { hasValue } from '../validators/index.js'
+import { SingleSelectFieldFF } from './SingleSelectFieldFF.js'
 
 const defaultOptions = [{ value: 'initial', label: 'Initial' }]
 

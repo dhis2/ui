@@ -1,10 +1,7 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import { Button } from '@dhis2/ui-core'
-
-import { ReactFinalForm } from './index.js'
-
-const { FormSpy, Form } = ReactFinalForm
+import { FormSpy, Form } from 'react-final-form'
 
 const formProps = {
     onSubmit: values => {

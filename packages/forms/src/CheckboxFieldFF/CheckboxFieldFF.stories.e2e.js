@@ -1,10 +1,9 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { Field } from 'react-final-form'
 import { formDecorator } from '../formDecorator.js'
-
-import { ReactFinalForm, CheckboxFieldFF, hasValue } from '../index.js'
-
-const { Field } = ReactFinalForm
+import { hasValue } from '../validators/index.js'
+import { CheckboxFieldFF } from './CheckboxFieldFF.js'
 
 storiesOf('Testing:Checkbox', module)
     .addDecorator(formDecorator)

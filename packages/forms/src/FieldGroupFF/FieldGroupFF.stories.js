@@ -1,11 +1,9 @@
 import React from 'react'
-
+import { Field } from 'react-final-form'
 import { formDecorator } from '../formDecorator.js'
-import { ReactFinalForm, CheckboxFieldFF, hasValue } from '../index.js'
-
+import { hasValue } from '../validators/index.js'
+import { CheckboxFieldFF } from '../CheckboxFieldFF/CheckboxFieldFF.js'
 import { FieldGroupFF } from './FieldGroupFF.js'
-
-const { Field } = ReactFinalForm
 
 export default {
     title: 'FieldGroupFF',
