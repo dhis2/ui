@@ -3,7 +3,9 @@ import { resolve } from 'styled-jsx/css'
 
 import propTypes from '@dhis2/prop-types'
 
-import { Card, Layer, Popper } from '../index.js'
+import { Card } from '../Card/Card.js'
+import { Layer } from '../Layer/Layer.js'
+import { Popper } from '../Popper/Popper.js'
 
 const MenuWrapper = ({
     children,
