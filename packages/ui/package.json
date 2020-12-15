@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/ui",
-    "version": "6.0.0",
+    "version": "6.0.1",
     "main": "build/cjs/lib.js",
     "module": "build/es/lib.js",
     "author": "Viktor Varland <viktor@dhis2.org>",
@@ -16,11 +16,11 @@
         "build": "d2-app-scripts build"
     },
     "dependencies": {
-        "@dhis2/ui-constants": "6.0.0",
-        "@dhis2/ui-icons": "6.0.0",
-        "@dhis2/ui-core": "6.0.0",
-        "@dhis2/ui-forms": "6.0.0",
-        "@dhis2/ui-widgets": "6.0.0"
+        "@dhis2/ui-constants": "6.0.1",
+        "@dhis2/ui-icons": "6.0.1",
+        "@dhis2/ui-core": "6.0.1",
+        "@dhis2/ui-forms": "6.0.1",
+        "@dhis2/ui-widgets": "6.0.1"
     },
     "peerDependencies": {
         "react": "^16.8",

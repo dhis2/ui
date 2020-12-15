@@ -1,3 +1,10 @@
+## [6.0.1](https://github.com/dhis2/ui/compare/v6.0.0...v6.0.1) (2020-12-15)
+
+
+### Bug Fixes
+
+* **core:** fix circular dependencies ([#411](https://github.com/dhis2/ui/issues/411)) ([342f114](https://github.com/dhis2/ui/commit/342f1149c1a7905ac414e9f3a5adaeb73d36d117))
+
 # [6.0.0](https://github.com/dhis2/ui/compare/v5.7.8...v6.0.0) (2020-12-10)
 
 
