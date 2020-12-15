@@ -6,4 +6,8 @@ module.exports = {
         cy: 'readonly',
         Cypress: 'readonly',
     },
+    rules: {
+        'import/no-cycle': 'error',
+        'import/no-self-import': 'error',
+    },
 }
