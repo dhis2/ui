@@ -40,12 +40,11 @@
         "lint": "concurrently -n w: \"yarn:lint:*\"",
         "lint:js": "d2-style js check",
         "lint:text": "d2-style text check",
-        "start": "concurrently -n w: \"yarn:watch:*\" --kill-others",
+        "start": "yarn build:icons && concurrently -n w: \"yarn:watch:*\" --kill-others",
         "test": "d2-app-scripts test",
         "watch:constants": "yarn build:constants --watch --dev",
         "watch:core": "yarn build:core --watch --dev",
         "watch:forms": "yarn build:forms --watch --dev",
-        "watch:icons": "yarn build:icons --watch --dev",
         "watch:storybook": "EXTEND_ESLINT=true start-storybook --port 5000 --quiet --ci",
         "watch:widgets": "yarn build:widgets --watch --dev"
     },
