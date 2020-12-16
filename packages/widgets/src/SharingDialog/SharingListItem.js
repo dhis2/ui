@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from '@dhis2/prop-types'
 
 import i18n from '@dhis2/d2-i18n'
-import { Divider } from '@dhis2/ui'
+import { Divider } from '@dhis2/ui-core'
 
 import { sharingListItemStyles } from './SharingDialog.styles'
 import { World as WorldIcon } from './icons/World'

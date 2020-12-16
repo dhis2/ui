@@ -12,13 +12,13 @@ import {
     ButtonStrip,
     Button,
 } from '@dhis2/ui-core'
-import { SharingList } from './SharingList'
-import { ShareBlock } from './ShareBlock'
+import { SharingList } from './SharingList.js'
+import { ShareBlock } from './ShareBlock.js'
 import {
     defaultSharingSettings,
     convertAccessToConstant,
     convertConstantToAccess,
-} from './sharingConstants'
+} from './sharingConstants.js'
 
 const query = {
     sharing: {
