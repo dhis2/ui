@@ -1,9 +1,9 @@
 import React, { createRef, useState, useEffect } from 'react'
 import PropTypes from '@dhis2/prop-types'
 
-import { Menu, MenuItem } from '@dhis2/ui'
+import { Menu, MenuItem } from '@dhis2/ui-core'
 
-import { InputField } from '../../'
+import { InputField } from '../../InputField/InputField.js'
 import { MenuWrapper } from './MenuWrapper'
 
 // Keycodes for the keypress event handlers
