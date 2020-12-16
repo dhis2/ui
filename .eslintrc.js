@@ -9,5 +9,12 @@ module.exports = {
     rules: {
         'import/no-cycle': 'error',
         'import/no-self-import': 'error',
+        'no-restricted-imports': [
+            'error',
+            {
+                paths: ['@dhis2/ui'],
+                patterns: ['@dhis2/ui/*'],
+            },
+        ],
     },
 }
