@@ -3,7 +3,7 @@ import React from 'react'
 import PropTypes from '@dhis2/prop-types'
 import i18n from '@dhis2/d2-i18n'
 
-import { MenuDivider, MenuItem } from '@dhis2/ui'
+import { MenuDivider, MenuItem } from '@dhis2/ui-core'
 import { SingleSelectField } from '../SingleSelectField/SingleSelectField.js'
 
 import { accessStrings } from './sharingConstants'
