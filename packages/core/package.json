@@ -10,6 +10,7 @@
         "url": "https://github.com/dhis2/ui.git",
         "directory": "packages/core"
     },
+    "homepage": "https://github.com/dhis2/ui#readme",
     "author": "Viktor Varland <viktor@dhis2.org>",
     "license": "BSD-3-Clause",
     "private": false,

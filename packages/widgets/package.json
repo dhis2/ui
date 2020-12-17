@@ -9,6 +9,7 @@
         "url": "https://github.com/dhis2/ui.git",
         "directory": "packages/widgets"
     },
+    "homepage": "https://github.com/dhis2/ui#readme",
     "author": "Edoardo Sabadelli <edoardo@dhis2.org>",
     "contributors": [
         "Viktor Varland <viktor@dhis2.org>"

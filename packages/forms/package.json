@@ -9,6 +9,7 @@
         "url": "https://github.com/dhis2/ui.git",
         "directory": "packages/forms"
     },
+    "homepage": "https://github.com/dhis2/ui#readme",
     "author": "Jan-Gerke Salomon <jan-gerke@dhis2.org>",
     "contributors": [],
     "license": "BSD-3-Clause",

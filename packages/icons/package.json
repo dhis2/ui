@@ -13,6 +13,7 @@
         "url": "https://github.com/dhis2/ui.git",
         "directory": "packages/icons"
     },
+    "homepage": "https://github.com/dhis2/ui#readme",
     "publishConfig": {
         "access": "public"
     },
