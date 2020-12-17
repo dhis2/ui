@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { createPortal } from 'react-dom'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
-import { ChevronRight } from '@dhis2/ui-icons'
+import { ChevronRight } from '../Icons/index.js'
 
 import { Popper } from '../Popper/Popper.js'
 import { FlyoutMenu } from '../FlyoutMenu/FlyoutMenu.js'

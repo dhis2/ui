@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import { ArrowDown } from '@dhis2/ui-icons'
+import { ArrowDown } from '../Icons/index.js'
 
 import { Layer } from '../Layer/Layer.js'
 import { Popper } from '../Popper/Popper.js'

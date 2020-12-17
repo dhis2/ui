@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/ui-constants",
-    "version": "5.7.8",
+    "version": "6.0.2",
     "description": "Constants used in the UI libs",
     "main": "build/cjs/lib.js",
     "module": "build/es/lib.js",
@@ -13,6 +13,7 @@
         "url": "https://github.com/dhis2/ui.git",
         "directory": "packages/constants"
     },
+    "homepage": "https://github.com/dhis2/ui#readme",
     "publishConfig": {
         "access": "public"
     },

@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/ui-widgets",
-    "version": "5.7.8",
+    "version": "6.0.2",
     "main": "build/cjs/lib.js",
     "module": "build/es/lib.js",
     "sideEffects": false,
@@ -9,6 +9,7 @@
         "url": "https://github.com/dhis2/ui.git",
         "directory": "packages/widgets"
     },
+    "homepage": "https://github.com/dhis2/ui#readme",
     "author": "Edoardo Sabadelli <edoardo@dhis2.org>",
     "contributors": [
         "Viktor Varland <viktor@dhis2.org>"
@@ -25,9 +26,8 @@
         "react": "^16.8",
         "react-dom": "^16.8",
         "styled-jsx": "^3.2",
-        "@dhis2/ui-core": "5.7.8",
-        "@dhis2/ui-icons": "5.7.8",
-        "@dhis2/ui-constants": "5.7.8",
+        "@dhis2/ui-core": "6.0.2",
+        "@dhis2/ui-constants": "6.0.2",
         "@dhis2/app-runtime": "^2",
         "@dhis2/d2-i18n": "^1"
     },

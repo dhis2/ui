@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/ui-icons",
-    "version": "5.7.8",
+    "version": "6.0.2",
     "description": "Icons used in the UI libs",
     "main": "build/cjs/lib.js",
     "module": "build/es/lib.js",
@@ -13,16 +13,22 @@
         "url": "https://github.com/dhis2/ui.git",
         "directory": "packages/icons"
     },
+    "homepage": "https://github.com/dhis2/ui#readme",
     "publishConfig": {
         "access": "public"
     },
     "scripts": {
-        "build": "d2-app-scripts build"
-    },
-    "dependencies": {
-        "@dhis2/prop-types": "^1.6.4"
+        "build": "yarn run clean && yarn run build:icons && yarn run build:lib",
+        "build:icons": "svgr -d src/react src/svg",
+        "build:lib": "d2-app-scripts build",
+        "clean": "rimraf ./src/react"
     },
     "files": [
         "build"
-    ]
+    ],
+    "devDependencies": {
+        "@svgr/cli": "^5.5.0",
+        "execa": "^4.1.0",
+        "rimraf": "^3.0.2"
+    }
 }

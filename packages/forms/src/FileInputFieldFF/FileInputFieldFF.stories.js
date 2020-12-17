@@ -1,10 +1,9 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-
-import { ReactFinalForm, FileInputFieldFF, hasValue } from '../index.js'
+import { Field } from 'react-final-form'
 import { formDecorator } from '../formDecorator.js'
-
-const { Field } = ReactFinalForm
+import { hasValue } from '../validators/index.js'
+import { FileInputFieldFF } from './FileInputFieldFF.js'
 
 const files = [new File([], 'file1.txt'), new File([], 'file2.txt')]
 

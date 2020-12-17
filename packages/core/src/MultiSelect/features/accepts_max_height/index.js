@@ -19,32 +19,18 @@ Given('the MultiSelect is open', () => {
     cy.get('[data-test="dhis2-uicore-select"]').click()
 })
 
-Then('the top eight options are displayed', () => {
-    cy.contains('option one').should('be.visible')
-    cy.contains('option two').should('be.visible')
-    cy.contains('option three').should('be.visible')
-    cy.contains('option four').should('be.visible')
-    cy.contains('option five').should('be.visible')
-    cy.contains('option six').should('be.visible')
-    cy.contains('option seven').should('be.visible')
-    cy.contains('option eight').should('be.visible')
-    cy.contains('option nine').should('not.be.visible')
-    cy.contains('option ten').should('not.be.visible')
-    cy.contains('option eleven').should('not.be.visible')
-    cy.contains('option twelve').should('not.be.visible')
+Then('has the default max-height', () => {
+    cy.get('[data-test="dhis2-uicore-card"]').should(
+        'have.css',
+        'max-height',
+        '280px'
+    )
 })
 
-Then('the top three options are displayed', () => {
-    cy.contains('option one').should('be.visible')
-    cy.contains('option two').should('be.visible')
-    cy.contains('option three').should('be.visible')
-    cy.contains('option four').should('not.be.visible')
-    cy.contains('option five').should('not.be.visible')
-    cy.contains('option six').should('not.be.visible')
-    cy.contains('option seven').should('not.be.visible')
-    cy.contains('option eight').should('not.be.visible')
-    cy.contains('option nine').should('not.be.visible')
-    cy.contains('option ten').should('not.be.visible')
-    cy.contains('option eleven').should('not.be.visible')
-    cy.contains('option twelve').should('not.be.visible')
+Then('has a max-height of 100px', () => {
+    cy.get('[data-test="dhis2-uicore-card"]').should(
+        'have.css',
+        'max-height',
+        '100px'
+    )
 })

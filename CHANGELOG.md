@@ -1,3 +1,49 @@
+## [6.0.2](https://github.com/dhis2/ui/compare/v6.0.1...v6.0.2) (2020-12-17)
+
+
+### Bug Fixes
+
+* **npm:** add consistent per-package readme ([e07fc7c](https://github.com/dhis2/ui/commit/e07fc7c76319186f6bd6e13062fb1d6e226d99db))
+* **npm:** add homepage field to packages ([7cc5652](https://github.com/dhis2/ui/commit/7cc565245f9253a9eb50f1a80837bacd9d14a9ba))
+* **npm:** remove outdated or superseded files ([100d04a](https://github.com/dhis2/ui/commit/100d04aca42e2ba151eb61c7f9d5c0978424e1b5))
+
+## [6.0.1](https://github.com/dhis2/ui/compare/v6.0.0...v6.0.1) (2020-12-15)
+
+
+### Bug Fixes
+
+* **core:** fix circular dependencies ([#411](https://github.com/dhis2/ui/issues/411)) ([342f114](https://github.com/dhis2/ui/commit/342f1149c1a7905ac414e9f3a5adaeb73d36d117))
+
+# [6.0.0](https://github.com/dhis2/ui/compare/v5.7.8...v6.0.0) (2020-12-10)
+
+
+### Bug Fixes
+
+* **ui-icons:** change world-16 icon color to black ([10790d3](https://github.com/dhis2/ui/commit/10790d3131477232cebe940bc601cc8e78134fd5))
+* **ui-icons:** fix svg fill colors ([6d040fb](https://github.com/dhis2/ui/commit/6d040fbc7b7081f096f74e7e92972e78eb820972))
+
+
+### Code Refactoring
+
+* **ui-icons:** remove legacy icons ([d39857b](https://github.com/dhis2/ui/commit/d39857b91130b50099c38db91960c50317ac8ca0))
+
+
+### Features
+
+* **ui-icons:** add new icons ([e1a994e](https://github.com/dhis2/ui/commit/e1a994ed30e3ebbbca97d7a6dafff76e1e77b3ae))
+
+
+### BREAKING CHANGES
+
+* **ui-icons:** the existing ui-icons have been removed. These were
+mostly meant for internal use. The components that have been removed
+are: Account, Apps, ArrowDown, ArrowUp, AttachFile, CancelOutline,
+Cancel, CheckboxRegular, CheckboxDense, ChevronRight, ChevronLeft,
+Close, Email, Empty, Exit, FileUpload, FolderClosed, FolderOpen, Help,
+Info, Message, RadioRegular, RadioDense, Settings, Single, Valid,
+Warning, Info, Loading, StatusIcon, SwitchRegular and Upload. Please
+ensure that you are not depending on these components before upgrading.
+
 ## [5.7.8](https://github.com/dhis2/ui/compare/v5.7.7...v5.7.8) (2020-11-27)
 
 
