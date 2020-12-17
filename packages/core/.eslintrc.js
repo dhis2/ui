@@ -3,8 +3,18 @@ module.exports = {
         'no-restricted-imports': [
             'error',
             {
-                paths: ['@dhis2/ui-core'],
-                patterns: ['@dhis2/ui-core/*'],
+                paths: [
+                    '@dhis2/ui-core',
+                    '@dhis2/ui-forms',
+                    '@dhis2/ui',
+                    '@dhis2/ui-widgets',
+                ],
+                patterns: [
+                    '@dhis2/ui-core/*',
+                    '@dhis2/ui-forms/*',
+                    '@dhis2/ui/*',
+                    '@dhis2/ui-widgets/*',
+                ],
             },
         ],
     },
