@@ -1691,15 +1691,15 @@
     semver "^7.3.2"
     yargs "^16.1.0"
 
-"@dhis2/cli-utils-cypress@^3.0.2":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-utils-cypress/-/cli-utils-cypress-3.2.0.tgz#67e3205d3335440414f2ca2d071c917ffb1eb5cf"
-  integrity sha512-6i8ekiBoJlWU7Sg9GTQXgo34DFTu0r2PtheLv2qMr8XMqwLza7cuo2ogHWlw2/03ob7YuU031MQ99TbVVZ1DBA==
+"@dhis2/cli-utils-cypress@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-utils-cypress/-/cli-utils-cypress-4.1.0.tgz#bdd57ae0a589f896859c279f52b5806264e18e5f"
+  integrity sha512-W/hldHuA3uz9h4JrPaRxqX+vEwJR+NfXbFmCkEhTmJYRF0nPG/Bp1aHQ8UmfylDetZmF0SWOf1LrjzLBaeWf9g==
   dependencies:
     "@dhis2/cli-helpers-engine" "^1.5.0"
     concurrently "^5.2.0"
     cross-spawn "^7.0.1"
-    cypress "^4.0.2"
+    cypress "^6.0.1"
     cypress-cucumber-preprocessor "^2.0.1"
     fs-extra "^8.1.0"
     inquirer "^7.0.4"
@@ -1738,6 +1738,60 @@
   integrity sha512-qkVj8OuyjDmSxzYDlCWZllvC9hIbrIImMp79/U5CVsIRbjUF0zA/tfbv4rWnsWALmwEHOQFbzl5GnO5D8RNneA==
   dependencies:
     prop-types "^15"
+
+"@dhis2/ui-constants@5.7.8":
+  version "5.7.8"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-constants/-/ui-constants-5.7.8.tgz#3356de03c5e9ddc0b5fac5087df8ccd97f0dc3c0"
+  integrity sha512-Ca9PvKP8s0jcWtqLl5tyAyhoy0F6rAohAiLvoJvRmx1M7lXzxwpHjLZnaQ4b1js3tn7BPB7HRdvv+SREqYY+PA==
+  dependencies:
+    "@dhis2/prop-types" "^1.6.4"
+
+"@dhis2/ui-core@5.7.8":
+  version "5.7.8"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-5.7.8.tgz#063f8a10e583803d8b85d168ddbfb52e1f72750b"
+  integrity sha512-ijmXT8QlBS6RjHsbPOsBzaAb9j5DOvQeoLkhFo5eQZswavug2gW+S/Vh2tgxfNP8gybZ0tHKaJXeXN3bkg7Xnw==
+  dependencies:
+    "@dhis2/prop-types" "^1.6.4"
+    "@popperjs/core" "^2.5.3"
+    classnames "^2.2.6"
+    react-popper "^2.2.3"
+    resize-observer-polyfill "^1.5.1"
+
+"@dhis2/ui-forms@5.7.8":
+  version "5.7.8"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-forms/-/ui-forms-5.7.8.tgz#7b4489b796e2a79bebd1a24b8c1df59103e566c0"
+  integrity sha512-8c7IKJAqGL+IIZ7sjUbTrlwGHFpwX6KfF8eToDxXkkNONyyRIiFo7uVI43+rHii7+WmFwEhacWWjeYhfVBICfg==
+  dependencies:
+    "@dhis2/prop-types" "^1.6.4"
+    classnames "^2.2.6"
+    final-form "^4.20.1"
+    react-final-form "^6.5.1"
+
+"@dhis2/ui-icons@5.7.8":
+  version "5.7.8"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-icons/-/ui-icons-5.7.8.tgz#cb18c1bfbbcf49b2dae4c2b3ff7a3aeff46aa7f2"
+  integrity sha512-3P/Ptsf6HEdi0q8q6ba4Hcr8yuK+Y29PJn1Z56IZNZ+sZmFYiU7vxk5aMwA+s1EnjcPWQjrdwLzqqBAJE2W3Qg==
+  dependencies:
+    "@dhis2/prop-types" "^1.6.4"
+
+"@dhis2/ui-widgets@5.7.8":
+  version "5.7.8"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-widgets/-/ui-widgets-5.7.8.tgz#77318381dd92848f9ab2cbc5414a2b57599309fe"
+  integrity sha512-QVLOdB836uUXBRw4OT6x/z1WR7j2ykxpMyat4g9sOXngj6t9+2UXZUO7Zegudj/HsZjTMDiN9A285zwxsd+khQ==
+  dependencies:
+    "@dhis2/prop-types" "^1.6.4"
+    classnames "^2.2.6"
+
+"@dhis2/ui@^5.7.2":
+  version "5.7.8"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-5.7.8.tgz#17604580d02cd4a7756552154a089e730a0fdf02"
+  integrity sha512-FHyTP6geAkR/jwX1/xG8yl8PvGaNhms8zUmaNiBLQ0mUmD9oJb47U8YXhJ5nVd0SFJnmuckOWgAWMt3meZGJTA==
+  dependencies:
+    "@dhis2/ui-constants" "5.7.8"
+    "@dhis2/ui-core" "5.7.8"
+    "@dhis2/ui-forms" "5.7.8"
+    "@dhis2/ui-icons" "5.7.8"
+    "@dhis2/ui-widgets" "5.7.8"
 
 "@emotion/cache@^10.0.27":
   version "10.0.29"
@@ -4989,6 +5043,11 @@ bl@^4.0.3:
     inherits "^2.0.4"
     readable-stream "^3.4.0"
 
+blob-util@2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/blob-util/-/blob-util-2.0.2.tgz#3b4e3c281111bb7f11128518006cdc60b403a1eb"
+  integrity sha512-T7JQa+zsXXEa6/8ZhHcQEW1UFfVM49Ts65uBkFL6fz2QmrElqmbajIDJvuA0tEhRe5eIjpV9ZF+0RfZR9voJFQ==
+
 bluebird@3.5.3:
   version "3.5.3"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.3.tgz#7d01c6f9616c9a51ab0f8c549a79dfe6ec33efa7"
@@ -5835,23 +5894,13 @@ cli-cursor@^3.1.0:
   dependencies:
     restore-cursor "^3.1.0"
 
-cli-table3@0.6.0:
+cli-table3@0.6.0, cli-table3@~0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/cli-table3/-/cli-table3-0.6.0.tgz#b7b1bc65ca8e7b5cef9124e13dc2b21e2ce4faee"
   integrity sha512-gnB85c3MGC7Nm9I/FkiasNBOKjOiO1RNuXXarQms37q4QMpWdlbBgD/VnOStA2faG1dpXMv31RFApjX1/QdgWQ==
   dependencies:
     object-assign "^4.1.0"
     string-width "^4.2.0"
-  optionalDependencies:
-    colors "^1.1.2"
-
-cli-table3@~0.5.1:
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/cli-table3/-/cli-table3-0.5.1.tgz#0252372d94dfc40dbd8df06005f48f31f656f202"
-  integrity sha512-7Qg2Jrep1S/+Q3EceiZtQcDPWxhAvBw+ERf1162v4sikJrvojMHFqXt8QIVha8UlH9rgU0BeWPytZ9/TzYqlUw==
-  dependencies:
-    object-assign "^4.1.0"
-    string-width "^2.1.1"
   optionalDependencies:
     colors "^1.1.2"
 
@@ -6132,7 +6181,7 @@ commander@^4.1.1:
   resolved "https://registry.yarnpkg.com/commander/-/commander-4.1.1.tgz#9fd602bd936294e9e9ef46a3f4d6964044b18068"
   integrity sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==
 
-commander@^5.0.0:
+commander@^5.0.0, commander@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-5.1.0.tgz#46abbd1652f8e059bddaef99bbdcb2ad9cf179ae"
   integrity sha512-P0CysNDQ7rtVw4QIQtm+MRxV66vKFSvlsQvGYXZWR3qFU0jlMKHZZZgw8e+8DSah4UDKMqnknRDQz+xuQXQ/Zg==
@@ -6985,10 +7034,10 @@ cypress-cucumber-preprocessor@^2.0.1:
     minimist "^1.2.0"
     through "^2.3.8"
 
-cypress@^4.0.2:
-  version "4.12.1"
-  resolved "https://registry.yarnpkg.com/cypress/-/cypress-4.12.1.tgz#0ead1b9f4c0917d69d8b57f996b6e01fe693b6ec"
-  integrity sha512-9SGIPEmqU8vuRA6xst2CMTYd9sCFCxKSzrHt0wr+w2iAQMCIIsXsQ5Gplns1sT6LDbZcmLv6uehabAOl3fhc9Q==
+cypress@^6.0.1:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/cypress/-/cypress-6.1.0.tgz#af2596cb110aa98eaf75fef3d8ab379ca0ff2413"
+  integrity sha512-uQnSxRcZ6hkf9R5cr8KpRBTzN88QZwLIImbf5DWa5RIxH6o5Gpff58EcjiYhAR8/8p9SGv7O6SRygq4H+k0Qpw==
   dependencies:
     "@cypress/listr-verbose-renderer" "^0.4.1"
     "@cypress/request" "^2.88.5"
@@ -6996,34 +7045,35 @@ cypress@^4.0.2:
     "@types/sinonjs__fake-timers" "^6.0.1"
     "@types/sizzle" "^2.3.2"
     arch "^2.1.2"
+    blob-util "2.0.2"
     bluebird "^3.7.2"
     cachedir "^2.3.0"
-    chalk "^2.4.2"
+    chalk "^4.1.0"
     check-more-types "^2.24.0"
-    cli-table3 "~0.5.1"
-    commander "^4.1.1"
+    cli-table3 "~0.6.0"
+    commander "^5.1.0"
     common-tags "^1.8.0"
     debug "^4.1.1"
     eventemitter2 "^6.4.2"
-    execa "^1.0.0"
+    execa "^4.0.2"
     executable "^4.1.1"
     extract-zip "^1.7.0"
-    fs-extra "^8.1.0"
+    fs-extra "^9.0.1"
     getos "^3.2.1"
     is-ci "^2.0.0"
     is-installed-globally "^0.3.2"
     lazy-ass "^1.6.0"
     listr "^0.14.3"
     lodash "^4.17.19"
-    log-symbols "^3.0.0"
+    log-symbols "^4.0.0"
     minimist "^1.2.5"
     moment "^2.27.0"
     ospath "^1.2.2"
-    pretty-bytes "^5.3.0"
+    pretty-bytes "^5.4.1"
     ramda "~0.26.1"
     request-progress "^3.0.0"
-    supports-color "^7.1.0"
-    tmp "~0.1.0"
+    supports-color "^7.2.0"
+    tmp "~0.2.1"
     untildify "^4.0.0"
     url "^0.11.0"
     yauzl "^2.10.0"
@@ -8375,7 +8425,7 @@ execa@^1.0.0:
     signal-exit "^3.0.0"
     strip-eof "^1.0.0"
 
-execa@^4.0.0, execa@^4.1.0:
+execa@^4.0.0, execa@^4.0.2, execa@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/execa/-/execa-4.1.0.tgz#4e5491ad1572f2f17a77d388c6c857135b22847a"
   integrity sha512-j5W0//W7f8UxAn8hXVnwG8tLwdiUy4FJLcSupCg6maBYZDpyBvTApK7KyuI4bKj8KOh1r2YH+6ucuYtJv1bTZA==
@@ -12454,12 +12504,12 @@ log-symbols@^2.1.0:
   dependencies:
     chalk "^2.0.1"
 
-log-symbols@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/log-symbols/-/log-symbols-3.0.0.tgz#f3a08516a5dea893336a7dee14d18a1cfdab77c4"
-  integrity sha512-dSkNGuI7iG3mfvDzUuYZyvk5dD9ocYCYzNU6CYDE6+Xqd+gwme6Z00NS3dUh8mq/73HaEtT7m6W+yUPtU6BZnQ==
+log-symbols@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/log-symbols/-/log-symbols-4.0.0.tgz#69b3cc46d20f448eccdb75ea1fa733d9e821c920"
+  integrity sha512-FN8JBzLx6CzeMrB0tg6pqlGU1wCrXW+ZXGH481kfsBqer0hToTIiHdjH4Mq8xJUbvATujKCvaREGWpGUionraA==
   dependencies:
-    chalk "^2.4.2"
+    chalk "^4.0.0"
 
 log-update@^2.3.0:
   version "2.3.0"
@@ -14923,7 +14973,7 @@ prettier@^2.1.2:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.2.1.tgz#795a1a78dd52f073da0cd42b21f9c91381923ff5"
   integrity sha512-PqyhM2yCjg/oKkFPtTGUojv7gnZAoG80ttl45O6x2Ug/rMJw4wcc9k6aaf2hibP7BGVCCM33gZoGjyvt9mm16Q==
 
-pretty-bytes@^5.3.0:
+pretty-bytes@^5.3.0, pretty-bytes@^5.4.1:
   version "5.4.1"
   resolved "https://registry.yarnpkg.com/pretty-bytes/-/pretty-bytes-5.4.1.tgz#cd89f79bbcef21e3d21eb0da68ffe93f803e884b"
   integrity sha512-s1Iam6Gwz3JI5Hweaz4GoCD1WUNUIyzePFy5+Js2hjwGVt2Z79wNN+ZKOZ2vB6C+Xs6njyB84Z1IthQg8d9LxA==
@@ -17558,7 +17608,7 @@ supports-color@^6.1.0:
   dependencies:
     has-flag "^3.0.0"
 
-supports-color@^7.0.0, supports-color@^7.1.0:
+supports-color@^7.0.0, supports-color@^7.1.0, supports-color@^7.2.0:
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-7.2.0.tgz#1b7dcdcb32b8138801b3e478ba6a51caa89648da"
   integrity sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==
@@ -17987,12 +18037,12 @@ tmp@^0.0.33:
   dependencies:
     os-tmpdir "~1.0.2"
 
-tmp@~0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/tmp/-/tmp-0.1.0.tgz#ee434a4e22543082e294ba6201dcc6eafefa2877"
-  integrity sha512-J7Z2K08jbGcdA1kkQpJSqLF6T0tdQqpR2pnSUXsIchbPdTI9v3e85cLW0d6WDhwuAleOV71j2xWs8qMPfK7nKw==
+tmp@~0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/tmp/-/tmp-0.2.1.tgz#8457fc3037dcf4719c251367a1af6500ee1ccf14"
+  integrity sha512-76SUhtfqR2Ijn+xllcI5P1oyannHNHByD80W1q447gU3mp9G9PSpGdWmjUOHRDPiHYacIk66W7ubDTuPF3BEtQ==
   dependencies:
-    rimraf "^2.6.3"
+    rimraf "^3.0.0"
 
 tmpl@1.0.x:
   version "1.0.4"
