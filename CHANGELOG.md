@@ -1,3 +1,12 @@
+## [6.0.2](https://github.com/dhis2/ui/compare/v6.0.1...v6.0.2) (2020-12-17)
+
+
+### Bug Fixes
+
+* **npm:** add consistent per-package readme ([e07fc7c](https://github.com/dhis2/ui/commit/e07fc7c76319186f6bd6e13062fb1d6e226d99db))
+* **npm:** add homepage field to packages ([7cc5652](https://github.com/dhis2/ui/commit/7cc565245f9253a9eb50f1a80837bacd9d14a9ba))
+* **npm:** remove outdated or superseded files ([100d04a](https://github.com/dhis2/ui/commit/100d04aca42e2ba151eb61c7f9d5c0978424e1b5))
+
 ## [6.0.1](https://github.com/dhis2/ui/compare/v6.0.0...v6.0.1) (2020-12-15)
 
 

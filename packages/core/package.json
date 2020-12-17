@@ -1,7 +1,7 @@
 {
     "name": "@dhis2/ui-core",
     "description": "Component primitives for DHIS2 user interfaces",
-    "version": "6.0.1",
+    "version": "6.0.2",
     "main": "build/cjs/lib.js",
     "module": "build/es/lib.js",
     "sideEffects": false,
@@ -21,7 +21,7 @@
         "build": "d2-app-scripts build"
     },
     "peerDependencies": {
-        "@dhis2/ui-constants": "6.0.1",
+        "@dhis2/ui-constants": "6.0.2",
         "react": "^16.8",
         "react-dom": "^16.8",
         "styled-jsx": "^3.2"
