@@ -1719,10 +1719,10 @@
     live-server "^1.2.1"
     match-all "^1.2.5"
 
-"@dhis2/cypress-commands@^3.0.2":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-3.2.0.tgz#d366a4e4459a320a3b2eeedd69a42bee97306bf2"
-  integrity sha512-J0aD2x/dRg6SDeCtAKzAJgayQoBo3Z1Nbj89jy5lcm7PY5omrjjXQVEwdYRcfxNw5HGW+tEwDPMYypEfOn/Epg==
+"@dhis2/cypress-commands@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-5.0.0.tgz#99ac6b0f3b4cd36e7a7dce7caac12c89ac0f02fa"
+  integrity sha512-8jfLMMapcmJswkBh7ODZLbtmskfJSSZrwya03bWwKWM3oVI/uSkZr2GV0Pu3JORohNqoOah2UKlfVRmWgTkpjg==
 
 "@dhis2/d2-i18n@^1.0.5", "@dhis2/d2-i18n@^1.0.6":
   version "1.0.6"
