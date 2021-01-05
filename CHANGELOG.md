@@ -1,3 +1,10 @@
+# [6.1.0](https://github.com/dhis2/ui/compare/v6.0.2...v6.1.0) (2021-01-05)
+
+
+### Features
+
+* **ui-icons:** add visualization type icons in 24px ([1ae3876](https://github.com/dhis2/ui/commit/1ae3876e5e522569bda42cfae8f32a0cbbca416a))
+
 ## [6.0.2](https://github.com/dhis2/ui/compare/v6.0.1...v6.0.2) (2020-12-17)
 
 
