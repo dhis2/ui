@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
-import React from 'react'
-
 import { mount } from 'enzyme'
-
+import React from 'react'
 import { StackedTable } from './StackedTable.js'
 import { StackedTableBody } from './StackedTableBody.js'
 import { StackedTableCell } from './StackedTableCell.js'

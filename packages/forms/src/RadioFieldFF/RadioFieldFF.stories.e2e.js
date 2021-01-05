@@ -1,9 +1,9 @@
-import React from 'react'
 import { storiesOf } from '@storybook/react'
+import React from 'react'
 import { Field } from 'react-final-form'
+import { FieldGroupFF } from '../FieldGroupFF/FieldGroupFF.js'
 import { formDecorator } from '../formDecorator.js'
 import { hasValue } from '../validators/index.js'
-import { FieldGroupFF } from '../FieldGroupFF/FieldGroupFF.js'
 import { RadioFieldFF } from './RadioFieldFF.js'
 
 storiesOf('Testing:RadioFieldFF', module)

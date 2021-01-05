@@ -1,8 +1,6 @@
-import React from 'react'
 import { storiesOf } from '@storybook/react'
-
+import React from 'react'
 import { AttachFile } from '../Icons/index.js'
-
 import { Tab } from '../index.js'
 import { TabBar } from './TabBar.js'
 

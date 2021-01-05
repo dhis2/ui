@@ -1,7 +1,5 @@
 import React from 'react'
-
 import { Button } from '../index.js'
-
 import { Table } from './Table.js'
 import { TableBody } from './TableBody.js'
 import { TableCell } from './TableCell.js'

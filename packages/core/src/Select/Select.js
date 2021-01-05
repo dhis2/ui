@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
 import propTypes from '@dhis2/prop-types'
 import { sharedPropTypes } from '@dhis2/ui-constants'
+import React, { Component } from 'react'
+import { debounce } from './debounce'
 import { InputWrapper } from './InputWrapper.js'
 import { MenuWrapper } from './MenuWrapper.js'
-import { debounce } from './debounce'
 
 // Keycodes for the keypress event handlers
 const ESCAPE_KEY = 27

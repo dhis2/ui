@@ -1,6 +1,6 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
+import React from 'react'
 
 export const Leaves = ({ children, open, dataTest }) => (
     <div className={cx({ open })} data-test={dataTest}>

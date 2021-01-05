@@ -1,10 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from 'react'
-
 import { storiesOf } from '@storybook/react'
-
+import React from 'react'
 import { Button } from '../index.js'
-
 import { StackedTable } from './StackedTable.js'
 import { StackedTableBody } from './StackedTableBody.js'
 import { StackedTableCell } from './StackedTableCell.js'

@@ -1,18 +1,14 @@
-import React, { useMemo } from 'react'
-
-import propTypes from '@dhis2/prop-types'
-
 import { useDataQuery, useConfig } from '@dhis2/app-runtime'
-import { colors } from '@dhis2/ui-constants'
-
-import Apps from './Apps.js'
-import Profile from './Profile.js'
-import { Logo } from './Logo.js'
-import { Title } from './Title.js'
-import { Notifications } from './Notifications.js'
-
 import i18n from '@dhis2/d2-i18n'
+import propTypes from '@dhis2/prop-types'
+import { colors } from '@dhis2/ui-constants'
+import React, { useMemo } from 'react'
+import Apps from './Apps.js'
 import { joinPath } from './joinPath.js'
+import { Logo } from './Logo.js'
+import { Notifications } from './Notifications.js'
+import Profile from './Profile.js'
+import { Title } from './Title.js'
 
 const query = {
     title: {

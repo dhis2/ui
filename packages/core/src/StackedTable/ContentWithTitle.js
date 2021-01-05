@@ -1,7 +1,6 @@
-import React, { Fragment } from 'react'
-
 import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
+import React, { Fragment } from 'react'
 
 export const ContentWithTitle = ({ title, children }) => (
     <Fragment>

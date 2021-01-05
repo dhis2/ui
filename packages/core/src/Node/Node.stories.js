@@ -1,9 +1,8 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { resolve } from 'styled-jsx/css'
-
-import { Node } from './Node.js'
 import { Checkbox, CircularLoader } from '../index.js'
+import { Node } from './Node.js'
 
 const say = something => () => alert(something)
 

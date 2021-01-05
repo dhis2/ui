@@ -1,5 +1,5 @@
-import React, { Children, cloneElement, isValidElement } from 'react'
 import propTypes from '@dhis2/prop-types'
+import React, { Children, cloneElement, isValidElement } from 'react'
 
 /**
  * @module

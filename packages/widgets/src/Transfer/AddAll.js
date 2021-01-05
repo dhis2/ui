@@ -1,7 +1,6 @@
+import propTypes from '@dhis2/prop-types'
 import { Button } from '@dhis2/ui-core'
 import React from 'react'
-import propTypes from '@dhis2/prop-types'
-
 import { IconAddAll } from './icons.js'
 
 export const AddAll = ({ label, dataTest, disabled, onClick }) => (

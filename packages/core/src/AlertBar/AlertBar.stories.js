@@ -1,7 +1,7 @@
-import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { AlertBar } from './AlertBar.js'
+import React from 'react'
 import { AttachFile } from '../Icons/index.js'
+import { AlertBar } from './AlertBar.js'
 
 const Wrapper = fn => (
     <div

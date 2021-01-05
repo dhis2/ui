@@ -1,8 +1,7 @@
-import React from 'react'
 import { layers } from '@dhis2/ui-constants'
-
-import { LinearLoader } from './LinearLoader.js'
+import React from 'react'
 import { Layer, CenteredContent, ComponentCover } from '../index.js'
+import { LinearLoader } from './LinearLoader.js'
 
 export default {
     title: 'LinearLoader',

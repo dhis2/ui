@@ -1,6 +1,6 @@
-import React from 'react'
-import { storiesOf } from '@storybook/react'
 import { CustomDataProvider } from '@dhis2/app-runtime'
+import { storiesOf } from '@storybook/react'
+import React from 'react'
 import { OrganisationUnitTree } from '../OrganisationUnitTree.js'
 import {
     StatefulMultiSelectionWrapper,

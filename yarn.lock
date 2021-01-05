@@ -1632,13 +1632,14 @@
     rollup-plugin-visualizer "^3.2.2"
     styled-jsx "^3.2.5"
 
-"@dhis2/cli-helpers-engine@2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-helpers-engine/-/cli-helpers-engine-2.0.1.tgz#04ecea312ced7d6a84927aa47c5cdb5e57a561ae"
-  integrity sha512-eEjDLC1Uc4MpFJxw3RUbC99CGiU9J26aPe5GZCdNJ2ny0so1QKtefxscQxcZOKZPM4svxBabiK2QJ7624dA2Vg==
+"@dhis2/cli-helpers-engine@2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-helpers-engine/-/cli-helpers-engine-2.1.1.tgz#34a15866b1bc16ae5c4997d79256ee787b40c11a"
+  integrity sha512-7HrpYwenDzPFUMRsIuStQRu7SzwVRq6NCy4k8CbZ4/VTFaWnpkncTAz+C8ztkEQQSYTW7mDLLenJ9qpkhXgoTA==
   dependencies:
     chalk "^3.0.0"
     fs-extra "^8.0.1"
+    inquirer "^7.3.3"
     request "^2.88.0"
     tar "^4.4.8"
     update-notifier "^3.0.0"
@@ -1666,14 +1667,14 @@
     handlebars "^4.5.3"
     isbinaryfile "^4.0.2"
 
-"@dhis2/cli-style@^7.2.2":
-  version "7.2.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-style/-/cli-style-7.2.2.tgz#b163107d5ce2e5b826154ae5e01da5cda1acfd26"
-  integrity sha512-6NSJqk+Q5gS+SoX+468lS3wUfeoZ/cDs8Mf7GvvgjGeQiCBxZbFVHgdKlNmYoNtf9iQhicHPvyHYkWed1E2EJg==
+"@dhis2/cli-style@^7.3.0":
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-style/-/cli-style-7.3.0.tgz#7c314616f4d42604ba63350274ed93f2fbabdddd"
+  integrity sha512-wnwCQeYIgx+JrPKApXr5Lrj2gW4HV03whvl3C3odG7WUF1qvlu849lyo8JldxdoWPsR47cT1f/0Dw8Z+gZqHWQ==
   dependencies:
     "@commitlint/cli" "^11.0.0"
     "@commitlint/config-conventional" "^11.0.0"
-    "@dhis2/cli-helpers-engine" "2.0.1"
+    "@dhis2/cli-helpers-engine" "2.1.1"
     babel-eslint "^10.1.0"
     cross-spawn "^7.0.3"
     eslint "^7.12.1"
@@ -1685,7 +1686,6 @@
     find-up "^5.0.0"
     fs-extra "^9.0.1"
     husky "^4.3.0"
-    inquirer "^7.3.3"
     perfy "^1.1.5"
     prettier "^2.1.2"
     semver "^7.3.2"

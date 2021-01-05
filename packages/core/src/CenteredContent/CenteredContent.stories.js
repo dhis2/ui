@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { CenteredContent } from './CenteredContent.js'
 
 export default {

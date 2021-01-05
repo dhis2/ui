@@ -1,10 +1,9 @@
-import React from 'react'
 import { shallow } from 'enzyme'
-import { Pagination } from '../Pagination'
+import React from 'react'
+import * as mockPagers from '../__fixtures__'
 import { PageSelect } from '../PageSelect'
 import { PageSizeSelect } from '../PageSizeSelect'
-
-import * as mockPagers from '../__fixtures__'
+import { Pagination } from '../Pagination'
 
 describe('<Pagination />', () => {
     const props = {

@@ -1,5 +1,5 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
+import React from 'react'
 
 export const TextIcon = ({ name, onClick, dataTestId }) => {
     let title = name[0]

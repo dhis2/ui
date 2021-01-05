@@ -1,8 +1,7 @@
-import React, { forwardRef } from 'react'
-import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
-
+import cx from 'classnames'
+import React, { forwardRef } from 'react'
 import { getArrowPosition } from './getArrowPosition.js'
 
 const ARROW_SIZE = 8

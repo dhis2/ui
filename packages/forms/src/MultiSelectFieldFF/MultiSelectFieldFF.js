@@ -1,8 +1,7 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import { MultiSelectField } from '@dhis2/ui-widgets'
 import { MultiSelectOption } from '@dhis2/ui-core'
-
+import { MultiSelectField } from '@dhis2/ui-widgets'
+import React from 'react'
 import {
     createSelectChangeHandler,
     createFocusHandler,
@@ -12,7 +11,6 @@ import {
     isValid,
     getValidationText,
 } from '../shared/helpers.js'
-
 import { inputPropType, metaPropType } from '../shared/propTypes.js'
 
 export const MultiSelectFieldFF = ({

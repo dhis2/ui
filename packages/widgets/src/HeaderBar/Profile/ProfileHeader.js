@@ -1,11 +1,10 @@
 import { useConfig } from '@dhis2/app-runtime'
-import React from 'react'
 import i18n from '@dhis2/d2-i18n'
 import propTypes from '@dhis2/prop-types'
-
+import React from 'react'
 import { ImageIcon } from '../ImageIcon.js'
-import { TextIcon } from '../TextIcon.js'
 import { joinPath } from '../joinPath.js'
+import { TextIcon } from '../TextIcon.js'
 
 const ProfileName = ({ children }) => (
     <div data-test="headerbar-profile-username">

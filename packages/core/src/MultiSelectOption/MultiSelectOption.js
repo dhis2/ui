@@ -1,10 +1,8 @@
-import React from 'react'
-import cx from 'classnames'
-import { resolve } from 'styled-jsx/css'
-
 import propTypes from '@dhis2/prop-types'
 import { colors, spacers } from '@dhis2/ui-constants'
-
+import cx from 'classnames'
+import React from 'react'
+import { resolve } from 'styled-jsx/css'
 import { Checkbox } from '../Checkbox/Checkbox.js'
 
 // Padding has to be set on the label, so that the entire area is clickable

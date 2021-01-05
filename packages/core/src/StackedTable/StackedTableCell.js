@@ -1,7 +1,6 @@
-import React from 'react'
-import propTypes from 'prop-types'
-
 import { colors } from '@dhis2/ui-constants'
+import propTypes from 'prop-types'
+import React from 'react'
 import { ContentWithTitle } from './ContentWithTitle.js'
 
 /**

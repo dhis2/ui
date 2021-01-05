@@ -1,14 +1,13 @@
-import { Card, Divider, MenuItem } from '@dhis2/ui-core'
-import { colors } from '@dhis2/ui-constants'
 import { useConfig } from '@dhis2/app-runtime'
-import React from 'react'
-import css from 'styled-jsx/css'
 import i18n from '@dhis2/d2-i18n'
 import propTypes from '@dhis2/prop-types'
-
+import { colors } from '@dhis2/ui-constants'
+import { Card, Divider, MenuItem } from '@dhis2/ui-core'
+import React from 'react'
+import css from 'styled-jsx/css'
 import { Account, Exit, Help, Info, Settings } from '../../Icons/index.js'
-import { ProfileHeader } from './ProfileHeader.js'
 import { joinPath } from '../joinPath.js'
+import { ProfileHeader } from './ProfileHeader.js'
 
 const iconStyle = css.resolve`
     svg {

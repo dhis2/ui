@@ -1,8 +1,7 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
-
-import { LogoSvg } from './LogoSvg'
+import React from 'react'
 import { LogoIconSvg } from './LogoIconSvg'
+import { LogoSvg } from './LogoSvg'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /*

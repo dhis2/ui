@@ -1,10 +1,10 @@
-import React, { Component, createRef } from 'react'
 import propTypes from '@dhis2/prop-types'
-import cx from 'classnames'
-import { ChevronLeft, ChevronRight } from '../Icons/index.js'
 import { colors } from '@dhis2/ui-constants'
-import { detectHorizontalScrollbarHeight } from './detectHorizontalScrollbarHeight'
+import cx from 'classnames'
+import React, { Component, createRef } from 'react'
+import { ChevronLeft, ChevronRight } from '../Icons/index.js'
 import { animatedSideScroll } from './animatedSideScroll'
+import { detectHorizontalScrollbarHeight } from './detectHorizontalScrollbarHeight'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**

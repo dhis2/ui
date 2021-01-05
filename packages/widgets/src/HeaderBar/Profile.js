@@ -1,10 +1,9 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
-
+import React from 'react'
 import { ImageIcon } from './ImageIcon.js'
+import { joinPath } from './joinPath.js'
 import { ProfileMenu } from './Profile/ProfileMenu.js'
 import { TextIcon } from './TextIcon.js'
-import { joinPath } from './joinPath.js'
 
 function avatarPath(avatar, baseUrl) {
     if (!avatar) {

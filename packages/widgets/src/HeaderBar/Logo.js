@@ -1,6 +1,5 @@
-import React from 'react'
 import { useConfig } from '@dhis2/app-runtime'
-
+import React from 'react'
 import { LogoImage } from './LogoImage.js'
 
 export const Logo = () => {

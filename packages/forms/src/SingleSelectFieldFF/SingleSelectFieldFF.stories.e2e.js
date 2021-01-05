@@ -1,8 +1,7 @@
-import { Field } from 'react-final-form'
-import React from 'react'
 import { storiesOf } from '@storybook/react'
+import React from 'react'
+import { Field } from 'react-final-form'
 import { formDecorator } from '../formDecorator.js'
-
 import { hasValue } from '../validators/index.js'
 import { SingleSelectFieldFF } from './SingleSelectFieldFF.js'
 

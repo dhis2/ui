@@ -1,7 +1,7 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import css from 'styled-jsx/css'
 import cx from 'classnames'
+import React from 'react'
+import css from 'styled-jsx/css'
 
 const tableCellStyles = css`
     td {

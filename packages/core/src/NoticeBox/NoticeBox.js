@@ -1,10 +1,10 @@
-import React from 'react'
-import cx from 'classnames'
-import { spacers, colors } from '@dhis2/ui-constants'
 import propTypes from '@dhis2/prop-types'
-import { NoticeBoxTitle } from './NoticeBoxTitle.js'
+import { spacers, colors } from '@dhis2/ui-constants'
+import cx from 'classnames'
+import React from 'react'
 import { NoticeBoxIcon } from './NoticeBoxIcon.js'
 import { NoticeBoxMessage } from './NoticeBoxMessage.js'
+import { NoticeBoxTitle } from './NoticeBoxTitle.js'
 
 /**
  * @module

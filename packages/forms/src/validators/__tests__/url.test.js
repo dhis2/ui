@@ -1,5 +1,5 @@
-import { url, invalidUrlMessage } from '../url.js'
 import { testValidatorValues, allowsEmptyValues } from '../test-helpers'
+import { url, invalidUrlMessage } from '../url.js'
 
 /**
  * List of valid and invalid URIs was sourced from
