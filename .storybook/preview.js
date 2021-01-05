@@ -1,4 +1,4 @@
-import 'fontsource-roboto/latin.css'
+import '@fontsource/roboto/latin.css'
 import React, { Fragment } from 'react'
 import { jsxDecorator } from 'storybook-addon-jsx'
 import { addDecorator, addParameters } from '@storybook/react'
