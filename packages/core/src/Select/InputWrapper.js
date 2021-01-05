@@ -1,8 +1,8 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import cx from 'classnames'
-import { ArrowDown } from './ArrowDown.js'
 import { colors, theme, sharedPropTypes } from '@dhis2/ui-constants'
+import cx from 'classnames'
+import React from 'react'
+import { ArrowDown } from './ArrowDown.js'
 
 const InputWrapper = ({
     dataTest,

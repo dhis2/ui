@@ -1,5 +1,5 @@
-import { IntersectionDetector } from '@dhis2/ui-core'
 import propTypes from '@dhis2/prop-types'
+import { IntersectionDetector } from '@dhis2/ui-core'
 import React from 'react'
 
 export const EndIntersectionDetector = ({

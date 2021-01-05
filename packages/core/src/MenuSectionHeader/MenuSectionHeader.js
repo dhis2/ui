@@ -1,8 +1,7 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import cx from 'classnames'
 import { colors, spacers } from '@dhis2/ui-constants'
-
+import cx from 'classnames'
+import React from 'react'
 import { Divider } from '../Divider/Divider.js'
 
 /**

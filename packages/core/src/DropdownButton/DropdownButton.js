@@ -1,14 +1,12 @@
 import propTypes from '@dhis2/prop-types'
+import { spacers } from '@dhis2/ui-constants'
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import React, { Component } from 'react'
 import { resolve } from 'styled-jsx/css'
-
-import { spacers } from '@dhis2/ui-constants'
-import { ArrowDown, ArrowUp } from '../Icons/index.js'
-
 import { Button } from '../Button/Button.js'
+import { ArrowDown, ArrowUp } from '../Icons/index.js'
 import { Layer } from '../Layer/Layer.js'
 import { Popper } from '../Popper/Popper.js'
-import { sharedPropTypes } from '@dhis2/ui-constants'
 
 const arrow = resolve`
     margin-left: ${spacers.dp12};

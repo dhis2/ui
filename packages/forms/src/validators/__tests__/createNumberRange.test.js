@@ -1,6 +1,6 @@
 import { createNumberRange } from '../createNumberRange.js'
-import { testValidatorValues, allowsEmptyValues } from '../test-helpers'
 import { requiredArgumentErrorMessage } from '../helpers/index.js'
+import { testValidatorValues, allowsEmptyValues } from '../test-helpers'
 
 describe('validator: createNumberRange', () => {
     const betweenSixAndTen = createNumberRange(6, 10)

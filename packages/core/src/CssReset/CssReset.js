@@ -1,6 +1,5 @@
-import React from 'react'
-
 import { theme } from '@dhis2/ui-constants'
+import React from 'react'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**

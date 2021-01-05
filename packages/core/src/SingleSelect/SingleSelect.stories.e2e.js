@@ -1,7 +1,6 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import { storiesOf } from '@storybook/react'
-
+import React from 'react'
 import { SingleSelect, SingleSelectOption } from '../index.js'
 
 window.onChange = window.Cypress && window.Cypress.cy.stub()

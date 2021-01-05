@@ -1,5 +1,5 @@
-import React from 'react'
 import { storiesOf } from '@storybook/react'
+import React from 'react'
 import { FileInputFieldWithList } from './FileInputFieldWithList.js'
 
 const files = new Array(10)

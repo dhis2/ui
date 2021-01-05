@@ -1,8 +1,7 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import cx from 'classnames'
-
 import { colors, theme } from '@dhis2/ui-constants'
+import cx from 'classnames'
+import React from 'react'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**

@@ -1,14 +1,12 @@
-import cx from 'classnames'
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import { layers, spacers, spacersNum } from '@dhis2/ui-constants'
-import { resolve } from 'styled-jsx/css'
-
-import { Layer } from '../Layer/Layer.js'
-import { CenteredContent } from '../CenteredContent/CenteredContent.js'
 import { sharedPropTypes } from '@dhis2/ui-constants'
-
+import cx from 'classnames'
+import React from 'react'
+import { resolve } from 'styled-jsx/css'
 import { Card } from '../Card/Card.js'
+import { CenteredContent } from '../CenteredContent/CenteredContent.js'
+import { Layer } from '../Layer/Layer.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 const scrollBoxCard = resolve`

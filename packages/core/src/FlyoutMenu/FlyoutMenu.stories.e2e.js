@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { MenuItem } from '../MenuItem/MenuItem.js'
 import { FlyoutMenu } from './FlyoutMenu.js'
 

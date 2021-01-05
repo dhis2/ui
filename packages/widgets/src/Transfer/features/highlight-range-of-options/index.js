@@ -1,5 +1,4 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-
 import { extractOptionFromElement } from '../common'
 
 Given('the option list has one or more items', () => {

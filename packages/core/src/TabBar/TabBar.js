@@ -1,6 +1,5 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
-
+import React from 'react'
 import { ScrollBar } from './ScrollBar.js'
 import { Tabs } from './Tabs.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718

@@ -1,9 +1,8 @@
-import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
-import React, { Component, createRef } from 'react'
-
-import { CheckboxRegular, CheckboxDense } from '../Icons/index.js'
 import { colors, theme, sharedPropTypes } from '@dhis2/ui-constants'
+import cx from 'classnames'
+import React, { Component, createRef } from 'react'
+import { CheckboxRegular, CheckboxDense } from '../Icons/index.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**

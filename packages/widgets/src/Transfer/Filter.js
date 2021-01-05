@@ -1,7 +1,7 @@
-import { Input, Field } from '@dhis2/ui-core'
-import { spacers } from '@dhis2/ui-constants'
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
+import { spacers } from '@dhis2/ui-constants'
+import { Input, Field } from '@dhis2/ui-core'
+import React from 'react'
 
 export const Filter = ({ dataTest, filter, onChange, label, placeholder }) => (
     <div data-test={dataTest}>

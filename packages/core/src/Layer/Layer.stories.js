@@ -1,6 +1,6 @@
 import React from 'react'
-import { Layer } from './Layer.js'
 import { CircularLoader, CenteredContent } from '../index.js'
+import { Layer } from './Layer.js'
 
 export default {
     title: 'Layer',

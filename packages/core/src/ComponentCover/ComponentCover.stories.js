@@ -1,6 +1,6 @@
 import React from 'react'
-import { ComponentCover } from './ComponentCover.js'
 import { CircularLoader, CenteredContent } from '../index.js'
+import { ComponentCover } from './ComponentCover.js'
 
 export default {
     title: 'ComponentCover',

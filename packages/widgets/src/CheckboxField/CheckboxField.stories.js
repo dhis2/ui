@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-
 import { CheckboxField } from './CheckboxField.js'
 
 const logger = ({ name, value, checked }) =>

@@ -1,7 +1,6 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import { Radio } from '@dhis2/ui-core'
-
+import React from 'react'
 import {
     createToggleChangeHandler,
     createFocusHandler,
@@ -10,7 +9,6 @@ import {
     isValid,
     getValidationText,
 } from '../shared/helpers.js'
-
 import { metaPropType, inputPropType } from '../shared/propTypes.js'
 
 export const RadioFieldFF = ({

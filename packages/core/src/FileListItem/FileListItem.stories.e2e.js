@@ -1,5 +1,5 @@
-import React from 'react'
 import { storiesOf } from '@storybook/react'
+import React from 'react'
 import { FileListItem } from './FileListItem.js'
 
 window.onRemove = window.Cypress && window.Cypress.cy.stub()

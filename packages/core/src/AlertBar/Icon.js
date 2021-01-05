@@ -1,8 +1,7 @@
 import propTypes from '@dhis2/prop-types'
-import React from 'react'
-
-import { StatusIcon } from '../Icons/index.js'
 import { spacers } from '@dhis2/ui-constants'
+import React from 'react'
+import { StatusIcon } from '../Icons/index.js'
 
 const Icon = ({ icon, success, warning, critical, info, dataTest }) => {
     if (icon === false) {

@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-
 import { Radio } from './Radio.js'
 
 window.onChange = (payload, event) => {

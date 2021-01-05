@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { Menu } from '../Menu/Menu.js'
 import { MenuSectionHeader } from './MenuSectionHeader.js'
 

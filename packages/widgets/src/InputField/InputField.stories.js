@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-
 import { InputField } from './InputField.js'
 
 const logger = ({ name, value }) => console.info(`${name}: ${value}`)

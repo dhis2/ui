@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react'
 import propTypes from 'prop-types'
-
+import React, { useEffect } from 'react'
 import { OrganisationUnitNode } from './OrganisationUnitNode.js'
+import { orgUnitPathPropType } from './propTypes.js'
 import { RootError } from './RootError.js'
 import { RootLoading } from './RootLoading.js'
-import { orgUnitPathPropType } from './propTypes.js'
 import { useExpanded } from './useExpanded.js'
 import { useForceReload } from './useForceReload.js'
 import { useOrgData } from './useOrgData.js'

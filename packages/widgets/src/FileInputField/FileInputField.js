@@ -1,9 +1,6 @@
-import React from 'react'
-import propTypes from '@dhis2/prop-types'
 import i18n from '@dhis2/d2-i18n'
-
+import propTypes from '@dhis2/prop-types'
 import { sharedPropTypes } from '@dhis2/ui-constants'
-
 import {
     FileInput,
     FileList,
@@ -11,6 +8,7 @@ import {
     Field,
     Label,
 } from '@dhis2/ui-core'
+import React from 'react'
 import translate from '../translate'
 
 /**

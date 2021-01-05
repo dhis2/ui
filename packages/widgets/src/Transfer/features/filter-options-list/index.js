@@ -1,5 +1,4 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-
 import { extractOptionFromElement } from '../common'
 
 Given('filtering is enabled', () => {

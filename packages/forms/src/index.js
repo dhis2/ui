@@ -1,5 +1,5 @@
-import * as ReactFinalForm from 'react-final-form'
 import * as FinalForm from 'final-form'
+import * as ReactFinalForm from 'react-final-form'
 
 export { CheckboxFieldFF } from './CheckboxFieldFF/CheckboxFieldFF.js'
 export { FileInputFieldFF } from './FileInputFieldFF/FileInputFieldFF.js'

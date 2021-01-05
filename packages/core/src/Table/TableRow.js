@@ -1,7 +1,7 @@
-import React, { useContext } from 'react'
-import css from 'styled-jsx/css'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
+import React, { useContext } from 'react'
+import css from 'styled-jsx/css'
 import { TableContext } from './TableContext'
 
 const tableRowStyles = css`

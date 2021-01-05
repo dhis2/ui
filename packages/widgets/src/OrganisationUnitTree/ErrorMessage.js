@@ -1,7 +1,6 @@
-import React from 'react'
-import propTypes from 'prop-types'
-
 import { colors, spacers, theme } from '@dhis2/ui-constants'
+import propTypes from 'prop-types'
+import React from 'react'
 
 export const ErrorMessage = ({ children, dataTest }) => (
     <span data-test={`${dataTest}-error`}>

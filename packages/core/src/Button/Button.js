@@ -1,8 +1,7 @@
-import { sharedPropTypes } from '@dhis2/ui-constants'
-import React, { useEffect, useRef } from 'react'
-import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
-
+import { sharedPropTypes } from '@dhis2/ui-constants'
+import cx from 'classnames'
+import React, { useEffect, useRef } from 'react'
 import styles from './Button.styles.js'
 
 /**

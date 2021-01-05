@@ -1,7 +1,6 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import { SwitchField } from '@dhis2/ui-widgets'
-
+import React from 'react'
 import {
     createToggleChangeHandler,
     createFocusHandler,

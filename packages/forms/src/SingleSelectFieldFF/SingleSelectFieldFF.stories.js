@@ -1,6 +1,6 @@
+import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { Field } from 'react-final-form'
-import { storiesOf } from '@storybook/react'
 import { formDecorator } from '../formDecorator.js'
 import { SingleSelectFieldFF } from './SingleSelectFieldFF.js'
 

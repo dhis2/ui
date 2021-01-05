@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-
 import { SwitchField } from './SwitchField.js'
 
 const logger = ({ name, value, checked }) =>

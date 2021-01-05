@@ -1,10 +1,9 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
+import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
-
+import React from 'react'
 import { TagIcon } from './TagIcon.js'
 import { TagText } from './TagText.js'
-import { colors } from '@dhis2/ui-constants'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**

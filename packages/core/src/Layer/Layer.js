@@ -1,8 +1,8 @@
+import propTypes from '@dhis2/prop-types'
+import { layers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React, { createContext, useState, useContext } from 'react'
 import { createPortal } from 'react-dom'
-import propTypes from '@dhis2/prop-types'
-import { layers } from '@dhis2/ui-constants'
 
 const LayerContext = createContext({
     node: document.body,

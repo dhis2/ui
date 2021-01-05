@@ -1,8 +1,7 @@
 import React from 'react'
-
 import { Transfer } from '../../index.js'
-import { statefulDecorator } from './common/statefulDecorator'
 import { options } from './common/options'
+import { statefulDecorator } from './common/statefulDecorator'
 
 export default {
     title: 'Transfer set & unset higlighted options',

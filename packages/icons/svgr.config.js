@@ -1,5 +1,5 @@
-const indexTemplate = require('./templates/index-template.js')
 const template = require('./templates/icon-template.js')
+const indexTemplate = require('./templates/index-template.js')
 
 module.exports = {
     // This controls how the index.js file is generated

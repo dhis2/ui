@@ -1,5 +1,5 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
+import React from 'react'
 import { Empty } from '../Select/Empty.js'
 import { filterIgnored, checkIfValidOption } from '../Select/option-helpers.js'
 

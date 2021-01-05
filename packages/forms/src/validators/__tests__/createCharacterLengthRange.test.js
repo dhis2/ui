@@ -1,6 +1,6 @@
 import { createCharacterLengthRange } from '../createCharacterLengthRange.js'
-import { testValidatorValues, allowsEmptyValues } from '../test-helpers'
 import { requiredArgumentErrorMessage } from '../helpers/index.js'
+import { testValidatorValues, allowsEmptyValues } from '../test-helpers'
 
 describe('validator: createCharacterLengthRange', () => {
     const betweenSixAndTenChars = createCharacterLengthRange(6, 10)

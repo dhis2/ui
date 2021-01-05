@@ -1,10 +1,9 @@
 import propTypes from '@dhis2/prop-types'
-import React from 'react'
-
 import { sharedPropTypes, spacers } from '@dhis2/ui-constants'
-import { Label } from '../Label/Label.js'
-import { Help } from '../Help/Help.js'
+import React from 'react'
 import { Box } from '../Box/Box.js'
+import { Help } from '../Help/Help.js'
+import { Label } from '../Label/Label.js'
 
 /**
  * @module

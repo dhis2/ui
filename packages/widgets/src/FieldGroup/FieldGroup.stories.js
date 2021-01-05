@@ -1,8 +1,6 @@
-import React from 'react'
-import { storiesOf } from '@storybook/react'
-
 import { Checkbox, Radio, Switch } from '@dhis2/ui-core'
-
+import { storiesOf } from '@storybook/react'
+import React from 'react'
 import { FieldGroup } from './FieldGroup.js'
 
 storiesOf('FieldGroup', module)

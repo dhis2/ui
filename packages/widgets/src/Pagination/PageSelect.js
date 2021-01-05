@@ -1,8 +1,7 @@
-import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import { SingleSelect, SingleSelectOption } from '@dhis2/ui-core'
 import { spacers } from '@dhis2/ui-constants'
-
+import { SingleSelect, SingleSelectOption } from '@dhis2/ui-core'
+import React from 'react'
 import translate from '../translate'
 
 const createAvailablePages = length =>

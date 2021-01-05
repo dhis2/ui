@@ -1,5 +1,4 @@
 import { useState } from 'react'
-
 import { createToggleHighlightedOption } from './useHighlightedOptions/createToggleHighlightedOption.js'
 
 /**

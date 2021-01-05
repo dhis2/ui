@@ -1,10 +1,8 @@
+import propTypes from '@dhis2/prop-types'
+import { colors, layers } from '@dhis2/ui-constants'
 import React, { useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { resolve } from 'styled-jsx/css'
-
-import propTypes from '@dhis2/prop-types'
-import { colors, layers } from '@dhis2/ui-constants'
-
 import { useLayerContext } from '../Layer/Layer.js'
 import { Popper } from '../Popper/Popper.js'
 

@@ -1,6 +1,6 @@
+import propTypes from '@dhis2/prop-types'
 import React from 'react'
 import css from 'styled-jsx/css'
-import propTypes from '@dhis2/prop-types'
 import { Provider } from './TableContext.js'
 
 const tableStyles = css`
