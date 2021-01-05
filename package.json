@@ -56,7 +56,7 @@
         "@dhis2/cli-utils-docsite": "^2.0.2",
         "@dhis2/cypress-commands": "^3.0.2",
         "@dhis2/d2-i18n": "^1.0.6",
-        "@storybook/addons": "^6.1.10",
+        "@storybook/addons": "^6.1.11",
         "@storybook/channels": "^6.1.10",
         "@storybook/components": "^6.1.11",
         "@storybook/core-events": "^6.1.10",
