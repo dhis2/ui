@@ -22,6 +22,8 @@ We recommend that you use `@dhis2/ui` as the entrypoint for all imports of our f
 
 ## Documentation
 
+`@dhis2/ui` is based on the specifications in our design-system: https://github.com/dhis2/design-system. See the documentation there for more information.
+
 -   Docs: [ui.dhis2.nu](https://ui.dhis2.nu)
 -   Live demo: [ui.dhis2.nu/demo](https://ui.dhis2.nu/demo)
 -   API reference: [ui.dhis2.nu/api](https://ui.dhis2.nu/#/api)
