@@ -1739,6 +1739,13 @@
   dependencies:
     prop-types "^15"
 
+"@dhis2/prop-types@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-2.0.3.tgz#7ed8235851c73d059edc1731c913090a626e7ec6"
+  integrity sha512-z9gzgHYRTcPay8+wcNVFgSB9LVw8mCYLz6ZEbP5Yyi8xmvExIx/Mzulbo71vFgREixyca5toiyBYgDzja5SFwg==
+  dependencies:
+    prop-types "^15"
+
 "@dhis2/ui-constants@5.7.8":
   version "5.7.8"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-constants/-/ui-constants-5.7.8.tgz#3356de03c5e9ddc0b5fac5087df8ccd97f0dc3c0"

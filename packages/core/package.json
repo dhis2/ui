@@ -27,7 +27,7 @@
         "styled-jsx": "^3.2"
     },
     "dependencies": {
-        "@dhis2/prop-types": "^1.6.4",
+        "@dhis2/prop-types": "^2.0.3",
         "@popperjs/core": "^2.6.0",
         "classnames": "^2.2.6",
         "react-popper": "^2.2.3",
