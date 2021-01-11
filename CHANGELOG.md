@@ -1,3 +1,11 @@
+## [6.1.2](https://github.com/dhis2/ui/compare/v6.1.1...v6.1.2) (2021-01-11)
+
+
+### Bug Fixes
+
+* **icons:** add missing prop-types dependency ([fd7a448](https://github.com/dhis2/ui/commit/fd7a4488156be3224369060bc7fe936c4f2c1a25))
+* **icons:** add missing react peer dependencies ([a7971fb](https://github.com/dhis2/ui/commit/a7971fb1f5cd115b673765ddd327d2132fc47b50))
+
 ## [6.1.1](https://github.com/dhis2/ui/compare/v6.1.0...v6.1.1) (2021-01-11)
 
 
