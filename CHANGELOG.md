@@ -1,3 +1,10 @@
+## [6.1.1](https://github.com/dhis2/ui/compare/v6.1.0...v6.1.1) (2021-01-11)
+
+
+### Bug Fixes
+
+* **button:** pass name prop to button element ([c584b21](https://github.com/dhis2/ui/commit/c584b21121940c3095821b601c4cd07e101111f6))
+
 # [6.1.0](https://github.com/dhis2/ui/compare/v6.0.2...v6.1.0) (2021-01-05)
 
 
