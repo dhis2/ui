@@ -59,6 +59,7 @@ export const Button = ({
     return (
         <button
             ref={ref}
+            name={name}
             className={buttonClassName}
             data-test={dataTest}
             disabled={disabled}
