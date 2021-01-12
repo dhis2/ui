@@ -1,7 +1,9 @@
-const plugins = require('@dhis2/cli-utils-cypress/plugins')
+const {
+    chromeAllowXSiteCookies,
+    cucumberPreprocessor,
+} = require('@dhis2/cypress-plugins')
 
 module.exports = (on, config) => {
-    plugins(on, config)
-
-    // Add additional plugins here
+    chromeAllowXSiteCookies(on, config)
+    cucumberPreprocessor(on, config)
 }
