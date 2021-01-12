@@ -14,7 +14,7 @@ Then('the icon will be visible', () => {
 })
 
 Then('the icon will not be visible', () => {
-    cy.get('[data-test="dhis2-uicore-alertbar-icon"]').should('not.be.visible')
+    cy.get('[data-test="dhis2-uicore-alertbar-icon"]').should('not.exist')
 })
 
 Then('the custom icon will be visible', () => {

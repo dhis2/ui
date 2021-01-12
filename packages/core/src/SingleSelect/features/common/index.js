@@ -28,9 +28,9 @@ When('the user clicks the backdrop layer', () => {
 })
 
 Then('the options are not displayed', () => {
-    cy.contains('option one').should('not.be.visible')
-    cy.contains('option two').should('not.be.visible')
-    cy.contains('option three').should('not.be.visible')
+    cy.contains('option one').should('not.exist')
+    cy.contains('option two').should('not.exist')
+    cy.contains('option three').should('not.exist')
 })
 
 Then('the options are displayed', () => {

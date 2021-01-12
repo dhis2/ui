@@ -57,7 +57,7 @@ Given(
 )
 
 Then('the arrow is hiding', () => {
-    cy.get('[data-test="dhis2-uicore-popoverarrow"]').should('not.be.visible')
+    cy.get('[data-test="dhis2-uicore-popoverarrow"]').should('not.exist')
 })
 
 Then('the arrow is showing', () => {

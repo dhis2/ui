@@ -27,7 +27,7 @@ Then('the menu is not visible', () => {
 })
 
 Then('the component is not visible', () => {
-    cy.contains('Component').should('not.be.visible')
+    cy.contains('Component').should('not.exist')
 })
 
 Then('the menu is visible', () => {
