@@ -1825,10 +1825,17 @@
     live-server "^1.2.1"
     match-all "^1.2.5"
 
-"@dhis2/cypress-commands@^3.0.2":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-3.2.0.tgz#d366a4e4459a320a3b2eeedd69a42bee97306bf2"
-  integrity sha512-J0aD2x/dRg6SDeCtAKzAJgayQoBo3Z1Nbj89jy5lcm7PY5omrjjXQVEwdYRcfxNw5HGW+tEwDPMYypEfOn/Epg==
+"@dhis2/cypress-commands@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-5.1.0.tgz#f8bbf629ff0a78bad6c7c63a11baeb610ac20358"
+  integrity sha512-zLniANCKZ9JySbwze5Eoh3VJ7yju3k6OFp2+Cp9HS2cJ8M162Vp1e6slCHQzFRT36wR2UU7I/w1HbTzMjTRsvw==
+  dependencies:
+    jscodeshift "^0.11.0"
+
+"@dhis2/cypress-plugins@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/cypress-plugins/-/cypress-plugins-5.1.0.tgz#039518bbdca83a986358e74a41d203cebd7b9289"
+  integrity sha512-SENJD6aPSzDTFACdxnSTAy29NiZvbwHQLbe+LjEw1wurruXCs8C+pcEGU7PunZP+tqTHGaRX48nXERZ0xpM0Mg==
 
 "@dhis2/d2-i18n@^1.0.5", "@dhis2/d2-i18n@^1.0.6":
   version "1.0.6"
