@@ -6,7 +6,7 @@ Given('a default AlertBar is rendered', () => {
 })
 
 Then('the AlertBar will not be visible', () => {
-    cy.get('[data-test="dhis2-uicore-alertbar"]').should('not.be.visible')
+    cy.get('[data-test="dhis2-uicore-alertbar"]').should('not.exist')
 })
 
 When('the default duration has passed', () => {

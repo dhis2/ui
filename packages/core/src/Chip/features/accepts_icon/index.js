@@ -11,7 +11,7 @@ Given('a Chip supplied with an icon is rendered', () => {
 })
 
 Then('the icon will not be visible', () => {
-    cy.get('[data-test="dhis2-uicore-chip-icon"]').should('not.be.visible')
+    cy.get('[data-test="dhis2-uicore-chip-icon"]').should('not.exist')
 })
 
 Then('the icon will be visible', () => {
