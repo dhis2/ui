@@ -11,9 +11,7 @@ Given('the SplitButton menu is open', () => {
 })
 
 Given('the SplitButton menu is closed', () => {
-    cy.get('[data-test="dhis2-uicore-splitbutton-menu"]').should(
-        'not.be.visible'
-    )
+    cy.get('[data-test="dhis2-uicore-splitbutton-menu"]').should('not.exist')
 })
 
 When('the user clicks the backdrop Layer', () => {
@@ -21,9 +19,7 @@ When('the user clicks the backdrop Layer', () => {
 })
 
 Then('the menu is not visible', () => {
-    cy.get('[data-test="dhis2-uicore-splitbutton-menu"]').should(
-        'not.be.visible'
-    )
+    cy.get('[data-test="dhis2-uicore-splitbutton-menu"]').should('not.exist')
 })
 
 Then('the component is not visible', () => {
