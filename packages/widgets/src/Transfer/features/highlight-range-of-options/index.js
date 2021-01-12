@@ -185,7 +185,9 @@ Then('the option is not highlighted', () => {
             )
         })
 
-        expect($hiddenHighlighted).not.to.have.class('highlighted')
+        $hiddenHighlighted.each((_index, option) => {
+            cy.wrap(option).should('not.have.class', 'highlighted')
+        })
     })
 })
 
@@ -286,7 +288,7 @@ Then(
                     expect(Cypress.$(option)).to.have.class('highlighted')
                 })
 
-                $outsideRange.each(option =>
+                $outsideRange.each((index, option) =>
                     expect(Cypress.$(option)).to.not.have.class('highlighted')
                 )
             }
@@ -324,7 +326,7 @@ Then(
                     expect(Cypress.$(option)).to.have.class('highlighted')
                 })
 
-                $outsideRange.each(option =>
+                $outsideRange.each((index, option) =>
                     expect(Cypress.$(option)).to.not.have.class('highlighted')
                 )
             }
