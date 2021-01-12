@@ -19,5 +19,5 @@ Then('the children are visible', () => {
 Then('the children are not visible', () => {
     cy.get('[data-test="dhis2-uicore-node-leaves"]')
         .contains('I am a child')
-        .should('not.exist')
+        .should('not.be.visible')
 })
