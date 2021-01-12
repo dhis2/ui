@@ -2603,10 +2603,10 @@
   dependencies:
     core-js "^3.0.1"
 
-"@storybook/core-events@^6.1.10":
-  version "6.1.10"
-  resolved "https://registry.yarnpkg.com/@storybook/core-events/-/core-events-6.1.10.tgz#e7eff165753c50c2f92adb8cd1576d3799d94e4c"
-  integrity sha512-Xv56iXXSf53xiBDW0XEKypfw+1HZw7BN38AISQdbEX5+0y+VLHdWe6vdXIeoXz6ja0lP0Dnrjn4g8usenJzgmA==
+"@storybook/core-events@^6.1.12":
+  version "6.1.12"
+  resolved "https://registry.yarnpkg.com/@storybook/core-events/-/core-events-6.1.12.tgz#2e605f7a466a74f94d539739350d3796f4652b6e"
+  integrity sha512-qsUwM/UsYhgSLhuMlDgTmq0+sHFSF6OgzzmFdLWl+k/xjj6JuPqWQcqXslXOlM8ThJZoGjrlgSAZFxXWpaKyTA==
   dependencies:
     core-js "^3.0.1"
 
