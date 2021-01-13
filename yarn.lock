@@ -2506,12 +2506,7 @@
     schema-utils "^2.6.5"
     source-map "^0.7.3"
 
-"@popperjs/core@^2.5.3", "@popperjs/core@^2.5.4":
-  version "2.5.4"
-  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.5.4.tgz#de25b5da9f727985a3757fd59b5d028aba75841a"
-  integrity sha512-ZpKr+WTb8zsajqgDkvCEWgp6d5eJT6Q63Ng2neTbzBO76Lbe91vX/iVIW9dikq+Fs3yEo+ls4cxeXABD2LtcbQ==
-
-"@popperjs/core@^2.6.0":
+"@popperjs/core@^2.5.3", "@popperjs/core@^2.5.4", "@popperjs/core@^2.6.0":
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.6.0.tgz#f022195afdfc942e088ee2101285a1d31c7d727f"
   integrity sha512-cPqjjzuFWNK3BSKLm0abspP0sp/IGOli4p5I5fKFAzdS8fvjdOwDCfZqAaIiXd9lPkOWi3SUUfZof3hEb7J/uw==
@@ -2683,7 +2678,15 @@
     core-js "^3.0.1"
     global "^4.3.2"
 
-"@storybook/components@6.1.11", "@storybook/components@^6.1.11":
+"@storybook/client-logger@6.1.14":
+  version "6.1.14"
+  resolved "https://registry.yarnpkg.com/@storybook/client-logger/-/client-logger-6.1.14.tgz#216b9c1332ffa3a3473dad837780a3b14f686bae"
+  integrity sha512-NSO8nVsp6o0eoQ1Drlu66KXpl6DPuq02Kj8AhttGzvqSYB50SV4CV+wceBcg77tIVu5QmQ+71hAEVXhx7sjRHA==
+  dependencies:
+    core-js "^3.0.1"
+    global "^4.3.2"
+
+"@storybook/components@6.1.11":
   version "6.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/components/-/components-6.1.11.tgz#edd5db7fe43f47b5a7ab515840795a89d931512e"
   integrity sha512-DGDl76uONTkg0rpsa36TpVuXv4K7rFYe8GnQ/Q8n4By5tvldC4s9YXwcDRYHVrfnYybKzuZ/+jv2ZAp4/8ZaeA==
@@ -2692,6 +2695,32 @@
     "@storybook/client-logger" "6.1.11"
     "@storybook/csf" "0.0.1"
     "@storybook/theming" "6.1.11"
+    "@types/overlayscrollbars" "^1.9.0"
+    "@types/react-color" "^3.0.1"
+    "@types/react-syntax-highlighter" "11.0.4"
+    core-js "^3.0.1"
+    fast-deep-equal "^3.1.1"
+    global "^4.3.2"
+    lodash "^4.17.15"
+    markdown-to-jsx "^6.11.4"
+    memoizerific "^1.11.3"
+    overlayscrollbars "^1.10.2"
+    polished "^3.4.4"
+    react-color "^2.17.0"
+    react-popper-tooltip "^3.1.1"
+    react-syntax-highlighter "^13.5.0"
+    react-textarea-autosize "^8.1.1"
+    ts-dedent "^2.0.0"
+
+"@storybook/components@^6.1.14":
+  version "6.1.14"
+  resolved "https://registry.yarnpkg.com/@storybook/components/-/components-6.1.14.tgz#4ea47edfa0a3e4a26882aa5a1eb90c1ec86e6f71"
+  integrity sha512-Nxsp/9o1tqfY8s6RBWNHyM03A5D9k56Kr/4VNa++CbDrz1+TIxpYlDgS4sllUlXyvICLfk3sUtg3KS5CPl2iZA==
+  dependencies:
+    "@popperjs/core" "^2.5.4"
+    "@storybook/client-logger" "6.1.14"
+    "@storybook/csf" "0.0.1"
+    "@storybook/theming" "6.1.14"
     "@types/overlayscrollbars" "^1.9.0"
     "@types/react-color" "^3.0.1"
     "@types/react-syntax-highlighter" "11.0.4"
@@ -2907,7 +2936,7 @@
     core-js "^3.6.5"
     find-up "^4.1.0"
 
-"@storybook/theming@6.1.11", "@storybook/theming@^6.1.10":
+"@storybook/theming@6.1.11":
   version "6.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-6.1.11.tgz#0e757e0562aedefc96bd1d12714d4c8e92823467"
   integrity sha512-zRChacVgKoU2BmpvwK1ntiF3KIpc8QblJT7IGiKfP/BNpy9gNeXbLPLk3g/tkHszOvVYtkaZhEXni4Od8tqy1A==
@@ -2916,6 +2945,24 @@
     "@emotion/is-prop-valid" "^0.8.6"
     "@emotion/styled" "^10.0.23"
     "@storybook/client-logger" "6.1.11"
+    core-js "^3.0.1"
+    deep-object-diff "^1.1.0"
+    emotion-theming "^10.0.19"
+    global "^4.3.2"
+    memoizerific "^1.11.3"
+    polished "^3.4.4"
+    resolve-from "^5.0.0"
+    ts-dedent "^2.0.0"
+
+"@storybook/theming@6.1.14", "@storybook/theming@^6.1.10":
+  version "6.1.14"
+  resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-6.1.14.tgz#fecb66cab22d3b3218b4a98a9c210eb8a7be91e8"
+  integrity sha512-S+t30y4FqBTXWoVr+dtxVJ/ywiQGHBclBd9aUunbdCV4mMFra5InNo2CWn+RJlNEauLZ93gRIEzSFchIbzLk1A==
+  dependencies:
+    "@emotion/core" "^10.1.1"
+    "@emotion/is-prop-valid" "^0.8.6"
+    "@emotion/styled" "^10.0.23"
+    "@storybook/client-logger" "6.1.14"
     core-js "^3.0.1"
     deep-object-diff "^1.1.0"
     emotion-theming "^10.0.19"
