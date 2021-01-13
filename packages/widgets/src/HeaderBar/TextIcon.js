@@ -10,7 +10,7 @@ export const TextIcon = ({ name, onClick, dataTestId }) => {
 
     return (
         <div onClick={onClick} data-test={dataTestId}>
-            <p>{title}</p>
+            <span>{title}</span>
 
             <style jsx>{`
                 div {
@@ -26,7 +26,7 @@ export const TextIcon = ({ name, onClick, dataTestId }) => {
                     cursor: pointer;
                 }
 
-                p {
+                span {
                     font-size: 14px;
                     font-weight: 500;
                     letter-spacing: 1px;
