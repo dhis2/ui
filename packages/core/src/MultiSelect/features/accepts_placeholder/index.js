@@ -15,9 +15,9 @@ Then('the placeholder is shown', () => {
         .should('be.visible')
 })
 
-Then('the placeholder is not shown', () => {
+Then('the placeholder is not rendered', () => {
     cy.get('[data-test="dhis2-uicore-multiselect-placeholder"]').should(
-        'not.be.visible'
+        'not.exist'
     )
 })
 

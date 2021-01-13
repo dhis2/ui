@@ -11,4 +11,4 @@ Feature: Filtering the MultiSelect options
         And the MultiSelect is open
         When the user enters a filter string that doesn't match any options
         Then the no match text is displayed
-        And the options are not displayed
+        And the options are not rendered

@@ -5,9 +5,9 @@ Given('an Alertbar with onHidden handler is rendered', () => {
     cy.visitStory('Alertbar', 'With onHidden')
 })
 
-When('the Alertbar is hidden', () => {
+When('the Alertbar is not rendered', () => {
     cy.wait(8000)
-    cy.get('[data-test="dhis2-uicore-alertbar"]').should('not.be.visible')
+    cy.get('[data-test="dhis2-uicore-alertbar"]').should('not.exist')
 })
 
 Then('the onHidden handler is called', () => {

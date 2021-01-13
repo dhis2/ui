@@ -21,8 +21,8 @@ Then('the invalid options are displayed', () => {
     cy.contains('invalid three').should('be.visible')
 })
 
-Then('the invalid options are not displayed', () => {
-    cy.contains('invalid one').should('not.be.visible')
-    cy.contains('invalid two').should('not.be.visible')
-    cy.contains('invalid three').should('not.be.visible')
+Then('the invalid options are not rendered', () => {
+    cy.contains('invalid one').should('not.exist')
+    cy.contains('invalid two').should('not.exist')
+    cy.contains('invalid three').should('not.exist')
 })

@@ -21,6 +21,6 @@ Then('second SubMenu is visible', () => {
     cy.contains('SubMenu 2').should('be.visible')
 })
 
-Then('the first SubMenu is not visible', () => {
-    cy.contains('SubMenu 1').should('not.be.visible')
+Then('the first SubMenu is not rendered', () => {
+    cy.contains('SubMenu 1').should('not.exist')
 })

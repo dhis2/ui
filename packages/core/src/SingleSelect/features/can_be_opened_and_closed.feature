@@ -31,11 +31,11 @@ Feature: Opening and closing the SingleSelect
         Given a SingleSelect with options is rendered
         And the SingleSelect is open
         When the user clicks the backdrop layer
-        Then the options are not displayed
+        Then the options are not rendered
 
     Scenario: The user presses the escape key to hide the options
         Given a SingleSelect with options is rendered
         And the SingleSelect is open
         And the SingleSelect is focused
         When the escape key is pressed on the focused element
-        Then the options are not displayed
+        Then the options are not rendered

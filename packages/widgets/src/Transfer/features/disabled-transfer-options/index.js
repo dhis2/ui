@@ -144,29 +144,23 @@ Then('only the previously highlighted items are highlighted', () => {
         () => cy.get('{transfer-sourceoptions} {transferoption}'),
         () => cy.get('@enabledHighlightedSourceOptions')
     ).should(([$sourceOptions, $previouslyHighlightedOptions]) => {
-        const sourceOptions = $sourceOptions
-            .toArray()
-            .map(extractOptionFromElement)
-
         const previouslyHighlightedOptions = $previouslyHighlightedOptions
             .toArray()
             .map(extractOptionFromElement)
 
-        const notHighlightedSourceOptions = sourceOptions.filter(
-            sourceOption =>
+        const $notHighlightedSourceOptions = $sourceOptions.filter(
+            (_index, sourceOptionEl) => {
+                const label = sourceOptionEl.innerText
+                const value = sourceOptionEl.dataset.value
                 !previouslyHighlightedOptions.find(
-                    previouslyHighlightedOption => {
-                        return (
-                            sourceOption.value ===
-                                previouslyHighlightedOption.value &&
-                            sourceOption.label ===
-                                previouslyHighlightedOption.label
-                        )
-                    }
+                    option => value === option.value && label === option.label
                 )
+            }
         )
 
-        expect(notHighlightedSourceOptions).to.not.have.class('highlighted')
+        $notHighlightedSourceOptions.each((_index, option) => {
+            cy.wrap(option).should('not.have.class', 'highlighted')
+        })
     })
 })
 

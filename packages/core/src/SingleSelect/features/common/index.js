@@ -27,10 +27,10 @@ When('the user clicks the backdrop layer', () => {
     cy.get('[data-test="dhis2-uicore-layer"]').click()
 })
 
-Then('the options are not displayed', () => {
-    cy.contains('option one').should('not.be.visible')
-    cy.contains('option two').should('not.be.visible')
-    cy.contains('option three').should('not.be.visible')
+Then('the options are not rendered', () => {
+    cy.contains('option one').should('not.exist')
+    cy.contains('option two').should('not.exist')
+    cy.contains('option three').should('not.exist')
 })
 
 Then('the options are displayed', () => {
