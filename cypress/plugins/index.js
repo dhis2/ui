@@ -16,11 +16,13 @@ module.exports = (on, config) => {
 
     on('before:run', details => {
         state.runStarts++
-        console.log([
-            `before:run event: incremented runStarts to ${state.runStarts}`,
-            'Details:',
-            JSON.stringify(details, null, 4),
-        ])
+        console.log(
+            [
+                `before:run event: incremented runStarts to ${state.runStarts}`,
+                'Details:',
+                JSON.stringify(details, null, 4),
+            ].join('\n')
+        )
     })
 
     on('before:spec', ({ name }) => {
