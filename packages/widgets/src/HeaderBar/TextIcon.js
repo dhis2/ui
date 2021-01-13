@@ -1,16 +1,17 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
+const getInitials = name =>
+    name
+        .split(' ')
+        .slice(0, 2)
+        .map(n => n[0])
+        .join('')
+
 export const TextIcon = ({ name, onClick, dataTestId }) => {
-    let title = name[0]
-
-    if (name.indexOf(' ') > 0) {
-        title += name.split(' ')[1][0]
-    }
-
     return (
         <div onClick={onClick} data-test={dataTestId}>
-            <span>{title}</span>
+            <span>{getInitials(name)}</span>
 
             <style jsx>{`
                 div {
