@@ -14,11 +14,13 @@ module.exports = (on, config) => {
         specEnds: 0,
     }
 
-    on('before:run', () => {
+    on('before:run', details => {
         state.runStarts++
-        console.log(
-            `before:run event: incremented runStarts to ${state.runStarts}`
-        )
+        console.log([
+            `before:run event: incremented runStarts to ${state.runStarts}`,
+            'Details:',
+            JSON.stringify(details, null, 4),
+        ])
     })
 
     on('before:spec', ({ name }) => {
@@ -35,13 +37,15 @@ module.exports = (on, config) => {
         )
     })
 
-    on('after:run', () => {
+    on('after:run', details => {
         state.runEnds++
         console.log(
             [
                 `after:run event: incremented runEnds to ${state.runEnds}`,
                 'Summary:',
                 JSON.stringify(state, null, 4),
+                'Details:',
+                JSON.stringify(details, null, 4),
             ].join('\n')
         )
     })
