@@ -1,9 +1,9 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
+import { IconWorld24, IconUserGroup24 } from '@dhis2/ui-icons'
+
 import { SharingListItem } from '../SharingListItem'
-import { World as WorldIcon } from '../icons/World'
-import { UserGroup as UserGroupIcon } from '../icons/UserGroup'
 import { Avatar } from '../icons/Avatar'
 import {
     ACCESS_NONE,
@@ -47,7 +47,7 @@ describe('SharingDialog widget - SharingListItem component', () => {
 
         it('renders the icon for external access', () =>
             expect(
-                getSharingListItemComponent(props).find(WorldIcon)
+                getSharingListItemComponent(props).find(IconWorld24)
             ).toHaveLength(1))
 
         it('renders the label for external access', () =>
@@ -77,7 +77,7 @@ describe('SharingDialog widget - SharingListItem component', () => {
 
         it('renders the icon for public access', () =>
             expect(
-                getSharingListItemComponent(props).find(UserGroupIcon)
+                getSharingListItemComponent(props).find(IconUserGroup24)
             ).toHaveLength(1))
 
         it('renders the label for public access', () =>
@@ -107,7 +107,7 @@ describe('SharingDialog widget - SharingListItem component', () => {
 
         it('renders the icon for group access', () =>
             expect(
-                getSharingListItemComponent(props).find(UserGroupIcon)
+                getSharingListItemComponent(props).find(IconUserGroup24)
             ).toHaveLength(1))
 
         it('renders the label for group access', () =>

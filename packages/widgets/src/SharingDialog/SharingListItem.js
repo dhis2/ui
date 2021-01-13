@@ -3,10 +3,10 @@ import PropTypes from '@dhis2/prop-types'
 
 import i18n from '@dhis2/d2-i18n'
 import { Divider } from '@dhis2/ui-core'
+import { colors } from '@dhis2/ui-constants'
+import { IconWorld24, IconUserGroup24 } from '@dhis2/ui-icons'
 
 import { sharingListItemStyles } from './SharingDialog.styles'
-import { World as WorldIcon } from './icons/World'
-import { UserGroup as UserGroupIcon } from './icons/UserGroup'
 import { Avatar } from './icons/Avatar'
 import {
     SHARE_TARGET_EXTERNAL,
@@ -30,10 +30,10 @@ export const SharingListItem = ({
     const getIcon = target => {
         switch (target) {
             case SHARE_TARGET_EXTERNAL:
-                return <WorldIcon />
+                return <IconWorld24 color={colors.grey600} />
             case SHARE_TARGET_PUBLIC:
             case SHARE_TARGET_GROUP:
-                return <UserGroupIcon />
+                return <IconUserGroup24 color={colors.grey600} />
             case SHARE_TARGET_USER:
                 return <Avatar name={name} />
         }
