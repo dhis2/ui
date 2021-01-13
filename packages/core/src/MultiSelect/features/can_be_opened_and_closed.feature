@@ -31,11 +31,11 @@ Feature: Opening and closing the MultiSelect
         Given a MultiSelect with options is rendered
         And the MultiSelect is open
         When the user clicks the backdrop layer
-        Then the options are not displayed
+        Then the options are not rendered
 
     Scenario: The user presses the escape key to hide the options
         Given a MultiSelect with options is rendered
         And the MultiSelect is open
         And the MultiSelect is focused
         When the escape key is pressed on the focused element
-        Then the options are not displayed
+        Then the options are not rendered

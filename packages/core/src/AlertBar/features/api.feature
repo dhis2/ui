@@ -6,7 +6,7 @@ Feature: AlertBar API
 
     Scenario: AlertBar icon can be hidden
         Given an AlertBar with disabled icon is rendered
-        Then the icon will not be visible
+        Then the icon will not be rendered
 
     Scenario: Custom AlertBar icon
         Given an AlertBar with custom icon is rendered
@@ -23,6 +23,6 @@ Feature: AlertBar API
 
     Scenario: Alertbar will call the onHidden cb when hidden
         Given an Alertbar with onHidden handler is rendered
-        When the Alertbar is hidden
+        When the Alertbar is not rendered
         Then the onHidden handler is called
 
