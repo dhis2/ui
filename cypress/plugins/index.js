@@ -21,11 +21,6 @@ module.exports = (on, config) => {
         )
     })
 
-    on('after:run', () => {
-        state.runEnds++
-        console.log(`before:run event: incremented runEnds to ${state.runEnds}`)
-    })
-
     on('before:spec', ({ name }) => {
         state.specStarts++
         console.log(
@@ -36,7 +31,18 @@ module.exports = (on, config) => {
     on('after:spec', ({ name }) => {
         state.specEnds++
         console.log(
-            `before:spec event: ${name} - incremented specEnds to ${state.specEnds}`
+            `after:spec event: ${name} - incremented specEnds to ${state.specEnds}`
+        )
+    })
+
+    on('after:run', () => {
+        state.runEnds++
+        console.log(
+            [
+                `after:run event: incremented runEnds to ${state.runEnds}`,
+                'Summary:',
+                JSON.stringify(state, null, 4),
+            ].join('\n')
         )
     })
 }
