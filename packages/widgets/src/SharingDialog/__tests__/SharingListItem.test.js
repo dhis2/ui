@@ -1,9 +1,6 @@
-import React from 'react'
-import { shallow } from 'enzyme'
-
 import { IconWorld24, IconUserGroup24 } from '@dhis2/ui-icons'
-
-import { SharingListItem } from '../SharingListItem'
+import { shallow } from 'enzyme'
+import React from 'react'
 import { Avatar } from '../icons/Avatar'
 import {
     ACCESS_NONE,
@@ -13,6 +10,7 @@ import {
     SHARE_TARGET_GROUP,
     accessStrings,
 } from '../sharingConstants'
+import { SharingListItem } from '../SharingListItem'
 
 describe('SharingDialog widget - SharingListItem component', () => {
     let shallowSharingListItemComponent

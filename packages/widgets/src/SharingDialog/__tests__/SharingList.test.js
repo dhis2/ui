@@ -1,7 +1,5 @@
-import React from 'react'
 import { shallow } from 'enzyme'
-
-import { SharingList } from '../SharingList'
+import React from 'react'
 import {
     SHARE_TARGET_EXTERNAL,
     SHARE_TARGET_PUBLIC,
@@ -9,6 +7,7 @@ import {
     SHARE_TARGET_USER,
     defaultSharingSettings,
 } from '../sharingConstants'
+import { SharingList } from '../SharingList'
 
 describe('SharingDialog widget - SharingList component', () => {
     let shallowSharingListComponent

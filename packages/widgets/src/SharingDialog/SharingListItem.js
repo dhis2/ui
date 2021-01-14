@@ -1,12 +1,10 @@
-import React from 'react'
-import PropTypes from '@dhis2/prop-types'
-
 import i18n from '@dhis2/d2-i18n'
-import { Divider } from '@dhis2/ui-core'
+import PropTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
+import { Divider } from '@dhis2/ui-core'
 import { IconWorld24, IconUserGroup24 } from '@dhis2/ui-icons'
-
-import { sharingListItemStyles } from './SharingDialog.styles'
+import React from 'react'
+import { AccessSelect } from './AccessSelect'
 import { Avatar } from './icons/Avatar'
 import {
     SHARE_TARGET_EXTERNAL,
@@ -16,7 +14,7 @@ import {
     isPermanentTarget,
     accessStrings,
 } from './sharingConstants'
-import { AccessSelect } from './AccessSelect'
+import { sharingListItemStyles } from './SharingDialog.styles'
 
 export const SharingListItem = ({
     name,

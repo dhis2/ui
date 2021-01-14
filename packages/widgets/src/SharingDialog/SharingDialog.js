@@ -1,9 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import PropTypes from '@dhis2/prop-types'
-
-import i18n from '@dhis2/d2-i18n'
 import { useAlert, useDataQuery, useDataMutation } from '@dhis2/app-runtime'
-
+import i18n from '@dhis2/d2-i18n'
+import PropTypes from '@dhis2/prop-types'
 import {
     Modal,
     ModalTitle,
@@ -12,13 +9,14 @@ import {
     ButtonStrip,
     Button,
 } from '@dhis2/ui-core'
-import { SharingList } from './SharingList.js'
+import React, { useEffect, useState } from 'react'
 import { ShareBlock } from './ShareBlock.js'
 import {
     defaultSharingSettings,
     convertAccessToConstant,
     convertConstantToAccess,
 } from './sharingConstants.js'
+import { SharingList } from './SharingList.js'
 
 const query = {
     sharing: {

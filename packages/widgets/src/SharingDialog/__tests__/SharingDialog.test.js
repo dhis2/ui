@@ -1,11 +1,10 @@
-import React from 'react'
 import { shallow } from 'enzyme'
-
+import React from 'react'
 import { Button, Modal, ModalTitle } from '../../../../core'
-import { SharingDialog } from '../SharingDialog'
 import { ShareBlock } from '../ShareBlock'
-import { SharingList } from '../SharingList'
 import { defaultSharingSettings } from '../sharingConstants'
+import { SharingDialog } from '../SharingDialog'
+import { SharingList } from '../SharingList'
 
 describe('SharingDialog widget', () => {
     const onClose = jest.fn()
