@@ -10,11 +10,11 @@ const getInitials = name =>
 
 export const TextIcon = ({ name, onClick, dataTestId }) => {
     return (
-        <div onClick={onClick} data-test={dataTestId}>
-            <span>{getInitials(name)}</span>
+        <div className={'text-icon'} onClick={onClick} data-test={dataTestId}>
+            <div className={'text-icon-initials'}>{getInitials(name)}</div>
 
             <style jsx>{`
-                div {
+                .text-icon {
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -27,7 +27,7 @@ export const TextIcon = ({ name, onClick, dataTestId }) => {
                     cursor: pointer;
                 }
 
-                span {
+                .text-icon-initials {
                     font-size: 14px;
                     font-weight: 500;
                     letter-spacing: 1px;
