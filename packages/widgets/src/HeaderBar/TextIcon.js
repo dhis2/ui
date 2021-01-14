@@ -10,8 +10,8 @@ export const getInitials = name =>
 
 export const TextIcon = ({ name, onClick, dataTestId }) => {
     return (
-        <div className={'text-icon'} onClick={onClick} data-test={dataTestId}>
-            <div className={'text-icon-initials'}>{getInitials(name)}</div>
+        <div className="text-icon" onClick={onClick} data-test={dataTestId}>
+            <div className="text-icon-initials">{getInitials(name)}</div>
 
             <style jsx>{`
                 .text-icon {
