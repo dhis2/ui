@@ -1,7 +1,7 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
-const getInitials = name =>
+export const getInitials = name =>
     name
         .split(' ')
         .slice(0, 2)
