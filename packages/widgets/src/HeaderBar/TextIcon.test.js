@@ -18,4 +18,10 @@ describe('TextIcon - getInitials', () => {
         const expected = 'AV'
         expect(actual).toBe(expected)
     })
+
+    it('should handle utf-8 multi byte characters', () => {
+        const actual = getInitials('恨恨 한한한')
+        const expected = '恨한'
+        expect(actual).toBe(expected)
+    })
 })
