@@ -1,8 +1,6 @@
-import React, { createRef, useState, useEffect } from 'react'
 import PropTypes from '@dhis2/prop-types'
-
 import { Menu, MenuItem } from '@dhis2/ui-core'
-
+import React, { createRef, useState, useEffect } from 'react'
 import { InputField } from '../../InputField/InputField.js'
 import { MenuWrapper } from './MenuWrapper'
 

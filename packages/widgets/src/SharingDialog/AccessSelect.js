@@ -1,11 +1,8 @@
-import React from 'react'
-
-import PropTypes from '@dhis2/prop-types'
 import i18n from '@dhis2/d2-i18n'
-
+import PropTypes from '@dhis2/prop-types'
 import { MenuDivider, MenuItem } from '@dhis2/ui-core'
+import React from 'react'
 import { SingleSelectField } from '../SingleSelectField/SingleSelectField.js'
-
 import { accessStrings } from './sharingConstants'
 import { accessSelectStyles } from './SharingDialog.styles'
 

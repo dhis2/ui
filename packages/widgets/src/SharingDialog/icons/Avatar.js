@@ -1,7 +1,5 @@
-import React from 'react'
-
 import PropTypes from '@dhis2/prop-types'
-
+import React from 'react'
 import { avatarStyles } from '../SharingDialog.styles'
 
 export const Avatar = ({ name } = { name: 'USER' }) => {

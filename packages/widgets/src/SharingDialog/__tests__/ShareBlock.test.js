@@ -1,10 +1,9 @@
-import React from 'react'
 import { shallow } from 'enzyme'
-
+import React from 'react'
 import { Button } from '../../../../core'
-import { ShareBlock } from '../ShareBlock'
-import { Autocomplete } from '../Autocomplete/Autocomplete'
 import { AccessSelect } from '../AccessSelect'
+import { Autocomplete } from '../Autocomplete/Autocomplete'
+import { ShareBlock } from '../ShareBlock'
 
 describe('SharingDialog widget - ShareBlock component', () => {
     let shallowShareBlockComponent

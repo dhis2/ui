@@ -1,10 +1,7 @@
-import React from 'react'
-
-import PropTypes from '@dhis2/prop-types'
 import i18n from '@dhis2/d2-i18n'
+import PropTypes from '@dhis2/prop-types'
 import { Divider } from '@dhis2/ui-core'
-
-import { sharingCommonStyles, sharingListStyles } from './SharingDialog.styles'
+import React from 'react'
 import {
     SHARE_TARGET_PUBLIC,
     SHARE_TARGET_EXTERNAL,
@@ -15,6 +12,7 @@ import {
     ACCESS_VIEW_ONLY,
     ACCESS_VIEW_AND_EDIT,
 } from './sharingConstants'
+import { sharingCommonStyles, sharingListStyles } from './SharingDialog.styles'
 import { SharingListItem } from './SharingListItem'
 
 export const SharingList = ({ sharingSettings, onChange, onRemove }) => (
