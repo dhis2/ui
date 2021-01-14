@@ -1,3 +1,10 @@
+## [6.1.3](https://github.com/dhis2/ui/compare/v6.1.2...v6.1.3) (2021-01-14)
+
+
+### Bug Fixes
+
+* **headerbar:** use <div> instead of <p> for user avatar initials ([#460](https://github.com/dhis2/ui/issues/460)) ([a8f25d9](https://github.com/dhis2/ui/commit/a8f25d95fb31441497f98b635b780964069b03bb))
+
 ## [6.1.2](https://github.com/dhis2/ui/compare/v6.1.1...v6.1.2) (2021-01-11)
 
 
