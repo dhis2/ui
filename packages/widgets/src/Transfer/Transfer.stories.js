@@ -1,29 +1,6 @@
 import { SingleSelectOption, Tab, TabBar } from '@dhis2/ui-core'
-import React, { useEffect, useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import { SingleSelectField, Transfer, TransferOption } from '../index.js'
-
-/* eslint-disable */
-
-/**
- * This was throwing an react/display-name error in eslint, which is correct.
- * Since it's not critical, I disabled the display-name rule, which caused an
- * error stating that display-name was disabled incorrectly. So the only way
- * to resolve this is either to use JSX, or to disable eslint for this area.
- * For the sake of getting the new linting active I'll disable it, but the
- * proper eventual solution would be to use JSX here.
- */
-
-const statefulDecorator = ({ initialState = [] } = {}) => fn =>
-    React.createElement(() => {
-        const [selected, setSelected] = useState(initialState)
-
-        return fn({
-            selected,
-            onChange: payload => setSelected(payload.selected),
-        })
-    })
-/* eslint-enable */
-/* eslint-disable react/prop-types */
 
 const options = [
     {
@@ -118,26 +95,36 @@ const options = [
     },
 ]
 
-export default { title: 'Transfer', decorators: [statefulDecorator()] }
+const withState = (Component, initialState = []) => () => {
+    const [selected, setSelected] = useState(initialState)
+    const handleChange = useCallback(payload => {
+        setSelected(payload.selected)
+    }, [])
 
-export const SingleSelection = ({ selected, onChange }) => (
+    return <Component selected={selected} onChange={handleChange} />
+}
+
+export default { title: 'Transfer' }
+
+export const SingleSelection = withState(({ selected, onChange }) => (
     <Transfer
         maxSelections={1}
         onChange={onChange}
         selected={selected}
         options={options}
     />
-)
+))
 
-export const Multiple = ({ selected, onChange }) => (
+
+export const Multiple = withState(({ selected, onChange }) => (
     <Transfer
         onChange={onChange}
         selected={selected}
         options={options.slice(0, 3)}
     />
-)
+))
 
-export const Header = ({ selected, onChange }) => (
+export const Header = withState(({ selected, onChange }) => (
     <Transfer
         onChange={onChange}
         selected={selected}
@@ -145,9 +132,9 @@ export const Header = ({ selected, onChange }) => (
         rightHeader={<h4>Header on the right side</h4>}
         options={options}
     />
-)
+))
 
-export const OptionsFooter = ({ selected, onChange }) => (
+export const OptionsFooter = withState(({ selected, onChange }) => (
     <Transfer
         onChange={onChange}
         selected={selected}
@@ -165,9 +152,9 @@ export const OptionsFooter = ({ selected, onChange }) => (
         }
         options={options}
     />
-)
+))
 
-export const Filtered = ({ selected, onChange }) => (
+export const Filtered = withState(({ selected, onChange }) => (
     <Transfer
         filterable
         onChange={onChange}
@@ -177,9 +164,9 @@ export const Filtered = ({ selected, onChange }) => (
         rightHeader={<h4>Header on the right side</h4>}
         options={options}
     />
-)
+))
 
-export const FilteredPicked = ({ selected, onChange }) => (
+export const FilteredPicked = withState(({ selected, onChange }) => (
     <Transfer
         filterablePicked
         onChange={onChange}
@@ -189,17 +176,9 @@ export const FilteredPicked = ({ selected, onChange }) => (
         rightHeader={<h4>Header on the right side</h4>}
         options={options}
     />
-)
+), options.map(({ value }) => value))
 
-FilteredPicked.story = {
-    decorators: [
-        statefulDecorator({
-            initialState: options.map(({ value }) => value),
-        }),
-    ],
-}
-
-export const FilterPlaceholder = ({ selected, onChange }) => (
+export const FilterPlaceholder = withState(({ selected, onChange }) => (
     <Transfer
         filterable
         onChange={onChange}
@@ -208,7 +187,7 @@ export const FilterPlaceholder = ({ selected, onChange }) => (
         filterLabel="Filter with placeholder"
         filterPlaceholder="Search"
     />
-)
+))
 
 const renderOption = ({ label, value, onClick, highlighted, selected }) => (
     <p
@@ -241,7 +220,7 @@ const RenderOptionCode = () => (
     </>
 )
 
-export const CustomListOptions = ({ selected, onChange }) => (
+export const CustomListOptions = withState(({ selected, onChange }) => (
     <>
         <RenderOptionCode />
 
@@ -252,17 +231,9 @@ export const CustomListOptions = ({ selected, onChange }) => (
             options={options}
         />
     </>
-)
+), options.slice(0, 2).map(({ value }) => value))
 
-CustomListOptions.story = {
-    decorators: [
-        statefulDecorator({
-            initialState: options.slice(0, 2).map(({ value }) => value),
-        }),
-    ],
-}
-
-export const IndividualCustomOption = ({ selected, onChange }) => (
+export const IndividualCustomOption = withState(({ selected, onChange }) => (
     <Transfer
         onChange={onChange}
         selected={selected}
@@ -279,9 +250,9 @@ export const IndividualCustomOption = ({ selected, onChange }) => (
         }}
         options={options}
     />
-)
+))
 
-export const CustomButtonText = ({ selected, onChange }) => (
+export const CustomButtonText = withState(({ selected, onChange }) => (
     <Transfer
         onChange={onChange}
         selected={selected}
@@ -291,9 +262,9 @@ export const CustomButtonText = ({ selected, onChange }) => (
         removeIndividualText="Remove individual"
         options={options}
     />
-)
+))
 
-export const SourceEmptyPlaceholder = ({ onChange }) => (
+export const SourceEmptyPlaceholder = withState(({ onChange }) => (
     <Transfer
         onChange={onChange}
         options={[]}
@@ -307,9 +278,9 @@ export const SourceEmptyPlaceholder = ({ onChange }) => (
             </p>
         }
     />
-)
+))
 
-export const PickedEmptyComponent = ({ selected, onChange }) => (
+export const PickedEmptyComponent = withState(({ selected, onChange }) => (
     <Transfer
         selected={selected}
         onChange={onChange}
@@ -321,26 +292,18 @@ export const PickedEmptyComponent = ({ selected, onChange }) => (
         }
         options={options}
     />
-)
+))
 
-export const Reordering = ({ selected, onChange }) => (
+export const Reordering = withState(({ selected, onChange }) => (
     <Transfer
         enableOrderChange
         onChange={onChange}
         selected={selected}
         options={options.slice(0, 4)}
     />
-)
+), options.slice(0, 4).map(({ value }) => value),)
 
-Reordering.story = {
-    decorators: [
-        statefulDecorator({
-            initialState: options.slice(0, 4).map(({ value }) => value),
-        }),
-    ],
-}
-
-export const IncreasedOptionsHeight = ({ selected, onChange }) => (
+export const IncreasedOptionsHeight = withState(({ selected, onChange }) => (
     <div style={{ maxHeight: 400 }}>
         <Transfer
             maxSelections={Infinity}
@@ -353,9 +316,9 @@ export const IncreasedOptionsHeight = ({ selected, onChange }) => (
             options={options}
         />
     </div>
-)
+))
 
-export const DifferentWidths = ({ selected, onChange }) => (
+export const DifferentWidths = withState(({ selected, onChange }) => (
     <Transfer
         filterable
         onChange={onChange}
@@ -367,170 +330,9 @@ export const DifferentWidths = ({ selected, onChange }) => (
         selectedWidth="240px"
         options={options}
     />
-)
+))
 
-const createCustomFilteringInHeader = hideFilterInput => {
-    const relativePeriods = options.slice(0, 10).map((option, index) => ({
-        ...option,
-        relativePeriod: true,
-        year: index < 5 ? '2020' : '2019',
-    }))
-
-    const fixedPeriods = options.slice(10, 20).map((option, index) => ({
-        ...option,
-        relativePeriod: false,
-        year: index < 5 ? '2020' : '2019',
-    }))
-
-    const allOptions = [...relativePeriods, ...fixedPeriods]
-
-    const Header = ({
-        onClick,
-        relativePeriod,
-        selectedYear,
-        onSelectedYearChange,
-    }) => (
-        <>
-            <TabBar>
-                <Tab
-                    selected={relativePeriod}
-                    onClick={() => onClick({ relativePeriod: true })}
-                >
-                    Relative periods
-                </Tab>
-
-                <Tab
-                    selected={!relativePeriod}
-                    onClick={() => onClick({ relativePeriod: false })}
-                >
-                    Fixed periods
-                </Tab>
-            </TabBar>
-
-            <p style={{ margin: 0, height: 10 }} />
-
-            <SingleSelectField
-                label="Year"
-                selected={selectedYear}
-                onChange={onSelectedYearChange}
-            >
-                <SingleSelectOption value="2020" label="2020" />
-                <SingleSelectOption value="2019" label="2019" />
-            </SingleSelectField>
-        </>
-    )
-
-    const CustomTransfer = props => {
-        const [filter, setFilter] = useState('')
-        const [relativePeriod, setRelativePeriod] = useState(true)
-        const [year, setYear] = useState('2020')
-        const filterCallback = (options, filter) => {
-            const optionsWithYear = options.filter(
-                option => option.year === year
-            )
-
-            const optionsWithPeriod = optionsWithYear.filter(
-                option => option.relativePeriod === relativePeriod
-            )
-
-            if (filter === '') return optionsWithPeriod
-
-            return optionsWithPeriod.filter(
-                ({ label }) => label.indexOf(filter) !== -1
-            )
-        }
-
-        const header = (
-            <Header
-                relativePeriod={relativePeriod}
-                selectedYear={year}
-                onSelectedYearChange={({ selected }) => setYear(selected)}
-                onClick={({ relativePeriod: newRelativePeriod }) =>
-                    setRelativePeriod(newRelativePeriod)
-                }
-            />
-        )
-
-        return (
-            <Transfer
-                {...props}
-                filterable
-                hideFilterInput={hideFilterInput}
-                searchTerm={filter}
-                filterCallback={filterCallback}
-                leftHeader={header}
-                rightHeader={
-                    <p>
-                        <b>Selected Periods</b>
-                    </p>
-                }
-                onFilterChange={({ value }) => setFilter(value)}
-                height="400px"
-                filterLabel="Filter options"
-                filterPlaceholder="Search"
-            />
-        )
-    }
-
-    // eslint-disable-next-line react/display-name
-    return ({ selected, onChange }) => (
-        <CustomTransfer
-            options={allOptions}
-            onChange={onChange}
-            selected={selected}
-        />
-    )
-}
-
-export const CustomFilteringWithFilterInput = createCustomFilteringInHeader(
-    false
-)
-
-export const CustomFilteringWithoutFilterInput = createCustomFilteringInHeader(
-    true
-)
-
-const sliceLength = 6
-
-export const InfiniteLoading = ({ selected, onChange }) => {
-    const [loading, setLoading] = useState(false)
-    const [optionsLength, setOptionsLength] = useState(sliceLength)
-    const [optionsSlice, setOptionsSlice] = useState(
-        options.slice(0, optionsLength)
-    )
-
-    useEffect(() => {
-        if (sliceLength !== optionsLength) {
-            setTimeout(() => {
-                setOptionsSlice(options.slice(0, optionsLength))
-                setLoading(false)
-            }, 1000)
-
-            setLoading(true)
-        }
-    }, [optionsLength])
-
-    return (
-        <Transfer
-            loading={loading}
-            options={optionsSlice}
-            selected={selected}
-            onChange={onChange}
-            onEndReached={() => {
-                if (loading) return
-
-                const newOptionsLength = Math.min(
-                    optionsLength + sliceLength,
-                    options.length
-                )
-
-                setOptionsLength(newOptionsLength)
-            }}
-        />
-    )
-}
-
-export const LoadingSource = ({ selected, onChange }) => (
+export const LoadingSource = withState(({ selected, onChange }) => (
     <Transfer
         loading
         onChange={onChange}
@@ -539,9 +341,9 @@ export const LoadingSource = ({ selected, onChange }) => (
         leftHeader={<h4>Left header</h4>}
         leftFooter={<h4>Left footer</h4>}
     />
-)
+))
 
-export const LoadingPicked = ({ selected, onChange }) => (
+export const LoadingPicked = withState(({ selected, onChange }) => (
     <Transfer
         loadingPicked
         onChange={onChange}
@@ -550,12 +352,4 @@ export const LoadingPicked = ({ selected, onChange }) => (
         rightHeader={<h4>Right header</h4>}
         rightFooter={<h4>Right footer</h4>}
     />
-)
-
-LoadingPicked.story = {
-    decorators: [
-        statefulDecorator({
-            initialState: options.slice(0, 2).map(({ value }) => value),
-        }),
-    ],
-}
+), options.slice(0, 2).map(({ value }) => value))
