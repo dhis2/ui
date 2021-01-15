@@ -53,7 +53,7 @@ export const SharingListItem = ({
                     </div>
                 </div>
                 <AccessSelect
-                    prefix={i18n.t('Access')}
+                    prefix={i18n.t('Metadata')}
                     access={access}
                     accessOptions={accessOptions}
                     disabled={disabled}
