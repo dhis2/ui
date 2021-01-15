@@ -1,6 +1,5 @@
-import { SingleSelectOption, Tab, TabBar } from '@dhis2/ui-core'
 import React, { useState, useCallback } from 'react'
-import { SingleSelectField, Transfer, TransferOption } from '../index.js'
+import { Transfer, TransferOption } from '../index.js'
 
 const options = [
     {
@@ -95,6 +94,7 @@ const options = [
     },
 ]
 
+/* eslint-disable */
 const withState = (Component, initialState = []) => () => {
     const [selected, setSelected] = useState(initialState)
     const handleChange = useCallback(payload => {
@@ -103,6 +103,7 @@ const withState = (Component, initialState = []) => () => {
 
     return <Component selected={selected} onChange={handleChange} />
 }
+/* eslint-enable */
 
 export default { title: 'Transfer' }
 
@@ -114,7 +115,6 @@ export const SingleSelection = withState(({ selected, onChange }) => (
         options={options}
     />
 ))
-
 
 export const Multiple = withState(({ selected, onChange }) => (
     <Transfer
@@ -166,17 +166,20 @@ export const Filtered = withState(({ selected, onChange }) => (
     />
 ))
 
-export const FilteredPicked = withState(({ selected, onChange }) => (
-    <Transfer
-        filterablePicked
-        onChange={onChange}
-        selected={selected}
-        initialSearchTermPicked="ANC"
-        leftHeader={<h3>Header on the left side</h3>}
-        rightHeader={<h4>Header on the right side</h4>}
-        options={options}
-    />
-), options.map(({ value }) => value))
+export const FilteredPicked = withState(
+    ({ selected, onChange }) => (
+        <Transfer
+            filterablePicked
+            onChange={onChange}
+            selected={selected}
+            initialSearchTermPicked="ANC"
+            leftHeader={<h3>Header on the left side</h3>}
+            rightHeader={<h4>Header on the right side</h4>}
+            options={options}
+        />
+    ),
+    options.map(({ value }) => value)
+)
 
 export const FilterPlaceholder = withState(({ selected, onChange }) => (
     <Transfer
@@ -220,18 +223,21 @@ const RenderOptionCode = () => (
     </>
 )
 
-export const CustomListOptions = withState(({ selected, onChange }) => (
-    <>
-        <RenderOptionCode />
+export const CustomListOptions = withState(
+    ({ selected, onChange }) => (
+        <>
+            <RenderOptionCode />
 
-        <Transfer
-            onChange={onChange}
-            selected={selected}
-            renderOption={renderOption}
-            options={options}
-        />
-    </>
-), options.slice(0, 2).map(({ value }) => value))
+            <Transfer
+                onChange={onChange}
+                selected={selected}
+                renderOption={renderOption}
+                options={options}
+            />
+        </>
+    ),
+    options.slice(0, 2).map(({ value }) => value)
+)
 
 export const IndividualCustomOption = withState(({ selected, onChange }) => (
     <Transfer
@@ -294,14 +300,17 @@ export const PickedEmptyComponent = withState(({ selected, onChange }) => (
     />
 ))
 
-export const Reordering = withState(({ selected, onChange }) => (
-    <Transfer
-        enableOrderChange
-        onChange={onChange}
-        selected={selected}
-        options={options.slice(0, 4)}
-    />
-), options.slice(0, 4).map(({ value }) => value),)
+export const Reordering = withState(
+    ({ selected, onChange }) => (
+        <Transfer
+            enableOrderChange
+            onChange={onChange}
+            selected={selected}
+            options={options.slice(0, 4)}
+        />
+    ),
+    options.slice(0, 4).map(({ value }) => value)
+)
 
 export const IncreasedOptionsHeight = withState(({ selected, onChange }) => (
     <div style={{ maxHeight: 400 }}>
@@ -343,13 +352,16 @@ export const LoadingSource = withState(({ selected, onChange }) => (
     />
 ))
 
-export const LoadingPicked = withState(({ selected, onChange }) => (
-    <Transfer
-        loadingPicked
-        onChange={onChange}
-        selected={selected}
-        options={options.slice(0, 3)}
-        rightHeader={<h4>Right header</h4>}
-        rightFooter={<h4>Right footer</h4>}
-    />
-), options.slice(0, 2).map(({ value }) => value))
+export const LoadingPicked = withState(
+    ({ selected, onChange }) => (
+        <Transfer
+            loadingPicked
+            onChange={onChange}
+            selected={selected}
+            options={options.slice(0, 3)}
+            rightHeader={<h4>Right header</h4>}
+            rightFooter={<h4>Right footer</h4>}
+        />
+    ),
+    options.slice(0, 2).map(({ value }) => value)
+)
