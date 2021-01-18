@@ -1,8 +1,7 @@
+import propTypes from '@dhis2/prop-types'
 import { SingleSelectOption, Tab, TabBar } from '@dhis2/ui-core'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { SingleSelectField, Transfer, TransferOption } from '../index.js'
-
-/* eslint-disable react/prop-types */
 
 const options = [
     {
@@ -97,116 +96,80 @@ const options = [
     },
 ]
 
-const withState = (Component, initialState = []) => {
-    class WithState extends React.Component {
-        constructor(props) {
-            super(props)
-            this.state = { selected: initialState }
-        }
+export default { title: 'Transfer', component: Transfer }
 
-        render() {
-            return (
-                <Component
-                    selected={this.state.selected}
-                    onChange={payload =>
-                        this.setState({ selected: payload.selected })
-                    }
-                />
-            )
-        }
-    }
+const StatefulTemplate = ({ initiallySelected, ...args }) => {
+    const [selected, setSelected] = useState(initiallySelected)
+    const onChange = payload => setSelected(payload.selected)
 
-    // TODO: Figure out why wrapping with functional component is necessary
-    // eslint-disable-next-line react/display-name
-    return () => <WithState />
+    return <Transfer {...args} selected={selected} onChange={onChange} />
 }
 
-export default { title: 'Transfer' }
+StatefulTemplate.defaultProps = {
+    initiallySelected: [],
+}
 
-export const SingleSelection = withState(({ selected, onChange }) => (
-    <Transfer
-        maxSelections={1}
-        onChange={onChange}
-        selected={selected}
-        options={options}
-    />
-))
+StatefulTemplate.propTypes = {
+    initiallySelected: propTypes.array,
+}
 
-export const Multiple = withState(({ selected, onChange }) => (
-    <Transfer
-        onChange={onChange}
-        selected={selected}
-        options={options.slice(0, 3)}
-    />
-))
+export const SingleSelection = StatefulTemplate.bind({})
+SingleSelection.args = {
+    maxSelections: 1,
+    options,
+}
 
-export const Header = withState(({ selected, onChange }) => (
-    <Transfer
-        onChange={onChange}
-        selected={selected}
-        leftHeader={<h3>Header on the left side</h3>}
-        rightHeader={<h4>Header on the right side</h4>}
-        options={options}
-    />
-))
+export const Multiple = StatefulTemplate.bind({})
+Multiple.args = {
+    options: options.slice(0, 3),
+}
 
-export const OptionsFooter = withState(({ selected, onChange }) => (
-    <Transfer
-        onChange={onChange}
-        selected={selected}
-        leftFooter={
-            <a
-                href="#"
-                style={{
-                    color: 'grey',
-                    padding: '8px 0',
-                    display: 'block',
-                }}
-            >
-                Reload list
-            </a>
-        }
-        options={options}
-    />
-))
+export const Header = StatefulTemplate.bind({})
+Header.args = {
+    leftHeader: <h3>Header on the left side</h3>,
+    rightHeader: <h4>Header on the right side</h4>,
+    options,
+}
 
-export const Filtered = withState(({ selected, onChange }) => (
-    <Transfer
-        filterable
-        onChange={onChange}
-        selected={selected}
-        initialSearchTerm="ANC"
-        leftHeader={<h3>Header on the left side</h3>}
-        rightHeader={<h4>Header on the right side</h4>}
-        options={options}
-    />
-))
-
-export const FilteredPicked = withState(
-    ({ selected, onChange }) => (
-        <Transfer
-            filterablePicked
-            onChange={onChange}
-            selected={selected}
-            initialSearchTermPicked="ANC"
-            leftHeader={<h3>Header on the left side</h3>}
-            rightHeader={<h4>Header on the right side</h4>}
-            options={options}
-        />
+export const OptionsFooter = StatefulTemplate.bind({})
+OptionsFooter.args = {
+    leftFooter: (
+        <a
+            href="#"
+            style={{
+                color: 'grey',
+                padding: '8px 0',
+                display: 'block',
+            }}
+        >
+            Reload list
+        </a>
     ),
-    options.map(({ value }) => value)
-)
+    options,
+}
 
-export const FilterPlaceholder = withState(({ selected, onChange }) => (
-    <Transfer
-        filterable
-        onChange={onChange}
-        selected={selected}
-        options={options}
-        filterLabel="Filter with placeholder"
-        filterPlaceholder="Search"
-    />
-))
+export const Filtered = StatefulTemplate.bind({})
+Filtered.args = {
+    filterable: true,
+    initialSearchTerm: 'ANC',
+    options,
+}
+
+export const FilteredPicked = StatefulTemplate.bind({})
+FilteredPicked.args = {
+    filterablePicked: true,
+    initialSearchTermPicked: 'ANC',
+    initiallySelected: options.map(({ value }) => value),
+    options,
+}
+
+export const FilteredPlaceholder = StatefulTemplate.bind({})
+FilteredPlaceholder.args = {
+    filterable: true,
+    filterLabel: 'Filter with placeholder',
+    filterPlaceholder: 'Search',
+    options,
+}
 
 const renderOption = ({ label, value, onClick, highlighted, selected }) => (
     <p
@@ -239,123 +202,90 @@ const RenderOptionCode = () => (
     </>
 )
 
-export const CustomListOptions = withState(
-    ({ selected, onChange }) => (
-        <>
-            <RenderOptionCode />
-
-            <Transfer
-                onChange={onChange}
-                selected={selected}
-                renderOption={renderOption}
-                options={options}
-            />
-        </>
-    ),
-    options.slice(0, 2).map(({ value }) => value)
+export const CustomListOptions = args => (
+    <>
+        <RenderOptionCode />
+        <StatefulTemplate {...args} />
+    </>
 )
+CustomListOptions.args = {
+    renderOption,
+    options: options.slice(0, 2),
+    initiallySelected: options.slice(0, 2).map(({ value }) => value),
+}
 
-export const IndividualCustomOption = withState(({ selected, onChange }) => (
-    <Transfer
-        onChange={onChange}
-        selected={selected}
-        addAllText="Add all"
-        addIndividualText="Add individual"
-        removeAllText="Remove all"
-        removeIndividualText="Remove individual"
-        renderOption={option => {
-            if (option.value === options[0].value) {
-                return renderOption(option)
-            }
-
-            return <TransferOption {...option} />
-        }}
-        options={options}
-    />
-))
-
-export const CustomButtonText = withState(({ selected, onChange }) => (
-    <Transfer
-        onChange={onChange}
-        selected={selected}
-        addAllText="Add all"
-        addIndividualText="Add individual"
-        removeAllText="Remove all"
-        removeIndividualText="Remove individual"
-        options={options}
-    />
-))
-
-export const SourceEmptyPlaceholder = withState(({ onChange }) => (
-    <Transfer
-        onChange={onChange}
-        options={[]}
-        sourceEmptyPlaceholder={
-            <p style={{ textAlign: 'center' }}>
-                No options found.
-                <br />
-                <a href="#" style={{ color: 'grey' }}>
-                    Add option
-                </a>
-            </p>
+export const IndividualCustomOption = StatefulTemplate.bind({})
+IndividualCustomOption.args = {
+    addAllText: 'Add all',
+    addIndividualText: 'Add individual',
+    removeAllText: 'Remove all',
+    removeIndividualText: 'Remove individual',
+    // eslint-disable-next-line react/display-name
+    renderOption: option => {
+        if (option.value === options[0].value) {
+            return renderOption(option)
         }
-    />
-))
 
-export const PickedEmptyComponent = withState(({ selected, onChange }) => (
-    <Transfer
-        selected={selected}
-        onChange={onChange}
-        selectedEmptyComponent={
-            <p style={{ textAlign: 'center' }}>
-                You have not selected anything yet
-                <br />
-            </p>
-        }
-        options={options}
-    />
-))
+        return <TransferOption {...option} />
+    },
+    options,
+}
 
-export const Reordering = withState(
-    ({ selected, onChange }) => (
-        <Transfer
-            enableOrderChange
-            onChange={onChange}
-            selected={selected}
-            options={options.slice(0, 4)}
-        />
+export const CustomButtonText = StatefulTemplate.bind({})
+CustomButtonText.args = {
+    addAllText: 'Add all',
+    addIndividualText: 'Add individual',
+    removeAllText: 'Remove all',
+    removeIndividualText: 'Remove individual',
+    options,
+}
+
+export const SourceEmptyPlaceholder = StatefulTemplate.bind({})
+SourceEmptyPlaceholder.args = {
+    sourceEmptyPlaceholder: (
+        <p style={{ textAlign: 'center' }}>
+            No options found.
+            <br />
+            <a href="#" style={{ color: 'grey' }}>
+                Add option
+            </a>
+        </p>
     ),
-    options.slice(0, 4).map(({ value }) => value)
-)
+    options: [],
+}
 
-export const IncreasedOptionsHeight = withState(({ selected, onChange }) => (
-    <div style={{ maxHeight: 400 }}>
-        <Transfer
-            maxSelections={Infinity}
-            filterable
-            onChange={onChange}
-            selected={selected}
-            height="400px"
-            leftHeader={<h3>Header on the left side</h3>}
-            rightHeader={<h4>Header on the right side</h4>}
-            options={options}
-        />
-    </div>
-))
+export const PickedEmptyComponent = StatefulTemplate.bind({})
+PickedEmptyComponent.args = {
+    selectedEmptyComponent: (
+        <p style={{ textAlign: 'center' }}>
+            You have not selected anything yet
+            <br />
+        </p>
+    ),
+    options,
+}
 
-export const DifferentWidths = withState(({ selected, onChange }) => (
-    <Transfer
-        filterable
-        onChange={onChange}
-        selected={selected}
-        initialSearchTerm="Ba"
-        leftHeader={<h3>Header on the left side</h3>}
-        rightHeader={<h4>Header on the right side</h4>}
-        optionsWidth="500px"
-        selectedWidth="240px"
-        options={options}
-    />
-))
+export const Reordering = StatefulTemplate.bind({})
+Reordering.args = {
+    enableOrderChange: true,
+    options: options.slice(0, 4),
+    initiallySelected: options.slice(0, 4).map(({ value }) => value),
+}
+
+export const IncreasedOptionsHeight = StatefulTemplate.bind({})
+IncreasedOptionsHeight.args = {
+    maxSelections: Infinity,
+    filterable: true,
+    height: '400px',
+    options,
+}
+
+export const DifferentWidths = StatefulTemplate.bind({})
+DifferentWidths.args = {
+    optionsWidth: '500px',
+    selectedWidth: '240px',
+    options,
+}
 
 const createCustomFilteringInHeader = hideFilterInput => {
     const relativePeriods = options.slice(0, 10).map((option, index) => ({
@@ -372,6 +302,7 @@ const createCustomFilteringInHeader = hideFilterInput => {
 
     const allOptions = [...relativePeriods, ...fixedPeriods]
 
+    /* eslint-disable react/prop-types */
     const Header = ({
         onClick,
         relativePeriod,
@@ -407,167 +338,131 @@ const createCustomFilteringInHeader = hideFilterInput => {
             </SingleSelectField>
         </>
     )
+    /* eslint-enable react/prop-types */
 
-    class CustomTransfer extends React.Component {
-        constructor(props) {
-            super(props)
-            this.state = {
-                filter: '',
-                relativePeriod: true,
-                year: '2020',
-            }
-        }
-
-        render() {
-            const filterCallback = (options, filter) => {
-                const optionsWithYear = options.filter(
-                    option => option.year === this.state.year
-                )
-
-                const optionsWithPeriod = optionsWithYear.filter(
-                    option =>
-                        option.relativePeriod === this.state.relativePeriod
-                )
-
-                if (filter === '') return optionsWithPeriod
-
-                return optionsWithPeriod.filter(
-                    ({ label }) => label.indexOf(filter) !== -1
-                )
-            }
-
-            const header = (
-                <Header
-                    relativePeriod={this.state.relativePeriod}
-                    selectedYear={this.state.year}
-                    onSelectedYearChange={({ selected }) =>
-                        this.setState({ year: selected })
-                    }
-                    onClick={({ relativePeriod: newRelativePeriod }) =>
-                        this.setState({ relativePeriod: newRelativePeriod })
-                    }
-                />
+    const CustomTransfer = props => {
+        const [filter, setFilter] = useState('')
+        const [relativePeriod, setRelativePeriod] = useState(true)
+        const [year, setYear] = useState('2020')
+        const filterCallback = (options, filter) => {
+            const optionsWithYear = options.filter(
+                option => option.year === year
             )
 
-            return (
-                <Transfer
-                    {...this.props}
-                    filterable
-                    hideFilterInput={hideFilterInput}
-                    searchTerm={this.state.filter}
-                    filterCallback={filterCallback}
-                    leftHeader={header}
-                    rightHeader={
-                        <p>
-                            <b>Selected Periods</b>
-                        </p>
-                    }
-                    onFilterChange={({ value }) =>
-                        this.setState({ filter: value })
-                    }
-                    height="400px"
-                    filterLabel="Filter options"
-                    filterPlaceholder="Search"
-                />
+            const optionsWithPeriod = optionsWithYear.filter(
+                option => option.relativePeriod === relativePeriod
+            )
+
+            if (filter === '') return optionsWithPeriod
+
+            return optionsWithPeriod.filter(
+                ({ label }) => label.indexOf(filter) !== -1
             )
         }
+
+        const header = (
+            <Header
+                relativePeriod={relativePeriod}
+                selectedYear={year}
+                onSelectedYearChange={({ selected }) => setYear(selected)}
+                onClick={({ relativePeriod: newRelativePeriod }) =>
+                    setRelativePeriod(newRelativePeriod)
+                }
+            />
+        )
+
+        return (
+            <Transfer
+                {...props}
+                options={allOptions}
+                filterable
+                hideFilterInput={hideFilterInput}
+                searchTerm={filter}
+                filterCallback={filterCallback}
+                leftHeader={header}
+                rightHeader={
+                    <p>
+                        <b>Selected Periods</b>
+                    </p>
+                }
+                onFilterChange={({ value }) => setFilter(value)}
+                height="400px"
+                filterLabel="Filter options"
+                filterPlaceholder="Search"
+            />
+        )
     }
 
-    // eslint-disable-next-line react/display-name
-    return ({ selected, onChange }) => (
-        <CustomTransfer
-            options={allOptions}
-            onChange={onChange}
-            selected={selected}
-        />
-    )
+    // eslint-disable-next-line react/display-name, react/prop-types
+    return ({ initiallySelected, ...args }) => {
+        const [selected, setSelected] = useState(initiallySelected)
+        const onChange = payload => setSelected(payload.selected)
+
+        return (
+            <CustomTransfer {...args} selected={selected} onChange={onChange} />
+        )
+    }
 }
 
-export const CustomFilteringWithFilterInput = withState(
-    createCustomFilteringInHeader(false)
+export const CustomFilteringWithFilterInput = createCustomFilteringInHeader(
+    false
 )
 
-export const CustomFilteringWithoutFilterInput = withState(
-    createCustomFilteringInHeader(true)
+export const CustomFilteringWithoutFilterInput = createCustomFilteringInHeader(
+    true
 )
 
 const sliceLength = 6
 
-export const InfiniteLoading = withState(
-    // eslint-disable-next-line react/display-name
-    class extends React.Component {
-        constructor(props) {
-            super(props)
-            this.state = {
-                loading: false,
-                optionsLength: sliceLength,
-                optionsSlice: options.slice(0, sliceLength),
-            }
+export const InfiniteLoading = () => {
+    const [loading, setLoading] = useState(false)
+    const [optionsLength, setOptionsLength] = useState(sliceLength)
+    const [optionsSlice, setOptionsSlice] = useState(
+        options.slice(0, optionsLength)
+    )
+    const [selected, setSelected] = useState()
+    const onChange = payload => setSelected(payload.selected)
+
+    useEffect(() => {
+        if (sliceLength !== optionsLength) {
+            setTimeout(() => {
+                setOptionsSlice(options.slice(0, optionsLength))
+                setLoading(false)
+            }, 1000)
+
+            setLoading(true)
         }
+    }, [optionsLength])
 
-        render() {
-            return (
-                <Transfer
-                    loading={this.state.loading}
-                    options={this.state.optionsSlice}
-                    selected={this.props.selected}
-                    onChange={this.props.onChange}
-                    onEndReached={() => {
-                        if (this.state.loading) return
-
-                        const newOptionsLength = Math.min(
-                            this.state.optionsLength + sliceLength,
-                            options.length
-                        )
-
-                        this.setState(
-                            { optionsLength: newOptionsLength },
-                            this.loadMore
-                        )
-                    }}
-                />
-            )
-        }
-
-        loadMore = () => {
-            if (this.state.sliceLength !== this.state.optionsLength) {
-                this.setState({ loading: true })
-
-                setTimeout(() => {
-                    this.setState({
-                        optionsSlice: options.slice(
-                            0,
-                            this.state.optionsLength
-                        ),
-                        loading: false,
-                    })
-                }, 1000)
-            }
-        }
-    }
-)
-
-export const LoadingSource = withState(({ selected, onChange }) => (
-    <Transfer
-        loading
-        onChange={onChange}
-        selected={selected}
-        options={options.slice(0, 3)}
-        leftHeader={<h4>Left header</h4>}
-        leftFooter={<h4>Left footer</h4>}
-    />
-))
-
-export const LoadingPicked = withState(
-    ({ selected, onChange }) => (
+    return (
         <Transfer
-            loadingPicked
-            onChange={onChange}
+            loading={loading}
+            options={optionsSlice}
             selected={selected}
-            options={options.slice(0, 3)}
-            rightHeader={<h4>Right header</h4>}
-            rightFooter={<h4>Right footer</h4>}
+            onChange={onChange}
+            onEndReached={() => {
+                if (loading) return
+
+                const newOptionsLength = Math.min(
+                    optionsLength + sliceLength,
+                    options.length
+                )
+
+                setOptionsLength(newOptionsLength)
+            }}
         />
-    ),
-    options.slice(0, 2).map(({ value }) => value)
-)
+    )
+}
+
+export const LoadingSource = StatefulTemplate.bind({})
+LoadingSource.args = {
+    loading: true,
+    options: options.slice(0, 3),
+}
+
+export const LoadingPicked = StatefulTemplate.bind({})
+LoadingPicked.args = {
+    loadingPicked: true,
+    options: options.slice(0, 3),
+    initiallySelected: options.slice(0, 2).map(({ value }) => value),
+}
