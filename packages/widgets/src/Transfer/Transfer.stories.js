@@ -1,5 +1,8 @@
-import React, { useState, useCallback } from 'react'
-import { Transfer, TransferOption } from '../index.js'
+import { SingleSelectOption, Tab, TabBar } from '@dhis2/ui-core'
+import React from 'react'
+import { SingleSelectField, Transfer, TransferOption } from '../index.js'
+
+/* eslint-disable react/prop-types */
 
 const options = [
     {
@@ -105,11 +108,16 @@ const withState = (Component, initialState = []) => {
             return (
                 <Component
                     selected={this.state.selected}
-                    onChange={(payload) => this.setState({ selected: payload.selected })} />
+                    onChange={payload =>
+                        this.setState({ selected: payload.selected })
+                    }
+                />
             )
         }
     }
+
     // TODO: Figure out why wrapping with functional component is necessary
+    // eslint-disable-next-line react/display-name
     return () => <WithState />
 }
 
@@ -348,6 +356,196 @@ export const DifferentWidths = withState(({ selected, onChange }) => (
         options={options}
     />
 ))
+
+const createCustomFilteringInHeader = hideFilterInput => {
+    const relativePeriods = options.slice(0, 10).map((option, index) => ({
+        ...option,
+        relativePeriod: true,
+        year: index < 5 ? '2020' : '2019',
+    }))
+
+    const fixedPeriods = options.slice(10, 20).map((option, index) => ({
+        ...option,
+        relativePeriod: false,
+        year: index < 5 ? '2020' : '2019',
+    }))
+
+    const allOptions = [...relativePeriods, ...fixedPeriods]
+
+    const Header = ({
+        onClick,
+        relativePeriod,
+        selectedYear,
+        onSelectedYearChange,
+    }) => (
+        <>
+            <TabBar>
+                <Tab
+                    selected={relativePeriod}
+                    onClick={() => onClick({ relativePeriod: true })}
+                >
+                    Relative periods
+                </Tab>
+
+                <Tab
+                    selected={!relativePeriod}
+                    onClick={() => onClick({ relativePeriod: false })}
+                >
+                    Fixed periods
+                </Tab>
+            </TabBar>
+
+            <p style={{ margin: 0, height: 10 }} />
+
+            <SingleSelectField
+                label="Year"
+                selected={selectedYear}
+                onChange={onSelectedYearChange}
+            >
+                <SingleSelectOption value="2020" label="2020" />
+                <SingleSelectOption value="2019" label="2019" />
+            </SingleSelectField>
+        </>
+    )
+
+    class CustomTransfer extends React.Component {
+        constructor(props) {
+            super(props)
+            this.state = {
+                filter: '',
+                relativePeriod: true,
+                year: '2020',
+            }
+        }
+
+        render() {
+            const filterCallback = (options, filter) => {
+                const optionsWithYear = options.filter(
+                    option => option.year === this.state.year
+                )
+
+                const optionsWithPeriod = optionsWithYear.filter(
+                    option =>
+                        option.relativePeriod === this.state.relativePeriod
+                )
+
+                if (filter === '') return optionsWithPeriod
+
+                return optionsWithPeriod.filter(
+                    ({ label }) => label.indexOf(filter) !== -1
+                )
+            }
+
+            const header = (
+                <Header
+                    relativePeriod={this.state.relativePeriod}
+                    selectedYear={this.state.year}
+                    onSelectedYearChange={({ selected }) =>
+                        this.setState({ year: selected })
+                    }
+                    onClick={({ relativePeriod: newRelativePeriod }) =>
+                        this.setState({ relativePeriod: newRelativePeriod })
+                    }
+                />
+            )
+
+            return (
+                <Transfer
+                    {...this.props}
+                    filterable
+                    hideFilterInput={hideFilterInput}
+                    searchTerm={this.state.filter}
+                    filterCallback={filterCallback}
+                    leftHeader={header}
+                    rightHeader={
+                        <p>
+                            <b>Selected Periods</b>
+                        </p>
+                    }
+                    onFilterChange={({ value }) =>
+                        this.setState({ filter: value })
+                    }
+                    height="400px"
+                    filterLabel="Filter options"
+                    filterPlaceholder="Search"
+                />
+            )
+        }
+    }
+
+    // eslint-disable-next-line react/display-name
+    return ({ selected, onChange }) => (
+        <CustomTransfer
+            options={allOptions}
+            onChange={onChange}
+            selected={selected}
+        />
+    )
+}
+
+export const CustomFilteringWithFilterInput = withState(
+    createCustomFilteringInHeader(false)
+)
+
+export const CustomFilteringWithoutFilterInput = withState(
+    createCustomFilteringInHeader(true)
+)
+
+const sliceLength = 6
+
+export const InfiniteLoading = withState(
+    // eslint-disable-next-line react/display-name
+    class extends React.Component {
+        constructor(props) {
+            super(props)
+            this.state = {
+                loading: false,
+                optionsLength: sliceLength,
+                optionsSlice: options.slice(0, sliceLength),
+            }
+        }
+
+        render() {
+            return (
+                <Transfer
+                    loading={this.state.loading}
+                    options={this.state.optionsSlice}
+                    selected={this.props.selected}
+                    onChange={this.props.onChange}
+                    onEndReached={() => {
+                        if (this.state.loading) return
+
+                        const newOptionsLength = Math.min(
+                            this.state.optionsLength + sliceLength,
+                            options.length
+                        )
+
+                        this.setState(
+                            { optionsLength: newOptionsLength },
+                            this.loadMore
+                        )
+                    }}
+                />
+            )
+        }
+
+        loadMore = () => {
+            if (this.state.sliceLength !== this.state.optionsLength) {
+                this.setState({ loading: true })
+
+                setTimeout(() => {
+                    this.setState({
+                        optionsSlice: options.slice(
+                            0,
+                            this.state.optionsLength
+                        ),
+                        loading: false,
+                    })
+                }, 1000)
+            }
+        }
+    }
+)
 
 export const LoadingSource = withState(({ selected, onChange }) => (
     <Transfer
