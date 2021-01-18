@@ -94,16 +94,17 @@ const options = [
     },
 ]
 
-/* eslint-disable */
-const withState = (Component, initialState = []) => () => {
-    const [selected, setSelected] = useState(initialState)
-    const handleChange = useCallback(payload => {
-        setSelected(payload.selected)
-    }, [])
+const withState = (Component, initialState = []) => {
+    const WithState = () => {
+        const [selected, setSelected] = useState(initialState)
+        const handleChange = useCallback(payload => {
+            setSelected(payload.selected)
+        }, [])
 
-    return <Component selected={selected} onChange={handleChange} />
+        return <Component selected={selected} onChange={handleChange} />
+    }
+    return WithState
 }
-/* eslint-enable */
 
 export default { title: 'Transfer' }
 
