@@ -95,15 +95,22 @@ const options = [
 ]
 
 const withState = (Component, initialState = []) => {
-    const WithState = () => {
-        const [selected, setSelected] = useState(initialState)
-        const handleChange = useCallback(payload => {
-            setSelected(payload.selected)
-        }, [])
+    class WithState extends React.Component {
+        constructor(props) {
+            super(props)
+            this.state = { selected: initialState }
+        }
 
-        return <Component selected={selected} onChange={handleChange} />
+        render() {
+            return (
+                <Component
+                    selected={this.state.selected}
+                    onChange={(payload) => this.setState({ selected: payload.selected })} />
+            )
+        }
     }
-    return WithState
+    // TODO: Figure out why wrapping with functional component is necessary
+    return () => <WithState />
 }
 
 export default { title: 'Transfer' }
