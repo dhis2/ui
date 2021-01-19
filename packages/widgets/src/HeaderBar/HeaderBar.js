@@ -74,7 +74,9 @@ export const HeaderBar = ({ appName, className }) => {
                     />
                     <Apps apps={apps} />
                     <Profile
-                        user={data.user}
+                        name={data.user.name}
+                        email={data.user.email}
+                        avatar={data.user.avatar}
                         baseUrl={baseUrl}
                         helpUrl={data.help.helpLink}
                     />
