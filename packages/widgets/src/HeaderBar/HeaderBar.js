@@ -19,6 +19,9 @@ const query = {
     },
     user: {
         resource: 'me',
+        params: {
+            fields: ['authorities', 'avatar', 'email', 'name', 'settings']
+        }
     },
     apps: {
         resource: 'action::menu/getModules',
