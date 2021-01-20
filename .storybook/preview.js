@@ -11,10 +11,10 @@ addDecorator(jsxDecorator)
  * Basic wrapper for all our components, styles the root elements and applies
  * our css reset for consistency/
  */
-addDecorator(fn => (
+addDecorator(Component => (
     <Fragment>
         <CssReset />
-        {fn()}
+        <Component />
 
         <style jsx>{`
             :global(html) {
