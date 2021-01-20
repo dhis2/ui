@@ -5,7 +5,8 @@ import { joinPath } from './joinPath.js'
 import { ProfileMenu } from './Profile/ProfileMenu.js'
 import { TextIcon } from './TextIcon.js'
 
-const avatarUrl = (avatar, baseUrl) => joinPath(baseUrl, 'api/fileResources', avatar.id, 'data')
+const avatarUrl = (avatar, baseUrl) =>
+    joinPath(baseUrl, 'api/fileResources', avatar.id, 'data')
 
 export default class Profile extends React.Component {
     state = {
@@ -82,9 +83,9 @@ export default class Profile extends React.Component {
 }
 
 Profile.propTypes = {
-    name: propTypes.string.isRequired,
-    email: propTypes.string.isRequired,
-    avatar: propTypes.string,
     baseUrl: propTypes.string.isRequired,
+    email: propTypes.string.isRequired,
+    name: propTypes.string.isRequired,
+    avatar: propTypes.string,
     helpUrl: propTypes.string,
 }
