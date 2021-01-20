@@ -5,8 +5,14 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-09-17T12:14:04.736Z\n"
-"PO-Revision-Date: 2020-09-17T12:14:04.736Z\n"
+"POT-Creation-Date: 2021-04-07T15:26:08.766Z\n"
+"PO-Revision-Date: 2021-04-07T15:26:08.766Z\n"
+
+msgid "Toggle filter"
+msgstr ""
+
+msgid "Sort items"
+msgstr ""
 
 msgid "Upload a file"
 msgstr ""

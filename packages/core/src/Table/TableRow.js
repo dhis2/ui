@@ -1,50 +1,42 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useContext } from 'react'
-import css from 'styled-jsx/css'
-import { TableContext } from './TableContext'
-
-const tableRowStyles = css`
-    .zebraStriping:nth-child(even) {
-        background: #fbfcfd;
-    }
-`
+import React, { forwardRef } from 'react'
 
 /**
  * @module
  * @param {TableRow.PropTypes} props
  * @returns {React.Component}
- * @example import { TableRow } from '@dhis2/ui-core'
- * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
+ * @example import { TableRow } from '@dhis2/ui'
+ * @see Live demo: {@link /demo/?path=/story/table--default|Storybook}
  */
-export const TableRow = ({
-    role,
-    children,
-    className,
-    dataTest,
-    suppressZebraStriping,
-}) => {
-    const {
-        suppressZebraStriping: suppressZebraStripingFromContext,
-    } = useContext(TableContext)
-
-    const zebraStriping =
-        typeof suppressZebraStriping !== 'undefined'
-            ? !suppressZebraStriping
-            : !suppressZebraStripingFromContext
-
-    return (
+export const TableRow = forwardRef(
+    (
+        { children, className, dataTest, draggable, role, selected, ...props },
+        ref
+    ) => (
         <tr
-            className={cx(className, { zebraStriping })}
+            {...props}
+            ref={ref}
+            className={cx(className, {
+                selected,
+                draggable,
+            })}
             data-test={dataTest}
             role={role}
         >
             {children}
-
-            <style jsx>{tableRowStyles}</style>
+            <style jsx>{`
+                :global(tbody) > tr.draggable,
+                :global(tfoot) > tr.draggable {
+                    cursor: move;
+                    user-select: none;
+                }
+            `}</style>
         </tr>
     )
-}
+)
+
+TableRow.displayName = 'TableRow'
 
 TableRow.defaultProps = {
     dataTest: 'dhis2-uicore-tablerow',
@@ -53,17 +45,22 @@ TableRow.defaultProps = {
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {TableCell|TableCellHead|Array.<TableCell|TableCellHead>} [children]
+ * @prop {TableDataCell|TableDataCellHead|Array.<TableDataCell|TableDataCellHead>} [children]
+ * Should be `<TableDataCell>` or `<TableDataCellHead>` components
  * @prop {string} [className]
+ * @prop {string} [dataTest=dhis2-uicore-tablerow]
+ * @prop {boolean} [draggable] Applies draggable cursor styles
  * @prop {string} [role]
- * @prop {string} [dataTest]
+ * @prop {boolean} [selected] Sets a selected (teal) background color
  */
 TableRow.propTypes = {
-    /** Should be `<TableCell>` or `<TableCellHead>` components */
+    /** Should be `<TableDataCell>` or `<TableDataCellHead>` components */
     children: PropTypes.node,
     className: PropTypes.string,
     dataTest: PropTypes.string,
+    /** Applies draggable cursor styles */
+    draggable: PropTypes.bool,
     role: PropTypes.string,
-    /** Disables the default row striping for this row */
-    suppressZebraStriping: PropTypes.bool,
+    /** Sets a selected (teal) background color */
+    selected: PropTypes.bool,
 }
