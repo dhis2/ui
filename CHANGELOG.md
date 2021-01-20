@@ -1,3 +1,10 @@
+## [6.1.4](https://github.com/dhis2/ui/compare/v6.1.3...v6.1.4) (2021-01-20)
+
+
+### Bug Fixes
+
+* **transfer:** move from decorator to Component Story Format for Transfer stories ([#461](https://github.com/dhis2/ui/issues/461)) ([b6c0bac](https://github.com/dhis2/ui/commit/b6c0bacff5769c0b12fdeee01fc0e9e6ad8305fc))
+
 ## [6.1.3](https://github.com/dhis2/ui/compare/v6.1.2...v6.1.3) (2021-01-14)
 
 
