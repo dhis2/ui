@@ -1,18 +1,22 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 /**
  * @module
  * @param {TableHead.PropTypes} props
  * @returns {React.Component}
- * @example import { TableHead } from '@dhis2/ui-core'
- * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
+ * @example import { TableHead } from '@dhis2/ui'
+ * @see Live demo: {@link /demo/?path=/story/table--default|Storybook}
  */
-export const TableHead = ({ children, className, dataTest, role }) => (
-    <thead className={className} data-test={dataTest} role={role}>
-        {children}
-    </thead>
+export const TableHead = forwardRef(
+    ({ children, className, dataTest, role }, ref) => (
+        <thead className={className} data-test={dataTest} ref={ref} role={role}>
+            {children}
+        </thead>
+    )
 )
+
+TableHead.displayName = 'TableHead'
 
 TableHead.defaultProps = {
     dataTest: 'dhis2-uicore-tablehead',
@@ -21,10 +25,10 @@ TableHead.defaultProps = {
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {TableRowHead|Array.<TableRowHead>} [children]
+ * @prop {TableRow|Array.<TableRow>} [children]
  * @prop {string} [className]
  * @prop {string} [role]
- * @prop {string} [dataTest]
+ * @prop {string} [dataTest=dhis2-uicore-tablehead]
  */
 TableHead.propTypes = {
     /** Should be `<TableRowHead>` components */

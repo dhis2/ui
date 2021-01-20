@@ -1,18 +1,22 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 /**
  * @module
  * @param {TableFoot.PropTypes} props
  * @returns {React.Component}
- * @example import { TableFoot } from '@dhis2/ui-core'
- * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
+ * @example import { TableFoot } from '@dhis2/ui'
+ * @see Live demo: {@link /demo/?path=/story/table--default|Storybook}
  */
-export const TableFoot = ({ children, className, dataTest, role }) => (
-    <tfoot className={className} data-test={dataTest} role={role}>
-        {children}
-    </tfoot>
+export const TableFoot = forwardRef(
+    ({ children, className, dataTest, role }, ref) => (
+        <tfoot className={className} data-test={dataTest} ref={ref} role={role}>
+            {children}
+        </tfoot>
+    )
 )
+
+TableFoot.displayName = 'TableFoot'
 
 TableFoot.defaultProps = {
     dataTest: 'dhis2-uicore-tablefoot',
@@ -23,8 +27,8 @@ TableFoot.defaultProps = {
  * @static
  * @prop {TableRow|Array.<TableRow>} [children]
  * @prop {string} [className]
- * @prop {string} [role]
- * @prop {string} [dataTest]
+ * @prop {string} [dataTest=dhis2-uicore-tablefoot]
+ * @prop {role} [dataTest=dhis2-uicore-tablefoot]
  */
 TableFoot.propTypes = {
     /** Should be `<TableRow>` components */
