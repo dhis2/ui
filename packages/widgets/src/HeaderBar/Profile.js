@@ -42,6 +42,7 @@ export default class Profile extends React.Component {
                 <ImageIcon
                     src={avatar}
                     onClick={this.onToggle}
+                    size={36}
                     dataTestId="headerbar-profile-icon-image"
                 />
             )

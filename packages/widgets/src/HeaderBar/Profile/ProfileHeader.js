@@ -93,7 +93,7 @@ ProfileDetails.propTypes = {
 
 export const ProfileHeader = ({ name, email, img }) => (
     <div>
-        {img ? <ImageIcon src={img} /> : <TextIcon name={name} />}
+        {img ? <ImageIcon src={img} size={48} /> : <TextIcon name={name} />}
 
         <ProfileDetails name={name} email={email} />
 

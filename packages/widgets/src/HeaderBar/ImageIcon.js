@@ -1,7 +1,7 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
-export const ImageIcon = ({ src, onClick, dataTestId }) => (
+export const ImageIcon = ({ src, onClick, size, dataTestId }) => (
     <div onClick={onClick} data-test={dataTestId}>
         <img src={src} alt="user avatar" />
 
@@ -12,8 +12,8 @@ export const ImageIcon = ({ src, onClick, dataTestId }) => (
             }
 
             div {
-                width: 48px;
-                height: 48px;
+                width: ${size}px;
+                height: ${size}px;
             }
         `}</style>
     </div>
@@ -24,6 +24,7 @@ ImageIcon.defaultProps = {
 }
 
 ImageIcon.propTypes = {
+    size: propTypes.number.isRequired,
     src: propTypes.string.isRequired,
     dataTestId: propTypes.string,
     onClick: propTypes.func,
