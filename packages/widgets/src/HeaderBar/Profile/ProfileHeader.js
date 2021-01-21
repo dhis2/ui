@@ -1,6 +1,7 @@
 import { useConfig } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import propTypes from '@dhis2/prop-types'
+import { Box } from '@dhis2/ui-core'
 import React from 'react'
 import { ImageIcon } from '../ImageIcon.js'
 import { joinPath } from '../joinPath.js'
@@ -91,10 +92,25 @@ ProfileDetails.propTypes = {
     name: propTypes.string,
 }
 
+const Icon = ({ img, name }) => {
+    if (img) {
+        return (
+            <Box width="48px" height="48px">
+                <ImageIcon src={img} />
+            </Box>
+        )
+    }
+    return <TextIcon name={name} />
+}
+
+Icon.propTypes = {
+    img: propTypes.string,
+    name: propTypes.string,
+}
+
 export const ProfileHeader = ({ name, email, img }) => (
     <div>
-        {img ? <ImageIcon src={img} size={48} /> : <TextIcon name={name} />}
-
+        <Icon img={img} name={name} />
         <ProfileDetails name={name} email={email} />
 
         <style jsx>{`

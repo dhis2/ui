@@ -1,4 +1,5 @@
 import propTypes from '@dhis2/prop-types'
+import { Box } from '@dhis2/ui-core'
 import React from 'react'
 import { ImageIcon } from './ImageIcon.js'
 import { joinPath } from './joinPath.js'
@@ -39,12 +40,13 @@ export default class Profile extends React.Component {
 
         if (avatar) {
             return (
-                <ImageIcon
-                    src={avatar}
-                    onClick={this.onToggle}
-                    size={36}
-                    dataTestId="headerbar-profile-icon-image"
-                />
+                <Box width="36px" height="36px">
+                    <ImageIcon
+                        src={avatar}
+                        onClick={this.onToggle}
+                        dataTestId="headerbar-profile-icon-image"
+                    />
+                </Box>
             )
         }
 
