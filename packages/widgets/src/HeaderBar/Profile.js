@@ -6,7 +6,7 @@ import { ProfileMenu } from './Profile/ProfileMenu.js'
 import { TextIcon } from './TextIcon.js'
 
 const avatarUrl = (avatar, baseUrl) =>
-    joinPath(baseUrl, 'api/fileResources', avatar.id, 'data')
+    avatar ? joinPath(baseUrl, 'api/fileResources', avatar.id, 'data') : null
 
 export default class Profile extends React.Component {
     state = {
@@ -62,7 +62,7 @@ export default class Profile extends React.Component {
 
                 {this.state.show ? (
                     <ProfileMenu
-                        avatarUrl={avatar ? avatarUrl(avatar, baseUrl) : null}
+                        avatarUrl={avatarUrl(avatar, baseUrl)}
                         name={name}
                         email={email}
                         helpUrl={helpUrl}
