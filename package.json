@@ -41,6 +41,7 @@
         "lint:js": "d2-style js check",
         "lint:text": "d2-style text check",
         "start": "yarn build:icons && concurrently -n w: \"yarn:watch:*\" --kill-others",
+        "storybook:dev": "EXTEND_ESLINT=true start-storybook --port 5002 --quiet --ci -s .storybook/static --no-manager-cache",
         "test": "d2-app-scripts test",
         "watch:constants": "yarn build:constants --watch --dev",
         "watch:core": "yarn build:core --watch --dev",
