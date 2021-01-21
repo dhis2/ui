@@ -31,5 +31,9 @@ module.exports = {
     stories: isTesting
         ? ['../packages/*/src/**/*.stories.e2e.@(js|jsx)']
         : ['../packages/*/src/**/*.stories.@(js|jsx)'],
-    addons: ['@storybook/preset-create-react-app', 'storybook-addon-jsx'],
+    addons: [
+        '@storybook/preset-create-react-app',
+        '@storybook/addon-essentials',
+        'storybook-addon-jsx',
+    ],
 }

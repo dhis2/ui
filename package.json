@@ -58,6 +58,7 @@
         "@dhis2/cypress-plugins": "^5.1.0",
         "@dhis2/d2-i18n": "^1.0.6",
         "@fontsource/roboto": "^4.0.0",
+        "@storybook/addon-essentials": "^6.1.14",
         "@storybook/addons": "^6.1.14",
         "@storybook/channels": "^6.1.14",
         "@storybook/components": "^6.1.14",
