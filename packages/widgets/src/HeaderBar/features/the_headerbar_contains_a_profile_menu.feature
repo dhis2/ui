@@ -2,9 +2,9 @@ Feature: The HeaderBar contains a profile menu
 
     Scenario: The HeaderBar shows a text icon if the user does not have an avatar
         Given the HeaderBar loads without an error and the user does not have an avatar
-        Then the headerbar contains a text icon
+        Then the headerbar contains a text icon of size 36px
         When the user clicks on the text icon
-        Then the profile menu contains a text icon
+        Then the profile menu contains a text icon of size 48px
 
     Scenario: The HeaderBar shows an image icon if the user has an avatar
         Given the HeaderBar loads without an error and the user has an avatar

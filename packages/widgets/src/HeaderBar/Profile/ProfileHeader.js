@@ -92,21 +92,21 @@ ProfileDetails.propTypes = {
     name: propTypes.string,
 }
 
-const Icon = ({ avatarUrl, name }) => {
-    if (avatarUrl) {
-        return (
-            <Box width="48px" height="48px">
-                <ImageIcon
-                    src={avatarUrl}
-                    dataTestId="headerbar-profile-menu-icon-image"
-                />
-            </Box>
-        )
-    }
-    return (
-        <TextIcon name={name} dataTestId="headerbar-profile-menu-icon-text" />
-    )
-}
+const Icon = ({ avatarUrl, name }) => (
+    <Box width="48px" height="48px">
+        {avatarUrl ? (
+            <ImageIcon
+                src={avatarUrl}
+                dataTestId="headerbar-profile-menu-icon-image"
+            />
+        ) : (
+            <TextIcon
+                name={name}
+                dataTestId="headerbar-profile-menu-icon-text"
+            />
+        )}
+    </Box>
+)
 
 Icon.propTypes = {
     avatarUrl: propTypes.string,

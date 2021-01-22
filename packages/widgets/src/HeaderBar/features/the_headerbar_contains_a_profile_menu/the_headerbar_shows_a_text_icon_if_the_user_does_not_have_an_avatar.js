@@ -8,16 +8,18 @@ Given(
     }
 )
 
-Then('the headerbar contains a text icon', () => {
-    cy.get('[data-test="headerbar-profile-icon-text"]').should('be.visible')
+Then('the headerbar contains a text icon of size 36px', () => {
+    cy.get('[data-test="headerbar-profile-icon-text"]')
+        .should('be.visible')
+        .should('have.css', 'width', '36px')
 })
 
 When('the user clicks on the text icon', () => {
     cy.get('[data-test="headerbar-profile-icon-text"]').click()
 })
 
-Then('the profile menu contains a text icon', () => {
-    cy.get('[data-test="headerbar-profile-menu-icon-text"]').should(
-        'be.visible'
-    )
+Then('the profile menu contains a text icon of size 48px', () => {
+    cy.get('[data-test="headerbar-profile-menu-icon-text"]')
+        .should('be.visible')
+        .should('have.css', 'width', '48px')
 })
