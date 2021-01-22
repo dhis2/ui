@@ -2,12 +2,8 @@ import propTypes from '@dhis2/prop-types'
 import { Box } from '@dhis2/ui-core'
 import React from 'react'
 import { ImageIcon } from './ImageIcon.js'
-import { joinPath } from './joinPath.js'
 import { ProfileMenu } from './Profile/ProfileMenu.js'
 import { TextIcon } from './TextIcon.js'
-
-const avatarUrl = (avatar, baseUrl) =>
-    avatar ? joinPath(baseUrl, 'api/fileResources', avatar.id, 'data') : null
 
 export default class Profile extends React.Component {
     state = {
@@ -30,12 +26,12 @@ export default class Profile extends React.Component {
 
     onToggle = () => this.setState({ show: !this.state.show })
 
-    renderUserIcon({ avatar, name, baseUrl }) {
-        if (avatar) {
+    renderUserIcon({ avatarUrl, name }) {
+        if (avatarUrl) {
             return (
                 <Box width="36px" height="36px">
                     <ImageIcon
-                        src={avatarUrl(avatar, baseUrl)}
+                        src={avatarUrl}
                         onClick={this.onToggle}
                         dataTestId="headerbar-profile-icon-image"
                     />
@@ -53,7 +49,7 @@ export default class Profile extends React.Component {
     }
 
     render() {
-        const { name, email, avatar, baseUrl, helpUrl } = this.props
+        const { name, email, avatarUrl, helpUrl } = this.props
 
         return (
             <div
@@ -61,11 +57,11 @@ export default class Profile extends React.Component {
                 data-test="headerbar-profile"
                 className="headerbar-profile"
             >
-                {this.renderUserIcon({ avatar, name, baseUrl })}
+                {this.renderUserIcon({ avatarUrl, name })}
 
                 {this.state.show ? (
                     <ProfileMenu
-                        avatarUrl={avatarUrl(avatar, baseUrl)}
+                        avatarUrl={avatarUrl}
                         name={name}
                         email={email}
                         helpUrl={helpUrl}
@@ -86,9 +82,8 @@ export default class Profile extends React.Component {
 }
 
 Profile.propTypes = {
-    baseUrl: propTypes.string.isRequired,
     email: propTypes.string.isRequired,
     name: propTypes.string.isRequired,
-    avatar: propTypes.string,
+    avatarUrl: propTypes.string,
     helpUrl: propTypes.string,
 }

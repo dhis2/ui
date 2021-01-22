@@ -92,11 +92,11 @@ ProfileDetails.propTypes = {
     name: propTypes.string,
 }
 
-const Icon = ({ img, name }) => {
-    if (img) {
+const Icon = ({ avatarUrl, name }) => {
+    if (avatarUrl) {
         return (
             <Box width="48px" height="48px">
-                <ImageIcon src={img} />
+                <ImageIcon src={avatarUrl} />
             </Box>
         )
     }
@@ -104,13 +104,13 @@ const Icon = ({ img, name }) => {
 }
 
 Icon.propTypes = {
-    img: propTypes.string,
+    avatarUrl: propTypes.string,
     name: propTypes.string,
 }
 
-export const ProfileHeader = ({ name, email, img }) => (
+export const ProfileHeader = ({ name, email, avatarUrl }) => (
     <div>
-        <Icon img={img} name={name} />
+        <Icon avatarUrl={avatarUrl} name={name} />
         <ProfileDetails name={name} email={email} />
 
         <style jsx>{`
@@ -125,7 +125,7 @@ export const ProfileHeader = ({ name, email, img }) => (
 )
 
 ProfileHeader.propTypes = {
+    avatarUrl: propTypes.string,
     email: propTypes.string,
-    img: propTypes.string,
     name: propTypes.string,
 }
