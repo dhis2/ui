@@ -4,6 +4,39 @@ import { ImageIcon } from './ImageIcon.js'
 import { ProfileMenu } from './Profile/ProfileMenu.js'
 import { TextIcon } from './TextIcon.js'
 
+const UserIcon = ({ avatarUrl, name, onClick }) => (
+    <button onClick={onClick}>
+        {avatarUrl ? (
+            <ImageIcon
+                src={avatarUrl}
+                dataTestId="headerbar-profile-icon-image"
+            />
+        ) : (
+            <TextIcon name={name} dataTestId="headerbar-profile-icon-text" />
+        )}
+
+        <style jsx>{`
+            button {
+                background: transparent;
+                padding: 0;
+                border: 0;
+                cursor: pointer;
+                width: 100%;
+                height: 100%;
+            }
+            button:focus {
+                outline: 1px dotted white;
+            }
+        `}</style>
+    </button>
+)
+
+UserIcon.propTypes = {
+    name: propTypes.string.isRequired,
+    onClick: propTypes.func.isRequired,
+    avatarUrl: propTypes.string,
+}
+
 export default class Profile extends React.Component {
     state = {
         show: false,
@@ -23,42 +56,7 @@ export default class Profile extends React.Component {
         }
     }
 
-    onToggle = () => this.setState({ show: !this.state.show })
-
-    renderUserIcon({ avatarUrl, name }) {
-        if (avatarUrl) {
-            return (
-                <button onClick={this.onToggle}>
-                    <ImageIcon
-                        src={avatarUrl}
-                        dataTestId="headerbar-profile-icon-image"
-                    />
-
-                    <style jsx>{`
-                        button {
-                            background: transparent;
-                            padding: 0;
-                            border: 0;
-                            cursor: pointer;
-                            width: 100%;
-                            height: 100%;
-                        }
-                        button:focus {
-                            outline: 1px dotted white;
-                        }
-                    `}</style>
-                </button>
-            )
-        }
-
-        return (
-            <TextIcon
-                name={name}
-                onClick={this.onToggle}
-                dataTestId="headerbar-profile-icon-text"
-            />
-        )
-    }
+    handleToggle = () => this.setState({ show: !this.state.show })
 
     render() {
         const { name, email, avatarUrl, helpUrl } = this.props
@@ -69,7 +67,11 @@ export default class Profile extends React.Component {
                 data-test="headerbar-profile"
                 className="headerbar-profile"
             >
-                {this.renderUserIcon({ avatarUrl, name })}
+                <UserIcon
+                    avatarUrl={avatarUrl}
+                    name={name}
+                    onClick={this.handleToggle}
+                />
 
                 {this.state.show ? (
                     <ProfileMenu
