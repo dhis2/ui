@@ -6,13 +6,8 @@ import { joinPath } from './joinPath.js'
 import { ProfileMenu } from './Profile/ProfileMenu.js'
 import { TextIcon } from './TextIcon.js'
 
-function avatarPath(avatar, baseUrl) {
-    if (!avatar) {
-        return null
-    }
-
-    return joinPath(baseUrl, 'api/fileResources', avatar.id, 'data')
-}
+const avatarUrl = (avatar, baseUrl) =>
+    avatar ? joinPath(baseUrl, 'api/fileResources', avatar.id, 'data') : null
 
 export default class Profile extends React.Component {
     state = {
@@ -35,14 +30,12 @@ export default class Profile extends React.Component {
 
     onToggle = () => this.setState({ show: !this.state.show })
 
-    userIcon(me, baseUrl) {
-        const avatar = avatarPath(me.avatar, baseUrl)
-
+    renderUserIcon({ avatar, name, baseUrl }) {
         if (avatar) {
             return (
                 <Box width="36px" height="36px">
                     <ImageIcon
-                        src={avatar}
+                        src={avatarUrl(avatar, baseUrl)}
                         onClick={this.onToggle}
                         dataTestId="headerbar-profile-icon-image"
                     />
@@ -52,7 +45,7 @@ export default class Profile extends React.Component {
 
         return (
             <TextIcon
-                name={me.name}
+                name={name}
                 onClick={this.onToggle}
                 dataTestId="headerbar-profile-icon-text"
             />
@@ -60,26 +53,27 @@ export default class Profile extends React.Component {
     }
 
     render() {
-        const { user, baseUrl, helpUrl } = this.props
+        const { name, email, avatar, baseUrl, helpUrl } = this.props
 
         return (
             <div
                 ref={c => (this.elContainer = c)}
                 data-test="headerbar-profile"
+                className="headerbar-profile"
             >
-                {this.userIcon(user, baseUrl)}
+                {this.renderUserIcon({ avatar, name, baseUrl })}
 
                 {this.state.show ? (
                     <ProfileMenu
-                        avatar={avatarPath(user.avatar, baseUrl)}
-                        name={user.name}
-                        email={user.email}
+                        avatarUrl={avatarUrl(avatar, baseUrl)}
+                        name={name}
+                        email={email}
                         helpUrl={helpUrl}
                     />
                 ) : null}
 
                 <style jsx>{`
-                    div {
+                    .headerbar-profile {
                         position: relative;
                         width: 36px;
                         height: 36px;
@@ -93,6 +87,8 @@ export default class Profile extends React.Component {
 
 Profile.propTypes = {
     baseUrl: propTypes.string.isRequired,
-    user: propTypes.object.isRequired,
+    email: propTypes.string.isRequired,
+    name: propTypes.string.isRequired,
+    avatar: propTypes.string,
     helpUrl: propTypes.string,
 }
