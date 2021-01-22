@@ -96,11 +96,16 @@ const Icon = ({ avatarUrl, name }) => {
     if (avatarUrl) {
         return (
             <Box width="48px" height="48px">
-                <ImageIcon src={avatarUrl} />
+                <ImageIcon
+                    src={avatarUrl}
+                    dataTestId="headerbar-profile-menu-icon-image"
+                />
             </Box>
         )
     }
-    return <TextIcon name={name} />
+    return (
+        <TextIcon name={name} dataTestId="headerbar-profile-menu-icon-text" />
+    )
 }
 
 Icon.propTypes = {
