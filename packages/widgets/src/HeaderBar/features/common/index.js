@@ -28,7 +28,7 @@ Before(() => {
 
     cy.get('@meFixture').then(fx => {
         cy.route({
-            url: `${baseUrl}/api/me`,
+            url: `${baseUrl}/api/me?fields=authorities,avatar,email,name,settings`,
             response: fx,
         }).as('me')
     })

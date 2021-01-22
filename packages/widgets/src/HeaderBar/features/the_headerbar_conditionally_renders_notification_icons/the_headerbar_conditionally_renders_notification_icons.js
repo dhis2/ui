@@ -1,10 +1,12 @@
-import '../common/index'
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { baseUrl } from '../common/index'
+
+const meUrl = `${baseUrl}/api/me?fields=authorities,avatar,email,name,settings`
 
 Given('the user has the ALL authority', () => {
     cy.fixture('HeaderBar/me').then(fx => {
         cy.route({
-            url: 'https://domain.tld/api/me',
+            url: meUrl,
             response: {
                 ...fx,
                 authorities: ['ALL'],
@@ -18,7 +20,7 @@ Given(
     () => {
         cy.fixture('HeaderBar/me').then(fx => {
             cy.route({
-                url: 'https://domain.tld/api/me',
+                url: meUrl,
                 response: {
                     ...fx,
                     authorities: [
@@ -34,7 +36,7 @@ Given(
 Given('the user has the M_dhis-web-interpretation authority', () => {
     cy.fixture('HeaderBar/me').then(fx => {
         cy.route({
-            url: 'https://domain.tld/api/me',
+            url: meUrl,
             response: {
                 ...fx,
                 authorities: ['M_dhis-web-interpretation'],
@@ -46,7 +48,7 @@ Given('the user has the M_dhis-web-interpretation authority', () => {
 Given('the user has the M_dhis-web-messaging authority', () => {
     cy.fixture('HeaderBar/me').then(fx => {
         cy.route({
-            url: 'https://domain.tld/api/me',
+            url: meUrl,
             response: {
                 ...fx,
                 authorities: ['M_dhis-web-messaging'],
@@ -58,7 +60,7 @@ Given('the user has the M_dhis-web-messaging authority', () => {
 Given('the user has authority for none of the apps', () => {
     cy.fixture('HeaderBar/me').then(fx => {
         cy.route({
-            url: 'https://domain.tld/api/me',
+            url: meUrl,
             response: {
                 ...fx,
                 authorities: [],
