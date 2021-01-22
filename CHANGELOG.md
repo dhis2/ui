@@ -1,3 +1,10 @@
+## [6.1.5](https://github.com/dhis2/ui/compare/v6.1.4...v6.1.5) (2021-01-22)
+
+
+### Bug Fixes
+
+* **headerbar:** specify HeaderBar /api/me query fields required ([#464](https://github.com/dhis2/ui/issues/464)) ([fda8653](https://github.com/dhis2/ui/commit/fda865384c924ca05886977ff7bcc6e7011e8f1b))
+
 ## [6.1.4](https://github.com/dhis2/ui/compare/v6.1.3...v6.1.4) (2021-01-20)
 
 
