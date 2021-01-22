@@ -1,5 +1,4 @@
 import propTypes from '@dhis2/prop-types'
-import { Box } from '@dhis2/ui-core'
 import React from 'react'
 import { ImageIcon } from './ImageIcon.js'
 import { ProfileMenu } from './Profile/ProfileMenu.js'
@@ -29,13 +28,26 @@ export default class Profile extends React.Component {
     renderUserIcon({ avatarUrl, name }) {
         if (avatarUrl) {
             return (
-                <Box width="36px" height="36px">
+                <button onClick={this.onToggle}>
                     <ImageIcon
                         src={avatarUrl}
-                        onClick={this.onToggle}
                         dataTestId="headerbar-profile-icon-image"
                     />
-                </Box>
+
+                    <style jsx>{`
+                        button {
+                            background: transparent;
+                            padding: 0;
+                            border: 0;
+                            cursor: pointer;
+                            width: 100%;
+                            height: 100%;
+                        }
+                        button:focus {
+                            outline: 1px dotted white;
+                        }
+                    `}</style>
+                </button>
             )
         }
 
