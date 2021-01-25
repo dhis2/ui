@@ -32,18 +32,19 @@ addDecorator(Component => (
     </Fragment>
 ))
 
-/**
- * Sort all our stories alphabetically
- *
- * See: https://storybook.js.org/docs/configurations/options-parameter/#sorting-stories
- */
 addParameters({
+    /**
+     * Sort all our stories alphabetically
+     *
+     * See: https://storybook.js.org/docs/configurations/options-parameter/#sorting-stories
+     */
     options: {
         storySort: (a, b) =>
             a[1].kind === b[1].kind
                 ? 0
                 : a[1].id.localeCompare(b[1].id, undefined, { numeric: true }),
     },
+    // A11y addon config
     a11y: {
         // the target DOM element
         element: '#root',
