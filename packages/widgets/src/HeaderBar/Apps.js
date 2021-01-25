@@ -1,5 +1,4 @@
-import { useConfig } from '@dhis2/app-runtime'
-import i18n from '@dhis2/d2-i18n'
+import { useDataMutation, useConfig } from '@dhis2/app-runtime'
 import propTypes from '@dhis2/prop-types'
 import { colors, theme } from '@dhis2/ui-constants'
 import { Card } from '@dhis2/ui-core'
@@ -7,6 +6,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react'
 import css from 'styled-jsx/css'
 import { Settings, Apps as AppsIcon } from '../Icons/index.js'
 import { InputField } from '../InputField/InputField.js'
+import i18n from '../locales'
 import { joinPath } from './joinPath.js'
 
 const appIcon = css.resolve`
@@ -32,11 +32,10 @@ const settingsIcon = css.resolve`
  * Copied from here:
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Escaping
  */
-function escapeRegExpCharacters(text) {
-    return text.replace(/[/.*+?^${}()|[\]\\]/g, '\\$&')
-}
+const escapeRegExpCharacters = text =>
+    text.replace(/[/.*+?^${}()|[\]\\]/g, '\\$&')
 
-function Search({ value, onChange }) {
+const Search = ({ value, onChange }) => {
     const { baseUrl } = useConfig()
 
     return (
@@ -84,58 +83,56 @@ Search.propTypes = {
     onChange: propTypes.func.isRequired,
 }
 
-function Item({ name, path, img }) {
-    return (
-        <a href={path}>
-            <img src={img} alt="app logo" />
+const Item = ({ name, path, img }) => (
+    <a href={path}>
+        <img src={img} alt="app logo" />
 
-            <div>{name}</div>
+        <div>{name}</div>
 
-            <style jsx>{`
-                a {
-                    display: inline-block;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    width: 96px;
-                    margin: 8px;
-                    padding: 8px;
-                    border-radius: 12px;
-                    text-decoration: none;
-                    cursor: pointer;
-                }
+        <style jsx>{`
+            a {
+                display: inline-block;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 96px;
+                margin: 8px;
+                padding: 8px;
+                border-radius: 12px;
+                text-decoration: none;
+                cursor: pointer;
+            }
 
-                a:hover,
-                a:focus {
-                    background-color: ${theme.primary050};
-                    cursor: pointer;
-                }
+            a:hover,
+            a:focus {
+                background-color: ${theme.primary050};
+                cursor: pointer;
+            }
 
-                a:hover > div {
-                    font-weight: 500;
-                    cursor: pointer;
-                }
+            a:hover > div {
+                font-weight: 500;
+                cursor: pointer;
+            }
 
-                img {
-                    width: 48px;
-                    height: 48px;
-                    cursor: pointer;
-                }
+            img {
+                width: 48px;
+                height: 48px;
+                cursor: pointer;
+            }
 
-                div {
-                    margin-top: 14px;
-                    color: rgba(0, 0, 0, 0.87);
-                    font-size: 12px;
-                    letter-spacing: 0.01em;
-                    line-height: 14px;
-                    text-align: center;
-                    cursor: pointer;
-                }
-            `}</style>
-        </a>
-    )
-}
+            div {
+                margin-top: 14px;
+                color: rgba(0, 0, 0, 0.87);
+                font-size: 12px;
+                letter-spacing: 0.01em;
+                line-height: 14px;
+                text-align: center;
+                cursor: pointer;
+            }
+        `}</style>
+    </a>
+)
 
 Item.propTypes = {
     img: propTypes.string,
@@ -143,53 +140,52 @@ Item.propTypes = {
     path: propTypes.string,
 }
 
-function List({ apps, filter }) {
-    return (
-        <div data-test="headerbar-apps-menu-list">
-            {apps
-                .filter(({ displayName, name }) => {
-                    const appName = displayName || name
-                    const formattedAppName = appName.toLowerCase()
-                    const formattedFilter = escapeRegExpCharacters(
-                        filter
-                    ).toLowerCase()
+const List = ({ apps, filter }) => (
+    <div data-test="headerbar-apps-menu-list">
+        {apps
+            .filter(({ displayName, name }) => {
+                const appName = displayName || name
+                const formattedAppName = appName.toLowerCase()
+                const formattedFilter = escapeRegExpCharacters(
+                    filter
+                ).toLowerCase()
 
-                    return filter.length > 0
-                        ? formattedAppName.match(formattedFilter)
-                        : true
-                })
-                .map(({ displayName, name, defaultAction, icon }, idx) => (
-                    <Item
-                        key={`app-${name}-${idx}`}
-                        name={displayName || name}
-                        path={defaultAction}
-                        img={icon}
-                    />
-                ))}
+                return filter.length > 0
+                    ? formattedAppName.match(formattedFilter)
+                    : true
+            })
+            .map(({ displayName, name, defaultAction, icon }, idx) => (
+                <Item
+                    key={`app-${name}-${idx}`}
+                    name={displayName || name}
+                    path={defaultAction}
+                    img={icon}
+                />
+            ))}
 
-            <style jsx>{`
-                div {
-                    display: flex;
-                    flex-direction: row;
-                    flex-wrap: wrap;
-                    align-content: flex-start;
-                    align-items: flex-start;
-                    justify-content: flex-start;
-                    width: 30vw;
-                    min-width: 300px;
-                    max-width: 560px;
+        <style jsx>{`
+            div {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-content: flex-start;
+                align-items: flex-start;
+                justify-content: flex-start;
+                width: 30vw;
+                min-width: 300px;
+                max-width: 560px;
 
-                    min-height: 200px;
-                    max-height: 465px;
-                    margin: 0 8px 8px 8px;
+                min-height: 200px;
+                max-height: 465px;
+                margin: 0 8px 8px 8px;
 
-                    overflow: auto;
-                    overflow-x: hidden;
-                }
-            `}</style>
-        </div>
-    )
-}
+                overflow: auto;
+                overflow-x: hidden;
+            }
+        `}</style>
+    </div>
+)
+
 List.propTypes = {
     apps: propTypes.array,
     filter: propTypes.string,
@@ -220,12 +216,28 @@ AppMenu.propTypes = {
     filter: propTypes.string,
 }
 
+const mutation = {
+    resource: 'i18n',
+    type: 'create',
+    data: ({ items }) => items,
+}
+
 const Apps = ({ apps }) => {
+    const [translations, setTranslations] = useState({})
     const [show, setShow] = useState(false)
     const [filter, setFilter] = useState('')
 
     const handleVisibilityToggle = useCallback(() => setShow(!show), [show])
     const handleFilterChange = useCallback(({ value }) => setFilter(value), [])
+
+    const [mutate] = useDataMutation(mutation, {
+        onComplete: translations => setTranslations(translations),
+    })
+    useEffect(() => {
+        mutate({
+            items: apps.map(({ name }) => name),
+        })
+    }, [apps])
 
     const containerEl = useRef(null)
     const onDocClick = useCallback(evt => {
@@ -249,7 +261,10 @@ const Apps = ({ apps }) => {
 
             {show ? (
                 <AppMenu
-                    apps={apps}
+                    apps={apps.map(app => ({
+                        ...app,
+                        displayName: translations[app.name] || app.displayName,
+                    }))}
                     filter={filter}
                     onFilterChange={handleFilterChange}
                 />
