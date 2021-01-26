@@ -11,7 +11,6 @@ Before(() => {
     cy.fixture('HeaderBar/getModules').as('modulesFixture')
     cy.fixture('HeaderBar/dashboard').as('dashboardFixture')
     cy.fixture('HeaderBar/logo_banner').as('logoFixture')
-    cy.fixture('HeaderBar/avatar.png').as('avatarFixture')
     cy.server()
 
     cy.get('@applicationTitleFixture').then(fx => {
@@ -56,12 +55,9 @@ Before(() => {
         }).as('logo_banner')
     })
 
-    cy.get('@avatarFixture').then(fx => {
-        cy.route({
-            url: `${baseUrl}api/fileResources/avatarId/data`,
-            response: fx,
-        }).as('avatar')
-    })
+    cy.intercept('GET', `${baseUrl}api/fileResources/avatarId/data`, {
+        fixture: 'HeaderBar/avatar.png',
+    }).as('avatar')
 })
 
 Given('the HeaderBar loads without an error', () => {
