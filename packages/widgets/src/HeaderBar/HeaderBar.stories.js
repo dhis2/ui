@@ -153,9 +153,6 @@ const customAuthoritiesData = {
     },
 }
 
-// TODO: Replace with DHIS logo
-const avatarUrl = `https://placekitten.com/200/300`
-
 storiesOf('HeaderBar', module)
     .add('Default', () => (
         <Provider config={mockConfig}>
@@ -196,13 +193,6 @@ storiesOf('HeaderBar', module)
         <Provider config={mockConfig}>
             <CustomDataProvider data={{}}>
                 <HeaderBar appName="Example!" />
-            </CustomDataProvider>
-        </Provider>
-    ))
-    .add('With image avatar', () => (
-        <Provider config={mockConfig}>
-            <CustomDataProvider data={customData}>
-                <HeaderBar appName="Example!" testAvatarUrl={avatarUrl} />
             </CustomDataProvider>
         </Provider>
     ))

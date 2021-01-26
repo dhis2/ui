@@ -7,9 +7,11 @@ Before(() => {
     cy.fixture('HeaderBar/applicationTitle').as('applicationTitleFixture')
     cy.fixture('HeaderBar/helpLink').as('helpLinkFixture')
     cy.fixture('HeaderBar/me').as('meFixture')
+    cy.fixture('HeaderBar/meWithAvatar').as('meWithAvatarFixture')
     cy.fixture('HeaderBar/getModules').as('modulesFixture')
     cy.fixture('HeaderBar/dashboard').as('dashboardFixture')
     cy.fixture('HeaderBar/logo_banner').as('logoFixture')
+    cy.fixture('HeaderBar/avatar.png').as('avatarFixture')
     cy.server()
 
     cy.get('@applicationTitleFixture').then(fx => {
@@ -52,6 +54,13 @@ Before(() => {
             url: `${baseUrl}/api/staticContent/logo_banner`,
             response: fx,
         }).as('logo_banner')
+    })
+
+    cy.get('@avatarFixture').then(fx => {
+        cy.route({
+            url: `${baseUrl}api/fileResources/avatarId/data`,
+            response: fx,
+        }).as('avatar')
     })
 })
 
