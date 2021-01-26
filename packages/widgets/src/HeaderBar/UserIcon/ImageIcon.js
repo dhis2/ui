@@ -1,9 +1,9 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
-export const ImageIcon = ({ src, dataTestId }) => (
+export const ImageIcon = ({ src, dataTest }) => (
     <>
-        <img src={src} alt="user avatar" data-test={dataTestId} />
+        <img src={src} alt="user avatar" data-test={dataTest} />
 
         <style jsx>{`
             img {
@@ -18,5 +18,5 @@ export const ImageIcon = ({ src, dataTestId }) => (
 
 ImageIcon.propTypes = {
     src: propTypes.string.isRequired,
-    dataTestId: propTypes.string,
+    dataTest: propTypes.string,
 }

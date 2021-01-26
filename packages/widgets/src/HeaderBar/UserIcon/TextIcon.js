@@ -8,8 +8,8 @@ export const getInitials = name =>
         .map(n => n[0])
         .join('')
 
-export const TextIcon = ({ name, dataTestId }) => (
-    <div className="text-icon" data-test={dataTestId}>
+export const TextIcon = ({ name, dataTest }) => (
+    <div className="text-icon" data-test={dataTest}>
         <div className="text-icon-initials">{getInitials(name)}</div>
 
         <style jsx>{`
@@ -39,5 +39,5 @@ export const TextIcon = ({ name, dataTestId }) => (
 
 TextIcon.propTypes = {
     name: propTypes.string.isRequired,
-    dataTestId: propTypes.string,
+    dataTest: propTypes.string,
 }

@@ -1,41 +1,7 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
-import { ImageIcon } from './ImageIcon.js'
 import { ProfileMenu } from './Profile/ProfileMenu.js'
-import { TextIcon } from './TextIcon.js'
-
-const UserIcon = ({ avatarUrl, name, onClick }) => (
-    <button onClick={onClick}>
-        {avatarUrl ? (
-            <ImageIcon
-                src={avatarUrl}
-                dataTestId="headerbar-profile-icon-image"
-            />
-        ) : (
-            <TextIcon name={name} dataTestId="headerbar-profile-icon-text" />
-        )}
-
-        <style jsx>{`
-            button {
-                background: transparent;
-                padding: 0;
-                border: 0;
-                cursor: pointer;
-                width: 100%;
-                height: 100%;
-            }
-            button:focus {
-                outline: 1px dotted white;
-            }
-        `}</style>
-    </button>
-)
-
-UserIcon.propTypes = {
-    name: propTypes.string.isRequired,
-    onClick: propTypes.func.isRequired,
-    avatarUrl: propTypes.string,
-}
+import { UserIcon } from './UserIcon/UserIcon.js'
 
 export default class Profile extends React.Component {
     state = {
@@ -67,11 +33,16 @@ export default class Profile extends React.Component {
                 data-test="headerbar-profile"
                 className="headerbar-profile"
             >
-                <UserIcon
-                    avatarUrl={avatarUrl}
-                    name={name}
+                <button
+                    className="headerbar-profile-btn"
                     onClick={this.handleToggle}
-                />
+                >
+                    <UserIcon
+                        avatarUrl={avatarUrl}
+                        name={name}
+                        dataTest="headerbar-profile-icon"
+                    />
+                </button>
 
                 {this.state.show ? (
                     <ProfileMenu
@@ -88,6 +59,18 @@ export default class Profile extends React.Component {
                         width: 36px;
                         height: 36px;
                         margin: 2px 12px 0 24px;
+                    }
+
+                    .headerbar-profile-btn {
+                        background: transparent;
+                        padding: 0;
+                        border: 0;
+                        cursor: pointer;
+                        width: 100%;
+                        height: 100%;
+                    }
+                    .headerbar-profile-btn:focus {
+                        outline: 1px dotted white;
                     }
                 `}</style>
             </div>

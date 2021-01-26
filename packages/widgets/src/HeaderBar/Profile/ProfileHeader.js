@@ -3,9 +3,8 @@ import i18n from '@dhis2/d2-i18n'
 import propTypes from '@dhis2/prop-types'
 import { Box } from '@dhis2/ui-core'
 import React from 'react'
-import { ImageIcon } from '../ImageIcon.js'
 import { joinPath } from '../joinPath.js'
-import { TextIcon } from '../TextIcon.js'
+import { UserIcon } from '../UserIcon/UserIcon.js'
 
 const ProfileName = ({ children }) => (
     <div data-test="headerbar-profile-username">
@@ -92,30 +91,15 @@ ProfileDetails.propTypes = {
     name: propTypes.string,
 }
 
-const Icon = ({ avatarUrl, name }) => (
-    <Box width="48px" height="48px">
-        {avatarUrl ? (
-            <ImageIcon
-                src={avatarUrl}
-                dataTestId="headerbar-profile-menu-icon-image"
-            />
-        ) : (
-            <TextIcon
-                name={name}
-                dataTestId="headerbar-profile-menu-icon-text"
-            />
-        )}
-    </Box>
-)
-
-Icon.propTypes = {
-    avatarUrl: propTypes.string,
-    name: propTypes.string,
-}
-
 export const ProfileHeader = ({ name, email, avatarUrl }) => (
     <div>
-        <Icon avatarUrl={avatarUrl} name={name} />
+        <Box width="48px" height="48px">
+            <UserIcon
+                avatarUrl={avatarUrl}
+                name={name}
+                dataTest="headerbar-profile-menu-icon"
+            />
+        </Box>
         <ProfileDetails name={name} email={email} />
 
         <style jsx>{`

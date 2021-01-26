@@ -1,6 +1,6 @@
 import '../common/index'
 import { Given, Then, When } from 'cypress-cucumber-preprocessor/steps'
-import { getInitials } from '../../TextIcon'
+import { getInitials } from '../../UserIcon/TextIcon.js'
 
 Given(
     'the HeaderBar loads without an error and the user does not have an avatar',
