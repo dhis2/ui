@@ -200,7 +200,9 @@ export const ColspanInBody = () => (
                 <StackedTableCell>Onyekachukwu</StackedTableCell>
                 <StackedTableCell>Kariuki</StackedTableCell>
                 <StackedTableCell colSpan="2">
-                    Colspan 2 here. Next cell doesn't get header "Last updated".
+                    {
+                        "Colspan 2 here. Next cell doesn't get header 'Last updated'."
+                    }
                 </StackedTableCell>
                 <StackedTableCell>66</StackedTableCell>
                 <StackedTableCell>Jawi</StackedTableCell>
