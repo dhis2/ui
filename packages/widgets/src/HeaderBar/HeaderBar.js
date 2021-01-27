@@ -31,6 +31,9 @@ const query = {
     },
 }
 
+const avatarUrl = (avatar, baseUrl) =>
+    avatar ? joinPath(baseUrl, 'api/fileResources', avatar.id, 'data') : null
+
 export const HeaderBar = ({ appName, className }) => {
     const { baseUrl } = useConfig()
     const { loading, error, data } = useDataQuery(query)
@@ -76,8 +79,7 @@ export const HeaderBar = ({ appName, className }) => {
                     <Profile
                         name={data.user.name}
                         email={data.user.email}
-                        avatar={data.user.avatar}
-                        baseUrl={baseUrl}
+                        avatarUrl={avatarUrl(data.user.avatar, baseUrl)}
                         helpUrl={data.help.helpLink}
                     />
                 </>
