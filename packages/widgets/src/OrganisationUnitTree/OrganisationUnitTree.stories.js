@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities,react/prop-types */
 import { CustomDataProvider, DataProvider } from '@dhis2/app-runtime'
-import { storiesOf } from '@storybook/react'
 import React, { useEffect, useState } from 'react'
 import { OrganisationUnitTree } from './OrganisationUnitTree.js'
 
@@ -177,106 +176,153 @@ const ReplaceRoots = ({ delay }) => {
     //)
 }
 
-storiesOf('OrganisationUnitTree', module)
-    .addDecorator(fn => (
-        <CustomDataProvider data={customData}>{fn()}</CustomDataProvider>
-    ))
-    .add('Collapsed', () => (
-        <OrganisationUnitTree
-            onChange={onChange}
-            name="Root org unit"
-            roots={['A0000000000']}
-        />
-    ))
-    .add('Expanded', () => (
-        <OrganisationUnitTree
-            onChange={onChange}
-            name="Root org unit"
-            roots={['A0000000000']}
-            initiallyExpanded={['/A0000000000/A0000000001']}
-        />
-    ))
-    .add('Multiple roots', () => (
-        <OrganisationUnitTree
-            onChange={onChange}
-            name="Root org unit"
-            roots={['A0000000000', 'A0000000001']}
-            initiallyExpanded={['/A0000000000/A0000000001']}
-        />
-    ))
-    .add('Filtered (root)', () => (
-        <OrganisationUnitTree
-            onChange={onChange}
-            name="Root org unit"
-            roots={['A0000000000', 'A0000000001']}
-            initiallyExpanded={['/A0000000000/A0000000001']}
-            filter={['/A0000000000']}
-        />
-    ))
-    .add('Filtered', () => (
-        <OrganisationUnitTree
-            onChange={onChange}
-            name="Root org unit"
-            roots={['A0000000000']}
-            initiallyExpanded={['/A0000000000/A0000000001']}
-            filter={['/A0000000000/A0000000001']}
-        />
-    ))
-    .add('Selected multiple', () => (
-        <OrganisationUnitTree
-            onChange={onChange}
-            name="Root org unit"
-            roots={['A0000000000']}
-            selected={[
-                '/A0000000000/A0000000002',
-                '/A0000000000/A0000000001/A0000000003',
-            ]}
-            initiallyExpanded={['/A0000000000', '/A0000000000/A0000000001']}
-        />
-    ))
-    .add('Indeterminate', () => (
-        <OrganisationUnitTree
-            onChange={onChange}
-            name="Root org unit"
-            roots={['A0000000000']}
-            selected={['/A0000000000/A0000000001']}
-            initiallyExpanded={['/A0000000000']}
-        />
-    ))
-    .add('Single selection', () => (
-        <OrganisationUnitTree
-            onChange={onChange}
-            singleSelection
-            name="Root org unit"
-            roots={['A0000000000']}
-            selected={['/A0000000000/A0000000001']}
-            initiallyExpanded={['/A0000000000']}
-        />
-    ))
-    .add('No selection', () => (
-        <OrganisationUnitTree
-            onChange={onChange}
-            disableSelection
-            name="Root org unit"
-            roots={['A0000000000']}
-            selected={['/A0000000000/A0000000001']}
-            initiallyExpanded={['/A0000000000']}
-        />
-    ))
-    .add('Highlighted', () => (
-        <OrganisationUnitTree
-            onChange={onChange}
-            highlighted={['/A0000000000/A0000000001']}
-            name="Root org unit"
-            roots={['A0000000000']}
-            initiallyExpanded={['/A0000000000']}
-        />
-    ))
-    .add('Force reload all', () => <ForceReloadAll delay={2000} />)
-    .add('Force reload one unit', () => <ForceReloadIds delay={2000} />)
-    .add('Replace roots', () => <ReplaceRoots delay={1000} />)
+export default {
+    title: 'OrganisationUnitTree',
+    component: OrganisationUnitTree,
+    decorators: [
+        fn => <CustomDataProvider data={customData}>{fn()}</CustomDataProvider>,
+    ],
+}
 
-storiesOf('OrganisationUnitTree', module).add('Loading', () => (
+export const Collapsed = args => <OrganisationUnitTree {...args} />
+Collapsed.args = {
+    onChange: onChange,
+    name: 'Root org unit',
+    roots: ['A0000000000'],
+}
+
+export const Expanded = () => (
+    <OrganisationUnitTree
+        onChange={onChange}
+        name="Root org unit"
+        roots={['A0000000000']}
+        initiallyExpanded={['/A0000000000/A0000000001']}
+    />
+)
+
+export const MultipleRoots = () => (
+    <OrganisationUnitTree
+        onChange={onChange}
+        name="Root org unit"
+        roots={['A0000000000', 'A0000000001']}
+        initiallyExpanded={['/A0000000000/A0000000001']}
+    />
+)
+
+MultipleRoots.story = {
+    name: 'Multiple roots',
+}
+
+export const FilteredRoot = () => (
+    <OrganisationUnitTree
+        onChange={onChange}
+        name="Root org unit"
+        roots={['A0000000000', 'A0000000001']}
+        initiallyExpanded={['/A0000000000/A0000000001']}
+        filter={['/A0000000000']}
+    />
+)
+
+FilteredRoot.story = {
+    name: 'Filtered (root)',
+}
+
+export const Filtered = () => (
+    <OrganisationUnitTree
+        onChange={onChange}
+        name="Root org unit"
+        roots={['A0000000000']}
+        initiallyExpanded={['/A0000000000/A0000000001']}
+        filter={['/A0000000000/A0000000001']}
+    />
+)
+
+export const SelectedMultiple = () => (
+    <OrganisationUnitTree
+        onChange={onChange}
+        name="Root org unit"
+        roots={['A0000000000']}
+        selected={[
+            '/A0000000000/A0000000002',
+            '/A0000000000/A0000000001/A0000000003',
+        ]}
+        initiallyExpanded={['/A0000000000', '/A0000000000/A0000000001']}
+    />
+)
+
+SelectedMultiple.story = {
+    name: 'Selected multiple',
+}
+
+export const Indeterminate = () => (
+    <OrganisationUnitTree
+        onChange={onChange}
+        name="Root org unit"
+        roots={['A0000000000']}
+        selected={['/A0000000000/A0000000001']}
+        initiallyExpanded={['/A0000000000']}
+    />
+)
+
+export const SingleSelection = () => (
+    <OrganisationUnitTree
+        onChange={onChange}
+        singleSelection
+        name="Root org unit"
+        roots={['A0000000000']}
+        selected={['/A0000000000/A0000000001']}
+        initiallyExpanded={['/A0000000000']}
+    />
+)
+
+SingleSelection.story = {
+    name: 'Single selection',
+}
+
+export const NoSelection = () => (
+    <OrganisationUnitTree
+        onChange={onChange}
+        disableSelection
+        name="Root org unit"
+        roots={['A0000000000']}
+        selected={['/A0000000000/A0000000001']}
+        initiallyExpanded={['/A0000000000']}
+    />
+)
+
+NoSelection.story = {
+    name: 'No selection',
+}
+
+export const Highlighted = () => (
+    <OrganisationUnitTree
+        onChange={onChange}
+        highlighted={['/A0000000000/A0000000001']}
+        name="Root org unit"
+        roots={['A0000000000']}
+        initiallyExpanded={['/A0000000000']}
+    />
+)
+
+export const _ForceReloadAll = () => <ForceReloadAll delay={2000} />
+
+_ForceReloadAll.story = {
+    name: 'Force reload all',
+}
+
+export const ForceReloadOneUnit = () => <ForceReloadIds delay={2000} />
+
+ForceReloadOneUnit.story = {
+    name: 'Force reload one unit',
+}
+
+export const _ReplaceRoots = () => <ReplaceRoots delay={1000} />
+
+_ReplaceRoots.story = {
+    name: 'Replace roots',
+}
+
+export const Loading = () => (
     <CustomDataProvider
         data={{
             ...customData,
@@ -290,9 +336,9 @@ storiesOf('OrganisationUnitTree', module).add('Loading', () => (
             initiallyExpanded={['/A0000000000/A0000000001']}
         />
     </CustomDataProvider>
-))
+)
 
-storiesOf('OrganisationUnitTree', module).add('Root loading', () => (
+export const RootLoading = () => (
     <CustomDataProvider
         data={{
             ...customData,
@@ -311,9 +357,13 @@ storiesOf('OrganisationUnitTree', module).add('Root loading', () => (
             />
         </fieldset>
     </CustomDataProvider>
-))
+)
 
-storiesOf('OrganisationUnitTree', module).add('Root error', () => (
+RootLoading.story = {
+    name: 'Root loading',
+}
+
+export const RootError = () => (
     <CustomDataProvider
         data={{
             ...customData,
@@ -337,33 +387,36 @@ storiesOf('OrganisationUnitTree', module).add('Root error', () => (
             />
         </fieldset>
     </CustomDataProvider>
-))
-
-storiesOf('OrganisationUnitTree', module).add(
-    'Loading error grandchild',
-    () => (
-        <CustomDataProvider
-            data={{
-                ...customData,
-                'organisationUnits/A0000000003': () =>
-                    Promise.reject(
-                        new Error('Loading org unit 4 and 5 failed')
-                    ),
-            }}
-        >
-            <OrganisationUnitTree
-                autoExpandLoadingError
-                name="Root org unit"
-                roots={['A0000000000']}
-                onChange={onChange}
-                onExpand={onExpand}
-                onCollapse={onCollapse}
-                onChildrenLoaded={onChildrenLoaded}
-                initiallyExpanded={['/A0000000000/A0000000001']}
-            />
-        </CustomDataProvider>
-    )
 )
+
+RootError.story = {
+    name: 'Root error',
+}
+
+export const LoadingErrorGrandchild = () => (
+    <CustomDataProvider
+        data={{
+            ...customData,
+            'organisationUnits/A0000000003': () =>
+                Promise.reject(new Error('Loading org unit 4 and 5 failed')),
+        }}
+    >
+        <OrganisationUnitTree
+            autoExpandLoadingError
+            name="Root org unit"
+            roots={['A0000000000']}
+            onChange={onChange}
+            onExpand={onExpand}
+            onCollapse={onCollapse}
+            onChildrenLoaded={onChildrenLoaded}
+            initiallyExpanded={['/A0000000000/A0000000001']}
+        />
+    </CustomDataProvider>
+)
+
+LoadingErrorGrandchild.story = {
+    name: 'Loading error grandchild',
+}
 
 const DX_onChange = (selected, setSelected, singleSelection) => ({
     id,
@@ -402,52 +455,62 @@ const Wrapper = props => {
     )
 }
 
-storiesOf('OrganisationUnitTree', module)
-    .addDecorator(fn => (
-        <CustomDataProvider data={customData}>{fn()}</CustomDataProvider>
-    ))
-    .add('DX: Multi selection', () => <Wrapper />)
-    .add('DX: Single selection', () => <Wrapper singleSelection />)
-    .add('DX: No selection', () => <Wrapper disableSelection />)
+export const DxMultiSelection = () => <Wrapper />
 
-storiesOf('OrganisationUnitTree', module)
-    .addDecorator(fn => (
+DxMultiSelection.story = {
+    name: 'DX: Multi selection',
+}
+
+export const DxSingleSelection = () => <Wrapper singleSelection />
+
+DxSingleSelection.story = {
+    name: 'DX: Single selection',
+}
+
+export const DxNoSelection = () => <Wrapper disableSelection />
+
+DxNoSelection.story = {
+    name: 'DX: No selection',
+}
+
+export const DxWithRealBackend = () => (
+    <div>
+        <div style={{ marginBottom: 20, lineHeight: '28px' }}>
+            <b>
+                This story doesn't work on netlify for some reason, just run it
+                locally.
+            </b>
+            <br />
+            You need to log in to{' '}
+            <a
+                href="https://debug.dhis2.org/dev"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                https://debug.dhis2.org/dev
+            </a>
+            <br />
+            Make sure the{' '}
+            <code style={{ background: '#ccc' }}>localhost:[PORT]</code> is part
+            of the accepted list:{' '}
+            <a
+                href="https://debug.dhis2.org/dev/dhis-web-settings/#/access"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Settings app / Access
+            </a>
+        </div>
         <DataProvider baseUrl="https://debug.dhis2.org/dev" apiVersion="">
-            {fn()}
-        </DataProvider>
-    ))
-    .add('DX: With real backend', () => (
-        <div>
-            <div style={{ marginBottom: 20, lineHeight: '28px' }}>
-                <b>
-                    This story doesn't work on netlify for some reason, just run
-                    it locally.
-                </b>
-                <br />
-                You need to log in to{' '}
-                <a
-                    href="https://debug.dhis2.org/dev"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    https://debug.dhis2.org/dev
-                </a>
-                <br />
-                Make sure the{' '}
-                <code style={{ background: '#ccc' }}>localhost:[PORT]</code> is
-                part of the accepted list:{' '}
-                <a
-                    href="https://debug.dhis2.org/dev/dhis-web-settings/#/access"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Settings app / Access
-                </a>
-            </div>
             <Wrapper
                 //initiallyExpanded={['/ImspTQPwCqd/eIQbndfxQMb']}
                 suppressAlphabeticalSorting
                 roots="ImspTQPwCqd"
             />
-        </div>
-    ))
+        </DataProvider>
+    </div>
+)
+
+DxWithRealBackend.story = {
+    name: 'DX: With real backend',
+}

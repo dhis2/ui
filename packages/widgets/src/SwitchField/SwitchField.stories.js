@@ -1,334 +1,391 @@
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { SwitchField } from './SwitchField.js'
 
 const logger = ({ name, value, checked }) =>
     console.info(`name: ${name}, value: ${value}, checked: ${checked}`)
 
-storiesOf('SwitchField', module)
-    // Regular
-    .add('Default', () => (
+export default {
+    title: 'SwitchField',
+    component: SwitchField,
+}
+
+export const Default = () => (
+    <SwitchField
+        name="Ex"
+        label="SwitchField"
+        value="default"
+        onChange={logger}
+    />
+)
+
+export const FocusedUnchecked = () => (
+    <SwitchField
+        initialFocus
+        name="Ex"
+        label="SwitchField"
+        value="default"
+        onChange={logger}
+    />
+)
+
+FocusedUnchecked.story = {
+    name: 'Focused unchecked',
+}
+
+export const FocusedChecked = () => (
+    <SwitchField
+        initialFocus
+        checked
+        name="Ex"
+        label="SwitchField"
+        value="default"
+        onChange={logger}
+    />
+)
+
+FocusedChecked.story = {
+    name: 'Focused checked',
+}
+
+export const Checked = () => (
+    <SwitchField
+        name="Ex"
+        label="SwitchField"
+        checked
+        value="checked"
+        onChange={logger}
+    />
+)
+
+export const Required = () => (
+    <SwitchField
+        name="Ex"
+        label="SwitchField"
+        required
+        value="checked"
+        onChange={logger}
+    />
+)
+
+export const Disabled = () => (
+    <>
         <SwitchField
             name="Ex"
             label="SwitchField"
-            value="default"
+            disabled
+            value="disabled"
             onChange={logger}
         />
-    ))
-
-    .add('Focused unchecked', () => (
         <SwitchField
-            initialFocus
             name="Ex"
             label="SwitchField"
-            value="default"
-            onChange={logger}
-        />
-    ))
-
-    .add('Focused checked', () => (
-        <SwitchField
-            initialFocus
+            disabled
             checked
-            name="Ex"
-            label="SwitchField"
-            value="default"
+            value="disabled"
             onChange={logger}
         />
-    ))
+    </>
+)
 
-    .add('Checked', () => (
+export const HelpText = () => (
+    <>
         <SwitchField
             name="Ex"
             label="SwitchField"
+            value="disabled"
+            onChange={logger}
+            helpText="Help text"
+        />
+        <SwitchField
+            name="Ex"
+            label="SwitchField"
+            error
+            validationText="Validation text (error state)"
+            helpText="Help text"
+            value="disabled"
+            onChange={logger}
+        />
+    </>
+)
+
+HelpText.story = {
+    name: 'Help text',
+}
+
+export const Valid = () => (
+    <>
+        <SwitchField
+            name="Ex"
+            label="SwitchField"
+            valid
+            validationText="I am a validation text"
+            value="valid"
+            onChange={logger}
+        />
+        <SwitchField
+            name="Ex"
+            label="SwitchField"
+            valid
+            validationText="I am a validation text"
             checked
-            value="checked"
+            value="valid"
             onChange={logger}
         />
-    ))
+    </>
+)
 
-    .add('Required', () => (
+export const Warning = () => (
+    <>
         <SwitchField
             name="Ex"
             label="SwitchField"
-            required
-            value="checked"
+            warning
+            validationText="I am a validation text"
+            value="warning"
             onChange={logger}
         />
-    ))
-
-    .add('Disabled', () => (
-        <>
-            <SwitchField
-                name="Ex"
-                label="SwitchField"
-                disabled
-                value="disabled"
-                onChange={logger}
-            />
-            <SwitchField
-                name="Ex"
-                label="SwitchField"
-                disabled
-                checked
-                value="disabled"
-                onChange={logger}
-            />
-        </>
-    ))
-
-    .add('Help text', () => (
-        <>
-            <SwitchField
-                name="Ex"
-                label="SwitchField"
-                value="disabled"
-                onChange={logger}
-                helpText="Help text"
-            />
-            <SwitchField
-                name="Ex"
-                label="SwitchField"
-                error
-                validationText="Validation text (error state)"
-                helpText="Help text"
-                value="disabled"
-                onChange={logger}
-            />
-        </>
-    ))
-
-    .add('Valid', () => (
-        <>
-            <SwitchField
-                name="Ex"
-                label="SwitchField"
-                valid
-                validationText="I am a validation text"
-                value="valid"
-                onChange={logger}
-            />
-            <SwitchField
-                name="Ex"
-                label="SwitchField"
-                valid
-                validationText="I am a validation text"
-                checked
-                value="valid"
-                onChange={logger}
-            />
-        </>
-    ))
-
-    .add('Warning', () => (
-        <>
-            <SwitchField
-                name="Ex"
-                label="SwitchField"
-                warning
-                validationText="I am a validation text"
-                value="warning"
-                onChange={logger}
-            />
-            <SwitchField
-                name="Ex"
-                label="SwitchField"
-                warning
-                validationText="I am a validation text"
-                checked
-                value="warning"
-                onChange={logger}
-            />
-        </>
-    ))
-
-    .add('Error', () => (
-        <>
-            <SwitchField
-                name="Ex"
-                label="SwitchField"
-                error
-                validationText="I am a validation text"
-                value="error"
-                onChange={logger}
-            />
-            <SwitchField
-                name="Ex"
-                label="SwitchField"
-                error
-                validationText="I am a validation text"
-                checked
-                value="error"
-                onChange={logger}
-            />
-        </>
-    ))
-
-    .add('Image label', () => (
         <SwitchField
-            name="Ex"
-            label={<img src="https://picsum.photos/id/82/200/100" />}
-            value="with-help"
-            onChange={logger}
-        />
-    ))
-
-    // Dense
-    .add('Default - Dense', () => (
-        <SwitchField
-            dense
             name="Ex"
             label="SwitchField"
-            value="default"
-            onChange={logger}
-        />
-    ))
-
-    .add('Focused unchecked - Dense', () => (
-        <SwitchField
-            dense
-            initialFocus
-            name="Ex"
-            label="SwitchField"
-            value="default"
-            onChange={logger}
-        />
-    ))
-
-    .add('Focused checked - Dense', () => (
-        <SwitchField
-            dense
-            initialFocus
+            warning
+            validationText="I am a validation text"
             checked
-            name="Ex"
-            label="SwitchField"
-            value="default"
+            value="warning"
             onChange={logger}
         />
-    ))
+    </>
+)
 
-    .add('Checked - Dense', () => (
+export const Error = () => (
+    <>
         <SwitchField
-            dense
             name="Ex"
             label="SwitchField"
+            error
+            validationText="I am a validation text"
+            value="error"
+            onChange={logger}
+        />
+        <SwitchField
+            name="Ex"
+            label="SwitchField"
+            error
+            validationText="I am a validation text"
             checked
-            value="checked"
+            value="error"
             onChange={logger}
         />
-    ))
+    </>
+)
 
-    .add('Required - Dense', () => (
+export const ImageLabel = () => (
+    <SwitchField
+        name="Ex"
+        label={<img src="https://picsum.photos/id/82/200/100" />}
+        value="with-help"
+        onChange={logger}
+    />
+)
+
+ImageLabel.story = {
+    name: 'Image label',
+}
+
+export const DefaultDense = () => (
+    <SwitchField
+        dense
+        name="Ex"
+        label="SwitchField"
+        value="default"
+        onChange={logger}
+    />
+)
+
+DefaultDense.story = {
+    name: 'Default - Dense',
+}
+
+export const FocusedUncheckedDense = () => (
+    <SwitchField
+        dense
+        initialFocus
+        name="Ex"
+        label="SwitchField"
+        value="default"
+        onChange={logger}
+    />
+)
+
+FocusedUncheckedDense.story = {
+    name: 'Focused unchecked - Dense',
+}
+
+export const FocusedCheckedDense = () => (
+    <SwitchField
+        dense
+        initialFocus
+        checked
+        name="Ex"
+        label="SwitchField"
+        value="default"
+        onChange={logger}
+    />
+)
+
+FocusedCheckedDense.story = {
+    name: 'Focused checked - Dense',
+}
+
+export const CheckedDense = () => (
+    <SwitchField
+        dense
+        name="Ex"
+        label="SwitchField"
+        checked
+        value="checked"
+        onChange={logger}
+    />
+)
+
+CheckedDense.story = {
+    name: 'Checked - Dense',
+}
+
+export const RequiredDense = () => (
+    <SwitchField
+        dense
+        name="Ex"
+        label="SwitchField"
+        required
+        value="checked"
+        onChange={logger}
+    />
+)
+
+RequiredDense.story = {
+    name: 'Required - Dense',
+}
+
+export const DisabledDense = () => (
+    <>
         <SwitchField
             dense
             name="Ex"
             label="SwitchField"
-            required
-            value="checked"
+            disabled
+            value="disabled"
             onChange={logger}
         />
-    ))
-
-    .add('Disabled - Dense', () => (
-        <>
-            <SwitchField
-                dense
-                name="Ex"
-                label="SwitchField"
-                disabled
-                value="disabled"
-                onChange={logger}
-            />
-            <SwitchField
-                dense
-                name="Ex"
-                label="SwitchField"
-                disabled
-                checked
-                value="disabled"
-                onChange={logger}
-            />
-        </>
-    ))
-
-    .add('Valid - Dense', () => (
-        <>
-            <SwitchField
-                dense
-                name="Ex"
-                label="SwitchField"
-                valid
-                validationText="I am a validation text"
-                value="valid"
-                onChange={logger}
-            />
-            <SwitchField
-                dense
-                name="Ex"
-                label="SwitchField"
-                valid
-                validationText="I am a validation text"
-                checked
-                value="valid"
-                onChange={logger}
-            />
-        </>
-    ))
-
-    .add('Warning - Dense', () => (
-        <>
-            <SwitchField
-                dense
-                name="Ex"
-                label="SwitchField"
-                warning
-                validationText="I am a validation text"
-                value="warning"
-                onChange={logger}
-            />
-            <SwitchField
-                dense
-                name="Ex"
-                label="SwitchField"
-                warning
-                validationText="I am a validation text"
-                checked
-                value="warning"
-                onChange={logger}
-            />
-        </>
-    ))
-
-    .add('Error - Dense', () => (
-        <>
-            <SwitchField
-                dense
-                name="Ex"
-                label="SwitchField"
-                error
-                validationText="I am a validation text"
-                value="error"
-                onChange={logger}
-            />
-            <SwitchField
-                dense
-                name="Ex"
-                label="SwitchField"
-                error
-                validationText="I am a validation text"
-                checked
-                value="error"
-                onChange={logger}
-            />
-        </>
-    ))
-
-    .add('Image label - Dense', () => (
         <SwitchField
             dense
             name="Ex"
-            label={<img src="https://picsum.photos/id/82/200/100" />}
-            value="with-help"
+            label="SwitchField"
+            disabled
+            checked
+            value="disabled"
             onChange={logger}
         />
-    ))
+    </>
+)
+
+DisabledDense.story = {
+    name: 'Disabled - Dense',
+}
+
+export const ValidDense = () => (
+    <>
+        <SwitchField
+            dense
+            name="Ex"
+            label="SwitchField"
+            valid
+            validationText="I am a validation text"
+            value="valid"
+            onChange={logger}
+        />
+        <SwitchField
+            dense
+            name="Ex"
+            label="SwitchField"
+            valid
+            validationText="I am a validation text"
+            checked
+            value="valid"
+            onChange={logger}
+        />
+    </>
+)
+
+ValidDense.story = {
+    name: 'Valid - Dense',
+}
+
+export const WarningDense = () => (
+    <>
+        <SwitchField
+            dense
+            name="Ex"
+            label="SwitchField"
+            warning
+            validationText="I am a validation text"
+            value="warning"
+            onChange={logger}
+        />
+        <SwitchField
+            dense
+            name="Ex"
+            label="SwitchField"
+            warning
+            validationText="I am a validation text"
+            checked
+            value="warning"
+            onChange={logger}
+        />
+    </>
+)
+
+WarningDense.story = {
+    name: 'Warning - Dense',
+}
+
+export const ErrorDense = () => (
+    <>
+        <SwitchField
+            dense
+            name="Ex"
+            label="SwitchField"
+            error
+            validationText="I am a validation text"
+            value="error"
+            onChange={logger}
+        />
+        <SwitchField
+            dense
+            name="Ex"
+            label="SwitchField"
+            error
+            validationText="I am a validation text"
+            checked
+            value="error"
+            onChange={logger}
+        />
+    </>
+)
+
+ErrorDense.story = {
+    name: 'Error - Dense',
+}
+
+export const ImageLabelDense = () => (
+    <SwitchField
+        dense
+        name="Ex"
+        label={<img src="https://picsum.photos/id/82/200/100" />}
+        value="with-help"
+        onChange={logger}
+    />
+)
+
+ImageLabelDense.story = {
+    name: 'Image label - Dense',
+}

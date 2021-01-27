@@ -1,5 +1,4 @@
 import { CustomDataProvider, Provider } from '@dhis2/app-runtime'
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { HeaderBar } from './HeaderBar.js'
 
@@ -153,61 +152,75 @@ const customAuthoritiesData = {
     },
 }
 
-storiesOf('HeaderBar', module)
-    .add('Default', () => (
-        <Provider config={mockConfig}>
-            <CustomDataProvider data={customData}>
-                <HeaderBar appName="Example!" />
-            </CustomDataProvider>
-        </Provider>
-    ))
-    .add('Custom Logo (wide dimension)', () => (
-        <Provider config={mockConfig}>
-            <CustomDataProvider data={customLogoData}>
-                <HeaderBar appName="Example!" />
-            </CustomDataProvider>
-        </Provider>
-    ))
-    .add('Non-english user locale', () => (
-        <Provider config={mockConfig}>
-            <CustomDataProvider data={customLocaleData}>
-                <HeaderBar appName="Exemple!" />
-            </CustomDataProvider>
-        </Provider>
-    ))
-    .add('No authority for interpretations app', () => (
-        <Provider config={mockConfig}>
-            <CustomDataProvider data={customAuthoritiesData}>
-                <HeaderBar appName="Exemple!" />
-            </CustomDataProvider>
-        </Provider>
-    ))
-    .add('Loading...', () => (
-        <Provider config={mockConfig}>
-            <CustomDataProvider options={{ loadForever: true }}>
-                <HeaderBar appName="Example!" />
-            </CustomDataProvider>
-        </Provider>
-    ))
-    .add('Error!', () => (
-        <Provider config={mockConfig}>
-            <CustomDataProvider data={{}}>
-                <HeaderBar appName="Example!" />
-            </CustomDataProvider>
-        </Provider>
-    ))
+export default {
+    title: 'HeaderBar',
+    component: HeaderBar,
+}
 
-/*
- * Uncomment this story to test against a real API
- */
+export const Default = () => (
+    <Provider config={mockConfig}>
+        <CustomDataProvider data={customData}>
+            <HeaderBar appName="Example!" />
+        </CustomDataProvider>
+    </Provider>
+)
 
-/*
-    .add('Real API', () => (
-        <Provider config={{
-            apiVersion: '33',
-            baseUrl: 'https://dhis2.vardevs.se/dev',
-        }}>
-            <HeaderBar appName="Real API" />
-        </Provider>
-    ))
-    */
+export const CustomLogoWideDimension = () => (
+    <Provider config={mockConfig}>
+        <CustomDataProvider data={customLogoData}>
+            <HeaderBar appName="Example!" />
+        </CustomDataProvider>
+    </Provider>
+)
+
+CustomLogoWideDimension.story = {
+    name: 'Custom Logo (wide dimension)',
+}
+
+export const NonEnglishUserLocale = () => (
+    <Provider config={mockConfig}>
+        <CustomDataProvider data={customLocaleData}>
+            <HeaderBar appName="Exemple!" />
+        </CustomDataProvider>
+    </Provider>
+)
+
+NonEnglishUserLocale.story = {
+    name: 'Non-english user locale',
+}
+
+export const NoAuthorityForInterpretationsApp = () => (
+    <Provider config={mockConfig}>
+        <CustomDataProvider data={customAuthoritiesData}>
+            <HeaderBar appName="Exemple!" />
+        </CustomDataProvider>
+    </Provider>
+)
+
+NoAuthorityForInterpretationsApp.story = {
+    name: 'No authority for interpretations app',
+}
+
+export const Loading = () => (
+    <Provider config={mockConfig}>
+        <CustomDataProvider options={{ loadForever: true }}>
+            <HeaderBar appName="Example!" />
+        </CustomDataProvider>
+    </Provider>
+)
+
+Loading.story = {
+    name: 'Loading...',
+}
+
+export const Error = () => (
+    <Provider config={mockConfig}>
+        <CustomDataProvider data={{}}>
+            <HeaderBar appName="Example!" />
+        </CustomDataProvider>
+    </Provider>
+)
+
+Error.story = {
+    name: 'Error!',
+}

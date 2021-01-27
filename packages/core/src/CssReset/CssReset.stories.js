@@ -1,11 +1,15 @@
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { CssReset } from './CssReset.js'
 
 // eslint-disable-next-line react/prop-types
 const App = ({ children }) => <div>{children}</div>
 
-storiesOf('CssReset', module).add('Default', () => (
+export default {
+    title: 'CssReset',
+    component: CssReset,
+}
+
+export const Default = () => (
     <App>
         <CssReset />
 
@@ -25,4 +29,4 @@ storiesOf('CssReset', module).add('Default', () => (
             as possible to avoid FOUC.{' '}
         </p>
     </App>
-))
+)

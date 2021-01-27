@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { Field } from 'react-final-form'
 import { formDecorator } from '../formDecorator.js'
@@ -17,22 +16,31 @@ const options = [
     { value: '10', label: 'ten' },
 ]
 
-storiesOf('SingleSelectFieldFF', module)
-    .addDecorator(formDecorator)
-    .add('Default', () => (
-        <Field
-            component={SingleSelectFieldFF}
-            name="agree"
-            label="Do you agree?"
-            options={options}
-        />
-    ))
-    .add('InitialValue', () => (
-        <Field
-            component={SingleSelectFieldFF}
-            name="agree"
-            label="Do you agree?"
-            options={options}
-            initialValue="4"
-        />
-    ))
+export default {
+    title: 'SingleSelectFieldFF',
+    component: SingleSelectFieldFF,
+    decorators: [formDecorator],
+}
+
+export const Default = () => (
+    <Field
+        component={SingleSelectFieldFF}
+        name="agree"
+        label="Do you agree?"
+        options={options}
+    />
+)
+
+export const InitialValue = () => (
+    <Field
+        component={SingleSelectFieldFF}
+        name="agree"
+        label="Do you agree?"
+        options={options}
+        initialValue="4"
+    />
+)
+
+InitialValue.story = {
+    name: 'InitialValue',
+}

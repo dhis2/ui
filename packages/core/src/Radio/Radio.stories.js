@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { Radio } from './Radio.js'
 
@@ -21,362 +20,413 @@ const onChange = (...args) => window.onChange(...args)
 const onFocus = (...args) => window.onFocus(...args)
 const onBlur = (...args) => window.onBlur(...args)
 
-storiesOf('Radio', module)
-    // Regular
-    .add('Default', () => (
+export default {
+    title: 'Radio',
+    component: Radio,
+}
+
+export const Default = () => (
+    <Radio
+        name="Ex"
+        label="Radio"
+        value="default"
+        onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+    />
+)
+
+export const FocusedUnchecked = () => (
+    <>
         <Radio
-            name="Ex"
-            label="Radio"
-            value="default"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-    ))
-
-    .add('Focused unchecked', () => (
-        <>
-            <Radio
-                initialFocus
-                name="Ex"
-                label="Radio"
-                value="default"
-                className="initially-focused"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-            <Radio
-                name="Ex"
-                label="Radio"
-                value="default"
-                className="initially-unfocused"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-        </>
-    ))
-
-    .add('Focused checked', () => (
-        <>
-            <Radio
-                initialFocus
-                checked
-                name="Ex"
-                label="Radio"
-                value="default"
-                className="initially-focused"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-            <Radio
-                name="Ex"
-                label="Radio"
-                value="default"
-                className="initially-unfocused"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-        </>
-    ))
-
-    .add('Checked', () => (
-        <Radio
-            name="Ex"
-            label="Radio"
-            checked
-            value="checked"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-    ))
-
-    .add('Disabled', () => (
-        <>
-            <Radio
-                name="Ex"
-                label="Radio"
-                disabled
-                value="disabled"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-            <Radio
-                name="Ex"
-                label="Radio"
-                disabled
-                checked
-                value="disabled"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-        </>
-    ))
-
-    .add('Valid', () => (
-        <>
-            <Radio
-                name="Ex"
-                label="Radio"
-                valid
-                value="valid"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-            <Radio
-                name="Ex"
-                label="Radio"
-                valid
-                checked
-                value="valid"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-        </>
-    ))
-
-    .add('Warning', () => (
-        <>
-            <Radio
-                name="Ex"
-                label="Radio"
-                warning
-                value="warning"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-            <Radio
-                name="Ex"
-                label="Radio"
-                warning
-                checked
-                value="warning"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-        </>
-    ))
-
-    .add('Error', () => (
-        <>
-            <Radio
-                name="Ex"
-                label="Radio"
-                error
-                value="error"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-            <Radio
-                name="Ex"
-                label="Radio"
-                error
-                checked
-                value="error"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-        </>
-    ))
-
-    .add('Image label', () => (
-        <Radio
-            name="Ex"
-            label={<img src="https://picsum.photos/id/82/200/100" />}
-            value="with-help"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-    ))
-
-    // Dense
-    .add('Default - Dense', () => (
-        <Radio
-            dense
-            name="Ex"
-            label="Radio"
-            value="default"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-    ))
-
-    .add('Focused unchecked - Dense', () => (
-        <Radio
-            dense
             initialFocus
             name="Ex"
             label="Radio"
             value="default"
+            className="initially-focused"
             onChange={onChange}
             onFocus={onFocus}
             onBlur={onBlur}
         />
-    ))
-
-    .add('Focused checked - Dense', () => (
         <Radio
-            dense
+            name="Ex"
+            label="Radio"
+            value="default"
+            className="initially-unfocused"
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
+        />
+    </>
+)
+
+FocusedUnchecked.story = {
+    name: 'Focused unchecked',
+}
+
+export const FocusedChecked = () => (
+    <>
+        <Radio
             initialFocus
             checked
             name="Ex"
             label="Radio"
             value="default"
+            className="initially-focused"
             onChange={onChange}
             onFocus={onFocus}
             onBlur={onBlur}
         />
-    ))
+        <Radio
+            name="Ex"
+            label="Radio"
+            value="default"
+            className="initially-unfocused"
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
+        />
+    </>
+)
 
-    .add('Checked - Dense', () => (
+FocusedChecked.story = {
+    name: 'Focused checked',
+}
+
+export const Checked = () => (
+    <Radio
+        name="Ex"
+        label="Radio"
+        checked
+        value="checked"
+        onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+    />
+)
+
+export const Disabled = () => (
+    <>
+        <Radio
+            name="Ex"
+            label="Radio"
+            disabled
+            value="disabled"
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
+        />
+        <Radio
+            name="Ex"
+            label="Radio"
+            disabled
+            checked
+            value="disabled"
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
+        />
+    </>
+)
+
+export const Valid = () => (
+    <>
+        <Radio
+            name="Ex"
+            label="Radio"
+            valid
+            value="valid"
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
+        />
+        <Radio
+            name="Ex"
+            label="Radio"
+            valid
+            checked
+            value="valid"
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
+        />
+    </>
+)
+
+export const Warning = () => (
+    <>
+        <Radio
+            name="Ex"
+            label="Radio"
+            warning
+            value="warning"
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
+        />
+        <Radio
+            name="Ex"
+            label="Radio"
+            warning
+            checked
+            value="warning"
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
+        />
+    </>
+)
+
+export const Error = () => (
+    <>
+        <Radio
+            name="Ex"
+            label="Radio"
+            error
+            value="error"
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
+        />
+        <Radio
+            name="Ex"
+            label="Radio"
+            error
+            checked
+            value="error"
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
+        />
+    </>
+)
+
+export const ImageLabel = () => (
+    <Radio
+        name="Ex"
+        label={<img src="https://picsum.photos/id/82/200/100" />}
+        value="with-help"
+        onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+    />
+)
+
+ImageLabel.story = {
+    name: 'Image label',
+}
+
+export const DefaultDense = () => (
+    <Radio
+        dense
+        name="Ex"
+        label="Radio"
+        value="default"
+        onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+    />
+)
+
+DefaultDense.story = {
+    name: 'Default - Dense',
+}
+
+export const FocusedUncheckedDense = () => (
+    <Radio
+        dense
+        initialFocus
+        name="Ex"
+        label="Radio"
+        value="default"
+        onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+    />
+)
+
+FocusedUncheckedDense.story = {
+    name: 'Focused unchecked - Dense',
+}
+
+export const FocusedCheckedDense = () => (
+    <Radio
+        dense
+        initialFocus
+        checked
+        name="Ex"
+        label="Radio"
+        value="default"
+        onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+    />
+)
+
+FocusedCheckedDense.story = {
+    name: 'Focused checked - Dense',
+}
+
+export const CheckedDense = () => (
+    <Radio
+        dense
+        name="Ex"
+        label="Radio"
+        checked
+        value="checked"
+        onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+    />
+)
+
+CheckedDense.story = {
+    name: 'Checked - Dense',
+}
+
+export const DisabledDense = () => (
+    <>
         <Radio
             dense
             name="Ex"
             label="Radio"
-            checked
-            value="checked"
+            disabled
+            value="disabled"
             onChange={onChange}
             onFocus={onFocus}
             onBlur={onBlur}
         />
-    ))
-
-    .add('Disabled - Dense', () => (
-        <>
-            <Radio
-                dense
-                name="Ex"
-                label="Radio"
-                disabled
-                value="disabled"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-            <Radio
-                dense
-                name="Ex"
-                label="Radio"
-                disabled
-                checked
-                value="disabled"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-        </>
-    ))
-
-    .add('Valid - Dense', () => (
-        <>
-            <Radio
-                dense
-                name="Ex"
-                label="Radio"
-                valid
-                value="valid"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-            <Radio
-                dense
-                name="Ex"
-                label="Radio"
-                valid
-                checked
-                value="valid"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-        </>
-    ))
-
-    .add('Warning - Dense', () => (
-        <>
-            <Radio
-                dense
-                name="Ex"
-                label="Radio"
-                warning
-                value="warning"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-            <Radio
-                dense
-                name="Ex"
-                label="Radio"
-                warning
-                checked
-                value="warning"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-        </>
-    ))
-
-    .add('Error - Dense', () => (
-        <>
-            <Radio
-                dense
-                name="Ex"
-                label="Radio"
-                error
-                value="error"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-            <Radio
-                dense
-                name="Ex"
-                label="Radio"
-                error
-                checked
-                value="error"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-        </>
-    ))
-
-    .add('Image label - Dense', () => (
         <Radio
             dense
             name="Ex"
-            label={<img src="https://picsum.photos/id/82/200/100" />}
-            value="with-help"
+            label="Radio"
+            disabled
+            checked
+            value="disabled"
             onChange={onChange}
             onFocus={onFocus}
             onBlur={onBlur}
         />
-    ))
-    .add('No Label', () => (
+    </>
+)
+
+DisabledDense.story = {
+    name: 'Disabled - Dense',
+}
+
+export const ValidDense = () => (
+    <>
         <Radio
+            dense
             name="Ex"
-            value="with-help"
+            label="Radio"
+            valid
+            value="valid"
             onChange={onChange}
             onFocus={onFocus}
             onBlur={onBlur}
-            className="some-name"
         />
-    ))
+        <Radio
+            dense
+            name="Ex"
+            label="Radio"
+            valid
+            checked
+            value="valid"
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
+        />
+    </>
+)
+
+ValidDense.story = {
+    name: 'Valid - Dense',
+}
+
+export const WarningDense = () => (
+    <>
+        <Radio
+            dense
+            name="Ex"
+            label="Radio"
+            warning
+            value="warning"
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
+        />
+        <Radio
+            dense
+            name="Ex"
+            label="Radio"
+            warning
+            checked
+            value="warning"
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
+        />
+    </>
+)
+
+WarningDense.story = {
+    name: 'Warning - Dense',
+}
+
+export const ErrorDense = () => (
+    <>
+        <Radio
+            dense
+            name="Ex"
+            label="Radio"
+            error
+            value="error"
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
+        />
+        <Radio
+            dense
+            name="Ex"
+            label="Radio"
+            error
+            checked
+            value="error"
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
+        />
+    </>
+)
+
+ErrorDense.story = {
+    name: 'Error - Dense',
+}
+
+export const ImageLabelDense = () => (
+    <Radio
+        dense
+        name="Ex"
+        label={<img src="https://picsum.photos/id/82/200/100" />}
+        value="with-help"
+        onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+    />
+)
+
+ImageLabelDense.story = {
+    name: 'Image label - Dense',
+}
+
+export const NoLabel = () => (
+    <Radio
+        name="Ex"
+        value="with-help"
+        onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        className="some-name"
+    />
+)

@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import Chip from './Chip.js'
 
@@ -15,40 +14,48 @@ window.onRemove = (payload, event) => {
 const onClick = (...args) => window.onClick(...args)
 const onRemove = (...args) => window.onRemove(...args)
 
-storiesOf('Chip', module)
-    .add('Default', () => <Chip onClick={onClick}>Chippy</Chip>)
+export default {
+    title: 'Chip',
+    component: Chip,
+}
 
-    .add('Selected', () => (
-        <Chip selected onClick={onClick}>
-            Chipmunk
-        </Chip>
-    ))
+export const Default = () => <Chip onClick={onClick}>Chippy</Chip>
 
-    .add('Overflow', () => (
-        <Chip selected onClick={onClick}>
-            A super long chip which should definitely truncate
-        </Chip>
-    ))
+export const Selected = () => (
+    <Chip selected onClick={onClick}>
+        Chipmunk
+    </Chip>
+)
 
-    .add('Removable', () => (
-        <Chip onClick={onClick} onRemove={onRemove}>
-            Chipmunk
-        </Chip>
-    ))
+export const Overflow = () => (
+    <Chip selected onClick={onClick}>
+        A super long chip which should definitely truncate
+    </Chip>
+)
 
-    .add('Icon', () => (
-        <Chip onClick={onClick} icon={<Globe />}>
-            With an icon
-        </Chip>
-    ))
+export const Removable = () => (
+    <Chip onClick={onClick} onRemove={onRemove}>
+        Chipmunk
+    </Chip>
+)
 
-    .add('Dense', () => <Chip dense>I am dense</Chip>)
+export const Icon = () => (
+    <Chip onClick={onClick} icon={<Globe />}>
+        With an icon
+    </Chip>
+)
 
-    .add('Dense removeable', () => (
-        <Chip dense onRemove={onRemove}>
-            Removeable and dense
-        </Chip>
-    ))
+export const Dense = () => <Chip dense>I am dense</Chip>
+
+export const DenseRemoveable = () => (
+    <Chip dense onRemove={onRemove}>
+        Removeable and dense
+    </Chip>
+)
+
+DenseRemoveable.story = {
+    name: 'Dense removeable',
+}
 
 const Globe = () => (
     <svg role="img" viewBox="0 0 24 24" height="100px" width="100px">

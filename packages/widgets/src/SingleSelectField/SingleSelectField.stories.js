@@ -1,5 +1,4 @@
 import { SingleSelectOption } from '@dhis2/ui-core'
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { SingleSelectField } from './SingleSelectField.js'
 
@@ -23,71 +22,121 @@ const options = [
     <SingleSelectOption key="10" value="10" label="ten" />,
 ]
 
-storiesOf('SingleSelectField', module)
-    .add('Default', () => (
-        <SingleSelectField {...defaultProps}>{options}</SingleSelectField>
-    ))
-    .add('With Help text', () => (
-        <SingleSelectField {...defaultProps} helpText="A helpful text.">
-            {options}
-        </SingleSelectField>
-    ))
-    .add('Status: Valid', () => (
-        <SingleSelectField
-            {...defaultProps}
-            helpText="A helpful text."
-            validationText="Totally valid"
-            valid
-        >
-            {options}
-        </SingleSelectField>
-    ))
-    .add('Status: Warning', () => (
-        <SingleSelectField
-            {...defaultProps}
-            helpText="A helpful text."
-            validationText="Hm, not quite, I warn thee!"
-            warning
-        >
-            {options}
-        </SingleSelectField>
-    ))
-    .add('Status: Error', () => (
-        <SingleSelectField
-            {...defaultProps}
-            helpText="A helpful text."
-            validationText="NO! TOTALLY WRONG!"
-            error
-        >
-            {options}
-        </SingleSelectField>
-    ))
-    .add('Required', () => (
-        <SingleSelectField {...defaultProps} required>
-            {options}
-        </SingleSelectField>
-    ))
-    .add('Input width', () => (
-        <SingleSelectField
-            inputWidth="200px"
-            {...defaultProps}
-            label="A very long label indeed, well at least longer than the input field to show how it looks and works and stuff"
-            required
-        >
-            {options}
-        </SingleSelectField>
-    ))
-    .add('Default: clearText', () => (
-        <SingleSelectField selected="1" clearable>
-            <SingleSelectOption
-                key="1"
-                value="1"
-                label="Not translated, just for showing clear button"
-            />
-        </SingleSelectField>
-    ))
-    .add('Default: filterPlaceholder and noMatchText', () => (
-        <SingleSelectField filterable />
-    ))
-    .add('Default: loadingText', () => <SingleSelectField loading />)
-    .add('Default: empty', () => <SingleSelectField />)
+export default {
+    title: 'SingleSelectField',
+    component: SingleSelectField,
+}
+
+export const Default = () => (
+    <SingleSelectField {...defaultProps}>{options}</SingleSelectField>
+)
+
+export const WithHelpText = () => (
+    <SingleSelectField {...defaultProps} helpText="A helpful text.">
+        {options}
+    </SingleSelectField>
+)
+
+WithHelpText.story = {
+    name: 'With Help text',
+}
+
+export const StatusValid = () => (
+    <SingleSelectField
+        {...defaultProps}
+        helpText="A helpful text."
+        validationText="Totally valid"
+        valid
+    >
+        {options}
+    </SingleSelectField>
+)
+
+StatusValid.story = {
+    name: 'Status: Valid',
+}
+
+export const StatusWarning = () => (
+    <SingleSelectField
+        {...defaultProps}
+        helpText="A helpful text."
+        validationText="Hm, not quite, I warn thee!"
+        warning
+    >
+        {options}
+    </SingleSelectField>
+)
+
+StatusWarning.story = {
+    name: 'Status: Warning',
+}
+
+export const StatusError = () => (
+    <SingleSelectField
+        {...defaultProps}
+        helpText="A helpful text."
+        validationText="NO! TOTALLY WRONG!"
+        error
+    >
+        {options}
+    </SingleSelectField>
+)
+
+StatusError.story = {
+    name: 'Status: Error',
+}
+
+export const Required = () => (
+    <SingleSelectField {...defaultProps} required>
+        {options}
+    </SingleSelectField>
+)
+
+export const InputWidth = () => (
+    <SingleSelectField
+        inputWidth="200px"
+        {...defaultProps}
+        label="A very long label indeed, well at least longer than the input field to show how it looks and works and stuff"
+        required
+    >
+        {options}
+    </SingleSelectField>
+)
+
+InputWidth.story = {
+    name: 'Input width',
+}
+
+export const DefaultClearText = () => (
+    <SingleSelectField selected="1" clearable>
+        <SingleSelectOption
+            key="1"
+            value="1"
+            label="Not translated, just for showing clear button"
+        />
+    </SingleSelectField>
+)
+
+DefaultClearText.story = {
+    name: 'Default: clearText',
+}
+
+export const DefaultFilterPlaceholderAndNoMatchText = () => (
+    <SingleSelectField filterable />
+)
+
+DefaultFilterPlaceholderAndNoMatchText.story = {
+    name: 'Default: filterPlaceholder and noMatchText',
+}
+
+export const DefaultLoadingText = () => <SingleSelectField loading />
+
+DefaultLoadingText.story = {
+    name: 'Default: loadingText',
+}
+
+export const DefaultEmpty = () => <SingleSelectField />
+
+DefaultEmpty.story = {
+    name: 'Default: empty',
+}

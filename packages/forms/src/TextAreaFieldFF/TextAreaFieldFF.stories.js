@@ -1,70 +1,82 @@
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { Field } from 'react-final-form'
 import { formDecorator } from '../formDecorator.js'
 import { hasValue } from '../validators/index.js'
 import { TextAreaFieldFF } from './TextAreaFieldFF.js'
 
-storiesOf('TextAreaFieldFF', module)
-    .addDecorator(formDecorator)
-    .add('Default', () => (
-        <Field component={TextAreaFieldFF} name="agree" label="Do you agree?" />
-    ))
-    .add('Autogrow', () => (
+export default {
+    title: 'TextAreaFieldFF',
+    component: TextAreaFieldFF,
+    decorators: [formDecorator],
+}
+
+export const Default = () => (
+    <Field component={TextAreaFieldFF} name="agree" label="Do you agree?" />
+)
+
+export const Autogrow = () => (
+    <Field
+        component={TextAreaFieldFF}
+        name="agree"
+        label="Do you agree?"
+        autoGrow
+    />
+)
+
+export const Required = () => (
+    <Field
+        name="agree"
+        component={TextAreaFieldFF}
+        required
+        validate={hasValue}
+        label="Do you agree?"
+    />
+)
+
+export const Disabled = () => (
+    <Field
+        name="agree"
+        component={TextAreaFieldFF}
+        disabled
+        label="Do you agree?"
+    />
+)
+
+export const HelpText = () => (
+    <Field
+        name="agree"
+        component={TextAreaFieldFF}
+        label="Do you agree?"
+        helpText="Click to agree"
+    />
+)
+
+HelpText.story = {
+    name: 'Help text',
+}
+
+export const Statuses = () => (
+    <>
         <Field
+            name="valid"
             component={TextAreaFieldFF}
-            name="agree"
-            label="Do you agree?"
-            autoGrow
+            label="Valid"
+            valid
+            validationText="Validation text"
         />
-    ))
-    .add('Required', () => (
         <Field
-            name="agree"
+            name="warning"
             component={TextAreaFieldFF}
-            required
-            validate={hasValue}
-            label="Do you agree?"
+            label="Warning"
+            warning
+            validationText="Validation text"
         />
-    ))
-    .add('Disabled', () => (
         <Field
-            name="agree"
+            name="error"
             component={TextAreaFieldFF}
-            disabled
-            label="Do you agree?"
+            label="Error"
+            error
+            validationText="Validation text"
         />
-    ))
-    .add('Help text', () => (
-        <Field
-            name="agree"
-            component={TextAreaFieldFF}
-            label="Do you agree?"
-            helpText="Click to agree"
-        />
-    ))
-    .add('Statuses', () => (
-        <>
-            <Field
-                name="valid"
-                component={TextAreaFieldFF}
-                label="Valid"
-                valid
-                validationText="Validation text"
-            />
-            <Field
-                name="warning"
-                component={TextAreaFieldFF}
-                label="Warning"
-                warning
-                validationText="Validation text"
-            />
-            <Field
-                name="error"
-                component={TextAreaFieldFF}
-                label="Error"
-                error
-                validationText="Validation text"
-            />
-        </>
-    ))
+    </>
+)

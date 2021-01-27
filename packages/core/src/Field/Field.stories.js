@@ -1,9 +1,13 @@
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { Input } from '../index.js'
 import { Field } from './Field.js'
 
-storiesOf('Field', module).add('Default', () => (
+export default {
+    title: 'Field',
+    component: Field,
+}
+
+export const Default = () => (
     <>
         <Field helpText="Help me">
             <Input
@@ -24,4 +28,4 @@ storiesOf('Field', module).add('Default', () => (
             />
         </Field>
     </>
-))
+)

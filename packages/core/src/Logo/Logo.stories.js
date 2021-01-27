@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { Logo, LogoWhite, LogoIcon, LogoIconWhite } from './Logo.js'
 
@@ -9,21 +8,24 @@ const Background = ({ children }) => (
     <div style={{ backgroundColor: '#276696' }}>{children}</div>
 )
 
-storiesOf('Logo', module)
-    .addDecorator(Wrapper)
+export default {
+    title: 'Logo',
+    component: Logo,
+    decorators: [Wrapper],
+}
 
-    .add('Logo', () => <Logo />)
+export const _Logo = () => <Logo />
 
-    .add('Logo White', () => (
-        <Background>
-            <LogoWhite />
-        </Background>
-    ))
+export const _LogoWhite = () => (
+    <Background>
+        <LogoWhite />
+    </Background>
+)
 
-    .add('Logo Icon', () => <LogoIcon />)
+export const _LogoIcon = () => <LogoIcon />
 
-    .add('Logo Icon White', () => (
-        <Background>
-            <LogoIconWhite />
-        </Background>
-    ))
+export const _LogoIconWhite = () => (
+    <Background>
+        <LogoIconWhite />
+    </Background>
+)

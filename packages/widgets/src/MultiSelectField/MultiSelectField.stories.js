@@ -1,5 +1,4 @@
 import { MultiSelectOption } from '@dhis2/ui-core'
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { MultiSelectField } from './MultiSelectField.js'
 
@@ -23,71 +22,121 @@ const options = [
     <MultiSelectOption key="10" value="10" label="ten" />,
 ]
 
-storiesOf('MultiSelectField', module)
-    .add('Default', () => (
-        <MultiSelectField {...defaultProps}>{options}</MultiSelectField>
-    ))
-    .add('With Help text', () => (
-        <MultiSelectField {...defaultProps} helpText="A helpful text.">
-            {options}
-        </MultiSelectField>
-    ))
-    .add('Status: Valid', () => (
-        <MultiSelectField
-            {...defaultProps}
-            helpText="A helpful text."
-            validationText="Totally valid"
-            valid
-        >
-            {options}
-        </MultiSelectField>
-    ))
-    .add('Status: Warning', () => (
-        <MultiSelectField
-            {...defaultProps}
-            helpText="A helpful text."
-            validationText="Hm, not quite, I warn thee!"
-            warning
-        >
-            {options}
-        </MultiSelectField>
-    ))
-    .add('Status: Error', () => (
-        <MultiSelectField
-            {...defaultProps}
-            helpText="A helpful text."
-            validationText="NO! TOTALLY WRONG!"
-            error
-        >
-            {options}
-        </MultiSelectField>
-    ))
-    .add('Required', () => (
-        <MultiSelectField {...defaultProps} required>
-            {options}
-        </MultiSelectField>
-    ))
-    .add('Input width', () => (
-        <MultiSelectField
-            inputWidth="200px"
-            {...defaultProps}
-            label="A very long label indeed, well at least longer than the input field to show how it looks and works and stuff"
-            required
-        >
-            {options}
-        </MultiSelectField>
-    ))
-    .add('Default: clearText', () => (
-        <MultiSelectField selected={['1']} clearable>
-            <MultiSelectOption
-                key="1"
-                value="1"
-                label="Not translated, just for showing clear button"
-            />
-        </MultiSelectField>
-    ))
-    .add('Default: filterPlaceholder and noMatchText', () => (
-        <MultiSelectField filterable />
-    ))
-    .add('Default: loadingText', () => <MultiSelectField loading />)
-    .add('Default: empty', () => <MultiSelectField />)
+export default {
+    title: 'MultiSelectField',
+    component: MultiSelectField,
+}
+
+export const Default = () => (
+    <MultiSelectField {...defaultProps}>{options}</MultiSelectField>
+)
+
+export const WithHelpText = () => (
+    <MultiSelectField {...defaultProps} helpText="A helpful text.">
+        {options}
+    </MultiSelectField>
+)
+
+WithHelpText.story = {
+    name: 'With Help text',
+}
+
+export const StatusValid = () => (
+    <MultiSelectField
+        {...defaultProps}
+        helpText="A helpful text."
+        validationText="Totally valid"
+        valid
+    >
+        {options}
+    </MultiSelectField>
+)
+
+StatusValid.story = {
+    name: 'Status: Valid',
+}
+
+export const StatusWarning = () => (
+    <MultiSelectField
+        {...defaultProps}
+        helpText="A helpful text."
+        validationText="Hm, not quite, I warn thee!"
+        warning
+    >
+        {options}
+    </MultiSelectField>
+)
+
+StatusWarning.story = {
+    name: 'Status: Warning',
+}
+
+export const StatusError = () => (
+    <MultiSelectField
+        {...defaultProps}
+        helpText="A helpful text."
+        validationText="NO! TOTALLY WRONG!"
+        error
+    >
+        {options}
+    </MultiSelectField>
+)
+
+StatusError.story = {
+    name: 'Status: Error',
+}
+
+export const Required = () => (
+    <MultiSelectField {...defaultProps} required>
+        {options}
+    </MultiSelectField>
+)
+
+export const InputWidth = () => (
+    <MultiSelectField
+        inputWidth="200px"
+        {...defaultProps}
+        label="A very long label indeed, well at least longer than the input field to show how it looks and works and stuff"
+        required
+    >
+        {options}
+    </MultiSelectField>
+)
+
+InputWidth.story = {
+    name: 'Input width',
+}
+
+export const DefaultClearText = () => (
+    <MultiSelectField selected={['1']} clearable>
+        <MultiSelectOption
+            key="1"
+            value="1"
+            label="Not translated, just for showing clear button"
+        />
+    </MultiSelectField>
+)
+
+DefaultClearText.story = {
+    name: 'Default: clearText',
+}
+
+export const DefaultFilterPlaceholderAndNoMatchText = () => (
+    <MultiSelectField filterable />
+)
+
+DefaultFilterPlaceholderAndNoMatchText.story = {
+    name: 'Default: filterPlaceholder and noMatchText',
+}
+
+export const DefaultLoadingText = () => <MultiSelectField loading />
+
+DefaultLoadingText.story = {
+    name: 'Default: loadingText',
+}
+
+export const DefaultEmpty = () => <MultiSelectField />
+
+DefaultEmpty.story = {
+    name: 'Default: empty',
+}

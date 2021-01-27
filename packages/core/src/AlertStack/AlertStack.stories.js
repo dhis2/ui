@@ -1,9 +1,13 @@
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { AlertBar } from '../index.js'
 import { AlertStack } from './AlertStack.js'
 
-storiesOf('AlertStack', module).add('Default', () => (
+export default {
+    title: 'AlertStack',
+    component: AlertStack,
+}
+
+export const Default = () => (
     <AlertStack>
         <AlertBar permanent>First notification - I am at the bottom</AlertBar>
         <AlertBar permanent critical>
@@ -16,4 +20,4 @@ storiesOf('AlertStack', module).add('Default', () => (
             Fourth notification - I am at the top
         </AlertBar>
     </AlertStack>
-))
+)

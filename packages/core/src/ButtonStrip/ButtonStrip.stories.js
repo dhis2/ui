@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { Button, SplitButton } from '../index.js'
 import { ButtonStrip } from './ButtonStrip.js'
@@ -15,30 +14,44 @@ const Wrapper = fn => (
     </div>
 )
 
-storiesOf('ButtonStrip', module)
-    .addDecorator(Wrapper)
-    .add('Default', () => (
-        <ButtonStrip>
-            <Button>Save</Button>
-            <Button>Save</Button>
-            <Button>Save</Button>
-            <Button>Save</Button>
-            <SplitButton>Label?</SplitButton>
-        </ButtonStrip>
-    ))
-    .add('Default - aligned middle', () => (
-        <ButtonStrip middle>
-            <Button>Save</Button>
-            <Button>Save</Button>
-            <Button>Save</Button>
-            <Button>Save</Button>
-        </ButtonStrip>
-    ))
-    .add('Default - aligned right', () => (
-        <ButtonStrip end>
-            <Button>Save</Button>
-            <Button>Save</Button>
-            <Button>Save</Button>
-            <Button>Save</Button>
-        </ButtonStrip>
-    ))
+export default {
+    title: 'ButtonStrip',
+    component: ButtonStrip,
+    decorators: [Wrapper],
+}
+
+export const Default = () => (
+    <ButtonStrip>
+        <Button>Save</Button>
+        <Button>Save</Button>
+        <Button>Save</Button>
+        <Button>Save</Button>
+        <SplitButton>Label?</SplitButton>
+    </ButtonStrip>
+)
+
+export const DefaultAlignedMiddle = () => (
+    <ButtonStrip middle>
+        <Button>Save</Button>
+        <Button>Save</Button>
+        <Button>Save</Button>
+        <Button>Save</Button>
+    </ButtonStrip>
+)
+
+DefaultAlignedMiddle.story = {
+    name: 'Default - aligned middle',
+}
+
+export const DefaultAlignedRight = () => (
+    <ButtonStrip end>
+        <Button>Save</Button>
+        <Button>Save</Button>
+        <Button>Save</Button>
+        <Button>Save</Button>
+    </ButtonStrip>
+)
+
+DefaultAlignedRight.story = {
+    name: 'Default - aligned right',
+}
