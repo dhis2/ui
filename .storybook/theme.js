@@ -41,7 +41,8 @@ export default create({
     /**
      * Typography ---
      */
-    // fontBase: '"Open Sans", sans-serif',
+    /** Affects text in sidebar */
+    // fontBase: '"Georgia", serif',
     // fontCode: 'monospace',
 
     /**
