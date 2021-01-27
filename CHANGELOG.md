@@ -1,3 +1,10 @@
+## [6.1.6](https://github.com/dhis2/ui/compare/v6.1.5...v6.1.6) (2021-01-27)
+
+
+### Bug Fixes
+
+* **header bar:** enforce size of 36px in header bar and 48px in profile menu for ImageIcon and TextIcon ([#465](https://github.com/dhis2/ui/issues/465)) ([787484a](https://github.com/dhis2/ui/commit/787484abba0dc8aaec48697497119a0b6e91b247))
+
 ## [6.1.5](https://github.com/dhis2/ui/compare/v6.1.4...v6.1.5) (2021-01-22)
 
 
