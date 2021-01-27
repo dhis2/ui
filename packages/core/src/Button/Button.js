@@ -1,18 +1,29 @@
-import propTypes from '@dhis2/prop-types'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React, { useEffect, useRef } from 'react'
 import styles from './Button.styles.js'
 
+// Can be removed after migration to storybook for docs
+// import propTypes from '@dhis2/prop-types'
+// /**
+//  * @module
+//  * @param {Button.PropTypes} props
+//  *
+//  * @returns {React.Component}
+//  *
+//  * @example import { Button } from @dhis2/ui-core
+//  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/button.md|Design system}
+//  * @see Live demo: {@link /demo/?path=/story/button-basic--default|Storybook}
+//  */
+
 /**
- * @module
- * @param {Button.PropTypes} props
+ * Buttons are used for triggering actions.
+ * There are different types of buttons in the design system which are intended for different types of actions.
  *
- * @returns {React.Component}
- *
- * @example import { Button } from @dhis2/ui-core
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/button.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/button-basic--default|Storybook}
+ * ```js
+ * import { Button } from '@dhis2/ui'
+ * ```
  */
 export const Button = ({
     children,
@@ -81,54 +92,99 @@ Button.defaultProps = {
     dataTest: 'dhis2-uicore-button',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {Node} [children] The children to render in the button
- * @prop {function} [onClick] The click handler
- * @prop {function} [onBlur]
- * @prop {function} [onFocus]
- *
- * @prop {string} [className]
- * @prop {string} [name]
- * @prop {string} [value]
- * @prop {string} [tabIndex]
- * @prop {boolean} [small] - `small` and `large` are mutually exclusive
- * @prop {boolean} [large]
- * @prop {string} [type=button] Type of button: `submit`, `reset`, or
- * `button`
- *
- * @prop {boolean } [primary] - `primary`, `secondary`, and
- * `destructive` are mutually exclusive boolean props
- * @prop {boolean } [secondary]
- * @prop {boolean } [destructive]
- *
- * @prop {boolean} [disabled] Disable the button
- * @prop {Element} [icon]
- *
- * @prop {string} [dataTest]
- * @prop {boolean} [initialFocus] Grants the button the initial focus
- * state
- */
+// Can be removed after migration to storybook
+// /**
+//  * @typedef {Object} PropTypes
+//  * @static
+//  *
+//  * @prop {Node} [children] The children to render in the button
+//  * @prop {function} [onClick] The click handler
+//  * @prop {function} [onBlur]
+//  * @prop {function} [onFocus]
+//  *
+//  * @prop {string} [className]
+//  * @prop {string} [name]
+//  * @prop {string} [value]
+//  * @prop {string} [tabIndex]
+//  * @prop {boolean} [small] - `small` and `large` are mutually exclusive
+//  * @prop {boolean} [large]
+//  * @prop {string} [type=button] Type of button: `submit`, `reset`, or
+//  * `button`
+//  *
+//  * @prop {boolean } [primary] - `primary`, `secondary`, and
+//  * `destructive` are mutually exclusive boolean props
+//  * @prop {boolean } [secondary]
+//  * @prop {boolean } [destructive]
+//  *
+//  * @prop {boolean} [disabled] Disable the button
+//  * @prop {Element} [icon]
+//  *
+//  * @prop {string} [dataTest]
+//  * @prop {boolean} [initialFocus] Grants the button the initial focus
+//  * state
+//  */
 Button.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
+    /** Component to render inside the button */
+    children: PropTypes.node,
+    /** A className that will be passed to the `<button>` element */
+    className: PropTypes.string,
+    /**
+     * A string that will be applied as a `data-test` attribute on the button element
+     * for identification during testing
+     */
+    dataTest: PropTypes.string,
+    /**
+     * Indicates that the button makes potentially dangerous
+     * deletions or data changes.
+     * Mutually exclusive with `primary` and `secondary` props
+     */
     destructive: sharedPropTypes.buttonVariantPropType,
-    disabled: propTypes.bool,
-    icon: propTypes.element,
-    initialFocus: propTypes.bool,
+    /** Applies a greyed-out appearance and makes the button non-interactive  */
+    disabled: PropTypes.bool,
+    /** An icon element to display inside the button */
+    icon: PropTypes.element,
+    /** Use this variant to capture the initial focus on the page. */
+    initialFocus: PropTypes.bool,
+    /** Makes the button large. Mutually exclusive with `small` */
     large: sharedPropTypes.sizePropType,
-    name: propTypes.string,
+    /**
+     * Sets `name` attribute on button element.
+     * Gets passed as part of the first argument to callbacks (see `onClick`).
+     */
+    name: PropTypes.string,
+    /**
+     * Applies 'primary' button appearance.
+     * Mutually exclusive with `destructive` and `secondary` props
+     */
     primary: sharedPropTypes.buttonVariantPropType,
+    /**
+     * Applies 'secondary' button appearance.
+     * Mutually exclusive with `primary` and `destructive` props
+     */
     secondary: sharedPropTypes.buttonVariantPropType,
+    /** Makes the button small. Mutually exclusive with `large` prop */
     small: sharedPropTypes.sizePropType,
-    tabIndex: propTypes.string,
-    toggled: propTypes.bool,
-    type: propTypes.oneOf(['submit', 'reset', 'button']),
-    value: propTypes.string,
-    onBlur: propTypes.func,
-    onClick: propTypes.func,
-    onFocus: propTypes.func,
+    /** Tab index for focusing the button with a keyboard */
+    tabIndex: PropTypes.string,
+    /** Changes appearance of button to an on/off state */
+    toggled: PropTypes.bool,
+    /** Sets `type` attribute on `<button>` element */
+    type: PropTypes.oneOf(['submit', 'reset', 'button']),
+    /**
+     * Value associated with the button.
+     * Gets passed as part of the first argument to callbacks (see `onClick`).
+     */
+    value: PropTypes.string,
+    /**
+     * Callback to trigger on de-focus (blur).
+     * Called with same args as `onClick`
+     * */
+    onBlur: PropTypes.func,
+    /**
+     * Callback to trigger on click.
+     * Called with args `({ value, name }, event)`
+     * */
+    onClick: PropTypes.func,
+    /** Callback to trigger on focus. Called with same args as `onClick` */
+    onFocus: PropTypes.func,
 }
