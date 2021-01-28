@@ -2,6 +2,7 @@ import propTypes from '@dhis2/prop-types'
 import { SingleSelectOption, Tab, TabBar } from '@dhis2/ui-core'
 import React, { useEffect, useState } from 'react'
 import { SingleSelectField, Transfer, TransferOption } from '../index.js'
+import { defaultRenderOption, defaultFilterCallback } from './Transfer/index.js'
 
 const options = [
     {
@@ -96,13 +97,38 @@ const options = [
     },
 ]
 
-export default { title: 'Transfer', component: Transfer }
+export default {
+    title: 'Transfer',
+    component: Transfer,
+}
+
+/**
+ * These are needed for the template because storybook currently struggles with
+ * functions as default props: they are sent to the component as strings when
+ * `{...args}` is spread into the component in the Template, which causes an
+ * error that looks like 'renderOption is not a function'
+ *
+ * https://github.com/storybookjs/storybook/issues/12455#issuecomment-702763930
+ */
+const defaultCallbacks = {
+    renderOption: defaultRenderOption,
+    filterCallback: defaultFilterCallback,
+    filterCallbackPicked: defaultFilterCallback,
+}
 
 const StatefulTemplate = ({ initiallySelected, ...args }) => {
     const [selected, setSelected] = useState(initiallySelected)
     const onChange = payload => setSelected(payload.selected)
 
-    return <Transfer {...args} selected={selected} onChange={onChange} />
+    return (
+        <Transfer
+            {...args}
+            // See note about default callbacks above
+            {...defaultCallbacks}
+            selected={selected}
+            onChange={onChange}
+        />
+    )
 }
 
 StatefulTemplate.defaultProps = {
@@ -188,24 +214,47 @@ const RenderOptionCode = () => (
         <strong>Custom option code:</strong>
         <code>
             <pre>{`const renderOption = ({ label, value, onClick, highlighted, selected }) => (
-    <p
-        onClick={event => onClick({ label, value }, event)}
-        style={{
-            background: highlighted ? 'green' : 'blue',
-            color: selected ? 'orange' : 'white',
-        }}
-    >
-        Custom: {label} (label), {value} (value)
-    </p>
-)`}</pre>
+                <p
+                    onClick={event => onClick({ label, value }, event)}
+                    style={{
+                        background: highlighted ? 'green' : 'blue',
+                        color: selected ? 'orange' : 'white',
+                    }}
+                >
+                    Custom: {label} (label), {value} (value)
+                </p>
+            )`}</pre>
         </code>
     </>
 )
 
+const StatefulTemplateCustomRenderOption = ({ initiallySelected, ...args }) => {
+    const [selected, setSelected] = useState(initiallySelected)
+    const onChange = payload => setSelected(payload.selected)
+
+    return (
+        <Transfer
+            {...args}
+            // See note about default callbacks above
+            // (renderOption is provided by following stories; not needed here)
+            filterCallback={defaultFilterCallback}
+            filterCallbackPicked={defaultFilterCallback}
+            selected={selected}
+            onChange={onChange}
+        />
+    )
+}
+StatefulTemplateCustomRenderOption.defaultProps = {
+    initiallySelected: [],
+}
+StatefulTemplateCustomRenderOption.propTypes = {
+    initiallySelected: propTypes.array,
+}
+
 export const CustomListOptions = args => (
     <>
         <RenderOptionCode />
-        <StatefulTemplate {...args} />
+        <StatefulTemplateCustomRenderOption {...args} />
     </>
 )
 CustomListOptions.args = {
@@ -214,7 +263,9 @@ CustomListOptions.args = {
     initiallySelected: options.slice(0, 2).map(({ value }) => value),
 }
 
-export const IndividualCustomOption = StatefulTemplate.bind({})
+export const IndividualCustomOption = StatefulTemplateCustomRenderOption.bind(
+    {}
+)
 IndividualCustomOption.args = {
     addAllText: 'Add all',
     addIndividualText: 'Add individual',
@@ -399,7 +450,13 @@ const createCustomFilteringInHeader = hideFilterInput => {
         const onChange = payload => setSelected(payload.selected)
 
         return (
-            <CustomTransfer {...args} selected={selected} onChange={onChange} />
+            <CustomTransfer
+                {...args}
+                // Workaround: see `defaultCallbacks` above
+                {...defaultCallbacks}
+                selected={selected}
+                onChange={onChange}
+            />
         )
     }
 }
