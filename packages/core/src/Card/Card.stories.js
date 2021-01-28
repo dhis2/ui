@@ -7,6 +7,7 @@ const Wrapper = fn => (
 
 export default {
     title: 'Card',
+    component: Card,
     decorators: [Wrapper],
 }
 
