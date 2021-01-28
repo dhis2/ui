@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { layers } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { createPortal } from 'react-dom'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
@@ -12,7 +12,7 @@ import { createPortal } from 'react-dom'
  * @example import { AlertStack } from '@dhis2/ui-core'
  * @see Live demo: {@link /demo/?path=/story/alertstack--default|Storybook}
  */
-const AlertStack = ({ className, children, dataTest }) =>
+export const AlertStack = ({ className, children, dataTest }) =>
     createPortal(
         <div className={cx(className)} data-test={dataTest}>
             {children}
@@ -49,9 +49,9 @@ AlertStack.defaultProps = {
  * @prop {string} [dataTest]
  */
 AlertStack.propTypes = {
-    children: propTypes.arrayOf(propTypes.element),
-    className: propTypes.string,
-    dataTest: propTypes.string,
+    children: PropTypes.arrayOf(PropTypes.element),
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
 }
 
-export { AlertStack }
+// export { AlertStack }
