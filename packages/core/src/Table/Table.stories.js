@@ -24,7 +24,10 @@ const TableFooterButton = () => (
 
 const TableButton = () => <Button primary>Table button</Button>
 
-export default { title: 'Table' }
+export default {
+    title: 'Table',
+    component: Table,
+}
 
 export const StaticLayout = () => (
     <Table>
