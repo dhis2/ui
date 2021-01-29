@@ -3,12 +3,14 @@ import { AlertBar } from '../index.js'
 import { AlertStack } from './AlertStack.js'
 
 export default {
-    title: 'AlertStack',
+    title: 'Feedback/Alerts/AlertStack',
     component: AlertStack,
+    // Use an iframe in docs to contain 'portal'
+    parameters: { docs: { inlineStories: false, iframeHeight: '300px' } },
 }
 
-export const Default = () => (
-    <AlertStack>
+export const Default = args => (
+    <AlertStack {...args}>
         <AlertBar permanent>First notification - I am at the bottom</AlertBar>
         <AlertBar permanent critical>
             Second notification
