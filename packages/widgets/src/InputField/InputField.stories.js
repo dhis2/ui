@@ -17,16 +17,12 @@ export default {
 export const Default = () => <InputField name="nolabel" onChange={logger} />
 
 export const NoPlaceholderNoValue = () => <InputField {...props} />
-NoPlaceholderNoValue.story = {
-    name: 'No placeholder, no value',
-}
+NoPlaceholderNoValue.storyName = 'No placeholder, no value'
 
 export const PlaceholderNoValue = () => (
     <InputField {...props} placeholder="Hold the place" />
 )
-PlaceholderNoValue.story = {
-    name: 'Placeholder, no value',
-}
+PlaceholderNoValue.storyName = 'Placeholder, no value'
 
 export const WithHelpText = () => (
     <InputField
@@ -35,9 +31,7 @@ export const WithHelpText = () => (
         helpText="With some helping text to guide the user along"
     />
 )
-WithHelpText.story = {
-    name: 'With Help text',
-}
+WithHelpText.storyName = 'With Help text'
 
 export const WithValue = () => (
     <InputField
@@ -45,25 +39,19 @@ export const WithValue = () => (
         value="This is set through the value prop, which means the component is controlled."
     />
 )
-WithValue.story = {
-    name: 'With value',
-}
+WithValue.storyName = 'With value'
 
 export const Focus = () => <InputField {...props} initialFocus />
 
 export const StatusValid = () => (
     <InputField {...props} value="This value is valid" valid />
 )
-StatusValid.story = {
-    name: 'Status: Valid',
-}
+StatusValid.storyName = 'Status: Valid'
 
 export const StatusWarning = () => (
     <InputField {...props} value="This value produces a warning" warning />
 )
-StatusWarning.story = {
-    name: 'Status: Warning',
-}
+StatusWarning.storyName = 'Status: Warning'
 
 export const StatusError = () => (
     <InputField
@@ -74,9 +62,7 @@ export const StatusError = () => (
         validationText="This describes the error, if a message is supplied."
     />
 )
-StatusError.story = {
-    name: 'Status: Error',
-}
+StatusError.storyName = 'Status: Error'
 
 export const StatusLoading = () => (
     <InputField
@@ -85,9 +71,7 @@ export const StatusLoading = () => (
         loading
     />
 )
-StatusLoading.story = {
-    name: 'Status: Loading',
-}
+StatusLoading.storyName = 'Status: Loading'
 
 export const Disabled = () => (
     <InputField {...props} value="This field is disabled" disabled />
@@ -96,9 +80,7 @@ export const Disabled = () => (
 export const ReadOnly = () => (
     <InputField {...props} value="This field is disabled" readOnly />
 )
-ReadOnly.story = {
-    name: 'Read only',
-}
+ReadOnly.storyName = 'Read only'
 
 export const Dense = () => (
     <InputField {...props} value="This field is dense" dense />
@@ -120,9 +102,7 @@ export const InputWidth = () => (
         />
     </>
 )
-InputWidth.story = {
-    name: 'Input width',
-}
+InputWidth.storyName = 'Input width'
 
 export const LabelTextOverflow = () => (
     <InputField
@@ -132,9 +112,7 @@ export const LabelTextOverflow = () => (
         warning
     />
 )
-LabelTextOverflow.story = {
-    name: 'Label text overflow',
-}
+LabelTextOverflow.storyName = 'Label text overflow'
 
 export const ValueTextOverflow = () => (
     <InputField
@@ -144,8 +122,6 @@ export const ValueTextOverflow = () => (
         warning
     />
 )
-ValueTextOverflow.story = {
-    name: 'Value text overflow',
-}
+ValueTextOverflow.storyName = 'Value text overflow'
 
 export const Required = () => <InputField {...props} required />

@@ -1,5 +1,5 @@
 import React from 'react'
-import Chip from './Chip.js'
+import { Chip } from './Chip.js'
 
 window.onClick = (payload, event) => {
     console.log('onClick payload', payload)
@@ -52,10 +52,7 @@ export const DenseRemoveable = () => (
         Removeable and dense
     </Chip>
 )
-
-DenseRemoveable.story = {
-    name: 'Dense removeable',
-}
+DenseRemoveable.storyName = 'Dense removeable'
 
 const Globe = () => (
     <svg role="img" viewBox="0 0 24 24" height="100px" width="100px">

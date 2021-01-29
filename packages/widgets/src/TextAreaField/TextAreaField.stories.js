@@ -9,10 +9,7 @@ export default {
 export const NoPlaceholderNoValue = () => (
     <TextAreaField onChange={() => {}} name="textarea" />
 )
-
-NoPlaceholderNoValue.story = {
-    name: 'No placeholder, no value',
-}
+NoPlaceholderNoValue.storyName = 'No placeholder, no value'
 
 export const PlaceholderNoValue = () => (
     <TextAreaField
@@ -21,10 +18,7 @@ export const PlaceholderNoValue = () => (
         placeholder="Hold the place"
     />
 )
-
-PlaceholderNoValue.story = {
-    name: 'Placeholder, no value',
-}
+PlaceholderNoValue.storyName = 'Placeholder, no value'
 
 export const WithHelpText = () => (
     <TextAreaField
@@ -34,10 +28,7 @@ export const WithHelpText = () => (
         helpText="With some helping text to guide the user along"
     />
 )
-
-WithHelpText.story = {
-    name: 'With Help text',
-}
+WithHelpText.storyName = 'With Help text'
 
 export const WithValue = () => (
     <TextAreaField
@@ -46,10 +37,7 @@ export const WithValue = () => (
         value="This is set through the value prop, which means the component is controlled."
     />
 )
-
-WithValue.story = {
-    name: 'With value',
-}
+WithValue.storyName = 'With value'
 
 export const Focus = () => (
     <TextAreaField onChange={() => {}} name="textarea" initialFocus />
@@ -63,10 +51,7 @@ export const StatusValid = () => (
         valid
     />
 )
-
-StatusValid.story = {
-    name: 'Status: Valid',
-}
+StatusValid.storyName = 'Status: Valid'
 
 export const StatusWarning = () => (
     <TextAreaField
@@ -76,10 +61,7 @@ export const StatusWarning = () => (
         warning
     />
 )
-
-StatusWarning.story = {
-    name: 'Status: Warning',
-}
+StatusWarning.storyName = 'Status: Warning'
 
 export const StatusError = () => (
     <TextAreaField
@@ -91,10 +73,7 @@ export const StatusError = () => (
         validationText="This describes the error, if a message is supplied."
     />
 )
-
-StatusError.story = {
-    name: 'Status: Error',
-}
+StatusError.storyName = 'Status: Error'
 
 export const StatusLoading = () => (
     <TextAreaField
@@ -104,10 +83,7 @@ export const StatusLoading = () => (
         loading
     />
 )
-
-StatusLoading.story = {
-    name: 'Status: Loading',
-}
+StatusLoading.storyName = 'Status: Loading'
 
 export const Disabled = () => (
     <TextAreaField
@@ -126,10 +102,7 @@ export const ReadOnly = () => (
         readOnly
     />
 )
-
-ReadOnly.story = {
-    name: 'Read only',
-}
+ReadOnly.storyName = 'Read only'
 
 export const Dense = () => (
     <TextAreaField
@@ -147,10 +120,7 @@ export const LabelTextOverflow = () => (
         label="This label is too long to show on a single line of the input field's label. We just let it flow to the next line so the user can still read it. However, we should always aim to keep it shorter than this!"
     />
 )
-
-LabelTextOverflow.story = {
-    name: 'Label text overflow',
-}
+LabelTextOverflow.storyName = 'Label text overflow'
 
 export const TextareaTextOverflow = () => (
     <TextAreaField
@@ -176,10 +146,7 @@ export const TextareaTextOverflow = () => (
         ].join('\n')}
     />
 )
-
-TextareaTextOverflow.story = {
-    name: 'Textarea text overflow',
-}
+TextareaTextOverflow.storyName = 'Textarea text overflow'
 
 export const Required = () => (
     <TextAreaField
@@ -215,10 +182,7 @@ export const InputWidth = () => (
         />
     </>
 )
-
-InputWidth.story = {
-    name: 'Input width',
-}
+InputWidth.storyName = 'Input width'
 
 export const Resize = () => (
     <>

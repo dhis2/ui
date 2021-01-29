@@ -59,10 +59,7 @@ export const FocusedUnchecked = () => (
         />
     </>
 )
-
-FocusedUnchecked.story = {
-    name: 'Focused unchecked',
-}
+FocusedUnchecked.storyName = 'Focused unchecked'
 
 export const FocusedChecked = () => (
     <>
@@ -87,10 +84,7 @@ export const FocusedChecked = () => (
         />
     </>
 )
-
-FocusedChecked.story = {
-    name: 'Focused checked',
-}
+FocusedChecked.storyName = 'Focused checked'
 
 export const Checked = () => (
     <Checkbox
@@ -222,10 +216,7 @@ export const ImageLabel = () => (
         onBlur={onBlur}
     />
 )
-
-ImageLabel.story = {
-    name: 'Image label',
-}
+ImageLabel.storyName = 'Image label'
 
 export const DefaultDense = () => (
     <Checkbox
@@ -238,10 +229,7 @@ export const DefaultDense = () => (
         onBlur={onBlur}
     />
 )
-
-DefaultDense.story = {
-    name: 'Default - Dense',
-}
+DefaultDense.storyName = 'Default - Dense'
 
 export const FocusedUncheckedDense = () => (
     <Checkbox
@@ -255,10 +243,7 @@ export const FocusedUncheckedDense = () => (
         onBlur={onBlur}
     />
 )
-
-FocusedUncheckedDense.story = {
-    name: 'Focused unchecked - Dense',
-}
+FocusedUncheckedDense.storyName = 'Focused unchecked - Dense'
 
 export const FocusedCheckedDense = () => (
     <Checkbox
@@ -273,10 +258,7 @@ export const FocusedCheckedDense = () => (
         onBlur={onBlur}
     />
 )
-
-FocusedCheckedDense.story = {
-    name: 'Focused checked - Dense',
-}
+FocusedCheckedDense.storyName = 'Focused checked - Dense'
 
 export const CheckedDense = () => (
     <Checkbox
@@ -290,10 +272,7 @@ export const CheckedDense = () => (
         onBlur={onBlur}
     />
 )
-
-CheckedDense.story = {
-    name: 'Checked - Dense',
-}
+CheckedDense.storyName = 'Checked - Dense'
 
 export const IndeterminateDense = () => (
     <Checkbox
@@ -307,10 +286,7 @@ export const IndeterminateDense = () => (
         onBlur={onBlur}
     />
 )
-
-IndeterminateDense.story = {
-    name: 'Indeterminate - Dense',
-}
+IndeterminateDense.storyName = 'Indeterminate - Dense'
 
 export const DisabledDense = () => (
     <>
@@ -337,10 +313,7 @@ export const DisabledDense = () => (
         />
     </>
 )
-
-DisabledDense.story = {
-    name: 'Disabled - Dense',
-}
+DisabledDense.storyName = 'Disabled - Dense'
 
 export const ValidDense = () => (
     <>
@@ -367,10 +340,7 @@ export const ValidDense = () => (
         />
     </>
 )
-
-ValidDense.story = {
-    name: 'Valid - Dense',
-}
+ValidDense.storyName = 'Valid - Dense'
 
 export const WarningDense = () => (
     <>
@@ -397,10 +367,7 @@ export const WarningDense = () => (
         />
     </>
 )
-
-WarningDense.story = {
-    name: 'Warning - Dense',
-}
+WarningDense.storyName = 'Warning - Dense'
 
 export const ErrorDense = () => (
     <>
@@ -427,10 +394,7 @@ export const ErrorDense = () => (
         />
     </>
 )
-
-ErrorDense.story = {
-    name: 'Error - Dense',
-}
+ErrorDense.storyName = 'Error - Dense'
 
 export const ImageLabelDense = () => (
     <Checkbox
@@ -443,7 +407,4 @@ export const ImageLabelDense = () => (
         onBlur={onBlur}
     />
 )
-
-ImageLabelDense.story = {
-    name: 'Image label - Dense',
-}
+ImageLabelDense.storyName = 'Image label - Dense'

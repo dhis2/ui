@@ -40,10 +40,7 @@ export const DefaultFluid = () => (
         <Tab onClick={onClick}>Tab G</Tab>
     </TabBar>
 )
-
-DefaultFluid.story = {
-    name: 'Default (fluid)',
-}
+DefaultFluid.storyName = 'Default (fluid)'
 
 export const FixedTabsFillContent = () => (
     <TabBar fixed>
@@ -58,10 +55,7 @@ export const FixedTabsFillContent = () => (
         <Tab onClick={onClick}>Tab G</Tab>
     </TabBar>
 )
-
-FixedTabsFillContent.story = {
-    name: 'Fixed - tabs fill content',
-}
+FixedTabsFillContent.storyName = 'Fixed - tabs fill content'
 
 export const TabsWithScroller = () => (
     <TabBar scrollable>
@@ -87,10 +81,7 @@ export const TabsWithScroller = () => (
         <Tab onClick={onClick}>Tab R</Tab>
     </TabBar>
 )
-
-TabsWithScroller.story = {
-    name: 'Tabs with scroller',
-}
+TabsWithScroller.storyName = 'Tabs with scroller'
 
 export const TabStates = () => (
     <TabBar>
@@ -105,10 +96,7 @@ export const TabStates = () => (
         </Tab>
     </TabBar>
 )
-
-TabStates.story = {
-    name: 'Tab states',
-}
+TabStates.storyName = 'Tab states'
 
 export const TabStatesWithIcon = () => (
     <TabBar>
@@ -127,7 +115,4 @@ export const TabStatesWithIcon = () => (
         </Tab>
     </TabBar>
 )
-
-TabStatesWithIcon.story = {
-    name: 'Tab states - with icon',
-}
+TabStatesWithIcon.storyName = 'Tab states - with icon'

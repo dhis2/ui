@@ -11,29 +11,17 @@ export const Default = () => <Help>Allow me to be of assistance</Help>
 export const StatusWarning = () => (
     <Help warning>Allow me to be of assistance</Help>
 )
-
-StatusWarning.story = {
-    name: 'Status: Warning',
-}
+StatusWarning.storyName = 'Status: Warning'
 
 export const StatusValid = () => <Help valid>Allow me to be of assistance</Help>
-
-StatusValid.story = {
-    name: 'Status: Valid',
-}
+StatusValid.storyName = 'Status: Valid'
 
 export const StatusError = () => <Help error>Allow me to be of assistance</Help>
-
-StatusError.story = {
-    name: 'Status: Error',
-}
+StatusError.storyName = 'Status: Error'
 
 export const TextOverflow = () => (
     <div style={{ width: 200 }}>
         <Help>I take up more space than my container</Help>
     </div>
 )
-
-TextOverflow.story = {
-    name: 'Text overflow',
-}
+TextOverflow.storyName = 'Text overflow'

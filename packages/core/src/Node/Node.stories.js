@@ -55,10 +55,7 @@ export const CustomIcon = () => (
         }
     />
 )
-
-CustomIcon.story = {
-    name: 'Custom icon',
-}
+CustomIcon.storyName = 'Custom icon'
 
 export const MultipleRoots = () => (
     <div>
@@ -97,10 +94,7 @@ export const MultipleRoots = () => (
         </Node>
     </div>
 )
-
-MultipleRoots.story = {
-    name: 'Multiple roots',
-}
+MultipleRoots.storyName = 'Multiple roots'
 
 export const _2LevelsOpen = () => (
     <Node
@@ -273,10 +267,7 @@ export const _2LevelsOpen = () => (
         </Node>
     </Node>
 )
-
-_2LevelsOpen.story = {
-    name: '2 Levels open',
-}
+_2LevelsOpen.storyName = '2 Levels open'
 
 export const TextLeaves = () => (
     <div>
@@ -414,7 +405,4 @@ export const TextLeaves = () => (
         `}</style>
     </div>
 )
-
-TextLeaves.story = {
-    name: 'Text leaves',
-}
+TextLeaves.storyName = 'Text leaves'

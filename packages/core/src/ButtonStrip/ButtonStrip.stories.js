@@ -38,10 +38,7 @@ export const DefaultAlignedMiddle = () => (
         <Button>Save</Button>
     </ButtonStrip>
 )
-
-DefaultAlignedMiddle.story = {
-    name: 'Default - aligned middle',
-}
+DefaultAlignedMiddle.storyName = 'Default - aligned middle'
 
 export const DefaultAlignedRight = () => (
     <ButtonStrip end>
@@ -51,7 +48,4 @@ export const DefaultAlignedRight = () => (
         <Button>Save</Button>
     </ButtonStrip>
 )
-
-DefaultAlignedRight.story = {
-    name: 'Default - aligned right',
-}
+DefaultAlignedRight.storyName = 'Default - aligned right'

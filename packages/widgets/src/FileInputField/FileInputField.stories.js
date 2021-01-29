@@ -33,10 +33,7 @@ export const WithLabel = () => (
         buttonLabel="Upload file"
     />
 )
-
-WithLabel.story = {
-    name: 'With label',
-}
+WithLabel.storyName = 'With label'
 
 export const Required = () => (
     <FileInputField
@@ -163,10 +160,7 @@ export const FileList = () => (
         </p>
     </div>
 )
-
-FileList.story = {
-    name: 'File list',
-}
+FileList.storyName = 'File list'
 
 export const PlaceholderText = () => (
     <FileInputField
@@ -177,10 +171,7 @@ export const PlaceholderText = () => (
         placeholder="No file(s) selected yet"
     />
 )
-
-PlaceholderText.story = {
-    name: 'Placeholder text',
-}
+PlaceholderText.storyName = 'Placeholder text'
 
 export const HelpText = () => (
     <FileInputField
@@ -191,10 +182,7 @@ export const HelpText = () => (
         helpText="Please select any file type"
     />
 )
-
-HelpText.story = {
-    name: 'Help text',
-}
+HelpText.storyName = 'Help text'
 
 export const DesignSystemStackingOrder = () => (
     <FileInputField
@@ -222,10 +210,7 @@ export const DesignSystemStackingOrder = () => (
         />
     </FileInputField>
 )
-
-DesignSystemStackingOrder.story = {
-    name: 'Design system stacking order',
-}
+DesignSystemStackingOrder.storyName = 'Design system stacking order'
 
 export const DesignSystemStackingOrderEmptyFileList = () => (
     <FileInputField
@@ -239,15 +224,11 @@ export const DesignSystemStackingOrderEmptyFileList = () => (
         name="upload"
     />
 )
-
-DesignSystemStackingOrderEmptyFileList.story = {
-    name: 'Design system stacking order - empty file list',
-}
+DesignSystemStackingOrderEmptyFileList.storyName =
+    'Design system stacking order - empty file list'
 
 export const DefaultButtonLabelAndPlaceholder = () => (
     <FileInputField onChange={onChange} name="upload" />
 )
-
-DefaultButtonLabelAndPlaceholder.story = {
-    name: 'Default: buttonLabel and placeholder',
-}
+DefaultButtonLabelAndPlaceholder.storyName =
+    'Default: buttonLabel and placeholder'

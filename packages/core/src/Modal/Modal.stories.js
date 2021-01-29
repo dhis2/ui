@@ -53,9 +53,7 @@ export const DefaultContent = args => (
 DefaultContent.args = {
     onClose: onClose,
 }
-DefaultContent.story = {
-    name: 'Default: Content',
-}
+DefaultContent.storyName = 'Default: Content'
 
 export const AlignmentMiddle = () => (
     <Modal onClose={onClose} position="middle">
@@ -72,10 +70,7 @@ export const AlignmentMiddle = () => (
         </ModalContent>
     </Modal>
 )
-
-AlignmentMiddle.story = {
-    name: 'Alignment: Middle',
-}
+AlignmentMiddle.storyName = 'Alignment: Middle'
 
 export const AlignmentBottom = () => (
     <Modal onClose={onClose} position="bottom">
@@ -92,10 +87,7 @@ export const AlignmentBottom = () => (
         </ModalContent>
     </Modal>
 )
-
-AlignmentBottom.story = {
-    name: 'Alignment: Bottom',
-}
+AlignmentBottom.storyName = 'Alignment: Bottom'
 
 export const SmallTitleContentAction = () => (
     <Modal small onClose={onClose}>
@@ -128,10 +120,7 @@ export const SmallTitleContentAction = () => (
         </ModalActions>
     </Modal>
 )
-
-SmallTitleContentAction.story = {
-    name: 'Small: Title, Content, Action',
-}
+SmallTitleContentAction.storyName = 'Small: Title, Content, Action'
 
 export const MediumTitleContentAction = () => (
     <Modal>
@@ -164,10 +153,7 @@ export const MediumTitleContentAction = () => (
         </ModalActions>
     </Modal>
 )
-
-MediumTitleContentAction.story = {
-    name: 'Medium: Title, Content, Action',
-}
+MediumTitleContentAction.storyName = 'Medium: Title, Content, Action'
 
 export const LargeTitleContentPrimary = () => (
     <Modal large>
@@ -200,10 +186,7 @@ export const LargeTitleContentPrimary = () => (
         </ModalActions>
     </Modal>
 )
-
-LargeTitleContentPrimary.story = {
-    name: 'Large: Title, Content, Primary',
-}
+LargeTitleContentPrimary.storyName = 'Large: Title, Content, Primary'
 
 export const SmallContentPrimary = () => (
     <Modal small>
@@ -232,10 +215,7 @@ export const SmallContentPrimary = () => (
         </ModalActions>
     </Modal>
 )
-
-SmallContentPrimary.story = {
-    name: 'Small: Content & Primary',
-}
+SmallContentPrimary.storyName = 'Small: Content & Primary'
 
 export const SmallDestructivePrimary = () => (
     <Modal small>
@@ -264,10 +244,7 @@ export const SmallDestructivePrimary = () => (
         </ModalActions>
     </Modal>
 )
-
-SmallDestructivePrimary.story = {
-    name: 'Small: Destructive Primary',
-}
+SmallDestructivePrimary.storyName = 'Small: Destructive Primary'
 
 export const SmallClickableScreenCover = () => (
     <Modal small onClose={say('Clickable screen cover')}>
@@ -292,10 +269,7 @@ export const SmallClickableScreenCover = () => (
         </ModalActions>
     </Modal>
 )
-
-SmallClickableScreenCover.story = {
-    name: 'Small: Clickable screen cover',
-}
+SmallClickableScreenCover.storyName = 'Small: Clickable screen cover'
 
 export const TopScrollable = () => (
     <Modal small onClose={say('Clickable screen cover')}>
@@ -362,10 +336,7 @@ export const TopScrollable = () => (
         </ModalActions>
     </Modal>
 )
-
-TopScrollable.story = {
-    name: 'Top: scrollable',
-}
+TopScrollable.storyName = 'Top: scrollable'
 
 export const MiddleScrollable = () => (
     <Modal small onClose={say('Clickable screen cover')} position="middle">
@@ -432,10 +403,7 @@ export const MiddleScrollable = () => (
         </ModalActions>
     </Modal>
 )
-
-MiddleScrollable.story = {
-    name: 'Middle: scrollable',
-}
+MiddleScrollable.storyName = 'Middle: scrollable'
 
 export const BottomScrollable = () => (
     <Modal small onClose={say('Clickable screen cover')} position="bottom">
@@ -502,10 +470,7 @@ export const BottomScrollable = () => (
         </ModalActions>
     </Modal>
 )
-
-BottomScrollable.story = {
-    name: 'Bottom: scrollable',
-}
+BottomScrollable.storyName = 'Bottom: scrollable'
 
 export const SmallLongTitle = () => (
     <Modal small>
@@ -534,10 +499,7 @@ export const SmallLongTitle = () => (
         </ModalActions>
     </Modal>
 )
-
-SmallLongTitle.story = {
-    name: 'Small: Long title',
-}
+SmallLongTitle.storyName = 'Small: Long title'
 
 export const LargeWithSelectComponent = () => (
     <Modal large>
@@ -571,10 +533,7 @@ export const LargeWithSelectComponent = () => (
         </ModalActions>
     </Modal>
 )
-
-LargeWithSelectComponent.story = {
-    name: 'Large: with Select component',
-}
+LargeWithSelectComponent.storyName = 'Large: with Select component'
 
 export const LargeModalWithMoreNestedModals = () => (
     <Modal large>
@@ -715,7 +674,5 @@ export const LargeModalWithMoreNestedModals = () => (
         </ModalActions>
     </Modal>
 )
-
-LargeModalWithMoreNestedModals.story = {
-    name: 'Large: modal with more nested modals',
-}
+LargeModalWithMoreNestedModals.storyName =
+    'Large: modal with more nested modals'

@@ -33,15 +33,10 @@ export const DefaultButtonLabelAndRemoveText = () => (
         files={files}
     />
 )
-
-DefaultButtonLabelAndRemoveText.story = {
-    name: 'Default: buttonLabel and removeText',
-}
+DefaultButtonLabelAndRemoveText.storyName =
+    'Default: buttonLabel and removeText'
 
 export const DefaultPlaceholder = () => (
     <FileInputFieldWithList multiple onChange={onChange} name="upload" />
 )
-
-DefaultPlaceholder.story = {
-    name: 'Default: placeholder',
-}
+DefaultPlaceholder.storyName = 'Default: placeholder'

@@ -47,10 +47,7 @@ export const WithLabel = () => (
         </FieldGroup>
     </>
 )
-
-WithLabel.story = {
-    name: 'With label',
-}
+WithLabel.storyName = 'With label'
 
 export const HelpAndValidationTexts = () => (
     <>
@@ -90,7 +87,4 @@ export const HelpAndValidationTexts = () => (
         </FieldGroup>
     </>
 )
-
-HelpAndValidationTexts.story = {
-    name: 'Help and validation texts',
-}
+HelpAndValidationTexts.storyName = 'Help and validation texts'

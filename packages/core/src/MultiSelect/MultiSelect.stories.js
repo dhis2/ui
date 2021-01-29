@@ -27,10 +27,7 @@ export const WithOptions = () => (
         <MultiSelectOption value="3" label="option three" />
     </MultiSelect>
 )
-
-WithOptions.story = {
-    name: 'With options',
-}
+WithOptions.storyName = 'With options'
 
 export const WithOptionsAndOnChange = () => (
     <MultiSelect
@@ -43,10 +40,7 @@ export const WithOptionsAndOnChange = () => (
         <MultiSelectOption value="3" label="option three" />
     </MultiSelect>
 )
-
-WithOptionsAndOnChange.story = {
-    name: 'With options and onChange',
-}
+WithOptionsAndOnChange.storyName = 'With options and onChange'
 
 export const WithOnFocus = () => (
     <MultiSelect className="select" onFocus={window.onFocus}>
@@ -55,10 +49,7 @@ export const WithOnFocus = () => (
         <MultiSelectOption value="3" label="option three" />
     </MultiSelect>
 )
-
-WithOnFocus.story = {
-    name: 'With onFocus',
-}
+WithOnFocus.storyName = 'With onFocus'
 
 export const WithOnBlur = () => (
     <MultiSelect className="select" onBlur={window.onBlur}>
@@ -67,10 +58,7 @@ export const WithOnBlur = () => (
         <MultiSelectOption value="3" label="option three" />
     </MultiSelect>
 )
-
-WithOnBlur.story = {
-    name: 'With onBlur',
-}
+WithOnBlur.storyName = 'With onBlur'
 
 export const WithCustomOptionsAndOnChange = () => (
     <MultiSelect className="select" onChange={window.onChange}>
@@ -79,10 +67,7 @@ export const WithCustomOptionsAndOnChange = () => (
         <CustomMultiSelectOption value="3" label="option three" />
     </MultiSelect>
 )
-
-WithCustomOptionsAndOnChange.story = {
-    name: 'With custom options and onChange',
-}
+WithCustomOptionsAndOnChange.storyName = 'With custom options and onChange'
 
 export const WithInvalidOptions = () => (
     <MultiSelect className="select">
@@ -97,10 +82,7 @@ export const WithInvalidOptions = () => (
         {false}
     </MultiSelect>
 )
-
-WithInvalidOptions.story = {
-    name: 'With invalid options',
-}
+WithInvalidOptions.storyName = 'With invalid options'
 
 export const WithInvalidFilterableOptions = () => (
     <MultiSelect filterable className="select" noMatchText="No match">
@@ -112,28 +94,19 @@ export const WithInvalidFilterableOptions = () => (
         <MultiSelectOption value="3" label="option three" />
     </MultiSelect>
 )
-
-WithInvalidFilterableOptions.story = {
-    name: 'With invalid filterable options',
-}
+WithInvalidFilterableOptions.storyName = 'With invalid filterable options'
 
 export const WithInitialFocus = () => (
     <MultiSelect className="select" initialFocus />
 )
-
-WithInitialFocus.story = {
-    name: 'With initialFocus',
-}
+WithInitialFocus.storyName = 'With initialFocus'
 
 export const Empty = () => <MultiSelect className="select" />
 
 export const EmptyWithEmptyText = () => (
     <MultiSelect className="select" empty="Custom empty text" />
 )
-
-EmptyWithEmptyText.story = {
-    name: 'Empty with empty text',
-}
+EmptyWithEmptyText.storyName = 'Empty with empty text'
 
 export const EmptyWithEmptyComponent = () => (
     <MultiSelect
@@ -141,10 +114,7 @@ export const EmptyWithEmptyComponent = () => (
         empty={<div className="custom-empty">Custom empty component</div>}
     />
 )
-
-EmptyWithEmptyComponent.story = {
-    name: 'Empty with empty component',
-}
+EmptyWithEmptyComponent.storyName = 'Empty with empty component'
 
 export const WithOptionsAndLoading = () => (
     <MultiSelect className="select" loading>
@@ -153,10 +123,7 @@ export const WithOptionsAndLoading = () => (
         <MultiSelectOption value="3" label="option three" />
     </MultiSelect>
 )
-
-WithOptionsAndLoading.story = {
-    name: 'With options and loading',
-}
+WithOptionsAndLoading.storyName = 'With options and loading'
 
 export const WithOptionsLoadingAndLoadingText = () => (
     <MultiSelect className="select" loadingText="Loading options" loading>
@@ -165,10 +132,8 @@ export const WithOptionsLoadingAndLoadingText = () => (
         <MultiSelectOption value="3" label="option three" />
     </MultiSelect>
 )
-
-WithOptionsLoadingAndLoadingText.story = {
-    name: 'With options, loading and loading text',
-}
+WithOptionsLoadingAndLoadingText.storyName =
+    'With options, loading and loading text'
 
 export const WithMoreThanTenOptions = () => (
     <MultiSelect className="select">
@@ -186,10 +151,7 @@ export const WithMoreThanTenOptions = () => (
         <MultiSelectOption value="12" label="option twelve" />
     </MultiSelect>
 )
-
-WithMoreThanTenOptions.story = {
-    name: 'With more than ten options',
-}
+WithMoreThanTenOptions.storyName = 'With more than ten options'
 
 export const WithMoreThanThreeOptionsAndA100PxMaxHeight = () => (
     <MultiSelect className="select" maxHeight="100px">
@@ -207,10 +169,8 @@ export const WithMoreThanThreeOptionsAndA100PxMaxHeight = () => (
         <MultiSelectOption value="12" label="option twelve" />
     </MultiSelect>
 )
-
-WithMoreThanThreeOptionsAndA100PxMaxHeight.story = {
-    name: 'With more than three options and a 100px max-height',
-}
+WithMoreThanThreeOptionsAndA100PxMaxHeight.storyName =
+    'With more than three options and a 100px max-height'
 
 export const WithOptionsASelectionAndDisabled = () => (
     <MultiSelect disabled className="select" selected={['1']}>
@@ -219,10 +179,8 @@ export const WithOptionsASelectionAndDisabled = () => (
         <MultiSelectOption value="3" label="option three" />
     </MultiSelect>
 )
-
-WithOptionsASelectionAndDisabled.story = {
-    name: 'With options, a selection and disabled',
-}
+WithOptionsASelectionAndDisabled.storyName =
+    'With options, a selection and disabled'
 
 export const WithOptionsAndDisabled = () => (
     <MultiSelect disabled className="select">
@@ -231,10 +189,7 @@ export const WithOptionsAndDisabled = () => (
         <MultiSelectOption value="3" label="option three" />
     </MultiSelect>
 )
-
-WithOptionsAndDisabled.story = {
-    name: 'With options and disabled',
-}
+WithOptionsAndDisabled.storyName = 'With options and disabled'
 
 export const WithPrefix = () => (
     <MultiSelect className="select" prefix="Prefix text">
@@ -243,10 +198,7 @@ export const WithPrefix = () => (
         <MultiSelectOption value="3" label="option three" />
     </MultiSelect>
 )
-
-WithPrefix.story = {
-    name: 'With prefix',
-}
+WithPrefix.storyName = 'With prefix'
 
 export const WithPrefixAndSelection = () => (
     <MultiSelect className="select" prefix="Prefix text" selected={['1']}>
@@ -255,10 +207,7 @@ export const WithPrefixAndSelection = () => (
         <MultiSelectOption value="3" label="option three" />
     </MultiSelect>
 )
-
-WithPrefixAndSelection.story = {
-    name: 'With prefix and selection',
-}
+WithPrefixAndSelection.storyName = 'With prefix and selection'
 
 export const WithPlaceholder = () => (
     <MultiSelect className="select" placeholder="Placeholder text">
@@ -267,10 +216,7 @@ export const WithPlaceholder = () => (
         <MultiSelectOption value="3" label="option three" />
     </MultiSelect>
 )
-
-WithPlaceholder.story = {
-    name: 'With placeholder',
-}
+WithPlaceholder.storyName = 'With placeholder'
 
 export const WithPlaceholderAndSelection = () => (
     <MultiSelect
@@ -283,10 +229,7 @@ export const WithPlaceholderAndSelection = () => (
         <MultiSelectOption value="3" label="option three" />
     </MultiSelect>
 )
-
-WithPlaceholderAndSelection.story = {
-    name: 'With placeholder and selection',
-}
+WithPlaceholderAndSelection.storyName = 'With placeholder and selection'
 
 export const WithDisabledOptionAndOnChange = () => (
     <MultiSelect className="select" onChange={window.onChange}>
@@ -296,10 +239,7 @@ export const WithDisabledOptionAndOnChange = () => (
         <MultiSelectOption value="4" label="disabled option" disabled />
     </MultiSelect>
 )
-
-WithDisabledOptionAndOnChange.story = {
-    name: 'With disabled option and onChange',
-}
+WithDisabledOptionAndOnChange.storyName = 'With disabled option and onChange'
 
 export const WithOptionsAndASelection = () => (
     <MultiSelect className="select" selected={['1']}>
@@ -308,10 +248,7 @@ export const WithOptionsAndASelection = () => (
         <MultiSelectOption value="3" label="option three" />
     </MultiSelect>
 )
-
-WithOptionsAndASelection.story = {
-    name: 'With options and a selection',
-}
+WithOptionsAndASelection.storyName = 'With options and a selection'
 
 export const WithOptionsASelectionAndOnChange = () => (
     <MultiSelect className="select" selected={['1']} onChange={window.onChange}>
@@ -320,10 +257,8 @@ export const WithOptionsASelectionAndOnChange = () => (
         <MultiSelectOption value="3" label="option three" />
     </MultiSelect>
 )
-
-WithOptionsASelectionAndOnChange.story = {
-    name: 'With options, a selection and onChange',
-}
+WithOptionsASelectionAndOnChange.storyName =
+    'With options, a selection and onChange'
 
 export const WithOptionsAndMultipleSelections = () => (
     <MultiSelect className="select" selected={['1', '2']}>
@@ -332,10 +267,8 @@ export const WithOptionsAndMultipleSelections = () => (
         <MultiSelectOption value="3" label="option three" />
     </MultiSelect>
 )
-
-WithOptionsAndMultipleSelections.story = {
-    name: 'With options and multiple selections',
-}
+WithOptionsAndMultipleSelections.storyName =
+    'With options and multiple selections'
 
 export const WithClearButtonSelectionAndOnChange = () => (
     <MultiSelect
@@ -350,10 +283,8 @@ export const WithClearButtonSelectionAndOnChange = () => (
         <MultiSelectOption value="3" label="option three" />
     </MultiSelect>
 )
-
-WithClearButtonSelectionAndOnChange.story = {
-    name: 'With clear button, selection and onChange',
-}
+WithClearButtonSelectionAndOnChange.storyName =
+    'With clear button, selection and onChange'
 
 export const WithFilterField = () => (
     <MultiSelect filterable noMatchText="No match found" className="select">
@@ -362,10 +293,7 @@ export const WithFilterField = () => (
         <MultiSelectOption value="3" label="option three" />
     </MultiSelect>
 )
-
-WithFilterField.story = {
-    name: 'With filter field',
-}
+WithFilterField.storyName = 'With filter field'
 
 export const DefaultPosition = () => (
     <>
@@ -390,10 +318,7 @@ export const DefaultPosition = () => (
         `}</style>
     </>
 )
-
-DefaultPosition.story = {
-    name: 'Default position',
-}
+DefaultPosition.storyName = 'Default position'
 
 export const FlippedPosition = () => (
     <>
@@ -425,10 +350,7 @@ export const FlippedPosition = () => (
         `}</style>
     </>
 )
-
-FlippedPosition.story = {
-    name: 'Flipped position',
-}
+FlippedPosition.storyName = 'Flipped position'
 
 export const ShiftedIntoView = () => (
     <>
@@ -460,7 +382,4 @@ export const ShiftedIntoView = () => (
         `}</style>
     </>
 )
-
-ShiftedIntoView.story = {
-    name: 'Shifted into view',
-}
+ShiftedIntoView.storyName = 'Shifted into view'

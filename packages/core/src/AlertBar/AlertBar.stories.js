@@ -68,10 +68,7 @@ export const AutoHiding = () => (
         </AlertBar>
     </React.Fragment>
 )
-
-AutoHiding.story = {
-    name: 'Auto hiding',
-}
+AutoHiding.storyName = 'Auto hiding'
 
 export const WithActions = () => (
     <AlertBar
@@ -84,10 +81,7 @@ export const WithActions = () => (
         With Actions
     </AlertBar>
 )
-
-WithActions.story = {
-    name: 'With actions',
-}
+WithActions.storyName = 'With actions'
 
 export const Icons = () => (
     <React.Fragment>
@@ -112,7 +106,4 @@ export const TextOverflow = () => (
         </AlertBar>
     </React.Fragment>
 )
-
-TextOverflow.story = {
-    name: 'Text overflow',
-}
+TextOverflow.storyName = 'Text overflow'

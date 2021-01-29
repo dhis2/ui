@@ -36,10 +36,7 @@ export const WithHelpText = () => (
         {options}
     </SingleSelectField>
 )
-
-WithHelpText.story = {
-    name: 'With Help text',
-}
+WithHelpText.storyName = 'With Help text'
 
 export const StatusValid = () => (
     <SingleSelectField
@@ -51,10 +48,7 @@ export const StatusValid = () => (
         {options}
     </SingleSelectField>
 )
-
-StatusValid.story = {
-    name: 'Status: Valid',
-}
+StatusValid.storyName = 'Status: Valid'
 
 export const StatusWarning = () => (
     <SingleSelectField
@@ -66,10 +60,7 @@ export const StatusWarning = () => (
         {options}
     </SingleSelectField>
 )
-
-StatusWarning.story = {
-    name: 'Status: Warning',
-}
+StatusWarning.storyName = 'Status: Warning'
 
 export const StatusError = () => (
     <SingleSelectField
@@ -81,10 +72,7 @@ export const StatusError = () => (
         {options}
     </SingleSelectField>
 )
-
-StatusError.story = {
-    name: 'Status: Error',
-}
+StatusError.storyName = 'Status: Error'
 
 export const Required = () => (
     <SingleSelectField {...defaultProps} required>
@@ -102,10 +90,7 @@ export const InputWidth = () => (
         {options}
     </SingleSelectField>
 )
-
-InputWidth.story = {
-    name: 'Input width',
-}
+InputWidth.storyName = 'Input width'
 
 export const DefaultClearText = () => (
     <SingleSelectField selected="1" clearable>
@@ -116,27 +101,16 @@ export const DefaultClearText = () => (
         />
     </SingleSelectField>
 )
-
-DefaultClearText.story = {
-    name: 'Default: clearText',
-}
+DefaultClearText.storyName = 'Default: clearText'
 
 export const DefaultFilterPlaceholderAndNoMatchText = () => (
     <SingleSelectField filterable />
 )
-
-DefaultFilterPlaceholderAndNoMatchText.story = {
-    name: 'Default: filterPlaceholder and noMatchText',
-}
+DefaultFilterPlaceholderAndNoMatchText.storyName =
+    'Default: filterPlaceholder and noMatchText'
 
 export const DefaultLoadingText = () => <SingleSelectField loading />
-
-DefaultLoadingText.story = {
-    name: 'Default: loadingText',
-}
+DefaultLoadingText.storyName = 'Default: loadingText'
 
 export const DefaultEmpty = () => <SingleSelectField />
-
-DefaultEmpty.story = {
-    name: 'Default: empty',
-}
+DefaultEmpty.storyName = 'Default: empty'

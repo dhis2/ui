@@ -36,10 +36,7 @@ export const WithHelpText = () => (
         {options}
     </MultiSelectField>
 )
-
-WithHelpText.story = {
-    name: 'With Help text',
-}
+WithHelpText.storyName = 'With Help text'
 
 export const StatusValid = () => (
     <MultiSelectField
@@ -51,10 +48,7 @@ export const StatusValid = () => (
         {options}
     </MultiSelectField>
 )
-
-StatusValid.story = {
-    name: 'Status: Valid',
-}
+StatusValid.storyName = 'Status: Valid'
 
 export const StatusWarning = () => (
     <MultiSelectField
@@ -66,10 +60,7 @@ export const StatusWarning = () => (
         {options}
     </MultiSelectField>
 )
-
-StatusWarning.story = {
-    name: 'Status: Warning',
-}
+StatusWarning.storyName = 'Status: Warning'
 
 export const StatusError = () => (
     <MultiSelectField
@@ -81,10 +72,7 @@ export const StatusError = () => (
         {options}
     </MultiSelectField>
 )
-
-StatusError.story = {
-    name: 'Status: Error',
-}
+StatusError.storyName = 'Status: Error'
 
 export const Required = () => (
     <MultiSelectField {...defaultProps} required>
@@ -102,10 +90,7 @@ export const InputWidth = () => (
         {options}
     </MultiSelectField>
 )
-
-InputWidth.story = {
-    name: 'Input width',
-}
+InputWidth.storyName = 'Input width'
 
 export const DefaultClearText = () => (
     <MultiSelectField selected={['1']} clearable>
@@ -116,27 +101,16 @@ export const DefaultClearText = () => (
         />
     </MultiSelectField>
 )
-
-DefaultClearText.story = {
-    name: 'Default: clearText',
-}
+DefaultClearText.storyName = 'Default: clearText'
 
 export const DefaultFilterPlaceholderAndNoMatchText = () => (
     <MultiSelectField filterable />
 )
-
-DefaultFilterPlaceholderAndNoMatchText.story = {
-    name: 'Default: filterPlaceholder and noMatchText',
-}
+DefaultFilterPlaceholderAndNoMatchText.storyName =
+    'Default: filterPlaceholder and noMatchText'
 
 export const DefaultLoadingText = () => <MultiSelectField loading />
-
-DefaultLoadingText.story = {
-    name: 'Default: loadingText',
-}
+DefaultLoadingText.storyName = 'Default: loadingText'
 
 export const DefaultEmpty = () => <MultiSelectField />
-
-DefaultEmpty.story = {
-    name: 'Default: empty',
-}
+DefaultEmpty.storyName = 'Default: empty'

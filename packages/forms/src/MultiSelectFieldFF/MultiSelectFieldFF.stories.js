@@ -42,7 +42,4 @@ export const InitialValue = () => (
         initialValue={initialValue}
     />
 )
-
-InitialValue.story = {
-    name: 'InitialValue',
-}
+InitialValue.storyName = 'InitialValue'

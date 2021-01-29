@@ -50,10 +50,7 @@ export const WithValues = () => (
         validate={hasValue}
     />
 )
-
-WithValues.story = {
-    name: 'With values',
-}
+WithValues.storyName = 'With values'
 
 export const PreventPlaceholder = () => (
     <Field
@@ -63,7 +60,4 @@ export const PreventPlaceholder = () => (
         placeholder=""
     />
 )
-
-PreventPlaceholder.story = {
-    name: 'Prevent placeholder',
-}
+PreventPlaceholder.storyName = 'Prevent placeholder'

@@ -50,7 +50,5 @@ export const UsageExampleARadioButtonGroupWithErrorStatus = () => (
         <Help error>You really have to choose something!</Help>
     </FieldSet>
 )
-
-UsageExampleARadioButtonGroupWithErrorStatus.story = {
-    name: 'Usage example - a radio button group with error status',
-}
+UsageExampleARadioButtonGroupWithErrorStatus.storyName =
+    'Usage example - a radio button group with error status'

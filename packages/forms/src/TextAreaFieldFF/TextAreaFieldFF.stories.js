@@ -50,10 +50,7 @@ export const HelpText = () => (
         helpText="Click to agree"
     />
 )
-
-HelpText.story = {
-    name: 'Help text',
-}
+HelpText.storyName = 'Help text'
 
 export const Statuses = () => (
     <>

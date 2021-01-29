@@ -94,10 +94,7 @@ export const HiddenLabel = () => (
         </StackedTableBody>
     </StackedTable>
 )
-
-HiddenLabel.story = {
-    name: 'Hidden label',
-}
+HiddenLabel.storyName = 'Hidden label'
 
 export const HiddenLabelInCell = () => (
     <StackedTable>
@@ -144,10 +141,7 @@ export const HiddenLabelInCell = () => (
         </StackedTableBody>
     </StackedTable>
 )
-
-HiddenLabelInCell.story = {
-    name: 'Hidden label in cell',
-}
+HiddenLabelInCell.storyName = 'Hidden label in cell'
 
 export const ColspanInHeader = () => (
     <StackedTable>
@@ -176,10 +170,7 @@ export const ColspanInHeader = () => (
         </StackedTableBody>
     </StackedTable>
 )
-
-ColspanInHeader.story = {
-    name: 'Colspan in header',
-}
+ColspanInHeader.storyName = 'Colspan in header'
 
 export const ColspanInBody = () => (
     <StackedTable>
@@ -222,10 +213,7 @@ export const ColspanInBody = () => (
         </StackedTableBody>
     </StackedTable>
 )
-
-ColspanInBody.story = {
-    name: 'Colspan in body',
-}
+ColspanInBody.storyName = 'Colspan in body'
 
 export const MultipleHeaderRows = () => (
     <StackedTable>
@@ -259,10 +247,7 @@ export const MultipleHeaderRows = () => (
         </StackedTableBody>
     </StackedTable>
 )
-
-MultipleHeaderRows.story = {
-    name: 'Multiple header rows',
-}
+MultipleHeaderRows.storyName = 'Multiple header rows'
 
 export const LongTitle = () => (
     <StackedTable>
@@ -291,10 +276,7 @@ export const LongTitle = () => (
         </StackedTableBody>
     </StackedTable>
 )
-
-LongTitle.story = {
-    name: 'Long title',
-}
+LongTitle.storyName = 'Long title'
 
 export const _CustomCell = () => (
     <StackedTable>
@@ -313,10 +295,7 @@ export const _CustomCell = () => (
         </StackedTableBody>
     </StackedTable>
 )
-
-_CustomCell.story = {
-    name: 'Custom cell',
-}
+_CustomCell.storyName = 'Custom cell'
 
 export const CustomCellTitle = () => (
     <StackedTable>
@@ -337,10 +316,7 @@ export const CustomCellTitle = () => (
         </StackedTableBody>
     </StackedTable>
 )
-
-CustomCellTitle.story = {
-    name: 'Custom cell title',
-}
+CustomCellTitle.storyName = 'Custom cell title'
 
 export const LargerTable = () => (
     <StackedTable>
@@ -467,7 +443,4 @@ export const LargerTable = () => (
         </StackedTableFoot>
     </StackedTable>
 )
-
-LargerTable.story = {
-    name: 'Larger table',
-}
+LargerTable.storyName = 'Larger table'

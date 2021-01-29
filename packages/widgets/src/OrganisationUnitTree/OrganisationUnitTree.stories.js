@@ -208,10 +208,7 @@ export const MultipleRoots = () => (
         initiallyExpanded={['/A0000000000/A0000000001']}
     />
 )
-
-MultipleRoots.story = {
-    name: 'Multiple roots',
-}
+MultipleRoots.storyName = 'Multiple roots'
 
 export const FilteredRoot = () => (
     <OrganisationUnitTree
@@ -222,10 +219,7 @@ export const FilteredRoot = () => (
         filter={['/A0000000000']}
     />
 )
-
-FilteredRoot.story = {
-    name: 'Filtered (root)',
-}
+FilteredRoot.storyName = 'Filtered (root)'
 
 export const Filtered = () => (
     <OrganisationUnitTree
@@ -249,10 +243,7 @@ export const SelectedMultiple = () => (
         initiallyExpanded={['/A0000000000', '/A0000000000/A0000000001']}
     />
 )
-
-SelectedMultiple.story = {
-    name: 'Selected multiple',
-}
+SelectedMultiple.storyName = 'Selected multiple'
 
 export const Indeterminate = () => (
     <OrganisationUnitTree
@@ -274,10 +265,7 @@ export const SingleSelection = () => (
         initiallyExpanded={['/A0000000000']}
     />
 )
-
-SingleSelection.story = {
-    name: 'Single selection',
-}
+SingleSelection.storyName = 'Single selection'
 
 export const NoSelection = () => (
     <OrganisationUnitTree
@@ -289,10 +277,7 @@ export const NoSelection = () => (
         initiallyExpanded={['/A0000000000']}
     />
 )
-
-NoSelection.story = {
-    name: 'No selection',
-}
+NoSelection.storyName = 'No selection'
 
 export const Highlighted = () => (
     <OrganisationUnitTree
@@ -305,22 +290,13 @@ export const Highlighted = () => (
 )
 
 export const _ForceReloadAll = () => <ForceReloadAll delay={2000} />
-
-_ForceReloadAll.story = {
-    name: 'Force reload all',
-}
+_ForceReloadAll.storyName = 'Force reload all'
 
 export const ForceReloadOneUnit = () => <ForceReloadIds delay={2000} />
-
-ForceReloadOneUnit.story = {
-    name: 'Force reload one unit',
-}
+ForceReloadOneUnit.storyName = 'Force reload one unit'
 
 export const _ReplaceRoots = () => <ReplaceRoots delay={1000} />
-
-_ReplaceRoots.story = {
-    name: 'Replace roots',
-}
+_ReplaceRoots.storyName = 'Replace roots'
 
 export const Loading = () => (
     <CustomDataProvider
@@ -358,10 +334,7 @@ export const RootLoading = () => (
         </fieldset>
     </CustomDataProvider>
 )
-
-RootLoading.story = {
-    name: 'Root loading',
-}
+RootLoading.storyName = 'Root loading'
 
 export const RootError = () => (
     <CustomDataProvider
@@ -388,10 +361,7 @@ export const RootError = () => (
         </fieldset>
     </CustomDataProvider>
 )
-
-RootError.story = {
-    name: 'Root error',
-}
+RootError.storyName = 'Root error'
 
 export const LoadingErrorGrandchild = () => (
     <CustomDataProvider
@@ -413,10 +383,7 @@ export const LoadingErrorGrandchild = () => (
         />
     </CustomDataProvider>
 )
-
-LoadingErrorGrandchild.story = {
-    name: 'Loading error grandchild',
-}
+LoadingErrorGrandchild.storyName = 'Loading error grandchild'
 
 const DX_onChange = (selected, setSelected, singleSelection) => ({
     id,
@@ -456,22 +423,13 @@ const Wrapper = props => {
 }
 
 export const DxMultiSelection = () => <Wrapper />
-
-DxMultiSelection.story = {
-    name: 'DX: Multi selection',
-}
+DxMultiSelection.storyName = 'DX: Multi selection'
 
 export const DxSingleSelection = () => <Wrapper singleSelection />
-
-DxSingleSelection.story = {
-    name: 'DX: Single selection',
-}
+DxSingleSelection.storyName = 'DX: Single selection'
 
 export const DxNoSelection = () => <Wrapper disableSelection />
-
-DxNoSelection.story = {
-    name: 'DX: No selection',
-}
+DxNoSelection.storyName = 'DX: No selection'
 
 export const DxWithRealBackend = () => (
     <div>
@@ -510,7 +468,4 @@ export const DxWithRealBackend = () => (
         </DataProvider>
     </div>
 )
-
-DxWithRealBackend.story = {
-    name: 'DX: With real backend',
-}
+DxWithRealBackend.storyName = 'DX: With real backend'

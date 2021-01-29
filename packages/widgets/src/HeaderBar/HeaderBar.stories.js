@@ -172,10 +172,7 @@ export const CustomLogoWideDimension = () => (
         </CustomDataProvider>
     </Provider>
 )
-
-CustomLogoWideDimension.story = {
-    name: 'Custom Logo (wide dimension)',
-}
+CustomLogoWideDimension.storyName = 'Custom Logo (wide dimension)'
 
 export const NonEnglishUserLocale = () => (
     <Provider config={mockConfig}>
@@ -184,10 +181,7 @@ export const NonEnglishUserLocale = () => (
         </CustomDataProvider>
     </Provider>
 )
-
-NonEnglishUserLocale.story = {
-    name: 'Non-english user locale',
-}
+NonEnglishUserLocale.storyName = 'Non-english user locale'
 
 export const NoAuthorityForInterpretationsApp = () => (
     <Provider config={mockConfig}>
@@ -196,10 +190,8 @@ export const NoAuthorityForInterpretationsApp = () => (
         </CustomDataProvider>
     </Provider>
 )
-
-NoAuthorityForInterpretationsApp.story = {
-    name: 'No authority for interpretations app',
-}
+NoAuthorityForInterpretationsApp.storyName =
+    'No authority for interpretations app'
 
 export const Loading = () => (
     <Provider config={mockConfig}>
@@ -208,10 +200,7 @@ export const Loading = () => (
         </CustomDataProvider>
     </Provider>
 )
-
-Loading.story = {
-    name: 'Loading...',
-}
+Loading.storyName = 'Loading...'
 
 export const Error = () => (
     <Provider config={mockConfig}>
@@ -220,7 +209,4 @@ export const Error = () => (
         </CustomDataProvider>
     </Provider>
 )
-
-Error.story = {
-    name: 'Error!',
-}
+Error.storyName = 'Error!'

@@ -27,10 +27,7 @@ export const FocusedUnchecked = () => (
         onChange={logger}
     />
 )
-
-FocusedUnchecked.story = {
-    name: 'Focused unchecked',
-}
+FocusedUnchecked.storyName = 'Focused unchecked'
 
 export const FocusedChecked = () => (
     <CheckboxField
@@ -42,10 +39,7 @@ export const FocusedChecked = () => (
         onChange={logger}
     />
 )
-
-FocusedChecked.story = {
-    name: 'Focused checked',
-}
+FocusedChecked.storyName = 'Focused checked'
 
 export const Checked = () => (
     <CheckboxField
@@ -107,10 +101,7 @@ export const HelpText = () => (
         />
     </>
 )
-
-HelpText.story = {
-    name: 'Help text',
-}
+HelpText.storyName = 'Help text'
 
 export const Valid = () => (
     <>
@@ -186,10 +177,7 @@ export const ImageLabel = () => (
         onChange={logger}
     />
 )
-
-ImageLabel.story = {
-    name: 'Image label',
-}
+ImageLabel.storyName = 'Image label'
 
 export const DefaultDense = () => (
     <CheckboxField
@@ -200,10 +188,7 @@ export const DefaultDense = () => (
         onChange={logger}
     />
 )
-
-DefaultDense.story = {
-    name: 'Default - Dense',
-}
+DefaultDense.storyName = 'Default - Dense'
 
 export const FocusedUncheckedDense = () => (
     <CheckboxField
@@ -215,10 +200,7 @@ export const FocusedUncheckedDense = () => (
         onChange={logger}
     />
 )
-
-FocusedUncheckedDense.story = {
-    name: 'Focused unchecked - Dense',
-}
+FocusedUncheckedDense.storyName = 'Focused unchecked - Dense'
 
 export const FocusedCheckedDense = () => (
     <CheckboxField
@@ -231,10 +213,7 @@ export const FocusedCheckedDense = () => (
         onChange={logger}
     />
 )
-
-FocusedCheckedDense.story = {
-    name: 'Focused checked - Dense',
-}
+FocusedCheckedDense.storyName = 'Focused checked - Dense'
 
 export const CheckedDense = () => (
     <CheckboxField
@@ -246,10 +225,7 @@ export const CheckedDense = () => (
         onChange={logger}
     />
 )
-
-CheckedDense.story = {
-    name: 'Checked - Dense',
-}
+CheckedDense.storyName = 'Checked - Dense'
 
 export const RequiredDense = () => (
     <CheckboxField
@@ -261,10 +237,7 @@ export const RequiredDense = () => (
         onChange={logger}
     />
 )
-
-RequiredDense.story = {
-    name: 'Required - Dense',
-}
+RequiredDense.storyName = 'Required - Dense'
 
 export const DisabledDense = () => (
     <>
@@ -287,10 +260,7 @@ export const DisabledDense = () => (
         />
     </>
 )
-
-DisabledDense.story = {
-    name: 'Disabled - Dense',
-}
+DisabledDense.storyName = 'Disabled - Dense'
 
 export const ValidDense = () => (
     <>
@@ -315,10 +285,7 @@ export const ValidDense = () => (
         />
     </>
 )
-
-ValidDense.story = {
-    name: 'Valid - Dense',
-}
+ValidDense.storyName = 'Valid - Dense'
 
 export const WarningDense = () => (
     <>
@@ -343,10 +310,7 @@ export const WarningDense = () => (
         />
     </>
 )
-
-WarningDense.story = {
-    name: 'Warning - Dense',
-}
+WarningDense.storyName = 'Warning - Dense'
 
 export const ErrorDense = () => (
     <>
@@ -371,10 +335,7 @@ export const ErrorDense = () => (
         />
     </>
 )
-
-ErrorDense.story = {
-    name: 'Error - Dense',
-}
+ErrorDense.storyName = 'Error - Dense'
 
 export const ImageLabelDense = () => (
     <CheckboxField
@@ -385,7 +346,4 @@ export const ImageLabelDense = () => (
         onChange={logger}
     />
 )
-
-ImageLabelDense.story = {
-    name: 'Image label - Dense',
-}
+ImageLabelDense.storyName = 'Image label - Dense'

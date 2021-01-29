@@ -27,10 +27,7 @@ export const WithOptions = () => (
         <SingleSelectOption value="3" label="option three" />
     </SingleSelect>
 )
-
-WithOptions.story = {
-    name: 'With options',
-}
+WithOptions.storyName = 'With options'
 
 export const WithOptionsAndOnChange = () => (
     <SingleSelect className="select" onChange={window.onChange}>
@@ -39,10 +36,7 @@ export const WithOptionsAndOnChange = () => (
         <SingleSelectOption value="3" label="option three" />
     </SingleSelect>
 )
-
-WithOptionsAndOnChange.story = {
-    name: 'With options and onChange',
-}
+WithOptionsAndOnChange.storyName = 'With options and onChange'
 
 export const WithOnFocus = () => (
     <SingleSelect className="select" onFocus={window.onFocus}>
@@ -51,10 +45,7 @@ export const WithOnFocus = () => (
         <SingleSelectOption value="3" label="option three" />
     </SingleSelect>
 )
-
-WithOnFocus.story = {
-    name: 'With onFocus',
-}
+WithOnFocus.storyName = 'With onFocus'
 
 export const WithOnBlur = () => (
     <SingleSelect className="select" onBlur={window.onBlur}>
@@ -63,10 +54,7 @@ export const WithOnBlur = () => (
         <SingleSelectOption value="3" label="option three" />
     </SingleSelect>
 )
-
-WithOnBlur.story = {
-    name: 'With onBlur',
-}
+WithOnBlur.storyName = 'With onBlur'
 
 export const WithCustomOptionsAndOnChange = () => (
     <SingleSelect className="select" onChange={window.onChange}>
@@ -75,10 +63,7 @@ export const WithCustomOptionsAndOnChange = () => (
         <CustomSingleSelectOption value="3" label="option three" />
     </SingleSelect>
 )
-
-WithCustomOptionsAndOnChange.story = {
-    name: 'With custom options and onChange',
-}
+WithCustomOptionsAndOnChange.storyName = 'With custom options and onChange'
 
 export const WithInvalidOptions = () => (
     <SingleSelect className="select">
@@ -93,10 +78,7 @@ export const WithInvalidOptions = () => (
         {false}
     </SingleSelect>
 )
-
-WithInvalidOptions.story = {
-    name: 'With invalid options',
-}
+WithInvalidOptions.storyName = 'With invalid options'
 
 export const WithInvalidFilterableOptions = () => (
     <SingleSelect filterable className="select" noMatchText="No match">
@@ -108,28 +90,19 @@ export const WithInvalidFilterableOptions = () => (
         <SingleSelectOption value="3" label="option three" />
     </SingleSelect>
 )
-
-WithInvalidFilterableOptions.story = {
-    name: 'With invalid filterable options',
-}
+WithInvalidFilterableOptions.storyName = 'With invalid filterable options'
 
 export const WithInitialFocus = () => (
     <SingleSelect className="select" initialFocus />
 )
-
-WithInitialFocus.story = {
-    name: 'With initialFocus',
-}
+WithInitialFocus.storyName = 'With initialFocus'
 
 export const Empty = () => <SingleSelect className="select" />
 
 export const EmptyWithEmptyText = () => (
     <SingleSelect className="select" empty="Custom empty text" />
 )
-
-EmptyWithEmptyText.story = {
-    name: 'Empty with empty text',
-}
+EmptyWithEmptyText.storyName = 'Empty with empty text'
 
 export const EmptyWithEmptyComponent = () => (
     <SingleSelect
@@ -137,10 +110,7 @@ export const EmptyWithEmptyComponent = () => (
         empty={<div className="custom-empty">Custom empty component</div>}
     />
 )
-
-EmptyWithEmptyComponent.story = {
-    name: 'Empty with empty component',
-}
+EmptyWithEmptyComponent.storyName = 'Empty with empty component'
 
 export const WithOptionsAndLoading = () => (
     <SingleSelect className="select" loading>
@@ -149,10 +119,7 @@ export const WithOptionsAndLoading = () => (
         <SingleSelectOption value="3" label="option three" />
     </SingleSelect>
 )
-
-WithOptionsAndLoading.story = {
-    name: 'With options and loading',
-}
+WithOptionsAndLoading.storyName = 'With options and loading'
 
 export const WithOptionsLoadingAndLoadingText = () => (
     <SingleSelect className="select" loadingText="Loading options" loading>
@@ -161,10 +128,8 @@ export const WithOptionsLoadingAndLoadingText = () => (
         <SingleSelectOption value="3" label="option three" />
     </SingleSelect>
 )
-
-WithOptionsLoadingAndLoadingText.story = {
-    name: 'With options, loading and loading text',
-}
+WithOptionsLoadingAndLoadingText.storyName =
+    'With options, loading and loading text'
 
 export const WithMoreThanTenOptions = () => (
     <SingleSelect className="select">
@@ -182,10 +147,7 @@ export const WithMoreThanTenOptions = () => (
         <SingleSelectOption value="12" label="option twelve" />
     </SingleSelect>
 )
-
-WithMoreThanTenOptions.story = {
-    name: 'With more than ten options',
-}
+WithMoreThanTenOptions.storyName = 'With more than ten options'
 
 export const WithMoreThanThreeOptionsAndA100PxMaxHeight = () => (
     <SingleSelect className="select" maxHeight="100px">
@@ -203,10 +165,8 @@ export const WithMoreThanThreeOptionsAndA100PxMaxHeight = () => (
         <SingleSelectOption value="12" label="option twelve" />
     </SingleSelect>
 )
-
-WithMoreThanThreeOptionsAndA100PxMaxHeight.story = {
-    name: 'With more than three options and a 100px max-height',
-}
+WithMoreThanThreeOptionsAndA100PxMaxHeight.storyName =
+    'With more than three options and a 100px max-height'
 
 export const WithOptionsASelectionAndDisabled = () => (
     <SingleSelect disabled className="select" selected="1">
@@ -215,10 +175,8 @@ export const WithOptionsASelectionAndDisabled = () => (
         <SingleSelectOption value="3" label="option three" />
     </SingleSelect>
 )
-
-WithOptionsASelectionAndDisabled.story = {
-    name: 'With options, a selection and disabled',
-}
+WithOptionsASelectionAndDisabled.storyName =
+    'With options, a selection and disabled'
 
 export const WithOptionsAndDisabled = () => (
     <SingleSelect disabled className="select">
@@ -227,10 +185,7 @@ export const WithOptionsAndDisabled = () => (
         <SingleSelectOption value="3" label="option three" />
     </SingleSelect>
 )
-
-WithOptionsAndDisabled.story = {
-    name: 'With options and disabled',
-}
+WithOptionsAndDisabled.storyName = 'With options and disabled'
 
 export const WithPrefix = () => (
     <SingleSelect className="select" prefix="Prefix text">
@@ -239,10 +194,7 @@ export const WithPrefix = () => (
         <SingleSelectOption value="3" label="option three" />
     </SingleSelect>
 )
-
-WithPrefix.story = {
-    name: 'With prefix',
-}
+WithPrefix.storyName = 'With prefix'
 
 export const WithPrefixAndSelection = () => (
     <SingleSelect className="select" prefix="Prefix text" selected="1">
@@ -251,10 +203,7 @@ export const WithPrefixAndSelection = () => (
         <SingleSelectOption value="3" label="option three" />
     </SingleSelect>
 )
-
-WithPrefixAndSelection.story = {
-    name: 'With prefix and selection',
-}
+WithPrefixAndSelection.storyName = 'With prefix and selection'
 
 export const WithPlaceholder = () => (
     <SingleSelect className="select" placeholder="Placeholder text">
@@ -263,10 +212,7 @@ export const WithPlaceholder = () => (
         <SingleSelectOption value="3" label="option three" />
     </SingleSelect>
 )
-
-WithPlaceholder.story = {
-    name: 'With placeholder',
-}
+WithPlaceholder.storyName = 'With placeholder'
 
 export const WithPlaceholderAndSelection = () => (
     <SingleSelect
@@ -279,10 +225,7 @@ export const WithPlaceholderAndSelection = () => (
         <SingleSelectOption value="3" label="option three" />
     </SingleSelect>
 )
-
-WithPlaceholderAndSelection.story = {
-    name: 'With placeholder and selection',
-}
+WithPlaceholderAndSelection.storyName = 'With placeholder and selection'
 
 export const WithDisabledOptionAndOnChange = () => (
     <SingleSelect className="select" onChange={window.onChange}>
@@ -292,10 +235,7 @@ export const WithDisabledOptionAndOnChange = () => (
         <SingleSelectOption value="4" label="disabled option" disabled />
     </SingleSelect>
 )
-
-WithDisabledOptionAndOnChange.story = {
-    name: 'With disabled option and onChange',
-}
+WithDisabledOptionAndOnChange.storyName = 'With disabled option and onChange'
 
 export const WithOptionsAndASelection = () => (
     <SingleSelect className="select" selected="1">
@@ -304,10 +244,7 @@ export const WithOptionsAndASelection = () => (
         <SingleSelectOption value="3" label="option three" />
     </SingleSelect>
 )
-
-WithOptionsAndASelection.story = {
-    name: 'With options and a selection',
-}
+WithOptionsAndASelection.storyName = 'With options and a selection'
 
 export const WithOptionsASelectionAndOnChange = () => (
     <SingleSelect className="select" selected="1" onChange={window.onChange}>
@@ -316,10 +253,8 @@ export const WithOptionsASelectionAndOnChange = () => (
         <SingleSelectOption value="3" label="option three" />
     </SingleSelect>
 )
-
-WithOptionsASelectionAndOnChange.story = {
-    name: 'With options, a selection and onChange',
-}
+WithOptionsASelectionAndOnChange.storyName =
+    'With options, a selection and onChange'
 
 export const WithClearButtonSelectionAndOnChange = () => (
     <SingleSelect
@@ -334,10 +269,8 @@ export const WithClearButtonSelectionAndOnChange = () => (
         <SingleSelectOption value="3" label="option three" />
     </SingleSelect>
 )
-
-WithClearButtonSelectionAndOnChange.story = {
-    name: 'With clear button, selection and onChange',
-}
+WithClearButtonSelectionAndOnChange.storyName =
+    'With clear button, selection and onChange'
 
 export const WithFilterField = () => (
     <SingleSelect filterable noMatchText="No match found" className="select">
@@ -346,10 +279,7 @@ export const WithFilterField = () => (
         <SingleSelectOption value="3" label="option three" />
     </SingleSelect>
 )
-
-WithFilterField.story = {
-    name: 'With filter field',
-}
+WithFilterField.storyName = 'With filter field'
 
 export const DefaultPosition = () => (
     <>
@@ -374,10 +304,7 @@ export const DefaultPosition = () => (
         `}</style>
     </>
 )
-
-DefaultPosition.story = {
-    name: 'Default position',
-}
+DefaultPosition.storyName = 'Default position'
 
 export const FlippedPosition = () => (
     <>
@@ -409,10 +336,7 @@ export const FlippedPosition = () => (
         `}</style>
     </>
 )
-
-FlippedPosition.story = {
-    name: 'Flipped position',
-}
+FlippedPosition.storyName = 'Flipped position'
 
 export const ShiftedIntoView = () => (
     <>
@@ -444,7 +368,4 @@ export const ShiftedIntoView = () => (
         `}</style>
     </>
 )
-
-ShiftedIntoView.story = {
-    name: 'Shifted into view',
-}
+ShiftedIntoView.storyName = 'Shifted into view'

@@ -43,10 +43,7 @@ export const PlaceholderNoValue = () => (
         placeholder="Hold the place"
     />
 )
-
-PlaceholderNoValue.story = {
-    name: 'Placeholder, no value',
-}
+PlaceholderNoValue.storyName = 'Placeholder, no value'
 
 export const WithValue = () => (
     <TextArea
@@ -57,10 +54,7 @@ export const WithValue = () => (
         value="This is set through the value prop, which means the component is controlled."
     />
 )
-
-WithValue.story = {
-    name: 'With value',
-}
+WithValue.storyName = 'With value'
 
 export const Focus = () => (
     <>
@@ -92,10 +86,7 @@ export const StatusValid = () => (
         valid
     />
 )
-
-StatusValid.story = {
-    name: 'Status: Valid',
-}
+StatusValid.storyName = 'Status: Valid'
 
 export const StatusWarning = () => (
     <TextArea
@@ -107,10 +98,7 @@ export const StatusWarning = () => (
         warning
     />
 )
-
-StatusWarning.story = {
-    name: 'Status: Warning',
-}
+StatusWarning.storyName = 'Status: Warning'
 
 export const StatusError = () => (
     <TextArea
@@ -124,10 +112,7 @@ export const StatusError = () => (
         validationText="This describes the error, if a message is supplied."
     />
 )
-
-StatusError.story = {
-    name: 'Status: Error',
-}
+StatusError.storyName = 'Status: Error'
 
 export const StatusLoading = () => (
     <TextArea
@@ -139,10 +124,7 @@ export const StatusLoading = () => (
         loading
     />
 )
-
-StatusLoading.story = {
-    name: 'Status: Loading',
-}
+StatusLoading.storyName = 'Status: Loading'
 
 export const Disabled = () => (
     <TextArea
@@ -165,10 +147,7 @@ export const ReadOnly = () => (
         readOnly
     />
 )
-
-ReadOnly.story = {
-    name: 'Read only',
-}
+ReadOnly.storyName = 'Read only'
 
 export const Dense = () => (
     <TextArea
@@ -207,10 +186,7 @@ export const TextareaTextOverflow = () => (
         ].join('\n')}
     />
 )
-
-TextareaTextOverflow.story = {
-    name: 'Textarea text overflow',
-}
+TextareaTextOverflow.storyName = 'Textarea text overflow'
 
 export const Rows = () => (
     <TextArea
