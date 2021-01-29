@@ -1,7 +1,11 @@
-import propTypes from '@dhis2/prop-types'
-import { layers, spacers, spacersNum } from '@dhis2/ui-constants'
-import { sharedPropTypes } from '@dhis2/ui-constants'
+import {
+    layers,
+    spacers,
+    spacersNum,
+    sharedPropTypes,
+} from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { resolve } from 'styled-jsx/css'
 import { Card } from '../Card/Card.js'
@@ -112,12 +116,12 @@ Modal.defaultProps = {
  * @prop {string} [dataTest]
  */
 Modal.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
     large: sharedPropTypes.sizePropType,
     position: sharedPropTypes.insideAlignmentPropType,
     small: sharedPropTypes.sizePropType,
     // Callback used when clicking on the screen cover
-    onClose: propTypes.func,
+    onClose: PropTypes.func,
 }
