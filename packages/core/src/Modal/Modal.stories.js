@@ -22,10 +22,21 @@ const onClose = (...args) => window.onClose(...args)
 export default {
     title: 'Modal',
     component: Modal,
+    parameters: {
+        docs: {
+            // Use iframes to contain modals in docs page (otherwise chaos ensues)
+            inlineStories: false,
+            iframeHeight: '500px',
+            description: {
+                component: 'These stories may take some time to load.',
+            },
+        },
+    },
+    decorators: [story => <div style={{ minHeight: '500px' }}>{story()}</div>],
 }
 
-export const DefaultContent = () => (
-    <Modal onClose={onClose}>
+export const DefaultContent = args => (
+    <Modal {...args}>
         <ModalContent>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
             nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
@@ -39,7 +50,9 @@ export const DefaultContent = () => (
         </ModalContent>
     </Modal>
 )
-
+DefaultContent.args = {
+    onClose: onClose,
+}
 DefaultContent.story = {
     name: 'Default: Content',
 }
