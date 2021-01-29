@@ -49,9 +49,7 @@ AlertStack.defaultProps = {
  * @prop {string} [dataTest]
  */
 AlertStack.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.element),
+    children: PropTypes.node,
     className: PropTypes.string,
     dataTest: PropTypes.string,
 }
-
-// export { AlertStack }
