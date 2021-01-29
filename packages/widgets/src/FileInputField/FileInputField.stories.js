@@ -13,7 +13,7 @@ const onCancel = () => {
 }
 
 export default {
-    title: 'FileInputField',
+    title: 'Forms/File Input/File Input Field',
     component: FileInputField,
 }
 

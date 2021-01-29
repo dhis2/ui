@@ -2,7 +2,7 @@ import React from 'react'
 import { CenteredContent } from './CenteredContent.js'
 
 export default {
-    title: 'CenteredContent',
+    title: 'Layout/Centered Content',
     component: CenteredContent,
 }
 

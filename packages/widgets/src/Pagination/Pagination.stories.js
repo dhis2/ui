@@ -2,7 +2,7 @@ import React from 'react'
 import * as pagers from './__fixtures__'
 import { Pagination } from './Pagination.js'
 
-export default { title: 'Pagination', component: Pagination }
+export default { title: 'Navigation/Pagination', component: Pagination }
 
 const logOnPageChange = page => {
     console.log(`Now navigate to page ${page}...`)

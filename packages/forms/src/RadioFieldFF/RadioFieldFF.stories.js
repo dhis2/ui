@@ -5,7 +5,7 @@ import { formDecorator } from '../formDecorator.js'
 import { RadioFieldFF } from './RadioFieldFF.js'
 
 export default {
-    title: 'RadioFieldFF',
+    title: 'Forms/Radio/Radio Field (Final Form)',
     component: RadioFieldFF,
     decorators: [formDecorator],
 }

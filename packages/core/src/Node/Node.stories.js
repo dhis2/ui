@@ -34,7 +34,7 @@ const LoadingSpinner = () => (
 )
 
 export default {
-    title: 'Node',
+    title: 'Helpers/Node',
     component: Node,
 }
 

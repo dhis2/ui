@@ -3,7 +3,7 @@ import React, { Component, createRef } from 'react'
 import { Popper } from './Popper.js'
 
 export default {
-    title: 'Popper',
+    title: 'Helpers/Popper',
     component: Popper,
     decorators: [
         storyFN => <BoxWithCenteredReferenceElement renderChildren={storyFN} />,

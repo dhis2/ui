@@ -3,22 +3,24 @@ import { AttachFile } from '../Icons/index.js'
 import { AlertBar } from './AlertBar.js'
 
 const Wrapper = fn => (
-    <div
-        className="alert-bars"
-        style={{
-            width: '100%',
-            position: 'fixed',
-            bottom: 0,
-            left: 0,
-            paddingLeft: 16,
-        }}
-    >
-        {fn()}
+    <div style={{ height: '300px' }}>
+        <div
+            className="alert-bars"
+            style={{
+                width: '100%',
+                position: 'fixed',
+                bottom: 0,
+                left: 0,
+                paddingLeft: 16,
+            }}
+        >
+            {fn()}
+        </div>
     </div>
 )
 
 export default {
-    title: 'AlertBar',
+    title: 'Feedback/Alerts/Alert Bar',
     component: AlertBar,
     decorators: [Wrapper],
 }

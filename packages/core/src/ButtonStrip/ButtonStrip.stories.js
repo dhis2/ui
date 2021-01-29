@@ -15,7 +15,7 @@ const Wrapper = fn => (
 )
 
 export default {
-    title: 'ButtonStrip',
+    title: 'Actions/Buttons/Button Strip',
     component: ButtonStrip,
     decorators: [Wrapper],
 }

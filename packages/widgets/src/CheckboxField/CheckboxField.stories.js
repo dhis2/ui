@@ -5,7 +5,7 @@ const logger = ({ name, value, checked }) =>
     console.info(`name: ${name}, value: ${value}, checked: ${checked}`)
 
 export default {
-    title: 'CheckboxField',
+    title: 'Forms/Checkbox/Checkbox Field',
     component: CheckboxField,
 }
 

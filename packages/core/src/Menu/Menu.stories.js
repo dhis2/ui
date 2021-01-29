@@ -4,7 +4,7 @@ import { MenuSectionHeader } from '../MenuSectionHeader/MenuSectionHeader.js'
 import { Menu } from './Menu.js'
 
 export default {
-    title: 'Menu',
+    title: 'Actions/Menu/Menu',
     component: Menu,
 }
 

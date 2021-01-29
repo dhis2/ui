@@ -3,7 +3,7 @@ import { AlertBar } from '../index.js'
 import { AlertStack } from './AlertStack.js'
 
 export default {
-    title: 'Feedback/Alerts/AlertStack',
+    title: 'Feedback/Alerts/Alert Stack',
     component: AlertStack,
     // Use an iframe in docs to contain 'portal'
     parameters: { docs: { inlineStories: false, iframeHeight: '300px' } },

@@ -5,7 +5,7 @@ import { CssVariables } from './CssVariables.js'
 const App = ({ children }) => <div>{children}</div>
 
 export default {
-    title: 'CssVariables',
+    title: 'Helpers/CSS Variables',
     component: CssVariables,
 }
 

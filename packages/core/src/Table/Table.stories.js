@@ -25,7 +25,7 @@ const TableFooterButton = () => (
 const TableButton = () => <Button primary>Table button</Button>
 
 export default {
-    title: 'Table',
+    title: 'Data Display/Table',
     component: Table,
 }
 

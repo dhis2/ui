@@ -7,7 +7,7 @@ import { FileInputFieldFF } from './FileInputFieldFF.js'
 const files = [new File([], 'file1.txt'), new File([], 'file2.txt')]
 
 export default {
-    title: 'FileInputFieldFF',
+    title: 'FOrms/File Input/File Input Field (Final Form)',
     component: FileInputFieldFF,
     decorators: [formDecorator],
 }

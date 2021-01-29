@@ -5,7 +5,7 @@ import { CssReset } from './CssReset.js'
 const App = ({ children }) => <div>{children}</div>
 
 export default {
-    title: 'CssReset',
+    title: 'Helpers/CSS Reset',
     component: CssReset,
 }
 

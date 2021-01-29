@@ -19,7 +19,7 @@ const options = [
 const initialValue = ['3', '4', '9', '10']
 
 export default {
-    title: 'MultiSelectFieldFF',
+    title: 'Forms/Multi Select/Multi Select Field (Final Form)',
     component: MultiSelectFieldFF,
     decorators: [formDecorator],
 }

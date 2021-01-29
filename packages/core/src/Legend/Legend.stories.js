@@ -2,7 +2,7 @@ import React from 'react'
 import { Legend } from './Legend.js'
 
 export default {
-    title: 'Legend',
+    title: 'Forms/Field Set/Legend',
     component: Legend,
 }
 

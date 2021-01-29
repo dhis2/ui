@@ -18,7 +18,7 @@ const onChange = (payload, event) => {
 }
 
 export default {
-    title: 'FileInput',
+    title: 'Forms/File Input/File Input',
     component: FileInput,
 }
 

@@ -8,7 +8,7 @@ import { Popper } from '../Popper/Popper.js'
 import { FlyoutMenu } from './FlyoutMenu.js'
 
 export default {
-    title: 'FlyoutMenu',
+    title: 'Actions/Menu/Flyout Menu',
     component: FlyoutMenu,
 }
 

@@ -67,7 +67,7 @@ const sizeLimitDecorator = tolerance => fn => {
 }
 
 export default {
-    title: 'IntersectionObserver',
+    title: 'Helpers/Intersection Observer',
     decorators: [sizeLimitDecorator(100)]
 }
 

@@ -2,7 +2,7 @@ import { elevations } from '@dhis2/ui-constants'
 import React, { useRef } from 'react'
 import { Popover } from './Popover.js'
 
-export default { title: 'Popover', component: Popover }
+export default { title: 'Data Display/Popover', component: Popover }
 
 const boxStyle = {
     display: 'flex',

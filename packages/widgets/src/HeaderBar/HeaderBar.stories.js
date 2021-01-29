@@ -153,7 +153,7 @@ const customAuthoritiesData = {
 }
 
 export default {
-    title: 'HeaderBar',
+    title: 'Utils/Header Bar',
     component: HeaderBar,
 }
 

@@ -21,7 +21,7 @@ const onFocus = (...args) => window.onFocus(...args)
 const onBlur = (...args) => window.onBlur(...args)
 
 export default {
-    title: 'Checkbox',
+    title: 'Forms/Checkbox/Checkbox',
     component: Checkbox,
 }
 

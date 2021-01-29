@@ -5,7 +5,7 @@ import { hasValue } from '../validators/index.js'
 import { CheckboxFieldFF } from './CheckboxFieldFF.js'
 
 export default {
-    title: 'CheckboxFieldFF',
+    title: 'Forms/Checkbox/Checkbox Field (Final Form)',
     component: CheckboxFieldFF,
     decorators: [formDecorator],
 }

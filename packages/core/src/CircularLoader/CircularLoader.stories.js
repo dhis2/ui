@@ -2,7 +2,7 @@ import React from 'react'
 import { CircularLoader } from './CircularLoader.js'
 
 export default {
-    title: 'CircularLoader',
+    title: 'Feedback/Loading Indicators/Circular Loader',
     component: CircularLoader,
 }
 

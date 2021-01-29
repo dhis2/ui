@@ -16,7 +16,7 @@ CustomSingleSelectOption.propTypes = {
 }
 
 export default {
-    title: 'SingleSelect',
+    title: 'Forms/Single Select/Single Select',
     component: SingleSelect,
 }
 

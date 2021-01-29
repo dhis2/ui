@@ -5,7 +5,7 @@ import { Menu } from '../Menu/Menu.js'
 import { MenuItem } from './MenuItem.js'
 
 export default {
-    title: 'MenuItem',
+    title: 'Actions/Menu/Menu Item',
     component: MenuItem,
     decorators: [storyFn => <Menu>{storyFn()}</Menu>],
 }

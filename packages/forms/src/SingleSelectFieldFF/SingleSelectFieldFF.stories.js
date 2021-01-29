@@ -17,7 +17,7 @@ const options = [
 ]
 
 export default {
-    title: 'SingleSelectFieldFF',
+    title: 'Forms/Single Select/Single Select Field (Final Form)',
     component: SingleSelectFieldFF,
     decorators: [formDecorator],
 }

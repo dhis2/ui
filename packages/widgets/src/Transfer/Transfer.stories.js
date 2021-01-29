@@ -98,7 +98,7 @@ const options = [
 ]
 
 export default {
-    title: 'Transfer',
+    title: 'Forms/Transfer',
     component: Transfer,
 }
 

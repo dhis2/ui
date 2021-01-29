@@ -23,7 +23,7 @@ const options = [
 ]
 
 export default {
-    title: 'MultiSelectField',
+    title: 'Forms/Multi Select/Multi Select Field',
     component: MultiSelectField,
 }
 

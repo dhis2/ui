@@ -16,7 +16,7 @@ CustomMultiSelectOption.propTypes = {
 }
 
 export default {
-    title: 'MultiSelect',
+    title: 'Forms/Multi Select/Multi Select',
     component: MultiSelect,
 }
 

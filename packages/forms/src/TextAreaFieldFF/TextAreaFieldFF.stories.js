@@ -5,7 +5,7 @@ import { hasValue } from '../validators/index.js'
 import { TextAreaFieldFF } from './TextAreaFieldFF.js'
 
 export default {
-    title: 'TextAreaFieldFF',
+    title: 'Forms/Text Area/Text Area Field (Final Form)',
     component: TextAreaFieldFF,
     decorators: [formDecorator],
 }

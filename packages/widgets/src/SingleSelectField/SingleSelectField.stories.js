@@ -23,7 +23,7 @@ const options = [
 ]
 
 export default {
-    title: 'SingleSelectField',
+    title: 'Forms/Single Select/Single Select Field',
     component: SingleSelectField,
 }
 

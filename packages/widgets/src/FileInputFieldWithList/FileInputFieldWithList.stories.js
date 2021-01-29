@@ -10,7 +10,7 @@ const onChange = ({ files }) => {
 }
 
 export default {
-    title: 'FileInputFieldWithList',
+    title: 'Forms/File Input/File Input Field With List',
     component: FileInputFieldWithList,
 }
 

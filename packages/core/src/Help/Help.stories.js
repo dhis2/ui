@@ -2,7 +2,7 @@ import React from 'react'
 import { Help } from './Help.js'
 
 export default {
-    title: 'Help',
+    title: 'Forms/Help',
     component: Help,
 }
 

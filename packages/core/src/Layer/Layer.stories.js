@@ -3,7 +3,7 @@ import { CircularLoader, CenteredContent } from '../index.js'
 import { Layer } from './Layer.js'
 
 export default {
-    title: 'Layer',
+    title: 'Helpers/Layer',
     component: Layer,
     /**
      * `inlineStories: false` renders these layers in iframes instead of inline.

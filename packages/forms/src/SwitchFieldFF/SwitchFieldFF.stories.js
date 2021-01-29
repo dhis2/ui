@@ -5,7 +5,7 @@ import { hasValue } from '../validators/index.js'
 import { SwitchFieldFF } from './SwitchFieldFF.js'
 
 export default {
-    title: 'SwitchFieldFF',
+    title: 'Forms/Switch/Switch Field (Final Form)',
     component: SwitchFieldFF,
     decorators: [formDecorator],
 }

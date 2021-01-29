@@ -3,7 +3,7 @@ import { Menu } from '../Menu/Menu.js'
 import { MenuSectionHeader } from './MenuSectionHeader.js'
 
 export default {
-    title: 'MenuSectionHeader',
+    title: 'Actions/Menu/Menu Section Header',
     component: MenuSectionHeader,
     decorators: [storyFn => <Menu>{storyFn()}</Menu>],
 }

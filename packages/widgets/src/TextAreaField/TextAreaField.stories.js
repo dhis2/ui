@@ -2,7 +2,7 @@ import React from 'react'
 import { TextAreaField } from './TextAreaField.js'
 
 export default {
-    title: 'TextAreaField',
+    title: 'Forms/Text Area/Text Area Field',
     component: TextAreaField,
 }
 

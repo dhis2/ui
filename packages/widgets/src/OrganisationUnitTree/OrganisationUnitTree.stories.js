@@ -177,7 +177,7 @@ const ReplaceRoots = ({ delay }) => {
 }
 
 export default {
-    title: 'OrganisationUnitTree',
+    title: 'Forms/Organisation Unit Tree',
     component: OrganisationUnitTree,
     decorators: [
         fn => <CustomDataProvider data={customData}>{fn()}</CustomDataProvider>,

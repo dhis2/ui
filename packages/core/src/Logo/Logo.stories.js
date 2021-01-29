@@ -9,7 +9,7 @@ const Background = ({ children }) => (
 )
 
 export default {
-    title: 'Logo',
+    title: 'Utils/Logo',
     component: Logo,
     decorators: [Wrapper],
 }

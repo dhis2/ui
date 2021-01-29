@@ -3,7 +3,7 @@ import React from 'react'
 import { FieldGroup } from './FieldGroup.js'
 
 export default {
-    title: 'FieldGroup',
+    title: 'Forms/Field Group/Field Group',
     component: FieldGroup,
 }
 

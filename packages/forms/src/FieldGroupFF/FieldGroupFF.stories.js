@@ -6,7 +6,7 @@ import { hasValue } from '../validators/index.js'
 import { FieldGroupFF } from './FieldGroupFF.js'
 
 export default {
-    title: 'FieldGroupFF',
+    title: 'Forms/Field Group/Field Group (Final Form)',
     component: FieldGroupFF,
     decorators: [formDecorator],
 }

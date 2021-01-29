@@ -3,7 +3,7 @@ import { Input } from '../index.js'
 import { Field } from './Field.js'
 
 export default {
-    title: 'Field',
+    title: 'Forms/Field',
     component: Field,
 }
 

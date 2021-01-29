@@ -5,7 +5,7 @@ import { hasValue } from '../validators/index.js'
 import { InputFieldFF } from './InputFieldFF.js'
 
 export default {
-    title: 'InputFieldFF',
+    title: 'Forms/Input/Input Field (Final Form)',
     component: InputFieldFF,
     decorators: [formDecorator],
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import { SplitButton } from './SplitButton.js'
 
 export default {
-    title: 'SplitButton',
+    title: 'Actions/Buttons/Split Button',
     component: SplitButton,
 }
 

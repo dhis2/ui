@@ -2,7 +2,7 @@ import React from 'react'
 import { Tooltip } from './Tooltip.js'
 
 export default {
-    title: 'Tooltip',
+    title: 'Data Display/Tooltip',
     component: Tooltip,
     decorators: [
         storyFn => (

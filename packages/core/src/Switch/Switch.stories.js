@@ -21,7 +21,7 @@ const onFocus = (...args) => window.onFocus(...args)
 const onBlur = (...args) => window.onBlur(...args)
 
 export default {
-    title: 'Switch',
+    title: 'Forms/Switch/Switch',
     component: Switch,
 }
 

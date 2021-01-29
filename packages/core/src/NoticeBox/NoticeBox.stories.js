@@ -2,7 +2,7 @@ import React from 'react'
 import { NoticeBox } from './NoticeBox.js'
 
 export default {
-    title: 'NoticeBox',
+    title: 'Data Display/Notice Box',
     component: NoticeBox,
 }
 

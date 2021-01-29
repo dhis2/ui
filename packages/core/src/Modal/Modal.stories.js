@@ -20,7 +20,7 @@ window.onClose = (payload, event) => {
 const onClose = (...args) => window.onClose(...args)
 
 export default {
-    title: 'Modal',
+    title: 'Layout/Modal',
     component: Modal,
     parameters: {
         docs: {

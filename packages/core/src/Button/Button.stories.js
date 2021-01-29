@@ -34,7 +34,7 @@ const DemoIcon = (
 )
 
 export default {
-    title: 'Button',
+    title: 'Actions/Buttons/Button',
     component: Button,
     parameters: {
         componentSubtitle: 'Initiates an action',

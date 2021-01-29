@@ -10,7 +10,7 @@ const props = {
 }
 
 export default {
-    title: 'InputField',
+    title: 'Forms/Input/Input Field',
     component: InputField,
 }
 
