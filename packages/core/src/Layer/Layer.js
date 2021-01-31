@@ -20,6 +20,7 @@ const createClickHandler = onClick => event => {
 const Layer = ({
     children,
     className,
+    disablePortal,
     dataTest,
     onClick,
     position,
@@ -27,7 +28,7 @@ const Layer = ({
     zIndex,
 }) => {
     return (
-        <Portal>
+        <Portal disable={disablePortal}>
             <div
                 className={cx('layer', className, position, {
                     translucent,
@@ -80,6 +81,8 @@ Layer.defaultProps = {
  * @static
  * @prop {string} [className]
  * @prop {Node} [children]
+ * @prop {boolean} [disablePortal] - Disable the Portal, useful for
+ * nesting layers
  * @prop {string} [dataTest=dhis2-uicore-layer]
  * @prop {boolean} [translucent] - When true a semi-transparent background is added
  * @prop {function} [onClick]
@@ -88,6 +91,7 @@ Layer.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
+    disablePortal: propTypes.bool,
     position: propTypes.oneOf(['absolute', 'fixed']),
     translucent: propTypes.bool,
     zIndex: propTypes.oneOfType([propTypes.string, propTypes.number]),

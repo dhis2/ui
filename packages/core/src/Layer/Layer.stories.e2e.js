@@ -39,13 +39,13 @@ export const EqualSiblings = () => (
 
 export const InequalSiblings = () => (
     <>
-        <Layer level={layers.alert} onClick={createNamedLayerClick('alert')} />
+        <Layer zIndex={layers.alert} onClick={createNamedLayerClick('alert')} />
         <Layer
-            level={layers.blocking}
+            zIndex={layers.blocking}
             onClick={createNamedLayerClick('blocking')}
         />
         <Layer
-            level={layers.applicationTop}
+            zIndex={layers.applicationTop}
             onClick={createNamedLayerClick('applicationTop')}
         />
     </>
@@ -53,12 +53,13 @@ export const InequalSiblings = () => (
 
 export const NestedLowerLevels = () => (
     <Layer
-        level={layers.alert}
+        zIndex={layers.alert}
         dataTest="alert"
         onClick={createNamedLayerClick('alert')}
     >
         <Layer
-            level={layers.blocking}
+            zIndex={layers.blocking}
+            disablePortal={true}
             dataTest="blocking"
             onClick={createNamedLayerClick('blocking')}
         />
@@ -67,12 +68,12 @@ export const NestedLowerLevels = () => (
 
 export const NestedHigherLevels = () => (
     <Layer
-        level={layers.blocking}
+        zIndex={layers.blocking}
         dataTest="blocking"
         onClick={createNamedLayerClick('blocking')}
     >
         <Layer
-            level={layers.alert}
+            zIndex={layers.alert}
             dataTest="alert"
             onClick={createNamedLayerClick('alert')}
         />
@@ -81,25 +82,25 @@ export const NestedHigherLevels = () => (
 
 export const LevelsAreRespectedWhenNesting = () => (
     <>
-        <Layer level={1000}>
-            <Layer level={1000}>
-                <Layer level={1000} onClick={createNamedLayerClick('1000')} />
+        <Layer zIndex={1000}>
+            <Layer zIndex={1000}>
+                <Layer zIndex={1000} onClick={createNamedLayerClick('1000')} />
             </Layer>
         </Layer>
-        <Layer level={1001} onClick={createNamedLayerClick('1001')} />
+        <Layer zIndex={1001} onClick={createNamedLayerClick('1001')} />
     </>
 )
 
 export const NestedHigherLevelEndsOnTop = () => (
     <>
-        <Layer level={layers.applicationTop}>
+        <Layer zIndex={layers.applicationTop}>
             <Layer
-                level={layers.alert}
+                zIndex={layers.alert}
                 onClick={createNamedLayerClick('alert')}
             />
         </Layer>
         <Layer
-            level={layers.blocking}
+            zIndex={layers.blocking}
             onClick={createNamedLayerClick('blocking')}
         />
     </>
