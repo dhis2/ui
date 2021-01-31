@@ -1,11 +1,10 @@
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 import React, { useRef } from 'react'
-import { createPortal } from 'react-dom'
 import { FlyoutMenu } from '../FlyoutMenu/FlyoutMenu.js'
 import { ChevronRight } from '../Icons/index.js'
-import { useLayerContext } from '../Layer/Layer.js'
 import { Popper } from '../Popper/Popper.js'
+import { Portal } from '../portal/Portal.js'
 import styles from './MenuItem.styles.js'
 
 const createOnClickHandler = (onClick, toggleSubMenu, value) => evt => {
@@ -46,7 +45,6 @@ const MenuItem = ({
     toggleSubMenu,
 }) => {
     const menuItemRef = useRef()
-    const { node } = useLayerContext()
 
     return (
         <>
@@ -87,14 +85,13 @@ const MenuItem = ({
 
                 <style jsx>{styles}</style>
             </li>
-            {children &&
-                showSubMenu &&
-                createPortal(
+            {children && showSubMenu && (
+                <Portal>
                     <Popper placement="right-start" reference={menuItemRef}>
                         <FlyoutMenu dense={dense}>{children}</FlyoutMenu>
-                    </Popper>,
-                    node
-                )}
+                    </Popper>
+                </Portal>
+            )}
         </>
     )
 }

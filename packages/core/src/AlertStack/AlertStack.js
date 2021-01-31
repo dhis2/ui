@@ -2,7 +2,7 @@ import propTypes from '@dhis2/prop-types'
 import { layers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React from 'react'
-import { createPortal } from 'react-dom'
+import { Portal } from '../portal/Portal.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
@@ -12,8 +12,8 @@ import { createPortal } from 'react-dom'
  * @example import { AlertStack } from '@dhis2/ui-core'
  * @see Live demo: {@link /demo/?path=/story/alertstack--default|Storybook}
  */
-const AlertStack = ({ className, children, dataTest }) =>
-    createPortal(
+const AlertStack = ({ className, children, dataTest }) => (
+    <Portal>
         <div className={cx(className)} data-test={dataTest}>
             {children}
             <style jsx>{`
@@ -33,9 +33,9 @@ const AlertStack = ({ className, children, dataTest }) =>
                     pointer-events: none;
                 }
             `}</style>
-        </div>,
-        document.body
-    )
+        </div>
+    </Portal>
+)
 
 AlertStack.defaultProps = {
     dataTest: 'dhis2-uicore-alertstack',
