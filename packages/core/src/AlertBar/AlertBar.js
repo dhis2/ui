@@ -1,5 +1,6 @@
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { Actions, actionsPropType } from './Actions.js'
 import styles, { ANIMATION_TIME } from './AlertBar.styles.js'
@@ -127,7 +128,7 @@ class AlertBar extends Component {
 
 const alertTypePropType = propTypes.mutuallyExclusive(
     ['success', 'warning', 'critical'],
-    propTypes.bool
+    PropTypes.bool
 )
 
 AlertBar.defaultProps = {
@@ -157,16 +158,16 @@ AlertBar.defaultProps = {
  */
 AlertBar.propTypes = {
     actions: actionsPropType,
-    children: propTypes.string,
-    className: propTypes.string,
+    children: PropTypes.string,
+    className: PropTypes.string,
     critical: alertTypePropType,
-    dataTest: propTypes.string,
-    duration: propTypes.number,
+    dataTest: PropTypes.string,
+    duration: PropTypes.number,
     icon: iconPropType,
-    permanent: propTypes.bool,
+    permanent: PropTypes.bool,
     success: alertTypePropType,
     warning: alertTypePropType,
-    onHidden: propTypes.func,
+    onHidden: PropTypes.func,
 }
 
 export { AlertBar }
