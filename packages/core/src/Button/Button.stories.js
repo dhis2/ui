@@ -1,24 +1,15 @@
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
 import { Button } from './Button.js'
 
 const logger = ({ name, value }) => console.info(`${name}: ${value}`)
 
-// This argType could live in 'shared-prop-types'
-const buttonVariantArgType = {
-    table: {
-        type: {
-            summary: 'bool',
-        },
-    },
-    control: {
-        type: 'boolean',
-    },
-}
 const defaultArgs = {
     children: 'Label me!',
     value: 'default',
     onClick: logger,
 }
+
 const DemoIcon = (
     <svg
         height="24"
@@ -33,6 +24,8 @@ const DemoIcon = (
     </svg>
 )
 
+const { buttonVariantArgType, sizeArgType } = sharedPropTypes
+
 export default {
     title: 'Actions/Buttons/Button',
     component: Button,
@@ -43,6 +36,8 @@ export default {
         primary: { ...buttonVariantArgType },
         secondary: { ...buttonVariantArgType },
         destructive: { ...buttonVariantArgType },
+        small: { ...sizeArgType },
+        large: { ...sizeArgType },
     },
 }
 
