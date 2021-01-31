@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { sharedPropTypes } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React, { useState, useMemo } from 'react'
 import { usePopper } from 'react-popper'
 import { getReferenceElement } from './getReferenceElement.js'
@@ -91,21 +91,21 @@ Popper.defaultProps = {
  */
 // Prop names follow the names here: https://popper.js.org/docs/v2/constructors/
 Popper.propTypes = {
-    children: propTypes.node.isRequired,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    modifiers: propTypes.arrayOf(
-        propTypes.shape({
-            name: propTypes.string,
-            options: propTypes.object,
+    children: PropTypes.node.isRequired,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    modifiers: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.string,
+            options: PropTypes.object,
         })
     ),
-    observePopperResize: propTypes.bool,
-    observeReferenceResize: propTypes.bool,
+    observePopperResize: PropTypes.bool,
+    observeReferenceResize: PropTypes.bool,
     placement: sharedPropTypes.popperPlacementPropType,
     reference: sharedPropTypes.popperReferencePropType,
-    strategy: propTypes.oneOf(['absolute', 'fixed']), // defaults to 'absolute'
-    onFirstUpdate: propTypes.func,
+    strategy: PropTypes.oneOf(['absolute', 'fixed']), // defaults to 'absolute'
+    onFirstUpdate: PropTypes.func,
 }
 
 export { Popper }
