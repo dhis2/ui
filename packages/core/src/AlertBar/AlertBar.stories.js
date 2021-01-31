@@ -2,8 +2,31 @@ import React from 'react'
 import { AttachFile } from '../Icons/index.js'
 import { AlertBar } from './AlertBar.js'
 
+const subtitle = `
+A floating alert that informs the user about temporary information 
+in the context of the current screen.
+`
+
+const description = `
+Alert bars notify a user of some information. There are different types of 
+alert bar for displaying different types of content. Use the alert bar type 
+that matches your content type and importance. Note that alert bar can be 
+ignored by the user, so they shouldn't be used for content that needs to 
+block an app flow, use a modal instead.
+
+Alert bars are always displayed at centered and fixed at the bottom of the 
+screen. Some types of alert bar dismiss after a set time, others must be 
+dismissed by the user.
+
+See specification: [Design System](https://github.com/dhis2/design-system/blob/master/molecules/alertbar.md)
+
+\`\`\`js
+import { AlertBar } from '@dhis2/ui'
+\`\`\`
+`
+
 const Wrapper = fn => (
-    <div style={{ height: '300px' }}>
+    <div style={{ height: '260px' }}>
         <div
             className="alert-bars"
             style={{
@@ -19,10 +42,52 @@ const Wrapper = fn => (
     </div>
 )
 
+const alertTypeArgType = {
+    table: {
+        type: {
+            summary: 'bool',
+            detail:
+                "'success', 'warning', and 'critical' are mutually exclusive props",
+        },
+    },
+    control: {
+        type: 'boolean',
+    },
+}
+const iconArgType = {
+    table: {
+        type: {
+            summary: 'bool | element',
+        },
+    },
+}
+const actionsArgType = {
+    table: {
+        type: {
+            summary: '[{ label: string, onClick: func }]',
+        },
+    },
+}
+
 export default {
     title: 'Feedback/Alerts/Alert Bar',
     component: AlertBar,
     decorators: [Wrapper],
+    parameters: {
+        componentSubtitle: subtitle,
+        docs: {
+            description: {
+                component: description,
+            },
+        },
+    },
+    argTypes: {
+        actions: { ...actionsArgType },
+        critical: { ...alertTypeArgType },
+        success: { ...alertTypeArgType },
+        warning: { ...alertTypeArgType },
+        icon: { ...iconArgType },
+    },
 }
 
 export const Default = args => (
