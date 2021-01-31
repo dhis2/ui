@@ -1,6 +1,9 @@
 import propTypes from '@dhis2/prop-types'
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import React, { Component, createRef } from 'react'
 import { Popper } from './Popper.js'
+
+const { popperPlacementArgType, popperReferenceArgType } = sharedPropTypes
 
 export default {
     title: 'Helpers/Popper',
@@ -8,6 +11,10 @@ export default {
     decorators: [
         storyFN => <BoxWithCenteredReferenceElement renderChildren={storyFN} />,
     ],
+    argTypes: {
+        placement: { ...popperPlacementArgType },
+        reference: { ...popperReferenceArgType },
+    },
 }
 
 const boxStyle = {
