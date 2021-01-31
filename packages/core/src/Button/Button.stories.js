@@ -2,6 +2,37 @@ import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
 import { Button } from './Button.js'
 
+// Note: make sure 'fenced code blocks' are not indentend in this template string
+const description = `Buttons are used for triggering actions.
+There are different types of buttons in the design system which are intended
+for different types of actions.
+
+\`\`\`js
+import { Button } from '@dhis2/ui'
+\`\`\``
+
+const { buttonVariantArgType, sizeArgType } = sharedPropTypes
+
+export default {
+    title: 'Actions/Buttons/Button',
+    component: Button,
+    parameters: {
+        componentSubtitle: 'Initiates an action',
+        docs: {
+            description: {
+                component: description,
+            },
+        },
+    },
+    argTypes: {
+        primary: { ...buttonVariantArgType },
+        secondary: { ...buttonVariantArgType },
+        destructive: { ...buttonVariantArgType },
+        small: { ...sizeArgType },
+        large: { ...sizeArgType },
+    },
+}
+
 const logger = ({ name, value }) => console.info(`${name}: ${value}`)
 
 const defaultArgs = {
@@ -23,23 +54,6 @@ const DemoIcon = (
         />
     </svg>
 )
-
-const { buttonVariantArgType, sizeArgType } = sharedPropTypes
-
-export default {
-    title: 'Actions/Buttons/Button',
-    component: Button,
-    parameters: {
-        componentSubtitle: 'Initiates an action',
-    },
-    argTypes: {
-        primary: { ...buttonVariantArgType },
-        secondary: { ...buttonVariantArgType },
-        destructive: { ...buttonVariantArgType },
-        small: { ...sizeArgType },
-        large: { ...sizeArgType },
-    },
-}
 
 const Template = args => <Button {...args} />
 

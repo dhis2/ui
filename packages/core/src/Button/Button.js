@@ -4,26 +4,15 @@ import PropTypes from 'prop-types'
 import React, { useEffect, useRef } from 'react'
 import styles from './Button.styles.js'
 
-// Can be removed after migration to storybook for docs
-// import propTypes from '@dhis2/prop-types'
-// /**
-//  * @module
-//  * @param {Button.PropTypes} props
-//  *
-//  * @returns {React.Component}
-//  *
-//  * @example import { Button } from @dhis2/ui-core
-//  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/button.md|Design system}
-//  * @see Live demo: {@link /demo/?path=/story/button-basic--default|Storybook}
-//  */
-
 /**
- * Buttons are used for triggering actions.
- * There are different types of buttons in the design system which are intended for different types of actions.
+ * @module
+ * @param {Button.PropTypes} props
  *
- * ```js
- * import { Button } from '@dhis2/ui'
- * ```
+ * @returns {React.Component}
+ *
+ * @example import { Button } from @dhis2/ui-core
+ * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/button.md|Design system}
+ * @see Live demo: {@link /demo/?path=/story/button-basic--default|Storybook}
  */
 export const Button = ({
     children,
@@ -92,37 +81,36 @@ Button.defaultProps = {
     dataTest: 'dhis2-uicore-button',
 }
 
-// Can be removed after migration to storybook
-// /**
-//  * @typedef {Object} PropTypes
-//  * @static
-//  *
-//  * @prop {Node} [children] The children to render in the button
-//  * @prop {function} [onClick] The click handler
-//  * @prop {function} [onBlur]
-//  * @prop {function} [onFocus]
-//  *
-//  * @prop {string} [className]
-//  * @prop {string} [name]
-//  * @prop {string} [value]
-//  * @prop {string} [tabIndex]
-//  * @prop {boolean} [small] - `small` and `large` are mutually exclusive
-//  * @prop {boolean} [large]
-//  * @prop {string} [type=button] Type of button: `submit`, `reset`, or
-//  * `button`
-//  *
-//  * @prop {boolean } [primary] - `primary`, `secondary`, and
-//  * `destructive` are mutually exclusive boolean props
-//  * @prop {boolean } [secondary]
-//  * @prop {boolean } [destructive]
-//  *
-//  * @prop {boolean} [disabled] Disable the button
-//  * @prop {Element} [icon]
-//  *
-//  * @prop {string} [dataTest]
-//  * @prop {boolean} [initialFocus] Grants the button the initial focus
-//  * state
-//  */
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ *
+ * @prop {Node} [children] The children to render in the button
+ * @prop {function} [onClick] The click handler
+ * @prop {function} [onBlur]
+ * @prop {function} [onFocus]
+ *
+ * @prop {string} [className]
+ * @prop {string} [name]
+ * @prop {string} [value]
+ * @prop {string} [tabIndex]
+ * @prop {boolean} [small] - `small` and `large` are mutually exclusive
+ * @prop {boolean} [large]
+ * @prop {string} [type=button] Type of button: `submit`, `reset`, or
+ * `button`
+ *
+ * @prop {boolean } [primary] - `primary`, `secondary`, and
+ * `destructive` are mutually exclusive boolean props
+ * @prop {boolean } [secondary]
+ * @prop {boolean } [destructive]
+ *
+ * @prop {boolean} [disabled] Disable the button
+ * @prop {Element} [icon]
+ *
+ * @prop {string} [dataTest]
+ * @prop {boolean} [initialFocus] Grants the button the initial focus
+ * state
+ */
 Button.propTypes = {
     /** Component to render inside the button */
     children: PropTypes.node,
