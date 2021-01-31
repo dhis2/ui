@@ -157,15 +157,23 @@ AlertBar.defaultProps = {
  * @prop {string} [dataTest]
  */
 AlertBar.propTypes = {
+    /** An array of 0-2 action objects */
     actions: actionsPropType,
+    /** The message string for the alert */
     children: PropTypes.string,
     className: PropTypes.string,
+    /** Alert bars with `critical` will not autohide */
     critical: alertTypePropType,
     dataTest: PropTypes.string,
     duration: PropTypes.number,
+    /**
+     * A specific icon to override the default icon in the bar.
+     * If `false` is provided, no icon will be shown.
+     */
     icon: iconPropType,
     permanent: PropTypes.bool,
     success: alertTypePropType,
+    /** Alert bars with `warning` will not autohide */
     warning: alertTypePropType,
     onHidden: PropTypes.func,
 }
