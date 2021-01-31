@@ -2,11 +2,27 @@ import React from 'react'
 import { AlertBar } from '../index.js'
 import { AlertStack } from './AlertStack.js'
 
+const description = `
+A container for Alert Bars.
+
+_The demos on this page may be slow._
+
+\`\`\`js
+import { AlertStack } from '@dhis2/ui'
+\`\`\`
+`
+
 export default {
     title: 'Feedback/Alerts/Alert Stack',
     component: AlertStack,
     // Use an iframe in docs to contain 'portal'
-    parameters: { docs: { inlineStories: false, iframeHeight: '300px' } },
+    parameters: {
+        docs: {
+            inlineStories: false,
+            iframeHeight: '300px',
+            description: { component: description },
+        },
+    },
 }
 
 export const Default = args => (
