@@ -1,14 +1,36 @@
 import React from 'react'
+import { Box } from '../Box/Box.js'
 import { Card } from './Card.js'
 
-const Wrapper = fn => (
-    <div style={{ width: '358px', height: '358px' }}>{fn()}</div>
-)
+const subtitle = `
+A card is a container element for grouping together
+and separating blocks of content.
+`
+
+const description = `
+Use a card where there is content that can be grouped together.
+Cards are most often useful when this grouped content may be repeated, 
+for example with items on a dashboard, or different sections of patient 
+information displayed in a profile.
+
+Note that it requires a parent, like [Box](http://localhost:5002/?path=/docs/layout-box--default), to define its size.
+
+\`\`\`js
+import { Card } from '@dhis2/ui'
+\`\`\`
+`
 
 export default {
     title: 'Layout/Card',
     component: Card,
-    decorators: [Wrapper],
+    parameters: {
+        componentSubtitle: subtitle,
+        docs: { description: { component: description } },
+    },
 }
 
-export const Default = () => <Card />
+export const Default = args => (
+    <Box width="358px" height="358px">
+        <Card {...args} />
+    </Box>
+)
