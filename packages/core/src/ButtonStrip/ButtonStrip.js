@@ -1,6 +1,7 @@
 import propTypes from '@dhis2/prop-types'
 import { spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React, { Children } from 'react'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
@@ -46,7 +47,7 @@ const ButtonStrip = ({ className, children, middle, end, dataTest }) => (
 
 const alignmentPropType = propTypes.mutuallyExclusive(
     ['middle', 'end'],
-    propTypes.bool
+    PropTypes.bool
 )
 
 ButtonStrip.defaultProps = {
@@ -65,9 +66,9 @@ ButtonStrip.defaultProps = {
  * @prop {string} [dataTest]
  */
 ButtonStrip.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
     end: alignmentPropType,
     middle: alignmentPropType,
 }
