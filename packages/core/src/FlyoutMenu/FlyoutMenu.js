@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { spacers } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React, { Children, cloneElement, isValidElement, useState } from 'react'
 import { resolve } from 'styled-jsx/css'
 import { Card } from '../Card/Card.js'
@@ -85,12 +85,14 @@ FlyoutMenu.defaultProps = {
  * @prop {string} [maxHeight='auto']
  */
 FlyoutMenu.propTypes = {
-    children: Menu.propTypes.children,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    dense: propTypes.bool,
-    maxHeight: propTypes.string,
-    maxWidth: propTypes.string,
+    /** Typically, but not limited to, `MenuItem` components */
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    /** Menu uses smaller dimensions */
+    dense: PropTypes.bool,
+    maxHeight: PropTypes.string,
+    maxWidth: PropTypes.string,
 }
 
 export { FlyoutMenu }
