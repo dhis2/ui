@@ -13,7 +13,7 @@ Cards are most often useful when this grouped content may be repeated,
 for example with items on a dashboard, or different sections of patient 
 information displayed in a profile.
 
-Note that it requires a parent, like [Box](http://localhost:5002/?path=/docs/layout-box--default), to define its size.
+Note that it requires a parent, like [Box](../?path=/docs/layout-box--default), to define its size.
 
 \`\`\`js
 import { Card } from '@dhis2/ui'
