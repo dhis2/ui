@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { sharedPropTypes, spacers } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { Box } from '../Box/Box.js'
 import { Help } from '../Help/Help.js'
@@ -85,17 +85,24 @@ Field.defaultProps = {
  * @prop {boolean} [error]
  */
 Field.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    disabled: propTypes.bool,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    /** Disabled status, shown when mouse is over label */
+    disabled: PropTypes.bool,
+    /** Field status. Mutually exclusive with `valid` and `warning` props */
     error: sharedPropTypes.statusPropType,
-    helpText: propTypes.string,
-    label: propTypes.string,
-    name: propTypes.string,
-    required: propTypes.bool,
-    valid: propTypes.bool,
-    validationText: propTypes.string,
+    /** Useful text within the field */
+    helpText: PropTypes.string,
+    /** Label at the top of the field */
+    label: PropTypes.string,
+    name: PropTypes.string,
+    required: PropTypes.bool,
+    /** Field status. Mutually exclusive with `error` and `warning` props */
+    valid: sharedPropTypes.statusPropType,
+    /** Feedback given related to validation status of field */
+    validationText: PropTypes.string,
+    /** Field status. Mutually exclusive with `valid` and `error` props */
     warning: sharedPropTypes.statusPropType,
 }
 
