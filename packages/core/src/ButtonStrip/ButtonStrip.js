@@ -69,7 +69,9 @@ ButtonStrip.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     dataTest: PropTypes.string,
+    /** Horizontal alignment for buttons. Mutually exclusive with `middle` prop */
     end: alignmentPropType,
+    /** Horizontal alignment. Mutually exclusive with `end` prop */
     middle: alignmentPropType,
 }
 
