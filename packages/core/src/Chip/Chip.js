@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { colors, theme, spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { Content } from './Content.js'
 import { Icon } from './Icon.js'
@@ -124,17 +124,17 @@ Chip.defaultProps = {
  * @prop {string} [dataTest]
  */
 Chip.propTypes = {
-    children: propTypes.string,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    dense: propTypes.bool,
-    disabled: propTypes.bool,
-    dragging: propTypes.bool,
-    icon: propTypes.element,
-    overflow: propTypes.bool,
-    selected: propTypes.bool,
-    onClick: propTypes.func,
-    onRemove: propTypes.func,
+    children: PropTypes.string,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    dense: PropTypes.bool,
+    disabled: PropTypes.bool,
+    dragging: PropTypes.bool,
+    icon: PropTypes.element,
+    overflow: PropTypes.bool,
+    selected: PropTypes.bool,
+    onClick: PropTypes.func,
+    onRemove: PropTypes.func,
 }
 
 export { Chip }
