@@ -2,6 +2,14 @@ import React from 'react'
 import { Field, Radio, Help, Legend } from '../index.js'
 import { FieldSet } from './FieldSet.js'
 
+const description = `
+A container for grouping several Field components together. Use a \`<Legend>\` component to add helpful guiding text.
+
+\`\`\`js
+import { FieldSet } from '@dhis2/ui'
+\`\`\`
+`
+
 const onChange = () => {
     console.log('Radio was clicked, nothing else will happen')
 }
@@ -9,16 +17,17 @@ const onChange = () => {
 export default {
     title: 'Forms/Field Set/Field Set',
     component: FieldSet,
+    parameters: { docs: { description: { component: description } } },
 }
 
-export const Default = () => (
-    <FieldSet>
+export const Default = args => (
+    <FieldSet {...args}>
         It renders something in a fieldset element without the browser styles
     </FieldSet>
 )
 
-export const UsageExampleARadioButtonGroupWithErrorStatus = () => (
-    <FieldSet>
+export const UsageExampleARadioButtonGroupWithErrorStatus = args => (
+    <FieldSet {...args}>
         <Legend required>Choose an option</Legend>
         <Field>
             <Radio
