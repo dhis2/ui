@@ -1,15 +1,30 @@
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
 import { Input } from '../index.js'
 import { Field } from './Field.js'
 
+const description = `
+A useful container for form components, including a label, help text, and validation text.
+
+\`\`\`js
+import { Field } from '@dhis2/ui'
+\`\`\`
+`
+
 export default {
     title: 'Forms/Field',
     component: Field,
+    argTypes: {
+        valid: { ...sharedPropTypes.statusArgType },
+        warning: { ...sharedPropTypes.statusArgType },
+        error: { ...sharedPropTypes.statusArgType },
+    },
+    parameters: { docs: { description: { component: description } } },
 }
 
-export const Default = () => (
+export const Default = args => (
     <>
-        <Field helpText="Help me">
+        <Field {...args}>
             <Input
                 onChange={() => {
                     console.log('Nothing happens')
@@ -18,7 +33,7 @@ export const Default = () => (
                 label="An input"
             />
         </Field>
-        <Field helpText="Help!">
+        <Field helpText="Help!" label="Second field">
             <Input
                 onChange={() => {
                     console.log('Nothing happens')
@@ -29,3 +44,8 @@ export const Default = () => (
         </Field>
     </>
 )
+Default.args = {
+    label: 'First field (change me with controls)',
+    helpText: 'Help text!',
+    validationText: "I'm validation text",
+}
