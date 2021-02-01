@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { layers } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
@@ -61,11 +61,12 @@ ComponentCover.defaultProps = {
  * @prop {function} [onClick]
  */
 ComponentCover.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    translucent: propTypes.bool,
-    onClick: propTypes.func,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    /** Adds a semi-transparent background to the cover */
+    translucent: PropTypes.bool,
+    onClick: PropTypes.func,
 }
 
 export { ComponentCover }
