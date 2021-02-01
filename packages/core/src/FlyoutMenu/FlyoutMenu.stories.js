@@ -7,27 +7,43 @@ import { MenuSectionHeader } from '../MenuSectionHeader/MenuSectionHeader.js'
 import { Popper } from '../Popper/Popper.js'
 import { FlyoutMenu } from './FlyoutMenu.js'
 
+const description = `
+Use menus to provide access to options and actions where space is limited and displaying all the options would be impractical. For example, providing access to a range of actions for every dashboard item displayed. Containing all those actions in menus keeps the page manageable.
+
+The menu component is flexible in where it can be used and its contents can be flexible too. However, the most common use case is a menu containing menu items.
+
+Make sure the menu item labels are short and easy to understand. One word is often enough to describe an action or option. Do not use sentences as labels. Some examples of good menu item labels:
+
+- "Save"
+- "Open as map"
+- "Export PDF"
+- "Duplicate"
+
+See more about how to use menus at the [design system](https://github.com/dhis2/design-system/blob/master/molecules/menu.md).
+
+\`\`\`js
+import { FlyoutMenu } from 'dhis2/ui'
+\`\`\`
+`
+
 export default {
     title: 'Actions/Menu/Flyout Menu',
     component: FlyoutMenu,
+    parameters: { docs: { description: { component: description } } },
 }
 
-export const Default = () => (
-    <FlyoutMenu>
+export const Default = args => (
+    <FlyoutMenu {...args}>
         <MenuItem label="Item 1" />
         <MenuItem label="Item 2" />
     </FlyoutMenu>
 )
 
-export const Dense = () => (
-    <FlyoutMenu dense>
-        <MenuItem label="Item 1" />
-        <MenuItem label="Item 2" />
-    </FlyoutMenu>
-)
+export const Dense = Default.bind({})
+Dense.args = { dense: true }
 
-export const MaxHeight = () => (
-    <FlyoutMenu maxHeight="250px">
+export const MaxHeight = args => (
+    <FlyoutMenu {...args}>
         <MenuItem label="Item 1" />
         <MenuItem label="Item 2" />
         <MenuItem label="Item 3" />
@@ -40,8 +56,9 @@ export const MaxHeight = () => (
         <MenuItem label="Item 10" />
     </FlyoutMenu>
 )
+MaxHeight.args = { maxHeight: '250px' }
 
-export const MaxWidth = () => (
+export const MaxWidth = args => (
     <>
         <FlyoutMenu>
             <MenuItem label="Short item 1" />
@@ -59,21 +76,22 @@ export const MaxWidth = () => (
             />
         </FlyoutMenu>
         <br />
-        <FlyoutMenu maxWidth="300px">
+        <FlyoutMenu {...args}>
             <MenuItem
-                label="Item 1 - with a lot of text and using a custom maxWidth value of
-                300px"
+                label={`Item 1 - with a lot of text and using a custom maxWidth value of
+                ${args.maxWidth}`}
             />
             <MenuItem
-                label="Item 2 - with a lot of text and using a custom maxWidth value of
-                300px"
+                label={`Item 2 - with a lot of text and using a custom maxWidth value of
+                ${args.maxWidth}`}
             />
         </FlyoutMenu>
     </>
 )
+MaxWidth.args = { maxWidth: '300px' }
 
-export const WithSubMenus = () => (
-    <FlyoutMenu>
+export const WithSubMenus = args => (
+    <FlyoutMenu {...args}>
         <MenuItem label="Item 1" />
         <MenuItem label="Item 2">
             <MenuItem label="Item 2 a" />
@@ -95,9 +113,17 @@ export const WithSubMenus = () => (
         <MenuItem label="Item 5" />
     </FlyoutMenu>
 )
+WithSubMenus.parameters = {
+    docs: {
+        description: {
+            story:
+                'See this demo in the Canvas tab for proper alignment of sub menus.',
+        },
+    },
+}
 
-export const WithVariousChildren = () => (
-    <FlyoutMenu>
+export const WithVariousChildren = args => (
+    <FlyoutMenu {...args}>
         <MenuSectionHeader label="Section with sub-menus" />
         <MenuItem label="Item 1" />
         <MenuItem label="Item 2">
@@ -126,8 +152,16 @@ export const WithVariousChildren = () => (
         <MenuItem label="Item 3" />
     </FlyoutMenu>
 )
+WithVariousChildren.parameters = {
+    docs: {
+        description: {
+            story:
+                'See this demo in the Canvas tab for proper alignment of sub menus.',
+        },
+    },
+}
 
-export const DropDownMenu = () => {
+export const DropDownMenu = args => {
     const ref = useRef()
     const [open, setOpen] = useState(false)
     const toggle = () => setOpen(!open)
@@ -140,15 +174,26 @@ export const DropDownMenu = () => {
             {open && (
                 <Layer onClick={toggle}>
                     <Popper reference={ref} placement="bottom-start">
-                        <Default />
+                        <FlyoutMenu {...args}>
+                            <MenuItem label="Item 1" />
+                            <MenuItem label="Item 2" />
+                        </FlyoutMenu>
                     </Popper>
                 </Layer>
             )}
         </>
     )
 }
+DropDownMenu.parameters = {
+    docs: {
+        description: {
+            story: 'View this demo in the canvas to see the dropdown menu.',
+        },
+        source: { type: 'code' },
+    },
+}
 
-export const WithCustomMenuItem = () => {
+export const WithCustomMenuItem = args => {
     // You should not create custom components in the render cycle
     // this is just for demo purposes
     // eslint-disable-next-line react/prop-types
@@ -179,7 +224,7 @@ export const WithCustomMenuItem = () => {
     }
 
     return (
-        <FlyoutMenu>
+        <FlyoutMenu {...args}>
             <MenuItem label="A normal menu item" />
             <PopupWindowMenuItem to="http://dhis2.org">
                 A custom menu item (popup window)
