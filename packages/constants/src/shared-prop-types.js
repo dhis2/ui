@@ -19,11 +19,11 @@ export const statusArgType = {
     table: {
         type: {
             summary: 'bool',
-            desription:
+            detail:
                 "'valid', 'warning', and 'error' are mutually exclusive props",
         },
-        control: { type: 'boolean' },
     },
+    control: { type: 'boolean' },
 }
 
 /**
