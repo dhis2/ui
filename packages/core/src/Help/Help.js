@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { spacers, theme, sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
@@ -64,9 +64,9 @@ Help.defaultProps = {
  * @prop {string} [dataTest]
  */
 Help.propTypes = {
-    children: propTypes.string,
-    className: propTypes.string,
-    dataTest: propTypes.string,
+    children: PropTypes.string,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
     error: sharedPropTypes.statusPropType,
     valid: sharedPropTypes.statusPropType,
     warning: sharedPropTypes.statusPropType,
