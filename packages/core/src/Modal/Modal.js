@@ -30,7 +30,7 @@ const scrollBoxCard = resolve`
  * @desc Modal provides a UI to prompt the user to respond to a question
  * or a note to the user.
  *
- * Use Model with the following Components:
+ * Use Modal with the following Components:
  * ModelTitle (optional)
  * ModelContent (required)
  * ModelActions (optional)
@@ -122,6 +122,6 @@ Modal.propTypes = {
     large: sharedPropTypes.sizePropType,
     position: sharedPropTypes.insideAlignmentPropType,
     small: sharedPropTypes.sizePropType,
-    // Callback used when clicking on the screen cover
+    /** Callback used when screen cover is clicked */
     onClose: PropTypes.func,
 }
