@@ -43,4 +43,12 @@ export const TopOfList = args => (
         <MenuItem label="Item 2" />
     </Menu>
 )
-TopOfList.args = { label: 'Top of list (so divider is omitted)' }
+TopOfList.args = { label: 'Top of list (so <Menu> hides divider)' }
+TopOfList.parameters = {
+    docs: {
+        description: {
+            story:
+                'When the Section Header is the first child of a `<Menu>`, the Menu parent automatically applies the `hideDivider` prop.',
+        },
+    },
+}
