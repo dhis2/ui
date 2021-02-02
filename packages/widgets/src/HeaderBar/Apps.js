@@ -1,4 +1,4 @@
-import { useDataMutation, useConfig } from '@dhis2/app-runtime'
+import { useConfig } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import propTypes from '@dhis2/prop-types'
 import { colors, theme } from '@dhis2/ui-constants'
@@ -216,28 +216,12 @@ AppMenu.propTypes = {
     filter: propTypes.string,
 }
 
-const mutation = {
-    resource: 'i18n',
-    type: 'create',
-    data: ({ items }) => items,
-}
-
 const Apps = ({ apps }) => {
-    const [translations, setTranslations] = useState({})
     const [show, setShow] = useState(false)
     const [filter, setFilter] = useState('')
 
     const handleVisibilityToggle = useCallback(() => setShow(!show), [show])
     const handleFilterChange = useCallback(({ value }) => setFilter(value), [])
-
-    const [mutate] = useDataMutation(mutation, {
-        onComplete: translations => setTranslations(translations),
-    })
-    useEffect(() => {
-        mutate({
-            items: apps.map(({ name }) => name),
-        })
-    }, [apps])
 
     const containerEl = useRef(null)
     const onDocClick = useCallback(evt => {
@@ -261,10 +245,7 @@ const Apps = ({ apps }) => {
 
             {show ? (
                 <AppMenu
-                    apps={apps.map(app => ({
-                        ...app,
-                        displayName: translations[app.name] || app.displayName,
-                    }))}
+                    apps={apps}
                     filter={filter}
                     onFilterChange={handleFilterChange}
                 />
