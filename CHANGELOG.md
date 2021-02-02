@@ -1,3 +1,24 @@
+## [6.1.7](https://github.com/dhis2/ui/compare/v6.1.6...v6.1.7) (2021-02-02)
+
+
+### Bug Fixes
+
+* add outline to tab component when focused ([#482](https://github.com/dhis2/ui/issues/482)) ([4af504b](https://github.com/dhis2/ui/commit/4af504b7e4d2eee074a9c3efa95966b8ff31a079))
+
+## [6.1.6](https://github.com/dhis2/ui/compare/v6.1.5...v6.1.6) (2021-01-27)
+
+
+### Bug Fixes
+
+* **header bar:** enforce size of 36px in header bar and 48px in profile menu for ImageIcon and TextIcon ([#465](https://github.com/dhis2/ui/issues/465)) ([787484a](https://github.com/dhis2/ui/commit/787484abba0dc8aaec48697497119a0b6e91b247))
+
+## [6.1.5](https://github.com/dhis2/ui/compare/v6.1.4...v6.1.5) (2021-01-22)
+
+
+### Bug Fixes
+
+* **headerbar:** specify HeaderBar /api/me query fields required ([#464](https://github.com/dhis2/ui/issues/464)) ([fda8653](https://github.com/dhis2/ui/commit/fda865384c924ca05886977ff7bcc6e7011e8f1b))
+
 ## [6.1.4](https://github.com/dhis2/ui/compare/v6.1.3...v6.1.4) (2021-01-20)
 
 

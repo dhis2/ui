@@ -19,6 +19,9 @@ const query = {
     },
     user: {
         resource: 'me',
+        params: {
+            fields: ['authorities', 'avatar', 'email', 'name', 'settings'],
+        },
     },
     apps: {
         resource: 'action::menu/getModules',
@@ -27,6 +30,9 @@ const query = {
         resource: 'me/dashboard',
     },
 }
+
+const avatarUrl = (avatar, baseUrl) =>
+    avatar ? joinPath(baseUrl, 'api/fileResources', avatar.id, 'data') : null
 
 export const HeaderBar = ({ appName, className }) => {
     const { baseUrl } = useConfig()
@@ -71,8 +77,9 @@ export const HeaderBar = ({ appName, className }) => {
                     />
                     <Apps apps={apps} />
                     <Profile
-                        user={data.user}
-                        baseUrl={baseUrl}
+                        name={data.user.name}
+                        email={data.user.email}
+                        avatarUrl={avatarUrl(data.user.avatar, baseUrl)}
                         helpUrl={data.help.helpLink}
                     />
                 </>

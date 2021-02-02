@@ -18,7 +18,7 @@ const iconStyle = css.resolve`
     }
 `
 
-const ProfileContents = ({ name, email, avatar, helpUrl }) => {
+const ProfileContents = ({ name, email, avatarUrl, helpUrl }) => {
     const { baseUrl } = useConfig()
 
     const help = helpUrl
@@ -28,7 +28,11 @@ const ProfileContents = ({ name, email, avatar, helpUrl }) => {
     return (
         <Card>
             <div>
-                <ProfileHeader name={name} email={email} img={avatar} />
+                <ProfileHeader
+                    name={name}
+                    email={email}
+                    avatarUrl={avatarUrl}
+                />
                 <Divider margin="13px 0 7px 0" />
                 <ul data-test="headerbar-profile-menu">
                     <MenuItem
@@ -102,18 +106,18 @@ const ProfileContents = ({ name, email, avatar, helpUrl }) => {
 }
 
 ProfileContents.propTypes = {
-    avatar: propTypes.element,
+    avatarUrl: propTypes.string,
     email: propTypes.string,
     helpUrl: propTypes.string,
     name: propTypes.string,
 }
 
-export const ProfileMenu = ({ avatar, name, email, helpUrl }) => (
+export const ProfileMenu = ({ avatarUrl, name, email, helpUrl }) => (
     <div data-test="headerbar-profile-menu">
         <ProfileContents
             name={name}
             email={email}
-            avatar={avatar}
+            avatarUrl={avatarUrl}
             helpUrl={helpUrl}
         />
         <style jsx>{`
@@ -130,7 +134,7 @@ export const ProfileMenu = ({ avatar, name, email, helpUrl }) => (
 )
 
 ProfileMenu.propTypes = {
-    avatar: propTypes.element,
+    avatarUrl: propTypes.string,
     email: propTypes.string,
     helpUrl: propTypes.string,
     name: propTypes.string,

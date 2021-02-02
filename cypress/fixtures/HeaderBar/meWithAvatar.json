@@ -1,0 +1,11 @@
+{
+    "name": "John Doe",
+    "email": "john_doe@dhis2.org",
+    "settings": {
+        "keyUiLocale": "en"
+    },
+    "authorities": ["ALL"],
+    "avatar": {
+        "id": "avatarId"
+    }
+}

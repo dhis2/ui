@@ -1,17 +1,7 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
-import { ImageIcon } from './ImageIcon.js'
-import { joinPath } from './joinPath.js'
 import { ProfileMenu } from './Profile/ProfileMenu.js'
-import { TextIcon } from './TextIcon.js'
-
-function avatarPath(avatar, baseUrl) {
-    if (!avatar) {
-        return null
-    }
-
-    return joinPath(baseUrl, 'api/fileResources', avatar.id, 'data')
-}
+import { UserIcon } from './UserIcon/UserIcon.js'
 
 export default class Profile extends React.Component {
     state = {
@@ -32,55 +22,55 @@ export default class Profile extends React.Component {
         }
     }
 
-    onToggle = () => this.setState({ show: !this.state.show })
-
-    userIcon(me, baseUrl) {
-        const avatar = avatarPath(me.avatar, baseUrl)
-
-        if (avatar) {
-            return (
-                <ImageIcon
-                    src={avatar}
-                    onClick={this.onToggle}
-                    dataTestId="headerbar-profile-icon-image"
-                />
-            )
-        }
-
-        return (
-            <TextIcon
-                name={me.name}
-                onClick={this.onToggle}
-                dataTestId="headerbar-profile-icon-text"
-            />
-        )
-    }
+    handleToggle = () => this.setState({ show: !this.state.show })
 
     render() {
-        const { user, baseUrl, helpUrl } = this.props
+        const { name, email, avatarUrl, helpUrl } = this.props
 
         return (
             <div
                 ref={c => (this.elContainer = c)}
                 data-test="headerbar-profile"
+                className="headerbar-profile"
             >
-                {this.userIcon(user, baseUrl)}
+                <button
+                    className="headerbar-profile-btn"
+                    onClick={this.handleToggle}
+                >
+                    <UserIcon
+                        avatarUrl={avatarUrl}
+                        name={name}
+                        dataTest="headerbar-profile-icon"
+                    />
+                </button>
 
                 {this.state.show ? (
                     <ProfileMenu
-                        avatar={avatarPath(user.avatar, baseUrl)}
-                        name={user.name}
-                        email={user.email}
+                        avatarUrl={avatarUrl}
+                        name={name}
+                        email={email}
                         helpUrl={helpUrl}
                     />
                 ) : null}
 
                 <style jsx>{`
-                    div {
+                    .headerbar-profile {
                         position: relative;
                         width: 36px;
                         height: 36px;
                         margin: 2px 12px 0 24px;
+                    }
+
+                    .headerbar-profile-btn {
+                        background: transparent;
+                        padding: 0;
+                        border: 0;
+                        cursor: pointer;
+                        width: 100%;
+                        height: 100%;
+                    }
+                    .headerbar-profile-btn:focus {
+                        outline: 1px dotted white;
                     }
                 `}</style>
             </div>
@@ -89,7 +79,8 @@ export default class Profile extends React.Component {
 }
 
 Profile.propTypes = {
-    baseUrl: propTypes.string.isRequired,
-    user: propTypes.object.isRequired,
+    email: propTypes.string.isRequired,
+    name: propTypes.string.isRequired,
+    avatarUrl: propTypes.string,
     helpUrl: propTypes.string,
 }

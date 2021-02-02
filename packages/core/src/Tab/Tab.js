@@ -84,6 +84,10 @@ const Tab = ({
                 transition: fill 150ms ease-in-out;
             }
 
+            button:focus span {
+                outline: 1px dotted ${colors.grey900};
+            }
+
             button > :global(svg) {
                 fill: ${colors.grey600};
                 width: 14px;
