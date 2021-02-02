@@ -43,48 +43,58 @@ const Layer = ({
     const portalNode =
         level > parentLayer.level ? document.body : parentLayer.node
 
-    return createPortal(
-        <div
-            ref={setLayerEl}
-            className={cx('layer', className, position, `level-${level}`, {
-                translucent,
-            })}
-            data-test={dataTest}
-            onClick={createClickHandler(onClick)}
-        >
-            {layerEl && (
-                <LayerContext.Provider value={nextLayer}>
-                    {children}
-                </LayerContext.Provider>
+    return (
+        <React.Fragment>
+            {createPortal(
+                <div
+                    ref={setLayerEl}
+                    className={cx(
+                        'layer',
+                        className,
+                        position,
+                        `level-${level}`,
+                        {
+                            translucent,
+                        }
+                    )}
+                    data-test={dataTest}
+                    onClick={createClickHandler(onClick)}
+                >
+                    {layerEl && (
+                        <LayerContext.Provider value={nextLayer}>
+                            {children}
+                        </LayerContext.Provider>
+                    )}
+                    <style jsx>{`
+                        div {
+                            z-index: ${level};
+                        }
+                    `}</style>
+                    <style jsx>{`
+                        div {
+                            top: 0;
+                            left: 0;
+                            min-height: 100vh;
+                            min-width: 100vw;
+                        }
+                        div.fixed {
+                            position: fixed;
+                            height: 100vh;
+                            width: 100vw;
+                        }
+                        div.absolute {
+                            position: absolute;
+                            height: 100%;
+                            width: 100%;
+                        }
+                        div.translucent {
+                            background-color: rgba(33, 43, 54, 0.4);
+                        }
+                    `}</style>
+                </div>,
+                portalNode
             )}
-            <style jsx>{`
-                div {
-                    z-index: ${level};
-                }
-            `}</style>
-            <style jsx>{`
-                div {
-                    top: 0;
-                    left: 0;
-                    min-height: 100vh;
-                    min-width: 100vw;
-                }
-                div.fixed {
-                    position: fixed;
-                    height: 100vh;
-                    width: 100vw;
-                }
-                div.absolute {
-                    position: absolute;
-                    height: 100%;
-                    width: 100%;
-                }
-                div.translucent {
-                    background-color: rgba(33, 43, 54, 0.4);
-                }
-            `}</style>
-        </div>,
-        portalNode
+        </React.Fragment>
     )
 }
 
