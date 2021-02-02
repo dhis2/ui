@@ -1,6 +1,20 @@
+import { layers } from '@dhis2/ui-constants'
 import React from 'react'
 import { CircularLoader, CenteredContent } from '../index.js'
 import { Layer } from './Layer.js'
+
+const description = `
+_**Note:** These demos may take some time to load._
+
+Layers are used for creating different levels of stacking of interface elements.
+See more about stacking guidelines at the [design system](https://github.com/dhis2/design-system/blob/master/principles/layout.md#stacking).
+
+Layers are used in Modals, Popovers, and Alerts.
+
+\`\`\`js
+import { Layer } from '@dhis2/ui'
+\`\`\`
+`
 
 export default {
     title: 'Helpers/Layer',
@@ -15,62 +29,35 @@ export default {
         docs: {
             inlineStories: false,
             iframeHeight: '180px',
-            description: {
-                component: 'These stories may take some time to load.',
-            },
+            description: { component: description },
         },
     },
-    argTypes: {
-        translucent: {
-            name: 'translucent',
-            type: 'boolean',
-            description: 'Applies a translucent opacity to the layer',
-            table: {
-                type: { summary: 'bool' },
-            },
-            control: {
-                type: 'boolean',
-            },
-        },
-    },
+    // Handle weird treatment of non-literal defaultProps
+    args: { level: layers.applicationTop },
 }
 
-export const Default = () => (
+const Template = args => (
     <>
-        <Layer />
+        <Layer {...args} />
 
         <h1>Text behind the layer</h1>
         <p>Lorem ipsum</p>
     </>
 )
 
-export const Translucent = () => (
-    <>
-        <Layer translucent />
+export const Default = Template.bind({})
 
-        <h1>Text behind the layer</h1>
-        <p>Lorem ipsum</p>
-    </>
-)
+export const Translucent = Template.bind({})
+Translucent.args = { translucent: true }
 
-export const WithClickHandler = () => (
-    <>
-        <Layer onClick={() => alert('layer was clicked')} />
+export const WithClickHandler = Template.bind({})
+WithClickHandler.args = { onClick: () => alert('layer was clicked') }
 
-        <h1>Text behind the layer</h1>
-        <p>Lorem ipsum</p>
-    </>
-)
-
-export const WithCenteredContentCircularLoader = () => (
-    <>
-        <Layer translucent>
-            <CenteredContent>
-                <CircularLoader />
-            </CenteredContent>
-        </Layer>
-
-        <h1>Text behind the layer</h1>
-        <p>Lorem ipsum</p>
-    </>
-)
+export const WithCenteredContentCircularLoader = Template.bind({})
+WithCenteredContentCircularLoader.args = {
+    children: (
+        <CenteredContent>
+            <CircularLoader />
+        </CenteredContent>
+    ),
+}
