@@ -82,7 +82,6 @@ const Tab = ({
                 overflow: hidden;
                 text-overflow: ellipsis;
                 transition: fill 150ms ease-in-out;
-                padding: 0px 2px;
             }
 
             button:focus span {
