@@ -82,6 +82,9 @@ jobs:
               with:
                   name: lib-build
 
+            - name: Build
+              run: yarn build
+
             - name: Lint
               run: yarn lint
 

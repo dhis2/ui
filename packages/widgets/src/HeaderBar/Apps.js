@@ -1,5 +1,5 @@
 import { useConfig } from '@dhis2/app-runtime'
-import i18n from '@dhis2/d2-i18n'
+import i18n from '../locales'
 import propTypes from '@dhis2/prop-types'
 import { colors, theme } from '@dhis2/ui-constants'
 import { Card } from '@dhis2/ui-core'
