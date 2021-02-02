@@ -65,7 +65,7 @@
         "@storybook/node-logger": "^6.1.9",
         "@storybook/preset-create-react-app": "^3.1.5",
         "@storybook/react": "^6.1.16",
-        "@storybook/theming": "^6.1.10",
+        "@storybook/theming": "^6.1.16",
         "@wertarbyte/react-props-md-table": "^1.1.1",
         "concurrently": "^5.3.0",
         "enzyme": "^3.11.0",
