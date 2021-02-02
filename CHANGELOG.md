@@ -1,3 +1,10 @@
+## [6.1.7](https://github.com/dhis2/ui/compare/v6.1.6...v6.1.7) (2021-02-02)
+
+
+### Bug Fixes
+
+* add outline to tab component when focused ([#482](https://github.com/dhis2/ui/issues/482)) ([4af504b](https://github.com/dhis2/ui/commit/4af504b7e4d2eee074a9c3efa95966b8ff31a079))
+
 ## [6.1.6](https://github.com/dhis2/ui/compare/v6.1.5...v6.1.6) (2021-01-27)
 
 
