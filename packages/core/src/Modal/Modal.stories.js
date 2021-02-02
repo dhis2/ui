@@ -1,3 +1,4 @@
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
 import {
     Button,
@@ -32,7 +33,11 @@ export default {
             },
         },
     },
-    decorators: [story => <div style={{ minHeight: '500px' }}>{story()}</div>],
+    argTypes: {
+        small: { ...sharedPropTypes.sizeArgType },
+        large: { ...sharedPropTypes.sizeArgType },
+        position: { ...sharedPropTypes.insideAlignmentArgType },
+    },
 }
 
 export const DefaultContent = args => (
