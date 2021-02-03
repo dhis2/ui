@@ -24,7 +24,7 @@ TableHead.defaultProps = {
  * @prop {TableRowHead|Array.<TableRowHead>} [children]
  * @prop {string} [className]
  * @prop {string} [role]
- * @prop {string} [dataTest]
+ * @prop {string} [dataTest=dhis2-uicore-tablehead]
  */
 TableHead.propTypes = {
     children: propTypes.node,

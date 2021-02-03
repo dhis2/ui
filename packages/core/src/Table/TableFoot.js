@@ -24,7 +24,7 @@ TableFoot.defaultProps = {
  * @prop {TableRow|Array.<TableRow>} [children]
  * @prop {string} [className]
  * @prop {string} [role]
- * @prop {string} [dataTest]
+ * @prop {string} [dataTest=dhis2-uicore-tablefoot]
  */
 TableFoot.propTypes = {
     children: propTypes.node,

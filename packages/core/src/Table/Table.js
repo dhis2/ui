@@ -33,7 +33,7 @@ Table.defaultProps = {
  * @prop {TableHead|TableBody|TableFoot|Array.<TableHead|TableBody|TableFoot>} [children]
  * @prop {string} [className]
  * @prop {string} [role]
- * @prop {string} [dataTest]
+ * @prop {string} [dataTest=dhis2-uicore-table]
  */
 Table.propTypes = {
     children: propTypes.node,

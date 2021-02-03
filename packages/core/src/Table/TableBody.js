@@ -24,7 +24,7 @@ TableBody.defaultProps = {
  * @prop {TableRow|Array.<TableRow>} [children]
  * @prop {string} [className]
  * @prop {string} [role]
- * @prop {string} [dataTest]
+ * @prop {string} [dataTest=dhis2-uicore-tablebody]
  */
 TableBody.propTypes = {
     children: propTypes.node,
