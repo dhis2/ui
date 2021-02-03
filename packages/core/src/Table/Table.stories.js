@@ -27,7 +27,7 @@ const TableButton = () => <Button primary>Table button</Button>
 export default { title: 'Table' }
 
 export const StaticLayout = () => (
-    <Table>
+    <Table fixedCols={3} fixedColWidths={[100, 100, 100]} width="600px">
         <TableHead>
             <TableRowHead>
                 <TableCellHead>First name</TableCellHead>
