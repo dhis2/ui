@@ -11,6 +11,11 @@ const TOOLTIP_OFFSET = 4
 const popperStyle = resolve`
     z-index: ${layers.applicationTop};
     pointer-events: none;
+
+    // Hide popper when reference component is obscured (https://popper.js.org/docs/v2/modifiers/hide/)
+    div[data-popper-escaped="true"] {
+        visibility: hidden;
+    }
 `
 
 const offsetModifier = {
@@ -18,6 +23,10 @@ const offsetModifier = {
     options: {
         offset: [0, TOOLTIP_OFFSET],
     },
+}
+
+const hideModifier = {
+    name: 'hide',
 }
 
 const OPEN_DELAY = 200
@@ -88,7 +97,7 @@ const Tooltip = ({
                         className={popperStyle.className}
                         placement={placement}
                         reference={popperReference}
-                        modifiers={[offsetModifier]}
+                        modifiers={[offsetModifier, hideModifier]}
                     >
                         <div
                             className={className}
