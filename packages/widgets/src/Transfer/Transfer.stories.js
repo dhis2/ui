@@ -412,44 +412,83 @@ export const CustomFilteringWithoutFilterInput = createCustomFilteringInHeader(
     true
 )
 
-const sliceLength = 6
+const optionsPool = options
+const pageSize = 5
 
+/*
+ * The page size is: 5
+ * To keep the code as small as possible, handling selecting items is not
+   included
+ */
 export const InfiniteLoading = () => {
+    useEffect(() => {
+        console.clear()
+    }, [])
+
+    // state for whether the next page's options are being loaded
     const [loading, setLoading] = useState(false)
-    const [optionsLength, setOptionsLength] = useState(sliceLength)
-    const [optionsSlice, setOptionsSlice] = useState(
-        options.slice(0, optionsLength)
+    // captures the current page
+    const [page, setPage] = useState(0)
+    // all options (incl. available AND selected options)
+    const [options, setOptions] = useState([])
+    // selected options
+    const [selected] = useState(
+        // second page is already selected
+        optionsPool.slice(pageSize, pageSize * 2).map(({ value }) => value)
     )
-    const [selected, setSelected] = useState()
-    const onChange = payload => setSelected(payload.selected)
+
+    const onEndReached = () => {
+        // do nothing when loading already
+        if (loading) return
+        setPage(page + 1)
+    }
+
+    // fake fetch request
+    const fetchOptions = nextPage =>
+        new Promise(resolve =>
+            setTimeout(() => {
+                const nextOptions = optionsPool.slice(
+                    options.length,
+                    nextPage * pageSize
+                )
+                resolve(nextOptions)
+            }, 2000)
+        )
+
+    const loadNextOptions = async () => {
+        setLoading(true)
+
+        const nextOptions = await fetchOptions(page)
+        setOptions([...options, ...nextOptions])
+
+        setLoading(false)
+
+        const allAlreadySelected =
+            nextOptions.length !== 0 &&
+            nextOptions.every(nextOption => {
+                const { value } = nextOption
+                return selected.includes(value)
+            })
+
+        if (allAlreadySelected) {
+            onEndReached()
+        }
+    }
 
     useEffect(() => {
-        if (sliceLength !== optionsLength) {
-            setTimeout(() => {
-                setOptionsSlice(options.slice(0, optionsLength))
-                setLoading(false)
-            }, 1000)
-
-            setLoading(true)
+        // prevent initial call
+        if (page > 0) {
+            loadNextOptions()
         }
-    }, [optionsLength])
+    }, [page])
 
     return (
         <Transfer
             loading={loading}
-            options={optionsSlice}
+            options={options}
             selected={selected}
-            onChange={onChange}
-            onEndReached={() => {
-                if (loading) return
-
-                const newOptionsLength = Math.min(
-                    optionsLength + sliceLength,
-                    options.length
-                )
-
-                setOptionsLength(newOptionsLength)
-            }}
+            onChange={() => null /* noop */}
+            onEndReached={onEndReached}
         />
     )
 }
