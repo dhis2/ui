@@ -1774,10 +1774,10 @@
     semver "^7.3.2"
     yargs "^16.1.0"
 
-"@dhis2/cli-utils-cypress@^5.1.0":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-utils-cypress/-/cli-utils-cypress-5.1.0.tgz#757590a1598ad1db34f18e2a9e04863d2a13eabb"
-  integrity sha512-E6Srmj+4EqwHqIywIe06LnO48p6V/6D8bfv5JjWHktZXDV/PZFXBFHCXoZvmiuk2IZm5ebIDHYuDNhbYOg11aQ==
+"@dhis2/cli-utils-cypress@^5.1.1":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-utils-cypress/-/cli-utils-cypress-5.1.1.tgz#03885cc0fb0aefb8df303f30dae2e93e9c20c6d1"
+  integrity sha512-YcIAcvKtBPd6Ms3OGYIHVPba6wxmVyPoDluXFIIqZVxLFWAjZ7OBRYMSaT9SebUo6QLyMFuqHmxX283UY9l4Zg==
   dependencies:
     "@dhis2/cli-helpers-engine" "^1.5.0"
     concurrently "^5.2.0"
@@ -18857,10 +18857,8 @@ watchpack@^1.7.4:
   resolved "https://registry.yarnpkg.com/watchpack/-/watchpack-1.7.5.tgz#1267e6c55e0b9b5be44c2023aed5437a2c26c453"
   integrity sha512-9P3MWk6SrKjHsGkLT2KHXdQ/9SNkyoJbabxnKOoJepsvJjJG8uYTR3yTPxPQvNDI3w4Nz1xnE0TLHK4RIVe/MQ==
   dependencies:
-    chokidar "^3.4.1"
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
-    watchpack-chokidar2 "^2.0.1"
   optionalDependencies:
     chokidar "^3.4.1"
     watchpack-chokidar2 "^2.0.1"
