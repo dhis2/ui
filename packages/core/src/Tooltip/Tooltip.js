@@ -13,7 +13,7 @@ const popperStyle = resolve`
     pointer-events: none;
 
     // Hide popper when reference component is obscured (https://popper.js.org/docs/v2/modifiers/hide/)
-    div[data-popper-escaped="true"] {
+    div[data-popper-reference-hidden="true"] {
         visibility: hidden;
     }
 `
@@ -25,8 +25,15 @@ const offsetModifier = {
     },
 }
 
-const hideModifier = {
-    name: 'hide',
+/**
+ * For some reason the intended effects of the 'hide' modifier work with or
+ * without adding it to the popper... but it may be safe to include it anyway
+ */
+const hideModifier = { name: 'hide' }
+
+const flipModifier = {
+    name: 'flip',
+    options: { altBoundary: true },
 }
 
 const OPEN_DELAY = 200
@@ -97,7 +104,7 @@ const Tooltip = ({
                         className={popperStyle.className}
                         placement={placement}
                         reference={popperReference}
-                        modifiers={[offsetModifier, hideModifier]}
+                        modifiers={[offsetModifier, flipModifier, hideModifier]}
                     >
                         <div
                             className={className}

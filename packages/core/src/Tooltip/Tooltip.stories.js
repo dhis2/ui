@@ -136,11 +136,16 @@ export const HidesWhenOutOfFrame = args => (
         <p>{"I'm an extra paragraph"}</p>
         <p>{"I'm an extra paragraph"}</p>
         <Tooltip {...args}>
-            <div style={{ height: '80px', border: '1px solid grey' }}>
-                {
-                    "I am a rectangle that contains a tooltip that hides when I'm obscured from view"
-                }
-            </div>
+            {popperArgs => (
+                <div
+                    {...popperArgs}
+                    style={{ height: '80px', border: '1px solid grey' }}
+                >
+                    {
+                        "I am a rectangle that contains a tooltip that hides when I'm obscured from view"
+                    }
+                </div>
+            )}
         </Tooltip>
         <p>{"I'm an extra paragraph"}</p>
         <p>{"I'm an extra paragraph"}</p>
