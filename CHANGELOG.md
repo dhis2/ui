@@ -1,3 +1,10 @@
+# [6.2.0](https://github.com/dhis2/ui/compare/v6.1.7...v6.2.0) (2021-02-04)
+
+
+### Features
+
+* **icons:** dimension type 16px icons ([912a00d](https://github.com/dhis2/ui/commit/912a00d1c7877416162e32ea022c10c5c40ffc3e))
+
 ## [6.1.7](https://github.com/dhis2/ui/compare/v6.1.6...v6.1.7) (2021-02-02)
 
 
