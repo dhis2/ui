@@ -1810,10 +1810,10 @@
   dependencies:
     jscodeshift "^0.11.0"
 
-"@dhis2/cypress-plugins@^5.1.0":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/cypress-plugins/-/cypress-plugins-5.1.0.tgz#039518bbdca83a986358e74a41d203cebd7b9289"
-  integrity sha512-SENJD6aPSzDTFACdxnSTAy29NiZvbwHQLbe+LjEw1wurruXCs8C+pcEGU7PunZP+tqTHGaRX48nXERZ0xpM0Mg==
+"@dhis2/cypress-plugins@^5.1.1":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/cypress-plugins/-/cypress-plugins-5.1.1.tgz#f53fba94f532c684665bc85403aaf7d49f877cff"
+  integrity sha512-L331/KfRNZccv6XBYXahl3MDvgdauT5jwqseRTxa5xVS/qKWBq9c93921oIEe8hJW37Vz2zBO6Y2CO7WPEpWAQ==
 
 "@dhis2/d2-i18n@^1.0.5", "@dhis2/d2-i18n@^1.0.6":
   version "1.0.6"
@@ -18857,10 +18857,8 @@ watchpack@^1.7.4:
   resolved "https://registry.yarnpkg.com/watchpack/-/watchpack-1.7.5.tgz#1267e6c55e0b9b5be44c2023aed5437a2c26c453"
   integrity sha512-9P3MWk6SrKjHsGkLT2KHXdQ/9SNkyoJbabxnKOoJepsvJjJG8uYTR3yTPxPQvNDI3w4Nz1xnE0TLHK4RIVe/MQ==
   dependencies:
-    chokidar "^3.4.1"
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
-    watchpack-chokidar2 "^2.0.1"
   optionalDependencies:
     chokidar "^3.4.1"
     watchpack-chokidar2 "^2.0.1"
