@@ -2,6 +2,7 @@ import React from 'react'
 import css from 'styled-jsx/css'
 import { Modal } from '../Modal/Modal.js'
 import { Tooltip } from './Tooltip.js'
+import { HidesWhenOutOfFrame } from './Tooltip.stories.js'
 
 const noPaddingStyles = css`
     :global(#root) {
@@ -91,3 +92,9 @@ export const ModalWithTooltip = () => (
         `}</style>
     </Modal>
 )
+
+export const ScrollingContainers = HidesWhenOutOfFrame.bind({})
+ScrollingContainers.args = { content: 'Tooltip content' }
+ScrollingContainers.decorators = [
+    story => <div style={{ marginTop: '150px' }}>{story()}</div>,
+]
