@@ -2647,7 +2647,15 @@
     core-js "^3.0.1"
     global "^4.3.2"
 
-"@storybook/components@6.1.16", "@storybook/components@^6.1.16":
+"@storybook/client-logger@6.1.17":
+  version "6.1.17"
+  resolved "https://registry.yarnpkg.com/@storybook/client-logger/-/client-logger-6.1.17.tgz#0d89aaf824457f19bf9aa585bbcada57595e7d01"
+  integrity sha512-oqExrxhmws0ihB47sjdynZHd3OpUP4KWkx4udG+74lYIvBH+EZmQ9xF+UofeY3j5p1I9k8ugEcVKy0sqh1yR3w==
+  dependencies:
+    core-js "^3.0.1"
+    global "^4.3.2"
+
+"@storybook/components@6.1.16":
   version "6.1.16"
   resolved "https://registry.yarnpkg.com/@storybook/components/-/components-6.1.16.tgz#5f58a50b6a4953f5f035713e66da618fdaf39c65"
   integrity sha512-OhtsNKrfSXdVREqO9f89Yr4esP99kVNfzXOIL8WYdYoqW8AsGeznWcdUCkmDOJax0GuinJfRthZNoyTXDEm2Nw==
@@ -2656,6 +2664,32 @@
     "@storybook/client-logger" "6.1.16"
     "@storybook/csf" "0.0.1"
     "@storybook/theming" "6.1.16"
+    "@types/overlayscrollbars" "^1.9.0"
+    "@types/react-color" "^3.0.1"
+    "@types/react-syntax-highlighter" "11.0.4"
+    core-js "^3.0.1"
+    fast-deep-equal "^3.1.1"
+    global "^4.3.2"
+    lodash "^4.17.15"
+    markdown-to-jsx "^6.11.4"
+    memoizerific "^1.11.3"
+    overlayscrollbars "^1.10.2"
+    polished "^3.4.4"
+    react-color "^2.17.0"
+    react-popper-tooltip "^3.1.1"
+    react-syntax-highlighter "^13.5.0"
+    react-textarea-autosize "^8.1.1"
+    ts-dedent "^2.0.0"
+
+"@storybook/components@^6.1.17":
+  version "6.1.17"
+  resolved "https://registry.yarnpkg.com/@storybook/components/-/components-6.1.17.tgz#f92d36e370ec6039d8c7cee9ef13dda866eed3da"
+  integrity sha512-rIEll0UTxEKmG4IsSS5K+6DjRLVtX8J+9cg79GSAC7N1ZHUR1UQmjjJaehJa5q/NQ5H8C39acxpT4Py/BcsL2g==
+  dependencies:
+    "@popperjs/core" "^2.5.4"
+    "@storybook/client-logger" "6.1.17"
+    "@storybook/csf" "0.0.1"
+    "@storybook/theming" "6.1.17"
     "@types/overlayscrollbars" "^1.9.0"
     "@types/react-color" "^3.0.1"
     "@types/react-syntax-highlighter" "11.0.4"
@@ -2864,7 +2898,7 @@
     core-js "^3.6.5"
     find-up "^4.1.0"
 
-"@storybook/theming@6.1.16", "@storybook/theming@^6.1.16":
+"@storybook/theming@6.1.16":
   version "6.1.16"
   resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-6.1.16.tgz#012711c0bd224cc6c089ec6c0239bc86c5b2842b"
   integrity sha512-gFcqbTALWdLI6hwUSob3Gn7iIcyp9qp9Oib+8f00ZHDfZnWr8CDQPJ3PcZ322uf35gskDstk8eKqviSZSDUQug==
@@ -2873,6 +2907,24 @@
     "@emotion/is-prop-valid" "^0.8.6"
     "@emotion/styled" "^10.0.23"
     "@storybook/client-logger" "6.1.16"
+    core-js "^3.0.1"
+    deep-object-diff "^1.1.0"
+    emotion-theming "^10.0.19"
+    global "^4.3.2"
+    memoizerific "^1.11.3"
+    polished "^3.4.4"
+    resolve-from "^5.0.0"
+    ts-dedent "^2.0.0"
+
+"@storybook/theming@6.1.17", "@storybook/theming@^6.1.16":
+  version "6.1.17"
+  resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-6.1.17.tgz#99cc120a230c30458d833b40c806b9b4dff7b34a"
+  integrity sha512-LpRuY2aIh2td+qZi7E8cp2oM88LudNMmTsBT6N2/Id69u/a9qQd2cYCA9k9fAsg7rjor+wR/N695jk3SGtoFTw==
+  dependencies:
+    "@emotion/core" "^10.1.1"
+    "@emotion/is-prop-valid" "^0.8.6"
+    "@emotion/styled" "^10.0.23"
+    "@storybook/client-logger" "6.1.17"
     core-js "^3.0.1"
     deep-object-diff "^1.1.0"
     emotion-theming "^10.0.19"
@@ -18857,10 +18909,8 @@ watchpack@^1.7.4:
   resolved "https://registry.yarnpkg.com/watchpack/-/watchpack-1.7.5.tgz#1267e6c55e0b9b5be44c2023aed5437a2c26c453"
   integrity sha512-9P3MWk6SrKjHsGkLT2KHXdQ/9SNkyoJbabxnKOoJepsvJjJG8uYTR3yTPxPQvNDI3w4Nz1xnE0TLHK4RIVe/MQ==
   dependencies:
-    chokidar "^3.4.1"
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
-    watchpack-chokidar2 "^2.0.1"
   optionalDependencies:
     chokidar "^3.4.1"
     watchpack-chokidar2 "^2.0.1"
