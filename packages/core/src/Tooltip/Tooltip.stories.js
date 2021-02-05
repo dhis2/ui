@@ -129,6 +129,7 @@ export const HidesWhenOutOfFrame = args => (
             overflow: 'scroll',
             border: '1px solid #43cbcb',
         }}
+        data-test="hiding-and-flipping-container"
     >
         <p>{"I'm an extra paragraph"}</p>
         <p>{"I'm an extra paragraph"}</p>
@@ -136,16 +137,11 @@ export const HidesWhenOutOfFrame = args => (
         <p>{"I'm an extra paragraph"}</p>
         <p>{"I'm an extra paragraph"}</p>
         <Tooltip {...args}>
-            {popperArgs => (
-                <div
-                    {...popperArgs}
-                    style={{ height: '80px', border: '1px solid grey' }}
-                >
-                    {
-                        "I am a rectangle that contains a tooltip that hides when I'm obscured from view"
-                    }
-                </div>
-            )}
+            <div style={{ height: '80px', border: '1px solid grey' }}>
+                {
+                    "I am a rectangle that contains a tooltip that hides when I'm obscured from view"
+                }
+            </div>
         </Tooltip>
         <p>{"I'm an extra paragraph"}</p>
         <p>{"I'm an extra paragraph"}</p>
