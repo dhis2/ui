@@ -11,10 +11,8 @@ import {
 } from '../index.js'
 import { Modal } from './Modal.js'
 
-// Todo: need to pare down on some of these stories in the docs page - it's too slow with all the iframes!
-
 const description = `
-_**Note**: For performance reasons, only one representative example is shown here. For more, interactive examples, see individual stories in the Canvas tab._
+_**Note**: For performance reasons, only one representative example is shown here. For more (interactive) examples, see individual stories in the Canvas tab._
 
 A modal focuses user attention on a single task or piece of information inside a container. A modal blocks the rest of the application until it is dismissed.
 
