@@ -1,6 +1,6 @@
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
-import React from 'react'
+import React, { forwardRef } from 'react'
 import styles from './TableCell/TableCell.styles.js'
 
 /**
@@ -10,63 +10,73 @@ import styles from './TableCell/TableCell.styles.js'
  * @example import { TableCell } from '@dhis2/ui'
  * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
  */
-export const TableCell = ({
-    role,
-    active,
-    align,
-    bordered,
-    children,
-    className,
-    colSpan,
-    dataTest,
-    error,
-    fixed,
-    large,
-    left,
-    muted,
-    rowSpan,
-    tag,
-    valid,
-    width,
-    onClick,
-}) => {
-    const CellTag = tag || fixed ? 'th' : 'td'
-    return (
-        <CellTag
-            colSpan={colSpan}
-            rowSpan={rowSpan}
-            onClick={onClick}
-            className={cx(className, {
-                active,
-                bordered,
-                error,
-                fixed,
-                large,
-                muted,
-                valid,
-            })}
-            role={role}
-            data-test={dataTest}
-        >
-            {children}
-            <style jsx>{styles}</style>
-            <style jsx>{`
-                th,
-                td {
-                    text-align: ${align};
-                    width: ${width};
-                    left: ${left};
-                }
-            `}</style>
-        </CellTag>
-    )
-}
+export const TableCell = forwardRef(
+    (
+        {
+            active,
+            align,
+            bordered,
+            children,
+            className,
+            colSpan,
+            dataTest,
+            error,
+            fixed,
+            large,
+            left,
+            muted,
+            role,
+            rowSpan,
+            tag,
+            valid,
+            width,
+            onClick,
+        },
+        ref
+    ) => {
+        const CellTag = tag || fixed ? 'th' : 'td'
+        return (
+            <CellTag
+                ref={ref}
+                colSpan={colSpan}
+                rowSpan={rowSpan}
+                onClick={onClick}
+                className={cx(className, {
+                    active,
+                    bordered,
+                    error,
+                    fixed,
+                    large,
+                    muted,
+                    valid,
+                })}
+                data-test={dataTest}
+                role={role}
+            >
+                {children}
+                <style jsx>{styles}</style>
+                <style jsx>{`
+                    th,
+                    td {
+                        text-align: ${align};
+                        width: ${width};
+                        left: ${left};
+                    }
+                `}</style>
+            </CellTag>
+        )
+    }
+)
+
+TableCell.displayName = 'TableCell'
+
 TableCell.defaultProps = {
     dataTest: 'dhis2-uicore-tablecell',
     width: 'auto',
     left: 'auto',
     align: 'left',
 }
+
 const stylePropType = propTypes.mutuallyExclusive(
     ['valid', 'error', 'muted'],
     propTypes.bool
