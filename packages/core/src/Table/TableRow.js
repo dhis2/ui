@@ -1,50 +1,81 @@
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
-import React, { useContext } from 'react'
-import css from 'styled-jsx/css'
-import { TableContext } from './TableContext'
-
-const tableRowStyles = css`
-    .zebraStriping:nth-child(even) {
-        background: #fbfcfd;
-    }
-`
+import React, { useState, forwardRef } from 'react'
+import { DragHandleCell } from './TableRow/DragHandleCell'
+import { ExpandedRowContent } from './TableRow/ExpandedRowContent'
+import { ExpandToggleCell } from './TableRow/ExpandToggleCell'
+import styles from './TableRow/TableRow.styles.js'
 
 /**
  * @module
  * @param {TableRow.PropTypes} props
  * @returns {React.Component}
- * @example import { TableRow } from '@dhis2/ui-core'
+ * @example import { TableRow } from '@dhis2/ui'
  * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
  */
-export const TableRow = ({
-    role,
-    children,
-    className,
-    dataTest,
-    suppressZebraStriping,
-}) => {
-    const {
-        suppressZebraStriping: suppressZebraStripingFromContext,
-    } = useContext(TableContext)
+export const TableRow = forwardRef(
+    (
+        {
+            children,
+            className,
+            dataTest,
+            expandableContent,
+            role,
+            selected,
+            sortable,
+        },
+        ref
+    ) => {
+        const [isExpanded, setIsExpanded] = useState(false)
+        const [
+            isHoveringExpandedContent,
+            setIsHoveringExpandedContent,
+        ] = useState(false)
+        const toggleExpandableContent = () => setIsExpanded(!isExpanded)
+        const classes = cx(className, {
+            isExpanded,
+            selected,
+            sortable,
+            isHoveringExpandedContent,
+        })
 
-    const zebraStriping =
-        typeof suppressZebraStriping !== 'undefined'
-            ? !suppressZebraStriping
-            : !suppressZebraStripingFromContext
+        return (
+            <>
+                <tr
+                    ref={ref}
+                    className={classes}
+                    data-test={dataTest}
+                    role={role}
+                >
+                    {sortable && <DragHandleCell />}
 
-    return (
-        <tr
-            className={cx(className, { zebraStriping })}
-            data-test={dataTest}
-            role={role}
-        >
-            {children}
+                    {expandableContent && (
+                        <ExpandToggleCell
+                            onClick={toggleExpandableContent}
+                            isExpanded={isExpanded}
+                        />
+                    )}
 
-            <style jsx>{tableRowStyles}</style>
-        </tr>
-    )
-}
+                    {children}
+
+                    <style jsx>{styles}</style>
+                </tr>
+                {expandableContent && isExpanded && (
+                    <ExpandedRowContent
+                        className={classes}
+                        setIsHoveringExpandedContent={
+                            setIsHoveringExpandedContent
+                        }
+                    >
+                        {expandableContent}
+                    </ExpandedRowContent>
+                )}
+            </>
+        )
+    }
+)
+
+TableRow.displayName = 'TableRow'
 
 TableRow.defaultProps = {
     dataTest: 'dhis2-uicore-tablerow',
@@ -56,12 +87,17 @@ TableRow.defaultProps = {
  * @prop {TableCell|TableCellHead|Array.<TableCell|TableCellHead>} [children]
  * @prop {string} [className]
  * @prop {string} [role]
- * @prop {string} [dataTest]
+ * @prop {string} [dataTest=dhis2-uicore-tablerow]
+ * @prop {boolean} [sortable] Only responsible for rendering the sort icon
+ * @prop {boolean} [selected] Only responsible for the selected background color
+ * @prop {string|node} [expandableContent] This content will be rendered as an additional row
  */
 TableRow.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
+    expandableContent: propTypes.node,
     role: propTypes.string,
-    suppressZebraStriping: propTypes.bool,
+    selected: propTypes.bool,
+    sortable: propTypes.bool,
 }
