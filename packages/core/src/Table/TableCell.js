@@ -1,73 +1,119 @@
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 import React from 'react'
-import css from 'styled-jsx/css'
-
-const tableCellStyles = css`
-    td {
-        border-bottom: 1px solid #e8edf2;
-        font-size: 14px;
-        line-height: 18px;
-        padding: 13px 12px;
-        height: 45px;
-    }
-
-    .dense {
-        padding: 9px 12px;
-        height: 36px;
-    }
-`
+import styles from './TableCell/TableCell.styles.js'
 
 /**
  * @module
  * @param {TableCell.PropTypes} props
  * @returns {React.Component}
- * @example import { TableCell } from '@dhis2/ui-core'
+ * @example import { TableCell } from '@dhis2/ui'
  * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
  */
 export const TableCell = ({
     role,
-    className,
+    active,
+    align,
+    bordered,
     children,
+    className,
     colSpan,
-    rowSpan,
-    dense,
     dataTest,
-}) => (
-    <td
-        colSpan={colSpan}
-        rowSpan={rowSpan}
-        className={cx({ dense }, className)}
-        data-test={dataTest}
-        role={role}
-    >
-        {children}
-
-        <style jsx>{tableCellStyles}</style>
-    </td>
-)
-
+    error,
+    fixed,
+    large,
+    left,
+    muted,
+    rowSpan,
+    tag,
+    valid,
+    width,
+    onClick,
+}) => {
+    const CellTag = tag || fixed ? 'th' : 'td'
+    return (
+        <CellTag
+            colSpan={colSpan}
+            rowSpan={rowSpan}
+            onClick={onClick}
+            className={cx(className, {
+                active,
+                bordered,
+                error,
+                fixed,
+                large,
+                muted,
+                valid,
+            })}
+            role={role}
+            data-test={dataTest}
+        >
+            {children}
+            <style jsx>{styles}</style>
+            <style jsx>{`
+                th,
+                td {
+                    text-align: ${align};
+                    width: ${width};
+                    left: ${left};
+                }
+            `}</style>
+        </CellTag>
+    )
+}
 TableCell.defaultProps = {
     dataTest: 'dhis2-uicore-tablecell',
+    width: 'auto',
+    left: 'auto',
+    align: 'left',
 }
-
+const stylePropType = propTypes.mutuallyExclusive(
+    ['valid', 'error', 'muted'],
+    propTypes.bool
+)
+const requiredIfFixedPropType = propTypes.requiredIf(
+    props => props.fixed,
+    propTypes.string
+)
 /**
  * @typedef {Object} PropTypes
  * @static
+ * @prop {node} [children]
+ * @prop {string} [className]
+ * @prop {string} [dataTest=dhis2-uicore-tablecell]
  * @prop {string} [colSpan]
  * @prop {string} [rowSpan]
- * @prop {bool} [dense]
- * @prop {Node} [children]
- * @prop {string} [className]
  * @prop {string} [role]
- * @prop {string} [dataTest]
+ * @prop {string} [tag] HTML tag to render (will default to td)
+ * @prop {boolean} [active] To toggle background color, for example for editing
+ * @prop {function} [onClick]
+ * @prop {boolean} [large]
+ * @prop {boolean} [bordered]
+ * @prop {boolean} [fixed]
+ * @prop {string} [width=auto] Required when fixed
+ * @prop {string} [left=auto] Required when fixed
+ * @prop {left|center|right} [align=left]
+ * @prop {boolean} [error] Mutually exclusive
+ * @prop {boolean} [valid] Mutually exclusive
+ * @prop {boolean} [muted] Mutually exclusive
  */
 TableCell.propTypes = {
+    active: propTypes.boolean,
+    align: propTypes.left,
+    bordered: propTypes.boolean,
     children: propTypes.node,
     className: propTypes.string,
     colSpan: propTypes.string,
     dataTest: propTypes.string,
-    dense: propTypes.bool,
+    error: stylePropType,
+    fixed: propTypes.boolean,
+    large: propTypes.boolean,
+    left: requiredIfFixedPropType,
+    muted: stylePropType,
     role: propTypes.string,
     rowSpan: propTypes.string,
+    tag: propTypes.oneOf(['td', 'tr']),
+    valid: stylePropType,
+    width: requiredIfFixedPropType,
+    onClick: propTypes.function,
 }
