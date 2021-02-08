@@ -39,11 +39,30 @@ const { className: tableClassName, styles } = css.resolve`
  * @example import { TableScrollBox } from '@dhis2/ui'
  * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
  */
-export const TableScrollBox = ({ className, children, dataTest, ...props }) => (
+export const TableScrollBox = ({
+    children,
+    className,
+    dataTest,
+    height,
+    marginTop,
+    maxHeight,
+    maxWidth,
+    minHeight,
+    minWidth,
+    overflow,
+    width,
+}) => (
     <Box
         className={cx(className, tableClassName)}
         dataTest={dataTest}
-        {...props}
+        height={height}
+        marginTop={marginTop}
+        maxHeight={maxHeight}
+        maxWidth={maxWidth}
+        minHeight={minHeight}
+        minWidth={minWidth}
+        overflow={overflow}
+        width={width}
     >
         {children}
         {styles}
@@ -51,18 +70,35 @@ export const TableScrollBox = ({ className, children, dataTest, ...props }) => (
 )
 
 TableScrollBox.propTypes = {
-    dataTest: 'dhis2-uicore-tablebox',
+    dataTest: 'dhis2-uicore-tablescrollbox',
 }
 
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {TableRow|Array.<TableRow>} [children]
+ *
+ * @prop {node} [children]
  * @prop {string} [className]
- * @prop {string} [dataTest=dhis2-uicore-tablebox]
+ * @prop {string} [dataTest=dhis2-uicore-tablescrollbox]
+ * @prop {string} [height]
+ * @prop {string} [marginTop]
+ * @prop {string} [maxHeight]
+ * @prop {string} [maxWidth]
+ * @prop {string} [minHeight]
+ * @prop {string} [minWidth]
+ * @prop {string} [overflow]
+ * @prop {string} [width]
  */
 TableScrollBox.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
+    height: propTypes.string,
+    marginTop: propTypes.string,
+    maxHeight: propTypes.string,
+    maxWidth: propTypes.string,
+    minHeight: propTypes.string,
+    minWidth: propTypes.string,
+    overflow: propTypes.string,
+    width: propTypes.string,
 }
