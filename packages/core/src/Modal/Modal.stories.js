@@ -11,6 +11,39 @@ import {
 } from '../index.js'
 import { Modal } from './Modal.js'
 
+// Todo: need to pare down on some of these stories in the docs page - it's too slow with all the iframes!
+
+const description = `
+_**Note**: For performance reasons, only one representative example is shown here. For more, interactive examples, see individual stories in the Canvas tab._
+
+A modal focuses user attention on a single task or piece of information inside a container. A modal blocks the rest of the application until it is dismissed.
+
+#### Usage
+
+A modal should be used to focus user attention on a single task or piece of information. Modals take over the entire screen and should be used sparingly to avoid interrupting a user's flow too often.
+
+Use a modal in the following cases:
+
+- to collect short, focussed user input that is blocking progress
+- to present critical information that a user needs to acknowledge before continuing
+- to ask the user to confirm a destructive action that cannot be undone
+
+Do not use a modal in the following cases:
+
+- to display unrelated or non-critical information; use an alert bar or a notice box instead
+- to display complex, workflows that span multiple screens; navigate to a new, full page in the app instead
+
+#### Children
+
+Modals should be used with children \`<ModalTitle>\` (optional), \`<ModalContent>\` (required), and \`<ModalActions>\` (recommended)
+
+See more about modal usage, including alignment and sizing, at [Design System: Modals](https://github.com/dhis2/design-system/blob/master/molecules/modal.md#usage).
+
+\`\`\`js
+import { Modal } from '@dhis2/ui'
+\`\`\`
+`
+
 const say = something => () => alert(something)
 
 window.onClose = (payload, event) => {
@@ -28,9 +61,12 @@ export default {
             // Use iframes to contain modals in docs page (otherwise chaos ensues)
             inlineStories: false,
             iframeHeight: '500px',
-            description: {
-                component: 'These stories may take some time to load.',
-            },
+            /**
+             * Due to iframes being very slow, disable stories on the docs page by default and
+             * make one representative story as the primary ('SmallTitleContentAction')
+             */
+            disable: true,
+            description: { component: description },
         },
     },
     argTypes: {
@@ -60,8 +96,8 @@ DefaultContent.args = {
 }
 DefaultContent.storyName = 'Default: Content'
 
-export const AlignmentMiddle = () => (
-    <Modal onClose={onClose} position="middle">
+export const AlignmentMiddle = args => (
+    <Modal {...args}>
         <ModalContent>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
             nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
@@ -75,10 +111,11 @@ export const AlignmentMiddle = () => (
         </ModalContent>
     </Modal>
 )
+AlignmentMiddle.args = { onClose, position: 'middle' }
 AlignmentMiddle.storyName = 'Alignment: Middle'
 
-export const AlignmentBottom = () => (
-    <Modal onClose={onClose} position="bottom">
+export const AlignmentBottom = args => (
+    <Modal {...args}>
         <ModalContent>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
             nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
@@ -92,10 +129,11 @@ export const AlignmentBottom = () => (
         </ModalContent>
     </Modal>
 )
+AlignmentBottom.args = { onClose, alignment: 'bottom' }
 AlignmentBottom.storyName = 'Alignment: Bottom'
 
-export const SmallTitleContentAction = () => (
-    <Modal small onClose={onClose}>
+export const SmallTitleContentAction = args => (
+    <Modal {...args}>
         <ModalTitle>
             This is a small modal with title, content and primary action
         </ModalTitle>
@@ -125,10 +163,15 @@ export const SmallTitleContentAction = () => (
         </ModalActions>
     </Modal>
 )
+// Have this be the primary story on the docs page
+SmallTitleContentAction.parameters = {
+    docs: { disable: false, source: { type: 'dynamic' } },
+}
+SmallTitleContentAction.args = { small: true, onClose }
 SmallTitleContentAction.storyName = 'Small: Title, Content, Action'
 
-export const MediumTitleContentAction = () => (
-    <Modal>
+export const MediumTitleContentAction = args => (
+    <Modal {...args}>
         <ModalTitle>
             This is a medium modal with title, content and primary action
         </ModalTitle>
@@ -160,8 +203,8 @@ export const MediumTitleContentAction = () => (
 )
 MediumTitleContentAction.storyName = 'Medium: Title, Content, Action'
 
-export const LargeTitleContentPrimary = () => (
-    <Modal large>
+export const LargeTitleContentPrimary = args => (
+    <Modal {...args}>
         <ModalTitle>
             This is a large modal with title, content and primary action
         </ModalTitle>
@@ -191,10 +234,11 @@ export const LargeTitleContentPrimary = () => (
         </ModalActions>
     </Modal>
 )
+LargeTitleContentPrimary.args = { large: true }
 LargeTitleContentPrimary.storyName = 'Large: Title, Content, Primary'
 
-export const SmallContentPrimary = () => (
-    <Modal small>
+export const SmallContentPrimary = args => (
+    <Modal {...args}>
         <ModalContent>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
             nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
@@ -220,10 +264,11 @@ export const SmallContentPrimary = () => (
         </ModalActions>
     </Modal>
 )
+SmallContentPrimary.args = { small: true }
 SmallContentPrimary.storyName = 'Small: Content & Primary'
 
-export const SmallDestructivePrimary = () => (
-    <Modal small>
+export const SmallDestructivePrimary = args => (
+    <Modal {...args}>
         <ModalContent>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
             nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
@@ -249,10 +294,11 @@ export const SmallDestructivePrimary = () => (
         </ModalActions>
     </Modal>
 )
+SmallDestructivePrimary.args = { small: true }
 SmallDestructivePrimary.storyName = 'Small: Destructive Primary'
 
-export const SmallClickableScreenCover = () => (
-    <Modal small onClose={say('Clickable screen cover')}>
+export const SmallClickableScreenCover = args => (
+    <Modal {...args}>
         <ModalTitle>This is a modal with clickable screen cover</ModalTitle>
 
         <ModalContent>
@@ -274,10 +320,17 @@ export const SmallClickableScreenCover = () => (
         </ModalActions>
     </Modal>
 )
+SmallClickableScreenCover.args = {
+    small: true,
+    onClose: args => {
+        onClose(args)
+        say('Clickable screen cover')()
+    },
+}
 SmallClickableScreenCover.storyName = 'Small: Clickable screen cover'
 
-export const TopScrollable = () => (
-    <Modal small onClose={say('Clickable screen cover')}>
+export const TopScrollable = args => (
+    <Modal {...args}>
         <ModalTitle>This is a modal with scrollable content</ModalTitle>
 
         <ModalContent>
@@ -341,10 +394,11 @@ export const TopScrollable = () => (
         </ModalActions>
     </Modal>
 )
+TopScrollable.args = { ...SmallClickableScreenCover.args }
 TopScrollable.storyName = 'Top: scrollable'
 
-export const MiddleScrollable = () => (
-    <Modal small onClose={say('Clickable screen cover')} position="middle">
+export const MiddleScrollable = args => (
+    <Modal {...args}>
         <ModalTitle>This is a modal with scrollable content</ModalTitle>
 
         <ModalContent>
@@ -408,10 +462,11 @@ export const MiddleScrollable = () => (
         </ModalActions>
     </Modal>
 )
+MiddleScrollable.args = { ...TopScrollable.args, position: 'middle' }
 MiddleScrollable.storyName = 'Middle: scrollable'
 
-export const BottomScrollable = () => (
-    <Modal small onClose={say('Clickable screen cover')} position="bottom">
+export const BottomScrollable = args => (
+    <Modal {...args}>
         <ModalTitle>This is a modal with scrollable content</ModalTitle>
 
         <ModalContent>
@@ -475,10 +530,11 @@ export const BottomScrollable = () => (
         </ModalActions>
     </Modal>
 )
+BottomScrollable.args = { ...TopScrollable.args, position: 'bottom' }
 BottomScrollable.storyName = 'Bottom: scrollable'
 
-export const SmallLongTitle = () => (
-    <Modal small>
+export const SmallLongTitle = args => (
+    <Modal {...args}>
         <ModalTitle>
             This headline should break into multiple lines because it&apos;s way
             too long for one!
@@ -504,10 +560,11 @@ export const SmallLongTitle = () => (
         </ModalActions>
     </Modal>
 )
+SmallLongTitle.args = { small: true }
 SmallLongTitle.storyName = 'Small: Long title'
 
-export const LargeWithSelectComponent = () => (
-    <Modal large>
+export const LargeWithSelectComponent = args => (
+    <Modal {...args}>
         <ModalTitle>Select opens on top of the Modal</ModalTitle>
 
         <ModalContent>
@@ -538,10 +595,11 @@ export const LargeWithSelectComponent = () => (
         </ModalActions>
     </Modal>
 )
+LargeWithSelectComponent.args = { large: true }
 LargeWithSelectComponent.storyName = 'Large: with Select component'
 
-export const LargeModalWithMoreNestedModals = () => (
-    <Modal large>
+export const LargeModalWithMoreNestedModals = args => (
+    <Modal {...args}>
         <ModalTitle>Select opens on top of the Modal - Level 1</ModalTitle>
 
         <ModalContent>
@@ -679,5 +737,6 @@ export const LargeModalWithMoreNestedModals = () => (
         </ModalActions>
     </Modal>
 )
+LargeModalWithMoreNestedModals.args = { large: true }
 LargeModalWithMoreNestedModals.storyName =
     'Large: modal with more nested modals'
