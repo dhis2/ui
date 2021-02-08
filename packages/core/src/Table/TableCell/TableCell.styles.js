@@ -8,6 +8,7 @@ export default css`
         font-size: 14px;
         line-height: 16px;
         height: 45px;
+        border: 1px solid transparant;
         border-bottom: 1px solid ${colors.grey300};
     }
     td {

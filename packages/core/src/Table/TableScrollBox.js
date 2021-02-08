@@ -8,15 +8,16 @@ import { Box } from '../Box/Box.js'
 const { className: tableClassName, styles } = css.resolve`
     div {
         border: 1px solid ${colors.grey300};
+        border-top: none;
         box-sizing: border-box;
     }
     div > :global(table) :global(tr) :global(td:first-child),
     div > :global(table) :global(tr) :global(th:first-child) {
-        border-left: none;
+        border-left: 1px solid transparent;
     }
     div > :global(table) :global(tr) :global(td:last-child),
     div > :global(table) :global(tr) :global(th:last-child) {
-        border-right: none;
+        border-right: 1px solid transparent;
     }
     div > :global(table) > :global(tr:first-child) :global(th),
     div
@@ -24,11 +25,11 @@ const { className: tableClassName, styles } = css.resolve`
         > :global(thead)
         > :global(tr:first-child)
         :global(th) {
-        border-top: none;
+        border-top: 1px solid transparent;
     }
     div > :global(table) > :global(tr:last-child) :global(td),
     div > :global(table) > :global(tfoot) > :global(tr:last-child) :global(td) {
-        border-bottom: none;
+        border-bottom: 1px solid transparent;
     }
 `
 
