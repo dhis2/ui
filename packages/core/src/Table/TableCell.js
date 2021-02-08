@@ -108,16 +108,16 @@ const requiredIfFixedPropType = propTypes.requiredIf(
  * @prop {boolean} [muted] Mutually exclusive
  */
 TableCell.propTypes = {
-    active: propTypes.boolean,
-    align: propTypes.left,
-    bordered: propTypes.boolean,
+    active: propTypes.bool,
+    align: propTypes.oneOf(['left', 'center', 'right']),
+    bordered: propTypes.bool,
     children: propTypes.node,
     className: propTypes.string,
     colSpan: propTypes.string,
     dataTest: propTypes.string,
     error: stylePropType,
-    fixed: propTypes.boolean,
-    large: propTypes.boolean,
+    fixed: propTypes.bool,
+    large: propTypes.bool,
     left: requiredIfFixedPropType,
     muted: stylePropType,
     role: propTypes.string,
@@ -125,5 +125,5 @@ TableCell.propTypes = {
     tag: propTypes.oneOf(['td', 'tr']),
     valid: stylePropType,
     width: requiredIfFixedPropType,
-    onClick: propTypes.function,
+    onClick: propTypes.func,
 }

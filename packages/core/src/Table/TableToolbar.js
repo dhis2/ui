@@ -4,7 +4,7 @@ import cx from 'classnames'
 import React from 'react'
 
 export const TableToolbar = ({ children, className, dataTest, position }) => (
-    <div dataTest={dataTest} className={cx(className, position)}>
+    <div data-test={dataTest} className={cx(className, position)}>
         {children}
         <style jsx>{`
             div {
