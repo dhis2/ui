@@ -5,7 +5,7 @@ import React from 'react'
  * @module
  * @param {TableFoot.PropTypes} props
  * @returns {React.Component}
- * @example import { TableFoot } from '@dhis2/ui-core'
+ * @example import { TableFoot } from '@dhis2/ui'
  * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
  */
 export const TableFoot = ({ children, className, dataTest, role }) => (

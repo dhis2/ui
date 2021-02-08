@@ -7,7 +7,7 @@ import { TableRow } from './TableRow.js'
  * @module
  * @param {TableRowHead.PropTypes} props
  * @returns {React.Component}
- * @example import { TableRowHead } from '@dhis2/ui-core'
+ * @example import { TableRowHead } from '@dhis2/ui'
  * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
  */
 export const TableRowHead = ({
