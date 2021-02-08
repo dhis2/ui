@@ -50,7 +50,7 @@ export default css`
     }
     td.bordered,
     th.bordered {
-        border: 1px solid ${colors.grey300};
+        border-right: 1px solid ${colors.grey300};
     }
     td.error,
     th.error {

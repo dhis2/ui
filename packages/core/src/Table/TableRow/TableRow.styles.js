@@ -23,6 +23,9 @@ export default css`
     :global(tbody) tr.isExpanded > :global(td) {
         border-bottom-color: transparent;
     }
+    :global(tbody) tr.isExpanded > :global(td.bordered) {
+        border-bottom-color: ${colors.grey300};
+    }
     :global(tbody) tr.sortable {
         cursor: move;
     }
