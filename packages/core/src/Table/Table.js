@@ -5,7 +5,7 @@ import React from 'react'
  * @module
  * @param {Table.PropTypes} props
  * @returns {React.Component}
- * @example import { Table } from '@dhis2/ui-core'
+ * @example import { Table } from '@dhis2/ui'
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/organisms/data-table.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
  */
@@ -15,8 +15,10 @@ export const Table = ({ children, className, dataTest, role }) => {
             {children}
             <style jsx>{`
                 table {
-                    border-collapse: collapse;
+                    border-collapse: separate;
+                    border-spacing: 0;
                     width: 100%;
+                    box-sizing: border-box;
                 }
             `}</style>
         </table>
