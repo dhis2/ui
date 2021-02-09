@@ -1,19 +1,26 @@
-import propTypes from '@dhis2/prop-types'
 import { sharedPropTypes } from '@dhis2/ui-constants'
-import React, { Component, createRef } from 'react'
+import React, { useRef } from 'react'
 import { Popper } from './Popper.js'
 
-const { popperPlacementArgType, popperReferenceArgType } = sharedPropTypes
+const description = `
+A tool for adding additional information or content outside of the document flow, used for example in the Tooltip or Popover components.
+
+Since it's built using [Popper.js](https://popper.js.org/docs/v2/) and [react-popper](https://popper.js.org/react-popper/), some of that functionality can be accessed through the props of this component, like modifiers.
+
+\`\`\`js
+import { Popper } from '@dhis2/ui'
+\`\`\`
+
+_**Note**: Some of the stories may not look right on this page. View those examples in the 'Canvas' tab instead._
+`
 
 export default {
     title: 'Helpers/Popper',
     component: Popper,
-    decorators: [
-        storyFN => <BoxWithCenteredReferenceElement renderChildren={storyFN} />,
-    ],
+    parameters: { docs: { description: { component: description } } },
     argTypes: {
-        placement: { ...popperPlacementArgType },
-        reference: { ...popperReferenceArgType },
+        placement: { ...sharedPropTypes.popperPlacementArgType },
+        reference: { ...sharedPropTypes.popperReferenceArgType },
     },
 }
 
@@ -23,7 +30,6 @@ const boxStyle = {
     justifyContent: 'center',
     width: 400,
     height: 400,
-    marginBottom: 1000,
     backgroundColor: 'aliceblue',
 }
 
@@ -43,106 +49,77 @@ const popperStyle = {
     padding: 6,
 }
 
-class BoxWithCenteredReferenceElement extends Component {
-    ref = createRef()
+const Template = args => {
+    const ref = useRef(null)
 
-    render() {
-        const { renderChildren } = this.props
-        return (
-            <div className="box" style={boxStyle}>
-                <div
-                    className="reference-element"
-                    style={referenceElementStyle}
-                    ref={this.ref}
-                >
-                    Reference element
-                </div>
-                {renderChildren({ referenceElement: this.ref })}
+    return (
+        <div className="box" style={boxStyle}>
+            <div
+                className="reference-element"
+                style={referenceElementStyle}
+                ref={ref}
+            >
+                Reference Element
             </div>
-        )
-    }
-}
-BoxWithCenteredReferenceElement.propTypes = {
-    renderChildren: propTypes.func,
+            <Popper {...args} reference={ref}>
+                <div style={popperStyle}>{args.placement}</div>
+            </Popper>
+        </div>
+    )
 }
 
-/* eslint-disable react/prop-types */
-export const Top = ({ referenceElement }) => (
-    <Popper reference={referenceElement} placement="top">
-        <div style={popperStyle}>Top</div>
-    </Popper>
-)
-export const TopStart = ({ referenceElement }) => (
-    <Popper reference={referenceElement} placement="top-start">
-        <div style={popperStyle}>Top start</div>
-    </Popper>
-)
-export const TopEnd = ({ referenceElement }) => (
-    <Popper reference={referenceElement} placement="top-end">
-        <div style={popperStyle}>Top end</div>
-    </Popper>
-)
-export const Bottom = ({ referenceElement }) => (
-    <Popper reference={referenceElement} placement="bottom">
-        <div style={popperStyle}>Bottom</div>
-    </Popper>
-)
-export const BottomStart = ({ referenceElement }) => (
-    <Popper reference={referenceElement} placement="bottom-start">
-        <div style={popperStyle}>Bottom start</div>
-    </Popper>
-)
-export const BottomEnd = ({ referenceElement }) => (
-    <Popper reference={referenceElement} placement="bottom-end">
-        <div style={popperStyle}>Bottom end</div>
-    </Popper>
-)
-export const Right = ({ referenceElement }) => (
-    <Popper reference={referenceElement} placement="right">
-        <div style={popperStyle}>Right</div>
-    </Popper>
-)
-export const RightStart = ({ referenceElement }) => (
-    <Popper reference={referenceElement} placement="right-start">
-        <div style={popperStyle}>Right start</div>
-    </Popper>
-)
-export const RightEnd = ({ referenceElement }) => (
-    <Popper reference={referenceElement} placement="right-end">
-        <div style={popperStyle}>Right end</div>
-    </Popper>
-)
-export const Left = ({ referenceElement }) => (
-    <Popper reference={referenceElement} placement="left">
-        <div style={popperStyle}>Left</div>
-    </Popper>
-)
-export const LeftStart = ({ referenceElement }) => (
-    <Popper reference={referenceElement} placement="left-start">
-        <div style={popperStyle}>Left start</div>
-    </Popper>
-)
-export const LeftEnd = ({ referenceElement }) => (
-    <Popper reference={referenceElement} placement="left-end">
-        <div style={popperStyle}>Left end</div>
-    </Popper>
-)
-export const ElementRef = () => {
+export const Top = Template.bind({})
+Top.args = { placement: 'top' }
+
+export const TopStart = Template.bind({})
+TopStart.args = { placement: 'top-start' }
+
+export const TopEnd = Template.bind({})
+TopEnd.args = { placement: 'top-end' }
+
+export const Bottom = Template.bind({})
+Bottom.args = { placement: 'bottom' }
+
+export const BottomStart = Template.bind({})
+BottomStart.args = { placement: 'bottom-start' }
+
+export const BottomEnd = Template.bind({})
+BottomEnd.args = { placement: 'bottom-end' }
+
+export const Right = Template.bind({})
+Right.args = { placement: 'right' }
+
+export const RightStart = Template.bind({})
+RightStart.args = { placement: 'right-start' }
+
+export const RightEnd = Template.bind({})
+RightEnd.args = { placement: 'right-end' }
+
+export const Left = Template.bind({})
+Left.args = { placement: 'left' }
+
+export const LeftStart = Template.bind({})
+LeftStart.args = { placement: 'left-start' }
+
+export const LeftEnd = Template.bind({})
+LeftEnd.args = { placement: 'left-end' }
+
+export const ElementRef = args => {
     const anchor = document.createElement('div')
     document.body.appendChild(anchor)
 
     return (
-        <Popper reference={anchor} placement="left-end">
-            <div style={popperStyle}>Left end</div>
-            <style jsx>{`
-                :global(.reference-element) {
-                    display: none !important;
-                }
-            `}</style>
-        </Popper>
+        <div className="box" style={{ ...boxStyle, marginBottom: '500px' }}>
+            <Popper {...args} reference={anchor}>
+                <div style={popperStyle}>{args.placement}</div>
+            </Popper>
+        </div>
     )
 }
-export const VirtualElementRef = () => {
+ElementRef.args = { placement: 'left-end' }
+ElementRef.parameters = { docs: { source: { type: 'code' } } }
+
+export const VirtualElementRef = args => {
     const virtualElement = {
         getBoundingClientRect: () => ({
             width: 0,
@@ -157,13 +134,12 @@ export const VirtualElementRef = () => {
     }
 
     return (
-        <Popper reference={virtualElement} placement="left-end">
-            <div style={popperStyle}>Left end</div>
-            <style jsx>{`
-                :global(.reference-element) {
-                    display: none !important;
-                }
-            `}</style>
-        </Popper>
+        <div className="box" style={{ ...boxStyle, marginBottom: '500px' }}>
+            <Popper {...args} reference={virtualElement}>
+                <div style={popperStyle}>{args.placement}</div>
+            </Popper>
+        </div>
     )
 }
+VirtualElementRef.args = { placement: 'left-end' }
+VirtualElementRef.parameters = { docs: { source: { type: 'code' } } }
