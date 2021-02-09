@@ -159,7 +159,7 @@ export const popperReferencePropType = propTypes.oneOfType([
 ])
 export const popperReferenceArgType = {
     description:
-        'Item to receive popper reference: either a DOM node, React ref, \
+        'A reference to the element to position against: either a DOM node, React ref, \
         or an instance of an element',
     table: {
         type: { summary: 'DOM node | React ref | Virtual element' },
