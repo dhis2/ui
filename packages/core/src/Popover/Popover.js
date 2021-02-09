@@ -1,5 +1,5 @@
 import { colors, elevations, sharedPropTypes } from '@dhis2/ui-constants'
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import React, { useState, useMemo } from 'react'
 import { usePopper } from 'react-popper'
 import { Layer } from '../Layer/Layer.js'
@@ -105,17 +105,20 @@ Popover.defaultProps = {
  * @prop {function} [onClickOutside]
  */
 Popover.propTypes = {
-    children: propTypes.node.isRequired,
-    arrow: propTypes.bool,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    elevation: propTypes.string,
-    maxWidth: propTypes.number,
-    observePopperResize: propTypes.bool,
-    observeReferenceResize: propTypes.bool,
+    children: PropTypes.node.isRequired,
+    /** Show or hide the arrow */
+    arrow: PropTypes.bool,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    /** Box-shadow to create appearance of elevation.  Use `elevations` constants from the UI library. */
+    elevation: PropTypes.string,
+    maxWidth: PropTypes.number,
+    observePopperResize: PropTypes.bool,
+    observeReferenceResize: PropTypes.bool,
     placement: sharedPropTypes.popperPlacementPropType,
+    /** A React ref that refers to the element the Popover should position against */
     reference: sharedPropTypes.popperReferencePropType,
-    onClickOutside: propTypes.func,
+    onClickOutside: PropTypes.func,
 }
 
 export { Popover }
