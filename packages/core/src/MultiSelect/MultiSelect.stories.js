@@ -4,8 +4,6 @@ import React from 'react'
 import { MultiSelect, MultiSelectOption } from '../index.js'
 
 const description = `
-_**Note:** Due to demo limitations, only one representative example is rendered here. For more (interactive) examples, see individual stories in the 'Canvas' tab._
-
 Multiple selection allows the user to select more than one option from the list. Checkboxes are used to highlight the possibility of making more than one selection. Selected options are displayed as chips inside the input. Make sure to communicate clearly to the user if there is a limit to the number of selectable elements.
 
 Use multiple selection wherever the user needs to make more than one selection. If the multiple selection is complex, requires a defined order or needs to made from different groups, consider using a transfer component instead.
@@ -15,6 +13,8 @@ Read more about using \`Select\` components at [Design System: Select](https://g
 \`\`\`js
 import { MultiSelect, MultiSelectOption } from '@dhis2/ui'
 \`\`\`
+
+_**Note:** Due to demo limitations on this page, only one representative example is rendered here. For more (interactive) examples, see individual stories in the 'Canvas' tab._
 `
 
 const eventHandler = handlerName => (payload, event) => {
@@ -79,6 +79,8 @@ WithOptionsAndOnChange.storyName = 'With options and onChange'
 
 export const WithOptionsAndSelection = WithOptionsTemplate.bind({})
 WithOptionsAndSelection.args = { selected: ['1'] }
+// Enable this story as the primary for the docs page
+WithOptionsAndSelection.parameters = { docs: { disable: false } }
 WithOptionsAndSelection.storyName = 'With options and a selection'
 
 export const WithOnFocus = WithOptionsTemplate.bind({})
