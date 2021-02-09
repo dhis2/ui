@@ -1,6 +1,7 @@
 import propTypes from '@dhis2/prop-types'
 import { spacers, colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { NoticeBoxIcon } from './NoticeBoxIcon.js'
 import { NoticeBoxMessage } from './NoticeBoxMessage.js'
@@ -78,10 +79,12 @@ NoticeBox.defaultProps = {
  * @prop {boolean} [error]
  */
 NoticeBox.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    error: propTypes.mutuallyExclusive(['error', 'warning'], propTypes.bool),
-    title: propTypes.string,
-    warning: propTypes.mutuallyExclusive(['error', 'warning'], propTypes.bool),
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    /** Applies 'error' message styles. Mutually exclusive with the `warning` prop */
+    error: propTypes.mutuallyExclusive(['error', 'warning'], PropTypes.bool),
+    title: PropTypes.string,
+    /** Applies 'warning' message styles. Mutually exclusive with the `error` prop */
+    warning: propTypes.mutuallyExclusive(['error', 'warning'], PropTypes.bool),
 }
