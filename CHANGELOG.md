@@ -1,3 +1,17 @@
+## [6.2.1](https://github.com/dhis2/ui/compare/v6.2.0...v6.2.1) (2021-02-05)
+
+
+### Bug Fixes
+
+* hide tooltips when reference is hidden ([#484](https://github.com/dhis2/ui/issues/484)) ([f283447](https://github.com/dhis2/ui/commit/f2834470f97332ea1882885f7b0b061a5de97b71))
+
+# [6.2.0](https://github.com/dhis2/ui/compare/v6.1.7...v6.2.0) (2021-02-04)
+
+
+### Features
+
+* **icons:** dimension type 16px icons ([912a00d](https://github.com/dhis2/ui/commit/912a00d1c7877416162e32ea022c10c5c40ffc3e))
+
 ## [6.1.7](https://github.com/dhis2/ui/compare/v6.1.6...v6.1.7) (2021-02-02)
 
 

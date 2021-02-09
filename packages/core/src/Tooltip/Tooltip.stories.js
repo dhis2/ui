@@ -120,3 +120,41 @@ export const CustomComponent = () => {
         </p>
     )
 }
+
+export const HidesWhenOutOfFrame = args => (
+    <div
+        style={{
+            height: '250px',
+            padding: '1rem',
+            overflow: 'scroll',
+            border: '1px solid #43cbcb',
+        }}
+        data-test="hiding-and-flipping-container"
+    >
+        <p>{"I'm an extra paragraph"}</p>
+        <p>{"I'm an extra paragraph"}</p>
+        <p>{"I'm an extra paragraph"}</p>
+        <p>{"I'm an extra paragraph"}</p>
+        <p>{"I'm an extra paragraph"}</p>
+        <Tooltip {...args}>
+            <div style={{ height: '80px', border: '1px solid grey' }}>
+                {
+                    "I am a rectangle that contains a tooltip that hides when I'm obscured from view"
+                }
+            </div>
+        </Tooltip>
+        <p>{"I'm an extra paragraph"}</p>
+        <p>{"I'm an extra paragraph"}</p>
+        <p>{"I'm an extra paragraph"}</p>
+        <p>{"I'm an extra paragraph"}</p>
+        <p>{"I'm an extra paragraph"}</p>
+        <p>{"I'm an extra paragraph"}</p>
+        <p>{"I'm an extra paragraph"}</p>
+        <p>{"I'm an extra paragraph"}</p>
+        <p>{"I'm an extra paragraph"}</p>
+        <p>{"I'm an extra paragraph"}</p>
+        <p>{"I'm an extra paragraph"}</p>
+        <p>{"I'm an extra paragraph"}</p>
+    </div>
+)
+HidesWhenOutOfFrame.args = { content: 'Some extra info' }
