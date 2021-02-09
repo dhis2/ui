@@ -77,11 +77,11 @@ const EmptyTemplate = args => <MultiSelect {...args} />
 export const WithOptionsAndOnChange = WithOptionsTemplate.bind({})
 WithOptionsAndOnChange.storyName = 'With options and onChange'
 
-export const WithOptionsAndSelection = WithOptionsTemplate.bind({})
-WithOptionsAndSelection.args = { selected: ['1'] }
+export const WithOptionsAndASelection = WithOptionsTemplate.bind({})
+WithOptionsAndASelection.args = { selected: ['1'] }
 // Enable this story as the primary for the docs page
-WithOptionsAndSelection.parameters = { docs: { disable: false } }
-WithOptionsAndSelection.storyName = 'With options and a selection'
+WithOptionsAndASelection.parameters = { docs: { disable: false } }
+WithOptionsAndASelection.storyName = 'With options and a selection'
 
 export const WithOnFocus = WithOptionsTemplate.bind({})
 WithOnFocus.args = { onFocus }
@@ -198,7 +198,7 @@ WithOptionsAndDisabled.storyName = 'With options and disabled'
 export const WithOptionsASelectionAndDisabled = WithOptionsTemplate.bind({})
 WithOptionsASelectionAndDisabled.args = {
     ...WithOptionsAndDisabled.args,
-    ...WithOptionsAndSelection.args,
+    ...WithOptionsAndASelection.args,
 }
 WithOptionsASelectionAndDisabled.storyName =
     'With options, a selection and disabled'
@@ -209,7 +209,7 @@ WithPrefix.args = { prefix: 'Prefix text' }
 export const WithPrefixAndSelection = WithOptionsTemplate.bind({})
 WithPrefixAndSelection.args = {
     ...WithPrefix.args,
-    ...WithOptionsAndSelection.args,
+    ...WithOptionsAndASelection.args,
 }
 
 export const WithPlaceholder = WithOptionsTemplate.bind({})
@@ -218,7 +218,7 @@ WithPlaceholder.args = { placeholder: 'Placeholder text' }
 export const WithPlaceholderAndSelection = WithOptionsTemplate.bind({})
 WithPlaceholderAndSelection.args = {
     ...WithPlaceholder.args,
-    ...WithOptionsAndSelection.args,
+    ...WithOptionsAndASelection.args,
 }
 
 export const WithDisabledOptionAndOnChange = args => (
@@ -236,7 +236,7 @@ WithOptionsAndMultipleSelections.args = { selected: ['1', '2'] }
 
 export const WithClearButtonSelectionAndOnChange = WithOptionsTemplate.bind({})
 WithClearButtonSelectionAndOnChange.args = {
-    ...WithOptionsAndSelection.args,
+    ...WithOptionsAndASelection.args,
     clearable: true,
     clearText: 'Clear',
 }
