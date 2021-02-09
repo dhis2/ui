@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { colors, theme, sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React, { Component, createRef } from 'react'
 import { RadioRegular, RadioDense } from '../Icons/index.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
@@ -189,22 +189,30 @@ Radio.defaultProps = {
  * @prop {string} [dataTest]
  */
 Radio.propTypes = {
-    checked: propTypes.bool,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    dense: propTypes.bool,
-    disabled: propTypes.bool,
+    checked: PropTypes.bool,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    dense: PropTypes.bool,
+    disabled: PropTypes.bool,
+    /** Adds 'error' styling for feedback. Mutually exclusive with `valid` and `warning` props */
     error: sharedPropTypes.statusPropType,
-    initialFocus: propTypes.bool,
-    label: propTypes.node,
-    name: propTypes.string,
-    tabIndex: propTypes.string,
+    initialFocus: PropTypes.bool,
+    label: PropTypes.node,
+    /** Name associated with this element. Passed in object to event handler functions  */
+    name: PropTypes.string,
+    tabIndex: PropTypes.string,
+    /** Adds 'valid' styling for feedback. Mutually exclusive with `error` and `warning` props */
     valid: sharedPropTypes.statusPropType,
-    value: propTypes.string,
+    /** Value associated with this element. Passed in object to event handler functions */
+    value: PropTypes.string,
+    /** Adds 'warning' styling for feedback. Mutually exclusive with `valid` and `error` props */
     warning: sharedPropTypes.statusPropType,
-    onBlur: propTypes.func,
-    onChange: propTypes.func,
-    onFocus: propTypes.func,
+    /** Called with the signature `({ name: string, value: string, checked: bool }, event)` */
+    onBlur: PropTypes.func,
+    /** Called with the signature `({ name: string, value: string, checked: bool }, event)` */
+    onChange: PropTypes.func,
+    /** Called with the signature `({ name: string, value: string, checked: bool }, event)` */
+    onFocus: PropTypes.func,
 }
 
 export { Radio }
