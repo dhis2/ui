@@ -3,6 +3,14 @@ import { resolve } from 'styled-jsx/css'
 import { Checkbox, CircularLoader } from '../index.js'
 import { Node } from './Node.js'
 
+const description = `
+A tool for creating hierarchical, multi-level selectors.  Applied in the Organisation Unit Tree component, for example.
+
+\`\`\`js
+import { Node } from '@dhis2/ui'
+\`\`\`
+`
+
 const say = something => () => alert(something)
 
 window.onOpen = (payload, event) => {
@@ -36,33 +44,31 @@ const LoadingSpinner = () => (
 export default {
     title: 'Helpers/Node',
     component: Node,
+    parameters: { docs: { description: { component: description } } },
 }
 
-export const CustomIcon = () => (
-    <Node
-        icon={<LoadingSpinner />}
-        open={false}
-        onOpen={onOpen}
-        onClose={onClose}
-        component={
-            <Checkbox
-                label="Node label 1.1"
-                value="foobar"
-                name="l1.1"
-                onChange={say('checkbox 1.1 clicked')}
-                checked={false}
-            />
-        }
-    />
-)
+export const CustomIcon = args => <Node {...args} />
+CustomIcon.args = {
+    icon: <LoadingSpinner />,
+    open: false,
+    onOpen: onOpen,
+    onClose: onClose,
+    component: (
+        <Checkbox
+            label="Node label 1.1"
+            value="foobar"
+            name="l1.1"
+            onChange={say('checkbox 1.1 clicked')}
+            checked={false}
+        />
+    ),
+}
 CustomIcon.storyName = 'Custom icon'
 
-export const MultipleRoots = () => (
+export const MultipleRoots = args => (
     <div>
         <Node
-            open={false}
-            onOpen={onOpen}
-            onClose={onClose}
+            {...args}
             component={
                 <Checkbox
                     label="Node label 1.1"
@@ -77,9 +83,7 @@ export const MultipleRoots = () => (
         </Node>
 
         <Node
-            open={false}
-            onOpen={onOpen}
-            onClose={onClose}
+            {...args}
             component={
                 <Checkbox
                     label="Node label 1.2"
@@ -94,6 +98,7 @@ export const MultipleRoots = () => (
         </Node>
     </div>
 )
+MultipleRoots.args = { open: false, onOpen, onClose }
 MultipleRoots.storyName = 'Multiple roots'
 
 export const _2LevelsOpen = () => (
