@@ -91,20 +91,28 @@ Popper.defaultProps = {
  */
 // Prop names follow the names here: https://popper.js.org/docs/v2/constructors/
 Popper.propTypes = {
+    /** Content inside the Popper */
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
     dataTest: PropTypes.string,
+    /** A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/) */
     modifiers: PropTypes.arrayOf(
         PropTypes.shape({
             name: PropTypes.string,
             options: PropTypes.object,
         })
     ),
+    /** Makes the Popper update position when the **Popper content** changes size */
     observePopperResize: PropTypes.bool,
+    /** Makes the Popper update position when the **reference element** changes size */
     observeReferenceResize: PropTypes.bool,
+    /** A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/) */
     placement: sharedPropTypes.popperPlacementPropType,
+    /** A React ref, DOM node, or [virtual element](https://popper.js.org/docs/v2/virtual-elements/) for the popper to position itself against */
     reference: sharedPropTypes.popperReferencePropType,
+    /** A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/) */
     strategy: PropTypes.oneOf(['absolute', 'fixed']), // defaults to 'absolute'
+    /** A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/) */
     onFirstUpdate: PropTypes.func,
 }
 
