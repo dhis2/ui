@@ -6,7 +6,6 @@ export default css`
     th {
         padding: 0 12px;
         font-size: 14px;
-        line-height: 16px;
         height: 45px;
         border: 1px solid transparant;
         border-bottom: 1px solid ${colors.grey300};
@@ -67,6 +66,7 @@ export default css`
     }
     td.large,
     th.large {
+        font-size: 16px;
         height: 60px;
     }
     th.fixed {
