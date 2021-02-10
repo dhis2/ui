@@ -25,12 +25,12 @@ export class Select extends Component {
             this.inputRef.current.focus()
         }
 
-        this.setMenuWidth()
-        window.addEventListener('resize', this.setMenuWidth)
+        this.setState({ menuWidth: this.getMenuWidth() })
+        window.addEventListener('resize', this.onResize)
     }
 
     componentWillUnmount() {
-        window.removeEventListener('resize', this.setMenuWidth)
+        window.removeEventListener('resize', this.onResize)
     }
 
     /**
@@ -42,20 +42,23 @@ export class Select extends Component {
      *
      * See: https://nolanlawson.com/2018/09/25/accurately-measuring-layout-on-the-web
      */
-    setMenuWidth = debounce(() => {
-        const hasOffsetWidth =
-            this.inputRef.current && this.inputRef.current.offsetWidth
+    onResize = debounce(() => {
+        const menuWidth = this.getMenuWidth()
 
-        if (hasOffsetWidth) {
-            const inputWidth = `${this.inputRef.current.offsetWidth}px`
-
-            if (this.state.menuWidth !== inputWidth) {
-                this.setState({
-                    menuWidth: inputWidth,
-                })
-            }
+        if (this.state.menuWidth !== menuWidth) {
+            this.setState({ menuWidth })
         }
     }, 50)
+
+    getMenuWidth() {
+        const { offsetWidth } = this.inputRef.current
+        const { menuWidth } = this.state
+
+        if (offsetWidth && `${offsetWidth}px` !== menuWidth) {
+            return `${offsetWidth}px`
+        }
+        return menuWidth
+    }
 
     handleFocusInput = () => {
         this.inputRef.current.focus()
@@ -72,7 +75,10 @@ export class Select extends Component {
     }
 
     handleOpen = () => {
-        this.setState({ open: true })
+        this.setState({
+            open: true,
+            menuWidth: this.getMenuWidth(),
+        })
     }
 
     handleClose = () => {

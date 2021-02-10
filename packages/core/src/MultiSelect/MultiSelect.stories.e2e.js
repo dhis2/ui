@@ -1,7 +1,13 @@
 import propTypes from '@dhis2/prop-types'
 import { storiesOf } from '@storybook/react'
-import React from 'react'
-import { MultiSelectOption } from '../index.js'
+import React, { useState } from 'react'
+import {
+    Modal,
+    ModalTitle,
+    ModalContent,
+    MultiSelectOption,
+    Button,
+} from '../index.js'
 import { MultiSelect } from './MultiSelect.js'
 
 window.onChange = window.Cypress && window.Cypress.cy.stub()
@@ -16,6 +22,13 @@ CustomMultiSelectOption.propTypes = {
     label: propTypes.string,
     onClick: propTypes.func,
 }
+
+const options = [
+    { name: 'Hello', id: '1' },
+    { name: 'world', id: '2' },
+    { name: 'foo', id: '3' },
+    { name: 'bar', id: '4' },
+]
 
 storiesOf('MultiSelect', module)
     .add('With options', () => (
@@ -347,5 +360,61 @@ storiesOf('MultiSelect', module)
                     }
                 `}</style>
             </>
+        )
+    })
+    .add('Menu width changing', () => {
+        const [toggle, setToggle] = useState(false)
+        return (
+            <div className="App">
+                <Modal dataTest={'myModal'}>
+                    <ModalTitle>Modal</ModalTitle>
+                    <ModalContent>
+                        <div style={{ display: 'flex' }}>
+                            {toggle && (
+                                <div
+                                    style={{
+                                        padding: '30px',
+                                        border: '1px solid green',
+                                    }}
+                                    className="toggler"
+                                >
+                                    Stuff
+                                </div>
+                            )}
+                            <div style={{ flexGrow: 1 }}>
+                                <MultiSelect
+                                    onChange={({ selected }) =>
+                                        console.log(
+                                            'size changed to ' + selected
+                                        )
+                                    }
+                                >
+                                    {options.map(({ name, id }) => (
+                                        <MultiSelectOption
+                                            key={id}
+                                            value={id}
+                                            label={name}
+                                        />
+                                    ))}
+                                </MultiSelect>
+                            </div>
+                            {toggle && (
+                                <div
+                                    style={{
+                                        padding: '30px',
+                                        border: '1px solid green',
+                                    }}
+                                    className="toggler"
+                                >
+                                    Stuff
+                                </div>
+                            )}
+                        </div>
+                        <Button onClick={() => setToggle(!toggle)}>
+                            Toggle
+                        </Button>
+                    </ModalContent>
+                </Modal>
+            </div>
         )
     })
