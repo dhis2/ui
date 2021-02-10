@@ -8,6 +8,7 @@ import { Sorter } from './TableCellHead/Sorter'
 import styles from './TableCellHead/TableCellHead.styles.js'
 
 const SORT_DIRECTIONS = ['asc', 'desc', null]
+const AUTO = 'auto'
 const flexboxAlignLookup = {
     left: 'flex-start',
     center: 'center',
@@ -46,7 +47,7 @@ export const TableCellHead = forwardRef(
     ) => {
         const [showFilter, setShowFilter] = useState(false)
         const toggleFilter = () => setShowFilter(!showFilter)
-        const fixedLeft = fixed && left
+        const fixedLeft = fixed && left !== AUTO
         const filterIconColor = showFilter ? colors.blue700 : colors.grey600
         return (
             <th
@@ -104,9 +105,9 @@ TableCellHead.displayName = 'TableCellHead'
 TableCellHead.defaultProps = {
     align: 'left',
     dataTest: 'dhis2-uicore-tablecellhead',
-    left: 'auto',
-    top: 'auto',
-    width: 'auto',
+    left: AUTO,
+    top: AUTO,
+    width: AUTO,
 }
 
 /**
