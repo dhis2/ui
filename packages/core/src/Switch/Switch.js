@@ -208,11 +208,11 @@ Switch.propTypes = {
     value: PropTypes.string,
     /** Applies 'warning' styles for validation feedback. Mutually exclusive with `valid` and `error` prop types */
     warning: sharedPropTypes.statusPropType,
-    /** Called with signature `(object, event)` */
+    /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
     onBlur: PropTypes.func,
-    /** Called with signature `(object, event)` */
+    /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
     onChange: PropTypes.func,
-    /** Called with signature `(object, event)` */
+    /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
     onFocus: PropTypes.func,
 }
 
