@@ -60,6 +60,7 @@
         "@dhis2/d2-i18n": "^1.0.6",
         "@fontsource/roboto": "^4.0.0",
         "@storybook/addon-a11y": "^6.1.17",
+        "@storybook/addon-console": "^1.2.3",
         "@storybook/addon-essentials": "^6.1.17",
         "@storybook/addon-storysource": "^6.1.17",
         "@storybook/addons": "^6.1.17",

@@ -2,6 +2,7 @@ import '@fontsource/roboto/latin.css'
 import React, { Fragment } from 'react'
 import { jsxDecorator } from 'storybook-addon-jsx'
 import { addDecorator, addParameters } from '@storybook/react'
+import '@storybook/addon-console'
 import { CssReset } from '@dhis2/ui-core'
 
 // Enable storybook jsx visualization
