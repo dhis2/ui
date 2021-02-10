@@ -29,19 +29,24 @@ export default css`
     th:last-child {
         border-right: 1px solid ${colors.grey300};
     }
-    :global(tbody) :global(tr:hover) td {
+    :global(table) > :global(tr:hover) > td,
+    :global(tbody) > :global(tr:hover) > td {
         background-color: ${colors.blue050};
     }
-    :global(tbody) :global(tr:hover) th {
+    :global(table) > :global(tr:hover) > th,
+    :global(tbody) > :global(tr:hover) > th {
         background-color: ${colors.grey300};
     }
-    :global(tbody) :global(tr:active) td {
+    :global(table) > :global(tr:active) > td,
+    :global(tbody) > :global(tr:active) > td {
         background-color: ${colors.blue100};
     }
-    :global(tbody) :global(tr.selected) td {
+    :global(table) > :global(tr.selected) > td,
+    :global(tbody) > :global(tr.selected) > td {
         background-color: ${colors.teal050};
     }
-    :global(tbody) :global(tr.selected:hover) td {
+    :global(table) > :global(tr.selected:hover) > td,
+    :global(tbody) > :global(tr.selected:hover) > td {
         background-color: ${colors.teal100};
     }
     td.active {
