@@ -27,6 +27,7 @@ export const TableCell = forwardRef(
             muted,
             role,
             rowSpan,
+            scope,
             tag,
             valid,
             width,
@@ -52,15 +53,16 @@ export const TableCell = forwardRef(
                 })}
                 data-test={dataTest}
                 role={role}
+                scope={scope}
             >
                 {children}
                 <style jsx>{styles}</style>
                 <style jsx>{`
                     th,
                     td {
+                        left: ${left};
                         text-align: ${align};
                         width: ${width};
-                        left: ${left};
                     }
                 `}</style>
             </CellTag>
@@ -71,10 +73,10 @@ export const TableCell = forwardRef(
 TableCell.displayName = 'TableCell'
 
 TableCell.defaultProps = {
-    dataTest: 'dhis2-uicore-tablecell',
-    width: 'auto',
-    left: 'auto',
     align: 'left',
+    dataTest: 'dhis2-uicore-tablecell',
+    left: 'auto',
+    width: 'auto',
 }
 
 const stylePropType = propTypes.mutuallyExclusive(
@@ -94,6 +96,7 @@ const requiredIfFixedPropType = propTypes.requiredIf(
  * @prop {string} [colSpan]
  * @prop {string} [rowSpan]
  * @prop {string} [role]
+ * @prop {string} [scope]
  * @prop {string} [tag] HTML tag to render (will default to td)
  * @prop {boolean} [active] To toggle background color, for example for editing
  * @prop {function} [onClick]
@@ -122,7 +125,8 @@ TableCell.propTypes = {
     muted: stylePropType,
     role: propTypes.string,
     rowSpan: propTypes.string,
-    tag: propTypes.oneOf(['td', 'tr']),
+    scope: propTypes.string,
+    tag: propTypes.oneOf(['td', 'th']),
     valid: stylePropType,
     width: requiredIfFixedPropType,
     onClick: propTypes.func,
