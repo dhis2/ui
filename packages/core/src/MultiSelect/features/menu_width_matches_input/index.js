@@ -28,17 +28,17 @@ Then('the MultiSelect input is left aligned with the menu', () => {
     const selectDataTest = '[data-test="dhis2-uicore-multiselect"]'
     const menuDataTest = '[data-test="dhis2-uicore-select-menu-menuwrapper"]'
 
-    cy.getAll(selectDataTest, menuDataTest).should(([selects, menus]) => {
-        expect(selects.length).to.equal(1)
+    cy.getAll(selectDataTest, menuDataTest).should(([inputs, menus]) => {
+        expect(inputs.length).to.equal(1)
         expect(menus.length).to.equal(1)
 
-        const $select = selects[0]
+        const $input = inputs[0]
         const $menu = menus[0]
 
-        const selectRect = $select.getBoundingClientRect()
+        const inputRect = $input.getBoundingClientRect()
         const menuRect = $menu.getBoundingClientRect()
 
-        expect(Math.round(selectRect.left)).to.equal(Math.round(menuRect.left))
+        expect(Math.round(inputRect.left)).to.equal(Math.round(menuRect.left))
     })
 })
 When('the MultiSelect input and menu have the same width', () => {
@@ -46,6 +46,9 @@ When('the MultiSelect input and menu have the same width', () => {
     const menuSelector = '[data-test="dhis2-uicore-select-menu-menuwrapper"]'
 
     cy.getAll(inputSelector, menuSelector).should(([$input, $menu]) => {
-        expect($input.outerWidth()).to.equal($menu.outerWidth())
+        const inputWidth = Math.round($input.outerWidth())
+        const menuWidth = Math.round($menu.outerWidth())
+
+        expect(inputWidth).to.equal(menuWidth)
     })
 })
