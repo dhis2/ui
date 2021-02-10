@@ -1,5 +1,18 @@
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
 import { Switch } from './Switch.js'
+
+const subtitle = 'An input control that allows an on and an off state'
+
+const description = `
+**Switches are used sparingly in DHIS2, as they are not yet an accepted input control on the web. Users are not always used to the concept of a switch, but understanding is growing with wide adoption on mobile platforms.**
+
+Use switches only when the user can toggle between on/off. Never use a switch for yes/no or any other states, use a checkbox instead. It is often safer to use a checkbox for things like turning options on/off, as users understand this pattern. Switches can be useful for ongoing or active processes, where turning them on/off makes more sense conceptually. An example of this may be toggling on/off 'Logging' or 'Update automatically', both processes that are ongoing.
+
+\`\`\`js
+import { Switch } from '@dhis2/ui'
+\`\`\`
+`
 
 window.onChange = (payload, event) => {
     console.log('onClick payload', payload)
@@ -23,363 +36,105 @@ const onBlur = (...args) => window.onBlur(...args)
 export default {
     title: 'Forms/Switch/Switch',
     component: Switch,
+    parameters: {
+        componentSubtitle: subtitle,
+        docs: { description: { component: description } },
+    },
+    // Default args for all stories
+    args: {
+        name: 'exampleName',
+        label: 'Switch',
+        value: 'defaultValue',
+        onChange,
+        onFocus,
+        onBlur,
+    },
+    argTypes: {
+        valid: { ...sharedPropTypes.statusArgType },
+        error: { ...sharedPropTypes.statusArgType },
+        warning: { ...sharedPropTypes.statusArgType },
+    },
 }
 
-export const Default = () => (
-    <Switch
-        name="Ex"
-        label="Switch"
-        value="default"
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-    />
-)
+const Template = args => <Switch {...args} />
 
-export const FocusedUnchecked = () => (
+const CheckedUncheckedTemplate = args => (
     <>
-        <Switch
-            initialFocus
-            name="Ex"
-            label="Switch"
-            value="default"
-            className="initially-focused"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-        <Switch
-            name="Ex2"
-            label="Switch"
-            value="default"
-            className="initially-unfocused"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-    </>
-)
-FocusedUnchecked.storyName = 'Focused unchecked'
-
-export const FocusedChecked = () => (
-    <>
-        <Switch
-            initialFocus
-            checked
-            name="Ex"
-            label="Switch"
-            value="default"
-            className="initially-focused"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-        <Switch
-            name="Ex2"
-            label="Switch"
-            value="default"
-            className="initially-unfocused"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-    </>
-)
-FocusedChecked.storyName = 'Focused checked'
-
-export const Checked = () => (
-    <Switch
-        name="Ex"
-        label="Switch"
-        checked
-        value="checked"
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-    />
-)
-
-export const Disabled = () => (
-    <>
-        <Switch
-            name="Ex"
-            label="Switch"
-            disabled
-            value="disabled"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-        <Switch
-            name="Ex"
-            label="Switch"
-            disabled
-            checked
-            value="disabled"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
+        <Switch {...args} />
+        <Switch {...args} checked />
     </>
 )
 
-export const Valid = () => (
+export const Default = Template.bind({})
+
+export const FocusedUnchecked = args => (
     <>
-        <Switch
-            name="Ex"
-            label="Switch"
-            valid
-            value="valid"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-        <Switch
-            name="Ex"
-            label="Switch"
-            valid
-            checked
-            value="valid"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
+        <Switch {...args} initialFocus className="initially-focused" />
+        <Switch {...args} className="initially-unfocused" />
     </>
 )
+// Stories with initial focus are distracting on docs page
+FocusedUnchecked.parameters = { docs: { disable: true } }
 
-export const Warning = () => (
-    <>
-        <Switch
-            name="Ex"
-            label="Switch"
-            warning
-            value="warning"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-        <Switch
-            name="Ex"
-            label="Switch"
-            warning
-            checked
-            value="warning"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-    </>
-)
+export const FocusedChecked = FocusedUnchecked.bind({})
+FocusedChecked.args = { checked: true }
+FocusedChecked.parameters = { docs: { disable: true } }
 
-export const Error = () => (
-    <>
-        <Switch
-            name="Ex"
-            label="Switch"
-            error
-            value="error"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-        <Switch
-            name="Ex"
-            label="Switch"
-            error
-            checked
-            value="error"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-    </>
-)
+export const Checked = Template.bind({})
+Checked.args = { checked: true, value: 'checked' }
 
-export const ImageLabel = () => (
-    <Switch
-        name="Ex"
-        label={<img src="https://picsum.photos/id/82/200/100" />}
-        value="with-help"
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-    />
-)
-ImageLabel.storyName = 'Image label'
+export const Disabled = CheckedUncheckedTemplate.bind({})
+Disabled.args = { disabled: true, value: 'disabled' }
 
-export const DefaultDense = () => (
-    <Switch
-        dense
-        name="Ex"
-        label="Switch"
-        value="default"
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-    />
-)
+export const Valid = CheckedUncheckedTemplate.bind({})
+Valid.args = { valid: true, value: 'valid' }
+
+export const Warning = CheckedUncheckedTemplate.bind({})
+Warning.args = { warning: true, value: 'warning' }
+
+export const Error = CheckedUncheckedTemplate.bind({})
+Error.args = { error: true, value: 'error' }
+
+export const ImageLabel = Template.bind({})
+ImageLabel.args = {
+    label: <img src="https://picsum.photos/id/82/200/100" />,
+    value: 'with-help',
+}
+
+export const DefaultDense = Template.bind({})
+DefaultDense.args = { dense: true }
 DefaultDense.storyName = 'Default - Dense'
 
-export const FocusedUncheckedDense = () => (
-    <Switch
-        dense
-        initialFocus
-        name="Ex"
-        label="Switch"
-        value="default"
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-    />
-)
+export const FocusedUncheckedDense = FocusedUnchecked.bind({})
+FocusedUncheckedDense.args = { ...DefaultDense.args }
 FocusedUncheckedDense.storyName = 'Focused unchecked - Dense'
+FocusedUncheckedDense.parameters = { docs: { disable: true } }
 
-export const FocusedCheckedDense = () => (
-    <Switch
-        dense
-        initialFocus
-        checked
-        name="Ex"
-        label="Switch"
-        value="default"
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-    />
-)
+export const FocusedCheckedDense = FocusedUnchecked.bind({})
+FocusedCheckedDense.args = { ...DefaultDense.args, checked: true }
 FocusedCheckedDense.storyName = 'Focused checked - Dense'
+FocusedCheckedDense.parameters = { docs: { disable: true } }
 
-export const CheckedDense = () => (
-    <Switch
-        dense
-        name="Ex"
-        label="Switch"
-        checked
-        value="checked"
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-    />
-)
+export const CheckedDense = Template.bind({})
+CheckedDense.args = { ...Checked.args, ...DefaultDense.args }
 CheckedDense.storyName = 'Checked - Dense'
 
-export const DisabledDense = () => (
-    <>
-        <Switch
-            dense
-            name="Ex"
-            label="Switch"
-            disabled
-            value="disabled"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-        <Switch
-            dense
-            name="Ex"
-            label="Switch"
-            disabled
-            checked
-            value="disabled"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-    </>
-)
+export const DisabledDense = CheckedUncheckedTemplate.bind({})
+DisabledDense.args = { ...Disabled.args, ...DefaultDense.args }
 DisabledDense.storyName = 'Disabled - Dense'
 
-export const ValidDense = () => (
-    <>
-        <Switch
-            dense
-            name="Ex"
-            label="Switch"
-            valid
-            value="valid"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-        <Switch
-            dense
-            name="Ex"
-            label="Switch"
-            valid
-            checked
-            value="valid"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-    </>
-)
+export const ValidDense = CheckedUncheckedTemplate.bind({})
+ValidDense.args = { ...Valid.args, ...DefaultDense.args }
 ValidDense.storyName = 'Valid - Dense'
 
-export const WarningDense = () => (
-    <>
-        <Switch
-            dense
-            name="Ex"
-            label="Switch"
-            warning
-            value="warning"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-        <Switch
-            dense
-            name="Ex"
-            label="Switch"
-            warning
-            checked
-            value="warning"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-    </>
-)
+export const WarningDense = CheckedUncheckedTemplate.bind({})
+WarningDense.args = { ...Warning.args, ...DefaultDense.args }
 WarningDense.storyName = 'Warning - Dense'
 
-export const ErrorDense = () => (
-    <>
-        <Switch
-            dense
-            name="Ex"
-            label="Switch"
-            error
-            value="error"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-        <Switch
-            dense
-            name="Ex"
-            label="Switch"
-            error
-            checked
-            value="error"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-    </>
-)
+export const ErrorDense = CheckedUncheckedTemplate.bind({})
+ErrorDense.args = { ...Error.args, ...DefaultDense.args }
 ErrorDense.storyName = 'Error - Dense'
 
-export const ImageLabelDense = () => (
-    <Switch
-        dense
-        name="Ex"
-        label={<img src="https://picsum.photos/id/82/200/100" />}
-        value="with-help"
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-    />
-)
+export const ImageLabelDense = Template.bind({})
+ImageLabelDense.args = { ...ImageLabel.args, ...DefaultDense.args }
 ImageLabelDense.storyName = 'Image label - Dense'
