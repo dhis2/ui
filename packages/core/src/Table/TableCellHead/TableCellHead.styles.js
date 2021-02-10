@@ -3,7 +3,6 @@ import css from 'styled-jsx/css'
 
 export default css`
     th {
-        text-align: left;
         vertical-align: top;
         background-color: ${colors.grey200};
         border-bottom: 1px solid ${colors.grey300};
@@ -36,6 +35,7 @@ export default css`
     }
     span.label {
         display: inline-flex;
+        flex-grow: 1;
         align-items: center;
         height: 100%;
         font-size: 13px;

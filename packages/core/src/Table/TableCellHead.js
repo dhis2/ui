@@ -8,6 +8,11 @@ import { Sorter } from './TableCellHead/Sorter'
 import styles from './TableCellHead/TableCellHead.styles.js'
 
 const SORT_DIRECTIONS = ['asc', 'desc', null]
+const flexboxAlignLookup = {
+    left: 'flex-start',
+    center: 'center',
+    right: 'flex-end',
+}
 
 /**
  * @module
@@ -19,6 +24,7 @@ const SORT_DIRECTIONS = ['asc', 'desc', null]
 export const TableCellHead = forwardRef(
     (
         {
+            align,
             children,
             className,
             colSpan,
@@ -30,6 +36,7 @@ export const TableCellHead = forwardRef(
             name,
             rowSpan,
             role,
+            scope,
             sortDirection,
             top,
             width,
@@ -53,6 +60,7 @@ export const TableCellHead = forwardRef(
                 data-test={dataTest}
                 ref={ref}
                 role={role}
+                scope={scope}
             >
                 <span className="container">
                     <span className="top">
@@ -77,9 +85,13 @@ export const TableCellHead = forwardRef(
                 <style jsx>{styles}</style>
                 <style jsx>{`
                     th {
-                        width: ${width};
                         left: ${left};
                         top: ${top};
+                        width: ${width};
+                        text-align: ${align};
+                    }
+                    .label {
+                        justify-content: ${flexboxAlignLookup[align]};
                     }
                 `}</style>
             </th>
@@ -90,12 +102,17 @@ export const TableCellHead = forwardRef(
 TableCellHead.displayName = 'TableCellHead'
 
 TableCellHead.defaultProps = {
+    align: 'left',
     dataTest: 'dhis2-uicore-tablecellhead',
+    left: 'auto',
+    top: 'auto',
+    width: 'auto',
 }
 
 /**
  * @typedef {Object} PropTypes
  * @static
+ * @prop {left|center|right} [align=left]
  * @prop {node} [children]
  * @prop {string} [className]
  * @prop {string} [colSpan]
@@ -107,12 +124,14 @@ TableCellHead.defaultProps = {
  * @prop {string} [name] Can be used to match a column with a property name
  * @prop {string} [rowSpan]
  * @prop {string} [role]
+ * @prop {string} [scope]
  * @prop {'asc'|'desc'|null} [sortDirection]
  * @prop {string} [top] Left or top required when fixed
  * @prop {string} [width]
  * @prop {function} [onSortIconClick] Sort icon click callback with `nextSortDirection` and `name` in payload
  */
 TableCellHead.propTypes = {
+    align: propTypes.oneOf(['left', 'center', 'right']),
     children: propTypes.node,
     className: propTypes.string,
     colSpan: propTypes.string,
@@ -127,6 +146,7 @@ TableCellHead.propTypes = {
     name: propTypes.string,
     role: propTypes.string,
     rowSpan: propTypes.string,
+    scope: propTypes.string,
     sortDirection: propTypes.requiredIf(
         props => props.onSortIconClick,
         propTypes.oneOf(SORT_DIRECTIONS)
