@@ -1,6 +1,7 @@
 import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { TagIcon } from './TagIcon.js'
 import { TagText } from './TagText.js'
@@ -98,7 +99,7 @@ export const Tag = ({
 
 const tagVariantPropType = propTypes.mutuallyExclusive(
     ['neutral', 'positive', 'negative'],
-    propTypes.bool
+    PropTypes.bool
 )
 
 Tag.defaultProps = {
@@ -121,12 +122,17 @@ Tag.defaultProps = {
  */
 
 Tag.propTypes = {
-    bold: propTypes.bool,
-    children: propTypes.string,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    icon: propTypes.node,
+    /** Use bold tags where it is important that the tag is seen by the user in an information dense interface. Bold tags should be reserved for edge cases and not overused. */
+    bold: PropTypes.bool,
+    children: PropTypes.string,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    /** Tags can contain icons. Use icons where they will help users easily identify the content of the tag. Tags must have a text label and cannot display only an icon. */
+    icon: PropTypes.node,
+    /** Red 'negative' tags imply an error or a problem. `neutral`, `positive`, and `negative` are mutually exclusive props */
     negative: tagVariantPropType,
+    /** Blue 'neutral' tags are used when a tag _could_ have valid or error status but is currently neutral. `neutral`, `positive`, and `negative` are mutually exclusive props */
     neutral: tagVariantPropType,
+    /** Green 'valid' tags should be used to indicate validity or success. `neutral`, `positive`, and `negative` are mutually exclusive props */
     positive: tagVariantPropType,
 }
