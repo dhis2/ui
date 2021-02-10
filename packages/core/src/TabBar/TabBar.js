@@ -54,7 +54,7 @@ TabBar.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     dataTest: PropTypes.string,
-    /** Fixed tabs fill the width of their container. If false, tabs take up an amount of space defined by the tab name. */
+    /** Fixed tabs fill the width of their container. If false (i.e. fluid), tabs take up an amount of space defined by the tab name. Fluid tabs should be used most of the time. */
     fixed: PropTypes.bool,
     /** Enables horizontal scrolling for many tabs that don't fit the width of the container */
     scrollable: PropTypes.bool,
