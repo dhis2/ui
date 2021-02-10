@@ -1,29 +1,43 @@
 import React from 'react'
 import { Tag } from './Tag.js'
 
-export default { title: 'Data Display/Tag', component: Tag }
+const subtitle =
+    'Used to display categorizing labels or information for other elements in a collection.'
 
-export const Default = () => <Tag>Dog</Tag>
+const description = `
+Tags are used whenever an element in a collection needs to display its category or status. Tags should not be used for one-off, unique information. Tags can be displayed in any kind of component.
 
-export const WithIcon = () => <Tag icon={<ExampleIcon />}>Dog</Tag>
+Tags are useful when displaying multiple elements in a collection that have the same basic attributes but belong to different categories or have different statuses. Do not use tags for elements that will always be the same, instead use a heading or other grouping method.
 
-export const Neutral = () => <Tag neutral>Dog</Tag>
+Tags are never used for primary interaction and should not be used as buttons. Clicking a tag could sort a collection by that tag, or open a page to display all elements that have that tag type. Tags should not be used as navigation elements.
 
-export const Positive = () => <Tag positive>Dog</Tag>
+\`\`\`js
+import { Tag } from '@dhis2/ui'
+\`\`\`
 
-export const Negative = () => <Tag negative>Dog</Tag>
+`
 
-export const Bold = () => <Tag bold>Dog</Tag>
+const tagArgType = {
+    table: { type: { summary: 'bool' } },
+    control: { type: 'boolean' },
+}
 
-export const WithClippedOversizedIcon = () => (
-    <Tag icon={<ExampleLargeIcon />}>Dog</Tag>
-)
-
-export const WithClippedLongText = () => (
-    <Tag icon={<ExampleIcon />}>
-        I am long text, therefore I get clipped before I finish
-    </Tag>
-)
+export default {
+    title: 'Data Display/Tag',
+    component: Tag,
+    parameters: {
+        componentSubtitle: subtitle,
+        docs: { description: { component: description } },
+    },
+    argTypes: {
+        negative: { ...tagArgType },
+        neutral: { ...tagArgType },
+        positive: { ...tagArgType },
+    },
+    args: {
+        children: 'Dog',
+    },
+}
 
 const ExampleIcon = () => (
     <svg
@@ -55,3 +69,31 @@ const ExampleLargeIcon = () => (
         />
     </svg>
 )
+
+const Template = args => <Tag {...args} />
+
+export const Default = Template.bind({})
+
+export const WithIcon = Template.bind({})
+WithIcon.args = { icon: <ExampleIcon /> }
+
+export const Neutral = Template.bind({})
+Neutral.args = { neutral: true }
+
+export const Positive = Template.bind({})
+Positive.args = { positive: true }
+
+export const Negative = Template.bind({})
+Negative.args = { negative: true }
+
+export const Bold = Template.bind({})
+Bold.args = { bold: true }
+
+export const WithClippedOversizedIcon = Template.bind({})
+WithClippedOversizedIcon.args = { icon: <ExampleLargeIcon /> }
+
+export const WithClippedLongText = Template.bind({})
+WithClippedLongText.args = {
+    icon: <ExampleIcon />,
+    children: 'I am long text, therefore I get clipped before I finish',
+}
