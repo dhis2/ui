@@ -45,6 +45,13 @@ addParameters({
                 ? 0
                 : a[1].id.localeCompare(b[1].id, undefined, { numeric: true }),
     },
+    jsx: {
+        filterProps: val => val !== undefined,
+        showDefaultProps: false,
+        functionValue: (fn) => fn.name,
+        tabStop: 4,
+        maxInlineAttributesLineLength: 80,
+    },
     // A11y addon config
     a11y: {
         // the target DOM element
