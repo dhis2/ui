@@ -3,6 +3,31 @@ import { AttachFile } from '../Icons/index.js'
 import { Tab } from '../index.js'
 import { TabBar } from './TabBar.js'
 
+const subtitle = 'Ssed to divide content into categories and/or sections'
+
+const description = `
+Use tabs to split related content into separate sections.
+
+- Each tab should contain content that relates to one another, but the content should not overlap.
+- Tabs are especially useful for splitting up content that may be relevant to different user groups, instead of displaying overwhelming amounts of information on a single page.
+- Do not use tabs to compare content.
+- Do not use tabs for sequential content that needs to be done in order.
+- Do not use tabs for content that needs to be viewed at the same time.
+- The number of tabs is less important than splitting content into understandable, predictable groups. Do not group together unrelated content in order to reduce tab count. Users struggle more with unpredictable tabs than too many tabs.
+
+#### Naming
+
+Give tabs short, understandable names. Try to find a word or very short phrase that summarizes the content. If you cannot find a suitable word this may mean you are trying to fit too much content under a single tab. The content of a tab should be obvious from its name.
+
+For example: Do use "Legends" instead of "Set up legends", Do use "Data analysis" instead of "Options for analysis of data",
+
+Do not repeat a term across tabs. If tabs are used inside a 'Options' modal, it is enough to use tab names "Data", "Legend", "Style". Do not repeat 'options' for all, e.g. "Data options", "Legend options" etc.
+
+\`\`\`js
+import { TabBar, Tab } from '@dhis2/ui'
+\`\`\`
+`
+
 const Wrapper = fn => (
     <div
         style={{
@@ -24,11 +49,16 @@ const onClick = (...args) => window.onClick(...args)
 export default {
     title: 'Navigation/Tab Bar',
     component: TabBar,
+    subcomponents: { Tab },
+    parameters: {
+        componentSubtitle: subtitle,
+        docs: { description: { component: description } },
+    },
     decorators: [Wrapper],
 }
 
-export const DefaultFluid = () => (
-    <TabBar>
+export const DefaultFluid = args => (
+    <TabBar {...args}>
         <Tab onClick={onClick}>Tab A</Tab>
         <Tab onClick={onClick}>Tab B</Tab>
         <Tab onClick={onClick} selected>
@@ -42,8 +72,8 @@ export const DefaultFluid = () => (
 )
 DefaultFluid.storyName = 'Default (fluid)'
 
-export const FixedTabsFillContent = () => (
-    <TabBar fixed>
+export const FixedTabsFillContent = args => (
+    <TabBar {...args}>
         <Tab onClick={onClick}>Tab A</Tab>
         <Tab onClick={onClick}>Tab B</Tab>
         <Tab onClick={onClick} selected>
@@ -55,10 +85,11 @@ export const FixedTabsFillContent = () => (
         <Tab onClick={onClick}>Tab G</Tab>
     </TabBar>
 )
+FixedTabsFillContent.args = { fixed: true }
 FixedTabsFillContent.storyName = 'Fixed - tabs fill content'
 
-export const TabsWithScroller = () => (
-    <TabBar scrollable>
+export const TabsWithScroller = args => (
+    <TabBar {...args}>
         <Tab onClick={onClick}>Tab A</Tab>
         <Tab onClick={onClick}>Tab B</Tab>
         <Tab onClick={onClick}>Tab C</Tab>
@@ -81,10 +112,11 @@ export const TabsWithScroller = () => (
         <Tab onClick={onClick}>Tab R</Tab>
     </TabBar>
 )
+TabsWithScroller.args = { scrollable: true }
 TabsWithScroller.storyName = 'Tabs with scroller'
 
-export const TabStates = () => (
-    <TabBar>
+export const TabStates = args => (
+    <TabBar {...args}>
         <Tab onClick={onClick}>Default</Tab>
         <Tab onClick={onClick} selected>
             Selected
@@ -98,8 +130,8 @@ export const TabStates = () => (
 )
 TabStates.storyName = 'Tab states'
 
-export const TabStatesWithIcon = () => (
-    <TabBar>
+export const TabStatesWithIcon = args => (
+    <TabBar {...args}>
         <Tab onClick={onClick} icon={<AttachFile />}>
             Default
         </Tab>
