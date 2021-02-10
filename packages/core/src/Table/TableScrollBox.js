@@ -11,25 +11,8 @@ const { className: tableClassName, styles } = css.resolve`
         border-top: none;
         box-sizing: border-box;
     }
-    div > :global(table) :global(tr) :global(td:first-child),
-    div > :global(table) :global(tr) :global(th:first-child) {
-        border-left: 1px solid transparent;
-    }
-    div > :global(table) :global(tr) :global(td:last-child),
-    div > :global(table) :global(tr) :global(th:last-child) {
-        border-right: 1px solid transparent;
-    }
-    div > :global(table) > :global(tr:first-child) :global(th),
-    div
-        > :global(table)
-        > :global(thead)
-        > :global(tr:first-child)
-        :global(th) {
-        border-top: 1px solid transparent;
-    }
-    div > :global(table) > :global(tr:last-child) :global(td),
-    div > :global(table) > :global(tfoot) > :global(tr:last-child) :global(td) {
-        border-bottom: 1px solid transparent;
+    div > :global(table) {
+        border: none;
     }
 `
 

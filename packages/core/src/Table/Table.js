@@ -1,4 +1,5 @@
 import propTypes from '@dhis2/prop-types'
+import { colors } from '@dhis2/ui-constants'
 import React from 'react'
 
 /**
@@ -19,6 +20,7 @@ export const Table = ({ children, className, dataTest, role }) => {
                     border-spacing: 0;
                     width: 100%;
                     box-sizing: border-box;
+                    border: 1px solid ${colors.grey300};
                 }
             `}</style>
         </table>

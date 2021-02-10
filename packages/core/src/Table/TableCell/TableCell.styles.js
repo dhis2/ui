@@ -17,37 +17,10 @@ export default css`
         color: ${colors.grey800};
         background-color: ${colors.grey200};
         font-weight: normal;
+        border-right: 1px solid transparent;
     }
     th:last-of-type {
         border-right: 1px solid ${colors.grey300};
-    }
-    td:first-child,
-    th:first-child {
-        border-left: 1px solid ${colors.grey300};
-    }
-    td:last-child,
-    th:last-child {
-        border-right: 1px solid ${colors.grey300};
-    }
-    :global(table) > :global(tr:hover) > td,
-    :global(tbody) > :global(tr:hover) > td {
-        background-color: ${colors.blue050};
-    }
-    :global(table) > :global(tr:hover) > th,
-    :global(tbody) > :global(tr:hover) > th {
-        background-color: ${colors.grey300};
-    }
-    :global(table) > :global(tr:active) > td,
-    :global(tbody) > :global(tr:active) > td {
-        background-color: ${colors.blue100};
-    }
-    :global(table) > :global(tr.selected) > td,
-    :global(tbody) > :global(tr.selected) > td {
-        background-color: ${colors.teal050};
-    }
-    :global(table) > :global(tr.selected:hover) > td,
-    :global(tbody) > :global(tr.selected:hover) > td {
-        background-color: ${colors.teal100};
     }
     td.active {
         background-color: ${colors.blue100};
@@ -55,6 +28,10 @@ export default css`
     td.bordered,
     th.bordered {
         border-right: 1px solid ${colors.grey300};
+    }
+    td.bordered:last-child,
+    th.bordered:last-child {
+        border-right: 1px solid transparent;
     }
     td.error,
     th.error {
@@ -77,5 +54,29 @@ export default css`
     th.fixed {
         position: sticky;
         z-index: 1;
+    }
+    :global(tr:last-child) td,
+    :global(tr:last-child) th {
+        border-bottom: 1px solid transparent;
+    }
+    :global(table) > :global(tr:hover) > td,
+    :global(tbody) > :global(tr:hover) > td {
+        background-color: ${colors.blue050};
+    }
+    :global(table) > :global(tr:hover) > th,
+    :global(tbody) > :global(tr:hover) > th {
+        background-color: ${colors.grey300};
+    }
+    :global(table) > :global(tr:active) > td,
+    :global(tbody) > :global(tr:active) > td {
+        background-color: ${colors.blue100};
+    }
+    :global(table) > :global(tr.selected) > td,
+    :global(tbody) > :global(tr.selected) > td {
+        background-color: ${colors.teal050};
+    }
+    :global(table) > :global(tr.selected:hover) > td,
+    :global(tbody) > :global(tr.selected:hover) > td {
+        background-color: ${colors.teal100};
     }
 `
