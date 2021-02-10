@@ -1,3 +1,10 @@
+## [6.2.2](https://github.com/dhis2/ui/compare/v6.2.1...v6.2.2) (2021-02-10)
+
+
+### Bug Fixes
+
+* **select:** update menu width when opening ([#501](https://github.com/dhis2/ui/issues/501)) ([c5ef0a7](https://github.com/dhis2/ui/commit/c5ef0a70fea678a0d2e924ca50e30e8a0c1c8dfc))
+
 ## [6.2.1](https://github.com/dhis2/ui/compare/v6.2.0...v6.2.1) (2021-02-05)
 
 
