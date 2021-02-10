@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 import css from 'styled-jsx/css'
 
@@ -60,10 +60,11 @@ TableCell.defaultProps = {
  * @prop {string} [dataTest]
  */
 TableCell.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    colSpan: propTypes.string,
-    dataTest: propTypes.string,
-    dense: propTypes.bool,
-    rowSpan: propTypes.string,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    colSpan: PropTypes.string,
+    dataTest: PropTypes.string,
+    /** Usees less padding and height for information-dense layouts */
+    dense: PropTypes.bool,
+    rowSpan: PropTypes.string,
 }
