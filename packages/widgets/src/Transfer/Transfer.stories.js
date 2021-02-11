@@ -123,7 +123,6 @@ const StatefulTemplate = ({ initiallySelected, ...args }) => {
     return (
         <Transfer
             {...args}
-            // See note about default callbacks above
             {...defaultCallbacks}
             selected={selected}
             onChange={onChange}
