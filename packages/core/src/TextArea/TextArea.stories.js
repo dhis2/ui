@@ -1,3 +1,4 @@
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
 import { TextArea } from './TextArea.js'
 
@@ -23,6 +24,18 @@ const onBlur = (...args) => window.onBlur(...args)
 export default {
     title: 'Forms/Text Area/Text Area',
     component: TextArea,
+    argTypes: {
+        valid: { ...sharedPropTypes.statusArgType },
+        error: { ...sharedPropTypes.statusArgType },
+        warning: { ...sharedPropTypes.statusArgType },
+    },
+    // Default args for all stories
+    args: {
+        name: 'textAreaName',
+        onChange,
+        onFocus,
+        onBlur,
+    },
 }
 
 export const Default = () => (
