@@ -96,7 +96,9 @@ Field.propTypes = {
     helpText: PropTypes.string,
     /** Label at the top of the field */
     label: PropTypes.string,
+    /** `name` will become the target of the `for`/`htmlFor` attribute on the `<label>` element */
     name: PropTypes.string,
+    /** Inidcates this field is required */
     required: PropTypes.bool,
     /** Field status. Mutually exclusive with `error` and `warning` props */
     valid: sharedPropTypes.statusPropType,
