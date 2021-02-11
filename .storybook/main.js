@@ -34,8 +34,11 @@ module.exports = {
     addons: [
         '@storybook/preset-create-react-app',
         '@storybook/addon-essentials',
-        '@storybook/addon-storysource',
-        '@storybook/addon-a11y',
+        {
+            name: '@storybook/addon-storysource',
+            options: { loaderOptions: { injectDecorator: false } },
+        },
         'storybook-addon-jsx',
+        '@storybook/addon-a11y',
     ],
 }
