@@ -36,9 +36,10 @@ export default css`
     :global(tbody) > tr.isExpanded > :global(td.bordered) {
         border-bottom-color: ${colors.grey300};
     }
-    :global(table) > tr.sortable,
-    :global(tbody) > tr.sortable {
+    :global(table) > tr.draggable,
+    :global(tbody) > tr.draggable {
         cursor: move;
+        user-select: none;
     }
     :global(table) > tr > :global(td.active),
     :global(tbody) > tr > :global(td.active) {

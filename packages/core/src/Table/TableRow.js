@@ -22,7 +22,7 @@ export const TableRow = forwardRef(
             expandableContent,
             role,
             selected,
-            sortable,
+            draggable,
         },
         ref
     ) => {
@@ -35,7 +35,7 @@ export const TableRow = forwardRef(
         const classes = cx(className, {
             isExpanded,
             selected,
-            sortable,
+            draggable,
             isHoveringExpandedContent,
         })
 
@@ -47,7 +47,7 @@ export const TableRow = forwardRef(
                     data-test={dataTest}
                     role={role}
                 >
-                    {sortable && <DragHandleCell />}
+                    {draggable && <DragHandleCell />}
 
                     {expandableContent && (
                         <ExpandToggleCell
@@ -88,7 +88,7 @@ TableRow.defaultProps = {
  * @prop {string} [className]
  * @prop {string} [role]
  * @prop {string} [dataTest=dhis2-uicore-tablerow]
- * @prop {boolean} [sortable] Only responsible for rendering the sort icon
+ * @prop {boolean} [draggable] Only responsible for rendering the sort icon
  * @prop {boolean} [selected] Only responsible for the selected background color
  * @prop {string|node} [expandableContent] This content will be rendered as an additional row
  */
@@ -96,8 +96,8 @@ TableRow.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
+    draggable: propTypes.bool,
     expandableContent: propTypes.node,
     role: propTypes.string,
     selected: propTypes.bool,
-    sortable: propTypes.bool,
 }
