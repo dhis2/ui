@@ -1,5 +1,5 @@
 import propTypes from '@dhis2/prop-types'
-import { colors } from '@dhis2/ui-constants'
+import { colors, spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React from 'react'
 
@@ -10,7 +10,9 @@ export const TableToolbar = ({ children, className, dataTest, position }) => (
             div {
                 width: 100%;
                 box-sizing: border-box;
+                display: flex;
                 border: 1px solid ${colors.grey300};
+                padding: ${spacers.dp12};
             }
             div.top {
                 border-bottom: none;
