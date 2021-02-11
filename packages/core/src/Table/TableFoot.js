@@ -1,5 +1,5 @@
 import propTypes from '@dhis2/prop-types'
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 /**
  * @module
@@ -8,11 +8,15 @@ import React from 'react'
  * @example import { TableFoot } from '@dhis2/ui'
  * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
  */
-export const TableFoot = ({ children, className, dataTest, role }) => (
-    <tfoot className={className} data-test={dataTest} role={role}>
-        {children}
-    </tfoot>
+export const TableFoot = forwardRef(
+    ({ children, className, dataTest, role }, ref) => (
+        <tfoot className={className} data-test={dataTest} ref={ref} role={role}>
+            {children}
+        </tfoot>
+    )
 )
+
+TableFoot.displayName = 'TableFoot'
 
 TableFoot.defaultProps = {
     dataTest: 'dhis2-uicore-tablefoot',

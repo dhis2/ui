@@ -1,5 +1,5 @@
 import propTypes from '@dhis2/prop-types'
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 /**
  * @module
@@ -8,11 +8,14 @@ import React from 'react'
  * @example import { TableBody } from '@dhis2/ui'
  * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
  */
-export const TableBody = ({ children, className, dataTest, role }) => (
-    <tbody className={className} data-test={dataTest} role={role}>
-        {children}
-    </tbody>
+export const TableBody = forwardRef(
+    ({ children, className, dataTest, role }, ref) => (
+        <tbody className={className} data-test={dataTest} ref={ref} role={role}>
+            {children}
+        </tbody>
+    )
 )
+TableBody.displayName = 'TableBody'
 
 TableBody.defaultProps = {
     dataTest: 'dhis2-uicore-tablebody',

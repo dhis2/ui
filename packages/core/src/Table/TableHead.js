@@ -1,5 +1,5 @@
 import propTypes from '@dhis2/prop-types'
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 /**
  * @module
@@ -8,11 +8,15 @@ import React from 'react'
  * @example import { TableHead } from '@dhis2/ui'
  * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
  */
-export const TableHead = ({ children, className, dataTest, role }) => (
-    <thead className={className} data-test={dataTest} role={role}>
-        {children}
-    </thead>
+export const TableHead = forwardRef(
+    ({ children, className, dataTest, role }, ref) => (
+        <thead className={className} data-test={dataTest} ref={ref} role={role}>
+            {children}
+        </thead>
+    )
 )
+
+TableHead.displayName = 'TableHead'
 
 TableHead.defaultProps = {
     dataTest: 'dhis2-uicore-tablehead',
