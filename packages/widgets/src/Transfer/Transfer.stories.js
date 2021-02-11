@@ -4,6 +4,40 @@ import React, { useEffect, useState } from 'react'
 import { SingleSelectField, Transfer, TransferOption } from '../index.js'
 import { defaultRenderOption, defaultFilterCallback } from './Transfer/index.js'
 
+const subtitle = 'Allows users to select options from a list'
+
+const description = `
+#### Usage
+
+Use a transfer component wherever a user needs to make a complex selection. Simple selections can be achieved with checkboxes, radio buttons or a select.
+
+There are use-cases that are particularly suitable for a transfer component:
+
+- when a user needs to select some options from several different groups at the same time
+- if the selection needs to have a defined order
+- when the user will be interacting with and editing the selection often
+- if a user needs to easily compare non-selected and selected options
+- if a user is making selections as part of a complex flow, especially where there are many options to choose from
+
+#### Terminology
+
+This component has to differentiate between different types of options,
+here's an explanation of their meaning:
+
+- source options: These are options listed on the left and are available for selection
+- picked options: These options have been selected by the user and are on the right side
+- highlighted option: These are visually highlighted options than can be on either side and are ready for transferral with the action buttons to the other side  
+- filtered options: These are the displayed source options filtered by a search term or a custom search algorithm. The api surface uses "selected" for "picked" to be consistent with the rest of the library
+
+#### More details
+
+See more about the options available for Transfers at [Design System: Transfer](https://github.com/dhis2/design-system/blob/master/organisms/transfer.md#transfer).
+
+\`\`\`js
+import { Transfer, TransferOption } from '@dhis2/ui'
+\`\`\`
+`
+
 const options = [
     {
         label: 'ANC 1st visit',
@@ -97,63 +131,52 @@ const options = [
     },
 ]
 
-export default {
-    title: 'Forms/Transfer',
-    component: Transfer,
-}
-
 /**
- * These are needed for the template because storybook currently struggles with
+ * Default args are needed because storybook currently struggles with
  * functions as default props: they are sent to the component as strings when
  * `{...args}` is spread into the component in the Template, which causes an
  * error that looks like 'renderOption is not a function'
  *
  * https://github.com/storybookjs/storybook/issues/12455#issuecomment-702763930
  */
-const defaultCallbacks = {
-    renderOption: defaultRenderOption,
-    filterCallback: defaultFilterCallback,
-    filterCallbackPicked: defaultFilterCallback,
+export default {
+    title: 'Forms/Transfer',
+    component: Transfer,
+    parameters: {
+        componentSubtitle: subtitle,
+        docs: {
+            description: { component: description },
+            source: { type: 'code' },
+        },
+    },
+    // Default args:
+    args: {
+        renderOption: defaultRenderOption,
+        filterCallback: defaultFilterCallback,
+        filterCallbackPicked: defaultFilterCallback,
+        options: options,
+    },
 }
 
 const StatefulTemplate = ({ initiallySelected, ...args }) => {
     const [selected, setSelected] = useState(initiallySelected)
     const onChange = payload => setSelected(payload.selected)
 
-    return (
-        <Transfer
-            {...args}
-            {...defaultCallbacks}
-            selected={selected}
-            onChange={onChange}
-        />
-    )
+    return <Transfer {...args} selected={selected} onChange={onChange} />
 }
-
-StatefulTemplate.defaultProps = {
-    initiallySelected: [],
-}
-
-StatefulTemplate.propTypes = {
-    initiallySelected: propTypes.array,
-}
+StatefulTemplate.defaultProps = { initiallySelected: [] }
+StatefulTemplate.propTypes = { initiallySelected: propTypes.array }
 
 export const SingleSelection = StatefulTemplate.bind({})
-SingleSelection.args = {
-    maxSelections: 1,
-    options,
-}
+SingleSelection.args = { maxSelections: 1 }
 
 export const Multiple = StatefulTemplate.bind({})
-Multiple.args = {
-    options: options.slice(0, 3),
-}
+Multiple.args = { options: options.slice(0, 3) }
 
 export const Header = StatefulTemplate.bind({})
 Header.args = {
     leftHeader: <h3>Header on the left side</h3>,
     rightHeader: <h4>Header on the right side</h4>,
-    options,
 }
 
 export const OptionsFooter = StatefulTemplate.bind({})
@@ -170,14 +193,12 @@ OptionsFooter.args = {
             Reload list
         </a>
     ),
-    options,
 }
 
 export const Filtered = StatefulTemplate.bind({})
 Filtered.args = {
     filterable: true,
     initialSearchTerm: 'ANC',
-    options,
 }
 
 export const FilteredPicked = StatefulTemplate.bind({})
@@ -185,7 +206,6 @@ FilteredPicked.args = {
     filterablePicked: true,
     initialSearchTermPicked: 'ANC',
     initiallySelected: options.map(({ value }) => value),
-    options,
 }
 
 export const FilteredPlaceholder = StatefulTemplate.bind({})
@@ -193,7 +213,6 @@ FilteredPlaceholder.args = {
     filterable: true,
     filterLabel: 'Filter with placeholder',
     filterPlaceholder: 'Search',
-    options,
 }
 
 const renderOption = ({ label, value, onClick, highlighted, selected }) => (
@@ -231,17 +250,7 @@ const StatefulTemplateCustomRenderOption = ({ initiallySelected, ...args }) => {
     const [selected, setSelected] = useState(initiallySelected)
     const onChange = payload => setSelected(payload.selected)
 
-    return (
-        <Transfer
-            {...args}
-            // See note about default callbacks above
-            // (renderOption is provided by following stories; not needed here)
-            filterCallback={defaultFilterCallback}
-            filterCallbackPicked={defaultFilterCallback}
-            selected={selected}
-            onChange={onChange}
-        />
-    )
+    return <Transfer {...args} selected={selected} onChange={onChange} />
 }
 StatefulTemplateCustomRenderOption.defaultProps = {
     initiallySelected: [],
@@ -278,7 +287,6 @@ IndividualCustomOption.args = {
 
         return <TransferOption {...option} />
     },
-    options,
 }
 
 export const CustomButtonText = StatefulTemplate.bind({})
@@ -287,7 +295,6 @@ CustomButtonText.args = {
     addIndividualText: 'Add individual',
     removeAllText: 'Remove all',
     removeIndividualText: 'Remove individual',
-    options,
 }
 
 export const SourceEmptyPlaceholder = StatefulTemplate.bind({})
@@ -312,7 +319,6 @@ PickedEmptyComponent.args = {
             <br />
         </p>
     ),
-    options,
 }
 
 export const Reordering = StatefulTemplate.bind({})
@@ -327,14 +333,12 @@ IncreasedOptionsHeight.args = {
     maxSelections: Infinity,
     filterable: true,
     height: '400px',
-    options,
 }
 
 export const DifferentWidths = StatefulTemplate.bind({})
 DifferentWidths.args = {
     optionsWidth: '500px',
     selectedWidth: '240px',
-    options,
 }
 
 const createCustomFilteringInHeader = hideFilterInput => {
@@ -449,13 +453,7 @@ const createCustomFilteringInHeader = hideFilterInput => {
         const onChange = payload => setSelected(payload.selected)
 
         return (
-            <CustomTransfer
-                {...args}
-                // Workaround: see `defaultCallbacks` above
-                {...defaultCallbacks}
-                selected={selected}
-                onChange={onChange}
-            />
+            <CustomTransfer {...args} selected={selected} onChange={onChange} />
         )
     }
 }
@@ -476,7 +474,7 @@ const pageSize = 5
  * To keep the code as small as possible, handling selecting items is not
    included
  */
-export const InfiniteLoading = () => {
+export const InfiniteLoading = args => {
     useEffect(() => {
         console.clear()
     }, [])
@@ -540,6 +538,7 @@ export const InfiniteLoading = () => {
 
     return (
         <Transfer
+            {...args}
             loading={loading}
             options={options}
             selected={selected}
