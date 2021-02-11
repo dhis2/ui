@@ -2,6 +2,20 @@ import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
 import { TextArea } from './TextArea.js'
 
+const description = `
+A textarea allows multiple lines of text input. Use a textarea wherever a user needs to input a lot of information. Do not use a textarea if a short, single line of content is expected.
+
+Options for textarea inputs are:
+
+- Rows: the height of the input, defined by the number of rows of text
+- Resizable: whether the textarea can be resized by the user or not. Can be set for both width and height.
+- Autoheight: if enabled, the texarea will grow in height to adapt to the content.
+
+\`\`\`js
+import { TextArea } from '@dhis2/ui'
+\`\`\`
+`
+
 window.onChange = (payload, event) => {
     console.log('onChange payload', payload)
     console.log('onChange event', event)
@@ -24,12 +38,12 @@ const onBlur = (...args) => window.onBlur(...args)
 export default {
     title: 'Forms/Text Area/Text Area',
     component: TextArea,
+    parameters: { docs: { description: { component: description } } },
     argTypes: {
         valid: { ...sharedPropTypes.statusArgType },
         error: { ...sharedPropTypes.statusArgType },
         warning: { ...sharedPropTypes.statusArgType },
     },
-    // Default args for all stories
     args: {
         name: 'textAreaName',
         onChange,
@@ -38,209 +52,110 @@ export default {
     },
 }
 
-export const Default = () => (
-    <TextArea
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        name="textarea"
-    />
-)
+const Template = args => <TextArea {...args} />
 
-export const PlaceholderNoValue = () => (
-    <TextArea
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        name="textarea"
-        placeholder="Hold the place"
-    />
-)
+export const Default = Template.bind({})
+
+export const PlaceholderNoValue = Template.bind({})
+PlaceholderNoValue.args = { placeholder: 'Hold the place' }
 PlaceholderNoValue.storyName = 'Placeholder, no value'
 
-export const WithValue = () => (
-    <TextArea
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        name="textarea"
-        value="This is set through the value prop, which means the component is controlled."
-    />
-)
+export const WithValue = Template.bind({})
+WithValue.args = {
+    value:
+        'This is set through the value prop, which means the component is controlled.',
+}
 WithValue.storyName = 'With value'
 
-export const Focus = () => (
+export const Focus = args => (
     <>
-        <TextArea
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            name="textarea"
-            initialFocus
-            className="initially-focused"
-        />
-        <TextArea
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            name="textarea"
-            className="initially-unfocused"
-        />
+        <TextArea {...args} initialFocus className="initially-focused" />
+        <TextArea {...args} className="initially-unfocused" />
     </>
 )
 
-export const StatusValid = () => (
-    <TextArea
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        name="textarea"
-        value="This value is valid"
-        valid
-    />
-)
+export const StatusValid = Template.bind({})
+StatusValid.args = { valid: true, value: 'This value is valid' }
 StatusValid.storyName = 'Status: Valid'
 
-export const StatusWarning = () => (
-    <TextArea
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        name="textarea"
-        value="This value produces a warning"
-        warning
-    />
-)
+export const StatusWarning = Template.bind({})
+StatusWarning.args = { warning: true, value: 'This value produces a warning' }
 StatusWarning.storyName = 'Status: Warning'
 
-export const StatusError = () => (
-    <TextArea
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        name="textarea"
-        error
-        value="This value produces an error"
-        helpText="This is some help text to advice what this input actually is."
-        validationText="This describes the error, if a message is supplied."
-    />
-)
+export const StatusError = Template.bind({})
+StatusError.args = {
+    error: true,
+    value: 'This value produces an error',
+    helpText: 'This is some help text to advise what this input actually is.',
+    validationText: 'This describes the error, if a message is supplied.',
+}
 StatusError.storyName = 'Status: Error'
 
-export const StatusLoading = () => (
-    <TextArea
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        name="textarea"
-        value="This value produces a loading state"
-        loading
-    />
-)
+export const StatusLoading = Template.bind({})
+StatusLoading.args = {
+    loading: true,
+    value: 'This value produces a loadingn state',
+}
 StatusLoading.storyName = 'Status: Loading'
 
-export const Disabled = () => (
-    <TextArea
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        name="textarea"
-        value="This field is disabled"
-        disabled
-    />
-)
+export const Disabled = Template.bind({})
+Disabled.args = { disabled: true, value: 'This field is disabled' }
 
-export const ReadOnly = () => (
-    <TextArea
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        name="textarea"
-        value="This field is readOnly"
-        readOnly
-    />
-)
-ReadOnly.storyName = 'Read only'
+export const ReadOnly = Template.bind({})
+ReadOnly.args = { readOnly: true, value: 'This field is readOnly' }
 
-export const Dense = () => (
-    <TextArea
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        name="textarea"
-        value="This field is dense"
-        dense
-    />
-)
+export const Dense = Template.bind({})
+Dense.args = { dense: true, value: 'This field is dense' }
 
-export const TextareaTextOverflow = () => (
-    <TextArea
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        name="textarea"
-        label="I have a scrollbar"
-        value={[
-            'A line of text',
-            'A line of text',
-            'A line of text',
-            'A line of text',
-            'A line of text',
-            'A line of text',
-            'A line of text',
-            'A line of text',
-            'A line of text',
-            'A line of text',
-            'A line of text',
-            'A line of text',
-            'A line of text',
-            'A line of text',
-            'A line of text',
-        ].join('\n')}
-    />
-)
-TextareaTextOverflow.storyName = 'Textarea text overflow'
+export const TextareaTextOverflow = Template.bind({})
+TextareaTextOverflow.args = {
+    label: 'I have a scrollbar',
+    value: [
+        'A line of text',
+        'A line of text',
+        'A line of text',
+        'A line of text',
+        'A line of text',
+        'A line of text',
+        'A line of text',
+        'A line of text',
+        'A line of text',
+        'A line of text',
+        'A line of text',
+        'A line of text',
+        'A line of text',
+        'A line of text',
+        'A line of text',
+    ].join('\n'),
+}
 
-export const Rows = () => (
-    <TextArea
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        name="textarea"
-        label="You can set the height with the rows prop, I have 8"
-        rows={8}
-    />
-)
+export const Rows = Template.bind({})
+Rows.args = {
+    rows: 8,
+    label: 'You can set the height with the rows prop. I have 8',
+}
 
-export const Resize = () => (
+export const Resize = args => (
     <>
         <TextArea
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
+            {...args}
             name="textarea1"
             label="Resize: vertical (default)"
         />
         <TextArea
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
+            {...args}
             name="textarea2"
             label="Resize: none"
             resize="none"
         />
         <TextArea
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
+            {...args}
             name="textarea3"
             label="Resize: both"
             resize="both"
         />
         <TextArea
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
+            {...args}
             name="textarea4"
             label="Resize: horizontal"
             resize="horizontal"
@@ -248,12 +163,10 @@ export const Resize = () => (
     </>
 )
 
-export const Autogrow = () => (
+export const Autogrow = args => (
     <>
         <TextArea
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
+            {...args}
             name="textarea1"
             label="Autogrow step 1"
             autoGrow
@@ -261,9 +174,7 @@ export const Autogrow = () => (
             value="This TextArea has a height of 2 rows"
         />
         <TextArea
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
+            {...args}
             name="textarea2"
             label="Autogrow step 2"
             autoGrow
@@ -274,9 +185,7 @@ export const Autogrow = () => (
             ].join('\n')}
         />
         <TextArea
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
+            {...args}
             name="textarea3"
             label="Autogrow step 3"
             autoGrow
@@ -288,9 +197,7 @@ export const Autogrow = () => (
             ].join('\n')}
         />
         <TextArea
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
+            {...args}
             name="textarea4"
             label="Autogrow step 4"
             value={[
