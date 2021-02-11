@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { colors, layers } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React, { useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { resolve } from 'styled-jsx/css'
@@ -151,12 +151,16 @@ Tooltip.defaultProps = {
  * @prop {('top'|'bottom'|'right'|'left')} [placement=top]
  */
 Tooltip.propTypes = {
-    children: propTypes.oneOfType([propTypes.node, propTypes.func]),
-    className: propTypes.string,
-    content: propTypes.node,
-    dataTest: propTypes.string,
-    maxWidth: propTypes.number,
-    placement: propTypes.oneOf(['top', 'right', 'bottom', 'left']),
+    /** If child is a function, it's called with `{ onMouseOver, onMouseOut, ref }` args to apply to a reference element. If child is a node, it is wrapped in a `span` with the appropriate attributes and handlers. */
+    children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+    className: PropTypes.string,
+    /** Content to display when the tooltip is open */
+    content: PropTypes.node,
+    dataTest: PropTypes.string,
+    /** Max width of the tooltip in px */
+    maxWidth: PropTypes.number,
+    /** Where to place the tooltip relative to its reference */
+    placement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
 }
 
 export { Tooltip, TOOLTIP_OFFSET }
