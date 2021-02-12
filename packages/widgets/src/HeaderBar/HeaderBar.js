@@ -1,7 +1,7 @@
 import { useDataQuery, useConfig } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
 import Apps from './Apps.js'
 import { joinPath } from './joinPath.js'
@@ -105,6 +105,6 @@ export const HeaderBar = ({ appName, className }) => {
 }
 
 HeaderBar.propTypes = {
-    appName: propTypes.string,
-    className: propTypes.string,
+    appName: PropTypes.string,
+    className: PropTypes.string,
 }
