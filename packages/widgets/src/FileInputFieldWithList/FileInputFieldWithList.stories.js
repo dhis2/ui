@@ -1,3 +1,5 @@
+import i18n from '@dhis2/d2-i18n'
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
 import { FileInputFieldWithList } from './FileInputFieldWithList.js'
 
@@ -12,31 +14,37 @@ const onChange = ({ files }) => {
 export default {
     title: 'Forms/File Input/File Input Field With List',
     component: FileInputFieldWithList,
+    args: {
+        multiple: true,
+        onChange: onChange,
+        name: 'uploadName',
+        // Handle default props bug (see Transfer stories)
+        buttonLabel: () => i18n.t('Upload a file'),
+        placeholder: () => i18n.t('No file uploaded yet'),
+        removeText: () => i18n.t('Remove'),
+    },
+    argTypes: {
+        small: { ...sharedPropTypes.sizeArgType },
+        large: { ...sharedPropTypes.sizeArgType },
+        valid: { ...sharedPropTypes.statusArgType },
+        warning: { ...sharedPropTypes.statusArgType },
+        error: { ...sharedPropTypes.statusArgType },
+    },
 }
 
-export const Default = () => (
-    <FileInputFieldWithList
-        multiple
-        onChange={onChange}
-        buttonLabel="Upload file"
-        name="upload"
-        files={files}
-        removeText="remove"
-    />
-)
+const Template = args => <FileInputFieldWithList {...args} />
 
-export const DefaultButtonLabelAndRemoveText = () => (
-    <FileInputFieldWithList
-        multiple
-        onChange={onChange}
-        name="upload"
-        files={files}
-    />
-)
+export const Default = Template.bind({})
+Default.args = {
+    buttonLabel: 'Upload file (custom label)',
+    files: files,
+    removeText: 'Custom remove text',
+}
+
+export const DefaultButtonLabelAndRemoveText = Template.bind({})
+DefaultButtonLabelAndRemoveText.args = { files: files }
 DefaultButtonLabelAndRemoveText.storyName =
     'Default: buttonLabel and removeText'
 
-export const DefaultPlaceholder = () => (
-    <FileInputFieldWithList multiple onChange={onChange} name="upload" />
-)
+export const DefaultPlaceholder = Template.bind({})
 DefaultPlaceholder.storyName = 'Default: placeholder'
