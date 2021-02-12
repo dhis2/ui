@@ -4,7 +4,7 @@ import React from 'react'
 import { FileInputFieldWithList } from './FileInputFieldWithList.js'
 
 const description = `
-A FileInputField with a logic for creating a dynamic list of removable files from an array of \`File\` objects.
+A FileInputField with logic for creating a dynamic list of removable files from an array of \`File\` objects.
 
 \`\`\`js
 import { FileiNputFieldWithList } from '@dhis2/ui'
