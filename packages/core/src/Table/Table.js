@@ -11,7 +11,7 @@ import React, { forwardRef } from 'react'
  * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
  */
 export const Table = forwardRef(
-    ({ children, className, dataTest, role }, ref) => {
+    ({ children, className, dataTest, layout, width, role }, ref) => {
         return (
             <table
                 className={className}
@@ -22,9 +22,10 @@ export const Table = forwardRef(
                 {children}
                 <style jsx>{`
                     table {
+                        table-layout: ${layout};
                         border-collapse: separate;
                         border-spacing: 0;
-                        width: 100%;
+                        width: ${width};
                         box-sizing: border-box;
                         border: 1px solid ${colors.grey300};
                     }
@@ -38,6 +39,8 @@ Table.displayName = 'Table'
 
 Table.defaultProps = {
     dataTest: 'dhis2-uicore-table',
+    width: '100%',
+    layout: 'auto',
 }
 
 /**
@@ -52,5 +55,7 @@ Table.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
+    layout: propTypes.oneOf(['auto', 'fixed']),
     role: propTypes.string,
+    width: propTypes.string,
 }
