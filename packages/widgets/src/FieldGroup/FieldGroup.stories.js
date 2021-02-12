@@ -1,22 +1,37 @@
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import { Checkbox, Radio, Switch } from '@dhis2/ui-core'
 import React from 'react'
 import { FieldGroup } from './FieldGroup.js'
 
+const description = `
+Wraps a group of form components like Radios, Checkboxes, or Switches. The FieldGroup wraps the form controls in a FieldSet and a Field component to group them and add a label, help text, and/or validation text.
+
+\`\`\`js
+import { FieldGroup } from '@dhis2/ui'
+\`\`\`
+`
+
 export default {
     title: 'Forms/Field Group/Field Group',
     component: FieldGroup,
+    parameters: { docs: { description: { component: description } } },
+    argTypes: {
+        valid: { ...sharedPropTypes.statusArgType },
+        warning: { ...sharedPropTypes.statusArgType },
+        error: { ...sharedPropTypes.statusArgType },
+    },
 }
 
-export const WithCheckbox = () => (
-    <FieldGroup>
+export const WithCheckbox = args => (
+    <FieldGroup {...args}>
         <Checkbox value="first" label="First" />
         <Checkbox value="second" label="Second" />
         <Checkbox value="third" label="Third" />
     </FieldGroup>
 )
 
-export const WithRadio = () => (
-    <FieldGroup>
+export const WithRadio = args => (
+    <FieldGroup {...args}>
         <Radio value="first" label="First" />
         <Radio value="second" label="Second" checked />
         <Radio value="third" label="Third" />
@@ -24,8 +39,8 @@ export const WithRadio = () => (
     </FieldGroup>
 )
 
-export const WithSwitch = () => (
-    <FieldGroup>
+export const WithSwitch = args => (
+    <FieldGroup {...args}>
         <Switch value="first" label="First" />
         <Switch value="second" label="Second" />
         <Switch value="third" label="Third" />
@@ -33,9 +48,9 @@ export const WithSwitch = () => (
     </FieldGroup>
 )
 
-export const WithLabel = () => (
+export const WithLabel = args => (
     <>
-        <FieldGroup label="I am a legend">
+        <FieldGroup {...args}>
             <Checkbox value="first" label="First" />
             <Checkbox value="second" label="Second" />
             <Checkbox value="third" label="Third" />
@@ -47,11 +62,11 @@ export const WithLabel = () => (
         </FieldGroup>
     </>
 )
-WithLabel.storyName = 'With label'
+WithLabel.args = { label: 'I am a label/legend' }
 
-export const HelpAndValidationTexts = () => (
+export const HelpAndValidationTexts = args => (
     <>
-        <FieldGroup label="I am a field" helpText="Please help me!">
+        <FieldGroup {...args}>
             <Checkbox value="first" label="First" />
             <Checkbox value="second" label="Second" />
             <Checkbox value="third" label="Third" />
@@ -87,4 +102,7 @@ export const HelpAndValidationTexts = () => (
         </FieldGroup>
     </>
 )
-HelpAndValidationTexts.storyName = 'Help and validation texts'
+HelpAndValidationTexts.args = {
+    label: 'I am a field',
+    helpText: 'I am help text!',
+}
