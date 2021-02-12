@@ -1,5 +1,4 @@
 import i18n from '@dhis2/d2-i18n'
-import propTypes from '@dhis2/prop-types'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import {
     FileInput,
@@ -8,6 +7,7 @@ import {
     Field,
     Label,
 } from '@dhis2/ui-core'
+import PropTypes from 'prop-types'
 import React from 'react'
 import translate from '../translate'
 
@@ -134,29 +134,45 @@ FileInputField.defaultProps = {
  * @prop {string} [dataTest]
  */
 FileInputField.propTypes = {
-    accept: propTypes.string,
-    buttonLabel: propTypes.oneOfType([propTypes.string, propTypes.func]),
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    disabled: propTypes.bool,
+    /** The `accept` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept) */
+    accept: PropTypes.string,
+    /** Text on the button */
+    buttonLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    /** Disables the button */
+    disabled: PropTypes.bool,
+    /** Applies 'error' styling to the validation text. Mutually exclusive with `warning` and `valid` props */
     error: sharedPropTypes.statusPropType,
-    helpText: propTypes.string,
-    initialFocus: propTypes.bool,
-    label: propTypes.string,
+    /** Useful guiding text for the user */
+    helpText: PropTypes.string,
+    initialFocus: PropTypes.bool,
+    /** A descriptive label above the button */
+    label: PropTypes.string,
+    /** Size of the button. Mutually exclusive with the `small` prop */
     large: sharedPropTypes.sizePropType,
-    multiple: propTypes.bool,
-    name: propTypes.string,
-    placeholder: propTypes.oneOfType([propTypes.string, propTypes.func]),
-    required: propTypes.bool,
+    /** The `multiple` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple) */
+    multiple: PropTypes.bool,
+    /** Name associated with input. Passed to event handler callbacks */
+    name: PropTypes.string,
+    /** Placeholder below the button */
+    placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    /** Adds an asterisk to indicate this field is required */
+    required: PropTypes.bool,
+    /** Size of the button. Mutually exclusive with the `large` prop */
     small: sharedPropTypes.sizePropType,
-    tabIndex: propTypes.string,
+    tabIndex: PropTypes.string,
+    /** Applies 'valid' styling to the validation text. Mutually exclusive with `warning` and `error` props */
     valid: sharedPropTypes.statusPropType,
-    validationText: propTypes.string,
+    /** Text below the button that provides validation feedback */
+    validationText: PropTypes.string,
+    /** Applies 'warning' styling to the validation text. Mutually exclusive with `valid` and `error` props */
     warning: sharedPropTypes.statusPropType,
-    onBlur: propTypes.func,
-    onChange: propTypes.func,
-    onFocus: propTypes.func,
+    onBlur: PropTypes.func,
+    /** Called with signature ({ name: string, files: [] }, event) */
+    onChange: PropTypes.func,
+    onFocus: PropTypes.func,
 }
 
 export { FileInputField }
