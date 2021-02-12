@@ -3,6 +3,14 @@ import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
 import { FileInputFieldWithList } from './FileInputFieldWithList.js'
 
+const description = `
+A FileInputField with a logic for creating a dynamic list of removable files from an array of \`File\` objects.
+
+\`\`\`js
+import { FileiNputFieldWithList } from '@dhis2/ui'
+\`\`\`
+`
+
 const files = new Array(10)
     .fill('dummy-file-name')
     .map((name, i) => new File([], `${name}-${i + 1}.txt`))
@@ -14,6 +22,7 @@ const onChange = ({ files }) => {
 export default {
     title: 'Forms/File Input/File Input Field With List',
     component: FileInputFieldWithList,
+    parameters: { docs: { description: { component: description } } },
     args: {
         multiple: true,
         onChange: onChange,
