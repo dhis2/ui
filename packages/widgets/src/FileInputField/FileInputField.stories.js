@@ -1,136 +1,98 @@
+import i18n from '@dhis2/d2-i18n'
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import { FileListItem } from '@dhis2/ui-core'
 import React from 'react'
 import { FileInputField } from './FileInputField.js'
 
-const onChange = obj => {
-    console.log('onChange', obj)
-}
-const onRemove = () => {
-    console.log('onRemove')
-}
-const onCancel = () => {
-    console.log('onCancel')
-}
+const description = `
+The \`FileInputField\` component wraps the \`FileInput\` component in a \`Field\` wrapper to add labels, help text, and validation text.
+
+\`\`\`js
+import { FileInputField, FileListItem } from '@dhis2/ui'
+\`\`\`
+`
+
+const onChange = obj => console.log('onChange', obj)
+const onRemove = () => console.log('onRemove')
+const onCancel = () => console.log('onCancel')
 
 export default {
     title: 'Forms/File Input/File Input Field',
     component: FileInputField,
+    parameters: { docs: { description: { component: description } } },
+    // Default args:
+    args: {
+        onChange: onChange,
+        name: 'uploadName',
+        label: 'Upload something',
+        // Handle default values (see comment in Transfer.js)
+        buttonLabel: () => i18n.t('Upload a file'),
+        placeholder: () => i18n.t('No file uploaded yet'),
+    },
+    argTypes: {
+        small: { ...sharedPropTypes.sizeArgType },
+        large: { ...sharedPropTypes.sizeArgType },
+        valid: { ...sharedPropTypes.statusArgType },
+        warning: { ...sharedPropTypes.statusArgType },
+        error: { ...sharedPropTypes.statusArgType },
+    },
 }
 
-export const Default = () => (
-    <FileInputField
-        onChange={onChange}
-        buttonLabel="Upload file"
-        name="upload"
-    />
-)
+const Template = args => <FileInputField {...args} />
 
-export const WithLabel = () => (
-    <FileInputField
-        name="upload"
-        onChange={onChange}
-        label="Upload something"
-        buttonLabel="Upload file"
-    />
-)
-WithLabel.storyName = 'With label'
+export const Default = Template.bind({})
+Default.args = { label: null }
 
-export const Required = () => (
-    <FileInputField
-        name="upload"
-        onChange={onChange}
-        label="upload something"
-        buttonLabel="Upload file"
-        required
-    />
-)
+export const WithLabel = Template.bind({})
 
-export const Multiple = () => (
-    <FileInputField
-        name="upload"
-        onChange={onChange}
-        label="upload multiple things"
-        buttonLabel="Upload files"
-        multiple
-    />
-)
+export const Required = Template.bind({})
+Required.args = { required: true }
 
-export const Disabled = () => (
-    <FileInputField
-        name="upload"
-        onChange={onChange}
-        label="upload something"
-        buttonLabel="Upload file"
-        disabled
-    />
-)
+export const Multiple = Template.bind({})
+Multiple.args = {
+    multiple: true,
+    label: 'Upload multiple things',
+    buttonLabel: 'Upload files',
+}
 
-export const Sizes = () => (
+export const Disabled = Template.bind({})
+Disabled.args = { disabled: true }
+
+export const Sizes = args => (
     <>
         <FileInputField
-            onChange={onChange}
-            label="upload something"
+            {...args}
             buttonLabel="Default size"
-            name="default"
+            name="defaultName"
         />
-        <FileInputField
-            onChange={onChange}
-            label="upload something"
-            buttonLabel="Small"
-            small
-            name="small"
-        />
-        <FileInputField
-            onChange={onChange}
-            label="upload something"
-            buttonLabel="Large"
-            large
-            name="large"
-        />
+        <FileInputField {...args} buttonLabel="Small" small name="smallName" />
+        <FileInputField {...args} buttonLabel="Large" large name="largeName" />
     </>
 )
 
-export const Statuses = () => (
+export const Statuses = args => (
     <>
+        <FileInputField {...args} buttonLabel="Default" name="defaultName" />
+        <FileInputField {...args} buttonLabel="Valid" name="validName" valid />
         <FileInputField
-            onChange={onChange}
-            label="upload something"
-            buttonLabel="Default"
-            name="default"
-        />
-        <FileInputField
-            onChange={onChange}
-            label="upload something"
-            buttonLabel="Valid"
-            name="valid"
-            valid
-        />
-        <FileInputField
-            onChange={onChange}
-            label="upload something"
+            {...args}
             buttonLabel="Warning"
-            name="warning"
+            name="warningName"
             warning
         />
         <FileInputField
-            onChange={onChange}
-            label="upload something"
+            {...args}
             buttonLabel="Error"
-            name="error"
+            name="errorName"
             error
             validationText="Something went wrong"
         />
     </>
 )
 
-export const FileList = () => (
+export const FileList = args => (
     <div style={{ width: 250 }}>
-        <FileInputField
-            onChange={onChange}
-            label="Upload something"
-            buttonLabel="Upload file"
-            name="upload"
-        >
+        <FileInputField {...args}>
             <FileListItem
                 label="picture1.jpg"
                 onRemove={onRemove}
@@ -160,41 +122,15 @@ export const FileList = () => (
         </p>
     </div>
 )
-FileList.storyName = 'File list'
 
-export const PlaceholderText = () => (
-    <FileInputField
-        onChange={onChange}
-        label="Upload something"
-        buttonLabel="Upload file"
-        name="upload"
-        placeholder="No file(s) selected yet"
-    />
-)
-PlaceholderText.storyName = 'Placeholder text'
+export const PlaceholderText = Template.bind({})
+PlaceholderText.args = { placeholder: 'No file(s) selected yet' }
 
-export const HelpText = () => (
-    <FileInputField
-        onChange={onChange}
-        label="Upload something"
-        buttonLabel="Upload file"
-        name="upload"
-        helpText="Please select any file type"
-    />
-)
-HelpText.storyName = 'Help text'
+export const HelpText = Template.bind({})
+HelpText.args = { helpText: 'Please select any file type' }
 
-export const DesignSystemStackingOrder = () => (
-    <FileInputField
-        onChange={onChange}
-        label="upload something"
-        buttonLabel="Upload file"
-        error
-        validationText="Oops"
-        placeholder="Select a file"
-        helpText="Please upload something"
-        name="upload"
-    >
+export const DesignSystemStackingOrder = args => (
+    <FileInputField {...args}>
         <FileListItem
             label="TestFile.txt"
             onRemove={onRemove}
@@ -210,25 +146,21 @@ export const DesignSystemStackingOrder = () => (
         />
     </FileInputField>
 )
-DesignSystemStackingOrder.storyName = 'Design system stacking order'
+DesignSystemStackingOrder.args = {
+    error: true,
+    validationText: 'Oops!',
+    placeholder: 'Select a file',
+    helpText: 'Please upload something',
+}
 
-export const DesignSystemStackingOrderEmptyFileList = () => (
-    <FileInputField
-        onChange={onChange}
-        label="upload something"
-        buttonLabel="Upload file"
-        error
-        validationText="Oops"
-        placeholder="Select a file"
-        helpText="Please upload something"
-        name="upload"
-    />
-)
+export const DesignSystemStackingOrderEmptyFileList = Template.bind({})
+DesignSystemStackingOrderEmptyFileList.args = {
+    ...DesignSystemStackingOrder.args,
+}
 DesignSystemStackingOrderEmptyFileList.storyName =
     'Design system stacking order - empty file list'
 
-export const DefaultButtonLabelAndPlaceholder = () => (
-    <FileInputField onChange={onChange} name="upload" />
-)
+export const DefaultButtonLabelAndPlaceholder = Template.bind({})
+DefaultButtonLabelAndPlaceholder.args = { label: null }
 DefaultButtonLabelAndPlaceholder.storyName =
     'Default: buttonLabel and placeholder'
