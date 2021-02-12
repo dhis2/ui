@@ -35,7 +35,6 @@ export default css`
     }
     span.label {
         display: inline-flex;
-        flex-grow: 1;
         align-items: center;
         height: 100%;
         font-size: 13px;

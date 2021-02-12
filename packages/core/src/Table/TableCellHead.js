@@ -1,13 +1,11 @@
 import propTypes from '@dhis2/prop-types'
-import { colors } from '@dhis2/ui-constants'
-import { IconSearch16 } from '@dhis2/ui-icons'
 import cx from 'classnames'
-import React, { forwardRef, useState } from 'react'
-import { Action } from './TableCellHead/Action'
+import React, { forwardRef } from 'react'
+import { FilterHandle } from './TableCellHead/FilterHandle'
 import { Sorter } from './TableCellHead/Sorter'
 import styles from './TableCellHead/TableCellHead.styles.js'
 
-const SORT_DIRECTIONS = ['asc', 'desc', null]
+const SORT_DIRECTIONS = ['default', 'asc', 'desc']
 const AUTO = 'auto'
 const flexboxAlignLookup = {
     left: 'flex-start',
@@ -38,17 +36,17 @@ export const TableCellHead = forwardRef(
             rowSpan,
             role,
             scope,
+            showFilter,
             sortDirection,
             top,
             width,
+            onFilterIconClick,
             onSortIconClick,
         },
         ref
     ) => {
-        const [showFilter, setShowFilter] = useState(false)
-        const toggleFilter = () => setShowFilter(!showFilter)
         const fixedLeft = fixed && left !== AUTO
-        const filterIconColor = showFilter ? colors.blue700 : colors.grey600
+
         return (
             <th
                 colSpan={colSpan}
@@ -74,9 +72,11 @@ export const TableCellHead = forwardRef(
                             />
                         )}
                         {filter && (
-                            <Action onClick={toggleFilter}>
-                                <IconSearch16 color={filterIconColor} />
-                            </Action>
+                            <FilterHandle
+                                name={name}
+                                active={showFilter}
+                                onFilterIconClick={onFilterIconClick}
+                            />
                         )}
                     </span>
                     {filter && showFilter && (
@@ -126,9 +126,11 @@ TableCellHead.defaultProps = {
  * @prop {string} [rowSpan]
  * @prop {string} [role]
  * @prop {string} [scope]
+ * @prop {boolean} [showFilter]
  * @prop {'asc'|'desc'|null} [sortDirection]
  * @prop {string} [top] Left or top required when fixed
  * @prop {string} [width]
+ *  * @prop {function} [onFilterIconClick]
  * @prop {function} [onSortIconClick] Sort icon click callback with `nextSortDirection` and `name` in payload
  */
 TableCellHead.propTypes = {
@@ -137,7 +139,10 @@ TableCellHead.propTypes = {
     className: propTypes.string,
     colSpan: propTypes.string,
     dataTest: propTypes.string,
-    filter: propTypes.node,
+    filter: propTypes.requiredIf(
+        props => props.onFilterIconClick || props.showFilter,
+        propTypes.node
+    ),
     fixed: propTypes.bool,
     large: propTypes.bool,
     left: propTypes.requiredIf(
@@ -148,6 +153,7 @@ TableCellHead.propTypes = {
     role: propTypes.string,
     rowSpan: propTypes.string,
     scope: propTypes.string,
+    showFilter: propTypes.requiredIf(props => props.filter, propTypes.bool),
     sortDirection: propTypes.requiredIf(
         props => props.onSortIconClick,
         propTypes.oneOf(SORT_DIRECTIONS)
@@ -157,8 +163,12 @@ TableCellHead.propTypes = {
         propTypes.string
     ),
     width: propTypes.string,
+    onFilterIconClick: propTypes.requiredIf(
+        props => props.filter,
+        propTypes.func
+    ),
     onSortIconClick: propTypes.requiredIf(
-        props => typeof props.sortDirection !== 'undefined',
+        props => props.sortDirection,
         propTypes.func
     ),
 }
