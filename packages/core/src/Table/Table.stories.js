@@ -1,16 +1,13 @@
 /* eslint-disable react/prop-types */
 
 import React, { useState } from 'react'
-import css from 'styled-jsx/css'
 import { Box } from '../Box/Box.js'
-import { Button } from '../Button/Button.js'
 import { Checkbox } from '../Checkbox/Checkbox.js'
 import { Input } from '../Input/Input.js'
 import { Table } from './Table.js'
 import { TableBody } from './TableBody.js'
 import { TableCell } from './TableCell.js'
 import { TableCellHead } from './TableCellHead.js'
-import { TableFoot } from './TableFoot.js'
 import { TableHead } from './TableHead.js'
 import { TableRow } from './TableRow.js'
 import { TableScrollBox } from './TableScrollBox.js'
@@ -149,7 +146,7 @@ CellStyling.args = {
 
 export const IrregularHeaders = () => (
     <Table>
-        <col />
+        <colgroup />
         <colgroup span="2"></colgroup>
         <colgroup span="2"></colgroup>
         <TableHead>
@@ -169,27 +166,29 @@ export const IrregularHeaders = () => (
                 <TableCellHead scope="col">Sold</TableCellHead>
             </TableRow>
         </TableHead>
-        <TableRow>
-            <TableCell tag="th" scope="row" rowSpan="2">
-                Type
-            </TableCell>
-            <TableCell tag="th" scope="row">
-                Teddy Bears
-            </TableCell>
-            <TableCell>50,000</TableCell>
-            <TableCell>30,000</TableCell>
-            <TableCell>100,000</TableCell>
-            <TableCell>80,000</TableCell>
-        </TableRow>
-        <TableRow>
-            <TableCell tag="th" scope="row">
-                Board Games
-            </TableCell>
-            <TableCell>10,000</TableCell>
-            <TableCell>5,000</TableCell>
-            <TableCell>12,000</TableCell>
-            <TableCell>9,000</TableCell>
-        </TableRow>
+        <TableBody>
+            <TableRow>
+                <TableCell tag="th" scope="row" rowSpan="2">
+                    Type
+                </TableCell>
+                <TableCell tag="th" scope="row">
+                    Teddy Bears
+                </TableCell>
+                <TableCell>50,000</TableCell>
+                <TableCell>30,000</TableCell>
+                <TableCell>100,000</TableCell>
+                <TableCell>80,000</TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell tag="th" scope="row">
+                    Board Games
+                </TableCell>
+                <TableCell>10,000</TableCell>
+                <TableCell>5,000</TableCell>
+                <TableCell>12,000</TableCell>
+                <TableCell>9,000</TableCell>
+            </TableRow>
+        </TableBody>
     </Table>
 )
 
