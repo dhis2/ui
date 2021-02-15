@@ -1,6 +1,6 @@
 import i18n from '@dhis2/d2-i18n'
-import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { PageControls } from './PageControls'
 import { PageSelect } from './PageSelect'
@@ -129,22 +129,22 @@ Pagination.defaultProps = {
  * @prop {string|function} [previousPageText]
  */
 Pagination.propTypes = {
-    page: propTypes.number.isRequired,
-    pageCount: propTypes.number.isRequired,
-    pageSize: propTypes.number.isRequired,
-    total: propTypes.number.isRequired,
-    onPageChange: propTypes.func.isRequired,
-    onPageSizeChange: propTypes.func.isRequired,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    hidePageSelect: propTypes.bool,
-    hidePageSizeSelect: propTypes.bool,
-    nextPageText: propTypes.oneOfType([propTypes.string, propTypes.func]),
-    pageSelectText: propTypes.oneOfType([propTypes.string, propTypes.func]),
-    pageSizeSelectText: propTypes.oneOfType([propTypes.string, propTypes.func]),
-    pageSizes: propTypes.arrayOf(propTypes.string),
-    pageSummaryText: propTypes.oneOfType([propTypes.string, propTypes.func]),
-    previousPageText: propTypes.oneOfType([propTypes.string, propTypes.func]),
+    page: PropTypes.number.isRequired,
+    pageCount: PropTypes.number.isRequired,
+    pageSize: PropTypes.number.isRequired,
+    total: PropTypes.number.isRequired,
+    onPageChange: PropTypes.func.isRequired,
+    onPageSizeChange: PropTypes.func.isRequired,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    hidePageSelect: PropTypes.bool,
+    hidePageSizeSelect: PropTypes.bool,
+    nextPageText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    pageSelectText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    pageSizeSelectText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    pageSizes: PropTypes.arrayOf(PropTypes.string),
+    pageSummaryText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    previousPageText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
 }
 
 export { Pagination }
