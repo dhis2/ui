@@ -1,5 +1,16 @@
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
 import { SwitchField } from './SwitchField.js'
+
+const description = `
+A \`SwitchField\` is a Switch component wrapped with extra form utilities, including the ability to add a label, help text, and validation text.  Validation styles like 'error' apply to all of these subcomponents.
+
+See the basic Switch for usage and design system guidelines.
+
+\`\`\`js
+import { SwitchField } from '@dhis2/ui'
+\`\`\`
+`
 
 const logger = ({ name, value, checked }) =>
     console.info(`name: ${name}, value: ${value}, checked: ${checked}`)
@@ -7,343 +18,124 @@ const logger = ({ name, value, checked }) =>
 export default {
     title: 'Forms/Switch/Switch Field',
     component: SwitchField,
+    parameters: { docs: { description: { component: description } } },
+    // Default args for stories
+    args: {
+        name: 'switchName',
+        label: 'Switch Field',
+        value: 'defaultValue',
+        onChange: logger,
+    },
+    argTypes: {
+        valid: { ...sharedPropTypes.statusArgType },
+        warning: { ...sharedPropTypes.statusArgType },
+        error: { ...sharedPropTypes.statusArgType },
+    },
 }
 
-export const Default = () => (
-    <SwitchField
-        name="Ex"
-        label="SwitchField"
-        value="default"
-        onChange={logger}
-    />
-)
+const Template = args => <SwitchField {...args} />
 
-export const FocusedUnchecked = () => (
-    <SwitchField
-        initialFocus
-        name="Ex"
-        label="SwitchField"
-        value="default"
-        onChange={logger}
-    />
-)
-FocusedUnchecked.storyName = 'Focused unchecked'
-
-export const FocusedChecked = () => (
-    <SwitchField
-        initialFocus
-        checked
-        name="Ex"
-        label="SwitchField"
-        value="default"
-        onChange={logger}
-    />
-)
-FocusedChecked.storyName = 'Focused checked'
-
-export const Checked = () => (
-    <SwitchField
-        name="Ex"
-        label="SwitchField"
-        checked
-        value="checked"
-        onChange={logger}
-    />
-)
-
-export const Required = () => (
-    <SwitchField
-        name="Ex"
-        label="SwitchField"
-        required
-        value="checked"
-        onChange={logger}
-    />
-)
-
-export const Disabled = () => (
+const CheckedUncheckedTemplate = args => (
     <>
-        <SwitchField
-            name="Ex"
-            label="SwitchField"
-            disabled
-            value="disabled"
-            onChange={logger}
-        />
-        <SwitchField
-            name="Ex"
-            label="SwitchField"
-            disabled
-            checked
-            value="disabled"
-            onChange={logger}
-        />
+        <SwitchField {...args} />
+        <SwitchField {...args} checked />
     </>
 )
 
-export const HelpText = () => (
+export const Default = Template.bind({})
+
+export const FocusedUnchecked = Template.bind({})
+FocusedUnchecked.args = { initialFocus: true }
+// Disable stories on docs page that grab focus
+FocusedUnchecked.parameters = { docs: { disable: true } }
+
+export const FocusedChecked = Template.bind({})
+FocusedChecked.args = { ...FocusedUnchecked.args, checked: true }
+FocusedChecked.parameters = { docs: { disable: true } }
+
+export const Checked = Template.bind({})
+Checked.args = { checked: true, value: 'checkedValue' }
+
+export const Required = Template.bind({})
+Required.args = { required: true }
+
+export const Disabled = CheckedUncheckedTemplate.bind({})
+Disabled.args = { disabled: true }
+
+export const HelpText = args => (
     <>
+        <SwitchField {...args} />
         <SwitchField
-            name="Ex"
-            label="SwitchField"
-            value="disabled"
-            onChange={logger}
-            helpText="Help text"
-        />
-        <SwitchField
-            name="Ex"
-            label="SwitchField"
+            {...args}
             error
             validationText="Validation text (error state)"
-            helpText="Help text"
-            value="disabled"
-            onChange={logger}
         />
     </>
 )
-HelpText.storyName = 'Help text'
+HelpText.args = { helpText: 'Help text' }
 
-export const Valid = () => (
-    <>
-        <SwitchField
-            name="Ex"
-            label="SwitchField"
-            valid
-            validationText="I am a validation text"
-            value="valid"
-            onChange={logger}
-        />
-        <SwitchField
-            name="Ex"
-            label="SwitchField"
-            valid
-            validationText="I am a validation text"
-            checked
-            value="valid"
-            onChange={logger}
-        />
-    </>
-)
+export const Valid = CheckedUncheckedTemplate.bind({})
+Valid.args = {
+    valid: true,
+    validationText: 'I am validation text',
+    value: 'validValue',
+}
 
-export const Warning = () => (
-    <>
-        <SwitchField
-            name="Ex"
-            label="SwitchField"
-            warning
-            validationText="I am a validation text"
-            value="warning"
-            onChange={logger}
-        />
-        <SwitchField
-            name="Ex"
-            label="SwitchField"
-            warning
-            validationText="I am a validation text"
-            checked
-            value="warning"
-            onChange={logger}
-        />
-    </>
-)
+export const Warning = CheckedUncheckedTemplate.bind({})
+Warning.args = {
+    warning: true,
+    value: 'warningValue',
+    validationText: 'I am validation text',
+}
 
-export const Error = () => (
-    <>
-        <SwitchField
-            name="Ex"
-            label="SwitchField"
-            error
-            validationText="I am a validation text"
-            value="error"
-            onChange={logger}
-        />
-        <SwitchField
-            name="Ex"
-            label="SwitchField"
-            error
-            validationText="I am a validation text"
-            checked
-            value="error"
-            onChange={logger}
-        />
-    </>
-)
+export const Error = CheckedUncheckedTemplate.bind({})
+Error.args = {
+    error: true,
+    value: 'errorValue',
+    validationText: 'I am validation text',
+}
 
-export const ImageLabel = () => (
-    <SwitchField
-        name="Ex"
-        label={<img src="https://picsum.photos/id/82/200/100" />}
-        value="with-help"
-        onChange={logger}
-    />
-)
-ImageLabel.storyName = 'Image label'
+export const ImageLabel = Template.bind({})
+ImageLabel.args = { label: <img src="https://picsum.photos/id/82/200/100" /> }
 
-export const DefaultDense = () => (
-    <SwitchField
-        dense
-        name="Ex"
-        label="SwitchField"
-        value="default"
-        onChange={logger}
-    />
-)
+export const DefaultDense = Template.bind({})
 DefaultDense.storyName = 'Default - Dense'
+DefaultDense.args = { dense: true }
 
-export const FocusedUncheckedDense = () => (
-    <SwitchField
-        dense
-        initialFocus
-        name="Ex"
-        label="SwitchField"
-        value="default"
-        onChange={logger}
-    />
-)
+export const FocusedUncheckedDense = Template.bind({})
+FocusedUncheckedDense.args = { ...DefaultDense.args, ...FocusedUnchecked.args }
+FocusedUncheckedDense.parameters = { docs: { disable: true } }
 FocusedUncheckedDense.storyName = 'Focused unchecked - Dense'
 
-export const FocusedCheckedDense = () => (
-    <SwitchField
-        dense
-        initialFocus
-        checked
-        name="Ex"
-        label="SwitchField"
-        value="default"
-        onChange={logger}
-    />
-)
+export const FocusedCheckedDense = Template.bind({})
+FocusedCheckedDense.args = { ...DefaultDense.args, ...FocusedChecked.args }
+FocusedCheckedDense.parameters = { docs: { disable: true } }
 FocusedCheckedDense.storyName = 'Focused checked - Dense'
 
-export const CheckedDense = () => (
-    <SwitchField
-        dense
-        name="Ex"
-        label="SwitchField"
-        checked
-        value="checked"
-        onChange={logger}
-    />
-)
+export const CheckedDense = Template.bind({})
+CheckedDense.args = { ...DefaultDense.args, ...Checked.args }
 CheckedDense.storyName = 'Checked - Dense'
 
-export const RequiredDense = () => (
-    <SwitchField
-        dense
-        name="Ex"
-        label="SwitchField"
-        required
-        value="checked"
-        onChange={logger}
-    />
-)
+export const RequiredDense = Template.bind({})
+RequiredDense.args = { ...DefaultDense.args, ...Required.args }
 RequiredDense.storyName = 'Required - Dense'
 
-export const DisabledDense = () => (
-    <>
-        <SwitchField
-            dense
-            name="Ex"
-            label="SwitchField"
-            disabled
-            value="disabled"
-            onChange={logger}
-        />
-        <SwitchField
-            dense
-            name="Ex"
-            label="SwitchField"
-            disabled
-            checked
-            value="disabled"
-            onChange={logger}
-        />
-    </>
-)
+export const DisabledDense = CheckedUncheckedTemplate.bind({})
+DisabledDense.args = { ...DefaultDense.args, ...Disabled.args }
 DisabledDense.storyName = 'Disabled - Dense'
 
-export const ValidDense = () => (
-    <>
-        <SwitchField
-            dense
-            name="Ex"
-            label="SwitchField"
-            valid
-            validationText="I am a validation text"
-            value="valid"
-            onChange={logger}
-        />
-        <SwitchField
-            dense
-            name="Ex"
-            label="SwitchField"
-            valid
-            validationText="I am a validation text"
-            checked
-            value="valid"
-            onChange={logger}
-        />
-    </>
-)
+export const ValidDense = CheckedUncheckedTemplate.bind({})
+ValidDense.args = { ...DefaultDense.args, ...Valid.args }
 ValidDense.storyName = 'Valid - Dense'
 
-export const WarningDense = () => (
-    <>
-        <SwitchField
-            dense
-            name="Ex"
-            label="SwitchField"
-            warning
-            validationText="I am a validation text"
-            value="warning"
-            onChange={logger}
-        />
-        <SwitchField
-            dense
-            name="Ex"
-            label="SwitchField"
-            warning
-            validationText="I am a validation text"
-            checked
-            value="warning"
-            onChange={logger}
-        />
-    </>
-)
+export const WarningDense = CheckedUncheckedTemplate.bind({})
+WarningDense.args = { ...DefaultDense.args, ...Warning.args }
 WarningDense.storyName = 'Warning - Dense'
 
-export const ErrorDense = () => (
-    <>
-        <SwitchField
-            dense
-            name="Ex"
-            label="SwitchField"
-            error
-            validationText="I am a validation text"
-            value="error"
-            onChange={logger}
-        />
-        <SwitchField
-            dense
-            name="Ex"
-            label="SwitchField"
-            error
-            validationText="I am a validation text"
-            checked
-            value="error"
-            onChange={logger}
-        />
-    </>
-)
+export const ErrorDense = CheckedUncheckedTemplate.bind({})
+ErrorDense.args = { ...DefaultDense.args, ...Error.args }
 ErrorDense.storyName = 'Error - Dense'
 
-export const ImageLabelDense = () => (
-    <SwitchField
-        dense
-        name="Ex"
-        label={<img src="https://picsum.photos/id/82/200/100" />}
-        value="with-help"
-        onChange={logger}
-    />
-)
+export const ImageLabelDense = Template.bind({})
+ImageLabelDense.args = { ...DefaultDense.args, ...ImageLabel.args }
 ImageLabelDense.storyName = 'Image label - Dense'
