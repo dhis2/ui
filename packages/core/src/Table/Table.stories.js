@@ -636,7 +636,7 @@ export const FixedFirstColumn = () => (
 
 export const FixedHeaderAndTwoColumns = () => (
     <TableScrollBox overflow="auto" width="500px" height="400px">
-        <Table>
+        <Table layout="fixed" width="1000px">
             <TableHead>
                 <TableRow>
                     <TableCellHead fixed top="0" left="0" width="120px">
@@ -817,7 +817,7 @@ export const ScrollingTableWithToolbars = () => (
             <p>Content</p>
         </TableToolbar>
         <TableScrollBox overflow="auto" width="500px" height="400px">
-            <Table>
+            <Table layout="fixed" width="1000px">
                 <TableHead>
                     <TableRow>
                         <TableCellHead fixed top="0" left="0" width="120px">
