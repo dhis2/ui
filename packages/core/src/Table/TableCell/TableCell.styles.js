@@ -12,6 +12,7 @@ export default css`
     }
     td {
         background-color: ${colors.white};
+        color: ${colors.grey900};
     }
     th {
         color: ${colors.grey800};

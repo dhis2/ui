@@ -6,6 +6,7 @@ export default css`
         vertical-align: top;
         background-color: ${colors.grey200};
         border-bottom: 1px solid ${colors.grey300};
+        color: ${colors.grey800};
     }
     th.fixed {
         position: sticky;
