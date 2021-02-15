@@ -7,7 +7,7 @@ const description = `
 A FileInputField with logic for creating a dynamic list of removable files from an array of \`File\` objects.
 
 \`\`\`js
-import { FileiNputFieldWithList } from '@dhis2/ui'
+import { FileInputFieldWithList } from '@dhis2/ui'
 \`\`\`
 `
 
