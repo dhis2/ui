@@ -12,6 +12,7 @@ import { TableHead } from './TableHead.js'
 import { TableRow } from './TableRow.js'
 import { TableScrollBox } from './TableScrollBox.js'
 import { TableToolbar } from './TableToolbar.js'
+import { ExpandableTableRow } from './ExpandableTableRow.js'
 
 export default { title: 'Table' }
 const BasicTemplate = ({ bordered, large, draggable }) => (
@@ -233,7 +234,48 @@ export const Toolbars = () => (
     </>
 )
 
-export const ExpandableRowContent = () => {
+export const ExpandableContent = () => {
+    const style = {
+        margin: 8,
+        padding: 4,
+        backgroundColor: 'lightblue',
+    }
+    const expandableContent = <div style={style}>More info about this row!</div>
+    return (
+        <Table>
+            <TableHead>
+                <TableRow>
+                    <TableCellHead>First name</TableCellHead>
+                    <TableCellHead>Last name</TableCellHead>
+                    <TableCellHead>Incident date</TableCellHead>
+                    <TableCellHead>Last updated</TableCellHead>
+                </TableRow>
+            </TableHead>
+            <TableBody>
+                <TableRow>
+                    <TableCell>Onyekachukwu</TableCell>
+                    <TableCell>Kariuki</TableCell>
+                    <TableCell>02/06/2007</TableCell>
+                    <TableCell>05/25/1972</TableCell>
+                </TableRow>
+                <TableRow expandableContent={expandableContent}>
+                    <TableCell>Kwasi</TableCell>
+                    <TableCell>Okafor</TableCell>
+                    <TableCell>08/11/2010</TableCell>
+                    <TableCell>02/26/1991</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Siyabonga</TableCell>
+                    <TableCell>Abiodun</TableCell>
+                    <TableCell>07/21/1981</TableCell>
+                    <TableCell>02/06/2007</TableCell>
+                </TableRow>
+            </TableBody>
+        </Table>
+    )
+}
+
+export const ExpandableTableRows = () => {
     const style = {
         margin: 8,
         padding: 4,
@@ -252,24 +294,24 @@ export const ExpandableRowContent = () => {
                 </TableRow>
             </TableHead>
             <TableBody>
-                <TableRow expandableContent={expandableContent}>
+                <ExpandableTableRow expandableContent={expandableContent}>
                     <TableCell>Onyekachukwu</TableCell>
                     <TableCell>Kariuki</TableCell>
                     <TableCell>02/06/2007</TableCell>
                     <TableCell>05/25/1972</TableCell>
-                </TableRow>
-                <TableRow expandableContent={expandableContent}>
+                </ExpandableTableRow>
+                <ExpandableTableRow expandableContent={expandableContent}>
                     <TableCell>Kwasi</TableCell>
                     <TableCell>Okafor</TableCell>
                     <TableCell>08/11/2010</TableCell>
                     <TableCell>02/26/1991</TableCell>
-                </TableRow>
-                <TableRow expandableContent={expandableContent}>
+                </ExpandableTableRow>
+                <ExpandableTableRow expandableContent={expandableContent}>
                     <TableCell>Siyabonga</TableCell>
                     <TableCell>Abiodun</TableCell>
                     <TableCell>07/21/1981</TableCell>
                     <TableCell>02/06/2007</TableCell>
-                </TableRow>
+                </ExpandableTableRow>
             </TableBody>
         </Table>
     )

@@ -3,7 +3,6 @@ import cx from 'classnames'
 import React, { useState, forwardRef } from 'react'
 import { DragHandleCell } from './TableRow/DragHandleCell'
 import { ExpandedRowContent } from './TableRow/ExpandedRowContent'
-import { ExpandToggleCell } from './TableRow/ExpandToggleCell'
 import styles from './TableRow/TableRow.styles.js'
 
 /**
@@ -26,14 +25,12 @@ export const TableRow = forwardRef(
         },
         ref
     ) => {
-        const [isExpanded, setIsExpanded] = useState(false)
         const [
             isHoveringExpandedContent,
             setIsHoveringExpandedContent,
         ] = useState(false)
-        const toggleExpandableContent = () => setIsExpanded(!isExpanded)
         const classes = cx(className, {
-            isExpanded,
+            isExpanded: !!expandableContent,
             selected,
             draggable,
             isHoveringExpandedContent,
@@ -48,19 +45,10 @@ export const TableRow = forwardRef(
                     role={role}
                 >
                     {draggable && <DragHandleCell />}
-
-                    {expandableContent && (
-                        <ExpandToggleCell
-                            onClick={toggleExpandableContent}
-                            isExpanded={isExpanded}
-                        />
-                    )}
-
                     {children}
-
                     <style jsx>{styles}</style>
                 </tr>
-                {expandableContent && isExpanded && (
+                {expandableContent && (
                     <ExpandedRowContent
                         className={classes}
                         setIsHoveringExpandedContent={
