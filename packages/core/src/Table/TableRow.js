@@ -1,8 +1,8 @@
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 import React, { useState, forwardRef } from 'react'
-import { DragHandleCell } from './TableRow/DragHandleCell'
-import { ExpandedRowContent } from './TableRow/ExpandedRowContent'
+import { DragHandleCell } from './TableRow/DragHandleCell.js'
+import { ExpandedRowContent } from './TableRow/ExpandedRowContent.js'
 import styles from './TableRow/TableRow.styles.js'
 
 /**

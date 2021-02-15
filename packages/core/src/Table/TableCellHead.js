@@ -1,8 +1,8 @@
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 import React, { forwardRef } from 'react'
-import { FilterHandle } from './TableCellHead/FilterHandle'
-import { Sorter } from './TableCellHead/Sorter'
+import { FilterHandle } from './TableCellHead/FilterHandle.js'
+import { Sorter } from './TableCellHead/Sorter.js'
 import styles from './TableCellHead/TableCellHead.styles.js'
 
 const SORT_DIRECTIONS = ['default', 'asc', 'desc']
