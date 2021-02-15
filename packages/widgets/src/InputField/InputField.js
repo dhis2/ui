@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import { Field, Input, Box } from '@dhis2/ui-core'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 /**
@@ -117,29 +117,49 @@ InputField.defaultProps = {
  * @prop {string} [dataTest]
  */
 InputField.propTypes = {
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    dense: propTypes.bool,
-    disabled: propTypes.bool,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    /** Makes the input smaller */
+    dense: PropTypes.bool,
+    /** Disables the input */
+    disabled: PropTypes.bool,
+    /** Applies 'error' appearance for validation feedback. Mutually exclusive with `valid` and `warning` props */
     error: sharedPropTypes.statusPropType,
-    helpText: propTypes.string,
-    initialFocus: propTypes.bool,
-    inputWidth: propTypes.string,
-    label: propTypes.string,
-    loading: propTypes.bool,
-    name: propTypes.string,
-    placeholder: propTypes.string,
-    readOnly: propTypes.bool,
-    required: propTypes.bool,
-    tabIndex: propTypes.string,
+    /** Guiding text for how to use this input */
+    helpText: PropTypes.string,
+    /** The input grabs initial focus on the page */
+    initialFocus: PropTypes.bool,
+    /** Defines the width of the input. Can be any valid CSS measurement */
+    inputWidth: PropTypes.string,
+    /** Label text for the input */
+    label: PropTypes.string,
+    /** Adds a loading indicator beside the input */
+    loading: PropTypes.bool,
+    /** Name associated with the input. Passed to event handler callbacks in object */
+    name: PropTypes.string,
+    /** Placeholder text for the input */
+    placeholder: PropTypes.string,
+    /** Makes the input read-only */
+    readOnly: PropTypes.bool,
+    /** Indicates this input is required */
+    required: PropTypes.bool,
+    tabIndex: PropTypes.string,
+    /** Type of input */
     type: Input.propTypes.type,
+    /** Applies 'valid' appearance for validation feedback. Mutually exclusive with `error` and `warning` props */
     valid: sharedPropTypes.statusPropType,
-    validationText: propTypes.string,
-    value: propTypes.string,
+    /** Text below input for validation feedback. Receives styles depending on validation status */
+    validationText: PropTypes.string,
+    /** Value in the input. Can be used to control the component (recommended). Passed to event handler callbacks in object */
+    value: PropTypes.string,
+    /** Applies 'warning' appearance for validation feedback. Mutually exclusive with `valid` and `error` props */
     warning: sharedPropTypes.statusPropType,
-    onBlur: propTypes.func,
-    onChange: propTypes.func,
-    onFocus: propTypes.func,
+    /** Called with signature `({ name: string, value: string }, event)` */
+    onBlur: PropTypes.func,
+    /** Called with signature `({ name: string, value: string }, event)` */
+    onChange: PropTypes.func,
+    /** Called with signature `({ name: string, value: string }, event)` */
+    onFocus: PropTypes.func,
 }
 
 export { InputField }
