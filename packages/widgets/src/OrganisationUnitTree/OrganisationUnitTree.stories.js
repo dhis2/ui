@@ -3,6 +3,36 @@ import { CustomDataProvider, DataProvider } from '@dhis2/app-runtime'
 import React, { useEffect, useState } from 'react'
 import { OrganisationUnitTree } from './OrganisationUnitTree.js'
 
+const subtitle =
+    'Display, manipulate and select organization units displayed in a hierarchical tree'
+
+const description = `
+This is a complex, controlled component. It needs access to an App Runtime data provider to fetch org unit data.
+
+Several props require arrays of org. unit paths (referred to as \`orgUnitPathPropType[]\` in the table below). Take a look at the \`initiallyExpanded\` and \`filter\` props in the example to see an example of the paths format.
+
+Example:
+
+\`\`\`js
+import { OrganisationUnitTree } from '@dhis2/ui'
+
+const orgUnitTree = (
+    <OrganisationUnitTree
+        name="Root org unit"
+        roots="A0000000000"
+        onChange={onChange}
+        onExpand={onExpand}
+        onCollapse={onCollapse}
+        onChildrenLoaded={onChildrenLoaded}
+        // Notice the format of the org unit paths
+        initiallyExpanded={['/A0000000000/A0000000001']}
+        filter={['/A0000000000/A0000000001/A0000000003']}
+    />
+)
+\`\`\`
+
+`
+
 const log = true
 const onChange = (...args) => log && console.log('onChange', ...args)
 const onExpand = (...args) => log && console.log('onExpand', ...args)
@@ -182,6 +212,10 @@ export default {
     decorators: [
         fn => <CustomDataProvider data={customData}>{fn()}</CustomDataProvider>,
     ],
+    parameters: {
+        componentSubtitle: subtitle,
+        docs: { description: { component: description } },
+    },
 }
 
 export const Collapsed = args => <OrganisationUnitTree {...args} />
