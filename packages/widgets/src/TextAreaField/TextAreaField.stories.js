@@ -1,152 +1,120 @@
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
 import { TextAreaField } from './TextAreaField.js'
+
+const description = `
+\`TextAreaField\` wraps a \`TextArea\` component with a label, help text, validation text, and other functions.
+
+See the regular TextArea for usage information and options.
+
+\`\`\`js
+import { TextAreaField } from '@dhis2/ui'
+\`\`\`
+`
 
 export default {
     title: 'Forms/Text Area/Text Area Field',
     component: TextAreaField,
+    parameters: { docs: { description: { component: description } } },
+    // Default args:
+    args: {
+        onChange: console.log,
+        name: 'textareaName',
+    },
+    argTypes: {
+        valid: { ...sharedPropTypes.statusArgType },
+        warning: { ...sharedPropTypes.statusArgType },
+        error: { ...sharedPropTypes.statusArgType },
+    },
 }
 
-export const NoPlaceholderNoValue = () => (
-    <TextAreaField onChange={() => {}} name="textarea" />
-)
+const Template = args => <TextAreaField {...args} />
+
+export const NoPlaceholderNoValue = Template.bind({})
 NoPlaceholderNoValue.storyName = 'No placeholder, no value'
 
-export const PlaceholderNoValue = () => (
-    <TextAreaField
-        onChange={() => {}}
-        name="textarea"
-        placeholder="Hold the place"
-    />
-)
+export const PlaceholderNoValue = Template.bind({})
+PlaceholderNoValue.args = { placeholder: 'Hold the place' }
 PlaceholderNoValue.storyName = 'Placeholder, no value'
 
-export const WithHelpText = () => (
-    <TextAreaField
-        onChange={() => {}}
-        name="textarea"
-        placeholder="Hold the place"
-        helpText="With some helping text to guide the user along"
-    />
-)
-WithHelpText.storyName = 'With Help text'
+export const WithHelpText = Template.bind({})
+WithHelpText.args = {
+    helpText: 'With some helping text to guide the user along',
+    ...PlaceholderNoValue.args,
+}
 
-export const WithValue = () => (
-    <TextAreaField
-        onChange={() => {}}
-        name="textarea"
-        value="This is set through the value prop, which means the component is controlled."
-    />
-)
-WithValue.storyName = 'With value'
+export const WithValue = Template.bind({})
+WithValue.args = {
+    value:
+        'This is set through the value prop, which means the component is controlled.',
+}
 
-export const Focus = () => (
-    <TextAreaField onChange={() => {}} name="textarea" initialFocus />
-)
+export const Focus = Template.bind({})
+Focus.args = { initialFocus: true }
+// Disable stories that manipulate focus on docs page
+Focus.parameters = { docs: { disable: true } }
 
-export const StatusValid = () => (
-    <TextAreaField
-        onChange={() => {}}
-        name="textarea"
-        value="This value is valid"
-        valid
-    />
-)
+export const StatusValid = Template.bind({})
+StatusValid.args = { valid: true, value: 'This value is valid' }
 StatusValid.storyName = 'Status: Valid'
 
-export const StatusWarning = () => (
-    <TextAreaField
-        onChange={() => {}}
-        name="textarea"
-        value="This value produces a warning"
-        warning
-    />
-)
+export const StatusWarning = Template.bind({})
+StatusWarning.args = { warning: true, value: 'This value produces a warning' }
 StatusWarning.storyName = 'Status: Warning'
 
-export const StatusError = () => (
-    <TextAreaField
-        onChange={() => {}}
-        name="textarea"
-        error
-        value="This value produces an error"
-        helpText="This is some help text to advice what this input actually is."
-        validationText="This describes the error, if a message is supplied."
-    />
-)
+export const StatusError = Template.bind({})
+StatusError.args = {
+    error: true,
+    value: 'This value produces an error',
+    helpText: 'This is some help text to advise what this input actually is.',
+    validationText: 'This describes the error, if a message is supplied.',
+}
 StatusError.storyName = 'Status: Error'
 
-export const StatusLoading = () => (
-    <TextAreaField
-        onChange={() => {}}
-        name="textarea"
-        value="This value produces a loading state"
-        loading
-    />
-)
+export const StatusLoading = Template.bind({})
+StatusLoading.args = {
+    loading: true,
+    value: 'This value produces a loadingn state',
+}
 StatusLoading.storyName = 'Status: Loading'
 
-export const Disabled = () => (
-    <TextAreaField
-        onChange={() => {}}
-        name="textarea"
-        value="This field is disabled"
-        disabled
-    />
-)
+export const Disabled = Template.bind({})
+Disabled.args = { disabled: true, value: 'This field is disabled' }
 
-export const ReadOnly = () => (
-    <TextAreaField
-        onChange={() => {}}
-        name="textarea"
-        value="This field is readOnly"
-        readOnly
-    />
-)
-ReadOnly.storyName = 'Read only'
+export const ReadOnly = Template.bind({})
+ReadOnly.args = { readOnly: true, value: 'This field is readOnly' }
 
-export const Dense = () => (
-    <TextAreaField
-        onChange={() => {}}
-        name="textarea"
-        value="This field is dense"
-        dense
-    />
-)
+export const Dense = Template.bind({})
+Dense.args = { dense: true, value: 'This field is dense' }
 
-export const LabelTextOverflow = () => (
-    <TextAreaField
-        onChange={() => {}}
-        name="textarea"
-        label="This label is too long to show on a single line of the input field's label. We just let it flow to the next line so the user can still read it. However, we should always aim to keep it shorter than this!"
-    />
-)
+export const LabelTextOverflow = Template.bind({})
+LabelTextOverflow.args = {
+    label:
+        "This label is too long to show on a single line of the input field's label. We just let it flow to the next line so the user can still read it. However, we should always aim to keep it shorter than this!",
+}
 LabelTextOverflow.storyName = 'Label text overflow'
 
-export const TextareaTextOverflow = () => (
-    <TextAreaField
-        onChange={() => {}}
-        name="textarea"
-        label="I have a scrollbar"
-        value={[
-            'A line of text',
-            'A line of text',
-            'A line of text',
-            'A line of text',
-            'A line of text',
-            'A line of text',
-            'A line of text',
-            'A line of text',
-            'A line of text',
-            'A line of text',
-            'A line of text',
-            'A line of text',
-            'A line of text',
-            'A line of text',
-            'A line of text',
-        ].join('\n')}
-    />
-)
-TextareaTextOverflow.storyName = 'Textarea text overflow'
+export const TextareaTextOverflow = Template.bind({})
+TextareaTextOverflow.args = {
+    label: 'I have a scrollbar',
+    value: [
+        'A line of text',
+        'A line of text',
+        'A line of text',
+        'A line of text',
+        'A line of text',
+        'A line of text',
+        'A line of text',
+        'A line of text',
+        'A line of text',
+        'A line of text',
+        'A line of text',
+        'A line of text',
+        'A line of text',
+        'A line of text',
+        'A line of text',
+    ].join('\n'),
+}
 
 export const Required = () => (
     <TextAreaField
@@ -156,55 +124,50 @@ export const Required = () => (
         required
     />
 )
+Required.args = { required: true, label: 'I am required and have an asterisk' }
 
-export const Rows = () => (
-    <TextAreaField
-        onChange={() => {}}
-        name="textarea"
-        label="You can set the height with the rows prop, I have 8"
-        rows={8}
-    />
-)
+export const Rows = Template.bind({})
+Rows.args = {
+    rows: 8,
+    label: 'You can set the height with the rows prop. I have 8',
+}
 
-export const InputWidth = () => (
+export const InputWidth = args => (
     <>
         <TextAreaField
-            onChange={() => {}}
-            name="textarea"
-            label="My textarea has a width of 100px"
-            inputWidth="100px"
+            {...args}
+            label="My textarea has a width of 220px (the minimum)"
+            inputWidth="220px"
         />
         <TextAreaField
-            onChange={() => {}}
-            name="textarea"
-            label="My textarea has a width of 220px"
-            inputWidth="220px"
+            {...args}
+            label="My textarea has a width of 400px"
+            inputWidth="400px"
         />
     </>
 )
-InputWidth.storyName = 'Input width'
 
-export const Resize = () => (
+export const Resize = args => (
     <>
         <TextAreaField
-            onChange={() => {}}
+            {...args}
             name="textarea1"
             label="Resize: vertical (default)"
         />
         <TextAreaField
-            onChange={() => {}}
+            {...args}
             name="textarea2"
             label="Resize: none"
             resize="none"
         />
         <TextAreaField
-            onChange={() => {}}
+            {...args}
             name="textarea3"
             label="Resize: both"
             resize="both"
         />
         <TextAreaField
-            onChange={() => {}}
+            {...args}
             name="textarea4"
             label="Resize: horizontal"
             resize="horizontal"
@@ -212,45 +175,45 @@ export const Resize = () => (
     </>
 )
 
-export const Autogrow = () => (
+export const Autogrow = args => (
     <>
         <TextAreaField
-            onChange={() => {}}
+            {...args}
             name="textarea1"
             label="Autogrow step 1"
             autoGrow
             rows={2}
-            value="This TextAreaField has a height of 2 rows"
+            value="This TextArea has a height of 2 rows"
         />
         <TextAreaField
-            onChange={() => {}}
+            {...args}
             name="textarea2"
             label="Autogrow step 2"
             autoGrow
             rows={2}
             value={[
-                'This TextAreaField has a height of two rows',
+                'This TextArea has a height of two rows',
                 'it also has autoGrow set to true so it will grow with the content',
             ].join('\n')}
         />
         <TextAreaField
-            onChange={() => {}}
+            {...args}
             name="textarea3"
             label="Autogrow step 3"
             autoGrow
             rows={2}
             value={[
-                'This TextAreaField has a height of two rows',
+                'This TextArea has a height of two rows',
                 'it also has autoGrow set to true so it will grow with the content.',
                 'See: rows is still 2, but I now have 3 lines.',
             ].join('\n')}
         />
         <TextAreaField
-            onChange={() => {}}
+            {...args}
             name="textarea4"
             label="Autogrow step 4"
             value={[
-                'This TextAreaField has a height of two rows',
+                'This TextArea has a height of two rows',
                 'it also has autoGrow set to true so it will grow with the content.',
                 'See: rows is still 2...',
                 'And now I have 4 lines and still no scroll bar in sight.',
