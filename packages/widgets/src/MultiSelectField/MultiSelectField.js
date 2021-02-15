@@ -1,7 +1,7 @@
 import i18n from '@dhis2/d2-i18n'
-import propTypes from '@dhis2/prop-types'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import { Field, Box, MultiSelect } from '@dhis2/ui-core'
+import PropTypes from 'prop-types'
 import React from 'react'
 import translate from '../translate'
 
@@ -147,37 +147,65 @@ MultiSelectField.defaultProps = {
  * @prop {string} [dataTest]
  */
 MultiSelectField.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    clearText: propTypes.oneOfType([propTypes.string, propTypes.func]),
-    clearable: propTypes.bool,
-    dataTest: propTypes.string,
-    dense: propTypes.bool,
-    disabled: propTypes.bool,
-    empty: propTypes.oneOfType([propTypes.node, propTypes.func]),
+    /** Should be `MultiSelectOption` components */
+    children: PropTypes.node,
+    className: PropTypes.string,
+    /** Label for the button that clears selections */
+    clearText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    /** Adds a button to the MultiSelect that clears selections when pressed */
+    clearable: PropTypes.bool,
+    dataTest: PropTypes.string,
+    /** Makes the MultiSelect smaller */
+    dense: PropTypes.bool,
+    /** Disables the MultiSelect */
+    disabled: PropTypes.bool,
+    /** Text to display when there are no options */
+    empty: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+    /** Adds 'error' appearance for validation feedback. Mutually exclusive with 'valid' and 'warning' props */
     error: sharedPropTypes.statusPropType,
-    filterPlaceholder: propTypes.oneOfType([propTypes.node, propTypes.func]),
-    filterable: propTypes.bool,
-    helpText: propTypes.string,
-    initialFocus: propTypes.bool,
-    inputMaxHeight: propTypes.string,
-    inputWidth: propTypes.string,
-    label: propTypes.string,
-    loading: propTypes.bool,
-    loadingText: propTypes.oneOfType([propTypes.string, propTypes.func]),
-    maxHeight: propTypes.string,
-    noMatchText: propTypes.oneOfType([propTypes.string, propTypes.func]),
-    placeholder: propTypes.string,
-    prefix: propTypes.string,
-    required: propTypes.bool,
-    selected: propTypes.arrayOf(propTypes.string),
-    tabIndex: propTypes.string,
+    /** Placeholder text to show in the filter field when it is empty */
+    filterPlaceholder: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+    /** Adds a field to filter options */
+    filterable: PropTypes.bool,
+    /** Useful guiding text to display below the MultiSelect */
+    helpText: PropTypes.string,
+    /** Grabs initial focus on the page */
+    initialFocus: PropTypes.bool,
+    /** Constrains the height of the input */
+    inputMaxHeight: PropTypes.string,
+    /** Sets the width of the input. Can be any valid CSS measurement */
+    inputWidth: PropTypes.string,
+    /** Text for the label above the MultiSelect */
+    label: PropTypes.string,
+    /** Applies a loading appearance to the dropdown options */
+    loading: PropTypes.bool,
+    /** Text to display when `loading` is true */
+    loadingText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    /** Constrains height of the MultiSelect */
+    maxHeight: PropTypes.string,
+    /** Text to display when there are no filter results */
+    noMatchText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    /** Placeholder text when the MultiSelect is empty */
+    placeholder: PropTypes.string,
+    /** Leading text to prefix selections */
+    prefix: PropTypes.string,
+    /** Indicates that a selection is required */
+    required: PropTypes.bool,
+    /** Selected items in the MultiSelect (each string should refer to the item's `value` attribute) */
+    selected: PropTypes.arrayOf(PropTypes.string),
+    tabIndex: PropTypes.string,
+    /** Adds 'valid' appearance for validation feedback. Mutually exclusive with 'error' and 'warning' props */
     valid: sharedPropTypes.statusPropType,
-    validationText: propTypes.string,
+    /** Text to provide form validation feedback. Receives styles according to validation status */
+    validationText: PropTypes.string,
+    /** Adds 'warning' appearance for validation feedback. Mutually exclusive with 'valid' and 'error' props */
     warning: sharedPropTypes.statusPropType,
-    onBlur: propTypes.func,
-    onChange: propTypes.func,
-    onFocus: propTypes.func,
+    /** Called with signature `({ selected: [String] }, event) */
+    onBlur: PropTypes.func,
+    /** Called with signature `({ selected: [String] }, event) */
+    onChange: PropTypes.func,
+    /** Called with signature `({ selected: [String] }, event) */
+    onFocus: PropTypes.func,
 }
 
 export { MultiSelectField }
