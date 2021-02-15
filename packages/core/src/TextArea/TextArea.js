@@ -222,18 +222,23 @@ TextArea.propTypes = {
     dataTest: PropTypes.string,
     /** Compact mode */
     dense: PropTypes.bool,
+    /** Disables the textarea and makes in non-interactive */
     disabled: PropTypes.bool,
     /** Applies 'error' styles for validation feedback. Mutually exclusive with `valid` and `warning` props */
     error: sharedPropTypes.statusPropType,
+    /** Grabs initial focus on the page */
     initialFocus: PropTypes.bool,
     /** Adds a loading spinner */
     loading: PropTypes.bool,
     /** Name associated with the text area. Passed in object argument to event handlers. */
     name: PropTypes.string,
+    /** Placeholder text for an empty textarea */
     placeholder: PropTypes.string,
+    /** Makes the textarea read-only */
     readOnly: PropTypes.bool,
     /** [Resize property](https://developer.mozilla.org/en-US/docs/Web/CSS/resize) for the textarea element */
     resize: PropTypes.oneOf(['none', 'both', 'horizontal', 'vertical']),
+    /** Initial height of the textarea, in lines of text */
     rows: PropTypes.number,
     tabIndex: PropTypes.string,
     /** Applies 'valid' styles for validation feedback. Mutually exclusive with `warning` and `error` props */
