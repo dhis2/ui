@@ -1,3 +1,4 @@
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
 import { CheckboxField } from './CheckboxField.js'
 
@@ -24,6 +25,11 @@ export default {
         label: 'Checkbox Field',
         value: 'defaultValue',
         onChange: logger,
+    },
+    argTypes: {
+        valid: { ...sharedPropTypes.statusArgType },
+        warning: { ...sharedPropTypes.statusArgType },
+        error: { ...sharedPropTypes.statusArgType },
     },
 }
 
@@ -79,7 +85,7 @@ export const Warning = CheckedUncheckedTemplate.bind({})
 Warning.args = {
     warning: true,
     value: 'warningValue',
-    validationText: 'I am validationText',
+    validationText: 'I am validation text',
 }
 
 export const Error = CheckedUncheckedTemplate.bind({})
