@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { Box } from '../Box/Box.js'
 import { Checkbox } from '../Checkbox/Checkbox.js'
 import { Input } from '../Input/Input.js'
+import { ExpandableTableRow } from './ExpandableTableRow.js'
 import { Table } from './Table.js'
 import { TableBody } from './TableBody.js'
 import { TableCell } from './TableCell.js'
@@ -12,7 +13,6 @@ import { TableHead } from './TableHead.js'
 import { TableRow } from './TableRow.js'
 import { TableScrollBox } from './TableScrollBox.js'
 import { TableToolbar } from './TableToolbar.js'
-import { ExpandableTableRow } from './ExpandableTableRow.js'
 
 export default { title: 'Table' }
 const BasicTemplate = ({ bordered, large, draggable }) => (
