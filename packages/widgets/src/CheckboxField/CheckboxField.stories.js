@@ -96,15 +96,15 @@ export const DefaultDense = Template.bind({})
 DefaultDense.storyName = 'Default - Dense'
 DefaultDense.args = { dense: true }
 
-// export const FocusedUncheckedDense = CheckedUncheckedTemplate.bind({})
-// FocusedUncheckedDense.args = { ...DefaultDense.args, ...FocusedUnchecked.args }
-// FocusedUncheckedDense.parameters = { docs: { disable: true } }
-// FocusedUncheckedDense.storyName = 'Focused unchecked - Dense'
+export const FocusedUncheckedDense = Template.bind({})
+FocusedUncheckedDense.args = { ...DefaultDense.args, ...FocusedUnchecked.args }
+FocusedUncheckedDense.parameters = { docs: { disable: true } }
+FocusedUncheckedDense.storyName = 'Focused unchecked - Dense'
 
-// export const FocusedCheckedDense = CheckedUncheckedTemplate.bind({})
-// FocusedCheckedDense.args = { ...DefaultDense.args, ...FocusedChecked.args }
-// FocusedCheckedDense.parameters = { docs: { disable: true } }
-// FocusedCheckedDense.storyName = 'Focused checked - Dense'
+export const FocusedCheckedDense = Template.bind({})
+FocusedCheckedDense.args = { ...DefaultDense.args, ...FocusedChecked.args }
+FocusedCheckedDense.parameters = { docs: { disable: true } }
+FocusedCheckedDense.storyName = 'Focused checked - Dense'
 
 export const CheckedDense = Template.bind({})
 CheckedDense.args = { ...DefaultDense.args, ...Checked.args }
