@@ -18,7 +18,7 @@ const flexboxAlignLookup = {
  * @param {TableCellHead.PropTypes} props
  * @returns {React.Component}
  * @example import { TableCellHead } from '@dhis2/ui'
- * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
+ * @see Live demo: {@link /demo/?path=/story/table--default|Storybook}
  */
 export const TableCellHead = forwardRef(
     (
@@ -130,7 +130,7 @@ TableCellHead.defaultProps = {
  * @prop {'asc'|'desc'|null} [sortDirection]
  * @prop {string} [top] Left or top required when fixed
  * @prop {string} [width]
- *  * @prop {function} [onFilterIconClick]
+ * @prop {function} [onFilterIconClick]
  * @prop {function} [onSortIconClick] Sort icon click callback with `nextSortDirection` and `name` in payload
  */
 TableCellHead.propTypes = {

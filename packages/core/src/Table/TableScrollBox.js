@@ -21,7 +21,7 @@ const { className: tableClassName, styles } = css.resolve`
  * @param {TableScrollBox.PropTypes} props
  * @returns {React.Component}
  * @example import { TableScrollBox } from '@dhis2/ui'
- * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
+ * @see Live demo: {@link /demo/?path=/story/table--fixed-header|Storybook}
  */
 export const TableScrollBox = ({
     children,

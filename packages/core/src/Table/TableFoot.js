@@ -6,7 +6,7 @@ import React, { forwardRef } from 'react'
  * @param {TableFoot.PropTypes} props
  * @returns {React.Component}
  * @example import { TableFoot } from '@dhis2/ui'
- * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
+ * @see Live demo: {@link /demo/?path=/story/table--default|Storybook}
  */
 export const TableFoot = forwardRef(
     ({ children, className, dataTest, role }, ref) => (

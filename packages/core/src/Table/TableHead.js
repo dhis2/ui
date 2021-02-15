@@ -6,7 +6,7 @@ import React, { forwardRef } from 'react'
  * @param {TableHead.PropTypes} props
  * @returns {React.Component}
  * @example import { TableHead } from '@dhis2/ui'
- * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
+ * @see Live demo: {@link /demo/?path=/story/table--default|Storybook}
  */
 export const TableHead = forwardRef(
     ({ children, className, dataTest, role }, ref) => (

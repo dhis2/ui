@@ -11,7 +11,7 @@ import styles from './TableRow/TableRow.styles.js'
  * @param {TableRow.PropTypes} props
  * @returns {React.Component}
  * @example import { TableRow } from '@dhis2/ui'
- * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
+ * @see Live demo: {@link /demo/?path=/story/table--default|Storybook}
  */
 export const TableRow = forwardRef(
     (

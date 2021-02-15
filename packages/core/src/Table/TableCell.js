@@ -8,7 +8,7 @@ import styles from './TableCell/TableCell.styles.js'
  * @param {TableCell.PropTypes} props
  * @returns {React.Component}
  * @example import { TableCell } from '@dhis2/ui'
- * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
+ * @see Live demo: {@link /demo/?path=/story/table--default|Storybook}
  */
 export const TableCell = forwardRef(
     (
