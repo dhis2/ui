@@ -1,6 +1,7 @@
 import React from 'react'
 import { Field } from 'react-final-form'
 import { formDecorator } from '../formDecorator.js'
+import { inputArgType, metaArgType } from '../shared/propTypes.js'
 import { hasValue } from '../validators/index.js'
 import { CheckboxFieldFF } from './CheckboxFieldFF.js'
 
@@ -33,6 +34,10 @@ export default {
     component: CheckboxFieldFF,
     decorators: [formDecorator],
     parameters: { docs: { description: { component: description } } },
+    argTypes: {
+        input: { ...inputArgType },
+        meta: { ...metaArgType },
+    },
 }
 
 export const Default = () => (
