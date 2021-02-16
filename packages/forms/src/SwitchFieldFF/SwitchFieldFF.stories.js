@@ -4,18 +4,49 @@ import { formDecorator } from '../formDecorator.js'
 import { hasValue } from '../validators/index.js'
 import { SwitchFieldFF } from './SwitchFieldFF.js'
 
+const description = `
+The \`SwitchFieldFF\` is a wrapper around a \`SwitchField\` that enables it to work with Final Form, the preferred library for form validation and utilities in DHIS 2 apps.
+
+#### Final Form
+
+See how to use Final Form at [Final Form - Getting Started](https://final-form.org/docs/react-final-form/getting-started).
+
+Inside a Final Form \`<Form>\` component, these 'FF' UI components are intended to be used in the \`component\` prop of the [Final Form \`<Field>\` components](https://final-form.org/docs/react-final-form/api/Field) where they will receive some props from the Field, e.g. \`<Field component={SwitchFieldFF} />\`.  See the code samples below for examples.
+
+#### Props
+
+The props shown in the table below are generally provided to the \`SwitchFieldFF\` wrapper by the Final Form \`Field\`.
+
+Note that any props beyond the API of the \`Field\` component will be spread to the \`SwitchFieldFF\`, which passes any extra props to the underlying \`SwitchField\` using \`{...rest}\`.
+
+Therefore, to add any props to the \`SwitchFieldFF\` or \`SwitchField\`, add those props to the parent Final Form \`Field\` component.
+
+Also see \`Switch\` and \`SwitchField\` for notes about props and implementation.
+
+\`\`\`js
+import { SwitchFieldFF } from '@dhis2/ui'
+\`\`\`
+`
+
 export default {
     title: 'Forms/Switch/Switch Field (Final Form)',
     component: SwitchFieldFF,
     decorators: [formDecorator],
+    parameters: { docs: { description: { component: description } } },
 }
 
 export const Default = () => (
-    <Field component={SwitchFieldFF} name="agree" label="Do you agree?" />
+    <Field
+        type="checkbox"
+        component={SwitchFieldFF}
+        name="agree"
+        label="Do you agree?"
+    />
 )
 
 export const Required = () => (
     <Field
+        type="checkbox"
         name="agree"
         component={SwitchFieldFF}
         required
@@ -26,6 +57,7 @@ export const Required = () => (
 
 export const Disabled = () => (
     <Field
+        type="checkbox"
         name="agree"
         component={SwitchFieldFF}
         disabled
@@ -35,6 +67,7 @@ export const Disabled = () => (
 
 export const HelpText = () => (
     <Field
+        type="checkbox"
         name="agree"
         component={SwitchFieldFF}
         label="Do you agree?"
@@ -46,6 +79,7 @@ HelpText.storyName = 'Help text'
 export const Statuses = () => (
     <>
         <Field
+            type="checkbox"
             name="valid"
             component={SwitchFieldFF}
             label="Valid"
@@ -53,6 +87,7 @@ export const Statuses = () => (
             validationText="Validation text"
         />
         <Field
+            type="checkbox"
             name="warning"
             component={SwitchFieldFF}
             label="Warning"
@@ -60,6 +95,7 @@ export const Statuses = () => (
             validationText="Validation text"
         />
         <Field
+            type="checkbox"
             name="error"
             component={SwitchFieldFF}
             label="Error"
@@ -72,6 +108,7 @@ export const Statuses = () => (
 export const ValueWhenChecked = () => (
     <>
         <Field
+            type="checkbox"
             name="bool"
             component={SwitchFieldFF}
             label="I produce boolean form values"
@@ -81,7 +118,7 @@ export const ValueWhenChecked = () => (
             type="checkbox"
             name="string"
             component={SwitchFieldFF}
-            label="I produce string form values"
+            label="I produce string form values because the 'value' prop is set"
             value="value_when_checked"
             helpText="Click submit and check the console"
         />
@@ -95,4 +132,11 @@ export const ValueWhenChecked = () => (
         />
     </>
 )
-ValueWhenChecked.storyName = 'Value when checked'
+ValueWhenChecked.parameters = {
+    docs: {
+        description: {
+            story:
+                'See the details about using the `value` prop at the [Final Form docs](https://final-form.org/docs/react-final-form/types/FieldProps#value)',
+        },
+    },
+}
