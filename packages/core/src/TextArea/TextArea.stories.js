@@ -73,6 +73,7 @@ export const Focus = args => (
         <TextArea {...args} className="initially-unfocused" />
     </>
 )
+Focus.parameters = { docs: { disable: true } }
 
 export const StatusValid = Template.bind({})
 StatusValid.args = { valid: true, value: 'This value is valid' }

@@ -131,6 +131,7 @@ WithInvalidFilterableOptions.args = {
 
 export const WithInitialFocus = EmptyTemplate.bind({})
 WithInitialFocus.args = { initialFocus: true }
+WithInitialFocus.parameters = { docs: { disable: true } }
 WithInitialFocus.storyName = 'With initialFocus'
 
 export const Empty = EmptyTemplate.bind({})
