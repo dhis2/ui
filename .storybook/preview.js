@@ -48,7 +48,7 @@ addParameters({
     jsx: {
         filterProps: val => val !== undefined,
         showDefaultProps: false,
-        functionValue: (fn) => fn.name,
+        functionValue: fn => fn.name,
         tabStop: 4,
         maxInlineAttributesLineLength: 80,
     },
@@ -59,4 +59,5 @@ addParameters({
         // execution mode for the addon
         manual: false,
     },
+    controls: { hideNoControlsWarning: true, expanded: true },
 })
