@@ -33,7 +33,7 @@ export default {
     },
 }
 
-const logger = ({ name, value }) => console.info(`${name}: ${value}`)
+const logger = ({ name, value }) => console.log(`${name}: ${value}`)
 
 const defaultArgs = {
     children: 'Label me!',

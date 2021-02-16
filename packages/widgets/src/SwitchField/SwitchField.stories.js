@@ -13,7 +13,7 @@ import { SwitchField } from '@dhis2/ui'
 `
 
 const logger = ({ name, value, checked }) =>
-    console.info(`name: ${name}, value: ${value}, checked: ${checked}`)
+    console.log(`name: ${name}, value: ${value}, checked: ${checked}`)
 
 export default {
     title: 'Forms/Switch/Switch Field',
