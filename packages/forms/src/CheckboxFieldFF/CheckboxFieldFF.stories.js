@@ -4,10 +4,35 @@ import { formDecorator } from '../formDecorator.js'
 import { hasValue } from '../validators/index.js'
 import { CheckboxFieldFF } from './CheckboxFieldFF.js'
 
+const description = `
+The \`CheckboxFieldFF\` is a wrapper around a \`CheckboxField\` that enables it to work with Final Form, the preferred library in DHIS 2 apps for form validation and utilities.
+
+#### Final Form
+
+See how to use Final Form at [Final Form - Getting Started](https://final-form.org/docs/react-final-form/getting-started).
+
+Inside a Final Form \`<Form>\` component, these 'FF' UI components are intended to be used in the \`component\` prop of the [Final Form \`<Field>\` components](https://final-form.org/docs/react-final-form/api/Field) where they will receive some props from the Field, e.g. \`<Field component={CheckboxFieldFF} />\`.  See the code samples below for examples.
+
+#### Props
+
+The props shown in the table below are generally provided to the \`CheckboxFieldFF\` wrapper by the Final Form \`Field\`.
+
+Note that any props beyond the API of the \`Field\` component will be spread to the \`CheckboxFieldFF\`, which passes any extra props to the underlying \`CheckboxField\` using \`{...rest}\`.
+
+Therefore, to add any props to the \`CheckboxFieldFF\` or \`CheckboxField\`, add those props to the parent Final Form \`Field\` component.
+
+Also see \`Checkbox\` and \`CheckboxField\` for notes about props and implementation.
+
+\`\`\`js
+import { CheckboxFieldFF } from '@dhis2/ui'
+\`\`\`
+`
+
 export default {
     title: 'Forms/Checkbox/Checkbox Field (Final Form)',
     component: CheckboxFieldFF,
     decorators: [formDecorator],
+    parameters: { docs: { description: { component: description } } },
 }
 
 export const Default = () => (
@@ -19,7 +44,7 @@ export const Default = () => (
     />
 )
 
-export const Required = () => (
+export const RequiredWithValidate = () => (
     <Field
         type="checkbox"
         name="agree"
@@ -108,4 +133,3 @@ export const ValueWhenChecked = () => (
         />
     </>
 )
-ValueWhenChecked.storyName = 'Value when checked'
