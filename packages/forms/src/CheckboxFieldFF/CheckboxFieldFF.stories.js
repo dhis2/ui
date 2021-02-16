@@ -5,7 +5,7 @@ import { hasValue } from '../validators/index.js'
 import { CheckboxFieldFF } from './CheckboxFieldFF.js'
 
 const description = `
-The \`CheckboxFieldFF\` is a wrapper around a \`CheckboxField\` that enables it to work with Final Form, the preferred library in DHIS 2 apps for form validation and utilities.
+The \`CheckboxFieldFF\` is a wrapper around a \`CheckboxField\` that enables it to work with Final Form, the preferred library for form validation and utilities in DHIS 2 apps.
 
 #### Final Form
 
