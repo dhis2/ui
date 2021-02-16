@@ -27,6 +27,8 @@ Also see \`Switch\` and \`SwitchField\` for notes about props and implementation
 \`\`\`js
 import { SwitchFieldFF } from '@dhis2/ui'
 \`\`\`
+
+Press **Submit** to see the form values logged to the console.
 `
 
 export default {

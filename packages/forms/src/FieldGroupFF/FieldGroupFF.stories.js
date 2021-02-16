@@ -13,6 +13,8 @@ This component is intended for use with [Final Form](https://final-form.org/docs
 \`\`\`js
 import { FieldGroupFF } from '@dhis2/ui'
 \`\`\`
+
+Press **Submit** to see the form values logged to the console.
 `
 
 export default {

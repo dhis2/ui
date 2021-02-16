@@ -27,6 +27,8 @@ Also see \`MultiSelect\` and \`MultiSelectField\` for notes about props and impl
 import { MultiSelectFieldFF } from '@dhis2/ui'
 \`\`\`
 
+Press **Submit** to see the form values logged to the console.
+
 _**Note:** Dropdowns may not appear correctly on this page. See the affected demos in the 'Canvas' tab for propper dropdown placement._
 `
 

@@ -24,10 +24,11 @@ Therefore, to add any props to the \`FileInputFieldFF\` or \`FileInputField\`, a
 
 Also see \`FileInput\` and \`FileInputField\` for notes about props and implementation.
 
-
 \`\`\`js
 import { FileInputFieldFF } from '@dhis2/ui'
 \`\`\`
+
+Press **Submit** to see the form values logged to the console.
 `
 
 const files = [new File([], 'file1.txt'), new File([], 'file2.txt')]
