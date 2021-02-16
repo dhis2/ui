@@ -25,6 +25,8 @@ Also see \`MultiSelect\` and \`MultiSelectField\` for notes about props and impl
 \`\`\`js
 import { MultiSelectFieldFF } from '@dhis2/ui'
 \`\`\`
+
+_**Note:** Dropdowns may not appear correctly on this page. See the affected demos in the 'Canvas' tab for propper dropdown placement._
 `
 
 const options = [
