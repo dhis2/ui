@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { SingleSelectOption } from '@dhis2/ui-core'
 import { SingleSelectField } from '@dhis2/ui-widgets'
+import PropTypes from 'prop-types'
 import React from 'react'
 import {
     createSelectChangeHandler,
@@ -48,22 +48,24 @@ export const SingleSelectFieldFF = ({
 }
 
 SingleSelectFieldFF.propTypes = {
+    /** `input` props received from Final Form `Field` */
     input: inputPropType.isRequired,
+    /** `meta` props received from Final Form `Field` */
     meta: metaPropType.isRequired,
-    options: propTypes.arrayOf(
-        propTypes.shape({
-            label: propTypes.string,
-            value: propTypes.string,
+    options: PropTypes.arrayOf(
+        PropTypes.shape({
+            label: PropTypes.string,
+            value: PropTypes.string,
         })
     ).isRequired,
 
-    error: propTypes.bool,
-    loading: propTypes.bool,
-    showLoadingStatus: propTypes.bool,
-    showValidStatus: propTypes.bool,
-    valid: propTypes.bool,
-    validationText: propTypes.string,
+    error: PropTypes.bool,
+    loading: PropTypes.bool,
+    showLoadingStatus: PropTypes.bool,
+    showValidStatus: PropTypes.bool,
+    valid: PropTypes.bool,
+    validationText: PropTypes.string,
 
-    onBlur: propTypes.func,
-    onFocus: propTypes.func,
+    onBlur: PropTypes.func,
+    onFocus: PropTypes.func,
 }
