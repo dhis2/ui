@@ -5,10 +5,21 @@ import { formDecorator } from '../formDecorator.js'
 import { hasValue } from '../validators/index.js'
 import { FieldGroupFF } from './FieldGroupFF.js'
 
+const description = `
+This component is intended for use with [Final Form](https://final-form.org/docs/react-final-form/getting-started), the preferred library for form validation and utilities in DHIS 2 apps.
+
+\`FieldGroupFF\` groups related fields (using the Final Form \`<Field>\`), like checkboxes, and adds a label and name.
+
+\`\`\`js
+import { FieldGroupFF } from '@dhis2/ui'
+\`\`\`
+`
+
 export default {
     title: 'Forms/Field Group/Field Group (Final Form)',
     component: FieldGroupFF,
     decorators: [formDecorator],
+    parameters: { docs: { description: { component: description } } },
 }
 
 export const Default = () => (
