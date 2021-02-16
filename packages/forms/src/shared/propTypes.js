@@ -21,7 +21,6 @@ const inputArgType = {
                 '{ name: string (required), onChange: func (required), value: any, onBlur: func, onFocus: func }',
         },
     },
-    control: { type: 'object' },
 }
 
 const metaPropType = propTypes.shape({
@@ -38,7 +37,6 @@ const metaArgType = {
                 '{ error: string, invalid: bool, touched: bool, valid: bool, validating: bool }',
         },
     },
-    control: { type: 'object' },
 }
 
 export {
