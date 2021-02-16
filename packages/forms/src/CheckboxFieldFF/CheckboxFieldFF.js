@@ -37,9 +37,9 @@ export const CheckboxFieldFF = ({
 )
 
 CheckboxFieldFF.propTypes = {
-    /** Provided by Final Form \`Field\` */
+    /** Provided by Final Form `Field` */
     input: inputPropType.isRequired,
-    /** Provided by Final Form \`Field\` */
+    /** Provided by Final Form `Field` */
     meta: metaPropType.isRequired,
 
     error: PropTypes.bool,
