@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { MultiSelectOption } from '@dhis2/ui-core'
 import { MultiSelectField } from '@dhis2/ui-widgets'
+import PropTypes from 'prop-types'
 import React from 'react'
 import {
     createSelectChangeHandler,
@@ -50,22 +50,24 @@ export const MultiSelectFieldFF = ({
 }
 
 MultiSelectFieldFF.propTypes = {
+    /** `input` props provided by Final Form `Field` */
     input: inputPropType.isRequired,
+    /** `meta` props provided by Final Form `Field` */
     meta: metaPropType.isRequired,
 
-    error: propTypes.bool,
-    loading: propTypes.bool,
-    options: propTypes.arrayOf(
-        propTypes.shape({
-            label: propTypes.string,
-            value: propTypes.string,
+    error: PropTypes.bool,
+    loading: PropTypes.bool,
+    options: PropTypes.arrayOf(
+        PropTypes.shape({
+            label: PropTypes.string,
+            value: PropTypes.string,
         })
     ),
-    showLoadingStatus: propTypes.bool,
-    showValidStatus: propTypes.bool,
-    valid: propTypes.bool,
-    validationText: propTypes.string,
+    showLoadingStatus: PropTypes.bool,
+    showValidStatus: PropTypes.bool,
+    valid: PropTypes.bool,
+    validationText: PropTypes.string,
 
-    onBlur: propTypes.func,
-    onFocus: propTypes.func,
+    onBlur: PropTypes.func,
+    onFocus: PropTypes.func,
 }
