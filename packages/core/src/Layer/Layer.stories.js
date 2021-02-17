@@ -1,4 +1,3 @@
-import { layers } from '@dhis2/ui-constants'
 import React from 'react'
 import { CircularLoader, CenteredContent } from '../index.js'
 import { Layer } from './Layer.js'
@@ -32,8 +31,8 @@ export default {
             description: { component: description },
         },
     },
-    // Handle weird treatment of non-literal defaultProps
-    args: { level: layers.applicationTop },
+    // Handle weird treatment of non-literal defaultProps (see Transfer.stories)
+    args: { ...Layer.defaultProps },
 }
 
 const Template = args => (

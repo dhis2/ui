@@ -1,4 +1,3 @@
-import i18n from '@dhis2/d2-i18n'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import { FileListItem } from '@dhis2/ui-core'
 import React from 'react'
@@ -22,12 +21,11 @@ export default {
     parameters: { docs: { description: { component: description } } },
     // Default args:
     args: {
+        // Handle default values (see comment in Transfer.js)
+        ...FileInputField.defaultProps,
         onChange: onChange,
         name: 'uploadName',
         label: 'Upload something',
-        // Handle default values (see comment in Transfer.js)
-        buttonLabel: () => i18n.t('Upload a file'),
-        placeholder: () => i18n.t('No file uploaded yet'),
     },
     argTypes: {
         small: { ...sharedPropTypes.sizeArgType },

@@ -36,7 +36,8 @@ export default {
             disable: true,
         },
     },
-    args: { elevation: elevations.e200 },
+    // Handles weird treatment of non-literal args (`elevation: elevations.e200`)
+    args: { ...Popover.defaultProps },
     argTypes: {
         reference: { ...sharedPropTypes.popperReferenceArgType },
         placement: { ...sharedPropTypes.popperPlacementArgType },

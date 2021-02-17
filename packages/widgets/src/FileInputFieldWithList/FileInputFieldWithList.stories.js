@@ -1,4 +1,3 @@
-import i18n from '@dhis2/d2-i18n'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
 import { FileInputFieldWithList } from './FileInputFieldWithList.js'
@@ -24,13 +23,11 @@ export default {
     component: FileInputFieldWithList,
     parameters: { docs: { description: { component: description } } },
     args: {
+        // Handle default props bug (see Transfer stories)
+        ...FileInputFieldWithList.defaultProps,
         multiple: true,
         onChange: onChange,
         name: 'uploadName',
-        // Handle default props bug (see Transfer stories)
-        buttonLabel: () => i18n.t('Upload a file'),
-        placeholder: () => i18n.t('No file uploaded yet'),
-        removeText: () => i18n.t('Remove'),
     },
     argTypes: {
         small: { ...sharedPropTypes.sizeArgType },
