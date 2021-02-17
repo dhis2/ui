@@ -14,7 +14,7 @@ Read more about using \`Select\` components at [Design System: Select](https://g
 import { MultiSelect, MultiSelectOption } from '@dhis2/ui'
 \`\`\`
 
-_**Note:** Due to demo limitations on this page, only one representative example is rendered here. For more (interactive) examples, see individual stories in the 'Canvas' tab._
+_**Note:** Due to demo limitations on this page, only one representative example is rendered here. For more (props-interactive) examples, see individual stories in the 'Canvas' tab._
 `
 
 const eventHandler = handlerName => (payload, event) => {
@@ -45,7 +45,7 @@ export default {
     parameters: {
         docs: {
             description: { component: description },
-            // Disable stories in docs page by default, then use one representative examples
+            // Disable stories in docs page by default, then use one representative example
             disable: true,
             // Use iframe to keep dropdown menu inside story for docs page
             inlineStories: false,
