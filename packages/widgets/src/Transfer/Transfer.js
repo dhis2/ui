@@ -20,7 +20,6 @@ import {
     addIndividualSourceOptions,
     createDoubleClickHandlers,
     defaultFilterCallback,
-    defaultRenderOption,
     getOptionClickHandlers,
     isReorderDownDisabled,
     isReorderUpDisabled,
@@ -31,6 +30,7 @@ import {
     useFilter,
     useHighlightedOptions,
 } from './Transfer/index.js'
+import { TransferOption } from './TransferOption.js'
 
 const identity = value => value
 
@@ -398,6 +398,8 @@ export const Transfer = ({
         </Container>
     )
 }
+
+const defaultRenderOption = option => <TransferOption {...option} />
 
 Transfer.defaultProps = {
     dataTest: 'dhis2-uicore-transfer',

@@ -2,7 +2,6 @@ import propTypes from '@dhis2/prop-types'
 import { SingleSelectOption, Tab, TabBar } from '@dhis2/ui-core'
 import React, { useEffect, useState } from 'react'
 import { SingleSelectField, Transfer, TransferOption } from '../index.js'
-import { defaultRenderOption, defaultFilterCallback } from './Transfer/index.js'
 
 const subtitle = 'Allows users to select options from a list'
 
@@ -151,9 +150,7 @@ export default {
     },
     // Default args:
     args: {
-        renderOption: defaultRenderOption,
-        filterCallback: defaultFilterCallback,
-        filterCallbackPicked: defaultFilterCallback,
+        ...Transfer.defaultProps,
         options: options,
     },
 }
