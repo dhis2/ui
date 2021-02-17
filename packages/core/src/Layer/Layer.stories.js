@@ -4,8 +4,6 @@ import { CircularLoader, CenteredContent } from '../index.js'
 import { Layer } from './Layer.js'
 
 const description = `
-_**Note:** These demos may take some time to load._
-
 Layers are used for creating different levels of stacking of interface elements.
 See more about stacking guidelines at the [design system](https://github.com/dhis2/design-system/blob/master/principles/layout.md#stacking).
 
@@ -14,6 +12,8 @@ Layers are used in Modals, Popovers, and Alerts.
 \`\`\`js
 import { Layer } from '@dhis2/ui'
 \`\`\`
+
+_**Note:** These demos may take some time to load._
 `
 
 export default {
