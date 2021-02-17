@@ -5,7 +5,7 @@ import { AlertStack } from './AlertStack.js'
 const description = `
 A container for Alert Bars.
 
-_The demos on this page may be slow._
+_**Note:** The demos on this page may be slow._
 
 \`\`\`js
 import { AlertStack } from '@dhis2/ui'
