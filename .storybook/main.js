@@ -30,7 +30,10 @@ module.exports = {
     // https://storybook.js.org/docs/react/configure/overview#configure-story-loading
     stories: isTesting
         ? ['../packages/*/src/**/*.stories.e2e.@(js|jsx)']
-        : ['../packages/*/src/**/*.stories.@(js|jsx)'],
+        : [
+              '../docs/**/*.stories.mdx',
+              '../packages/*/src/**/*.stories.@(js|jsx)',
+          ],
     addons: [
         '@storybook/preset-create-react-app',
         '@storybook/addon-essentials',
