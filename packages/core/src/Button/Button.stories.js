@@ -60,11 +60,6 @@ export const Basic = Template.bind({})
 Basic.args = {
     name: 'Basic button',
 }
-Basic.parameters = {
-    docs: {
-        description: { story: 'Typical button usage' },
-    },
-}
 
 export const Primary = Template.bind({})
 Primary.args = {
