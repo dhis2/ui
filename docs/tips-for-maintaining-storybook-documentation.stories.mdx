@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/addon-docs/blocks'
 
-<Meta title="Docs/Tips" />
+<Meta title="Docs/Tips for Maintaining Storybook Documentation" />
 
 # Tips for Maintaining Storybook Documentation
 
@@ -35,19 +35,17 @@ Make sure you add the `component` property to the default export of the stories 
 
 ### Controls and `args`
 
-To take advantage of Controls and enable 'dynamic' JSX-style code snippets in the Docs Page, make sure you use the 'Component Story Format' (TODO: link) and the `args` syntax.  For an individual story, that looks like this:
+To take advantage of Controls and enable 'dynamic' JSX-style code snippets in the Docs Page, make sure you use the '[Component Story Format](https://storybook.js.org/docs/react/api/csf)' and the `args` syntax.  For an individual story, that looks like this:
 
 ```js
 export const DefaultStory = args => <Button {...args} />
 ```
 
-The Controls addon will automatically set up the props control table, which will dynamically change the component props via the `args`.
+The Controls addon will automatically set up the props control table, which will dynamically change the component props via the `args`. There are options to customize the controls for the purposes of complex components or some prop types - see more in the 'Making sure propTypes are correctly documented' section below.
 
 Note that you don't need to use a template to take advantage of `args`.
 
 ### Reusing a story template
-
-(TODO): Get a link
 
 To keep stories concise and DRY, you can reuse a story template (that uses the `args` syntax) and set the relevant props on each story using `StoryName.args = { ... }`. That looks like this:
 
@@ -64,6 +62,8 @@ PrimaryDense.args = { ...Primary.args, dense: true }
 ```
 
 Note that templates may not be the best solution in some circumstances, for example when component composition varies between stories.  In these cases, you should still see if you can apply `{...args}` props to one or more components in the story.
+
+Here is [some more information about templates](https://storybook.js.org/docs/react/writing-stories/introduction#using-args) from the storybook documentation.
 
 ### Templates with state or refs (or other hooks)
 
@@ -112,12 +112,11 @@ export const ButtonSizes = args => (
 ButtonSizes.args = { onClick: console.log }
 ```
 
-
 ## Annotating a component
 
 There are several ways to add descriptions to a component and its props for the Docs Page.  Each of these accepts markdown syntax inside the strings or comments.
 
-By default, a JSDoc above the component definition becomes the component description on the Docs Page, and JSDoc comments above individual props become descriptions of those props in the args table (on both the Docs Page and in the Controls addon on the Canvas tab). Since the components in this library have pre-existing JSDoc comments with a particular syntax, it's best to override those with descriptions in the stories file.
+By default, a JSDoc above the component definition becomes the component description on the Docs Page, and JSDoc comments above individual props become descriptions of those props in the args table (on both the Docs Page and in the Controls addon on the Canvas tab). Since the components in this library have pre-existing JSDoc comments with a particular syntax, these comments have been overridden with descriptions in the stories file. In the future, this may change back to comments above the component as the source.
 
 Descriptions can be added to the component and for each story (except the primary story on the Docs Page), and a subtitle can be added below the main story title.
 
@@ -159,4 +158,56 @@ Primary.parameters = {
 }
 ```
 
+## Making sure propTypes are correctly documented
 
+Imported prop types (either from another file or from another library) are currently not interpreted correctly by react docgen under the hood. The workaround for this is to create a configuration object to define that prop's `argTypes` that decides what the row in the `args` table should look like, and what control should be used. In this library, mostly the `type` in the args table and the control type were configured, leaving descriptions to the JSDoc above the prop type definition.
+
+Read more about configuring the table at [Arg Types: Manual specification](https://storybook.js.org/docs/react/api/argtypes#manual-specification), and configuring controls at [Controls: Fully custom args](https://storybook.js.org/docs/react/essentials/controls#fully-custom-args).
+
+Here is an example for `buttonVarientPropType` from `shared-prop-types.js` in `ui-constants`:
+
+```js
+// shared-prop-types.js
+
+export const buttonVariantPropType = propTypes.mutuallyExclusive(
+    ['primary', 'secondary', 'destructive'],
+    propTypes.bool
+)
+
+export const buttonVariantArgType = {
+    // Table details
+    table: {
+        type: {
+            summary: 'bool',
+            detail:
+                "'primary', 'secondary', and 'destructive' are mutually exclusive props",
+        },
+    },
+    // What kind of prop control to use
+    control: {
+        type: 'boolean',
+    },
+}
+
+
+// Button.stories.js
+
+import { sharedPropTypes } from '@dhis2/ui-constants'
+
+export default {
+    component: Button,
+    // ...
+    argTypes: {
+        primary: { ...sharedPropTypes.buttonVariantArgType },
+        secondary: { ...sharedPropTypes.buttonVariantArgType },
+        destructive: { ...sharedPropTypes.buttonVariantArgType },
+        // ...
+    }
+}
+```
+
+## Edge cases and workarounds
+
+There are several cases where bugs arise with Storybook and the docs page, and a few workarounds have been found.
+
+TODO: More coming soon!
