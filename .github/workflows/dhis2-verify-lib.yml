@@ -1,8 +1,6 @@
 name: 'dhis2: verify (lib)'
 
-on:
-    push:
-        branches:
+on: push
 
 env:
     GIT_AUTHOR_NAME: '@dhis2-bot'
@@ -12,6 +10,7 @@ env:
     NPM_TOKEN: ${{secrets.DHIS2_BOT_NPM_TOKEN}}
     GH_TOKEN: ${{secrets.DHIS2_BOT_GITHUB_TOKEN}}
     CI: true
+    D2_VERBOSE: true
 
 jobs:
     install:
@@ -78,6 +77,11 @@ jobs:
                   path: '**/node_modules'
                   key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
+            - name: Generate translations
+              run:
+                  yarn workspace @dhis2/ui-forms d2-app-scripts i18n generate &&
+                  yarn workspace @dhis2/ui-widgets d2-app-scripts i18n generate
+
             - uses: actions/download-artifact@v2
               with:
                   name: lib-build
@@ -100,6 +104,11 @@ jobs:
               with:
                   path: '**/node_modules'
                   key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
+            - name: Generate translations
+              run:
+                  yarn workspace @dhis2/ui-forms d2-app-scripts i18n generate &&
+                  yarn workspace @dhis2/ui-widgets d2-app-scripts i18n generate
 
             - uses: actions/download-artifact@v2
               with:

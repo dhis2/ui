@@ -1,4 +1,3 @@
-import i18n from '@dhis2/d2-i18n'
 import propTypes from '@dhis2/prop-types'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import {
@@ -9,6 +8,7 @@ import {
     Label,
 } from '@dhis2/ui-core'
 import React from 'react'
+import i18n from '../locales/index.js'
 import translate from '../translate'
 
 /**
