@@ -4,9 +4,9 @@ import { Meta } from '@storybook/addon-docs/blocks'
 
 # Tips for Maintaining Storybook Documentation
 
-The Docs Page for a component is automatically generated from stories, the component's prop types, and JSDoc comments above the component and its props.
+The Docs Page for a component (visible at the Docs tab in the toolbar above) is automatically generated from stories, the component's prop types, and JSDoc comments above the component and its props.
 
-This page assumes some knowledge of Storybook, and 'Docs Page' refers to the Docs tab for a component where its description, stories, and args table can be found
+This page assumes some knowledge of Storybook.
 
 ## Organizing components
 
@@ -35,7 +35,7 @@ Make sure you add the `component` property to the default export of the stories 
 
 ### Controls and `args`
 
-To take advantage of Controls and enable 'dynamic' JSX-style code snippets in the Docs Page, make sure you use the '[Component Story Format](https://storybook.js.org/docs/react/api/csf)' and the `args` syntax.  For an individual story, that looks like this:
+To take advantage of Controls and enable 'dynamic' JSX-style code snippets in the Docs Page, make sure you use the '[Component Story Format](https://storybook.js.org/docs/react/api/csf)' and the `args` syntax. For an individual story, that looks like this:
 
 ```js
 export const DefaultStory = args => <Button {...args} />
@@ -61,7 +61,7 @@ export const PrimaryDense = Template.bind({})
 PrimaryDense.args = { ...Primary.args, dense: true }
 ```
 
-Note that templates may not be the best solution in some circumstances, for example when component composition varies between stories.  In these cases, you should still see if you can apply `{...args}` props to one or more components in the story.
+Note that templates may not be the best solution in some circumstances, for example when component composition varies between stories. In these cases, you should still see if you can apply `{...args}` props to one or more components in the story.
 
 Here is [some more information about templates](https://storybook.js.org/docs/react/writing-stories/introduction#using-args) from the storybook documentation.
 
@@ -104,7 +104,7 @@ Apply `{...args}` to each one, then hard-code the prop of interest after the arg
 ```js
 export const ButtonSizes = args => (
     <>
-        <Button {...args} small/>
+        <Button {...args} small />
         <Button {...args} />
         <Button {...args} large />
     </>
@@ -114,7 +114,7 @@ ButtonSizes.args = { onClick: console.log }
 
 ## Annotating a component
 
-There are several ways to add descriptions to a component and its props for the Docs Page.  Each of these accepts markdown syntax inside the strings or comments.
+There are several ways to add descriptions to a component and its props for the Docs Page. Each of these accepts markdown syntax inside the strings or comments.
 
 By default, a JSDoc above the component definition becomes the component description on the Docs Page, and JSDoc comments above individual props become descriptions of those props in the args table (on both the Docs Page and in the Controls addon on the Canvas tab). Since the components in this library have pre-existing JSDoc comments with a particular syntax, these comments have been overridden with descriptions in the stories file. In the future, this may change back to comments above the component as the source.
 
@@ -139,7 +139,7 @@ export default {
     parameters: {
         componentSubtitle: 'Initiates an action',
         docs: { description: { component: componentDescription } },
-    }
+    },
 }
 ```
 
@@ -189,7 +189,6 @@ export const buttonVariantArgType = {
     },
 }
 
-
 // Button.stories.js
 
 import { sharedPropTypes } from '@dhis2/ui-constants'
@@ -202,7 +201,7 @@ export default {
         secondary: { ...sharedPropTypes.buttonVariantArgType },
         destructive: { ...sharedPropTypes.buttonVariantArgType },
         // ...
-    }
+    },
 }
 ```
 
@@ -210,4 +209,65 @@ export default {
 
 There are several cases where bugs arise with Storybook and the docs page, and a few workarounds have been found.
 
-TODO: More coming soon!
+### Portal components
+
+Components that use React portals sometimes exhibit undesired behavior on the Docs Page, for example Layers or Modals stacking on top of each other and taking up the whole page. Other components like Popovers might not position correctly relative to their reference element. These issues don't appear on the Canvas tab.
+
+The above issues can be managed by rendering the stories in the Docs Page in `iframe`s instead of the default inline method. Do this by setting `parameters.docs.inlineStories` to `false` either at the component or the story level.
+
+Because the `iframe`s have a fixed height of 100px, the height should also be configured to something appropriate for the stories.
+
+Note that the iframes are _slow to render_ and can make the page unresponsive for a time if there are many rendered at once. It's best to render only one representative example on the Docs Page and leave the rest to view in the Canvas tab. To do this, disable all the stories by default using `parameters.docs.disable = true` at the component level, then reenable the representative example at the story level:
+
+```js
+export default {
+    title: 'Moda',
+    component: Modal,
+    parameters: {
+        docs: {
+            // render in iframe
+            inlineStories: false,
+            iframeHeight: '500px',
+            // disable all stories on docs page by default
+            disable: true,
+        },
+    },
+}
+
+export const RepresentativeExample = Template.bind({})
+// enable this story on the Docs Page
+RepresentativeExample.parameters = { docs: { disable: false } }
+```
+
+**NB:** Controls on the props will not work an `iframe` story on the Docs Page, but the Controls will work normally in the Canvas. It would be helpful to make a note for users so they know what to expect.
+
+#### Props extraction for portal components
+
+Make sure components return JSX - otherwise react docgen will not find them and not generate an args table. If a component returns a react portal, that portal can be wrapped in a React fragment to make the prop detection work.
+
+### Default props & default args
+
+There is a bug that manifests as a story throwing an error that looks like '[callback] is not a function'/'expected function but received string' or '[variable used in default props] is undefined' - this is due to a quirk with how default props are processed when using the `args` syntax. (See [this issue](https://github.com/storybookjs/storybook/issues/12098#issuecomment-758153653))
+
+Providing actual (non-default) values in the stories enables the expected behavior.
+
+An easy workaround, therefore, is to set the component's default props as args for all the stories as default (specifying args for an individual story still takes precedence):
+
+```js
+export default {
+    title: 'Forms/Transfer'
+    component: Transfer,
+    // configure default args for workaround
+    args: { ...Transfer.defaultProps },
+}
+```
+
+### Stories that use initial focus
+
+Components that have have a story to demonstrate an `initialFocus` prop cause an annoying behavior on the Docs Page. Whenever a control is changed, the whole page scrolls down to the initial focus story. For that reason, these stories should be disabled on the Docs Page by setting `parameters.docs.disable` to `true` on the Story:
+
+```js
+export const InitialFocus = Template.bind({})
+InitialFocus.args = { initialFocus: true }
+InitialFocus.parameters = { docs: { disable: true } }
+````
