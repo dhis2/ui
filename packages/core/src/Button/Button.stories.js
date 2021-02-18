@@ -70,8 +70,7 @@ Primary.parameters = {
     docs: {
         description: {
             story:
-                '(This text is defined for each story) \
-                Used to highlight the most important/main action on a page. \
+                'Used to highlight the most important/main action on a page. \
                 A "Save" button for a form page should be primary, for example. \
                 Use sparingly, rarely should there be more than a single primary \
                 button per page.',

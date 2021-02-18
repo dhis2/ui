@@ -1,0 +1,162 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Docs/Tips" />
+
+# Tips for Maintaining Storybook Documentation
+
+The Docs Page for a component is automatically generated from stories, the component's prop types, and JSDoc comments above the component and its props.
+
+This page assumes some knowledge of Storybook, and 'Docs Page' refers to the Docs tab for a component where its description, stories, and args table can be found
+
+## Organizing components
+
+In a story file, you can choose the path and name of the stories page by adding the `title` property to the default export, e.g.
+
+```js
+export default {
+    component: DropdownButton,
+    title: 'Actions/Buttons/Dropdown Button',
+}
+```
+
+This adds the component to the 'Buttons' folder in the 'Actions' section and names its stories 'Dropdown Button.'
+
+Sections, folders, and component names in storybook can include spaces and don't need to match the React component name exactly.
+
+See more about naming and organization at [Naming Components and Hierarchy](https://storybook.js.org/docs/react/writing-stories/naming-components-and-hierarchy).
+
+## Making stories
+
+There are a few ways you can make sure the stories generate the best documentation for the Docs Page.
+
+### Getting the args table
+
+Make sure you add the `component` property to the default export of the stories file (see default export example above) - this is how storybook knows to extract the component's props for the args table.
+
+### Controls and `args`
+
+To take advantage of Controls and enable 'dynamic' JSX-style code snippets in the Docs Page, make sure you use the 'Component Story Format' (TODO: link) and the `args` syntax.  For an individual story, that looks like this:
+
+```js
+export const DefaultStory = args => <Button {...args} />
+```
+
+The Controls addon will automatically set up the props control table, which will dynamically change the component props via the `args`.
+
+Note that you don't need to use a template to take advantage of `args`.
+
+### Reusing a story template
+
+(TODO): Get a link
+
+To keep stories concise and DRY, you can reuse a story template (that uses the `args` syntax) and set the relevant props on each story using `StoryName.args = { ... }`. That looks like this:
+
+```js
+// The story template
+const Template = args => <Button {...args} />
+
+// Stories to render
+export const Primary = Template.bind({}) // Makes a copy of the template
+Primary.args = { primary: true }
+
+export const PrimaryDense = Template.bind({})
+PrimaryDense.args = { ...Primary.args, dense: true }
+```
+
+Note that templates may not be the best solution in some circumstances, for example when component composition varies between stories.  In these cases, you should still see if you can apply `{...args}` props to one or more components in the story.
+
+### Templates with state or refs (or other hooks)
+
+Templates can add some complexity with wrappers or hooks that might get used repeatedly.
+
+See this example from the Popper component:
+
+```js
+// Popper.stories.js
+const Template = args => {
+    const ref = useRef(null)
+
+    return (
+        <div className="box" style={boxStyle}>
+            <div
+                className="reference-element"
+                style={referenceElementStyle}
+                ref={ref}
+            >
+                Reference Element
+            </div>
+            <Popper {...args} reference={ref}>
+                <div style={popperStyle}>{args.placement}</div>
+            </Popper>
+        </div>
+    )
+}
+```
+
+### Stories for multiple components
+
+Applying `args` or a template for a story with multiple components may not be straightforward, and controls may not work completely. See '[Stories for multiple components](https://storybook.js.org/docs/react/workflows/stories-for-multiple-components)' for detailed recommendations.
+
+Here is also an easy, 'good-enough' solution for variations on a single component:
+
+Apply `{...args}` to each one, then hard-code the prop of interest after the args. The hard-coded prop will take precedent over `args` and won't be controllable with the Controls addon, but all other props will be.
+
+```js
+export const ButtonSizes = args => (
+    <>
+        <Button {...args} small/>
+        <Button {...args} />
+        <Button {...args} large />
+    </>
+)
+ButtonSizes.args = { onClick: console.log }
+```
+
+
+## Annotating a component
+
+There are several ways to add descriptions to a component and its props for the Docs Page.  Each of these accepts markdown syntax inside the strings or comments.
+
+By default, a JSDoc above the component definition becomes the component description on the Docs Page, and JSDoc comments above individual props become descriptions of those props in the args table (on both the Docs Page and in the Controls addon on the Canvas tab). Since the components in this library have pre-existing JSDoc comments with a particular syntax, it's best to override those with descriptions in the stories file.
+
+Descriptions can be added to the component and for each story (except the primary story on the Docs Page), and a subtitle can be added below the main story title.
+
+To add a subtitle and a component description (that overrides the auto-generated description from a JSDoc above the component definition), use `parameters` in the default export:
+
+```js
+// This format is used to take advantage of multiline markdown syntax.
+// Make sure it's not indentend and that backticks for code formatting are escaped.
+const componentDescription = `
+Buttons are used for triggering actions. There are different types of buttons...
+
+\`\`\`js
+import { Button } from '@dhis2/ui'
+\`\`\`
+`
+
+export default {
+    component: Button,
+    title: 'Actions/Buttons/Button',
+    parameters: {
+        componentSubtitle: 'Initiates an action',
+        docs: { description: { component: componentDescription } },
+    }
+}
+```
+
+Adding a description to an individual story is similar to adding a component description. Where component descriptions use the `parameters.docs.description.component` property of the default export, story descriptions use the `parameters.docs.description.story` property of the story:
+
+```js
+export const PrimaryButton = Template.bind({})
+PrimaryButton.args = { primary: true }
+Primary.parameters = {
+    docs: {
+        description: {
+            story:
+                'Used to highlight the most important/main action on a page.',
+        },
+    },
+}
+```
+
+
