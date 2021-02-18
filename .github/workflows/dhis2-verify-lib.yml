@@ -12,6 +12,7 @@ env:
     NPM_TOKEN: ${{secrets.DHIS2_BOT_NPM_TOKEN}}
     GH_TOKEN: ${{secrets.DHIS2_BOT_GITHUB_TOKEN}}
     CI: true
+    D2_VERBOSE: true
 
 jobs:
     install:
