@@ -1,8 +1,6 @@
 name: 'dhis2: verify (lib)'
 
-on:
-    push:
-        branches:
+on: push
 
 env:
     GIT_AUTHOR_NAME: '@dhis2-bot'
@@ -170,7 +168,7 @@ jobs:
 
     publish:
         runs-on: ubuntu-latest
-        needs: [build, lint, test, e2e]
+        needs: [build, lint, test]
         if: "!contains(github.event.head_commit.message, '[skip ci]')"
         steps:
             - uses: actions/checkout@v2
