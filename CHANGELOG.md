@@ -1,3 +1,10 @@
+## [6.2.3](https://github.com/dhis2/ui/compare/v6.2.2...v6.2.3) (2021-02-18)
+
+
+### Bug Fixes
+
+* always load i18next from locales/index to ensure translation strings are loaded (LIBS-120) ([#510](https://github.com/dhis2/ui/issues/510)) ([78e1ebe](https://github.com/dhis2/ui/commit/78e1ebec6fd68a139c3c2d10ce1415aeea796ae2))
+
 ## [6.2.2](https://github.com/dhis2/ui/compare/v6.2.1...v6.2.2) (2021-02-10)
 
 

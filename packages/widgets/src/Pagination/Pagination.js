@@ -1,7 +1,7 @@
-import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
+import i18n from '../locales/index.js'
 import { PageControls } from './PageControls'
 import { PageSelect } from './PageSelect'
 import { PageSizeSelect } from './PageSizeSelect.js'

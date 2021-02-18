@@ -1,8 +1,8 @@
-import i18n from '@dhis2/d2-i18n'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { FileInputField } from '../FileInputField/FileInputField.js'
+import i18n from '../locales/index.js'
 import translate from '../translate'
 import { FileListItemWithRemove } from './FileListItemWithRemove.js'
 

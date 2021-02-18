@@ -1,4 +1,3 @@
-import i18n from '@dhis2/d2-i18n'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import {
     FileInput,
@@ -9,6 +8,7 @@ import {
 } from '@dhis2/ui-core'
 import PropTypes from 'prop-types'
 import React from 'react'
+import i18n from '../locales/index.js'
 import translate from '../translate'
 
 /**
