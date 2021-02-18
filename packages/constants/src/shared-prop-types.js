@@ -36,7 +36,7 @@ export const buttonVariantPropType = propTypes.mutuallyExclusive(
     propTypes.bool
 )
 export const buttonVariantArgType = {
-    // No desription because it should be set for the component description
+    // No description because it should be set for the component description
     table: {
         type: {
             summary: 'bool',
