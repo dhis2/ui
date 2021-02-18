@@ -24,6 +24,11 @@ export default {
             },
         },
     },
+    args: {
+        children: 'Label me!',
+        value: 'default',
+        onClick: logger,
+    },
     argTypes: {
         primary: { ...buttonVariantArgType },
         secondary: { ...buttonVariantArgType },
@@ -34,12 +39,6 @@ export default {
 }
 
 const logger = ({ name, value }) => console.log(`${name}: ${value}`)
-
-const defaultArgs = {
-    children: 'Label me!',
-    value: 'default',
-    onClick: logger,
-}
 
 const DemoIcon = (
     <svg
@@ -59,7 +58,6 @@ const Template = args => <Button {...args} />
 
 export const Basic = Template.bind({})
 Basic.args = {
-    ...defaultArgs,
     name: 'Basic button',
 }
 Basic.parameters = {
@@ -70,7 +68,6 @@ Basic.parameters = {
 
 export const Primary = Template.bind({})
 Primary.args = {
-    ...defaultArgs,
     primary: true,
     name: 'Primary button',
 }
@@ -89,7 +86,6 @@ Primary.parameters = {
 
 export const Secondary = Template.bind({})
 Secondary.args = {
-    ...defaultArgs,
     secondary: true,
     name: 'Secondary button',
 }
@@ -107,7 +103,6 @@ Secondary.parameters = {
 
 export const Destructive = Template.bind({})
 Destructive.args = {
-    ...defaultArgs,
     destructive: true,
     name: 'Destructive button',
 }
@@ -132,7 +127,6 @@ export const Disabled = args => (
     </>
 )
 Disabled.args = {
-    ...defaultArgs,
     disabled: true,
 }
 Disabled.parameters = {
@@ -149,7 +143,6 @@ Disabled.parameters = {
 
 export const Small = Template.bind({})
 Small.args = {
-    ...defaultArgs,
     small: true,
     name: 'Small button',
 }
@@ -166,7 +159,6 @@ Small.parameters = {
 
 export const Large = Template.bind({})
 Large.args = {
-    ...defaultArgs,
     large: true,
     name: 'Large button',
 }
@@ -183,7 +175,6 @@ Large.parameters = {
 
 export const InitialFocus = Template.bind({})
 InitialFocus.args = {
-    ...defaultArgs,
     initialFocus: true,
     name: 'Focused button',
 }
@@ -193,7 +184,6 @@ InitialFocus.parameters = { docs: { disable: true } }
 
 export const Icon = Template.bind({})
 Icon.args = {
-    ...defaultArgs,
     icon: DemoIcon,
     name: 'Icon button',
     children: null,
@@ -213,7 +203,6 @@ Icon.parameters = {
 
 export const IconSmall = Template.bind({})
 IconSmall.args = {
-    ...defaultArgs,
     icon: DemoIcon,
     small: true,
     name: 'Icon small button',
@@ -222,7 +211,6 @@ IconSmall.args = {
 
 export const Toggled = Template.bind({})
 Toggled.args = {
-    ...defaultArgs,
     toggled: true,
     icon: DemoIcon,
     name: 'Toggled button',
@@ -245,7 +233,6 @@ Toggled.parameters = {
 
 export const ToggledDisabled = Template.bind({})
 ToggledDisabled.args = {
-    ...defaultArgs,
     toggled: true,
     disabled: true,
     icon: DemoIcon,
