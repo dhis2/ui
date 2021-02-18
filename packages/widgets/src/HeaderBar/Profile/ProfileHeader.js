@@ -1,8 +1,8 @@
 import { useConfig } from '@dhis2/app-runtime'
-import i18n from '@dhis2/d2-i18n'
 import propTypes from '@dhis2/prop-types'
 import { Box } from '@dhis2/ui-core'
 import React from 'react'
+import i18n from '../../locales/index.js'
 import { joinPath } from '../joinPath.js'
 import { UserIcon } from '../UserIcon/UserIcon.js'
 
