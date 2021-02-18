@@ -65,7 +65,7 @@ jobs:
 
     lint:
         runs-on: ubuntu-latest
-        needs: [install, build]
+        needs: [install]
         if: "!contains(github.event.head_commit.message, '[skip ci]')"
         steps:
             - uses: actions/checkout@v2
@@ -80,8 +80,8 @@ jobs:
                   key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
             - name: Generate translations
-              run:
-                  yarn workspace @dhis2/ui-forms d2-app-scripts i18n generate &&
+              run: ls packages/forms &&
+                  yarn workspace @dhis2/ui-forms d2-app-scripts i18n generate && ls packages/widgets
                   yarn workspace @dhis2/ui-widgets d2-app-scripts i18n generate
 
             - uses: actions/download-artifact@v2
@@ -93,7 +93,7 @@ jobs:
 
     test:
         runs-on: ubuntu-latest
-        needs: [install, build]
+        needs: [install]
         if: "!contains(github.event.head_commit.message, '[skip ci]')"
         steps:
             - uses: actions/checkout@v2
@@ -108,8 +108,8 @@ jobs:
                   key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
             - name: Generate translations
-              run:
-                  yarn workspace @dhis2/ui-forms d2-app-scripts i18n generate &&
+              run: ls packages/forms &&
+                  yarn workspace @dhis2/ui-forms d2-app-scripts i18n generate && ls packages/widgets
                   yarn workspace @dhis2/ui-widgets d2-app-scripts i18n generate
 
             - uses: actions/download-artifact@v2
@@ -119,54 +119,54 @@ jobs:
             - name: Unit tests
               run: yarn test
 
-    e2e:
-        runs-on: ubuntu-latest
-        if: "!contains(github.event.head_commit.message, '[skip ci]')"
-        needs: [install, build]
+#     e2e:
+#         runs-on: ubuntu-latest
+#         if: "!contains(github.event.head_commit.message, '[skip ci]')"
+#         needs: [install, build]
 
-        strategy:
-            matrix:
-                containers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+#         strategy:
+#             matrix:
+#                 containers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v2
+#         steps:
+#             - name: Checkout
+#               uses: actions/checkout@v2
 
-            - uses: actions/setup-node@v1
-              with:
-                  node-version: 12.x
+#             - uses: actions/setup-node@v1
+#               with:
+#                   node-version: 12.x
 
-            - uses: actions/cache@v2
-              id: yarn-cache
-              with:
-                  path: '**/node_modules'
-                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+#             - uses: actions/cache@v2
+#               id: yarn-cache
+#               with:
+#                   path: '**/node_modules'
+#                   key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
-            - uses: actions/download-artifact@v2
-              with:
-                  name: lib-build
+#             - uses: actions/download-artifact@v2
+#               with:
+#                   name: lib-build
 
-            - name: Install Cypress binary
-              run: yarn cypress install
+#             - name: Install Cypress binary
+#               run: yarn cypress install
 
-            - name: End-to-End tests
-              uses: cypress-io/github-action@v2
-              with:
-                  install: false
-                  record: true
-                  parallel: true
-                  start: ${{ env.SERVER_START_CMD }}
-                  wait-on: ${{ env.SERVER_URL }}
-                  wait-on-timeout: 300
-                  cache-key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-                  group: 'e2e'
-                  tag: ${{ github.event_name }}
-              env:
-                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-                  COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
-                  STORYBOOK_TESTING: true
-                  SERVER_START_CMD: 'yarn cy:server'
-                  SERVER_URL: 'http://localhost:5001'
+#             - name: End-to-End tests
+#               uses: cypress-io/github-action@v2
+#               with:
+#                   install: false
+#                   record: true
+#                   parallel: true
+#                   start: ${{ env.SERVER_START_CMD }}
+#                   wait-on: ${{ env.SERVER_URL }}
+#                   wait-on-timeout: 300
+#                   cache-key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+#                   group: 'e2e'
+#                   tag: ${{ github.event_name }}
+#               env:
+#                   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+#                   COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
+#                   STORYBOOK_TESTING: true
+#                   SERVER_START_CMD: 'yarn cy:server'
+#                   SERVER_URL: 'http://localhost:5001'
 
     publish:
         runs-on: ubuntu-latest
