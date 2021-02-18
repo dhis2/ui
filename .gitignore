@@ -37,3 +37,10 @@ locales/
 
 # storybook
 storybook/storybook-static
+
+# Intermediate icons build directory. Our build tooling
+# currently only supports building from code in ./src
+# So we generate the react components in the src
+# folder, but since they're build artefacts, we
+# don't want them in version control.
+packages/icons/src/react/
