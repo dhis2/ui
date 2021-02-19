@@ -31,7 +31,7 @@
         "cy:server": "yarn build && STORYBOOK_TESTING=1 EXTEND_ESLINT=true start-storybook --port 5001 --quiet --ci",
         "cy:open": "d2-utils-cypress open --appStart 'yarn cy:server' --waitOn 'http-get://localhost:5001'",
         "cy:run": "d2-utils-cypress run --appStart 'yarn cy:server' --waitOn 'http-get://localhost:5001'",
-        "demo": "EXTEND_ESLINT=true build-storybook -o ./dist/demo --quiet",
+        "demo": "EXTEND_ESLINT=true build-storybook -o ./dist/demo --quiet -s .storybook/static",
         "docs": "d2-utils-docsite build ./docs -o ./dist --jsdoc ./packages/**/src --jsdoc-output-file api.md",
         "format": "yarn format:js && yarn format:text",
         "format:staged": "yarn format:js --staged && yarn format:text --staged",
@@ -46,7 +46,7 @@
         "watch:constants": "yarn build:constants --watch --dev",
         "watch:core": "yarn build:core --watch --dev",
         "watch:forms": "yarn build:forms --watch --dev",
-        "watch:storybook": "EXTEND_ESLINT=true start-storybook --port 5000 --quiet --ci",
+        "watch:storybook": "EXTEND_ESLINT=true start-storybook --port 5000 --quiet --ci -s .storybook/static",
         "watch:widgets": "yarn build:widgets --watch --dev"
     },
     "devDependencies": {
