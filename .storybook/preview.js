@@ -37,10 +37,19 @@ addParameters({
     options: {
         storySort: {
             // Make sure docs & 'Getting Started' are first in list
-            order: ['Docs', ['Getting Started']],
+            order: [
+                'Docs',
+                [
+                    'Getting Started',
+                    'Troubleshooting',
+                    'Advanced Usage',
+                    'Recipes',
+                    'Tips for Maintaining Storybook Documentation',
+                ],
+            ],
             // Then sort the rest alphabetically
             method: 'alphabetical',
-        }
+        },
     },
     jsx: {
         filterProps: val => val !== undefined,
