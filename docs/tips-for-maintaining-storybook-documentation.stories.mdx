@@ -47,6 +47,63 @@ The Controls addon will automatically set up the props control table, which will
 
 Note that you don't need to use a template to take advantage of `args`.
 
+### Demonstrating callback behavior
+
+The **Actions** addon in the Canvas tab (with the addition of the [**Console** addon](https://storybook.js.org/addons/@storybook/addon-console)) displays messages sent to the console, including `log`s, `error`s and `warning`s, _but notably not `info`s._
+
+Feel free to add console messages that demonstrate callback behavior, especially their function signatures.
+
+Example:
+
+```js
+const onClick = (...args) => console.log('onClick args:', ...args)
+
+export const Button = args => <Button {...args} />
+Button.args = { onClick: onClick }
+```
+
+Simply passing `console.log` to callbacks like `onClick` is probably enough.
+
+The Actions addon adds some slightly different tools for demonstrating callbacks, but the added utility is not really worth using a new system for callback logging.
+
+### Customising source code snippets
+
+Make sure the source code snippets for demos gives the user useful information. There are a few ways to show source code snippets in the Docs Page:
+
+1. 'Dynamic', JSX-like rendering of the story. This is the default if the story uses `args`, and updates in response to changes in the Args Table.
+2. A literal, nearly character-for-character expression of the story. This is the fallback if the story does not use `args`, and is the same as the code snippet shown in the 'Story' addon in the Canvas tab. This option does not dynamically update with the Args Table, but _does_ show accessory code like hooks that is useful to explain how a component requires a ref or state.
+3. A hand-written snippet. It will receive syntax highlighting when shown on the Docs Page.
+
+To use #2 for a story that uses `args`, set `parameters.docs.source.type` to `'code'`:
+
+```js
+export const StatefulStory = () => {...}
+StatefulStory.parameters = { docs: { source: { type: 'code' } } }
+```
+
+This can be done at the story or component level.
+
+If neither of the auto-generated code snippets provide meaningful examples, use a handwritten snippet by setting `parameters.docs.source.code` to the string that you would like to appear in the code snippet:
+
+```js
+export const CustomCodeSnippet = () => {}
+CustomCodeSnippet.parameters = {
+    docs: {
+        source: {
+            code: `
+const ComponentDemo = () => {
+    const ref = useRef()
+    
+    return <ExampleComponent ref={ref} />
+}
+`,
+        },
+    },
+}
+```
+
+Read more about source code blocks at [Storybook: Doc Blocks - Source](https://storybook.js.org/docs/react/writing-docs/doc-blocks#source)
+
 ### Reusing a story template
 
 To keep stories concise and DRY, you can reuse a story template (that uses the `args` syntax) and set the relevant props on each story using `StoryName.args = { ... }`. That looks like this:
@@ -64,6 +121,21 @@ PrimaryDense.args = { ...Primary.args, dense: true }
 ```
 
 Note that templates may not be the best solution in some circumstances, for example when component composition varies between stories. In these cases, you should still see if you can apply `{...args}` props to one or more components in the story.
+
+`args` can be composed for reuse by spreading the args from one story into another that shares those args, for example:
+
+```js
+export const Primary = Template.bind({})
+Primary.args = {
+    primary: true,
+    label: 'Primary',
+    name: 'primaryName',
+    value: 'primaryValue',
+}
+
+export const PrimaryDense = Template.bind({})
+PrimaryDense.args = { ...Primary.args, dense: true }
+```
 
 Here is [some more information about templates](https://storybook.js.org/docs/react/writing-stories/introduction#using-args) from the storybook documentation.
 
@@ -162,11 +234,15 @@ Primary.parameters = {
 
 ## Making sure propTypes are correctly documented
 
-Imported prop types (either from another file or from another library) are currently not interpreted correctly by react docgen under the hood. The workaround for this is to create a configuration object to define that prop's `argTypes` that decides what the row in the `args` table should look like, and what control should be used. In this library, mostly the `type` in the args table and the control type were configured, leaving descriptions to the JSDoc above the prop type definition.
+Imported prop types (either from another file or from another library) are currently not interpreted correctly by react docgen under the hood. For this reason, it's best to use the React `prop-types` library for any props that will appear in user-facing stories.
+
+The workaround for imported props is to create a configuration object to define that prop's `argTypes` that decides what the row in the `args` table should look like, and what control should be used. In this library, mostly the `type` in the args table and the control type were configured, leaving descriptions to the JSDoc above the prop type definition.
 
 Read more about configuring the table at [Arg Types: Manual specification](https://storybook.js.org/docs/react/api/argtypes#manual-specification), and configuring controls at [Controls: Fully custom args](https://storybook.js.org/docs/react/essentials/controls#fully-custom-args).
 
-Here is an example for `buttonVarientPropType` from `shared-prop-types.js` in `ui-constants`:
+If a custom prop type is reused for multiple components, it makes sense to colocate the `argType` customisation object with the shared prop type.
+
+Here is an example for `buttonVariantPropType` from `shared-prop-types.js` in `ui-constants`:
 
 ```js
 // shared-prop-types.js
@@ -241,7 +317,7 @@ export const RepresentativeExample = Template.bind({})
 RepresentativeExample.parameters = { docs: { disable: false } }
 ```
 
-**NB:** Controls on the props will not work an `iframe` story on the Docs Page, but the Controls will work normally in the Canvas. It would be helpful to make a note for users so they know what to expect.
+**NB:** Controls on the props will not work for an `iframe` story on the Docs Page, but the Controls will work normally in the Canvas. It would be helpful to make a note for users so they know what to expect.
 
 #### Props extraction for portal components
 
@@ -264,6 +340,8 @@ export default {
 }
 ```
 
+Note that the JSX addon which is configured to not show default props in code snippets conveniently prevents this workaround from spamming a component's code snippet with props.
+
 ### Stories that use initial focus
 
 Components that have have a story to demonstrate an `initialFocus` prop cause an annoying behavior on the Docs Page. Whenever a control is changed, the whole page scrolls down to the initial focus story. For that reason, these stories should be disabled on the Docs Page by setting `parameters.docs.disable` to `true` on the Story:
@@ -272,4 +350,4 @@ Components that have have a story to demonstrate an `initialFocus` prop cause an
 export const InitialFocus = Template.bind({})
 InitialFocus.args = { initialFocus: true }
 InitialFocus.parameters = { docs: { disable: true } }
-````
+```
