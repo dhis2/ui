@@ -58,6 +58,20 @@ export const PlacementLeft = () => (
     </p>
 )
 
+export const ConfigurableOpenAndCloseDelays = args => (
+    <p>
+        <Tooltip {...args}>
+            The tooltip that opens when this content is moused over opens with 0
+            open or close delay
+        </Tooltip>
+    </p>
+)
+ConfigurableOpenAndCloseDelays.args = {
+    content: 'Some extra info',
+    openDelay: 0,
+    closeDelay: 0,
+}
+
 export const CustomElementViaTagProp = () => {
     return (
         <p>
