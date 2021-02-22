@@ -1,5 +1,6 @@
 import propTypes from '@dhis2/prop-types'
 import { colors, layers } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React, { useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { resolve } from 'styled-jsx/css'
@@ -36,9 +37,6 @@ const flipModifier = {
     options: { altBoundary: true },
 }
 
-const OPEN_DELAY = 200
-const CLOSE_DELAY = 400
-
 /**
  * @module
  * @param {Tooltip.PropTypes} props
@@ -52,9 +50,11 @@ const CLOSE_DELAY = 400
 const Tooltip = ({
     children,
     className,
+    closeDelay,
     content,
     dataTest,
     maxWidth,
+    openDelay,
     placement,
 }) => {
     const [open, setOpen] = useState(false)
@@ -68,7 +68,7 @@ const Tooltip = ({
 
         openTimerRef.current = setTimeout(() => {
             setOpen(true)
-        }, OPEN_DELAY)
+        }, openDelay)
     }
 
     const onMouseOut = () => {
@@ -76,7 +76,7 @@ const Tooltip = ({
 
         closeTimerRef.current = setTimeout(() => {
             setOpen(false)
-        }, CLOSE_DELAY)
+        }, closeDelay)
     }
 
     return (
@@ -134,8 +134,10 @@ const Tooltip = ({
 }
 
 Tooltip.defaultProps = {
+    closeDelay: 400,
     dataTest: 'dhis2-uicore-tooltip',
     maxWidth: 300,
+    openDelay: 200,
     placement: 'top',
     tag: 'span',
 }
@@ -145,17 +147,23 @@ Tooltip.defaultProps = {
  * @static
  * @prop {Node|function} [children]
  * @prop {string} [className]
+ * @prop {number} [closeDelay=400] Time (in ms) until tooltip closes after mouse out
  * @prop {Node} [content]
  * @prop {string} [dataTest=dhis2-uicore-tooltip]
  * @prop {number} [maxWidth=300]
+ * @prop {number} [openDelay=200] Time (in ms) until tooltip opens after mouse over
  * @prop {('top'|'bottom'|'right'|'left')} [placement=top]
  */
 Tooltip.propTypes = {
     children: propTypes.oneOfType([propTypes.node, propTypes.func]),
     className: propTypes.string,
+    /** Time (in ms) until tooltip closes after mouse out */
+    closeDelay: PropTypes.number,
     content: propTypes.node,
     dataTest: propTypes.string,
     maxWidth: propTypes.number,
+    /** Time (in ms) until tooltip open after mouse over */
+    openDelay: PropTypes.number,
     placement: propTypes.oneOf(['top', 'right', 'bottom', 'left']),
 }
 
