@@ -38,13 +38,14 @@ addParameters({
         storySort: {
             // Make sure docs & 'Getting Started' are first in list
             order: [
+                'Tips for Readers',
+                'Tips for Developers',
                 'Docs',
                 [
                     'Getting Started',
                     'Troubleshooting',
                     'Advanced Usage',
                     'Recipes',
-                    'Tips for Maintaining Storybook Documentation',
                 ],
             ],
             // Then sort the rest alphabetically
