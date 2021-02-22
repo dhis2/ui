@@ -39,7 +39,7 @@ addParameters({
             // Make sure docs & 'Getting Started' are first in list
             order: [
                 'Tips for Readers',
-                'Tips for Developers',
+                'Tips for Maintainers',
                 'UI Docs',
                 [
                     'Getting Started',
