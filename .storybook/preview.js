@@ -40,7 +40,7 @@ addParameters({
             order: [
                 'Tips for Readers',
                 'Tips for Developers',
-                'Docs',
+                'UI Docs',
                 [
                     'Getting Started',
                     'Troubleshooting',
