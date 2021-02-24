@@ -1,3 +1,16 @@
+# [6.3.0](https://github.com/dhis2/ui/compare/v6.2.3...v6.3.0) (2021-02-24)
+
+
+### Bug Fixes
+
+* **icons:** adjust IconBlock16, IconBlock24 alignment ([a79fc27](https://github.com/dhis2/ui/commit/a79fc27e454d397a8ed46ffd298339e4f0554e9b))
+* **icons:** adjust IconClock16 alignment ([debdbf1](https://github.com/dhis2/ui/commit/debdbf175a67345510d794732d4142eb302097ef))
+
+
+### Features
+
+* **icons:** add IconClockHistory16, IconClockHistory24 ([b2e23dc](https://github.com/dhis2/ui/commit/b2e23dc93af926144904bc20d507a6738f0b7d3a))
+
 ## [6.2.3](https://github.com/dhis2/ui/compare/v6.2.2...v6.2.3) (2021-02-18)
 
 
