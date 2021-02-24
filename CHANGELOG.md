@@ -1,3 +1,10 @@
+# [6.5.0-alpha.1](https://github.com/dhis2/ui/compare/v6.4.0...v6.5.0-alpha.1) (2021-02-24)
+
+
+### Features
+
+* **input:** add role attribute for input component ([895dfbc](https://github.com/dhis2/ui/commit/895dfbc41dd2bb4370c39f3b22c9dffb8104b717))
+
 # [6.4.0](https://github.com/dhis2/ui/compare/v6.3.0...v6.4.0) (2021-02-24)
 
 

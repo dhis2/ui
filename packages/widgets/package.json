@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/ui-widgets",
-    "version": "6.4.0",
+    "version": "6.5.0-alpha.1",
     "main": "build/cjs/lib.js",
     "module": "build/es/lib.js",
     "sideEffects": false,
@@ -26,8 +26,8 @@
         "react": "^16.8",
         "react-dom": "^16.8",
         "styled-jsx": "^3.2",
-        "@dhis2/ui-core": "6.4.0",
-        "@dhis2/ui-constants": "6.4.0",
+        "@dhis2/ui-core": "6.5.0-alpha.1",
+        "@dhis2/ui-constants": "6.5.0-alpha.1",
         "@dhis2/app-runtime": "^2",
         "@dhis2/d2-i18n": "^1"
     },
