@@ -1,3 +1,10 @@
+## [6.4.1](https://github.com/dhis2/ui/compare/v6.4.0...v6.4.1) (2021-02-24)
+
+
+### Bug Fixes
+
+* **tooltip:** configure open and close delays via prop (LIBS-126) ([#511](https://github.com/dhis2/ui/issues/511)) ([c572603](https://github.com/dhis2/ui/commit/c57260331e676f9d4c3d124636449b23ace0d710))
+
 # [6.4.0](https://github.com/dhis2/ui/compare/v6.3.0...v6.4.0) (2021-02-24)
 
 

@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/ui-constants",
-    "version": "6.4.0",
+    "version": "6.4.1",
     "description": "Constants used in the UI libs",
     "main": "build/cjs/lib.js",
     "module": "build/es/lib.js",
