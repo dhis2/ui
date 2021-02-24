@@ -8,8 +8,8 @@ import React from 'react'
  * @example import { TableHead } from '@dhis2/ui-core'
  * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
  */
-export const TableHead = ({ children, className, dataTest }) => (
-    <thead className={className} data-test={dataTest}>
+export const TableHead = ({ children, className, dataTest, role }) => (
+    <thead className={className} data-test={dataTest} role={role}>
         {children}
     </thead>
 )
@@ -23,10 +23,12 @@ TableHead.defaultProps = {
  * @static
  * @prop {TableRowHead|Array.<TableRowHead>} [children]
  * @prop {string} [className]
+ * @prop {string} [role]
  * @prop {string} [dataTest]
  */
 TableHead.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
+    role: propTypes.string,
 }
