@@ -116,6 +116,7 @@ export class Input extends Component {
 
     render() {
         const {
+            role,
             className,
             type,
             dense,
@@ -135,6 +136,7 @@ export class Input extends Component {
         return (
             <div className={cx('input', className)} data-test={dataTest}>
                 <input
+                    role={role}
                     id={name}
                     name={name}
                     placeholder={placeholder}
@@ -186,6 +188,7 @@ Input.defaultProps = {
  * @typedef {Object} PropTypes
  * @static
  *
+ * @prop {string} [role]
  * @prop {string} name
  * @prop {string} [type=text]
  * @prop {function} [onChange] - called with the signature `object, event`
@@ -219,6 +222,7 @@ Input.propTypes = {
     name: propTypes.string,
     placeholder: propTypes.string,
     readOnly: propTypes.bool,
+    role: propTypes.string,
     tabIndex: propTypes.string,
     type: propTypes.oneOf([
         'text',
