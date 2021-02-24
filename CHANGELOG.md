@@ -1,3 +1,10 @@
+# [6.4.0](https://github.com/dhis2/ui/compare/v6.3.0...v6.4.0) (2021-02-24)
+
+
+### Features
+
+* **table:** add role attributes for table components ([8c6c700](https://github.com/dhis2/ui/commit/8c6c700cb330ef84bd79343c10e5765d2d966a0d))
+
 # [6.3.0](https://github.com/dhis2/ui/compare/v6.2.3...v6.3.0) (2021-02-24)
 
 
