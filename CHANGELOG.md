@@ -1,3 +1,11 @@
+# [6.5.0](https://github.com/dhis2/ui/compare/v6.4.1...v6.5.0) (2021-02-25)
+
+
+### Features
+
+* **input:** add props for native max, min, step attributes ([739bfc9](https://github.com/dhis2/ui/commit/739bfc9673952a3d417de34465c43e4d69f0c45b))
+* **input-field:** add props for native max, min, step attr.'s ([8e7e25f](https://github.com/dhis2/ui/commit/8e7e25f406574631c55bd16a4a7e604dec917612))
+
 ## [6.4.1](https://github.com/dhis2/ui/compare/v6.4.0...v6.4.1) (2021-02-24)
 
 
