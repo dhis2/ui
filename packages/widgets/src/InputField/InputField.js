@@ -1,6 +1,7 @@
 import propTypes from '@dhis2/prop-types'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import { Field, Input, Box } from '@dhis2/ui-core'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 /**
@@ -29,6 +30,9 @@ class InputField extends React.Component {
             readOnly,
             placeholder,
             name,
+            max,
+            min,
+            step,
             valid,
             error,
             warning,
@@ -65,6 +69,9 @@ class InputField extends React.Component {
                         value={value || ''}
                         placeholder={placeholder}
                         disabled={disabled}
+                        max={max}
+                        min={min}
+                        step={step}
                         valid={valid}
                         warning={warning}
                         error={error}
@@ -100,6 +107,10 @@ InputField.defaultProps = {
  * @prop {string} [tabIndex]
  * @prop {string} [inputWidth]
  *
+ * @prop {string} [max] The native `max` attribute
+ * @prop {string} [min] The native `min` attribute
+ * @prop {string} [step] The native `step` attribute
+ *
  * @prop {boolean} [required]
  * @prop {boolean} [disabled]
  * @prop {boolean} [readOnly]
@@ -127,10 +138,16 @@ InputField.propTypes = {
     inputWidth: propTypes.string,
     label: propTypes.string,
     loading: propTypes.bool,
+    /** The [native `max` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefmax), for use when `type` is `'number'` */
+    max: PropTypes.string,
+    /** The [native `min` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefmin), for use when `type` is `'number'` */
+    min: PropTypes.string,
     name: propTypes.string,
     placeholder: propTypes.string,
     readOnly: propTypes.bool,
     required: propTypes.bool,
+    /** The [native `step` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefstep), for use when `type` is `'number'` */
+    step: PropTypes.string,
     tabIndex: propTypes.string,
     type: Input.propTypes.type,
     valid: sharedPropTypes.statusPropType,

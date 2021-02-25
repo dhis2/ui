@@ -129,6 +129,9 @@ export class Input extends Component {
             loading,
             value,
             tabIndex,
+            max,
+            min,
+            step,
             dataTest,
         } = this.props
 
@@ -141,6 +144,9 @@ export class Input extends Component {
                     ref={this.inputRef}
                     type={type}
                     value={value}
+                    max={max}
+                    min={min}
+                    step={step}
                     disabled={disabled}
                     readOnly={readOnly}
                     tabIndex={tabIndex}
@@ -196,6 +202,10 @@ Input.defaultProps = {
  * @prop {string} [value]
  * @prop {string} [tabIndex]
  *
+ * @prop {string} [max] The native `max` attribute
+ * @prop {string} [min] The native `min` attribute
+ * @prop {string} [step] The native `step` attribute
+ *
  * @prop {boolean} [disabled]
  * @prop {boolean} [readOnly]
  * @prop {boolean} [dense] - Compact mode
@@ -216,9 +226,15 @@ Input.propTypes = {
     error: sharedPropTypes.statusPropType,
     initialFocus: propTypes.bool,
     loading: propTypes.bool,
+    /** The [native `max` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefmax), for use when `type` is `'number'` */
+    max: propTypes.string,
+    /** The [native `min` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefmin), for use when `type` is `'number'` */
+    min: propTypes.string,
     name: propTypes.string,
     placeholder: propTypes.string,
     readOnly: propTypes.bool,
+    /** The [native `step` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefstep), for use when `type` is `'number'` */
+    step: propTypes.string,
     tabIndex: propTypes.string,
     type: propTypes.oneOf([
         'text',
