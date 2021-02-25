@@ -1,3 +1,10 @@
+# [6.5.0-alpha.2](https://github.com/dhis2/ui/compare/v6.5.0-alpha.1...v6.5.0-alpha.2) (2021-02-25)
+
+
+### Bug Fixes
+
+* **checkbox:** make checkbox accessible ([33b3079](https://github.com/dhis2/ui/commit/33b3079c7d5e8c58f98f089a06ce96a58aebc6f2))
+
 # [6.5.0-alpha.1](https://github.com/dhis2/ui/compare/v6.4.0...v6.5.0-alpha.1) (2021-02-24)
 
 
