@@ -2,10 +2,9 @@ import propTypes from '@dhis2/prop-types'
 import { colors, layers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useRef, useState } from 'react'
-import { createPortal } from 'react-dom'
 import { resolve } from 'styled-jsx/css'
-import { useLayerContext } from '../Layer/Layer.js'
 import { Popper } from '../Popper/Popper.js'
+import { Portal } from '../portal/Portal.js'
 
 const TOOLTIP_OFFSET = 4
 
@@ -61,7 +60,6 @@ const Tooltip = ({
     const popperReference = useRef()
     const openTimerRef = useRef(null)
     const closeTimerRef = useRef(null)
-    const { node: portalRootNode } = useLayerContext()
 
     const onMouseOver = () => {
         clearTimeout(closeTimerRef.current)
@@ -98,8 +96,8 @@ const Tooltip = ({
                 </span>
             )}
 
-            {open &&
-                createPortal(
+            {open && (
+                <Portal>
                     <Popper
                         className={popperStyle.className}
                         placement={placement}
@@ -112,9 +110,10 @@ const Tooltip = ({
                         >
                             {content}
                         </div>
-                    </Popper>,
-                    portalRootNode
-                )}
+                    </Popper>
+                </Portal>
+            )}
+
             {popperStyle.styles}
             <style jsx>{`
                 div {

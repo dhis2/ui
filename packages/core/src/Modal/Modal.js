@@ -1,5 +1,5 @@
 import propTypes from '@dhis2/prop-types'
-import { layers, spacers, spacersNum } from '@dhis2/ui-constants'
+import { spacers, spacersNum } from '@dhis2/ui-constants'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React from 'react'
@@ -30,9 +30,6 @@ const scrollBoxCard = resolve`
  * ModelTitle (optional)
  * ModelContent (required)
  * ModelActions (optional)
- * @module
- * @param {Modal.PropTypes} props
- * @returns {React.Component}
  *
  * @example import { Modal } from @dhis2/ui-core
  * @example
@@ -56,7 +53,7 @@ export const Modal = ({
     position,
     dataTest,
 }) => (
-    <Layer onClick={onClose} level={layers.blocking} translucent>
+    <Layer onClick={onClose} translucent>
         <CenteredContent position={position}>
             <aside
                 data-test={dataTest}
