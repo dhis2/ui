@@ -1,0 +1,5 @@
+/* Styles for storybook docs or anything else in the 'preview' frame go here */
+
+.sbdocs.sbdocs-a:hover {
+    text-decoration: underline;
+}
