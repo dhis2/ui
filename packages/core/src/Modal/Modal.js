@@ -18,6 +18,15 @@ const scrollBoxCard = resolve`
     }
 `
 
+const centeredContent = resolve`
+    .top {
+        padding-top: ${spacers.dp64};
+    }
+    .bottom {
+        padding-bottom: ${spacers.dp64};
+    }
+`
+
 /**
  * @module
  * @param {Modal.PropTypes} props
@@ -57,14 +66,18 @@ export const Modal = ({
     dataTest,
 }) => (
     <Layer onClick={onClose} level={layers.blocking} translucent>
-        <CenteredContent position={position}>
+        <CenteredContent
+            position={position}
+            className={centeredContent.className}
+        >
             <aside
                 data-test={dataTest}
-                className={cx(className, position, { small, large })}
+                className={cx(className, { small, large })}
             >
                 <Card className={scrollBoxCard.className}>{children}</Card>
             </aside>
             {scrollBoxCard.styles}
+            {centeredContent.styles}
         </CenteredContent>
 
         <style jsx>{`
@@ -74,14 +87,6 @@ export const Modal = ({
                 max-height: calc(100vh - ${2 * spacersNum.dp64}px);
                 max-width: calc(100vw - ${2 * spacersNum.dp64}px);
                 width: 600px;
-            }
-
-            aside.top {
-                margin-top: ${spacers.dp64};
-            }
-
-            aside.bottom {
-                margin-bottom: ${spacers.dp64};
             }
 
             aside.small {
