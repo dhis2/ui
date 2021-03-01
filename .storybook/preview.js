@@ -38,9 +38,12 @@ addParameters({
         storySort: {
             // Make sure docs & 'Getting Started' are first in list
             order: [
-                'Tips for Readers',
-                'Tips for Maintainers',
-                'UI Docs',
+                'About This Documentation',
+                [
+                    'For readers',
+                    'For maintainers',
+                ],
+                'Using UI',
                 [
                     'Getting Started',
                     'Troubleshooting',

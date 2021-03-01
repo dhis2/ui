@@ -1,14 +1,14 @@
 import { Meta } from '@storybook/addon-docs/blocks'
 
-<Meta title="Tips for Readers" />
+<Meta title="About This Documentation/For readers" />
 
 # Tips for Using This Documentation
 
 This documentation for the DHIS2 UI library is made using [Storybook](https://storybook.js.org/). Here is a quick tour and a few tips for making the most of the documentation in these pages.
 
-## UI Docs section
+## 'Using UI' section
 
-In the **UI Docs** section in the menu on the left, there are a few pages describing how to use the UI library. Start here to get a big-picture idea of how to use the library in your project.
+In the **Using UI** section in the menu on the left, there are a few pages describing how to use the UI library. Start here to get a big-picture idea of how to use the library in your project.
 
 **Recipes** are longer-form descriptions of complex applications of UI components.
 
@@ -42,7 +42,7 @@ Depending on the component, this code snippet will be dynamically generated from
 
 #### Some exceptions
 
-A few components have unusual behaviors that don't work well on the Docs Page, and a few workarounds are made for them.  In every case, you can find on the Docs Page a description of the component, its props, and at least one demo. Some of these unusual demos on the Docs Page won't update dynamically in response to the props controls.
+A few components have unusual behaviors that don't work well on the Docs Page, and a few workarounds are made for them. In every case, you can find on the Docs Page a description of the component, its props, and at least one demo. Some of these unusual demos on the Docs Page won't update dynamically in response to the props controls.
 
 Note that all demos, displayed in the Docs Page or not, _work completely normally in the Canvas tab, including updating in response to props controls_. View the demos in the Canvas tab if they are not working on the Docs Page.
 
@@ -54,7 +54,7 @@ In the **Controls** tab, you will see descriptions of the component's props and 
 
 In the **Actions** tab, you will see the results of callback functions that are triggered by the components. Console commands are logged in the Actions tab as well.
 
-In the **Story** tab, you will find the code that was written to create this demo with Storybook. This can be useful for more complex components that require hooks or state to control them, but sometimes can be unhelpful for simple components that are predominantly shaped by props.  When you see `{...args}` added to the props of a component in the code here, that means it's receiving the dynamically-controlled props from **Controls**.
+In the **Story** tab, you will find the code that was written to create this demo with Storybook. This can be useful for more complex components that require hooks or state to control them, but sometimes can be unhelpful for simple components that are predominantly shaped by props. When you see `{...args}` added to the props of a component in the code here, that means it's receiving the dynamically-controlled props from **Controls**.
 
 In the **JSX** tab, you can find the dynamic JSX output from the rendered component. It updates in response to changing a component's props using Controls, so this is useful for configuring a component and then getting the exact snippet you need to copy and paste into your project. For some unusual components, the dynamically-rendered JSX is not as helpful as the code that's found in the Story tab.
 
