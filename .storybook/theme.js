@@ -1,8 +1,6 @@
 import { create } from '@storybook/theming/create'
 import { colors } from '@dhis2/ui-constants'
 
-const DHIS2_ACCENT = "#43cbcb"
-
 /**
  * See here for an example of these values:
  * https://github.com/storybookjs/storybook/blob/master/lib/theming/src/themes/light.ts
@@ -21,7 +19,7 @@ export default create({
      * '4-square' icon in sidebar, sidebar highlight color, link color,
      * toolbar icon color (when hovered), focused input highlight
      */
-    colorSecondary: DHIS2_ACCENT,
+    colorSecondary: colors.teal600,
 
     /**
      * UI
@@ -64,7 +62,7 @@ export default create({
     // barTextColor: 'purple',
 
     /** Text color and underline of selected tab in toolbars (e.g. Canvas, Controls) */
-    barSelectedColor: DHIS2_ACCENT,
+    barSelectedColor: colors.teal600,
 
     /** Background color of toolbars (addons and top bar) */
     // barBg: 'yellow',
@@ -84,7 +82,7 @@ export default create({
     /**
      * Brand
      */
-    brandTitle: 'DHIS 2 UI',
+    brandTitle: 'DHIS2 UI',
     // TODO: Better place to send this?
     brandUrl: 'https://www.dhis2.org',
     // TODO: Serve this statically?
