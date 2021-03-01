@@ -1,3 +1,10 @@
+## [6.5.1](https://github.com/dhis2/ui/compare/v6.5.0...v6.5.1) (2021-03-01)
+
+
+### Bug Fixes
+
+* **modal:** correctly close modal when clicked above or below (LIBS-127) ([#522](https://github.com/dhis2/ui/issues/522)) ([d63baf7](https://github.com/dhis2/ui/commit/d63baf77de6de302e0f4f38793c008a3ce083359))
+
 # [6.5.0](https://github.com/dhis2/ui/compare/v6.4.1...v6.5.0) (2021-02-25)
 
 
