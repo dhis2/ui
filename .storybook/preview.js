@@ -3,6 +3,15 @@ import React, { Fragment } from 'react'
 import { jsxDecorator } from 'storybook-addon-jsx'
 import { addDecorator, addParameters } from '@storybook/react'
 import '@storybook/addon-console'
+import {
+    Title,
+    Subtitle,
+    Description,
+    Primary,
+    ArgsTable,
+    Stories,
+    PRIMARY_STORY,
+} from '@storybook/addon-docs/blocks'
 import { CssReset } from '@dhis2/ui-core'
 
 // Enable storybook jsx visualization
@@ -36,13 +45,10 @@ addDecorator(Component => (
 addParameters({
     options: {
         storySort: {
-            // Make sure docs & 'Getting Started' are first in list
+            // Manually sort top content
             order: [
                 'About This Documentation',
-                [
-                    'For readers',
-                    'For maintainers',
-                ],
+                ['For readers', 'For maintainers'],
                 'Using UI',
                 [
                     'Getting Started',
@@ -54,6 +60,19 @@ addParameters({
             // Then sort the rest alphabetically
             method: 'alphabetical',
         },
+    },
+    docs: {
+        // Customize docs page layout (in order to rename 'Stories' section)
+        page: () => (
+            <>
+                <Title />
+                <Subtitle />
+                <Description />
+                <Primary />
+                <ArgsTable story={PRIMARY_STORY} />
+                <Stories title="Examples" />
+            </>
+        ),
     },
     jsx: {
         filterProps: val => val !== undefined,
