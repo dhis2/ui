@@ -73,6 +73,32 @@ PlacementBottom.args = { placement: 'bottom' }
 export const PlacementLeft = Template.bind({})
 PlacementLeft.args = { placement: 'left' }
 
+export const ConfigurableOpenAndCloseDelays = args => (
+    <p>
+        <Tooltip {...args}>
+            The tooltip that opens when this content is moused over opens with 0
+            open or close delay
+        </Tooltip>
+    </p>
+)
+ConfigurableOpenAndCloseDelays.args = {
+    content: 'Some extra info',
+    openDelay: 0,
+    closeDelay: 0,
+}
+
+export const CustomElementViaTagProp = () => {
+    return (
+        <p>
+            I am a{' '}
+            <Tooltip content="Some extra info" tag="em">
+                paragraph
+            </Tooltip>{' '}
+            that contains a tooltip.
+        </p>
+    )
+}
+
 export const CustomBuiltInComponent = args => {
     return (
         <p>

@@ -26,6 +26,7 @@ const tableCellHeadStyles = css`
  * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
  */
 export const TableCellHead = ({
+    role,
     colSpan,
     rowSpan,
     dense,
@@ -38,6 +39,7 @@ export const TableCellHead = ({
         rowSpan={rowSpan}
         className={cx({ dense }, className)}
         data-test={dataTest}
+        role={role}
     >
         {children}
 
@@ -57,6 +59,7 @@ TableCellHead.defaultProps = {
  * @prop {bool} [dense]
  * @prop {Node} [children]
  * @prop {string} [className]
+ * @prop {string} [role]
  * @prop {string} [dataTest]
  */
 TableCellHead.propTypes = {
@@ -66,5 +69,6 @@ TableCellHead.propTypes = {
     dataTest: PropTypes.string,
     /** Uses less padding and height for information-dense layouts */
     dense: PropTypes.bool,
+    role: PropTypes.string,
     rowSpan: PropTypes.string,
 }

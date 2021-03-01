@@ -1,3 +1,45 @@
+## [6.5.1](https://github.com/dhis2/ui/compare/v6.5.0...v6.5.1) (2021-03-01)
+
+
+### Bug Fixes
+
+* **modal:** correctly close modal when clicked above or below (LIBS-127) ([#522](https://github.com/dhis2/ui/issues/522)) ([d63baf7](https://github.com/dhis2/ui/commit/d63baf77de6de302e0f4f38793c008a3ce083359))
+
+# [6.5.0](https://github.com/dhis2/ui/compare/v6.4.1...v6.5.0) (2021-02-25)
+
+
+### Features
+
+* **input:** add props for native max, min, step attributes ([739bfc9](https://github.com/dhis2/ui/commit/739bfc9673952a3d417de34465c43e4d69f0c45b))
+* **input-field:** add props for native max, min, step attr.'s ([8e7e25f](https://github.com/dhis2/ui/commit/8e7e25f406574631c55bd16a4a7e604dec917612))
+
+## [6.4.1](https://github.com/dhis2/ui/compare/v6.4.0...v6.4.1) (2021-02-24)
+
+
+### Bug Fixes
+
+* **tooltip:** configure open and close delays via prop (LIBS-126) ([#511](https://github.com/dhis2/ui/issues/511)) ([c572603](https://github.com/dhis2/ui/commit/c57260331e676f9d4c3d124636449b23ace0d710))
+
+# [6.4.0](https://github.com/dhis2/ui/compare/v6.3.0...v6.4.0) (2021-02-24)
+
+
+### Features
+
+* **table:** add role attributes for table components ([8c6c700](https://github.com/dhis2/ui/commit/8c6c700cb330ef84bd79343c10e5765d2d966a0d))
+
+# [6.3.0](https://github.com/dhis2/ui/compare/v6.2.3...v6.3.0) (2021-02-24)
+
+
+### Bug Fixes
+
+* **icons:** adjust IconBlock16, IconBlock24 alignment ([a79fc27](https://github.com/dhis2/ui/commit/a79fc27e454d397a8ed46ffd298339e4f0554e9b))
+* **icons:** adjust IconClock16 alignment ([debdbf1](https://github.com/dhis2/ui/commit/debdbf175a67345510d794732d4142eb302097ef))
+
+
+### Features
+
+* **icons:** add IconClockHistory16, IconClockHistory24 ([b2e23dc](https://github.com/dhis2/ui/commit/b2e23dc93af926144904bc20d507a6738f0b7d3a))
+
 ## [6.2.3](https://github.com/dhis2/ui/compare/v6.2.2...v6.2.3) (2021-02-18)
 
 

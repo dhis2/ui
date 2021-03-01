@@ -8,8 +8,8 @@ import React from 'react'
  * @example import { TableBody } from '@dhis2/ui-core'
  * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
  */
-export const TableBody = ({ children, className, dataTest }) => (
-    <tbody className={className} data-test={dataTest}>
+export const TableBody = ({ children, className, dataTest, role }) => (
+    <tbody className={className} data-test={dataTest} role={role}>
         {children}
     </tbody>
 )
@@ -23,6 +23,7 @@ TableBody.defaultProps = {
  * @static
  * @prop {TableRow|Array.<TableRow>} [children]
  * @prop {string} [className]
+ * @prop {string} [role]
  * @prop {string} [dataTest]
  */
 TableBody.propTypes = {
@@ -30,4 +31,5 @@ TableBody.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     dataTest: PropTypes.string,
+    role: PropTypes.string,
 }

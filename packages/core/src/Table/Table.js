@@ -22,13 +22,14 @@ const tableStyles = css`
  * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
  */
 export const Table = ({
+    role,
     children,
     className,
     dataTest,
     suppressZebraStriping,
 }) => (
     <Provider value={{ suppressZebraStriping }}>
-        <table className={className} data-test={dataTest}>
+        <table className={className} data-test={dataTest} role={role}>
             {children}
 
             <style jsx>{tableStyles}</style>
@@ -45,6 +46,7 @@ Table.defaultProps = {
  * @static
  * @prop {TableHead|TableBody|TableFoot|Array.<TableHead|TableBody|TableFoot>} [children]
  * @prop {string} [className]
+ * @prop {string} [role]
  * @prop {string} [dataTest]
  * @prop {bool} [suppressZebraStriping]
  */
@@ -53,6 +55,7 @@ Table.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     dataTest: PropTypes.string,
+    role: PropTypes.string,
     /** Remove the default striping on alternating rows */
     suppressZebraStriping: PropTypes.bool,
 }

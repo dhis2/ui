@@ -29,6 +29,9 @@ class InputField extends React.Component {
             readOnly,
             placeholder,
             name,
+            max,
+            min,
+            step,
             valid,
             error,
             warning,
@@ -65,6 +68,9 @@ class InputField extends React.Component {
                         value={value || ''}
                         placeholder={placeholder}
                         disabled={disabled}
+                        max={max}
+                        min={min}
+                        step={step}
                         valid={valid}
                         warning={warning}
                         error={error}
@@ -99,6 +105,10 @@ InputField.defaultProps = {
  * @prop {string} [value]
  * @prop {string} [tabIndex]
  * @prop {string} [inputWidth]
+ *
+ * @prop {string} [max] The native `max` attribute
+ * @prop {string} [min] The native `min` attribute
+ * @prop {string} [step] The native `step` attribute
  *
  * @prop {boolean} [required]
  * @prop {boolean} [disabled]
@@ -135,6 +145,10 @@ InputField.propTypes = {
     label: PropTypes.string,
     /** Adds a loading indicator beside the input */
     loading: PropTypes.bool,
+    /** The [native `max` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefmax), for use when `type` is `'number'` */
+    max: PropTypes.string,
+    /** The [native `min` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefmin), for use when `type` is `'number'` */
+    min: PropTypes.string,
     /** Name associated with the input. Passed to event handler callbacks in object */
     name: PropTypes.string,
     /** Placeholder text for the input */
@@ -143,6 +157,8 @@ InputField.propTypes = {
     readOnly: PropTypes.bool,
     /** Indicates this input is required */
     required: PropTypes.bool,
+    /** The [native `step` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefstep), for use when `type` is `'number'` */
+    step: PropTypes.string,
     tabIndex: PropTypes.string,
     /** Type of input */
     type: Input.propTypes.type,

@@ -18,6 +18,7 @@ const tableRowStyles = css`
  * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
  */
 export const TableRow = ({
+    role,
     children,
     className,
     dataTest,
@@ -33,7 +34,11 @@ export const TableRow = ({
             : !suppressZebraStripingFromContext
 
     return (
-        <tr className={cx(className, { zebraStriping })} data-test={dataTest}>
+        <tr
+            className={cx(className, { zebraStriping })}
+            data-test={dataTest}
+            role={role}
+        >
             {children}
 
             <style jsx>{tableRowStyles}</style>
@@ -50,6 +55,7 @@ TableRow.defaultProps = {
  * @static
  * @prop {TableCell|TableCellHead|Array.<TableCell|TableCellHead>} [children]
  * @prop {string} [className]
+ * @prop {string} [role]
  * @prop {string} [dataTest]
  */
 TableRow.propTypes = {
@@ -57,6 +63,7 @@ TableRow.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     dataTest: PropTypes.string,
+    role: PropTypes.string,
     /** Disables the default row striping for this row */
     suppressZebraStriping: PropTypes.bool,
 }

@@ -11,6 +11,7 @@ import { TableRow } from './TableRow.js'
  * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
  */
 export const TableRowHead = ({
+    role,
     children,
     className,
     dataTest,
@@ -20,6 +21,7 @@ export const TableRowHead = ({
         className={className}
         dataTest={dataTest}
         suppressZebraStriping={suppressZebraStriping}
+        role={role}
     >
         {children}
     </TableRow>
@@ -34,6 +36,7 @@ TableRowHead.defaultProps = {
  * @static
  * @prop {TableCellHead|Array.<TableCellHead>} [children]
  * @prop {string} [className]
+ * @prop {string} [role]
  * @prop {string} [dataTest]
  */
 TableRowHead.propTypes = {
@@ -41,6 +44,7 @@ TableRowHead.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     dataTest: PropTypes.string,
+    role: PropTypes.string,
     /** Disables the default row striping for this row */
     suppressZebraStriping: PropTypes.bool,
 }
