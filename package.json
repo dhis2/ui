@@ -76,7 +76,7 @@
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.5",
         "react": "16.8",
-        "react-dev-utils": "^10.2.1",
+        "react-dev-utils": "^11.0.3",
         "react-docgen": "^5.3.0",
         "react-dom": "16.8",
         "storybook-addon-jsx": "^7.3.6",
