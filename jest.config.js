@@ -4,7 +4,7 @@ module.exports = {
     roots: ['<rootDir>/packages'],
     testPathIgnorePatterns: [
         '/node_modules/',
-        '/packages\/.*\/build',
+        '/packages/.*/build',
         'Transfer/__tests__/common/createChildren.js',
     ],
 }
