@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React, { Children, cloneElement, isValidElement } from 'react'
 
 /**
@@ -57,10 +57,12 @@ Menu.defaultProps = {
  * @prop {boolean} [dense]
  */
 Menu.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    dense: propTypes.bool,
+    /** Typically `MenuItem`, `MenuDivider`, and `MenuSectionHeader` */
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    /** Applies `dense` property to all child components unless already specified */
+    dense: PropTypes.bool,
 }
 
 export { Menu }

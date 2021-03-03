@@ -1,10 +1,16 @@
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
+import { FlyoutMenu } from '../FlyoutMenu/FlyoutMenu.js'
+import { MenuItem } from '../MenuItem/MenuItem.js'
 import { DropdownButton } from './DropdownButton.js'
 
-export default {
-    title: 'DropdownButton',
-    component: DropdownButton,
-}
+const description = `
+Presents several actions to a user in a small space. Can replace single, individual buttons. Should only be used for actions that are related to one another. Ensure the button has a useful level that communicates that actions are contained within. Dropdown buttons do not have an explicit action, only expanding the list of contained actions.
+
+\`\`\`js
+import { DropdownButton } from '@dhis2/ui'
+\`\`\`
+`
 
 window.onClick = (payload, event) => {
     console.log('onClick payload', payload)
@@ -15,77 +21,72 @@ const onClick = (...args) => window.onClick(...args)
 
 const Simple = <span>Simplest thing</span>
 
-export const Default = () => (
-    <DropdownButton name="default" value="nothing" component={Simple}>
-        Label me!
-    </DropdownButton>
-)
+const { sizeArgType, buttonVariantArgType } = sharedPropTypes
 
-export const WithClick = () => (
-    <DropdownButton
-        name="default"
-        value="nothing"
-        onClick={onClick}
-        component={Simple}
-    >
-        Label me!
-    </DropdownButton>
-)
+export default {
+    title: 'Actions/Buttons/Dropdown Button',
+    component: DropdownButton,
+    parameters: { docs: { description: { component: description } } },
+    argTypes: {
+        primary: { ...buttonVariantArgType },
+        secondary: { ...buttonVariantArgType },
+        destructive: { ...buttonVariantArgType },
+        small: { ...sizeArgType },
+        large: { ...sizeArgType },
+    },
+    // Default args for all stories (can be overridden)
+    args: {
+        name: 'buttonName',
+        value: 'buttonValue',
+        component: Simple,
+        children: 'Label me!',
+    },
+}
 
-export const Primary = () => (
-    <DropdownButton name="default" value="nothing" primary component={Simple}>
-        Label me!
-    </DropdownButton>
-)
+const Template = args => <DropdownButton {...args} />
 
-export const Secondary = () => (
-    <DropdownButton name="default" value="nothing" secondary component={Simple}>
-        Label me!
-    </DropdownButton>
-)
+export const Default = Template.bind({})
 
-export const Destructive = () => (
-    <DropdownButton
-        name="default"
-        value="nothing"
-        destructive
-        component={Simple}
-    >
-        Label me!
-    </DropdownButton>
-)
+export const WithClick = Template.bind({})
+WithClick.args = { onClick: onClick }
 
-export const Disabled = () => (
-    <DropdownButton name="default" value="nothing" disabled component={Simple}>
-        Label me!
-    </DropdownButton>
-)
+export const Primary = Template.bind({})
+Primary.args = { primary: true }
 
-export const Small = () => (
-    <DropdownButton name="default" value="nothing" small component={Simple}>
-        Label me!
-    </DropdownButton>
-)
+export const Secondary = Template.bind({})
+Secondary.args = { secondary: true }
 
-export const Large = () => (
-    <DropdownButton name="default" value="nothing" large component={Simple}>
-        Label me!
-    </DropdownButton>
-)
+export const Destructive = Template.bind({})
+Destructive.args = { destructive: true }
 
-export const WithMenu = () => (
-    <DropdownButton name="default" value="nothing" component={Simple}>
-        Label me!
-    </DropdownButton>
-)
+export const Disabled = Template.bind({})
+Disabled.args = { disabled: true }
 
-export const InitialFocus = () => (
-    <DropdownButton
-        name="default"
-        value="nothing"
-        initialFocus
-        component={Simple}
-    >
-        Label me!
-    </DropdownButton>
-)
+export const Small = Template.bind({})
+Small.args = { small: true }
+
+export const Large = Template.bind({})
+Large.args = { large: true }
+
+export const WithMenu = Template.bind({})
+WithMenu.args = {
+    component: (
+        <FlyoutMenu>
+            <MenuItem label="Item 1" />
+            <MenuItem label="Item 2" />
+            <MenuItem label="Item 3" />
+        </FlyoutMenu>
+    ),
+}
+// FlyoutMenu needs iframe
+// But docs page down too much with iframe, so disabled
+WithMenu.parameters = { docs: { disable: true } }
+
+export const InitialFocus = Template.bind({})
+InitialFocus.args = { initialFocus: true }
+/**
+ * 'Initial focus' stories cause the docs page to scroll away each time
+ * a control is changed, therefore it is omitted from the docs page (but
+ * not the normal 'canvas' story viewer)
+ */
+InitialFocus.parameters = { docs: { disable: true } }

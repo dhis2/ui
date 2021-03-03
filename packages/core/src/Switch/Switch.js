@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { colors, theme, sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React, { Component, createRef } from 'react'
 import { SwitchRegular } from '../Icons/index.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
@@ -186,22 +186,34 @@ Switch.defaultProps = {
  * @prop {string} [dataTest]
  */
 Switch.propTypes = {
-    checked: propTypes.bool,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    dense: propTypes.bool,
-    disabled: propTypes.bool,
+    checked: PropTypes.bool,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    /** Makes the switch smaller for information-dense layouts */
+    dense: PropTypes.bool,
+    /** Disables the switch */
+    disabled: PropTypes.bool,
+    /** Applies 'error' styles for validation feedback. Mutually exclusive with `valid` and `warning` prop types */
     error: sharedPropTypes.statusPropType,
-    initialFocus: propTypes.bool,
-    label: propTypes.node,
-    name: propTypes.string,
-    tabIndex: propTypes.string,
+    /** Grab initial focus on the page */
+    initialFocus: PropTypes.bool,
+    /** Label for the switch. Can be a string or an element, for example an image */
+    label: PropTypes.node,
+    /** Name associated with the switch. Passed to event handlers in object */
+    name: PropTypes.string,
+    tabIndex: PropTypes.string,
+    /** Applies 'valid' styles for validation feedback. Mutually exclusive with `error` and `warning` prop types */
     valid: sharedPropTypes.statusPropType,
-    value: propTypes.string,
+    /** Value associated with the switch. Passed to event handlers in object */
+    value: PropTypes.string,
+    /** Applies 'warning' styles for validation feedback. Mutually exclusive with `valid` and `error` prop types */
     warning: sharedPropTypes.statusPropType,
-    onBlur: propTypes.func,
-    onChange: propTypes.func,
-    onFocus: propTypes.func,
+    /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
+    onBlur: PropTypes.func,
+    /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
+    onChange: PropTypes.func,
+    /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
+    onFocus: PropTypes.func,
 }
 
 export { Switch }

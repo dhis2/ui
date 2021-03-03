@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
@@ -59,10 +59,11 @@ CenteredContent.defaultProps = {
  * @prop {string} [position=middle] One of `top`, `middle`, `bottom`
  */
 CenteredContent.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    position: propTypes.oneOf(['top', 'middle', 'bottom']),
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    /** Vertical alignment */
+    position: PropTypes.oneOf(['top', 'middle', 'bottom']),
 }
 
 export { CenteredContent }

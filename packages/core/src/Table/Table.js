@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import css from 'styled-jsx/css'
 import { Provider } from './TableContext.js'
@@ -51,9 +51,11 @@ Table.defaultProps = {
  * @prop {bool} [suppressZebraStriping]
  */
 Table.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    role: propTypes.string,
-    suppressZebraStriping: propTypes.bool,
+    /** Should be `<TableHead>`, `<TableBody>`, and `<TableFoot>` components */
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    role: PropTypes.string,
+    /** Remove the default striping on alternating rows */
+    suppressZebraStriping: PropTypes.bool,
 }

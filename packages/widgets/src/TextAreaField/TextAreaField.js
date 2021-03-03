@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import { Field, TextArea, Box } from '@dhis2/ui-core'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 /**
@@ -122,31 +122,53 @@ TextAreaField.defaultProps = {
  * @prop {string} [dataTest]
  */
 TextAreaField.propTypes = {
-    autoGrow: propTypes.bool,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    dense: propTypes.bool,
-    disabled: propTypes.bool,
+    /** Grow the text area in response to overflow instead of adding a scroll bar */
+    autoGrow: PropTypes.bool,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    /** Compact mode */
+    dense: PropTypes.bool,
+    /** Disables the textarea and makes in non-interactive */
+    disabled: PropTypes.bool,
+    /** Applies 'error' styles for validation feedback. Mutually exclusive with `valid` and `warning` props */
     error: sharedPropTypes.statusPropType,
-    helpText: propTypes.string,
-    initialFocus: propTypes.bool,
-    inputWidth: propTypes.string,
-    label: propTypes.string,
-    loading: propTypes.bool,
-    name: propTypes.string,
-    placeholder: propTypes.string,
-    readOnly: propTypes.bool,
-    required: propTypes.bool,
-    resize: propTypes.oneOf(['none', 'both', 'horizontal', 'vertical']),
-    rows: propTypes.number,
-    tabIndex: propTypes.string,
+    /** Adds useful help text below the textarea */
+    helpText: PropTypes.string,
+    /** Grabs initial focus on the page */
+    initialFocus: PropTypes.bool,
+    /** Sets the width of the textarea. Minimum 220px. Any valid CSS measurement can be used */
+    inputWidth: PropTypes.string,
+    /** Labels the textarea */
+    label: PropTypes.string,
+    /** Adds a loading spinner */
+    loading: PropTypes.bool,
+    /** Name associated with the text area. Passed in object argument to event handlers. */
+    name: PropTypes.string,
+    /** Placeholder text for an empty textarea */
+    placeholder: PropTypes.string,
+    /** Makes the textarea read-only */
+    readOnly: PropTypes.bool,
+    /** Adds an asterisk to the label to indicate this field is required */
+    required: PropTypes.bool,
+    /** [Resize property](https://developer.mozilla.org/en-US/docs/Web/CSS/resize) for the textarea element */
+    resize: PropTypes.oneOf(['none', 'both', 'horizontal', 'vertical']),
+    /** Initial height of the textarea, in lines of text */
+    rows: PropTypes.number,
+    tabIndex: PropTypes.string,
+    /** Applies 'valid' styles for validation feedback. Mutually exclusive with `warning` and `error` props */
     valid: sharedPropTypes.statusPropType,
-    validationText: propTypes.string,
-    value: propTypes.string,
+    /** Validation text below the textarea to provide validation feedback. Changes appearance depending on validation status */
+    validationText: PropTypes.string,
+    /** Value in the textarea. Can be used to control component (recommended). Passed in object argument to event handlers. */
+    value: PropTypes.string,
+    /** Applies 'warning' styles for validation feedback. Mutually exclusive with `valid` and `error` props */
     warning: sharedPropTypes.statusPropType,
-    onBlur: propTypes.func,
-    onChange: propTypes.func,
-    onFocus: propTypes.func,
+    /** Called with signature ({ name: string, value: string }, event) */
+    onBlur: PropTypes.func,
+    /** Called with signature ({ name: string, value: string }, event) */
+    onChange: PropTypes.func,
+    /** Called with signature ({ name: string, value: string }, event) */
+    onFocus: PropTypes.func,
 }
 
 export { TextAreaField }

@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { extractHeaderLabels } from './extractHeaderLabels.js'
 import { Table } from './Table.js'
@@ -42,10 +42,11 @@ export const StackedTable = ({
  * an empty string must be provided
  */
 StackedTable.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    headerLabels: propTypes.arrayOf(propTypes.string),
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    /** Labels for columns. Use an empty string for a column without a header. */
+    headerLabels: PropTypes.arrayOf(PropTypes.string),
 }
 
 StackedTable.defaultProps = {

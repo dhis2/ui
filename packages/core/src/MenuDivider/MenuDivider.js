@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { Divider } from '../Divider/Divider.js'
 
@@ -42,9 +42,9 @@ MenuDivider.defaultProps = {
  * @prop {boolean} [dense]
  */
 MenuDivider.propTypes = {
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    dense: propTypes.bool,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    dense: PropTypes.bool,
 }
 
 export { MenuDivider }

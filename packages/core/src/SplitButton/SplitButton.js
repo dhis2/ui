@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import css from 'styled-jsx/css'
 import { Button } from '../Button/Button.js'
@@ -174,23 +174,34 @@ SplitButton.defaultProps = {
  * @prop {string} [dataTest]
  */
 SplitButton.propTypes = {
-    children: propTypes.string,
-    className: propTypes.string,
-    component: propTypes.element,
-    dataTest: propTypes.string,
+    children: PropTypes.string,
+    className: PropTypes.string,
+    /** Component to render when the dropdown is opened */
+    component: PropTypes.element,
+    dataTest: PropTypes.string,
+    /** Applies 'destructive' appearance to indicate purpose. Mutually exclusive with `primary` and `secondary` props */
     destructive: sharedPropTypes.buttonVariantPropType,
-    disabled: propTypes.bool,
-    icon: propTypes.element,
-    initialFocus: propTypes.bool,
+    /** Disables the button and makes it uninteractive */
+    disabled: PropTypes.bool,
+    /** An icon to add inside the button */
+    icon: PropTypes.element,
+    /** Grants the button the initial focus */
+    initialFocus: PropTypes.bool,
+    /** Changes button size. Mutually exclusive with `small` prop */
     large: sharedPropTypes.sizePropType,
-    name: propTypes.string,
+    name: PropTypes.string,
+    /** Applies 'primary' appearance to indicate purpose. Mutually exclusive with `destructive` and `secondary` props */
     primary: sharedPropTypes.buttonVariantPropType,
+    /** Applies 'secondary' appearance to indicate purpose. Mutually exclusive with `primary` and `destructive` props */
     secondary: sharedPropTypes.buttonVariantPropType,
+    /** Changes button size. Mutually exclusive with `large` prop */
     small: sharedPropTypes.sizePropType,
-    tabIndex: propTypes.string,
-    type: propTypes.oneOf(['submit', 'reset', 'button']),
-    value: propTypes.string,
-    onClick: propTypes.func,
+    tabIndex: PropTypes.string,
+    /** Type of button. Applied to html `button` element */
+    type: PropTypes.oneOf(['submit', 'reset', 'button']),
+    /** Value associated with the button. Passed in object to onClick handler */
+    value: PropTypes.string,
+    onClick: PropTypes.func,
 }
 
 export { SplitButton }

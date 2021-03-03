@@ -1,0 +1,61 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="About This Documentation/For readers" />
+
+# Tips for Using This Documentation
+
+This documentation for the DHIS2 UI library is made using [Storybook](https://storybook.js.org/). Here is a quick tour and a few tips for making the most of the documentation in these pages.
+
+## 'Using UI' section
+
+In the **Using UI** section in the menu on the left, there are a few pages describing how to use the UI library. Start here to get a big-picture idea of how to use the library in your project.
+
+**Recipes** are longer-form descriptions of complex applications of UI components.
+
+These pages are the same as you would find on the previous doc site.
+
+## Components
+
+The other sections in the menu on the left describe the components available for use in the UI library.
+
+For each component, there are a number of demos to show off different variations and how they interact with props. Individual demos can be viewed in the **Canvas** tab of the toolbar above, or you can view a documentation page by clicking on the **Docs** tab. For a purely textual page like this one, the content on the Canvas and Docs tabs are the same.
+
+### Docs Page
+
+In the component's Docs tab (called the Docs Page from here on), you can find a description of the component and its usage, an interactive table of the props for that component, a list of demos, and viewable code snippets for each demo to help you integrate it into your project.
+
+#### Args table
+
+The args table shows each prop for that component, the prop type, the default value if there is one, a control for dynamically editing that prop in the primary demo on the page, and often a description of that prop.
+
+If that component is showing dynamic code snippets, changes to the props made by the args table will be reflected in those code snippets.
+
+Note that the control for the `children` prop only works with string literals surrounded by quotes: `""`
+
+For components with **subcomponents**, look out for tabs above the args table to look at a props table for each subcomponent.
+
+#### Code snippets
+
+You can find code snippets for the demos on the page by clicking on the 'Show code' button on the bottom right of a demo's container.
+
+Depending on the component, this code snippet will be dynamically generated from the component and its props as they have been configured by the props' controls, or it will be a reflection of the actual code written to create the demo. These are the same as the code snippets you will find in the **JSX** and **Story** tabs of the Canvas, respectively; see more comments about those in the 'Canvas' section below.
+
+#### Some exceptions
+
+A few components have unusual behaviors that don't work well on the Docs Page, and a few workarounds are made for them. In every case, you can find on the Docs Page a description of the component, its props, and at least one demo. Some of these unusual demos on the Docs Page won't update dynamically in response to the props controls.
+
+Note that all demos, displayed in the Docs Page or not, _work completely normally in the Canvas tab, including updating in response to props controls_. View the demos in the Canvas tab if they are not working on the Docs Page.
+
+### Canvas
+
+When viewing demos in the Canvas tab, there will be several tabs along the lower toolbar that provide tools to explore the component.
+
+In the **Controls** tab, you will see descriptions of the component's props and controls that will dynamically manipulate them. This is the same args table as in the Docs Page.
+
+In the **Actions** tab, you will see the results of callback functions that are triggered by the components. Console commands are logged in the Actions tab as well.
+
+In the **Story** tab, you will find the code that was written to create this demo with Storybook. This can be useful for more complex components that require hooks or state to control them, but sometimes can be unhelpful for simple components that are predominantly shaped by props. When you see `{...args}` added to the props of a component in the code here, that means it's receiving the dynamically-controlled props from **Controls**.
+
+In the **JSX** tab, you can find the dynamic JSX output from the rendered component. It updates in response to changing a component's props using Controls, so this is useful for configuring a component and then getting the exact snippet you need to copy and paste into your project. For some unusual components, the dynamically-rendered JSX is not as helpful as the code that's found in the Story tab.
+
+The **Accessibility** tab is intended for developers. It shows several accessibility tests for the component being displayed.

@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import * as theme from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 const toPrefixedThemeSection = themeSectionKey =>
@@ -61,11 +61,11 @@ CssVariables.defaultProps = {
  * @prop {boolean} [elevations]
  */
 CssVariables.propTypes = {
-    colors: propTypes.bool,
-    elevations: propTypes.bool,
-    layers: propTypes.bool,
-    spacers: propTypes.bool,
-    theme: propTypes.bool,
+    colors: PropTypes.bool,
+    elevations: PropTypes.bool,
+    layers: PropTypes.bool,
+    spacers: PropTypes.bool,
+    theme: PropTypes.bool,
 }
 
 export { CssVariables }

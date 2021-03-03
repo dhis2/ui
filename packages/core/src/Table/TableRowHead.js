@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { TableRow } from './TableRow.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
@@ -40,9 +40,11 @@ TableRowHead.defaultProps = {
  * @prop {string} [dataTest]
  */
 TableRowHead.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    role: propTypes.string,
-    suppressZebraStriping: propTypes.bool,
+    /** Should be `<TableCellHead>` components */
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    role: PropTypes.string,
+    /** Disables the default row striping for this row */
+    suppressZebraStriping: PropTypes.bool,
 }

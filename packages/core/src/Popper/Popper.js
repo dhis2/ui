@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { sharedPropTypes } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React, { useState, useMemo } from 'react'
 import { usePopper } from 'react-popper'
 import { getReferenceElement } from './getReferenceElement.js'
@@ -91,21 +91,29 @@ Popper.defaultProps = {
  */
 // Prop names follow the names here: https://popper.js.org/docs/v2/constructors/
 Popper.propTypes = {
-    children: propTypes.node.isRequired,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    modifiers: propTypes.arrayOf(
-        propTypes.shape({
-            name: propTypes.string,
-            options: propTypes.object,
+    /** Content inside the Popper */
+    children: PropTypes.node.isRequired,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    /** A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/) */
+    modifiers: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.string,
+            options: PropTypes.object,
         })
     ),
-    observePopperResize: propTypes.bool,
-    observeReferenceResize: propTypes.bool,
+    /** Makes the Popper update position when the **Popper content** changes size */
+    observePopperResize: PropTypes.bool,
+    /** Makes the Popper update position when the **reference element** changes size */
+    observeReferenceResize: PropTypes.bool,
+    /** A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/) */
     placement: sharedPropTypes.popperPlacementPropType,
+    /** A React ref, DOM node, or [virtual element](https://popper.js.org/docs/v2/virtual-elements/) for the popper to position itself against */
     reference: sharedPropTypes.popperReferencePropType,
-    strategy: propTypes.oneOf(['absolute', 'fixed']), // defaults to 'absolute'
-    onFirstUpdate: propTypes.func,
+    /** A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/) */
+    strategy: PropTypes.oneOf(['absolute', 'fixed']), // defaults to 'absolute'
+    /** A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/) */
+    onFirstUpdate: PropTypes.func,
 }
 
 export { Popper }

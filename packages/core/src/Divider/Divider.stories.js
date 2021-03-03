@@ -1,13 +1,33 @@
 import React from 'react'
 import { Divider } from './Divider.js'
 
+const description = `
+A light divider to separate content.
+
+\`\`\`js
+import { Divider } from '@dhis2/ui'
+\`\`\`
+`
+
 export default {
-    title: 'Divider',
+    title: 'Layout/Divider',
     component: Divider,
+    argTypes: { margin: { defaultValue: '8px 0' } },
+    parameters: { docs: { description: { component: description } } },
 }
 
-export const Default = () => <Divider />
+const Template = args => (
+    <>
+        <div>Content above</div>
+        <Divider {...args} />
+        <div>Content below</div>
+    </>
+)
 
-export const Dense = () => <Divider dense />
+export const Default = Template.bind({})
 
-export const Margin = () => <Divider margin="20px 20px 20px 20px" />
+export const Dense = Template.bind({})
+Dense.args = { dense: true }
+
+export const Margin = Template.bind({})
+Margin.args = { margin: '20px 20px 20px 20px' }

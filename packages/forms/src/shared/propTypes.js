@@ -14,6 +14,14 @@ const inputPropType = propTypes.shape({
     onBlur: propTypes.func,
     onFocus: propTypes.func,
 })
+const inputArgType = {
+    table: {
+        type: {
+            summary:
+                '{ name: string (required), onChange: func (required), value: any, onBlur: func, onFocus: func }',
+        },
+    },
+}
 
 const metaPropType = propTypes.shape({
     error: propTypes.string,
@@ -22,5 +30,19 @@ const metaPropType = propTypes.shape({
     valid: propTypes.bool,
     validating: propTypes.bool,
 })
+const metaArgType = {
+    table: {
+        type: {
+            summary:
+                '{ error: string, invalid: bool, touched: bool, valid: bool, validating: bool }',
+        },
+    },
+}
 
-export { toggleGroupOptionsProp, inputPropType, metaPropType }
+export {
+    toggleGroupOptionsProp,
+    inputPropType,
+    inputArgType,
+    metaPropType,
+    metaArgType,
+}

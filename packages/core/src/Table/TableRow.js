@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React, { useContext } from 'react'
 import css from 'styled-jsx/css'
 import { TableContext } from './TableContext'
@@ -59,9 +59,11 @@ TableRow.defaultProps = {
  * @prop {string} [dataTest]
  */
 TableRow.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    role: propTypes.string,
-    suppressZebraStriping: propTypes.bool,
+    /** Should be `<TableCell>` or `<TableCellHead>` components */
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    role: PropTypes.string,
+    /** Disables the default row striping for this row */
+    suppressZebraStriping: PropTypes.bool,
 }

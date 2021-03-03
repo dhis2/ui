@@ -1,5 +1,6 @@
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { Actions, actionsPropType } from './Actions.js'
 import styles, { ANIMATION_TIME } from './AlertBar.styles.js'
@@ -127,7 +128,7 @@ class AlertBar extends Component {
 
 const alertTypePropType = propTypes.mutuallyExclusive(
     ['success', 'warning', 'critical'],
-    propTypes.bool
+    PropTypes.bool
 )
 
 AlertBar.defaultProps = {
@@ -156,17 +157,25 @@ AlertBar.defaultProps = {
  * @prop {string} [dataTest]
  */
 AlertBar.propTypes = {
+    /** An array of 0-2 action objects */
     actions: actionsPropType,
-    children: propTypes.string,
-    className: propTypes.string,
+    /** The message string for the alert */
+    children: PropTypes.string,
+    className: PropTypes.string,
+    /** Alert bars with `critical` will not autohide */
     critical: alertTypePropType,
-    dataTest: propTypes.string,
-    duration: propTypes.number,
+    dataTest: PropTypes.string,
+    duration: PropTypes.number,
+    /**
+     * A specific icon to override the default icon in the bar.
+     * If `false` is provided, no icon will be shown.
+     */
     icon: iconPropType,
-    permanent: propTypes.bool,
+    permanent: PropTypes.bool,
     success: alertTypePropType,
+    /** Alert bars with `warning` will not autohide */
     warning: alertTypePropType,
-    onHidden: propTypes.func,
+    onHidden: PropTypes.func,
 }
 
 export { AlertBar }

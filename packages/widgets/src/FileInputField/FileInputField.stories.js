@@ -1,210 +1,164 @@
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import { FileListItem } from '@dhis2/ui-core'
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { FileInputField } from './FileInputField.js'
 
-const onChange = obj => {
-    console.log('onChange', obj)
-}
-const onRemove = () => {
-    console.log('onRemove')
-}
-const onCancel = () => {
-    console.log('onCancel')
+const description = `
+The \`FileInputField\` component wraps the \`FileInput\` component in a \`Field\` wrapper to add labels, help text, and validation text.
+
+\`\`\`js
+import { FileInputField, FileListItem } from '@dhis2/ui'
+\`\`\`
+`
+
+const onChange = obj => console.log('onChange', obj)
+const onRemove = () => console.log('onRemove')
+const onCancel = () => console.log('onCancel')
+
+export default {
+    title: 'Forms/File Input/File Input Field',
+    component: FileInputField,
+    parameters: { docs: { description: { component: description } } },
+    // Default args:
+    args: {
+        // Handle default values (see comment in Transfer.js)
+        ...FileInputField.defaultProps,
+        onChange: onChange,
+        name: 'uploadName',
+        label: 'Upload something',
+    },
+    argTypes: {
+        small: { ...sharedPropTypes.sizeArgType },
+        large: { ...sharedPropTypes.sizeArgType },
+        valid: { ...sharedPropTypes.statusArgType },
+        warning: { ...sharedPropTypes.statusArgType },
+        error: { ...sharedPropTypes.statusArgType },
+    },
 }
 
-storiesOf('FileInputField', module)
-    .add('Default', () => (
+const Template = args => <FileInputField {...args} />
+
+export const Default = Template.bind({})
+Default.args = { label: null }
+
+export const WithLabel = Template.bind({})
+
+export const Required = Template.bind({})
+Required.args = { required: true }
+
+export const Multiple = Template.bind({})
+Multiple.args = {
+    multiple: true,
+    label: 'Upload multiple things',
+    buttonLabel: 'Upload files',
+}
+
+export const Disabled = Template.bind({})
+Disabled.args = { disabled: true }
+
+export const Sizes = args => (
+    <>
         <FileInputField
-            onChange={onChange}
-            buttonLabel="Upload file"
-            name="upload"
+            {...args}
+            buttonLabel="Default size"
+            name="defaultName"
         />
-    ))
-    .add('With label', () => (
+        <FileInputField {...args} buttonLabel="Small" small name="smallName" />
+        <FileInputField {...args} buttonLabel="Large" large name="largeName" />
+    </>
+)
+
+export const Statuses = args => (
+    <>
+        <FileInputField {...args} buttonLabel="Default" name="defaultName" />
+        <FileInputField {...args} buttonLabel="Valid" name="validName" valid />
         <FileInputField
-            name="upload"
-            onChange={onChange}
-            label="Upload something"
-            buttonLabel="Upload file"
+            {...args}
+            buttonLabel="Warning"
+            name="warningName"
+            warning
         />
-    ))
-    .add('Required', () => (
         <FileInputField
-            name="upload"
-            onChange={onChange}
-            label="upload something"
-            buttonLabel="Upload file"
-            required
-        />
-    ))
-    .add('Multiple', () => (
-        <FileInputField
-            name="upload"
-            onChange={onChange}
-            label="upload multiple things"
-            buttonLabel="Upload files"
-            multiple
-        />
-    ))
-    .add('Disabled', () => (
-        <FileInputField
-            name="upload"
-            onChange={onChange}
-            label="upload something"
-            buttonLabel="Upload file"
-            disabled
-        />
-    ))
-    .add('Sizes', () => (
-        <>
-            <FileInputField
-                onChange={onChange}
-                label="upload something"
-                buttonLabel="Default size"
-                name="default"
-            />
-            <FileInputField
-                onChange={onChange}
-                label="upload something"
-                buttonLabel="Small"
-                small
-                name="small"
-            />
-            <FileInputField
-                onChange={onChange}
-                label="upload something"
-                buttonLabel="Large"
-                large
-                name="large"
-            />
-        </>
-    ))
-    .add('Statuses', () => (
-        <>
-            <FileInputField
-                onChange={onChange}
-                label="upload something"
-                buttonLabel="Default"
-                name="default"
-            />
-            <FileInputField
-                onChange={onChange}
-                label="upload something"
-                buttonLabel="Valid"
-                name="valid"
-                valid
-            />
-            <FileInputField
-                onChange={onChange}
-                label="upload something"
-                buttonLabel="Warning"
-                name="warning"
-                warning
-            />
-            <FileInputField
-                onChange={onChange}
-                label="upload something"
-                buttonLabel="Error"
-                name="error"
-                error
-                validationText="Something went wrong"
-            />
-        </>
-    ))
-    .add('File list', () => (
-        <div style={{ width: 250 }}>
-            <FileInputField
-                onChange={onChange}
-                label="Upload something"
-                buttonLabel="Upload file"
-                name="upload"
-            >
-                <FileListItem
-                    label="picture1.jpg"
-                    onRemove={onRemove}
-                    onCancel={onCancel}
-                    cancelText="Cancel"
-                    removeText="Remove"
-                />
-                <FileListItem
-                    label="image_that_is_uploading.jpg"
-                    onRemove={onRemove}
-                    onCancel={onCancel}
-                    cancelText="Cancel"
-                    removeText="Remove"
-                    loading
-                />
-                <FileListItem
-                    label="image_file_name_is_to_long_to_display_on_one_line.jpg"
-                    onRemove={onRemove}
-                    onCancel={onCancel}
-                    cancelText="Cancel"
-                    removeText="Remove"
-                />
-            </FileInputField>
-            <br />
-            <p style={{ color: 'grey' }}>
-                <em>Bounding box is 250px wide</em>
-            </p>
-        </div>
-    ))
-    .add('Placeholder text', () => (
-        <FileInputField
-            onChange={onChange}
-            label="Upload something"
-            buttonLabel="Upload file"
-            name="upload"
-            placeholder="No file(s) selected yet"
-        />
-    ))
-    .add('Help text', () => (
-        <FileInputField
-            onChange={onChange}
-            label="Upload something"
-            buttonLabel="Upload file"
-            name="upload"
-            helpText="Please select any file type"
-        />
-    ))
-    .add('Design system stacking order', () => (
-        <FileInputField
-            onChange={onChange}
-            label="upload something"
-            buttonLabel="Upload file"
+            {...args}
+            buttonLabel="Error"
+            name="errorName"
             error
-            validationText="Oops"
-            placeholder="Select a file"
-            helpText="Please upload something"
-            name="upload"
-        >
+            validationText="Something went wrong"
+        />
+    </>
+)
+
+export const FileList = args => (
+    <div style={{ width: 250 }}>
+        <FileInputField {...args}>
             <FileListItem
-                label="TestFile.txt"
-                onRemove={onRemove}
-                removeText="remove"
-            />
-            <FileListItem
-                label="BusyFile.txt"
+                label="picture1.jpg"
                 onRemove={onRemove}
                 onCancel={onCancel}
-                cancelText="cancel"
-                removeText="remove"
+                cancelText="Cancel"
+                removeText="Remove"
+            />
+            <FileListItem
+                label="image_that_is_uploading.jpg"
+                onRemove={onRemove}
+                onCancel={onCancel}
+                cancelText="Cancel"
+                removeText="Remove"
                 loading
             />
+            <FileListItem
+                label="image_file_name_is_to_long_to_display_on_one_line.jpg"
+                onRemove={onRemove}
+                onCancel={onCancel}
+                cancelText="Cancel"
+                removeText="Remove"
+            />
         </FileInputField>
-    ))
-    .add('Design system stacking order - empty file list', () => (
-        <FileInputField
-            onChange={onChange}
-            label="upload something"
-            buttonLabel="Upload file"
-            error
-            validationText="Oops"
-            placeholder="Select a file"
-            helpText="Please upload something"
-            name="upload"
+        <br />
+        <p style={{ color: 'grey' }}>
+            <em>Bounding box is 250px wide</em>
+        </p>
+    </div>
+)
+
+export const PlaceholderText = Template.bind({})
+PlaceholderText.args = { placeholder: 'No file(s) selected yet' }
+
+export const HelpText = Template.bind({})
+HelpText.args = { helpText: 'Please select any file type' }
+
+export const DesignSystemStackingOrder = args => (
+    <FileInputField {...args}>
+        <FileListItem
+            label="TestFile.txt"
+            onRemove={onRemove}
+            removeText="remove"
         />
-    ))
-    .add('Default: buttonLabel and placeholder', () => (
-        <FileInputField onChange={onChange} name="upload" />
-    ))
+        <FileListItem
+            label="BusyFile.txt"
+            onRemove={onRemove}
+            onCancel={onCancel}
+            cancelText="cancel"
+            removeText="remove"
+            loading
+        />
+    </FileInputField>
+)
+DesignSystemStackingOrder.args = {
+    error: true,
+    validationText: 'Oops!',
+    placeholder: 'Select a file',
+    helpText: 'Please upload something',
+}
+
+export const DesignSystemStackingOrderEmptyFileList = Template.bind({})
+DesignSystemStackingOrderEmptyFileList.args = {
+    ...DesignSystemStackingOrder.args,
+}
+DesignSystemStackingOrderEmptyFileList.storyName =
+    'Design system stacking order - empty file list'
+
+export const DefaultButtonLabelAndPlaceholder = Template.bind({})
+DefaultButtonLabelAndPlaceholder.args = { label: null }
+DefaultButtonLabelAndPlaceholder.storyName =
+    'Default: buttonLabel and placeholder'

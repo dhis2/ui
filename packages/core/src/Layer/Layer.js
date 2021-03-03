@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { layers } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React, { createContext, useState, useContext } from 'react'
 import { createPortal } from 'react-dom'
 
@@ -43,48 +43,58 @@ const Layer = ({
     const portalNode =
         level > parentLayer.level ? document.body : parentLayer.node
 
-    return createPortal(
-        <div
-            ref={setLayerEl}
-            className={cx('layer', className, position, `level-${level}`, {
-                translucent,
-            })}
-            data-test={dataTest}
-            onClick={createClickHandler(onClick)}
-        >
-            {layerEl && (
-                <LayerContext.Provider value={nextLayer}>
-                    {children}
-                </LayerContext.Provider>
+    return (
+        <React.Fragment>
+            {createPortal(
+                <div
+                    ref={setLayerEl}
+                    className={cx(
+                        'layer',
+                        className,
+                        position,
+                        `level-${level}`,
+                        {
+                            translucent,
+                        }
+                    )}
+                    data-test={dataTest}
+                    onClick={createClickHandler(onClick)}
+                >
+                    {layerEl && (
+                        <LayerContext.Provider value={nextLayer}>
+                            {children}
+                        </LayerContext.Provider>
+                    )}
+                    <style jsx>{`
+                        div {
+                            z-index: ${level};
+                        }
+                    `}</style>
+                    <style jsx>{`
+                        div {
+                            top: 0;
+                            left: 0;
+                            min-height: 100vh;
+                            min-width: 100vw;
+                        }
+                        div.fixed {
+                            position: fixed;
+                            height: 100vh;
+                            width: 100vw;
+                        }
+                        div.absolute {
+                            position: absolute;
+                            height: 100%;
+                            width: 100%;
+                        }
+                        div.translucent {
+                            background-color: rgba(33, 43, 54, 0.4);
+                        }
+                    `}</style>
+                </div>,
+                portalNode
             )}
-            <style jsx>{`
-                div {
-                    z-index: ${level};
-                }
-            `}</style>
-            <style jsx>{`
-                div {
-                    top: 0;
-                    left: 0;
-                    min-height: 100vh;
-                    min-width: 100vw;
-                }
-                div.fixed {
-                    position: fixed;
-                    height: 100vh;
-                    width: 100vw;
-                }
-                div.absolute {
-                    position: absolute;
-                    height: 100%;
-                    width: 100%;
-                }
-                div.translucent {
-                    background-color: rgba(33, 43, 54, 0.4);
-                }
-            `}</style>
-        </div>,
-        portalNode
+        </React.Fragment>
     )
 }
 
@@ -105,13 +115,16 @@ Layer.defaultProps = {
  * @prop {function} [onClick]
  */
 Layer.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    level: propTypes.number,
-    position: propTypes.oneOf(['absolute', 'fixed']),
-    translucent: propTypes.bool,
-    onClick: propTypes.func,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    /** Z-index level */
+    level: PropTypes.number,
+    position: PropTypes.oneOf(['absolute', 'fixed']),
+    /** Adds a semi-transparent background */
+    translucent: PropTypes.bool,
+    /** Click handler */
+    onClick: PropTypes.func,
 }
 
 export { Layer, useLayerContext }

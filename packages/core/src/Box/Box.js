@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 /**
@@ -55,15 +55,15 @@ Box.defaultProps = {
  * @prop {string} [dataTest]
  */
 Box.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    height: propTypes.string,
-    marginTop: propTypes.string,
-    maxHeight: propTypes.string,
-    maxWidth: propTypes.string,
-    minHeight: propTypes.string,
-    minWidth: propTypes.string,
-    overflow: propTypes.string,
-    width: propTypes.string,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    height: PropTypes.string,
+    marginTop: PropTypes.string,
+    maxHeight: PropTypes.string,
+    maxWidth: PropTypes.string,
+    minHeight: PropTypes.string,
+    minWidth: PropTypes.string,
+    overflow: PropTypes.string,
+    width: PropTypes.string,
 }

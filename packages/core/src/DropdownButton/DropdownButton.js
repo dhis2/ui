@@ -1,6 +1,5 @@
-import propTypes from '@dhis2/prop-types'
-import { spacers } from '@dhis2/ui-constants'
-import { sharedPropTypes } from '@dhis2/ui-constants'
+import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { resolve } from 'styled-jsx/css'
 import { Button } from '../Button/Button.js'
@@ -144,23 +143,37 @@ DropdownButton.defaultProps = {
  * @prop {string} [dataTest]
  */
 DropdownButton.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    component: propTypes.element,
-    dataTest: propTypes.string,
+    /** Children to render inside the buton */
+    children: PropTypes.node,
+    className: PropTypes.string,
+    /** Component to show/hide when button is clicked */
+    component: PropTypes.element,
+    dataTest: PropTypes.string,
+    /** Button variant. Mutually exclusive with `primary` and `secondary` props */
     destructive: sharedPropTypes.buttonVariantPropType,
-    disabled: propTypes.bool,
-    icon: propTypes.element,
-    initialFocus: propTypes.bool,
+    /** Make the button non-interactive */
+    disabled: PropTypes.bool,
+    icon: PropTypes.element,
+    /** Grants button initial focus on the page */
+    initialFocus: PropTypes.bool,
+    /** Button size. Mutually exclusive with `small` prop */
     large: sharedPropTypes.sizePropType,
-    name: propTypes.string,
+    name: PropTypes.string,
+    /** Button variant. Mutually exclusive with `destructive` and `secondary` props */
     primary: sharedPropTypes.buttonVariantPropType,
+    /** Button variant. Mutually exclusive with `primary` and `destructive` props */
     secondary: sharedPropTypes.buttonVariantPropType,
+    /** Button size. Mutually exclusive with `large` prop */
     small: sharedPropTypes.sizePropType,
-    tabIndex: propTypes.string,
-    type: propTypes.oneOf(['submit', 'reset', 'button']),
-    value: propTypes.string,
-    onClick: propTypes.func,
+    tabIndex: PropTypes.string,
+    /** Type of button. Can take advantage of different default behavior */
+    type: PropTypes.oneOf(['submit', 'reset', 'button']),
+    value: PropTypes.string,
+    /**
+     * Callback triggered on click.
+     * Called with signature `({ name: string, value: string, open: bool }, event)`
+     */
+    onClick: PropTypes.func,
 }
 
 export { DropdownButton }

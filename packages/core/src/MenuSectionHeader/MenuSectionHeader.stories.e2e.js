@@ -5,7 +5,7 @@ import { MenuSectionHeader } from './MenuSectionHeader.js'
 export default {
     title: 'MenuSectionHeader',
     component: MenuSectionHeader,
-    decorators: [storyFn => <Menu>{storyFn()}</Menu>],
+    decorators: [story => <Menu>{story()}</Menu>],
 }
 
 export const WithLabel = () => <MenuSectionHeader label="label" />

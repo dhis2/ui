@@ -8,9 +8,9 @@ export default {
     title: 'ComponentCover',
     component: ComponentCover,
     decorators: [
-        storyFn => (
+        story => (
             <div>
-                {storyFn()}
+                {story()}
                 <style jsx>{`
                     div {
                         width: 400px;

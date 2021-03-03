@@ -1,0 +1,5 @@
+/* Styles to customize storybook manager UI (search, sidebar, etc) go here */
+
+.sidebar-subheading {
+    color: #4a5768 !important;
+}
