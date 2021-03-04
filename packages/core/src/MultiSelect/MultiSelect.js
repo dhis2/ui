@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import { requiredIf } from '@dhis2/prop-types'
 import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -155,7 +155,7 @@ MultiSelect.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     /** Required if `clearable` prop is `true` */
-    clearText: propTypes.requiredIf(props => props.clearable, PropTypes.string),
+    clearText: requiredIf(props => props.clearable, PropTypes.string),
     /** Adds a 'clear' option to the menu */
     clearable: PropTypes.bool,
     dataTest: PropTypes.string,
@@ -172,13 +172,10 @@ MultiSelect.propTypes = {
     loadingText: PropTypes.string,
     maxHeight: PropTypes.string,
     /** Required if `filterable` prop is `true` */
-    noMatchText: propTypes.requiredIf(
-        props => props.filterable,
-        PropTypes.string
-    ),
+    noMatchText: requiredIf(props => props.filterable, PropTypes.string),
     placeholder: PropTypes.string,
     prefix: PropTypes.string,
-    selected: PropTypes.arrayOf(propTypes.string),
+    selected: PropTypes.arrayOf(PropTypes.string),
     tabIndex: PropTypes.string,
     valid: sharedPropTypes.statusPropType,
     warning: sharedPropTypes.statusPropType,
