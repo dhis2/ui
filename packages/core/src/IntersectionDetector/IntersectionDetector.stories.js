@@ -104,7 +104,6 @@ AbsoluteBottomArea.args = {
         position: 'absolute',
         bottom: '0',
         left: '0',
-        zIndex: '-1',
     },
 }
 
@@ -115,7 +114,6 @@ AbsoluteTopArea.args = {
         position: 'absolute',
         top: '0',
         left: '0',
-        zIndex: '-1',
     },
 }
 
