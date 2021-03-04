@@ -1,9 +1,12 @@
 /* Styles for storybook docs or anything else in the 'preview' frame go here */
 
-.sbdocs.sbdocs-a:hover {
-    text-decoration: underline;
+.sbdocs-a {
+    color: #0d47a1 !important;
+    text-decoration: underline !important;
 }
-
+a.sbdocs-a:visited {
+    color: #551a8b !important;
+}
 .sbdocs-expandable {
-    color: #004D40 !important; /* teal800 */
+    color: #004d40 !important; /* teal800 */
 }
