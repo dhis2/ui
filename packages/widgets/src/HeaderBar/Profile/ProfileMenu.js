@@ -21,10 +21,6 @@ const iconStyle = css.resolve`
 const ProfileContents = ({ name, email, avatarUrl, helpUrl }) => {
     const { baseUrl } = useConfig()
 
-    const help = helpUrl
-        ? helpUrl
-        : 'https://docs.dhis2.org/master/en/user/html/dhis2_user_manual_en.html'
-
     return (
         <Card>
             <div>
@@ -54,7 +50,7 @@ const ProfileContents = ({ name, email, avatarUrl, helpUrl }) => {
                         icon={<Account className={iconStyle.className} />}
                     />
                     <MenuItem
-                        href={help}
+                        href={helpUrl}
                         label={i18n.t('Help')}
                         value="help"
                         icon={<Help className={iconStyle.className} />}
@@ -103,6 +99,11 @@ const ProfileContents = ({ name, email, avatarUrl, helpUrl }) => {
             `}</style>
         </Card>
     )
+}
+
+ProfileContents.defaultProps = {
+    helpUrl:
+        'https://docs.dhis2.org/master/en/user/html/dhis2_user_manual_en.html',
 }
 
 ProfileContents.propTypes = {
