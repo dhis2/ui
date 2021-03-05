@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import { mutuallyExclusive } from '@dhis2/prop-types'
 import { spacers, colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
@@ -83,8 +83,8 @@ NoticeBox.propTypes = {
     className: PropTypes.string,
     dataTest: PropTypes.string,
     /** Applies 'error' message styles. Mutually exclusive with the `warning` prop */
-    error: propTypes.mutuallyExclusive(['error', 'warning'], PropTypes.bool),
+    error: mutuallyExclusive(['error', 'warning'], PropTypes.bool),
     title: PropTypes.string,
     /** Applies 'warning' message styles. Mutually exclusive with the `error` prop */
-    warning: propTypes.mutuallyExclusive(['error', 'warning'], PropTypes.bool),
+    warning: mutuallyExclusive(['error', 'warning'], PropTypes.bool),
 }

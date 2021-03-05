@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import { mutuallyExclusive } from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
@@ -97,7 +97,7 @@ export const Tag = ({
     </div>
 )
 
-const tagVariantPropType = propTypes.mutuallyExclusive(
+const tagVariantPropType = mutuallyExclusive(
     ['neutral', 'positive', 'negative'],
     PropTypes.bool
 )

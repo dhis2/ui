@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import { mutuallyExclusive } from '@dhis2/prop-types'
 import { colors, theme, sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
@@ -206,7 +206,7 @@ Checkbox.defaultProps = {
  * @prop {string} [dataTest]
  */
 
-const uniqueOnStatePropType = propTypes.mutuallyExclusive(
+const uniqueOnStatePropType = mutuallyExclusive(
     ['checked', 'indeterminate'],
     PropTypes.bool
 )

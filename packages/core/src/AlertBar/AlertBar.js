@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import { mutuallyExclusive } from '@dhis2/prop-types'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
@@ -126,7 +126,7 @@ class AlertBar extends Component {
     }
 }
 
-const alertTypePropType = propTypes.mutuallyExclusive(
+const alertTypePropType = mutuallyExclusive(
     ['success', 'warning', 'critical'],
     PropTypes.bool
 )

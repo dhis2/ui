@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import { mutuallyExclusive } from '@dhis2/prop-types'
 import { spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
@@ -45,10 +45,7 @@ const ButtonStrip = ({ className, children, middle, end, dataTest }) => (
     </div>
 )
 
-const alignmentPropType = propTypes.mutuallyExclusive(
-    ['middle', 'end'],
-    PropTypes.bool
-)
+const alignmentPropType = mutuallyExclusive(['middle', 'end'], PropTypes.bool)
 
 ButtonStrip.defaultProps = {
     dataTest: 'dhis2-uicore-buttonstrip',
