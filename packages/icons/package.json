@@ -2,8 +2,12 @@
     "name": "@dhis2/ui-icons",
     "version": "6.5.1",
     "description": "Icons used in the UI libs",
-    "main": "build/cjs/lib.js",
-    "module": "build/es/lib.js",
+    "main": "./build/cjs/react/index.js",
+    "module": "./build/es/react/index.js",
+    "exports": {
+        "import": "./build/es/react/index.js",
+        "require": "./build/cjs/react/index.js"
+    },
     "author": "Viktor Varland <viktor@dhis2.org>",
     "license": "BSD-3-Clause",
     "private": false,
