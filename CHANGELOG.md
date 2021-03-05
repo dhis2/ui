@@ -1,3 +1,10 @@
+## [6.5.3](https://github.com/dhis2/ui/compare/v6.5.2...v6.5.3) (2021-03-05)
+
+
+### Bug Fixes
+
+* **profilemenu:** fetch helpPageLink from system settings ([#531](https://github.com/dhis2/ui/issues/531)) ([c9ded20](https://github.com/dhis2/ui/commit/c9ded201185f8623cd4113a44f85cc284d1cb5b7))
+
 ## [6.5.2](https://github.com/dhis2/ui/compare/v6.5.1...v6.5.2) (2021-03-05)
 
 
