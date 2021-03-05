@@ -1,4 +1,4 @@
-import { spacers, theme, sharedPropTypes } from '@dhis2/ui-constants'
+import { spacers, theme, colors, sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -35,7 +35,7 @@ const Help = ({ children, valid, error, warning, className, dataTest }) => (
             }
 
             .valid {
-                color: ${theme.valid};
+                color: ${colors.blue700};
             }
 
             .error {
@@ -43,7 +43,7 @@ const Help = ({ children, valid, error, warning, className, dataTest }) => (
             }
 
             .warning {
-                color: ${theme.warning};
+                color: ${colors.yellow800};
             }
         `}</style>
     </p>
