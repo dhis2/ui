@@ -1,3 +1,10 @@
+## [6.5.2](https://github.com/dhis2/ui/compare/v6.5.1...v6.5.2) (2021-03-05)
+
+
+### Bug Fixes
+
+* **help:** accessible colors for help text statuses ([fd63bc0](https://github.com/dhis2/ui/commit/fd63bc08616ea57bbc3e897a07b958288a4aa47f))
+
 ## [6.5.1](https://github.com/dhis2/ui/compare/v6.5.0...v6.5.1) (2021-03-01)
 
 
