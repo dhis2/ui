@@ -15,7 +15,7 @@ const query = {
         resource: 'systemSettings/applicationTitle',
     },
     help: {
-        resource: 'systemSettings/helpLink',
+        resource: 'systemSettings/helpPageLink',
     },
     user: {
         resource: 'me',
@@ -80,7 +80,7 @@ export const HeaderBar = ({ appName, className }) => {
                         name={data.user.name}
                         email={data.user.email}
                         avatarUrl={avatarUrl(data.user.avatar, baseUrl)}
-                        helpUrl={data.help.helpLink}
+                        helpUrl={data.help.helpPageLink}
                     />
                 </>
             )}
