@@ -50,7 +50,7 @@
         "watch:widgets": "yarn build:widgets --watch --dev"
     },
     "devDependencies": {
-        "@dhis2/app-runtime": "^2.4.0",
+        "@dhis2/app-runtime": "^2.7.1",
         "@dhis2/cli-app-scripts": "^5.7.2",
         "@dhis2/cli-style": "^7.3.0",
         "@dhis2/cli-utils-cypress": "^5.1.0",
@@ -58,7 +58,7 @@
         "@dhis2/cypress-commands": "^5.1.1",
         "@dhis2/cypress-plugins": "^5.1.0",
         "@dhis2/d2-i18n": "^1.0.6",
-        "@fontsource/roboto": "^4.0.0",
+        "@fontsource/roboto": "^4.2.2",
         "@storybook/addon-a11y": "^6.1.20",
         "@storybook/addon-console": "^1.2.3",
         "@storybook/addon-essentials": "^6.1.20",
