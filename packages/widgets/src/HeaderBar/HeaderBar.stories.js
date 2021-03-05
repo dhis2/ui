@@ -38,7 +38,7 @@ const customData = {
         applicationTitle: 'Foobar',
     },
     'systemSettings/helpPageLink': {
-        helpPageLink: '//custom-help-link',
+        helpPageLink: '//custom-help-page-link',
     },
     me: {
         name: 'John Doe',
