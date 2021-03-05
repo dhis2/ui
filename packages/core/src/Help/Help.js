@@ -2,7 +2,6 @@ import { spacers, theme, colors, sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
