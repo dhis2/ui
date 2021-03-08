@@ -1,7 +1,6 @@
 import '@fontsource/roboto/latin.css'
 import React, { Fragment } from 'react'
 import { jsxDecorator } from 'storybook-addon-jsx'
-import { addDecorator, addParameters } from '@storybook/react'
 import '@storybook/addon-console'
 import {
     Title,
@@ -14,35 +13,36 @@ import {
 } from '@storybook/addon-docs/blocks'
 import { CssReset } from '@dhis2/ui-core'
 
-// Enable storybook jsx visualization
-addDecorator(jsxDecorator)
+export const decorators = [
+    // Enable storybook jsx visualization
+    jsxDecorator,
+    /**
+     * Basic wrapper for all our components, styles the root elements and applies
+     * our css reset for consistency/
+     */
+    Component => (
+        <Fragment>
+            <CssReset />
+            <Component />
 
-/**
- * Basic wrapper for all our components, styles the root elements and applies
- * our css reset for consistency/
- */
-addDecorator(Component => (
-    <Fragment>
-        <CssReset />
-        <Component />
+            <style jsx>{`
+                :global(html) {
+                    height: 100%;
+                }
+                :global(body) {
+                    height: 100%;
+                    min-height: 100%;
+                }
+                :global(#root) {
+                    height: 100%;
+                    padding: 16px;
+                }
+            `}</style>
+        </Fragment>
+    ),
+]
 
-        <style jsx>{`
-            :global(html) {
-                height: 100%;
-            }
-            :global(body) {
-                height: 100%;
-                min-height: 100%;
-            }
-            :global(#root) {
-                height: 100%;
-                padding: 16px;
-            }
-        `}</style>
-    </Fragment>
-))
-
-addParameters({
+export const parameters = {
     options: {
         storySort: {
             // Manually sort top content
@@ -89,4 +89,4 @@ addParameters({
         manual: false,
     },
     controls: { hideNoControlsWarning: true, expanded: true },
-})
+}
