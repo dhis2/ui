@@ -13,6 +13,8 @@ import { Button } from '@dhis2/ui'
 
 const { buttonVariantArgType, sizeArgType } = sharedPropTypes
 
+const logger = ({ name, value }) => console.log(`${name}: ${value}`)
+
 export default {
     title: 'Actions/Buttons/Button',
     component: Button,
@@ -37,8 +39,6 @@ export default {
         large: { ...sizeArgType },
     },
 }
-
-const logger = ({ name, value }) => console.log(`${name}: ${value}`)
 
 const DemoIcon = (
     <svg
