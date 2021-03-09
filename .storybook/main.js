@@ -33,7 +33,7 @@ module.exports = {
         ? ['../packages/*/src/**/*.stories.e2e.@(js|jsx)']
         : [
               '../docs/**/*.stories.mdx',
-              '../packages/*/src/**/*.stories.@(js|jsx)',
+              '../packages/*/src/**/*.stories.@(js|jsx|mdx)',
           ],
     addons: [
         '@storybook/preset-create-react-app',
