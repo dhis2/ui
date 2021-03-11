@@ -1,3 +1,10 @@
+## [6.5.5](https://github.com/dhis2/ui/compare/v6.5.4...v6.5.5) (2021-03-11)
+
+
+### Bug Fixes
+
+* enforce min w and h to keep circle shape on small screens ([141cc53](https://github.com/dhis2/ui/commit/141cc53162763a3412ae8c1bb56a5c487ec2f201))
+
 ## [6.5.4](https://github.com/dhis2/ui/compare/v6.5.3...v6.5.4) (2021-03-11)
 
 
