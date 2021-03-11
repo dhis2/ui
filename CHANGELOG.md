@@ -1,3 +1,10 @@
+## [6.5.4](https://github.com/dhis2/ui/compare/v6.5.3...v6.5.4) (2021-03-11)
+
+
+### Bug Fixes
+
+* update LinearLoader story text ([#541](https://github.com/dhis2/ui/issues/541)) ([96e1134](https://github.com/dhis2/ui/commit/96e1134639fa57bbf5f3d1152e0724b0d5626149))
+
 ## [6.5.3](https://github.com/dhis2/ui/compare/v6.5.2...v6.5.3) (2021-03-05)
 
 
