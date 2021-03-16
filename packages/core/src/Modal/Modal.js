@@ -75,6 +75,8 @@ export const Modal = ({
             className={centeredContent.className}
         >
             <aside
+                role="dialog"
+                aria-modal="true"
                 data-test={dataTest}
                 className={cx(className, { small, large })}
             >
