@@ -26,6 +26,7 @@ export default css`
     td.active {
         background-color: ${colors.white};
         outline: 2px solid ${colors.grey600};
+        outline-offset: -2px;
     }
     td.bordered,
     th.bordered {
