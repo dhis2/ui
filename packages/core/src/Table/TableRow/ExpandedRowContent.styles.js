@@ -10,16 +10,16 @@ export default css`
     }
     tr:hover > td,
     :global(tr.isExpanded:hover) + tr > td {
-        background-color: ${colors.blue050};
+        background-color: ${colors.grey100};
     }
     :global(tr.isExpanded:active) + tr > td {
-        background-color: ${colors.blue100};
+        background-color: ${colors.grey200};
     }
     tr.selected > td {
-        background-color: ${colors.teal050};
+        background-color: ${colors.teal100};
     }
     :global(tr.selected.isExpanded:hover) + tr > td,
     tr.selected:hover > td {
-        background-color: ${colors.teal100};
+        background-color: #cdeae8;
     }
 `

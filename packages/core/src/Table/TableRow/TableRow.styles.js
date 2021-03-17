@@ -3,13 +3,13 @@ import css from 'styled-jsx/css'
 
 export default css`
     :global(tbody) > tr.isHoveringExpandedContent > :global(td) {
-        background-color: ${colors.blue050};
+        background-color: ${colors.grey100};
     }
     :global(tbody) > tr.isHoveringExpandedContent > :global(th) {
         background-color: ${colors.grey300};
     }
     :global(tbody) > tr.selected.isHoveringExpandedContent > :global(td) {
-        background-color: ${colors.teal100};
+        background-color: #cdeae8;
     }
     :global(tbody) > tr.isExpanded > :global(td) {
         border-bottom-color: transparent;

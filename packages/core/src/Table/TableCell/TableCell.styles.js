@@ -24,7 +24,8 @@ export default css`
         border-right: 1px solid ${colors.grey300};
     }
     td.active {
-        background-color: ${colors.blue100};
+        background-color: ${colors.white};
+        outline: 2px solid ${colors.grey600};
     }
     td.bordered,
     th.bordered {
@@ -65,19 +66,19 @@ export default css`
         border-top: 1px solid ${colors.grey300};
     }
     :global(tbody) > :global(tr:hover) > td {
-        background-color: ${colors.blue050};
+        background-color: ${colors.grey100};
     }
     :global(tbody) > :global(tr:hover) > th {
         background-color: ${colors.grey300};
     }
     :global(tbody) > :global(tr:hover) > td.active,
     :global(tbody) > :global(tr:active) > td {
-        background-color: ${colors.blue100};
+        background-color: ${colors.grey200};
     }
     :global(tbody) > :global(tr.selected) > td {
-        background-color: ${colors.teal050};
+        background-color: ${colors.teal100};
     }
     :global(tbody) > :global(tr.selected:hover) > td {
-        background-color: ${colors.teal100};
+        background-color: #cdeae8;
     }
 `
