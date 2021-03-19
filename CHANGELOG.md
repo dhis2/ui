@@ -1,3 +1,10 @@
+## [6.5.6](https://github.com/dhis2/ui/compare/v6.5.5...v6.5.6) (2021-03-19)
+
+
+### Bug Fixes
+
+* **select:** set z-index to 1 on FilterInput used by selects ([#547](https://github.com/dhis2/ui/issues/547)) ([1a54efc](https://github.com/dhis2/ui/commit/1a54efc65b85911dfc90bff1dddb37b0a1e58386))
+
 ## [6.5.5](https://github.com/dhis2/ui/compare/v6.5.4...v6.5.5) (2021-03-11)
 
 
