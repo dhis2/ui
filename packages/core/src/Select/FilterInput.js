@@ -23,6 +23,7 @@ const FilterInput = ({ value, onChange, placeholder, className, dataTest }) => (
                 background: ${colors.white};
                 padding: ${spacers.dp8} ${spacers.dp8} ${spacers.dp4}
                     ${spacers.dp8};
+                z-index: 1;
             }
         `}</style>
     </div>
