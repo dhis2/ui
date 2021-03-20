@@ -1,0 +1,40 @@
+{
+    "name": "@dhis2/ui-elements",
+    "description": "Element components for DHIS2 user interfaces",
+    "version": "6.5.6",
+    "main": "./build/cjs/index.js",
+    "module": "./build/es/index.js",
+    "exports": {
+        "import": "./build/es/index.js",
+        "require": "./build/cjs/index.js"
+    },
+    "sideEffects": false,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dhis2/ui.git",
+        "directory": "packages/elements"
+    },
+    "homepage": "https://github.com/dhis2/ui#readme",
+    "author": "Viktor Varland <viktor@dhis2.org>",
+    "license": "BSD-3-Clause",
+    "private": false,
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "build": "d2-app-scripts build"
+    },
+    "peerDependencies": {
+        "@dhis2/ui-constants": "6.5.6",
+        "react": "^16.8",
+        "react-dom": "^16.8",
+        "styled-jsx": "^3.2"
+    },
+    "dependencies": {
+        "classnames": "^2.2.6",
+        "prop-types": "^15.7.2"
+    },
+    "files": [
+        "build"
+    ]
+}
