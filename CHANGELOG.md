@@ -1,3 +1,10 @@
+## [6.5.7](https://github.com/dhis2/ui/compare/v6.5.6...v6.5.7) (2021-03-22)
+
+
+### Bug Fixes
+
+* **modal:** add ARIA dialog role to modals ([#545](https://github.com/dhis2/ui/issues/545)) ([80d448a](https://github.com/dhis2/ui/commit/80d448a7420fe437419108150a636fc5fae21e01))
+
 ## [6.5.6](https://github.com/dhis2/ui/compare/v6.5.5...v6.5.6) (2021-03-19)
 
 
