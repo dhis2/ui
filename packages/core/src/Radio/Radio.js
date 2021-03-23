@@ -113,9 +113,6 @@ class Radio extends Component {
                         flex-direction: row;
                         align-items: center;
                         justify-content: flex-start;
-                        cursor: pointer;
-                        pointer-events: all;
-                        user-select: none;
                         color: ${colors.grey900};
                         font-size: 16px;
                         line-height: 20px;
@@ -133,12 +130,23 @@ class Radio extends Component {
 
                     input {
                         opacity: 0;
-                        pointer-events: none;
                         position: absolute;
+
+                        /* The same size as the icon */
+                        height: 18px;
+                        width: 18px;
+
+                        /* The same offset as the icon, 2px border, 1px padding */
+                        left: 3px;
+                    }
+
+                    label.dense input {
+                        /* The same size as the dense icon */
+                        height: 14px;
+                        width: 14px;
                     }
 
                     .icon {
-                        pointer-events: none;
                         user-select: none;
                         margin-right: ${label ? '5px' : 0};
                         border: 2px solid transparent;
