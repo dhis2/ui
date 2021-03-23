@@ -54,6 +54,7 @@ export const parameters = {
                     'Getting Started',
                     'Troubleshooting',
                     'Advanced Usage',
+                    'Useful Constants',
                     'Recipes',
                 ],
             ],

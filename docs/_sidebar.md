@@ -3,6 +3,7 @@
 -   [**Live demos**](/demo/ ':ignore Live demos')
 -   [**Troubleshooting**](troubleshooting)
 -   [**Advanced usage**](advanced-usage)
+-   [**Useful Constants**](constants)
 -   [**Forms: React Final Form**](forms/react-final-form)
 -   [**Forms: Validators**](forms/validators)
 -   [**Forms: Transformers**](forms/transformers)
