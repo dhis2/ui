@@ -1,3 +1,11 @@
+# [6.5.0-alpha.3](https://github.com/dhis2/ui/compare/v6.5.0-alpha.2...v6.5.0-alpha.3) (2021-03-23)
+
+
+### Bug Fixes
+
+* **radio:** make radio accessible ([e4b9dbf](https://github.com/dhis2/ui/commit/e4b9dbfbef2b3bd1a6b6f15e09a2529a8c32b8fd))
+* **switch:** make switch accessible ([9924cc0](https://github.com/dhis2/ui/commit/9924cc0049d7d0054052acdc3172fa6975f344a5))
+
 # [6.5.0-alpha.2](https://github.com/dhis2/ui/compare/v6.5.0-alpha.1...v6.5.0-alpha.2) (2021-02-25)
 
 
