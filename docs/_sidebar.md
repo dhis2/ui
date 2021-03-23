@@ -9,5 +9,6 @@
 -   [**Forms: Transformers**](forms/transformers)
 -   [**Recipes: Infinite loading edge case with already selected
     items**](recipes/transfer-infinite-loading-all-options-selected)
+-   [**Migrating From Previous Versions**](migrating)
 -   &nbsp;
 -   [Changelog](CHANGELOG.md)
