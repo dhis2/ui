@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
@@ -46,9 +46,9 @@ Card.defaultProps = {
  * @prop {string} [dataTest]
  */
 Card.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
 }
 
 export { Card }

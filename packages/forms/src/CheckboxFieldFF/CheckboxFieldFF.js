@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { CheckboxField } from '@dhis2/ui-widgets'
+import PropTypes from 'prop-types'
 import React from 'react'
 import {
     createToggleChangeHandler,
@@ -37,14 +37,16 @@ export const CheckboxFieldFF = ({
 )
 
 CheckboxFieldFF.propTypes = {
+    /** Provided by Final Form `Field` */
     input: inputPropType.isRequired,
+    /** Provided by Final Form `Field` */
     meta: metaPropType.isRequired,
 
-    error: propTypes.bool,
-    showValidStatus: propTypes.bool,
-    valid: propTypes.bool,
-    validationText: propTypes.string,
+    error: PropTypes.bool,
+    showValidStatus: PropTypes.bool,
+    valid: PropTypes.bool,
+    validationText: PropTypes.string,
 
-    onBlur: propTypes.func,
-    onFocus: propTypes.func,
+    onBlur: PropTypes.func,
+    onFocus: PropTypes.func,
 }

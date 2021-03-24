@@ -1,3 +1,74 @@
+## [6.5.7](https://github.com/dhis2/ui/compare/v6.5.6...v6.5.7) (2021-03-24)
+
+
+### Bug Fixes
+
+* **modal:** add ARIA dialog role to modals ([#545](https://github.com/dhis2/ui/issues/545)) ([80d448a](https://github.com/dhis2/ui/commit/80d448a7420fe437419108150a636fc5fae21e01))
+
+## [6.5.7](https://github.com/dhis2/ui/compare/v6.5.6...v6.5.7) (2021-03-22)
+
+
+### Bug Fixes
+
+* **modal:** add ARIA dialog role to modals ([#545](https://github.com/dhis2/ui/issues/545)) ([80d448a](https://github.com/dhis2/ui/commit/80d448a7420fe437419108150a636fc5fae21e01))
+
+## [6.5.6](https://github.com/dhis2/ui/compare/v6.5.5...v6.5.6) (2021-03-19)
+
+
+### Bug Fixes
+
+* **select:** set z-index to 1 on FilterInput used by selects ([#547](https://github.com/dhis2/ui/issues/547)) ([1a54efc](https://github.com/dhis2/ui/commit/1a54efc65b85911dfc90bff1dddb37b0a1e58386))
+
+## [6.5.5](https://github.com/dhis2/ui/compare/v6.5.4...v6.5.5) (2021-03-11)
+
+
+### Bug Fixes
+
+* enforce min w and h to keep circle shape on small screens ([141cc53](https://github.com/dhis2/ui/commit/141cc53162763a3412ae8c1bb56a5c487ec2f201))
+
+## [6.5.4](https://github.com/dhis2/ui/compare/v6.5.3...v6.5.4) (2021-03-11)
+
+
+### Bug Fixes
+
+* update LinearLoader story text ([#541](https://github.com/dhis2/ui/issues/541)) ([96e1134](https://github.com/dhis2/ui/commit/96e1134639fa57bbf5f3d1152e0724b0d5626149))
+
+## [6.5.3](https://github.com/dhis2/ui/compare/v6.5.2...v6.5.3) (2021-03-05)
+
+
+### Bug Fixes
+
+* **profilemenu:** fetch helpPageLink from system settings ([#531](https://github.com/dhis2/ui/issues/531)) ([c9ded20](https://github.com/dhis2/ui/commit/c9ded201185f8623cd4113a44f85cc284d1cb5b7))
+
+## [6.5.2](https://github.com/dhis2/ui/compare/v6.5.1...v6.5.2) (2021-03-05)
+
+
+### Bug Fixes
+
+* **help:** accessible colors for help text statuses ([fd63bc0](https://github.com/dhis2/ui/commit/fd63bc08616ea57bbc3e897a07b958288a4aa47f))
+
+## [6.5.1](https://github.com/dhis2/ui/compare/v6.5.0...v6.5.1) (2021-03-01)
+
+
+### Bug Fixes
+
+* **modal:** correctly close modal when clicked above or below (LIBS-127) ([#522](https://github.com/dhis2/ui/issues/522)) ([d63baf7](https://github.com/dhis2/ui/commit/d63baf77de6de302e0f4f38793c008a3ce083359))
+
+# [6.5.0](https://github.com/dhis2/ui/compare/v6.4.1...v6.5.0) (2021-02-25)
+
+
+### Features
+
+* **input:** add props for native max, min, step attributes ([739bfc9](https://github.com/dhis2/ui/commit/739bfc9673952a3d417de34465c43e4d69f0c45b))
+* **input-field:** add props for native max, min, step attr.'s ([8e7e25f](https://github.com/dhis2/ui/commit/8e7e25f406574631c55bd16a4a7e604dec917612))
+
+## [6.4.1](https://github.com/dhis2/ui/compare/v6.4.0...v6.4.1) (2021-02-24)
+
+
+### Bug Fixes
+
+* **tooltip:** configure open and close delays via prop (LIBS-126) ([#511](https://github.com/dhis2/ui/issues/511)) ([c572603](https://github.com/dhis2/ui/commit/c57260331e676f9d4c3d124636449b23ace0d710))
+
 # [6.5.0-alpha.3](https://github.com/dhis2/ui/compare/v6.5.0-alpha.2...v6.5.0-alpha.3) (2021-03-23)
 
 

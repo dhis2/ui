@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { LogoIconSvg } from './LogoIconSvg'
 import { LogoSvg } from './LogoSvg'
@@ -43,8 +43,8 @@ LogoIcon.defaultProps = {
 }
 
 LogoIcon.propTypes = {
-    className: propTypes.string,
-    dataTest: propTypes.string,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
 }
 
 export const LogoIconWhite = ({ className, dataTest }) => (
@@ -56,8 +56,8 @@ LogoIconWhite.defaultProps = {
 }
 
 LogoIconWhite.propTypes = {
-    className: propTypes.string,
-    dataTest: propTypes.string,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
 }
 
 export const Logo = ({ className, dataTest }) => (
@@ -74,8 +74,8 @@ Logo.defaultProps = {
 }
 
 Logo.propTypes = {
-    className: propTypes.string,
-    dataTest: propTypes.string,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
 }
 
 export const LogoWhite = ({ className, dataTest }) => (
@@ -92,6 +92,6 @@ LogoWhite.defaultProps = {
 }
 
 LogoWhite.propTypes = {
-    className: propTypes.string,
-    dataTest: propTypes.string,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
 }

@@ -1,8 +1,13 @@
 {
     "name": "@dhis2/ui",
     "version": "6.5.0-alpha.3",
-    "main": "build/cjs/lib.js",
-    "module": "build/es/lib.js",
+    "version": "6.5.7",
+    "main": "./build/cjs/index.js",
+    "module": "./build/es/index.js",
+    "exports": {
+        "import": "./build/es/index.js",
+        "require": "./build/cjs/index.js"
+    },
     "author": "Viktor Varland <viktor@dhis2.org>",
     "license": "BSD-3-Clause",
     "private": false,

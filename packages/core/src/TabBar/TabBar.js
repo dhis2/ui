@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { ScrollBar } from './ScrollBar.js'
 import { Tabs } from './Tabs.js'
@@ -51,11 +51,13 @@ TabBar.defaultProps = {
  * @prop {string} [dataTest]
  */
 TabBar.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    fixed: propTypes.bool,
-    scrollable: propTypes.bool,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    /** Fixed tabs fill the width of their container. If false (i.e. fluid), tabs take up an amount of space defined by the tab name. Fluid tabs should be used most of the time. */
+    fixed: PropTypes.bool,
+    /** Enables horizontal scrolling for many tabs that don't fit the width of the container */
+    scrollable: PropTypes.bool,
 }
 
 export { TabBar }

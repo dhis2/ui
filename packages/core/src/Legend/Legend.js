@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { Required } from '../Required/Required.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
@@ -42,10 +42,11 @@ Legend.defaultProps = {
  * @prop {string} [dataTest]
  */
 Legend.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    required: propTypes.bool,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    /** Indicates the associated field set is required */
+    required: PropTypes.bool,
 }
 
 export { Legend }

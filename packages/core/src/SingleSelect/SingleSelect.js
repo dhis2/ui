@@ -1,5 +1,6 @@
-import propTypes from '@dhis2/prop-types'
+import { requiredIf } from '@dhis2/prop-types'
 import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { StatusIcon } from '../Icons/index.js'
 import { Loading } from '../Select/Loading.js'
@@ -151,35 +152,40 @@ SingleSelect.defaultProps = {
  * @prop {string} [dataTest]
  */
 SingleSelect.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    clearText: propTypes.requiredIf(props => props.clearable, propTypes.string),
-    clearable: propTypes.bool,
-    dataTest: propTypes.string,
-    dense: propTypes.bool,
-    disabled: propTypes.bool,
-    empty: propTypes.node,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    /** Text on button that clears selection. Required if `clearable` prop is true */
+    clearText: requiredIf(props => props.clearable, PropTypes.string),
+    /** Adds a button to clear selection */
+    clearable: PropTypes.bool,
+    dataTest: PropTypes.string,
+    dense: PropTypes.bool,
+    disabled: PropTypes.bool,
+    /** Text or component to display when there are no options */
+    empty: PropTypes.node,
+    /** Applies 'error' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props */
     error: sharedPropTypes.statusPropType,
-    filterPlaceholder: propTypes.string,
-    filterable: propTypes.bool,
-    initialFocus: propTypes.bool,
-    inputMaxHeight: propTypes.string,
-    loading: propTypes.bool,
-    loadingText: propTypes.string,
-    maxHeight: propTypes.string,
-    noMatchText: propTypes.requiredIf(
-        props => props.filterable,
-        propTypes.string
-    ),
-    placeholder: propTypes.string,
-    prefix: propTypes.string,
-    selected: propTypes.string,
-    tabIndex: propTypes.string,
+    filterPlaceholder: PropTypes.string,
+    /** Adds a filter field to add text to filter options */
+    filterable: PropTypes.bool,
+    initialFocus: PropTypes.bool,
+    inputMaxHeight: PropTypes.string,
+    loading: PropTypes.bool,
+    loadingText: PropTypes.string,
+    maxHeight: PropTypes.string,
+    /** Text to show when filter returns no results. Required if `filterable` prop is true */
+    noMatchText: requiredIf(props => props.filterable, PropTypes.string),
+    placeholder: PropTypes.string,
+    prefix: PropTypes.string,
+    selected: PropTypes.string,
+    tabIndex: PropTypes.string,
+    /** Applies 'valid' appearance for validation feedback. Mutually exclusive with `warning` and `error` props */
     valid: sharedPropTypes.statusPropType,
+    /** Applies 'warning' appearance for validation feedback. Mutually exclusive with `valid` and `error` props */
     warning: sharedPropTypes.statusPropType,
-    onBlur: propTypes.func,
-    onChange: propTypes.func,
-    onFocus: propTypes.func,
+    onBlur: PropTypes.func,
+    onChange: PropTypes.func,
+    onFocus: PropTypes.func,
 }
 
 export { SingleSelect }

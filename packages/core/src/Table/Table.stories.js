@@ -9,6 +9,25 @@ import { TableHead } from './TableHead.js'
 import { TableRow } from './TableRow.js'
 import { TableRowHead } from './TableRowHead.js'
 
+const subtitle = 'Used to display information in a standard, effective way.'
+
+const description = `
+Should be used with multiple Table-related child components - see the table and examples below.
+
+\`\`\`js
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableCellHead,
+    TableFoot,
+    TableHead,
+    TableRow,
+    TableRowHead,
+} from '@dhis2/ui'
+\`\`\`
+`
+
 const TableFooterButton = () => (
     <div>
         <Button primary>Table footer button</Button>
@@ -24,10 +43,27 @@ const TableFooterButton = () => (
 
 const TableButton = () => <Button primary>Table button</Button>
 
-export default { title: 'Table' }
+export default {
+    title: 'Data Display/Table',
+    component: Table,
+    // Add subcomponents to the args table
+    subcomponents: {
+        TableHead,
+        TableBody,
+        TableFoot,
+        TableRowHead,
+        TableCellHead,
+        TableRow,
+        TableCell,
+    },
+    parameters: {
+        componentSubtitle: subtitle,
+        docs: { description: { component: description } },
+    },
+}
 
-export const StaticLayout = () => (
-    <Table>
+export const StaticLayout = args => (
+    <Table {...args}>
         <TableHead>
             <TableRowHead>
                 <TableCellHead>First name</TableCellHead>
@@ -152,8 +188,8 @@ export const StaticLayout = () => (
     </Table>
 )
 
-export const OneDenseCell = () => (
-    <Table>
+export const OneDenseCell = args => (
+    <Table {...args}>
         <TableHead>
             <TableRowHead>
                 <TableCellHead>First name</TableCellHead>
@@ -298,8 +334,8 @@ export const OneDenseCell = () => (
     </Table>
 )
 
-export const NoAlternatingBgColor = () => (
-    <Table suppressZebraStriping>
+export const NoAlternatingBgColor = args => (
+    <Table {...args}>
         <TableHead>
             <TableRowHead>
                 <TableCellHead>Name</TableCellHead>
@@ -427,6 +463,7 @@ export const NoAlternatingBgColor = () => (
         </TableFoot>
     </Table>
 )
+NoAlternatingBgColor.args = { suppressZebraStriping: true }
 
 export const CustomAlternatingBgColor = () => (
     <Table>

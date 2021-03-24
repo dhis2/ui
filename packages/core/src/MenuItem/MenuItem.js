@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React, { useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { FlyoutMenu } from '../FlyoutMenu/FlyoutMenu.js'
@@ -125,22 +125,34 @@ MenuItem.defaultProps = {
  * @prop {function} [onClick] - Click handler called with `value` in the payload
  */
 MenuItem.propTypes = {
-    active: propTypes.bool,
-    chevron: propTypes.bool,
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    dense: propTypes.bool,
-    destructive: propTypes.bool,
-    disabled: propTypes.bool,
-    href: propTypes.string,
-    icon: propTypes.node,
-    label: propTypes.node,
-    showSubMenu: propTypes.bool,
-    target: propTypes.string,
-    toggleSubMenu: propTypes.func,
-    value: propTypes.string,
-    onClick: propTypes.func,
+    active: PropTypes.bool,
+    chevron: PropTypes.bool,
+    /**
+     * Nested menu items can become submenus.
+     * See `showSubMenu` and `toggleSubMenu` props, and 'Children' demo
+     */
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    dense: PropTypes.bool,
+    destructive: PropTypes.bool,
+    disabled: PropTypes.bool,
+    /** For using menu item as a link */
+    href: PropTypes.string,
+    /** An icon for the left side of the menu item */
+    icon: PropTypes.node,
+    /** Text in the menu item */
+    label: PropTypes.node,
+    /** When true, nested menu items are shown in a Popper */
+    showSubMenu: PropTypes.bool,
+    /** For using menu item as a link */
+    target: PropTypes.string,
+    /** On click, this function is called (without args) */
+    toggleSubMenu: PropTypes.func,
+    /** Value associated with item. Passed as an argument to onClick handler. */
+    value: PropTypes.string,
+    /** Click handler called with signature `({ value: string }, event)` */
+    onClick: PropTypes.func,
 }
 
 export { MenuItem }

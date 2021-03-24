@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { TextAreaField } from '@dhis2/ui-widgets'
+import PropTypes from 'prop-types'
 import React from 'react'
 import {
     createChangeHandler,
@@ -40,16 +40,18 @@ export const TextAreaFieldFF = ({
 )
 
 TextAreaFieldFF.propTypes = {
+    /** `input` props received from Final Form `Field` */
     input: inputPropType.isRequired,
+    /** `meta` props received from Final Form `Field` */
     meta: metaPropType.isRequired,
 
-    error: propTypes.bool,
-    loading: propTypes.bool,
-    showLoadingStatus: propTypes.bool,
-    showValidStatus: propTypes.bool,
-    valid: propTypes.bool,
-    validationText: propTypes.string,
+    error: PropTypes.bool,
+    loading: PropTypes.bool,
+    showLoadingStatus: PropTypes.bool,
+    showValidStatus: PropTypes.bool,
+    valid: PropTypes.bool,
+    validationText: PropTypes.string,
 
-    onBlur: propTypes.func,
-    onFocus: propTypes.func,
+    onBlur: PropTypes.func,
+    onFocus: PropTypes.func,
 }

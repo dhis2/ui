@@ -1,9 +1,16 @@
 {
     "name": "@dhis2/ui-widgets",
     "version": "6.5.0-alpha.3",
-    "main": "build/cjs/lib.js",
-    "module": "build/es/lib.js",
-    "sideEffects": false,
+    "main": "./build/cjs/index.js",
+    "module": "./build/es/index.js",
+    "exports": {
+        "import": "./build/es/index.js",
+        "require": "./build/cjs/index.js"
+    },
+    "sideEffects": [
+        "build/es/locales/index.js",
+        "build/cjs/locales/index.js"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/dhis2/ui.git",

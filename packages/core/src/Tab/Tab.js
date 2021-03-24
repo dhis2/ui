@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { colors, theme } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
@@ -149,13 +149,15 @@ Tab.defaultProps = {
  * @prop {string} [dataTest]
  */
 Tab.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    disabled: propTypes.bool,
-    icon: propTypes.element,
-    selected: propTypes.bool,
-    onClick: propTypes.func,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    disabled: PropTypes.bool,
+    icon: PropTypes.element,
+    /** Indicates this tab is selected */
+    selected: PropTypes.bool,
+    /** Called with the signature `({}, event)` */
+    onClick: PropTypes.func,
 }
 
 export { Tab }

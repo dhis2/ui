@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React, { useEffect, useRef } from 'react'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
@@ -93,22 +93,25 @@ IntersectionDetector.defaultProps = {
  * @typedef {Object} PropTypes
  * @static
  *
- * @prop {Object} rootRef
+ * @prop {Object} rootRef React ref on other component to detect intersections with
  * @prop {HTMLElement} [rootRef.current]
- * @prop {Function} onChange
+ * @prop {Function} onChange Called with signature `({ isIntersecting: bool })`
  * @prop {any} [children]
  * @prop {string} [className]
- * @prop {number} [threshold]
+ * @prop {number} [threshold] The [threshold](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options) value: a value from 0.0 to 1.0 that controls the point at which an intersecting component is considered 'intersected' or 'visible' and the onChange callback triggers
  */
 IntersectionDetector.propTypes = {
-    rootRef: propTypes.shape({
+    /** React ref on other component to detect intersections with */
+    rootRef: PropTypes.shape({
         // not required so `current` can be `null`
-        current: propTypes.instanceOf(HTMLElement),
+        current: PropTypes.instanceOf(HTMLElement),
     }).isRequired,
-    onChange: propTypes.func.isRequired,
+    /** Called with signature `({ isIntersecting: bool })` */
+    onChange: PropTypes.func.isRequired,
 
-    children: propTypes.any,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    threshold: propTypes.number,
+    children: PropTypes.any,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    /** The [threshold](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options) value: a value from 0.0 to 1.0 that controls the point at which an intersecting component is considered 'intersected' or 'visible' and the onChange callback triggers */
+    threshold: PropTypes.number,
 }

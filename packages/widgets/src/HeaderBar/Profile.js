@@ -58,6 +58,8 @@ export default class Profile extends React.Component {
                         position: relative;
                         width: 36px;
                         height: 36px;
+                        min-width: 36px;
+                        min-height: 36px;
                         margin: 2px 12px 0 24px;
                     }
 

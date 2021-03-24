@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { FileListItem } from '@dhis2/ui-core'
 import { FileInputField } from '@dhis2/ui-widgets'
+import PropTypes from 'prop-types'
 import React from 'react'
 import i18n from '../locales/index.js'
 import { hasError, isValid, getValidationText } from '../shared/helpers.js'
@@ -82,18 +82,20 @@ FileInputFieldFF.defaultProps = {
 }
 
 FileInputFieldFF.propTypes = {
+    /** `input` props provided by Final Form `Field` */
     input: inputPropType.isRequired,
+    /** `meta` props provided by Final Form `Field` */
     meta: metaPropType.isRequired,
 
-    buttonLabel: propTypes.string,
-    disabled: propTypes.bool,
-    error: propTypes.bool,
-    multifile: propTypes.bool,
-    showValidStatus: propTypes.bool,
-    valid: propTypes.bool,
-    validationText: propTypes.string,
-    value: propTypes.oneOfType([
-        propTypes.arrayOf(propTypes.instanceOf(File)),
-        propTypes.oneOf(['']),
+    buttonLabel: PropTypes.string,
+    disabled: PropTypes.bool,
+    error: PropTypes.bool,
+    multifile: PropTypes.bool,
+    showValidStatus: PropTypes.bool,
+    valid: PropTypes.bool,
+    validationText: PropTypes.string,
+    value: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.instanceOf(File)),
+        PropTypes.oneOf(['']),
     ]),
 }

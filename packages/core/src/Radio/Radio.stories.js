@@ -1,6 +1,28 @@
-import { storiesOf } from '@storybook/react'
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
 import { Radio } from './Radio.js'
+
+const subtitle = `A control that allows a user to select a single option from a choice of several`
+
+const description = `
+Radio buttons are used where a user has the choice of several options but must select only one. Radio buttons should be used where the user has to make a choice, there is no 'off' or 'none' state unless explicitly defined. Radio buttons should be used when there are 5 or less options available. With more than five, a dropdown/Select menu should be used instead.
+
+Do not use a radio button if only a single option is available; use a Checkbox here instead.
+
+If there are many options that need to select from, consider using a Select instead.
+
+#### Size
+
+Radio buttons are available in Regular and Dense sizes. Regular size is usually used in forms and whenever radio buttons are used standalone. Dense size radio buttons are used inside other complex components, not as main elements of a UI.
+
+#### See more
+
+Learn more about Radio buttons at [Design System: Radio](https://github.com/dhis2/design-system/blob/master/atoms/radio.md).
+
+\`\`\`js
+import { Radio } from '@dhis2/ui'
+\`\`\`
+`
 
 window.onChange = (payload, event) => {
     console.log('onChange payload', payload)
@@ -21,362 +43,111 @@ const onChange = (...args) => window.onChange(...args)
 const onFocus = (...args) => window.onFocus(...args)
 const onBlur = (...args) => window.onBlur(...args)
 
-storiesOf('Radio', module)
-    // Regular
-    .add('Default', () => (
-        <Radio
-            name="Ex"
-            label="Radio"
-            value="default"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-    ))
+export default {
+    title: 'Forms/Radio/Radio',
+    component: Radio,
+    parameters: {
+        componentSubtitle: subtitle,
+        docs: { description: { component: description } },
+    },
+    // Default args for all stories
+    args: {
+        name: 'Ex',
+        label: 'Radio',
+        value: 'default',
+        onChange: onChange,
+        onFocus: onFocus,
+        onBlur: onBlur,
+    },
+    argTypes: {
+        valid: { ...sharedPropTypes.statusArgType },
+        error: { ...sharedPropTypes.statusArgType },
+        warning: { ...sharedPropTypes.statusArgType },
+    },
+}
 
-    .add('Focused unchecked', () => (
-        <>
-            <Radio
-                initialFocus
-                name="Ex"
-                label="Radio"
-                value="default"
-                className="initially-focused"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-            <Radio
-                name="Ex"
-                label="Radio"
-                value="default"
-                className="initially-unfocused"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-        </>
-    ))
+const Template = args => <Radio {...args} />
 
-    .add('Focused checked', () => (
-        <>
-            <Radio
-                initialFocus
-                checked
-                name="Ex"
-                label="Radio"
-                value="default"
-                className="initially-focused"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-            <Radio
-                name="Ex"
-                label="Radio"
-                value="default"
-                className="initially-unfocused"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-        </>
-    ))
+const CheckedUncheckedTemplate = args => (
+    <>
+        <Radio {...args} />
+        <Radio {...args} checked />
+    </>
+)
 
-    .add('Checked', () => (
-        <Radio
-            name="Ex"
-            label="Radio"
-            checked
-            value="checked"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-    ))
+export const Default = Template.bind({})
 
-    .add('Disabled', () => (
-        <>
-            <Radio
-                name="Ex"
-                label="Radio"
-                disabled
-                value="disabled"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-            <Radio
-                name="Ex"
-                label="Radio"
-                disabled
-                checked
-                value="disabled"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-        </>
-    ))
+export const FocusedUnchecked = args => (
+    <>
+        <Radio {...args} initialFocus className="initially-focused" />
+        <Radio {...args} className="initially-unfocused" />
+    </>
+)
+// Stories with initial focus are distracting on docs page
+FocusedUnchecked.parameters = { docs: { disable: true } }
 
-    .add('Valid', () => (
-        <>
-            <Radio
-                name="Ex"
-                label="Radio"
-                valid
-                value="valid"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-            <Radio
-                name="Ex"
-                label="Radio"
-                valid
-                checked
-                value="valid"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-        </>
-    ))
+export const FocusedChecked = FocusedUnchecked.bind({})
+FocusedChecked.args = { checked: true }
+FocusedChecked.parameters = { docs: { disable: true } }
 
-    .add('Warning', () => (
-        <>
-            <Radio
-                name="Ex"
-                label="Radio"
-                warning
-                value="warning"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-            <Radio
-                name="Ex"
-                label="Radio"
-                warning
-                checked
-                value="warning"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-        </>
-    ))
+export const Checked = Template.bind({})
+Checked.args = { checked: true, value: 'checked' }
 
-    .add('Error', () => (
-        <>
-            <Radio
-                name="Ex"
-                label="Radio"
-                error
-                value="error"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-            <Radio
-                name="Ex"
-                label="Radio"
-                error
-                checked
-                value="error"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-        </>
-    ))
+export const Disabled = CheckedUncheckedTemplate.bind({})
+Disabled.args = { disabled: true, value: 'disabled' }
 
-    .add('Image label', () => (
-        <Radio
-            name="Ex"
-            label={<img src="https://picsum.photos/id/82/200/100" />}
-            value="with-help"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-    ))
+export const Valid = CheckedUncheckedTemplate.bind({})
+Valid.args = { valid: true, value: 'valid' }
 
-    // Dense
-    .add('Default - Dense', () => (
-        <Radio
-            dense
-            name="Ex"
-            label="Radio"
-            value="default"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-    ))
+export const Warning = CheckedUncheckedTemplate.bind({})
+Warning.args = { warning: true, value: 'warning' }
 
-    .add('Focused unchecked - Dense', () => (
-        <Radio
-            dense
-            initialFocus
-            name="Ex"
-            label="Radio"
-            value="default"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-    ))
+export const Error = CheckedUncheckedTemplate.bind({})
+Error.args = { error: true, value: 'error' }
 
-    .add('Focused checked - Dense', () => (
-        <Radio
-            dense
-            initialFocus
-            checked
-            name="Ex"
-            label="Radio"
-            value="default"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-    ))
+export const ImageLabel = Template.bind({})
+ImageLabel.args = {
+    label: <img src="https://picsum.photos/id/82/200/100" />,
+    value: 'with-help',
+}
 
-    .add('Checked - Dense', () => (
-        <Radio
-            dense
-            name="Ex"
-            label="Radio"
-            checked
-            value="checked"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-    ))
+export const DefaultDense = Template.bind({})
+DefaultDense.args = { dense: true }
+DefaultDense.storyName = 'Default - Dense'
 
-    .add('Disabled - Dense', () => (
-        <>
-            <Radio
-                dense
-                name="Ex"
-                label="Radio"
-                disabled
-                value="disabled"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-            <Radio
-                dense
-                name="Ex"
-                label="Radio"
-                disabled
-                checked
-                value="disabled"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-        </>
-    ))
+export const FocusedUncheckedDense = FocusedUnchecked.bind({})
+FocusedUncheckedDense.args = { ...DefaultDense.args }
+FocusedUncheckedDense.storyName = 'Focused unchecked - Dense'
+FocusedUncheckedDense.parameters = { docs: { disable: true } }
 
-    .add('Valid - Dense', () => (
-        <>
-            <Radio
-                dense
-                name="Ex"
-                label="Radio"
-                valid
-                value="valid"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-            <Radio
-                dense
-                name="Ex"
-                label="Radio"
-                valid
-                checked
-                value="valid"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-        </>
-    ))
+export const FocusedCheckedDense = FocusedUnchecked.bind({})
+FocusedCheckedDense.args = { ...DefaultDense.args, checked: true }
+FocusedCheckedDense.storyName = 'Focused checked - Dense'
+FocusedCheckedDense.parameters = { docs: { disable: true } }
 
-    .add('Warning - Dense', () => (
-        <>
-            <Radio
-                dense
-                name="Ex"
-                label="Radio"
-                warning
-                value="warning"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-            <Radio
-                dense
-                name="Ex"
-                label="Radio"
-                warning
-                checked
-                value="warning"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-        </>
-    ))
+export const CheckedDense = Template.bind({})
+CheckedDense.args = { ...Checked.args, ...DefaultDense.args }
+CheckedDense.storyName = 'Checked - Dense'
 
-    .add('Error - Dense', () => (
-        <>
-            <Radio
-                dense
-                name="Ex"
-                label="Radio"
-                error
-                value="error"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-            <Radio
-                dense
-                name="Ex"
-                label="Radio"
-                error
-                checked
-                value="error"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-        </>
-    ))
+export const DisabledDense = CheckedUncheckedTemplate.bind({})
+DisabledDense.args = { ...Disabled.args, ...DefaultDense.args }
+DisabledDense.storyName = 'Disabled - Dense'
 
-    .add('Image label - Dense', () => (
-        <Radio
-            dense
-            name="Ex"
-            label={<img src="https://picsum.photos/id/82/200/100" />}
-            value="with-help"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        />
-    ))
-    .add('No Label', () => (
-        <Radio
-            name="Ex"
-            value="with-help"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            className="some-name"
-        />
-    ))
+export const ValidDense = CheckedUncheckedTemplate.bind({})
+ValidDense.args = { ...Valid.args, ...DefaultDense.args }
+ValidDense.storyName = 'Valid - Dense'
+
+export const WarningDense = CheckedUncheckedTemplate.bind({})
+WarningDense.args = { ...Warning.args, ...DefaultDense.args }
+WarningDense.storyName = 'Warning - Dense'
+
+export const ErrorDense = CheckedUncheckedTemplate.bind({})
+ErrorDense.args = { ...Error.args, ...DefaultDense.args }
+ErrorDense.storyName = 'Error - Dense'
+
+export const ImageLabelDense = Template.bind({})
+ImageLabelDense.args = { ...ImageLabel.args, ...DefaultDense.args }
+ImageLabelDense.storyName = 'Image label - Dense'
+
+export const NoLabel = Template.bind({})
+NoLabel.args = { label: null, className: 'some-name' }

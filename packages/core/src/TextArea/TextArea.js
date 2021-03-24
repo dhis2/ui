@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { StatusIcon } from '../Icons/index.js'
 import { styles } from './TextArea.styles.js'
@@ -216,25 +216,43 @@ TextArea.defaultProps = {
  * @prop {string} [dataTest]
  */
 TextArea.propTypes = {
-    autoGrow: propTypes.bool,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    dense: propTypes.bool,
-    disabled: propTypes.bool,
+    /** Grow the text area in response to overflow instead of adding a scroll bar */
+    autoGrow: PropTypes.bool,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    /** Compact mode */
+    dense: PropTypes.bool,
+    /** Disables the textarea and makes in non-interactive */
+    disabled: PropTypes.bool,
+    /** Applies 'error' styles for validation feedback. Mutually exclusive with `valid` and `warning` props */
     error: sharedPropTypes.statusPropType,
-    initialFocus: propTypes.bool,
-    loading: propTypes.bool,
-    name: propTypes.string,
-    placeholder: propTypes.string,
-    readOnly: propTypes.bool,
-    resize: propTypes.oneOf(['none', 'both', 'horizontal', 'vertical']),
-    rows: propTypes.number,
-    tabIndex: propTypes.string,
+    /** Grabs initial focus on the page */
+    initialFocus: PropTypes.bool,
+    /** Adds a loading spinner */
+    loading: PropTypes.bool,
+    /** Name associated with the text area. Passed in object argument to event handlers. */
+    name: PropTypes.string,
+    /** Placeholder text for an empty textarea */
+    placeholder: PropTypes.string,
+    /** Makes the textarea read-only */
+    readOnly: PropTypes.bool,
+    /** [Resize property](https://developer.mozilla.org/en-US/docs/Web/CSS/resize) for the textarea element */
+    resize: PropTypes.oneOf(['none', 'both', 'horizontal', 'vertical']),
+    /** Initial height of the textarea, in lines of text */
+    rows: PropTypes.number,
+    tabIndex: PropTypes.string,
+    /** Applies 'valid' styles for validation feedback. Mutually exclusive with `warning` and `error` props */
     valid: sharedPropTypes.statusPropType,
-    value: propTypes.string,
+    /** Value in the textarea. Can be used to control component (recommended). Passed in object argument to event handlers. */
+    value: PropTypes.string,
+    /** Applies 'warning' styles for validation feedback. Mutually exclusive with `valid` and `error` props */
     warning: sharedPropTypes.statusPropType,
-    width: propTypes.string,
-    onBlur: propTypes.func,
-    onChange: propTypes.func,
-    onFocus: propTypes.func,
+    /** Width of the text area. Can be any valid CSS measurement */
+    width: PropTypes.string,
+    /** Called with signature ({ name: string, value: string }, event) */
+    onBlur: PropTypes.func,
+    /** Called with signature ({ name: string, value: string }, event) */
+    onChange: PropTypes.func,
+    /** Called with signature ({ name: string, value: string }, event) */
+    onFocus: PropTypes.func,
 }

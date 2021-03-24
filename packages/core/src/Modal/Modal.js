@@ -1,7 +1,11 @@
-import propTypes from '@dhis2/prop-types'
-import { layers, spacers, spacersNum } from '@dhis2/ui-constants'
-import { sharedPropTypes } from '@dhis2/ui-constants'
+import {
+    layers,
+    spacers,
+    spacersNum,
+    sharedPropTypes,
+} from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { resolve } from 'styled-jsx/css'
 import { Card } from '../Card/Card.js'
@@ -18,6 +22,15 @@ const scrollBoxCard = resolve`
     }
 `
 
+const centeredContent = resolve`
+    .top {
+        padding-top: ${spacers.dp64};
+    }
+    .bottom {
+        padding-bottom: ${spacers.dp64};
+    }
+`
+
 /**
  * @module
  * @param {Modal.PropTypes} props
@@ -26,7 +39,7 @@ const scrollBoxCard = resolve`
  * @desc Modal provides a UI to prompt the user to respond to a question
  * or a note to the user.
  *
- * Use Model with the following Components:
+ * Use Modal with the following Components:
  * ModelTitle (optional)
  * ModelContent (required)
  * ModelActions (optional)
@@ -57,14 +70,20 @@ export const Modal = ({
     dataTest,
 }) => (
     <Layer onClick={onClose} level={layers.blocking} translucent>
-        <CenteredContent position={position}>
+        <CenteredContent
+            position={position}
+            className={centeredContent.className}
+        >
             <aside
+                role="dialog"
+                aria-modal="true"
                 data-test={dataTest}
-                className={cx(className, position, { small, large })}
+                className={cx(className, { small, large })}
             >
                 <Card className={scrollBoxCard.className}>{children}</Card>
             </aside>
             {scrollBoxCard.styles}
+            {centeredContent.styles}
         </CenteredContent>
 
         <style jsx>{`
@@ -74,14 +93,6 @@ export const Modal = ({
                 max-height: calc(100vh - ${2 * spacersNum.dp64}px);
                 max-width: calc(100vw - ${2 * spacersNum.dp64}px);
                 width: 600px;
-            }
-
-            aside.top {
-                margin-top: ${spacers.dp64};
-            }
-
-            aside.bottom {
-                margin-bottom: ${spacers.dp64};
             }
 
             aside.small {
@@ -112,12 +123,12 @@ Modal.defaultProps = {
  * @prop {string} [dataTest]
  */
 Modal.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
     large: sharedPropTypes.sizePropType,
     position: sharedPropTypes.insideAlignmentPropType,
     small: sharedPropTypes.sizePropType,
-    // Callback used when clicking on the screen cover
-    onClose: propTypes.func,
+    /** Callback used when screen cover is clicked */
+    onClose: PropTypes.func,
 }

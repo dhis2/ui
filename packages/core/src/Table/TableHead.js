@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 /**
@@ -27,8 +27,9 @@ TableHead.defaultProps = {
  * @prop {string} [dataTest]
  */
 TableHead.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    role: propTypes.string,
+    /** Should be `<TableRowHead>` components */
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    role: PropTypes.string,
 }

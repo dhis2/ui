@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { FieldGroup } from '@dhis2/ui-widgets'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { useField } from 'react-final-form'
 
@@ -35,8 +35,8 @@ export const FieldGroupFF = ({ name, label, children, required }) => {
 }
 
 FieldGroupFF.propTypes = {
-    children: propTypes.node,
-    label: propTypes.string,
-    name: propTypes.string,
-    required: propTypes.bool,
+    children: PropTypes.node,
+    label: PropTypes.string,
+    name: PropTypes.string,
+    required: PropTypes.bool,
 }

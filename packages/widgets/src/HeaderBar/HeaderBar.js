@@ -1,6 +1,6 @@
 import { useDataQuery, useConfig } from '@dhis2/app-runtime'
-import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
 import i18n from '../locales/index.js'
 import Apps from './Apps.js'
@@ -15,7 +15,7 @@ const query = {
         resource: 'systemSettings/applicationTitle',
     },
     help: {
-        resource: 'systemSettings/helpLink',
+        resource: 'systemSettings/helpPageLink',
     },
     user: {
         resource: 'me',
@@ -80,7 +80,7 @@ export const HeaderBar = ({ appName, className }) => {
                         name={data.user.name}
                         email={data.user.email}
                         avatarUrl={avatarUrl(data.user.avatar, baseUrl)}
-                        helpUrl={data.help.helpLink}
+                        helpUrl={data.help.helpPageLink}
                     />
                 </>
             )}
@@ -105,6 +105,6 @@ export const HeaderBar = ({ appName, className }) => {
 }
 
 HeaderBar.propTypes = {
-    appName: propTypes.string,
-    className: propTypes.string,
+    appName: PropTypes.string,
+    className: PropTypes.string,
 }

@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { colors, spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { Divider } from '../Divider/Divider.js'
 
@@ -67,11 +67,11 @@ MenuSectionHeader.defaultProps = {
  * @prop {Node} [label]
  */
 MenuSectionHeader.propTypes = {
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    dense: propTypes.bool,
-    hideDivider: propTypes.bool,
-    label: propTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    dense: PropTypes.bool,
+    hideDivider: PropTypes.bool,
+    label: PropTypes.node,
 }
 
 export { MenuSectionHeader }

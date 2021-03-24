@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 /**
@@ -33,9 +33,9 @@ FieldSet.defaultProps = {
  * @prop {string} [dataTest]
  */
 FieldSet.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
 }
 
 export { FieldSet }

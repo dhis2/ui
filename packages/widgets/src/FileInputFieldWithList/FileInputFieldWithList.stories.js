@@ -1,6 +1,14 @@
-import { storiesOf } from '@storybook/react'
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
 import { FileInputFieldWithList } from './FileInputFieldWithList.js'
+
+const description = `
+A FileInputField with logic for creating a dynamic list of removable files from an array of \`File\` objects.
+
+\`\`\`js
+import { FileInputFieldWithList } from '@dhis2/ui'
+\`\`\`
+`
 
 const files = new Array(10)
     .fill('dummy-file-name')
@@ -10,25 +18,39 @@ const onChange = ({ files }) => {
     console.log('files: ', files)
 }
 
-storiesOf('FileInputFieldWithList', module)
-    .add('Default', () => (
-        <FileInputFieldWithList
-            multiple
-            onChange={onChange}
-            buttonLabel="Upload file"
-            name="upload"
-            files={files}
-            removeText="remove"
-        />
-    ))
-    .add('Default: buttonLabel and removeText', () => (
-        <FileInputFieldWithList
-            multiple
-            onChange={onChange}
-            name="upload"
-            files={files}
-        />
-    ))
-    .add('Default: placeholder', () => (
-        <FileInputFieldWithList multiple onChange={onChange} name="upload" />
-    ))
+export default {
+    title: 'Forms/File Input/File Input Field With List',
+    component: FileInputFieldWithList,
+    parameters: { docs: { description: { component: description } } },
+    args: {
+        // Handle default props bug (see Transfer stories)
+        ...FileInputFieldWithList.defaultProps,
+        multiple: true,
+        onChange: onChange,
+        name: 'uploadName',
+    },
+    argTypes: {
+        small: { ...sharedPropTypes.sizeArgType },
+        large: { ...sharedPropTypes.sizeArgType },
+        valid: { ...sharedPropTypes.statusArgType },
+        warning: { ...sharedPropTypes.statusArgType },
+        error: { ...sharedPropTypes.statusArgType },
+    },
+}
+
+const Template = args => <FileInputFieldWithList {...args} />
+
+export const Default = Template.bind({})
+Default.args = {
+    buttonLabel: 'Upload file (custom label)',
+    files: files,
+    removeText: 'Custom remove text',
+}
+
+export const DefaultButtonLabelAndRemoveText = Template.bind({})
+DefaultButtonLabelAndRemoveText.args = { files: files }
+DefaultButtonLabelAndRemoveText.storyName =
+    'Default: buttonLabel and removeText'
+
+export const DefaultPlaceholder = Template.bind({})
+DefaultPlaceholder.storyName = 'Default: placeholder'

@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React, { createRef, Component } from 'react'
 import { Button } from '../Button/Button.js'
 import { Upload, StatusIcon } from '../Icons/index.js'
@@ -149,23 +149,37 @@ FileInput.defaultProps = {
  * @prop {string} [dataTest]
  */
 FileInput.propTypes = {
-    accept: propTypes.string,
-    buttonLabel: propTypes.string,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    disabled: propTypes.bool,
+    /**
+     * The `accept` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept)
+     */
+    accept: PropTypes.string,
+    buttonLabel: PropTypes.string,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    disabled: PropTypes.bool,
+    /** Input status. Mutually exclusive with `warning` and `valid` */
     error: sharedPropTypes.statusPropType,
-    initialFocus: propTypes.bool,
+    initialFocus: PropTypes.bool,
+    /** Button size. Mutually exclusive with `small` */
     large: sharedPropTypes.sizePropType,
-    multiple: propTypes.bool,
-    name: propTypes.string,
+    /**
+     * The `multiple` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple)
+     */
+    multiple: PropTypes.bool,
+    name: PropTypes.string,
+    /** Button size. Mutually exclusive with `large` */
     small: sharedPropTypes.sizePropType,
-    tabIndex: propTypes.string,
+    tabIndex: PropTypes.string,
+    /** Input status. Mutually exclusive with `warning` and `error` */
     valid: sharedPropTypes.statusPropType,
+    /** Input status. Mutually exclusive with `valid` and `error` */
     warning: sharedPropTypes.statusPropType,
-    onBlur: propTypes.func,
-    onChange: propTypes.func,
-    onFocus: propTypes.func,
+    /** Called with signature `(object, event)` */
+    onBlur: PropTypes.func,
+    /** Called with signature `(object, event)` */
+    onChange: PropTypes.func,
+    /** Called with signature `(object, event)` */
+    onFocus: PropTypes.func,
 }
 
 export { FileInput }

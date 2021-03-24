@@ -1,4 +1,5 @@
 const isTesting = 'STORYBOOK_TESTING' in process.env
+const makeBabelConfig = require('@dhis2/cli-app-scripts/config/makeBabelConfig.js')
 
 module.exports = {
     /**
@@ -30,6 +31,46 @@ module.exports = {
     // https://storybook.js.org/docs/react/configure/overview#configure-story-loading
     stories: isTesting
         ? ['../packages/*/src/**/*.stories.e2e.@(js|jsx)']
-        : ['../packages/*/src/**/*.stories.@(js|jsx)'],
-    addons: ['@storybook/preset-create-react-app', 'storybook-addon-jsx'],
+        : [
+              '../docs/**/*.stories.mdx',
+              '../packages/*/src/**/*.stories.@(js|jsx|mdx)',
+          ],
+    addons: [
+        '@storybook/preset-create-react-app',
+        '@storybook/addon-essentials',
+        {
+            name: '@storybook/addon-storysource',
+            options: { loaderOptions: { injectDecorator: false } },
+        },
+        'storybook-addon-jsx',
+        '@storybook/addon-a11y',
+    ],
+    babel: async config => {
+        // currently styled-jsx is configured the same way for prod and
+        // dev so it doesn't matter what the mode is here.
+        const mode = 'production'
+
+        const custom = makeBabelConfig({
+            moduleType: 'es',
+            mode,
+        })
+
+        // ensure that our custom babel configuration is merged properly
+        // with the storybook babel configuration.
+        return {
+            ...config,
+            presets: [
+                ...config.presets,
+                ...custom.presets,
+            ],
+            plugins: [
+                ...config.plugins,
+                ...custom.plugins,
+                ...custom.env[mode].plugins,
+            ],
+        }
+    },
+    reactOptions: {
+        fastRefresh: true,
+    }
 }

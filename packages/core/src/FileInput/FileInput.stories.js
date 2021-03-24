@@ -1,6 +1,16 @@
-import { storiesOf } from '@storybook/react'
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
 import { FileInput } from './FileInput.js'
+
+const subtitle = `The file input component allows users to select and upload files from their local machine.`
+
+const description = `
+Use a file input component in forms and interfaces wherever a user needs to be able to select and upload a file from their local machine.
+
+\`\`\`js
+import { FileInput } from '@dhis2/ui'
+\`\`\`
+`
 
 const onChange = (payload, event) => {
     console.log('onChange payload', payload)
@@ -18,75 +28,49 @@ const onChange = (payload, event) => {
         )
 }
 
-storiesOf('FileInput', module)
-    .add('Default', () => (
-        <FileInput
-            onChange={onChange}
-            buttonLabel="Upload file"
-            name="upload"
-        />
-    ))
-    .add('Multiple', () => (
-        <FileInput
-            name="upload"
-            onChange={onChange}
-            buttonLabel="Upload files"
-            multiple
-        />
-    ))
-    .add('Disabled', () => (
-        <FileInput
-            name="upload"
-            onChange={onChange}
-            buttonLabel="Upload file"
-            disabled
-        />
-    ))
-    .add('Sizes', () => (
-        <>
-            <FileInput
-                onChange={onChange}
-                buttonLabel="Default size"
-                name="default"
-            />
-            <FileInput
-                small
-                onChange={onChange}
-                buttonLabel="Small"
-                name="small"
-            />
-            <FileInput
-                large
-                onChange={onChange}
-                buttonLabel="Large"
-                name="large"
-            />
-        </>
-    ))
-    .add('Statuses', () => (
-        <>
-            <FileInput
-                onChange={onChange}
-                buttonLabel="Default"
-                name="default"
-            />
-            <FileInput
-                onChange={onChange}
-                buttonLabel="Valid"
-                name="valid"
-                valid
-            />
-            <FileInput
-                onChange={onChange}
-                buttonLabel="Warning"
-                name="warning"
-                warning
-            />
-            <FileInput
-                onChange={onChange}
-                buttonLabel="Error"
-                name="error"
-                error
-            />
-        </>
-    ))
+const { sizeArgType, statusArgType } = sharedPropTypes
+
+export default {
+    title: 'Forms/File Input/File Input',
+    component: FileInput,
+    // Default args for each story unless overridden
+    args: { buttonLabel: 'Upload file', name: 'upload', onChange },
+    argTypes: {
+        valid: { ...statusArgType },
+        warning: { ...statusArgType },
+        error: { ...statusArgType },
+        small: { ...sizeArgType },
+        large: { ...sizeArgType },
+    },
+    parameters: {
+        componentSubtitle: subtitle,
+        docs: { description: { component: description } },
+    },
+}
+
+const Template = args => <FileInput {...args} />
+
+export const Default = Template.bind({})
+
+export const Multiple = Template.bind({})
+Multiple.args = { multiple: true, buttonLabel: 'Upload files' }
+
+export const Disabled = Template.bind({})
+Disabled.args = { disabled: true }
+
+export const Sizes = args => (
+    <>
+        <FileInput {...args} buttonLabel="Default size" name="default" />
+        <FileInput {...args} small buttonLabel="Small" name="small" />
+        <FileInput {...args} large buttonLabel="Large" name="large" />
+    </>
+)
+
+export const Statuses = args => (
+    <>
+        <FileInput {...args} buttonLabel="Default" name="default" />
+        <FileInput {...args} buttonLabel="Valid" name="valid" valid />
+        <FileInput {...args} buttonLabel="Warning" name="warning" warning />
+        <FileInput {...args} buttonLabel="Error" name="error" error />
+    </>
+)

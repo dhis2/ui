@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { Leaves } from './Leaves.js'
 import { Spacer } from './Spacer.js'
@@ -78,12 +78,15 @@ Node.defaultProps = {
  * @prop {string} [dataTest]
  */
 Node.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    component: propTypes.element,
-    dataTest: propTypes.string,
-    icon: propTypes.node,
-    open: propTypes.bool,
-    onClose: propTypes.func,
-    onOpen: propTypes.func,
+    /** Content below this level of the hierarchy; children are revealed when this leaf is 'open' */
+    children: PropTypes.node,
+    className: PropTypes.string,
+    /** Content/label for this leaf, for example a checkbox */
+    component: PropTypes.element,
+    dataTest: PropTypes.string,
+    /** A custom icon to use instead of a toggle arrow */
+    icon: PropTypes.node,
+    open: PropTypes.bool,
+    onClose: PropTypes.func,
+    onOpen: PropTypes.func,
 }

@@ -1,6 +1,7 @@
-import propTypes from '@dhis2/prop-types'
+import { mutuallyExclusive } from '@dhis2/prop-types'
 import { colors, theme, sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React, { Component, createRef } from 'react'
 import { CheckboxRegular, CheckboxDense } from '../Icons/index.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
@@ -214,29 +215,30 @@ Checkbox.defaultProps = {
  * @prop {string} [dataTest]
  */
 
-const uniqueOnStatePropType = propTypes.mutuallyExclusive(
+const uniqueOnStatePropType = mutuallyExclusive(
     ['checked', 'indeterminate'],
-    propTypes.bool
+    PropTypes.bool
 )
 
 Checkbox.propTypes = {
     checked: uniqueOnStatePropType,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    dense: propTypes.bool,
-    disabled: propTypes.bool,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    dense: PropTypes.bool,
+    disabled: PropTypes.bool,
     error: sharedPropTypes.statusPropType,
     indeterminate: uniqueOnStatePropType,
-    initialFocus: propTypes.bool,
-    label: propTypes.node,
-    name: propTypes.string,
-    tabIndex: propTypes.string,
+    initialFocus: PropTypes.bool,
+    label: PropTypes.node,
+    name: PropTypes.string,
+    tabIndex: PropTypes.string,
     valid: sharedPropTypes.statusPropType,
-    value: propTypes.string,
+    value: PropTypes.string,
     warning: sharedPropTypes.statusPropType,
-    onBlur: propTypes.func,
-    onChange: propTypes.func,
-    onFocus: propTypes.func,
+    onBlur: PropTypes.func,
+    /** Called with signature `(object, event)` */
+    onChange: PropTypes.func,
+    onFocus: PropTypes.func,
 }
 
 export { Checkbox }
