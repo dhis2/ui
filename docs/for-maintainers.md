@@ -12,19 +12,19 @@ This page assumes some knowledge of Storybook.
 
 -   [Organizing components](#organizing-components)
 -   [Making stories](#making-stories)
-    -   [Getting the args table](#getting-the-args-table)
+    -   [Getting the Args Table](#getting-the-args-table)
     -   [Controls and `args`](#controls-and-args)
     -   [Demonstrating callback behavior](#demonstrating-callback-behavior)
     -   [Customising source code snippets](#customising-source-code-snippets)
-    -   [Reusing a story template](#reusing-a-story-template)
-    -   [Templates with state or refs (or other hooks)](#templates-with-state-or-refs-or-other-hooks)
-    -   [Stories for multiple components](#stories-for-multiple-components)
+    -   [Making a reusable story template](#making-a-reusable-story-template)
+    -   [Using state or refs (or other hooks) in Templates](#using-state-or-refs-or-other-hooks-in-templates)
+    -   [Tips for making stories for multiple components](#tips-for-making-stories-for-multiple-components)
 -   [Annotating a component](#annotating-a-component)
--   [Making sure propTypes are correctly documented](#making-sure-proptypes-are-correctly-documented)
+-   [Making sure propTypes are correctly documented and customizing the Args Table](#making-sure-proptypes-are-correctly-documented-and-customizing-the-args-table)
 -   [Edge cases and workarounds](#edge-cases-and-workarounds)
     -   [Portal components](#portal-components)
-        -   [Props extraction for portal components](#props-extraction-for-portal-components)
-    -   [Default props & default args](#default-props--default-args)
+        -   [Extracting props for the Args Table from portal components](#extracting-props-for-the-args-table-from-portal-components)
+    -   [Handling variables (non-literals) used as default props, using default args ('`i18n is not defined`' error)](#handling-variables-non-literals-used-as-default-props-using-default-args-i18n-is-not-defined-error)
     -   [Stories that use initial focus](#stories-that-use-initial-focus)
 
 ## Organizing components
@@ -48,9 +48,9 @@ See more about naming and organization at [Naming Components and Hierarchy](http
 
 There are a few ways you can make sure the stories generate the best documentation for the Docs Page.
 
-### Getting the args table
+### Getting the Args Table
 
-Make sure you add the `component` property to the default export of the stories file (see default export example above) - this is how storybook knows to extract the component's props for the args table.
+Make sure you add the `component` property to the default export of the stories file (see default export example above) - this is how storybook knows to extract the component's props for the Args Table.
 
 ### Controls and `args`
 
@@ -121,7 +121,7 @@ const ComponentDemo = () => {
 
 Read more about source code blocks at [Storybook: Doc Blocks - Source](https://storybook.js.org/docs/react/writing-docs/doc-blocks#source)
 
-### Reusing a story template
+### Making a reusable story template
 
 To keep stories concise and DRY, you can reuse a story template (that uses the `args` syntax) and set the relevant props on each story using `StoryName.args = { ... }`. That looks like this:
 
@@ -156,7 +156,7 @@ PrimaryDense.args = { ...Primary.args, dense: true }
 
 Here is [some more information about templates](https://storybook.js.org/docs/react/writing-stories/introduction#using-args) from the storybook documentation.
 
-### Templates with state or refs (or other hooks)
+### Using state or refs (or other hooks) in Templates
 
 Templates can add some complexity with wrappers or hooks that might get used repeatedly.
 
@@ -184,7 +184,7 @@ const Template = args => {
 }
 ```
 
-### Stories for multiple components
+### Tips for making stories for multiple components
 
 Applying `args` or a template for a story with multiple components may not be straightforward, and controls may not work completely. See '[Stories for multiple components](https://storybook.js.org/docs/react/workflows/stories-for-multiple-components)' for detailed recommendations.
 
@@ -207,7 +207,7 @@ ButtonSizes.args = { onClick: console.log }
 
 There are several ways to add descriptions to a component and its props for the Docs Page. Each of these accepts markdown syntax inside the strings or comments.
 
-By default, a JSDoc above the component definition becomes the component description on the Docs Page, and JSDoc comments above individual props become descriptions of those props in the args table (on both the Docs Page and in the Controls addon on the Canvas tab). Since the components in this library have pre-existing JSDoc comments with a particular syntax, these comments have been overridden with descriptions in the stories file. In the future, this may change back to comments above the component as the source.
+By default, a JSDoc above the component definition becomes the component description on the Docs Page, and JSDoc comments above individual props become descriptions of those props in the Args Table (on both the Docs Page and in the Controls addon on the Canvas tab). Since the components in this library have pre-existing JSDoc comments with a particular syntax, these comments have been overridden with descriptions in the stories file. _In the future, this may change back to comments above the component as the source._
 
 Descriptions can be added to the component and for each story (except the primary story on the Docs Page), and a subtitle can be added below the main story title.
 
@@ -249,11 +249,11 @@ Primary.parameters = {
 }
 ```
 
-## Making sure propTypes are correctly documented
+## Making sure propTypes are correctly documented and customizing the Args Table
 
 Imported prop types (either from another file or from another library) are currently not interpreted correctly by react docgen under the hood. For this reason, it's best to use the React `prop-types` library for any props that will appear in user-facing stories.
 
-The workaround for imported props is to create a configuration object to define that prop's `argTypes` that decides what the row in the `args` table should look like, and what control should be used. In this library, mostly the `type` in the args table and the control type were configured, leaving descriptions to the JSDoc above the prop type definition.
+The workaround for imported props is to create a configuration object to define that prop's `argTypes` that decides what the row in the `args` table should look like, and what control should be used. In this library, mostly the `type` in the Args Table and the control type were configured, leaving descriptions to the JSDoc above the prop type definition.
 
 Read more about configuring the table at [Arg Types: Manual specification](https://storybook.js.org/docs/react/api/argtypes#manual-specification), and configuring controls at [Controls: Fully custom args](https://storybook.js.org/docs/react/essentials/controls#fully-custom-args).
 
@@ -336,17 +336,17 @@ RepresentativeExample.parameters = { docs: { disable: false } }
 
 **NB:** Controls on the props will not work for an `iframe` story on the Docs Page, but the Controls will work normally in the Canvas. It would be helpful to make a note for users so they know what to expect.
 
-#### Props extraction for portal components
+#### Extracting props for the Args Table from portal components
 
-Make sure components return JSX - otherwise react docgen will not find them and not generate an args table. If a component returns a react portal, that portal can be wrapped in a React fragment to make the prop detection work.
+Make sure components return JSX - otherwise react docgen will not find them and not generate an Args Table. If a component returns a react portal, that portal can be wrapped in a React fragment to make the prop detection work.
 
-### Default props & default args
+### Handling variables (non-literals) used as default props, using default args ('`i18n is not defined`' error)
 
 There is a bug that manifests as a story throwing an error that looks like '[callback] is not a function'/'expected function but received string' or '[variable used in default props] is undefined' - this is due to a quirk with how default props are processed when using the `args` syntax. (See [this issue](https://github.com/storybookjs/storybook/issues/12098#issuecomment-758153653))
 
-Providing actual (non-default) values in the stories enables the expected behavior.
+Providing actual values for those props in the stories enables the expected behavior, even if they are the same value as the default prop.
 
-An easy workaround, therefore, is to set the component's default props as args for all the stories as default (specifying args for an individual story still takes precedence):
+An easy workaround, therefore, is to set the component's default props as args for all the stories by default. Later, specifying args for an individual story will take precedence over the default args:
 
 ```js
 export default {
