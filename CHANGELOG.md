@@ -1,3 +1,17 @@
+# [6.6.0](https://github.com/dhis2/ui/compare/v6.5.7...v6.6.0) (2021-03-24)
+
+
+### Bug Fixes
+
+* **checkbox:** make checkbox accessible ([33b3079](https://github.com/dhis2/ui/commit/33b3079c7d5e8c58f98f089a06ce96a58aebc6f2))
+* **radio:** make radio accessible ([e4b9dbf](https://github.com/dhis2/ui/commit/e4b9dbfbef2b3bd1a6b6f15e09a2529a8c32b8fd))
+* **switch:** make switch accessible ([9924cc0](https://github.com/dhis2/ui/commit/9924cc0049d7d0054052acdc3172fa6975f344a5))
+
+
+### Features
+
+* **input:** add role attribute for input component ([895dfbc](https://github.com/dhis2/ui/commit/895dfbc41dd2bb4370c39f3b22c9dffb8104b717))
+
 ## [6.5.7](https://github.com/dhis2/ui/compare/v6.5.6...v6.5.7) (2021-03-24)
 
 
