@@ -91,6 +91,7 @@ Make sure the source code snippets for demos gives the user useful information. 
 1. 'Dynamic', JSX-like rendering of the story. This is the default if the story uses `args`, and updates in response to changes in the Args Table.
 2. A literal, nearly character-for-character expression of the story. This is the fallback if the story does not use `args`, and is the same as the code snippet shown in the 'Story' addon in the Canvas tab. This option does not dynamically update with the Args Table, but _does_ show accessory code like hooks that is useful to explain how a component requires a ref or state.
 3. A hand-written snippet. It will receive syntax highlighting when shown on the Docs Page.
+4. It's also possible to customize the source-code processing function. See [this example](https://github.com/storybookjs/storybook/blob/master/addons/docs/docs/recipes.md#customizing-source-snippets).
 
 To use #2 for a story that uses `args`, set `parameters.docs.source.type` to `'code'`:
 
