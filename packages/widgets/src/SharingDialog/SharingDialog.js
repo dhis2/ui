@@ -280,7 +280,15 @@ SharingDialog.defaultProps = {
 
 SharingDialog.propTypes = {
     id: PropTypes.string,
-    initialSharingSettings: PropTypes.object,
+    initialSharingSettings: PropTypes.shape({
+        allowExternal: PropTypes.bool,
+        allowPublic: PropTypes.bool,
+        external: PropTypes.string,
+        groups: PropTypes.object,
+        name: PropTypes.string,
+        public: PropTypes.string,
+        users: PropTypes.object,
+    }),
     type: PropTypes.string,
     onClose: PropTypes.func,
     onError: PropTypes.func,
