@@ -116,6 +116,7 @@ export class Input extends Component {
 
     render() {
         const {
+            role,
             className,
             type,
             dense,
@@ -138,6 +139,7 @@ export class Input extends Component {
         return (
             <div className={cx('input', className)} data-test={dataTest}>
                 <input
+                    role={role}
                     id={name}
                     name={name}
                     placeholder={placeholder}
@@ -192,6 +194,7 @@ Input.defaultProps = {
  * @typedef {Object} PropTypes
  * @static
  *
+ * @prop {string} [role]
  * @prop {string} name
  * @prop {string} [type=text]
  * @prop {function} [onChange] - called with the signature `object, event`
@@ -241,6 +244,8 @@ Input.propTypes = {
     placeholder: PropTypes.string,
     /** Makes the input read-only */
     readOnly: PropTypes.bool,
+    /** Sets a role attribute on the input */
+    role: PropTypes.string,
     /** The [native `step` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefstep), for use when `type` is `'number'` */
     step: PropTypes.string,
     tabIndex: PropTypes.string,
