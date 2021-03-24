@@ -53,7 +53,8 @@ class Switch extends Component {
 
     render() {
         const {
-            checked = false,
+            ariaLabel,
+            checked,
             className,
             disabled,
             error,
@@ -65,6 +66,7 @@ class Switch extends Component {
             warning,
             dense,
             dataTest,
+            role,
         } = this.props
 
         const classes = cx({
@@ -85,7 +87,9 @@ class Switch extends Component {
                 data-test={dataTest}
             >
                 <input
+                    aria-label={ariaLabel}
                     type="checkbox"
+                    role={role}
                     ref={this.ref}
                     name={name}
                     value={value}
@@ -109,9 +113,6 @@ class Switch extends Component {
                         flex-direction: row;
                         align-items: center;
                         justify-content: flex-start;
-                        cursor: pointer;
-                        pointer-events: all;
-                        user-select: none;
                         color: ${colors.grey900};
                         font-size: 16px;
                         line-height: 20px;
@@ -129,12 +130,23 @@ class Switch extends Component {
 
                     input {
                         opacity: 0;
-                        pointer-events: none;
                         position: absolute;
+
+                        /* The same size as the icon */
+                        height: 18px;
+                        width: 35px;
+
+                        /* The same offset as the icon, 2px border, 1px padding */
+                        margin-left: 3px;
+                    }
+
+                    label.dense input {
+                        /* The same size as the dense icon */
+                        height: 14px;
+                        width: 27px;
                     }
 
                     .icon {
-                        pointer-events: none;
                         user-select: none;
                         margin-right: 5px;
                         border: 2px solid transparent;
@@ -157,16 +169,20 @@ class Switch extends Component {
 }
 
 Switch.defaultProps = {
+    checked: false,
     dataTest: 'dhis2-uicore-switch',
+    role: 'switch',
 }
 
 /**
  * @typedef {Object} PropTypes
  * @static
+ * @prop {string} [ariaLabel]
  * @prop {string} [value]
  * @prop {Node} [label]
  * @prop {function} [onChange] - called with the signature `object, event`
  * @prop {string} [name]
+ * @prop {string} [role]
  * @prop {string} [className]
  * @prop {string} [tabIndex]
  *
@@ -186,6 +202,8 @@ Switch.defaultProps = {
  * @prop {string} [dataTest]
  */
 Switch.propTypes = {
+    /** Sets an aria-label attribute on the input */
+    ariaLabel: PropTypes.string,
     checked: PropTypes.bool,
     className: PropTypes.string,
     dataTest: PropTypes.string,
@@ -201,6 +219,8 @@ Switch.propTypes = {
     label: PropTypes.node,
     /** Name associated with the switch. Passed to event handlers in object */
     name: PropTypes.string,
+    /** Sets a role attribute on the input */
+    role: PropTypes.string,
     tabIndex: PropTypes.string,
     /** Applies 'valid' styles for validation feedback. Mutually exclusive with `error` and `warning` prop types */
     valid: sharedPropTypes.statusPropType,
