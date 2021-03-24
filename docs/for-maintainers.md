@@ -21,6 +21,7 @@ This page assumes some knowledge of Storybook.
     -   [Tips for making stories for multiple components](#tips-for-making-stories-for-multiple-components)
 -   [Annotating a component](#annotating-a-component)
 -   [Making sure propTypes are correctly documented and customizing the Args Table](#making-sure-proptypes-are-correctly-documented-and-customizing-the-args-table)
+-   [Using MDX for more control over Docs Page for more prose or complex stories](#using-mdx-for-more-control-over-docs-page-for-more-prose-or-complex-stories)
 -   [Edge cases and workarounds](#edge-cases-and-workarounds)
     -   [Portal components](#portal-components)
         -   [Extracting props for the Args Table from portal components](#extracting-props-for-the-args-table-from-portal-components)
@@ -298,6 +299,18 @@ export default {
         // ...
     },
 }
+```
+
+## Using MDX for more control over Docs Page for more prose or complex stories
+
+Sometimes the default Docs Page layout may not suit demos for a particular component, for example if the component requires a lot of prose to describe its different applications, or if you want to write a recipe for which some of the default elements on the Docs Page aren't useful. In this case, you can use MDX and your choice of the Storybook [Doc Blocks](https://storybook.js.org/docs/react/writing-docs/doc-blocks) (e.g. Description, Canvas, Story, ArgsTable) to write Markdown and include stories in the way that you want. Read more about at the ['Writing Docs in MDX' documentation](https://storybook.js.org/docs/react/writing-docs/mdx).
+
+Stories written in MDX story files are exported and can be reused, for example for e2e testing purposes.
+
+Storybook has a codemod available that can transform one or more CSF story files into MDX for continue developing from there: [CSF-to-MDX codemod](https://github.com/storybookjs/storybook/tree/master/lib/codemod#csf-to-mdx). This might look like:
+
+```sh
+npx -p @storybook/cli@next sb migrate csf-to-mdx --glob="**/MyComponent.stories.js"
 ```
 
 ## Edge cases and workarounds
