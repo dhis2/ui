@@ -2,7 +2,6 @@ import { useDataQuery, useConfig } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
-import i18n from '../locales/index.js'
 import Apps from './Apps.js'
 import { joinPath } from './joinPath.js'
 import { Logo } from './Logo.js'
@@ -50,13 +49,6 @@ export const HeaderBar = ({ appName, className }) => {
             defaultAction: getPath(app.defaultAction),
         }))
     }, [data])
-
-    if (!loading && !error) {
-        // TODO: This will run every render which is probably wrong!  Also, setting the global locale shouldn't be done in the headerbar
-        const locale = data.user.settings.keyUiLocale || 'en'
-        i18n.setDefaultNamespace('default')
-        i18n.changeLanguage(locale)
-    }
 
     return (
         <header className={className}>
