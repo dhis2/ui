@@ -67,6 +67,6 @@ export const convertConstantToAccess = (constant, useBoolean) => {
         case ACCESS_VIEW_AND_EDIT:
             return useBoolean ? true : 'rw------'
         default:
-            return useBoolean ? true : '--------'
+            return useBoolean ? false : '--------'
     }
 }
