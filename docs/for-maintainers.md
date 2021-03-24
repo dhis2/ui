@@ -19,6 +19,8 @@ This page assumes some knowledge of Storybook.
     -   [Making a reusable story template](#making-a-reusable-story-template)
     -   [Using state or refs (or other hooks) in Templates](#using-state-or-refs-or-other-hooks-in-templates)
     -   [Tips for making stories for multiple components](#tips-for-making-stories-for-multiple-components)
+        -   [Multiple variations of the same component](#multiple-variations-of-the-same-component)
+        -   [Stories and templates with different components](#stories-and-templates-with-different-components)
 -   [Annotating a component](#annotating-a-component)
 -   [Making sure propTypes are correctly documented and customizing the Args Table](#making-sure-proptypes-are-correctly-documented-and-customizing-the-args-table)
 -   [Using MDX for more control over Docs Page for more prose or complex stories](#using-mdx-for-more-control-over-docs-page-for-more-prose-or-complex-stories)
@@ -162,6 +164,8 @@ Here is [some more information about templates](https://storybook.js.org/docs/re
 
 Templates can add some complexity with wrappers or hooks that might get used repeatedly.
 
+If this functionality is important for understanding how to implement the component, consider configuring the source code snippet for the story to show the hooks. See the [Customising source code snippets](#customising-source-code-snippets) section for how to do that.
+
 See this example from the Popper component:
 
 ```js
@@ -190,7 +194,9 @@ const Template = args => {
 
 Applying `args` or a template for a story with multiple components may not be straightforward, and controls may not work completely. See '[Stories for multiple components](https://storybook.js.org/docs/react/workflows/stories-for-multiple-components)' for detailed recommendations.
 
-Here is also an easy, 'good-enough' solution for variations on a single component:
+#### Multiple variations of the same component
+
+Here is an easy, 'good-enough' solution for variations on a single component:
 
 Apply `{...args}` to each one, then hard-code the prop of interest after the args. The hard-coded prop will take precedent over `args` and won't be controllable with the Controls addon, but all other props will be.
 
@@ -204,6 +210,39 @@ export const ButtonSizes = args => (
 )
 ButtonSizes.args = { onClick: console.log }
 ```
+
+#### Stories and templates with different components
+
+When making a story or Template that uses several different components (or HTML elements), make sure to still use `{...args}` on the component of interest and receive the `args` as an argument to the Story function to enable controls.
+
+When using a Template with multiple components, it can be useful to have some dynamic control over props on other components or elements in the story in addition to the `args` for the main component. This can be accomplished by adding additional props the Story function.
+
+Note that each prop to a story function will create a row and control in the Args Table if possible. If that's not desired, that row can be disabled, as shown in this example:
+
+```js
+import MyComponent from './MyComponent.js'
+
+export default {
+    component: MyComponent,
+    // Disable row created by 'containerStyles' prop
+    argTypes: { containerStyles: { table: { disable: true } } },
+}
+
+// Notice `args` are still used to enable controls for the main component
+const Template = ({ containerStyles, ...args }) => (
+    <div style={containerStyles}>
+        <MyComponent {...args} />
+    </div>
+)
+
+export const FirstStory = Template.bind({})
+FirstStory.args = {
+    containerStyles: { background: 'blue' },
+    myComponentProp: true,
+}
+```
+
+If you want to remove only the _control_ for that extra row instead of remove the row completely, [that can be done as well](https://github.com/storybookjs/storybook/tree/next/addons/controls#how-can-i-disable-controls-for-certain-fields-on-a-particular-story).
 
 ## Annotating a component
 
