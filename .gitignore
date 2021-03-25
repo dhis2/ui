@@ -38,6 +38,9 @@ locales/
 # storybook
 storybook/storybook-static
 
+# pages fetched from design system for storybook
+docs/design-system
+
 # Intermediate icons build directory. Our build tooling
 # currently only supports building from code in ./src
 # So we generate the react components in the src
