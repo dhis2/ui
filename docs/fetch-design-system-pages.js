@@ -1,6 +1,6 @@
-// This is a dependency from storybook - probably best to add to project deps
 const fs = require('fs').promises
 const path = require('path')
+const { URL } = require('url')
 const { startCase } = require('lodash')
 const fetch = require('node-fetch')
 
@@ -31,7 +31,7 @@ const linkReplacer = (_, imageBang, text, linkPath) => {
     // Different links for images or markdown pages
     const githubUrl = imageBang ? rawGithubUrl : regularGithubUrl
     const prefix = imageBang || '' // '!' or ''
-    const url = path.join(githubUrl, linkPath)
+    const url = new URL(linkPath, githubUrl).href
     return `${prefix}[${text}](${url})`
 }
 
