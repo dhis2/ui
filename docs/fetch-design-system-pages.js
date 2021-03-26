@@ -20,7 +20,7 @@ const fetch = require('node-fetch')
  * Check it out here: https://regex101.com/r/y5o9Tf/6
  *
  */
-const mdRelativeLinkRegex = /(!)?\[(.*)\]\((?!http|#)(.*)\)/g
+const mdRelativeLinkRegex = /(!)?\[(.*?)\]\((?!http|#)(.*?)\)/g
 const rawGithubUrl =
     'https://raw.githubusercontent.com/dhis2/design-system/master/principles/'
 const regularGithubUrl =
