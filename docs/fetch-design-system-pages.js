@@ -24,7 +24,7 @@ const mdRelativeLinkRegex = /(!)?\[(.*)\]\((?!http|#)(.*)\)/g
 const rawGithubUrl =
     'https://raw.githubusercontent.com/dhis2/design-system/master/principles/'
 const regularGithubUrl =
-    'https://github.com/dhis2/design-system/tree/master/principles'
+    'https://github.com/dhis2/design-system/tree/master/principles/'
 
 // eslint-disable-next-line max-params
 const linkReplacer = (_, imageBang, text, linkPath) => {
