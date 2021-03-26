@@ -1,5 +1,5 @@
 // This is a dependency from storybook - probably best to add to project deps
-const fs = require('fs/promises')
+const fs = require('fs').promises
 const path = require('path')
 const { startCase } = require('lodash')
 const fetch = require('node-fetch')
@@ -36,15 +36,15 @@ const linkReplacer = (_, imageBang, text, linkPath) => {
 }
 
 const replaceRelativeLinksWithGithubLinks = text =>
-    text.replaceAll(mdRelativeLinkRegex, linkReplacer)
+    text.replace(mdRelativeLinkRegex, linkReplacer)
 
 // Template for creating .stories.mdx file for storybook that imports from regular markdown file
 const mdxTemplate = basename => `import { Meta, Description } from '@storybook/addon-docs/blocks'
-import ${startCase(basename).replaceAll(' ', '')} from './${basename}.md'
+import ${startCase(basename).replace(/ /g, '')} from './${basename}.md'
 
 <Meta title="Design System Principles/${startCase(basename)}" />
 
-<Description>{${startCase(basename).replaceAll(' ', '')}}</Description>
+<Description>{${startCase(basename).replace(/ /g, '')}}</Description>
 `
 
 const outputDir = path.join('docs', 'design-system')
@@ -83,7 +83,7 @@ fetch(
     )
     // Fetch files and create local ones for storybook
     .then(downloadAndProcessFiles)
-    .then(
+    .then(() =>
         console.log('Design system files downloaded & processed for storybook')
     )
     .catch(console.error)
