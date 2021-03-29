@@ -2,7 +2,7 @@ import { useConfig } from '@dhis2/app-runtime'
 import propTypes from '@dhis2/prop-types'
 import { colors, theme } from '@dhis2/ui-constants'
 import { Card } from '@dhis2/ui-core'
-import React from 'react'
+import React, { useState, useEffect, useCallback, useRef } from 'react'
 import css from 'styled-jsx/css'
 import { Settings, Apps as AppsIcon } from '../Icons/index.js'
 import { InputField } from '../InputField/InputField.js'
@@ -195,83 +195,91 @@ List.propTypes = {
     filter: propTypes.string,
 }
 
-export default class Apps extends React.Component {
-    state = {
-        show: false,
-        filter: '',
-    }
+const AppMenu = ({ apps, filter, onFilterChange }) => (
+    <div data-test="headerbar-apps-menu">
+        <Card>
+            <Search value={filter} onChange={onFilterChange} />
+            <List apps={apps} filter={filter} />
+        </Card>
 
-    componentDidMount() {
-        document.addEventListener('click', this.onDocClick)
-    }
+        <style jsx>{`
+            div {
+                z-index: 10000;
+                position: absolute;
+                top: 28px;
+                right: -6px;
+                border-top: 4px solid transparent;
+            }
+        `}</style>
+    </div>
+)
 
-    componentWillUnmount() {
-        document.removeEventListener('click', this.onDocClick)
-    }
+AppMenu.propTypes = {
+    apps: propTypes.array.isRequired,
+    onFilterChange: propTypes.func.isRequired,
+    filter: propTypes.string,
+}
 
-    onDocClick = evt => {
-        if (this.elContainer && !this.elContainer.contains(evt.target)) {
-            this.setState({ show: false })
+const Apps = ({ apps }) => {
+    const [show, setShow] = useState(false)
+    const [filter, setFilter] = useState('')
+
+    const handleVisibilityToggle = useCallback(() => setShow(!show), [show])
+    const handleFilterChange = useCallback(({ value }) => setFilter(value), [])
+
+    const containerEl = useRef(null)
+    const onDocClick = useCallback(evt => {
+        if (containerEl.current && !containerEl.current.contains(evt.target)) {
+            setShow(false)
         }
-    }
+    }, [])
+    useEffect(() => {
+        document.addEventListener('click', onDocClick)
+        return () => document.removeEventListener('click', onDocClick)
+    }, [])
 
-    onToggle = () => this.setState({ show: !this.state.show })
+    return (
+        <div ref={containerEl} data-test="headerbar-apps">
+            <button
+                onClick={handleVisibilityToggle}
+                data-test="headerbar-apps-icon"
+            >
+                <AppsIcon className={appIcon.className} />
+            </button>
 
-    onChange = ({ value }) => this.setState({ filter: value })
+            {show ? (
+                <AppMenu
+                    apps={apps}
+                    filter={filter}
+                    onFilterChange={handleFilterChange}
+                />
+            ) : null}
 
-    AppMenu = apps => (
-        <div data-test="headerbar-apps-menu">
-            <Card>
-                <Search value={this.state.filter} onChange={this.onChange} />
-                <List apps={apps} filter={this.state.filter} />
-            </Card>
-
+            {appIcon.styles}
             <style jsx>{`
+                button {
+                    display: block;
+                    background: transparent;
+                    padding: 0;
+                    border: 0;
+                }
+                button:focus {
+                    outline: 1px dotted white;
+                }
+
                 div {
-                    z-index: 10000;
-                    position: absolute;
-                    top: 28px;
-                    right: -6px;
-                    border-top: 4px solid transparent;
+                    position: relative;
+                    width: 24px;
+                    height: 30px;
+                    margin: 8px 0 0 0;
                 }
             `}</style>
         </div>
     )
-
-    render() {
-        const apps = this.props.apps
-        return (
-            <div ref={c => (this.elContainer = c)} data-test="headerbar-apps">
-                <button onClick={this.onToggle} data-test="headerbar-apps-icon">
-                    <AppsIcon className={appIcon.className} />
-                </button>
-
-                {this.state.show && this.AppMenu(apps)}
-
-                {appIcon.styles}
-                <style jsx>{`
-                    button {
-                        display: block;
-                        background: transparent;
-                        padding: 0;
-                        border: 0;
-                    }
-                    button:focus {
-                        outline: 1px dotted white;
-                    }
-
-                    div {
-                        position: relative;
-                        width: 24px;
-                        height: 30px;
-                        margin: 8px 0 0 0;
-                    }
-                `}</style>
-            </div>
-        )
-    }
 }
 
 Apps.propTypes = {
     apps: propTypes.array.isRequired,
 }
+
+export default Apps
