@@ -1,6 +1,6 @@
+import { Button } from '@dhis2/ui-core'
 import { shallow } from 'enzyme'
 import React from 'react'
-import { Button } from '../../../../core'
 import { AccessSelect } from '../AccessSelect'
 import { Autocomplete } from '../Autocomplete/Autocomplete'
 import { ShareBlock } from '../ShareBlock'
