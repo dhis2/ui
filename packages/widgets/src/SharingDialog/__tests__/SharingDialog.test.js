@@ -1,6 +1,6 @@
+import { Button, Modal, ModalTitle } from '@dhis2/ui-core'
 import { shallow } from 'enzyme'
 import React from 'react'
-import { Button, Modal, ModalTitle } from '../../../../core'
 import { ShareBlock } from '../ShareBlock'
 import { defaultSharingSettings } from '../sharingConstants'
 import { SharingDialog } from '../SharingDialog'
