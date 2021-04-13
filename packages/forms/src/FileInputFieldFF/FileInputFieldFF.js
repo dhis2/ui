@@ -57,7 +57,7 @@ export const FileInputFieldFF = ({
         <FileInputField
             {...rest}
             onChange={createChangeHandler(input, multifile)}
-            buttonLabel={buttonLabel || multifile ? btnLabelMulti : btnLabel}
+            buttonLabel={buttonLabel || (multifile ? btnLabelMulti : btnLabel)}
             disabled={disabled || (!multifile && files.length >= 1)}
             multiple={multifile}
             name={input.name}
