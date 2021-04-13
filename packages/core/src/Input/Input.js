@@ -134,6 +134,7 @@ export class Input extends Component {
             min,
             step,
             dataTest,
+            list,
         } = this.props
 
         return (
@@ -163,6 +164,7 @@ export class Input extends Component {
                         warning,
                         'read-only': readOnly,
                     })}
+                    list={list}
                 />
 
                 <div className="status-icon">
@@ -232,6 +234,8 @@ Input.propTypes = {
     error: sharedPropTypes.statusPropType,
     /** The input grabs initial focus on the page */
     initialFocus: PropTypes.bool,
+    /** The [native `list` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdeflist) */
+    list: PropTypes.string,
     /** Adds a loading indicator beside the input */
     loading: PropTypes.bool,
     /** The [native `max` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefmax), for use when `type` is `'number'` */

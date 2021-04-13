@@ -124,3 +124,16 @@ ValueTextOverflow.args = {
     dense: true,
     warning: true,
 }
+
+export const WithDatalist = () => (
+    <>
+        <Input list="colorsList" />
+        <datalist id="colorsList">
+            <option value="red" />
+            <option value="green" />
+            <option value="blue" />
+            <option value="yellow" />
+            <option value="grey" />
+        </datalist>
+    </>
+)

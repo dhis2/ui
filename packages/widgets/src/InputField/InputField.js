@@ -42,6 +42,7 @@ class InputField extends React.Component {
             validationText,
             inputWidth,
             dataTest,
+            list,
         } = this.props
 
         return (
@@ -79,6 +80,7 @@ class InputField extends React.Component {
                         tabIndex={tabIndex}
                         initialFocus={initialFocus}
                         readOnly={readOnly}
+                        list={list}
                     />
                 </Box>
             </Field>
@@ -143,6 +145,8 @@ InputField.propTypes = {
     inputWidth: PropTypes.string,
     /** Label text for the input */
     label: PropTypes.string,
+    /** The [native `list` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdeflist) */
+    list: PropTypes.string,
     /** Adds a loading indicator beside the input */
     loading: PropTypes.bool,
     /** The [native `max` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefmax), for use when `type` is `'number'` */
