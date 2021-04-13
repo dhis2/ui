@@ -1,3 +1,10 @@
+## [6.6.1](https://github.com/dhis2/ui/compare/v6.6.0...v6.6.1) (2021-04-13)
+
+
+### Bug Fixes
+
+* pass buttonLabel prop to FileInputField correctly ([#573](https://github.com/dhis2/ui/issues/573)) ([e4423db](https://github.com/dhis2/ui/commit/e4423db9a2853fa605f20b57d908b69d1f629355))
+
 # [6.6.0](https://github.com/dhis2/ui/compare/v6.5.7...v6.6.0) (2021-03-24)
 
 
