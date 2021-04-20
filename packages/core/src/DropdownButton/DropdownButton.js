@@ -88,7 +88,7 @@ class DropdownButton extends Component {
                     <Layer onClick={this.onToggle} transparent>
                         <Popper
                             dataTest={`${dataTest}-popper`}
-                            placement="bottom-end"
+                            placement="bottom-start"
                             reference={this.anchorRef}
                         >
                             {component}
