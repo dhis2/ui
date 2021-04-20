@@ -1,3 +1,10 @@
+## [6.6.2](https://github.com/dhis2/ui/compare/v6.6.1...v6.6.2) (2021-04-20)
+
+
+### Bug Fixes
+
+* **dropdown button:** adjust dropdown default position ([35d2687](https://github.com/dhis2/ui/commit/35d2687669d66dcf5fe91b2a56a6ea595435364a))
+
 ## [6.6.1](https://github.com/dhis2/ui/compare/v6.6.0...v6.6.1) (2021-04-13)
 
 
