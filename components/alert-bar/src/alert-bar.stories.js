@@ -1,21 +1,46 @@
+import propTypes from '@dhis2/prop-types'
 import React from 'react'
-import { AttachFile } from '../Icons/index.js'
-import { AlertBar } from './AlertBar.js'
+import { AlertBar } from './alert-bar.js'
 
+// TODO: Replace with ui-icons
+function AttachFile({ className }) {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 48 48"
+            className={className}
+        >
+            <path d="M33 12v23c0 4.42-3.58 8-8 8s-8-3.58-8-8V10c0-2.76 2.24-5 5-5s5 2.24 5 5v21c0 1.1-.89 2-2 2-1.11 0-2-.9-2-2V12h-3v19c0 2.76 2.24 5 5 5s5-2.24 5-5V10c0-4.42-3.58-8-8-8s-8 3.58-8 8v25c0 6.08 4.93 11 11 11s11-4.92 11-11V12h-3z" />
+            <style jsx>{`
+                svg {
+                    fill: inherit;
+                    height: 24px;
+                    width: 24px;
+                    vertical-align: middle;
+                    pointer-events: none;
+                }
+            `}</style>
+        </svg>
+    )
+}
+
+AttachFile.propTypes = {
+    className: propTypes.string,
+}
 const subtitle = `
-A floating alert that informs the user about temporary information 
+A floating alert that informs the user about temporary information
 in the context of the current screen.
 `
 
 const description = `
-Alert bars notify a user of some information. There are different types of 
-alert bar for displaying different types of content. Use the alert bar type 
-that matches your content type and importance. Note that alert bar can be 
-ignored by the user, so they shouldn't be used for content that needs to 
+Alert bars notify a user of some information. There are different types of
+alert bar for displaying different types of content. Use the alert bar type
+that matches your content type and importance. Note that alert bar can be
+ignored by the user, so they shouldn't be used for content that needs to
 block an app flow, use a modal instead.
 
-Alert bars are always displayed at centered and fixed at the bottom of the 
-screen. Some types of alert bar dismiss after a set time, others must be 
+Alert bars are always displayed at centered and fixed at the bottom of the
+screen. Some types of alert bar dismiss after a set time, others must be
 dismissed by the user.
 
 See specification: [Design System](https://github.com/dhis2/design-system/blob/master/molecules/alertbar.md)
