@@ -1,11 +1,11 @@
 {
-    "name": "@dhis2/ui-button",
+    "name": "@dhis2/ui-alert-bar",
     "version": "0.0.0",
-    "description": "UI Button",
+    "description": "UI Alert Bar",
     "repository": {
         "type": "git",
         "url": "https://github.com/dhis2/ui.git",
-        "directory": "components/button"
+        "directory": "components/alert-bar"
     },
     "homepage": "https://github.com/dhis2/ui#readme",
     "license": "BSD-3-Clause",

@@ -1,10 +1,14 @@
-export { default as Button } from '@dhis2-ui/button'
+/*
+ * For backwards compatibility we export the components that were
+ * available in `ui-core` here.
+ */
+export { default as AlertBar } from '@dhis2/ui-alert-bar'
+export { default as Button } from '@dhis2/ui-button'
 
 /* utilities */
 export { CssReset } from './CssReset/CssReset.js'
 export { CssVariables } from './CssVariables/CssVariables.js'
 
-export { AlertBar } from './AlertBar/AlertBar.js'
 export { AlertStack } from './AlertStack/AlertStack.js'
 export { Box } from './Box/Box.js'
 export { ButtonStrip } from './ButtonStrip/ButtonStrip.js'

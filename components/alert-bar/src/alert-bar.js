@@ -2,11 +2,11 @@ import { mutuallyExclusive } from '@dhis2/prop-types'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { Actions, actionsPropType } from './Actions.js'
-import styles, { ANIMATION_TIME } from './AlertBar.styles.js'
-import { Dismiss } from './Dismiss.js'
-import { Icon, iconPropType } from './Icon.js'
-import { Message } from './Message.js'
+import { Actions, actionsPropType } from './actions.js'
+import styles, { ANIMATION_TIME } from './alert-bar.styles.js'
+import { Dismiss } from './dismiss.js'
+import { Icon, iconPropType } from './icon.js'
+import { Message } from './message.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
