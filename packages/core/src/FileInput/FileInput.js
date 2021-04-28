@@ -2,8 +2,8 @@ import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { createRef, Component } from 'react'
-import { Button } from '../Button/Button.js'
 import { Upload, StatusIcon } from '../Icons/index.js'
+import { Button } from '../index.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
