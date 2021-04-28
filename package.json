@@ -71,6 +71,7 @@
         "concurrently": "^6.1.0",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.6",
+        "find-up": "^5.0.0",
         "react": "16.8",
         "react-docgen": "^5.4.0",
         "react-dom": "16.8",
