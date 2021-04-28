@@ -1,5 +1,4 @@
 {
-    "name": "root",
     "version": "6.6.2",
     "repository": {
         "type": "git",
@@ -17,7 +16,8 @@
     "private": true,
     "workspaces": {
         "packages": [
-            "packages/*"
+            "packages/*",
+            "components/*"
         ]
     },
     "scripts": {
@@ -87,6 +87,5 @@
             "name": "DHIS2 UI Components",
             "description": "Components and related resources for the DHIS2 design system"
         }
-    },
-    "dependencies": {}
+    }
 }
