@@ -20,8 +20,7 @@ const root = findup.sync(
 const loadStories = () => {
     const components_dir = path.join(root, 'components')
 
-    const cwd = process.cwd()
-    const curcomp = path.basename(cwd)
+    const curcomp = path.basename(process.cwd())
 
     const components = fs.readdirSync(components_dir, {
         encoding: 'utf8',
@@ -61,11 +60,24 @@ module.exports = {
         // Find the rules that deal with .js
         const jsLoaders = regexLoaders.filter(loader => loader.test.test('.js'))
 
+        const components_dir = path.join(root, 'components')
+        const packages_dir = path.join(root, 'packages')
+
+        const components = fs.readdirSync(components_dir, {
+            encoding: 'utf8',
+        })
+        const packages = fs.readdirSync(packages_dir, {
+            encoding: 'utf8',
+        })
+
         jsLoaders.forEach(loader => {
-            loader.include.push(/packages\/core\/src/)
-            loader.include.push(/packages\/forms\/src/)
-            loader.include.push(/packages\/widgets\/src/)
-            loader.include.push(/packages\/icons\/src/)
+            for (const pkg of packages) {
+                loader.include.push(new RegExp(`packages/${pkg}/src`))
+            }
+
+            for (const component of components) {
+                loader.include.push(new RegExp(`components/${component}/src`))
+            }
         })
 
         return config
