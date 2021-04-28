@@ -1,5 +1,47 @@
-const isTesting = 'STORYBOOK_TESTING' in process.env
+const fs = require('fs')
+const path = require('path')
 const makeBabelConfig = require('@dhis2/cli-app-scripts/config/makeBabelConfig.js')
+const findup = require('find-up')
+
+const isTesting = 'STORYBOOK_TESTING' in process.env
+
+const root = findup.sync(
+    directory => {
+        const amiroot = ['.git', '.github'].map(i =>
+            findup.sync.exists(path.join(directory, i))
+        )
+        return amiroot.includes(true) && directory
+    },
+    {
+        type: 'directory',
+    }
+)
+
+const loadStories = () => {
+    const components_dir = path.join(root, 'components')
+
+    const cwd = process.cwd()
+    const curcomp = path.basename(cwd)
+
+    const components = fs.readdirSync(components_dir, {
+        encoding: 'utf8',
+    })
+
+    if (components.includes(curcomp)) {
+        return [path.join(components_dir, curcomp, 'src', '*.stories.js')]
+    } else {
+        return isTesting
+            ? [
+                  '../packages/*/src/**/*.stories.e2e.@(js|jsx)',
+                  '../components/*/src/**/*.stories.e2e.@(js|jsx)',
+              ]
+            : [
+                  '../docs/**/*.stories.mdx',
+                  '../packages/*/src/**/*.stories.@(js|jsx|mdx)',
+                  '../components/*/src/**/*.stories.@(js|jsx|mdx)',
+              ]
+    }
+}
 
 module.exports = {
     /**
@@ -29,12 +71,7 @@ module.exports = {
         return config
     },
     // https://storybook.js.org/docs/react/configure/overview#configure-story-loading
-    stories: isTesting
-        ? ['../packages/*/src/**/*.stories.e2e.@(js|jsx)']
-        : [
-              '../docs/**/*.stories.mdx',
-              '../packages/*/src/**/*.stories.@(js|jsx|mdx)',
-          ],
+    stories: async list => [...list, ...loadStories()],
     addons: [
         '@storybook/preset-create-react-app',
         '@storybook/addon-essentials',
@@ -59,10 +96,7 @@ module.exports = {
         // with the storybook babel configuration.
         return {
             ...config,
-            presets: [
-                ...config.presets,
-                ...custom.presets,
-            ],
+            presets: [...config.presets, ...custom.presets],
             plugins: [
                 ...config.plugins,
                 ...custom.plugins,
@@ -70,7 +104,4 @@ module.exports = {
             ],
         }
     },
-    reactOptions: {
-        fastRefresh: true,
-    }
 }
