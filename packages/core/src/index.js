@@ -1,3 +1,5 @@
+export { default as Button } from '@dhis2-ui/button'
+
 /* utilities */
 export { CssReset } from './CssReset/CssReset.js'
 export { CssVariables } from './CssVariables/CssVariables.js'
@@ -5,7 +7,6 @@ export { CssVariables } from './CssVariables/CssVariables.js'
 export { AlertBar } from './AlertBar/AlertBar.js'
 export { AlertStack } from './AlertStack/AlertStack.js'
 export { Box } from './Box/Box.js'
-export { Button } from './Button/Button.js'
 export { ButtonStrip } from './ButtonStrip/ButtonStrip.js'
 export { Card } from './Card/Card.js'
 export { CenteredContent } from './CenteredContent/CenteredContent.js'
