@@ -1,7 +1,7 @@
 import propTypes from '@dhis2/prop-types'
+import Card from '@dhis2/ui-card'
 import React from 'react'
 import { resolve } from 'styled-jsx/css'
-import { Card } from '../Card/Card.js'
 import { Layer } from '../Layer/Layer.js'
 import { Popper } from '../Popper/Popper.js'
 
