@@ -1,6 +1,6 @@
+import AlertBar from '@dhis2/ui-alert-bar'
 import React from 'react'
-import { AlertBar } from '../index.js'
-import { AlertStack } from './AlertStack.js'
+import { AlertStack } from './alert-stack.js'
 
 const description = `
 A container for Alert Bars.
