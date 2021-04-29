@@ -1,3 +1,5 @@
+import Card from '@dhis2/ui-card'
+import CenteredContent from '@dhis2/ui-centered-content'
 import {
     layers,
     spacers,
@@ -8,8 +10,6 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { resolve } from 'styled-jsx/css'
-import { Card } from '../Card/Card.js'
-import { CenteredContent } from '../CenteredContent/CenteredContent.js'
 import { Layer } from '../Layer/Layer.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 

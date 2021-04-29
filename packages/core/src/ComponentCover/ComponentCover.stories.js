@@ -1,5 +1,6 @@
+import { CenteredContent } from '@dhis2/ui-centered-content'
 import React from 'react'
-import { CircularLoader, CenteredContent } from '../index.js'
+import { CircularLoader } from '../index.js'
 import { ComponentCover } from './ComponentCover.js'
 
 const description = `

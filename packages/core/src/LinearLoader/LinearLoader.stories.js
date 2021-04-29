@@ -1,6 +1,7 @@
+import { CenteredContent } from '@dhis2/ui-centered-content'
 import { layers } from '@dhis2/ui-constants'
 import React from 'react'
-import { Layer, CenteredContent, ComponentCover } from '../index.js'
+import { Layer, ComponentCover } from '../index.js'
 import { LinearLoader } from './LinearLoader.js'
 
 const subtitle = `Used to inform the user that an element or page is in a loading state`
