@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/ui-alert-stack",
-    "version": "0.0.0",
+    "version": "6.6.2",
     "description": "UI AlertStack",
     "repository": {
         "type": "git",
