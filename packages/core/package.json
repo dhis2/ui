@@ -33,6 +33,7 @@
         "@dhis2/ui-button-strip": "6.6.2",
         "@dhis2/ui-card": "6.6.2",
         "@dhis2/ui-centered-content": "6.6.2",
+        "@dhis2/ui-checkbox": "6.6.2",
         "react": "^16.8",
         "react-dom": "^16.8",
         "styled-jsx": "^3.2"

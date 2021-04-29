@@ -1,6 +1,6 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
-import { Checkbox } from './Checkbox.js'
+import { Checkbox } from './checkbox.js'
 
 const subtitle =
     'A checkbox is a control that allows a user to toggle an option.'
