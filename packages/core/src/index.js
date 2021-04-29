@@ -3,13 +3,13 @@
  * available in `ui-core` here.
  */
 export { default as AlertBar } from '@dhis2/ui-alert-bar'
+export { default as AlertStack } from '@dhis2/ui-alert-stack'
 export { default as Button } from '@dhis2/ui-button'
 
 /* utilities */
 export { CssReset } from './CssReset/CssReset.js'
 export { CssVariables } from './CssVariables/CssVariables.js'
 
-export { AlertStack } from './AlertStack/AlertStack.js'
 export { Box } from './Box/Box.js'
 export { ButtonStrip } from './ButtonStrip/ButtonStrip.js'
 export { Card } from './Card/Card.js'
