@@ -7,12 +7,12 @@ export { default as AlertStack } from '@dhis2/ui-alert-stack'
 export { default as Button } from '@dhis2/ui-button'
 export { default as Box } from '@dhis2/ui-box'
 export { default as ButtonStrip } from '@dhis2/ui-button-strip'
+export { default as Card } from '@dhis2/ui-card'
 
 /* utilities */
 export { CssReset } from './CssReset/CssReset.js'
 export { CssVariables } from './CssVariables/CssVariables.js'
 
-export { Card } from './Card/Card.js'
 export { CenteredContent } from './CenteredContent/CenteredContent.js'
 export { Checkbox } from './Checkbox/Checkbox.js'
 export { Chip } from './Chip/Chip.js'
