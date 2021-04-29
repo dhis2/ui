@@ -28,6 +28,7 @@
         "@dhis2/ui-constants": "6.6.2",
         "@dhis2/ui-alert-bar": "6.6.2",
         "@dhis2/ui-alert-stack": "6.6.2",
+        "@dhis2/ui-box": "6.6.2",
         "@dhis2/ui-button": "6.6.2",
         "react": "^16.8",
         "react-dom": "^16.8",

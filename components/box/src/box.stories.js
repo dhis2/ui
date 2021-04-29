@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box } from './Box.js'
+import { Box } from './box.js'
 
 const description = `
 A box for creating some layout on the page.
