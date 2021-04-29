@@ -30,6 +30,8 @@
         "@dhis2/ui-alert-stack": "6.6.2",
         "@dhis2/ui-box": "6.6.2",
         "@dhis2/ui-button": "6.6.2",
+        "@dhis2/ui-button-strip": "6.6.2",
+        "@dhis2/ui-card": "6.6.2",
         "react": "^16.8",
         "react-dom": "^16.8",
         "styled-jsx": "^3.2"
