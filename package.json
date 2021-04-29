@@ -36,6 +36,7 @@
         "format": "d2-style apply",
         "format:staged": "d2-style apply --staged",
         "lint": "d2-style check",
+        "lint:staged": "d2-style check --staged",
         "start": "yarn build:icons && concurrently -n w: \"yarn:watch:*\" --kill-others",
         "storybook:dev": "EXTEND_ESLINT=true start-storybook --port 5002 --quiet --ci -s .storybook/static --no-manager-cache",
         "test": "d2-app-scripts test",
