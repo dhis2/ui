@@ -1,7 +1,7 @@
+import Button from '@dhis2/ui-button'
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { Button } from '../index.js'
-import { ButtonStrip } from './ButtonStrip.js'
+import { ButtonStrip } from './button-strip.js'
 
 storiesOf('ButtonStrip', module).add('With children', () => (
     <ButtonStrip>
