@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { Checkbox } from './Checkbox.js'
+import { Checkbox } from './checkbox.js'
 
 window.onClick = window.Cypress && window.Cypress.cy.stub()
 window.onChange = window.Cypress && window.Cypress.cy.stub()

@@ -9,12 +9,12 @@ export { default as Box } from '@dhis2/ui-box'
 export { default as ButtonStrip } from '@dhis2/ui-button-strip'
 export { default as Card } from '@dhis2/ui-card'
 export { default as CenteredContent } from '@dhis2/ui-centered-content'
+export { default as Checkbox } from '@dhis2/ui-checkbox'
 
 /* utilities */
 export { CssReset } from './CssReset/CssReset.js'
 export { CssVariables } from './CssVariables/CssVariables.js'
 
-export { Checkbox } from './Checkbox/Checkbox.js'
 export { Chip } from './Chip/Chip.js'
 export { CircularLoader } from './CircularLoader/CircularLoader.js'
 export { ComponentCover } from './ComponentCover/ComponentCover.js'
