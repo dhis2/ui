@@ -1,5 +1,5 @@
 import React from 'react'
-import { CenteredContent } from './CenteredContent.js'
+import { CenteredContent } from './centered-content.js'
 
 const description = `
 Centers children horizontally, and by default, vertically.
