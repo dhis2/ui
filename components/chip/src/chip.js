@@ -2,9 +2,9 @@ import { colors, theme, spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Content } from './Content.js'
-import { Icon } from './Icon.js'
-import { Remove } from './Remove.js'
+import { Content } from './content.js'
+import { Icon } from './icon.js'
+import { Remove } from './remove.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**

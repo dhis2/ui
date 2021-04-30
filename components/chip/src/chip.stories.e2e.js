@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import Chip from './Chip.js'
+import Chip from './chip.js'
 
 window.onClick = window.Cypress && window.Cypress.cy.stub()
 window.onRemove = window.Cypress && window.Cypress.cy.stub()
