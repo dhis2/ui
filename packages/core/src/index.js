@@ -10,13 +10,13 @@ export { default as ButtonStrip } from '@dhis2/ui-button-strip'
 export { default as Card } from '@dhis2/ui-card'
 export { default as CenteredContent } from '@dhis2/ui-centered-content'
 export { default as Checkbox } from '@dhis2/ui-checkbox'
+export { default as Chip } from '@dhis2/ui-chip'
+export { default as CircularLoader } from '@dhis2/ui-circular-loader'
 
 /* utilities */
 export { CssReset } from './CssReset/CssReset.js'
 export { CssVariables } from './CssVariables/CssVariables.js'
 
-export { Chip } from './Chip/Chip.js'
-export { CircularLoader } from './CircularLoader/CircularLoader.js'
 export { ComponentCover } from './ComponentCover/ComponentCover.js'
 export { Divider } from './Divider/Divider.js'
 export { DropdownButton } from './DropdownButton/DropdownButton.js'
