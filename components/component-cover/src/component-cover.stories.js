@@ -1,7 +1,7 @@
 import { CenteredContent } from '@dhis2/ui-centered-content'
+import { CircularLoader } from '@dhis2/ui-circular-loader'
 import React from 'react'
-import { CircularLoader } from '../index.js'
-import { ComponentCover } from './ComponentCover.js'
+import { ComponentCover } from './component-cover.js'
 
 const description = `
 Covers sibling components.  Useful for covering a component while it is loading.

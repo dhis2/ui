@@ -12,12 +12,12 @@ export { default as CenteredContent } from '@dhis2/ui-centered-content'
 export { default as Checkbox } from '@dhis2/ui-checkbox'
 export { default as Chip } from '@dhis2/ui-chip'
 export { default as CircularLoader } from '@dhis2/ui-circular-loader'
+export { default as ComponentCover } from '@dhis2/ui-component-cover'
 
 /* utilities */
 export { CssReset } from './CssReset/CssReset.js'
 export { CssVariables } from './CssVariables/CssVariables.js'
 
-export { ComponentCover } from './ComponentCover/ComponentCover.js'
 export { Divider } from './Divider/Divider.js'
 export { DropdownButton } from './DropdownButton/DropdownButton.js'
 export { Field } from './Field/Field.js'
