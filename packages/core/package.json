@@ -39,6 +39,7 @@
         "@dhis2/ui-component-cover": "6.6.2",
         "@dhis2/ui-css-reset": "6.6.2",
         "@dhis2/ui-css-variables": "6.6.2",
+        "@dhis2/ui-divider": "6.6.2",
         "react": "^16.8",
         "react-dom": "^16.8",
         "styled-jsx": "^3.2"

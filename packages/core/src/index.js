@@ -15,10 +15,10 @@ export { default as CircularLoader } from '@dhis2/ui-circular-loader'
 export { default as ComponentCover } from '@dhis2/ui-component-cover'
 export { default as CssReset } from '@dhis2/ui-css-reset'
 export { default as CssVariables } from '@dhis2/ui-css-variables'
+export { default as Divider } from '@dhis2/ui-divider'
 
 /* utilities */
 
-export { Divider } from './Divider/Divider.js'
 export { DropdownButton } from './DropdownButton/DropdownButton.js'
 export { Field } from './Field/Field.js'
 export { FieldSet } from './FieldSet/FieldSet.js'

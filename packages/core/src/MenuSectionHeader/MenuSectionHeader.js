@@ -2,7 +2,7 @@ import { colors, spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Divider } from '../Divider/Divider.js'
+import { Divider } from '@dhis2/ui-divider'
 
 /**
  * @module
