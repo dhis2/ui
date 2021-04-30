@@ -14,9 +14,9 @@ export { default as Chip } from '@dhis2/ui-chip'
 export { default as CircularLoader } from '@dhis2/ui-circular-loader'
 export { default as ComponentCover } from '@dhis2/ui-component-cover'
 export { default as CssReset } from '@dhis2/ui-css-reset'
+export { default as CssVariables } from '@dhis2/ui-css-variables'
 
 /* utilities */
-export { CssVariables } from './CssVariables/CssVariables.js'
 
 export { Divider } from './Divider/Divider.js'
 export { DropdownButton } from './DropdownButton/DropdownButton.js'
