@@ -2,9 +2,93 @@ import propTypes from '@dhis2/prop-types'
 import { colors, spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React from 'react'
-import { AttachFile, Loading } from '../Icons/index.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
+function Loading({ className }) {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="22 22 44 44"
+            className={className}
+        >
+            <circle
+                className="circle"
+                cx="44"
+                cy="44"
+                r="20.2"
+                fill="none"
+                strokeWidth="3.6"
+            />
+            <style jsx>{`
+                svg {
+                    fill: ${theme.primary600};
+                    color: ${theme.primary600};
+                    width: 24px;
+                    height: 24px;
+                    animation: anim-rotate 1.4s linear infinite;
+                }
+
+                .circle {
+                    stroke: currentColor;
+                    stroke-dasharray: 80px, 200px;
+                    stroke-dashoffset: 0;
+                    animation: anim-dash 1.4s ease-in-out infinite;
+                }
+
+                @keyframes anim-rotate {
+                    100% {
+                        transform: rotate(360deg);
+                    }
+                }
+
+                @keyframes anim-dash {
+                    0% {
+                        stroke-dasharray: 1px, 200px;
+                        stroke-dashoffset: 0;
+                    }
+                    50% {
+                        stroke-dasharray: 100px, 200px;
+                        stroke-dashoffset: -15px;
+                    }
+                    100% {
+                        stroke-dasharray: 100px, 200px;
+                        stroke-dashoffset: -120px;
+                    }
+                }
+            `}</style>
+        </svg>
+    )
+}
+
+Loading.propTypes = {
+    className: propTypes.string,
+}
+
+
+function AttachFile({ className }) {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 48 48"
+            className={className}
+        >
+            <path d="M33 12v23c0 4.42-3.58 8-8 8s-8-3.58-8-8V10c0-2.76 2.24-5 5-5s5 2.24 5 5v21c0 1.1-.89 2-2 2-1.11 0-2-.9-2-2V12h-3v19c0 2.76 2.24 5 5 5s5-2.24 5-5V10c0-4.42-3.58-8-8-8s-8 3.58-8 8v25c0 6.08 4.93 11 11 11s11-4.92 11-11V12h-3z" />
+            <style jsx>{`
+                svg {
+                    fill: inherit;
+                    height: 24px;
+                    width: 24px;
+                    vertical-align: middle;
+                    pointer-events: none;
+                }
+            `}</style>
+        </svg>
+    )
+}
+
+AttachFile.propTypes = {
+    className: propTypes.string,
+}
 /**
  * @module
  * @param {FileListItem.PropTypes} props

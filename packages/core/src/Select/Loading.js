@@ -1,7 +1,7 @@
 import propTypes from '@dhis2/prop-types'
 import { colors, spacers, theme } from '@dhis2/ui-constants'
+import CircularLoader from '@dhis2/ui-circular-loader'
 import React from 'react'
-import { CircularLoader } from '../CircularLoader/CircularLoader.js'
 
 const Loading = ({ message, className, dataTest }) => (
     <div className={className} data-test={dataTest}>

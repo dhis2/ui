@@ -1,7 +1,7 @@
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Divider } from '@dhis2/ui-divider'
+import Divider from '@dhis2/ui-divider'
 
 /**
  * @module
