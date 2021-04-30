@@ -17,10 +17,8 @@ export { default as CssReset } from '@dhis2/ui-css-reset'
 export { default as CssVariables } from '@dhis2/ui-css-variables'
 export { default as Divider } from '@dhis2/ui-divider'
 export { default as DropdownButton } from '@dhis2/ui-dropdown-button'
+export { default as Field } from '@dhis2/ui-field'
 
-/* utilities */
-
-export { Field } from './Field/Field.js'
 export { FieldSet } from './FieldSet/FieldSet.js'
 export { FileInput } from './FileInput/FileInput.js'
 export { FileList } from './FileList/FileList.js'

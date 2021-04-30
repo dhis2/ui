@@ -1,7 +1,7 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
-import { Input } from '../index.js'
-import { Field } from './Field.js'
+import Input from '@dhis2/ui-input'
+import { Field } from './field.js'
 
 const description = `
 A useful container for form components, including a label, help text, and validation text.
