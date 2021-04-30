@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { CssVariables } from './CssVariables.js'
+import { CssVariables } from './css-variables.js'
 
 storiesOf('CssVariables', module)
     .add('With colors', () => (
