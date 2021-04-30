@@ -13,9 +13,9 @@ export { default as Checkbox } from '@dhis2/ui-checkbox'
 export { default as Chip } from '@dhis2/ui-chip'
 export { default as CircularLoader } from '@dhis2/ui-circular-loader'
 export { default as ComponentCover } from '@dhis2/ui-component-cover'
+export { default as CssReset } from '@dhis2/ui-css-reset'
 
 /* utilities */
-export { CssReset } from './CssReset/CssReset.js'
 export { CssVariables } from './CssVariables/CssVariables.js'
 
 export { Divider } from './Divider/Divider.js'
