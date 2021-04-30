@@ -1,6 +1,6 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
-import { CircularLoader } from './CircularLoader.js'
+import { CircularLoader } from './circular-loader.js'
 
 const subtitle = `Used to inform the user that an element or page is in a loading state`
 
