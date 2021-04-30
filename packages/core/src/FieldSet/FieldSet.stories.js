@@ -1,5 +1,6 @@
 import React from 'react'
-import { Field, Radio, Help, Legend } from '../index.js'
+import Field from '@dhis2/ui-field'
+import { Radio, Help, Legend } from '../index.js'
 import { FieldSet } from './FieldSet.js'
 
 const description = `
