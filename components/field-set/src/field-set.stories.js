@@ -1,7 +1,9 @@
-import React from 'react'
 import Field from '@dhis2/ui-field'
-import { Radio, Help, Legend } from '../index.js'
-import { FieldSet } from './FieldSet.js'
+import React from 'react'
+import Radio from '@dhis2/ui-radio'
+import Help from '@dhis2/ui-help'
+import Legend from '@dhis2/ui-legend'
+import { FieldSet } from './field-set.js'
 
 const description = `
 A container for grouping several Field components together. Use a \`<Legend>\` component to add helpful guiding text.
