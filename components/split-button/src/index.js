@@ -1,1 +1,1 @@
-export { SplitButton as default } from './split-button.js'
+export { SplitButton } from './split-button.js'

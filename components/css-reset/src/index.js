@@ -1,1 +1,1 @@
-export { CssReset as default } from './css-reset.js'
+export { CssReset } from './css-reset.js'

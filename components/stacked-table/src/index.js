@@ -1,4 +1,4 @@
-export { StackedTable as default } from './stacked-table.js'
+export { StackedTable } from './stacked-table.js'
 export { StackedTableHead } from './stacked-table-head.js'
 export { StackedTableBody } from './stacked-table-body.js'
 export { StackedTableFoot } from './stacked-table-foot.js'

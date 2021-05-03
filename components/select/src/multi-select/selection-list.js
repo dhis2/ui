@@ -1,5 +1,5 @@
 import propTypes from '@dhis2/prop-types'
-import Chip from '@dhis2/ui-chip'
+import { Chip } from '@dhis2/ui-chip'
 import React from 'react'
 import { removeOption, findOptionChild } from '../option-helpers.js'
 

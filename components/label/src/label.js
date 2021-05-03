@@ -2,7 +2,7 @@ import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 import React from 'react'
 import css from 'styled-jsx/css'
-import Required from '@dhis2/ui-required'
+import { Required } from '@dhis2/ui-required'
 
 const styles = css`
     label {

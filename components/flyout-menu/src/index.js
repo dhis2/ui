@@ -1,1 +1,1 @@
-export { FlyoutMenu as default } from './flyout-menu.js'
+export { FlyoutMenu } from './flyout-menu.js'

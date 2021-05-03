@@ -1,5 +1,5 @@
 import propTypes from '@dhis2/prop-types'
-import CircularLoader from '@dhis2/ui-circular-loader'
+import { CircularLoader } from '@dhis2/ui-circular-loader'
 import { colors, spacers, theme } from '@dhis2/ui-constants'
 import React from 'react'
 

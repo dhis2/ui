@@ -1,1 +1,1 @@
-export { Label as default } from './label.js'
+export { Label } from './label.js'

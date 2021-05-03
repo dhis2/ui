@@ -1,1 +1,1 @@
-export { FileInput as default } from './file-input.js'
+export { FileInput } from './file-input.js'

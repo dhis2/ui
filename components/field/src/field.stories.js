@@ -1,6 +1,6 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
-import Input from '@dhis2/ui-input'
+import { Input } from '@dhis2/ui-input'
 import { Field } from './field.js'
 
 const description = `

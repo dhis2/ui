@@ -1,1 +1,1 @@
-export { Chip as default } from './chip.js'
+export { Chip } from './chip.js'

@@ -2,73 +2,72 @@
  * For backwards compatibility we export the components that were
  * available in `ui-core` here.
  */
-export { default as AlertBar } from '@dhis2/ui-alert-bar'
-export { default as AlertStack } from '@dhis2/ui-alert-stack'
-export { default as Button, ButtonStrip } from '@dhis2/ui-button'
-export { default as Box } from '@dhis2/ui-box'
-export { default as Card } from '@dhis2/ui-card'
-export { default as CenteredContent } from '@dhis2/ui-centered-content'
-export { default as Checkbox } from '@dhis2/ui-checkbox'
-export { default as Chip } from '@dhis2/ui-chip'
-export { default as CircularLoader } from '@dhis2/ui-circular-loader'
-export { default as ComponentCover } from '@dhis2/ui-component-cover'
-export { default as CssReset } from '@dhis2/ui-css-reset'
-export { default as CssVariables } from '@dhis2/ui-css-variables'
-export { default as Divider } from '@dhis2/ui-divider'
-export { default as DropdownButton } from '@dhis2/ui-dropdown-button'
-export { default as Field } from '@dhis2/ui-field'
-export { default as FieldSet } from '@dhis2/ui-field-set'
-export { default as FileInput } from '@dhis2/ui-file-input'
+export { AlertBar } from '@dhis2/ui-alert-bar'
+export { AlertStack } from '@dhis2/ui-alert-stack'
+export { Button, ButtonStrip } from '@dhis2/ui-button'
+export { Box } from '@dhis2/ui-box'
+export { Card } from '@dhis2/ui-card'
+export { CenteredContent } from '@dhis2/ui-centered-content'
+export { Checkbox } from '@dhis2/ui-checkbox'
+export { Chip } from '@dhis2/ui-chip'
+export { CircularLoader } from '@dhis2/ui-circular-loader'
+export { ComponentCover } from '@dhis2/ui-component-cover'
+export { CssReset } from '@dhis2/ui-css-reset'
+export { CssVariables } from '@dhis2/ui-css-variables'
+export { Divider } from '@dhis2/ui-divider'
+export { DropdownButton } from '@dhis2/ui-dropdown-button'
+export { Field } from '@dhis2/ui-field'
+export { FieldSet } from '@dhis2/ui-field-set'
+export { FileInput } from '@dhis2/ui-file-input'
 export {
-    default as FileList,
+    FileList,
     FileListItem,
     FileListPlaceholder,
 } from '@dhis2/ui-file-list'
-export { default as FlyoutMenu } from '@dhis2/ui-flyout-menu'
-export { default as Help } from '@dhis2/ui-help'
-export { default as Input } from '@dhis2/ui-input'
-export { default as IntersectionDetector } from '@dhis2/ui-intersection-detector'
-export { default as Label } from '@dhis2/ui-label'
-export { default as Layer, useLayerContext } from '@dhis2/ui-layer'
-export { default as Legend } from '@dhis2/ui-legend'
-export { default as LinearLoader } from '@dhis2/ui-linear-loader'
+export { FlyoutMenu } from '@dhis2/ui-flyout-menu'
+export { Help } from '@dhis2/ui-help'
+export { Input } from '@dhis2/ui-input'
+export { IntersectionDetector } from '@dhis2/ui-intersection-detector'
+export { Label } from '@dhis2/ui-label'
+export { Layer, useLayerContext } from '@dhis2/ui-layer'
+export { Legend } from '@dhis2/ui-legend'
+export { LinearLoader } from '@dhis2/ui-linear-loader'
 export {
-    default as Logo,
+    Logo,
     LogoIcon,
     LogoIconWhite,
     LogoWhite,
 } from '@dhis2/ui-logo'
 export {
-    default as Menu,
+    Menu,
     MenuDivider,
     MenuItem,
     MenuSectionHeader,
 } from '@dhis2/ui-menu'
 export {
-    default as Modal,
+    Modal,
     ModalActions,
     ModalContent,
     ModalTitle,
 } from '@dhis2/ui-modal'
-export { default as Node } from '@dhis2/ui-node'
-export { default as NoticeBox } from '@dhis2/ui-notice-box'
-export { default as Popover } from '@dhis2/ui-popover'
-export { default as Popper } from '@dhis2/ui-popper'
-export { default as Radio } from '@dhis2/ui-radio'
-export { default as Required } from '@dhis2/ui-required'
+export { Node } from '@dhis2/ui-node'
+export { NoticeBox } from '@dhis2/ui-notice-box'
+export { Popover } from '@dhis2/ui-popover'
+export { Popper } from '@dhis2/ui-popper'
+export { Radio } from '@dhis2/ui-radio'
+export { Required } from '@dhis2/ui-required'
 export {
-    default as Select,
     MultiSelect,
     MultiSelectOption,
     SingleSelect,
     SingleSelectOption,
 } from '@dhis2/ui-select'
-export { default as SplitButton } from '@dhis2/ui-split-button'
-export { default as StackedTable, StackedTableBody, StackedTableCell, StackedTableCellHead, StackedTableFoot, StackedTableHead, StackedTableRow, StackedTableRowHead } from '@dhis2/ui-stacked-table'
-export { default as Switch } from '@dhis2/ui-switch'
+export { SplitButton } from '@dhis2/ui-split-button'
+export { StackedTable, StackedTableBody, StackedTableCell, StackedTableCellHead, StackedTableFoot, StackedTableHead, StackedTableRow, StackedTableRowHead } from '@dhis2/ui-stacked-table'
+export { Switch } from '@dhis2/ui-switch'
 export { Table as default, TableBody, TableCell, TableCellHead, TableFoot, TableHead, TableRow, TableRowHead } from '@dhis2/ui-table'
-export { default as Tabs, Tab, TabBar } from '@dhis2/ui-tabs'
-export { default as Tag } from '@dhis2/ui-tag'
-export { default as TextArea } from '@dhis2/ui-text-area'
-export { default as Tooltip } from '@dhis2/ui-tooltip'
+export { Tab, TabBar } from '@dhis2/ui-tabs'
+export { Tag } from '@dhis2/ui-tag'
+export { TextArea } from '@dhis2/ui-text-area'
+export { Tooltip } from '@dhis2/ui-tooltip'
 

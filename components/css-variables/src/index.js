@@ -1,1 +1,1 @@
-export { CssVariables as default } from './css-variables.js'
+export { CssVariables } from './css-variables.js'

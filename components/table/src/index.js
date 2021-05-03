@@ -1,4 +1,4 @@
-export { Table as default } from './table.js'
+export { Table } from './table.js'
 export { TableFoot } from './table-foot.js'
 export { TableBody } from './table-body.js'
 export { TableHead } from './table-head.js'

@@ -1,1 +1,1 @@
-export { CenteredContent as default } from './centered-content.js'
+export { CenteredContent } from './centered-content.js'

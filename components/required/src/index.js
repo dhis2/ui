@@ -1,1 +1,1 @@
-export { Required as default } from './required.js'
+export { Required } from './required.js'

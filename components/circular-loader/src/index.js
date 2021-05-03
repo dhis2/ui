@@ -1,1 +1,1 @@
-export { CircularLoader as default } from './circular-loader.js'
+export { CircularLoader } from './circular-loader.js'

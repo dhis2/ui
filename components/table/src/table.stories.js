@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '@dhis2/ui-button'
+import { Button } from '@dhis2/ui-button'
 import { Table } from './table.js'
 import { TableBody } from './table-body.js'
 import { TableCell } from './table-cell.js'
