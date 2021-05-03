@@ -1,15 +1,14 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
-import {
-    Button,
-    ButtonStrip,
-    ModalTitle,
-    ModalActions,
-    ModalContent,
-    SingleSelect,
+import Button from '@dhis2/ui-button'
+import ButtonStrip from '@dhis2/ui-button-strip'
+import SingleSelect, {
     SingleSelectOption,
-} from '../index.js'
-import { Modal } from './Modal.js'
+} from '@dhis2/ui-single-select'
+import { ModalTitle } from './modal-title/modal-title.js'
+import { ModalActions } from './modal-actions/modal-actions.js'
+import { ModalContent } from './modal-content/modal-content.js'
+import { Modal } from './modal.js'
 
 const description = `
 _**Note**: For performance reasons, only one representative example is shown here. For more (interactive) examples, see individual stories in the Canvas tab._

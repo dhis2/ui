@@ -1,13 +1,11 @@
-import { storiesOf } from '@storybook/react'
 import React from 'react'
-import {
-    Button,
-    ButtonStrip,
-    ModalTitle,
-    ModalActions,
-    ModalContent,
-} from '../index.js'
-import { Modal } from './Modal.js'
+import { storiesOf } from '@storybook/react'
+import Button from '@dhis2/ui-button'
+import ButtonStrip from '@dhis2/ui-button-strip'
+import { ModalTitle } from './modal-title/modal-title.js'
+import { ModalActions } from './modal-actions/modal-actions.js'
+import { ModalContent } from './modal-content/modal-content.js'
+import { Modal } from './modal.js'
 
 window.onClose = window.Cypress && window.Cypress.cy.stub()
 
