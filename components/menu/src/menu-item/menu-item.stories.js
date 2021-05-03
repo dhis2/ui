@@ -1,7 +1,7 @@
 import { IconApps24 } from '@dhis2/ui-icons'
 import React, { useState } from 'react'
-import { Menu } from '../Menu/Menu.js'
-import { MenuItem } from './MenuItem.js'
+import { Menu } from '../menu.js'
+import { MenuItem } from './menu-item.js'
 
 const description = `
 Menu Items are intended to be children of Menu and Flyout Menu components. They can be nested to create submenus.

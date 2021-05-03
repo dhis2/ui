@@ -1,10 +1,10 @@
+import { useLayerContext } from '@dhis2-ui/layer'
+import { Popper } from '@dhis2-ui/popper'
 import { colors, layers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { resolve } from 'styled-jsx/css'
-import { useLayerContext } from '@dhis2/ui-layer'
-import { Popper } from '@dhis2/ui-popper'
 
 const TOOLTIP_OFFSET = 4
 

@@ -1,6 +1,6 @@
-import { Button } from '@dhis2/ui-button'
-import { Layer } from '@dhis2/ui-layer'
-import { Popper } from '@dhis2/ui-popper'
+import { Button } from '@dhis2-ui/button'
+import { Layer } from '@dhis2-ui/layer'
+import { Popper } from '@dhis2-ui/popper'
 import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
@@ -35,7 +35,7 @@ function ArrowDown({ className }) {
     )
 }
 ArrowDown.propTypes = {
-    className: propTypes.string,
+    className: PropTypes.string,
 }
 
 function ArrowUp({ className }) {
@@ -62,7 +62,7 @@ function ArrowUp({ className }) {
     )
 }
 ArrowUp.propTypes = {
-    className: propTypes.string,
+    className: PropTypes.string,
 }
 
 /**

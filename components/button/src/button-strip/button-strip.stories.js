@@ -1,6 +1,6 @@
-import SplitButton from '@dhis2/split-button'
+import { Button } from '@dhis2-ui/button'
+import { SplitButton } from '@dhis2-ui/split-button'
 import React from 'react'
-import { Button } from '../button.js'
 import { ButtonStrip } from './button-strip.js'
 
 const description = `

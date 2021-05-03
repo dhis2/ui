@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+=======
+import { Button, ButtonStrip } from '@dhis2-ui/button'
 import { storiesOf } from '@storybook/react'
-import { Button } from '@dhis2/ui-button'
-import { ButtonStrip } from '@dhis2/ui-button-strip'
-import { ModalTitle } from './modal-title/modal-title.js'
+import React, { useState } from 'react'
 import { ModalActions } from './modal-actions/modal-actions.js'
 import { ModalContent } from './modal-content/modal-content.js'
+import { ModalTitle } from './modal-title/modal-title.js'
 import { Modal } from './modal.js'
 
 window.onClose = window.Cypress && window.Cypress.cy.stub()

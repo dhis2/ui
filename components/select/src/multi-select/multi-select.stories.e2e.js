@@ -1,6 +1,6 @@
+import { Button } from '@dhis2-ui/button'
+import { Modal, ModalTitle, ModalContent } from '@dhis2-ui/modal'
 import propTypes from '@dhis2/prop-types'
-import { Button } from '@dhis2/ui-button'
-import { Modal, ModalTitle, ModalContent } from '@dhis2/ui-modal'
 import { storiesOf } from '@storybook/react'
 import React, { useState } from 'react'
 import { MultiSelectOption } from './multi-select-option.js'

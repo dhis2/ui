@@ -1,5 +1,5 @@
 {
-    "name": "@dhis2/ui-file-list",
+    "name": "@dhis2-ui/file-list",
     "version": "6.6.2",
     "description": "UI FileList",
     "repository": {

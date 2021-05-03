@@ -1,8 +1,8 @@
+import { DropdownButton } from '@dhis2-ui/dropdown-button'
+import { FlyoutMenu } from '@dhis2-ui/flyout-menu'
+import { MenuItem } from '@dhis2-ui/menu'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
-import { FlyoutMenu } from '@dhis2/ui-flyout-menu'
-import { MenuItem } from '@dhis2/ui-menu'
-import { DropdownButton } from '@dhis2/ui-dropdown-button'
 
 const description = `
 Presents several actions to a user in a small space. Can replace single, individual buttons. Should only be used for actions that are related to one another. Ensure the button has a useful level that communicates that actions are contained within. Dropdown buttons do not have an explicit action, only expanding the list of contained actions.

@@ -1,5 +1,5 @@
 {
-    "name": "@dhis2/ui-intersection-detector",
+    "name": "@dhis2-ui/intersection-detector",
     "version": "6.6.2",
     "description": "UI IntersectionDetector",
     "repository": {

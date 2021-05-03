@@ -1,9 +1,9 @@
-import { Box } from '@dhis2/ui-box'
+import { Box } from '@dhis2-ui/box'
+import { Help } from '@dhis2-ui/help'
+import { Label } from '@dhis2-ui/label'
 import { sharedPropTypes, spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Help } from '@dhis2/ui-help'
-import { Label } from '@dhis2/ui-label'
 
 /**
  * @module
