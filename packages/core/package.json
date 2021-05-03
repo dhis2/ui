@@ -47,6 +47,7 @@
         "@dhis2/ui-file-list": "6.6.2",
         "@dhis2/ui-flyout-menu": "6.6.2",
         "@dhis2/ui-help": "6.6.2",
+        "@dhis2/ui-input": "6.6.2",
         "react": "^16.8",
         "react-dom": "^16.8",
         "styled-jsx": "^3.2"
