@@ -1,5 +1,5 @@
 import React from 'react'
-import { Logo, LogoWhite, LogoIcon, LogoIconWhite } from './Logo.js'
+import { Logo, LogoWhite, LogoIcon, LogoIconWhite } from './logo.js'
 
 const description = `
 The master DHIS2 logo should be used overall, whenever possible. The master logo is a blue colored icon with black colored dhis2 wordmark.
