@@ -28,8 +28,8 @@ export { default as IntersectionDetector } from '@dhis2/ui-intersection-detector
 export { default as Label } from '@dhis2/ui-label'
 export { default as Layer, useLayerContext } from '@dhis2/ui-layer'
 export { default as Legend } from '@dhis2/ui-legend'
+export { default as LinearLoader } from '@dhis2/ui-linear-loader'
 
-export { LinearLoader } from './LinearLoader/LinearLoader.js'
 export { Logo, LogoIcon, LogoIconWhite, LogoWhite } from './Logo/Logo.js'
 export { Menu } from './Menu/Menu.js'
 export { MenuDivider } from './MenuDivider/MenuDivider.js'
