@@ -63,15 +63,8 @@ export {
     SingleSelect,
     SingleSelectOption,
 } from '@dhis2/ui-select'
+export { default as StackedTable, StackedTableBody, StackedTableCell, StackedTableCellHead, StackedTableFoot, StackedTableHead, StackedTableRow, StackedTableRowHead } from '@dhis2/ui-stacked-table'
 
-export { StackedTable } from './StackedTable/StackedTable.js'
-export { StackedTableBody } from './StackedTable/StackedTableBody.js'
-export { StackedTableCell } from './StackedTable/StackedTableCell.js'
-export { StackedTableCellHead } from './StackedTable/StackedTableCellHead.js'
-export { StackedTableFoot } from './StackedTable/StackedTableFoot.js'
-export { StackedTableHead } from './StackedTable/StackedTableHead.js'
-export { StackedTableRow } from './StackedTable/StackedTableRow.js'
-export { StackedTableRowHead } from './StackedTable/StackedTableRowHead.js'
 export { SplitButton } from './SplitButton/SplitButton.js'
 export { Switch } from './Switch/Switch.js'
 export { Tab } from './Tab/Tab.js'

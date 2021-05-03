@@ -1,0 +1,8 @@
+export { StackedTable as default } from './stacked-table.js'
+export { StackedTableHead } from './stacked-table-head.js'
+export { StackedTableBody } from './stacked-table-body.js'
+export { StackedTableFoot } from './stacked-table-foot.js'
+export { StackedTableCell } from './stacked-table-cell.js'
+export { StackedTableCellHead } from './stacked-table-cell-head.js'
+export { StackedTableRow } from './stacked-table-row.js'
+export { StackedTableRowHead } from './stacked-table-row-head.js'

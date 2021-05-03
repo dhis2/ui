@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { extractHeaderLabels } from './extractHeaderLabels.js'
-import { Table } from './Table.js'
-import { Provider } from './TableContext.js'
+import { extractHeaderLabels } from './extract-header-labels.js'
+import { Table } from './table.js'
+import { Provider } from './table-context.js'
 
 /**
  * @module
