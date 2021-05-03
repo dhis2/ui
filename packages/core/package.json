@@ -57,6 +57,7 @@
         "@dhis2/ui-modal": "6.6.2",
         "@dhis2/ui-node": "6.6.2",
         "@dhis2/ui-notice-box": "6.6.2",
+        "@dhis2/ui-popover": "6.6.2",
         "@dhis2/ui-select": "6.6.2",
         "react": "^16.8",
         "react-dom": "^16.8",
