@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { TableRow } from './TableRow.js'
+import { TableRow } from './table-row.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**

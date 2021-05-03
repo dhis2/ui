@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import css from 'styled-jsx/css'
-import { Provider } from './TableContext.js'
+import { Provider } from './table-context.js'
 
 const tableStyles = css`
     table {
