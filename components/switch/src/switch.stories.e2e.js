@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { Switch } from './Switch.js'
+import { Switch } from './switch.js'
 
 window.onChange = window.Cypress && window.Cypress.cy.stub()
 window.onBlur = window.Cypress && window.Cypress.cy.stub()

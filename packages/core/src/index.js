@@ -65,8 +65,8 @@ export {
 } from '@dhis2/ui-select'
 export { default as SplitButton } from '@dhis2/ui-split-button'
 export { default as StackedTable, StackedTableBody, StackedTableCell, StackedTableCellHead, StackedTableFoot, StackedTableHead, StackedTableRow, StackedTableRowHead } from '@dhis2/ui-stacked-table'
+export { default as Switch } from '@dhis2/ui-switch'
 
-export { Switch } from './Switch/Switch.js'
 export { Tab } from './Tab/Tab.js'
 export { TabBar } from './TabBar/TabBar.js'
 export { Table } from './Table/Table.js'
