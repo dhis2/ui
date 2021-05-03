@@ -1,13 +1,13 @@
+import { Button } from '@dhis2-ui/button'
 import React from 'react'
-import { Button } from '@dhis2/ui-button'
-import { Table } from './table.js'
 import { TableBody } from './table-body.js'
-import { TableCell } from './table-cell.js'
 import { TableCellHead } from './table-cell-head.js'
+import { TableCell } from './table-cell.js'
 import { TableFoot } from './table-foot.js'
 import { TableHead } from './table-head.js'
-import { TableRow } from './table-row.js'
 import { TableRowHead } from './table-row-head.js'
+import { TableRow } from './table-row.js'
+import { Table } from './table.js'
 
 const subtitle = 'Used to display information in a standard, effective way.'
 

@@ -1,10 +1,10 @@
+import { FlyoutMenu } from '@dhis2-ui/flyout-menu'
+import { useLayerContext } from '@dhis2-ui/layer'
+import { Popper } from '@dhis2-ui/popper'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useRef } from 'react'
 import { createPortal } from 'react-dom'
-import { FlyoutMenu } from '@dhis2/ui-flyout-menu'
-import { Popper } from '@dhis2/ui-popper'
-import { useLayerContext } from '@dhis2/ui-layer'
 import styles from './menu-item.styles.js'
 
 // TODO: replace with ui-icons
@@ -29,9 +29,8 @@ function ChevronRight({ className }) {
     )
 }
 ChevronRight.propTypes = {
-    className: propTypes.string,
+    className: PropTypes.string,
 }
-
 
 const createOnClickHandler = (onClick, toggleSubMenu, value) => evt => {
     if (onClick || toggleSubMenu) {

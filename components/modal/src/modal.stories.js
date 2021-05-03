@@ -1,13 +1,10 @@
+import { Button, ButtonStrip } from '@dhis2-ui/button'
+import { SingleSelect, SingleSelectOption } from '@dhis2-ui/select'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
-import { Button } from '@dhis2/ui-button'
-import { ButtonStrip } from '@dhis2/ui-button-strip'
-import { SingleSelect,
-    SingleSelectOption,
-} from '@dhis2/ui-single-select'
-import { ModalTitle } from './modal-title/modal-title.js'
 import { ModalActions } from './modal-actions/modal-actions.js'
 import { ModalContent } from './modal-content/modal-content.js'
+import { ModalTitle } from './modal-title/modal-title.js'
 import { Modal } from './modal.js'
 
 const description = `

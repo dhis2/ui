@@ -1,5 +1,5 @@
 {
-    "name": "@dhis2/ui-css-variables",
+    "name": "@dhis2-ui/css-variables",
     "version": "6.6.2",
     "description": "UI CssVariables",
     "repository": {

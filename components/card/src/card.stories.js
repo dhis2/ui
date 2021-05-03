@@ -1,4 +1,4 @@
-import { Box } from '@dhis2/ui-box'
+import { Box } from '@dhis2-ui/box'
 import React from 'react'
 import { Card } from './card.js'
 

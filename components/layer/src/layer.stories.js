@@ -1,5 +1,5 @@
-import { CenteredContent } from '@dhis2/ui-centered-content'
-import { CircularLoader } from '@dhis2/ui-circular-loader'
+import { CenteredContent } from '@dhis2-ui/centered-content'
+import { CircularLoader } from '@dhis2-ui/circular-loader'
 import React from 'react'
 import { Layer } from './layer.js'
 

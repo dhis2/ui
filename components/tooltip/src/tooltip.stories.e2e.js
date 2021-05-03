@@ -1,6 +1,6 @@
+import { Modal } from '@dhis2-ui/modal'
 import React from 'react'
 import css from 'styled-jsx/css'
-import { Modal } from '@dhis2/ui-modal'
 import { Tooltip } from './tooltip.js'
 import { HidesWhenOutOfFrame } from './tooltip.stories.js'
 

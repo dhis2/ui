@@ -1,5 +1,5 @@
 {
-    "name": "@dhis2/ui-field-set",
+    "name": "@dhis2-ui/field-set",
     "version": "6.6.2",
     "description": "UI FieldSet",
     "repository": {

@@ -1,8 +1,8 @@
-import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
+import { Button } from '@dhis2-ui/button'
+import { theme, spacers, sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { createRef, Component } from 'react'
-import { Button } from '@dhis2/ui-button'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 function Valid({ className }) {
@@ -27,7 +27,7 @@ function Valid({ className }) {
 }
 
 Valid.propTypes = {
-    className: propTypes.string,
+    className: PropTypes.string,
 }
 
 function Warning({ className }) {
@@ -52,7 +52,7 @@ function Warning({ className }) {
 }
 
 Warning.propTypes = {
-    className: propTypes.string,
+    className: PropTypes.string,
 }
 
 function Error({ className }) {
@@ -77,7 +77,7 @@ function Error({ className }) {
 }
 
 Error.propTypes = {
-    className: propTypes.string,
+    className: PropTypes.string,
 }
 
 function Info({ className }) {
@@ -102,7 +102,7 @@ function Info({ className }) {
 }
 
 Info.propTypes = {
-    className: propTypes.string,
+    className: PropTypes.string,
 }
 
 function Loading({ className }) {
@@ -162,7 +162,7 @@ function Loading({ className }) {
 }
 
 Loading.propTypes = {
-    className: propTypes.string,
+    className: PropTypes.string,
 }
 
 const StatusIcon = ({
@@ -198,13 +198,13 @@ StatusIcon.defaultProps = {
 }
 
 StatusIcon.propTypes = {
-    className: propTypes.string,
-    defaultTo: propTypes.element,
-    error: propTypes.bool,
-    info: propTypes.bool,
-    loading: propTypes.bool,
-    valid: propTypes.bool,
-    warning: propTypes.bool,
+    className: PropTypes.string,
+    defaultTo: PropTypes.element,
+    error: PropTypes.bool,
+    info: PropTypes.bool,
+    loading: PropTypes.bool,
+    valid: PropTypes.bool,
+    warning: PropTypes.bool,
 }
 
 function Upload({ className }) {
@@ -226,7 +226,7 @@ function Upload({ className }) {
 }
 
 Upload.propTypes = {
-    className: propTypes.string,
+    className: PropTypes.string,
 }
 
 /**

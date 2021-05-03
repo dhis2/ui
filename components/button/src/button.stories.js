@@ -1,6 +1,6 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
-import Button from './index.js'
+import { Button } from './button.js'
 
 // Note: make sure 'fenced code blocks' are not indentend in this template string
 const description = `Buttons are used for triggering actions.

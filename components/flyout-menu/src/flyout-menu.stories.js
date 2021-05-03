@@ -1,9 +1,8 @@
+import { Layer } from '@dhis2-ui/layer'
+import { MenuDivider, MenuItem, MenuSectionHeader } from '@dhis2-ui/menu'
+import { Popper } from '@dhis2-ui/popper'
+import PropTypes from 'prop-types'
 import React, { useState, useRef } from 'react'
-import { Layer } from '@dhis2/ui-layer'
-import { MenuDivider } from '@dhis2/ui-menu'
-import { MenuItem } from '@dhis2/ui-menu'
-import { MenuSectionHeader } from '@dhis2/ui-menu'
-import { Popper } from '@dhis2/ui-popper'
 import { FlyoutMenu } from './flyout-menu.js'
 
 // TODO: Use ui-icons icon
@@ -28,9 +27,8 @@ function ArrowDown({ className }) {
     )
 }
 ArrowDown.propTypes = {
-    className: propTypes.string,
+    className: PropTypes.string,
 }
-
 
 const description = `
 Use menus to provide access to options and actions where space is limited and displaying all the options would be impractical. For example, providing access to a range of actions for every dashboard item displayed. Containing all those actions in menus keeps the page manageable.
