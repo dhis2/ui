@@ -1,15 +1,10 @@
 import { layers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { createContext, useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { createPortal } from 'react-dom'
-
-const LayerContext = createContext({
-    node: document.body,
-    level: 0,
-})
-
-const useLayerContext = () => useContext(LayerContext)
+import { useLayerContext } from './use-layer-context.js'
+import { LayerContext } from './layer-context.js'
 
 const createClickHandler = onClick => event => {
     // don't respond to clicks that originated in the children
@@ -127,4 +122,4 @@ Layer.propTypes = {
     onClick: PropTypes.func,
 }
 
-export { Layer, useLayerContext }
+export { Layer }
