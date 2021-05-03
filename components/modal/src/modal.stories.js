@@ -1,8 +1,8 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React, { useState } from 'react'
-import Button from '@dhis2/ui-button'
-import ButtonStrip from '@dhis2/ui-button-strip'
-import SingleSelect, {
+import { Button } from '@dhis2/ui-button'
+import { ButtonStrip } from '@dhis2/ui-button-strip'
+import { SingleSelect,
     SingleSelectOption,
 } from '@dhis2/ui-single-select'
 import { ModalTitle } from './modal-title/modal-title.js'
@@ -288,7 +288,6 @@ export const SmallDestructivePrimary = args => (
                     Primary action
                 </Button>
             </ButtonStrip>
-        </ModalActions>
     </Modal>
 )
 SmallDestructivePrimary.args = { small: true }

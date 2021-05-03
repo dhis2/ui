@@ -1,1 +1,1 @@
-export { NoticeBox as default } from './notice-box.js'
+export { NoticeBox } from './notice-box.js'

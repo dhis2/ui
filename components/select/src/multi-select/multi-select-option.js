@@ -1,5 +1,5 @@
 import propTypes from '@dhis2/prop-types'
-import Checkbox from '@dhis2/ui-checkbox'
+import { Checkbox } from '@dhis2/ui-checkbox'
 import { colors, spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React from 'react'

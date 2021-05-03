@@ -1,1 +1,1 @@
-export { Field as default } from './field.js'
+export { Field } from './field.js'

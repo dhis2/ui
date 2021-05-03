@@ -1,5 +1,5 @@
-import Card from '@dhis2/ui-card'
-import CenteredContent from '@dhis2/ui-centered-content'
+import { Card } from '@dhis2/ui-card'
+import { CenteredContent } from '@dhis2/ui-centered-content'
 import {
     layers,
     spacers,
@@ -10,7 +10,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { resolve } from 'styled-jsx/css'
-import Layer from '@dhis2/ui-layer'
+import { Layer } from '@dhis2/ui-layer'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 const scrollBoxCard = resolve`

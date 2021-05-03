@@ -1,1 +1,1 @@
-export { Legend as default } from './legend.js'
+export { Legend } from './legend.js'

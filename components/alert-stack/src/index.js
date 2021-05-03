@@ -1,1 +1,1 @@
-export { AlertStack as default } from './alert-stack.js'
+export { AlertStack } from './alert-stack.js'

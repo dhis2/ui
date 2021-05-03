@@ -1,1 +1,1 @@
-export { LinearLoader as default } from './linear-loader.js'
+export { LinearLoader } from './linear-loader.js'

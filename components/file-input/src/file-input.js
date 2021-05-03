@@ -2,7 +2,7 @@ import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { createRef, Component } from 'react'
-import Button from '@dhis2/ui-button'
+import { Button } from '@dhis2/ui-button'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 function Valid({ className }) {

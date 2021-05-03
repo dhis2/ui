@@ -1,1 +1,1 @@
-export { DropdownButton as default } from './dropdown-button.js'
+export { DropdownButton } from './dropdown-button.js'

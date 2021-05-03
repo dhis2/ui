@@ -1,1 +1,1 @@
-export { Help as default } from './help.js'
+export { Help } from './help.js'

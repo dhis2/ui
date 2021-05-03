@@ -1,5 +1,5 @@
-import Checkbox from '@dhis2/ui-checkbox'
-import CircularLoader from '@dhis2/ui-circular-loader'
+import { Checkbox } from '@dhis2/ui-checkbox'
+import { CircularLoader } from '@dhis2/ui-circular-loader'
 import React from 'react'
 import { resolve } from 'styled-jsx/css'
 import { Node } from './node.js'

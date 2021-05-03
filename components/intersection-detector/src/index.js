@@ -1,1 +1,1 @@
-export { IntersectionDetector as default } from './intersection-detector.js'
+export { IntersectionDetector } from './intersection-detector.js'

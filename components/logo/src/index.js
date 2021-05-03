@@ -1,1 +1,1 @@
-export { Logo as default, LogoWhite, LogoIcon, LogoIconWhite } from './logo.js'
+export { Logo , LogoWhite, LogoIcon, LogoIconWhite } from './logo.js'

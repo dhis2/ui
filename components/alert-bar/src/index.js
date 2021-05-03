@@ -1,1 +1,1 @@
-export { AlertBar as default } from './alert-bar.js'
+export { AlertBar } from './alert-bar.js'

@@ -1,1 +1,1 @@
-export { FieldSet as default } from './field-set.js'
+export { FieldSet } from './field-set.js'

@@ -1,1 +1,1 @@
-export { Popover as default } from './popover.js'
+export { Popover } from './popover.js'
