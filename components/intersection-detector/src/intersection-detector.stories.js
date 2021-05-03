@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { useState, useRef } from 'react'
-import { IntersectionDetector } from './IntersectionDetector.js'
+import { IntersectionDetector } from './intersection-detector.js'
 
 const description = `
 A tool to performantly detect when two components intersect, which is often better to use than scroll listeners. A common use case is to detect when a child component is in view inside a scrolling parent. Uses an [\`IntersectionObserver\`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) object internally.
