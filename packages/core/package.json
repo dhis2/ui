@@ -68,6 +68,7 @@
         "@dhis2/ui-tabs": "6.6.2",
         "@dhis2/ui-table": "6.6.2",
         "@dhis2/ui-tag": "6.6.2",
+        "@dhis2/ui-text-area": "6.6.2",
         "react": "^16.8",
         "react-dom": "^16.8",
         "styled-jsx": "^3.2"
