@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { Legend } from './Legend.js'
+import { Legend } from './legend.js'
 
 storiesOf('Legend', module)
     .add('With content and required', () => (

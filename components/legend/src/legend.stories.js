@@ -1,5 +1,5 @@
 import React from 'react'
-import { Legend } from './Legend.js'
+import { Legend } from './legend.js'
 
 const description = `
 Legends are to be used in a Field Set to describe the form fields.  They may indicate that the fields are required.
