@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { NoticeBox } from './NoticeBox.js'
+import { NoticeBox } from './notice-box.js'
 
 storiesOf('NoticeBox', module)
     .add('With children', () => <NoticeBox>The noticebox content</NoticeBox>)

@@ -1,6 +1,6 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
-import { NoticeBox } from './NoticeBox.js'
+import { NoticeBox } from './notice-box.js'
 
 const subtitle = `Highlights useful information that is directly relevant to the page the user is viewing`
 
