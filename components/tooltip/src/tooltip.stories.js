@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tooltip } from './Tooltip.js'
+import { Tooltip } from './tooltip.js'
 
 const subtitle = 'Displayed when a user hovers over the element'
 

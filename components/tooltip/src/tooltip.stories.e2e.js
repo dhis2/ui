@@ -1,8 +1,8 @@
 import React from 'react'
 import css from 'styled-jsx/css'
-import { Modal } from '../Modal/Modal.js'
-import { Tooltip } from './Tooltip.js'
-import { HidesWhenOutOfFrame } from './Tooltip.stories.js'
+import { Modal } from '@dhis2/ui-modal'
+import { Tooltip } from './tooltip.js'
+import { HidesWhenOutOfFrame } from './tooltip.stories.js'
 
 const noPaddingStyles = css`
     :global(#root) {
@@ -81,7 +81,7 @@ export const ModalWithTooltip = () => (
             I am a <Tooltip content="Short content">paragraph</Tooltip> that
             contains a tooltip.
         </p>
-        {/* 
+        {/*
             Added pointer-events: all to the popper element to circumvent
             a cypress bug: https://github.com/cypress-io/cypress/issues/9227
          */}

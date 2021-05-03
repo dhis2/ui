@@ -1,7 +1,7 @@
 import { mount } from 'enzyme'
 import React from 'react'
 import { act } from 'react-dom/test-utils'
-import { Tooltip } from '../Tooltip.js'
+import { Tooltip } from '../tooltip.js'
 
 // Due to its global nature, tooltip & popper need to be unmounted after each test
 let wrapper
