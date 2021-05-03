@@ -1,13 +1,13 @@
 import React from 'react'
-import { Button } from '../index.js'
-import { StackedTable } from './StackedTable.js'
-import { StackedTableBody } from './StackedTableBody.js'
-import { StackedTableCell } from './StackedTableCell.js'
-import { StackedTableCellHead } from './StackedTableCellHead.js'
-import { StackedTableFoot } from './StackedTableFoot.js'
-import { StackedTableHead } from './StackedTableHead.js'
-import { StackedTableRow } from './StackedTableRow.js'
-import { StackedTableRowHead } from './StackedTableRowHead.js'
+import { Button } from '@dhis2/ui-button'
+import { StackedTable } from './stacked-table.js'
+import { StackedTableBody } from './stacked-table-body.js'
+import { StackedTableCell } from './stacked-table-cell.js'
+import { StackedTableCellHead } from './stacked-table-cell-head.js'
+import { StackedTableFoot } from './stacked-table-foot.js'
+import { StackedTableHead } from './stacked-table-head.js'
+import { StackedTableRow } from './stacked-table-row.js'
+import { StackedTableRowHead } from './stacked-table-row-head.js'
 
 const description = `
 Expresses tabular data such that each 'row' becomes a table section with the 'column' header in each cell. Multiple rows become multiple sections.
@@ -15,7 +15,7 @@ Expresses tabular data such that each 'row' becomes a table section with the 'co
 Compose with StackedTable child components, as seen in the examples.
 
 \`\`\`js
-import { 
+import {
     StackedTable,
     StackedTableBody,
     StackedTableCell,

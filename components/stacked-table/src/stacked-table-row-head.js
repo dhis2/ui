@@ -1,6 +1,6 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
-import { StackedTableRow } from './StackedTableRow.js'
+import { StackedTableRow } from './stacked-table-row.js'
 
 /**
  * @module
