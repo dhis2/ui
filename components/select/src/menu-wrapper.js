@@ -1,9 +1,9 @@
 import propTypes from '@dhis2/prop-types'
 import Card from '@dhis2/ui-card'
+import Layer from '@dhis2/ui-layer'
+import Popper from '@dhis2/ui-popper'
 import React from 'react'
 import { resolve } from 'styled-jsx/css'
-import { Layer } from '../Layer/Layer.js'
-import { Popper } from '../Popper/Popper.js'
 
 const MenuWrapper = ({
     children,

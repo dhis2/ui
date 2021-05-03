@@ -1,7 +1,7 @@
 import propTypes from '@dhis2/prop-types'
 import { spacers, colors } from '@dhis2/ui-constants'
+import Input from '@dhis2/ui-input'
 import React from 'react'
-import { Input } from '../Input/Input.js'
 
 const FilterInput = ({ value, onChange, placeholder, className, dataTest }) => (
     <div className={className}>

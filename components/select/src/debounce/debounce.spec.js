@@ -1,4 +1,4 @@
-import { debounce } from '../index.js'
+import { debounce } from './debounce.js'
 
 beforeEach(() => {
     jest.useFakeTimers()

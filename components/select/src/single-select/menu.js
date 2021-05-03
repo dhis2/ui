@@ -1,7 +1,7 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
-import { Empty } from '../Select/Empty.js'
-import { filterIgnored, checkIfValidOption } from '../Select/option-helpers.js'
+import { Empty } from '../empty.js'
+import { filterIgnored, checkIfValidOption } from '../option-helpers.js'
 
 const onIgnoredClick = (_, e) => {
     e.stopPropagation()

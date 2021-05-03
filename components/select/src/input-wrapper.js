@@ -2,7 +2,7 @@ import propTypes from '@dhis2/prop-types'
 import { colors, theme, sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React from 'react'
-import { ArrowDown } from './ArrowDown.js'
+import { ArrowDown } from './arrow-down.js'
 
 const InputWrapper = ({
     dataTest,

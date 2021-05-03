@@ -1,8 +1,8 @@
 import propTypes from '@dhis2/prop-types'
 import React, { Component } from 'react'
-import { FilterInput } from '../Select/FilterInput.js'
-import { NoMatch } from '../Select/NoMatch.js'
-import { filterIgnored, checkIfValidOption } from '../Select/option-helpers.js'
+import { FilterInput } from './filter-input.js'
+import { NoMatch } from './no-match.js'
+import { filterIgnored, checkIfValidOption } from './option-helpers.js'
 
 export class FilterableMenu extends Component {
     state = {

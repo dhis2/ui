@@ -1,12 +1,12 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
-import { Empty } from '../Select/Empty.js'
+import { Empty } from '../empty.js'
 import {
     filterIgnored,
     checkIfValidOption,
     removeOption,
     findOption,
-} from '../Select/option-helpers.js'
+} from '../option-helpers.js'
 
 const onDisabledClick = (_, e) => {
     e.stopPropagation()

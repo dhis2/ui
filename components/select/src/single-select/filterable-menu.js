@@ -1,7 +1,7 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
-import { FilterableMenu as CommonFilterableMenu } from '../Select/FilterableMenu.js'
-import { Menu } from './Menu.js'
+import { FilterableMenu as CommonFilterableMenu } from '../filterable-menu.js'
+import { Menu } from './menu.js'
 
 const FilterableMenu = ({
     dataTest,
@@ -36,7 +36,7 @@ FilterableMenu.propTypes = {
     handleFocusInput: propTypes.func,
     options: propTypes.node,
     placeholder: propTypes.string,
-    selected: propTypes.arrayOf(propTypes.string),
+    selected: propTypes.string,
     onChange: propTypes.func,
 }
 

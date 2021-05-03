@@ -1,7 +1,8 @@
 import propTypes from '@dhis2/prop-types'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
-import { SingleSelect, SingleSelectOption } from '../index.js'
+import { SingleSelectOption } from './single-select-option.js'
+import { SingleSelect } from './single-select.js'
 
 const description = `
 Use a select component wherever the user needs to make a selection of one or more options from a list of 6 or more options. If there are less than 6 options to choose from and space permits, use checkboxes for multiple selection and radio buttons for single selection. If the user needs to make a complex selection with a specific ordering, use a transfer instead.

@@ -2,10 +2,10 @@ import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React from 'react'
-import { InputClearButton } from '../Select/InputClearButton.js'
-import { InputPlaceholder } from '../Select/InputPlaceholder.js'
-import { InputPrefix } from '../Select/InputPrefix.js'
-import { Selection } from './Selection.js'
+import { InputClearButton } from '../input-clear-button.js'
+import { InputPlaceholder } from '../input-placeholder.js'
+import { InputPrefix } from '../input-prefix.js'
+import { Selection } from './selection.js'
 
 const Input = ({
     selected,
