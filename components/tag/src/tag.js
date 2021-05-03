@@ -3,8 +3,8 @@ import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { TagIcon } from './TagIcon.js'
-import { TagText } from './TagText.js'
+import { TagIcon } from './tag-icon.js'
+import { TagText } from './tag-text.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**

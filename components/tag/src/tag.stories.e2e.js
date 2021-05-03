@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { Tag } from './Tag.js'
+import { Tag } from './tag.js'
 
 storiesOf('Tag', module)
     .add('Without icon', () => <Tag>Default</Tag>)
