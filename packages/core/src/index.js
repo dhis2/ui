@@ -58,8 +58,8 @@ export {
     SingleSelectOption,
 } from '@dhis2/ui-select'
 export { default as Node } from '@dhis2/ui-node'
+export { default as NoticeBox } from '@dhis2/-ui-notice-box'
 
-export { NoticeBox } from './NoticeBox/NoticeBox.js'
 export { Popover } from './Popover/Popover.js'
 export { Popper } from './Popper/Popper.js'
 export { Radio } from './Radio/Radio.js'

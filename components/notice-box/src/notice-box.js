@@ -1,11 +1,11 @@
 import { mutuallyExclusive } from '@dhis2/prop-types'
-import { spacers, colors } from '@dhis2/ui-constants'
+import { theme, spacers, colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { NoticeBoxIcon } from './NoticeBoxIcon.js'
-import { NoticeBoxMessage } from './NoticeBoxMessage.js'
-import { NoticeBoxTitle } from './NoticeBoxTitle.js'
+import { NoticeBoxIcon } from './notice-box-icon.js'
+import { NoticeBoxMessage } from './notice-box-message.js'
+import { NoticeBoxTitle } from './notice-box-title.js'
 
 /**
  * @module
