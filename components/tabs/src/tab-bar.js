@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { ScrollBar } from './ScrollBar.js'
-import { Tabs } from './Tabs.js'
+import { ScrollBar } from './scroll-bar.js'
+import { Tabs } from './tabs.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
