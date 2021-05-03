@@ -1,7 +1,7 @@
 import { CenteredContent } from '@dhis2/ui-centered-content'
+import { CircularLoader } from '@dhis2/ui-circular-loader'
 import React from 'react'
-import { CircularLoader } from '../index.js'
-import { Layer } from './Layer.js'
+import { Layer } from './layer.js'
 
 const description = `
 Layers are used for creating different levels of stacking of interface elements.
