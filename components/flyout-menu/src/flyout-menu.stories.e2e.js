@@ -1,6 +1,6 @@
 import React from 'react'
-import { MenuItem } from '../MenuItem/MenuItem.js'
-import { FlyoutMenu } from './FlyoutMenu.js'
+import { MenuItem } from '@dhis2/ui-menu'
+import { FlyoutMenu } from './flyout-menu.js'
 
 export default {
     title: 'FlyoutMenu',
