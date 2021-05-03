@@ -53,6 +53,7 @@ export {
 export { default as Node } from '@dhis2/ui-node'
 export { default as NoticeBox } from '@dhis2/ui-notice-box'
 export { default as Popover } from '@dhis2/ui-popover'
+export { default as Popper } from '@dhis2/ui-popper'
 
 export {
     default as Select,
@@ -62,7 +63,6 @@ export {
     SingleSelectOption,
 } from '@dhis2/ui-select'
 
-export { Popper } from './Popper/Popper.js'
 export { Radio } from './Radio/Radio.js'
 export { Required } from './Required/Required.js'
 export { StackedTable } from './StackedTable/StackedTable.js'

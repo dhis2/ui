@@ -1,6 +1,6 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React, { useRef } from 'react'
-import { Popper } from './Popper.js'
+import { Popper } from './popper.js'
 
 const description = `
 A tool for adding additional information or content outside of the document flow, used for example in the Tooltip or Popover components.

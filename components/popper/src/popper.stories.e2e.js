@@ -1,6 +1,6 @@
 import propTypes from '@dhis2/prop-types'
 import React, { useRef, useState } from 'react'
-import { Popper } from './Popper.js'
+import { Popper } from './popper.js'
 
 const PopperPlacement = ({ placement }) => {
     const ref = useRef()
