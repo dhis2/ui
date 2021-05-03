@@ -1,5 +1,5 @@
-import AlertBar from '@dhis2/ui-alert-bar'
 import React from 'react'
+import { AlertBar } from '../alert-bar.js'
 import { AlertStack } from './alert-stack.js'
 
 const description = `

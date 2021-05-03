@@ -1,11 +1,11 @@
 {
-    "name": "@dhis2/ui-alert-stack",
+    "name": "@dhis2/ui-alerts",
     "version": "6.6.2",
-    "description": "UI AlertStack",
+    "description": "UI Alerts",
     "repository": {
         "type": "git",
         "url": "https://github.com/dhis2/ui.git",
-        "directory": "components/alert-stack"
+        "directory": "components/alerts"
     },
     "homepage": "https://github.com/dhis2/ui#readme",
     "license": "BSD-3-Clause",
@@ -33,9 +33,6 @@
     "dependencies": {
         "@dhis2/prop-types": "^1.6.4",
         "classnames": "^2.2.6"
-    },
-    "devDependencies": {
-        "@dhis2/ui-alert-bar": "6.6.2"
     },
     "files": [
         "build"

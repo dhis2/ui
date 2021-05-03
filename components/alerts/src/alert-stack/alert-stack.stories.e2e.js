@@ -1,6 +1,6 @@
-import { AlertBar } from '@dhis2/ui-alert-bar'
 import { storiesOf } from '@storybook/react'
 import React from 'react'
+import { AlertBar } from '../alert-bar.js'
 import { AlertStack } from './alert-stack.js'
 
 storiesOf('AlertStack', module).add('Default', () => (
