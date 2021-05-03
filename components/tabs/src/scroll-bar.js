@@ -2,11 +2,58 @@ import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React, { Component, createRef } from 'react'
-import { ChevronLeft, ChevronRight } from '../Icons/index.js'
-import { animatedSideScroll } from './animatedSideScroll'
-import { detectHorizontalScrollbarHeight } from './detectHorizontalScrollbarHeight'
+import { animatedSideScroll } from './animated-side-scroll.js'
+import { detectHorizontalScrollbarHeight } from './detect-horizontal-scrollbar-height.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
+// TODO: ui-icons
+function ChevronRight({ className }) {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 48 48"
+            className={className}
+        >
+            <path d="M20 12l-2.83 2.83L26.34 24l-9.17 9.17L20 36l12-12z" />
+            <style jsx>{`
+                svg {
+                    fill: inherit;
+                    height: 24px;
+                    width: 24px;
+                    vertical-align: middle;
+                    pointer-events: none;
+                }
+            `}</style>
+        </svg>
+    )
+}
+ChevronRight.propTypes = {
+    className: propTypes.string,
+}
+
+function ChevronLeft({ className }) {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 48 48"
+            className={className}
+        >
+            <path d="M30.83 14.83L28 12 16 24l12 12 2.83-2.83L21.66 24z" />
+            <style jsx>{`
+                svg {
+                    fill: inherit;
+                    height: 24px;
+                    width: 24px;
+                    vertical-align: middle;
+                    pointer-events: none;
+                }
+            `}</style>
+        </svg>
+    )
+}
+ChevronLeft.propTypes = {
+    className: propTypes.string,
+}
 /**
  * @module
  * @private
