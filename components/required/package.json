@@ -1,0 +1,40 @@
+{
+    "name": "@dhis2/ui-required",
+    "version": "6.6.2",
+    "description": "UI Required",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dhis2/ui.git",
+        "directory": "components/required"
+    },
+    "homepage": "https://github.com/dhis2/ui#readme",
+    "license": "BSD-3-Clause",
+    "private": false,
+    "main": "./build/cjs/index.js",
+    "module": "./build/es/index.js",
+    "exports": {
+        "import": "./build/es/index.js",
+        "require": "./build/cjs/index.js"
+    },
+    "sideEffects": false,
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "start": "start-storybook -c ../../.storybook",
+        "build": "d2-app-scripts build"
+    },
+    "peerDependencies": {
+        "@dhis2/ui-constants": "6.6.2",
+        "react": "^16.8",
+        "react-dom": "^16.8",
+        "styled-jsx": "^3.2"
+    },
+    "dependencies": {
+        "@dhis2/prop-types": "^1.6.4",
+        "classnames": "^2.2.6"
+    },
+    "files": [
+        "build"
+    ]
+}

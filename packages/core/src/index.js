@@ -55,7 +55,7 @@ export { default as NoticeBox } from '@dhis2/ui-notice-box'
 export { default as Popover } from '@dhis2/ui-popover'
 export { default as Popper } from '@dhis2/ui-popper'
 export { default as Radio } from '@dhis2/ui-radio'
-
+export { default as Required } from '@dhis2/ui-required'
 export {
     default as Select,
     MultiSelect,
@@ -64,7 +64,6 @@ export {
     SingleSelectOption,
 } from '@dhis2/ui-select'
 
-export { Required } from './Required/Required.js'
 export { StackedTable } from './StackedTable/StackedTable.js'
 export { StackedTableBody } from './StackedTable/StackedTableBody.js'
 export { StackedTableCell } from './StackedTable/StackedTableCell.js'

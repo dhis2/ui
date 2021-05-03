@@ -60,6 +60,7 @@
         "@dhis2/ui-popover": "6.6.2",
         "@dhis2/ui-popper": "6.6.2",
         "@dhis2/ui-radio": "6.6.2",
+        "@dhis2/ui-required": "6.6.2",
         "@dhis2/ui-select": "6.6.2",
         "react": "^16.8",
         "react-dom": "^16.8",
