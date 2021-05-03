@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { createPortal } from 'react-dom'
 import { useLayerContext } from './use-layer-context.js'
-import { LayerContext } from './layer-context.js'
+import { Provider } from './layer-context.js'
 
 const createClickHandler = onClick => event => {
     // don't respond to clicks that originated in the children
@@ -56,9 +56,9 @@ const Layer = ({
                     onClick={createClickHandler(onClick)}
                 >
                     {layerEl && (
-                        <LayerContext.Provider value={nextLayer}>
+                        <Provider value={nextLayer}>
                             {children}
-                        </LayerContext.Provider>
+                        </Provider>
                     )}
                     <style jsx>{`
                         div {
