@@ -2,7 +2,7 @@ import { colors, theme, sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component, createRef } from 'react'
-import { RadioRegular, RadioDense } from '../Icons/index.js'
+import { RadioRegular, RadioDense } from './radio-icons.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
