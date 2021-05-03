@@ -1,4 +1,4 @@
-import { getBaseModifiers } from '../Popper/modifiers.js'
+import { getBaseModifiers } from '@dhis2/ui-popper'
 import { ARROW_SIZE } from './Arrow.js'
 
 const BORDER_RADIUS = 4

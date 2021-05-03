@@ -1,6 +1,6 @@
 import { elevations, sharedPropTypes } from '@dhis2/ui-constants'
 import React, { useRef } from 'react'
-import { Popover } from './Popover.js'
+import { Popover } from './popover.js'
 
 const subtitle = `Useful to give a user more information or possible actions without disrupting a page or flow`
 

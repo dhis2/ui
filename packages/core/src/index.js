@@ -50,6 +50,10 @@ export {
     ModalContent,
     ModalTitle,
 } from '@dhis2/ui-modal'
+export { default as Node } from '@dhis2/ui-node'
+export { default as NoticeBox } from '@dhis2/ui-notice-box'
+export { default as Popover } from '@dhis2/ui-popover'
+
 export {
     default as Select,
     MultiSelect,
@@ -57,10 +61,7 @@ export {
     SingleSelect,
     SingleSelectOption,
 } from '@dhis2/ui-select'
-export { default as Node } from '@dhis2/ui-node'
-export { default as NoticeBox } from '@dhis2/-ui-notice-box'
 
-export { Popover } from './Popover/Popover.js'
 export { Popper } from './Popper/Popper.js'
 export { Radio } from './Radio/Radio.js'
 export { Required } from './Required/Required.js'
