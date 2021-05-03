@@ -70,5 +70,5 @@ export { Table as default, TableBody, TableCell, TableCellHead, TableFoot, Table
 export { default as Tabs, Tab, TabBar } from '@dhis2/ui-tabs'
 export { default as Tag } from '@dhis2/ui-tag'
 export { default as TextArea } from '@dhis2/ui-text-area'
+export { default as Tooltip } from '@dhis2/ui-tooltip'
 
-export { Tooltip } from './Tooltip/Tooltip.js'
