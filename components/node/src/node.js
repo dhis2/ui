@@ -1,9 +1,9 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Leaves } from './Leaves.js'
-import { Spacer } from './Spacer.js'
-import { Toggle } from './Toggle.js'
+import { Leaves } from './leaves.js'
+import { Spacer } from './spacer.js'
+import { Toggle } from './toggle.js'
 
 /**
  * @module
