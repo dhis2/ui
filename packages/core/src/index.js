@@ -19,7 +19,11 @@ export { default as DropdownButton } from '@dhis2/ui-dropdown-button'
 export { default as Field } from '@dhis2/ui-field'
 export { default as FieldSet } from '@dhis2/ui-field-set'
 export { default as FileInput } from '@dhis2/ui-file-input'
-export { default as FileList, FileListItem, FileListPlaceholder } from '@dhis2/ui-file-list'
+export {
+    default as FileList,
+    FileListItem,
+    FileListPlaceholder,
+} from '@dhis2/ui-file-list'
 export { default as FlyoutMenu } from '@dhis2/ui-flyout-menu'
 export { default as Help } from '@dhis2/ui-help'
 export { default as Input } from '@dhis2/ui-input'
@@ -28,20 +32,38 @@ export { default as Label } from '@dhis2/ui-label'
 export { default as Layer, useLayerContext } from '@dhis2/ui-layer'
 export { default as Legend } from '@dhis2/ui-legend'
 export { default as LinearLoader } from '@dhis2/ui-linear-loader'
-export { default as Logo, LogoIcon, LogoIconWhite, LogoWhite } from '@dhis2/ui-logo'
-export { default as Menu, MenuDivider, MenuItem, MenuSectionHeader } from '@dhis2/ui-menu'
-export { default as Modal, ModalActions, ModalContent, ModalTitle } from '@dhis2/ui-modal'
+export {
+    default as Logo,
+    LogoIcon,
+    LogoIconWhite,
+    LogoWhite,
+} from '@dhis2/ui-logo'
+export {
+    default as Menu,
+    MenuDivider,
+    MenuItem,
+    MenuSectionHeader,
+} from '@dhis2/ui-menu'
+export {
+    default as Modal,
+    ModalActions,
+    ModalContent,
+    ModalTitle,
+} from '@dhis2/ui-modal'
+export {
+    default as Select,
+    MultiSelect,
+    MultiSelectOption,
+    SingleSelect,
+    SingleSelectOption,
+} from '@dhis2/ui-select'
 
-export { MultiSelect } from './MultiSelect/MultiSelect.js'
-export { MultiSelectOption } from './MultiSelectOption/MultiSelectOption.js'
 export { Node } from './Node/Node.js'
 export { NoticeBox } from './NoticeBox/NoticeBox.js'
 export { Popover } from './Popover/Popover.js'
 export { Popper } from './Popper/Popper.js'
 export { Radio } from './Radio/Radio.js'
 export { Required } from './Required/Required.js'
-export { SingleSelect } from './SingleSelect/SingleSelect.js'
-export { SingleSelectOption } from './SingleSelectOption/SingleSelectOption.js'
 export { StackedTable } from './StackedTable/StackedTable.js'
 export { StackedTableBody } from './StackedTable/StackedTableBody.js'
 export { StackedTableCell } from './StackedTable/StackedTableCell.js'

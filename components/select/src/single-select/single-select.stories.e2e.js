@@ -1,14 +1,10 @@
 import propTypes from '@dhis2/prop-types'
+import Button from '@dhis2/ui-button'
+import Modal, { ModalTitle, ModalContent } from '@dhis2/ui-modal'
 import { storiesOf } from '@storybook/react'
 import React, { useState } from 'react'
-import {
-    Modal,
-    ModalTitle,
-    ModalContent,
-    SingleSelect,
-    SingleSelectOption,
-    Button,
-} from '../index.js'
+import { SingleSelectOption } from './single-select-option.js'
+import { SingleSelect } from './single-select.js'
 
 window.onChange = window.Cypress && window.Cypress.cy.stub()
 window.onFocus = window.Cypress && window.Cypress.cy.stub()
