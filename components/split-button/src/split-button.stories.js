@@ -1,6 +1,6 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
-import { SplitButton } from './SplitButton.js'
+import { SplitButton } from './split-button.js'
 
 const description = `
 Similar to the dropdown button, but can be triggered independently of opening the contained action list. The main action may be 'Save' and the contained actions may be "Save and add another" and "Save and open".
