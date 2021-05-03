@@ -51,6 +51,8 @@
         "@dhis2/ui-intersection-detector": "6.6.2",
         "@dhis2/ui-label": "6.6.2",
         "@dhis2/ui-layer": "6.6.2",
+        "@dhis2/ui-legend": "6.6.2",
+        "@dhis2/ui-linear-loader": "6.6.2",
         "react": "^16.8",
         "react-dom": "^16.8",
         "styled-jsx": "^3.2"
