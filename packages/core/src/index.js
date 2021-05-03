@@ -57,8 +57,8 @@ export {
     SingleSelect,
     SingleSelectOption,
 } from '@dhis2/ui-select'
+export { default as Node } from '@dhis2/ui-node'
 
-export { Node } from './Node/Node.js'
 export { NoticeBox } from './NoticeBox/NoticeBox.js'
 export { Popover } from './Popover/Popover.js'
 export { Popper } from './Popper/Popper.js'
