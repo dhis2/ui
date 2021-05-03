@@ -24,8 +24,8 @@ export { default as FileList, FileListItem, FileListPlaceholder } from '@dhis2/u
 export { default as FlyoutMenu } from '@dhis2/ui-flyout-menu'
 export { default as Help } from '@dhis2/ui-help'
 export { default as Input } from '@dhis2/ui-input'
+export { default as IntersectionDetector } from '@dhis2/ui-intersection-detector'
 
-export { IntersectionDetector } from './IntersectionDetector/IntersectionDetector.js'
 export { Label } from './Label/Label.js'
 export { Layer, useLayerContext } from './Layer/Layer.js'
 export { Legend } from './Legend/Legend.js'

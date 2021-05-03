@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { IntersectionDetector } from './IntersectionDetector.js'
+import { IntersectionDetector } from './intersection-detector.js'
 
 window.onChange = window.Cypress ? window.Cypress.cy.stub() : () => null
 
