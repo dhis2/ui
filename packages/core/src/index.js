@@ -4,9 +4,8 @@
  */
 export { default as AlertBar } from '@dhis2/ui-alert-bar'
 export { default as AlertStack } from '@dhis2/ui-alert-stack'
-export { default as Button } from '@dhis2/ui-button'
+export { default as Button, ButtonStrip } from '@dhis2/ui-button'
 export { default as Box } from '@dhis2/ui-box'
-export { default as ButtonStrip } from '@dhis2/ui-button-strip'
 export { default as Card } from '@dhis2/ui-card'
 export { default as CenteredContent } from '@dhis2/ui-centered-content'
 export { default as Checkbox } from '@dhis2/ui-checkbox'
