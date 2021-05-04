@@ -1,6 +1,7 @@
+import propTypes from '@dhis2/prop-types'
 import React from 'react'
-import { Tab } from './tab/tab.js'
 import { TabBar } from './tab-bar.js'
+import { Tab } from './tab/tab.js'
 
 function AttachFile({ className }) {
     return (

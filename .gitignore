@@ -45,3 +45,5 @@ storybook/storybook-static
 # folder, but since they're build artefacts, we
 # don't want them in version control.
 packages/icons/src/react/
+
+.eslintcache

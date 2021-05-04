@@ -1,4 +1,5 @@
 {
+    "name": "@dhis2/ui",
     "version": "6.7.0",
     "repository": {
         "type": "git",
@@ -43,10 +44,16 @@
         "watch:constants": "yarn build:constants --watch --dev",
         "watch:core": "yarn build:core --watch --dev",
         "watch:forms": "yarn build:forms --watch --dev",
-        "watch:storybook": "EXTEND_ESLINT=true start-storybook --port 5000 --quiet --ci -s .storybook/static",
+        "watch:storybook": "EXTEND_ESLINT=true start-storybook --port 5000 --quiet --ci -s .storybook/static --no-manager-cache",
         "watch:widgets": "yarn build:widgets --watch --dev"
     },
-    "devDependencies": {
+    "d2": {
+        "docsite": {
+            "name": "DHIS2 UI Components",
+            "description": "Components and related resources for the DHIS2 design system"
+        }
+    },
+    "dependencies": {
         "@dhis2/app-runtime": "^2.7.1",
         "@dhis2/cli-app-scripts": "^5.7.2",
         "@dhis2/cli-style": "^8.3.0",
@@ -56,6 +63,7 @@
         "@dhis2/cypress-plugins": "^7.0.1",
         "@dhis2/d2-i18n": "^1.1.0",
         "@fontsource/roboto": "^4.3.0",
+        "@manypkg/cli": "^0.17.0",
         "@storybook/addon-a11y": "^6.2.9",
         "@storybook/addon-console": "^1.2.3",
         "@storybook/addon-essentials": "^6.2.9",
@@ -73,16 +81,10 @@
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.6",
         "find-up": "^5.0.0",
-        "react": "16.8",
+        "react": "16.13",
         "react-docgen": "^5.4.0",
-        "react-dom": "16.8",
+        "react-dom": "16.13",
         "storybook-addon-jsx": "^7.3.10",
         "styled-jsx": "^3.4.4"
-    },
-    "d2": {
-        "docsite": {
-            "name": "DHIS2 UI Components",
-            "description": "Components and related resources for the DHIS2 design system"
-        }
     }
 }
