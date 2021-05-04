@@ -30,13 +30,13 @@
         "build": "d2-app-scripts build"
     },
     "peerDependencies": {
-        "react": "^16.8",
-        "react-dom": "^16.8",
-        "styled-jsx": "^3.2",
+        "@dhis2/app-runtime": "^2",
+        "@dhis2/d2-i18n": "^1",
         "@dhis2/ui-core": "6.7.0",
         "@dhis2/ui-constants": "6.7.0",
-        "@dhis2/app-runtime": "^2",
-        "@dhis2/d2-i18n": "^1"
+        "react": "^16.8",
+        "react-dom": "^16.8",
+        "styled-jsx": "^3.2"
     },
     "dependencies": {
         "@dhis2/prop-types": "^1.6.4",
@@ -44,5 +44,14 @@
     },
     "files": [
         "build"
-    ]
+    ],
+    "devDependencies": {
+        "@dhis2/app-runtime": "^2.7.1",
+        "@dhis2/d2-i18n": "^1.0.6",
+        "@dhis2/ui-constants": "*",
+        "@dhis2/ui-core": "*",
+        "react": "16.8",
+        "react-dom": "16.8",
+        "styled-jsx": "^3.3.0"
+    }
 }

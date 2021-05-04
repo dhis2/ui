@@ -40,5 +40,10 @@
     },
     "files": [
         "build"
-    ]
+    ],
+    "devDependencies": {
+        "@dhis2/ui-core": "*",
+        "react": "16.8",
+        "react-dom": "16.8"
+    }
 }

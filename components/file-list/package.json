@@ -36,5 +36,11 @@
     },
     "files": [
         "build"
-    ]
+    ],
+    "devDependencies": {
+        "@dhis2/ui-constants": "*",
+        "react": "16.8",
+        "react-dom": "16.8",
+        "styled-jsx": "^3.3.0"
+    }
 }

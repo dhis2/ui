@@ -69,8 +69,8 @@
         "@dhis2-ui/split-button": "6.6.2",
         "@dhis2-ui/stacked-table": "6.6.2",
         "@dhis2-ui/switch": "6.6.2",
-        "@dhis2-ui/tabs": "6.6.2",
         "@dhis2-ui/table": "6.6.2",
+        "@dhis2-ui/tabs": "6.6.2",
         "@dhis2-ui/tag": "6.6.2",
         "@dhis2-ui/text-area": "6.6.2",
         "@dhis2-ui/tooltip": "6.6.2",
@@ -79,5 +79,11 @@
     },
     "files": [
         "build"
-    ]
+    ],
+    "devDependencies": {
+        "@dhis2/ui-constants": "*",
+        "react": "16.8",
+        "react-dom": "16.8",
+        "styled-jsx": "^3.3.0"
+    }
 }
