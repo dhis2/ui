@@ -21,16 +21,23 @@
     },
     "dependencies": {
         "@dhis2/ui-constants": "6.6.2",
-        "@dhis2/ui-icons": "6.6.2",
         "@dhis2/ui-core": "6.6.2",
         "@dhis2/ui-forms": "6.6.2",
+        "@dhis2/ui-icons": "6.6.2",
         "@dhis2/ui-widgets": "6.6.2"
     },
     "peerDependencies": {
+        "@dhis2/app-runtime": "^2",
+        "@dhis2/d2-i18n": "^1",
         "react": "^16.8",
         "react-dom": "^16.8",
-        "styled-jsx": "^3.2",
-        "@dhis2/app-runtime": "^2",
-        "@dhis2/d2-i18n": "^1"
+        "styled-jsx": "^3.2"
+    },
+    "devDependencies": {
+        "@dhis2/app-runtime": "^2.7.1",
+        "@dhis2/d2-i18n": "^1.0.6",
+        "react": "16.8",
+        "react-dom": "16.8",
+        "styled-jsx": "^3.3.0"
     }
 }
