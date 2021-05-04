@@ -19,15 +19,24 @@ const root = findup.sync(
 
 const loadStories = () => {
     const components_dir = path.join(root, 'components')
-
     const curcomp = path.basename(process.cwd())
 
     const components = fs.readdirSync(components_dir, {
         encoding: 'utf8',
     })
 
+    // if we run storybook in one component, we only want to serve a single one
+    // and if we run storybook from the project root, we want to load the full shebang.
     if (components.includes(curcomp)) {
-        return [path.join(components_dir, curcomp, 'src', '*.stories.js')]
+        return [
+            path.join(
+                components_dir,
+                curcomp,
+                'src',
+                '**',
+                '*.stories.@(js|jsx|mdx)'
+            ),
+        ]
     } else {
         return isTesting
             ? [
@@ -82,7 +91,6 @@ module.exports = {
 
         return config
     },
-    // https://storybook.js.org/docs/react/configure/overview#configure-story-loading
     stories: async list => [...list, ...loadStories()],
     addons: [
         '@storybook/preset-create-react-app',
@@ -106,14 +114,15 @@ module.exports = {
 
         // ensure that our custom babel configuration is merged properly
         // with the storybook babel configuration.
-        return {
+        console.dir(custom, { depth: null })
+        const merged = {
             ...config,
-            presets: [...config.presets, ...custom.presets],
-            plugins: [
-                ...config.plugins,
-                ...custom.plugins,
-                ...custom.env[mode].plugins,
-            ],
+            presets: [...custom.presets],
+            plugins: [...custom.plugins, ...custom.env[mode].plugins],
         }
+        return merged
+    },
+    reactOptions: {
+        fastRefresh: true,
     },
 }
