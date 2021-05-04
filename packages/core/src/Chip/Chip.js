@@ -138,4 +138,3 @@ Chip.propTypes = {
 }
 
 export { Chip }
-export default Chip

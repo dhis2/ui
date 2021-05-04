@@ -1,5 +1,5 @@
-import { create } from '@storybook/theming/create'
 import { colors } from '@dhis2/ui-constants'
+import { create } from '@storybook/theming/create'
 
 /**
  * See here for an example of these values:

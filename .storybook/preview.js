@@ -1,6 +1,5 @@
+import { CssReset } from '@dhis2/ui-core'
 import '@fontsource/roboto/latin.css'
-import React, { Fragment } from 'react'
-import { jsxDecorator } from 'storybook-addon-jsx'
 import '@storybook/addon-console'
 import {
     Title,
@@ -11,7 +10,8 @@ import {
     Stories,
     PRIMARY_STORY,
 } from '@storybook/addon-docs/blocks'
-import { CssReset } from '@dhis2/ui-core'
+import React, { Fragment } from 'react'
+import { jsxDecorator } from 'storybook-addon-jsx'
 
 export const decorators = [
     // Enable storybook jsx visualization
@@ -64,6 +64,7 @@ export const parameters = {
     },
     docs: {
         // Customize docs page layout (in order to rename 'Stories' section)
+        /* eslint-disable-next-line react/display-name */
         page: () => (
             <>
                 <Title />
