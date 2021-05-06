@@ -1,5 +1,6 @@
 /* eslint-disable react/display-name */
 import '@fontsource/roboto/latin.css'
+import { CssReset } from '@dhis2-ui/css-reset'
 import {
     Title,
     Subtitle,
@@ -22,6 +23,7 @@ export const decorators = [
      */
     Component => (
         <Fragment>
+            <CssReset />
             <Component />
 
             <style jsx>{`

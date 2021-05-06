@@ -41,13 +41,13 @@ const loadStories = () => {
     } else {
         return isTesting
             ? [
-                  '../packages/*/src/**/*.stories.e2e.@(js|jsx)',
-                  '../components/*/src/**/*.stories.e2e.@(js|jsx)',
+                  '../../packages/*/src/**/*.stories.e2e.@(js|jsx)',
+                  '../../components/*/src/**/*.stories.e2e.@(js|jsx)',
               ]
             : [
-                  '../docs/**/*.stories.mdx',
-                  '../packages/*/src/**/*.stories.@(js|jsx|mdx)',
-                  '../components/*/src/**/*.stories.@(js|jsx|mdx)',
+                  '../../docs/**/*.stories.mdx',
+                  '../../packages/*/src/**/*.stories.@(js|jsx|mdx)',
+                  '../../components/*/src/**/*.stories.@(js|jsx|mdx)',
               ]
     }
 }
@@ -101,16 +101,16 @@ module.exports = {
                 const p = require(pkg)
                 const name = p.name
 
-                const dir = path.dirname(pkg)
-                const index = fg.sync('src/**/index.js', {
-                    deep: 2,
+                const index = fg.sync(`node_modules/${name}/src/**/index.js`, {
+                    depth: 1,
                     onlyFiles: true,
-                    cwd: dir,
+                    cwd: root,
                     absolute: true,
                 })
-                result[name] = index[0]
+                result[name] = path.resolve(__dirname, index[0])
             }
 
+            console.info('custom => Resolve aliases for internal packages:')
             console.dir(result, { depth: null })
             return result
         }
