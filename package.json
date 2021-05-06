@@ -22,30 +22,18 @@
         ]
     },
     "scripts": {
-        "build": "concurrently -n w: \"yarn:build:*\"",
-        "build:constants": "yarn workspace @dhis2/ui-constants build",
-        "build:core": "yarn workspace @dhis2/ui-core build",
-        "build:forms": "yarn workspace @dhis2/ui-forms build",
-        "build:icons": "yarn workspace @dhis2/ui-icons build",
-        "build:ui": "yarn workspace @dhis2/ui build",
-        "build:widgets": "yarn workspace @dhis2/ui-widgets build",
-        "cy:server": "yarn build && STORYBOOK_TESTING=1 EXTEND_ESLINT=true start-storybook --port 5001 --quiet --ci",
-        "cy:open": "d2-utils-cypress open --appStart 'yarn cy:server' --waitOn 'http-get://localhost:5001'",
-        "cy:run": "d2-utils-cypress run --appStart 'yarn cy:server' --waitOn 'http-get://localhost:5001'",
+        "build": "manypkg exec yarn build",
+        "cy:server": "yarn build && STORYBOOK_TESTING=1 EXTEND_ESLINT=true yarn start",
+        "cy:open": "d2-utils-cypress open --app-start 'yarn cy:server' --wait-on 'http-get://localhost:5000'",
+        "cy:run": "d2-utils-cypress run --app-start 'yarn cy:server' --wait-on 'http-get://localhost:5000'",
         "demo": "EXTEND_ESLINT=true build-storybook -o ./dist/demo --quiet -s .storybook/static",
         "docs": "d2-utils-docsite build ./docs -o ./dist --jsdoc ./packages/**/src --jsdoc-output-file api.md",
         "format": "d2-style apply",
         "format:staged": "d2-style apply --staged",
         "lint": "d2-style check",
         "lint:staged": "d2-style check --staged",
-        "start": "yarn build:icons && concurrently -n w: \"yarn:watch:*\" --kill-others",
-        "storybook:dev": "EXTEND_ESLINT=true start-storybook --port 5002 --quiet --ci -s .storybook/static --no-manager-cache",
         "test": "d2-app-scripts test",
-        "watch:constants": "yarn build:constants --watch --dev",
-        "watch:core": "yarn build:core --watch --dev",
-        "watch:forms": "yarn build:forms --watch --dev",
-        "watch:storybook": "EXTEND_ESLINT=true start-storybook --port 5000 --quiet --ci -s .storybook/static --no-manager-cache",
-        "watch:widgets": "yarn build:widgets --watch --dev"
+        "start": "EXTEND_ESLINT=true start-storybook --port 5000 --quiet --ci -s .storybook/static"
     },
     "d2": {
         "docsite": {
@@ -80,6 +68,7 @@
         "concurrently": "^6.1.0",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.6",
+        "fast-glob": "^3.2.5",
         "find-up": "^5.0.0",
         "react": "16.13",
         "react-docgen": "^5.4.0",

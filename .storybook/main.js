@@ -1,6 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const makeBabelConfig = require('@dhis2/cli-app-scripts/config/makeBabelConfig.js')
+const fg = require('fast-glob')
 const findup = require('find-up')
 
 const isTesting = 'STORYBOOK_TESTING' in process.env
@@ -89,7 +90,41 @@ module.exports = {
             }
         })
 
-        return config
+        const find_packages = () => {
+            const result = {}
+            const packages = fg.sync([
+                `${components_dir}/*/package.json`,
+                `${packages_dir}/*/package.json`,
+            ])
+
+            for (const pkg of packages) {
+                const p = require(pkg)
+                const name = p.name
+
+                const dir = path.dirname(pkg)
+                const index = fg.sync('src/**/index.js', {
+                    deep: 2,
+                    onlyFiles: true,
+                    cwd: dir,
+                    absolute: true,
+                })
+                result[name] = index[0]
+            }
+
+            console.dir(result, { depth: null })
+            return result
+        }
+
+        return {
+            ...config,
+            resolve: {
+                ...config.resolve,
+                alias: {
+                    ...config.resolve.alias,
+                    ...find_packages(),
+                },
+            },
+        }
     },
     stories: async list => [...list, ...loadStories()],
     addons: [
@@ -114,15 +149,11 @@ module.exports = {
 
         // ensure that our custom babel configuration is merged properly
         // with the storybook babel configuration.
-        console.dir(custom, { depth: null })
         const merged = {
             ...config,
             presets: [...custom.presets],
             plugins: [...custom.plugins, ...custom.env[mode].plugins],
         }
         return merged
-    },
-    reactOptions: {
-        fastRefresh: true,
     },
 }
