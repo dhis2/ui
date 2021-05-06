@@ -1,6 +1,5 @@
 /* eslint-disable react/display-name */
 import '@fontsource/roboto/latin.css'
-import { CssReset } from '@dhis2-ui/css-reset'
 import {
     Title,
     Subtitle,
@@ -23,14 +22,26 @@ export const decorators = [
      */
     Component => (
         <Fragment>
-            <CssReset />
             <Component />
+
+            <style jsx>{`
+                :global(html) {
+                    height: 100%;
+                }
+                :global(body) {
+                    height: 100%;
+                    min-height: 100%;
+                }
+                :global(#root) {
+                    height: 100%;
+                    padding: 16px;
+                }
+            `}</style>
         </Fragment>
     ),
 ]
 
 export const parameters = {
-    layout: 'centered',
     options: {
         storySort: {
             // Manually sort top content
