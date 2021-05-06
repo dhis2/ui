@@ -1,6 +1,6 @@
 import React from 'react'
-import { Menu } from '../Menu/Menu.js'
-import { MenuItem } from './MenuItem.js'
+import { Menu } from '../menu.js'
+import { MenuItem } from './menu-item.js'
 
 window.onClick = window.Cypress && window.Cypress.cy.stub()
 
