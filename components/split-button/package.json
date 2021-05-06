@@ -21,7 +21,7 @@
         "access": "public"
     },
     "scripts": {
-        "start": "start-storybook -c ../../.storybook",
+        "start": "start-storybook -c ../../storybook/config --port 5000",
         "build": "d2-app-scripts build"
     },
     "peerDependencies": {

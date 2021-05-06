@@ -18,22 +18,21 @@
     "workspaces": {
         "packages": [
             "packages/*",
-            "components/*"
+            "components/*",
+            "storybook"
         ]
     },
     "scripts": {
         "build": "manypkg exec yarn build",
-        "cy:server": "yarn build && STORYBOOK_TESTING=1 EXTEND_ESLINT=true yarn start",
+        "cy:server": "yarn build && STORYBOOK_TESTING=1 yarn start",
         "cy:open": "d2-utils-cypress open --app-start 'yarn cy:server' --wait-on 'http-get://localhost:5000'",
         "cy:run": "d2-utils-cypress run --app-start 'yarn cy:server' --wait-on 'http-get://localhost:5000'",
-        "demo": "EXTEND_ESLINT=true build-storybook -o ./dist/demo --quiet -s .storybook/static",
         "docs": "d2-utils-docsite build ./docs -o ./dist --jsdoc ./packages/**/src --jsdoc-output-file api.md",
         "format": "d2-style apply",
-        "format:staged": "d2-style apply --staged",
         "lint": "d2-style check",
-        "lint:staged": "d2-style check --staged",
         "test": "d2-app-scripts test",
-        "start": "EXTEND_ESLINT=true start-storybook --port 5000 --quiet --ci -s .storybook/static"
+        "start": "yarn workspace storybook start",
+        "demo": "yarn workspace storybook build"
     },
     "d2": {
         "docsite": {
@@ -50,30 +49,14 @@
         "@dhis2/cypress-commands": "^5.1.1",
         "@dhis2/cypress-plugins": "^5.1.0",
         "@dhis2/d2-i18n": "^1.0.6",
-        "@fontsource/roboto": "^4.0.0",
         "@manypkg/cli": "^0.17.0",
-        "@storybook/addon-a11y": "^6.2.9",
-        "@storybook/addon-console": "^1.2.3",
-        "@storybook/addon-essentials": "^6.2.9",
-        "@storybook/addon-storysource": "^6.2.9",
-        "@storybook/addons": "^6.2.9",
-        "@storybook/channels": "^6.2.9",
-        "@storybook/components": "^6.2.9",
-        "@storybook/core-events": "^6.2.9",
-        "@storybook/node-logger": "^6.2.9",
-        "@storybook/preset-create-react-app": "^3.1.7",
-        "@storybook/react": "^6.2.9",
-        "@storybook/theming": "^6.2.9",
-        "@wertarbyte/react-props-md-table": "^1.1.1",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.5",
         "fast-glob": "^3.2.5",
         "find-up": "^5.0.0",
         "react": "16.13",
         "react-dev-utils": "^10.2.1",
-        "react-docgen": "^5.3.0",
         "react-dom": "16.13",
-        "storybook-addon-jsx": "^7.3.9",
         "styled-jsx": "^3.3.0"
     }
 }
