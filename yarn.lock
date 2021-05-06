@@ -1846,10 +1846,10 @@
     handlebars "^4.5.3"
     isbinaryfile "^4.0.2"
 
-"@dhis2/cli-style@^8.0.0-alpha.10":
-  version "8.0.0-alpha.10"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-style/-/cli-style-8.0.0-alpha.10.tgz#e4b1f256fa0be27fdc5c5873387cf221da084ea4"
-  integrity sha512-e03wrPHszymH/TpDp7Hx16JYnoykoocOxl+DPcxr4RlbSxdxIT+m+rfS/XyJnGYWbbmcmN1pLTpIuNpg/K75OA==
+"@dhis2/cli-style@^8.0.0":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-style/-/cli-style-8.0.1.tgz#d5ca9778c5d8b7a900585b7679995e33967e6ba3"
+  integrity sha512-DaUENKc93WtO/NcH+epu8lq1oSYWgBqV4QqpWlvJQm97U0EOnWzLtke31jU2dow20ZmOJwfW+bzDmqUCYn8Fyg==
   dependencies:
     "@commitlint/cli" "^11.0.0"
     "@commitlint/config-conventional" "^11.0.0"
@@ -2113,10 +2113,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fontsource/roboto@^4.0.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@fontsource/roboto/-/roboto-4.1.0.tgz#28e0fb775013959df3a6b6d2c4ba0aad437f8d32"
-  integrity sha512-I4CIw73eJC/Oh83tPoRVKkySCLDwUQ2aK7O9wR5tRYc5APbsd3MrN6JhAvylIIwzn8eHQEMVoSjNGY9/sPLzyA==
+"@fontsource/roboto@^4.2.3":
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/@fontsource/roboto/-/roboto-4.2.3.tgz#2d2c173c526073a2c8d22f1c4234eef7496183fb"
+  integrity sha512-lEnB089GcK3uU3d0MPjwYTUPZBhpKQ2HxvgC+0ib2ElJNISBoS3fHE2sKuZIcCeghWW0fX58OJrZiPgZ3essBg==
 
 "@hapi/address@2.x.x":
   version "2.1.4"
