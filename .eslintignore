@@ -1,0 +1,3 @@
+.yarn/
+/packages/icons/src/react/**/*.js
+**/locales/
