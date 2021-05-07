@@ -1,5 +1,5 @@
 import propTypes from '@dhis2/prop-types'
-import { colors, spacers } from '@dhis2/ui-constants'
+import { theme, colors, spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React from 'react'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
@@ -63,7 +63,6 @@ function Loading({ className }) {
 Loading.propTypes = {
     className: propTypes.string,
 }
-
 
 function AttachFile({ className }) {
     return (
