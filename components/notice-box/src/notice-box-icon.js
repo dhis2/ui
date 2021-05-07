@@ -1,5 +1,5 @@
 import propTypes from '@dhis2/prop-types'
-import { colors, spacers } from '@dhis2/ui-constants'
+import { theme, colors, spacers } from '@dhis2/ui-constants'
 import React from 'react'
 import css from 'styled-jsx/css'
 
@@ -78,7 +78,6 @@ function Warning({ className }) {
 Warning.propTypes = {
     className: propTypes.string,
 }
-
 
 const getIconStyles = color =>
     css.resolve`

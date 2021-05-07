@@ -1,6 +1,6 @@
 import React from 'react'
-import { Menu } from '../menu.js'
 import { MenuItem } from '../menu-item/menu-item.js'
+import { Menu } from '../menu.js'
 import { MenuDivider } from './menu-divider.js'
 
 const description = `

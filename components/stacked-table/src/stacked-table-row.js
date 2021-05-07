@@ -1,9 +1,9 @@
 import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
 import React from 'react'
-import { Consumer } from './table-context.js'
 import { addColNumToChildren } from './add-col-num-to-children.js'
 import { supplyHeaderLabelsToChildren } from './supply-header-labels-to-children.js'
+import { Consumer } from './table-context.js'
 
 /**
  * @module
