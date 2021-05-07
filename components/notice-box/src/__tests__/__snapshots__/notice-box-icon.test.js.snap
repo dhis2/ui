@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NoticeBoxIcon should log errors when both warning and error flag are set 1`] = `
+"Warning: Failed prop type: Invalid prop \`error\` supplied to \`NoticeBoxIcon\`, Property 'error' is mutually exclusive with 'warning', but both have a thruthy value.
+    in NoticeBoxIcon"
+`;
+
+exports[`NoticeBoxIcon should log errors when both warning and error flag are set 2`] = `
+"Warning: Failed prop type: Invalid prop \`warning\` supplied to \`NoticeBoxIcon\`, Property 'warning' is mutually exclusive with 'error', but both have a thruthy value.
+    in NoticeBoxIcon"
+`;

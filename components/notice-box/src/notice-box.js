@@ -1,5 +1,5 @@
 import { mutuallyExclusive } from '@dhis2/prop-types'
-import { theme, spacers, colors } from '@dhis2/ui-constants'
+import { spacers, colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
