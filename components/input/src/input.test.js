@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { Input } from '../Input.js'
+import { Input } from './input.js'
 
 describe('<Input>', () => {
     it('passes min, max, and step props as attributes to the native <input> element', () => {
