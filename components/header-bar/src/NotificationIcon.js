@@ -2,8 +2,42 @@ import propTypes from '@dhis2/prop-types'
 import { colors, theme } from '@dhis2/ui-constants'
 import React from 'react'
 import css from 'styled-jsx/css'
-import { Email, Message } from '../Icons/index.js'
 
+// TODO: ui-icons
+function Message({ className }) {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="0 0 48 48"
+            className={className}
+        >
+            <path d="M40 4H8C5.79 4 4.02 5.79 4.02 8L4 44l8-8h28c2.21 0 4-1.79 4-4V8c0-2.21-1.79-4-4-4zm-4 24H12v-4h24v4zm0-6H12v-4h24v4zm0-6H12v-4h24v4z" />
+            <path d="M0 0h48v48H0z" fill="none" />
+        </svg>
+    )
+}
+Message.propTypes = {
+    className: propTypes.string,
+}
+function Email({ className }) {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="0 0 48 48"
+            className={className}
+        >
+            <path d="M40 8H8c-2.21 0-3.98 1.79-3.98 4L4 36c0 2.21 1.79 4 4 4h32c2.21 0 4-1.79 4-4V12c0-2.21-1.79-4-4-4zm0 8L24 26 8 16v-4l16 10 16-10v4z" />
+            <path d="M0 0h48v48H0z" fill="none" />
+        </svg>
+    )
+}
+Email.propTypes = {
+    className: propTypes.string,
+}
 const messageIcon = css.resolve`
     svg {
         fill: ${colors.white};

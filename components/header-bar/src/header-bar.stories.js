@@ -1,6 +1,6 @@
 import { CustomDataProvider, Provider } from '@dhis2/app-runtime'
 import React from 'react'
-import { HeaderBar } from './HeaderBar.js'
+import { HeaderBar } from './header-bar.js'
 
 const subtitle = 'The common navigation bar used in all DHIS2 apps'
 
