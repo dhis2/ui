@@ -1,6 +1,6 @@
 import React from 'react'
-import * as pagers from './__fixtures__'
-import { Pagination } from './Pagination.js'
+import * as pagers from './__fixtures__/index.js'
+import { Pagination } from './pagination.js'
 
 const subtitle = 'Allows navigation through data displayed over several pages'
 

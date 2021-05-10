@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import * as mockPagers from '../__fixtures__'
-import { PageControls } from '../PageControls'
+import * as mockPagers from '../__fixtures__/index.js'
+import { PageControls } from '../page-controls.js'
 
 describe('<PageControls />', () => {
     const mockOnClick = jest.fn()

@@ -1,11 +1,11 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import i18n from '../locales/index.js'
-import { PageControls } from './PageControls'
-import { PageSelect } from './PageSelect'
-import { PageSizeSelect } from './PageSizeSelect.js'
-import { PageSummary } from './PageSummary.js'
+import i18n from './locales/index.js'
+import { PageControls } from './page-controls'
+import { PageSelect } from './page-select'
+import { PageSizeSelect } from './page-size-select.js'
+import { PageSummary } from './page-summary.js'
 
 /**
  * @module

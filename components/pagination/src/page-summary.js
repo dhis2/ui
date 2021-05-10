@@ -1,7 +1,15 @@
 import propTypes from '@dhis2/prop-types'
 import { colors, spacers } from '@dhis2/ui-constants'
 import React from 'react'
-import translate from '../translate'
+
+// TODO: i18n translate
+const translate = (prop, interpolationObject) => {
+    if (typeof prop === 'function') {
+        return prop(interpolationObject)
+    }
+
+    return prop
+}
 
 const getItemRange = (page, pageSize, total) => {
     let firstItem, lastItem
