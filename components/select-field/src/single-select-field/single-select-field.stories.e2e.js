@@ -1,7 +1,7 @@
-import { SingleSelectOption } from '@dhis2/ui-core'
+import { SingleSelectOption } from '@dhis2-ui/select'
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { SingleSelectField } from './SingleSelectField.js'
+import { SingleSelectField } from './single-select-field.js'
 
 storiesOf('SingleSelectField', module)
     .add('With label', () => (

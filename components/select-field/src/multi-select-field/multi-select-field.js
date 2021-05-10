@@ -1,22 +1,31 @@
+import { Box, Field } from '@dhis2-ui/field'
+import { MultiSelect } from '@dhis2-ui/select'
 import { sharedPropTypes } from '@dhis2/ui-constants'
-import { Field, SingleSelect, Box } from '@dhis2/ui-core'
 import PropTypes from 'prop-types'
 import React from 'react'
 import i18n from '../locales/index.js'
-import translate from '../translate'
+
+// TODO: translate
+const translate = (prop, interpolationObject) => {
+    if (typeof prop === 'function') {
+        return prop(interpolationObject)
+    }
+
+    return prop
+}
 
 /**
  * @module
  *
- * @param {SingleSelectField.PropTypes} props
+ * @param {MultiSelectField.PropTypes} props
  * @returns {React.Component}
  *
- * @example import { SingleSelectField } from '@dhis2/ui-widgets'
+ * @example import { MultiSelectField } from '@dhis2/ui-widgets'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/select.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/singleselectfield--default|Storybook}
+ * @see Live demo: {@link /demo/?path=/story/multiselectfield--default|Storybook}
  */
-class SingleSelectField extends React.Component {
+class MultiSelectField extends React.Component {
     render() {
         const {
             className,
@@ -27,8 +36,8 @@ class SingleSelectField extends React.Component {
             label,
             valid,
             error,
-            warning,
             disabled,
+            warning,
             loading,
             selected,
             tabIndex,
@@ -66,7 +75,7 @@ class SingleSelectField extends React.Component {
                 valid={valid}
             >
                 <Box width={inputWidth} minWidth="100px">
-                    <SingleSelect
+                    <MultiSelect
                         selected={selected}
                         tabIndex={tabIndex}
                         maxHeight={maxHeight}
@@ -92,16 +101,16 @@ class SingleSelectField extends React.Component {
                         dense={dense}
                     >
                         {children}
-                    </SingleSelect>
+                    </MultiSelect>
                 </Box>
             </Field>
         )
     }
 }
 
-SingleSelectField.defaultProps = {
-    dataTest: 'dhis2-uiwidgets-singleselectfield',
-    selected: '',
+MultiSelectField.defaultProps = {
+    selected: [],
+    dataTest: 'dhis2-uiwidgets-multiselectfield',
 
     clearText: () => i18n.t('Clear'),
     empty: () => i18n.t('No data found'),
@@ -115,8 +124,8 @@ SingleSelectField.defaultProps = {
  * @static
  *
  * @prop {function} [onChange]
- * @prop {string} label
- * @prop {string} [selected]
+ * @prop {string} [label]
+ * @prop {Array.<string>} [selected]
  * @prop {string} [className]
  * @prop {string} [tabIndex]
  * @prop {Node} [children]
@@ -146,18 +155,18 @@ SingleSelectField.defaultProps = {
  * @prop {string} [prefix]
  * @prop {string} [dataTest]
  */
-SingleSelectField.propTypes = {
-    /** Should be `SingleSelectOption` components */
+MultiSelectField.propTypes = {
+    /** Should be `MultiSelectOption` components */
     children: PropTypes.node,
     className: PropTypes.string,
     /** Label for the button that clears selections */
     clearText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-    /** Adds a button to the SingleSelect that clears selections when pressed */
+    /** Adds a button to the MultiSelect that clears selections when pressed */
     clearable: PropTypes.bool,
     dataTest: PropTypes.string,
-    /** Makes the SingleSelect smaller */
+    /** Makes the MultiSelect smaller */
     dense: PropTypes.bool,
-    /** Disables the SingleSelect */
+    /** Disables the MultiSelect */
     disabled: PropTypes.bool,
     /** Text to display when there are no options */
     empty: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
@@ -167,7 +176,7 @@ SingleSelectField.propTypes = {
     filterPlaceholder: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
     /** Adds a field to filter options */
     filterable: PropTypes.bool,
-    /** Useful guiding text to display below the SingleSelect */
+    /** Useful guiding text to display below the MultiSelect */
     helpText: PropTypes.string,
     /** Grabs initial focus on the page */
     initialFocus: PropTypes.bool,
@@ -175,24 +184,24 @@ SingleSelectField.propTypes = {
     inputMaxHeight: PropTypes.string,
     /** Sets the width of the input. Can be any valid CSS measurement */
     inputWidth: PropTypes.string,
-    /** Text for the label above the SingleSelect */
+    /** Text for the label above the MultiSelect */
     label: PropTypes.string,
     /** Applies a loading appearance to the dropdown options */
     loading: PropTypes.bool,
     /** Text to display when `loading` is true */
     loadingText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-    /** Constrains height of the SingleSelect */
+    /** Constrains height of the MultiSelect */
     maxHeight: PropTypes.string,
     /** Text to display when there are no filter results */
     noMatchText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-    /** Placeholder text when the SingleSelect is empty */
+    /** Placeholder text when the MultiSelect is empty */
     placeholder: PropTypes.string,
     /** Leading text to prefix selections */
     prefix: PropTypes.string,
     /** Indicates that a selection is required */
     required: PropTypes.bool,
-    /** Selected item in the SingleSelect (the string should refer to the item's `value` attribute) */
-    selected: PropTypes.string,
+    /** Selected items in the MultiSelect (each string should refer to the item's `value` attribute) */
+    selected: PropTypes.arrayOf(PropTypes.string),
     tabIndex: PropTypes.string,
     /** Adds 'valid' appearance for validation feedback. Mutually exclusive with 'error' and 'warning' props */
     valid: sharedPropTypes.statusPropType,
@@ -200,12 +209,12 @@ SingleSelectField.propTypes = {
     validationText: PropTypes.string,
     /** Adds 'warning' appearance for validation feedback. Mutually exclusive with 'valid' and 'error' props */
     warning: sharedPropTypes.statusPropType,
-    /** Called with signature `({ selected: string }, event) */
+    /** Called with signature `({ selected: [String] }, event) */
     onBlur: PropTypes.func,
-    /** Called with signature `({ selected: string }, event) */
+    /** Called with signature `({ selected: [String] }, event) */
     onChange: PropTypes.func,
-    /** Called with signature `({ selected: string }, event) */
+    /** Called with signature `({ selected: [String] }, event) */
     onFocus: PropTypes.func,
 }
 
-export { SingleSelectField }
+export { MultiSelectField }
