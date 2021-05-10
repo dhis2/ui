@@ -196,7 +196,6 @@ DropDownMenu.parameters = {
 export const WithCustomMenuItem = args => {
     // You should not create custom components in the render cycle
     // this is just for demo purposes
-    // eslint-disable-next-line react/prop-types
     const PopupWindowMenuItem = ({ to, children, ...rest }) => {
         const HEIGHT = 1000
         const WIDTH = 1400
