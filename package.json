@@ -50,13 +50,16 @@
         "@dhis2/cypress-plugins": "^7.0.1",
         "@dhis2/d2-i18n": "^1.1.0",
         "@manypkg/cli": "^0.17.0",
+        "@svgr/cli": "^5.5.0",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.6",
+        "execa": "^4.1.0",
         "fast-glob": "^3.2.5",
         "find-up": "^5.0.0",
         "react": "16.13",
         "react-dev-utils": "^10.2.1",
         "react-dom": "16.13",
-        "styled-jsx": "^3.4.4"
+        "styled-jsx": "^3.4.4",
+        "rimraf": "^3.0.2"
     }
 }

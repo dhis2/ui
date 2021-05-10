@@ -34,14 +34,13 @@
         "react": "^16.8",
         "react-dom": "^16.8"
     },
-    "devDependencies": {
-        "@svgr/cli": "^5.5.0",
-        "execa": "^5.0.0",
-        "react": "16.13",
-        "react-dom": "16.13",
-        "rimraf": "^3.0.2"
-    },
     "dependencies": {
         "@dhis2/prop-types": "^1.6.4"
+    },
+    "devDependencies": {
+        "@svgr/cli": "^5.5.0",
+        "rimraf": "^3.0.2",
+        "react": "16.13",
+        "react-dom": "16.13"
     }
 }

@@ -25,7 +25,6 @@
         "build": "d2-app-scripts build"
     },
     "peerDependencies": {
-        "@dhis2/ui-constants": "6.6.2",
         "react": "^16.8",
         "react-dom": "^16.8",
         "styled-jsx": "^3.2"
@@ -75,13 +74,13 @@
         "@dhis2-ui/text-area": "6.6.2",
         "@dhis2-ui/tooltip": "6.6.2",
         "@dhis2/prop-types": "^1.6.4",
+        "@dhis2/ui-constants": "6.6.2",
         "classnames": "^2.3.1"
     },
     "files": [
         "build"
     ],
     "devDependencies": {
-        "@dhis2/ui-constants": "*",
         "react": "16.13",
         "react-dom": "16.13",
         "styled-jsx": "^3.3.0"
