@@ -1,7 +1,7 @@
+import { FileListItem } from '@dhis2-ui/file-list'
 import { sharedPropTypes } from '@dhis2/ui-constants'
-import { FileListItem } from '@dhis2/ui-core'
 import React from 'react'
-import { FileInputField } from './FileInputField.js'
+import { FileInputField } from './file-input-field.js'
 
 const description = `
 The \`FileInputField\` component wraps the \`FileInput\` component in a \`Field\` wrapper to add labels, help text, and validation text.

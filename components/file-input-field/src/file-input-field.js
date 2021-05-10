@@ -1,15 +1,20 @@
+import { Field } from '@dhis2-ui/field'
+import { FileInput } from '@dhis2-ui/file-input'
+import { FileList, FileListPlaceholder } from '@dhis2-ui/file-list'
+import { Label } from '@dhis2-ui/label'
 import { sharedPropTypes } from '@dhis2/ui-constants'
-import {
-    FileInput,
-    FileList,
-    FileListPlaceholder,
-    Field,
-    Label,
-} from '@dhis2/ui-core'
 import PropTypes from 'prop-types'
 import React from 'react'
-import i18n from '../locales/index.js'
-import translate from '../translate'
+import i18n from './locales/index.js'
+
+// TODO: i18n
+const translate = (prop, interpolationObject) => {
+    if (typeof prop === 'function') {
+        return prop(interpolationObject)
+    }
+
+    return prop
+}
 
 /**
  * @module
