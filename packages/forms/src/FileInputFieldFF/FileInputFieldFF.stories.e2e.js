@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { Field } from 'react-final-form'

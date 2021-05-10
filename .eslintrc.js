@@ -8,7 +8,7 @@ const config = {
     },
     overrides: [
         {
-            files: ['*.stories.js'],
+            files: ['*.stories.js', '*.stories.e2e.js'],
             rules: {
                 'import/no-extraneous-dependencies': 'off',
                 'react/display-name': 'off',
