@@ -1,7 +1,7 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
-import { ProfileMenu } from './Profile/ProfileMenu.js'
-import { UserIcon } from './UserIcon/UserIcon.js'
+import { ProfileMenu } from './profile/profile-menu.js'
+import { UserIcon } from './user-icon/user-icon.js'
 
 export default class Profile extends React.Component {
     state = {

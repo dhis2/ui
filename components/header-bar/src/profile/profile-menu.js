@@ -6,9 +6,9 @@ import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
 import React from 'react'
 import css from 'styled-jsx/css'
+import { joinPath } from '../join-path.js'
 import i18n from '../locales/index.js'
-import { joinPath } from '../joinPath.js'
-import { ProfileHeader } from './ProfileHeader.js'
+import { ProfileHeader } from './profile-header.js'
 
 // TODO: ui-icons
 function Settings({ className }) {
