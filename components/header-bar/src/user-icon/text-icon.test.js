@@ -1,4 +1,4 @@
-import { getInitials } from './TextIcon'
+import { getInitials } from './text-icon.js'
 
 describe('TextIcon - getInitials', () => {
     it('should return initials when given a name', () => {

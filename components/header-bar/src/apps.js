@@ -5,7 +5,7 @@ import propTypes from '@dhis2/prop-types'
 import { colors, theme } from '@dhis2/ui-constants'
 import React, { useState, useEffect, useCallback, useRef } from 'react'
 import css from 'styled-jsx/css'
-import { joinPath } from './joinPath.js'
+import { joinPath } from './join-path.js'
 import i18n from './locales/index.js'
 
 // TODO: ui-icons

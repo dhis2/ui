@@ -1,8 +1,8 @@
 import { useConfig } from '@dhis2/app-runtime'
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
-import { joinPath } from './joinPath.js'
-import { NotificationIcon } from './NotificationIcon.js'
+import { joinPath } from './join-path.js'
+import { NotificationIcon } from './notification-icon.js'
 
 /*
  AUTHORITIES:
