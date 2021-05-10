@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { CheckboxField } from './CheckboxField.js'
+import { CheckboxField } from './checkbox-field.js'
 
 storiesOf('CheckboxField', module)
     .add('With label and required', () => (
