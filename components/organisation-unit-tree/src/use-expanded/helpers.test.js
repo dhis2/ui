@@ -1,4 +1,4 @@
-import { createExpandHandlers, getInitiallyExpandedPaths } from '../helpers'
+import { createExpandHandlers, getInitiallyExpandedPaths } from './helpers.js'
 
 describe('OrganisationUnitTree - useExpanded - getInitiallyExpandedPaths', () => {
     const initiallyExpanded = ['/foo/bar/baz', '/foobar/barbaz/bazfoo']

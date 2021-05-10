@@ -10,7 +10,7 @@ jest.mock('@dhis2/app-runtime', () => ({
     useDataQuery: jest.fn(() => ({ loading: false, error: null, data: {} })),
 }))
 
-jest.mock('../useOrgData/helpers', () => ({
+jest.mock('../use-org-data/helpers.js', () => ({
     createQuery: jest.fn(() => 'createQuery'),
     addMissingDisplayNameProps: jest.fn(() => ({})),
     sortNodeChildrenAlphabetically: jest.fn(() => []),
