@@ -1,10 +1,10 @@
+import { Field } from '@dhis2-ui/field'
+import { FieldSet } from '@dhis2-ui/field-set'
 import { sharedPropTypes } from '@dhis2/ui-constants'
-import { Field, FieldSet } from '@dhis2/ui-core'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-/**
- * @module
+/** * @module
  * @param {FieldGroup.PropTypes} props
  * @returns {React.Component}
  *

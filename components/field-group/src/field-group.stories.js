@@ -1,7 +1,9 @@
+import { Checkbox } from '@dhis2-ui/checkbox'
+import { Radio } from '@dhis2-ui/radio'
+import { Switch } from '@dhis2-ui/switch'
 import { sharedPropTypes } from '@dhis2/ui-constants'
-import { Checkbox, Radio, Switch } from '@dhis2/ui-core'
 import React from 'react'
-import { FieldGroup } from './FieldGroup.js'
+import { FieldGroup } from './field-group.js'
 
 const description = `
 Wraps a group of form components like Radios, Checkboxes, or Switches. The FieldGroup wraps the form controls in a FieldSet and a Field component to group them and add a label, help text, and/or validation text.
