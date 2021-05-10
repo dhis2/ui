@@ -1,8 +1,16 @@
+import { SingleSelect, SingleSelectOption } from '@dhis2-ui/select'
 import propTypes from '@dhis2/prop-types'
 import { spacers } from '@dhis2/ui-constants'
-import { SingleSelect, SingleSelectOption } from '@dhis2/ui-core'
 import React from 'react'
-import translate from '../translate'
+
+// TODO: i18n translate
+const translate = (prop, interpolationObject) => {
+    if (typeof prop === 'function') {
+        return prop(interpolationObject)
+    }
+
+    return prop
+}
 
 const createAvailablePages = length =>
     Array.from({ length }, (_x, i) => (i + 1).toString())
