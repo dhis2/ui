@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { TextAreaField } from './TextAreaField.js'
+import { TextAreaField } from './text-area-field.js'
 
 storiesOf('TextAreaField', module).add('With label and required', () => (
     <TextAreaField
