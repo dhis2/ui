@@ -1,7 +1,7 @@
-import { Checkbox } from '@dhis2/ui-core'
+import { Checkbox } from '@dhis2-ui/checkbox'
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { FieldGroup } from './FieldGroup.js'
+import { FieldGroup } from './field-group.js'
 
 storiesOf('FieldGroup', module).add('With label and required', () => (
     <FieldGroup
