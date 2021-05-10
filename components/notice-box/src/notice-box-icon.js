@@ -4,7 +4,7 @@ import React from 'react'
 import css from 'styled-jsx/css'
 
 // TODO: ui-icons
-function ErrorIcon({ className }) {
+function Error({ className }) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +25,7 @@ function ErrorIcon({ className }) {
     )
 }
 
-ErrorIcon.propTypes = {
+Error.propTypes = {
     className: propTypes.string,
 }
 
@@ -101,7 +101,7 @@ export const NoticeBoxIcon = ({ warning, error, dataTest }) => {
 
     if (error) {
         color = colors.red700
-        Icon = ErrorIcon
+        Icon = Error
     }
 
     const { className, styles } = getIconStyles(color)

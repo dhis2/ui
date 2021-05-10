@@ -9,7 +9,7 @@ jest.mock('react', () => ({
     useState: jest.fn(initialValue => [initialValue, () => null]),
 }))
 
-jest.mock('../useExpanded/helpers', () => ({
+jest.mock('../use-expanded/helpers.js', () => ({
     getInitiallyExpandedPaths: jest.fn(input => input),
     createExpandHandlers: jest.fn(() => ({
         handleCollapse: () => null,

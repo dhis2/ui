@@ -4,18 +4,16 @@ import { toggleAdd } from '../../../transfer/use-highlighted-options/toggle-add.
 import { toggleRange } from '../../../transfer/use-highlighted-options/toggle-range.js'
 import { toggleReplace } from '../../../transfer/use-highlighted-options/toggle-replace.js'
 
-jest.mock(
-    '../../../../Transfer/Transfer/useHighlightedOptions/toggleAdd',
-    () => ({ toggleAdd: jest.fn() })
-)
+jest.mock('../../../transfer/use-highlighted-options/toggle-add.js', () => ({
+    toggleAdd: jest.fn(),
+}))
+
+jest.mock('../../../transfer/use-highlighted-options/toggle-range.js', () => ({
+    toggleRange: jest.fn(),
+}))
 
 jest.mock(
-    '../../../../Transfer/Transfer/useHighlightedOptions/toggleRange',
-    () => ({ toggleRange: jest.fn() })
-)
-
-jest.mock(
-    '../../../../Transfer/Transfer/useHighlightedOptions/toggleReplace',
+    '../../../transfer/use-highlighted-options/toggle-replace.js',
     () => ({ toggleReplace: jest.fn() })
 )
 

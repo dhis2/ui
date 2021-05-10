@@ -2,7 +2,7 @@ import {
     createOrgUnitQuery,
     createQuery,
     addMissingDisplayNameProps,
-} from '../helpers'
+} from './helpers.js'
 
 describe('OrganisationUnitTree - createOrgUnitQuery', () => {
     it('should create a query resource object with the id in the resource url for an id', () => {
