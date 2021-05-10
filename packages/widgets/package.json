@@ -39,18 +39,18 @@
         "styled-jsx": "^3.2"
     },
     "dependencies": {
-        "@dhis2/prop-types": "^1.6.4",
-        "@dhis2-ui/header-bar": "6.6.2",
-        "@dhis2-ui/organisation-unit-tree": "6.6.2",
         "@dhis2-ui/checkbox-field": "6.6.2",
         "@dhis2-ui/field-group": "6.6.2",
         "@dhis2-ui/file-input-field": "6.6.2",
+        "@dhis2-ui/header-bar": "6.6.2",
         "@dhis2-ui/input-field": "6.6.2",
-        "@dhis2-ui/select-field": "6.6.2",
+        "@dhis2-ui/organisation-unit-tree": "6.6.2",
         "@dhis2-ui/pagination": "6.6.2",
+        "@dhis2-ui/select-field": "6.6.2",
         "@dhis2-ui/switch-field": "6.6.2",
         "@dhis2-ui/text-area-field": "6.6.2",
         "@dhis2-ui/transfer": "6.6.2",
+        "@dhis2/prop-types": "^1.6.4",
         "classnames": "^2.2.6"
     },
     "files": [
@@ -60,6 +60,7 @@
         "@dhis2/app-runtime": "^2.7.1",
         "@dhis2/d2-i18n": "^1.0.6",
         "@dhis2/ui-constants": "6.6.2",
+        "@dhis2/ui-core": "*",
         "react": "16.13",
         "react-dom": "16.13",
         "styled-jsx": "^3.3.0"

@@ -43,20 +43,23 @@
     "dependencies": {
         "@dhis2/app-runtime": "^2.7.1",
         "@dhis2/cli-app-scripts": "^5.7.2",
-        "@dhis2/cli-style": "^8.0.0-alpha.10",
+        "@dhis2/cli-style": "^8.2.0",
         "@dhis2/cli-utils-cypress": "^5.1.0",
         "@dhis2/cli-utils-docsite": "^2.0.2",
         "@dhis2/cypress-commands": "^5.1.1",
         "@dhis2/cypress-plugins": "^5.1.0",
         "@dhis2/d2-i18n": "^1.0.6",
         "@manypkg/cli": "^0.17.0",
+        "@svgr/cli": "^5.5.0",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.5",
+        "execa": "^4.1.0",
         "fast-glob": "^3.2.5",
         "find-up": "^5.0.0",
         "react": "16.13",
         "react-dev-utils": "^10.2.1",
         "react-dom": "16.13",
+        "rimraf": "^3.0.2",
         "styled-jsx": "^3.3.0"
     }
 }
