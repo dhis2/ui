@@ -24,6 +24,7 @@
     },
     "scripts": {
         "build": "manypkg exec yarn build",
+        "generate-i18n": "manypkg exec d2-app-scripts i18n generate || true",
         "cy:server": "yarn build && STORYBOOK_TESTING=1 yarn start",
         "cy:open": "d2-utils-cypress open --app-start 'yarn cy:server' --wait-on 'http-get://localhost:5000'",
         "cy:run": "d2-utils-cypress run --app-start 'yarn cy:server' --wait-on 'http-get://localhost:5000'",
