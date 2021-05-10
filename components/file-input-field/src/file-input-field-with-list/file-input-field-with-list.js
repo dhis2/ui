@@ -1,11 +1,18 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { FileInputField } from '../FileInputField/FileInputField.js'
+import { FileInputField } from '../file-input-field.js'
 import i18n from '../locales/index.js'
-import translate from '../translate'
-import { FileListItemWithRemove } from './FileListItemWithRemove.js'
+import { FileListItemWithRemove } from './file-list-item-with-remove.js'
 
+// TODO: i18n
+const translate = (prop, interpolationObject) => {
+    if (typeof prop === 'function') {
+        return prop(interpolationObject)
+    }
+
+    return prop
+}
 /**
  * @module
  * @param {FileInputFieldWithList.PropTypes} props
