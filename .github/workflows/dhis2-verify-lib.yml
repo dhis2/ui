@@ -75,9 +75,7 @@ jobs:
                   key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
             - name: Generate translations
-              run:
-                  yarn workspace @dhis2/ui-forms d2-app-scripts i18n generate &&
-                  yarn workspace @dhis2/ui-widgets d2-app-scripts i18n generate
+              run: yarn generate-i18n
 
             - uses: actions/download-artifact@v2
               with:
@@ -102,9 +100,7 @@ jobs:
                   key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
             - name: Generate translations
-              run:
-                  yarn workspace @dhis2/ui-forms d2-app-scripts i18n generate &&
-                  yarn workspace @dhis2/ui-widgets d2-app-scripts i18n generate
+              run: yarn generate-i18n
 
             - uses: actions/download-artifact@v2
               with:
