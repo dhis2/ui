@@ -1,1 +1,1 @@
-export { FieldGroup as default } from './field-group.js'
+export { FieldGroup } from './field-group.js'
