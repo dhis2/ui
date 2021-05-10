@@ -1,5 +1,7 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
-import { Field, Switch, Required } from '@dhis2/ui-core'
+import { Field } from '@dhis2-ui/field'
+import { Switch } from '@dhis2-ui/switch'
+import { Required } from '@dhis2-ui/required'
 import PropTypes from 'prop-types'
 import React from 'react'
 
