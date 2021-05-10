@@ -1,15 +1,15 @@
-export { HeaderBar } from './HeaderBar/HeaderBar.js'
-export { OrganisationUnitTree } from './OrganisationUnitTree/OrganisationUnitTree.js'
-
-/* Fields */
-export { CheckboxField } from './CheckboxField/CheckboxField.js'
-export { FieldGroup } from './FieldGroup/FieldGroup.js'
-export { FileInputField } from './FileInputField/FileInputField.js'
-export { InputField } from './InputField/InputField.js'
-export { MultiSelectField } from './MultiSelectField/MultiSelectField.js'
-export { Pagination } from './Pagination/Pagination.js'
-export { SingleSelectField } from './SingleSelectField/SingleSelectField.js'
-export { SwitchField } from './SwitchField/SwitchField.js'
-export { TextAreaField } from './TextAreaField/TextAreaField.js'
-export { Transfer } from './Transfer/Transfer.js'
-export { TransferOption } from './Transfer/TransferOption.js'
+/*
+ * For backwards compatibility we export the components that were
+ * available in `ui-widgets` here.
+ */
+export { HeaderBar } from '@dhis2-ui/header-bar'
+export { OrganisationUnitTree } from '@dhis2-ui/organisation-unit-tree'
+export { CheckboxField } from '@dhis2-ui/checkbox-field'
+export { FieldGroup } from '@dhis2-ui/field-group'
+export { FileInputField } from '@dhis2-ui/file-input-field'
+export { InputField } from '@dhis2-ui/input-field'
+export { SingleSelectField, MultiSelectField } from '@dhis2-ui/select-field'
+export { Pagination } from '@dhis2-ui/pagination'
+export { SwitchField } from '@dhis2-ui/switch-field'
+export { TextAreaField } from '@dhis2-ui/text-area-field'
+export { Transfer, TransferOption } from '@dhis2-ui/transfer'
