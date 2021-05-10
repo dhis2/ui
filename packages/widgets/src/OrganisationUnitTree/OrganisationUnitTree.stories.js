@@ -1,4 +1,4 @@
-/* eslint-disable react/no-unescaped-entities,react/prop-types */
+/* eslint-disable react/no-unescaped-entities */
 import { CustomDataProvider, DataProvider } from '@dhis2/app-runtime'
 import React, { useEffect, useState } from 'react'
 import { OrganisationUnitTree } from './OrganisationUnitTree.js'

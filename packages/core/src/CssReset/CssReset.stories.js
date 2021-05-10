@@ -12,7 +12,6 @@ import { CssReset } from '@dhis2/ui'
 \`\`\`
 `
 
-// eslint-disable-next-line react/prop-types
 const App = ({ children }) => <div>{children}</div>
 
 export default {

@@ -25,7 +25,7 @@ here's an explanation of their meaning:
 
 - source options: These are options listed on the left and are available for selection
 - picked options: These options have been selected by the user and are on the right side
-- highlighted option: These are visually highlighted options than can be on either side and are ready for transferral with the action buttons to the other side  
+- highlighted option: These are visually highlighted options than can be on either side and are ready for transferral with the action buttons to the other side
 - filtered options: These are the displayed source options filtered by a search term or a custom search algorithm. The api surface uses "selected" for "picked" to be consistent with the rest of the library
 
 #### More details
@@ -276,7 +276,6 @@ IndividualCustomOption.args = {
     addIndividualText: 'Add individual',
     removeAllText: 'Remove all',
     removeIndividualText: 'Remove individual',
-    // eslint-disable-next-line react/display-name
     renderOption: option => {
         if (option.value === options[0].value) {
             return renderOption(option)
@@ -353,7 +352,6 @@ const createCustomFilteringInHeader = hideFilterInput => {
 
     const allOptions = [...relativePeriods, ...fixedPeriods]
 
-    /* eslint-disable react/prop-types */
     const Header = ({
         onClick,
         relativePeriod,
@@ -444,7 +442,6 @@ const createCustomFilteringInHeader = hideFilterInput => {
         )
     }
 
-    // eslint-disable-next-line react/display-name, react/prop-types
     return ({ initiallySelected, ...args }) => {
         const [selected, setSelected] = useState(initiallySelected)
         const onChange = payload => setSelected(payload.selected)
