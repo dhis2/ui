@@ -1,5 +1,5 @@
 import { Before, Given, Then, When } from 'cypress-cucumber-preprocessor/steps'
-import { baseUrl } from '../common/index'
+import { baseUrl } from '../common/index.js'
 
 Before({ tags: '@avatar' }, () => {
     cy.get('@meWithAvatarFixture').then(fx => {
