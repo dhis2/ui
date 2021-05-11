@@ -156,7 +156,7 @@ jobs:
                   COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
                   STORYBOOK_TESTING: true
                   SERVER_START_CMD: 'yarn cy:server'
-                  SERVER_URL: 'http://localhost:5001'
+                  SERVER_URL: 'http://localhost:5000'
 
     publish:
         runs-on: ubuntu-latest
