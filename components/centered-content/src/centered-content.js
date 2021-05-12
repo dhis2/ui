@@ -10,7 +10,7 @@ import React, { forwardRef } from 'react'
  * @example import { CenteredContent } from @dhis2/ui-core
  * @see Live demo: {@link /demo/?path=/story/component-widget-centeredcontent--default|Storybook}
  */
-const CenteredContent = forwardRef(
+export const CenteredContent = forwardRef(
     ({ className, dataTest, children, position }, ref) => (
         <div
             className={cx('centered-content', className, position)}
@@ -65,5 +65,3 @@ CenteredContent.propTypes = {
     /** Vertical alignment */
     position: PropTypes.oneOf(['top', 'middle', 'bottom']),
 }
-
-export { CenteredContent }
