@@ -30,14 +30,14 @@ We recommend that you use `@dhis2/ui` as the entrypoint for all imports of our f
 
 ## Bundled packages
 
-| Package             | Link                                     |
-| ------------------- | ---------------------------------------- |
-| @dhis2/ui           | [packages/ui](packages/ui)               |
-| @dhis2/ui-constants | [packages/constants](packages/constants) |
-| @dhis2/ui-core      | [packages/core](packages/core)           |
-| @dhis2/ui-forms     | [packages/forms](packages/forms)         |
-| @dhis2/ui-icons     | [packages/icons](packages/icons)         |
-| @dhis2/ui-widgets   | [packages/widgets](packages/widgets)     |
+| Package             | Link                                     | Status     |
+| ------------------- | ---------------------------------------- | ---------- |
+| @dhis2/ui           | [packages/ui](packages/ui)               | Active     |
+| @dhis2/ui-constants | [packages/constants](packages/constants) | Active     |
+| @dhis2/ui-core      | [packages/core](packages/core)           | DEPRECATED |
+| @dhis2/ui-forms     | [packages/forms](packages/forms)         | Active     |
+| @dhis2/ui-icons     | [packages/icons](packages/icons)         | Active     |
+| @dhis2/ui-widgets   | [packages/widgets](packages/widgets)     | DEPRECATED |
 
 ### `@dhis2/ui-constants`
 
