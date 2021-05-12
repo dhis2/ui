@@ -143,6 +143,9 @@ jobs:
             - name: Install Cypress binary
               run: yarn cypress install
 
+            - name: Increase FS watchers
+              run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+
             - name: End-to-End tests
               uses: cypress-io/github-action@v2
               with:
