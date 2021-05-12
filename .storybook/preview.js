@@ -57,6 +57,7 @@ export const parameters = {
                     'Useful Constants',
                     'Recipes',
                 ],
+                'Design System Principles',
             ],
             // Then sort the rest alphabetically
             method: 'alphabetical',
