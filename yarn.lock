@@ -2514,10 +2514,10 @@
     semver "^7.3.4"
     yargs "^16.2.0"
 
-"@dhis2/cli-utils-cypress@^5.1.0":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-utils-cypress/-/cli-utils-cypress-5.1.0.tgz#757590a1598ad1db34f18e2a9e04863d2a13eabb"
-  integrity sha512-E6Srmj+4EqwHqIywIe06LnO48p6V/6D8bfv5JjWHktZXDV/PZFXBFHCXoZvmiuk2IZm5ebIDHYuDNhbYOg11aQ==
+"@dhis2/cli-utils-cypress@^7.0.1":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-utils-cypress/-/cli-utils-cypress-7.0.1.tgz#7c67dcd4238c79332a2c174cbb894f6101a2370c"
+  integrity sha512-S3w3BmcXKWnGbrdI2wRYzfdkrS022+Rg0iIts5P4BvFmexTEFSpn3GRgNYGEzBi3lA+p1JF15fvl6vB9AHfC3A==
   dependencies:
     "@dhis2/cli-helpers-engine" "^1.5.0"
     concurrently "^5.2.0"
@@ -2543,17 +2543,17 @@
     live-server "^1.2.1"
     match-all "^1.2.5"
 
-"@dhis2/cypress-commands@^5.1.1":
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-5.1.1.tgz#ba826fd984c0800c867c2dad9ac55b5954b71699"
-  integrity sha512-LkHbhoyre/V3+Y3elfmighDfz5HWnlRFxzHM4aMNWJSdylsRKzlaoku55Fgrk+OS8G3e9WT4NlX2ltYJVeGOXA==
+"@dhis2/cypress-commands@^7.0.1":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-7.0.1.tgz#c2482eb4d52d2b2b9cef5f5fb5fa57a345524a44"
+  integrity sha512-szli4iBGrCUsH3fwzT2QFvHr/bXvESpPg5bLtllIbpjVD14CioYwV04s0K+nYhITTFkNKI/v+6VT07Sv//lc7Q==
   dependencies:
     jscodeshift "^0.11.0"
 
-"@dhis2/cypress-plugins@^5.1.0":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/cypress-plugins/-/cypress-plugins-5.1.0.tgz#039518bbdca83a986358e74a41d203cebd7b9289"
-  integrity sha512-SENJD6aPSzDTFACdxnSTAy29NiZvbwHQLbe+LjEw1wurruXCs8C+pcEGU7PunZP+tqTHGaRX48nXERZ0xpM0Mg==
+"@dhis2/cypress-plugins@^7.0.1":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/cypress-plugins/-/cypress-plugins-7.0.1.tgz#e2a1d388149886f1f7b0f7ffeb23e9cef826deef"
+  integrity sha512-LxGS0uYiu/27sL8ysaNhw64Oe29GBk6RrTMPK44rv1aPsMCQNtLgd9mCrViQl1e2DvlNnHNeJedp93NfIm7H5Q==
 
 "@dhis2/d2-i18n@^1.1.0":
   version "1.1.0"
