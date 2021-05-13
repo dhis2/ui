@@ -51,7 +51,7 @@
         "@dhis2/cli-style": "^8.2.0",
         "@dhis2/cli-utils-cypress": "^5.1.0",
         "@dhis2/cli-utils-docsite": "^2.0.2",
-        "@dhis2/cypress-commands": "^5.1.1",
+        "@dhis2/cypress-commands": "^7.0.1",
         "@dhis2/cypress-plugins": "^5.1.0",
         "@dhis2/d2-i18n": "^1.1.0",
         "@fontsource/roboto": "^4.3.0",

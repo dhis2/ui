@@ -2646,10 +2646,10 @@
     live-server "^1.2.1"
     match-all "^1.2.5"
 
-"@dhis2/cypress-commands@^5.1.1":
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-5.1.1.tgz#ba826fd984c0800c867c2dad9ac55b5954b71699"
-  integrity sha512-LkHbhoyre/V3+Y3elfmighDfz5HWnlRFxzHM4aMNWJSdylsRKzlaoku55Fgrk+OS8G3e9WT4NlX2ltYJVeGOXA==
+"@dhis2/cypress-commands@^7.0.1":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-7.0.1.tgz#c2482eb4d52d2b2b9cef5f5fb5fa57a345524a44"
+  integrity sha512-szli4iBGrCUsH3fwzT2QFvHr/bXvESpPg5bLtllIbpjVD14CioYwV04s0K+nYhITTFkNKI/v+6VT07Sv//lc7Q==
   dependencies:
     jscodeshift "^0.11.0"
 
