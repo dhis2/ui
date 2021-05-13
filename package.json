@@ -53,7 +53,7 @@
         "@dhis2/cli-utils-docsite": "^2.0.2",
         "@dhis2/cypress-commands": "^5.1.1",
         "@dhis2/cypress-plugins": "^5.1.0",
-        "@dhis2/d2-i18n": "^1.0.6",
+        "@dhis2/d2-i18n": "^1.1.0",
         "@fontsource/roboto": "^4.3.0",
         "@storybook/addon-a11y": "^6.2.9",
         "@storybook/addon-console": "^1.2.3",
