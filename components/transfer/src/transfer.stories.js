@@ -1,4 +1,5 @@
-import { SingleSelectField, SingleSelectOption } from '@dhis2-ui/select'
+import { SingleSelectOption } from '@dhis2-ui/select'
+import { SingleSelectField } from '@dhis2-ui/select-field'
 import { Tab, TabBar } from '@dhis2-ui/tabs'
 import propTypes from '@dhis2/prop-types'
 import React, { useEffect, useState } from 'react'
