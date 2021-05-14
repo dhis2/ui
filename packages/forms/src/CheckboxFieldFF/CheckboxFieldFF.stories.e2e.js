@@ -5,6 +5,9 @@ import { formDecorator } from '../formDecorator.js'
 import { hasValue } from '../validators/index.js'
 import { CheckboxFieldFF } from './CheckboxFieldFF.js'
 
+// https://github.com/final-form/react-final-form-arrays/issues/111
+const initialValue = ['yes']
+
 storiesOf('Testing:Checkbox', module)
     .addDecorator(formDecorator)
     .add('Unchecked', () => (
@@ -46,6 +49,6 @@ storiesOf('Testing:Checkbox', module)
             name="checkbox"
             label="Label text"
             value="yes"
-            initialValue={['yes']}
+            initialValue={initialValue}
         />
     ))
