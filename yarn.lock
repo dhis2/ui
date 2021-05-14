@@ -16931,7 +16931,7 @@ react-popper-tooltip@^3.1.1:
     "@popperjs/core" "^2.5.4"
     react-popper "^2.2.4"
 
-react-popper@^2.2.3, react-popper@^2.2.4, react-popper@^2.2.5:
+react-popper@^2.2.4, react-popper@^2.2.5:
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/react-popper/-/react-popper-2.2.5.tgz#1214ef3cec86330a171671a4fbcbeeb65ee58e96"
   integrity sha512-kxGkS80eQGtLl18+uig1UIf9MKixFSyPxglsgLBxlYnyDf65BiY9B3nZSc6C9XUNDgStROB0fMQlTEz1KxGddw==
@@ -18608,10 +18608,10 @@ store2@^2.12.0:
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.12.0.tgz#e1f1b7e1a59b6083b2596a8d067f6ee88fd4d3cf"
   integrity sha512-7t+/wpKLanLzSnQPX8WAcuLCCeuSHoWdQuh9SB3xD0kNOM38DNf+0Oa+wmvxmYueRzkmh6IcdKFtvTa+ecgPDw==
 
-storybook-addon-jsx@^7.3.9:
-  version "7.3.9"
-  resolved "https://registry.yarnpkg.com/storybook-addon-jsx/-/storybook-addon-jsx-7.3.9.tgz#2009f08ed021ee8049889e7dc138e264a010571b"
-  integrity sha512-+IslGm8GXsmhpzaxHlhL2/kTeBK6uMuDcKp1s4p+gA1sTVe+K7MyICGxoWSHbEExnsnok2AMCtaQoA62A4ddOQ==
+storybook-addon-jsx@^7.3.10:
+  version "7.3.10"
+  resolved "https://registry.yarnpkg.com/storybook-addon-jsx/-/storybook-addon-jsx-7.3.10.tgz#9ee7b1454edd36854b11b63cd52b3637e2a99b75"
+  integrity sha512-wfzd8mBoE9StZHhQeFLdTRimyhvb7M1tR8/PCH2WpLmQ93/zlyBBSoyBajbh0ny21bOO2SKALalfjbmvThFGAg==
   dependencies:
     copy-to-clipboard "^3.0.8"
     js-beautify "^1.8.8"
