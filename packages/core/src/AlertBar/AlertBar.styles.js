@@ -71,12 +71,7 @@ export default css`
         }
     }
 
-    /**
-     * The AlertBar starts out visible. This triggers the slidein animation.
-     * Removing the .visible class triggers the slideout animation.
-     */
-
-    div.visible {
+    div.inViewport {
         animation-duration: ${ANIMATION_TIME}ms;
         animation-name: slidein;
         animation-fill-mode: forwards;
