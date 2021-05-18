@@ -74,7 +74,7 @@
         "react": "16.8",
         "react-docgen": "^5.4.0",
         "react-dom": "16.8",
-        "storybook-addon-jsx": "^7.3.9",
+        "storybook-addon-jsx": "^7.3.10",
         "styled-jsx": "^3.4.4"
     },
     "d2": {
