@@ -95,6 +95,38 @@ import { TextAreaFieldFF } from '@dhis2/ui'
 
 The `FF` suffix ensures that these components don't clash with our regular field components from the widgets package and is an abbreviation of `final-form`. See our [api docs](https://ui.dhis2.nu/#/api) or the [live docs](https://ui.dhis2.nu/demo) for a full list of the available components and validators.
 
+## Development
+
+```sh
+git clone git@github.com:dhis2/ui.git && cd ui
+
+yarn install
+yarn d2-style install
+
+# setup helper to prepare the dev environment.
+#
+# it runs the necessary commands to generate the source files that must
+# exist for the components to work.
+#
+# an explanation for each command the "setup" command runs is provided
+# below along its commented out command.
+yarn setup
+
+# generate the source files in src/ in for locales
+#yarn generate-i18n
+
+# generate the source files in src/ for icon components
+#yarn workspace @dhis2/ui-icons build
+
+# manager imports don't use the custom webpack config, so entry-point must exist
+#yarn workspace @dhis2/ui-constants build
+
+yarn start
+
+# in case manager complains about the main.manager.bundle.js, e.g. cannot import @dhis2/ui-constants, then use:
+yarn start --no-manager-cache
+```
+
 ## Reporting an issue or opening a PR
 
 See [CONTRIBUTING.md](CONTRIBUTING.md)
