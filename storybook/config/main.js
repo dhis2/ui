@@ -4,6 +4,21 @@ const { webpackConfig } = require('../src/webpack-config.js')
 
 module.exports = {
     addons: [
+        {
+            name: '@storybook/addon-docs',
+            options: {
+                babelOptions: {
+                    plugins: [
+                        [
+                            '@babel/plugin-proposal-private-property-in-object',
+                            {
+                                loose: true,
+                            },
+                        ],
+                    ],
+                },
+            },
+        },
         '@storybook/preset-create-react-app',
         '@storybook/addon-essentials',
         {
