@@ -111,7 +111,7 @@ Chip.defaultProps = {
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {string} [children]
+ * @prop {*} [children]
  * @prop {string} [className]
  * @prop {Element} [icon]
  * @prop {function} [onClick]
@@ -124,7 +124,7 @@ Chip.defaultProps = {
  * @prop {string} [dataTest]
  */
 Chip.propTypes = {
-    children: PropTypes.string,
+    children: PropTypes.any,
     className: PropTypes.string,
     dataTest: PropTypes.string,
     dense: PropTypes.bool,
