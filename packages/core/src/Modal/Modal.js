@@ -31,6 +31,12 @@ const centeredContent = resolve`
     }
 `
 
+const layerStyles = resolve`
+    div {
+        background: none;
+    }
+`
+
 /**
  * @module
  * @param {Modal.PropTypes} props
@@ -62,49 +68,58 @@ const centeredContent = resolve`
  */
 export const Modal = ({
     children,
-    onClose,
-    small,
-    large,
     className,
-    position,
     dataTest,
-}) => (
-    <Layer onClick={onClose} level={layers.blocking} translucent>
-        <CenteredContent
-            position={position}
-            className={centeredContent.className}
+    hide,
+    large,
+    onClose,
+    position,
+    small,
+}) => {
+    return (
+        <Layer
+            onClick={onClose}
+            level={hide ? -1 : layers.blocking}
+            className={hide ? layerStyles.className : ''}
+            translucent={!hide}
         >
-            <aside
-                role="dialog"
-                aria-modal="true"
-                data-test={dataTest}
-                className={cx(className, { small, large })}
+            <CenteredContent
+                position={position}
+                className={centeredContent.className}
             >
-                <Card className={scrollBoxCard.className}>{children}</Card>
-            </aside>
-            {scrollBoxCard.styles}
-            {centeredContent.styles}
-        </CenteredContent>
+                <aside
+                    role="dialog"
+                    aria-modal="true"
+                    data-test={dataTest}
+                    className={cx(className, { small, large })}
+                >
+                    <Card className={scrollBoxCard.className}>{children}</Card>
+                </aside>
+                {scrollBoxCard.styles}
+                {layerStyles.styles}
+                {centeredContent.styles}
+            </CenteredContent>
 
-        <style jsx>{`
-            aside {
-                overflow-y: hidden;
-                height: auto;
-                max-height: calc(100vh - ${2 * spacersNum.dp64}px);
-                max-width: calc(100vw - ${2 * spacersNum.dp64}px);
-                width: 600px;
-            }
+            <style jsx>{`
+                aside {
+                    overflow-y: hidden;
+                    height: auto;
+                    max-height: calc(100vh - ${2 * spacersNum.dp64}px);
+                    max-width: calc(100vw - ${2 * spacersNum.dp64}px);
+                    width: 600px;
+                }
 
-            aside.small {
-                width: 400px;
-            }
+                aside.small {
+                    width: 400px;
+                }
 
-            aside.large {
-                width: 800px;
-            }
-        `}</style>
-    </Layer>
-)
+                aside.large {
+                    width: 800px;
+                }
+            `}</style>
+        </Layer>
+    )
+}
 
 Modal.defaultProps = {
     dataTest: 'dhis2-uicore-modal',
@@ -126,6 +141,7 @@ Modal.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     dataTest: PropTypes.string,
+    hide: PropTypes.bool,
     large: sharedPropTypes.sizePropType,
     position: sharedPropTypes.insideAlignmentPropType,
     small: sharedPropTypes.sizePropType,
