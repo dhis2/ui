@@ -1,5 +1,5 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
-import React from 'react'
+import React, { useState } from 'react'
 import {
     Button,
     ButtonStrip,
@@ -738,3 +738,57 @@ export const LargeModalWithMoreNestedModals = args => (
 LargeModalWithMoreNestedModals.args = { large: true }
 LargeModalWithMoreNestedModals.storyName =
     'Large: modal with more nested modals'
+
+const StatefuleComponent = () => {
+    const [counter, setCounter] = useState(0)
+
+    return (
+        <div>
+            <p>Current counter: {counter}</p>
+            <button onClick={() => setCounter(counter + 1)}>
+                Add 1 to counter
+            </button>
+        </div>
+    )
+}
+
+export const ModalThatHidesWithStatefulComponens = () => {
+    const [render, setRender] = useState(false)
+    const [hide, setHide] = useState(false)
+
+    return (
+        <div>
+            <ButtonStrip>
+                <Button onClick={() => setHide(false)} disabled={!render}>
+                    Show the hidden modal
+                </Button>
+
+                <Button onClick={() => setRender(true)} disabled={render}>
+                    Render Modal
+                </Button>
+            </ButtonStrip>
+
+            {render && (
+                <Modal hide={hide}>
+                    <ModalTitle>Can be hidden</ModalTitle>
+
+                    <ModalContent>
+                        <StatefuleComponent />
+                    </ModalContent>
+
+                    <ModalActions>
+                        <ButtonStrip end>
+                            <Button onClick={() => setRender(false)} secondary>
+                                Close modal
+                            </Button>
+
+                            <Button onClick={() => setHide(true)} primary>
+                                Hide modal
+                            </Button>
+                        </ButtonStrip>
+                    </ModalActions>
+                </Modal>
+            )}
+        </div>
+    )
+}
