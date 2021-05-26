@@ -1,4 +1,5 @@
 import { Table, TableScrollBox } from '@dhis2/ui-core'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
 
@@ -43,7 +44,7 @@ export const DataTable = forwardRef(
             table
         ) : (
             <TableScrollBox
-                className={className ? `${className}-scrollbox` : undefined}
+                className={cx(className, 'tablescrollbox')}
                 dataTest={`${dataTest}-scrollbox`}
                 maxHeight={scrollHeight}
                 maxWidth={scrollWidth}
