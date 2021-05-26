@@ -21,7 +21,6 @@ export const DataTableRow = forwardRef(
             children,
             className,
             dataTest,
-            expandable,
             expandableContent,
             expanded,
             selected,
@@ -43,7 +42,7 @@ export const DataTableRow = forwardRef(
         })
         const childCount = React.Children.count(children)
         const colSpan = String(
-            draggable || expandable ? childCount + 1 : childCount
+            draggable || expandableContent ? childCount + 1 : childCount
         )
 
         return (
@@ -57,7 +56,7 @@ export const DataTableRow = forwardRef(
                     role={role}
                 >
                     {draggable && <DragHandleCell />}
-                    {expandable && (
+                    {expandableContent && (
                         <ExpandHandleCell
                             expanded={expanded}
                             onClick={onExpandToggle}
@@ -97,9 +96,8 @@ DataTableRow.defaultProps = {
  * @prop {string} [className]
  * @prop {string} [dataTest=dhis2-uicore-datatablerow]
  * @prop {boolean} [draggable] Renders and additional table cell with drag icon and applies draggable styles
- * @prop {boolean} [expandable] Displays an additional table cell with expand icon
- * @prop {string|node} [expandableContent] This content will be rendered into an additional row with fullwidth cell
- * @prop {boolean} [expandable] Toggles expand icon (up/down) and expandable content visibility
+ * @prop {string|node} [expandableContent] This content will be rendered into an additional row with fullwidth cell and the presence of this prop will display an additional table cell with expand icon
+ * @prop {boolean} [expanded] Toggles expand icon (up/down) and expandable content visibility
  * @prop {string} [role]
  * @prop {boolean} [selected] Adds a green background color
  * @prop {function} [onExpandToggle] Callback for expand icon cell clicks
@@ -111,14 +109,9 @@ DataTableRow.propTypes = {
     dataTest: PropTypes.string,
     /** Renders and additional table cell with drag icon and applies draggable styles */
     draggable: PropTypes.bool,
-    /** Displays an additional table cell with expand icon */
-    expandable: requiredIf(
-        props => props.expandableContent || props.onExpandToggle,
-        PropTypes.bool
-    ),
-    /** This content will be rendered into an additional row with fullwidth cell */
+    /** This content will be rendered into an additional row with fullwidth cell and the presence of this prop will display an additional table cell with expand icon */
     expandableContent: requiredIf(
-        props => props.expandable || props.onExpandToggle,
+        props => props.onExpandToggle,
         PropTypes.node
     ),
     /** Toggles expand icon (up/down) and expandable content visibility */
@@ -128,7 +121,7 @@ DataTableRow.propTypes = {
     selected: PropTypes.bool,
     /** Callback for expand icon cell clicks */
     onExpandToggle: requiredIf(
-        props => props.expandable || props.expandableContent,
+        props => props.expandableContent,
         PropTypes.func
     ),
 }

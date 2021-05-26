@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import { Box } from '@dhis2/ui-core'
-import { Checkbox } from '@dhis2/ui-core'
-import { Input } from '@dhis2/ui-core'
+import { Box, Checkbox, Input } from '@dhis2/ui-core'
 import React, { useState } from 'react'
 import { DataTable } from './DataTable.js'
 import { DataTableBody } from './DataTableBody.js'
@@ -257,7 +255,6 @@ const ExpandableContentTemplate = args => {
             </DataTableHead>
             <DataTableBody>
                 <DataTableRow
-                    expandable
                     expanded={openRowIndex === 0}
                     onExpandToggle={payload => {
                         console.log(payload)
@@ -271,7 +268,6 @@ const ExpandableContentTemplate = args => {
                     <DataTableCell>05/25/1972</DataTableCell>
                 </DataTableRow>
                 <DataTableRow
-                    expandable
                     expanded={openRowIndex === 1}
                     onExpandToggle={() => toggleOpenRow(1)}
                     expandableContent={expandableContent}
@@ -282,7 +278,6 @@ const ExpandableContentTemplate = args => {
                     <DataTableCell>02/26/1991</DataTableCell>
                 </DataTableRow>
                 <DataTableRow
-                    expandable
                     expanded={openRowIndex === 2}
                     onExpandToggle={() => toggleOpenRow(2)}
                     expandableContent={expandableContent}
