@@ -1,10 +1,10 @@
-import { TableRow } from '@dhis2/ui-core'
 import { shallow, mount } from 'enzyme'
 import React from 'react'
 import { DataTableRow } from '../DataTableRow.js'
 import { DragHandleCell } from '../DataTableRow/DragHandleCell.js'
 import { ExpandedRow } from '../DataTableRow/ExpandedRow.js'
 import { ExpandHandleCell } from '../DataTableRow/ExpandHandleCell.js'
+import { TableRow } from '../TableElements/index.js'
 
 describe('<DataTableRow>', () => {
     it('renders children', () => {

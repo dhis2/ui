@@ -1,5 +1,4 @@
 import { requiredIf } from '@dhis2/prop-types'
-import { TableRow } from '@dhis2/ui-core'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useState, forwardRef } from 'react'
@@ -7,6 +6,7 @@ import resolvedCss from './DataTableRow/DataTableRow.styles.js'
 import { DragHandleCell } from './DataTableRow/DragHandleCell.js'
 import { ExpandedRow } from './DataTableRow/ExpandedRow.js'
 import { ExpandHandleCell } from './DataTableRow/ExpandHandleCell.js'
+import { TableRow } from './TableElements/index.js'
 
 /**
  * @module

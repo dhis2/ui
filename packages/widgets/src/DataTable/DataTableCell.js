@@ -1,7 +1,7 @@
 import { mutuallyExclusive, requiredIf } from '@dhis2/prop-types'
-import { TableDataCell, TableHeaderCell } from '@dhis2/ui-core'
 import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
+import { TableDataCell, TableHeaderCell } from './TableElements/index.js'
 
 /**
  * @module

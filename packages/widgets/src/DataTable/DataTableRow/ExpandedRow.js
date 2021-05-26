@@ -1,9 +1,9 @@
 import { colors } from '@dhis2/ui-constants'
-import { TableRow, TableDataCell } from '@dhis2/ui-core'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import css from 'styled-jsx/css'
+import { TableRow, TableDataCell } from '../TableElements/index.js'
 
 const { className: cellClassName, styles } = css.resolve`
     :global(tr.expanded:hover) + :global(tr) > td {

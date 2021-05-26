@@ -1,9 +1,12 @@
-import { TableHeaderCell, TableHeaderCellAction } from '@dhis2/ui-core'
 import { shallow, mount } from 'enzyme'
 import React from 'react'
 import { DataTableColumnHeader } from '../DataTableColumnHeader.js'
 import { FilterHandle } from '../DataTableColumnHeader/FilterHandle.js'
 import { Sorter } from '../DataTableColumnHeader/Sorter.js'
+import {
+    TableHeaderCell,
+    TableHeaderCellAction,
+} from '../TableElements/index.js'
 
 describe('<DataTableColumnHeader>', () => {
     it('renders children', () => {

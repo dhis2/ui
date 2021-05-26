@@ -1,7 +1,7 @@
-import { TableDataCell, TableHeaderCell } from '@dhis2/ui-core'
 import { shallow, mount } from 'enzyme'
 import React from 'react'
 import { DataTableCell } from '../DataTableCell.js'
+import { TableDataCell, TableHeaderCell } from '../TableElements/index.js'
 
 describe('<DataTableCell>', () => {
     it('renders children', () => {

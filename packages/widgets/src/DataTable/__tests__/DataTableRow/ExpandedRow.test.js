@@ -1,7 +1,7 @@
-import { TableRow, TableDataCell } from '@dhis2/ui-core'
 import { shallow } from 'enzyme'
 import React from 'react'
 import { ExpandedRow } from '../../DataTableRow/ExpandedRow.js'
+import { TableRow, TableDataCell } from '../../TableElements/index.js'
 
 describe('<ExpandedRow>', () => {
     it('renders children', () => {

@@ -1,9 +1,9 @@
 import { colors } from '@dhis2/ui-constants'
-import { TableHeaderCellAction } from '@dhis2/ui-core'
 import { IconSearch16 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React from 'react'
 import i18n from '../../locales/index.js'
+import { TableHeaderCellAction } from '../TableElements/index.js'
 
 export const FilterHandle = ({ active, name, onClick }) => {
     const filterIconColor = active ? colors.blue700 : colors.grey600

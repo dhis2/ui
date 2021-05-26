@@ -1,9 +1,9 @@
-import { TableDataCell } from '@dhis2/ui-core'
 import { IconChevronDown24, IconChevronUp24 } from '@dhis2/ui-icons'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import css from 'styled-jsx/css'
+import { TableDataCell } from '../TableElements/index.js'
 
 const pointer = css.resolve`
     td {

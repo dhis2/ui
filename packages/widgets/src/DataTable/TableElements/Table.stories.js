@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
 
+import { Box, Checkbox } from '@dhis2/ui-core'
 import { IconAttachment16 } from '@dhis2/ui-icons'
 import React, { useState } from 'react'
-import { Box } from '../Box/Box.js'
-import { Checkbox } from '../Checkbox/Checkbox.js'
 import { Table } from './Table.js'
 import { TableBody } from './TableBody.js'
 import { TableDataCell } from './TableDataCell.js'

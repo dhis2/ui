@@ -1,7 +1,7 @@
-import { TableHeaderCellAction } from '@dhis2/ui-core'
 import { shallow } from 'enzyme'
 import React from 'react'
 import { Sorter, ASC, DESC } from '../../DataTableColumnHeader/Sorter.js'
+import { TableHeaderCellAction } from '../../TableElements/index.js'
 
 describe('<Sorter>', () => {
     it('accepts a sortDirection prop', () => {

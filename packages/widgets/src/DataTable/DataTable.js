@@ -1,7 +1,7 @@
-import { Table, TableScrollBox } from '@dhis2/ui-core'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
+import { Table, TableScrollBox } from './TableElements/index.js'
 
 /**
  * @module

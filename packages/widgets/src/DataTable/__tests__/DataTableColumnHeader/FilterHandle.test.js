@@ -1,9 +1,9 @@
 import { colors } from '@dhis2/ui-constants'
-import { TableHeaderCellAction } from '@dhis2/ui-core'
 import { IconSearch16 } from '@dhis2/ui-icons'
 import { shallow } from 'enzyme'
 import React from 'react'
 import { FilterHandle } from '../../DataTableColumnHeader/FilterHandle.js'
+import { TableHeaderCellAction } from '../../TableElements/index.js'
 
 describe('<FilterHandle>', () => {
     it('accepts an active prop', () => {

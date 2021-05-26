@@ -1,7 +1,7 @@
-import { Table, TableScrollBox } from '@dhis2/ui-core'
 import { shallow, mount } from 'enzyme'
 import React from 'react'
 import { DataTable } from '../DataTable.js'
+import { Table, TableScrollBox } from '../TableElements/index.js'
 
 describe('<DataTable>', () => {
     it('renders children', () => {

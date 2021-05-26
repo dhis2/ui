@@ -1,9 +1,9 @@
 import { requiredIf } from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
-import { TableHeaderCellAction } from '@dhis2/ui-core'
 import PropTypes from 'prop-types'
 import React from 'react'
 import i18n from '../../locales/index.js'
+import { TableHeaderCellAction } from '../TableElements/index.js'
 
 export const ASC = 'asc'
 export const DESC = 'desc'

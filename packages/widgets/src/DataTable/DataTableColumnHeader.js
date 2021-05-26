@@ -1,11 +1,11 @@
 import { requiredIf } from '@dhis2/prop-types'
-import { TableHeaderCell } from '@dhis2/ui-core'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
 import styles from './DataTableColumnHeader/DataTableColumnHeader.styles.js'
 import { FilterHandle } from './DataTableColumnHeader/FilterHandle.js'
 import { Sorter } from './DataTableColumnHeader/Sorter.js'
+import { TableHeaderCell } from './TableElements/index.js'
 
 const SORT_DIRECTIONS = ['default', 'asc', 'desc']
 const flexboxAlignLookup = {
