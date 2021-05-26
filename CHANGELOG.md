@@ -1,3 +1,10 @@
+## [6.6.3](https://github.com/dhis2/ui/compare/v6.6.2...v6.6.3) (2021-05-26)
+
+
+### Bug Fixes
+
+* **chip:** change prop types so they accept any content ([8628508](https://github.com/dhis2/ui/commit/8628508c5fca25f7926cc7b156f9728e6591caeb))
+
 ## [6.6.2](https://github.com/dhis2/ui/compare/v6.6.1...v6.6.2) (2021-04-20)
 
 

@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/ui-widgets",
-    "version": "6.6.2",
+    "version": "6.6.3",
     "main": "./build/cjs/index.js",
     "module": "./build/es/index.js",
     "exports": {
@@ -33,8 +33,8 @@
         "react": "^16.8",
         "react-dom": "^16.8",
         "styled-jsx": "^3.2",
-        "@dhis2/ui-core": "6.6.2",
-        "@dhis2/ui-constants": "6.6.2",
+        "@dhis2/ui-core": "6.6.3",
+        "@dhis2/ui-constants": "6.6.3",
         "@dhis2/app-runtime": "^2",
         "@dhis2/d2-i18n": "^1"
     },
