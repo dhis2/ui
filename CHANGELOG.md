@@ -1,3 +1,10 @@
+# [6.7.0](https://github.com/dhis2/ui/compare/v6.6.3...v6.7.0) (2021-05-26)
+
+
+### Features
+
+* **modal:** add "hide" prop ([7d68a08](https://github.com/dhis2/ui/commit/7d68a0843cdf963f6337157c20ebd59746052db0))
+
 ## [6.6.3](https://github.com/dhis2/ui/compare/v6.6.2...v6.6.3) (2021-05-26)
 
 
