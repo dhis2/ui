@@ -1,4 +1,3 @@
-=======
 import { Button, ButtonStrip } from '@dhis2-ui/button'
 import { storiesOf } from '@storybook/react'
 import React, { useState } from 'react'

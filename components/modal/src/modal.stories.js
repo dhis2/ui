@@ -285,6 +285,7 @@ export const SmallDestructivePrimary = args => (
                     Primary action
                 </Button>
             </ButtonStrip>
+        </ModalActions>
     </Modal>
 )
 SmallDestructivePrimary.args = { small: true }
