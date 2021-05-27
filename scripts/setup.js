@@ -69,6 +69,11 @@ concurrently(
     [
         ...commands,
         { name: 'icons', command: 'yarn workspace @dhis2/ui-icons build' },
+        {
+            name: 'forms',
+            command:
+                'yarn workspace @dhis2/ui-forms d2-app-scripts i18n generate',
+        },
     ],
     {
         prefix: 'name',
