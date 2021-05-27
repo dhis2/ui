@@ -17,24 +17,24 @@
     "private": true,
     "workspaces": {
         "packages": [
-            "packages/*",
+            "utilities/*",
             "components/*",
+            "collections/*",
             "storybook"
         ]
     },
     "scripts": {
-        "build": "manypkg exec yarn build",
-        "generate-i18n": "manypkg exec d2-app-scripts i18n generate || true",
-        "setup": "yarn generate-i18n && yarn workspace @dhis2/ui-icons build && yarn workspace @dhis2/ui-constants build",
+        "build": "./scripts/build.js",
+        "setup": "./scripts/setup.js",
         "cy:server": "yarn build && STORYBOOK_TESTING=1 yarn start",
         "cy:open": "d2-utils-cypress open --app-start 'yarn cy:server' --wait-on 'http-get://localhost:5000'",
         "cy:run": "d2-utils-cypress run --app-start 'yarn cy:server' --wait-on 'http-get://localhost:5000'",
-        "docs": "d2-utils-docsite build ./docs -o ./dist --jsdoc ./packages/**/src --jsdoc-output-file api.md",
+        "docs": "d2-utils-docsite build ./docs -o ./dist --jsdoc ./*/**/src --jsdoc-output-file api.md",
         "format": "d2-style apply",
         "lint": "d2-style check",
         "test": "d2-app-scripts test",
-        "start": "yarn workspace storybook start",
-        "demo": "yarn workspace storybook build"
+        "start": "yarn workspace ui-storybook start",
+        "demo": "yarn workspace ui-storybook build"
     },
     "d2": {
         "docsite": {

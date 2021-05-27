@@ -13,4 +13,5 @@ exports.PROJECT_ROOT = findup.sync(
     }
 )
 exports.COMPONENTS_DIR = path.join(this.PROJECT_ROOT, 'components')
-exports.PACKAGES_DIR = path.join(this.PROJECT_ROOT, 'packages')
+exports.COLLECTIONS_DIR = path.join(this.PROJECT_ROOT, 'collections')
+exports.UTILITIES_DIR = path.join(this.PROJECT_ROOT, 'utilities')

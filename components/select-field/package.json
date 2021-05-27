@@ -25,6 +25,7 @@
         "build": "d2-app-scripts build"
     },
     "peerDependencies": {
+        "@dhis2/d2-i18n": "^1",
         "@dhis2/ui-constants": "6.6.2",
         "react": "^16.8",
         "react-dom": "^16.8",

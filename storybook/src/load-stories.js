@@ -28,13 +28,15 @@ exports.loadStories = () => {
     } else {
         return isTesting
             ? [
-                  `${PROJECT_ROOT}/packages/*/src/**/*.stories.e2e.@(js|jsx)`,
+                  `${PROJECT_ROOT}/collections/*/src/**/*.stories.e2e.@(js|jsx)`,
                   `${PROJECT_ROOT}/components/*/src/**/*.stories.e2e.@(js|jsx)`,
+                  `${PROJECT_ROOT}/utilities/*/src/**/*.stories.e2e.@(js|jsx)`,
               ]
             : [
                   `${PROJECT_ROOT}/docs/**/*.stories.mdx`,
-                  `${PROJECT_ROOT}/packages/*/src/**/*.stories.@(js|jsx|mdx)`,
+                  `${PROJECT_ROOT}/collections/*/src/**/*.stories.@(js|jsx|mdx)`,
                   `${PROJECT_ROOT}/components/*/src/**/*.stories.@(js|jsx|mdx)`,
+                  `${PROJECT_ROOT}/utilities/*/src/**/*.stories.@(js|jsx|mdx)`,
               ]
     }
 }

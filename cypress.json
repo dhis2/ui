@@ -3,7 +3,8 @@
     "ignoreTestFiles": "*/build/**/*.feature",
     "testFiles": [
         "components/*/src/**/*.feature",
-        "packages/*/src/**/*.feature"
+        "collections/*/src/**/*.feature",
+        "utilities/*/src/**/*.feature"
     ],
     "video": false,
     "projectId": "vyavbk",
