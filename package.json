@@ -61,7 +61,7 @@
         "react": "16.13",
         "react-dev-utils": "^10.2.1",
         "react-dom": "16.13",
-        "styled-jsx": "^3.4.4",
-        "rimraf": "^3.0.2"
+        "rimraf": "^3.0.2",
+        "styled-jsx": "^3.4.4"
     }
 }

@@ -32,7 +32,7 @@
     },
     "dependencies": {
         "@dhis2/prop-types": "^1.6.4",
-        "classnames": "^2.2.6"
+        "classnames": "^2.3.1"
     },
     "files": [
         "build"
@@ -41,6 +41,6 @@
         "@dhis2/ui-constants": "*",
         "react": "16.13",
         "react-dom": "16.13",
-        "styled-jsx": "^3.3.0"
+        "styled-jsx": "^3.4.4"
     }
 }

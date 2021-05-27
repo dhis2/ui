@@ -2661,7 +2661,7 @@
   resolved "https://registry.yarnpkg.com/@dhis2/cypress-plugins/-/cypress-plugins-7.0.1.tgz#e2a1d388149886f1f7b0f7ffeb23e9cef826deef"
   integrity sha512-LxGS0uYiu/27sL8ysaNhw64Oe29GBk6RrTMPK44rv1aPsMCQNtLgd9mCrViQl1e2DvlNnHNeJedp93NfIm7H5Q==
 
-"@dhis2/d2-i18n@^1.0.5", "@dhis2/d2-i18n@^1.0.6", "@dhis2/d2-i18n@^1.1.0":
+"@dhis2/d2-i18n@^1.0.5", "@dhis2/d2-i18n@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-i18n/-/d2-i18n-1.1.0.tgz#ec777c5091f747e4c5aa4f9801c62ba4d1ef3d16"
   integrity sha512-x3u58goDQsMfBzy50koxNrJjofJTtjRZOfz6f6Py/wMMJfp/T6vZjWMQgcfWH0JrV6d04K1RTt6bI05wqsVQvg==
@@ -2680,13 +2680,6 @@
   version "5.7.8"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-constants/-/ui-constants-5.7.8.tgz#3356de03c5e9ddc0b5fac5087df8ccd97f0dc3c0"
   integrity sha512-Ca9PvKP8s0jcWtqLl5tyAyhoy0F6rAohAiLvoJvRmx1M7lXzxwpHjLZnaQ4b1js3tn7BPB7HRdvv+SREqYY+PA==
-  dependencies:
-    "@dhis2/prop-types" "^1.6.4"
-
-"@dhis2/ui-constants@6.6.2":
-  version "6.6.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-constants/-/ui-constants-6.6.2.tgz#585a16baf90353259e11706e2d3b3ac9926cf95a"
-  integrity sha512-UFkT3b6nV3Wrmd97f8WHgifbKZyIpw2FrLsNLNB0QWObuMGE3PZQc6/aCRyYZbEDjfFUEgGQhAUVyWWtr9pTRQ==
   dependencies:
     "@dhis2/prop-types" "^1.6.4"
 
@@ -19380,7 +19373,7 @@ styled-jsx@<3.3.3:
     stylis "3.5.4"
     stylis-rule-sheet "0.0.10"
 
-styled-jsx@^3.2.2, styled-jsx@^3.3.0, styled-jsx@^3.4.4:
+styled-jsx@^3.2.2, styled-jsx@^3.4.4:
   version "3.4.4"
   resolved "https://registry.yarnpkg.com/styled-jsx/-/styled-jsx-3.4.4.tgz#d5012cac2ed22be0b72e28932f3eece8d83b695c"
   integrity sha512-PkZi/col7R4cpwSPY2n4JjpcTYfBgaWg/1mt0+1E/pmkXL+Pik5Kr/snYMWj90+N3kDw+BqfnJOogdRw4621GQ==

@@ -74,7 +74,7 @@
         "@dhis2-ui/text-area": "6.6.2",
         "@dhis2-ui/tooltip": "6.6.2",
         "@dhis2/prop-types": "^1.6.4",
-        "@dhis2/ui-constants": "6.6.2",
+        "@dhis2/ui-constants": "6.7.0",
         "classnames": "^2.3.1"
     },
     "files": [
@@ -83,6 +83,6 @@
     "devDependencies": {
         "react": "16.13",
         "react-dom": "16.13",
-        "styled-jsx": "^3.3.0"
+        "styled-jsx": "^3.4.4"
     }
 }
