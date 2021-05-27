@@ -1,6 +1,11 @@
 const path = require('path')
 const fg = require('fast-glob')
-const { PROJECT_ROOT, COMPONENTS_DIR, PACKAGES_DIR } = require('./paths.js')
+const {
+    PROJECT_ROOT,
+    COMPONENTS_DIR,
+    COLLECTIONS_DIR,
+    UTILITIES_DIR,
+} = require('./paths.js')
 const { uiPackages } = require('./ui-packages.js')
 
 /*
@@ -22,16 +27,20 @@ function modify_internal_package_loaders(cfg) {
     // Find the rules that deal with .js
     const jsLoaders = regexLoaders.filter(loader => loader.test.test('.js'))
 
-    const [components, packages] = uiPackages()
+    const [components, collections, utilities] = uiPackages()
 
     console.info('custom => Webpack module loaders')
     jsLoaders.forEach(loader => {
-        for (const pkg of packages) {
-            loader.include.push(new RegExp(`packages/${pkg}/src`))
+        for (const collection of collections) {
+            loader.include.push(new RegExp(`collections/${collection}/src`))
         }
 
         for (const component of components) {
             loader.include.push(new RegExp(`components/${component}/src`))
+        }
+
+        for (const utility of utilities) {
+            loader.include.push(new RegExp(`utilities/${utility}/src`))
         }
 
         console.log(
@@ -73,7 +82,8 @@ function modify_internal_package_loaders(cfg) {
 function modify_internal_package_resolutions(cfg) {
     const packages = fg.sync([
         `${COMPONENTS_DIR}/*/package.json`,
-        `${PACKAGES_DIR}/*/package.json`,
+        `${COLLECTIONS_DIR}/*/package.json`,
+        `${UTILITIES_DIR}/*/package.json`,
     ])
 
     for (const pkg of packages) {
@@ -110,7 +120,7 @@ function modify_webpack_plugins(cfg) {
     // using: yarn start --debug-webpack
     const removals = ['ESLintWebpackPlugin']
 
-    console.log('custom => Removed plugin:')
+    console.info('custom => Removed plugin:')
     for (const removal of removals) {
         const index = cfg.plugins.findIndex(
             plugin => plugin.constructor.name === removal

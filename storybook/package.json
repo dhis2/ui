@@ -1,5 +1,5 @@
 {
-    "name": "storybook",
+    "name": "ui-storybook",
     "version": "6.6.2",
     "description": "UI Storybook",
     "repository": {
@@ -20,6 +20,9 @@
         "styled-jsx": "^3.2"
     },
     "dependencies": {
+        "@babel/plugin-proposal-class-properties": "^7.13.0",
+        "@babel/plugin-proposal-private-methods": "^7.13.0",
+        "@babel/plugin-proposal-private-property-in-object": "^7.14.0",
         "@dhis2-ui/css-reset": "6.6.2",
         "@dhis2/ui-constants": "6.6.2",
         "@fontsource/roboto": "^4.0.0",
