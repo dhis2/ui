@@ -104,7 +104,7 @@ const requiredIfFixedPropType = requiredIf(
  * @prop {string} [rowSpan]
  * @prop {string} [scope]
  * @prop {string} [staticStyle] Surpress hover and active event styles
- * @prop {(td,th)} [tag] Render a TableDataCell or TableHeaderCell respectively
+ * @prop {td,th} [tag] Render a TableDataCell or TableHeaderCell respectively
  * @prop {boolean} [valid] Mutually exclusive with error and muted
  * @prop {string} [width=auto] Required when fixed
  * @prop {function} [onClick]
