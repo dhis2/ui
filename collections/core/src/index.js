@@ -59,7 +59,7 @@ export {
 } from '@dhis2-ui/stacked-table'
 export { Switch } from '@dhis2-ui/switch'
 export {
-    Table as default,
+    Table,
     TableBody,
     TableCell,
     TableCellHead,
@@ -68,7 +68,7 @@ export {
     TableRow,
     TableRowHead,
 } from '@dhis2-ui/table'
-export { Tab, TabBar } from '@dhis2-ui/tabs'
+export { Tab, TabBar } from '@dhis2-ui/tab-bar'
 export { Tag } from '@dhis2-ui/tag'
 export { TextArea } from '@dhis2-ui/text-area'
 export { Tooltip } from '@dhis2-ui/tooltip'
