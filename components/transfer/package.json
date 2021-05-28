@@ -1,0 +1,46 @@
+{
+    "name": "@dhis2-ui/transfer",
+    "version": "6.6.2",
+    "description": "UI Transfer",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dhis2/ui.git",
+        "directory": "components/transfer"
+    },
+    "homepage": "https://github.com/dhis2/ui#readme",
+    "license": "BSD-3-Clause",
+    "private": false,
+    "main": "./build/cjs/index.js",
+    "module": "./build/es/index.js",
+    "exports": {
+        "import": "./build/es/index.js",
+        "require": "./build/cjs/index.js"
+    },
+    "sideEffects": false,
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "start": "start-storybook -c ../../storybook/config --port 5000",
+        "build": "d2-app-scripts build"
+    },
+    "peerDependencies": {
+        "@dhis2/ui-constants": "6.6.2",
+        "react": "^16.8",
+        "react-dom": "^16.8",
+        "styled-jsx": "^3.2"
+    },
+    "dependencies": {
+        "@dhis2/prop-types": "^1.6.4",
+        "classnames": "^2.3.1"
+    },
+    "files": [
+        "build"
+    ],
+    "devDependencies": {
+        "@dhis2/ui-constants": "*",
+        "react": "16.13",
+        "react-dom": "16.13",
+        "styled-jsx": "^3.4.4"
+    }
+}

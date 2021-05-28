@@ -75,9 +75,7 @@ jobs:
                   key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
             - name: Generate translations
-              run:
-                  yarn workspace @dhis2/ui-forms d2-app-scripts i18n generate &&
-                  yarn workspace @dhis2/ui-widgets d2-app-scripts i18n generate
+              run: yarn setup
 
             - uses: actions/download-artifact@v2
               with:
@@ -102,9 +100,7 @@ jobs:
                   key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
             - name: Generate translations
-              run:
-                  yarn workspace @dhis2/ui-forms d2-app-scripts i18n generate &&
-                  yarn workspace @dhis2/ui-widgets d2-app-scripts i18n generate
+              run: yarn setup
 
             - uses: actions/download-artifact@v2
               with:
@@ -143,6 +139,9 @@ jobs:
             - name: Install Cypress binary
               run: yarn cypress install
 
+            - name: Increase FS watchers
+              run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+
             - name: End-to-End tests
               uses: cypress-io/github-action@v2
               with:
@@ -160,7 +159,7 @@ jobs:
                   COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
                   STORYBOOK_TESTING: true
                   SERVER_START_CMD: 'yarn cy:server'
-                  SERVER_URL: 'http://localhost:5001'
+                  SERVER_URL: 'http://localhost:5000'
 
     publish:
         runs-on: ubuntu-latest

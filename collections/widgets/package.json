@@ -1,0 +1,68 @@
+{
+    "name": "@dhis2/ui-widgets",
+    "version": "6.7.0",
+    "main": "./build/cjs/index.js",
+    "module": "./build/es/index.js",
+    "exports": {
+        "import": "./build/es/index.js",
+        "require": "./build/cjs/index.js"
+    },
+    "sideEffects": [
+        "build/es/locales/index.js",
+        "build/cjs/locales/index.js"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dhis2/ui.git",
+        "directory": "collections/widgets"
+    },
+    "homepage": "https://github.com/dhis2/ui#readme",
+    "author": "Edoardo Sabadelli <edoardo@dhis2.org>",
+    "contributors": [
+        "Viktor Varland <viktor@dhis2.org>"
+    ],
+    "license": "BSD-3-Clause",
+    "private": false,
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "build": "d2-app-scripts build"
+    },
+    "peerDependencies": {
+        "@dhis2/app-runtime": "^2",
+        "@dhis2/d2-i18n": "^1",
+        "@dhis2/ui-constants": "6.7.0",
+        "@dhis2/ui-core": "6.7.0",
+        "react": "^16.8",
+        "react-dom": "^16.8",
+        "styled-jsx": "^3.2"
+    },
+    "dependencies": {
+        "@dhis2-ui/checkbox-field": "6.6.2",
+        "@dhis2-ui/field-group": "6.6.2",
+        "@dhis2-ui/file-input-field": "6.6.2",
+        "@dhis2-ui/header-bar": "6.6.2",
+        "@dhis2-ui/input-field": "6.6.2",
+        "@dhis2-ui/organisation-unit-tree": "6.6.2",
+        "@dhis2-ui/pagination": "6.6.2",
+        "@dhis2-ui/select-field": "6.6.2",
+        "@dhis2-ui/switch-field": "6.6.2",
+        "@dhis2-ui/text-area-field": "6.6.2",
+        "@dhis2-ui/transfer": "6.6.2",
+        "@dhis2/prop-types": "^1.6.4",
+        "classnames": "^2.3.1"
+    },
+    "files": [
+        "build"
+    ],
+    "devDependencies": {
+        "@dhis2/app-runtime": "^2.7.1",
+        "@dhis2/d2-i18n": "^1.1.0",
+        "@dhis2/ui-constants": "6.7.0",
+        "@dhis2/ui-core": "*",
+        "react": "16.13",
+        "react-dom": "16.13",
+        "styled-jsx": "^3.4.4"
+    }
+}

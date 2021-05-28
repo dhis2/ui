@@ -1,0 +1,199 @@
+import propTypes from '@dhis2/prop-types'
+import React from 'react'
+import { AlertBar } from './alert-bar.js'
+
+// TODO: Replace with ui-icons
+function AttachFile({ className }) {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 48 48"
+            className={className}
+        >
+            <path d="M33 12v23c0 4.42-3.58 8-8 8s-8-3.58-8-8V10c0-2.76 2.24-5 5-5s5 2.24 5 5v21c0 1.1-.89 2-2 2-1.11 0-2-.9-2-2V12h-3v19c0 2.76 2.24 5 5 5s5-2.24 5-5V10c0-4.42-3.58-8-8-8s-8 3.58-8 8v25c0 6.08 4.93 11 11 11s11-4.92 11-11V12h-3z" />
+            <style jsx>{`
+                svg {
+                    fill: inherit;
+                    height: 24px;
+                    width: 24px;
+                    vertical-align: middle;
+                    pointer-events: none;
+                }
+            `}</style>
+        </svg>
+    )
+}
+
+AttachFile.propTypes = {
+    className: propTypes.string,
+}
+const subtitle = `
+A floating alert that informs the user about temporary information
+in the context of the current screen.
+`
+
+const description = `
+Alert bars notify a user of some information. There are different types of
+alert bar for displaying different types of content. Use the alert bar type
+that matches your content type and importance. Note that alert bar can be
+ignored by the user, so they shouldn't be used for content that needs to
+block an app flow, use a modal instead.
+
+Alert bars are always displayed at centered and fixed at the bottom of the
+screen. Some types of alert bar dismiss after a set time, others must be
+dismissed by the user.
+
+See specification: [Design System](https://github.com/dhis2/design-system/blob/master/molecules/alertbar.md)
+
+\`\`\`js
+import { AlertBar } from '@dhis2/ui'
+\`\`\`
+`
+
+const Wrapper = fn => (
+    <div style={{ height: '260px' }}>
+        <div
+            className="alert-bars"
+            style={{
+                width: '100%',
+                position: 'fixed',
+                bottom: 0,
+                left: 0,
+                paddingLeft: 16,
+            }}
+        >
+            {fn()}
+        </div>
+    </div>
+)
+
+const alertTypeArgType = {
+    table: {
+        type: {
+            summary: 'bool',
+            detail:
+                "'success', 'warning', and 'critical' are mutually exclusive props",
+        },
+    },
+    control: {
+        type: 'boolean',
+    },
+}
+const iconArgType = {
+    table: {
+        type: {
+            summary: 'bool | element',
+        },
+    },
+}
+const actionsArgType = {
+    table: {
+        type: {
+            summary: '[{ label: string, onClick: func }]',
+        },
+    },
+}
+
+export default {
+    title: 'Feedback/Alerts/Alert Bar',
+    component: AlertBar,
+    decorators: [Wrapper],
+    parameters: {
+        componentSubtitle: subtitle,
+        docs: {
+            description: {
+                component: description,
+            },
+        },
+    },
+    argTypes: {
+        actions: { ...actionsArgType },
+        critical: { ...alertTypeArgType },
+        success: { ...alertTypeArgType },
+        warning: { ...alertTypeArgType },
+        icon: { ...iconArgType },
+    },
+}
+
+export const Default = args => (
+    <AlertBar {...args}>Default - I will autohide</AlertBar>
+)
+
+export const States = () => (
+    <React.Fragment>
+        <AlertBar permanent>Default (info)</AlertBar>
+        <AlertBar permanent success>
+            Success
+        </AlertBar>
+        <AlertBar permanent warning>
+            Warning
+        </AlertBar>
+        <AlertBar permanent critical>
+            Critical
+        </AlertBar>
+    </React.Fragment>
+)
+
+export const AutoHiding = () => (
+    <React.Fragment>
+        <AlertBar permanent>Permanent never auto-hides</AlertBar>
+        <AlertBar warning>Warning never auto-hides</AlertBar>
+        <AlertBar critical>Critial never auto-hides</AlertBar>
+        <AlertBar
+            duration={2000}
+            onHidden={(payload, event) => {
+                console.log('onHidden payload', payload)
+                console.log('onHidden event', event)
+            }}
+        >
+            Custom duration, hides after 2s
+        </AlertBar>
+        <AlertBar
+            onHidden={(payload, event) => {
+                console.log('onHidden payload', payload)
+                console.log('onHidden event', event)
+            }}
+        >
+            Default auto-hides after 8s
+        </AlertBar>
+    </React.Fragment>
+)
+AutoHiding.storyName = 'Auto hiding'
+
+export const WithActions = () => (
+    <AlertBar
+        permanent
+        actions={[
+            { label: 'Save', onClick: () => {} },
+            { label: 'Cancel', onClick: () => {} },
+        ]}
+    >
+        With Actions
+    </AlertBar>
+)
+WithActions.storyName = 'With actions'
+
+export const Icons = () => (
+    <React.Fragment>
+        <AlertBar permanent>Default icon</AlertBar>
+        <AlertBar permanent icon={false}>
+            No icon
+        </AlertBar>
+        <AlertBar permanent icon={<AttachFile />}>
+            Custom icon
+        </AlertBar>
+    </React.Fragment>
+)
+
+export const TextOverflow = () => (
+    <React.Fragment>
+        <AlertBar permanent>Short text</AlertBar>
+        <AlertBar permanent>
+            If the alert bar gets a ver long text, it will grow to a maximum of
+            600px and the text will overflow across several lines. If there are
+            multiple AlertBars in a stack, they will all grow to the size of the
+            widest sibling.
+        </AlertBar>
+    </React.Fragment>
+)
+TextOverflow.storyName = 'Text overflow'
