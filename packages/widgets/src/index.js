@@ -1,6 +1,15 @@
 export { HeaderBar } from './HeaderBar/HeaderBar.js'
 export { OrganisationUnitTree } from './OrganisationUnitTree/OrganisationUnitTree.js'
 
+export { DataTable } from './DataTable/DataTable.js'
+export { DataTableBody } from './DataTable/DataTableBody.js'
+export { DataTableCell } from './DataTable/DataTableCell.js'
+export { DataTableColumnHeader } from './DataTable/DataTableColumnHeader.js'
+export { DataTableFoot } from './DataTable/DataTableFoot.js'
+export { DataTableHead } from './DataTable/DataTableHead.js'
+export { DataTableRow } from './DataTable/DataTableRow.js'
+export { DataTableToolbar } from './DataTable/DataTableToolbar.js'
+
 /* Fields */
 export { CheckboxField } from './CheckboxField/CheckboxField.js'
 export { FieldGroup } from './FieldGroup/FieldGroup.js'
