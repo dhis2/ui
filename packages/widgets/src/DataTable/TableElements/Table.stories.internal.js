@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Box, Checkbox } from '@dhis2/ui-core'
 import { IconAttachment16 } from '@dhis2/ui-icons'
 import React, { useState } from 'react'
