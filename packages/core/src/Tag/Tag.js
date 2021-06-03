@@ -16,6 +16,7 @@ import { TagText } from './TagText.js'
  * @see Live demo: {@link /demo/?path=/story/tag--default|Storybook}
  */
 export const Tag = ({
+    maxWidth,
     neutral,
     negative,
     positive,
@@ -44,7 +45,7 @@ export const Tag = ({
                     background-color: ${colors.grey300};
                     fill: ${colors.grey700};
                     color: ${colors.grey900};
-                    max-width: 240px;
+                    max-width: ${maxWidth};
                     display: inline-flex;
                     font-size: 13px;
                     line-height: 12px;
@@ -104,6 +105,7 @@ const tagVariantPropType = mutuallyExclusive(
 
 Tag.defaultProps = {
     dataTest: 'dhis2-uicore-tag',
+    maxWidth: '240px',
 }
 
 /**
@@ -129,6 +131,7 @@ Tag.propTypes = {
     dataTest: PropTypes.string,
     /** Tags can contain icons. Use icons where they will help users easily identify the content of the tag. Tags must have a text label and cannot display only an icon. */
     icon: PropTypes.node,
+    maxWidth: PropTypes.string,
     /** Red 'negative' tags imply an error or a problem. `neutral`, `positive`, and `negative` are mutually exclusive props */
     negative: tagVariantPropType,
     /** Blue 'neutral' tags are used when a tag _could_ have valid or error status but is currently neutral. `neutral`, `positive`, and `negative` are mutually exclusive props */
