@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 import { Box, Checkbox, Input } from '@dhis2/ui-core'
 import React, { useState } from 'react'
 import { DataTable } from './DataTable.js'

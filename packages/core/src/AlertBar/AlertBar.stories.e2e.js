@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/react'
-import React from 'react'
+import React, { useState } from 'react'
 import { AlertBar } from './AlertBar.js'
 
 window.onHidden = window.Cypress && window.Cypress.cy.stub()
@@ -29,3 +29,25 @@ storiesOf('AlertBar', module)
         <AlertBar onHidden={window.onHidden}>Message</AlertBar>
     ))
     .add('Permanent', () => <AlertBar permanent>Message</AlertBar>)
+    .add('Hidden prop', () => {
+        const [hidden, setHidden] = useState(true)
+        const toggleVisibility = () => setHidden(prevHidden => !prevHidden)
+        return (
+            <React.Fragment>
+                <button
+                    style={{
+                        display: 'block',
+                        position: 'fixed',
+                        bottom: 150,
+                        left: 10,
+                    }}
+                    onClick={toggleVisibility}
+                >
+                    {hidden ? 'Show' : 'Hide'}
+                </button>
+                <AlertBar permanent hidden={hidden} onHidden={window.onHidden}>
+                    Short text
+                </AlertBar>
+            </React.Fragment>
+        )
+    })

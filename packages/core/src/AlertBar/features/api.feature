@@ -21,8 +21,9 @@ Feature: AlertBar API
         When the default duration has passed
         Then the AlertBar will be visible
 
-    Scenario: Alertbar will call the onHidden cb when hidden
-        Given an Alertbar with onHidden handler is rendered
-        When the Alertbar is not rendered
+    Scenario: AlertBar will call the onHidden cb when hidden
+        Given an AlertBar with onHidden handler is rendered
+        When the default duration has passed
+        Then the AlertBar is not rendered
         Then the onHidden handler is called
 

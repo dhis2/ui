@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { AttachFile } from '../Icons/index.js'
 import { AlertBar } from './AlertBar.js'
 
@@ -172,3 +172,27 @@ export const TextOverflow = () => (
     </React.Fragment>
 )
 TextOverflow.storyName = 'Text overflow'
+
+export const HiddenProp = () => {
+    const [hidden, setHidden] = useState(true)
+    const toggleVisibility = () => setHidden(prevHidden => !prevHidden)
+    return (
+        <React.Fragment>
+            <button
+                style={{
+                    display: 'block',
+                    position: 'fixed',
+                    bottom: 150,
+                    left: 10,
+                }}
+                onClick={toggleVisibility}
+            >
+                {hidden ? 'Show' : 'Hide'}
+            </button>
+            <AlertBar permanent hidden={hidden}>
+                Short text
+            </AlertBar>
+        </React.Fragment>
+    )
+}
+HiddenProp.storyName = 'Hidden prop'
