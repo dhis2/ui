@@ -1,3 +1,10 @@
+## [6.8.1](https://github.com/dhis2/ui/compare/v6.8.0...v6.8.1) (2021-06-03)
+
+
+### Bug Fixes
+
+* **table:** exclude data-table internal table elements stories ([#615](https://github.com/dhis2/ui/issues/615)) ([e0b33e4](https://github.com/dhis2/ui/commit/e0b33e4d35138f913c7002e5e430aaba2397a0f9))
+
 # [6.8.0](https://github.com/dhis2/ui/compare/v6.7.0...v6.8.0) (2021-06-03)
 
 
