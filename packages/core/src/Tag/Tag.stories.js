@@ -97,3 +97,9 @@ WithClippedLongText.args = {
     icon: <ExampleIcon />,
     children: 'I am long text, therefore I get clipped before I finish',
 }
+
+export const WithClippedTextAndMaxWidth = Template.bind({})
+WithClippedTextAndMaxWidth.args = {
+    children: 'I am long text',
+    maxWidth: '50px',
+}
