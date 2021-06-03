@@ -1,3 +1,11 @@
+# [6.8.0](https://github.com/dhis2/ui/compare/v6.7.0...v6.8.0) (2021-06-03)
+
+
+### Features
+
+* **alert-bar:** add hidden prop and refactor to function component ([#614](https://github.com/dhis2/ui/issues/614)) ([b9e9faa](https://github.com/dhis2/ui/commit/b9e9faadf3a097e03a8cdcf528d1a612aeb79c10))
+* introduce data-table components ([#463](https://github.com/dhis2/ui/issues/463)) ([daf21d4](https://github.com/dhis2/ui/commit/daf21d4095d87300b2ae14837a126021b21f0c3e))
+
 # [6.7.0](https://github.com/dhis2/ui/compare/v6.6.3...v6.7.0) (2021-05-26)
 
 
