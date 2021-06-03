@@ -1,3 +1,10 @@
+# [6.9.0](https://github.com/dhis2/ui/compare/v6.8.1...v6.9.0) (2021-06-03)
+
+
+### Features
+
+* **tag:** add prop to control max width ([a929ae0](https://github.com/dhis2/ui/commit/a929ae03e8cec2f2d29d7794c3dbc8be88a7adfc))
+
 ## [6.8.1](https://github.com/dhis2/ui/compare/v6.8.0...v6.8.1) (2021-06-03)
 
 

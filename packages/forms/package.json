@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/ui-forms",
-    "version": "6.8.1",
+    "version": "6.9.0",
     "main": "./build/cjs/index.js",
     "module": "./build/es/index.js",
     "sideEffects": [
@@ -28,7 +28,7 @@
         "build": "d2-app-scripts build"
     },
     "peerDependencies": {
-        "@dhis2/ui-core": "6.8.1",
+        "@dhis2/ui-core": "6.9.0",
         "react": "^16.8",
         "react-dom": "^16.8"
     },
