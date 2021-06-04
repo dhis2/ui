@@ -1,18 +1,18 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('a ComponentCover with a button below it is rendered', () => {
-    cy.visitStory('ComponentCover', 'Blocking')
+Given('a Cover with a button below it is rendered', () => {
+    cy.visitStory('Cover', 'Blocking')
 })
 
-Given('a ComponentCover with a button in it is rendered', () => {
-    cy.visitStory('ComponentCover', 'With Click Handler')
+Given('a Cover with a button in it is rendered', () => {
+    cy.visitStory('Cover', 'With Click Handler')
 })
 
 When('the user clicks the button', () => {
     cy.get('button').click()
 })
 
-When('the user clicks on the ComponentCover', () => {
+When('the user clicks on the Cover', () => {
     cy.get('[data-test="dhis2-uicore-componentcover"]').click()
 })
 
@@ -33,9 +33,9 @@ Then('the onClick handler of the button is called', () => {
     })
 })
 
-Then('the onClick handler of the ComponentCover is called', () => {
+Then('the onClick handler of the Cover is called', () => {
     cy.window().should(win => {
-        expect(win.onComponentCoverClick).to.be.calledOnce
+        expect(win.onCover).to.be.calledOnce
     })
 })
 
@@ -45,8 +45,8 @@ Then('the onClick handler of the button is not called', () => {
     })
 })
 
-Then('the onClick handler of the ComponentCover is not called', () => {
+Then('the onClick handler of the Cover is not called', () => {
     cy.window().should(win => {
-        expect(win.onComponentCoverClick).to.have.callCount(0)
+        expect(win.onCover).to.have.callCount(0)
     })
 })

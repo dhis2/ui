@@ -1,7 +1,7 @@
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('a ComponentCover with children is rendered', () => {
-    cy.visitStory('ComponentCover', 'With Children')
+Given('a Cover with children is rendered', () => {
+    cy.visitStory('Cover', 'With Children')
     cy.get('[data-test="dhis2-uicore-componentcover"]').should('be.visible')
 })
 

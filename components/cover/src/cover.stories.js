@@ -1,19 +1,19 @@
 import { CenteredContent } from '@dhis2-ui/centered-content'
 import { CircularLoader } from '@dhis2-ui/circular-loader'
 import React from 'react'
-import { ComponentCover } from './component-cover.js'
+import { Cover } from './cover.js'
 
 const description = `
 Covers sibling components.  Useful for covering a component while it is loading.
 
 \`\`\`js
-import { ComponentCover } from '@dhis2/ui'
+import { Cover } from '@dhis2/ui'
 \`\`\`
 `
 
 export default {
     title: 'Helpers/Component Cover',
-    component: ComponentCover,
+    component: Cover,
     parameters: { docs: { description: { component: description } } },
 }
 
@@ -26,7 +26,7 @@ const Template = args => (
             border: '1px dotted grey',
         }}
     >
-        <ComponentCover {...args} />
+        <Cover {...args} />
 
         <h1>Text behind the cover</h1>
         <p>Lorem ipsum</p>

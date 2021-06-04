@@ -1,11 +1,11 @@
 {
-    "name": "@dhis2-ui/component-cover",
+    "name": "@dhis2-ui/cover",
     "version": "6.6.2",
-    "description": "UI ComponentCover",
+    "description": "UI Cover",
     "repository": {
         "type": "git",
         "url": "https://github.com/dhis2/ui.git",
-        "directory": "components/component-cover"
+        "directory": "components/cover"
     },
     "homepage": "https://github.com/dhis2/ui#readme",
     "license": "BSD-3-Clause",

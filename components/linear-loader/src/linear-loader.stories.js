@@ -1,5 +1,5 @@
 import { CenteredContent } from '@dhis2-ui/centered-content'
-import { ComponentCover } from '@dhis2-ui/component-cover'
+import { Cover } from '@dhis2-ui/cover'
 import { Layer } from '@dhis2-ui/layer'
 import { layers } from '@dhis2/ui-constants'
 import React from 'react'
@@ -42,11 +42,11 @@ OverlayPage.parameters = { docs: { inlineStories: false } }
 
 export const OverlayComponent = args => (
     <div style={{ width: '400px', height: '400px' }}>
-        <ComponentCover translucent>
+        <Cover translucent>
             <CenteredContent>
                 <LinearLoader {...args} />
             </CenteredContent>
-        </ComponentCover>
+        </Cover>
     </div>
 )
 OverlayComponent.args = { amount: 80 }

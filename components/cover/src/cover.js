@@ -13,18 +13,12 @@ const createClickHandler = onClick => event => {
 
 /**
  * @module
- * @param {ComponentCover.PropTypes} props
+ * @param {Cover.PropTypes} props
  * @returns {React.Component}
- * @example import { ComponentCover } from @dhis2/ui-core
+ * @example import { Cover } from @dhis2/ui-core
  * @see Live demo: {@link /demo/?path=/story/component-widget-componentcover--default|Storybook}
  */
-const ComponentCover = ({
-    children,
-    className,
-    dataTest,
-    onClick,
-    translucent,
-}) => (
+const Cover = ({ children, className, dataTest, onClick, translucent }) => (
     <div
         className={cx(className, { translucent })}
         onClick={createClickHandler(onClick)}
@@ -47,7 +41,7 @@ const ComponentCover = ({
     </div>
 )
 
-ComponentCover.defaultProps = {
+Cover.defaultProps = {
     dataTest: 'dhis2-uicore-componentcover',
 }
 
@@ -60,7 +54,7 @@ ComponentCover.defaultProps = {
  * @prop {boolean} [translucent] - When true a semi-transparent background is added
  * @prop {function} [onClick]
  */
-ComponentCover.propTypes = {
+Cover.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     dataTest: PropTypes.string,
@@ -69,4 +63,4 @@ ComponentCover.propTypes = {
     onClick: PropTypes.func,
 }
 
-export { ComponentCover }
+export { Cover }

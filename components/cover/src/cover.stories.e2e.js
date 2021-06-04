@@ -1,12 +1,12 @@
 import React from 'react'
-import { ComponentCover } from './component-cover.js'
+import { Cover } from './cover.js'
 
 window.onButtonClick = window.Cypress && window.Cypress.cy.stub()
-window.onComponentCoverClick = window.Cypress && window.Cypress.cy.stub()
+window.onCover = window.Cypress && window.Cypress.cy.stub()
 
 export default {
-    title: 'ComponentCover',
-    component: ComponentCover,
+    title: 'Cover',
+    component: Cover,
     decorators: [
         story => (
             <div>
@@ -25,20 +25,20 @@ export default {
 }
 
 export const WithChildren = () => (
-    <ComponentCover>
+    <Cover>
         <p>I am a child</p>
-    </ComponentCover>
+    </Cover>
 )
 
 export const Blocking = () => (
     <>
         <button onClick={window.onButtonClick}>Test</button>
-        <ComponentCover />
+        <Cover />
     </>
 )
 
 export const WithClickHandler = () => (
-    <ComponentCover onClick={window.onComponentCoverClick}>
+    <Cover onClick={window.onComponentCover}>
         <button onClick={window.onButtonClick}>Test</button>
-    </ComponentCover>
+    </Cover>
 )
