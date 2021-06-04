@@ -1,6 +1,6 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
-import { TextAreaField } from './text-area-field.js'
+import { TextAreaField } from './index.js'
 
 const description = `
 \`TextAreaField\` wraps a \`TextArea\` component with a label, help text, validation text, and other functions.

@@ -1,6 +1,6 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
-import { TextArea } from './text-area.js'
+import { TextArea } from './index.js'
 
 const description = `
 A textarea allows multiple lines of text input. Use a textarea wherever a user needs to input a lot of information. Do not use a textarea if a short, single line of content is expected.
