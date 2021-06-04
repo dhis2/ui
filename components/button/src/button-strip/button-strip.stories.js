@@ -1,7 +1,6 @@
-import { Button } from '@dhis2-ui/button'
-import { SplitButton } from '@dhis2-ui/split-button'
 import React from 'react'
-import { ButtonStrip } from './button-strip.js'
+import { Button, SplitButton } from '../index.js'
+import { ButtonStrip } from './index.js'
 
 const description = `
 A wrapper for buttons to add spacing and alignment.

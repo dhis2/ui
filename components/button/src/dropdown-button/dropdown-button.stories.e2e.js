@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { DropdownButton } from './dropdown-button.js'
+import { DropdownButton } from './index.js'
 
 window.onClick = window.Cypress && window.Cypress.cy.stub()
 

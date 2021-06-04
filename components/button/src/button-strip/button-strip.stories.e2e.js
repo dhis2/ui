@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { Button } from '../button.js'
-import { ButtonStrip } from './button-strip.js'
+import { Button } from '../index.js'
+import { ButtonStrip } from './index.js'
 
 storiesOf('ButtonStrip', module).add('With children', () => (
     <ButtonStrip>

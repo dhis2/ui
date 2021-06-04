@@ -1,4 +1,3 @@
-import { Button } from '@dhis2-ui/button'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
 import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
@@ -6,6 +5,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import css from 'styled-jsx/css'
+import { Button } from '../index.js'
 
 const rightButton = css.resolve`
     button {

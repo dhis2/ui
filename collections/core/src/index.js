@@ -3,7 +3,12 @@
  * available in `ui-core` here.
  */
 export { AlertBar, AlertStack } from '@dhis2-ui/alert'
-export { Button, ButtonStrip } from '@dhis2-ui/button'
+export {
+    Button,
+    ButtonStrip,
+    DropdownButton,
+    SplitButton,
+} from '@dhis2-ui/button'
 export { Box } from '@dhis2-ui/box'
 export { Card } from '@dhis2-ui/card'
 export { CenteredContent } from '@dhis2-ui/centered-content'
@@ -12,7 +17,6 @@ export { Chip } from '@dhis2-ui/chip'
 export { Cover as ComponentCover } from '@dhis2-ui/cover'
 export { CssReset, CssVariables } from '@dhis2-ui/css'
 export { Divider } from '@dhis2-ui/divider'
-export { DropdownButton } from '@dhis2-ui/dropdown-button'
 export { Field } from '@dhis2-ui/field'
 export { FieldSet } from '@dhis2-ui/field-set'
 export {
@@ -44,7 +48,6 @@ export {
     SingleSelect,
     SingleSelectOption,
 } from '@dhis2-ui/select'
-export { SplitButton } from '@dhis2-ui/split-button'
 export {
     StackedTable,
     StackedTableBody,
