@@ -1,7 +1,6 @@
 import React from 'react'
-import { MenuItem } from './menu-item/menu-item.js'
-import { MenuSectionHeader } from './menu-section-header/menu-section-header.js'
-import { Menu } from './menu.js'
+import { MenuItem, MenuSectionHeader } from '../index.js'
+import { Menu } from './index.js'
 
 const description = `
 Use menus to provide access to options and actions where space is limited and displaying all the options would be impractical. For example, providing access to a range of actions for every dashboard item displayed. Containing all those actions in menus keeps the page manageable.

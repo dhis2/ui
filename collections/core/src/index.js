@@ -25,7 +25,6 @@ export {
     FileListItem,
     FileListPlaceholder,
 } from '@dhis2-ui/file-input'
-export { FlyoutMenu } from '@dhis2-ui/flyout-menu'
 export { Help } from '@dhis2-ui/help'
 export { Input } from '@dhis2-ui/input'
 export { IntersectionDetector } from '@dhis2-ui/intersection-detector'
@@ -34,7 +33,13 @@ export { Layer, useLayerContext } from '@dhis2-ui/layer'
 export { Legend } from '@dhis2-ui/legend'
 export { CircularLoader, LinearLoader } from '@dhis2-ui/loader'
 export { Logo, LogoIcon, LogoIconWhite, LogoWhite } from '@dhis2-ui/logo'
-export { Menu, MenuDivider, MenuItem, MenuSectionHeader } from '@dhis2-ui/menu'
+export {
+    Menu,
+    MenuDivider,
+    MenuItem,
+    MenuSectionHeader,
+    FlyoutMenu,
+} from '@dhis2-ui/menu'
 export { Modal, ModalActions, ModalContent, ModalTitle } from '@dhis2-ui/modal'
 export { Node } from '@dhis2-ui/node'
 export { NoticeBox } from '@dhis2-ui/notice-box'

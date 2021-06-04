@@ -1,4 +1,6 @@
-export { Menu } from './menu.js'
-export { MenuDivider } from './menu-divider/menu-divider.js'
-export { MenuItem } from './menu-item/menu-item.js'
-export { MenuSectionHeader } from './menu-section-header/menu-section-header.js'
+export { MenuDivider } from './menu-divider/index.js'
+export { MenuItem } from './menu-item/index.js'
+export { MenuSectionHeader } from './menu-section-header/index.js'
+
+export { Menu } from './menu/index.js'
+export { FlyoutMenu } from './flyout-menu/index.js'

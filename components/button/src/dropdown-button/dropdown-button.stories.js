@@ -1,5 +1,4 @@
-import { FlyoutMenu } from '@dhis2-ui/flyout-menu'
-import { MenuItem } from '@dhis2-ui/menu'
+import { FlyoutMenu, MenuItem } from '@dhis2-ui/menu'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
 import { DropdownButton } from './index.js'

@@ -1,6 +1,6 @@
 import { IconApps24 } from '@dhis2/ui-icons'
 import React, { useState } from 'react'
-import { Menu } from '../menu.js'
+import { Menu } from '../index.js'
 import { MenuItem } from './menu-item.js'
 
 const description = `
