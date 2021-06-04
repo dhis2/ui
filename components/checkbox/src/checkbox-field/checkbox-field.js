@@ -1,9 +1,9 @@
-import { Checkbox } from '@dhis2-ui/checkbox'
 import { Field } from '@dhis2-ui/field'
 import { Required } from '@dhis2-ui/required'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { Checkbox } from '../index.js'
 
 const AddRequired = ({ label, required, dataTest }) => (
     <React.Fragment>

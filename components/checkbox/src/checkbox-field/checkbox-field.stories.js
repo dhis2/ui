@@ -1,6 +1,6 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
-import { CheckboxField } from './checkbox-field.js'
+import { CheckboxField } from './index.js'
 
 const description = `
 A \`CheckboxField\` is a Checkbox component wrapped with extra form utilities, including the ability to add a label, help text, and validation text.  Validation styles like 'error' apply to all of these subcomponents.

@@ -4,7 +4,7 @@
  */
 export { HeaderBar } from '@dhis2-ui/header-bar'
 export { OrganisationUnitTree } from '@dhis2-ui/organisation-unit-tree'
-export { CheckboxField } from '@dhis2-ui/checkbox-field'
+export { CheckboxField } from '@dhis2-ui/checkbox'
 export { FieldGroup } from '@dhis2-ui/field-group'
 export { FileInputField } from '@dhis2-ui/file-input-field'
 export { InputField } from '@dhis2-ui/input-field'
