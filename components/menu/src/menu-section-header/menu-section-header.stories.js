@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { MenuItem } from '../menu-item/menu-item.js'
-import { Menu } from '../menu.js'
+import { Menu, MenuItem } from '../index.js'
 import { MenuSectionHeader } from './menu-section-header.js'
 
 const description = `

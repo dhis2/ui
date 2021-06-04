@@ -4,7 +4,7 @@ import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { FileInput, FileList, FileListPlaceholder } from '../index.js'
-import i18n from './locales/index.js'
+import i18n from '../locales/index.js'
 
 // TODO: i18n
 const translate = (prop, interpolationObject) => {

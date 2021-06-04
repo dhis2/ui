@@ -38,7 +38,7 @@ export const Blocking = () => (
 )
 
 export const WithClickHandler = () => (
-    <Cover onClick={window.onComponentCover}>
+    <Cover onClick={window.onCover}>
         <button onClick={window.onButtonClick}>Test</button>
     </Cover>
 )
