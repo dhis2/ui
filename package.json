@@ -26,9 +26,10 @@
     "scripts": {
         "build": "./scripts/build.js",
         "setup": "./scripts/setup.js",
-        "cy:server": "yarn build && STORYBOOK_TESTING=1 yarn start",
-        "cy:open": "d2-utils-cypress open --app-start 'yarn cy:server' --wait-on 'http-get://localhost:5000'",
-        "cy:run": "d2-utils-cypress run --app-start 'yarn cy:server' --wait-on 'http-get://localhost:5000'",
+        "cy:start": "yarn build && STORYBOOK_TESTING=1 yarn start",
+        "cy:open": "wait-on 'http://localhost:5000' && cypress open",
+        "cy:run": "wait-on 'http://localhost:5000' && cypress run",
+        "cy:test": "./scripts/cypress.js",
         "docs": "d2-utils-docsite build ./docs -o ./dist --jsdoc ./*/**/src --jsdoc-output-file api.md",
         "format": "d2-style apply",
         "lint": "d2-style check",

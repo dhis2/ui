@@ -1,15 +1,15 @@
-import { MultiSelectOption } from '@dhis2-ui/select'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
-import { MultiSelectField } from './multi-select-field.js'
+import { SingleSelectOption } from '../index.js'
+import { SingleSelectField } from './index.js'
 
 const description = `
-\`MultiSelectField\` is a wrapper around a \`MultiSelect\` component that adds a label, help text, validation text, and other features.
+\`SingleSelectField\` is a wrapper around a \`SingleSelect\` component that adds a label, help text, validation text, and other features.
 
-See the MultiSelect for more information, and read more at [Design System: Select](https://github.com/dhis2/design-system/blob/master/molecules/select.md#multiple-selection).
+See the SingleSelect for more information, and read more at [Design System: Select](https://github.com/dhis2/design-system/blob/master/molecules/select.md#multiple-selection).
 
 \`\`\`js
-import { MultiSelectField, MultiSelectOption } from '@dhis2/ui'
+import { SingleSelectField, SingleSelectOption } from '@dhis2/ui'
 \`\`\`
 
 _**Note**: The dropdowns in some of the following stories won't appear correctly on this page. View these demos in the 'Canvas' tab._
@@ -19,29 +19,28 @@ const onChange = selected =>
     alert(`Selected changed to: ${JSON.stringify(selected, null, 2)}`)
 
 const options = [
-    <MultiSelectOption key="1" value="1" label="one" />,
-    <MultiSelectOption key="2" value="2" label="two" />,
-    <MultiSelectOption key="3" value="3" label="three" />,
-    <MultiSelectOption key="4" value="4" label="four" />,
-    <MultiSelectOption key="5" value="5" label="five" />,
-    <MultiSelectOption key="6" value="6" label="six" />,
-    <MultiSelectOption key="7" value="7" label="seven" />,
-    <MultiSelectOption key="8" value="8" label="eight" />,
-    <MultiSelectOption key="9" value="9" label="nine" />,
-    <MultiSelectOption key="10" value="10" label="ten" />,
+    <SingleSelectOption key="1" value="1" label="one" />,
+    <SingleSelectOption key="2" value="2" label="two" />,
+    <SingleSelectOption key="3" value="3" label="three" />,
+    <SingleSelectOption key="4" value="4" label="four" />,
+    <SingleSelectOption key="5" value="5" label="five" />,
+    <SingleSelectOption key="6" value="6" label="six" />,
+    <SingleSelectOption key="7" value="7" label="seven" />,
+    <SingleSelectOption key="8" value="8" label="eight" />,
+    <SingleSelectOption key="9" value="9" label="nine" />,
+    <SingleSelectOption key="10" value="10" label="ten" />,
 ]
 
 export default {
-    title: 'Forms/Multi Select/Multi Select Field',
-    component: MultiSelectField,
-    subcomponents: { MultiSelectOption },
+    title: 'Forms/Single Select/Single Select Field',
+    component: SingleSelectField,
+    subcomponents: { SingleSelectOption },
     parameters: { docs: { description: { component: description } } },
     // default args for stories
     args: {
         // Fix default prop issues - causes 'i18n is not defined' error
-        ...MultiSelectField.defaultProps,
+        ...SingleSelectField.defaultProps,
         label: 'Default label',
-        selected: ['1'],
         children: options,
         onChange: onChange,
     },
@@ -52,7 +51,7 @@ export default {
     },
 }
 
-const Template = args => <MultiSelectField {...args} />
+const Template = args => <SingleSelectField {...args} />
 
 export const Default = Template.bind({})
 
@@ -103,20 +102,21 @@ InputWidth.args = {
 
 export const DefaultClearText = Template.bind({})
 DefaultClearText.args = {
+    selected: '1',
     clearable: true,
+    label: null,
     children: (
-        <MultiSelectOption
+        <SingleSelectOption
             key="1"
             value="1"
             label="Not translated, just for showing clear button"
         />
     ),
-    label: null,
 }
 DefaultClearText.storyName = 'Default: clearText'
 
 export const DefaultEmpty = Template.bind({})
-DefaultEmpty.args = { children: null, selected: [], label: null }
+DefaultEmpty.args = { children: null, label: null }
 DefaultEmpty.storyName = 'Default: empty'
 
 export const DefaultFilterPlaceholderAndNoMatchText = Template.bind({})

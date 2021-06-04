@@ -3,7 +3,7 @@ import { Modal, ModalTitle, ModalContent } from '@dhis2-ui/modal'
 import propTypes from '@dhis2/prop-types'
 import { storiesOf } from '@storybook/react'
 import React, { useState } from 'react'
-import { MultiSelectOption } from './multi-select-option.js'
+import { MultiSelectOption } from '../index.js'
 import { MultiSelect } from './multi-select.js'
 
 window.onChange = window.Cypress && window.Cypress.cy.stub()

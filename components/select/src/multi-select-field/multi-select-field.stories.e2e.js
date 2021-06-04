@@ -1,7 +1,7 @@
-import { MultiSelectOption } from '@dhis2-ui/select'
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { MultiSelectField } from './multi-select-field.js'
+import { MultiSelectOption } from '../index.js'
+import { MultiSelectField } from './index.js'
 
 storiesOf('MultiSelectField', module)
     .add('With label', () => (

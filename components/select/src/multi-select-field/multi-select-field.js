@@ -1,9 +1,9 @@
 import { Box } from '@dhis2-ui/box'
 import { Field } from '@dhis2-ui/field'
-import { MultiSelect } from '@dhis2-ui/select'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { MultiSelect } from '../index.js'
 import i18n from '../locales/index.js'
 
 // TODO: translate

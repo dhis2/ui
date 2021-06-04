@@ -3,7 +3,7 @@ import propTypes from '@dhis2/prop-types'
 import { colors, spacers, theme } from '@dhis2/ui-constants'
 import React from 'react'
 
-const Loading = ({ message, className, dataTest }) => (
+export const Loading = ({ message, className, dataTest }) => (
     <div className={className} data-test={dataTest}>
         <CircularLoader small />
         {message}
@@ -26,5 +26,3 @@ Loading.propTypes = {
     className: propTypes.string,
     message: propTypes.string,
 }
-
-export { Loading }

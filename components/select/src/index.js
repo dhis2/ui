@@ -1,5 +1,7 @@
-export { Select } from './select.js'
-export { MultiSelect } from './multi-select/multi-select.js'
-export { MultiSelectOption } from './multi-select/multi-select-option.js'
-export { SingleSelect } from './single-select/single-select.js'
-export { SingleSelectOption } from './single-select/single-select-option.js'
+export { MultiSelect } from './multi-select/index.js'
+export { MultiSelectField } from './multi-select-field/index.js'
+export { MultiSelectOption } from './multi-select-option/index.js'
+
+export { SingleSelect } from './single-select/index.js'
+export { SingleSelectField } from './single-select-field/index.js'
+export { SingleSelectOption } from './single-select-option/index.js'

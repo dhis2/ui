@@ -1,7 +1,7 @@
 import { Chip } from '@dhis2-ui/chip'
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
-import { removeOption, findOptionChild } from '../option-helpers.js'
+import { removeOption, findOptionChild } from '../select/index.js'
 
 const createRemoveHandler = ({ selected, onChange, value }) => (_, e) => {
     const filtered = removeOption(value, selected)
