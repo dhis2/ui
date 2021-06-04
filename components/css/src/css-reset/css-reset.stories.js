@@ -1,5 +1,5 @@
 import React from 'react'
-import { CssReset } from './css-reset.js'
+import { CssReset } from './index.js'
 
 const description = `
 A tool for adding a global normalization stylesheet into the DOM that applies DHIS2 styles.

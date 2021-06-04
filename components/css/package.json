@@ -1,11 +1,11 @@
 {
-    "name": "@dhis2-ui/css-variables",
+    "name": "@dhis2-ui/css",
     "version": "6.6.2",
-    "description": "UI CssVariables",
+    "description": "UI CSS",
     "repository": {
         "type": "git",
         "url": "https://github.com/dhis2/ui.git",
-        "directory": "components/css-variables"
+        "directory": "components/css"
     },
     "homepage": "https://github.com/dhis2/ui#readme",
     "license": "BSD-3-Clause",

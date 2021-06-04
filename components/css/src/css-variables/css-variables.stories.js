@@ -1,5 +1,5 @@
 import React from 'react'
-import { CssVariables } from './css-variables.js'
+import { CssVariables } from './index.js'
 
 const description = `
 A utility for adding DHIS2 theme variables to global CSS variables.

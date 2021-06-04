@@ -1,5 +1,5 @@
 import '@fontsource/roboto/latin.css'
-import { CssReset } from '@dhis2-ui/css-reset'
+import { CssReset } from '@dhis2-ui/css'
 import {
     Title,
     Subtitle,
