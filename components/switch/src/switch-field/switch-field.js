@@ -1,9 +1,9 @@
 import { Field } from '@dhis2-ui/field'
 import { Required } from '@dhis2-ui/required'
-import { Switch } from '@dhis2-ui/switch'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { Switch } from '../index.js'
 
 const AddRequired = ({ label, required, dataTest }) => (
     <React.Fragment>

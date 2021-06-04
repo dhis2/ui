@@ -1,6 +1,6 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
-import { SwitchField } from './switch-field.js'
+import { SwitchField } from './index.js'
 
 const description = `
 A \`SwitchField\` is a Switch component wrapped with extra form utilities, including the ability to add a label, help text, and validation text.  Validation styles like 'error' apply to all of these subcomponents.

@@ -47,7 +47,7 @@
         "@dhis2-ui/organisation-unit-tree": "6.6.2",
         "@dhis2-ui/pagination": "6.6.2",
         "@dhis2-ui/select": "6.6.2",
-        "@dhis2-ui/switch-field": "6.6.2",
+        "@dhis2-ui/switch": "6.6.2",
         "@dhis2-ui/text-area-field": "6.6.2",
         "@dhis2-ui/transfer": "6.6.2",
         "@dhis2/prop-types": "^1.6.4",
