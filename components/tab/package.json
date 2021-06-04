@@ -1,11 +1,11 @@
 {
-    "name": "@dhis2-ui/tab-bar",
+    "name": "@dhis2-ui/tab",
     "version": "6.6.2",
-    "description": "UI Tab Bar",
+    "description": "UI Tabs",
     "repository": {
         "type": "git",
         "url": "https://github.com/dhis2/ui.git",
-        "directory": "components/tab-bar"
+        "directory": "components/tab"
     },
     "homepage": "https://github.com/dhis2/ui#readme",
     "license": "BSD-3-Clause",

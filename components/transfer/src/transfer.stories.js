@@ -1,6 +1,6 @@
 import { SingleSelectOption } from '@dhis2-ui/select'
 import { SingleSelectField } from '@dhis2-ui/select-field'
-import { Tab, TabBar } from '@dhis2-ui/tab-bar'
+import { Tab, TabBar } from '@dhis2-ui/tab'
 import propTypes from '@dhis2/prop-types'
 import React, { useEffect, useState } from 'react'
 import { TransferOption } from './transfer-option.js'

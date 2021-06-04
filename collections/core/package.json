@@ -68,7 +68,7 @@
         "@dhis2-ui/stacked-table": "6.6.2",
         "@dhis2-ui/switch": "6.6.2",
         "@dhis2-ui/table": "6.6.2",
-        "@dhis2-ui/tab-bar": "6.6.2",
+        "@dhis2-ui/tab": "6.6.2",
         "@dhis2-ui/tag": "6.6.2",
         "@dhis2-ui/text-area": "6.6.2",
         "@dhis2-ui/tooltip": "6.6.2",

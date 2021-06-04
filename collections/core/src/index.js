@@ -67,7 +67,7 @@ export {
     TableRow,
     TableRowHead,
 } from '@dhis2-ui/table'
-export { Tab, TabBar } from '@dhis2-ui/tab-bar'
+export { Tab, TabBar } from '@dhis2-ui/tab'
 export { Tag } from '@dhis2-ui/tag'
 export { TextArea } from '@dhis2-ui/text-area'
 export { Tooltip } from '@dhis2-ui/tooltip'
