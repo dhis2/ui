@@ -1,8 +1,21 @@
-export { Table } from './table.js'
-export { TableFoot } from './table-foot.js'
-export { TableBody } from './table-body.js'
-export { TableHead } from './table-head.js'
-export { TableCell } from './table-cell.js'
-export { TableCellHead } from './table-cell-head.js'
-export { TableRow } from './table-row.js'
-export { TableRowHead } from './table-row-head.js'
+export {
+    Table,
+    TableFoot,
+    TableBody,
+    TableHead,
+    TableCell,
+    TableCellHead,
+    TableRow,
+    TableRowHead,
+} from './table/index.js'
+
+export {
+    StackedTable,
+    StackedTableHead,
+    StackedTableBody,
+    StackedTableFoot,
+    StackedTableCell,
+    StackedTableCellHead,
+    StackedTableRow,
+    StackedTableRowHead,
+} from './stacked-table/index.js'

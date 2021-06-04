@@ -48,16 +48,6 @@ export {
     SingleSelect,
     SingleSelectOption,
 } from '@dhis2-ui/select'
-export {
-    StackedTable,
-    StackedTableBody,
-    StackedTableCell,
-    StackedTableCellHead,
-    StackedTableFoot,
-    StackedTableHead,
-    StackedTableRow,
-    StackedTableRowHead,
-} from '@dhis2-ui/stacked-table'
 export { Switch } from '@dhis2-ui/switch'
 export {
     Table,
@@ -68,6 +58,14 @@ export {
     TableHead,
     TableRow,
     TableRowHead,
+    StackedTable,
+    StackedTableBody,
+    StackedTableCell,
+    StackedTableCellHead,
+    StackedTableFoot,
+    StackedTableHead,
+    StackedTableRow,
+    StackedTableRowHead,
 } from '@dhis2-ui/table'
 export { Tab, TabBar } from '@dhis2-ui/tab'
 export { Tag } from '@dhis2-ui/tag'
