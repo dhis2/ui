@@ -1,4 +1,4 @@
-import { CircularLoader } from '@dhis2-ui/circular-loader'
+import { CircularLoader } from '@dhis2-ui/loader'
 import propTypes from '@dhis2/prop-types'
 import { spacers } from '@dhis2/ui-constants'
 import React, { Fragment, useRef } from 'react'

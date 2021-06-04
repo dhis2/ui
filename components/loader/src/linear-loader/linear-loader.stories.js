@@ -3,7 +3,7 @@ import { Cover } from '@dhis2-ui/cover'
 import { Layer } from '@dhis2-ui/layer'
 import { layers } from '@dhis2/ui-constants'
 import React from 'react'
-import { LinearLoader } from './linear-loader.js'
+import { LinearLoader } from './index.js'
 
 const subtitle = `Used to inform the user that an element or page is in a loading state`
 

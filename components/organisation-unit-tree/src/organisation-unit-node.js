@@ -1,4 +1,4 @@
-import { CircularLoader } from '@dhis2-ui/circular-loader'
+import { CircularLoader } from '@dhis2-ui/loader'
 import { Node } from '@dhis2-ui/node'
 import propTypes from '@dhis2/prop-types'
 import React, { useEffect } from 'react'
