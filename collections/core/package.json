@@ -30,7 +30,7 @@
         "styled-jsx": "^3.2"
     },
     "dependencies": {
-        "@dhis2-ui/alert-bar": "6.6.2",
+        "@dhis2-ui/alert": "6.6.2",
         "@dhis2-ui/box": "6.6.2",
         "@dhis2-ui/button": "6.6.2",
         "@dhis2-ui/card": "6.6.2",

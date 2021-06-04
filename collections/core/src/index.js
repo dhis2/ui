@@ -2,7 +2,7 @@
  * For backwards compatibility we export the components that were
  * available in `ui-core` here.
  */
-export { AlertBar, AlertStack } from '@dhis2-ui/alert-bar'
+export { AlertBar, AlertStack } from '@dhis2-ui/alert'
 export { Button, ButtonStrip } from '@dhis2-ui/button'
 export { Box } from '@dhis2-ui/box'
 export { Card } from '@dhis2-ui/card'

@@ -1,6 +1,6 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
-import { AlertBar } from './alert-bar.js'
+import { AlertBar } from './index.js'
 
 // TODO: Replace with ui-icons
 function AttachFile({ className }) {
