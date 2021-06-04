@@ -1,6 +1,6 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
-import { InputField } from './input-field.js'
+import { InputField } from './index.js'
 
 const subtitle = 'Allows a user to enter data, usually text'
 

@@ -1,5 +1,5 @@
 import { Card } from '@dhis2-ui/card'
-import { InputField } from '@dhis2-ui/input-field'
+import { InputField } from '@dhis2-ui/input'
 import { useConfig } from '@dhis2/app-runtime'
 import propTypes from '@dhis2/prop-types'
 import { colors, theme } from '@dhis2/ui-constants'

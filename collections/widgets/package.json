@@ -43,7 +43,7 @@
         "@dhis2-ui/field-group": "6.6.2",
         "@dhis2-ui/file-input-field": "6.6.2",
         "@dhis2-ui/header-bar": "6.6.2",
-        "@dhis2-ui/input-field": "6.6.2",
+        "@dhis2-ui/input": "6.6.2",
         "@dhis2-ui/organisation-unit-tree": "6.6.2",
         "@dhis2-ui/pagination": "6.6.2",
         "@dhis2-ui/select-field": "6.6.2",

@@ -1,6 +1,6 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
-import { Input } from './input.js'
+import { Input } from './index.js'
 
 const description = `
 An input allows a user to enter data, usually text.
