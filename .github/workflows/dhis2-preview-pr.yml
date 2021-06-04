@@ -1,0 +1,73 @@
+name: 'dhis2: pr preview'
+
+# This action only runs when the label "preview" is added to a PR.
+#
+# Do not change this behavior. We have a limited build minutes, and a
+# limited budget for Netlify.
+#
+# The primary reason for it being opt-in, is that we get a lot of PRs
+# from automated sources, e.g. Transifex and Dependabot, and it is a
+# huge waste to deploy previews of all of those, all the time.
+#
+# Feel free to opt-in by adding the label "preview" to whatever PRs that
+# you intend to check manually.
+#
+# After all, we have set this up to be used by humans.
+#
+# Requirements:
+#
+# - Org secrets: DHIS2_BOT_NETLIFY_TOKEN
+# - Repo secrets: NETLIFY_SITE_ID
+# - Customize the 'jobs.build.steps.netlify-deploy.publish-dir' property
+#
+# Caveats:
+#
+# - To trigger another preview build: remove the "preview" label and add
+#   it back.
+
+on:
+    pull_request:
+        types: [labeled]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        if: "github.event.label.name == 'preview' && !github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12.x
+
+            - uses: actions/cache@v2
+              id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+              with:
+                  path: '**/node_modules'
+                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
+            - name: Install
+              if: steps.yarn-cache.outputs.cache-hit != 'true'
+              run: yarn install --frozen-lockfile
+
+            - name: Build
+              run: |
+                  yarn build
+                  yarn demo
+
+            - name: Deploy
+              id: netlify-deploy
+              uses: nwtgck/actions-netlify@v1.1
+              timeout-minutes: 1
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  deploy-message: ${{ github.event.pull_request.title }}
+                  enable-pull-request-comment: true
+                  enable-commit-comment: false
+                  alias: deploy-preview-${{ github.event.number }}
+                  # customize according to project needs
+                  publish-dir: 'dist/demo'
+              env:
+                  # org secret
+                  NETLIFY_AUTH_TOKEN: ${{ secrets.DHIS2_BOT_NETLIFY_TOKEN }}
+                  # repo secret
+                  NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
