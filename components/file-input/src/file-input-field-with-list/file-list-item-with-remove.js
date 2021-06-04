@@ -1,6 +1,6 @@
-import { FileListItem } from '@dhis2-ui/file-list'
 import propTypes from '@dhis2/prop-types'
 import React, { Component } from 'react'
+import { FileListItem } from '../index.js'
 
 class FileListItemWithRemove extends Component {
     handleRemove = event => {

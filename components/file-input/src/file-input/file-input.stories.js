@@ -1,6 +1,6 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
-import { FileInput } from './file-input.js'
+import { FileInput } from './index.js'
 
 const subtitle = `The file input component allows users to select and upload files from their local machine.`
 

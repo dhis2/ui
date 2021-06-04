@@ -15,12 +15,12 @@ export { Divider } from '@dhis2-ui/divider'
 export { DropdownButton } from '@dhis2-ui/dropdown-button'
 export { Field } from '@dhis2-ui/field'
 export { FieldSet } from '@dhis2-ui/field-set'
-export { FileInput } from '@dhis2-ui/file-input'
 export {
+    FileInput,
     FileList,
     FileListItem,
     FileListPlaceholder,
-} from '@dhis2-ui/file-list'
+} from '@dhis2-ui/file-input'
 export { FlyoutMenu } from '@dhis2-ui/flyout-menu'
 export { Help } from '@dhis2-ui/help'
 export { Input } from '@dhis2-ui/input'

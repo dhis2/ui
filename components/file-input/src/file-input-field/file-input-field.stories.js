@@ -1,6 +1,6 @@
-import { FileListItem } from '@dhis2-ui/file-list'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
+import { FileListItem } from '../index.js'
 import { FileInputField } from './file-input-field.js'
 
 const description = `
