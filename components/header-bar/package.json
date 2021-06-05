@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/header-bar",
-    "version": "6.6.2",
+    "version": "6.8.0-alpha.1",
     "description": "UI HeaderBar",
     "repository": {
         "type": "git",
@@ -27,18 +27,18 @@
     "peerDependencies": {
         "@dhis2/app-runtime": "^2",
         "@dhis2/d2-i18n": "^1",
-        "@dhis2/ui-constants": "6.6.2",
+        "@dhis2/ui-constants": "6.8.0-alpha.1",
         "react": "^16.8",
         "react-dom": "^16.8",
         "styled-jsx": "^3.2"
     },
     "dependencies": {
-        "@dhis2-ui/box": "6.6.2",
-        "@dhis2-ui/card": "6.6.2",
-        "@dhis2-ui/divider": "6.6.2",
-        "@dhis2-ui/input": "6.6.2",
-        "@dhis2-ui/logo": "6.6.2",
-        "@dhis2-ui/menu": "6.6.2",
+        "@dhis2-ui/box": "6.8.0-alpha.1",
+        "@dhis2-ui/card": "6.8.0-alpha.1",
+        "@dhis2-ui/divider": "6.8.0-alpha.1",
+        "@dhis2-ui/input": "6.8.0-alpha.1",
+        "@dhis2-ui/logo": "6.8.0-alpha.1",
+        "@dhis2-ui/menu": "6.8.0-alpha.1",
         "@dhis2/prop-types": "^1.6.4",
         "classnames": "^2.3.1"
     },
@@ -48,7 +48,7 @@
     "devDependencies": {
         "@dhis2/app-runtime": "^2.7.1",
         "@dhis2/d2-i18n": "^1.1.0",
-        "@dhis2/ui-constants": "*",
+        "@dhis2/ui-constants": "6.8.0-alpha.1",
         "react": "16.13",
         "react-dom": "16.13",
         "styled-jsx": "^3.4.4"
