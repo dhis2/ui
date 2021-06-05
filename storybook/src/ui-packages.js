@@ -4,18 +4,33 @@ const { COMPONENTS_DIR, COLLECTIONS_DIR, UTILITIES_DIR } = require('./paths.js')
 
 const prepend = (c, p) => path.join(p, c)
 
+const dirs = file => file.isDirectory()
+const filepaths = file => file.name
+
 exports.uiPackages = ({ absolute = false } = {}) => {
-    const components = fs.readdirSync(COMPONENTS_DIR, {
-        encoding: 'utf8',
-    })
+    const components = fs
+        .readdirSync(COMPONENTS_DIR, {
+            encoding: 'utf8',
+            withFileTypes: true,
+        })
+        .filter(dirs)
+        .map(filepaths)
 
-    const collections = fs.readdirSync(COLLECTIONS_DIR, {
-        encoding: 'utf8',
-    })
+    const collections = fs
+        .readdirSync(COLLECTIONS_DIR, {
+            encoding: 'utf8',
+            withFileTypes: true,
+        })
+        .filter(dirs)
+        .map(filepaths)
 
-    const utilities = fs.readdirSync(UTILITIES_DIR, {
-        encoding: 'utf8',
-    })
+    const utilities = fs
+        .readdirSync(UTILITIES_DIR, {
+            encoding: 'utf8',
+            withFileTypes: true,
+        })
+        .filter(dirs)
+        .map(filepaths)
 
     if (absolute) {
         return [
