@@ -34,7 +34,7 @@
         "@dhis2-ui/box": "6.6.2",
         "@dhis2-ui/button": "6.6.2",
         "@dhis2-ui/card": "6.6.2",
-        "@dhis2-ui/centered-content": "6.6.2",
+        "@dhis2-ui/center": "6.6.2",
         "@dhis2-ui/checkbox": "6.6.2",
         "@dhis2-ui/chip": "6.6.2",
         "@dhis2-ui/cover": "6.6.2",

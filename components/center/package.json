@@ -1,11 +1,11 @@
 {
-    "name": "@dhis2-ui/centered-content",
+    "name": "@dhis2-ui/center",
     "version": "6.6.2",
-    "description": "UI CenteredContent",
+    "description": "UI Center",
     "repository": {
         "type": "git",
         "url": "https://github.com/dhis2/ui.git",
-        "directory": "components/centered-content"
+        "directory": "components/center"
     },
     "homepage": "https://github.com/dhis2/ui#readme",
     "license": "BSD-3-Clause",

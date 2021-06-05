@@ -5,22 +5,22 @@ import React, { forwardRef } from 'react'
 
 /**
  * @module
- * @param {CenteredContent.PropTypes} props
+ * @param {Center.PropTypes} props
  * @returns {React.Component}
  * @example import { CenteredContent } from @dhis2/ui-core
  * @see Live demo: {@link /demo/?path=/story/component-widget-centeredcontent--default|Storybook}
  */
-export const CenteredContent = forwardRef(
+export const Center = forwardRef(
     ({ className, dataTest, children, position }, ref) => (
         <div
-            className={cx('centered-content', className, position)}
+            className={cx('center', className, position)}
             data-test={dataTest}
             ref={ref}
         >
-            <div className="centered-inner-content">{children}</div>
+            <div className="center-inner-content">{children}</div>
 
             <style jsx>{`
-                .centered-content {
+                .center {
                     width: 100%;
                     height: 100%;
                     display: flex;
@@ -29,13 +29,13 @@ export const CenteredContent = forwardRef(
                     pointer-events: none;
                     align-items: center;
                 }
-                .centered-content.top {
+                .center.top {
                     align-items: flex-start;
                 }
-                .centered-content.bottom {
+                .center.bottom {
                     align-items: flex-end;
                 }
-                .centered-inner-content {
+                .center-inner-content {
                     pointer-events: all;
                 }
             `}</style>
@@ -43,9 +43,9 @@ export const CenteredContent = forwardRef(
     )
 )
 
-CenteredContent.displayName = 'CenteredContent'
+Center.displayName = 'Center'
 
-CenteredContent.defaultProps = {
+Center.defaultProps = {
     dataTest: 'dhis2-uicore-centeredcontent',
     position: 'middle',
 }
@@ -58,7 +58,7 @@ CenteredContent.defaultProps = {
  * @prop {string} [dataTest=dhis2-uicore-centeredcontent]
  * @prop {string} [position=middle] One of `top`, `middle`, `bottom`
  */
-CenteredContent.propTypes = {
+Center.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     dataTest: PropTypes.string,

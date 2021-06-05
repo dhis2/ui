@@ -1,4 +1,4 @@
-import { CenteredContent } from '@dhis2-ui/centered-content'
+import { Center } from '@dhis2-ui/center'
 import { Cover } from '@dhis2-ui/cover'
 import { Layer } from '@dhis2-ui/layer'
 import { layers } from '@dhis2/ui-constants'
@@ -32,9 +32,9 @@ Determinate.args = { amount: 60 }
 
 export const OverlayPage = args => (
     <Layer level={layers.blocking} translucent>
-        <CenteredContent>
+        <Center>
             <LinearLoader {...args} />
-        </CenteredContent>
+        </Center>
     </Layer>
 )
 OverlayPage.args = { amount: 30 }
@@ -43,9 +43,9 @@ OverlayPage.parameters = { docs: { inlineStories: false } }
 export const OverlayComponent = args => (
     <div style={{ width: '400px', height: '400px' }}>
         <Cover translucent>
-            <CenteredContent>
+            <Center>
                 <LinearLoader {...args} />
-            </CenteredContent>
+            </Center>
         </Cover>
     </div>
 )

@@ -1,5 +1,5 @@
 import React from 'react'
-import { CenteredContent } from './centered-content.js'
+import { Center } from './center.js'
 
 const description = `
 Centers children horizontally, and by default, vertically.
@@ -13,16 +13,16 @@ import { CenteredContent } from '@dhis2/ui'
 const Wrapper = story => <div style={{ height: '150px' }}>{story()}</div>
 
 export default {
-    title: 'Layout/Centered Content',
-    component: CenteredContent,
+    title: 'Layout/Center',
+    component: Center,
     decorators: [Wrapper],
     parameters: { docs: { description: { component: description } } },
 }
 
 const Template = args => (
-    <CenteredContent {...args}>
+    <Center {...args}>
         <span>Center me</span>
-    </CenteredContent>
+    </Center>
 )
 
 export const Default = Template.bind({})

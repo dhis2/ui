@@ -1,5 +1,5 @@
 import { Card } from '@dhis2-ui/card'
-import { CenteredContent } from '@dhis2-ui/centered-content'
+import { Center } from '@dhis2-ui/center'
 import { Layer } from '@dhis2-ui/layer'
 import {
     layers,
@@ -83,10 +83,7 @@ export const Modal = ({
             className={hide ? layerStyles.className : ''}
             translucent={!hide}
         >
-            <CenteredContent
-                position={position}
-                className={centeredContent.className}
-            >
+            <Center position={position} className={centeredContent.className}>
                 <aside
                     role="dialog"
                     aria-modal="true"
@@ -98,7 +95,7 @@ export const Modal = ({
                 {scrollBoxCard.styles}
                 {layerStyles.styles}
                 {centeredContent.styles}
-            </CenteredContent>
+            </Center>
 
             <style jsx>{`
                 aside {

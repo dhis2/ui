@@ -1,4 +1,4 @@
-import { CenteredContent } from '@dhis2-ui/centered-content'
+import { Center } from '@dhis2-ui/center'
 import { CircularLoader } from '@dhis2-ui/loader'
 import React from 'react'
 import { Layer } from './layer.js'
@@ -56,8 +56,8 @@ WithClickHandler.args = { onClick: () => alert('layer was clicked') }
 export const WithCenteredContentCircularLoader = Template.bind({})
 WithCenteredContentCircularLoader.args = {
     children: (
-        <CenteredContent>
+        <Center>
             <CircularLoader />
-        </CenteredContent>
+        </Center>
     ),
 }

@@ -1,4 +1,4 @@
-import { CenteredContent } from '@dhis2-ui/centered-content'
+import { Center } from '@dhis2-ui/center'
 import { CircularLoader } from '@dhis2-ui/loader'
 import React from 'react'
 import { Cover } from './cover.js'
@@ -45,8 +45,8 @@ export const WithCenteredContentCircularLoader = Template.bind({})
 WithCenteredContentCircularLoader.args = {
     translucent: true,
     children: (
-        <CenteredContent>
+        <Center>
             <CircularLoader />
-        </CenteredContent>
+        </Center>
     ),
 }
