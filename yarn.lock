@@ -2491,10 +2491,10 @@
     handlebars "^4.5.3"
     isbinaryfile "^4.0.2"
 
-"@dhis2/cli-style@^8.3.0":
-  version "8.3.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-style/-/cli-style-8.3.0.tgz#b54c9716935023478fede65537dd86061c4c3637"
-  integrity sha512-h404QBbFPe5L/BgGgSFAGZAo9B1Q5zilcBWwyhkkGrDYxOyEV6JnxpnUDKQzVEuvO2FAe1wxwZvWgjTbB0xuBw==
+"@dhis2/cli-style@^8.4.0":
+  version "8.4.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-style/-/cli-style-8.4.0.tgz#c4ffad886e1afc07a3b1014800841cde9494bec5"
+  integrity sha512-fJmONb1dVTPYR5/1UhvXqLAmaCWjtnh4bHvd8x9Nb3jswTH+QosegbMTjHyi17bmIPtNRYG1GI/lRhxxoYKfTg==
   dependencies:
     "@commitlint/cli" "^11.0.0"
     "@commitlint/config-conventional" "^11.0.0"
