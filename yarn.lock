@@ -2466,10 +2466,10 @@
     update-notifier "^3.0.0"
     yargs "^13.1.0"
 
-"@dhis2/cli-helpers-engine@^2.1.1", "@dhis2/cli-helpers-engine@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-helpers-engine/-/cli-helpers-engine-2.2.0.tgz#7202150890a46a04e3bfced02e40031fdd574542"
-  integrity sha512-MbvqEbiBBqagO7sSxfGQ/YsIsHB/mh7ns8haXO7eh/WtzERbDEz2uPNcR/prBg6+StenGizgZdKJXKgVVaoVVg==
+"@dhis2/cli-helpers-engine@^2.1.1", "@dhis2/cli-helpers-engine@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-helpers-engine/-/cli-helpers-engine-2.4.0.tgz#1609d358088f0616fb400aa9f90fc8bb57d4b196"
+  integrity sha512-SRcN3s/sQTkd5VUbWAs2+UeYtJ0zLdj4F/RkrL8x2/RX/79vIxvryqBom4FFw/meY0c2GDpXgrpKNQcST/OHBQ==
   dependencies:
     chalk "^3.0.0"
     cross-spawn "^7.0.3"
@@ -2491,14 +2491,14 @@
     handlebars "^4.5.3"
     isbinaryfile "^4.0.2"
 
-"@dhis2/cli-style@^8.3.0":
-  version "8.3.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-style/-/cli-style-8.3.0.tgz#b54c9716935023478fede65537dd86061c4c3637"
-  integrity sha512-h404QBbFPe5L/BgGgSFAGZAo9B1Q5zilcBWwyhkkGrDYxOyEV6JnxpnUDKQzVEuvO2FAe1wxwZvWgjTbB0xuBw==
+"@dhis2/cli-style@^8.4.1":
+  version "8.4.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-style/-/cli-style-8.4.1.tgz#6246df4e2b5879af92239c3c15e9f54129799a84"
+  integrity sha512-4jNRCh/WO5jhzeGkDJ9+2Dx16muy67xTNuniQdJdb7eq7Dm9DN8X9h1QlKxEQuyc4O8jJ08Sk1j3YDL1ApS+ZA==
   dependencies:
     "@commitlint/cli" "^11.0.0"
     "@commitlint/config-conventional" "^11.0.0"
-    "@dhis2/cli-helpers-engine" "^2.2.0"
+    "@dhis2/cli-helpers-engine" "^2.4.0"
     "@ls-lint/ls-lint" "^1.9.2"
     babel-eslint "^10.1.0"
     eslint "^7.18.0"
