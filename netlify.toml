@@ -1,3 +1,5 @@
 [build]
   command = "yarn install --frozen-lockfile && yarn build && yarn docs && yarn demo"
   publish = "dist/"
+[build.environment]
+  NODE_VERSION = "^12"
