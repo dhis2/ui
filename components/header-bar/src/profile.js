@@ -81,8 +81,8 @@ export default class Profile extends React.Component {
 }
 
 Profile.propTypes = {
-    email: propTypes.string.isRequired,
     name: propTypes.string.isRequired,
     avatarUrl: propTypes.string,
+    email: propTypes.string,
     helpUrl: propTypes.string,
 }
