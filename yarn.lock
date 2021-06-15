@@ -1896,6 +1896,60 @@
   dependencies:
     prop-types "^15"
 
+"@dhis2/ui-constants@6.9.0":
+  version "6.9.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-constants/-/ui-constants-6.9.0.tgz#dd1671309bd257fee32aa2721da35504566e2a65"
+  integrity sha512-3OGTBUdFrCQ53SpHSwM6n5D2W8fWLnE6msHFCf/0EXoyzFZMHacBlNmRnuPpLu6nrkDoPWso1XPA68dR0sZ4zw==
+  dependencies:
+    "@dhis2/prop-types" "^1.6.4"
+
+"@dhis2/ui-core@6.9.0":
+  version "6.9.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-6.9.0.tgz#b10de1b03d50f499e654cb9291c14fb6fc1de19c"
+  integrity sha512-be9aRu2FPStmGnrfbTxqUSrkYpow5JML5smtFjIvNkXTV3rt4bCPSRBwwO1248jA4XJzpT/LQUcf55JL5VcqYA==
+  dependencies:
+    "@dhis2/prop-types" "^1.6.4"
+    "@popperjs/core" "^2.9.2"
+    classnames "^2.3.1"
+    react-popper "^2.2.5"
+    resize-observer-polyfill "^1.5.1"
+
+"@dhis2/ui-forms@6.9.0":
+  version "6.9.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-forms/-/ui-forms-6.9.0.tgz#807fc7f69781d3ca7a36ef91b691ce31a7ec054f"
+  integrity sha512-S0wn0M1RMtNaedB6Jp3rDXQvNMKHbHpYqZFnZsDVmdbvPiPdJR80Dfac6JvYPTHEUgX+mC14ITcKsfosdyVn4g==
+  dependencies:
+    "@dhis2/prop-types" "^1.6.4"
+    classnames "^2.3.1"
+    final-form "^4.20.2"
+    react-final-form "^6.5.3"
+
+"@dhis2/ui-icons@6.9.0":
+  version "6.9.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-icons/-/ui-icons-6.9.0.tgz#aa48db2bcc8150bd837a08af82a782b9c589dc17"
+  integrity sha512-V9TepT8Tk/jxefMcJB5To7icbBNkKwoBc+9WaJEQCNgNxtcMTxdnzIXc0IQgWJvUBSwyKTc7UEdTJ8E8eHilzA==
+  dependencies:
+    "@dhis2/prop-types" "^1.6.4"
+
+"@dhis2/ui-widgets@6.9.0":
+  version "6.9.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-widgets/-/ui-widgets-6.9.0.tgz#dfcbf5bbefca3eca640a565a00ea7289e5b0a7e5"
+  integrity sha512-vScix38nLJTyA59Mra1e27YJeqJyJxHWtMhMjUZvrHZQ7MMhEAzKRY2EKlPMMuYr+ycJxYQgmtiC2TA0o9HHtA==
+  dependencies:
+    "@dhis2/prop-types" "^1.6.4"
+    classnames "^2.3.1"
+
+"@dhis2/ui@^6.5.3":
+  version "6.9.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-6.9.0.tgz#e9bc2aa861fdca1ca2a6ecc5ab896970a4552f10"
+  integrity sha512-kzmT3jHvJ9+jky7gl8spFf9ifhbyyo29eriap+xm+eWyKadmK2olkCv6yudQzec1oJwqF+nfVw1nfnUmiEvWPw==
+  dependencies:
+    "@dhis2/ui-constants" "6.9.0"
+    "@dhis2/ui-core" "6.9.0"
+    "@dhis2/ui-forms" "6.9.0"
+    "@dhis2/ui-icons" "6.9.0"
+    "@dhis2/ui-widgets" "6.9.0"
+
 "@emotion/cache@^10.0.27":
   version "10.0.29"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-10.0.29.tgz#87e7e64f412c060102d589fe7c6dc042e6f9d1e0"
@@ -2558,6 +2612,11 @@
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.6.0.tgz#f022195afdfc942e088ee2101285a1d31c7d727f"
   integrity sha512-cPqjjzuFWNK3BSKLm0abspP0sp/IGOli4p5I5fKFAzdS8fvjdOwDCfZqAaIiXd9lPkOWi3SUUfZof3hEb7J/uw==
+
+"@popperjs/core@^2.9.2":
+  version "2.9.2"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.9.2.tgz#adea7b6953cbb34651766b0548468e743c6a2353"
+  integrity sha512-VZMYa7+fXHdwIq1TDhSXoVmSPEGM/aa+6Aiq3nVVJ9bXr24zScr+NlKFKC3iPljA7ho/GAZr+d2jOf5GIRC30Q==
 
 "@reach/router@^1.3.4":
   version "1.3.4"
@@ -20243,4 +20302,3 @@ zwitch@^1.0.0:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/zwitch/-/zwitch-1.0.5.tgz#d11d7381ffed16b742f6af7b3f223d5cd9fe9920"
   integrity sha512-V50KMwwzqJV0NpZIZFwfOD5/lyny3WlSzRiXgA0G7VUnRlqttta1L6UQIHzd6EuBY/cHGfwTIck7w1yH6Q5zUw==
-

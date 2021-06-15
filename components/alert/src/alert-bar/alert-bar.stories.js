@@ -1,5 +1,5 @@
 import propTypes from '@dhis2/prop-types'
-import React from 'react'
+import React, { useState } from 'react'
 import { AlertBar } from './index.js'
 
 // TODO: Replace with ui-icons
@@ -197,3 +197,27 @@ export const TextOverflow = () => (
     </React.Fragment>
 )
 TextOverflow.storyName = 'Text overflow'
+
+export const HiddenProp = () => {
+    const [hidden, setHidden] = useState(true)
+    const toggleVisibility = () => setHidden(prevHidden => !prevHidden)
+    return (
+        <React.Fragment>
+            <button
+                style={{
+                    display: 'block',
+                    position: 'fixed',
+                    bottom: 150,
+                    left: 10,
+                }}
+                onClick={toggleVisibility}
+            >
+                {hidden ? 'Show' : 'Hide'}
+            </button>
+            <AlertBar permanent hidden={hidden}>
+                Short text
+            </AlertBar>
+        </React.Fragment>
+    )
+}
+HiddenProp.storyName = 'Hidden prop'

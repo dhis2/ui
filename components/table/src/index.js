@@ -19,3 +19,14 @@ export {
     StackedTableRow,
     StackedTableRowHead,
 } from './stacked-table/index.js'
+
+export {
+    DataTable,
+    DataTableBody,
+    DataTableCell,
+    DataTableColumnHeader,
+    DataTableFoot,
+    DataTableHead,
+    DataTableRow,
+    DataTableToolbar,
+} from './data-table/index.js'

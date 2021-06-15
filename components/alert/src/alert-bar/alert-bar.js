@@ -1,7 +1,7 @@
 import { mutuallyExclusive } from '@dhis2/prop-types'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { Actions, actionsPropType } from './actions.js'
 import styles, { ANIMATION_TIME } from './alert-bar.styles.js'
 import { Dismiss } from './dismiss.js'
@@ -20,110 +20,133 @@ import { Message } from './message.js'
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/alertbar.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/alertbar--default|Storybook}
  */
-class AlertBar extends Component {
-    // visible is used to control the show/hide animation
-    // hidden is used to stop rendering entirely after hide animation
-    state = {
-        visible: true,
-        hidden: false,
+const AlertBar = ({
+    actions,
+    children,
+    className,
+    critical,
+    dataTest,
+    duration,
+    hidden,
+    icon,
+    permanent,
+    success,
+    warning,
+    onHidden,
+}) => {
+    const [inViewport, setInViewport] = useState(!hidden)
+    const [inDOM, setInDOM] = useState(!hidden)
+    const showTimeout = useRef(null)
+    const displayTimeout = useRef(null)
+    const hideTimeout = useRef(null)
+    const displayStartTime = useRef(null)
+    const displayTimeRemaining = useRef(null)
+    const info = !critical && !success && !warning
+    const shouldAutoHide = !(permanent || warning || critical)
+    const show = () => {
+        setInDOM(true)
+        setInViewport(true)
     }
-
-    componentDidMount() {
-        this.startTime = Date.now()
-        this.timeRemaining = this.props.duration
-        this.startDisplayTimeout()
+    const hide = () => {
+        setInDOM(true)
+        setInViewport(false)
     }
-
-    componentWillUnmount() {
-        clearTimeout(this.displayTimeout)
-        clearTimeout(this.onHiddenTimeout)
+    const remove = () => {
+        setInDOM(false)
+        setInViewport(false)
+        onHidden && onHidden({}, null)
     }
-
-    startDisplayTimeout = () => {
-        if (this.shouldAutoHide()) {
-            this.displayTimeout = setTimeout(() => {
-                this.hide(null)
-            }, this.timeRemaining)
-        }
+    const clearAllTimeouts = () => {
+        clearTimeout(showTimeout.current)
+        clearTimeout(displayTimeout.current)
+        clearTimeout(hideTimeout.current)
     }
-
-    stopDisplayTimeOut = () => {
-        if (this.shouldAutoHide()) {
-            const elapsedTime = Date.now() - this.startTime
-            this.timeRemaining = this.timeRemaining - elapsedTime
-            clearTimeout(this.displayTimeout)
-        }
+    const runHideAnimation = () => {
+        clearAllTimeouts()
+        hide()
+        hideTimeout.current = setTimeout(remove, ANIMATION_TIME)
     }
-
-    hide = event => {
-        clearTimeout(this.displayTimeout)
-        this.setState({ visible: false })
-
-        this.onHiddenTimeout = setTimeout(() => {
-            this.setState(
-                { hidden: true },
-                () => this.props.onHidden && this.props.onHidden({}, event)
+    const startDisplayTimeout = () => {
+        if (shouldAutoHide) {
+            clearAllTimeouts()
+            displayStartTime.current = Date.now()
+            displayTimeRemaining.current = duration
+            displayTimeout.current = setTimeout(
+                runHideAnimation,
+                displayTimeRemaining.current
             )
-        }, ANIMATION_TIME)
+        }
+    }
+    const runShowAnimation = () => {
+        clearAllTimeouts()
+        show()
+        showTimeout.current = setTimeout(startDisplayTimeout, ANIMATION_TIME)
+    }
+    const pauseDisplayTimeout = () => {
+        if (shouldAutoHide) {
+            clearAllTimeouts()
+            const elapsedTime = Date.now() - displayStartTime.current
+            displayTimeRemaining.current -= elapsedTime
+        }
+    }
+    const resumeDisplayTimeout = () => {
+        if (shouldAutoHide) {
+            clearAllTimeouts()
+            displayTimeout.current = setTimeout(
+                runHideAnimation,
+                displayTimeRemaining.current
+            )
+        }
     }
 
-    shouldAutoHide() {
-        const { permanent, warning, critical } = this.props
-        return !(permanent || warning || critical)
-    }
-
-    render() {
-        const {
-            className,
-            children,
-            success,
-            warning,
-            critical,
-            icon,
-            actions,
-            dataTest,
-        } = this.props
-        const { visible, hidden } = this.state
-
-        if (hidden) {
-            return null
+    useEffect(() => {
+        // Additional check on inDOM prevents the AlertBar from briefly showing
+        // when it is mounted with a hidden prop set to true
+        if (hidden && inDOM) {
+            runHideAnimation()
+        }
+        if (!hidden) {
+            runShowAnimation()
         }
 
-        const info = !critical && !success && !warning
+        return clearAllTimeouts
+    }, [hidden])
 
-        return (
-            <div
-                className={cx(className, {
-                    info,
-                    success,
-                    warning,
-                    critical,
-                    visible,
-                })}
-                data-test={dataTest}
-                onMouseEnter={this.stopDisplayTimeOut}
-                onMouseLeave={this.startDisplayTimeout}
-            >
-                <Icon
-                    dataTest={`${dataTest}-icon`}
-                    icon={icon}
-                    critical={critical}
-                    success={success}
-                    warning={warning}
-                    info={info}
-                />
-                <Message>{children}</Message>
-                <Actions
-                    actions={actions}
-                    hide={this.hide}
-                    dataTest={dataTest}
-                />
-                <Dismiss onClick={this.hide} dataTest={`${dataTest}-dismiss`} />
+    return !inDOM ? null : (
+        <div
+            className={cx(className, {
+                info,
+                success,
+                warning,
+                critical,
+                inViewport,
+            })}
+            data-test={dataTest}
+            onMouseEnter={pauseDisplayTimeout}
+            onMouseLeave={resumeDisplayTimeout}
+        >
+            <Icon
+                dataTest={`${dataTest}-icon`}
+                icon={icon}
+                critical={critical}
+                success={success}
+                warning={warning}
+                info={info}
+            />
+            <Message>{children}</Message>
+            <Actions
+                actions={actions}
+                hide={runHideAnimation}
+                dataTest={dataTest}
+            />
+            <Dismiss
+                onClick={runHideAnimation}
+                dataTest={`${dataTest}-dismiss`}
+            />
 
-                <style jsx>{styles}</style>
-            </div>
-        )
-    }
+            <style jsx>{styles}</style>
+        </div>
+    )
 }
 
 const alertTypePropType = mutuallyExclusive(
@@ -151,6 +174,7 @@ AlertBar.defaultProps = {
  * @prop {(Element|boolean)} [icon=true]
  *
  * @prop {number} [duration]
+ * @prop {bool} [hidden]
  * @prop {boolean} [permanent]
  * @prop {Array} [actions] An array of 0-2 action objects with the shape: `{ label: {string}, onClick: {function} }`
  * @prop {function} [onHidden]
@@ -166,6 +190,7 @@ AlertBar.propTypes = {
     critical: alertTypePropType,
     dataTest: PropTypes.string,
     duration: PropTypes.number,
+    hidden: PropTypes.bool,
     /**
      * A specific icon to override the default icon in the bar.
      * If `false` is provided, no icon will be shown.

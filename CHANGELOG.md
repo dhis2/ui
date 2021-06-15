@@ -1,9 +1,26 @@
-# [6.8.0-alpha.1](https://github.com/dhis2/ui/compare/v6.7.0...v6.8.0-alpha.1) (2021-06-05)
+### Features
+
+# [6.9.0](https://github.com/dhis2/ui/compare/v6.8.1...v6.9.0) (2021-06-03)
 
 
 ### Features
 
-* release new internal structure ([ed81f13](https://github.com/dhis2/ui/commit/ed81f13aea80ab8d804f2d22e4b564c84781a7f6))
+* **tag:** add prop to control max width ([a929ae0](https://github.com/dhis2/ui/commit/a929ae03e8cec2f2d29d7794c3dbc8be88a7adfc))
+
+## [6.8.1](https://github.com/dhis2/ui/compare/v6.8.0...v6.8.1) (2021-06-03)
+
+
+### Bug Fixes
+
+* **table:** exclude data-table internal table elements stories ([#615](https://github.com/dhis2/ui/issues/615)) ([e0b33e4](https://github.com/dhis2/ui/commit/e0b33e4d35138f913c7002e5e430aaba2397a0f9))
+
+# [6.8.0](https://github.com/dhis2/ui/compare/v6.7.0...v6.8.0) (2021-06-03)
+
+
+### Features
+
+* **alert-bar:** add hidden prop and refactor to function component ([#614](https://github.com/dhis2/ui/issues/614)) ([b9e9faa](https://github.com/dhis2/ui/commit/b9e9faadf3a097e03a8cdcf528d1a612aeb79c10))
+* introduce data-table components ([#463](https://github.com/dhis2/ui/issues/463)) ([daf21d4](https://github.com/dhis2/ui/commit/daf21d4095d87300b2ae14837a126021b21f0c3e))
 
 # [6.7.0](https://github.com/dhis2/ui/compare/v6.6.3...v6.7.0) (2021-05-26)
 
