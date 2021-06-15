@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/center",
-    "version": "6.8.0-alpha.1",
+    "version": "6.10.0-alpha.1",
     "description": "UI Center",
     "repository": {
         "type": "git",
@@ -25,7 +25,7 @@
         "build": "d2-app-scripts build"
     },
     "peerDependencies": {
-        "@dhis2/ui-constants": "6.8.0-alpha.1",
+        "@dhis2/ui-constants": "6.10.0-alpha.1",
         "react": "^16.8",
         "react-dom": "^16.8",
         "styled-jsx": "^3.2"
@@ -38,7 +38,7 @@
         "build"
     ],
     "devDependencies": {
-        "@dhis2/ui-constants": "6.8.0-alpha.1",
+        "@dhis2/ui-constants": "6.10.0-alpha.1",
         "react": "16.13",
         "react-dom": "16.13",
         "styled-jsx": "^3.4.4"

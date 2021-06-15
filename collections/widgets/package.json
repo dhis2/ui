@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/ui-widgets",
-    "version": "6.8.0-alpha.1",
+    "version": "6.10.0-alpha.1",
     "main": "./build/cjs/index.js",
     "module": "./build/es/index.js",
     "exports": {
@@ -32,24 +32,24 @@
     "peerDependencies": {
         "@dhis2/app-runtime": "^2",
         "@dhis2/d2-i18n": "^1",
-        "@dhis2/ui-constants": "6.8.0-alpha.1",
-        "@dhis2/ui-core": "6.8.0-alpha.1",
+        "@dhis2/ui-constants": "6.10.0-alpha.1",
+        "@dhis2/ui-core": "6.10.0-alpha.1",
         "react": "^16.8",
         "react-dom": "^16.8",
         "styled-jsx": "^3.2"
     },
     "dependencies": {
-        "@dhis2-ui/checkbox": "6.8.0-alpha.1",
-        "@dhis2-ui/field-group": "6.8.0-alpha.1",
-        "@dhis2-ui/file-input": "6.8.0-alpha.1",
-        "@dhis2-ui/header-bar": "6.8.0-alpha.1",
-        "@dhis2-ui/input": "6.8.0-alpha.1",
-        "@dhis2-ui/organisation-unit-tree": "6.8.0-alpha.1",
-        "@dhis2-ui/pagination": "6.8.0-alpha.1",
-        "@dhis2-ui/select": "6.8.0-alpha.1",
-        "@dhis2-ui/switch": "6.8.0-alpha.1",
-        "@dhis2-ui/text-area": "6.8.0-alpha.1",
-        "@dhis2-ui/transfer": "6.8.0-alpha.1",
+        "@dhis2-ui/checkbox": "6.10.0-alpha.1",
+        "@dhis2-ui/field-group": "6.10.0-alpha.1",
+        "@dhis2-ui/file-input": "6.10.0-alpha.1",
+        "@dhis2-ui/header-bar": "6.10.0-alpha.1",
+        "@dhis2-ui/input": "6.10.0-alpha.1",
+        "@dhis2-ui/organisation-unit-tree": "6.10.0-alpha.1",
+        "@dhis2-ui/pagination": "6.10.0-alpha.1",
+        "@dhis2-ui/select": "6.10.0-alpha.1",
+        "@dhis2-ui/switch": "6.10.0-alpha.1",
+        "@dhis2-ui/text-area": "6.10.0-alpha.1",
+        "@dhis2-ui/transfer": "6.10.0-alpha.1",
         "@dhis2/prop-types": "^1.6.4",
         "classnames": "^2.3.1"
     },
@@ -59,8 +59,8 @@
     "devDependencies": {
         "@dhis2/app-runtime": "^2.7.1",
         "@dhis2/d2-i18n": "^1.1.0",
-        "@dhis2/ui-constants": "6.8.0-alpha.1",
-        "@dhis2/ui-core": "6.8.0-alpha.1",
+        "@dhis2/ui-constants": "6.10.0-alpha.1",
+        "@dhis2/ui-core": "6.10.0-alpha.1",
         "react": "16.13",
         "react-dom": "16.13",
         "styled-jsx": "^3.4.4"

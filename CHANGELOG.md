@@ -1,3 +1,15 @@
+# [6.10.0-alpha.1](https://github.com/dhis2/ui/compare/v6.9.0...v6.10.0-alpha.1) (2021-06-15)
+
+
+### Bug Fixes
+
+* **header-bar:** make email prop optional as in user schema ([#628](https://github.com/dhis2/ui/issues/628)) ([40dc785](https://github.com/dhis2/ui/commit/40dc7851f968510b73cc535c61203bfeffb8b073))
+
+
+### Features
+
+* release new internal structure ([ed81f13](https://github.com/dhis2/ui/commit/ed81f13aea80ab8d804f2d22e4b564c84781a7f6))
+
 ### Features
 
 # [6.9.0](https://github.com/dhis2/ui/compare/v6.8.1...v6.9.0) (2021-06-03)
