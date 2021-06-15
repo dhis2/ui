@@ -13,3 +13,13 @@ export { Pagination } from '@dhis2-ui/pagination'
 export { SwitchField } from '@dhis2-ui/switch'
 export { TextAreaField } from '@dhis2-ui/text-area'
 export { Transfer, TransferOption } from '@dhis2-ui/transfer'
+export {
+    DataTable,
+    DataTableBody,
+    DataTableCell,
+    DataTableColumnHeader,
+    DataTableFoot,
+    DataTableHead,
+    DataTableRow,
+    DataTableToolbar,
+} from '@dhis2-ui/table'
