@@ -1780,7 +1780,7 @@
     update-notifier "^3.0.0"
     yargs "^13.1.0"
 
-"@dhis2/cli-helpers-engine@^2.1.1", "@dhis2/cli-helpers-engine@^2.2.0":
+"@dhis2/cli-helpers-engine@^2.1.1":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@dhis2/cli-helpers-engine/-/cli-helpers-engine-2.2.0.tgz#7202150890a46a04e3bfced02e40031fdd574542"
   integrity sha512-MbvqEbiBBqagO7sSxfGQ/YsIsHB/mh7ns8haXO7eh/WtzERbDEz2uPNcR/prBg6+StenGizgZdKJXKgVVaoVVg==
@@ -1810,6 +1810,21 @@
     update-notifier "^3.0.0"
     yargs "^13.1.0"
 
+"@dhis2/cli-helpers-engine@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-helpers-engine/-/cli-helpers-engine-3.0.0.tgz#dacddea16de7e5e60280aefbee2e5661795b78b3"
+  integrity sha512-e8cZFFsunQp56iLx1FKBWGZ1tmWOjdbqJaBwOnzvsKPyYopV9RzNcPm+HIBwfnCjHBWoWTf6ijaf3xVnimZC2w==
+  dependencies:
+    chalk "^3.0.0"
+    cross-spawn "^7.0.3"
+    find-up "^5.0.0"
+    fs-extra "^8.0.1"
+    inquirer "^7.3.3"
+    request "^2.88.0"
+    tar "^4.4.8"
+    update-notifier "^3.0.0"
+    yargs "^13.1.0"
+
 "@dhis2/cli-helpers-template@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@dhis2/cli-helpers-template/-/cli-helpers-template-1.0.2.tgz#537904af58f0965e67a5b490fb2737c148ff24d0"
@@ -1820,14 +1835,14 @@
     handlebars "^4.5.3"
     isbinaryfile "^4.0.2"
 
-"@dhis2/cli-style@^8.3.0":
-  version "8.3.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-style/-/cli-style-8.3.0.tgz#b54c9716935023478fede65537dd86061c4c3637"
-  integrity sha512-h404QBbFPe5L/BgGgSFAGZAo9B1Q5zilcBWwyhkkGrDYxOyEV6JnxpnUDKQzVEuvO2FAe1wxwZvWgjTbB0xuBw==
+"@dhis2/cli-style@^9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-style/-/cli-style-9.0.1.tgz#919bb978362ed9aeb7a253a3b58d6f25e3c09bd9"
+  integrity sha512-CGZQebdhh3EtpjyQGeQEbwVE0vmSqzz8TWrVEkuo9bVxBu7Gjpok5mnsFE0wXLP0kqga9zBuwfeIbY8iAoO1kA==
   dependencies:
     "@commitlint/cli" "^11.0.0"
     "@commitlint/config-conventional" "^11.0.0"
-    "@dhis2/cli-helpers-engine" "^2.2.0"
+    "@dhis2/cli-helpers-engine" "^3.0.0"
     "@ls-lint/ls-lint" "^1.9.2"
     babel-eslint "^10.1.0"
     eslint "^7.18.0"
