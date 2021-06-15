@@ -292,7 +292,7 @@ const ExpandableContentTemplate = args => {
 export const ExpandableContent = ExpandableContentTemplate.bind({})
 ExpandableContent.args = {}
 
-const SelecdatatableRowsTemplate = args => {
+const SelectableRowsTemplate = args => {
     const [selected, setSelected] = useState({ id_2: true })
     const toggleSelected = ({ value, checked }) => {
         setSelected({
@@ -370,8 +370,8 @@ const SelecdatatableRowsTemplate = args => {
         </DataTable>
     )
 }
-export const SelecdatatableRows = SelecdatatableRowsTemplate.bind({})
-SelecdatatableRows.args = {}
+export const SelectableRows = SelectableRowsTemplate.bind({})
+SelectableRows.args = {}
 
 const FixedHeaderTemplate = args => (
     <DataTable {...args}>
