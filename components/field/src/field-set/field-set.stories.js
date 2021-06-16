@@ -1,8 +1,8 @@
-import { Field } from '@dhis2-ui/field'
 import { Help } from '@dhis2-ui/help'
 import { Legend } from '@dhis2-ui/legend'
 import { Radio } from '@dhis2-ui/radio'
 import React from 'react'
+import { Field } from '../index.js'
 import { FieldSet } from './field-set.js'
 
 const description = `

@@ -41,7 +41,6 @@
         "@dhis2-ui/css": "6.8.0-alpha.1",
         "@dhis2-ui/divider": "6.8.0-alpha.1",
         "@dhis2-ui/field": "6.8.0-alpha.1",
-        "@dhis2-ui/field-set": "6.8.0-alpha.1",
         "@dhis2-ui/file-input": "6.8.0-alpha.1",
         "@dhis2-ui/help": "6.8.0-alpha.1",
         "@dhis2-ui/input": "6.8.0-alpha.1",
@@ -61,14 +60,15 @@
         "@dhis2-ui/required": "6.8.0-alpha.1",
         "@dhis2-ui/select": "6.8.0-alpha.1",
         "@dhis2-ui/switch": "6.8.0-alpha.1",
-        "@dhis2-ui/table": "6.8.0-alpha.1",
         "@dhis2-ui/tab": "6.8.0-alpha.1",
+        "@dhis2-ui/table": "6.8.0-alpha.1",
         "@dhis2-ui/tag": "6.8.0-alpha.1",
         "@dhis2-ui/text-area": "6.8.0-alpha.1",
         "@dhis2-ui/tooltip": "6.8.0-alpha.1",
         "@dhis2/prop-types": "^1.6.4",
         "@dhis2/ui-constants": "6.8.0-alpha.1",
-        "classnames": "^2.3.1"
+        "classnames": "^2.3.1",
+        "prop-types": "^15.7.2"
     },
     "files": [
         "build"

@@ -17,8 +17,7 @@ export { Chip } from '@dhis2-ui/chip'
 export { Cover as ComponentCover } from '@dhis2-ui/cover'
 export { CssReset, CssVariables } from '@dhis2-ui/css'
 export { Divider } from '@dhis2-ui/divider'
-export { Field } from '@dhis2-ui/field'
-export { FieldSet } from '@dhis2-ui/field-set'
+export { Field, FieldSet } from '@dhis2-ui/field'
 export {
     FileInput,
     FileList,

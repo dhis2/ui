@@ -40,7 +40,7 @@
     },
     "dependencies": {
         "@dhis2-ui/checkbox": "6.8.0-alpha.1",
-        "@dhis2-ui/field-group": "6.8.0-alpha.1",
+        "@dhis2-ui/field": "6.8.0-alpha.1",
         "@dhis2-ui/file-input": "6.8.0-alpha.1",
         "@dhis2-ui/header-bar": "6.8.0-alpha.1",
         "@dhis2-ui/input": "6.8.0-alpha.1",
@@ -48,6 +48,7 @@
         "@dhis2-ui/pagination": "6.8.0-alpha.1",
         "@dhis2-ui/select": "6.8.0-alpha.1",
         "@dhis2-ui/switch": "6.8.0-alpha.1",
+        "@dhis2-ui/table": "6.8.0-alpha.1",
         "@dhis2-ui/text-area": "6.8.0-alpha.1",
         "@dhis2-ui/transfer": "6.8.0-alpha.1",
         "@dhis2/prop-types": "^1.6.4",

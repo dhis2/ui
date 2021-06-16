@@ -3,7 +3,6 @@ import React from 'react'
 import { Field } from 'react-final-form'
 import { CheckboxFieldFF } from '../CheckboxFieldFF/CheckboxFieldFF.js'
 import { FieldGroupFF } from '../FieldGroupFF/FieldGroupFF.js'
-import { FileInputFieldFF } from '../FileInputFieldFF/FileInputFieldFF.js'
 import { formDecorator } from '../formDecorator.js'
 import { InputFieldFF } from '../InputFieldFF/InputFieldFF.js'
 import { MultiSelectFieldFF } from '../MultiSelectFieldFF/MultiSelectFieldFF.js'
@@ -12,6 +11,7 @@ import { SingleSelectFieldFF } from '../SingleSelectFieldFF/SingleSelectFieldFF.
 import { SwitchFieldFF } from '../SwitchFieldFF/SwitchFieldFF.js'
 import { TextAreaFieldFF } from '../TextAreaFieldFF/TextAreaFieldFF.js'
 import { composeValidators, email, hasValue } from '../validators/index.js'
+import { FileInputFieldFF } from './FileInputFieldFF.js'
 
 const StandardForm = ({ values }) => {
     return (
