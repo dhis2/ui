@@ -1,3 +1,10 @@
+# [6.10.0-alpha.2](https://github.com/dhis2/ui/compare/v6.10.0-alpha.1...v6.10.0-alpha.2) (2021-06-16)
+
+
+### Bug Fixes
+
+* **field:** bundle field-set and field-group in field ([3fcf1e8](https://github.com/dhis2/ui/commit/3fcf1e8d46ba585a5bfb3ac14cf7f7423f78591b))
+
 # [6.10.0-alpha.1](https://github.com/dhis2/ui/compare/v6.9.0...v6.10.0-alpha.1) (2021-06-15)
 
 
