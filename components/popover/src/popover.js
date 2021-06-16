@@ -1,9 +1,8 @@
 import { Layer } from '@dhis2-ui/layer'
-import { getReferenceElement } from '@dhis2-ui/popper'
+import { getReferenceElement, usePopper } from '@dhis2-ui/popper'
 import { colors, elevations, sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useState, useMemo } from 'react'
-import { usePopper } from 'react-popper'
 import { Arrow } from './arrow.js'
 import { combineModifiers } from './modifiers.js'
 
