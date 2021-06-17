@@ -1,8 +1,8 @@
 import propTypes from '@dhis2/prop-types'
 import { colors, theme, sharedPropTypes } from '@dhis2/ui-constants'
+import { IconChevronDown16 } from '@dhis2/ui-icons'
 import cx from 'classnames'
 import React from 'react'
-import { ArrowDown } from './arrow-down.js'
 
 const InputWrapper = ({
     dataTest,
@@ -35,7 +35,7 @@ const InputWrapper = ({
         >
             <div className="root-children">{children}</div>
             <div className="root-right">
-                <ArrowDown />
+                <IconChevronDown16 />
             </div>
 
             <style jsx>{`
@@ -86,7 +86,7 @@ const InputWrapper = ({
                 }
 
                 .root-right {
-                    margin-left: auto;
+                    margin: 4px 0px 0px 8px;
                 }
             `}</style>
         </div>

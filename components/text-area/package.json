@@ -32,8 +32,10 @@
     "dependencies": {
         "@dhis2-ui/box": "6.10.0-alpha.2",
         "@dhis2-ui/field": "6.10.0-alpha.2",
+        "@dhis2-ui/loader": "6.10.0-alpha.2",
         "@dhis2/prop-types": "^1.6.4",
         "@dhis2/ui-constants": "6.10.0-alpha.2",
+        "@dhis2/ui-icons": "6.10.0-alpha.2",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },

@@ -3,64 +3,10 @@ import { InputField } from '@dhis2-ui/input'
 import { useConfig } from '@dhis2/app-runtime'
 import propTypes from '@dhis2/prop-types'
 import { colors, theme } from '@dhis2/ui-constants'
+import { IconApps24, IconSettings24 } from '@dhis2/ui-icons'
 import React, { useState, useEffect, useCallback, useRef } from 'react'
-import css from 'styled-jsx/css'
 import { joinPath } from './join-path.js'
 import i18n from './locales/index.js'
-
-// TODO: ui-icons
-function AppsIcon({ className }) {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="48"
-            height="48"
-            viewBox="0 0 48 48"
-            className={className}
-        >
-            <path d="M8 16h8V8H8v8zm12 24h8v-8h-8v8zM8 40h8v-8H8v8zm0-12h8v-8H8v8zm12 0h8v-8h-8v8zM32 8v8h8V8h-8zm-12 8h8V8h-8v8zm12 12h8v-8h-8v8zm0 12h8v-8h-8v8z" />
-            <path d="M0 0h48v48H0z" fill="none" />
-        </svg>
-    )
-}
-AppsIcon.propTypes = {
-    className: propTypes.string,
-}
-function Settings({ className }) {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="48"
-            height="48"
-            viewBox="0 0 48 48"
-            className={className}
-        >
-            <path d="M0 0h48v48H0z" fill="none" />
-            <path d="M38.86 25.95c.08-.64.14-1.29.14-1.95s-.06-1.31-.14-1.95l4.23-3.31c.38-.3.49-.84.24-1.28l-4-6.93c-.25-.43-.77-.61-1.22-.43l-4.98 2.01c-1.03-.79-2.16-1.46-3.38-1.97L29 4.84c-.09-.47-.5-.84-1-.84h-8c-.5 0-.91.37-.99.84l-.75 5.3c-1.22.51-2.35 1.17-3.38 1.97L9.9 10.1c-.45-.17-.97 0-1.22.43l-4 6.93c-.25.43-.14.97.24 1.28l4.22 3.31C9.06 22.69 9 23.34 9 24s.06 1.31.14 1.95l-4.22 3.31c-.38.3-.49.84-.24 1.28l4 6.93c.25.43.77.61 1.22.43l4.98-2.01c1.03.79 2.16 1.46 3.38 1.97l.75 5.3c.08.47.49.84.99.84h8c.5 0 .91-.37.99-.84l.75-5.3c1.22-.51 2.35-1.17 3.38-1.97l4.98 2.01c.45.17.97 0 1.22-.43l4-6.93c.25-.43.14-.97-.24-1.28l-4.22-3.31zM24 31c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z" />
-        </svg>
-    )
-}
-Settings.propTypes = {
-    className: propTypes.string,
-}
-const appIcon = css.resolve`
-    svg {
-        fill: ${colors.white};
-        cursor: pointer;
-        height: 24px;
-        width: 24px;
-    }
-`
-
-const settingsIcon = css.resolve`
-    svg {
-        margin: 8px 8px 0 16px;
-        color: ${colors.grey900};
-        height: 24px;
-        width: 24px;
-        cursor: pointer;
-    }
-`
 
 /**
  * Copied from here:
@@ -87,11 +33,10 @@ function Search({ value, onChange }) {
 
             <span>
                 <a href={joinPath(baseUrl, 'dhis-web-menu-management')}>
-                    <Settings className={settingsIcon.className} />
+                    <IconSettings24 color={colors.grey700} />
                 </a>
             </span>
 
-            {settingsIcon.styles}
             <style jsx>{`
                 div {
                     display: flex;
@@ -107,6 +52,7 @@ function Search({ value, onChange }) {
 
                 span:last-child {
                     flex: 1 auto;
+                    margin: 8px;
                 }
             `}</style>
         </div>
@@ -278,7 +224,7 @@ const Apps = ({ apps }) => {
                 onClick={handleVisibilityToggle}
                 data-test="headerbar-apps-icon"
             >
-                <AppsIcon className={appIcon.className} />
+                <IconApps24 color={colors.white} />
             </button>
 
             {show ? (
@@ -289,13 +235,13 @@ const Apps = ({ apps }) => {
                 />
             ) : null}
 
-            {appIcon.styles}
             <style jsx>{`
                 button {
                     display: block;
                     background: transparent;
                     padding: 0;
                     border: 0;
+                    cursor: pointer;
                 }
                 button:focus {
                     outline: 1px dotted white;

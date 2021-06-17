@@ -26,29 +26,17 @@ export default css`
         background-color: ${colors.grey900};
         color: ${colors.white};
     }
-    div.info :global(path) {
-        fill: ${colors.white};
-    }
     div.success {
         background-color: ${colors.green800};
         color: ${colors.white};
-    }
-    div.success :global(path) {
-        fill: ${colors.white};
     }
     div.warning {
         background-color: ${colors.yellow300};
         color: ${colors.yellow900};
     }
-    div.warning :global(path) {
-        fill: ${colors.yellow900};
-    }
     div.critical {
         background-color: ${colors.red800};
         color: ${colors.white};
-    }
-    div.critical :global(path) {
-        fill: ${colors.white};
     }
 
     /* Animation */

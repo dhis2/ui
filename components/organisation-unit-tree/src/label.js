@@ -5,7 +5,6 @@ import propTypes from 'prop-types'
 import React from 'react'
 import { orgUnitPathPropType } from './prop-types.js'
 
-// TODO: ui-icons
 const Empty = ({ dataTest }) => (
     <svg
         height="18px"

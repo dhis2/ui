@@ -1,36 +1,12 @@
 import { useLayerContext } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
+import { IconChevronRight24 } from '@dhis2/ui-icons'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { FlyoutMenu } from '../index.js'
 import styles from './menu-item.styles.js'
-
-// TODO: replace with ui-icons
-function ChevronRight({ className }) {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 48 48"
-            className={className}
-        >
-            <path d="M20 12l-2.83 2.83L26.34 24l-9.17 9.17L20 36l12-12z" />
-            <style jsx>{`
-                svg {
-                    fill: inherit;
-                    height: 24px;
-                    width: 24px;
-                    vertical-align: middle;
-                    pointer-events: none;
-                }
-            `}</style>
-        </svg>
-    )
-}
-ChevronRight.propTypes = {
-    className: PropTypes.string,
-}
 
 const createOnClickHandler = (onClick, toggleSubMenu, value) => evt => {
     if (onClick || toggleSubMenu) {
@@ -104,7 +80,7 @@ const MenuItem = ({
 
                     {(chevron || children) && (
                         <span className="chevron">
-                            <ChevronRight />
+                            <IconChevronRight24 />
                         </span>
                     )}
                 </a>
