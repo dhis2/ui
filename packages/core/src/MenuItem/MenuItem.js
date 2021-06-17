@@ -8,14 +8,23 @@ import { useLayerContext } from '../Layer/Layer.js'
 import { Popper } from '../Popper/Popper.js'
 import styles from './MenuItem.styles.js'
 
-const createOnClickHandler = (onClick, toggleSubMenu, value) => evt => {
-    if (onClick || toggleSubMenu) {
-        evt.preventDefault()
-        evt.stopPropagation()
+const isModifiedEvent = evt =>
+    evt.metaKey || evt.altKey || evt.ctrlKey || evt.shiftKey
 
-        onClick && onClick({ value }, evt)
-        toggleSubMenu && toggleSubMenu()
+const createOnClickHandler = ({
+    onClick,
+    toggleSubMenu,
+    isLink,
+    value,
+}) => evt => {
+    if ((isLink && isModifiedEvent(evt)) || !(onClick || toggleSubMenu)) {
+        return
     }
+    evt.preventDefault()
+    evt.stopPropagation()
+
+    onClick && onClick({ value }, evt)
+    toggleSubMenu && toggleSubMenu()
 }
 /**
  * @module
@@ -66,11 +75,12 @@ const MenuItem = ({
                     href={!disabled && href ? href : undefined}
                     onClick={
                         !disabled
-                            ? createOnClickHandler(
+                            ? createOnClickHandler({
                                   onClick,
                                   toggleSubMenu,
-                                  value
-                              )
+                                  isLink: !!href,
+                                  value,
+                              })
                             : undefined
                     }
                 >
