@@ -6,9 +6,9 @@ describe('NoticeBoxIcon', () => {
     it('should render info icon by default', () => {
         const wrapper = shallow(<NoticeBoxIcon dataTest="test" />)
 
-        expect(wrapper.find('Warning')).toHaveLength(0)
-        expect(wrapper.find('Error')).toHaveLength(0)
-        expect(wrapper.find('Info')).toHaveLength(1)
+        expect(wrapper.find('SvgWarningFilled24')).toHaveLength(0)
+        expect(wrapper.find('SvgErrorFilled24')).toHaveLength(0)
+        expect(wrapper.find('SvgInfoFilled24')).toHaveLength(1)
     })
 
     it('should log errors when both warning and error flag are set', () => {
@@ -29,9 +29,9 @@ describe('NoticeBoxIcon', () => {
             .mockImplementation(() => {})
         const wrapper = shallow(<NoticeBoxIcon warning error dataTest="test" />)
 
-        expect(wrapper.find('Warning')).toHaveLength(0)
-        expect(wrapper.find('Info')).toHaveLength(0)
-        expect(wrapper.find('Error')).toHaveLength(1)
+        expect(wrapper.find('SvgWarningFilled24')).toHaveLength(0)
+        expect(wrapper.find('SvgErrorFilled24')).toHaveLength(1)
+        expect(wrapper.find('SvgInfoFilled24')).toHaveLength(0)
 
         spy.mockRestore()
     })
@@ -39,16 +39,16 @@ describe('NoticeBoxIcon', () => {
     it('should render error icon when only error flag is set', () => {
         const wrapper = shallow(<NoticeBoxIcon error dataTest="test" />)
 
-        expect(wrapper.find('Warning')).toHaveLength(0)
-        expect(wrapper.find('Info')).toHaveLength(0)
-        expect(wrapper.find('Error')).toHaveLength(1)
+        expect(wrapper.find('SvgWarningFilled24')).toHaveLength(0)
+        expect(wrapper.find('SvgErrorFilled24')).toHaveLength(1)
+        expect(wrapper.find('SvgInfoFilled24')).toHaveLength(0)
     })
 
     it('should render warning icon when only warning flag is set', () => {
         const wrapper = shallow(<NoticeBoxIcon warning dataTest="test" />)
 
-        expect(wrapper.find('Info')).toHaveLength(0)
-        expect(wrapper.find('Error')).toHaveLength(0)
-        expect(wrapper.find('Warning')).toHaveLength(1)
+        expect(wrapper.find('SvgWarningFilled24')).toHaveLength(1)
+        expect(wrapper.find('SvgErrorFilled24')).toHaveLength(0)
+        expect(wrapper.find('SvgInfoFilled24')).toHaveLength(0)
     })
 })
