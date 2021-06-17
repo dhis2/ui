@@ -1,3 +1,10 @@
+# [6.10.0-alpha.3](https://github.com/dhis2/ui/compare/v6.10.0-alpha.2...v6.10.0-alpha.3) (2021-06-17)
+
+
+### Bug Fixes
+
+* **icons:** clean up icon use and migration to ui-icons ([5a3f7e5](https://github.com/dhis2/ui/commit/5a3f7e5dbf7390846f38ac05d62e321325ba8778))
+
 # [6.10.0-alpha.2](https://github.com/dhis2/ui/compare/v6.10.0-alpha.1...v6.10.0-alpha.2) (2021-06-16)
 
 
