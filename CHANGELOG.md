@@ -1,3 +1,10 @@
+## [6.9.2](https://github.com/dhis2/ui/compare/v6.9.1...v6.9.2) (2021-06-18)
+
+
+### Bug Fixes
+
+* **menu-item:** do not call event.preventDefault() in onClick handler if href prop is set and user is holding meta/alt/ctrl/shift key ([#631](https://github.com/dhis2/ui/issues/631)) ([0b4fe8f](https://github.com/dhis2/ui/commit/0b4fe8f7732681d34becf2f6e0aa0cdd1a214e2a))
+
 ## [6.9.1](https://github.com/dhis2/ui/compare/v6.9.0...v6.9.1) (2021-06-15)
 
 
