@@ -44,10 +44,12 @@ jobs:
                   node-version: 12.x
 
             - uses: c-hive/gha-yarn-cache@v1
-            - run: yarn install --frozen-lockfile
+            - run: |
+                  yarn install --frozen-lockfile
+                  yarn setup
 
             - name: Build
-              run: yarn d2-app-scripts build --standalone
+              run: yarn demo
 
             - name: Deploy
               id: netlify-deploy
