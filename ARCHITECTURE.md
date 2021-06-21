@@ -72,6 +72,28 @@ This means that:
 > and may have breaking changes without us bumping the major version on
 > `@dhis2/ui-*` components.
 
+Each component package has a logical and semantic scope, that may group
+related components.
+
+If needed, components can be extracted to distinct component packages to
+break e.g. circular dependencies or to provide a tighter scope.
+
+If UI is fully decomposed, every single component would be its own
+package, and this would not be a problem. We may end up there in the
+future, but for now we are striking a pragmatic balance between packages
+and components.
+
+To make extraction easier, each component package has a
+`{component}/src/index.js` file that defines the exported components for that
+package.
+
+If a package contains multiple components, then each subcomponent should have a
+`index.js` file that defines its module boundary. This makes it easier to
+extract it in the future: {component}/src/{subcomponent}/index.js`.
+
+Components should import from the `index.js` files and avoid reaching into
+non-exported parts of a component.
+
 #### Collections
 
 In UI terms a collection is a set of components, and is considered the
