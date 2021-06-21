@@ -2,9 +2,9 @@ import { Button, ButtonStrip } from '@dhis2-ui/button'
 import { SingleSelect, SingleSelectOption } from '@dhis2-ui/select'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React, { useState } from 'react'
-import { ModalActions } from './modal-actions/modal-actions.js'
-import { ModalContent } from './modal-content/modal-content.js'
-import { ModalTitle } from './modal-title/modal-title.js'
+import { ModalActions } from '../index.js'
+import { ModalContent } from '../index.js'
+import { ModalTitle } from '../index.js'
 import { Modal } from './modal.js'
 
 const description = `
