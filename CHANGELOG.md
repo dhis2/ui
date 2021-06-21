@@ -1,3 +1,10 @@
+# [6.10.0-alpha.5](https://github.com/dhis2/ui/compare/v6.10.0-alpha.4...v6.10.0-alpha.5) (2021-06-21)
+
+
+### Bug Fixes
+
+* **modal:** clean up internal structure ([2dec7d3](https://github.com/dhis2/ui/commit/2dec7d32e71c1e132e569b2290b478f4b25ab025))
+
 # [6.10.0-alpha.4](https://github.com/dhis2/ui/compare/v6.10.0-alpha.3...v6.10.0-alpha.4) (2021-06-21)
 
 
