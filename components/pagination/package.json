@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/pagination",
-    "version": "6.10.0-alpha.3",
+    "version": "6.10.0-alpha.4",
     "description": "UI Pagination",
     "repository": {
         "type": "git",
@@ -31,11 +31,11 @@
         "styled-jsx": "^3.2"
     },
     "dependencies": {
-        "@dhis2-ui/button": "6.10.0-alpha.3",
-        "@dhis2-ui/select": "6.10.0-alpha.3",
+        "@dhis2-ui/button": "6.10.0-alpha.4",
+        "@dhis2-ui/select": "6.10.0-alpha.4",
         "@dhis2/prop-types": "^1.6.4",
-        "@dhis2/ui-constants": "6.10.0-alpha.3",
-        "@dhis2/ui-icons": "6.10.0-alpha.3",
+        "@dhis2/ui-constants": "6.10.0-alpha.4",
+        "@dhis2/ui-icons": "6.10.0-alpha.4",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },
