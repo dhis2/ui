@@ -33,10 +33,10 @@ We recommend that you use `@dhis2/ui` as the entrypoint for all imports of our f
 | Package             | Link                                       | Status     |
 | ------------------- | ------------------------------------------ | ---------- |
 | @dhis2/ui           | [collections/ui](collections/ui)           | Active     |
-| @dhis2/ui-constants | [utilities/constants](utilities/constants) | Active     |
+| @dhis2/ui-constants | [constants](utilities/constants)           | Active     |
 | @dhis2/ui-core      | [collections/core](collections/core)       | DEPRECATED |
 | @dhis2/ui-forms     | [collections/forms](collections/forms)     | Active     |
-| @dhis2/ui-icons     | [utilities/icons](utilities/icons)         | Active     |
+| @dhis2/ui-icons     | [icons](utilities/icons)                   | Active     |
 | @dhis2/ui-widgets   | [collections/widgets](collections/widgets) | DEPRECATED |
 
 ### `@dhis2/ui-constants`

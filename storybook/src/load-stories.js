@@ -2,8 +2,9 @@ const path = require('path')
 const {
     PROJECT_ROOT,
     COMPONENTS_DIR,
-    UTILITIES_DIR,
     COLLECTIONS_DIR,
+    ICONS_DIR,
+    CONSTANTS_DIR,
 } = require('./paths.js')
 const { uiPackages } = require('./ui-packages.js')
 
@@ -16,13 +17,15 @@ const isTesting = 'STORYBOOK_TESTING' in process.env
 exports.loadStories = () => {
     const curcomp = path.basename(process.cwd())
 
-    const [components, collections, utilities] = uiPackages()
+    const [components, collections, icons, constants] = uiPackages()
 
+    console.log(curcomp)
+    console.log(constants)
     // if we run storybook in one component, we only want to serve a single one
     // and if we run storybook from the project root, we want to load the full shebang.
     switch (true) {
         case components.includes(curcomp): {
-            console.info(`custom => Loading component stories for '${curcomp}'`)
+            console.info(`custom => Loading stories for '${curcomp}'`)
             return [
                 path.join(
                     COMPONENTS_DIR,
@@ -35,9 +38,7 @@ exports.loadStories = () => {
         }
 
         case collections.includes(curcomp): {
-            console.info(
-                `custom => Loading collection stories for '${curcomp}'`
-            )
+            console.info(`custom => Loading stories for '${curcomp}'`)
             return [
                 path.join(
                     COLLECTIONS_DIR,
@@ -49,12 +50,17 @@ exports.loadStories = () => {
             ]
         }
 
-        case utilities.includes(curcomp): {
-            console.info(`custom => Loading utility stories for '${curcomp}'`)
+        case icons.includes(curcomp): {
+            console.info(`custom => Loading stories for '${curcomp}'`)
+            return [
+                path.join(ICONS_DIR, 'src', '**', '*.stories.@(js|jsx|mdx)'),
+            ]
+        }
+        case constants.includes(curcomp): {
+            console.info(`custom => Loading stories for '${curcomp}'`)
             return [
                 path.join(
-                    UTILITIES_DIR,
-                    curcomp,
+                    CONSTANTS_DIR,
                     'src',
                     '**',
                     '*.stories.@(js|jsx|mdx)'
@@ -70,13 +76,15 @@ exports.loadStories = () => {
                 ? [
                       `${COLLECTIONS_DIR}/*/src/**/*.stories.e2e.@(js|jsx)`,
                       `${COMPONENTS_DIR}/*/src/**/*.stories.e2e.@(js|jsx)`,
-                      `${UTILITIES_DIR}/*/src/**/*.stories.e2e.@(js|jsx)`,
+                      `${ICONS_DIR}/src/**/*.stories.e2e.@(js|jsx)`,
+                      `${CONSTANTS_DIR}/src/**/*.stories.e2e.@(js|jsx)`,
                   ]
                 : [
                       `${PROJECT_ROOT}/docs/**/*.stories.mdx`,
                       `${COLLECTIONS_DIR}/*/src/**/*.stories.@(js|jsx|mdx)`,
                       `${COMPONENTS_DIR}/*/src/**/*.stories.@(js|jsx|mdx)`,
-                      `${UTILITIES_DIR}/*/src/**/*.stories.@(js|jsx|mdx)`,
+                      `${ICONS_DIR}/src/**/*.stories.@(js|jsx|mdx)`,
+                      `${CONSTANTS_DIR}/src/**/*.stories.@(js|jsx|mdx)`,
                   ]
         }
     }

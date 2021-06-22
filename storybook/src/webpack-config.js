@@ -4,7 +4,8 @@ const {
     PROJECT_ROOT,
     COMPONENTS_DIR,
     COLLECTIONS_DIR,
-    UTILITIES_DIR,
+    ICONS_DIR,
+    CONSTANTS_DIR,
 } = require('./paths.js')
 const { uiPackages } = require('./ui-packages.js')
 
@@ -27,7 +28,7 @@ function modify_internal_package_loaders(cfg) {
     // Find the rules that deal with .js
     const jsLoaders = regexLoaders.filter(loader => loader.test.test('.js'))
 
-    const [components, collections, utilities] = uiPackages()
+    const [components, collections, icons, constants] = uiPackages()
 
     console.info('custom => Webpack module loaders')
     jsLoaders.forEach(loader => {
@@ -39,8 +40,12 @@ function modify_internal_package_loaders(cfg) {
             loader.include.push(new RegExp(`components/${component}/src`))
         }
 
-        for (const utility of utilities) {
-            loader.include.push(new RegExp(`utilities/${utility}/src`))
+        if (icons) {
+            loader.include.push(new RegExp('icons/src'))
+        }
+
+        if (constants) {
+            loader.include.push(new RegExp('constants/src'))
         }
 
         console.log(
@@ -83,7 +88,8 @@ function modify_internal_package_resolutions(cfg) {
     const packages = fg.sync([
         `${COMPONENTS_DIR}/*/package.json`,
         `${COLLECTIONS_DIR}/*/package.json`,
-        `${UTILITIES_DIR}/*/package.json`,
+        `${ICONS_DIR}/package.json`,
+        `${CONSTANTS_DIR}/package.json`,
     ])
 
     for (const pkg of packages) {

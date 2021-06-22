@@ -15,13 +15,14 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/dhis2/ui.git",
-        "directory": "collections/icons"
+        "directory": "icons"
     },
     "homepage": "https://github.com/dhis2/ui#readme",
     "publishConfig": {
         "access": "public"
     },
     "scripts": {
+        "start": "start-storybook -c ../storybook/config --port 5000",
         "build": "yarn run clean && yarn run build:icons && yarn run build:lib",
         "build:icons": "svgr -d src/react src/svg",
         "build:lib": "d2-app-scripts build",

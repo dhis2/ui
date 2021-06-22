@@ -15,13 +15,14 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/dhis2/ui.git",
-        "directory": "utilities/constants"
+        "directory": "constants"
     },
     "homepage": "https://github.com/dhis2/ui#readme",
     "publishConfig": {
         "access": "public"
     },
     "scripts": {
+        "start": "start-storybook -c ../storybook/config --port 5000",
         "build": "d2-app-scripts build"
     },
     "dependencies": {

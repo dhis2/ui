@@ -17,9 +17,10 @@
     "private": true,
     "workspaces": {
         "packages": [
-            "utilities/*",
-            "components/*",
             "collections/*",
+            "components/*",
+            "constants",
+            "icons",
             "storybook"
         ]
     },
