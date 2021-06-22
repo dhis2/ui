@@ -9,7 +9,6 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { styles } from './text-area.styles.js'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 const StatusIcon = ({
     error,
@@ -48,13 +47,6 @@ StatusIcon.propTypes = {
     warning: PropTypes.bool,
 }
 
-/**
- * @module
- * @param {TextArea.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { TextArea } from '@dhis2/ui-core'
- */
 export class TextArea extends Component {
     textareaRef = React.createRef()
     state = {

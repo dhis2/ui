@@ -15,17 +15,6 @@ const translate = (prop, interpolationObject) => {
     return prop
 }
 
-/**
- * @module
- *
- * @param {MultiSelectField.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { MultiSelectField } from '@dhis2/ui-widgets'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/select.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/multiselectfield--default|Storybook}
- */
 class MultiSelectField extends React.Component {
     render() {
         const {

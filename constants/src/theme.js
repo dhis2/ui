@@ -1,9 +1,5 @@
 import { colors } from './colors.js'
 
-/**
- * @module constants/theme
- * @desc DHIS2 theme colors
- */
 export const theme = {
     /* theme */
     fonts: 'Roboto, sans-serif',

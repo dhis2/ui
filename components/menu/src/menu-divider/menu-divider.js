@@ -3,16 +3,6 @@ import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-/**
- * @module
- * @param {MenuDivider.PropTypes}
- * @returns {React.Component}
- *
- * @example import { MenuDivider } from '@dhis2/ui
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/menu.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/components-core-menudivider--default|Storybook}
- */
 const MenuDivider = ({ className, dataTest, dense }) => (
     <li className={className} data-test={dataTest}>
         <Divider dense={dense} />

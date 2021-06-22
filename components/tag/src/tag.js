@@ -5,16 +5,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { TagIcon } from './tag-icon.js'
 import { TagText } from './tag-text.js'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
-/**
- * @module
- * @param {Tag.PropTypes} props
- * @returns {React.Component}
- * @example import { Tag } from @dhis2/ui-core
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/tag.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/tag--default|Storybook}
- */
 export const Tag = ({
     maxWidth,
     neutral,

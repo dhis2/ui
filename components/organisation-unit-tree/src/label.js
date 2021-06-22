@@ -365,11 +365,6 @@ const createNewSelected = ({ selected, path, checked, singleSelection }) => {
     return [...prevSlice, ...nextSlice]
 }
 
-/**
- * @module
- * @param {Label.PropTypes} props
- * @returns {React.Component}
- */
 const Label = ({
     id,
     path,

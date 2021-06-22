@@ -13,13 +13,6 @@ const createClickHandler = onClick => event => {
     }
 }
 
-/**
- * @module
- * @param {Layer.PropTypes} props
- * @returns {React.Component}
- * @example import {     } from @dhis2/ui-core
- * @see Live demo: {@link /demo/?path=/story/component-widget-layer--default|Storybook}
- */
 const Layer = ({
     children,
     className,

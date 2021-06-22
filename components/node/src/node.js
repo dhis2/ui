@@ -5,16 +5,6 @@ import { Leaves } from './leaves.js'
 import { Spacer } from './spacer.js'
 import { Toggle } from './toggle.js'
 
-/**
- * @module
- *
- * @param {Node.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { Node } from '@dhis2/ui-core'
- *
- * @see Live demo: {@link /demo/?path=/story/node--multiple-roots|Storybook}
- */
 export const Node = ({
     open,
     className,

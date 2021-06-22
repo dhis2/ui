@@ -2,18 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { ScrollBar } from './scroll-bar.js'
 import { Tabs } from './tabs.js'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
-/**
- * @module
- * @param {TabBar.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { TabBar } from '@dhis2/ui-core'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/tab.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/tabs--default-fluid|Storybook}
- */
 const TabBar = ({ fixed, children, className, scrollable, dataTest }) => {
     if (scrollable) {
         return (

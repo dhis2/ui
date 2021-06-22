@@ -1,13 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef } from 'react'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
-/**
- * @module
- *
- * @param {IntersectionDetector.PropTypes} props
- * @returns {React.Component}
- */
 export const IntersectionDetector = ({
     threshold,
     onChange,

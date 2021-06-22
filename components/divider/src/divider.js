@@ -1,14 +1,7 @@
 import { colors, spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
-/**
- * @module
- * @param {Divider.PropTypes} props
- * @returns {React.Component}
- * @example import { Divider } from @dhis2/ui-core
- */
 const Divider = ({ className, dataTest, dense, margin }) => (
     <div className={className} data-test={dataTest}>
         <style jsx>{`

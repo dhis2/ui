@@ -7,16 +7,6 @@ import { PageSelect } from './page-select'
 import { PageSizeSelect } from './page-size-select.js'
 import { PageSummary } from './page-summary.js'
 
-/**
- * @module
- * @param {Pagination.PropTypes} props
- *
- * @returns {React.Component}
- *
- * @example import { Pagination } from @dhis2/ui
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/pagination.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/pagination--default|Storybook}
- */
 const Pagination = ({
     className,
     dataTest,

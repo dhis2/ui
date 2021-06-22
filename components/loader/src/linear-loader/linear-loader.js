@@ -25,16 +25,6 @@ Progress.propTypes = {
     amount: PropTypes.number.isRequired,
 }
 
-/**
- * @module
- * @param {LinearLoader.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { LinearLoader } from '@dhis2/ui-core'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/loading.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/linearloader--determinate|Storybook}
- */
 const LinearLoader = ({ amount, width, margin, className, dataTest }) => {
     return (
         <div role="progressbar" className={className} data-test={dataTest}>

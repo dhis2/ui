@@ -2,7 +2,6 @@ import { layers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 const createClickHandler = onClick => event => {
     // don't respond to clicks that originated in the children
@@ -11,13 +10,6 @@ const createClickHandler = onClick => event => {
     }
 }
 
-/**
- * @module
- * @param {Cover.PropTypes} props
- * @returns {React.Component}
- * @example import { Cover } from @dhis2/ui-core
- * @see Live demo: {@link /demo/?path=/story/component-widget-componentcover--default|Storybook}
- */
 const Cover = ({ children, className, dataTest, onClick, translucent }) => (
     <div
         className={cx(className, { translucent })}

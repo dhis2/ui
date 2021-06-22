@@ -13,13 +13,6 @@ const flexboxAlignLookup = {
     right: 'flex-end',
 }
 
-/**
- * @module
- * @param {DataTableColumnHeader.PropTypes} props
- * @returns {React.Component}
- * @example import { DataTableColumnHeader } from '@dhis2/ui'
- * @see Live demo: {@link /demo/?path=/story/datatable--default|Storybook}
- */
 export const DataTableColumnHeader = forwardRef(
     (
         {

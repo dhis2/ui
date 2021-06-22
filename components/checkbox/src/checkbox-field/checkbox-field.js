@@ -17,17 +17,6 @@ AddRequired.propTypes = {
     required: PropTypes.bool,
 }
 
-/**
- * @module
- * @param {CheckboxField.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { CheckboxField } from '@dhis2/ui-widgets'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/checkbox.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/checkboxfield--default|Storybook}
- */
-
 const CheckboxField = ({
     value,
     label,

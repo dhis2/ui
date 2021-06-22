@@ -3,12 +3,6 @@ import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React from 'react'
 
-/**
- * @module
- * @private
- * @param {Object} PropTypes
- * @returns {React.Component}
- */
 const Tabs = ({ children, fixed, dataTest }) => (
     <div className={cx({ fixed })} data-test={dataTest}>
         {children}

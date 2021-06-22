@@ -2,13 +2,6 @@ import propTypes from '@dhis2/prop-types'
 import React from 'react'
 import { StackedTableRow } from './stacked-table-row.js'
 
-/**
- * @module
- * @param {StackedTableRowHead.PropTypes}
- * @returns {React.Component}
- * @example import { StackedTableRowHead } from @dhis2/ui-core
- * @see Live demo: {@link /demo/?path=/story/stackedtable--default|Storybook}
- */
 export const StackedTableRowHead = ({ children, className, dataTest }) => (
     <StackedTableRow className={className} dataTest={dataTest}>
         {children}

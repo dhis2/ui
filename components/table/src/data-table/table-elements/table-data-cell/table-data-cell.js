@@ -4,13 +4,6 @@ import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
 import styles from './table-data-cell.styles.js'
 
-/**
- * @module
- * @param {TableDataCell.PropTypes} props
- * @returns {React.Component}
- * @example import { TableDataCell } from '@dhis2/ui'
- * @see Live demo: {@link /demo/?path=/story/table--default|Storybook}
- */
 export const TableDataCell = forwardRef(
     (
         {

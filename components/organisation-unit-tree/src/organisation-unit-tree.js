@@ -8,29 +8,6 @@ import { useExpanded } from './use-expanded.js'
 import { useForceReload } from './use-force-reload.js'
 import { useOrgData } from './use-org-data.js'
 
-/**
- * @module
- * @param {OrganisationUnitTree.PropTypes} props
- * @returns {React.Component}
- *
- * @example
- * import { OrganisationUnitTree } from '@dhis2/ui-widgets'
- *
- * @example
- * <OrganisationUnitTree
- *     name="Root org unit"
- *     roots="A0000000000"
- *     onChange={onChange}
- *     onExpand={onExpand}
- *     onCollapse={onCollapse}
- *     onChildrenLoaded={onChildrenLoaded}
- *     initiallyExpanded={['/A0000000000/A0000000001']}
- *     filter={['/A0000000000/A0000000001/A0000000003']}
- * />
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/organisms/organisation-unit-tree/org-unit-tree.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/organisationunittree--collapsed|Storybook}
- */
 const OrganisationUnitTree = ({
     onChange,
     roots,

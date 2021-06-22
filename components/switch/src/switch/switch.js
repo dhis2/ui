@@ -3,19 +3,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component, createRef } from 'react'
 import { SwitchRegular } from './switch-icons.js'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
-/**
- * @module
- *
- * @param {Switch.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { Switch } from '@dhis2/ui-core'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/switch.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/switch--default|Storybook}
- */
 class Switch extends Component {
     ref = createRef()
 

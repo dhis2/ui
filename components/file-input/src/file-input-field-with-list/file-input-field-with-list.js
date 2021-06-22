@@ -13,16 +13,6 @@ const translate = (prop, interpolationObject) => {
 
     return prop
 }
-/**
- * @module
- * @param {FileInputFieldWithList.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { FileInputFieldWithList } from '@dhis2/ui-widgets'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/fileinput.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/fileinputfieldwithlist--default|Storybook}
- */
 class FileInputFieldWithList extends Component {
     handleChange = ({ files: fileList }, event) => {
         const { onChange, name } = this.props

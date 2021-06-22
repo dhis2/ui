@@ -14,17 +14,6 @@ const rightButton = css.resolve`
     }
 `
 
-/**
- * @module
- *
- * @param {SplitButton.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { SplitButton } from '@dhis2/ui-core'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/button.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/splitbutton-basic--default|Storybook}
- */
 class SplitButton extends Component {
     state = {
         open: false,

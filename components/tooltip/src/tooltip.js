@@ -36,16 +36,6 @@ const flipModifier = {
     options: { altBoundary: true },
 }
 
-/**
- * @module
- * @param {Tooltip.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { Tooltip } from '@dhis2/ui-core'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/tooltip.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/tooltips--default-fluid|Storybook}
- */
 const Tooltip = ({
     children,
     className,

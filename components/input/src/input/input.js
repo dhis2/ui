@@ -112,16 +112,6 @@ const styles = css`
     }
 `
 
-/**
- * @module
- * @param {Input.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { Input } from '@dhis2/ui-core'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/inputfield.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/inputfield--default|Storybook}
- */
 export class Input extends Component {
     inputRef = React.createRef()
 

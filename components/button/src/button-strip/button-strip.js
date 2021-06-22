@@ -3,15 +3,7 @@ import { spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Children } from 'react'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
-/**
- * @module
- * @param {ButtonStrip.PropTypes} props
- * @returns {React.Component}
- * @example import { ButtonStrip } from @dhis2/ui-core
- * @see Live demo: {@link /demo/?path=/story/buttonstrip--default|Storybook}
- */
 const ButtonStrip = ({ className, children, middle, end, dataTest }) => (
     <div
         className={cx(className, { start: !middle && !end, middle, end })}

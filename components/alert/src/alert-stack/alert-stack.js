@@ -3,15 +3,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { createPortal } from 'react-dom'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
-/**
- * @module
- * @param {AlertStack.PropTypes} props
- * @returns {React.Component}
- * @example import { AlertStack } from '@dhis2/ui-core'
- * @see Live demo: {@link /demo/?path=/story/alertstack--default|Storybook}
- */
 export const AlertStack = ({ className, children, dataTest }) => (
     <>
         {createPortal(

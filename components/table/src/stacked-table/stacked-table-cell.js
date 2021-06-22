@@ -3,13 +3,6 @@ import propTypes from 'prop-types'
 import React from 'react'
 import { ContentWithTitle } from './content-with-title.js'
 
-/**
- * @module
- * @param {StackedTableCell.PropTypes}
- * @returns {React.Component}
- * @example import { StackedTableCell } from @dhis2/ui-core
- * @see Live demo: {@link /demo/?path=/story/stackedtable--default|Storybook}
- */
 export const StackedTableCell = ({
     children,
     className,

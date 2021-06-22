@@ -5,18 +5,6 @@ import { usePopper } from 'react-popper'
 import { getReferenceElement } from './get-reference-element.js'
 import { deduplicateModifiers } from './modifiers.js'
 
-/**
- * @module
- * @param {Popper.PropTypes} props
- * @returns {React.Component}
- * @description A React wrapper around popper.js.
- *
- * @example import { Popper } from '@dhis2/ui-core'
- *
- * @see Live demo: {@link /demo/?path=/story/components-core-popper--top|Storybook}
- * @see Popper js: {@link https://popper.js.org/docs/v2/|Documentation}
- */
-
 const Popper = ({
     children,
     className,

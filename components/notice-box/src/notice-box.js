@@ -7,16 +7,6 @@ import { NoticeBoxIcon } from './notice-box-icon.js'
 import { NoticeBoxMessage } from './notice-box-message.js'
 import { NoticeBoxTitle } from './notice-box-title.js'
 
-/**
- * @module
- *
- * @param {NoticeBox.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { NoticeBox } from '@dhis2/ui-core'
- *
- * @see Live demo: {@link /demo/?path=/story/component-widget-noticebox--default|Storybook}
- */
 export const NoticeBox = ({
     className,
     children,

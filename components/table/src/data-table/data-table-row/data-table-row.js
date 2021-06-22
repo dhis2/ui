@@ -8,13 +8,6 @@ import { DragHandleCell } from './drag-handle-cell.js'
 import { ExpandHandleCell } from './expand-handle-cell.js'
 import { ExpandedRow } from './expanded-row.js'
 
-/**
- * @module
- * @param {DataTableRow.PropTypes} props
- * @returns {React.Component}
- * @example import { DataTableRow } from '@dhis2/ui'
- * @see Live demo: {@link /demo/?path=/story/datatable--default|Storybook}
- */
 export const DataTableRow = forwardRef(
     (
         {

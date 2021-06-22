@@ -2,13 +2,6 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
 
-/**
- * @module
- * @param {TableRow.PropTypes} props
- * @returns {React.Component}
- * @example import { TableRow } from '@dhis2/ui'
- * @see Live demo: {@link /demo/?path=/story/table--default|Storybook}
- */
 export const TableRow = forwardRef(
     (
         { children, className, dataTest, draggable, role, selected, ...props },

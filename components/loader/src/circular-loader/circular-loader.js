@@ -2,16 +2,7 @@ import { theme, spacers, sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
-/**
- * @module
- * @param {CircularLoader.PropTypes} props
- * @returns {React.Component}
- * @example import { CircularLoader } from @dhis2/ui-core
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/loading.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/circularloader--default|Storybook}
- */
 const CircularLoader = ({ small, large, className, dataTest }) => (
     <div
         role="progressbar"

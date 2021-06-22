@@ -4,13 +4,6 @@ import { extractHeaderLabels } from './extract-header-labels.js'
 import { Provider } from './table-context.js'
 import { Table } from './table.js'
 
-/**
- * @module
- * @param {StackedTable.PropTypes}
- * @returns {React.Component}
- * @example import { StackedTable } from @dhis2/ui-core
- * @see Live demo: {@link /demo/?path=/story/stackedtable--default|Storybook}
- */
 export const StackedTable = ({
     children,
     className,

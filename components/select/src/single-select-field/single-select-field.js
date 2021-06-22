@@ -14,17 +14,6 @@ const translate = (prop, interpolationObject) => {
 
     return prop
 }
-/**
- * @module
- *
- * @param {SingleSelectField.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { SingleSelectField } from '@dhis2/ui-widgets'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/select.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/singleselectfield--default|Storybook}
- */
 class SingleSelectField extends React.Component {
     render() {
         const {

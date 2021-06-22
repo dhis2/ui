@@ -2,17 +2,7 @@ import { Required } from '@dhis2-ui/required'
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
-/**
- * @module
- * @param {Legend.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { Legend } from '@dhis2/ui-core'
- *
- * @see Live demo: {@link /demo/?path=/story/legend--default|Storybook}
- */
 const Legend = ({ className, children, required, dataTest }) => (
     <legend className={className} data-test={dataTest}>
         {children}

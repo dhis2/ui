@@ -4,16 +4,6 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-/**
- * @module
- * @param {MenuSectionHeader.PropTypes}
- * @returns {React.Component}
- *
- * @example import { MenuSectionHeader } from '@dhis2/ui
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/menu.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/components-core-menusectionheader--default|Storybook}
- */
 const MenuSectionHeader = ({
     className,
     dataTest,

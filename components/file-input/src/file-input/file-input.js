@@ -3,7 +3,6 @@ import { theme, spacers, sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { createRef, Component } from 'react'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 function Valid({ className }) {
     return (
@@ -228,14 +227,6 @@ function Upload({ className }) {
 Upload.propTypes = {
     className: PropTypes.string,
 }
-
-/**
- * @module
- * @param {FileInput.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { FileInput } from '@dhis2/ui-core'
- */
 class FileInput extends Component {
     ref = createRef()
 

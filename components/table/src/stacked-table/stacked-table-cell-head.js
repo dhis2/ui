@@ -2,13 +2,6 @@ import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
 import React from 'react'
 
-/**
- * @module
- * @param {StackedTableCellHead.PropTypes}
- * @returns {React.Component}
- * @example import { StackedTableCellHead } from @dhis2/ui-core
- * @see Live demo: {@link /demo/?path=/story/stackedtable--default|Storybook}
- */
 export const StackedTableCellHead = ({
     children,
     className,

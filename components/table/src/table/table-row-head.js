@@ -1,15 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { TableRow } from './table-row.js'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
-/**
- * @module
- * @param {TableRowHead.PropTypes} props
- * @returns {React.Component}
- * @example import { TableRowHead } from '@dhis2/ui-core'
- * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
- */
 export const TableRowHead = ({
     role,
     children,

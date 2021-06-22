@@ -7,19 +7,7 @@ import styles, { ANIMATION_TIME } from './alert-bar.styles.js'
 import { Dismiss } from './dismiss.js'
 import { Icon, iconPropType } from './icon.js'
 import { Message } from './message.js'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
-/**
- * @module
- * @param {AlertBar.PropTypes} props
- *
- * @returns {React.Component}
- *
- * @example import { AlertBar } from @dhis2/ui-core
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/alertbar.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/alertbar--default|Storybook}
- */
 const AlertBar = ({
     actions,
     children,

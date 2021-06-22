@@ -14,14 +14,6 @@ const toCustomPropertyString = themeSection =>
         .map(([key, value]) => `--${key}: ${value};`)
         .join('\n')
 
-/**
- * @module
- * @description Injects our theme variables as CSS custom properties
- * @param {CssVariables.PropTypes} props
- * @returns {React.Component}
- * @example import { CssVariables } from @dhis2/ui-core
- * @see Live demo: {@link /demo/?path=/story/cssvariables--default|Storybook}
- */
 const CssVariables = ({ colors, theme, layers, spacers, elevations }) => {
     const allowedProps = { colors, theme, layers, spacers, elevations }
     const variables = Object.keys(allowedProps)

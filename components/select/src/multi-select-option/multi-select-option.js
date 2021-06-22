@@ -10,16 +10,6 @@ const { styles, className: checkboxClassname } = resolve`
     padding: ${spacers.dp8} ${spacers.dp12};
 `
 
-/**
- * @module
- *
- * @param {MultiSelectOption.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { MultiSelectOption } from '@dhis2/ui-core'
- *
- */
-
 const MultiSelectOption = ({
     label,
     active,

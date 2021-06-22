@@ -3,13 +3,6 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
 
-/**
- * @module
- * @param {TableToolbar.PropTypes} props
- * @returns {React.Component}
- * @example import { TableToolbar } from '@dhis2/ui'
- * @see Live demo: {@link /demo/?path=/story/table--toolbars|Storybook}
- */
 export const TableToolbar = forwardRef(
     ({ children, className, dataTest, position, ...props }, ref) => (
         <div

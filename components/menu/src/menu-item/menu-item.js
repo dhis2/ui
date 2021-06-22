@@ -26,16 +26,6 @@ const createOnClickHandler = ({
     onClick && onClick({ value }, evt)
     toggleSubMenu && toggleSubMenu()
 }
-/**
- * @module
- * @param {MenuItem.PropTypes}
- * @returns {React.Component}
- *
- * @example import { MenuItem } from '@dhis2/ui
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/menu.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/components-core-menulist--default|Storybook}
- */
 const MenuItem = ({
     href,
     onClick,

@@ -61,13 +61,6 @@ const arrow = resolve`
     margin-left: ${spacers.dp12};
 `
 
-/**
- * @module
- * @param {DropdownButton.PropTypes} props
- * @returns {React.Component}
- * @example import { DropdownButton } from @dhis2/ui-core
- * @see Live demo: {@link /demo/?path=/story/dropdownbutton-basic--default|Storybook}
- */
 class DropdownButton extends Component {
     state = {
         open: false,

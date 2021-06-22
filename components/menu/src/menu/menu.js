@@ -1,16 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Children, cloneElement, isValidElement } from 'react'
 
-/**
- * @module
- * @param {Menu.PropTypes}
- * @returns {React.Component}
- *
- * @example import { Menu } from '@dhis2/ui-core'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/menu.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/components-core-menulist--default|Storybook}
- */
 const Menu = ({ children, className, dataTest, dense }) => (
     <ul className={className} data-test={dataTest}>
         {Children.map(children, (child, index) =>

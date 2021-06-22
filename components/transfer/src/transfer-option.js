@@ -5,15 +5,6 @@ import React, { useRef } from 'react'
 
 const DOUBLE_CLICK_MAX_DELAY = 500
 
-/**
- * @module
- * @param {TransferOption.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { TransferOption } from '@dhis2/ui-core'
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/organisms/transfer.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/transfer--basic|Storybook}
- */
 export const TransferOption = ({
     className,
     disabled,

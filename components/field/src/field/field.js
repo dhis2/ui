@@ -5,15 +5,6 @@ import { sharedPropTypes, spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-/**
- * @module
- * @param {Field.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { Field } from '@dhis2/ui'
- *
- * @example import { Field } from '@dhis2/ui-core'
- */
 const Field = ({
     children,
     disabled,

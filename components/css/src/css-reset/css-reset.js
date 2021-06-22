@@ -1,16 +1,6 @@
 import { theme } from '@dhis2/ui-constants'
 import React from 'react'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
-/**
- * @module
- * @desc Normalize CSS
- * - https://github.com/necolas/normalize.css
- * - https://www.paulirish.com/2012/box-sizing-border-box-ftw/
- * @returns {React.Component}
- * @example import { CssReset } from @dhis2/ui-core
- * @see Live demo: {@link /demo/?path=/story/cssreset--default|Storybook}
- */
 const CssReset = () => (
     <style jsx global>{`
         html {

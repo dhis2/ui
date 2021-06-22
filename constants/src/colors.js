@@ -1,7 +1,3 @@
-/**
- * @module constants/colors
- * @desc DHIS2 color values
- */
 export const colors = {
     /*blue*/
     blue900: '#093371',

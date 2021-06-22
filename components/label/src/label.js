@@ -23,13 +23,6 @@ const constructClassName = ({ disabled, className }) =>
         disabled: disabled,
     })
 
-/**
- * @module
- * @param {Label.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { Label } from '@dhis2/ui-core'
- */
 export const Label = ({
     htmlFor,
     children,

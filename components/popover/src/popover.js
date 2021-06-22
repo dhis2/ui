@@ -6,17 +6,6 @@ import React, { useState, useMemo } from 'react'
 import { Arrow } from './arrow.js'
 import { combineModifiers } from './modifiers.js'
 
-/**
- * @module
- * @param {Popover.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { Popover } from '@dhis2/ui-core'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/popover.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/components-core-popover--default|Storybook}
- */
-
 const Popover = ({
     children,
     reference,

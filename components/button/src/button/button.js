@@ -4,16 +4,6 @@ import PropTypes from 'prop-types'
 import React, { useEffect, useRef } from 'react'
 import styles from './button.styles.js'
 
-/**
- * @module
- * @param {Button.PropTypes} props
- *
- * @returns {React.Component}
- *
- * @example import { Button } from @dhis2/ui-core
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/button.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/button-basic--default|Storybook}
- */
 export const Button = ({
     children,
     className,

@@ -11,7 +11,6 @@ import { Loading as CommonLoading, Select } from '../select/index.js'
 import { FilterableMenu } from './filterable-menu.js'
 import { Input } from './input.js'
 import { Menu } from './menu.js'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 const StatusIcon = ({ error, warning, valid, defaultTo }) => {
     if (error) {
@@ -41,16 +40,6 @@ StatusIcon.propTypes = {
     warning: PropTypes.bool,
 }
 
-/**
- * @module
- *
- * @param {SingleSelect.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { SingleSelect } from '@dhis2/ui-core'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/select.md|Design system}
- */
 const SingleSelect = ({
     className,
     selected,

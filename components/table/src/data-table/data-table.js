@@ -3,14 +3,6 @@ import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
 import { Table, TableScrollBox } from './table-elements/index.js'
 
-/**
- * @module
- * @param {DataTable.PropTypes} props
- * @returns {React.Component}
- * @example import { DataTable } from '@dhis2/ui'
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/organisms/data-datatable.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/datatable--default|Storybook}
- */
 export const DataTable = forwardRef(
     (
         {

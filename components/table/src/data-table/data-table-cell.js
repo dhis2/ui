@@ -3,13 +3,6 @@ import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
 import { TableDataCell, TableHeaderCell } from './table-elements/index.js'
 
-/**
- * @module
- * @param {DataTableCell.PropTypes} props
- * @returns {React.Component}
- * @example import { DataTableCell } from '@dhis2/ui'
- * @see Live demo: {@link /demo/?path=/story/datatable--default|Storybook}
- */
 export const DataTableCell = forwardRef(
     (
         {

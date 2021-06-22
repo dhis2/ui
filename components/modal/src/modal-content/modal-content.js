@@ -1,14 +1,7 @@
 import propTypes from '@dhis2/prop-types'
 import { spacers } from '@dhis2/ui-constants'
 import React from 'react'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
-/**
- * @module
- *
- * @param {ModalContent.PropTypes} props
- * @returns {React.Component}
- */
 export const ModalContent = ({ children, className, dataTest }) => (
     <div className={className} data-test={dataTest}>
         {children}

@@ -2,16 +2,7 @@ import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
-/**
- * @module
- * @param {Card.PropTypes} props
- * @returns {React.Component}
- * @example import { Card } from '@dhis2/ui-core'
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/card.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/card--default|Storybook}
- */
 const Card = ({ className, children, dataTest }) => (
     <div className={cx(className)} data-test={dataTest}>
         {children}

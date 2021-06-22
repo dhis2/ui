@@ -6,13 +6,6 @@ import styles from './table-header-cell.styles.js'
 
 const AUTO = 'auto'
 
-/**
- * @module
- * @param {TableHeaderCell.PropTypes} props
- * @returns {React.Component}
- * @example import { TableHeaderCell } from '@dhis2/ui'
- * @see Live demo: {@link /demo/?path=/story/table--default|Storybook}
- */
 export const TableHeaderCell = forwardRef(
     (
         {

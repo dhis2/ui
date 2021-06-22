@@ -1,15 +1,7 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
-/**
- * @module
- * @param {Center.PropTypes} props
- * @returns {React.Component}
- * @example import { CenteredContent } from @dhis2/ui-core
- * @see Live demo: {@link /demo/?path=/story/component-widget-centeredcontent--default|Storybook}
- */
 export const Center = forwardRef(
     ({ className, dataTest, children, position }, ref) => (
         <div

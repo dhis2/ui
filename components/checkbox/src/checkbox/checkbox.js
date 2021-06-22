@@ -4,19 +4,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component, createRef } from 'react'
 import { CheckboxRegular, CheckboxDense } from './checkbox-icon.js'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
-/**
- * @module
- *
- * @param {Checkbox.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { Checkbox } from '@dhis2/ui-core'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/checkbox.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/checkbox--default|Storybook}
- */
 class Checkbox extends Component {
     ref = createRef()
 

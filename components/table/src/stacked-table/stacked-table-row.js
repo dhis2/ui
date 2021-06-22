@@ -5,13 +5,6 @@ import { addColNumToChildren } from './add-col-num-to-children.js'
 import { supplyHeaderLabelsToChildren } from './supply-header-labels-to-children.js'
 import { Consumer } from './table-context.js'
 
-/**
- * @module
- * @param {StackedTableRow.PropTypes}
- * @returns {React.Component}
- * @example import { StackedTableRow } from @dhis2/ui-core
- * @see Live demo: {@link /demo/?path=/story/stackedtable--default|Storybook}
- */
 export const StackedTableRow = ({ children, className, dataTest }) => (
     <tr className={className} data-test={dataTest}>
         <Consumer>

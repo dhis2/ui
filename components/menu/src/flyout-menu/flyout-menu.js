@@ -4,18 +4,7 @@ import PropTypes from 'prop-types'
 import React, { Children, cloneElement, isValidElement, useState } from 'react'
 import { resolve } from 'styled-jsx/css'
 import { Menu } from '../index.js'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
-/**
- * @module
- * @param {FlyoutMenu.PropTypes}
- * @returns {React.Component}
- *
- * @example import { FlyoutMenu } from '@dhis2/ui'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/menu.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/components-core-menu--default|Storybook}
- */
 const FlyoutMenu = ({
     children,
     className,

@@ -5,16 +5,6 @@ import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-/**
- * @module
- * @param {InputField.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { InputField } from '@dhis2/ui-widgets'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/inputfield.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/inputfield--no-placeholder-no-value|Storybook}
- */
 class InputField extends React.Component {
     render() {
         const {

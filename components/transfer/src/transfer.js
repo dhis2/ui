@@ -34,35 +34,6 @@ import {
 
 const identity = value => value
 
-/**
- * @module
- * @param {Transfer.PropTypes} props
- *
- * @returns {React.Component}
- *
- * @example import { Transfer } from @dhis2/ui-core
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/organisms/transfer.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/transfer--basic|Storybook}
- *
- * This component has to differentiate between different types of options,
- * here's an explanation of their meaning:
- *
- * * source options -> These are options listed on the left and are available
- * for selection
- *
- * * picked options -> These options have been selected by the user and are on
- * the right side
- *
- * * highlighted option -> These are visually highlighted options than can be
- * on either side and are ready for transferral with the action buttons to the
- * other side
- *
- * * filtered options -> These are the displayed source options filtered
- * by a search term or a custom search algorithm.
- *
- * The api surface uses "selected" for "picked" to be consistent with the
- * rest of the library
- */
 export const Transfer = ({
     options,
     onChange,

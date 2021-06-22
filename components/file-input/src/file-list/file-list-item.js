@@ -2,7 +2,6 @@ import propTypes from '@dhis2/prop-types'
 import { theme, colors, spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React from 'react'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 function Loading({ className }) {
     return (
@@ -88,16 +87,6 @@ function AttachFile({ className }) {
 AttachFile.propTypes = {
     className: propTypes.string,
 }
-/**
- * @module
- * @param {FileListItem.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { FileListItem } from '@dhis2/ui-core'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/fileinput.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/fileinputfield--file-list|Storybook}
- */
 const FileListItem = ({
     className,
     label,

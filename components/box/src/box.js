@@ -1,12 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-/**
- * @module
- *
- * @param {Box.PropTypes} props
- * @returns {React.Component}
- */
 export const Box = ({
     overflow,
     height,
