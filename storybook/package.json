@@ -1,0 +1,51 @@
+{
+    "name": "ui-storybook",
+    "version": "6.10.0-alpha.5",
+    "description": "UI Storybook",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dhis2/ui.git",
+        "directory": "storybook"
+    },
+    "homepage": "https://github.com/dhis2/ui#readme",
+    "license": "BSD-3-Clause",
+    "private": true,
+    "scripts": {
+        "start": "EXTEND_ESLINT=true start-storybook -c config --port 5000 --quiet --ci -s static",
+        "build": "EXTEND_ESLINT=true build-storybook -c config -o ../dist/demo --quiet -s static"
+    },
+    "peerDependencies": {
+        "react": "^16.8",
+        "react-dom": "^16.8",
+        "styled-jsx": "^3.2"
+    },
+    "dependencies": {
+        "@babel/plugin-proposal-class-properties": "^7.13.0",
+        "@babel/plugin-proposal-private-methods": "^7.13.0",
+        "@babel/plugin-proposal-private-property-in-object": "^7.14.0",
+        "@dhis2-ui/css": "6.10.0-alpha.5",
+        "@dhis2/ui-constants": "6.10.0-alpha.5",
+        "@fontsource/roboto": "^4.4.5",
+        "@storybook/addon-a11y": "^6.2.9",
+        "@storybook/addon-console": "^1.2.3",
+        "@storybook/addon-docs": "^6.2.9",
+        "@storybook/addon-essentials": "^6.2.9",
+        "@storybook/addon-storysource": "^6.2.9",
+        "@storybook/addons": "^6.2.9",
+        "@storybook/channels": "^6.2.9",
+        "@storybook/components": "^6.2.9",
+        "@storybook/core-events": "^6.2.9",
+        "@storybook/node-logger": "^6.2.9",
+        "@storybook/preset-create-react-app": "^3.1.7",
+        "@storybook/react": "^6.2.9",
+        "@storybook/theming": "^6.2.9",
+        "@wertarbyte/react-props-md-table": "^1.1.1",
+        "react-docgen": "^5.3.0",
+        "storybook-addon-jsx": "^7.3.9"
+    },
+    "devDependencies": {
+        "react": "16.13",
+        "react-dom": "16.13",
+        "styled-jsx": "^3.4.4"
+    }
+}

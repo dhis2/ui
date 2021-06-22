@@ -44,4 +44,6 @@ storybook/storybook-static
 # So we generate the react components in the src
 # folder, but since they're build artefacts, we
 # don't want them in version control.
-packages/icons/src/react/
+icons/src/react/
+
+.eslintcache
