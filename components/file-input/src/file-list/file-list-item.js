@@ -180,19 +180,6 @@ FileListItem.defaultProps = {
     dataTest: 'dhis2-uicore-filelistitem',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {string} [label]
- * @prop {function} onRemove
- * @prop {string} [removeText]
- * @prop {string} [className]
- * @prop {boolean} [loading]
- * @prop {function} [onCancel]
- * @prop {string} [cancelText]
- * @prop {string} [dataTest]
- */
 FileListItem.propTypes = {
     onRemove: propTypes.func.isRequired,
     cancelText: propTypes.string,

@@ -90,19 +90,6 @@ Popover.defaultProps = {
     maxWidth: 360,
     placement: 'top',
 }
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {React.Ref} reference A React ref that refers to the element the Popover should position against
- * @prop {Node} children
- * @prop {boolean} [arrow=true] Show or hide the arrow
- * @prop {string} [className]
- * @prop {string} [dataTest=dhis2-uicore-popover]
- * @prop {number} [maxWidth=360]
- * @prop {('auto'|'auto-start'|'auto-end'|'top'|'top-start'|'top-end'|'bottom'|'bottom-start'|'bottom-end'|'right'|'right-start'|'right-end'|'left'|'left-start'|'left-end')} [placement=top]
- * @prop {function} [onClickOutside]
- */
 Popover.propTypes = {
     children: PropTypes.node.isRequired,
     /** Show or hide the arrow */

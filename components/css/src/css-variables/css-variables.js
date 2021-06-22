@@ -51,15 +51,6 @@ CssVariables.defaultProps = {
     elevations: false,
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {boolean} [colors]
- * @prop {boolean} [theme]
- * @prop {boolean} [layers]
- * @prop {boolean} [spacers]
- * @prop {boolean} [elevations]
- */
 CssVariables.propTypes = {
     colors: PropTypes.bool,
     elevations: PropTypes.bool,

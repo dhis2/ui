@@ -226,37 +226,6 @@ TextArea.defaultProps = {
     dataTest: 'dhis2-uicore-textarea',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {string} name
- * @prop {function} [onChange] - called with the signature `object, event`
- * @prop {function} [onBlur]
- * @prop {function} [onFocus]
- * @prop {string} [className]
- * @prop {string} [placeholder]
- * @prop {string} [value]
- * @prop {string} [tabIndex]
- *
- * @prop {boolean} [disabled]
- * @prop {boolean} [dense] - Compact mode
- * @prop {boolean} [initialFocus]
- *
- * @prop {boolean} [valid] - `valid`, `warning`, `error`, and `loading`
- * are mutually exclusive
- * @prop {boolean} [warning]
- * @prop {boolean} [error]
- * @prop {boolean} [loading]
- *
- * @prop {boolean} [autoGrow]
- * @prop {boolean} [readOnly]
- * @prop {string} [resize=vertical] - resize attribute on the textarea,
- * one of `none`, `both`, `horizontal`, `vertical`
- * @prop {number} [rows=4]
- * @prop {string} [width]
- * @prop {string} [dataTest]
- */
 TextArea.propTypes = {
     /** Grow the text area in response to overflow instead of adding a scroll bar */
     autoGrow: PropTypes.bool,

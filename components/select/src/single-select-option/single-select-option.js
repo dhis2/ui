@@ -72,18 +72,6 @@ SingleSelectOption.defaultProps = {
     dataTest: 'dhis2-uicore-singleselectoption',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {string} value
- * @prop {string} label
- * @prop {string} [className]
- * @prop {function} [onClick]
- * @prop {boolean} [active]
- * @prop {boolean} [disabled]
- * @prop {string} [dataTest]
- */
 SingleSelectOption.propTypes = {
     label: propTypes.string.isRequired,
     value: propTypes.string.isRequired,

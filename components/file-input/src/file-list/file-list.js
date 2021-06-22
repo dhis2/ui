@@ -26,14 +26,6 @@ FileList.defaultProps = {
     dataTest: 'dhis2-uicore-filelist',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {string} [className]
- * @prop {FileListPlaceholder|FileListItem|Array.<FileListItem>} [children]
- * @prop {string} [dataTest]
- */
 FileList.propTypes = {
     children: propTypes.node,
     className: propTypes.string,

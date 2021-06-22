@@ -33,14 +33,6 @@ Legend.defaultProps = {
     dataTest: 'dhis2-uicore-legend',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {Node} [children]
- * @prop {string} [className]
- * @prop {boolean} [required]
- * @prop {string} [dataTest]
- */
 Legend.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

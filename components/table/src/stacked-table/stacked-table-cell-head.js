@@ -37,16 +37,6 @@ export const StackedTableCellHead = ({
     </th>
 )
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {string} [children]
- * Can be left empty to hide titles for all columns
- * @prop {string} [className]
- * @prop {string} [colSpan]
- * @prop {string} [dataTest]
- * @prop {string} [rowSpan]
- */
 StackedTableCellHead.propTypes = {
     children: propTypes.string,
     className: propTypes.string,

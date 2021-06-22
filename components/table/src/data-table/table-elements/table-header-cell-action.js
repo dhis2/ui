@@ -52,16 +52,6 @@ TableHeaderCellAction.defaultProps = {
     dataTest: 'dhis2-uicore-tableheadercellaction',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {node} [children]
- * @prop {string} [className]
- * @prop {string} [dataTest=dhis2-uicore-tableheadercellaction]
- * @prop {string} [title]
- * @prop {function} [onClick]
- */
 TableHeaderCellAction.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

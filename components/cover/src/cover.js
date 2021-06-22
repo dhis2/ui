@@ -45,15 +45,6 @@ Cover.defaultProps = {
     dataTest: 'dhis2-uicore-componentcover',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {string} [className]
- * @prop {Node} [children]
- * @prop {string} [dataTest=dhis2-uicore-componentcover]
- * @prop {boolean} [translucent] - When true a semi-transparent background is added
- * @prop {function} [onClick]
- */
 Cover.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

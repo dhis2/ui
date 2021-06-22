@@ -31,14 +31,6 @@ TableRowHead.defaultProps = {
     dataTest: 'dhis2-uicore-tablerowhead',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {TableCellHead|Array.<TableCellHead>} [children]
- * @prop {string} [className]
- * @prop {string} [role]
- * @prop {string} [dataTest]
- */
 TableRowHead.propTypes = {
     /** Should be `<TableCellHead>` components */
     children: PropTypes.node,

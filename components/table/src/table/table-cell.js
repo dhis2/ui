@@ -51,17 +51,6 @@ TableCell.defaultProps = {
     dataTest: 'dhis2-uicore-tablecell',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {string} [colSpan]
- * @prop {string} [rowSpan]
- * @prop {bool} [dense]
- * @prop {Node} [children]
- * @prop {string} [className]
- * @prop {string} [role]
- * @prop {string} [dataTest]
- */
 TableCell.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

@@ -29,12 +29,6 @@ ModalTitle.defaultProps = {
     dataTest: 'dhis2-uicore-modaltitle',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {string} [children]
- * @prop {string} [dataTest]
- */
 ModalTitle.propTypes = {
     children: propTypes.string,
     dataTest: propTypes.string,

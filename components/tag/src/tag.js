@@ -108,21 +108,6 @@ Tag.defaultProps = {
     maxWidth: '240px',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {boolean} [bold]
- * @prop {Node} [children]
- * @prop {string} [className]
- * @prop {string} [dataTest]
- * @prop {Node} [icon]
- * @prop {boolean} [neutral] - `neutral`, `positive`, and
- * `negative` are mutually exclusive boolean props
- * @prop {boolean} [positive]
- * @prop {boolean} [negative]
- */
-
 Tag.propTypes = {
     /** Use bold tags where it is important that the tag is seen by the user in an information dense interface. Bold tags should be reserved for edge cases and not overused. */
     bold: PropTypes.bool,

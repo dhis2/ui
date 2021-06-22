@@ -44,13 +44,6 @@ AlertStack.defaultProps = {
     dataTest: 'dhis2-uicore-alertstack',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {string} [className]
- * @prop {Array.<AlertBar>} [children]
- * @prop {string} [dataTest]
- */
 AlertStack.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

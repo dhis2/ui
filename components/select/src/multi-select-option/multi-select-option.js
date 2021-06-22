@@ -63,19 +63,6 @@ MultiSelectOption.defaultProps = {
     dataTest: 'dhis2-uicore-multiselectoption',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {string} value
- * @prop {string} label
- * @prop {function} [onChange]
- * @prop {string} [className]
- * @prop {function} [onClick]
- * @prop {boolean} [active]
- * @prop {boolean} [disabled]
- * @prop {string} [dataTest]
- */
 MultiSelectOption.propTypes = {
     label: propTypes.string.isRequired,
     value: propTypes.string.isRequired,

@@ -31,16 +31,6 @@ export const StackedTable = ({
     )
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {Node} [children]
- * @prop {string} [className]
- * @prop {string} [dataTest]
- * @prop {string[]} [headerLabels]
- * If a specific column should not have a header,
- * an empty string must be provided
- */
 StackedTable.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

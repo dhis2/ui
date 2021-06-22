@@ -41,22 +41,6 @@ Box.defaultProps = {
     dataTest: 'dhis2-uicore-box',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {node} [children]
- * @prop {string} [className]
- * @prop {string} [dataTest=dhis2-uicore-box]
- * @prop {string} [height]
- * @prop {string} [marginTop]
- * @prop {string} [maxHeight]
- * @prop {string} [maxWidth]
- * @prop {string} [minHeight]
- * @prop {string} [minWidth]
- * @prop {string} [overflow]
- * @prop {string} [width]
- */
 Box.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

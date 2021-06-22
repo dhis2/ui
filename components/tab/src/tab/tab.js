@@ -137,17 +137,6 @@ Tab.defaultProps = {
     dataTest: 'dhis2-uicore-tab',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {Element} [icon]
- * @prop {function} [onClick]
- * @prop {boolean} [selected]
- * @prop {boolean} [disabled]
- * @prop {Node} [children]
- * @prop {string} [className]
- * @prop {string} [dataTest]
- */
 Tab.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

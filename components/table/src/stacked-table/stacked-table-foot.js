@@ -20,14 +20,6 @@ export const StackedTableFoot = ({ children, className, dataTest }) => (
     </tfoot>
 )
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {string} [children]
- * Has to be instance of StackedTableRow
- * @prop {string} [className]
- * @prop {string} [dataTest]
- */
 StackedTableFoot.propTypes = {
     children: propTypes.node,
     className: propTypes.string,

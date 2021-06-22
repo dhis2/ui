@@ -92,42 +92,6 @@ InputField.defaultProps = {
     dataTest: 'dhis2-uiwidgets-inputfield',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {string} name
- * @prop {string} [type=text]
- * @prop {function} [onChange]
- * @prop {function} [onBlur]
- * @prop {function} [onFocus]
- * @prop {string} [label]
- * @prop {string} [className]
- * @prop {string} [placeholder]
- * @prop {string} [value]
- * @prop {string} [tabIndex]
- * @prop {string} [inputWidth]
- *
- * @prop {string} [max] The native `max` attribute
- * @prop {string} [min] The native `min` attribute
- * @prop {string} [step] The native `step` attribute
- *
- * @prop {boolean} [required]
- * @prop {boolean} [disabled]
- * @prop {boolean} [readOnly]
- * @prop {boolean} [dense] - Compact mode
- * @prop {boolean} [initialFocus]
- *
- * @prop {boolean} [valid] - `valid`, `warning`, `error`, and `loading`
- * are mutually exclusive
- * @prop {boolean} [warning]
- * @prop {boolean} [error]
- * @prop {boolean} [loading]
- *
- * @prop {string} [validationText]
- * @prop {string} [helpText]
- * @prop {string} [dataTest]
- */
 InputField.propTypes = {
     className: PropTypes.string,
     dataTest: PropTypes.string,

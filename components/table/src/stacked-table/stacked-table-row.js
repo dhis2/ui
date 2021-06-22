@@ -46,14 +46,6 @@ export const StackedTableRow = ({ children, className, dataTest }) => (
     </tr>
 )
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {Node} [children]
- * Has to be instance of StackedTableCell or StackedTableCellHead
- * @prop {string} [className]
- * @prop {string} [dataTest]
- */
 StackedTableRow.propTypes = {
     children: propTypes.node,
     className: propTypes.string,

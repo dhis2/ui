@@ -63,22 +63,6 @@ DataTable.defaultProps = {
     layout: 'auto',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {DataTableHead|DataTableBody|DataTableFoot|Array.<DataTableHead|DataTableBody|DataTableFoot>} [children]
- * Should be `<DataTableHead>`, `<DataTableBody>`, and `<DataTableFoot>` components
- * @prop {string} [className]
- * @prop {string} [dataTest=dhis2-uicore-datatable]
- * @prop {(auto|fixed)} [layout=auto] Sets the `datatable-layout` property. Switching to `fixed` can prevent
- *  style issues when dealing with a datatable with multiple frozen columns or when dealing with filter
- *  elements in the datatable headers.
- * @prop {string} [scrollHeight] Sets max-height of scrollbox
- * @prop {string} [scrollWidth] Sets max-width of scrollbox
- * @prop {string} [role]
- * @prop {string} [width=100%] Sets the `width` property. Providing an explicit width can prevent style
- *  issues when dealing with horizontally scrolling datatables with a fixed layout.
- */
 DataTable.propTypes = {
     /**
      * Should be `<DataTableHead>`, `<DataTableBody>`, and `<DataTableFoot>` components

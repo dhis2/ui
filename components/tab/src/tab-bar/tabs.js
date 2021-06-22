@@ -28,13 +28,6 @@ const Tabs = ({ children, fixed, dataTest }) => (
     </div>
 )
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {Node} children
- * @prop {boolean} [fixed]
- * @prop {string} [dataTest]
- */
 Tabs.propTypes = {
     dataTest: propTypes.string.isRequired,
     children: propTypes.node,

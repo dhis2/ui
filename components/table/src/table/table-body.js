@@ -18,14 +18,6 @@ TableBody.defaultProps = {
     dataTest: 'dhis2-uicore-tablebody',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {TableRow|Array.<TableRow>} [children]
- * @prop {string} [className]
- * @prop {string} [role]
- * @prop {string} [dataTest]
- */
 TableBody.propTypes = {
     /** Should be `<TableRow>` components */
     children: PropTypes.node,

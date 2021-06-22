@@ -160,26 +160,6 @@ AlertBar.defaultProps = {
     icon: true,
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {string} [children] - The message string for the alert
- * @prop {string} [className]
- * @prop {boolean} [success] - `success`, `warning`, and `critical` are
- * mutually exclusive props.
- * @prop {boolean} [warning] - `AlertBar`s with `warning` will not autohide
- * @prop {boolean} [critical] - `AlertBar`s with `critical` will not autohide
- *
- * @prop {(Element|boolean)} [icon=true]
- *
- * @prop {number} [duration]
- * @prop {bool} [hidden]
- * @prop {boolean} [permanent]
- * @prop {Array} [actions] An array of 0-2 action objects with the shape: `{ label: {string}, onClick: {function} }`
- * @prop {function} [onHidden]
- * @prop {string} [dataTest]
- */
 AlertBar.propTypes = {
     /** An array of 0-2 action objects */
     actions: actionsPropType,

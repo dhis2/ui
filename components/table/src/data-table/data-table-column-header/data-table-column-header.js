@@ -96,29 +96,6 @@ DataTableColumnHeader.defaultProps = {
     dataTest: 'dhis2-uicore-datatablecellhead',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {left|center|right} [align=left]
- * @prop {node} [children]
- * @prop {string} [className]
- * @prop {string} [colSpan]
- * @prop {string} [dataTest=dhis2-uicore-datatablecellhead]
- * @prop {node} [filter] The filter element (JSX), required when onFilterIconClick or showFilter are present
- * @prop {boolean} [fixed]
- * @prop {boolean} [large]
- * @prop {string} [left] Left or top required when fixed
- * @prop {string} [name] Can be used to match a column with a property name
- * @prop {string} [role]
- * @prop {string} [rowSpan]
- * @prop {string} [scope]
- * @prop {boolean} [showFilter]
- * @prop {'asc'|'desc'|null} [sortDirection]
- * @prop {string} [top] Left or top required when fixed
- * @prop {string} [width]
- * @prop {function} [onFilterIconClick]
- * @prop {function} [onSortIconClick] Sort icon click callback with `nextSortDirection` and `name` in payload
- */
 DataTableColumnHeader.propTypes = {
     align: PropTypes.oneOf(['left', 'center', 'right']),
     children: PropTypes.node,

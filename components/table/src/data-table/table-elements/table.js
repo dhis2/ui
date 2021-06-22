@@ -58,21 +58,6 @@ Table.defaultProps = {
     layout: 'auto',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {boolean} [borderless] Removes border from the table
- * @prop {TableHead|TableBody|TableFoot|Array.<TableHead|TableBody|TableFoot>} [children]
- * Should be `<TableHead>`, `<TableBody>`, and `<TableFoot>` components
- * @prop {string} [className]
- * @prop {string} [dataTest=dhis2-uicore-table]
- * @prop {(auto|fixed)} [layout=auto] Sets the `table-layout` property. Switching to `fixed` can prevent
- *  style issues when dealing with a table with multiple frozen columns or when dealing with filter
- *  elements in the table headers.
- * @prop {string} [role]
- * @prop {string} [width=100%] Sets the `width` property. Providing an explicit width can prevent style
- *  issues when dealing with horizontally scrolling tables with a fixed layout.
- */
 Table.propTypes = {
     /**
      * Removes border from the table

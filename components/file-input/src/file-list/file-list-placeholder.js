@@ -28,13 +28,6 @@ FileListPlaceholder.defaultProps = {
     dataTest: 'dhis2-uicore-filelistplaceholder',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {string} [children]
- * @prop {string} [dataTest]
- */
 FileListPlaceholder.propTypes = {
     children: propTypes.string,
     dataTest: propTypes.string,

@@ -67,28 +67,6 @@ Popper.defaultProps = {
     placement: 'auto',
 }
 
-/**
- * @typedef Modifier
- * @type {Object}
- * @property {string} name
- * @property {Object} options
- */
-
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {Node} children
- * @prop {React.Ref|Element|VirtualElement} reference A React ref, DOM node, or {@link https://popper.js.org/docs/v2/virtual-elements/|popper.js virtual element} for the Popper to position itself against.
- * @prop {string} [className]
- * @prop {string} [dataTest=dhis2-uicore-popper]
- * @prop {Array.<Modifier>} [modifiers=[]] A property of the `createPopper` options, {@link https://popper.js.org/docs/v2/constructors/|see constructor section of popper.js docs}
- * @prop {Boolean} observePopperResize Makes the popper update position when the popper content changes size
- * @prop {Boolean} observeReferenceResize Makes the popper update position when the reference element changes size
- * @prop {('absolute'|'fixed')} [strategy=absolute] A property of the `createPopper` options, {@link https://popper.js.org/docs/v2/constructors/|see constructor section of popper.js docs}
- * @prop {Function} [onFirstUpdate] A property of the `createPopper` options, {@link https://popper.js.org/docs/v2/constructors/|see constructor section of popper.js docs}
- * @prop {('auto'|'auto-start'|'auto-end'|'top'|'top-start'|'top-end'|'bottom'|'bottom-start'|'bottom-end'|'right'|'right-start'|'right-end'|'left'|'left-start'|'left-end')} [placement=top] A property of the `createPopper` options, {@link https://popper.js.org/docs/v2/constructors/|see constructor section of popper.js docs}
- */
 // Prop names follow the names here: https://popper.js.org/docs/v2/constructors/
 Popper.propTypes = {
     /** Content inside the Popper */

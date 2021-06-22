@@ -56,16 +56,6 @@ MenuSectionHeader.defaultProps = {
     dataTest: 'dhis2-uicore-menusectionheader',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {string} [className]
- * @prop {string} [dataTest='dhis2-uicore-menusectionheader']
- * @prop {boolean} [dense]
- * @prop {boolean} [hideDivider]
- * @prop {Node} [label]
- */
 MenuSectionHeader.propTypes = {
     className: PropTypes.string,
     dataTest: PropTypes.string,

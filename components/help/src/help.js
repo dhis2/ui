@@ -53,16 +53,6 @@ Help.defaultProps = {
     dataTest: 'dhis2-uicore-help',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {string} [children]
- * @prop {string} [className]
- * @prop {boolean} [valid] - `valid`, `warning`, and `error`, are mutually exclusive
- * @prop {boolean} [warning]
- * @prop {boolean} [error]
- * @prop {string} [dataTest]
- */
 Help.propTypes = {
     children: PropTypes.string,
     className: PropTypes.string,

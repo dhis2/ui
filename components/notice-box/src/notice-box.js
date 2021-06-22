@@ -68,16 +68,6 @@ NoticeBox.defaultProps = {
     dataTest: 'dhis2-uicore-noticebox',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {Node} [children]
- * @prop {className} [string]
- * @prop {title} [string]
- * @prop {string} [dataTest]
- * @prop {boolean} [warning] - `warning` and `error` are mutually exclusive boolean props
- * @prop {boolean} [error]
- */
 NoticeBox.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

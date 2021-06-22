@@ -51,17 +51,6 @@ ButtonStrip.defaultProps = {
     dataTest: 'dhis2-uicore-buttonstrip',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {string} [className]
- * @prop {Node} [children]
- * @prop {boolean} [middle] - The props `middle`, and `end` are
- * mutually exlusive
- * @prop {boolean} [end]
- * @prop {string} [dataTest]
- */
 ButtonStrip.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

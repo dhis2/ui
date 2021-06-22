@@ -25,13 +25,6 @@ FieldSet.defaultProps = {
     dataTest: 'dhis2-uicore-fieldset',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {Node} [children]
- * @prop {string} [className]
- * @prop {string} [dataTest]
- */
 FieldSet.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

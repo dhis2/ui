@@ -41,15 +41,6 @@ Table.defaultProps = {
     dataTest: 'dhis2-uicore-table',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {TableHead|TableBody|TableFoot|Array.<TableHead|TableBody|TableFoot>} [children]
- * @prop {string} [className]
- * @prop {string} [role]
- * @prop {string} [dataTest]
- * @prop {bool} [suppressZebraStriping]
- */
 Table.propTypes = {
     /** Should be `<TableHead>`, `<TableBody>`, and `<TableFoot>` components */
     children: PropTypes.node,

@@ -208,12 +208,6 @@ class ScrollBar extends Component {
     }
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {Node} children
- * @prop {string} [className]
- */
 ScrollBar.propTypes = {
     children: propTypes.node.isRequired,
     dataTest: propTypes.string.isRequired,

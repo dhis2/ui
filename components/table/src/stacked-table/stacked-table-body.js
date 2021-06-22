@@ -19,14 +19,6 @@ export const StackedTableBody = ({ children, className, dataTest }) => (
     </tbody>
 )
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {Node} [children]
- * Should only be StackedTableCell or StackedTableCellHead
- * @prop {string} [className]
- * @prop {string} [dataTest]
- */
 StackedTableBody.propTypes = {
     children: propTypes.node,
     className: propTypes.string,

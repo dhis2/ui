@@ -123,17 +123,6 @@ Modal.defaultProps = {
     position: 'top',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {Node} [children]
- * @prop {string} className
- * @prop {Function} onClose
- * @prop {bool} small
- * @prop {bool} large
- * @prop {string} [dataTest]
- */
 Modal.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

@@ -32,14 +32,6 @@ Divider.defaultProps = {
     margin: `${spacers.dp8} 0`,
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {string} [className]
- * @prop {string} [dataTest]
- * @prop {bool} [dense]
- * @prop {string} [margin="${spacers.dp8} 0"] - DEPRECATED: A CSS shorthand declaration for margin. If margin and dense are used at the same time, dense has precedence.
- */
 Divider.propTypes = {
     className: PropTypes.string,
     dataTest: PropTypes.string,

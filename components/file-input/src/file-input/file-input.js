@@ -345,32 +345,6 @@ FileInput.defaultProps = {
     dataTest: 'dhis2-uicore-fileinput',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {string} [name]
- * @prop {function} [onChange] - called with the signature `object, event`
- * @prop {function} [onFocus] - called with the signature `object, event`
- * @prop {function} [onBlur] - called with the signature `object, event`
- * @prop {string} [buttonLabel]
- * @prop {string} [className]
- * @prop {string} [tabIndex]
- *
- * @prop {boolean} [disabled]
- * @prop {boolean} [initialFocus]
- *
- * @prop {boolean} [valid] - `valid`, `warning` and `error` are mutually exclusive
- * @prop {boolean} [warning]
- * @prop {boolean} [error]
- *
- * @prop {boolean} [small] - `small` and `large` are mutually exclusive
- * @prop {boolean} [large]
- *
- * @prop {string} [accept=*] - the `accept` attribute of the [native file input]{@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept}
- * @prop {boolean} [multiple] - the `multiple` attribute of the [native file input]{@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple}
- * @prop {string} [dataTest]
- */
 FileInput.propTypes = {
     /**
      * The `accept` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept)

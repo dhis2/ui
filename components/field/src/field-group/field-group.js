@@ -46,24 +46,6 @@ FieldGroup.defaultProps = {
     dataTest: 'dhis2-uiwidgets-fieldsetfield',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @private
- *
- * @prop {Node} [children]
- * @prop {string} [className]
- * @prop {boolean} [disabled]
- * @prop {string} [helpText]
- * @prop {string} [label]
- * @prop {string} [name]
- * @prop {string} [validationText]
- * @prop {boolean} [required]
- * @prop {string} [dataTest]
- * @prop {boolean} [valid] - `valid`, `warning`, and `error`, are mutually exclusive
- * @prop {boolean} [warning]
- * @prop {boolean} [error]
- */
 FieldGroup.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

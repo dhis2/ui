@@ -188,33 +188,6 @@ Checkbox.defaultProps = {
     dataTest: 'dhis2-uicore-checkbox',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {string} value
- * @prop {Node} [label]
- * @prop {function} [onChange] - called with the signature `object, event`
- * @prop {string} [name]
- * @prop {string} [className]
- * @prop {string} [tabIndex]
- *
- * @prop {boolean} [disabled]
- * @prop {boolean} [checked]
- * @prop {boolean} [indeterminate]
- * @prop {boolean} [initialFocus]
- *
- * @prop {boolean} [valid] - `valid`, `warning`, and `error` are
- * mutually exclusive
- * @prop {boolean} [warning]
- * @prop {boolean} [error]
- *
- * @prop {boolean} [dense]
- *
- * @prop {function} [onFocus]
- * @prop {function} [onBlur]
- * @prop {string} [dataTest]
- */
-
 const uniqueOnStatePropType = mutuallyExclusive(
     ['checked', 'indeterminate'],
     PropTypes.bool

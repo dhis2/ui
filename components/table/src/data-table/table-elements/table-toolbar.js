@@ -45,14 +45,6 @@ TableToolbar.defaultProps = {
     position: 'top',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {node} [children]
- * @prop {string} [className]
- * @prop {string} [dataTest=dhis2-uicore-tabletoolbar]
- * @prop {(top|bottom)} [position=top]
- */
 TableToolbar.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

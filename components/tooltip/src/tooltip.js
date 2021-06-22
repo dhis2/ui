@@ -141,18 +141,6 @@ Tooltip.defaultProps = {
     tag: 'span',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {Node|function} [children]
- * @prop {string} [className]
- * @prop {number} [closeDelay=400] Time (in ms) until tooltip closes after mouse out
- * @prop {Node} [content]
- * @prop {string} [dataTest=dhis2-uicore-tooltip]
- * @prop {number} [maxWidth=300]
- * @prop {number} [openDelay=200] Time (in ms) until tooltip opens after mouse over
- * @prop {('top'|'bottom'|'right'|'left')} [placement=top]
- */
 Tooltip.propTypes = {
     /** If child is a function, it's called with `{ onMouseOver, onMouseOut, ref }` args to apply to a reference element. If child is a node, it is wrapped in a `span` with the appropriate attributes and handlers. */
     children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),

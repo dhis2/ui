@@ -40,16 +40,6 @@ TabBar.defaultProps = {
     dataTest: 'dhis2-uicore-tabbar',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {Tab|Array.<Tab>} [children]
- * @prop {string} [className]
- * @prop {boolean} [fixed]
- * @prop {boolean} [scrollable]
- * @prop {string} [dataTest]
- * @prop {string} [dataTest]
- */
 TabBar.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

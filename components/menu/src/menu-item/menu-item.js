@@ -113,27 +113,6 @@ MenuItem.defaultProps = {
     dataTest: 'dhis2-uicore-menuitem',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {boolean} [active]
- * @prop {boolean} [chevron]
- * @prop {Node} [children]
- * @prop {string} [className]
- * @prop {string} [dataTest='dhis2-uicore-menuitem']
- * @prop {boolean} [dense]
- * @prop {boolean} [destructive]
- * @prop {boolean} [disabled]
- * @prop {string} [href]
- * @prop {Node} [icon]
- * @prop {Node} [label]
- * @prop {boolean} [showSubMenu]
- * @prop {string} [target]
- * @prop {function} [toggleSubMenu]
- * @prop {string} [value]
- * @prop {function} [onClick] - Click handler called with `value` in the payload
- */
 MenuItem.propTypes = {
     active: PropTypes.bool,
     chevron: PropTypes.bool,

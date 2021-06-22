@@ -28,22 +28,6 @@ TableScrollBox.defaultProps = {
     maxWidth: 'auto',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {node} [children]
- * @prop {string} [className]
- * @prop {React.ref|function} [ref]
- * @prop {(asc|desc|default)} [sortDirection]
- * @prop {function} [onClick]
- *
- * @prop {node} [children]
- * @prop {string} [className]
- * @prop {string} [dataTest=dhis2-uicore-tablescrollbox]
- * @prop {string} [maxHeight=auto]
- * @prop {string} [maxWidth=auto]
- */
 TableScrollBox.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

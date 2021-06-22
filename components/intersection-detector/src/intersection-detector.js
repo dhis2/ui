@@ -89,17 +89,6 @@ IntersectionDetector.defaultProps = {
     dataTest: 'dhis2-uicore-intersectiondetector',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {Object} rootRef React ref on other component to detect intersections with
- * @prop {HTMLElement} [rootRef.current]
- * @prop {Function} onChange Called with signature `({ isIntersecting: bool })`
- * @prop {any} [children]
- * @prop {string} [className]
- * @prop {number} [threshold] The [threshold](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options) value: a value from 0.0 to 1.0 that controls the point at which an intersecting component is considered 'intersected' or 'visible' and the onChange callback triggers
- */
 IntersectionDetector.propTypes = {
     /** React ref on other component to detect intersections with */
     rootRef: PropTypes.shape({

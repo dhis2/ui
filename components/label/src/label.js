@@ -55,17 +55,6 @@ Label.defaultProps = {
     dataTest: 'dhis2-uicore-label',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {string} [htmlFor]
- * @prop {string} [children]
- * @prop {string} [className]
- * @prop {boolean} [required]
- * @prop {boolean} [disabled]
- * @prop {string} [dataTest]
- */
 Label.propTypes = {
     children: propTypes.string,
     className: propTypes.string,

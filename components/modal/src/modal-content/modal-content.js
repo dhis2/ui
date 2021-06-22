@@ -28,13 +28,6 @@ ModalContent.defaultProps = {
     dataTest: 'dhis2-uicore-modalcontent',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {Node} [children]
- * @prop {string} [className]
- * @prop {string} [dataTest]
- */
 ModalContent.propTypes = {
     children: propTypes.node,
     className: propTypes.string,

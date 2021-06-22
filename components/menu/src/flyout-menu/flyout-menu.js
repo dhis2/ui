@@ -73,17 +73,6 @@ FlyoutMenu.defaultProps = {
     maxHeight: 'auto',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {Element} [children]
- * @prop {string} [className]
- * @prop {string} [dataTest='dhis2-uicore-menu']
- * @prop {boolean} [dense]
- * @prop {string} [maxWidth='380px']
- * @prop {string} [maxHeight='auto']
- */
 FlyoutMenu.propTypes = {
     /** Typically, but not limited to, `MenuItem` components */
     children: PropTypes.node,

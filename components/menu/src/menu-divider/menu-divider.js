@@ -33,14 +33,6 @@ MenuDivider.defaultProps = {
     dataTest: 'dhis2-uicore-menudivider',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {string} [className]
- * @prop {string} [dataTest='dhis2-uicore-menudivider']
- * @prop {boolean} [dense]
- */
 MenuDivider.propTypes = {
     className: PropTypes.string,
     dataTest: PropTypes.string,

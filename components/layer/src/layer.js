@@ -97,16 +97,6 @@ Layer.defaultProps = {
     level: layers.applicationTop,
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {string} [className]
- * @prop {Node} [children]
- * @prop {string} [dataTest=dhis2-uicore-layer]
- * @prop {number} [level=layers.applicationTop]
- * @prop {boolean} [translucent] - When true a semi-transparent background is added
- * @prop {function} [onClick]
- */
 Layer.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

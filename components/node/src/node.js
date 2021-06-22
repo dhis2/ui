@@ -65,18 +65,6 @@ Node.defaultProps = {
     dataTest: 'dhis2-uicore-node',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {Element} [component]
- * @prop {className} [string]
- * @prop {Node} [children]
- * @prop {Node} [icon]
- * @prop {boolean} [open]
- * @prop {function} [onOpen]
- * @prop {funtion} [onClose]
- * @prop {string} [dataTest]
- */
 Node.propTypes = {
     /** Content below this level of the hierarchy; children are revealed when this leaf is 'open' */
     children: PropTypes.node,

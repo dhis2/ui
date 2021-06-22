@@ -82,20 +82,6 @@ TransferOption.defaultProps = {
     dataTest: 'dhis2-uicore-transferoption',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {string} label
- * @prop {string} value
- * @prop {Object} [additionalData]
- * @prop {string} [className]
- * @prop {string} [dataTest]
- * @prop {bool} [disabled]
- * @prop {bool} [highlighted]
- * @prop {Function} [onClick]
- * @prop {Function} [onDoubleClick]
- */
 TransferOption.propTypes = {
     label: propTypes.string.isRequired,
     value: propTypes.string.isRequired,

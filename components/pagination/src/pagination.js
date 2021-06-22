@@ -108,26 +108,6 @@ Pagination.defaultProps = {
     previousPageText: () => i18n.t('Previous'),
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {number} page
- * @prop {number} pageCount
- * @prop {number} pageSize
- * @prop {number} total
- * @prop {function} onPageChange
- * @prop {function} onPageSizeChange
- * @prop {string} [dataTest="dhis2-uiwidgets-pagination"]
- * @prop {bool} hidePageSelect
- * @prop {bool} hidePageSizeSelect
- * @prop {string|function} [nextPageText]
- * @prop {string|function} [pageSelectText]
- * @prop {string|function} [pageSizeSelectText]
- * @prop {Array.<string>} [pageSizes=['5', '10', '20', '30', '40', '50', '75', '100']]
- * @prop {string|function} [pageSummaryText]
- * @prop {string|function} [previousPageText]
- */
 Pagination.propTypes = {
     page: PropTypes.number.isRequired,
     pageCount: PropTypes.number.isRequired,

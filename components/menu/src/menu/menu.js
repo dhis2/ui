@@ -47,15 +47,6 @@ Menu.defaultProps = {
     dataTest: 'dhis2-uicore-menulist',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {Node} [children]
- * @prop {string} [className]
- * @prop {string} [dataTest='dhis2-uicore-menulist']
- * @prop {boolean} [dense]
- */
 Menu.propTypes = {
     /** Typically `MenuItem`, `MenuDivider`, and `MenuSectionHeader` */
     children: PropTypes.node,

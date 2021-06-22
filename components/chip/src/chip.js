@@ -108,21 +108,6 @@ Chip.defaultProps = {
     dataTest: 'dhis2-uicore-chip',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {*} [children]
- * @prop {string} [className]
- * @prop {Element} [icon]
- * @prop {function} [onClick]
- * @prop {function} [onRemove]
- * @prop {boolean} [selected]
- * @prop {boolean} [dense]
- * @prop {boolean} [disabled]
- * @prop {boolean} [dragging]
- * @prop {boolean} [overflow]
- * @prop {string} [dataTest]
- */
 Chip.propTypes = {
     children: PropTypes.any,
     className: PropTypes.string,

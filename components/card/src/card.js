@@ -37,14 +37,6 @@ Card.defaultProps = {
     dataTest: 'dhis2-uicore-card',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {string} [className]
- * @prop {Node} [children]
- * @prop {string} [dataTest]
- */
 Card.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

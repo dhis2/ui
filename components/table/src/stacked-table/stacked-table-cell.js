@@ -50,18 +50,6 @@ export const StackedTableCell = ({
     )
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {Node} [children]
- * @prop {string} [className]
- * @prop {string} [colSpan]
- * @prop {number} [column]
- * @prop {string} [dataTest]
- * @prop {boolean} [hideTitle]
- * @prop {boolean} [rowSpan]
- * @prop {string} [title]
- */
 StackedTableCell.propTypes = {
     children: propTypes.node,
     className: propTypes.string,

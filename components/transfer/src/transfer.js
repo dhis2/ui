@@ -415,39 +415,6 @@ Transfer.defaultProps = {
     filterCallbackPicked: defaultFilterCallback,
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {Function} onChange
- * @prop {string} [addAllText]
- * @prop {string} [addIndividualText]
- * @prop {Node} [children]
- * @prop {string} [className]
- * @prop {string} [dataTest]
- * @prop {Node} [sourceEmptyPlaceholder]
- * @prop {Node} [selectedEmptyComponent]
- * @prop {bool} [hideFilterInput] Automatically true when "hideFilterInput" is true
- * @prop {bool} [enableOrderChange]
- * @prop {string} [filterLabel]
- * @prop {string} [filterPlaceholder]
- * @prop {Function} [filterCallback]
- * @prop {string} [height]
- * @prop {bool} [hideFilterInput]
- * @prop {string} [initialSearchTerm]
- * @prop {Node} [leftFooter]
- * @prop {Node} [leftHeader]
- * @prop {1|Infinity} maxSelections
- * @prop {string} [optionsWidth]
- * @prop {string} [removeAllText]
- * @prop {string} [removeIndividualText]
- * @prop {Node} [rightHeader]
- * @prop {Node} [rightFooter]
- * @prop {string} [searchTerm]
- * @prop {string[]} selected
- * @prop {string} [selectedWidth]
- * @prop {Function} [onFilterChange]
- */
 Transfer.propTypes = {
     options: PropTypes.arrayOf(
         PropTypes.shape({

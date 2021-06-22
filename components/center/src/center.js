@@ -50,14 +50,6 @@ Center.defaultProps = {
     position: 'middle',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {string} [className]
- * @prop {Node} [children]
- * @prop {string} [dataTest=dhis2-uicore-centeredcontent]
- * @prop {string} [position=middle] One of `top`, `middle`, `bottom`
- */
 Center.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

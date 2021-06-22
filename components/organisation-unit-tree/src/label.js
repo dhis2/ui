@@ -446,24 +446,6 @@ const Label = ({
     )
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {string} id
- * @prop {string} path
- * @prop {string} displayName
- * @prop {bool} open
- * @prop {bool} loading
- * @prop {bool} hasChildren
- * @prop {Function} [onChange]
- * @prop {Function} [onToggleOpen]
- * @prop {bool} [checked]
- * @prop {bool} [highlighted]
- * @prop {bool} [disableSelection]
- * @prop {bool} [singleSelection]
- * @prop {bool} [hasSelectedDescendants]
- */
 Label.propTypes = {
     dataTest: propTypes.string.isRequired,
     displayName: propTypes.string.isRequired,

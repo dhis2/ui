@@ -92,14 +92,6 @@ CircularLoader.defaultProps = {
     dataTest: 'dhis2-uicore-circularloader',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {string} [className]
- * @prop {boolean} [small] - `small` and `large` are mutually exclusive.
- * @prop {boolean} [large]
- * @prop {string} [dataTest]
- */
 CircularLoader.propTypes = {
     className: PropTypes.string,
     dataTest: PropTypes.string,

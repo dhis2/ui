@@ -19,14 +19,6 @@ export const StackedTableHead = ({ children, className, dataTest }) => (
     </thead>
 )
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {string} [children]
- * Has to be instance of StackedTableRowHead
- * @prop {string} [className]
- * @prop {string} [dataTest]
- */
 StackedTableHead.propTypes = {
     children: propTypes.node,
     className: propTypes.string,

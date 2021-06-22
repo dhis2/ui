@@ -28,14 +28,6 @@ TableFoot.defaultProps = {
     dataTest: 'dhis2-uicore-tablefoot',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {TableRow|Array.<TableRow>} [children]
- * @prop {string} [className]
- * @prop {string} [dataTest=dhis2-uicore-tablefoot]
- * @prop {role} [dataTest=dhis2-uicore-tablefoot]
- */
 TableFoot.propTypes = {
     /** Should be `<TableRow>` components */
     children: PropTypes.node,

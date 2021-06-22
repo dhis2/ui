@@ -87,42 +87,6 @@ TextAreaField.defaultProps = {
     dataTest: 'dhis2-uiwidgets-textareafield',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {string} name
- * @prop {function} [onChange]
- * @prop {function} [onBlur]
- * @prop {function} [onFocus]
- * @prop {string} [label]
- * @prop {string} [className]
- * @prop {string} [placeholder]
- * @prop {string} [value]
- * @prop {string} [tabIndex]
- *
- * @prop {boolean} [required]
- * @prop {boolean} [disabled]
- * @prop {boolean} [dense] - Compact mode
- * @prop {boolean} [initialFocus]
- *
- * @prop {boolean} [valid] - `valid`, `warning`, `error`, and `loading`
- * are mutually exclusive
- * @prop {boolean} [warning]
- * @prop {boolean} [error]
- * @prop {boolean} [loading]
- *
- * @prop {string} [validationText]
- * @prop {string} [helpText]
- *
- * @prop {boolean} [autoGrow]
- * @prop {boolean} [readOnly]
- * @prop {string} [resize=vertical] - resize attribute on the textarea,
- * one of `none`, `both`, `horizontal`, `vertical`
- * @prop {number} [rows=4]
- * @prop {string} [inputWidth]
- * @prop {string} [dataTest]
- */
 TextAreaField.propTypes = {
     /** Grow the text area in response to overflow instead of adding a scroll bar */
     autoGrow: PropTypes.bool,

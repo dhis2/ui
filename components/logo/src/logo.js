@@ -14,13 +14,6 @@ import { LogoSvg } from './logo-svg'
  * @returns {React.Component}
  */
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {string} [className]
- * @prop {string} [dataTest]
- */
-
 /*
  * These are official colors for dhis2 logos.
  *
