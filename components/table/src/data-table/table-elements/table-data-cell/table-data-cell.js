@@ -4,13 +4,6 @@ import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
 import styles from './table-data-cell.styles.js'
 
-/**
- * @module
- * @param {TableDataCell.PropTypes} props
- * @returns {React.Component}
- * @example import { TableDataCell } from '@dhis2/ui'
- * @see Live demo: {@link /demo/?path=/story/table--default|Storybook}
- */
 export const TableDataCell = forwardRef(
     (
         {
@@ -82,28 +75,6 @@ const stylePropType = mutuallyExclusive(
     PropTypes.bool
 )
 
-/**
- * @typedef {Object} PropTypes
- * @staticStyle
- * @prop {boolean} [active] To toggle background color, for example for editing
- * @prop {left|center|right} [align=left]
- * @prop {boolean} [bordered]
- * @prop {node} [children]
- * @prop {string} [className]
- * @prop {string} [colSpan]
- * @prop {string} [dataTest=dhis2-uicore-tabledatacell]
- * @prop {boolean} [error] Mutually exclusive with muted and valid
- * @prop {boolean} [large]
- * @prop {string} [left=auto] Required when fixed
- * @prop {boolean} [muted] Mutually exclusive with error and valid
- * @prop {string} [role]
- * @prop {string} [rowSpan]
- * @prop {string} [scope]
- * @prop {string} [staticStyle] Surpress hover and active event styles
- * @prop {boolean} [valid] Mutually exclusive with error and muted
- * @prop {string} [width=auto]
- * @prop {function} [onClick]
- */
 TableDataCell.propTypes = {
     /** To toggle background color, for example for editing */
     active: PropTypes.bool,

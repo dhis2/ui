@@ -14,17 +14,6 @@ const rightButton = css.resolve`
     }
 `
 
-/**
- * @module
- *
- * @param {SplitButton.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { SplitButton } from '@dhis2/ui-core'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/button.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/splitbutton-basic--default|Storybook}
- */
 class SplitButton extends Component {
     state = {
         open: false,
@@ -150,29 +139,6 @@ SplitButton.defaultProps = {
     dataTest: 'dhis2-uicore-splitbutton',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {Element} [component]
- * @prop {string} [children]
- * @prop {string} [className]
- * @prop {string} [name]
- * @prop {string} [value]
- * @prop {string} [tabIndex]
- * @prop {function} [onClick]
- * @prop {Element} [icon]
- * @prop {boolean} [small] - `small` and `large` are mutually exclusive
- * @prop {boolean} [large]
- * @prop {string} [type] Type of button: `submit`, `reset`, or
- * `button`
- * @prop {boolean } [primary] - `primary`, `secondary`, and
- * `destructive` are mutually exclusive boolean props
- * @prop {boolean } [secondary]
- * @prop {boolean } [destructive]
- * @prop {boolean } [disabled]
- * @prop {boolean} [initialFocus] Grants the button the initial focus
- * @prop {string} [dataTest]
- */
 SplitButton.propTypes = {
     children: PropTypes.string,
     className: PropTypes.string,

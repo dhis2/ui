@@ -5,16 +5,6 @@ import { Leaves } from './leaves.js'
 import { Spacer } from './spacer.js'
 import { Toggle } from './toggle.js'
 
-/**
- * @module
- *
- * @param {Node.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { Node } from '@dhis2/ui-core'
- *
- * @see Live demo: {@link /demo/?path=/story/node--multiple-roots|Storybook}
- */
 export const Node = ({
     open,
     className,
@@ -65,18 +55,6 @@ Node.defaultProps = {
     dataTest: 'dhis2-uicore-node',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {Element} [component]
- * @prop {className} [string]
- * @prop {Node} [children]
- * @prop {Node} [icon]
- * @prop {boolean} [open]
- * @prop {function} [onOpen]
- * @prop {funtion} [onClose]
- * @prop {string} [dataTest]
- */
 Node.propTypes = {
     /** Content below this level of the hierarchy; children are revealed when this leaf is 'open' */
     children: PropTypes.node,

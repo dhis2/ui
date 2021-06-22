@@ -18,13 +18,6 @@ const tableCellStyles = css`
     }
 `
 
-/**
- * @module
- * @param {TableCell.PropTypes} props
- * @returns {React.Component}
- * @example import { TableCell } from '@dhis2/ui-core'
- * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
- */
 export const TableCell = ({
     role,
     className,
@@ -51,17 +44,6 @@ TableCell.defaultProps = {
     dataTest: 'dhis2-uicore-tablecell',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {string} [colSpan]
- * @prop {string} [rowSpan]
- * @prop {bool} [dense]
- * @prop {Node} [children]
- * @prop {string} [className]
- * @prop {string} [role]
- * @prop {string} [dataTest]
- */
 TableCell.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

@@ -5,14 +5,7 @@ import cx from 'classnames'
 import React, { Component, createRef } from 'react'
 import { animatedSideScroll } from './animated-side-scroll.js'
 import { detectHorizontalScrollbarHeight } from './detect-horizontal-scrollbar-height.js'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
-/**
- * @module
- * @private
- * @param {ScrollBar.PropTypes} props
- * @returns {React.Component}
- */
 class ScrollBar extends Component {
     scrollBox = createRef()
     scrollArea = createRef()
@@ -208,12 +201,6 @@ class ScrollBar extends Component {
     }
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {Node} children
- * @prop {string} [className]
- */
 ScrollBar.propTypes = {
     children: propTypes.node.isRequired,
     dataTest: propTypes.string.isRequired,

@@ -13,13 +13,6 @@ const createClickHandler = onClick => event => {
     }
 }
 
-/**
- * @module
- * @param {Layer.PropTypes} props
- * @returns {React.Component}
- * @example import {     } from @dhis2/ui-core
- * @see Live demo: {@link /demo/?path=/story/component-widget-layer--default|Storybook}
- */
 const Layer = ({
     children,
     className,
@@ -97,16 +90,6 @@ Layer.defaultProps = {
     level: layers.applicationTop,
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {string} [className]
- * @prop {Node} [children]
- * @prop {string} [dataTest=dhis2-uicore-layer]
- * @prop {number} [level=layers.applicationTop]
- * @prop {boolean} [translucent] - When true a semi-transparent background is added
- * @prop {function} [onClick]
- */
 Layer.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

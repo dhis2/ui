@@ -15,18 +15,14 @@ export * from './transformers/index.js'
 export * from './validators/index.js'
 
 /**
- * @module
- * @desc Allows direct access to the FinalForm library. Please note that this is considered advanced
+ * Allows direct access to the FinalForm library. Please note that this is considered advanced
  * usage and that you need to stay up to date with breaking changes in the FinalForm library.
- * @return FinalForm
  */
 export { FinalForm }
 
 /**
- * @module
- * @desc Allows direct access to the ReactFinalForm library. Please note that this is considered
+ * Allows direct access to the ReactFinalForm library. Please note that this is considered
  * advanced usage and that you need to stay up to date with breaking changes in the FinalForm
  * library.
- * @return ReactFinalForm
  */
 export { ReactFinalForm }

@@ -11,7 +11,6 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { resolve } from 'styled-jsx/css'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 const scrollBoxCard = resolve`
     div {
@@ -37,35 +36,6 @@ const layerStyles = resolve`
     }
 `
 
-/**
- * @module
- * @param {Modal.PropTypes} props
- * @returns {React.Component}
- *
- * @desc Modal provides a UI to prompt the user to respond to a question
- * or a note to the user.
- *
- * Use Modal with the following Components:
- * ModelTitle (optional)
- * ModelContent (required)
- * ModelActions (optional)
- * @module
- * @param {Modal.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { Modal } from @dhis2/ui-core
- * @example
- *  <Modal>
- *      <ModalTitle>Hello</ModalTitle>
- *      <ModalContent>Some content here</ModalContent>
- *      <ModalActions>
- *          <Button primary>My action</Button>
- *      </ModalActions>
- *  </Modal>
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/modal.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/modal--small-title-content-action|Storybook}
- */
 export const Modal = ({
     children,
     className,
@@ -123,17 +93,6 @@ Modal.defaultProps = {
     position: 'top',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {Node} [children]
- * @prop {string} className
- * @prop {Function} onClose
- * @prop {bool} small
- * @prop {bool} large
- * @prop {string} [dataTest]
- */
 Modal.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

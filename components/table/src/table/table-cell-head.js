@@ -18,13 +18,6 @@ const tableCellHeadStyles = css`
     }
 `
 
-/**
- * @module
- * @param {TableCellHead.PropTypes} props
- * @returns {React.Component}
- * @example import { TableCellHead } from '@dhis2/ui-core'
- * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
- */
 export const TableCellHead = ({
     role,
     colSpan,
@@ -51,17 +44,6 @@ TableCellHead.defaultProps = {
     dataTest: 'dhis2-uicore-tablecellhead',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {string} [colSpan]
- * @prop {string} [rowSpan]
- * @prop {bool} [dense]
- * @prop {Node} [children]
- * @prop {string} [className]
- * @prop {string} [role]
- * @prop {string} [dataTest]
- */
 TableCellHead.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

@@ -4,19 +4,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component, createRef } from 'react'
 import { CheckboxRegular, CheckboxDense } from './checkbox-icon.js'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
-/**
- * @module
- *
- * @param {Checkbox.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { Checkbox } from '@dhis2/ui-core'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/checkbox.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/checkbox--default|Storybook}
- */
 class Checkbox extends Component {
     ref = createRef()
 
@@ -187,33 +175,6 @@ Checkbox.defaultProps = {
     indeterminate: false,
     dataTest: 'dhis2-uicore-checkbox',
 }
-
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {string} value
- * @prop {Node} [label]
- * @prop {function} [onChange] - called with the signature `object, event`
- * @prop {string} [name]
- * @prop {string} [className]
- * @prop {string} [tabIndex]
- *
- * @prop {boolean} [disabled]
- * @prop {boolean} [checked]
- * @prop {boolean} [indeterminate]
- * @prop {boolean} [initialFocus]
- *
- * @prop {boolean} [valid] - `valid`, `warning`, and `error` are
- * mutually exclusive
- * @prop {boolean} [warning]
- * @prop {boolean} [error]
- *
- * @prop {boolean} [dense]
- *
- * @prop {function} [onFocus]
- * @prop {function} [onBlur]
- * @prop {string} [dataTest]
- */
 
 const uniqueOnStatePropType = mutuallyExclusive(
     ['checked', 'indeterminate'],

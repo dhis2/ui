@@ -5,16 +5,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { TagIcon } from './tag-icon.js'
 import { TagText } from './tag-text.js'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
-/**
- * @module
- * @param {Tag.PropTypes} props
- * @returns {React.Component}
- * @example import { Tag } from @dhis2/ui-core
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/tag.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/tag--default|Storybook}
- */
 export const Tag = ({
     maxWidth,
     neutral,
@@ -107,21 +98,6 @@ Tag.defaultProps = {
     dataTest: 'dhis2-uicore-tag',
     maxWidth: '240px',
 }
-
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {boolean} [bold]
- * @prop {Node} [children]
- * @prop {string} [className]
- * @prop {string} [dataTest]
- * @prop {Node} [icon]
- * @prop {boolean} [neutral] - `neutral`, `positive`, and
- * `negative` are mutually exclusive boolean props
- * @prop {boolean} [positive]
- * @prop {boolean} [negative]
- */
 
 Tag.propTypes = {
     /** Use bold tags where it is important that the tag is seen by the user in an information dense interface. Bold tags should be reserved for edge cases and not overused. */

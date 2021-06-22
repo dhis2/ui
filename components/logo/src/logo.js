@@ -2,23 +2,9 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { LogoIconSvg } from './logo-icon-svg'
 import { LogoSvg } from './logo-svg'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /*
  * This should likely not live in ui-core, but in ui-widgets
- */
-
-/**
- * @module
- * @param {Logo.PropTypes} props
- * @returns {React.Component}
- */
-
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {string} [className]
- * @prop {string} [dataTest]
  */
 
 /*

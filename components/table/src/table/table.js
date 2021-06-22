@@ -14,13 +14,6 @@ const tableStyles = css`
     }
 `
 
-/**
- * @module
- * @param {Table.PropTypes} props
- * @returns {React.Component}
- * @example import { Table } from '@dhis2/ui-core'
- * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
- */
 export const Table = ({
     role,
     children,
@@ -41,15 +34,6 @@ Table.defaultProps = {
     dataTest: 'dhis2-uicore-table',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {TableHead|TableBody|TableFoot|Array.<TableHead|TableBody|TableFoot>} [children]
- * @prop {string} [className]
- * @prop {string} [role]
- * @prop {string} [dataTest]
- * @prop {bool} [suppressZebraStriping]
- */
 Table.propTypes = {
     /** Should be `<TableHead>`, `<TableBody>`, and `<TableFoot>` components */
     children: PropTypes.node,

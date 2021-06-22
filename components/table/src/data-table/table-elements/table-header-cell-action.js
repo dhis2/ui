@@ -2,13 +2,6 @@ import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
 
-/**
- * @module
- * @param {TableHeaderCellAction.PropTypes} props
- * @returns {React.Component}
- * @example import { TableHeaderCellAction } from '@dhis2/ui'
- * @see Live demo: {@link /demo/?path=/story/data-display-table--header-actions|Storybook}
- */
 export const TableHeaderCellAction = forwardRef(
     ({ onClick, children, className, dataTest, title, ...props }, ref) => (
         <button
@@ -52,16 +45,6 @@ TableHeaderCellAction.defaultProps = {
     dataTest: 'dhis2-uicore-tableheadercellaction',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {node} [children]
- * @prop {string} [className]
- * @prop {string} [dataTest=dhis2-uicore-tableheadercellaction]
- * @prop {string} [title]
- * @prop {function} [onClick]
- */
 TableHeaderCellAction.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

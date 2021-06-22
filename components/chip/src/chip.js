@@ -5,16 +5,7 @@ import React from 'react'
 import { Content } from './content.js'
 import { Icon } from './icon.js'
 import { Remove } from './remove.js'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
-/**
- * @module
- * @param {Chip.PropTypes} props
- * @returns {React.Component}
- * @example import { Chip } from @dhis2/ui-core
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/chip.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/chip--default|Storybook}
- */
 const Chip = ({
     selected,
     dense,
@@ -108,21 +99,6 @@ Chip.defaultProps = {
     dataTest: 'dhis2-uicore-chip',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {*} [children]
- * @prop {string} [className]
- * @prop {Element} [icon]
- * @prop {function} [onClick]
- * @prop {function} [onRemove]
- * @prop {boolean} [selected]
- * @prop {boolean} [dense]
- * @prop {boolean} [disabled]
- * @prop {boolean} [dragging]
- * @prop {boolean} [overflow]
- * @prop {string} [dataTest]
- */
 Chip.propTypes = {
     children: PropTypes.any,
     className: PropTypes.string,

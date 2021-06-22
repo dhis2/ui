@@ -15,16 +15,6 @@ const translate = (prop, interpolationObject) => {
     return prop
 }
 
-/**
- * @module
- * @param {FileInputField.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { FileInputField } from '@dhis2/ui-widgets'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/fileinput.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/fileinputfield--default|Storybook}
- */
 const FileInputField = ({
     accept,
     buttonLabel,
@@ -104,39 +94,6 @@ FileInputField.defaultProps = {
     placeholder: () => i18n.t('No file uploaded yet'),
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {string} [name]
- * @prop {function} [onChange]
- * @prop {function} [onBlur]
- * @prop {function} [onFocus]
- * @prop {string} [label]
- * @prop {string|function} [buttonLabel]
- * @prop {string} [className]
- * @prop {string|function} [placeholder]
- * @prop {string} [tabIndex]
- *
- * @prop {boolean} [required]
- * @prop {boolean} [disabled]
- * @prop {boolean} [initialFocus]
- *
- * @prop {boolean} [valid] - `valid`, `warning` and `error` are mutually exclusive
- * @prop {boolean} [warning]
- * @prop {boolean} [error]
- *
- * @prop {boolean} [small] - `small` and `large` are mutually exclusive
- * @prop {boolean} [large]
- *
- * @prop {string} [validationText]
- * @prop {string} [helpText]
- *
- * @prop {FileListItem|Array.<FileListItem>} [children]
- * @prop {string} [accept=*] - the `accept` attribute of the [native file input]{@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept}
- * @prop {boolean} [multiple] - the `multiple` attribute of the [native file input]{@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple}
- * @prop {string} [dataTest]
- */
 FileInputField.propTypes = {
     /** The `accept` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept) */
     accept: PropTypes.string,

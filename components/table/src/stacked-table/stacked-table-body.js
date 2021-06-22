@@ -1,13 +1,6 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
-/**
- * @module
- * @param {StackedTableBody.PropTypes}
- * @returns {React.Component}
- * @example import { StackedTableBody } from @dhis2/ui-core
- * @see Live demo: {@link /demo/?path=/story/stackedtable--default|Storybook}
- */
 export const StackedTableBody = ({ children, className, dataTest }) => (
     <tbody className={className} data-tset={dataTest}>
         {children}
@@ -19,14 +12,6 @@ export const StackedTableBody = ({ children, className, dataTest }) => (
     </tbody>
 )
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {Node} [children]
- * Should only be StackedTableCell or StackedTableCellHead
- * @prop {string} [className]
- * @prop {string} [dataTest]
- */
 StackedTableBody.propTypes = {
     children: propTypes.node,
     className: propTypes.string,

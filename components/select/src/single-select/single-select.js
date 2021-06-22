@@ -11,7 +11,6 @@ import { Loading as CommonLoading, Select } from '../select/index.js'
 import { FilterableMenu } from './filterable-menu.js'
 import { Input } from './input.js'
 import { Menu } from './menu.js'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 const StatusIcon = ({ error, warning, valid, defaultTo }) => {
     if (error) {
@@ -41,16 +40,6 @@ StatusIcon.propTypes = {
     warning: PropTypes.bool,
 }
 
-/**
- * @module
- *
- * @param {SingleSelect.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { SingleSelect } from '@dhis2/ui-core'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/select.md|Design system}
- */
 const SingleSelect = ({
     className,
     selected,
@@ -151,37 +140,6 @@ SingleSelect.defaultProps = {
     dataTest: 'dhis2-uicore-singleselect',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {function} [onChange]
- * @prop {String} [selected]
- * @prop {string} [className]
- * @prop {string} [tabIndex]
- * @prop {Node} [children]
- * @prop {boolean} [disabled]
- * @prop {boolean} [dense]
- * @prop {boolean} [valid] - `valid`, `warning`, `error`, `loading`, are mutually exclusive
- * @prop {boolean} [warning]
- * @prop {boolean} [error]
- * @prop {boolean} [loading]
- * @prop {function} [onFocus]
- * @prop {function} [onBlur]
- * @prop {boolean} [initialFocus]
- * @prop {string} [clearText] - Only required if clearable is true
- * @prop {boolean} [clearable]
- * @prop {Node} [empty]
- * @prop {string} [filterPlaceholder]
- * @prop {boolean} [filterable]
- * @prop {string} [loadingText]
- * @prop {string} [maxHeight]
- * @prop {string} [inputMaxHeight]
- * @prop {string} [noMatchText] - Only required if filterable is true
- * @prop {string} [placeholder]
- * @prop {string} [prefix]
- * @prop {string} [dataTest]
- */
 SingleSelect.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

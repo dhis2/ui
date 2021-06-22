@@ -2,17 +2,6 @@ import propTypes from '@dhis2/prop-types'
 import { colors, spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React from 'react'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
-
-/**
- * @module
- *
- * @param {SingleSelectOption.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { SingleSelectOption } from '@dhis2/ui-core'
- *
- */
 
 const SingleSelectOption = ({
     label,
@@ -72,18 +61,6 @@ SingleSelectOption.defaultProps = {
     dataTest: 'dhis2-uicore-singleselectoption',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {string} value
- * @prop {string} label
- * @prop {string} [className]
- * @prop {function} [onClick]
- * @prop {boolean} [active]
- * @prop {boolean} [disabled]
- * @prop {string} [dataTest]
- */
 SingleSelectOption.propTypes = {
     label: propTypes.string.isRequired,
     value: propTypes.string.isRequired,

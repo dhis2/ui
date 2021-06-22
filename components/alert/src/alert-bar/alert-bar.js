@@ -7,19 +7,7 @@ import styles, { ANIMATION_TIME } from './alert-bar.styles.js'
 import { Dismiss } from './dismiss.js'
 import { Icon, iconPropType } from './icon.js'
 import { Message } from './message.js'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
-/**
- * @module
- * @param {AlertBar.PropTypes} props
- *
- * @returns {React.Component}
- *
- * @example import { AlertBar } from @dhis2/ui-core
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/alertbar.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/alertbar--default|Storybook}
- */
 const AlertBar = ({
     actions,
     children,
@@ -160,26 +148,6 @@ AlertBar.defaultProps = {
     icon: true,
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {string} [children] - The message string for the alert
- * @prop {string} [className]
- * @prop {boolean} [success] - `success`, `warning`, and `critical` are
- * mutually exclusive props.
- * @prop {boolean} [warning] - `AlertBar`s with `warning` will not autohide
- * @prop {boolean} [critical] - `AlertBar`s with `critical` will not autohide
- *
- * @prop {(Element|boolean)} [icon=true]
- *
- * @prop {number} [duration]
- * @prop {bool} [hidden]
- * @prop {boolean} [permanent]
- * @prop {Array} [actions] An array of 0-2 action objects with the shape: `{ label: {string}, onClick: {function} }`
- * @prop {function} [onHidden]
- * @prop {string} [dataTest]
- */
 AlertBar.propTypes = {
     /** An array of 0-2 action objects */
     actions: actionsPropType,

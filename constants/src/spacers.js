@@ -1,8 +1,3 @@
-/**
- * @module constants/spacers
- * @desc DHIS2 spacer constants
- */
-
 /** Number values of the spacer definitions */
 export const spacersNum = {
     dp4: 4,

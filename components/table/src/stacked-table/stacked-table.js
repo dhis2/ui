@@ -4,13 +4,6 @@ import { extractHeaderLabels } from './extract-header-labels.js'
 import { Provider } from './table-context.js'
 import { Table } from './table.js'
 
-/**
- * @module
- * @param {StackedTable.PropTypes}
- * @returns {React.Component}
- * @example import { StackedTable } from @dhis2/ui-core
- * @see Live demo: {@link /demo/?path=/story/stackedtable--default|Storybook}
- */
 export const StackedTable = ({
     children,
     className,
@@ -31,16 +24,6 @@ export const StackedTable = ({
     )
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {Node} [children]
- * @prop {string} [className]
- * @prop {string} [dataTest]
- * @prop {string[]} [headerLabels]
- * If a specific column should not have a header,
- * an empty string must be provided
- */
 StackedTable.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

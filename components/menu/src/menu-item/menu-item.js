@@ -26,16 +26,6 @@ const createOnClickHandler = ({
     onClick && onClick({ value }, evt)
     toggleSubMenu && toggleSubMenu()
 }
-/**
- * @module
- * @param {MenuItem.PropTypes}
- * @returns {React.Component}
- *
- * @example import { MenuItem } from '@dhis2/ui
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/menu.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/components-core-menulist--default|Storybook}
- */
 const MenuItem = ({
     href,
     onClick,
@@ -113,27 +103,6 @@ MenuItem.defaultProps = {
     dataTest: 'dhis2-uicore-menuitem',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {boolean} [active]
- * @prop {boolean} [chevron]
- * @prop {Node} [children]
- * @prop {string} [className]
- * @prop {string} [dataTest='dhis2-uicore-menuitem']
- * @prop {boolean} [dense]
- * @prop {boolean} [destructive]
- * @prop {boolean} [disabled]
- * @prop {string} [href]
- * @prop {Node} [icon]
- * @prop {Node} [label]
- * @prop {boolean} [showSubMenu]
- * @prop {string} [target]
- * @prop {function} [toggleSubMenu]
- * @prop {string} [value]
- * @prop {function} [onClick] - Click handler called with `value` in the payload
- */
 MenuItem.propTypes = {
     active: PropTypes.bool,
     chevron: PropTypes.bool,

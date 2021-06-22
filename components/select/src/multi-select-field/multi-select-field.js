@@ -15,17 +15,6 @@ const translate = (prop, interpolationObject) => {
     return prop
 }
 
-/**
- * @module
- *
- * @param {MultiSelectField.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { MultiSelectField } from '@dhis2/ui-widgets'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/select.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/multiselectfield--default|Storybook}
- */
 class MultiSelectField extends React.Component {
     render() {
         const {
@@ -120,42 +109,6 @@ MultiSelectField.defaultProps = {
     noMatchText: () => i18n.t('No options found'),
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {function} [onChange]
- * @prop {string} [label]
- * @prop {Array.<string>} [selected]
- * @prop {string} [className]
- * @prop {string} [tabIndex]
- * @prop {Node} [children]
- * @prop {boolean} [required]
- * @prop {boolean} [disabled]
- * @prop {boolean} [dense]
- * @prop {boolean} [valid] - `valid`, `warning`, `error`, `loading`, are mutually exclusive
- * @prop {boolean} [warning]
- * @prop {boolean} [error]
- * @prop {boolean} [loading]
- * @prop {function} [onFocus]
- * @prop {function} [onBlur]
- * @prop {boolean} [initialFocus]
- * @prop {string} [validationText]
- * @prop {string} [helpText]
- * @prop {string|function} [clearText]
- * @prop {boolean} [clearable]
- * @prop {Node|function} [empty]
- * @prop {string|function} [filterPlaceholder]
- * @prop {boolean} [filterable]
- * @prop {string|function} [loadingText]
- * @prop {string} [maxHeight]
- * @prop {string} [inputMaxHeight]
- * @prop {string} [inputWidth]
- * @prop {string|function} [noMatchText]
- * @prop {string} [placeholder]
- * @prop {string} [prefix]
- * @prop {string} [dataTest]
- */
 MultiSelectField.propTypes = {
     /** Should be `MultiSelectOption` components */
     children: PropTypes.node,

@@ -3,19 +3,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component, createRef } from 'react'
 import { RadioRegular, RadioDense } from './radio-icons.js'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
-/**
- * @module
- *
- * @param {Radio.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { Radio } from '@dhis2/ui-core'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/radio.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/radio--default|Storybook}
- */
 class Radio extends Component {
     ref = createRef()
 
@@ -171,31 +159,6 @@ Radio.defaultProps = {
     dataTest: 'dhis2-uicore-radio',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {string} [value]
- * @prop {Node} [label]
- * @prop {function} [onChange] - called with the signature `object, event`
- * @prop {string} [name]
- * @prop {string} [className]
- * @prop {string} [tabIndex]
- *
- * @prop {boolean} [disabled]
- * @prop {boolean} [checked]
- * @prop {boolean} [initialFocus]
- *
- * @prop {boolean} [valid] - `valid`, `warning`, and `error` are
- * mutually exclusive
- * @prop {boolean} [warning]
- * @prop {boolean} [error]
- *
- * @prop {boolean} [dense]
- *
- * @prop {function} [onFocus]
- * @prop {function} [onBlur]
- * @prop {string} [dataTest]
- */
 Radio.propTypes = {
     checked: PropTypes.bool,
     className: PropTypes.string,

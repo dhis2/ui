@@ -8,13 +8,6 @@ import { DragHandleCell } from './drag-handle-cell.js'
 import { ExpandHandleCell } from './expand-handle-cell.js'
 import { ExpandedRow } from './expanded-row.js'
 
-/**
- * @module
- * @param {DataTableRow.PropTypes} props
- * @returns {React.Component}
- * @example import { DataTableRow } from '@dhis2/ui'
- * @see Live demo: {@link /demo/?path=/story/datatable--default|Storybook}
- */
 export const DataTableRow = forwardRef(
     (
         {
@@ -89,19 +82,6 @@ DataTableRow.defaultProps = {
     dataTest: 'dhis2-uicore-datatablerow',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {DataTableCell|DataTableCellHead|Array.<DataTableCell|DataTableCellHead>} [children]
- * @prop {string} [className]
- * @prop {string} [dataTest=dhis2-uicore-datatablerow]
- * @prop {boolean} [draggable] Renders and additional table cell with drag icon and applies draggable styles
- * @prop {string|node} [expandableContent] This content will be rendered into an additional row with fullwidth cell and the presence of this prop will display an additional table cell with expand icon
- * @prop {boolean} [expanded] Toggles expand icon (up/down) and expandable content visibility
- * @prop {string} [role]
- * @prop {boolean} [selected] Adds a green background color
- * @prop {function} [onExpandToggle] Callback for expand icon cell clicks
- */
 DataTableRow.propTypes = {
     /** Should be `<DataTableCell>` or `<DataTableCellHead>` components */
     children: PropTypes.node,

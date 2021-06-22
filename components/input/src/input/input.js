@@ -112,16 +112,6 @@ const styles = css`
     }
 `
 
-/**
- * @module
- * @param {Input.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { Input } from '@dhis2/ui-core'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/inputfield.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/inputfield--default|Storybook}
- */
 export class Input extends Component {
     inputRef = React.createRef()
 
@@ -232,37 +222,6 @@ Input.defaultProps = {
     dataTest: 'dhis2-uicore-input',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {string} [role]
- * @prop {string} name
- * @prop {string} [type=text]
- * @prop {function} [onChange] - called with the signature `object, event`
- * @prop {function} [onBlur]
- * @prop {function} [onFocus]
- * @prop {string} [className]
- * @prop {string} [placeholder]
- * @prop {string} [value]
- * @prop {string} [tabIndex]
- *
- * @prop {string} [max] The native `max` attribute
- * @prop {string} [min] The native `min` attribute
- * @prop {string} [step] The native `step` attribute
- *
- * @prop {boolean} [disabled]
- * @prop {boolean} [readOnly]
- * @prop {boolean} [dense] - Compact mode
- * @prop {boolean} [initialFocus]
- *
- * @prop {boolean} [valid] - `valid`, `warning`, `error`, and `loading`
- * are mutually exclusive
- * @prop {boolean} [warning]
- * @prop {boolean} [error]
- * @prop {boolean} [loading]
- * @prop {string} [dataTest]
- */
 Input.propTypes = {
     className: PropTypes.string,
     dataTest: PropTypes.string,

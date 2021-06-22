@@ -1,10 +1,4 @@
 import propTypes from '@dhis2/prop-types'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
-
-/**
- * @module constants/shared-prop-types
- * @desc Shared propType definitions for UI components
- */
 
 /**
  * Status propType

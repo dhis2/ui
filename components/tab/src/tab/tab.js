@@ -2,18 +2,7 @@ import { colors, theme } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
-/**
- * @module
- * @param {Tab.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { Tab } from '@dhis2/ui-core'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/tab.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/tabs--default-fluid|Storybook}
- */
 const Tab = ({
     icon,
     onClick,
@@ -137,17 +126,6 @@ Tab.defaultProps = {
     dataTest: 'dhis2-uicore-tab',
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- * @prop {Element} [icon]
- * @prop {function} [onClick]
- * @prop {boolean} [selected]
- * @prop {boolean} [disabled]
- * @prop {Node} [children]
- * @prop {string} [className]
- * @prop {string} [dataTest]
- */
 Tab.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

@@ -6,13 +6,6 @@ import styles from './table-header-cell.styles.js'
 
 const AUTO = 'auto'
 
-/**
- * @module
- * @param {TableHeaderCell.PropTypes} props
- * @returns {React.Component}
- * @example import { TableHeaderCell } from '@dhis2/ui'
- * @see Live demo: {@link /demo/?path=/story/table--default|Storybook}
- */
 export const TableHeaderCell = forwardRef(
     (
         {
@@ -90,31 +83,6 @@ const stylePropType = mutuallyExclusive(
     PropTypes.bool
 )
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {boolean} [active] To toggle background color, for example for editing
- * @prop {left|center|right} [align=left]
- * @prop {boolean} [bordered]
- * @prop {node} [children]
- * @prop {string} [className]
- * @prop {string} [colSpan]
- * @prop {string} [dataTest=dhis2-uicore-tabledatacell]
- * @prop {boolean} [error] Mutually exclusive with muted and valid
- * @prop {boolean} [fixed]
- * @prop {boolean} [large]
- * @prop {string} [left=auto] Required when fixed
- * @prop {boolean} [muted] Mutually exclusive with error and valid
- * @prop {string} [role]
- * @prop {string} [rowSpan]
- * @prop {string} [scope]
- * @prop {string} [staticStyle] surpress hover and active event styles
- * @prop {string} [top] Left or top required when fixed
- * @prop {boolean} [valid] Mutually exclusive with error and muted
- * @prop {string} [width=auto]
- * @prop {function} [onClick]
- */
 TableHeaderCell.propTypes = {
     /** To toggle background color, for example for editing */
     active: PropTypes.bool,
