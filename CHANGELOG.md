@@ -1,3 +1,18 @@
+# [6.10.0](https://github.com/dhis2/ui/compare/v6.9.2...v6.10.0) (2021-06-22)
+
+
+### Bug Fixes
+
+* **field:** bundle field-set and field-group in field ([3fcf1e8](https://github.com/dhis2/ui/commit/3fcf1e8d46ba585a5bfb3ac14cf7f7423f78591b))
+* **icons:** clean up icon use and migration to ui-icons ([5a3f7e5](https://github.com/dhis2/ui/commit/5a3f7e5dbf7390846f38ac05d62e321325ba8778))
+* **menu-item:** do not call event.preventDefault() in onClick handler if href prop is set and user is holding meta/alt/ctrl/shift key ([390ca0f](https://github.com/dhis2/ui/commit/390ca0f1d4bc26e7ce4e12495dafaf09c2a4e76e))
+* **modal:** clean up internal structure ([2dec7d3](https://github.com/dhis2/ui/commit/2dec7d32e71c1e132e569b2290b478f4b25ab025))
+
+
+### Features
+
+* release new internal structure ([ed81f13](https://github.com/dhis2/ui/commit/ed81f13aea80ab8d804f2d22e4b564c84781a7f6))
+
 # [6.10.0-alpha.5](https://github.com/dhis2/ui/compare/v6.10.0-alpha.4...v6.10.0-alpha.5) (2021-06-21)
 
 
