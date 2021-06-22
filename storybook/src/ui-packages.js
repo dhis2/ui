@@ -29,18 +29,20 @@ exports.uiPackages = ({ absolute = false } = {}) => {
         .filter(dirs)
         .map(filepaths)
 
-    // these are flat packages, so we don't need to find all subpackages
-    const icons = ['icons']
-    const constants = ['constants']
-
     if (absolute) {
+        const icons = [ICONS_DIR]
+        const constants = [CONSTANTS_DIR]
+
         return [
             components.map(c => prepend(c, COMPONENTS_DIR)),
             collections.map(c => prepend(c, COLLECTIONS_DIR)),
-            icons.map(c => prepend(c, ICONS_DIR)),
-            constants.map(c => prepend(c, CONSTANTS_DIR)),
+            icons,
+            constants,
         ]
     } else {
+        const icons = ['icons']
+        const constants = ['constants']
+
         return [components, collections, icons, constants]
     }
 }
