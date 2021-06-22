@@ -142,7 +142,6 @@ OrganisationUnitTree.propTypes = {
     onExpand: propTypes.func,
 
     /**
-     * @prop {string[]} [idsThatShouldBeReloaded]
      * All units with ids (not paths!) provided
      * to "idsThatShouldBeReloaded" will be reloaded
      * In order to reload an id twice, the array must be changed
