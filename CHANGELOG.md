@@ -1,3 +1,10 @@
+## [6.10.2](https://github.com/dhis2/ui/compare/v6.10.1...v6.10.2) (2021-06-23)
+
+
+### Bug Fixes
+
+* handle filtering in organisation unit tree when units' children have not yet been loaded ([e21ae4a](https://github.com/dhis2/ui/commit/e21ae4ace1ba8931dd7a5eb0d96ab4f828efe07c))
+
 ## [6.10.1](https://github.com/dhis2/ui/compare/v6.10.0...v6.10.1) (2021-06-23)
 
 
