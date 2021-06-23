@@ -103,8 +103,6 @@ Pagination.propTypes = {
     pageCount: PropTypes.number.isRequired,
     pageSize: PropTypes.number.isRequired,
     total: PropTypes.number.isRequired,
-    onPageChange: PropTypes.func.isRequired,
-    onPageSizeChange: PropTypes.func.isRequired,
     className: PropTypes.string,
     dataTest: PropTypes.string,
     hidePageSelect: PropTypes.bool,
@@ -115,6 +113,8 @@ Pagination.propTypes = {
     pageSizes: PropTypes.arrayOf(PropTypes.string),
     pageSummaryText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     previousPageText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    onPageChange: PropTypes.func,
+    onPageSizeChange: PropTypes.func,
 }
 
 export { Pagination }
