@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/ui-forms",
-    "version": "6.10.0",
+    "version": "6.10.1",
     "main": "./build/cjs/index.js",
     "module": "./build/es/index.js",
     "sideEffects": [
@@ -34,8 +34,8 @@
     },
     "dependencies": {
         "@dhis2/prop-types": "^1.6.4",
-        "@dhis2/ui-core": "6.10.0",
-        "@dhis2/ui-widgets": "6.10.0",
+        "@dhis2/ui-core": "6.10.1",
+        "@dhis2/ui-widgets": "6.10.1",
         "classnames": "^2.3.1",
         "final-form": "^4.20.2",
         "prop-types": "^15.7.2",

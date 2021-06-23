@@ -1,3 +1,10 @@
+## [6.10.1](https://github.com/dhis2/ui/compare/v6.10.0...v6.10.1) (2021-06-23)
+
+
+### Bug Fixes
+
+* **pagination:** make onPageChange and onPageSizeChange optional ([#642](https://github.com/dhis2/ui/issues/642)) ([c7bff40](https://github.com/dhis2/ui/commit/c7bff40d759f0d024b4c821878826091cec3f332))
+
 # [6.10.0](https://github.com/dhis2/ui/compare/v6.9.2...v6.10.0) (2021-06-22)
 
 
