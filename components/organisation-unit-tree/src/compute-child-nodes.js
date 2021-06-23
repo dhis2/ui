@@ -25,6 +25,10 @@ const isPathIncluded = (includedPaths, path) => {
  * @returns {string[]}
  */
 export const computeChildNodes = (node, filter) => {
+    if (!node.children) {
+        return []
+    }
+
     if (!filter.length) {
         return node.children
     }
