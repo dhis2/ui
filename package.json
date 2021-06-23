@@ -36,7 +36,8 @@
         "lint": "d2-style check",
         "test": "d2-app-scripts test",
         "start": "yarn workspace ui-storybook start",
-        "demo": "yarn workspace ui-storybook build"
+        "demo": "yarn workspace ui-storybook build",
+        "snapshot": "yarn workspace ui-storybook snapshot"
     },
     "d2": {
         "docsite": {

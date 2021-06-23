@@ -1,5 +1,4 @@
 const { babelConfig } = require('../src/babel-config.js')
-const { loadStories } = require('../src/load-stories.js')
 const { webpackConfig } = require('../src/webpack-config.js')
 
 module.exports = {
@@ -14,7 +13,8 @@ module.exports = {
         'storybook-addon-jsx',
         '@storybook/addon-a11y',
     ],
-    stories: async list => [...list, ...loadStories()],
+    // Static for now to make sure we don't make snapshots of all components
+    stories: ['../../components/help/src/help.stories.js'],
     babel: babelConfig,
     webpackFinal: webpackConfig,
 }
