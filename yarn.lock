@@ -17758,10 +17758,10 @@ store2@^2.12.0:
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.12.0.tgz#e1f1b7e1a59b6083b2596a8d067f6ee88fd4d3cf"
   integrity sha512-7t+/wpKLanLzSnQPX8WAcuLCCeuSHoWdQuh9SB3xD0kNOM38DNf+0Oa+wmvxmYueRzkmh6IcdKFtvTa+ecgPDw==
 
-storybook-addon-jsx@^7.3.9:
-  version "7.3.9"
-  resolved "https://registry.yarnpkg.com/storybook-addon-jsx/-/storybook-addon-jsx-7.3.9.tgz#2009f08ed021ee8049889e7dc138e264a010571b"
-  integrity sha512-+IslGm8GXsmhpzaxHlhL2/kTeBK6uMuDcKp1s4p+gA1sTVe+K7MyICGxoWSHbEExnsnok2AMCtaQoA62A4ddOQ==
+storybook-addon-jsx@^7.3.12:
+  version "7.3.12"
+  resolved "https://registry.yarnpkg.com/storybook-addon-jsx/-/storybook-addon-jsx-7.3.12.tgz#70db14619c8c89eb03ffe9af6a2ccc92db8e5685"
+  integrity sha512-J3bwvJ1Sf4aPuO+v2QIjB0KoSkIDNWXB3gdXskGzYlVsjlNnHcSyavr5YCoA1XGmtng1zB3BuYIxHanaxPd4PA==
   dependencies:
     copy-to-clipboard "^3.0.8"
     js-beautify "^1.8.8"
@@ -19543,10 +19543,8 @@ watchpack@^1.7.4:
   resolved "https://registry.yarnpkg.com/watchpack/-/watchpack-1.7.5.tgz#1267e6c55e0b9b5be44c2023aed5437a2c26c453"
   integrity sha512-9P3MWk6SrKjHsGkLT2KHXdQ/9SNkyoJbabxnKOoJepsvJjJG8uYTR3yTPxPQvNDI3w4Nz1xnE0TLHK4RIVe/MQ==
   dependencies:
-    chokidar "^3.4.1"
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
-    watchpack-chokidar2 "^2.0.1"
   optionalDependencies:
     chokidar "^3.4.1"
     watchpack-chokidar2 "^2.0.1"
