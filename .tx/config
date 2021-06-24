@@ -1,50 +1,50 @@
 [main]
 host = https://www.transifex.com
-lang_map = fa_AF: prs
+lang_map = fa_AF: prs, uz@Cyrl: uz, uz@Latn: uz_Latn
 
-[app-component-ui.ui-forms]
+[app-component-ui.ui-forms-en-pot]
 file_filter = collections/forms/i18n/<lang>.po
 minimum_perc = 0
 source_file = collections/forms/i18n/en.pot
 source_lang = en
 type = PO
 
-[app-component-ui.file-input]
+[app-component-ui.file-input-en-pot]
 file_filter = components/file-input/i18n/<lang>.po
 minimum_perc = 0
 source_file = components/file-input/i18n/en.pot
 source_lang = en
 type = PO
 
-[app-component-ui.select]
+[app-component-ui.select-en-pot]
 file_filter = components/select/i18n/<lang>.po
 minimum_perc = 0
 source_file = components/select/i18n/en.pot
 source_lang = en
 type = PO
 
-[app-component-ui.table]
+[app-component-ui.table-en-pot]
 file_filter = components/table/i18n/<lang>.po
 minimum_perc = 0
 source_file = components/table/i18n/en.pot
 source_lang = en
 type = PO
 
-[app-component-ui.organisation-unit-tree]
+[app-component-ui.organisation-unit-tree-en-pot]
 file_filter = components/organisation-unit-tree/i18n/<lang>.po
 minimum_perc = 0
 source_file = components/organisation-unit-tree/i18n/en.pot
 source_lang = en
 type = PO
 
-[app-component-ui.pagination]
+[app-component-ui.pagination-en-pot]
 file_filter = components/pagination/i18n/<lang>.po
 minimum_perc = 0
 source_file = components/pagination/i18n/en.pot
 source_lang = en
 type = PO
 
-[app-component-ui.header-bar]
+[app-component-ui.header-bar-en-pot]
 file_filter = components/header-bar/i18n/<lang>.po
 minimum_perc = 0
 source_file = components/header-bar/i18n/en.pot
