@@ -1,0 +1,108 @@
+# 
+# Translators:
+# Viktor Varland <viktor@dhis2.org>, 2021
+# KRG HIS <antonia.bezenchek@informa.pro>, 2021
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2020-12-07T19:28:56.162Z\n"
+"PO-Revision-Date: 2021-06-24 12:50+0000\n"
+"Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2021\n"
+"Language-Team: Central Kurdish (https://www.transifex.com/hisp-uio/teams/100509/ckb/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ckb\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Upload file"
+msgstr ""
+
+msgid "Upload files"
+msgstr ""
+
+msgid "Remove"
+msgstr "لابردن"
+
+msgid "No file(s) selected yet"
+msgstr ""
+
+msgid "Please provide an alpha-numeric value"
+msgstr ""
+
+msgid "Please provide a boolean value"
+msgstr ""
+
+msgid "Please enter between {{lowerBound}} and {{upperBound}} characters"
+msgstr ""
+
+msgid ""
+"Please make sure the value of this input matches the value in "
+"\"{{otherField}}\"."
+msgstr ""
+
+msgid "Please enter a maximum of {{upperBound}} characters"
+msgstr ""
+
+msgid "Please enter a number with a maximum of {{upperBound}}"
+msgstr ""
+
+msgid "Please enter at least {{lowerBound}} characters"
+msgstr ""
+
+msgid "Please enter a number of at least {{lowerBound}}"
+msgstr ""
+
+msgid "Number cannot be less than {{lowerBound}} or more than {{upperBound}}"
+msgstr ""
+
+msgid ""
+"Please make sure the value of this input matches the pattern "
+"{{patternString}}."
+msgstr ""
+
+msgid "Password should be a string"
+msgstr ""
+
+msgid "Password should be at least 8 characters long"
+msgstr ""
+
+msgid "Password should be no longer than 34 characters"
+msgstr ""
+
+msgid "Password should contain at least one lowercase letter"
+msgstr ""
+
+msgid "Password should contain at least one UPPERCASE letter"
+msgstr ""
+
+msgid "Password should contain at least one number"
+msgstr ""
+
+msgid "Password should have at least one special character"
+msgstr ""
+
+msgid "Please provide a username between 1 and 255 characters"
+msgstr ""
+
+msgid "Please provide a valid email address"
+msgstr "تکایە ئیمەیڵێکی درووست بنووسە"
+
+msgid "Please provide a value"
+msgstr ""
+
+msgid "Please provide a round number without decimals"
+msgstr ""
+
+msgid "Please provide a valid international phone number."
+msgstr ""
+
+msgid "Please provide a number"
+msgstr ""
+
+msgid "Please provide a string"
+msgstr ""
+
+msgid "Please provide a valid url"
+msgstr "تکایە یو URLێکی درووست بنووسە"

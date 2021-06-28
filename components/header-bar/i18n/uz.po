@@ -1,0 +1,37 @@
+# 
+# Translators:
+# Ibatov <ibatovk@who.int>, 2021
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-05-10T10:09:29.830Z\n"
+"PO-Revision-Date: 2021-06-24 12:50+0000\n"
+"Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
+"Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uz@Cyrl\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Search apps"
+msgstr "Иловаларни қидириш"
+
+msgid "Edit profile"
+msgstr "Профилни таҳрир қилиш"
+
+msgid "Settings"
+msgstr "Созламалар"
+
+msgid "Account"
+msgstr "Рақами"
+
+msgid "Help"
+msgstr "Ёрдам"
+
+msgid "About DHIS2"
+msgstr "DHIS2 Ҳақида"
+
+msgid "Logout"
+msgstr "Чиқиб кетиш"
