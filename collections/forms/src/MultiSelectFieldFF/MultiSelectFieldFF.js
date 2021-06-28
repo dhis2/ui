@@ -20,7 +20,7 @@ export const MultiSelectFieldFF = ({
     meta,
     onBlur,
     onFocus,
-    options,
+    options = [],
     showLoadingStatus,
     showValidStatus,
     valid,
