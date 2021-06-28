@@ -28,7 +28,7 @@
         "@fontsource/roboto": "^4.4.5",
         "@storybook/addon-a11y": "^6.2.9",
         "@storybook/addon-console": "^1.2.3",
-        "@storybook/addon-docs": "^6.2.9",
+        "@storybook/addon-docs": "^6.3.1",
         "@storybook/addon-essentials": "^6.2.9",
         "@storybook/addon-storysource": "^6.2.9",
         "@storybook/addons": "^6.2.9",
