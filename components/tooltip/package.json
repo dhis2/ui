@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/tooltip",
-    "version": "6.10.3",
+    "version": "6.10.4",
     "description": "UI Tooltip",
     "repository": {
         "type": "git",
@@ -30,10 +30,10 @@
         "styled-jsx": "^3.2"
     },
     "dependencies": {
-        "@dhis2-ui/layer": "6.10.3",
-        "@dhis2-ui/popper": "6.10.3",
+        "@dhis2-ui/layer": "6.10.4",
+        "@dhis2-ui/popper": "6.10.4",
         "@dhis2/prop-types": "^1.6.4",
-        "@dhis2/ui-constants": "6.10.3",
+        "@dhis2/ui-constants": "6.10.4",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },

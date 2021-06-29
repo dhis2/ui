@@ -1,3 +1,10 @@
+## [6.10.4](https://github.com/dhis2/ui/compare/v6.10.3...v6.10.4) (2021-06-29)
+
+
+### Bug Fixes
+
+* Add default value for options ([221a4c7](https://github.com/dhis2/ui/commit/221a4c7fde97f2976fa0c5eeb50b38cb2f432b4f))
+
 ## [6.10.3](https://github.com/dhis2/ui/compare/v6.10.2...v6.10.3) (2021-06-29)
 
 
