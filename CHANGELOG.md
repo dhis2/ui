@@ -1,3 +1,10 @@
+## [6.10.5](https://github.com/dhis2/ui/compare/v6.10.4...v6.10.5) (2021-07-06)
+
+
+### Bug Fixes
+
+* **tag:** support 16px icons ([#659](https://github.com/dhis2/ui/issues/659)) ([67c0817](https://github.com/dhis2/ui/commit/67c0817e017467a632bffbcc0906bea01163b5c0))
+
 ## [6.10.4](https://github.com/dhis2/ui/compare/v6.10.3...v6.10.4) (2021-06-29)
 
 
