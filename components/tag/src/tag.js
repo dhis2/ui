@@ -31,15 +31,15 @@ export const Tag = ({
         <style jsx>
             {`
                 div {
-                    padding: 5px 6px 3px;
+                    padding: 5px 6px;
                     border-radius: 3px;
                     background-color: ${colors.grey300};
                     fill: ${colors.grey700};
                     color: ${colors.grey900};
                     max-width: ${maxWidth};
                     display: inline-flex;
+                    align-items: center;
                     font-size: 13px;
-                    line-height: 12px;
                     height: 23px;
                 }
                 .negative {

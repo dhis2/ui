@@ -89,8 +89,8 @@ Negative.args = { negative: true }
 export const Bold = Template.bind({})
 Bold.args = { bold: true }
 
-export const WithClippedOversizedIcon = Template.bind({})
-WithClippedOversizedIcon.args = { icon: <ExampleLargeIcon /> }
+export const WithLargeIcon = Template.bind({})
+WithLargeIcon.args = { icon: <ExampleLargeIcon /> }
 
 export const WithClippedLongText = Template.bind({})
 WithClippedLongText.args = {

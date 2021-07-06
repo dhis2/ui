@@ -5,11 +5,11 @@ export const TagIcon = ({ children, dataTest }) => (
     <div data-test={dataTest}>
         {children}
         <style jsx>{`
+            display: flex;
+            align-items: center;
             margin-right: 4px;
-            width: 12px;
-            height: 12px;
-            overflow: hidden;
-            flex-shrink: 0;
+            max-height: 16px;
+            max-width: 16px;
         `}</style>
     </div>
 )
