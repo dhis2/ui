@@ -32,6 +32,7 @@
     "dependencies": {
         "@dhis2-ui/layer": "6.14.0",
         "@dhis2-ui/popper": "6.14.0",
+        "@dhis2-ui/loader": "6.14.0",
         "@dhis2/prop-types": "^1.6.4",
         "@dhis2/ui-constants": "6.14.0",
         "@dhis2/ui-icons": "6.14.0",
