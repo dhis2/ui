@@ -1,3 +1,4 @@
+import { CircularLoader } from '@dhis2-ui/loader'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
@@ -24,6 +25,7 @@ export const Button = ({
     onBlur,
     onClick,
     onFocus,
+    loading,
 }) => {
     const ref = useRef()
 
@@ -44,6 +46,7 @@ export const Button = ({
         large,
         'icon-only': iconOnly,
         toggled,
+        loading: loading,
     })
 
     return (
@@ -52,13 +55,22 @@ export const Button = ({
             name={name}
             className={buttonClassName}
             data-test={dataTest}
-            disabled={disabled}
+            disabled={disabled || loading}
             tabIndex={tabIndex}
             type={type}
             onBlur={handleBlur}
             onClick={handleClick}
             onFocus={handleFocus}
         >
+            {loading && (
+                <span className="loader">
+                    {destructive || primary ? (
+                        <CircularLoader extrasmall invert />
+                    ) : (
+                        <CircularLoader extrasmall />
+                    )}
+                </span>
+            )}
             {icon && <span className="button-icon">{icon}</span>}
             {children}
             <style jsx>{styles}</style>
@@ -95,6 +107,8 @@ Button.propTypes = {
     initialFocus: PropTypes.bool,
     /** Makes the button large. Mutually exclusive with `small` */
     large: sharedPropTypes.sizePropType,
+    /** Sets the button into a loading state */
+    loading: PropTypes.bool,
     /**
      * Sets `name` attribute on button element.
      * Gets passed as part of the first argument to callbacks (see `onClick`).
