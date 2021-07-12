@@ -1,10 +1,10 @@
+import { MenuDivider, MenuItem } from '@dhis2-ui/menu'
+import { SingleSelectField } from '@dhis2-ui/select'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from '@dhis2/prop-types'
-import { MenuDivider, MenuItem } from '@dhis2/ui-core'
 import React from 'react'
-import { SingleSelectField } from '../SingleSelectField/SingleSelectField.js'
-import { accessStrings } from './sharingConstants'
-import { accessSelectStyles } from './SharingDialog.styles'
+import { accessStrings } from './sharing-constants'
+import { accessSelectStyles } from './sharing-dialog.styles'
 
 export const AccessSelect = ({
     label,

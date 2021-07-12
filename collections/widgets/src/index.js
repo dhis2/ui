@@ -23,3 +23,4 @@ export {
     DataTableRow,
     DataTableToolbar,
 } from '@dhis2-ui/table'
+// TODO export { SharingDialog } from '@dhis2-ui/sharing-dialog'

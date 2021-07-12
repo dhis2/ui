@@ -3,7 +3,7 @@ import {
     ACCESS_VIEW_ONLY,
     ACCESS_VIEW_AND_EDIT,
     convertConstantToAccess,
-} from '../sharingConstants'
+} from '../sharing-constants.js'
 
 describe('SharingDialog - convertConstantToAccess', () => {
     const testCases = [

@@ -1,13 +1,14 @@
+import { Button } from '@dhis2-ui/button'
+import { Divider } from '@dhis2-ui/divider'
 import { useDataQuery } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from '@dhis2/prop-types'
-import { Button, Divider } from '@dhis2/ui-core'
 import React, { useEffect, useState } from 'react'
-import { AccessSelect } from './AccessSelect.js'
-import { Autocomplete } from './Autocomplete/Autocomplete.js'
+import { AccessSelect } from './access-select.js'
+import { Autocomplete } from './autocomplete/autocomplete.js'
 import { debounce } from './helpers'
-import { ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT } from './sharingConstants.js'
-import { sharingCommonStyles, shareBlockStyles } from './SharingDialog.styles'
+import { ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT } from './sharing-constants.js'
+import { sharingCommonStyles, shareBlockStyles } from './sharing-dialog.styles'
 
 const query = {
     usersAndGroups: {

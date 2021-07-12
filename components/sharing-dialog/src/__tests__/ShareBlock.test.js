@@ -1,9 +1,9 @@
-import { Button } from '@dhis2/ui-core'
+import { Button } from '@dhis2-ui/button'
 import { shallow } from 'enzyme'
 import React from 'react'
-import { AccessSelect } from '../AccessSelect'
-import { Autocomplete } from '../Autocomplete/Autocomplete'
-import { ShareBlock } from '../ShareBlock'
+import { AccessSelect } from '../access-select.js'
+import { Autocomplete } from '../autocomplete/autocomplete.js'
+import { ShareBlock } from '../share-block.js'
 
 describe('SharingDialog widget - ShareBlock component', () => {
     let shallowShareBlockComponent

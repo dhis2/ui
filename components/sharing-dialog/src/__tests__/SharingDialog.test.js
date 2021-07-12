@@ -1,10 +1,11 @@
-import { Button, Modal, ModalTitle } from '@dhis2/ui-core'
+import { Button } from '@dhis2-ui/button'
+import { Modal, ModalTitle } from '@dhis2-ui/modal'
 import { shallow } from 'enzyme'
 import React from 'react'
-import { ShareBlock } from '../ShareBlock'
-import { defaultSharingSettings } from '../sharingConstants'
-import { SharingDialog } from '../SharingDialog'
-import { SharingList } from '../SharingList'
+import { ShareBlock } from '../share-block.js'
+import { defaultSharingSettings } from '../sharing-constants.js'
+import { SharingDialog } from '../sharing-dialog.js'
+import { SharingList } from '../sharing-list.js'
 
 describe('SharingDialog widget', () => {
     const onClose = jest.fn()
