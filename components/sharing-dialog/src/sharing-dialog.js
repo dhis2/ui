@@ -1,22 +1,16 @@
+import { ButtonStrip, Button } from '@dhis2-ui/button'
+import { Modal, ModalTitle, ModalContent, ModalActions } from '@dhis2-ui/modal'
 import { useAlert, useDataQuery, useDataMutation } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from '@dhis2/prop-types'
-import {
-    Modal,
-    ModalTitle,
-    ModalContent,
-    ModalActions,
-    ButtonStrip,
-    Button,
-} from '@dhis2/ui-core'
 import React, { useEffect, useState } from 'react'
-import { ShareBlock } from './ShareBlock.js'
+import { ShareBlock } from './share-block.js'
 import {
     defaultSharingSettings,
     convertAccessToConstant,
     convertConstantToAccess,
-} from './sharingConstants.js'
-import { SharingList } from './SharingList.js'
+} from './sharing-constants.js'
+import { SharingList } from './sharing-list.js'
 
 const query = {
     sharing: {

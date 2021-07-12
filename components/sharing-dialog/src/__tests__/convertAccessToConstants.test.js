@@ -4,7 +4,7 @@ import {
     ACCESS_VIEW_AND_EDIT,
     defaultSharingSettings,
     convertAccessToConstant,
-} from '../sharingConstants'
+} from '../sharing-constants.js'
 
 describe('SharingDialog - convertAccessToConstant', () => {
     it('returns the default value for public sharing if the access string is not recognised', () => {

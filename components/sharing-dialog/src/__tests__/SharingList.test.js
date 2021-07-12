@@ -6,8 +6,8 @@ import {
     SHARE_TARGET_GROUP,
     SHARE_TARGET_USER,
     defaultSharingSettings,
-} from '../sharingConstants'
-import { SharingList } from '../SharingList'
+} from '../sharing-constants.js'
+import { SharingList } from '../sharing-list.js'
 
 describe('SharingDialog widget - SharingList component', () => {
     let shallowSharingListComponent

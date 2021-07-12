@@ -1,7 +1,31 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
-import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { SharingDialog } from './SharingDialog.js'
+import { SharingDialog } from './sharing-dialog.js'
+
+const subtitle = 'The common dialog for managing object sharing in DHIS2 apps'
+
+const description = `
+The sharing dialog can be used in different apps that use the standard object API, like visualizations, dashboards...
+
+It allows to view and edit the sharing settings for the given object.
+
+\`\`\`js
+import { SharingDialog } from '@dhis2/ui'
+\`\`\`
+`
+export default {
+    title: 'Utils/Sharing Dialog',
+    component: SharingDialog,
+    parameters: {
+        componentSubtitle: subtitle,
+        docs: { description: { component: description } },
+    },
+    // Default args for stories
+    args: {
+        type: 'visualization',
+        id: 'sharing-test',
+    },
+}
 
 const customSearchData = {
     'sharing/search': {
@@ -107,24 +131,29 @@ const customDataWithUserGroupAccesses = {
     },
 }
 
-storiesOf('SharingDialog', module)
-    .add('Simple', () => (
-        <CustomDataProvider data={customDefaultData}>
-            <SharingDialog type="dashboard" id="sharing-test" />
-        </CustomDataProvider>
-    ))
-    .add('With name', () => (
-        <CustomDataProvider data={customData}>
-            <SharingDialog type="dashboard" id="sharing-test" />
-        </CustomDataProvider>
-    ))
-    .add('With disabled access', () => (
-        <CustomDataProvider data={customDataDisabledAccess}>
-            <SharingDialog type="dashboard" id="sharing-test" />
-        </CustomDataProvider>
-    ))
-    .add('With user and group accesses', () => (
-        <CustomDataProvider data={customDataWithUserGroupAccesses}>
-            <SharingDialog type="dashboard" id="sharing-test" />
-        </CustomDataProvider>
-    ))
+export const Simple = args => (
+    <CustomDataProvider data={customDefaultData}>
+        <SharingDialog {...args} />
+    </CustomDataProvider>
+)
+
+export const WithName = args => (
+    <CustomDataProvider data={customData}>
+        <SharingDialog {...args} />
+    </CustomDataProvider>
+)
+WithName.storyName = 'With name'
+
+export const WithDisabledAccess = args => (
+    <CustomDataProvider data={customDataDisabledAccess}>
+        <SharingDialog {...args} />
+    </CustomDataProvider>
+)
+WithDisabledAccess.storyName = 'With disabled access'
+
+export const WithUserAndGroupAccesses = args => (
+    <CustomDataProvider data={customDataWithUserGroupAccesses}>
+        <SharingDialog {...args} />
+    </CustomDataProvider>
+)
+WithUserAndGroupAccesses.storyName = 'With user and group accesses'

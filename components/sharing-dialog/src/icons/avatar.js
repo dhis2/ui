@@ -1,6 +1,6 @@
 import PropTypes from '@dhis2/prop-types'
 import React from 'react'
-import { avatarStyles } from '../SharingDialog.styles'
+import { avatarStyles } from '../sharing-dialog.styles'
 
 export const Avatar = ({ name } = { name: 'USER' }) => {
     const nameParts = name.split(' ')

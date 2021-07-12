@@ -1,8 +1,8 @@
+import { InputField } from '@dhis2-ui/input'
+import { Menu, MenuItem } from '@dhis2-ui/menu'
 import PropTypes from '@dhis2/prop-types'
-import { Menu, MenuItem } from '@dhis2/ui-core'
 import React, { createRef, useState, useEffect } from 'react'
-import { InputField } from '../../InputField/InputField.js'
-import { MenuWrapper } from './MenuWrapper'
+import { MenuWrapper } from './menu-wrapper'
 
 // Keycodes for the keypress event handlers
 // XXX implement keyboard navigation in the Menu ?!
