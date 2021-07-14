@@ -1,12 +1,11 @@
 # 
 # Translators:
-# phil_dhis2, 2021
 # easylin <lin_xd@126.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-06-04T18:40:29.413Z\n"
+"POT-Creation-Date: 2021-06-15T13:35:03.608Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -16,11 +15,8 @@ msgstr ""
 "Language: zh\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "Upload a file"
-msgstr "上传一个文件"
+msgid "Toggle filter"
+msgstr "切换过滤器"
 
-msgid "No file uploaded yet"
-msgstr "还没有上传文件"
-
-msgid "Remove"
-msgstr "移除"
+msgid "Sort items"
+msgstr "排序项目"

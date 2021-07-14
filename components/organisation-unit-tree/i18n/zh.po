@@ -19,4 +19,4 @@ msgid "Could not load children"
 msgstr "无法加载下属"
 
 msgid "Error: {{ ERRORMESSAGE }}"
-msgstr ""
+msgstr "错误：{{ ERRORMESSAGE }}"
