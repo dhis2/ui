@@ -23,6 +23,7 @@ export const ShareBlock = ({ onAdd }) => {
     const [userOrGroup, setUserOrGroup] = useState(undefined)
     const [access, setAccess] = useState(undefined)
     const [usersAndGroups, setUsersAndGroups] = useState({})
+    const [searchTimeout, setSearchTimeout] = useState(null)
     const [searchResults, setSearchResults] = useState([])
 
     const { data, error, refetch } = useDataQuery(query, {
@@ -59,8 +60,11 @@ export const ShareBlock = ({ onAdd }) => {
     const onSearch = text => {
         setUserOrGroup({ name: text })
 
+        clearTimeout(searchTimeout)
+
         if (text.length) {
-            fetchData(text)
+            // debounce data fetch
+            setSearchTimeout(setTimeout(() => fetchData(text), 200))
         } else {
             setSearchResults([])
         }
