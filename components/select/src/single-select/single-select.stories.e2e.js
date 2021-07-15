@@ -331,6 +331,16 @@ storiesOf('SingleSelect', module)
             <SingleSelectOption value="3" label="option three" />
         </SingleSelect>
     ))
+    .add('With invalid selected option', () => (
+        <SingleSelect
+            className="select"
+            placeholder="Placeholder text"
+            selected="1"
+        >
+            <SingleSelectOption value="2" label="option two" />
+            <SingleSelectOption value="3" label="option three" />
+        </SingleSelect>
+    ))
     .add('Menu width changing', () => {
         const [toggle, setToggle] = useState(false)
         return (

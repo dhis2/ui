@@ -6,6 +6,7 @@ import {
     InputClearButton,
     InputPlaceholder,
     InputPrefix,
+    findOptionChild,
 } from '../select/index.js'
 import { Selection } from './selection.js'
 
@@ -22,7 +23,15 @@ const Input = ({
     disabled,
     inputMaxHeight,
 }) => {
-    const hasSelection = selected && typeof selected === 'string'
+    const hasSelection = typeof selected === 'string' && selected !== ''
+    const selectedOption = hasSelection && findOptionChild(selected, options)
+    if (hasSelection && !selectedOption) {
+        const message =
+            `There is no option with the value: "${selected}". ` +
+            'Make sure that the value passed to the selected ' +
+            'prop matches the value of an existing option.'
+        console.error(message)
+    }
     const onClear = (_, e) => {
         const data = { selected: '' }
 
@@ -33,19 +42,22 @@ const Input = ({
     return (
         <div className={cx('root', className)}>
             <InputPrefix prefix={prefix} dataTest={`${dataTest}-prefix`} />
-            {!hasSelection && !prefix && (
+            {!selectedOption && !prefix && (
                 <InputPlaceholder
                     placeholder={placeholder}
                     dataTest={`${dataTest}-placeholder`}
                 />
             )}
-            {hasSelection && (
+            {selectedOption && (
                 <div className="root-input">
                     {/* the wrapper div above is necessary to enforce wrapping on overflow */}
-                    <Selection selected={selected} options={options} />
+                    <Selection
+                        icon={selectedOption.props.icon}
+                        label={selectedOption.props.label}
+                    />
                 </div>
             )}
-            {hasSelection && clearable && !disabled && (
+            {selectedOption && clearable && !disabled && (
                 <div className="root-right">
                     <InputClearButton
                         onClear={onClear}
