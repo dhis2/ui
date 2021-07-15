@@ -334,6 +334,12 @@ storiesOf('MultiSelect', module)
             <MultiSelectOption value="3" label="option three" />
         </MultiSelect>
     ))
+    .add('With some invalid selected options', () => (
+        <MultiSelect className="select" selected={['1', '2', '3']}>
+            <MultiSelectOption value="3" label="option three" />
+            <MultiSelectOption value="4" label="option four" />
+        </MultiSelect>
+    ))
     .add('With options that can be added to the input', () => {
         const [values, setValues] = React.useState([])
         return (

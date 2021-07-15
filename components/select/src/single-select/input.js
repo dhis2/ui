@@ -26,11 +26,11 @@ const Input = ({
     const hasSelection = typeof selected === 'string' && selected !== ''
     const selectedOption = hasSelection && findOptionChild(selected, options)
     if (hasSelection && !selectedOption) {
-        const message =
+        console.error(
             `There is no option with the value: "${selected}". ` +
-            'Make sure that the value passed to the selected ' +
-            'prop matches the value of an existing option.'
-        console.error(message)
+                'Make sure that the value passed to the selected ' +
+                'prop matches the value of an existing option.'
+        )
     }
     const onClear = (_, e) => {
         const data = { selected: '' }

@@ -6,8 +6,28 @@ import {
     InputClearButton,
     InputPlaceholder,
     InputPrefix,
+    findOptionChild,
+    removeOption,
 } from '../select/index.js'
 import { SelectionList } from './selection-list.js'
+
+const createSelectedOption = ({ selected, onChange, value, options }) => {
+    const optionChild = findOptionChild(value, options)
+    if (optionChild) {
+        const { label, disabled } = optionChild.props
+        return {
+            value,
+            label,
+            disabled,
+            onRemove: (_, e) => {
+                const filtered = removeOption(value, selected)
+                const data = { selected: filtered }
+
+                onChange(data, e)
+            },
+        }
+    }
+}
 
 const Input = ({
     selected,
@@ -22,7 +42,25 @@ const Input = ({
     disabled,
     inputMaxHeight,
 }) => {
-    const hasSelection = selected.length > 0
+    const selectedOptions = []
+    for (const value of selected) {
+        const selectedOption = createSelectedOption({
+            selected,
+            onChange,
+            value,
+            options,
+        })
+        if (selectedOption) {
+            selectedOptions.push(selectedOption)
+        } else {
+            console.error(
+                `There is no option with the value: "${value}". ` +
+                    'Make sure that all the values passed to the selected ' +
+                    'prop match the value of an existing option.'
+            )
+        }
+    }
+    const hasSelection = selectedOptions.length > 0
     const onClear = (_, e) => {
         const data = { selected: [] }
 
@@ -43,9 +81,7 @@ const Input = ({
                 <div className="root-input">
                     {/* the wrapper div above is necessary to enforce wrapping on overflow */}
                     <SelectionList
-                        selected={selected}
-                        onChange={onChange}
-                        options={options}
+                        selectedOptions={selectedOptions}
                         disabled={disabled}
                     />
                 </div>

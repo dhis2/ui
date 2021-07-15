@@ -1,4 +1,3 @@
-import '../common'
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given(
