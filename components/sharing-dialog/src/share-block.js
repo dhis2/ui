@@ -1,5 +1,4 @@
 import { Button } from '@dhis2-ui/button'
-import { Divider } from '@dhis2-ui/divider'
 import { useDataQuery } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from '@dhis2/prop-types'
@@ -106,7 +105,6 @@ export const ShareBlock = ({ onAdd }) => {
             <p className="sharing-subtitle">
                 {i18n.t('Give access to a user, group or role')}
             </p>
-            <Divider />
             <form onSubmit={onSubmit} className="share-block sharing-inputs">
                 <Autocomplete
                     placeholder={i18n.t('Search')}

@@ -6,15 +6,16 @@ export const sharingCommonStyles = css`
         color: ${colors.grey700};
         font-size: 15px;
         font-weight: 500;
-        margin: 0;
+        margin: 0 0 8px 0;
     }
 `
 
 export const shareBlockStyles = css`
     .share-block {
         background-color: ${colors.grey100};
-        margin-bottom: 31px;
-        padding: 16px;
+        color: ${colors.grey900};
+        margin-bottom: 21px;
+        padding: 8px 12px;
         border-radius: 5px;
     }
 
@@ -32,7 +33,7 @@ export const sharingListStyles = css`
         padding: 10px 8px;
         margin: 0 0 8px 0;
         background-color: ${colors.grey200};
-        color: ${colors.grey800};
+        color: ${colors.grey900};
         font-size: 13px;
     }
 
@@ -110,5 +111,62 @@ export const avatarStyles = css`
         text-align: center;
         text-transform: uppercase;
         color: ${colors.grey050};
+    }
+`
+
+export const dashboardSharingStyles = css`
+    .tab-content {
+        padding-top: 15px;
+    }
+`
+
+export const autoShareStyles = css`
+    .title {
+        font-size: 16px;
+        color: ${colors.grey900};
+        font-weight: 500;
+    }
+
+    .description {
+        margin: 8px 0 13px 0;
+        font-size: 14px;
+        line-height: 19px;
+        color: ${colors.grey800};
+    }
+
+    .info-box {
+        display: inline-flex;
+        margin-bottom: 8px;
+        border-radius: 3px;
+        background-color: ${colors.grey200};
+        padding: 8px 8px 6px 8px;
+    }
+    .info-box-text {
+        padding-left: 6px;
+        font-size: 14px;
+        color: ${colors.grey900};
+        line-height: 19px;
+    }
+
+    .warning-box {
+        display: inline-flex;
+        margin-bottom: 12px;
+        border-radius: 3px;
+        border: 1px solid ${colors.red500};
+        padding: 8px 8px 6px 8px;
+    }
+
+    .warning-box-text {
+        padding-left: 6px;
+        font-size: 14px;
+        color: ${colors.red900};
+        line-height: 19px;
+    }
+    .loading {
+        display: inline-flex;
+        align-items: center;
+        color: ${colors.grey800};
+        font-size: 14px;
+        line-height: 19px;
     }
 `

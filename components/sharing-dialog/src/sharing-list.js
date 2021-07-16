@@ -1,4 +1,3 @@
-import { Divider } from '@dhis2-ui/divider'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from '@dhis2/prop-types'
 import React from 'react'
@@ -22,7 +21,6 @@ export const SharingList = ({ sharingSettings, onChange, onRemove }) => (
         <p className="sharing-subtitle">
             {i18n.t('Users, groups and roles that currently have access')}
         </p>
-        <Divider />
         <div className="sharing-headers">
             <div className="sharing-header-1">
                 {i18n.t('User / Group / Role')}
