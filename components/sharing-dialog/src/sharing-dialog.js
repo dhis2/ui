@@ -4,13 +4,13 @@ import { useAlert, useDataQuery, useDataMutation } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from '@dhis2/prop-types'
 import React, { useEffect, useState } from 'react'
-import { ShareBlock } from './share-block.js'
+import { DashboardSharingContent } from './dashboard-sharing-content.js'
+import { DefaultSharingContent } from './default-sharing-content.js'
 import {
     defaultSharingSettings,
     convertAccessToConstant,
     convertConstantToAccess,
 } from './sharing-constants.js'
-import { SharingList } from './sharing-list.js'
 
 const query = {
     sharing: {
@@ -249,12 +249,21 @@ export const SharingDialog = ({
                     : i18n.t('Sharing & Access')}
             </ModalTitle>
             <ModalContent>
-                <ShareBlock onAdd={onAdd} />
-                <SharingList
-                    sharingSettings={sharingSettings}
-                    onChange={onChange}
-                    onRemove={onRemove}
-                />
+                {type === 'dashboard' ? (
+                    <DashboardSharingContent
+                        sharingSettings={sharingSettings}
+                        onAdd={onAdd}
+                        onChange={onChange}
+                        onRemove={onRemove}
+                    />
+                ) : (
+                    <DefaultSharingContent
+                        sharingSettings={sharingSettings}
+                        onAdd={onAdd}
+                        onChange={onChange}
+                        onRemove={onRemove}
+                    />
+                )}
             </ModalContent>
             <ModalActions>
                 <ButtonStrip end>
