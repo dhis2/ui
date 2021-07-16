@@ -134,5 +134,5 @@ export const ShareBlock = ({ onAdd }) => {
 }
 
 ShareBlock.propTypes = {
-    onAdd: PropTypes.func,
+    onAdd: PropTypes.func.isRequired,
 }

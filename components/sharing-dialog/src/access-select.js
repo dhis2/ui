@@ -47,14 +47,14 @@ export const AccessSelect = ({
 )
 
 AccessSelect.propTypes = {
-    access: PropTypes.string,
-    accessOptions: PropTypes.array,
+    access: PropTypes.string.isRequired,
+    accessOptions: PropTypes.array.isRequired,
+    onChange: PropTypes.func.isRequired,
     disabled: PropTypes.bool,
     label: PropTypes.string,
     placeholder: PropTypes.string,
     prefix: PropTypes.string,
     showRemoveOption: PropTypes.bool,
-    onChange: PropTypes.func,
 }
 
 const CustomSingleSelectOption = ({
@@ -78,9 +78,9 @@ const CustomSingleSelectOption = ({
 )
 
 CustomSingleSelectOption.propTypes = {
+    label: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
     active: PropTypes.bool,
     destructive: PropTypes.bool,
-    label: PropTypes.string,
-    value: PropTypes.string,
-    onClick: PropTypes.func,
 }

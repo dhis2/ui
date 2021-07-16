@@ -35,7 +35,7 @@ const mutation = {
 }
 
 export const SharingDialog = ({
-    initialSharingSettings = defaultSharingSettings,
+    initialSharingSettings,
     id,
     type,
     onClose,
@@ -268,11 +268,14 @@ export const SharingDialog = ({
 }
 
 SharingDialog.defaultProps = {
+    initialSharingSettings: defaultSharingSettings,
     onError: Function.prototype,
     onSave: Function.prototype,
 }
 
 SharingDialog.propTypes = {
+    type: PropTypes.string.isRequired,
+    onClose: PropTypes.func.isRequired,
     id: PropTypes.string,
     initialSharingSettings: PropTypes.shape({
         allowExternal: PropTypes.bool,
@@ -283,8 +286,6 @@ SharingDialog.propTypes = {
         public: PropTypes.string,
         users: PropTypes.object,
     }),
-    type: PropTypes.string,
-    onClose: PropTypes.func,
     onError: PropTypes.func,
     onSave: PropTypes.func,
 }
