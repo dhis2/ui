@@ -131,6 +131,17 @@ const customDataWithUserGroupAccesses = {
     },
 }
 
+const customDataWithPublicAccess = {
+    ...customDefaultData,
+    sharing: {
+        ...customDefaultData.sharing,
+        object: {
+            ...customDefaultData.sharing.object,
+            publicAccess: 'r-------',
+        },
+    },
+}
+
 export const Simple = args => (
     <CustomDataProvider data={customDefaultData}>
         <SharingDialog {...args} />
@@ -157,3 +168,19 @@ export const WithUserAndGroupAccesses = args => (
     </CustomDataProvider>
 )
 WithUserAndGroupAccesses.storyName = 'With user and group accesses'
+
+export const ForDashboard = args => (
+    <CustomDataProvider data={customDefaultData}>
+        <SharingDialog {...args} />
+    </CustomDataProvider>
+)
+ForDashboard.storyName = 'For dashboard'
+ForDashboard.args = { type: 'dashboard' }
+
+export const ForDashboardWithPublicAccess = args => (
+    <CustomDataProvider data={customDataWithPublicAccess}>
+        <SharingDialog {...args} />
+    </CustomDataProvider>
+)
+ForDashboardWithPublicAccess.storyName = 'For dashboard with public access'
+ForDashboardWithPublicAccess.args = { type: 'dashboard' }
