@@ -2,7 +2,7 @@ import PropTypes from '@dhis2/prop-types'
 import React from 'react'
 import { avatarStyles } from '../sharing-dialog.styles'
 
-export const Avatar = ({ name } = { name: 'USER' }) => {
+export const Avatar = ({ name }) => {
     const nameParts = name.split(' ')
 
     let initials = nameParts.shift().charAt(0)
@@ -19,6 +19,10 @@ export const Avatar = ({ name } = { name: 'USER' }) => {
     )
 }
 
+Avatar.defaultProps = {
+    name: 'USER',
+}
+
 Avatar.propTypes = {
-    name: PropTypes.string,
+    name: PropTypes.string.isRequired,
 }

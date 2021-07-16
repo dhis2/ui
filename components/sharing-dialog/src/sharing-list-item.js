@@ -69,11 +69,11 @@ export const SharingListItem = ({
 }
 
 SharingListItem.propTypes = {
-    access: PropTypes.string,
-    accessOptions: PropTypes.array,
+    access: PropTypes.string.isRequired,
+    accessOptions: PropTypes.array.isRequired,
+    name: PropTypes.string.isRequired,
+    target: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
     disabled: PropTypes.bool,
-    name: PropTypes.string,
-    target: PropTypes.string,
-    onChange: PropTypes.func,
     onRemove: PropTypes.func,
 }

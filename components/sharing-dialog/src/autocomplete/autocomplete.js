@@ -28,8 +28,8 @@ const SearchResults = ({ searchResults, onClick }) => (
 )
 
 SearchResults.propTypes = {
-    searchResults: PropTypes.array,
-    onClick: PropTypes.func,
+    searchResults: PropTypes.array.isRequired,
+    onClick: PropTypes.func.isRequired,
 }
 
 export const Autocomplete = ({
@@ -55,7 +55,6 @@ export const Autocomplete = ({
         }
     }, [])
 
-    // TODO debounce
     const onInputChange = ({ value }) => {
         onSearch(value)
     }
@@ -98,12 +97,12 @@ Autocomplete.defaultProps = {
 }
 
 Autocomplete.propTypes = {
+    searchResults: PropTypes.array.isRequired,
     dataTest: PropTypes.string,
     inputWidth: PropTypes.string,
     label: PropTypes.string,
     maxHeight: PropTypes.string,
     placeholder: PropTypes.string,
-    searchResults: PropTypes.array,
     value: PropTypes.string,
     onChange: PropTypes.func,
     onClose: PropTypes.func,
