@@ -24,6 +24,7 @@ export default {
     args: {
         type: 'visualization',
         id: 'sharing-test',
+        onClose: Function.prototype,
     },
 }
 
