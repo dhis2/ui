@@ -47,9 +47,9 @@ export const AccessSelect = ({
 )
 
 AccessSelect.propTypes = {
-    access: PropTypes.string.isRequired,
     accessOptions: PropTypes.array.isRequired,
     onChange: PropTypes.func.isRequired,
+    access: PropTypes.string,
     disabled: PropTypes.bool,
     label: PropTypes.string,
     placeholder: PropTypes.string,
@@ -80,7 +80,7 @@ const CustomSingleSelectOption = ({
 CustomSingleSelectOption.propTypes = {
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
     active: PropTypes.bool,
     destructive: PropTypes.bool,
+    onClick: PropTypes.func,
 }
