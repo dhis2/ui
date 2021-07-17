@@ -12,7 +12,8 @@
     "private": true,
     "scripts": {
         "start": "EXTEND_ESLINT=true start-storybook -c config --port 5000 --quiet --ci -s static",
-        "build": "EXTEND_ESLINT=true build-storybook -c config -o ../dist/demo --quiet -s static"
+        "build": "EXTEND_ESLINT=true build-storybook -c config -o ../dist/demo --quiet -s static",
+        "snapshot": "percy-storybook --build_dir=../dist/demo --widths=640"
     },
     "peerDependencies": {
         "react": "^16.8",
@@ -44,6 +45,7 @@
         "storybook-addon-jsx": "^7.3.9"
     },
     "devDependencies": {
+        "@percy/storybook": "^3.3.1",
         "react": "16.13",
         "react-dom": "16.13",
         "styled-jsx": "^3.4.4"
