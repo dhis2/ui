@@ -48,6 +48,6 @@ Then('the elevations css variables are set', () => {
     cy.get('div#custom').should(
         'have.css',
         'box-shadow',
-        'rgba(64, 75, 90, 0.2) 0px 0px 1px 0px, rgba(64, 75, 90, 0.28) 0px 2px 1px 0px'
+        'rgba(33, 41, 52, 0.06) 0px 1px 2px 0px, rgba(33, 41, 52, 0.1) 0px 1px 3px 0px'
     )
 })

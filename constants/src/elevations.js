@@ -1,6 +1,8 @@
 export const elevations = {
-    e100: '0 0 1px 0 rgba(64,75,90,0.20), 0 2px 1px 0 rgba(64,75,90,0.28)',
-    e200: '0 0 1px 0 rgba(64,75,90,0.29), 0 3px 8px -2px rgba(64,75,90,0.30)',
-    e300: '0 0 1px 0 rgba(64,75,90,0.30), 0 8px 18px -4px rgba(64,75,90,0.28)',
-    e400: '0 0 1px 0 rgba(64,75,90,0.30), 0 14px 28px -6px rgba(64,75,90,0.30)',
+    e100: '0px 1px 2px rgba(33,41,52,0.06), 0px 1px 3px rgba(33,41,52,0.1)',
+    e200:
+        '0px 0px 1px rgba(33,41,52,0.1), 0px 4px 6px -1px rgba(33,41,52,0.1), 0px 2px 4px -1px rgba(33,41,52,0.06)',
+    e300:
+        '0px 10px 15px -3px rgba(33,41,52,0.1), 0px 4px 6px -2px rgba(33,41,52,0.05)',
+    e400: '0px 25px 50px -12px rgba(33, 41, 52, 0.25)',
 }
