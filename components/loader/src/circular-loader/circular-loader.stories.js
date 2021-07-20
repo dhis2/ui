@@ -24,6 +24,7 @@ export default {
     argTypes: {
         small: { ...sharedPropTypes.sizeArgType },
         large: { ...sharedPropTypes.sizeArgType },
+        extrasmall: { ...sharedPropTypes.sizeArgType },
     },
 }
 
@@ -36,3 +37,6 @@ Small.args = { small: true }
 
 export const Large = Template.bind({})
 Large.args = { large: true }
+
+export const ExtraSmall = Template.bind({})
+ExtraSmall.args = { extrasmall: true }

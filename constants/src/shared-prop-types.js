@@ -49,7 +49,7 @@ export const buttonVariantArgType = {
  * small/large
  */
 export const sizePropType = propTypes.mutuallyExclusive(
-    ['small', 'large'],
+    ['small', 'large', 'extrasmall'],
     propTypes.bool
 )
 export const sizeArgType = {
@@ -57,7 +57,7 @@ export const sizeArgType = {
     table: {
         type: {
             summary: 'bool',
-            detail: "'small' and 'large' are mutually exclusive props",
+            detail: 'size props are mutually exclusive',
         },
     },
     control: {

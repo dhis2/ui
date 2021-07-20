@@ -36,7 +36,7 @@ const LinearLoader = ({ amount, width, margin, className, dataTest }) => {
                     overflow: hidden;
                     overflow-x: hidden;
                     overflow-y: hidden;
-                    background-color: rgba(110, 122, 138, 0.2);
+                    background-color: rgba(110, 122, 138, 0.15);
                 }
             `}</style>
             <style jsx>{`
