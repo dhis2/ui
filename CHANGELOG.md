@@ -1,3 +1,10 @@
+# [6.11.0](https://github.com/dhis2/ui/compare/v6.10.6...v6.11.0) (2021-07-21)
+
+
+### Features
+
+* **loader:** update loader styles and sizes, add invert mode ([d62d323](https://github.com/dhis2/ui/commit/d62d32315c55dd99dfa541ce6233c26803219a9a))
+
 ## [6.10.6](https://github.com/dhis2/ui/compare/v6.10.5...v6.10.6) (2021-07-14)
 
 
