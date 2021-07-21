@@ -1,79 +1,62 @@
-import { theme, spacers, sharedPropTypes } from '@dhis2/ui-constants'
+import { colors, sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const CircularLoader = ({ small, large, className, dataTest }) => (
+const CircularLoader = ({
+    small,
+    large,
+    extrasmall,
+    invert,
+    className,
+    dataTest,
+}) => (
     <div
         role="progressbar"
         className={cx(className, {
             small,
             large,
+            extrasmall,
+            invert,
         })}
         data-test={dataTest}
     >
-        <svg viewBox="22 22 44 44">
-            <circle
-                className="circle"
-                cx="44"
-                cy="44"
-                r="20.2"
-                fill="none"
-                strokeWidth="3.6"
-            />
-        </svg>
         <style jsx>{`
             div {
-                display: inline-block;
-                margin: ${spacers.dp16};
-                color: ${theme.primary600};
-                animation: anim-rotate 1.4s linear infinite;
-
-                width: 50px;
-                height: 50px;
+                width: 48px;
+                height: 48px;
+                border: 6px solid rgba(110, 122, 138, 0.15);
+                border-bottom-color: ${colors.blue600};
+                border-radius: 50%;
+                animation: rotation 1s linear infinite;
             }
+            @keyframes rotation {
+                0% {
+                    transform: rotate(0);
+                }
 
-            .small {
-                width: 24px;
-                height: 24px;
-            }
-
-            .large {
-                width: 80px;
-                height: 80px;
-            }
-
-            svg {
-                max-height: 100%;
-                max-width: 100%;
-            }
-
-            .circle {
-                stroke: currentColor;
-                stroke-dasharray: 80px, 200px;
-                stroke-dashoffset: 0;
-                animation: anim-dash 1.4s ease-in-out infinite;
-            }
-
-            @keyframes anim-rotate {
                 100% {
                     transform: rotate(360deg);
                 }
             }
-
-            @keyframes anim-dash {
-                0% {
-                    stroke-dasharray: 1px, 200px;
-                    stroke-dashoffset: 0;
-                }
-                50% {
-                    stroke-dasharray: 100px, 200px;
-                    stroke-dashoffset: -15px;
-                }
-                100% {
-                    stroke-dasharray: 100px, 200px;
-                    stroke-dashoffset: -120px;
-                }
+            .small {
+                width: 24px;
+                height: 24px;
+                border-width: 4px;
+            }
+            .large {
+                width: 72px;
+                height: 72px;
+                border-width: 8px;
+            }
+            .extrasmall {
+                width: 16px;
+                height: 16px;
+                border-width: 2px;
+            }
+            .invert {
+                border-color: rgba(33, 41, 52, 0.5);
+                border-bottom-color: ${colors.white};
             }
         `}</style>
     </div>
@@ -86,6 +69,8 @@ CircularLoader.defaultProps = {
 CircularLoader.propTypes = {
     className: PropTypes.string,
     dataTest: PropTypes.string,
+    extrasmall: sharedPropTypes.sizePropType,
+    invert: PropTypes.bool,
     large: sharedPropTypes.sizePropType,
     small: sharedPropTypes.sizePropType,
 }
