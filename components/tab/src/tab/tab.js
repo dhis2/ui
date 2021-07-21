@@ -72,9 +72,13 @@ const Tab = ({
                 text-overflow: ellipsis;
                 transition: fill 150ms ease-in-out;
             }
-
-            button:focus span {
-                outline: 1px dotted ${colors.grey900};
+            /*focus-visible backwards compatibility for safari: https://css-tricks.com/platform-news-using-focus-visible-bbcs-new-typeface-declarative-shadow-doms-a11y-and-placeholders/*/
+            button:focus {
+                outline: 3px solid ${theme.focus};
+                outline-offset: -3px;
+            }
+            button:focus:not(:focus-visible) {
+                outline: none;
             }
 
             button > :global(svg) {
