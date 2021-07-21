@@ -28,12 +28,15 @@ const onOpen = (...args) => window.onOpen(...args)
 const onClose = (...args) => window.onClose(...args)
 
 const loadingSpinnerStyles = resolve`
-   
+.extrasmall {
+    display: block;
+    margin: 4px 0;
+}
 `
 
 const LoadingSpinner = () => (
     <React.Fragment>
-        <CircularLoader extrasmall />
+        <CircularLoader extrasmall className={loadingSpinnerStyles.className} />
         <style>{loadingSpinnerStyles.styles}</style>
     </React.Fragment>
 )
