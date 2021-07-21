@@ -77,11 +77,8 @@ const styles = css`
     }
 
     input:focus {
-        border-color: ${colors.teal400};
-    }
-
-    input.valid {
-        border-color: ${theme.valid};
+        outline: none;
+        box-shadow: 0 0 0 3px ${theme.focus};
     }
 
     input.warning {
