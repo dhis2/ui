@@ -40,7 +40,7 @@
         "@storybook/react": "^6.2.9",
         "@storybook/theming": "^6.2.9",
         "@wertarbyte/react-props-md-table": "^1.1.1",
-        "react-docgen": "^5.3.0",
+        "react-docgen": "^5.4.0",
         "storybook-addon-jsx": "^7.3.9"
     },
     "devDependencies": {
