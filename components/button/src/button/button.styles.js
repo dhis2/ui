@@ -278,4 +278,21 @@ export default css`
         color: ${colors.grey050};
         fill: ${colors.grey050};
     }
+
+    .loader {
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+    }
+
+    .loader + .button-icon {
+        display: none;
+    }
+
+    .icon-only .loader {
+        margin: 0 8px 0 4px;
+    }
+    .small.icon-only .loader {
+        margin: 0 4px;
+    }
 `
