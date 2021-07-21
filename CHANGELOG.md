@@ -1,3 +1,10 @@
+# [6.12.0](https://github.com/dhis2/ui/compare/v6.11.0...v6.12.0) (2021-07-21)
+
+
+### Features
+
+* **elevations:** adjust elevation styles and documentation ([02c7e1b](https://github.com/dhis2/ui/commit/02c7e1b13439e2a27ae6dbf5a1a09ddc51e4810c))
+
 # [6.11.0](https://github.com/dhis2/ui/compare/v6.10.6...v6.11.0) (2021-07-21)
 
 
