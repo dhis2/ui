@@ -132,11 +132,9 @@ class SplitButton extends Component {
                         border-bottom-left-radius: 0;
                     }
 
-                    div > :global(button:focus)::after {
-                        // TODO: a hack that allows the pseudoelement to
-                        // render on top of the buttons so the focus
-                        // border can overflow its sibling.
-                        z-index: 1;
+                    /*bring the focused button to the front*/
+                    div > :global(button:focus) {
+                        z-index: 10;
                     }
                 `}</style>
             </div>
