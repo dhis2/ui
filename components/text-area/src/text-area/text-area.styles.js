@@ -28,7 +28,8 @@ export const styles = css`
     }
 
     textarea:focus {
-        border-color: ${colors.teal400};
+        outline: none;
+        box-shadow: 0 0 0 3px ${theme.focus};
     }
 
     textarea.valid {
