@@ -1,28 +1,19 @@
 import { Button } from '@dhis2-ui/button'
-import { theme, spacers, sharedPropTypes } from '@dhis2/ui-constants'
+import { CircularLoader } from '@dhis2-ui/loader'
+import { colors, theme, spacers, sharedPropTypes } from '@dhis2/ui-constants'
+import {
+    IconErrorFilled24,
+    IconCheckmark24,
+    IconInfo24,
+    IconUpload24,
+    IconWarningFilled24,
+} from '@dhis2/ui-icons'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { createRef, Component } from 'react'
 
 function Valid({ className }) {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 48 48"
-            className={className}
-        >
-            <path d="M24 4C12.95 4 4 12.95 4 24c0 11.04 8.95 20 20 20 11.04 0 20-8.96 20-20 0-11.05-8.96-20-20-20zm-4 30L10 24l2.83-2.83L20 28.34l15.17-15.17L38 16 20 34z" />
-            <style jsx>{`
-                svg {
-                    height: 24px;
-                    width: 24px;
-                    vertical-align: middle;
-                    pointer-events: none;
-                    fill: ${theme.valid};
-                }
-            `}</style>
-        </svg>
-    )
+    return <IconCheckmark24 color={theme.valid} className={className} />
 }
 
 Valid.propTypes = {
@@ -30,24 +21,7 @@ Valid.propTypes = {
 }
 
 function Warning({ className }) {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 48 48"
-            className={className}
-        >
-            <path d="M2 42h44L24 4 2 42zm24-6h-4v-4h4v4zm0-8h-4v-8h4v8z" />
-            <style jsx>{`
-                svg {
-                    height: 24px;
-                    width: 24px;
-                    vertical-align: middle;
-                    pointer-events: none;
-                    fill: ${theme.warning};
-                }
-            `}</style>
-        </svg>
-    )
+    return <IconWarningFilled24 color={theme.warning} className={className} />
 }
 
 Warning.propTypes = {
@@ -55,24 +29,7 @@ Warning.propTypes = {
 }
 
 function Error({ className }) {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 48 48"
-            className={className}
-        >
-            <path d="M24 4C12.96 4 4 12.95 4 24s8.96 20 20 20 20-8.95 20-20S35.04 4 24 4zm2 30h-4v-4h4v4zm0-8h-4V14h4v12z" />
-            <style jsx>{`
-                svg {
-                    height: 24px;
-                    width: 24px;
-                    vertical-align: middle;
-                    pointer-events: none;
-                    fill: ${theme.error};
-                }
-            `}</style>
-        </svg>
-    )
+    return <IconErrorFilled24 color={theme.error} className={className} />
 }
 
 Error.propTypes = {
@@ -80,24 +37,7 @@ Error.propTypes = {
 }
 
 function Info({ className }) {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 48 48"
-            className={className}
-        >
-            <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm2 30h-4V22h4v12zm0-16h-4v-4h4v4z" />
-            <style jsx>{`
-                svg {
-                    height: 24px;
-                    width: 24px;
-                    vertical-align: middle;
-                    pointer-events: none;
-                    fill: ${theme.info};
-                }
-            `}</style>
-        </svg>
-    )
+    return <IconInfo24 color={theme.info} className={className} />
 }
 
 Info.propTypes = {
@@ -105,59 +45,7 @@ Info.propTypes = {
 }
 
 function Loading({ className }) {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="22 22 44 44"
-            className={className}
-        >
-            <circle
-                className="circle"
-                cx="44"
-                cy="44"
-                r="20.2"
-                fill="none"
-                strokeWidth="3.6"
-            />
-            <style jsx>{`
-                svg {
-                    fill: ${theme.primary600};
-                    color: ${theme.primary600};
-                    width: 24px;
-                    height: 24px;
-                    animation: anim-rotate 1.4s linear infinite;
-                }
-
-                .circle {
-                    stroke: currentColor;
-                    stroke-dasharray: 80px, 200px;
-                    stroke-dashoffset: 0;
-                    animation: anim-dash 1.4s ease-in-out infinite;
-                }
-
-                @keyframes anim-rotate {
-                    100% {
-                        transform: rotate(360deg);
-                    }
-                }
-
-                @keyframes anim-dash {
-                    0% {
-                        stroke-dasharray: 1px, 200px;
-                        stroke-dashoffset: 0;
-                    }
-                    50% {
-                        stroke-dasharray: 100px, 200px;
-                        stroke-dashoffset: -15px;
-                    }
-                    100% {
-                        stroke-dasharray: 100px, 200px;
-                        stroke-dashoffset: -120px;
-                    }
-                }
-            `}</style>
-        </svg>
-    )
+    return <CircularLoader small className={className} />
 }
 
 Loading.propTypes = {
@@ -207,21 +95,7 @@ StatusIcon.propTypes = {
 }
 
 function Upload({ className }) {
-    return (
-        <svg className={className}>
-            <path d="M0 0h24v24H0z" fill="none" />
-            <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z" />
-            <style jsx>{`
-                svg {
-                    fill: inherit;
-                    height: 24px;
-                    width: 24px;
-                    vertical-align: middle;
-                    pointer-events: none;
-                }
-            `}</style>
-        </svg>
-    )
+    return <IconUpload24 color={colors.grey700} className={className} />
 }
 
 Upload.propTypes = {
@@ -321,8 +195,6 @@ class FileInput extends Component {
                     }
 
                     .file-input > :global(svg) {
-                        width: 18px;
-                        height: 18px;
                         margin-left: ${spacers.dp8};
                     }
                 `}</style>
