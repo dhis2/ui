@@ -1,5 +1,6 @@
 import propTypes from 'prop-types'
 import React, { useEffect } from 'react'
+import { defaultRenderNodeLabel } from './default-render-node-label.js'
 import { OrganisationUnitNode } from './organisation-unit-node.js'
 import { orgUnitPathPropType } from './prop-types.js'
 import { RootError } from './root-error.js'
@@ -20,6 +21,7 @@ const OrganisationUnitTree = ({
     isUserDataViewFallback,
     initiallyExpanded,
     filter,
+    renderNodeLabel,
     selected,
     singleSelection,
     suppressAlphabeticalSorting,
@@ -71,6 +73,7 @@ const OrganisationUnitTree = ({
                             isUserDataViewFallback={isUserDataViewFallback}
                             filter={filter}
                             path={rootPath}
+                            renderNodeLabel={renderNodeLabel}
                             selected={selected}
                             singleSelection={singleSelection}
                             suppressAlphabeticalSorting={
@@ -128,6 +131,8 @@ OrganisationUnitTree.propTypes = {
     initiallyExpanded: propTypes.arrayOf(orgUnitPathPropType),
     /** When provided, the 'isUserDataViewFallback' option will be sent when requesting the org units */
     isUserDataViewFallback: propTypes.bool,
+    /** Renders the actual node component for each leaf, can be used to customize the node */
+    renderNodeLabel: propTypes.func,
     /** An array of paths of selected OUs. The path of an OU is the UIDs of the OU and all its parent OUs separated by slashes (`/`) */
     selected: propTypes.arrayOf(orgUnitPathPropType),
     /** When set, no checkboxes will be displayed and only the first selected path in `selected` will be highlighted */
@@ -160,6 +165,7 @@ OrganisationUnitTree.defaultProps = {
     highlighted: [],
     initiallyExpanded: [],
     selected: [],
+    renderNodeLabel: defaultRenderNodeLabel,
 }
 
 export { OrganisationUnitTree }
