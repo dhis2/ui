@@ -1,10 +1,10 @@
 import React from 'react'
-import { Label } from './label.js'
+import { Label } from './label/index.js'
 
 export const defaultRenderNodeLabel = ({
-    dataTest,
+    data,
+    dataTest = `${dataTest}-label`,
     disableSelection,
-    displayName,
     hasChildren,
     hasSelectedDescendants,
     id,
@@ -20,9 +20,9 @@ export const defaultRenderNodeLabel = ({
 }) => (
     <Label
         checked={isSelected}
-        dataTest={`${dataTest}-label`}
+        dataTest={dataTest}
         disableSelection={disableSelection}
-        displayName={displayName}
+        displayName={data.displayName}
         hasChildren={hasChildren}
         hasSelectedDescendants={hasSelectedDescendants}
         highlighted={isHighlighted}

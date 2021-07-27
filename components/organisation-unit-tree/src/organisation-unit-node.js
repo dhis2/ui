@@ -9,7 +9,7 @@ import { hasDescendantSelectedPaths } from './has-descendant-selected-paths.js'
 import i18n from './locales/index.js'
 import { orgUnitPathPropType } from './prop-types.js'
 import { useOpenState } from './use-open-state.js'
-import { useOrgData } from './use-org-data.js'
+import { useOrgData } from './use-org-data/index.js'
 
 const loadingSpinnerStyles = resolve`
     .small {
@@ -52,12 +52,14 @@ export const OrganisationUnitNode = ({
     onCollapse,
     onExpand,
 }) => {
-    const { loading, error, data } = useOrgData([id], {
+    const { loading, error, data } = useOrgData(id, {
         isUserDataViewFallback,
         suppressAlphabeticalSorting,
+        displayName,
     })
+
     const childNodes =
-        !loading && !error ? computeChildNodes(data[id], filter) : []
+        !loading && !error ? computeChildNodes(data, filter) : []
     const hasChildren = !!childNodes.length
     const hasSelectedDescendants = hasDescendantSelectedPaths(path, selected)
     const isHighlighted = highlighted.includes(path)
@@ -79,10 +81,10 @@ export const OrganisationUnitNode = ({
     }, [loading, error, onChildrenLoaded])
 
     const label = renderNodeLabel({
+        data,
         checked: isSelected,
         dataTest: `${dataTest}-label`,
         disableSelection: disableSelection,
-        displayName: displayName,
         hasChildren: hasChildren,
         hasSelectedDescendants: hasSelectedDescendants,
         highlighted: isHighlighted,

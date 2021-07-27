@@ -7,7 +7,7 @@ import { RootError } from './root-error.js'
 import { RootLoading } from './root-loading.js'
 import { useExpanded } from './use-expanded.js'
 import { useForceReload } from './use-force-reload.js'
-import { useOrgData } from './use-org-data.js'
+import { useRootOrgData } from './use-root-org-data/index.js'
 
 const OrganisationUnitTree = ({
     onChange,
@@ -32,8 +32,7 @@ const OrganisationUnitTree = ({
 }) => {
     const rootIds = Array.isArray(roots) ? roots : [roots]
     const reloadId = useForceReload(forceReload)
-    const { loading, error, data, refetch } = useOrgData(rootIds, {
-        withChildren: false,
+    const { loading, error, data, refetch } = useRootOrgData(rootIds, {
         isUserDataViewFallback,
         suppressAlphabeticalSorting,
     })
@@ -96,22 +95,28 @@ OrganisationUnitTree.propTypes = {
         propTypes.string,
         propTypes.arrayOf(propTypes.string),
     ]).isRequired,
+
     /** Will be called with the following object:
      * `{ id: string, displayName: string, path: string, checked: boolean, selected: string[] }` */
     onChange: propTypes.func.isRequired,
 
     /** When set, the error when loading children fails will be shown automatically */
     autoExpandLoadingError: propTypes.bool,
+
     dataTest: propTypes.string,
+
     /** When set to true, no unit can be selected */
     disableSelection: propTypes.bool,
+
     /**
      * All organisation units with a path that includes the provided paths will be shown.
      * All others will not be rendered. When not provided, all org units will be shown.
      */
     filter: propTypes.arrayOf(orgUnitPathPropType),
+
     /** When true, everything will be reloaded. In order to load it again after reloading, `forceReload` has to be set to `false` and then to `true` again */
     forceReload: propTypes.bool,
+
     /**
      * All units provided to "highlighted" as path will be visually
      * highlighted.
@@ -121,6 +126,7 @@ OrganisationUnitTree.propTypes = {
      * * highlightSearchResults
      */
     highlighted: propTypes.arrayOf(orgUnitPathPropType),
+
     /**
      * An array of OU paths that will be expanded automatically
      * as soon as they are encountered.
@@ -129,20 +135,28 @@ OrganisationUnitTree.propTypes = {
      * Note: This replaces "openFirstLevel" as that's redundant
      */
     initiallyExpanded: propTypes.arrayOf(orgUnitPathPropType),
+
     /** When provided, the 'isUserDataViewFallback' option will be sent when requesting the org units */
     isUserDataViewFallback: propTypes.bool,
+
     /** Renders the actual node component for each leaf, can be used to customize the node */
     renderNodeLabel: propTypes.func,
+
     /** An array of paths of selected OUs. The path of an OU is the UIDs of the OU and all its parent OUs separated by slashes (`/`) */
     selected: propTypes.arrayOf(orgUnitPathPropType),
+
     /** When set, no checkboxes will be displayed and only the first selected path in `selected` will be highlighted */
     singleSelection: propTypes.bool,
+
     /** Turns off alphabetical sorting of units */
     suppressAlphabeticalSorting: propTypes.bool,
+
     /** Called with the children's data that was loaded */
     onChildrenLoaded: propTypes.func,
+
     /** Called with `{ path: string }` with the path of the parent of the level closed */
     onCollapse: propTypes.func,
+
     /** Called with `{ path: string }` with the path of the parent of the level opened */
     onExpand: propTypes.func,
 
