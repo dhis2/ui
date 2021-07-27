@@ -342,7 +342,7 @@ IconizedCheckbox.propTypes = {
     dataTest: propTypes.string.isRequired,
     hasChildren: propTypes.bool.isRequired,
     indeterminate: propTypes.bool.isRequired,
-    label: propTypes.string.isRequired,
+    label: propTypes.any.isRequired,
     loading: propTypes.bool.isRequired,
     name: propTypes.string.isRequired,
     open: propTypes.bool.isRequired,
