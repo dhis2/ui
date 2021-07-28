@@ -1,6 +1,6 @@
 import { useDataQuery } from '@dhis2/app-runtime'
-import { useState } from 'react'
-import { sortNodeChildrenAlphabetically } from '../helpers/index.js'
+import { useCallback, useState } from 'react'
+import { sortNodeChildrenAlphabetically } from '../../helpers/index.js'
 import { patchMissingDisplayName } from './patch-missing-display-name.js'
 
 export const createRootQuery = ids =>
@@ -36,9 +36,13 @@ export const useRootOrgData = (
 ) => {
     const query = createRootQuery(ids)
     const variables = { isUserDataViewFallback }
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(null)
-    const [data, setData] = useState(null)
+
+    const [state, setState] = useState({
+        loading: true,
+        error: null,
+        data: null,
+    })
+
     const { refetch: queryRefetch } = useDataQuery(query, {
         variables,
         onComplete: queryData => {
@@ -56,26 +60,32 @@ export const useRootOrgData = (
                     )
             }
 
-            setData(nextData)
-            setLoading(false)
+            // the order is important as otherwise
+            // a re-render happens with loading: false and data: null
+            setState({
+                ...state,
+                data: nextData,
+                loading: false
+            })
         },
         onError: queryError => {
-            setError(queryError)
-            setLoading(false)
+            setState({
+                ...state,
+                error: queryError,
+                loading: false
+            })
         },
     })
 
-    const refetch = (...args) => {
-        setLoading(true)
-        setError(null)
-        setData(null)
-        queryRefetch(...args)
-    }
+    const refetch = useCallback(() => {
+        setState({ ...state, data: null, error: null, loading: true })
+        queryRefetch()
+    }, [queryRefetch, setState])
 
     return {
-        loading,
-        error,
-        data,
+        loading: state.loading,
+        error: state.error,
+        data: state.data,
         refetch,
     }
 }

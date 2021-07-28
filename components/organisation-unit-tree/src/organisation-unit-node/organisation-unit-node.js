@@ -1,13 +1,13 @@
 import { CircularLoader } from '@dhis2-ui/loader'
 import { Node } from '@dhis2-ui/node'
 import propTypes from '@dhis2/prop-types'
-import React, { useEffect } from 'react'
+import React from 'react'
 import { resolve } from 'styled-jsx/css'
+import i18n from '../locales/index.js'
+import { orgUnitPathPropType } from '../prop-types.js'
 import { computeChildNodes } from './compute-child-nodes.js'
 import { ErrorMessage } from './error-message.js'
 import { hasDescendantSelectedPaths } from './has-descendant-selected-paths.js'
-import i18n from './locales/index.js'
-import { orgUnitPathPropType } from './prop-types.js'
 import { useOpenState } from './use-open-state.js'
 import { useOrgData } from './use-org-data/index.js'
 
@@ -56,6 +56,7 @@ export const OrganisationUnitNode = ({
         isUserDataViewFallback,
         suppressAlphabeticalSorting,
         displayName,
+        onComplete: onChildrenLoaded
     })
 
     const childNodes =
@@ -74,28 +75,22 @@ export const OrganisationUnitNode = ({
 
     const isSelected = selected.includes(path)
 
-    useEffect(() => {
-        if (!loading && !error && onChildrenLoaded) {
-            onChildrenLoaded(data)
-        }
-    }, [loading, error, onChildrenLoaded])
-
     const label = renderNodeLabel({
         data,
+        disableSelection,
+        hasChildren,
+        hasSelectedDescendants,
+        id,
+        loading,
+        onChange,
+        selected,
+        onToggleOpen,
+        open,
+        path,
+        singleSelection,
         checked: isSelected,
         dataTest: `${dataTest}-label`,
-        disableSelection: disableSelection,
-        hasChildren: hasChildren,
-        hasSelectedDescendants: hasSelectedDescendants,
         highlighted: isHighlighted,
-        id: id,
-        loading: loading,
-        onChange: onChange,
-        selected: selected,
-        onToggleOpen: onToggleOpen,
-        open: open,
-        path: path,
-        singleSelection: singleSelection,
     })
 
     /**

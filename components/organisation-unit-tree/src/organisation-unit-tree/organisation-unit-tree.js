@@ -1,11 +1,12 @@
 import propTypes from 'prop-types'
-import React, { useEffect } from 'react'
-import { defaultRenderNodeLabel } from './default-render-node-label.js'
-import { OrganisationUnitNode } from './organisation-unit-node.js'
-import { orgUnitPathPropType } from './prop-types.js'
+import React, { useEffect, useState } from 'react'
+import { OrganisationUnitNode } from '../organisation-unit-node/index.js'
+import { orgUnitPathPropType } from '../prop-types.js'
+import { defaultRenderNodeLabel } from './default-render-node-label/index.js'
+import { filterRootIds } from './filter-root-ids.js'
 import { RootError } from './root-error.js'
 import { RootLoading } from './root-loading.js'
-import { useExpanded } from './use-expanded.js'
+import { useExpanded } from './use-expanded/index.js'
 import { useForceReload } from './use-force-reload.js'
 import { useRootOrgData } from './use-root-org-data/index.js'
 
@@ -30,8 +31,9 @@ const OrganisationUnitTree = ({
     onCollapse,
     onChildrenLoaded,
 }) => {
-    const rootIds = Array.isArray(roots) ? roots : [roots]
+    const rootIds = filterRootIds(filter, Array.isArray(roots) ? roots : [roots])
     const reloadId = useForceReload(forceReload)
+    const [prevReloadId, setPrevReloadId] = useState(reloadId)
     const { loading, error, data, refetch } = useRootOrgData(rootIds, {
         isUserDataViewFallback,
         suppressAlphabeticalSorting,
@@ -44,10 +46,15 @@ const OrganisationUnitTree = ({
 
     useEffect(() => {
         // do not refetch on initial render
-        if (refetch && reloadId > 0) {
+        if (refetch && reloadId > 0 && reloadId !== prevReloadId) {
             refetch()
+            setPrevReloadId(reloadId)
         }
-    }, [reloadId, refetch])
+
+        return () => console.warn(
+            '@TODO: Why does this component unmount after a force reload?'
+        )
+    }, [reloadId, prevReloadId, refetch])
 
     return (
         <div data-test={dataTest}>

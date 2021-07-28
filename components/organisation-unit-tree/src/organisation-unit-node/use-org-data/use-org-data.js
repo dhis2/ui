@@ -1,6 +1,6 @@
 import { useDataQuery } from '@dhis2/app-runtime'
 import { useState } from 'react'
-import { sortNodeChildrenAlphabetically } from '../helpers/index.js'
+import { sortNodeChildrenAlphabetically } from '../../helpers/index.js'
 
 const ORG_DATA_QUERY = {
     orgUnit: {
@@ -23,7 +23,12 @@ const ORG_DATA_QUERY = {
  */
 export const useOrgData = (
     id,
-    { isUserDataViewFallback, displayName } = {}
+    {
+        isUserDataViewFallback,
+        suppressAlphabeticalSorting,
+        onComplete,
+        displayName,
+    }
 ) => {
     const defaultData = { displayName }
     const variables = { id, isUserDataViewFallback }
@@ -34,9 +39,14 @@ export const useOrgData = (
     useDataQuery(ORG_DATA_QUERY, {
         variables,
         onComplete: ({ orgUnit: node }) => {
-            const sorted = sortNodeChildrenAlphabetically(node)
-            setData({ ...defaultData, ...sorted })
+            const sorted = !suppressAlphabeticalSorting
+                ? sortNodeChildrenAlphabetically(node)
+                : node
+
+            const nextData = { ...defaultData, ...sorted }
+            setData(nextData)
             setLoading(false)
+            onComplete && onComplete(nextData)
         },
         onError: queryError => {
             setError(queryError)

@@ -1,8 +1,5 @@
 import { useState } from 'react'
-import {
-    getInitiallyExpandedPaths,
-    createExpandHandlers,
-} from './use-expanded/helpers.js'
+import { getInitiallyExpandedPaths, createExpandHandlers } from './helpers.js'
 
 /**
  * @param {string[]} initiallyExpanded

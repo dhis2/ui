@@ -1,16 +1,4 @@
-/**
- * @param {string[]} includedPaths
- * @param {string} path
- * @returns {bool}
- */
-const isPathIncluded = (includedPaths, path) => {
-    const isIncluded = includedPaths.some(includedPath => {
-        if (path === includedPath) return true
-        return includedPath.indexOf(`${path}/`) === 0
-    })
-
-    return isIncluded
-}
+import { isPathIncluded } from '../helpers/index.js'
 
 /**
  * Returns all the childrenIds that should be rendered.
