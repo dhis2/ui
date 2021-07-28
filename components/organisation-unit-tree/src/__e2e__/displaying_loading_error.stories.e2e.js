@@ -1,7 +1,7 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { OrganisationUnitTree } from '../organisation-unit-tree.js'
+import { OrganisationUnitTree } from '../index.js'
 import {
     StatefulMultiSelectionWrapper,
     dataProviderData,
@@ -9,14 +9,18 @@ import {
 } from './common.js'
 
 const dataPriverDataWithError = {
-    ...dataProviderData,
-    'organisationUnits/A0000000001': () => {
-        return new Promise((resolve, reject) =>
-            setTimeout(() => {
-                reject(new Error('Foobar custom error message'))
-            }, 100)
-        )
-    },
+    organisationUnits: (...args) => {
+        const [, { id }] = args
+        if (id === 'A0000000001') {
+            return new Promise((resolve, reject) =>
+                setTimeout(() => {
+                    reject(new Error('Foobar custom error message'))
+                }, 100)
+            )
+        }
+
+        return dataProviderData.organisationUnits(...args)
+    }
 }
 
 storiesOf(namespace, module)

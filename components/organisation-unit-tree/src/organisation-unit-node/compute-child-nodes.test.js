@@ -1,4 +1,4 @@
-import { computeChildNodes } from '../compute-child-nodes.js'
+import { computeChildNodes } from './compute-child-nodes.js'
 
 describe('computeChildNodes', () => {
     let node = { path: 'foo/bar' }

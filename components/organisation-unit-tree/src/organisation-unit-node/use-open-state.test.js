@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useOpenState } from '../use-open-state.js'
+import { useOpenState } from './use-open-state.js'
 
 jest.mock('react', () => ({
     useState: jest.fn(),

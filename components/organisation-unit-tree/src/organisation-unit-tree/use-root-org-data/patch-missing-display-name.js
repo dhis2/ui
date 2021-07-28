@@ -1,4 +1,4 @@
-const fromEntries = entries =>
+export const fromEntries = entries =>
     entries.reduce(
         (collection, [key, name]) => ({
             ...collection,

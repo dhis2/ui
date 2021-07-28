@@ -114,8 +114,8 @@ Then("the payload contains the loaded children's data", () => {
     cy.window().should(win => {
         const calls = win.onChildrenLoaded.getCalls()
         const { args } = calls[calls.length - 1]
-        expect(args[0].A0000000001).to.deep.eql(
-            win.dataProviderData['organisationUnits/A0000000001']
+        expect(args[0]).to.deep.eql(
+            win.dataProviderData.organisationUnits('get', { id: 'A0000000001' })
         )
     })
 })

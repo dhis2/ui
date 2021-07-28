@@ -1,19 +1,28 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { OrganisationUnitTree } from '../organisation-unit-tree.js'
+import { OrganisationUnitTree } from '../index.js'
 import {
     StatefulMultiSelectionWrapper,
     dataProviderData,
+    delayResponse,
     namespace,
 } from './common.js'
 
 const data = {
-    'organisationUnits/A0000000000':
-        dataProviderData['organisationUnits/A0000000000'],
-    'organisationUnits/A0000000001': new Promise(() => {}),
-    'organisationUnits/A0000000002': new Promise(() => {}),
-    'organisationUnits/A0000000006': new Promise(() => {}),
+    organisationUnits: (...args) => {
+        const [, { id }] = args
+
+        if (id === 'A0000000000') {
+            return dataProviderData.organisationUnits(...args)
+        }
+
+        if (id === 'A0000000001') {
+            return delayResponse(1000, dataProviderData.organisationUnits(...args))()
+        }
+
+        return Promise.resolve({})
+    }
 }
 
 storiesOf(namespace, module).add('A0000000001 loading', () => (

@@ -30,11 +30,17 @@ export const useOrgData = (
         displayName,
     }
 ) => {
+    if (!displayName) {
+        throw new Error('"displayName" is required')
+    }
+
     const defaultData = { displayName }
     const variables = { id, isUserDataViewFallback }
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(null)
-    const [data, setData] = useState(defaultData)
+    const [state, setState] = useState({
+        loading: true,
+        error: null,
+        data: defaultData,
+    })
 
     useDataQuery(ORG_DATA_QUERY, {
         variables,
@@ -44,15 +50,21 @@ export const useOrgData = (
                 : node
 
             const nextData = { ...defaultData, ...sorted }
-            setData(nextData)
-            setLoading(false)
+            setState({
+                ...state,
+                data: nextData,
+                loading: false,
+            })
             onComplete && onComplete(nextData)
         },
         onError: queryError => {
-            setError(queryError)
-            setLoading(false)
+            setState({
+                ...state,
+                error: queryError,
+                loading: false,
+            })
         },
     })
 
-    return { loading, error, data }
+    return state
 }

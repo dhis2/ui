@@ -1,7 +1,7 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { OrganisationUnitTree } from '../organisation-unit-tree.js'
+import { OrganisationUnitTree } from '../index.js'
 import {
     StatefulMultiSelectionWrapper,
     dataProviderData,
@@ -9,17 +9,29 @@ import {
 } from './common.js'
 
 window.dataProviderData = {
-    'organisationUnits/A0000000000': {
-        ...dataProviderData['organisationUnits/A0000000000'],
-        children: [
-            dataProviderData['organisationUnits/A0000000000'].children[0],
-        ],
-    },
-    'organisationUnits/A0000000001': {
-        ...dataProviderData['organisationUnits/A0000000001'],
-        children: [],
+    organisationUnits: (...args) => {
+        const [, { id }] = args
+
+        if (id === 'A0000000000') {
+            const data = dataProviderData.organisationUnits(...args)
+            return {
+                ...data,
+                children: data.children.slice(0, 1),
+            }
+        }
+
+        if (id === 'A0000000001') {
+            return {
+                ...dataProviderData.organisationUnits(...args),
+                path: '/A0000000001',
+                children: [],
+            }
+        }
+
+        return Promise.resolve({})
     },
 }
+
 window.onChange = window.Cypress && window.Cypress.cy.stub()
 window.onCollapse = window.Cypress && window.Cypress.cy.stub()
 window.onExpand = window.Cypress && window.Cypress.cy.stub()
