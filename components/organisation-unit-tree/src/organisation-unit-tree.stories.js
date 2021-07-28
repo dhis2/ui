@@ -1,7 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
+import { Button } from '@dhis2-ui/button'
 import { CustomDataProvider, DataProvider } from '@dhis2/app-runtime'
 import React, { useEffect, useState } from 'react'
-import { OrganisationUnitTree } from './organisation-unit-tree.js'
+import { OrganisationUnitTree } from './index.js'
 
 const subtitle =
     'Display, manipulate and select organization units displayed in a hierarchical tree'
@@ -41,12 +42,13 @@ const onChildrenLoaded = (...args) =>
     log && console.log('onChildrenLoaded', ...args)
 
 const customData = {
-    'organisationUnits': (...args) => {
+    organisationUnits: (...args) => {
         const [, { id }] = args
 
-        let data
+        let data, delay = 0
 
         if (id === 'A0000000000') {
+            delay = 1000
             data = {
                 id: 'A0000000000',
                 path: '/A0000000000',
@@ -100,6 +102,7 @@ const customData = {
         }
 
         if (id === 'A0000000002') {
+            delay = 1000
             data = {
                 displayName: 'Org Unit 3',
                 id: 'A0000000002',
@@ -140,27 +143,53 @@ const customData = {
         }
 
         return new Promise(resolve => {
-            setTimeout(() => resolve(data), 1000)
+            setTimeout(() => resolve(data), delay)
         })
     },
 }
 
-const ForceReloadAll = ({ delay }) => {
-    const [forceReload, setForceReload] = useState(false)
-
-    useEffect(() => {
-        setTimeout(() => setForceReload(true), delay)
-    }, [])
+const ForceReloadAll = () => {
+    const [forceReload, _setForceReload] = useState(false)
+    const setForceReload = v => console.log('setForceReload', v) || _setForceReload(v)
 
     return (
-        <OrganisationUnitTree
-            onChange={onChange}
-            forceReload={forceReload}
-            name="Root org unit"
-            roots={['A0000000000']}
-            initiallyExpanded={['/A0000000000/A0000000001']}
-            selected={['/A0000000000/A0000000001/A0000000003']}
-        />
+        <>
+            <Button
+                disabled={forceReload}
+                onClick={() => setForceReload(true)}
+            >
+                Reload org unit tree
+            </Button>
+            {' '}
+            <span>(Force reload: {forceReload ? 'true' : 'false'})</span>
+
+            <div>
+                <OrganisationUnitTree
+                    onChange={onChange}
+                    forceReload={forceReload}
+                    name="Root org unit"
+                    roots={['A0000000000']}
+                    initiallyExpanded={['/A0000000000/A0000000001']}
+                    selected={['/A0000000000/A0000000001/A0000000003']}
+                    onChildrenLoaded={data => {
+                        const { id } = data
+                        if (id === 'A0000000000') {
+                            setForceReload(false)
+                        }
+                    }}
+                />
+            </div>
+
+            <style jsx>{`
+                div {
+                    width: 400px;
+                    border: 1px solid black;
+                    margin-top: 32px;
+                    padding: 16px;
+                    min-height: 200px;
+                }
+            `}</style>
+        </>
     )
 }
 
@@ -339,7 +368,7 @@ export const Highlighted = () => (
     />
 )
 
-export const _ForceReloadAll = () => <ForceReloadAll delay={2000} />
+export const _ForceReloadAll = () => <ForceReloadAll />
 _ForceReloadAll.storyName = 'Force reload all'
 
 export const ForceReloadOneUnit = () => <ForceReloadIds delay={2000} />
@@ -352,7 +381,14 @@ export const Loading = () => (
     <CustomDataProvider
         data={{
             ...customData,
-            'organisationUnits/A0000000001': () => new Promise(() => null),
+            organisationUnits: (...args) => {
+                const [, { id }] = args
+                if (id === 'A0000000001') {
+                    return new Promise(() => null)
+                }
+
+                return customData.organisationUnits(...args)
+            },
         }}
     >
         <OrganisationUnitTree
@@ -368,7 +404,14 @@ export const RootLoading = () => (
     <CustomDataProvider
         data={{
             ...customData,
-            'organisationUnits/A0000000000': () => new Promise(() => null),
+            organisationUnits: (...args) => {
+                const [, { id }] = args
+                if (id === 'A0000000000') {
+                    return new Promise(() => null)
+                }
+
+                return customData.organisationUnits(...args)
+            },
         }}
     >
         <fieldset style={{ maxWidth: 600 }}>
@@ -390,12 +433,14 @@ export const RootError = () => (
     <CustomDataProvider
         data={{
             ...customData,
-            'organisationUnits/A0000000000': () =>
-                new Promise((_, reject) =>
-                    reject(
-                        'This is a custom error message, it could be anything'
-                    )
-                ),
+            organisationUnits: (...args) => {
+                const [, { id }] = args
+                if (id === 'A0000000000') {
+                    return Promise.reject('This is a custom error message, it could be anything')
+                }
+
+                return customData.organisationUnits(...args)
+            },
         }}
     >
         <fieldset style={{ maxWidth: 600 }}>
@@ -417,8 +462,14 @@ export const LoadingErrorGrandchild = () => (
     <CustomDataProvider
         data={{
             ...customData,
-            'organisationUnits/A0000000003': () =>
-                Promise.reject(new Error('Loading org unit 4 and 5 failed')),
+            organisationUnits: (...args) => {
+                const [, { id }] = args
+                if (id === 'A0000000003') {
+                    return Promise.reject('Loading org unit 4 and 5 failed')
+                }
+
+                return customData.organisationUnits(...args)
+            },
         }}
     >
         <OrganisationUnitTree

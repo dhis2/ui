@@ -8,8 +8,8 @@ export const defaultRenderNodeLabel = ({
     hasChildren,
     hasSelectedDescendants,
     id,
-    isHighlighted,
-    isSelected,
+    highlighted,
+    checked,
     loading,
     onChange,
     onToggleOpen,
@@ -19,13 +19,13 @@ export const defaultRenderNodeLabel = ({
     singleSelection,
 }) => (
     <Label
-        checked={isSelected}
+        checked={checked}
         dataTest={dataTest}
         disableSelection={disableSelection}
         displayName={data.displayName}
         hasChildren={hasChildren}
         hasSelectedDescendants={hasSelectedDescendants}
-        highlighted={isHighlighted}
+        highlighted={highlighted}
         id={id}
         loading={loading}
         onChange={onChange}

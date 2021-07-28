@@ -1,1 +1,1 @@
-export { OrganisationUnitTree } from './organisation-unit-tree.js'
+export { OrganisationUnitTree } from './organisation-unit-tree/index.js'

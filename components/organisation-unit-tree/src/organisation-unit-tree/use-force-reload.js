@@ -14,7 +14,8 @@ export const useForceReload = forceReload => {
     const [reloadId, setReloadId] = useState(0)
 
     useEffect(() => {
-        forceReload === true && setReloadId(reloadId + 1)
+        const nextReloadId = reloadId + 1
+        forceReload === true && setReloadId(nextReloadId)
     }, [forceReload])
 
     return reloadId
