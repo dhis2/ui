@@ -46,7 +46,7 @@ describe('OrganisationUnitTree - useOrgData', () => {
         </CustomDataProvider>
     )
 
-    it('should respond with `loading: false`, `error: null` and `data: null` initially', () => {
+    it('should respond with `loading: false`, `error: null` and `data: { displayName, id }` initially', () => {
         const { result } = renderHook(
             () => useOrgData('A0000000000', { displayName: 'Display name' }),
             { wrapper }
@@ -55,7 +55,7 @@ describe('OrganisationUnitTree - useOrgData', () => {
         expect(result.current).toEqual({
             loading: true,
             error: null,
-            data: { displayName: 'Display name' },
+            data: { displayName: 'Display name', id: 'A0000000000' },
         })
     })
 
@@ -109,7 +109,7 @@ describe('OrganisationUnitTree - useOrgData', () => {
         expect(result.current).toEqual({
             loading: false,
             error: new Error('Error message'),
-            data: { displayName: 'Display name' },
+            data: { displayName: 'Display name', id: 'A0000000000' },
         })
     })
 
