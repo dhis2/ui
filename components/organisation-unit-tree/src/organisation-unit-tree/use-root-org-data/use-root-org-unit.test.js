@@ -16,7 +16,8 @@ describe('OrganisationUnitTree - useRootOrgData', () => {
 
     // @TODO: This is kind of necessary; no idea if we can get rid of this
     const origWarn = console.warn
-    const dynamicQueryWarningMsg = "The query should be static, don't create it within the render loop!"
+    const dynamicQueryWarningMsg =
+        "The query should be static, don't create it within the render loop!"
     jest.spyOn(console, 'warn').mockImplementation((...args) => {
         const [err] = args
 
@@ -37,7 +38,7 @@ describe('OrganisationUnitTree - useRootOrgData', () => {
                 path: '/A0000000000',
                 displayName: 'Org Unit 1',
             }
-        })
+        }),
     }
 
     const wrapper = ({ children }) => (
@@ -47,16 +48,17 @@ describe('OrganisationUnitTree - useRootOrgData', () => {
     )
 
     it('should respond with `loading: false`, `error: null` and `data: null` initially', () => {
-        const { result } = renderHook(
-            () => useRootOrgData(['A0000000000']),
-            { wrapper }
-        )
+        const { result } = renderHook(() => useRootOrgData(['A0000000000']), {
+            wrapper,
+        })
 
-        expect(result.current).toEqual(expect.objectContaining({
-            loading: true,
-            error: null,
-            data: null,
-        }))
+        expect(result.current).toEqual(
+            expect.objectContaining({
+                loading: true,
+                error: null,
+                data: null,
+            })
+        )
         expect(result.current.refetch).toBeInstanceOf(Function)
     })
 
@@ -68,26 +70,30 @@ describe('OrganisationUnitTree - useRootOrgData', () => {
 
         await waitForNextUpdate()
 
-        expect(result.current).toEqual(expect.objectContaining({
-            loading: false,
-            error: null,
-            data: {
-                A0000000000: {
-                    id: 'A0000000000',
-                    path: '/A0000000000',
-                    displayName: 'Org Unit 1',
+        expect(result.current).toEqual(
+            expect.objectContaining({
+                loading: false,
+                error: null,
+                data: {
+                    A0000000000: {
+                        id: 'A0000000000',
+                        path: '/A0000000000',
+                        displayName: 'Org Unit 1',
+                    },
                 },
-            },
-        }))
+            })
+        )
     })
 
     it('should provide the error', async () => {
         const errorWrapper = ({ children }) => (
-            <CustomDataProvider data={{
-                organisationUnits: async () => {
-                    throw new Error('Error message')
-                }
-            }}>
+            <CustomDataProvider
+                data={{
+                    organisationUnits: async () => {
+                        throw new Error('Error message')
+                    },
+                }}
+            >
                 {children}
             </CustomDataProvider>
         )
@@ -99,11 +105,13 @@ describe('OrganisationUnitTree - useRootOrgData', () => {
 
         await waitForNextUpdate()
 
-        expect(result.current).toEqual(expect.objectContaining({
-            loading: false,
-            error: new Error('Error message'),
-            data: null,
-        }))
+        expect(result.current).toEqual(
+            expect.objectContaining({
+                loading: false,
+                error: new Error('Error message'),
+                data: null,
+            })
+        )
     })
 
     it('should send the "isUserDataViewFallback" parameter with value "undefined"', async () => {
@@ -118,8 +126,8 @@ describe('OrganisationUnitTree - useRootOrgData', () => {
             'read',
             expect.objectContaining({
                 params: expect.objectContaining({
-                     isUserDataViewFallback: undefined,
-                })
+                    isUserDataViewFallback: undefined,
+                }),
             }),
             expect.objectContaining({}) // contains the `signal`
         )
@@ -138,8 +146,8 @@ describe('OrganisationUnitTree - useRootOrgData', () => {
             'read',
             expect.objectContaining({
                 params: expect.objectContaining({
-                     isUserDataViewFallback: true,
-                })
+                    isUserDataViewFallback: true,
+                }),
             }),
             expect.objectContaining({}) // contains the `signal`
         )
@@ -152,7 +160,7 @@ describe('OrganisationUnitTree - useRootOrgData', () => {
                     id: 'A0000000000',
                     path: '/A0000000000',
                 }
-            })
+            }),
         }
 
         const wrapperWithoutDisplayName = ({ children }) => (
@@ -168,16 +176,18 @@ describe('OrganisationUnitTree - useRootOrgData', () => {
 
         await waitForNextUpdate()
 
-        expect(result.current).toEqual(expect.objectContaining({
-            loading: false,
-            error: null,
-            data: {
-                A0000000000: {
-                    id: 'A0000000000',
-                    path: '/A0000000000',
-                    displayName: '',
+        expect(result.current).toEqual(
+            expect.objectContaining({
+                loading: false,
+                error: null,
+                data: {
+                    A0000000000: {
+                        id: 'A0000000000',
+                        path: '/A0000000000',
+                        displayName: '',
+                    },
                 },
-            },
-        }))
+            })
+        )
     })
 })

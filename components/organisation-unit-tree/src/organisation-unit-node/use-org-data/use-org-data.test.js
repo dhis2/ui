@@ -37,7 +37,7 @@ describe('OrganisationUnitTree - useOrgData', () => {
             }
 
             return Promise.reject(`No org unit with id "${id}"`)
-        })
+        }),
     }
 
     const wrapper = ({ children }) => (
@@ -88,11 +88,13 @@ describe('OrganisationUnitTree - useOrgData', () => {
 
     it('should provide the error', async () => {
         const errorWrapper = ({ children }) => (
-            <CustomDataProvider data={{
-                organisationUnits: async () => {
-                    throw new Error('Error message')
-                }
-            }}>
+            <CustomDataProvider
+                data={{
+                    organisationUnits: async () => {
+                        throw new Error('Error message')
+                    },
+                }}
+            >
                 {children}
             </CustomDataProvider>
         )
@@ -151,8 +153,8 @@ describe('OrganisationUnitTree - useOrgData', () => {
             'read',
             expect.objectContaining({
                 params: expect.objectContaining({
-                     isUserDataViewFallback: undefined,
-                })
+                    isUserDataViewFallback: undefined,
+                }),
             }),
             expect.objectContaining({}) // contains the `signal`
         )
@@ -161,7 +163,7 @@ describe('OrganisationUnitTree - useOrgData', () => {
     it('should send the "isUserDataViewFallback" parameter with value "true"', async () => {
         const options = {
             isUserDataViewFallback: true,
-            displayName: 'Display name'
+            displayName: 'Display name',
         }
 
         const { waitForNextUpdate } = renderHook(
@@ -175,8 +177,8 @@ describe('OrganisationUnitTree - useOrgData', () => {
             'read',
             expect.objectContaining({
                 params: expect.objectContaining({
-                     isUserDataViewFallback: true,
-                })
+                    isUserDataViewFallback: true,
+                }),
             }),
             expect.objectContaining({}) // contains the `signal`
         )
@@ -208,7 +210,7 @@ describe('OrganisationUnitTree - useOrgData', () => {
                 }
 
                 return Promise.reject(`No org unit with id "${id}"`)
-            })
+            }),
         }
 
         const wrapperWithUnsortedChildren = ({ children }) => (
@@ -275,7 +277,7 @@ describe('OrganisationUnitTree - useOrgData', () => {
                 }
 
                 return Promise.reject(`No org unit with id "${id}"`)
-            })
+            }),
         }
 
         const wrapperWithUnsortedChildren = ({ children }) => (

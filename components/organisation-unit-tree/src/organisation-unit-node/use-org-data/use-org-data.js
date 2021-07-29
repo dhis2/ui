@@ -11,7 +11,7 @@ const ORG_DATA_QUERY = {
             fields: ['id', 'path', 'children[id,path,displayName]'],
             paging: false,
         }),
-    }
+    },
 }
 
 /**

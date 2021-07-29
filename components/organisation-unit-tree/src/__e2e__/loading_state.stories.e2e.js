@@ -18,11 +18,14 @@ const data = {
         }
 
         if (id === 'A0000000001') {
-            return delayResponse(1000, dataProviderData.organisationUnits(...args))()
+            return delayResponse(
+                1000,
+                dataProviderData.organisationUnits(...args)
+            )()
         }
 
         return Promise.resolve({})
-    }
+    },
 }
 
 storiesOf(namespace, module).add('A0000000001 loading', () => (

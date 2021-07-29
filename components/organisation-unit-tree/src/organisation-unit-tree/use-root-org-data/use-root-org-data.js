@@ -6,7 +6,7 @@ export const createRootQuery = ids =>
     ids.reduce(
         (query, id) => ({
             ...query,
-            [id]: ({
+            [id]: {
                 id,
                 resource: `organisationUnits`,
                 params: ({ isUserDataViewFallback }) => ({
@@ -14,7 +14,7 @@ export const createRootQuery = ids =>
                     fields: ['displayName', 'path', 'id'],
                     paging: false,
                 }),
-            }),
+            },
         }),
         {}
     )
@@ -26,10 +26,7 @@ export const createRootQuery = ids =>
  * @param {boolean} [options.isUserDataViewFallback]
  * @returns {Object}
  */
-export const useRootOrgData = (
-    ids,
-    { isUserDataViewFallback } = {}
-) => {
+export const useRootOrgData = (ids, { isUserDataViewFallback } = {}) => {
     const query = createRootQuery(ids)
     const variables = { isUserDataViewFallback }
     const [state, setState] = useState({
@@ -40,16 +37,18 @@ export const useRootOrgData = (
 
     const { refetch: queryRefetch } = useDataQuery(query, {
         variables,
-        onComplete: queryData => setState({
-            ...state,
-            data: queryData ? patchMissingDisplayName(queryData) : {},
-            loading: false
-        }),
-        onError: queryError => setState({
-            ...state,
-            error: queryError,
-            loading: false
-        }),
+        onComplete: queryData =>
+            setState({
+                ...state,
+                data: queryData ? patchMissingDisplayName(queryData) : {},
+                loading: false,
+            }),
+        onError: queryError =>
+            setState({
+                ...state,
+                error: queryError,
+                loading: false,
+            }),
     })
 
     const refetch = useCallback(() => {

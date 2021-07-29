@@ -8,7 +8,6 @@ import {
     namespace,
 } from './common.js'
 
-
 storiesOf(namespace, module).add('Closed with children', () => (
     <CustomDataProvider data={dataProviderData}>
         <StatefulMultiSelectionWrapper>

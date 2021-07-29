@@ -1,4 +1,7 @@
-import { fromEntries, patchMissingDisplayName } from './patch-missing-display-name.js'
+import {
+    fromEntries,
+    patchMissingDisplayName,
+} from './patch-missing-display-name.js'
 
 describe('fromEntries', () => {
     it('should transform an array of entries to an object', () => {
