@@ -1,6 +1,6 @@
 {
-    "name": "root",
-    "version": "6.6.0",
+    "name": "@dhis2/ui-root",
+    "version": "6.12.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/dhis2/ui.git"
@@ -17,72 +17,26 @@
     "private": true,
     "workspaces": {
         "packages": [
-            "packages/*"
+            "collections/*",
+            "components/*",
+            "constants",
+            "icons",
+            "storybook"
         ]
     },
     "scripts": {
-        "build": "concurrently -n w: \"yarn:build:*\"",
-        "build:constants": "yarn workspace @dhis2/ui-constants build",
-        "build:core": "yarn workspace @dhis2/ui-core build",
-        "build:forms": "yarn workspace @dhis2/ui-forms build",
-        "build:icons": "yarn workspace @dhis2/ui-icons build",
-        "build:ui": "yarn workspace @dhis2/ui build",
-        "build:widgets": "yarn workspace @dhis2/ui-widgets build",
-        "cy:server": "yarn build && STORYBOOK_TESTING=1 EXTEND_ESLINT=true start-storybook --port 5001 --quiet --ci",
-        "cy:open": "d2-utils-cypress open --appStart 'yarn cy:server' --waitOn 'http-get://localhost:5001'",
-        "cy:run": "d2-utils-cypress run --appStart 'yarn cy:server' --waitOn 'http-get://localhost:5001'",
-        "demo": "node docs/fetch-design-system-pages.js && EXTEND_ESLINT=true build-storybook -o ./dist/demo --quiet -s .storybook/static",
-        "docs": "d2-utils-docsite build ./docs -o ./dist --jsdoc ./packages/**/src --jsdoc-output-file api.md",
-        "format": "yarn format:js && yarn format:text",
-        "format:staged": "yarn format:js --staged && yarn format:text --staged",
-        "format:js": "d2-style js apply",
-        "format:text": "d2-style text apply",
-        "lint": "concurrently -n w: \"yarn:lint:*\"",
-        "lint:js": "d2-style js check",
-        "lint:text": "d2-style text check",
-        "start": "yarn build:icons && concurrently -n w: \"yarn:watch:*\" --kill-others",
-        "storybook:dev": "EXTEND_ESLINT=true start-storybook --port 5002 --quiet --ci -s .storybook/static --no-manager-cache",
+        "build": "./scripts/build.js",
+        "setup": "./scripts/setup.js",
+        "cy:start": "yarn build && STORYBOOK_TESTING=1 yarn start",
+        "cy:open": "wait-on 'http://localhost:5000' && cypress open",
+        "cy:run": "wait-on 'http://localhost:5000' && cypress run",
+        "cy:test": "./scripts/cypress.js",
+        "docs": "d2-utils-docsite build ./docs -o ./dist --jsdoc ./*/**/src --jsdoc-output-file api.md",
+        "format": "d2-style apply",
+        "lint": "d2-style check",
         "test": "d2-app-scripts test",
-        "watch:constants": "yarn build:constants --watch --dev",
-        "watch:core": "yarn build:core --watch --dev",
-        "watch:forms": "yarn build:forms --watch --dev",
-        "watch:storybook": "EXTEND_ESLINT=true start-storybook --port 5000 --quiet --ci -s .storybook/static",
-        "watch:widgets": "yarn build:widgets --watch --dev"
-    },
-    "devDependencies": {
-        "@dhis2/app-runtime": "^2.7.1",
-        "@dhis2/cli-app-scripts": "^5.7.2",
-        "@dhis2/cli-style": "^7.3.0",
-        "@dhis2/cli-utils-cypress": "^5.1.0",
-        "@dhis2/cli-utils-docsite": "^2.0.2",
-        "@dhis2/cypress-commands": "^5.1.1",
-        "@dhis2/cypress-plugins": "^5.1.0",
-        "@dhis2/d2-i18n": "^1.0.6",
-        "@fontsource/roboto": "^4.0.0",
-        "@storybook/addon-a11y": "^6.1.20",
-        "@storybook/addon-console": "^1.2.3",
-        "@storybook/addon-essentials": "^6.1.20",
-        "@storybook/addon-storysource": "^6.1.20",
-        "@storybook/addons": "^6.1.20",
-        "@storybook/channels": "^6.1.20",
-        "@storybook/components": "^6.1.20",
-        "@storybook/core-events": "^6.1.20",
-        "@storybook/node-logger": "^6.1.20",
-        "@storybook/preset-create-react-app": "^3.1.6",
-        "@storybook/react": "^6.1.20",
-        "@storybook/theming": "^6.1.20",
-        "@wertarbyte/react-props-md-table": "^1.1.1",
-        "concurrently": "^5.3.0",
-        "enzyme": "^3.11.0",
-        "enzyme-adapter-react-16": "^1.15.5",
-        "lodash": "^4.17.21",
-        "node-fetch": "^2.6.1",
-        "react": "16.8",
-        "react-dev-utils": "^10.2.1",
-        "react-docgen": "^5.3.0",
-        "react-dom": "16.8",
-        "storybook-addon-jsx": "^7.3.6",
-        "styled-jsx": "^3.3.0"
+        "start": "yarn workspace ui-storybook start",
+        "demo": "yarn workspace ui-storybook build"
     },
     "d2": {
         "docsite": {
@@ -90,5 +44,28 @@
             "description": "Components and related resources for the DHIS2 design system"
         }
     },
-    "dependencies": {}
+    "dependencies": {
+        "@dhis2/app-runtime": "^2.7.1",
+        "@dhis2/cli-app-scripts": "^7.0.0",
+        "@dhis2/cli-style": "^9.0.1",
+        "@dhis2/cli-utils-cypress": "^8.0.1",
+        "@dhis2/cli-utils-docsite": "^3.0.0",
+        "@dhis2/cypress-commands": "^8.0.1",
+        "@dhis2/cypress-plugins": "^8.0.1",
+        "@dhis2/d2-i18n": "^1.1.0",
+        "@manypkg/cli": "^0.17.0",
+        "@svgr/cli": "^5.5.0",
+        "concurrently": "^6.2.0",
+        "enzyme": "^3.11.0",
+        "enzyme-adapter-react-16": "^1.15.6",
+        "execa": "^5.1.1",
+        "fast-glob": "^3.2.5",
+        "find-up": "^5.0.0",
+        "react": "16.13",
+        "react-dev-utils": "^10.2.1",
+        "react-dom": "16.13",
+        "rimraf": "^3.0.2",
+        "styled-jsx": "^3.4.4",
+        "wait-on": "^5.3.0"
+    }
 }

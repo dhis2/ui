@@ -1,7 +1,8 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # Editor settings
-/.vscode
+/.vscode/
+/.idea/
 
 # dependencies
 node_modules/
@@ -46,4 +47,6 @@ docs/design-system
 # So we generate the react components in the src
 # folder, but since they're build artefacts, we
 # don't want them in version control.
-packages/icons/src/react/
+icons/src/react/
+
+.eslintcache

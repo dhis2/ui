@@ -1,3 +1,159 @@
+# [6.12.0](https://github.com/dhis2/ui/compare/v6.11.0...v6.12.0) (2021-07-21)
+
+
+### Features
+
+* **elevations:** adjust elevation styles and documentation ([02c7e1b](https://github.com/dhis2/ui/commit/02c7e1b13439e2a27ae6dbf5a1a09ddc51e4810c))
+
+# [6.11.0](https://github.com/dhis2/ui/compare/v6.10.6...v6.11.0) (2021-07-21)
+
+
+### Features
+
+* **loader:** update loader styles and sizes, add invert mode ([d62d323](https://github.com/dhis2/ui/commit/d62d32315c55dd99dfa541ce6233c26803219a9a))
+
+## [6.10.6](https://github.com/dhis2/ui/compare/v6.10.5...v6.10.6) (2021-07-14)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([5287af6](https://github.com/dhis2/ui/commit/5287af682c41e7d3b8a5887cf231e6a4d8083a8b))
+
+## [6.10.5](https://github.com/dhis2/ui/compare/v6.10.4...v6.10.5) (2021-07-06)
+
+
+### Bug Fixes
+
+* **tag:** support 16px icons ([#659](https://github.com/dhis2/ui/issues/659)) ([67c0817](https://github.com/dhis2/ui/commit/67c0817e017467a632bffbcc0906bea01163b5c0))
+
+## [6.10.4](https://github.com/dhis2/ui/compare/v6.10.3...v6.10.4) (2021-06-29)
+
+
+### Bug Fixes
+
+* Add default value for options ([221a4c7](https://github.com/dhis2/ui/commit/221a4c7fde97f2976fa0c5eeb50b38cb2f432b4f))
+
+## [6.10.3](https://github.com/dhis2/ui/compare/v6.10.2...v6.10.3) (2021-06-29)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([916abfd](https://github.com/dhis2/ui/commit/916abfd2725fdfb669670618b102767271dd7f72))
+
+## [6.10.2](https://github.com/dhis2/ui/compare/v6.10.1...v6.10.2) (2021-06-23)
+
+
+### Bug Fixes
+
+* handle filtering in organisation unit tree when units' children have not yet been loaded ([e21ae4a](https://github.com/dhis2/ui/commit/e21ae4ace1ba8931dd7a5eb0d96ab4f828efe07c))
+
+## [6.10.1](https://github.com/dhis2/ui/compare/v6.10.0...v6.10.1) (2021-06-23)
+
+
+### Bug Fixes
+
+* **pagination:** make onPageChange and onPageSizeChange optional ([#642](https://github.com/dhis2/ui/issues/642)) ([c7bff40](https://github.com/dhis2/ui/commit/c7bff40d759f0d024b4c821878826091cec3f332))
+
+# [6.10.0](https://github.com/dhis2/ui/compare/v6.9.2...v6.10.0) (2021-06-22)
+
+
+### Bug Fixes
+
+* **field:** bundle field-set and field-group in field ([3fcf1e8](https://github.com/dhis2/ui/commit/3fcf1e8d46ba585a5bfb3ac14cf7f7423f78591b))
+* **icons:** clean up icon use and migration to ui-icons ([5a3f7e5](https://github.com/dhis2/ui/commit/5a3f7e5dbf7390846f38ac05d62e321325ba8778))
+* **menu-item:** do not call event.preventDefault() in onClick handler if href prop is set and user is holding meta/alt/ctrl/shift key ([390ca0f](https://github.com/dhis2/ui/commit/390ca0f1d4bc26e7ce4e12495dafaf09c2a4e76e))
+* **modal:** clean up internal structure ([2dec7d3](https://github.com/dhis2/ui/commit/2dec7d32e71c1e132e569b2290b478f4b25ab025))
+
+
+### Features
+
+* release new internal structure ([ed81f13](https://github.com/dhis2/ui/commit/ed81f13aea80ab8d804f2d22e4b564c84781a7f6))
+
+# [6.10.0-alpha.5](https://github.com/dhis2/ui/compare/v6.10.0-alpha.4...v6.10.0-alpha.5) (2021-06-21)
+
+
+### Bug Fixes
+
+* **modal:** clean up internal structure ([2dec7d3](https://github.com/dhis2/ui/commit/2dec7d32e71c1e132e569b2290b478f4b25ab025))
+
+# [6.10.0-alpha.4](https://github.com/dhis2/ui/compare/v6.10.0-alpha.3...v6.10.0-alpha.4) (2021-06-21)
+
+
+### Bug Fixes
+
+* **menu-item:** do not call event.preventDefault() in onClick handler if href prop is set and user is holding meta/alt/ctrl/shift key ([390ca0f](https://github.com/dhis2/ui/commit/390ca0f1d4bc26e7ce4e12495dafaf09c2a4e76e))
+* **menu-item:** do not call event.preventDefault() in onClick handler if href prop is set and user is holding meta/alt/ctrl/shift key ([#631](https://github.com/dhis2/ui/issues/631)) ([0b4fe8f](https://github.com/dhis2/ui/commit/0b4fe8f7732681d34becf2f6e0aa0cdd1a214e2a))
+
+### Bug Fixes
+
+* **field:** bundle field-set and field-group in field ([3fcf1e8](https://github.com/dhis2/ui/commit/3fcf1e8d46ba585a5bfb3ac14cf7f7423f78591b))
+
+## [6.9.2](https://github.com/dhis2/ui/compare/v6.9.1...v6.9.2) (2021-06-18)
+
+### Bug Fixes
+
+* **menu-item:** do not call event.preventDefault() in onClick handler if href prop is set and user is holding meta/alt/ctrl/shift key ([#631](https://github.com/dhis2/ui/issues/631)) ([0b4fe8f](https://github.com/dhis2/ui/commit/0b4fe8f7732681d34becf2f6e0aa0cdd1a214e2a))
+
+### Features
+
+* release new internal structure ([ed81f13](https://github.com/dhis2/ui/commit/ed81f13aea80ab8d804f2d22e4b564c84781a7f6))
+
+## [6.9.1](https://github.com/dhis2/ui/compare/v6.9.0...v6.9.1) (2021-06-15)
+
+### Bug Fixes
+
+* **header-bar:** make email prop optional as in user schema ([#628](https://github.com/dhis2/ui/issues/628)) ([40dc785](https://github.com/dhis2/ui/commit/40dc7851f968510b73cc535c61203bfeffb8b073))
+
+# [6.9.0](https://github.com/dhis2/ui/compare/v6.8.1...v6.9.0) (2021-06-03)
+
+
+### Features
+
+* **tag:** add prop to control max width ([a929ae0](https://github.com/dhis2/ui/commit/a929ae03e8cec2f2d29d7794c3dbc8be88a7adfc))
+
+## [6.8.1](https://github.com/dhis2/ui/compare/v6.8.0...v6.8.1) (2021-06-03)
+
+
+### Bug Fixes
+
+* **table:** exclude data-table internal table elements stories ([#615](https://github.com/dhis2/ui/issues/615)) ([e0b33e4](https://github.com/dhis2/ui/commit/e0b33e4d35138f913c7002e5e430aaba2397a0f9))
+
+# [6.8.0](https://github.com/dhis2/ui/compare/v6.7.0...v6.8.0) (2021-06-03)
+
+
+### Features
+
+* **alert-bar:** add hidden prop and refactor to function component ([#614](https://github.com/dhis2/ui/issues/614)) ([b9e9faa](https://github.com/dhis2/ui/commit/b9e9faadf3a097e03a8cdcf528d1a612aeb79c10))
+* introduce data-table components ([#463](https://github.com/dhis2/ui/issues/463)) ([daf21d4](https://github.com/dhis2/ui/commit/daf21d4095d87300b2ae14837a126021b21f0c3e))
+
+# [6.7.0](https://github.com/dhis2/ui/compare/v6.6.3...v6.7.0) (2021-05-26)
+
+
+### Features
+
+* **modal:** add "hide" prop ([7d68a08](https://github.com/dhis2/ui/commit/7d68a0843cdf963f6337157c20ebd59746052db0))
+
+## [6.6.3](https://github.com/dhis2/ui/compare/v6.6.2...v6.6.3) (2021-05-26)
+
+
+### Bug Fixes
+
+* **chip:** change prop types so they accept any content ([8628508](https://github.com/dhis2/ui/commit/8628508c5fca25f7926cc7b156f9728e6591caeb))
+
+## [6.6.2](https://github.com/dhis2/ui/compare/v6.6.1...v6.6.2) (2021-04-20)
+
+
+### Bug Fixes
+
+* **dropdown button:** adjust dropdown default position ([35d2687](https://github.com/dhis2/ui/commit/35d2687669d66dcf5fe91b2a56a6ea595435364a))
+
+## [6.6.1](https://github.com/dhis2/ui/compare/v6.6.0...v6.6.1) (2021-04-13)
+
+
+### Bug Fixes
+
+* pass buttonLabel prop to FileInputField correctly ([#573](https://github.com/dhis2/ui/issues/573)) ([e4423db](https://github.com/dhis2/ui/commit/e4423db9a2853fa605f20b57d908b69d1f629355))
+
 # [6.6.0](https://github.com/dhis2/ui/compare/v6.5.7...v6.6.0) (2021-03-24)
 
 
