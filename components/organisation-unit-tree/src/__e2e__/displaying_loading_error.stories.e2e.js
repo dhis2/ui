@@ -8,7 +8,7 @@ import {
     namespace,
 } from './common.js'
 
-const dataPriverDataWithError = {
+const dataProviderDataWithError = {
     organisationUnits: (...args) => {
         const [, { id }] = args
         if (id === 'A0000000001') {
