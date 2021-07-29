@@ -56,11 +56,10 @@ export const OrganisationUnitNode = ({
         isUserDataViewFallback,
         suppressAlphabeticalSorting,
         displayName,
-        onComplete: onChildrenLoaded
+        onComplete: onChildrenLoaded,
     })
 
-    const childNodes =
-        !loading && !error ? computeChildNodes(data, filter) : []
+    const childNodes = !loading && !error ? computeChildNodes(data, filter) : []
     const hasChildren = !!childNodes.length
     const hasSelectedDescendants = hasDescendantSelectedPaths(path, selected)
     const isHighlighted = highlighted.includes(path)

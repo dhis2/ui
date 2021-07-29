@@ -31,7 +31,10 @@ const OrganisationUnitTree = ({
     onCollapse,
     onChildrenLoaded,
 }) => {
-    const rootIds = filterRootIds(filter, Array.isArray(roots) ? roots : [roots])
+    const rootIds = filterRootIds(
+        filter,
+        Array.isArray(roots) ? roots : [roots]
+    )
     const reloadId = useForceReload(forceReload)
     const [prevReloadId, setPrevReloadId] = useState(reloadId)
     const { loading, error, data, refetch } = useRootOrgData(rootIds, {
@@ -51,9 +54,10 @@ const OrganisationUnitTree = ({
             setPrevReloadId(reloadId)
         }
 
-        return () => console.warn(
-            '@TODO: Why does this component unmount after a force reload?'
-        )
+        return () =>
+            console.warn(
+                '@TODO: Why does this component unmount after a force reload?'
+            )
     }, [reloadId, prevReloadId, refetch])
 
     return (

@@ -28,7 +28,7 @@ const afterReloadData = {
         }
 
         return dataProviderData.organisationUnits(...args)
-    }
+    },
 }
 
 const ForceReloading = () => {

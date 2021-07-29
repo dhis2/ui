@@ -17,7 +17,10 @@ export const dataProviderData = {
                     {
                         id: 'A0000000001',
                         path: '/A0000000000/A0000000001',
-                        children: [{ id: 'A0000000003' }, { id: 'A0000000004' }],
+                        children: [
+                            { id: 'A0000000003' },
+                            { id: 'A0000000004' },
+                        ],
                         displayName: 'Org Unit 2',
                     },
                     {
@@ -95,7 +98,7 @@ export const dataProviderData = {
         }
 
         return Promise.reject(`No org unit with id "${id}"`)
-    }
+    },
 }
 
 const onChange = (selected, setSelected) => ({ selected: newSelected }) => {

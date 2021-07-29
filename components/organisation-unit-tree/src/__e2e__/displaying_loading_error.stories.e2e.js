@@ -20,7 +20,7 @@ const dataPriverDataWithError = {
         }
 
         return dataProviderData.organisationUnits(...args)
-    }
+    },
 }
 
 storiesOf(namespace, module)

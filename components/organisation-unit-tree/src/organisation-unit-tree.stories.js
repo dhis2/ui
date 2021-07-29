@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Button } from '@dhis2-ui/button'
 import { CustomDataProvider, DataProvider } from '@dhis2/app-runtime'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { OrganisationUnitTree } from './index.js'
 
 const subtitle =
@@ -45,7 +45,8 @@ const customData = {
     organisationUnits: (...args) => {
         const [, { id }] = args
 
-        let data, delay = 0
+        let data,
+            delay = 0
 
         if (id === 'A0000000000') {
             delay = 1000
@@ -122,10 +123,10 @@ const customData = {
 
         if (id === 'A0000000004') {
             data = {
-            displayName: 'Org Unit 5',
-            id: 'A0000000004',
-            path: '/A0000000000/A0000000001/A0000000004',
-            children: [],
+                displayName: 'Org Unit 5',
+                id: 'A0000000004',
+                path: '/A0000000000/A0000000001/A0000000004',
+                children: [],
             }
         }
 
@@ -150,19 +151,15 @@ const customData = {
 
 const ForceReloadAll = () => {
     const [forceReload, _setForceReload] = useState(false)
-    const setForceReload = v => console.log('setForceReload', v) || _setForceReload(v)
+    const setForceReload = v =>
+        console.log('setForceReload', v) || _setForceReload(v)
 
     return (
         <>
-            <Button
-                disabled={forceReload}
-                onClick={() => setForceReload(true)}
-            >
+            <Button disabled={forceReload} onClick={() => setForceReload(true)}>
                 Reload org unit tree
-            </Button>
-            {' '}
+            </Button>{' '}
             <span>(Force reload: {forceReload ? 'true' : 'false'})</span>
-
             <div>
                 <OrganisationUnitTree
                     onChange={onChange}
@@ -179,7 +176,6 @@ const ForceReloadAll = () => {
                     }}
                 />
             </div>
-
             <style jsx>{`
                 div {
                     width: 400px;
@@ -436,7 +432,9 @@ export const RootError = () => (
             organisationUnits: (...args) => {
                 const [, { id }] = args
                 if (id === 'A0000000000') {
-                    return Promise.reject('This is a custom error message, it could be anything')
+                    return Promise.reject(
+                        'This is a custom error message, it could be anything'
+                    )
                 }
 
                 return customData.organisationUnits(...args)
