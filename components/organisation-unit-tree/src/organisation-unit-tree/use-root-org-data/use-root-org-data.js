@@ -1,6 +1,5 @@
 import { useDataQuery } from '@dhis2/app-runtime'
 import { useCallback, useState } from 'react'
-import { sortNodeChildrenAlphabetically } from '../../helpers/index.js'
 import { patchMissingDisplayName } from './patch-missing-display-name.js'
 
 export const createRootQuery = ids =>
@@ -29,14 +28,10 @@ export const createRootQuery = ids =>
  */
 export const useRootOrgData = (
     ids,
-    {
-        isUserDataViewFallback,
-        suppressAlphabeticalSorting,
-    } = {}
+    { isUserDataViewFallback } = {}
 ) => {
     const query = createRootQuery(ids)
     const variables = { isUserDataViewFallback }
-
     const [state, setState] = useState({
         loading: true,
         error: null,
@@ -45,36 +40,16 @@ export const useRootOrgData = (
 
     const { refetch: queryRefetch } = useDataQuery(query, {
         variables,
-        onComplete: queryData => {
-            let nextData = queryData ? patchMissingDisplayName(queryData) : {}
-
-            if (!suppressAlphabeticalSorting) {
-                nextData = Object.values(nextData)
-                    .map(sortNodeChildrenAlphabetically)
-                    .reduce(
-                        (current, node) => ({
-                            ...current,
-                            [node.id]: node,
-                        }),
-                        {}
-                    )
-            }
-
-            // the order is important as otherwise
-            // a re-render happens with loading: false and data: null
-            setState({
-                ...state,
-                data: nextData,
-                loading: false
-            })
-        },
-        onError: queryError => {
-            setState({
-                ...state,
-                error: queryError,
-                loading: false
-            })
-        },
+        onComplete: queryData => setState({
+            ...state,
+            data: queryData ? patchMissingDisplayName(queryData) : {},
+            loading: false
+        }),
+        onError: queryError => setState({
+            ...state,
+            error: queryError,
+            loading: false
+        }),
     })
 
     const refetch = useCallback(() => {
