@@ -33,7 +33,7 @@ Given(
  * Step is necessary to make the feature file understandable
  * Required states are prepared by the story.
  * There is no way to check if the given is true by checking the dom
- * as this can only be verified by opning the org unit tree,
+ * as this can only be verified by opening the org unit tree,
  * which triggers the recursive loading strategy.
  */
 Given('the second level contains two nodes', () => {})
