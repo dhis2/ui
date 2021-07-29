@@ -2,12 +2,11 @@ import React from 'react'
 import { Label } from './label/index.js'
 
 export const defaultRenderNodeLabel = ({
-    data,
+    node,
     dataTest = `${dataTest}-label`,
     disableSelection,
     hasChildren,
     hasSelectedDescendants,
-    id,
     highlighted,
     checked,
     loading,
@@ -22,11 +21,11 @@ export const defaultRenderNodeLabel = ({
         checked={checked}
         dataTest={dataTest}
         disableSelection={disableSelection}
-        displayName={data.displayName}
+        displayName={node.displayName}
         hasChildren={hasChildren}
         hasSelectedDescendants={hasSelectedDescendants}
         highlighted={highlighted}
-        id={id}
+        id={node.id}
         loading={loading}
         onChange={onChange}
         selected={selected}

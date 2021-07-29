@@ -150,7 +150,33 @@ OrganisationUnitTree.propTypes = {
     /** When provided, the 'isUserDataViewFallback' option will be sent when requesting the org units */
     isUserDataViewFallback: propTypes.bool,
 
-    /** Renders the actual node component for each leaf, can be used to customize the node */
+    /** Renders the actual node component for each leaf, can be used to customize the node.
+     * The `node`'s data is incomplete while `loading` is true.
+     * `{
+     *    node: {
+     *      displayName: string,
+     *      id?: string,
+     *      path?: string,
+     *      children?: Array.<{
+     *        id: string,
+     *        path: string,
+     *        displayName: string
+     *      }>
+     *    },
+     *    dataTest: string,
+     *    disableSelection: boolean,
+     *    hasChildren: boolean,
+     *    hasSelectedDescendants: boolean,
+     *    highlighted: boolean,
+     *    checked: boolean,
+     *    loading: boolean,
+     *    onChange: Function,
+     *    onToggleOpen: Function,
+     *    open: boolean,
+     *    path: string,
+     *    selected: Array.<string>,
+     *    singleSelection: boolean,
+     *  }` */
     renderNodeLabel: propTypes.func,
 
     /** An array of paths of selected OUs. The path of an OU is the UIDs of the OU and all its parent OUs separated by slashes (`/`) */

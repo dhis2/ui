@@ -99,9 +99,8 @@ const Label = ({
 
 Label.propTypes = {
     dataTest: propTypes.string.isRequired,
-    displayName: propTypes.string.isRequired,
+    displayName: propTypes.any.isRequired,
     hasChildren: propTypes.bool.isRequired,
-    id: propTypes.string.isRequired,
     loading: propTypes.bool.isRequired,
     open: propTypes.bool.isRequired,
     path: propTypes.string.isRequired,

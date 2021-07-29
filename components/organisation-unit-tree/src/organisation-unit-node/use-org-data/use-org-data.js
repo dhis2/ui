@@ -34,7 +34,7 @@ export const useOrgData = (
         throw new Error('"displayName" is required')
     }
 
-    const defaultData = { displayName }
+    const defaultData = { id, displayName }
     const variables = { id, isUserDataViewFallback }
     const [state, setState] = useState({
         loading: true,

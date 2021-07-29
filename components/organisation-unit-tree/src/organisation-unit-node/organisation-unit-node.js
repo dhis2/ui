@@ -75,11 +75,9 @@ export const OrganisationUnitNode = ({
     const isSelected = selected.includes(path)
 
     const label = renderNodeLabel({
-        data,
         disableSelection,
         hasChildren,
         hasSelectedDescendants,
-        id,
         loading,
         onChange,
         selected,
@@ -87,6 +85,7 @@ export const OrganisationUnitNode = ({
         open,
         path,
         singleSelection,
+        node: data,
         checked: isSelected,
         dataTest: `${dataTest}-label`,
         highlighted: isHighlighted,
