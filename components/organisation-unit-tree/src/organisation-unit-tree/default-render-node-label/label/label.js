@@ -99,6 +99,7 @@ const Label = ({
 
 Label.propTypes = {
     dataTest: propTypes.string.isRequired,
+    // This is `any` so it can be customized by the app
     displayName: propTypes.any.isRequired,
     hasChildren: propTypes.bool.isRequired,
     id: propTypes.string.isRequired,
