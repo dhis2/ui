@@ -25,7 +25,7 @@ const dataProviderDataWithError = {
 
 storiesOf(namespace, module)
     .add('A0000000001 loading error', () => (
-        <CustomDataProvider data={dataPriverDataWithError}>
+        <CustomDataProvider data={dataProviderDataWithError}>
             <StatefulMultiSelectionWrapper>
                 {() => (
                     <OrganisationUnitTree
@@ -37,7 +37,7 @@ storiesOf(namespace, module)
         </CustomDataProvider>
     ))
     .add('A0000000001 loading error autoexpand', () => (
-        <CustomDataProvider data={dataPriverDataWithError}>
+        <CustomDataProvider data={dataProviderDataWithError}>
             <StatefulMultiSelectionWrapper>
                 {() => (
                     <OrganisationUnitTree

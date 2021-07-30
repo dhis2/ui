@@ -1,20 +1,4 @@
-import {
-    fromEntries,
-    patchMissingDisplayName,
-} from './patch-missing-display-name.js'
-
-describe('fromEntries', () => {
-    it('should transform an array of entries to an object', () => {
-        const expected = { key1: 'value1', key2: 'value2', key3: 'value3' }
-        const actual = fromEntries([
-            ['key1', 'value1'],
-            ['key2', 'value2'],
-            ['key3', 'value3'],
-        ])
-
-        expect(actual).toEqual(expected)
-    })
-})
+import { patchMissingDisplayName } from './patch-missing-display-name.js'
 
 describe('patchMissingDisplayName', () => {
     it('should add an empty string as displayName if the prop is falsy', () => {

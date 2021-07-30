@@ -13,7 +13,6 @@ export const defaultRenderNodeLabel = ({
     onChange,
     onToggleOpen,
     open,
-    path,
     selected,
     singleSelection,
 }) => (
@@ -31,7 +30,7 @@ export const defaultRenderNodeLabel = ({
         selected={selected}
         onToggleOpen={onToggleOpen}
         open={open}
-        path={path}
+        path={node.path}
         singleSelection={singleSelection}
     />
 )

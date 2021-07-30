@@ -150,33 +150,45 @@ OrganisationUnitTree.propTypes = {
     /** When provided, the 'isUserDataViewFallback' option will be sent when requesting the org units */
     isUserDataViewFallback: propTypes.bool,
 
-    /** Renders the actual node component for each leaf, can be used to customize the node.
-     * The `node`'s data is incomplete while `loading` is true.
-     * `{
-     *    node: {
-     *      displayName: string,
-     *      id?: string,
-     *      path?: string,
-     *      children?: Array.<{
-     *        id: string,
-     *        path: string,
-     *        displayName: string
-     *      }>
-     *    },
-     *    dataTest: string,
-     *    disableSelection: boolean,
-     *    hasChildren: boolean,
-     *    hasSelectedDescendants: boolean,
-     *    highlighted: boolean,
-     *    checked: boolean,
-     *    loading: boolean,
-     *    onChange: Function,
-     *    onToggleOpen: Function,
-     *    open: boolean,
-     *    path: string,
-     *    selected: Array.<string>,
-     *    singleSelection: boolean,
-     *  }` */
+    /** Renders the actual node component for each leaf, can be used to
+     * customize the node.  In order to change the displayed node while keeping
+     * the existing functionality intact, you can re-use the original prop
+     * and overwrite the node's displayName.
+     *
+     * @example
+     * renderNodeLabel={data => {
+     *   return OrganisationUnitTree.defaultProps.renderNodeLabel({
+     *     ...data,
+     *     node: {
+     *       ...data.node,
+     *       displayName: (
+     *          <MyCustomComponent>
+     *              {data.node.displayName}
+     *          </MyCustomComponent>
+     *       ),
+     *     },
+     *   })
+     * }}
+     *
+     * @param {Object} data
+     * @param {Object} data.node
+     * @param {string} data.node.displayName
+     * @param {string} data.node.id
+     * @param {string} [data.node.path] Only provided once `loading` is false
+     * @param {Object} [data.node.children] Only provided once `loading` is false
+     * @param {string} data.dataTest
+     * @param {string[]} data.selected
+     * @param {boolean} data.disableSelection
+     * @param {boolean} data.hasChildren
+     * @param {boolean} data.hasSelectedDescendants
+     * @param {boolean} data.highlighted
+     * @param {boolean} data.checked
+     * @param {boolean} data.loading
+     * @param {boolean} data.open
+     * @param {boolean} data.singleSelection
+     * @param {Function} data.onChange
+     * @param {Function} data.onToggleOpen
+     */
     renderNodeLabel: propTypes.func,
 
     /** An array of paths of selected OUs. The path of an OU is the UIDs of the OU and all its parent OUs separated by slashes (`/`) */

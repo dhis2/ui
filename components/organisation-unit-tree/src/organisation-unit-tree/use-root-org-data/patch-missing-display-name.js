@@ -1,12 +1,3 @@
-export const fromEntries = entries =>
-    entries.reduce(
-        (collection, [key, name]) => ({
-            ...collection,
-            [key]: name,
-        }),
-        {}
-    )
-
 /**
  * Note by JGS: I can't recall why this is necessary,
  * but it's there.. So I guess it's better to leave it in for now
@@ -25,5 +16,5 @@ export const patchMissingDisplayName = nodes => {
         return [id, { ...node, displayName }]
     })
 
-    return fromEntries(nodesWithDisplayName)
+    return Object.fromEntries(nodesWithDisplayName)
 }

@@ -72,9 +72,7 @@ const Label = ({
                     label={displayName}
                     onChange={onClick}
                     loading={loading}
-                >
-                    {displayName}
-                </SingleSelectionLabel>
+                />
             </LabelContainer>
         )
     }
