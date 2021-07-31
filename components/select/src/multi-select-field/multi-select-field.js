@@ -163,11 +163,11 @@ MultiSelectField.propTypes = {
     validationText: PropTypes.string,
     /** Adds 'warning' appearance for validation feedback. Mutually exclusive with 'valid' and 'error' props */
     warning: sharedPropTypes.statusPropType,
-    /** Called with signature `({ selected: [String] }, event) */
+    /** Called with signature `({ selected: [String] }, event)` */
     onBlur: PropTypes.func,
-    /** Called with signature `({ selected: [String] }, event) */
+    /** Called with signature `({ selected: [String] }, event)` */
     onChange: PropTypes.func,
-    /** Called with signature `({ selected: [String] }, event) */
+    /** Called with signature `({ selected: [String] }, event)` */
     onFocus: PropTypes.func,
 }
 
