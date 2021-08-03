@@ -63,7 +63,7 @@ export const CustomRequests = () => {
             fetchRootOrgData={fetchRootOrgData}
             name="Root org unit"
             roots={['A0000000000']}
-            initiallyExpanded={['/A0000000000/A0000000001']}
+            initiallyExpanded={['/A0000000000/A0000000001/A0000000003']}
             renderNodeLabel={data => {
                 if (data.loading) {
                     return OrganisationUnitTreeControllable
@@ -78,16 +78,13 @@ export const CustomRequests = () => {
 
                 const formatted = {
                     ...data,
-                    node: {
-                        ...data.node,
-                        displayName: (
-                            <span>
-                                {data.node.displayName}
-                                {' '}
-                                (mayApprove: {' '}{mayApprove.toString()})
-                            </span>
-                        )
-                    }
+                    label: (
+                        <span>
+                            {data.node.displayName}
+                            {' '}
+                            (mayApprove: {' '}{mayApprove.toString()})
+                        </span>
+                    )
                 }
 
                 return OrganisationUnitTreeControllable
