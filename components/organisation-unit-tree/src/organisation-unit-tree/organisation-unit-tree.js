@@ -14,6 +14,7 @@ const OrganisationUnitTree = ({
     onChange,
     roots,
 
+    additionalQueryResources,
     autoExpandLoadingError,
     dataTest,
     disableSelection,
@@ -73,6 +74,7 @@ const OrganisationUnitTree = ({
                     return (
                         <OrganisationUnitNode
                             key={rootPath}
+                            additionalQueryResources={additionalQueryResources}
                             autoExpandLoadingError={autoExpandLoadingError}
                             dataTest={dataTest}
                             disableSelection={disableSelection}
@@ -110,6 +112,9 @@ OrganisationUnitTree.propTypes = {
     /** Will be called with the following object:
      * `{ id: string, displayName: string, path: string, checked: boolean, selected: string[] }` */
     onChange: propTypes.func.isRequired,
+
+    /** Additional resources that will be requested for each node that requests its data */
+    additionalQueryResources: propTypes.instanceOf(Object),
 
     /** When set, the error when loading children fails will be shown automatically */
     autoExpandLoadingError: propTypes.bool,

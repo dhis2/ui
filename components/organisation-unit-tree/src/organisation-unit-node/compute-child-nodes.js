@@ -13,11 +13,11 @@ import { isPathIncluded } from '../helpers/index.js'
  * @returns {string[]}
  */
 export const computeChildNodes = (node, filter) => {
-    if (!node.children) {
+    if (!node?.children) {
         return []
     }
 
-    if (!filter.length) {
+    if (!filter?.length) {
         return node.children
     }
 

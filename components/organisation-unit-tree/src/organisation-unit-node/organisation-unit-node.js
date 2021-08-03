@@ -47,6 +47,7 @@ export const OrganisationUnitNode = ({
     singleSelection,
     filter,
     suppressAlphabeticalSorting,
+    additionalQueryResources,
     onChange,
     onChildrenLoaded,
     onCollapse,
@@ -57,9 +58,11 @@ export const OrganisationUnitNode = ({
         suppressAlphabeticalSorting,
         displayName,
         onComplete: onChildrenLoaded,
+        additionalQueryResources,
     })
 
-    const childNodes = !loading && !error ? computeChildNodes(data, filter) : []
+    const { orgUnit, ...rest } = data
+    const childNodes = !loading && !error ? computeChildNodes(orgUnit, filter) : []
     const hasChildren = !!childNodes.length
     const hasSelectedDescendants = hasDescendantSelectedPaths(path, selected)
     const isHighlighted = highlighted.includes(path)
@@ -85,10 +88,13 @@ export const OrganisationUnitNode = ({
         open,
         path,
         singleSelection,
-        node: data,
+        node: orgUnit,
         checked: isSelected,
         dataTest: `${dataTest}-label`,
         highlighted: isHighlighted,
+
+        // In case the app requests additional information
+        additional: rest,
     })
 
     /**
@@ -127,6 +133,7 @@ export const OrganisationUnitNode = ({
                     return (
                         <OrganisationUnitNode
                             key={childPath}
+                            additionalQueryResources={additionalQueryResources}
                             autoExpandLoadingError={autoExpandLoadingError}
                             childNodes={grandChildNodes}
                             dataTest={dataTest}
@@ -161,6 +168,7 @@ OrganisationUnitNode.propTypes = {
     renderNodeLabel: propTypes.func.isRequired,
     onChange: propTypes.func.isRequired,
 
+    additionalQueryResources: propTypes.instanceOf(Object),
     autoExpandLoadingError: propTypes.bool,
     disableSelection: propTypes.bool,
     displayName: propTypes.string,

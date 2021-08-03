@@ -28,6 +28,7 @@ export const useOrgData = (
         suppressAlphabeticalSorting,
         onComplete,
         displayName,
+        additionalQueryResources,
     }
 ) => {
     if (!displayName) {
@@ -36,15 +37,21 @@ export const useOrgData = (
 
     const defaultData = { id, displayName }
     const variables = { id, isUserDataViewFallback }
-    const [state, setState] = useState({
+    const [state, _setState] = useState({
         loading: true,
         error: null,
-        data: defaultData,
+        data: { orgUnit: defaultData },
     })
+    const setState = v => console.log('setState', v) || _setState(v)
 
-    useDataQuery(ORG_DATA_QUERY, {
+    const query = {
+        ...(additionalQueryResources || {}),
+        ...ORG_DATA_QUERY,
+    }
+    console.log('query', query)
+    useDataQuery(query, {
         variables,
-        onComplete: ({ orgUnit: node }) => {
+        onComplete: ({ orgUnit: node, ...rest }) => {
             const sorted = !suppressAlphabeticalSorting
                 ? sortNodeChildrenAlphabetically(node)
                 : node
@@ -52,7 +59,10 @@ export const useOrgData = (
             const nextData = { ...defaultData, ...sorted }
             setState({
                 ...state,
-                data: nextData,
+                data: {
+                    ...rest,
+                    orgUnit: nextData,
+                },
                 loading: false,
             })
             onComplete && onComplete(nextData)
