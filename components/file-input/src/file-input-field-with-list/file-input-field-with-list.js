@@ -136,7 +136,7 @@ FileInputFieldWithList.defaultProps = {
 }
 
 FileInputFieldWithList.propTypes = {
-    /** Called with signature ({ name: string, files: [File] }, event) */
+    /** Called with signature `({ name: string, files: [File] }, event)` */
     onChange: PropTypes.func.isRequired,
     /** The `accept` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept) */
     accept: PropTypes.string,

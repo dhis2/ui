@@ -131,7 +131,7 @@ FileInputField.propTypes = {
     /** Applies 'warning' styling to the validation text. Mutually exclusive with `valid` and `error` props */
     warning: sharedPropTypes.statusPropType,
     onBlur: PropTypes.func,
-    /** Called with signature ({ name: string, files: [] }, event) */
+    /** Called with signature `({ name: string, files: [] }, event)` */
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
 }
