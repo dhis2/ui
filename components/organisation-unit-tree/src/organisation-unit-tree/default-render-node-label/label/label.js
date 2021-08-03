@@ -127,6 +127,7 @@ Label.propTypes = {
     disableSelection: propTypes.bool,
     hasSelectedDescendants: propTypes.bool,
     highlighted: propTypes.bool,
+    path: propTypes.string,
     selected: propTypes.arrayOf(orgUnitPathPropType),
     singleSelection: propTypes.bool,
 }
