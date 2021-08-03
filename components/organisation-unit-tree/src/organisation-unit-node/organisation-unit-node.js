@@ -86,6 +86,7 @@ export const OrganisationUnitNode = ({
         path,
         singleSelection,
         node: data,
+        label: data.displayName,
         checked: isSelected,
         dataTest: `${dataTest}-label`,
         highlighted: isHighlighted,

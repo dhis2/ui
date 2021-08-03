@@ -9,17 +9,18 @@ import { SingleSelectionLabel } from './single-selection-label.js'
  * @param {bool} [props.loading]
  * @returns {React.Component}
  */
-export const DisabledSelectionLabel = ({ label, loading, onToggleOpen }) => (
+export const DisabledSelectionLabel = ({ children, loading, onToggleOpen }) => (
     <SingleSelectionLabel
         checked={false}
         loading={loading}
-        label={label}
         onChange={onToggleOpen}
-    />
+    >
+        {children}
+    </SingleSelectionLabel>
 )
 
 DisabledSelectionLabel.propTypes = {
-    label: propTypes.string.isRequired,
+    children: propTypes.any.isRequired,
     onToggleOpen: propTypes.func.isRequired,
     loading: propTypes.bool,
 }

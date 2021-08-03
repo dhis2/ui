@@ -8,7 +8,7 @@ export const IconizedCheckbox = ({
     dataTest,
     hasChildren,
     indeterminate,
-    label,
+    children,
     loading,
     name,
     open,
@@ -27,7 +27,7 @@ export const IconizedCheckbox = ({
     const checkboxLabel = (
         <>
             <span>{icon}</span>
-            {label}
+            {children}
 
             <style jsx>{`
                 span {
@@ -55,10 +55,10 @@ export const IconizedCheckbox = ({
 
 IconizedCheckbox.propTypes = {
     checked: propTypes.bool.isRequired,
+    children: propTypes.any.isRequired,
     dataTest: propTypes.string.isRequired,
     hasChildren: propTypes.bool.isRequired,
     indeterminate: propTypes.bool.isRequired,
-    label: propTypes.any.isRequired,
     loading: propTypes.bool.isRequired,
     name: propTypes.string.isRequired,
     open: propTypes.bool.isRequired,

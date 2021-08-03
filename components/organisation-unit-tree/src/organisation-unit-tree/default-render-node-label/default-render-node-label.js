@@ -9,6 +9,7 @@ export const defaultRenderNodeLabel = ({
     hasSelectedDescendants,
     highlighted,
     checked,
+    label,
     loading,
     onChange,
     onToggleOpen,
@@ -17,20 +18,20 @@ export const defaultRenderNodeLabel = ({
     singleSelection,
 }) => (
     <Label
+        node={node}
         checked={checked}
         dataTest={dataTest}
         disableSelection={disableSelection}
-        displayName={node.displayName}
         hasChildren={hasChildren}
         hasSelectedDescendants={hasSelectedDescendants}
         highlighted={highlighted}
-        id={node.id}
         loading={loading}
         onChange={onChange}
         selected={selected}
         onToggleOpen={onToggleOpen}
         open={open}
-        path={node.path}
         singleSelection={singleSelection}
-    />
+    >
+        {label}
+    </Label>
 )

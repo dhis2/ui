@@ -297,10 +297,7 @@ export const CustomNodeLabel = () => (
 
             return OrganisationUnitTree.defaultProps.renderNodeLabel({
                 ...data,
-                node: {
-                    ...data.node,
-                    displayName: <span>--- {data.node.displayName}</span>,
-                },
+                label: <span>--- {data.node.displayName}</span>,
             })
         }}
         onChange={onChange}

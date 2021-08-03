@@ -11,7 +11,7 @@ import React from 'react'
  * @param {Function} [props.onChange]
  * @returns {React.Component}
  */
-export const SingleSelectionLabel = ({ checked, label, onChange, loading }) => (
+export const SingleSelectionLabel = ({ checked, children, onChange, loading }) => (
     <span
         onClick={event => {
             const payload = { checked: !checked }
@@ -19,7 +19,7 @@ export const SingleSelectionLabel = ({ checked, label, onChange, loading }) => (
         }}
         className={cx({ checked, loading })}
     >
-        {label}
+        {children}
 
         <style jsx>{`
             span {
@@ -48,7 +48,7 @@ export const SingleSelectionLabel = ({ checked, label, onChange, loading }) => (
 )
 
 SingleSelectionLabel.propTypes = {
-    label: propTypes.string.isRequired,
+    children: propTypes.any.isRequired,
     checked: propTypes.bool,
     loading: propTypes.bool,
     onChange: propTypes.func,

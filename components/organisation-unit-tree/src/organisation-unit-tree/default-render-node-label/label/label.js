@@ -22,8 +22,8 @@ const createNewSelected = ({ selected, path, checked, singleSelection }) => {
 }
 
 const Label = ({
-    id,
-    path,
+    children,
+    node,
     open,
     loading,
     checked,
@@ -32,7 +32,6 @@ const Label = ({
     selected,
     hasChildren,
     highlighted,
-    displayName,
     onToggleOpen,
     disableSelection,
     singleSelection,
@@ -40,14 +39,20 @@ const Label = ({
 }) => {
     const onClick = ({ checked }, event) => {
         const newSelected = createNewSelected({
+            path: node.path,
             selected,
-            path,
             checked,
             singleSelection,
         })
 
         onChange(
-            { id, path, checked, displayName, selected: newSelected },
+            {
+                // @TODO: It'd make more sense to pass the node as an object
+                // isntead of spread it. But that'd be a breaking change
+                ...node,
+                checked,
+                selected: newSelected,
+            },
             event
         )
     }
@@ -56,10 +61,11 @@ const Label = ({
         return (
             <LabelContainer highlighted={highlighted}>
                 <DisabledSelectionLabel
-                    label={displayName}
                     loading={loading}
                     onToggleOpen={onToggleOpen}
-                />
+                >
+                    {children}
+                </DisabledSelectionLabel>
             </LabelContainer>
         )
     }
@@ -69,10 +75,11 @@ const Label = ({
             <LabelContainer highlighted={highlighted}>
                 <SingleSelectionLabel
                     checked={checked}
-                    label={displayName}
                     onChange={onClick}
                     loading={loading}
-                />
+                >
+                    {children}
+                </SingleSelectionLabel>
             </LabelContainer>
         )
     }
@@ -83,27 +90,37 @@ const Label = ({
                 dataTest={dataTest}
                 checked={checked}
                 name="org-unit"
-                value={id}
-                label={displayName}
+                value={node.id}
                 loading={loading}
                 indeterminate={!checked && hasSelectedDescendants}
                 onChange={onClick}
                 open={open}
                 hasChildren={hasChildren}
-            />
+            >
+                {children}
+            </IconizedCheckbox>
         </LabelContainer>
     )
 }
 
 Label.propTypes = {
+    children: propTypes.any.isRequired,
     dataTest: propTypes.string.isRequired,
     // This is `any` so it can be customized by the app
-    displayName: propTypes.any.isRequired,
     hasChildren: propTypes.bool.isRequired,
-    id: propTypes.string.isRequired,
     loading: propTypes.bool.isRequired,
+    node: propTypes.shape({
+        displayName: propTypes.string.isRequired,
+        id: propTypes.string.isRequired,
+        children: propTypes.arrayOf(
+            propTypes.shape({
+                displayName: propTypes.string.isRequired,
+                id: propTypes.string.isRequired,
+            })
+        ),
+        path: propTypes.string,
+    }).isRequired,
     open: propTypes.bool.isRequired,
-    path: propTypes.string.isRequired,
     onChange: propTypes.func.isRequired,
     onToggleOpen: propTypes.func.isRequired,
     checked: propTypes.bool,
