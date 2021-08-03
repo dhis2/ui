@@ -79,6 +79,7 @@ export const OrganisationUnitNode = ({
         hasChildren,
         hasSelectedDescendants,
         loading,
+        error,
         onChange,
         selected,
         onToggleOpen,

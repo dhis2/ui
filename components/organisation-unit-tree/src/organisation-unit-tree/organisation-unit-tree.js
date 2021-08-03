@@ -151,22 +151,19 @@ OrganisationUnitTree.propTypes = {
     isUserDataViewFallback: propTypes.bool,
 
     /** Renders the actual node component for each leaf, can be used to
-     * customize the node.  In order to change the displayed node while keeping
+     * customize the node. In order to change the displayed node while keeping
      * the existing functionality intact, you can re-use the original prop
-     * and overwrite the node's displayName.
+     * and overwrite the label property.
      *
      * @example
      * renderNodeLabel={data => {
      *   return OrganisationUnitTree.defaultProps.renderNodeLabel({
      *     ...data,
-     *     node: {
-     *       ...data.node,
-     *       displayName: (
-     *          <MyCustomComponent>
-     *              {data.node.displayName}
-     *          </MyCustomComponent>
-     *       ),
-     *     },
+     *     label: (
+     *        <MyCustomComponent>
+     *            {data.node.displayName}
+     *        </MyCustomComponent>
+     *     ),
      *   })
      * }}
      *
@@ -177,6 +174,7 @@ OrganisationUnitTree.propTypes = {
      * @param {string} [data.node.path] Only provided once `loading` is false
      * @param {Object} [data.node.children] Only provided once `loading` is false
      * @param {string} data.dataTest
+     * @param {string} [data.error]
      * @param {string[]} data.selected
      * @param {boolean} data.disableSelection
      * @param {boolean} data.hasChildren
