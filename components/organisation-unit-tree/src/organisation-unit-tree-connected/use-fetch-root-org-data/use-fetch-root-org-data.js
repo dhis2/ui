@@ -10,7 +10,6 @@ export const createRootQuery = ids =>
                 params: ({ isUserDataViewFallback }) => ({
                     isUserDataViewFallback,
                     fields: ['displayName', 'path', 'id'],
-                    paging: false,
                 }),
             },
         }),

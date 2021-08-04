@@ -19,13 +19,15 @@ export const useQuery = (
         fetchFn(...args)
             .then(response => {
                 const data = transform ? transform(response) : response
+                const dataWithDefaults = { ...defaultData, ...data }
+
                 setState({
                     ...state,
                     loading: false,
-                    data: { ...defaultData, ...data },
+                    data: { ...defaultData, ...dataWithDefaults },
                 })
 
-                return data
+                return dataWithDefaults
             })
             .then(data => onComplete && onComplete(data))
             .catch(error => setState({ ...state, loading: false, error }))
