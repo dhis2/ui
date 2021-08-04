@@ -33,7 +33,9 @@
         "cy:test": "./scripts/cypress.js",
         "docs": "d2-utils-docsite build ./docs -o ./dist --jsdoc ./*/**/src --jsdoc-output-file api.md",
         "format": "d2-style apply",
+        "format:staged": "d2-style apply --staged",
         "lint": "d2-style check",
+        "lint:staged": "d2-style check --staged",
         "test": "d2-app-scripts test",
         "start": "yarn workspace ui-storybook start",
         "demo": "yarn workspace ui-storybook build"
