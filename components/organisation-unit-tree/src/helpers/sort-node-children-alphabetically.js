@@ -4,7 +4,7 @@ export const sortNodeChildrenAlphabetically = node => {
 
     sortedChildren.sort((left, right) => {
         if (left.displayName === right.displayName) return 0
-        return left.displayName > right.displayName ? 1 : -1
+        return left.displayName.localeCompare(right.displayName)
     })
 
     return {

@@ -104,9 +104,9 @@ const Label = ({
 }
 
 Label.propTypes = {
+    // This is `any` so it can be customized by the app
     children: propTypes.any.isRequired,
     dataTest: propTypes.string.isRequired,
-    // This is `any` so it can be customized by the app
     hasChildren: propTypes.bool.isRequired,
     loading: propTypes.bool.isRequired,
     node: propTypes.shape({

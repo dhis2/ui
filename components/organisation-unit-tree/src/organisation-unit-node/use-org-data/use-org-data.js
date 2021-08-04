@@ -9,7 +9,6 @@ const ORG_DATA_QUERY = {
         params: ({ isUserDataViewFallback }) => ({
             isUserDataViewFallback,
             fields: ['id', 'path', 'children[id,path,displayName]'],
-            paging: false,
         }),
     },
 }
