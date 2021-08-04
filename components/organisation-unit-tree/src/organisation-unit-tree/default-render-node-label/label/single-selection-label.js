@@ -11,7 +11,12 @@ import React from 'react'
  * @param {Function} [props.onChange]
  * @returns {React.Component}
  */
-export const SingleSelectionLabel = ({ checked, children, onChange, loading }) => (
+export const SingleSelectionLabel = ({
+    checked,
+    children,
+    onChange,
+    loading,
+}) => (
     <span
         onClick={event => {
             const payload = { checked: !checked }
