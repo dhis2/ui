@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useCallback, useState, useEffect } from 'react'
 
 export const useQuery = (
     fetchFn,
@@ -9,48 +9,39 @@ export const useQuery = (
         onComplete = null,
     }
 ) => {
-    const [state, setState] = useState({
-        loading: true,
-        error: null,
-        data: defaultData,
-    })
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(null)
+    const [data, setData] = useState(defaultData)
 
-    const performRequest = (...args) =>
-        fetchFn(...args)
+    const performRequest = useCallback(
+        (...args) => fetchFn(...args)
             .then(response => {
                 const data = transform ? transform(response) : response
                 const dataWithDefaults = { ...defaultData, ...data }
 
-                setState({
-                    ...state,
-                    loading: false,
-                    data: { ...defaultData, ...dataWithDefaults },
-                })
-
+                setData(dataWithDefaults)
+                setLoading(false)
                 return dataWithDefaults
             })
             .then(data => onComplete && onComplete(data))
-            .catch(error => setState({ ...state, loading: false, error }))
+            .catch(error => {
+                setError(error)
+                setLoading(false)
+            }),
+        [setLoading, setError, setData, onComplete]
+    )
 
-    const refetch = async (...args) => {
-        setState({
-            ...state,
-            loading: true,
-            error: null,
-            data: defaultData,
-        })
+    const refetch = useCallback((...args) => {
+        setLoading(true)
+        setError(null)
+        setData(defaultData)
 
-        performRequest(...args)
-    }
+        return performRequest(...args)
+    }, [setLoading, setError, setData, performRequest])
 
     useEffect(() => {
         performRequest(...initialArguments)
     }, [])
 
-    return {
-        refetch,
-        loading: state.loading,
-        error: state.error,
-        data: state.data,
-    }
+    return { refetch, loading, error, data }
 }

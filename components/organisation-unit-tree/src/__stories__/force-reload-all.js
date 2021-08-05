@@ -3,9 +3,7 @@ import React, { useState } from 'react'
 import { OrganisationUnitTree } from '../index.js'
 
 export const ForceReloadAll = () => {
-    const [forceReload, _setForceReload] = useState(false)
-    const setForceReload = v =>
-        console.log('setForceReload', v) || _setForceReload(v)
+    const [forceReload, setForceReload] = useState(false)
 
     return (
         <>

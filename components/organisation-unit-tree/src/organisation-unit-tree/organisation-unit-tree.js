@@ -39,7 +39,6 @@ const OrganisationUnitTree = ({
         Array.isArray(roots) ? roots : [roots]
     )
     const reloadId = useForceReload(forceReload)
-    const [prevReloadId, setPrevReloadId] = useState(reloadId)
 
     const { loading, error, data, refetch } = useQuery(fetchRootOrgData, {
         transform: patchMissingDisplayName,
@@ -60,7 +59,7 @@ const OrganisationUnitTree = ({
 
     useEffect(() => {
         // do not refetch on initial render
-        if (refetch && reloadId > 0 && reloadId !== prevReloadId) {
+        if (refetch && reloadId > 0) {
             refetch({
                 ids: rootIds,
                 variables: {
@@ -68,14 +67,13 @@ const OrganisationUnitTree = ({
                     suppressAlphabeticalSorting,
                 },
             })
-            setPrevReloadId(reloadId)
         }
 
         return () =>
             console.warn(
                 '@TODO: Why does this component unmount after a force reload?'
             )
-    }, [reloadId, prevReloadId, refetch])
+    }, [reloadId, refetch])
 
     return (
         <div data-test={dataTest}>
