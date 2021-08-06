@@ -1,3 +1,10 @@
+# [6.13.0](https://github.com/dhis2/ui/compare/v6.12.0...v6.13.0) (2021-08-06)
+
+
+### Features
+
+* **org unit tree:** allow node label customization (LIBS-203) ([#679](https://github.com/dhis2/ui/issues/679)) ([394010d](https://github.com/dhis2/ui/commit/394010d43241b46dd7652b1c125e08d6838cfbb8))
+
 # [6.12.0](https://github.com/dhis2/ui/compare/v6.11.0...v6.12.0) (2021-07-21)
 
 
