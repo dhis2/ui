@@ -24,7 +24,8 @@ export const useFetchOrgData = () => {
     const [persistedEngine] = useState(engine)
 
     const fetchOrgData = useCallback(
-        ({ variables, signal }) => persistedEngine.query(ORG_DATA_QUERY, { variables, signal }),
+        ({ variables, signal }) =>
+            persistedEngine.query(ORG_DATA_QUERY, { variables, signal }),
         [persistedEngine]
     )
 

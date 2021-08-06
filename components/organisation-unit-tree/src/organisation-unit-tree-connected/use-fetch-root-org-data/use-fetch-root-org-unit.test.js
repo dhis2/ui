@@ -52,12 +52,14 @@ describe('useFetchRootOrgData', () => {
                 id: 'A0000000001',
                 path: '/A0000000001',
                 displayName: 'Org Unit 2',
-            }
+            },
         })
     })
 
     it('should preserve the referential identity of the returned function', () => {
-        const { result, rerender } = renderHook(useFetchRootOrgData, { wrapper })
+        const { result, rerender } = renderHook(useFetchRootOrgData, {
+            wrapper,
+        })
         const afterFirstRender = result.current
 
         rerender()
@@ -77,7 +79,9 @@ describe('useFetchRootOrgData', () => {
             </CustomDataProvider>
         )
 
-        const { result } = renderHook(useFetchRootOrgData, { wrapper: wrapperWithFailure })
+        const { result } = renderHook(useFetchRootOrgData, {
+            wrapper: wrapperWithFailure,
+        })
         const ids = ['A0000000000', 'A0000000001']
 
         expect(result.current({ ids })).rejects.toBe('Foobar')

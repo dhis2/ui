@@ -49,13 +49,13 @@ describe('useFetchOrgData', () => {
                 displayName: 'Org Unit 1',
                 children: [
                     {
-                      id: 'A0000000001',
-                      path: '/A0000000000/A0000000001',
-                      children: [],
-                      displayName: 'Org Unit 2'
-                    }
-                ]
-            }
+                        id: 'A0000000001',
+                        path: '/A0000000000/A0000000001',
+                        children: [],
+                        displayName: 'Org Unit 2',
+                    },
+                ],
+            },
         })
     })
 
@@ -80,7 +80,9 @@ describe('useFetchOrgData', () => {
             </CustomDataProvider>
         )
 
-        const { result } = renderHook(useFetchOrgData, { wrapper: wrapperWithFailure })
+        const { result } = renderHook(useFetchOrgData, {
+            wrapper: wrapperWithFailure,
+        })
         const variables = { id: 'A0000000000' }
 
         expect(result.current({ variables })).rejects.toBe('Foobar')
