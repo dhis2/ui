@@ -1,4 +1,5 @@
 import { useDataEngine } from '@dhis2/app-runtime'
+import { useCallback, useState } from 'react'
 
 const ORG_DATA_QUERY = {
     organisationUnit: {
@@ -20,5 +21,12 @@ const ORG_DATA_QUERY = {
  */
 export const useFetchOrgData = () => {
     const engine = useDataEngine()
-    return ({ variables }) => engine.query(ORG_DATA_QUERY, { variables })
+    const [persistedEngine] = useState(engine)
+
+    const fetchOrgData = useCallback(
+        ({ variables, signal }) => persistedEngine.query(ORG_DATA_QUERY, { variables, signal }),
+        [persistedEngine]
+    )
+
+    return fetchOrgData
 }

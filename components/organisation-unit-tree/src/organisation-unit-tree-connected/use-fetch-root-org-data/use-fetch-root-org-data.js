@@ -1,4 +1,5 @@
 import { useDataEngine } from '@dhis2/app-runtime'
+import { useCallback, useState } from 'react'
 
 export const createRootQuery = ids =>
     ids.reduce(
@@ -25,9 +26,13 @@ export const createRootQuery = ids =>
  */
 export const useFetchRootOrgData = () => {
     const engine = useDataEngine()
+    const [persistedEngine] = useState(engine)
 
-    return ({ ids, variables }) => {
-        const query = createRootQuery(ids)
-        return engine.query(query, { variables })
-    }
+    return useCallback(
+        ({ ids, variables, signal }) => {
+            const query = createRootQuery(ids)
+            return persistedEngine.query(query, { variables, signal })
+        },
+        [persistedEngine]
+    )
 }

@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import { CustomDataProvider, useDataEngine } from '@dhis2/app-runtime'
 import React from 'react'
 import {
@@ -16,17 +15,17 @@ const customDataWithApprovals = {
                 wf: params.wf,
                 pe: params.pe,
                 ou: params.ou,
-                aoc: "aocUID",
-                state: "ACCEPTED_HERE",
-                level: "KaTJLhGmU95",
+                aoc: 'aocUID',
+                state: 'ACCEPTED_HERE',
+                level: 'KaTJLhGmU95',
                 permissions: {
                     mayApprove: true,
                     mayUnapprove: true,
                     mayAccept: false,
                     mayUnaccept: true,
-                    mayReadData: true
-                }
-            }
+                    mayReadData: true,
+                },
+            },
         ]
     },
 }
@@ -47,8 +46,8 @@ export const CustomRequests = () => {
                         wf: 'rIUL4hYOjJc',
                         pe: '202101',
                         ou: id,
-                    }
-                }
+                    },
+                },
             }),
             await fetchOrgData(args),
         ])
@@ -66,9 +65,9 @@ export const CustomRequests = () => {
             initiallyExpanded={['/A0000000000/A0000000001/A0000000003']}
             renderNodeLabel={data => {
                 if (data.loading) {
-                    return OrganisationUnitTreeControllable
-                        .defaultProps
-                        .renderNodeLabel(data)
+                    return OrganisationUnitTreeControllable.defaultProps.renderNodeLabel(
+                        data
+                    )
                 }
 
                 const { approvalStatuses } = data.additional
@@ -80,16 +79,15 @@ export const CustomRequests = () => {
                     ...data,
                     label: (
                         <span>
-                            {data.node.displayName}
-                            {' '}
-                            (mayApprove: {' '}{mayApprove.toString()})
+                            {data.node.displayName} (mayApprove:{' '}
+                            {mayApprove.toString()})
                         </span>
-                    )
+                    ),
                 }
 
-                return OrganisationUnitTreeControllable
-                    .defaultProps
-                    .renderNodeLabel(formatted)
+                return OrganisationUnitTreeControllable.defaultProps.renderNodeLabel(
+                    formatted
+                )
             }}
         />
     )

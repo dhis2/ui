@@ -57,11 +57,9 @@ export const OrganisationUnitNode = ({
         defaultData: {
             organisationUnit: { id, displayName },
         },
-        initialArguments: [
-            {
-                variables: { id, isUserDataViewFallback },
-            },
-        ],
+        initialArgument: {
+            variables: { id, isUserDataViewFallback },
+        },
         transform: data => {
             const { organisationUnit } = data
             const sorted = !suppressAlphabeticalSorting
@@ -71,10 +69,11 @@ export const OrganisationUnitNode = ({
             return { ...data, organisationUnit: sorted }
         },
         onComplete: ({ organisationUnit }) =>
-            onChildrenLoaded(organisationUnit),
+            onChildrenLoaded && onChildrenLoaded(organisationUnit),
     })
 
     const { organisationUnit, ...additional } = data
+
     const childNodes =
         !loading && !error ? computeChildNodes(organisationUnit, filter) : []
     const hasChildren = !!childNodes.length

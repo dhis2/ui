@@ -1,4 +1,4 @@
-/* eslint-disable react/no-unescaped-entities,react/prop-types */
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react'
 import { OrganisationUnitTree } from '../index.js'
 

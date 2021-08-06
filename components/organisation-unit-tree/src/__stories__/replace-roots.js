@@ -4,8 +4,8 @@ export const ReplaceRoots = () => {
     return (
         <p>
             This is currently not working due to limitations of the data engine
-            in the app runtime. Normally the root unit would&apos;ve been replaced
-            after 2000 milliseconds.
+            in the app runtime. Normally the root unit would&apos;ve been
+            replaced after 2000 milliseconds.
         </p>
     )
 

@@ -1,5 +1,5 @@
 import propTypes from 'prop-types'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useQuery } from '../helpers/index.js'
 import { OrganisationUnitNode } from '../organisation-unit-node/index.js'
 import { orgUnitPathPropType } from '../prop-types.js'
@@ -38,17 +38,18 @@ const OrganisationUnitTree = ({
         filter,
         Array.isArray(roots) ? roots : [roots]
     )
+
     const reloadId = useForceReload(forceReload)
 
     const { loading, error, data, refetch } = useQuery(fetchRootOrgData, {
         transform: patchMissingDisplayName,
-        initialArguments: [{
+        initialArgument: {
             ids: rootIds,
             variables: {
                 isUserDataViewFallback,
                 suppressAlphabeticalSorting,
             },
-        }]
+        },
     })
 
     const { expanded, handleExpand, handleCollapse } = useExpanded(
@@ -75,9 +76,12 @@ const OrganisationUnitTree = ({
             )
     }, [reloadId, refetch])
 
+    // error could be string or instance of Error
+    const errorMessage = error?.toString()
+
     return (
         <div data-test={dataTest}>
-            {error && <RootError error={error} dataTest={dataTest} />}
+            {error && <RootError error={errorMessage} dataTest={dataTest} />}
             {loading && <RootLoading dataTest={dataTest} />}
             {!error &&
                 !loading &&
