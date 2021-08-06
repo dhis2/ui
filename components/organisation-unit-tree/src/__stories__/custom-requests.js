@@ -63,30 +63,22 @@ export const CustomRequests = () => {
             name="Root org unit"
             roots={['A0000000000']}
             initiallyExpanded={['/A0000000000/A0000000001/A0000000003']}
-            renderNodeLabel={data => {
-                if (data.loading) {
-                    return OrganisationUnitTreeControllable.defaultProps.renderNodeLabel(
-                        data
-                    )
+            renderNodeLabel={({ loading, node, additional }) => {
+                const { displayName } = node
+
+                if (loading) {
+                    return displayName
                 }
 
-                const { approvalStatuses } = data.additional
+                const { approvalStatuses } = additional
                 const [approvalStatus] = approvalStatuses
                 const { permissions } = approvalStatus
                 const { mayApprove } = permissions
 
-                const formatted = {
-                    ...data,
-                    label: (
-                        <span>
-                            {data.node.displayName} (mayApprove:{' '}
-                            {mayApprove.toString()})
-                        </span>
-                    ),
-                }
-
-                return OrganisationUnitTreeControllable.defaultProps.renderNodeLabel(
-                    formatted
+                return (
+                    <span>
+                        {displayName} (mayApprove: {mayApprove.toString()})
+                    </span>
                 )
             }}
         />

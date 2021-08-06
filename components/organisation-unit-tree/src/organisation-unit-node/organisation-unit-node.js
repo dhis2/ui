@@ -9,6 +9,7 @@ import { orgUnitPathPropType } from '../prop-types.js'
 import { computeChildNodes } from './compute-child-nodes.js'
 import { ErrorMessage } from './error-message.js'
 import { hasDescendantSelectedPaths } from './has-descendant-selected-paths.js'
+import { Label } from './label/index.js'
 import { useOpenState } from './use-open-state.js'
 
 const loadingSpinnerStyles = resolve`
@@ -90,25 +91,42 @@ export const OrganisationUnitNode = ({
 
     const isSelected = selected.includes(path)
 
-    const label = renderNodeLabel({
+    const labelContent = renderNodeLabel({
         additional,
         disableSelection,
         hasChildren,
         hasSelectedDescendants,
         loading,
         error,
-        onChange,
         selected,
-        onToggleOpen,
         open,
         path,
         singleSelection,
         node: organisationUnit,
         label: organisationUnit.displayName,
         checked: isSelected,
-        dataTest: `${dataTest}-label`,
         highlighted: isHighlighted,
     })
+
+    const label = (
+        <Label
+            node={organisationUnit}
+            open={open}
+            loading={loading}
+            checked={isSelected}
+            onChange={onChange}
+            dataTest={`${dataTest}-label`}
+            selected={selected}
+            hasChildren={hasChildren}
+            highlighted={isHighlighted}
+            onToggleOpen={onToggleOpen}
+            disableSelection={disableSelection}
+            singleSelection={singleSelection}
+            hasSelectedDescendants={hasSelectedDescendants}
+        >
+            {labelContent}
+        </Label>
+    )
 
     /**
      * No children means no arrow, therefore we have to provide something.

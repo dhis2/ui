@@ -174,22 +174,16 @@ OrganisationUnitTree.propTypes = {
     /** When provided, the 'isUserDataViewFallback' option will be sent when requesting the org units */
     isUserDataViewFallback: propTypes.bool,
 
-    /** Renders the actual node component for each leaf, can be used to
-     * customize the node. In order to change the displayed node while keeping
-     * the existing functionality intact, you can re-use the original prop
-     * and overwrite the label property.
+    /** Renders the actual node label content for each leaf, can be used to
+     * customize the node. The default function just returns the node's
+     * displayName
      *
      * @example
-     * renderNodeLabel={data => {
-     *   return OrganisationUnitTree.defaultProps.renderNodeLabel({
-     *     ...data,
-     *     label: (
-     *        <MyCustomComponent>
-     *            {data.node.displayName}
-     *        </MyCustomComponent>
-     *     ),
-     *   })
-     * }}
+     * renderNodeLabel={data => (
+     *    <strong>
+     *      {data.node.displayName.toUpperCase()}
+     *    </strong>
+     * )}
      *
      * @param {Object} data
      * @param {Object} data.node
@@ -197,7 +191,6 @@ OrganisationUnitTree.propTypes = {
      * @param {string} data.node.id
      * @param {string} [data.node.path] Only provided once `loading` is false
      * @param {Object} [data.node.children] Only provided once `loading` is false
-     * @param {string} data.dataTest
      * @param {string} [data.error]
      * @param {string[]} data.selected
      * @param {boolean} data.disableSelection
@@ -208,8 +201,9 @@ OrganisationUnitTree.propTypes = {
      * @param {boolean} data.loading
      * @param {boolean} data.open
      * @param {boolean} data.singleSelection
-     * @param {Function} data.onChange
-     * @param {Function} data.onToggleOpen
+     * @param {Object} data.additional
+     * If the request is being customized, then all responses except the org
+     * unit's response data will be included in this object
      */
     renderNodeLabel: propTypes.func,
 
