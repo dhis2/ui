@@ -31,7 +31,10 @@ Given(
  * left empty intentionally
  * ========================
  * Step is necessary to make the feature file understandable
- * Required states are prepared by the story
+ * Required states are prepared by the story.
+ * There is no way to check if the given is true by checking the dom
+ * as this can only be verified by opening the org unit tree,
+ * which triggers the recursive loading strategy.
  */
 Given('the second level contains two nodes', () => {})
 Given('all parent levels are open', () => {})
@@ -79,8 +82,7 @@ Then('the second node on the first level is visible', () => {
 Then('all other nodes are not rendered', async () => {
     cy.get('@displayedUnits').then(displayedUnits => {
         cy.window().then(win => {
-            const excludedUnitNumbers = Object.keys(win.dataProviderData)
-                .map(key => key.replace('organisationUnits/', ''))
+            const excludedUnitNumbers = win.allUnits
                 .filter(unit => !displayedUnits.includes(unit))
                 .map(id => parseInt(id.replace(/^.*(\d)$/, '$1'), 10) + 1)
 

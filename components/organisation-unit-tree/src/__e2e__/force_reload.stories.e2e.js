@@ -1,7 +1,7 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import { storiesOf } from '@storybook/react'
 import React, { useState } from 'react'
-import { OrganisationUnitTree } from '../organisation-unit-tree.js'
+import { OrganisationUnitTree } from '../index.js'
 import {
     StatefulMultiSelectionWrapper,
     dataProviderData,
@@ -10,14 +10,25 @@ import {
 } from './common.js'
 
 const afterReloadData = {
-    'organisationUnits/A0000000000': delayResponse(
-        1000,
-        dataProviderData['organisationUnits/A0000000000']
-    ),
-    'organisationUnits/A0000000001': delayResponse(
-        2000,
-        dataProviderData['organisationUnits/A0000000001']
-    ),
+    organisationUnits: (...args) => {
+        const [, { id }] = args
+
+        if (id === 'A0000000000') {
+            return delayResponse(
+                1000,
+                dataProviderData.organisationUnits(...args)
+            )()
+        }
+
+        if (id === 'A0000000001') {
+            return delayResponse(
+                2200,
+                dataProviderData.organisationUnits(...args)
+            )()
+        }
+
+        return dataProviderData.organisationUnits(...args)
+    },
 }
 
 const ForceReloading = () => {

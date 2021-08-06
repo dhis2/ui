@@ -1,7 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
+import { Button } from '@dhis2-ui/button'
 import { CustomDataProvider, DataProvider } from '@dhis2/app-runtime'
-import React, { useEffect, useState } from 'react'
-import { OrganisationUnitTree } from './organisation-unit-tree.js'
+import React, { useState } from 'react'
+import { OrganisationUnitTree } from './index.js'
 
 const subtitle =
     'Display, manipulate and select organization units displayed in a hierarchical tree'
@@ -41,110 +42,150 @@ const onChildrenLoaded = (...args) =>
     log && console.log('onChildrenLoaded', ...args)
 
 const customData = {
-    'organisationUnits/A0000000000': () =>
-        new Promise(resolve => {
-            setTimeout(() => {
-                resolve({
-                    id: 'A0000000000',
-                    path: '/A0000000000',
-                    displayName: 'Org Unit 1',
-                    children: [
-                        {
-                            id: 'A0000000001',
-                            path: '/A0000000000/A0000000001',
-                            children: [
-                                { id: 'A0000000003' },
-                                { id: 'A0000000004' },
-                            ],
-                            displayName: 'Org Unit 2',
-                        },
-                        {
-                            id: 'A0000000002',
-                            path: '/A0000000000/A0000000002',
-                            children: [],
-                            displayName: 'Org Unit 3',
-                        },
-                        {
-                            id: 'A0000000006',
-                            path: '/A0000000000/A0000000006',
-                            children: [],
-                            displayName: 'Org Unit 7',
-                        },
-                    ],
-                })
-            }, 1000)
-        }),
-    'organisationUnits/A0000000001': () =>
-        new Promise(resolve => {
-            setTimeout(() => {
-                resolve({
-                    id: 'A0000000001',
-                    path: '/A0000000000/A0000000001',
-                    displayName: 'Org Unit 2',
-                    children: [
-                        {
-                            id: 'A0000000003',
-                            path: '/A0000000000/A0000000001/A0000000003',
-                            children: [],
-                            displayName: 'Org Unit 4',
-                        },
-                        {
-                            id: 'A0000000004',
-                            path: '/A0000000000/A0000000001/A0000000004',
-                            children: [],
-                            displayName: 'Org Unit 5',
-                        },
-                    ],
-                })
-            }, 1000)
-        }),
-    'organisationUnits/A0000000002': {
-        displayName: 'Org Unit 3',
-        id: 'A0000000002',
-        path: '/A0000000000/A0000000002',
-        children: [],
+    organisationUnits: (...args) => {
+        const [, { id }] = args
+
+        let data,
+            delay = 0
+
+        if (id === 'A0000000000') {
+            delay = 1000
+            data = {
+                id: 'A0000000000',
+                path: '/A0000000000',
+                displayName: 'Org Unit 1',
+                children: [
+                    {
+                        id: 'A0000000001',
+                        path: '/A0000000000/A0000000001',
+                        children: [
+                            { id: 'A0000000003' },
+                            { id: 'A0000000004' },
+                        ],
+                        displayName: 'Org Unit 2',
+                    },
+                    {
+                        id: 'A0000000002',
+                        path: '/A0000000000/A0000000002',
+                        children: [],
+                        displayName: 'Org Unit 3',
+                    },
+                    {
+                        id: 'A0000000006',
+                        path: '/A0000000000/A0000000006',
+                        children: [],
+                        displayName: 'Org Unit 7',
+                    },
+                ],
+            }
+        }
+
+        if (id === 'A0000000001') {
+            data = {
+                id: 'A0000000001',
+                path: '/A0000000000/A0000000001',
+                displayName: 'Org Unit 2',
+                children: [
+                    {
+                        id: 'A0000000003',
+                        path: '/A0000000000/A0000000001/A0000000003',
+                        children: [],
+                        displayName: 'Org Unit 4',
+                    },
+                    {
+                        id: 'A0000000004',
+                        path: '/A0000000000/A0000000001/A0000000004',
+                        children: [],
+                        displayName: 'Org Unit 5',
+                    },
+                ],
+            }
+        }
+
+        if (id === 'A0000000002') {
+            delay = 1000
+            data = {
+                displayName: 'Org Unit 3',
+                id: 'A0000000002',
+                path: '/A0000000000/A0000000002',
+                children: [],
+            }
+        }
+
+        if (id === 'A0000000003') {
+            data = {
+                displayName: 'Org Unit 4',
+                id: 'A0000000003',
+                path: '/A0000000000/A0000000001/A0000000003',
+                children: [],
+            }
+        }
+
+        if (id === 'A0000000004') {
+            data = {
+                displayName: 'Org Unit 5',
+                id: 'A0000000004',
+                path: '/A0000000000/A0000000001/A0000000004',
+                children: [],
+            }
+        }
+
+        if (id === 'A0000000006') {
+            data = {
+                displayName: 'Org Unit 7',
+                id: 'A0000000006',
+                path: '/A0000000000/A0000000006',
+                children: [],
+            }
+        }
+
+        if (!data) {
+            return Promise.reject(new Error('404 - Org unit not found'))
+        }
+
+        return new Promise(resolve => {
+            setTimeout(() => resolve(data), delay)
+        })
     },
-    'organisationUnits/A0000000003': {
-        displayName: 'Org Unit 4',
-        id: 'A0000000003',
-        path: '/A0000000000/A0000000001/A0000000003',
-        children: [],
-    },
-    'organisationUnits/A0000000004': {
-        displayName: 'Org Unit 5',
-        id: 'A0000000004',
-        path: '/A0000000000/A0000000001/A0000000004',
-        children: [],
-    },
-    'organisationUnits/A0000000006': () =>
-        new Promise(resolve => {
-            setTimeout(() => {
-                resolve({
-                    displayName: 'Org Unit 7',
-                    id: 'A0000000006',
-                    path: '/A0000000000/A0000000006',
-                    children: [],
-                })
-            }, 400)
-        }),
 }
 
-const ForceReloadAll = ({ delay }) => {
-    const [forceReload, setForceReload] = useState(false)
-
-    useEffect(() => {
-        setTimeout(() => setForceReload(true), delay)
-    }, [])
+const ForceReloadAll = () => {
+    const [forceReload, _setForceReload] = useState(false)
+    const setForceReload = v =>
+        console.log('setForceReload', v) || _setForceReload(v)
 
     return (
-        <OrganisationUnitTree
-            onChange={onChange}
-            forceReload={forceReload}
-            name="Root org unit"
-            roots={['A0000000000']}
-            initiallyExpanded={['/A0000000000/A0000000001']}
-            selected={['/A0000000000/A0000000001/A0000000003']}
-        />
+        <>
+            <Button disabled={forceReload} onClick={() => setForceReload(true)}>
+                Reload org unit tree
+            </Button>{' '}
+            <span>(Force reload: {forceReload ? 'true' : 'false'})</span>
+            <div>
+                <OrganisationUnitTree
+                    onChange={onChange}
+                    forceReload={forceReload}
+                    name="Root org unit"
+                    roots={['A0000000000']}
+                    initiallyExpanded={['/A0000000000/A0000000001']}
+                    selected={['/A0000000000/A0000000001/A0000000003']}
+                    onChildrenLoaded={data => {
+                        const { id } = data
+                        if (id === 'A0000000000') {
+                            setForceReload(false)
+                        }
+                    }}
+                />
+            </div>
+            <style jsx>{`
+                div {
+                    width: 400px;
+                    border: 1px solid black;
+                    margin-top: 32px;
+                    padding: 16px;
+                    min-height: 200px;
+                }
+            `}</style>
+        </>
     )
 }
 
@@ -244,6 +285,25 @@ export const MultipleRoots = () => (
 )
 MultipleRoots.storyName = 'Multiple roots'
 
+export const CustomNodeLabel = () => (
+    <OrganisationUnitTree
+        name="Root org unit"
+        roots="A0000000000"
+        initiallyExpanded={['/A0000000000/A0000000001']}
+        renderNodeLabel={data => {
+            if (data.node.path !== '/A0000000000/A0000000001') {
+                return OrganisationUnitTree.defaultProps.renderNodeLabel(data)
+            }
+
+            return OrganisationUnitTree.defaultProps.renderNodeLabel({
+                ...data,
+                label: <span>--- {data.node.displayName}</span>,
+            })
+        }}
+        onChange={onChange}
+    />
+)
+
 export const FilteredRoot = () => (
     <OrganisationUnitTree
         onChange={onChange}
@@ -323,7 +383,7 @@ export const Highlighted = () => (
     />
 )
 
-export const _ForceReloadAll = () => <ForceReloadAll delay={2000} />
+export const _ForceReloadAll = () => <ForceReloadAll />
 _ForceReloadAll.storyName = 'Force reload all'
 
 export const ForceReloadOneUnit = () => <ForceReloadIds delay={2000} />
@@ -336,7 +396,14 @@ export const Loading = () => (
     <CustomDataProvider
         data={{
             ...customData,
-            'organisationUnits/A0000000001': () => new Promise(() => null),
+            organisationUnits: (...args) => {
+                const [, { id }] = args
+                if (id === 'A0000000001') {
+                    return new Promise(() => null)
+                }
+
+                return customData.organisationUnits(...args)
+            },
         }}
     >
         <OrganisationUnitTree
@@ -352,7 +419,14 @@ export const RootLoading = () => (
     <CustomDataProvider
         data={{
             ...customData,
-            'organisationUnits/A0000000000': () => new Promise(() => null),
+            organisationUnits: (...args) => {
+                const [, { id }] = args
+                if (id === 'A0000000000') {
+                    return new Promise(() => null)
+                }
+
+                return customData.organisationUnits(...args)
+            },
         }}
     >
         <fieldset style={{ maxWidth: 600 }}>
@@ -374,12 +448,16 @@ export const RootError = () => (
     <CustomDataProvider
         data={{
             ...customData,
-            'organisationUnits/A0000000000': () =>
-                new Promise((_, reject) =>
-                    reject(
+            organisationUnits: (...args) => {
+                const [, { id }] = args
+                if (id === 'A0000000000') {
+                    return Promise.reject(
                         'This is a custom error message, it could be anything'
                     )
-                ),
+                }
+
+                return customData.organisationUnits(...args)
+            },
         }}
     >
         <fieldset style={{ maxWidth: 600 }}>
@@ -401,8 +479,14 @@ export const LoadingErrorGrandchild = () => (
     <CustomDataProvider
         data={{
             ...customData,
-            'organisationUnits/A0000000003': () =>
-                Promise.reject(new Error('Loading org unit 4 and 5 failed')),
+            organisationUnits: (...args) => {
+                const [, { id }] = args
+                if (id === 'A0000000003') {
+                    return Promise.reject('Loading org unit 4 and 5 failed')
+                }
+
+                return customData.organisationUnits(...args)
+            },
         }}
     >
         <OrganisationUnitTree

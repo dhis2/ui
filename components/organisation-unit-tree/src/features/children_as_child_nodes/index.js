@@ -18,7 +18,6 @@ Then("its children are nodes inside the unit's node", () => {
             '> [data-test="dhis2-uiwidgets-orgunittree-node-content"] > [data-test="dhis2-uiwidgets-orgunittree-node-leaves"]'
         )
         .children()
-        .then(children => console.log('children', children) || children)
         .should('have.length', 3)
         .and(children =>
             children.each((_, child) => {

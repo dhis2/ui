@@ -7,73 +7,97 @@ export const delayResponse = (delay, response) => () =>
     new Promise(resolve => setTimeout(() => resolve(response), delay))
 
 export const dataProviderData = {
-    'organisationUnits/A0000000000': {
-        id: 'A0000000000',
-        path: '/A0000000000',
-        displayName: 'Org Unit 1',
-        children: [
-            {
+    organisationUnits: (type, { id }) => {
+        if (id === 'A0000000000') {
+            return {
+                id: 'A0000000000',
+                path: '/A0000000000',
+                displayName: 'Org Unit 1',
+                children: [
+                    {
+                        id: 'A0000000001',
+                        path: '/A0000000000/A0000000001',
+                        children: [
+                            { id: 'A0000000003' },
+                            { id: 'A0000000004' },
+                        ],
+                        displayName: 'Org Unit 2',
+                    },
+                    {
+                        id: 'A0000000002',
+                        path: '/A0000000000/A0000000002',
+                        children: [],
+                        displayName: 'Org Unit 3',
+                    },
+                    {
+                        id: 'A0000000006',
+                        path: '/A0000000000/A0000000006',
+                        children: [],
+                        displayName: 'Org Unit 7',
+                    },
+                ],
+            }
+        }
+
+        if (id === 'A0000000001') {
+            return {
                 id: 'A0000000001',
                 path: '/A0000000000/A0000000001',
-                children: [{ id: 'A0000000003' }, { id: 'A0000000004' }],
                 displayName: 'Org Unit 2',
-            },
-            {
+                children: [
+                    {
+                        id: 'A0000000003',
+                        path: '/A0000000000/A0000000001/A0000000003',
+                        children: [],
+                        displayName: 'Org Unit 4',
+                    },
+                    {
+                        id: 'A0000000004',
+                        path: '/A0000000000/A0000000001/A0000000004',
+                        children: [],
+                        displayName: 'Org Unit 5',
+                    },
+                ],
+            }
+        }
+
+        if (id === 'A0000000002') {
+            return {
+                displayName: 'Org Unit 3',
                 id: 'A0000000002',
                 path: '/A0000000000/A0000000002',
                 children: [],
-                displayName: 'Org Unit 3',
-            },
-            {
-                id: 'A0000000006',
-                path: '/A0000000000/A0000000006',
-                children: [],
-                displayName: 'Org Unit 7',
-            },
-        ],
-    },
-    'organisationUnits/A0000000001': {
-        id: 'A0000000001',
-        path: '/A0000000000/A0000000001',
-        displayName: 'Org Unit 2',
-        children: [
-            {
+            }
+        }
+
+        if (id === 'A0000000003') {
+            return {
+                displayName: 'Org Unit 4',
                 id: 'A0000000003',
                 path: '/A0000000000/A0000000001/A0000000003',
                 children: [],
-                displayName: 'Org Unit 4',
-            },
-            {
+            }
+        }
+
+        if (id === 'A0000000004') {
+            return {
+                displayName: 'Org Unit 5',
                 id: 'A0000000004',
                 path: '/A0000000000/A0000000001/A0000000004',
                 children: [],
-                displayName: 'Org Unit 5',
-            },
-        ],
-    },
-    'organisationUnits/A0000000002': {
-        displayName: 'Org Unit 3',
-        id: 'A0000000002',
-        path: '/A0000000000/A0000000002',
-        children: [],
-    },
-    'organisationUnits/A0000000003': {
-        displayName: 'Org Unit 4',
-        id: 'A0000000003',
-        path: '/A0000000000/A0000000001/A0000000003',
-        children: [],
-    },
-    'organisationUnits/A0000000004': {
-        displayName: 'Org Unit 5',
-        id: 'A0000000004',
-        path: '/A0000000000/A0000000001/A0000000004',
-        children: [],
-    },
-    'organisationUnits/A0000000006': {
-        displayName: 'Org Unit 7',
-        id: 'A0000000006',
-        path: '/A0000000000/A0000000006',
-        children: [],
+            }
+        }
+
+        if (id === 'A0000000006') {
+            return {
+                displayName: 'Org Unit 7',
+                id: 'A0000000006',
+                path: '/A0000000000/A0000000006',
+                children: [],
+            }
+        }
+
+        return Promise.reject(`No org unit with id "${id}"`)
     },
 }
 

@@ -1,7 +1,7 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { OrganisationUnitTree } from '../organisation-unit-tree.js'
+import { OrganisationUnitTree } from '../index.js'
 import {
     StatefulMultiSelectionWrapper,
     dataProviderData,
@@ -9,14 +9,25 @@ import {
 } from './common.js'
 
 const data = {
-    'organisationUnits/A0000000000': {
-        ...dataProviderData['organisationUnits/A0000000000'],
-        children: [],
-    },
-    'organisationUnits/A0000000001': {
-        ...dataProviderData['organisationUnits/A0000000001'],
-        path: '/A0000000001',
-        children: [],
+    organisationUnits: (...args) => {
+        const [, { id }] = args
+
+        if (id === 'A0000000000') {
+            return {
+                ...dataProviderData.organisationUnits(...args),
+                children: [],
+            }
+        }
+
+        if (id === 'A0000000001') {
+            return {
+                ...dataProviderData.organisationUnits(...args),
+                path: '/A0000000001',
+                children: [],
+            }
+        }
+
+        return Promise.resolve({})
     },
 }
 

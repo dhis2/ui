@@ -1,9 +1,6 @@
 import { useState } from 'react'
-import { useExpanded } from '../use-expanded.js'
-import {
-    createExpandHandlers,
-    getInitiallyExpandedPaths,
-} from '../use-expanded/helpers.js'
+import { createExpandHandlers, getInitiallyExpandedPaths } from './helpers.js'
+import { useExpanded } from './use-expanded.js'
 
 jest.mock('react', () => ({
     useState: jest.fn(initialValue => [initialValue, () => null]),
