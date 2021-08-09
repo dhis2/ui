@@ -4,7 +4,6 @@ on: push
 
 concurrency:
     group: ${{ github.workflow}}-${{ github.ref }}
-    cancel-in-progress: true
 
 env:
     GIT_AUTHOR_NAME: '@dhis2-bot'
@@ -13,7 +12,6 @@ env:
     GIT_COMMITTER_EMAIL: 'apps@dhis2.org'
     NPM_TOKEN: ${{secrets.DHIS2_BOT_NPM_TOKEN}}
     GH_TOKEN: ${{secrets.DHIS2_BOT_GITHUB_TOKEN}}
-    CI: true
     D2_VERBOSE: true
 
 jobs:
@@ -139,5 +137,13 @@ jobs:
               with:
                   name: lib-build
 
-            - name: Publish to NPM
-              run: npx @dhis2/cli-utils release --publish npm
+            # ensure that d2-app-scripts is available
+            - uses: c-hive/gha-yarn-cache@v1
+            - run: yarn install --frozen-lockfile
+
+            - uses: dhis2/action-semantic-release@master
+              with:
+                  publish-npm: true
+                  publish-github: true
+                  github-token: ${{ env.GH_TOKEN }}
+                  npm-token: ${{ env.NPM_TOKEN }}
