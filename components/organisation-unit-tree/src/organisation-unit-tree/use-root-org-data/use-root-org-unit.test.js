@@ -4,33 +4,6 @@ import React from 'react'
 import { useRootOrgData } from './use-root-org-data.js'
 
 describe('OrganisationUnitTree - useRootOrgData', () => {
-    // @TODO: Figure out why this is necessary at all...
-    const origError = console.error
-    jest.spyOn(console, 'error').mockImplementation((...args) => {
-        const [err] = args
-
-        if (!err.toString().match(/^Warning: An update to/)) {
-            origError(...args)
-        }
-    })
-
-    // @TODO: This is kind of necessary; no idea if we can get rid of this
-    const origWarn = console.warn
-    const dynamicQueryWarningMsg =
-        "The query should be static, don't create it within the render loop!"
-    jest.spyOn(console, 'warn').mockImplementation((...args) => {
-        const [err] = args
-
-        if (!err.toString().match(dynamicQueryWarningMsg)) {
-            origWarn(...args)
-        }
-    })
-
-    afterAll(() => {
-        console.error.mockRestore()
-        console.warn.mockRestore()
-    })
-
     const dataProviderData = {
         organisationUnits: jest.fn(() => {
             return {
