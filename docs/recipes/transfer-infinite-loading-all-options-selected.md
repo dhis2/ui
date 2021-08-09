@@ -139,7 +139,7 @@ const loadNextOptions = async () => {
 
 And rendering the Transfer can be done now as well:
 
-```js
+```jsx
 return (
     <Transfer
         loading={loading}
@@ -155,7 +155,7 @@ return (
 Let's put all the pieces together into a working Transfer component (without
 the fix for the edge case):
 
-```js
+```jsx
 const optionsPool = [
     { value: '0', label: 'Option 0' },
     { value: '1', label: 'Option 1' },
@@ -266,7 +266,7 @@ const loadNextOptions = async () => {
 
 The final code with the workaround looks as follows:
 
-```js
+```jsx
 const optionsPool = [
     { value: '0', label: 'Option 0' },
     { value: '1', label: 'Option 1' },
