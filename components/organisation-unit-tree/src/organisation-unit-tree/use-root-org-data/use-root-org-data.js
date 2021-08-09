@@ -4,7 +4,7 @@ const query = {
     organisationUnits: {
         resource: 'organisationUnits',
         params: ({ ids, isUserDataViewFallback }) => ({
-            isUserDataViewFallback,
+            userDataViewFallback: !!isUserDataViewFallback,
             fields: ['displayName', 'path', 'id'],
             filter: `id:in:[${ids.join()}]`,
         }),
