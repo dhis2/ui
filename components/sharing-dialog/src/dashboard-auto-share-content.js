@@ -20,7 +20,7 @@ export const DashboardAutoShareContent = ({ sharingSettings }) => {
             </div>
             <div className="description">
                 {i18n.t(
-                    "Auto-share will apply the current dashboard sharing settings to all dashboard items. All dashboard items will be updated, and users and groups with access to this dashboard will have the same access level for all dashboard items. Auto-share can't be undone. Auto-share needs to be performed each time you update a dashboard's sharing settings or items."
+                    "Auto-share will apply the current dashboard sharing settings to all dashboard items. All dashboard items will be updated, and users and groups with access to this dashboard will have the same access level for all dashboard items. Auto-share can not be undone. Auto-share needs to be performed each time you update a dashboard's sharing settings or items."
                 )}
             </div>
             <div className="info-box">
