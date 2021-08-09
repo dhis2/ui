@@ -22,7 +22,8 @@
     },
     "scripts": {
         "start": "start-storybook -c ../../storybook/config --port 5000",
-        "build": "d2-app-scripts build"
+        "build": "d2-app-scripts build",
+        "test": "d2-app-scripts test"
     },
     "peerDependencies": {
         "@dhis2/app-runtime": "^2",
