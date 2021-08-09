@@ -1952,10 +1952,10 @@
     fs-extra "^8.1.0"
     jscodeshift "^0.11.0"
 
-"@dhis2/cli-utils-docsite@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-utils-docsite/-/cli-utils-docsite-3.1.0.tgz#471eba8ca1f3d86117f30573c6c5761f9114cebb"
-  integrity sha512-akNspnNCV3suDtOAChlVSyXhuBYjYsd2bAeuDoWvE1wNaFKPDGOEKgr/XFQE8BA57Alnj2v2L6Ia/GwXwHRrMg==
+"@dhis2/cli-utils-docsite@^3.1.1":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-utils-docsite/-/cli-utils-docsite-3.1.1.tgz#99684f7d2f90c23d0b30eff72d80baaad425e098"
+  integrity sha512-fxMo3MhY6K+/W3QTvYD3shqNlAAhZPLHEHyWGxjrY8d0eVV9CTidHxKQGr5WfJQKnd463SmuGw1teyL6a3ESFA==
   dependencies:
     "@dhis2/cli-helpers-engine" "^3.0.0"
     "@dhis2/cli-helpers-template" "^3.0.0"
