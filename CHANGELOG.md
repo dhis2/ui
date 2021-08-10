@@ -1,3 +1,10 @@
+# [6.15.0](https://github.com/dhis2/ui/compare/v6.14.0...v6.15.0) (2021-08-10)
+
+
+### Features
+
+* **button:** Loading state ([41dd627](https://github.com/dhis2/ui/commit/41dd627957589be7de04082b90582a0dff19b4b9))
+
 # [6.14.0](https://github.com/dhis2/ui/compare/v6.13.0...v6.14.0) (2021-08-10)
 
 
