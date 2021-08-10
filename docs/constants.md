@@ -123,7 +123,7 @@ const screenCoverZIndex = layers.applicationTop // 2000
 
 ## Elevations
 
-The `elevations` object provides CSS box-shadow values that can be used to give objects the appearance of elevation off the page. See [Design System: Elevation]() for guidelines on using elevations and a visual reference of the different elevation values. Some components in this library, like the `Popover`, accept an `elevation` prop that determines the component's appearance. See the `Popover` documentation to learn more about it.
+The `elevations` object provides CSS box-shadow values that can be used to give objects the appearance of elevation off the page. See [Design System: Elevation](https://github.com/dhis2/design-system/blob/master/atoms/elevation.md) for guidelines on using elevations and a visual reference of the different elevation values. Some components in this library, like the `Popover`, accept an `elevation` prop that determines the component's appearance. See the `Popover` documentation to learn more about it.
 
 ### Example
 
