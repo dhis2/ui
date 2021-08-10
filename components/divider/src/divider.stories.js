@@ -12,7 +12,7 @@ import { Divider } from '@dhis2/ui'
 export default {
     title: 'Layout/Divider',
     component: Divider,
-    argTypes: { margin: { defaultValue: '8px 0' } },
+    argTypes: { margin: { table: { defaultValue: { summary: '8px 0' } } } },
     parameters: { docs: { description: { component: description } } },
 }
 
