@@ -1,3 +1,10 @@
+## [6.15.1](https://github.com/dhis2/ui/compare/v6.15.0...v6.15.1) (2021-08-10)
+
+
+### Bug Fixes
+
+* **organisation-unit-tree:** change behaviour of renderNodeLabel so that return value is label contents instead of label component ([#696](https://github.com/dhis2/ui/issues/696)) ([c2ce614](https://github.com/dhis2/ui/commit/c2ce614d2155a0512bb7f54b7c05d16fcb97d717))
+
 # [6.15.0](https://github.com/dhis2/ui/compare/v6.14.0...v6.15.0) (2021-08-10)
 
 
