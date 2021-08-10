@@ -1952,10 +1952,10 @@
     fs-extra "^8.1.0"
     jscodeshift "^0.11.0"
 
-"@dhis2/cli-utils-docsite@^3.1.1":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-utils-docsite/-/cli-utils-docsite-3.1.1.tgz#99684f7d2f90c23d0b30eff72d80baaad425e098"
-  integrity sha512-fxMo3MhY6K+/W3QTvYD3shqNlAAhZPLHEHyWGxjrY8d0eVV9CTidHxKQGr5WfJQKnd463SmuGw1teyL6a3ESFA==
+"@dhis2/cli-utils-docsite@^3.1.2":
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-utils-docsite/-/cli-utils-docsite-3.1.2.tgz#ee67683b1611ae684cd6ab2f29a61b5fd1f2d31a"
+  integrity sha512-0gyXG8fcVt5qtvGlDaGY+q4F3He0Z8lD2nI4uVNkNJY0IMOCVIodeQT1WN8OZOl/R0tTGKTQui0T1XueyFsiLg==
   dependencies:
     "@dhis2/cli-helpers-engine" "^3.0.0"
     "@dhis2/cli-helpers-template" "^3.0.0"
@@ -19782,10 +19782,8 @@ watchpack@^1.7.4:
   resolved "https://registry.yarnpkg.com/watchpack/-/watchpack-1.7.5.tgz#1267e6c55e0b9b5be44c2023aed5437a2c26c453"
   integrity sha512-9P3MWk6SrKjHsGkLT2KHXdQ/9SNkyoJbabxnKOoJepsvJjJG8uYTR3yTPxPQvNDI3w4Nz1xnE0TLHK4RIVe/MQ==
   dependencies:
-    chokidar "^3.4.1"
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
-    watchpack-chokidar2 "^2.0.1"
   optionalDependencies:
     chokidar "^3.4.1"
     watchpack-chokidar2 "^2.0.1"
