@@ -1,3 +1,15 @@
+# [6.14.0](https://github.com/dhis2/ui/compare/v6.13.0...v6.14.0) (2021-08-10)
+
+
+### Bug Fixes
+
+* **icons:** adjust fill for scatter-16 icon ([66ae902](https://github.com/dhis2/ui/commit/66ae902fd03af3fc2bfcf85a06ed33841753c9d6))
+
+
+### Features
+
+* **icons:** checkmark-circle icon ([a2262a6](https://github.com/dhis2/ui/commit/a2262a6d454ee06bc95653e5138c916a3477779d))
+
 # [6.13.0](https://github.com/dhis2/ui/compare/v6.12.0...v6.13.0) (2021-08-06)
 
 
