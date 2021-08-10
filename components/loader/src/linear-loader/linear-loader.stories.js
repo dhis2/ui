@@ -24,7 +24,7 @@ export default {
         componentSubtitle: subtitle,
         docs: { description: { component: description } },
     },
-    argTypes: { margin: { defaultValue: '12px' } },
+    argTypes: { margin: { table: { defaultValue: { summary: '12px' } } } },
 }
 
 export const Determinate = args => <LinearLoader {...args} />

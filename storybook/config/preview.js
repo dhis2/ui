@@ -8,7 +8,7 @@ import {
     ArgsTable,
     Stories,
     PRIMARY_STORY,
-} from '@storybook/addon-docs/blocks'
+} from '@storybook/addon-docs'
 import React, { Fragment } from 'react'
 import { jsxDecorator } from 'storybook-addon-jsx'
 import '@storybook/addon-console'
