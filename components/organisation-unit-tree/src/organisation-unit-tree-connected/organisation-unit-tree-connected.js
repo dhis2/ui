@@ -1,22 +1,16 @@
 import propTypes from 'prop-types'
-import React, { useEffect } from 'react'
-import { useQuery } from '../helpers/index.js'
-import { OrganisationUnitNode } from '../organisation-unit-node/index.js'
+import React from 'react'
+import {
+    OrganisationUnitTree,
+    defaultRenderNodeLabel,
+} from '../organisation-unit-tree/index.js'
 import { orgUnitPathPropType } from '../prop-types.js'
-import { defaultRenderNodeLabel } from './default-render-node-label/index.js'
-import { filterRootIds } from './filter-root-ids.js'
-import { patchMissingDisplayName } from './patch-missing-display-name/index.js'
-import { RootError } from './root-error.js'
-import { RootLoading } from './root-loading.js'
-import { useExpanded } from './use-expanded/index.js'
-import { useForceReload } from './use-force-reload.js'
+import { useFetchOrgData } from './use-fetch-org-data/index.js'
+import { useFetchRootOrgData } from './use-fetch-root-org-data/index.js'
 
-const OrganisationUnitTree = ({
-    fetchOrgData,
-    fetchRootOrgData,
+const OrganisationUnitTreeConnected = ({
     onChange,
     roots,
-
     autoExpandLoadingError,
     dataTest,
     disableSelection,
@@ -29,102 +23,39 @@ const OrganisationUnitTree = ({
     selected,
     singleSelection,
     suppressAlphabeticalSorting,
-
     onExpand,
     onCollapse,
     onChildrenLoaded,
 }) => {
-    const rootIds = filterRootIds(
-        filter,
-        Array.isArray(roots) ? roots : [roots]
-    )
-
-    const reloadId = useForceReload(forceReload)
-
-    const { loading, error, data, refetch } = useQuery(fetchRootOrgData, {
-        transform: patchMissingDisplayName,
-        initialArgument: {
-            ids: rootIds,
-            variables: {
-                isUserDataViewFallback,
-                suppressAlphabeticalSorting,
-            },
-        },
-    })
-
-    const { expanded, handleExpand, handleCollapse } = useExpanded(
-        initiallyExpanded,
-        onExpand,
-        onCollapse
-    )
-
-    useEffect(() => {
-        // do not refetch on initial render
-        if (refetch && reloadId > 0) {
-            refetch({
-                ids: rootIds,
-                variables: {
-                    isUserDataViewFallback,
-                    suppressAlphabeticalSorting,
-                },
-            })
-        }
-
-        return () =>
-            console.warn(
-                '@TODO: Why does this component unmount after a force reload?'
-            )
-    }, [reloadId, refetch])
-
-    // error could be string or instance of Error
-    const errorMessage = error?.toString()
+    const fetchOrgData = useFetchOrgData()
+    const fetchRootOrgData = useFetchRootOrgData()
 
     return (
-        <div data-test={dataTest}>
-            {error && <RootError error={errorMessage} dataTest={dataTest} />}
-            {loading && <RootLoading dataTest={dataTest} />}
-            {!error &&
-                !loading &&
-                rootIds.map(rootId => {
-                    const rootNode = data[rootId]
-                    const rootPath = `/${rootId}`
-
-                    return (
-                        <OrganisationUnitNode
-                            key={rootPath}
-                            fetchOrgData={fetchOrgData}
-                            autoExpandLoadingError={autoExpandLoadingError}
-                            dataTest={dataTest}
-                            disableSelection={disableSelection}
-                            displayName={rootNode.displayName}
-                            expanded={expanded}
-                            highlighted={highlighted}
-                            id={rootId}
-                            isUserDataViewFallback={isUserDataViewFallback}
-                            filter={filter}
-                            path={rootPath}
-                            renderNodeLabel={renderNodeLabel}
-                            selected={selected}
-                            singleSelection={singleSelection}
-                            suppressAlphabeticalSorting={
-                                suppressAlphabeticalSorting
-                            }
-                            onChange={onChange}
-                            onChildrenLoaded={onChildrenLoaded}
-                            onCollapse={handleCollapse}
-                            onExpand={handleExpand}
-                        />
-                    )
-                })}
-        </div>
+        <OrganisationUnitTree
+            fetchOrgData={fetchOrgData}
+            fetchRootOrgData={fetchRootOrgData}
+            onChange={onChange}
+            roots={roots}
+            autoExpandLoadingError={autoExpandLoadingError}
+            dataTest={dataTest}
+            disableSelection={disableSelection}
+            forceReload={forceReload}
+            highlighted={highlighted}
+            isUserDataViewFallback={isUserDataViewFallback}
+            initiallyExpanded={initiallyExpanded}
+            filter={filter}
+            renderNodeLabel={renderNodeLabel}
+            selected={selected}
+            singleSelection={singleSelection}
+            suppressAlphabeticalSorting={suppressAlphabeticalSorting}
+            onExpand={onExpand}
+            onCollapse={onCollapse}
+            onChildrenLoaded={onChildrenLoaded}
+        />
     )
 }
 
-OrganisationUnitTree.propTypes = {
-    fetchOrgData: propTypes.func.isRequired,
-
-    fetchRootOrgData: propTypes.func.isRequired,
-
+OrganisationUnitTreeConnected.propTypes = {
     /** Root org unit ID(s) */
     roots: propTypes.oneOfType([
         propTypes.string,
@@ -174,16 +105,25 @@ OrganisationUnitTree.propTypes = {
     /** When provided, the 'isUserDataViewFallback' option will be sent when requesting the org units */
     isUserDataViewFallback: propTypes.bool,
 
-    /** Renders the actual node label content for each leaf, can be used to
-     * customize the node. The default function just returns the node's
-     * displayName
+    /** Renders the actual node component for each leaf, can be used to
+     * customize the node.  In order to change the displayed node while keeping
+     * the existing functionality intact, you can re-use the original prop
+     * and overwrite the node's displayName.
      *
      * @example
-     * renderNodeLabel={data => (
-     *    <strong>
-     *      {data.node.displayName.toUpperCase()}
-     *    </strong>
-     * )}
+     * renderNodeLabel={data => {
+     *   return OrganisationUnitTree.defaultProps.renderNodeLabel({
+     *     ...data,
+     *     node: {
+     *       ...data.node,
+     *       displayName: (
+     *          <MyCustomComponent>
+     *              {data.node.displayName}
+     *          </MyCustomComponent>
+     *       ),
+     *     },
+     *   })
+     * }}
      *
      * @param {Object} data
      * @param {Object} data.node
@@ -191,7 +131,7 @@ OrganisationUnitTree.propTypes = {
      * @param {string} data.node.id
      * @param {string} [data.node.path] Only provided once `loading` is false
      * @param {Object} [data.node.children] Only provided once `loading` is false
-     * @param {string} [data.error]
+     * @param {string} data.dataTest
      * @param {string[]} data.selected
      * @param {boolean} data.disableSelection
      * @param {boolean} data.hasChildren
@@ -201,9 +141,8 @@ OrganisationUnitTree.propTypes = {
      * @param {boolean} data.loading
      * @param {boolean} data.open
      * @param {boolean} data.singleSelection
-     * @param {Object} data.additional
-     * If the request is being customized, then all responses except the org
-     * unit's response data will be included in this object
+     * @param {Function} data.onChange
+     * @param {Function} data.onToggleOpen
      */
     renderNodeLabel: propTypes.func,
 
@@ -238,7 +177,7 @@ OrganisationUnitTree.propTypes = {
     //idsThatShouldBeReloaded: propTypes.arrayOf(orgUnitIdPropType),
 }
 
-OrganisationUnitTree.defaultProps = {
+OrganisationUnitTreeConnected.defaultProps = {
     dataTest: 'dhis2-uiwidgets-orgunittree',
     filter: [],
     highlighted: [],
@@ -247,4 +186,4 @@ OrganisationUnitTree.defaultProps = {
     renderNodeLabel: defaultRenderNodeLabel,
 }
 
-export { OrganisationUnitTree }
+export { OrganisationUnitTreeConnected }

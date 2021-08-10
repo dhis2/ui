@@ -3,13 +3,14 @@ import { Node } from '@dhis2-ui/node'
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
 import { resolve } from 'styled-jsx/css'
+import { useQuery, sortNodeChildrenAlphabetically } from '../helpers/index.js'
 import i18n from '../locales/index.js'
 import { orgUnitPathPropType } from '../prop-types.js'
 import { computeChildNodes } from './compute-child-nodes.js'
 import { ErrorMessage } from './error-message.js'
 import { hasDescendantSelectedPaths } from './has-descendant-selected-paths.js'
+import { Label } from './label/index.js'
 import { useOpenState } from './use-open-state.js'
-import { useOrgData } from './use-org-data/index.js'
 
 const loadingSpinnerStyles = resolve`
     .small {
@@ -38,6 +39,7 @@ export const OrganisationUnitNode = ({
     disableSelection,
     displayName,
     expanded,
+    fetchOrgData,
     highlighted,
     id,
     isUserDataViewFallback,
@@ -52,14 +54,29 @@ export const OrganisationUnitNode = ({
     onCollapse,
     onExpand,
 }) => {
-    const { loading, error, data } = useOrgData(id, {
-        isUserDataViewFallback,
-        suppressAlphabeticalSorting,
-        displayName,
-        onComplete: onChildrenLoaded,
+    const { loading, error, data } = useQuery(fetchOrgData, {
+        defaultData: {
+            organisationUnit: { id, displayName },
+        },
+        initialArgument: {
+            variables: { id, isUserDataViewFallback },
+        },
+        transform: data => {
+            const { organisationUnit } = data
+            const sorted = !suppressAlphabeticalSorting
+                ? sortNodeChildrenAlphabetically(organisationUnit)
+                : organisationUnit
+
+            return { ...data, organisationUnit: sorted }
+        },
+        onComplete: ({ organisationUnit }) =>
+            onChildrenLoaded && onChildrenLoaded(organisationUnit),
     })
 
-    const childNodes = !loading && !error ? computeChildNodes(data, filter) : []
+    const { organisationUnit, ...additional } = data
+
+    const childNodes =
+        !loading && !error ? computeChildNodes(organisationUnit, filter) : []
     const hasChildren = !!childNodes.length
     const hasSelectedDescendants = hasDescendantSelectedPaths(path, selected)
     const isHighlighted = highlighted.includes(path)
@@ -74,24 +91,42 @@ export const OrganisationUnitNode = ({
 
     const isSelected = selected.includes(path)
 
-    const label = renderNodeLabel({
+    const labelContent = renderNodeLabel({
+        additional,
         disableSelection,
         hasChildren,
         hasSelectedDescendants,
         loading,
         error,
-        onChange,
         selected,
-        onToggleOpen,
         open,
         path,
         singleSelection,
-        node: data,
-        label: data.displayName,
+        node: organisationUnit,
+        label: organisationUnit.displayName,
         checked: isSelected,
-        dataTest: `${dataTest}-label`,
         highlighted: isHighlighted,
     })
+
+    const label = (
+        <Label
+            node={organisationUnit}
+            open={open}
+            loading={loading}
+            checked={isSelected}
+            onChange={onChange}
+            dataTest={`${dataTest}-label`}
+            selected={selected}
+            hasChildren={hasChildren}
+            highlighted={isHighlighted}
+            onToggleOpen={onToggleOpen}
+            disableSelection={disableSelection}
+            singleSelection={singleSelection}
+            hasSelectedDescendants={hasSelectedDescendants}
+        >
+            {labelContent}
+        </Label>
+    )
 
     /**
      * No children means no arrow, therefore we have to provide something.
@@ -135,6 +170,7 @@ export const OrganisationUnitNode = ({
                             disableSelection={disableSelection}
                             displayName={child.displayName}
                             expanded={expanded}
+                            fetchOrgData={fetchOrgData}
                             filter={filter}
                             highlighted={highlighted}
                             id={child.id}
@@ -159,6 +195,7 @@ export const OrganisationUnitNode = ({
 
 OrganisationUnitNode.propTypes = {
     dataTest: propTypes.string.isRequired,
+    fetchOrgData: propTypes.func.isRequired,
     id: propTypes.string.isRequired,
     renderNodeLabel: propTypes.func.isRequired,
     onChange: propTypes.func.isRequired,

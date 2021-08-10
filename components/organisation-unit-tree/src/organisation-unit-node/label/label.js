@@ -1,6 +1,6 @@
 import propTypes from 'prop-types'
 import React from 'react'
-import { orgUnitPathPropType } from '../../../prop-types.js'
+import { orgUnitPathPropType } from '../../prop-types.js'
 import { DisabledSelectionLabel } from './disabled-selection-label.js'
 import { IconizedCheckbox } from './iconized-checkbox.js'
 import { LabelContainer } from './label-container.js'
@@ -127,6 +127,7 @@ Label.propTypes = {
     disableSelection: propTypes.bool,
     hasSelectedDescendants: propTypes.bool,
     highlighted: propTypes.bool,
+    path: propTypes.string,
     selected: propTypes.arrayOf(orgUnitPathPropType),
     singleSelection: propTypes.bool,
 }
