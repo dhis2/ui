@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-05-10T11:56:32.496Z\n"
+"POT-Creation-Date: 2021-06-15T13:35:03.608Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
 "Last-Translator: trendspotter <jirka.p@volny.cz>, 2021\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -15,17 +15,8 @@ msgstr ""
 "Language: cs\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
-msgid "Clear"
-msgstr "Vyčistit"
+msgid "Toggle filter"
+msgstr "Přepnout filtr"
 
-msgid "No data found"
-msgstr "Nenalezena žádná data"
-
-msgid "Type to filter options"
-msgstr "Zadáním filtrujete možnosti"
-
-msgid "Loading options"
-msgstr "Možnosti načítání"
-
-msgid "No options found"
-msgstr "Nenalezeny žádné možnosti"
+msgid "Sort items"
+msgstr "Třídit položky"
