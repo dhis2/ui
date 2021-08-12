@@ -22,7 +22,7 @@
     "dependencies": {
         "@babel/plugin-proposal-class-properties": "^7.13.0",
         "@babel/plugin-proposal-private-methods": "^7.13.0",
-        "@babel/plugin-proposal-private-property-in-object": "^7.14.0",
+        "@babel/plugin-proposal-private-property-in-object": "^7.14.5",
         "@dhis2-ui/css": "6.15.2",
         "@dhis2/ui-constants": "6.15.2",
         "@fontsource/roboto": "^4.4.5",
