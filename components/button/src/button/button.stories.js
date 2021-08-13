@@ -176,11 +176,17 @@ InitialFocus.args = {
 // in the docs page. Disabled for better UX
 InitialFocus.parameters = { docs: { disable: true } }
 
-export const Icon = Template.bind({})
+export const Icon = args => (
+    <>
+        <Button {...args} />
+        <Button primary {...args} />
+        <Button secondary {...args} />
+        <Button destructive {...args} />
+    </>
+)
 Icon.args = {
     icon: DemoIcon,
     name: 'Icon button',
-    children: null,
 }
 Icon.parameters = {
     docs: {
@@ -232,4 +238,27 @@ ToggledDisabled.args = {
     icon: DemoIcon,
     name: 'Toggled button',
     children: null,
+}
+
+export const Loading = args => (
+    <>
+        <Button {...args} />
+        <Button primary {...args} />
+        <Button secondary {...args} />
+        <Button destructive {...args} />
+    </>
+)
+Loading.args = {
+    name: 'Loading button',
+    loading: true,
+    children: 'Loading...',
+    icon: DemoIcon,
+}
+Loading.parameters = {
+    docs: {
+        description: {
+            story:
+                'A button can be in a loading state. Use the loading state to show a pending action after the button has been triggered. The button text should change to let the user know what is happening. For example, a button labelled "Send" might changed to "Sending..." when in a loading state.',
+        },
+    },
 }

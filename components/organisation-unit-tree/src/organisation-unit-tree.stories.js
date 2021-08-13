@@ -290,15 +290,12 @@ export const CustomNodeLabel = () => (
         name="Root org unit"
         roots="A0000000000"
         initiallyExpanded={['/A0000000000/A0000000001']}
-        renderNodeLabel={data => {
-            if (data.node.path !== '/A0000000000/A0000000001') {
-                return OrganisationUnitTree.defaultProps.renderNodeLabel(data)
+        renderNodeLabel={({ label, node }) => {
+            if (node.path !== '/A0000000000/A0000000001') {
+                return label
             }
 
-            return OrganisationUnitTree.defaultProps.renderNodeLabel({
-                ...data,
-                label: <span>--- {data.node.displayName}</span>,
-            })
+            return <span>--- {label}</span>
         }}
         onChange={onChange}
     />

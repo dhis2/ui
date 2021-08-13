@@ -2,7 +2,7 @@
 
 The UI library provides a number of premade [validator functions](https://final-form.org/docs/react-final-form/examples/field-level-validation) to use with React Final Form. Here is an example of how one can be used:
 
-```js
+```jsx
 import { ReactFinalForm, email, InputFieldFF } from '@dhis2/ui'
 
 const { Form, Field } = ReactFinalForm
@@ -60,19 +60,19 @@ Validators are functions, and some of them _create_ a validator function given o
 
 Simple validator:
 
-```js
+```jsx
 const ValidatedField = () => <Field validate={email} />
 ```
 
 'Create' validator:
 
-```js
+```jsx
 const ValidatedField = () => <Field validate={createNumberRange(0, 10)} />
 ```
 
 Composed validators:
 
-```js
+```jsx
 const ValidatedField = () => (
     <Field
         validate={composeValidators(alphaNumeric, createMinCharacterLength(4))}

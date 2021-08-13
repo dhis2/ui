@@ -16,7 +16,7 @@ Here is an example of making a form with React Final Form and DHIS2 UI component
 
 ![A form with several fields and validation feedback shown](images/form-demo.png)
 
-```js
+```jsx
 import {
     ReactFinalForm,
     InputFieldFF,

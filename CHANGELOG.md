@@ -1,3 +1,36 @@
+## [6.15.2](https://github.com/dhis2/ui/compare/v6.15.1...v6.15.2) (2021-08-12)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([c176c6e](https://github.com/dhis2/ui/commit/c176c6e2cd090f77269381856de3397cb0c3e173))
+
+## [6.15.1](https://github.com/dhis2/ui/compare/v6.15.0...v6.15.1) (2021-08-10)
+
+
+### Bug Fixes
+
+* **organisation-unit-tree:** change behaviour of renderNodeLabel so that return value is label contents instead of label component ([#696](https://github.com/dhis2/ui/issues/696)) ([c2ce614](https://github.com/dhis2/ui/commit/c2ce614d2155a0512bb7f54b7c05d16fcb97d717))
+
+# [6.15.0](https://github.com/dhis2/ui/compare/v6.14.0...v6.15.0) (2021-08-10)
+
+
+### Features
+
+* **button:** Loading state ([41dd627](https://github.com/dhis2/ui/commit/41dd627957589be7de04082b90582a0dff19b4b9))
+
+# [6.14.0](https://github.com/dhis2/ui/compare/v6.13.0...v6.14.0) (2021-08-10)
+
+
+### Bug Fixes
+
+* **icons:** adjust fill for scatter-16 icon ([66ae902](https://github.com/dhis2/ui/commit/66ae902fd03af3fc2bfcf85a06ed33841753c9d6))
+
+
+### Features
+
+* **icons:** checkmark-circle icon ([a2262a6](https://github.com/dhis2/ui/commit/a2262a6d454ee06bc95653e5138c916a3477779d))
+
 # [6.13.0](https://github.com/dhis2/ui/compare/v6.12.0...v6.13.0) (2021-08-06)
 
 
