@@ -1,3 +1,10 @@
+# [6.16.0](https://github.com/dhis2/ui/compare/v6.15.2...v6.16.0) (2021-08-17)
+
+
+### Features
+
+* **header-bar:** adjust notification badge placement ([ece1405](https://github.com/dhis2/ui/commit/ece14050b6094d41cbfa9da57b74f919153a5404))
+
 ## [6.15.2](https://github.com/dhis2/ui/compare/v6.15.1...v6.15.2) (2021-08-12)
 
 
