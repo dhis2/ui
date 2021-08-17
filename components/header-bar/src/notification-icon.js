@@ -33,8 +33,8 @@ export const NotificationIcon = ({ count, href, kind, dataTestId }) => (
                 align-items: center;
                 z-index: 1;
                 position: absolute;
-                top: -4px;
-                right: -4px;
+                top: -9px;
+                right: -6px;
                 min-width: 18px;
                 min-height: 18px;
                 border-radius: ${spacers.dp12};
