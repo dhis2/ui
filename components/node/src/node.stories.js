@@ -27,21 +27,6 @@ window.onClose = (payload, event) => {
 const onOpen = (...args) => window.onOpen(...args)
 const onClose = (...args) => window.onClose(...args)
 
-const loadingSpinnerStyles = resolve`
-    .small {
-        margin: 3px 0;
-        width: 24px;
-        height: 18px;
-    }
-`
-
-const LoadingSpinner = () => (
-    <React.Fragment>
-        <CircularLoader small className={loadingSpinnerStyles.className} />
-        <style>{loadingSpinnerStyles.styles}</style>
-    </React.Fragment>
-)
-
 export default {
     title: 'Helpers/Node',
     component: Node,
@@ -50,7 +35,7 @@ export default {
 
 export const CustomIcon = args => <Node {...args} />
 CustomIcon.args = {
-    icon: <LoadingSpinner />,
+    icon: <CircularLoader small />,
     open: false,
     onOpen: onOpen,
     onClose: onClose,
