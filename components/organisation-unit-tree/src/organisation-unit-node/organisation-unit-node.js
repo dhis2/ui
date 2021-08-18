@@ -13,17 +13,15 @@ import { useOpenState } from './use-open-state.js'
 import { useOrgData } from './use-org-data/index.js'
 
 const loadingSpinnerStyles = resolve`
-    .small {
+    .extrasmall {
         display: block;
         margin: 3px 0;
-        width: 18px;
-        height: 18px;
     }
 `
 
 const LoadingSpinner = () => (
     <div>
-        <CircularLoader small className={loadingSpinnerStyles.className} />
+        <CircularLoader extrasmall className={loadingSpinnerStyles.className} />
         <style>{loadingSpinnerStyles.styles}</style>
         <style jsx>{`
             div {
