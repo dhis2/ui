@@ -27,7 +27,7 @@ export const DashboardSharingContent = ({
                     onClick={() => setActiveTabIndex(1)}
                     selected={activeTabIndex === 1}
                 >
-                    {i18n.t('Auto-share dashboard items')}
+                    {i18n.t('Apply sharing to dashboard items')}
                 </Tab>
             </TabBar>
             <div className="tab-content">

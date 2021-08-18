@@ -134,36 +134,33 @@ export const autoShareStyles = css`
         color: ${colors.grey800};
     }
 
-    .info-box {
+    .box {
         display: inline-flex;
-        margin-bottom: 8px;
+        margin-bottom: 14px;
         border-radius: 3px;
-        background-color: ${colors.grey200};
         padding: 8px 8px 6px 8px;
     }
-    .info-box-text {
+    .box-text {
         padding-left: 6px;
         font-size: 14px;
         color: ${colors.grey900};
         line-height: 19px;
     }
 
-    .warning-box {
-        display: inline-flex;
-        margin-bottom: 12px;
-        border-radius: 3px;
-        border: 1px solid ${colors.red500};
-        padding: 8px 8px 6px 8px;
+    .box-info {
+        background-color: ${colors.grey200};
     }
 
-    .warning-box-text {
-        padding-left: 6px;
-        font-size: 14px;
-        color: ${colors.red900};
-        line-height: 19px;
+    .box-success {
+        background-color: ${colors.green100};
     }
+
+    .result-box {
+        margin-top: 14px;
+    }
+
     .loading {
-        display: inline-flex;
+        display: flex;
         align-items: center;
         color: ${colors.grey800};
         font-size: 14px;

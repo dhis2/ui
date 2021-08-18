@@ -123,6 +123,7 @@ export const SharingDialog = ({
                 ),
                 name:
                     data.sharing.object.displayName || data.sharing.object.name,
+                id: data.sharing.object.id,
             }))
         }
     }, [data])
