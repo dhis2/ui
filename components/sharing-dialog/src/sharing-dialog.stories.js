@@ -74,6 +74,7 @@ const customDefaultData = {
             allowPublicAccess: true,
         },
         object: {
+            id: 'sharing-test',
             name: '',
             displayName: '',
             externalAccess: false,
@@ -132,12 +133,19 @@ const customDataWithUserGroupAccesses = {
     },
 }
 
-const customDataWithPublicAccess = {
-    ...customDefaultData,
+const dashboardData = {
+    ...customDataWithUserGroupAccesses,
+    dashboards: {
+        itemCount: 24,
+    },
+}
+
+const dashboardDataWithPublicAccess = {
+    ...dashboardData,
     sharing: {
-        ...customDefaultData.sharing,
+        ...customData.sharing,
         object: {
-            ...customDefaultData.sharing.object,
+            ...customData.sharing.object,
             publicAccess: 'r-------',
         },
     },
@@ -171,7 +179,7 @@ export const WithUserAndGroupAccesses = args => (
 WithUserAndGroupAccesses.storyName = 'With user and group accesses'
 
 export const ForDashboard = args => (
-    <CustomDataProvider data={customDefaultData}>
+    <CustomDataProvider data={dashboardData}>
         <SharingDialog {...args} />
     </CustomDataProvider>
 )
@@ -179,9 +187,41 @@ ForDashboard.storyName = 'For dashboard'
 ForDashboard.args = { type: 'dashboard' }
 
 export const ForDashboardWithPublicAccess = args => (
-    <CustomDataProvider data={customDataWithPublicAccess}>
+    <CustomDataProvider data={dashboardDataWithPublicAccess}>
         <SharingDialog {...args} />
     </CustomDataProvider>
 )
 ForDashboardWithPublicAccess.storyName = 'For dashboard with public access'
 ForDashboardWithPublicAccess.args = { type: 'dashboard' }
+
+const cascadingSharingSuccess = {
+    'dashboards/cascadeSharing/sharing-test': {
+        countUpdatedDashboardItems: 24,
+    },
+}
+
+export const ForDashboardWithCascadeSharingSuccess = args => (
+    <CustomDataProvider data={{ ...dashboardData, ...cascadingSharingSuccess }}>
+        <SharingDialog {...args} />
+    </CustomDataProvider>
+)
+ForDashboardWithCascadeSharingSuccess.storyName =
+    'For dashboard with cascading sharing success'
+ForDashboardWithCascadeSharingSuccess.args = { type: 'dashboard' }
+
+const cascadingSharingPartialSuccess = {
+    'dashboards/cascadeSharing/sharing-test': {
+        countUpdatedDashboardItems: 17,
+    },
+}
+
+export const ForDashboardWithCascadeSharingPartialSuccess = args => (
+    <CustomDataProvider
+        data={{ ...dashboardData, ...cascadingSharingPartialSuccess }}
+    >
+        <SharingDialog {...args} />
+    </CustomDataProvider>
+)
+ForDashboardWithCascadeSharingPartialSuccess.storyName =
+    'For dashboard with cascading sharing partial success'
+ForDashboardWithCascadeSharingPartialSuccess.args = { type: 'dashboard' }
