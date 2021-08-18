@@ -1,92 +1,10 @@
+import { CircularLoader } from '@dhis2-ui/loader'
 import propTypes from '@dhis2/prop-types'
-import { theme, colors, spacers } from '@dhis2/ui-constants'
+import { colors, spacers } from '@dhis2/ui-constants'
+import { IconAttachment16 } from '@dhis2/ui-icons'
 import cx from 'classnames'
 import React from 'react'
 
-function Loading({ className }) {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="22 22 44 44"
-            className={className}
-        >
-            <circle
-                className="circle"
-                cx="44"
-                cy="44"
-                r="20.2"
-                fill="none"
-                strokeWidth="3.6"
-            />
-            <style jsx>{`
-                svg {
-                    fill: ${theme.primary600};
-                    color: ${theme.primary600};
-                    width: 24px;
-                    height: 24px;
-                    animation: anim-rotate 1.4s linear infinite;
-                }
-
-                .circle {
-                    stroke: currentColor;
-                    stroke-dasharray: 80px, 200px;
-                    stroke-dashoffset: 0;
-                    animation: anim-dash 1.4s ease-in-out infinite;
-                }
-
-                @keyframes anim-rotate {
-                    100% {
-                        transform: rotate(360deg);
-                    }
-                }
-
-                @keyframes anim-dash {
-                    0% {
-                        stroke-dasharray: 1px, 200px;
-                        stroke-dashoffset: 0;
-                    }
-                    50% {
-                        stroke-dasharray: 100px, 200px;
-                        stroke-dashoffset: -15px;
-                    }
-                    100% {
-                        stroke-dasharray: 100px, 200px;
-                        stroke-dashoffset: -120px;
-                    }
-                }
-            `}</style>
-        </svg>
-    )
-}
-
-Loading.propTypes = {
-    className: propTypes.string,
-}
-
-function AttachFile({ className }) {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 48 48"
-            className={className}
-        >
-            <path d="M33 12v23c0 4.42-3.58 8-8 8s-8-3.58-8-8V10c0-2.76 2.24-5 5-5s5 2.24 5 5v21c0 1.1-.89 2-2 2-1.11 0-2-.9-2-2V12h-3v19c0 2.76 2.24 5 5 5s5-2.24 5-5V10c0-4.42-3.58-8-8-8s-8 3.58-8 8v25c0 6.08 4.93 11 11 11s11-4.92 11-11V12h-3z" />
-            <style jsx>{`
-                svg {
-                    fill: inherit;
-                    height: 24px;
-                    width: 24px;
-                    vertical-align: middle;
-                    pointer-events: none;
-                }
-            `}</style>
-        </svg>
-    )
-}
-
-AttachFile.propTypes = {
-    className: propTypes.string,
-}
 const FileListItem = ({
     className,
     label,
@@ -98,7 +16,13 @@ const FileListItem = ({
     dataTest,
 }) => (
     <p className={cx('selected-file', className)} data-test={dataTest}>
-        <span className="icon">{loading ? <Loading /> : <AttachFile />}</span>
+        <span className="icon">
+            {loading ? (
+                <CircularLoader extrasmall />
+            ) : (
+                <IconAttachment16 color={colors.grey700} />
+            )}
+        </span>
 
         <span className="text">
             <span className="label">{label}</span>
@@ -129,15 +53,13 @@ const FileListItem = ({
                 display: flex;
                 margin: 0;
                 padding-top: ${spacers.dp4};
-                line-height: 18px;
             }
-            .icon > :global(svg) {
-                width: 12px;
-                height: 12px;
-                line-height: 12px;
+            .icon {
                 margin-right: 4px;
                 flex-grow: 0;
                 flex-shrink: 0;
+                display: flex;
+                padding-top: 1px;
             }
             .text {
                 flex-grow: 1;
@@ -160,6 +82,12 @@ const FileListItem = ({
                 text-decoration: underline;
                 cursor: pointer;
                 color: ${colors.grey700};
+            }
+            .action:hover {
+                color: ${colors.red700};
+            }
+            .action:active {
+                color: ${colors.red800};
             }
         `}</style>
     </p>
