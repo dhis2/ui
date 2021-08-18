@@ -1,3 +1,17 @@
+# [6.17.0](https://github.com/dhis2/ui/compare/v6.16.0...v6.17.0) (2021-08-18)
+
+
+### Bug Fixes
+
+* **file input:** use ui-icons and ui loader ([6704e0c](https://github.com/dhis2/ui/commit/6704e0c08bad5427b118c9230573934d342afe32))
+* **organisation-unit-tree:** adjust circular loader size in loading state ([b466541](https://github.com/dhis2/ui/commit/b4665417a7ddc9bb12add2313b6c359185a3516e))
+
+
+### Features
+
+* **alert bar:** increase clickable area for dismiss action, add hover state ([fb8c0d7](https://github.com/dhis2/ui/commit/fb8c0d70e9c5314141dd6e6ece552a639fa26578))
+* **loader:** linear loader inverted style ([e02182a](https://github.com/dhis2/ui/commit/e02182ae6fd46359407d06f1020806d93bbcd59d))
+
 # [6.16.0](https://github.com/dhis2/ui/compare/v6.15.2...v6.16.0) (2021-08-17)
 
 
