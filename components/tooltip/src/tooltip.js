@@ -128,7 +128,6 @@ Tooltip.defaultProps = {
     maxWidth: 300,
     openDelay: 200,
     placement: 'top',
-    tag: 'span',
 }
 
 Tooltip.propTypes = {
