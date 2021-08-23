@@ -54,6 +54,7 @@ export const InequalSiblings = () => (
 export const NestedLowerLevels = () => (
     <Layer
         level={layers.alert}
+        disablePortal={true}
         dataTest="alert"
         onClick={createNamedLayerClick('alert')}
     >

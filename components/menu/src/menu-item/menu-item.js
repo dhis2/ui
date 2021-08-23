@@ -1,10 +1,9 @@
-import { useLayerContext } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
+import { Portal } from '@dhis2-ui/portal'
 import { IconChevronRight24 } from '@dhis2/ui-icons'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useRef } from 'react'
-import { createPortal } from 'react-dom'
 import { FlyoutMenu } from '../index.js'
 import styles from './menu-item.styles.js'
 
@@ -45,7 +44,6 @@ const MenuItem = ({
     toggleSubMenu,
 }) => {
     const menuItemRef = useRef()
-    const { node } = useLayerContext()
 
     return (
         <>
@@ -87,14 +85,13 @@ const MenuItem = ({
 
                 <style jsx>{styles}</style>
             </li>
-            {children &&
-                showSubMenu &&
-                createPortal(
+            {children && showSubMenu && (
+                <Portal>
                     <Popper placement="right-start" reference={menuItemRef}>
                         <FlyoutMenu dense={dense}>{children}</FlyoutMenu>
-                    </Popper>,
-                    node
-                )}
+                    </Popper>
+                </Portal>
+            )}
         </>
     )
 }

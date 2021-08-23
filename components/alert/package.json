@@ -31,6 +31,7 @@
         "styled-jsx": "^3.2"
     },
     "dependencies": {
+        "@dhis2-ui/portal": "6.17.0",
         "@dhis2/prop-types": "^1.6.4",
         "@dhis2/ui-constants": "6.17.0",
         "@dhis2/ui-icons": "6.17.0",
