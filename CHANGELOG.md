@@ -1,3 +1,11 @@
+## [6.18.1](https://github.com/dhis2/ui/compare/v6.18.0...v6.18.1) (2021-08-24)
+
+
+### Bug Fixes
+
+* **button:** remove z-index from border style ([19c9f38](https://github.com/dhis2/ui/commit/19c9f38c922c5c5ba03051fe34ace937ba44f2f4))
+* **split-button:** allow focus border to overflow siblings ([4734b8b](https://github.com/dhis2/ui/commit/4734b8ba0544e61f0dfdf547e6840d84c5b22726))
+
 # [6.18.0](https://github.com/dhis2/ui/compare/v6.17.0...v6.18.0) (2021-08-24)
 
 
