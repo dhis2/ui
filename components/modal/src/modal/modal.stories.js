@@ -1,5 +1,12 @@
 import { Button, ButtonStrip } from '@dhis2-ui/button'
+import {
+    FlyoutMenu,
+    MenuDivider,
+    MenuItem,
+    MenuSectionHeader,
+} from '@dhis2-ui/menu'
 import { SingleSelect, SingleSelectOption } from '@dhis2-ui/select'
+import { Tooltip } from '@dhis2-ui/tooltip'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React, { useState } from 'react'
 import { ModalActions, ModalContent, ModalTitle } from '../index.js'
@@ -591,143 +598,146 @@ LargeWithSelectComponent.args = { large: true }
 LargeWithSelectComponent.storyName = 'Large: with Select component'
 
 export const LargeModalWithMoreNestedModals = args => (
-    <Modal {...args}>
-        <ModalTitle>Select opens on top of the Modal - Level 1</ModalTitle>
+    <>
+        <Modal {...args}>
+            <ModalTitle>Select opens on top of the Modal - Level 1</ModalTitle>
 
-        <ModalContent>
-            <SingleSelect>
-                <SingleSelectOption key="1" value="1" label="one" />
-                <SingleSelectOption key="2" value="2" label="two" />
-                <SingleSelectOption key="3" value="3" label="three" />
-                <SingleSelectOption key="4" value="3" label="four" />
-                <SingleSelectOption key="5" value="3" label="five" />
-                <SingleSelectOption key="6" value="3" label="six" />
-                <SingleSelectOption key="7" value="3" label="seven" />
-                <SingleSelectOption key="8" value="3" label="eight" />
-                <SingleSelectOption key="9" value="3" label="nine" />
-                <SingleSelectOption key="10" value="3" label="ten" />
-            </SingleSelect>
-            <Modal large>
-                <ModalTitle>
-                    Select opens on top of the Modal - Level 2
-                </ModalTitle>
+            <ModalContent>
+                <SingleSelect>
+                    <SingleSelectOption key="1" value="1" label="one" />
+                    <SingleSelectOption key="2" value="2" label="two" />
+                    <SingleSelectOption key="3" value="3" label="three" />
+                    <SingleSelectOption key="4" value="3" label="four" />
+                    <SingleSelectOption key="5" value="3" label="five" />
+                    <SingleSelectOption key="6" value="3" label="six" />
+                    <SingleSelectOption key="7" value="3" label="seven" />
+                    <SingleSelectOption key="8" value="3" label="eight" />
+                    <SingleSelectOption key="9" value="3" label="nine" />
+                    <SingleSelectOption key="10" value="3" label="ten" />
+                </SingleSelect>
+            </ModalContent>
 
-                <ModalContent>
-                    <SingleSelect>
-                        <SingleSelectOption key="1" value="1" label="one" />
-                        <SingleSelectOption key="2" value="2" label="two" />
-                        <SingleSelectOption key="3" value="3" label="three" />
-                        <SingleSelectOption key="4" value="3" label="four" />
-                        <SingleSelectOption key="5" value="3" label="five" />
-                        <SingleSelectOption key="6" value="3" label="six" />
-                        <SingleSelectOption key="7" value="3" label="seven" />
-                        <SingleSelectOption key="8" value="3" label="eight" />
-                        <SingleSelectOption key="9" value="3" label="nine" />
-                        <SingleSelectOption key="10" value="3" label="ten" />
-                    </SingleSelect>
-                    <Modal large>
-                        <ModalTitle>
-                            Select opens on top of the Modal - Level 3
-                        </ModalTitle>
+            <ModalActions>
+                <ButtonStrip end>
+                    <Button onClick={say('Button secondary')} secondary>
+                        Secondary action
+                    </Button>
 
-                        <ModalContent>
-                            <SingleSelect>
-                                <SingleSelectOption
-                                    key="1"
-                                    value="1"
-                                    label="one"
-                                />
-                                <SingleSelectOption
-                                    key="2"
-                                    value="2"
-                                    label="two"
-                                />
-                                <SingleSelectOption
-                                    key="3"
-                                    value="3"
-                                    label="three"
-                                />
-                                <SingleSelectOption
-                                    key="4"
-                                    value="3"
-                                    label="four"
-                                />
-                                <SingleSelectOption
-                                    key="5"
-                                    value="3"
-                                    label="five"
-                                />
-                                <SingleSelectOption
-                                    key="6"
-                                    value="3"
-                                    label="six"
-                                />
-                                <SingleSelectOption
-                                    key="7"
-                                    value="3"
-                                    label="seven"
-                                />
-                                <SingleSelectOption
-                                    key="8"
-                                    value="3"
-                                    label="eight"
-                                />
-                                <SingleSelectOption
-                                    key="9"
-                                    value="3"
-                                    label="nine"
-                                />
-                                <SingleSelectOption
-                                    key="10"
-                                    value="3"
-                                    label="ten"
-                                />
-                            </SingleSelect>
-                        </ModalContent>
+                    <Button onClick={say('Button primary')} primary>
+                        Primary action
+                    </Button>
+                </ButtonStrip>
+            </ModalActions>
+        </Modal>
 
-                        <ModalActions>
-                            <ButtonStrip end>
-                                <Button
-                                    onClick={say('Button secondary')}
-                                    secondary
-                                >
-                                    Secondary action
-                                </Button>
+        <Modal {...args}>
+            <ModalTitle>Select opens on top of the Modal - Level 2</ModalTitle>
 
-                                <Button onClick={say('Button primary')} primary>
-                                    Primary action
-                                </Button>
-                            </ButtonStrip>
-                        </ModalActions>
-                    </Modal>
-                </ModalContent>
+            <ModalContent>
+                <SingleSelect>
+                    <SingleSelectOption key="1" value="1" label="one" />
+                    <SingleSelectOption key="2" value="2" label="two" />
+                    <SingleSelectOption key="3" value="3" label="three" />
+                    <SingleSelectOption key="4" value="3" label="four" />
+                    <SingleSelectOption key="5" value="3" label="five" />
+                    <SingleSelectOption key="6" value="3" label="six" />
+                    <SingleSelectOption key="7" value="3" label="seven" />
+                    <SingleSelectOption key="8" value="3" label="eight" />
+                    <SingleSelectOption key="9" value="3" label="nine" />
+                    <SingleSelectOption key="10" value="3" label="ten" />
+                </SingleSelect>
+            </ModalContent>
 
-                <ModalActions>
-                    <ButtonStrip end>
-                        <Button onClick={say('Button secondary')} secondary>
-                            Secondary action
-                        </Button>
+            <ModalActions>
+                <ButtonStrip end>
+                    <Button onClick={say('Button secondary')} secondary>
+                        Secondary action
+                    </Button>
 
-                        <Button onClick={say('Button primary')} primary>
-                            Primary action
-                        </Button>
-                    </ButtonStrip>
-                </ModalActions>
-            </Modal>
-        </ModalContent>
+                    <Button onClick={say('Button primary')} primary>
+                        Primary action
+                    </Button>
+                </ButtonStrip>
+            </ModalActions>
+        </Modal>
 
-        <ModalActions>
-            <ButtonStrip end>
-                <Button onClick={say('Button secondary')} secondary>
-                    Secondary action
-                </Button>
+        <Modal small>
+            <ModalTitle>Select opens on top of the Modal - Level 3</ModalTitle>
 
-                <Button onClick={say('Button primary')} primary>
-                    Primary action
-                </Button>
-            </ButtonStrip>
-        </ModalActions>
-    </Modal>
+            <ModalContent>
+                <SingleSelect>
+                    <SingleSelectOption key="1" value="1" label="one" />
+                    <SingleSelectOption key="2" value="2" label="two" />
+                    <SingleSelectOption key="3" value="3" label="three" />
+                    <SingleSelectOption key="4" value="3" label="four" />
+                    <SingleSelectOption key="5" value="3" label="five" />
+                    <SingleSelectOption key="6" value="3" label="six" />
+                    <SingleSelectOption key="7" value="3" label="seven" />
+                    <SingleSelectOption key="8" value="3" label="eight" />
+                    <SingleSelectOption key="9" value="3" label="nine" />
+                    <SingleSelectOption key="10" value="3" label="ten" />
+                </SingleSelect>
+
+                <Tooltip content="Some extra info">
+                    {({ ref, onMouseOver, onMouseOut }) => (
+                        <span
+                            ref={ref}
+                            onMouseOver={onMouseOver}
+                            onMouseOut={onMouseOut}
+                        >
+                            <button>Tooltip on button</button>
+                            <style jsx>{`
+                                span {
+                                    display: inline-flex;
+                                }
+                            `}</style>
+                        </span>
+                    )}
+                </Tooltip>
+
+                <FlyoutMenu>
+                    <MenuSectionHeader label="Section with sub-menus" />
+                    <MenuItem label="Item 1" />
+                    <MenuItem label="Item 2">
+                        <MenuItem label="Item 2 a" />
+                        <MenuItem label="Item 2 b">
+                            <MenuItem label="Item 2 b i" />
+                            <MenuItem label="Item 2 b ii" />
+                        </MenuItem>
+                        <MenuItem label="Item 2 c" />
+                    </MenuItem>
+                    <MenuItem label="Item 3" />
+                    <MenuItem label="Item 4">
+                        <MenuItem label="Item 4 a" />
+                        <MenuItem label="Item 4 b">
+                            <MenuItem label="Item 4 b i" />
+                            <MenuItem label="Item 4 b ii" />
+                        </MenuItem>
+                        <MenuItem label="Item 4 c" />
+                    </MenuItem>
+                    <MenuItem label="Item 5" />
+                    <MenuSectionHeader label="Section with dividers between menu items" />
+                    <MenuItem label="Item 1" />
+                    <MenuDivider />
+                    <MenuItem label="Item 2" />
+                    <MenuDivider />
+                    <MenuItem label="Item 3" />
+                </FlyoutMenu>
+            </ModalContent>
+
+            <ModalActions>
+                <ButtonStrip end>
+                    <Button onClick={say('Button secondary')} secondary>
+                        Secondary action
+                    </Button>
+
+                    <Button onClick={say('Button primary')} primary>
+                        Primary action
+                    </Button>
+                </ButtonStrip>
+            </ModalActions>
+        </Modal>
+    </>
 )
 LargeModalWithMoreNestedModals.args = { large: true }
 LargeModalWithMoreNestedModals.storyName =

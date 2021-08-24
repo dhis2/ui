@@ -1,12 +1,7 @@
 import { Card } from '@dhis2-ui/card'
 import { Center } from '@dhis2-ui/center'
 import { Layer } from '@dhis2-ui/layer'
-import {
-    layers,
-    spacers,
-    spacersNum,
-    sharedPropTypes,
-} from '@dhis2/ui-constants'
+import { spacers, spacersNum, sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -32,7 +27,7 @@ const centeredContent = resolve`
 
 const layerStyles = resolve`
     div {
-        background: none;
+		display: none;
     }
 `
 
@@ -49,7 +44,6 @@ export const Modal = ({
     return (
         <Layer
             onClick={onClose}
-            level={hide ? -1 : layers.blocking}
             className={hide ? layerStyles.className : ''}
             translucent={!hide}
         >

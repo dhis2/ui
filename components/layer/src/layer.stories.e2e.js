@@ -60,6 +60,7 @@ export const NestedLowerLevels = () => (
         <Layer
             level={layers.blocking}
             dataTest="blocking"
+            disablePortal={true}
             onClick={createNamedLayerClick('blocking')}
         />
     </Layer>
