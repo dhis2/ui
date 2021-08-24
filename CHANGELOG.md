@@ -1,3 +1,15 @@
+# [6.18.0](https://github.com/dhis2/ui/compare/v6.17.0...v6.18.0) (2021-08-24)
+
+
+### Bug Fixes
+
+* **tooltip:** remove `tag` from defaultProps ([#712](https://github.com/dhis2/ui/issues/712)) ([211a53c](https://github.com/dhis2/ui/commit/211a53cb96f9645bbf3bc15b2c714453634ae3df))
+
+
+### Features
+
+* **portal:** introduce component ([54b9595](https://github.com/dhis2/ui/commit/54b9595435e2f6bb8895c6838f532e721330e3fe))
+
 # [6.17.0](https://github.com/dhis2/ui/compare/v6.16.0...v6.17.0) (2021-08-18)
 
 
