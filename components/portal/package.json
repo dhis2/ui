@@ -1,11 +1,11 @@
 {
-    "name": "@dhis2-ui/tooltip",
+    "name": "@dhis2-ui/portal",
     "version": "6.17.0",
-    "description": "UI Tooltip",
+    "description": "UI Portal",
     "repository": {
         "type": "git",
         "url": "https://github.com/dhis2/ui.git",
-        "directory": "components/tooltip"
+        "directory": "components/portal"
     },
     "homepage": "https://github.com/dhis2/ui#readme",
     "license": "BSD-3-Clause",
@@ -31,10 +31,6 @@
         "styled-jsx": "^3.2"
     },
     "dependencies": {
-        "@dhis2-ui/portal": "6.17.0",
-        "@dhis2-ui/popper": "6.17.0",
-        "@dhis2/prop-types": "^1.6.4",
-        "@dhis2/ui-constants": "6.17.0",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },
