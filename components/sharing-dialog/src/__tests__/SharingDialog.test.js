@@ -2,10 +2,10 @@ import { Button } from '@dhis2-ui/button'
 import { Modal, ModalTitle } from '@dhis2-ui/modal'
 import { shallow } from 'enzyme'
 import React from 'react'
-import { ShareBlock } from '../share-block.js'
+import { DashboardSharingContent } from '../dashboard-sharing-content.js'
+import { DefaultSharingContent } from '../default-sharing-content.js'
 import { defaultSharingSettings } from '../sharing-constants.js'
 import { SharingDialog } from '../sharing-dialog.js'
-import { SharingList } from '../sharing-list.js'
 
 describe('SharingDialog widget', () => {
     const onClose = jest.fn()
@@ -26,7 +26,7 @@ describe('SharingDialog widget', () => {
     beforeEach(() => {
         shallowSharingDialog = undefined
         props = {
-            type: 'dashboard',
+            type: 'visualization',
             onClose,
             onError,
             onSave,
@@ -47,12 +47,6 @@ describe('SharingDialog widget', () => {
         )
     })
 
-    it('renders a ShareBlock component', () =>
-        expect(getSharingDialogWidget(props).find(ShareBlock)).toHaveLength(1))
-
-    it('renders a SharingList component', () =>
-        expect(getSharingDialogWidget(props).find(SharingList)).toHaveLength(1))
-
     it('renders a Close button', () => {
         const button = getSharingDialogWidget(props).find(Button)
 
@@ -66,5 +60,18 @@ describe('SharingDialog widget', () => {
         button.simulate('click')
 
         expect(onClose).toHaveBeenCalled()
+    })
+
+    it('renders a DefaultSharingContent component when the type is not dashboard', () =>
+        expect(
+            getSharingDialogWidget(props).find(DefaultSharingContent)
+        ).toHaveLength(1))
+
+    it('renders a DashboardSharingContent component when the type is dashboard', () => {
+        props.type = 'dashboard'
+
+        expect(
+            getSharingDialogWidget(props).find(DashboardSharingContent)
+        ).toHaveLength(1)
     })
 })
