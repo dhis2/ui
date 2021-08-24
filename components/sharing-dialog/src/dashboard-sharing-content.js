@@ -4,7 +4,7 @@ import PropTypes from '@dhis2/prop-types'
 import React, { useState } from 'react'
 import { DashboardAutoShareContent } from './dashboard-auto-share-content.js'
 import { DefaultSharingContent } from './default-sharing-content.js'
-import { dashboardSharingStyles } from './sharing-dialog.styles'
+import { dashboardSharingStyles } from './sharing-dialog.styles.js'
 
 export const DashboardSharingContent = ({
     sharingSettings,

@@ -10,9 +10,12 @@ import {
     ACCESS_NONE,
     ACCESS_VIEW_ONLY,
     ACCESS_VIEW_AND_EDIT,
-} from './sharing-constants'
-import { sharingCommonStyles, sharingListStyles } from './sharing-dialog.styles'
-import { SharingListItem } from './sharing-list-item'
+} from './sharing-constants.js'
+import {
+    sharingCommonStyles,
+    sharingListStyles,
+} from './sharing-dialog.styles.js'
+import { SharingListItem } from './sharing-list-item.js'
 
 export const SharingList = ({ sharingSettings, onChange, onRemove }) => (
     <>

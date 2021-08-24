@@ -3,8 +3,8 @@ import { SingleSelectField } from '@dhis2-ui/select'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from '@dhis2/prop-types'
 import React from 'react'
-import { accessStrings } from './sharing-constants'
-import { accessSelectStyles } from './sharing-dialog.styles'
+import { accessStrings } from './sharing-constants.js'
+import { accessSelectStyles } from './sharing-dialog.styles.js'
 
 export const AccessSelect = ({
     label,

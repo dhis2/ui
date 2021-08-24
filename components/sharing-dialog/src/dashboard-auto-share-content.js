@@ -7,7 +7,7 @@ import PropTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
 import { IconInfo16, IconCheckmark16 } from '@dhis2/ui-icons'
 import React, { useMemo } from 'react'
-import { autoShareStyles } from './sharing-dialog.styles'
+import { autoShareStyles } from './sharing-dialog.styles.js'
 
 const dashboardQuery = {
     dashboard: {

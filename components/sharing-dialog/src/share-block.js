@@ -7,7 +7,10 @@ import { AccessSelect } from './access-select.js'
 import { Autocomplete } from './autocomplete/autocomplete.js'
 import { debounce } from './helpers'
 import { ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT } from './sharing-constants.js'
-import { sharingCommonStyles, shareBlockStyles } from './sharing-dialog.styles'
+import {
+    sharingCommonStyles,
+    shareBlockStyles,
+} from './sharing-dialog.styles.js'
 
 const query = {
     usersAndGroups: {
