@@ -58,8 +58,6 @@ export default css`
     .icon.offline {
         background-color: transparent;
         border: 1px solid ${colors.yellow300};
-        width: 7px;
-        height: 7px;
     }
 
     .icon.reconnecting {
