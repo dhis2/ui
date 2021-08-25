@@ -1,4 +1,7 @@
-import { useDataQuery, useConfig } from '@dhis2/app-runtime'
+import {
+    useDataQuery,
+    useConfig /* useOnlineStatus */,
+} from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
@@ -7,6 +10,7 @@ import { joinPath } from './join-path.js'
 import i18n from './locales/index.js'
 import { Logo } from './logo.js'
 import { Notifications } from './notifications.js'
+import { OnlineStatus } from './online-status.js'
 import Profile from './profile.js'
 import { Title } from './title.js'
 
@@ -34,9 +38,16 @@ const query = {
 const avatarUrl = (avatar, baseUrl) =>
     avatar ? joinPath(baseUrl, 'api/fileResources', avatar.id, 'data') : null
 
+// todo: real online status
+const useOnlineStatus = () => ({ online: true })
+
 export const HeaderBar = ({ appName, className }) => {
-    const { baseUrl } = useConfig()
+    const { baseUrl, pwaEnabled } = useConfig()
     const { loading, error, data } = useDataQuery(query)
+    const { online } = useOnlineStatus()
+
+    // A 'reconnecting' status may come in the future
+    const onlineStatus = online ? 'online' : 'offline'
 
     const apps = useMemo(() => {
         const getPath = path =>
@@ -51,6 +62,7 @@ export const HeaderBar = ({ appName, className }) => {
         }))
     }, [data])
 
+    // See https://jira.dhis2.org/browse/LIBS-180
     if (!loading && !error) {
         // TODO: This will run every render which is probably wrong!  Also, setting the global locale shouldn't be done in the headerbar
         const locale = data.user.settings.keyUiLocale || 'en'
@@ -60,41 +72,54 @@ export const HeaderBar = ({ appName, className }) => {
 
     return (
         <header className={className}>
-            {!loading && !error && (
-                <>
-                    <Logo />
-                    <Title
-                        app={appName}
-                        instance={data.title.applicationTitle}
-                    />
-                    <div className="right-control-spacer" />
-                    <Notifications
-                        interpretations={
-                            data.notifications.unreadInterpretations
-                        }
-                        messages={data.notifications.unreadMessageConversations}
-                        userAuthorities={data.user.authorities}
-                    />
-                    <Apps apps={apps} />
-                    <Profile
-                        name={data.user.name}
-                        email={data.user.email}
-                        avatarUrl={avatarUrl(data.user.avatar, baseUrl)}
-                        helpUrl={data.help.helpPageLink}
-                    />
-                </>
+            <div className="main">
+                {!loading && !error && (
+                    <>
+                        <Logo />
+                        <Title
+                            app={appName}
+                            instance={data.title.applicationTitle}
+                        />
+                        <div className="right-control-spacer" />
+                        {pwaEnabled && (
+                            <OnlineStatus
+                                status={onlineStatus}
+                                info={'Desktop'}
+                            />
+                        )}
+                        <Notifications
+                            interpretations={
+                                data.notifications.unreadInterpretations
+                            }
+                            messages={
+                                data.notifications.unreadMessageConversations
+                            }
+                            userAuthorities={data.user.authorities}
+                        />
+                        <Apps apps={apps} />
+                        <Profile
+                            name={data.user.name}
+                            email={data.user.email}
+                            avatarUrl={avatarUrl(data.user.avatar, baseUrl)}
+                            helpUrl={data.help.helpPageLink}
+                        />
+                    </>
+                )}
+            </div>
+            {pwaEnabled && !loading && !error && (
+                <OnlineStatus status={onlineStatus} info={'Mobile'} mobile />
             )}
 
             <style jsx>{`
-                header {
-                    background-color: #2c6693;
+                .main {
                     display: flex;
                     flex-direction: row;
                     align-items: center;
                     justify-content: space-between;
-                    height: 48px;
+                    background-color: #2c6693;
                     border-bottom: 1px solid rgba(32, 32, 32, 0.15);
                     color: ${colors.white};
+                    height: 48px;
                 }
                 .right-control-spacer {
                     margin-left: auto;
