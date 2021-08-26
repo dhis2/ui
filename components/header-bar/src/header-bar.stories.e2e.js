@@ -7,13 +7,19 @@ export default {
     component: HeaderBar,
 }
 
+const config = {
+    baseUrl: 'https://domain.tld/',
+    apiVersion: '',
+}
+
 export const Default = () => (
-    <Provider
-        config={{
-            baseUrl: 'https://domain.tld/',
-            apiVersion: '',
-        }}
-    >
+    <Provider config={config}>
+        <HeaderBar appName="Example!" />
+    </Provider>
+)
+
+export const PWAEnabled = () => (
+    <Provider config={{ ...config, pwaEnabled: true }}>
         <HeaderBar appName="Example!" />
     </Provider>
 )

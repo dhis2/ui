@@ -9,7 +9,10 @@ export function OnlineStatus({ status, info, mobile }) {
     const displayStatus = status.replace(/(^|\s)\S/g, c => c.toUpperCase())
 
     return (
-        <div className={cx('container', mobile ? 'mobile' : 'desktop')}>
+        <div
+            className={cx('container', mobile ? 'mobile' : 'desktop')}
+            data-test="headerbar-online-status"
+        >
             {info && !mobile && <span className="info">{info}</span>}
             <div className={cx('icon', status)}></div>
             <span className="label">{displayStatus}</span>
