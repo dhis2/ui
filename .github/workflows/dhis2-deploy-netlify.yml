@@ -1,0 +1,54 @@
+name: 'dhis2: deploy netlify'
+
+# Requirements:
+#
+# - Org secrets:
+#       DHIS2_BOT_NETLIFY_TOKEN
+#       DHIS2_BOT_GITHUB_TOKEN
+# - Repo secrets:
+#       NETLIFY_SITE_ID
+# - Customize the 'jobs.build.steps.netlify-deploy.publish-dir' property
+
+on:
+    push:
+        branches:
+            - master
+
+concurrency:
+    group: ${{ github.workflow}}-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12.x
+
+            - uses: c-hive/gha-yarn-cache@v1
+            - run: |
+                  yarn install --frozen-lockfile
+                  yarn setup
+
+            - name: Docsite
+              run: yarn docs
+
+            - name: Demo
+              run: yarn demo
+
+            - uses: nwtgck/actions-netlify@v1.1
+              with:
+                  production-branch: 'master'
+                  production-deploy: true
+                  github-token: ${{ secrets.DHIS2_BOT_GITHUB_TOKEN }}
+                  deploy-message: 'Deploy documentation site from GitHub Actions'
+                  enable-pull-request-comment: false
+                  enable-commit-comment: false
+                  enable-commit-status: false
+                  publish-dir: 'dist'
+              env:
+                  NETLIFY_AUTH_TOKEN: ${{ secrets.DHIS2_BOT_NETLIFY_TOKEN }}
+                  NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

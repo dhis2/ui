@@ -147,17 +147,3 @@ jobs:
                   publish-github: true
                   github-token: ${{ env.GH_TOKEN }}
                   npm-token: ${{ env.NPM_TOKEN }}
-
-            - uses: nwtgck/actions-netlify@v1.1
-              with:
-                  production-branch: 'master'
-                  production-deploy: true
-                  github-token: ${{ secrets.DHIS2_BOT_GITHUB_TOKEN }}
-                  deploy-message: 'Deploy documentation site from GitHub Actions'
-                  enable-pull-request-comment: false
-                  enable-commit-comment: false
-                  enable-commit-status: false
-                  publish-dir: 'dist'
-              env:
-                  NETLIFY_AUTH_TOKEN: ${{ secrets.DHIS2_BOT_NETLIFY_TOKEN }}
-                  NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
