@@ -1,3 +1,10 @@
+# [6.19.0](https://github.com/dhis2/ui/compare/v6.18.1...v6.19.0) (2021-08-30)
+
+
+### Features
+
+* **headerbar:** add online status indicator ([#715](https://github.com/dhis2/ui/issues/715)) ([0454a74](https://github.com/dhis2/ui/commit/0454a74e4b47060a2d2a8ab1d075c2c43f58b927))
+
 ## [6.18.1](https://github.com/dhis2/ui/compare/v6.18.0...v6.18.1) (2021-08-24)
 
 
