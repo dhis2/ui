@@ -1,4 +1,4 @@
-import { useDataQuery, useConfig, useOnlineStatus } from '@dhis2/app-runtime'
+import { useDataQuery, useConfig } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
@@ -38,10 +38,6 @@ const avatarUrl = (avatar, baseUrl) =>
 export const HeaderBar = ({ appName, className }) => {
     const { baseUrl, pwaEnabled } = useConfig()
     const { loading, error, data } = useDataQuery(query)
-    const { online } = useOnlineStatus()
-
-    // A 'reconnecting' status may come in the future
-    const onlineStatus = online ? 'online' : 'offline'
 
     const apps = useMemo(() => {
         const getPath = path =>
@@ -77,7 +73,7 @@ export const HeaderBar = ({ appName, className }) => {
                         <div className="right-control-spacer" />
                         {pwaEnabled && (
                             // todo: info
-                            <OnlineStatus status={onlineStatus} />
+                            <OnlineStatus />
                         )}
                         <Notifications
                             interpretations={
@@ -100,7 +96,7 @@ export const HeaderBar = ({ appName, className }) => {
             </div>
             {pwaEnabled && !loading && !error && (
                 // todo: info
-                <OnlineStatus status={onlineStatus} mobile />
+                <OnlineStatus mobile />
             )}
 
             <style jsx>{`
