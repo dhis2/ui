@@ -62,19 +62,17 @@ And('the viewport is narrower than 480px', () => {
 
 Then('the HeaderBar displays only the desktop status badge', () => {
     // This assumes default viewport size: 1000x660
-    cy.get('[data-test="headerbar-online-status"].desktop').should('be.visible')
-    cy.get('[data-test="headerbar-online-status"].mobile').should(
-        'not.be.visible'
-    )
+    cy.get('[data-test="headerbar-online-status"].badge').should('be.visible')
+    cy.get('[data-test="headerbar-online-status"].bar').should('not.be.visible')
 })
 
 And('the status badge shows online', () => {
-    cy.get('[data-test="headerbar-online-status"].desktop .label').should(
+    cy.get('[data-test="headerbar-online-status"].badge .label').should(
         $label => {
             expect($label.text()).to.equal('Online')
         }
     )
-    cy.get('[data-test="headerbar-online-status"].desktop .icon').should(
+    cy.get('[data-test="headerbar-online-status"].badge .icon').should(
         $icon => {
             expect($icon).to.have.class('online')
         }
@@ -82,8 +80,8 @@ And('the status badge shows online', () => {
 })
 
 Then('the HeaderBar displays only the mobile status bar', () => {
-    cy.get('[data-test="headerbar-online-status"].mobile').should('be.visible')
-    cy.get('[data-test="headerbar-online-status"].desktop').should(
+    cy.get('[data-test="headerbar-online-status"].bar').should('be.visible')
+    cy.get('[data-test="headerbar-online-status"].badge').should(
         'not.be.visible'
     )
 })
@@ -93,12 +91,12 @@ And('the browser goes offline', () => {
 })
 
 Then('the status badge shows offline', () => {
-    cy.get('[data-test="headerbar-online-status"].desktop .label').should(
+    cy.get('[data-test="headerbar-online-status"].badge .label').should(
         $label => {
             expect($label.text()).to.equal('Offline')
         }
     )
-    cy.get('[data-test="headerbar-online-status"].desktop .icon').should(
+    cy.get('[data-test="headerbar-online-status"].badge .icon').should(
         $icon => {
             expect($icon).to.have.class('offline')
         }

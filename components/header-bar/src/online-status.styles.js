@@ -11,14 +11,14 @@ export default css`
         color: ${colors.grey100};
     }
 
-    .container.desktop {
+    .container.badge {
         margin-right: ${spacers.dp24};
         padding: ${spacers.dp8};
         border-radius: 5px;
         font-size: 14px;
     }
 
-    .container.mobile {
+    .container.bar {
         display: none;
         padding: 0px ${spacers.dp4};
         min-height: 24px;
@@ -26,11 +26,11 @@ export default css`
     }
 
     @media (max-width: 480px) {
-        .container.desktop {
+        .container.badge {
             display: none;
         }
 
-        .container.mobile {
+        .container.bar {
             display: flex;
         }
     }

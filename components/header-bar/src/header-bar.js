@@ -96,7 +96,7 @@ export const HeaderBar = ({ appName, className }) => {
             </div>
             {pwaEnabled && !loading && !error && (
                 // todo: info
-                <OnlineStatus mobile />
+                <OnlineStatus dense />
             )}
 
             <style jsx>{`
