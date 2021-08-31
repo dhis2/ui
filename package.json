@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/ui-root",
-    "version": "6.19.0-alpha.1",
+    "version": "6.19.1",
     "repository": {
         "type": "git",
         "url": "https://github.com/dhis2/ui.git"
@@ -46,7 +46,7 @@
         }
     },
     "dependencies": {
-        "@dhis2/app-runtime": "^2.7.1",
+        "@dhis2/app-runtime": "^2.9.2",
         "@dhis2/cli-app-scripts": "^7.3.0",
         "@dhis2/cli-style": "^9.0.1",
         "@dhis2/cli-utils-cypress": "^8.0.1",

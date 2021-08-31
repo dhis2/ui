@@ -232,3 +232,25 @@ export const Error = args => (
     </Provider>
 )
 Error.storyName = 'Error!'
+
+export const WithOnlineStatus = args => {
+    const config = { ...mockConfig, pwaEnabled: true }
+    return (
+        <Provider config={config}>
+            <CustomDataProvider data={customData}>
+                <HeaderBar {...args} />
+            </CustomDataProvider>
+        </Provider>
+    )
+}
+WithOnlineStatus.parameters = {
+    docs: {
+        description: {
+            story:
+                'An online status badge will be shown in apps that set \
+                `pwa: { enabled: true }` in `d2.config.js`. The status \
+                indicator uses a different layout on viewports smaller \
+                than 480px.',
+        },
+    },
+}

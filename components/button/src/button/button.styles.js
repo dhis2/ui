@@ -46,7 +46,6 @@ export default css`
         right: -2px;
         bottom: -2px;
         left: -2px;
-        z-index: 1;
 
         border: 2px solid transparent;
         border-radius: inherit;

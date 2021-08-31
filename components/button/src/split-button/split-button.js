@@ -114,9 +114,11 @@ class SplitButton extends Component {
                 <style jsx>{`
                     div {
                         display: inline-flex;
-                        position: relative;
                         color: inherit;
                         white-space: nowrap;
+                        // create a stacking context for the children
+                        position: relative;
+                        z-index: 0;
                     }
 
                     div > :global(button:first-child) {
@@ -128,6 +130,13 @@ class SplitButton extends Component {
                     div > :global(button:last-child) {
                         border-top-left-radius: 0;
                         border-bottom-left-radius: 0;
+                    }
+
+                    div > :global(button:focus)::after {
+                        // TODO: a hack that allows the pseudoelement to
+                        // render on top of the buttons so the focus
+                        // border can overflow its sibling.
+                        z-index: 1;
                     }
                 `}</style>
             </div>
