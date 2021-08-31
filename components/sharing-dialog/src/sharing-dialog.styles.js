@@ -120,7 +120,7 @@ export const dashboardSharingStyles = css`
     }
 `
 
-export const autoShareStyles = css`
+export const cascadeSharingStyles = css`
     .title {
         font-size: 16px;
         color: ${colors.grey900};
