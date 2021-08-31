@@ -2,7 +2,7 @@ import { TabBar, Tab } from '@dhis2-ui/tab'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from '@dhis2/prop-types'
 import React, { useState } from 'react'
-import { DashboardAutoShareContent } from './dashboard-auto-share-content.js'
+import { DashboardCascadeSharingContent } from './dashboard-cascade-sharing-content.js'
 import { DefaultSharingContent } from './default-sharing-content.js'
 import { dashboardSharingStyles } from './sharing-dialog.styles.js'
 
@@ -40,7 +40,7 @@ export const DashboardSharingContent = ({
                     />
                 )}
                 {activeTabIndex === 1 && (
-                    <DashboardAutoShareContent
+                    <DashboardCascadeSharingContent
                         sharingSettings={sharingSettings}
                     />
                 )}

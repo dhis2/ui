@@ -7,7 +7,7 @@ import PropTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
 import { IconInfo16, IconCheckmark16 } from '@dhis2/ui-icons'
 import React, { useMemo } from 'react'
-import { autoShareStyles } from './sharing-dialog.styles.js'
+import { cascadeSharingStyles } from './sharing-dialog.styles.js'
 
 const dashboardQuery = {
     dashboard: {
@@ -24,7 +24,7 @@ const getCascadeSharingMutation = id => ({
     type: 'create',
 })
 
-export const DashboardAutoShareContent = ({ sharingSettings }) => {
+export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
     const { data: queryResponse } = useDataQuery(dashboardQuery, {
         variables: { id: sharingSettings.id },
     })
@@ -45,7 +45,7 @@ export const DashboardAutoShareContent = ({ sharingSettings }) => {
 
     return (
         <>
-            <style jsx>{autoShareStyles}</style>
+            <style jsx>{cascadeSharingStyles}</style>
             <div className="title">
                 {i18n.t('Apply dashboard sharing settings to dashboard items')}
             </div>
@@ -132,6 +132,6 @@ export const DashboardAutoShareContent = ({ sharingSettings }) => {
     )
 }
 
-DashboardAutoShareContent.propTypes = {
+DashboardCascadeSharingContent.propTypes = {
     sharingSettings: PropTypes.object.isRequired,
 }
