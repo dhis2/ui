@@ -23,3 +23,15 @@ export const PWAEnabled = () => (
         <HeaderBar appName="Example!" />
     </Provider>
 )
+
+export const WithLastOnline = () => (
+    <Provider
+        config={{
+            ...config,
+            pwaEnabled: true,
+            headerbar: { onlineStatusInfo: 'LAST_ONLINE' },
+        }}
+    >
+        <HeaderBar appName="Example!" />
+    </Provider>
+)

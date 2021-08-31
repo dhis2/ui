@@ -254,3 +254,27 @@ WithOnlineStatus.parameters = {
         },
     },
 }
+
+export const WithLastOnlineInfo = args => {
+    const config = {
+        ...mockConfig,
+        pwaEnabled: true,
+        headerbar: { onlineStatusInfo: 'LAST_ONLINE' },
+    }
+    return (
+        <Provider config={config}>
+            <CustomDataProvider data={customData}>
+                <HeaderBar {...args} />
+            </CustomDataProvider>
+        </Provider>
+    )
+}
+WithLastOnlineInfo.parameters = {
+    docs: {
+        description: {
+            story:
+                'When offline, the status indicator will show text describing \
+                time since last online.',
+        },
+    },
+}

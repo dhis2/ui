@@ -71,10 +71,7 @@ export const HeaderBar = ({ appName, className }) => {
                             instance={data.title.applicationTitle}
                         />
                         <div className="right-control-spacer" />
-                        {pwaEnabled && (
-                            // todo: info
-                            <OnlineStatus />
-                        )}
+                        {pwaEnabled && <OnlineStatus />}
                         <Notifications
                             interpretations={
                                 data.notifications.unreadInterpretations
@@ -94,10 +91,7 @@ export const HeaderBar = ({ appName, className }) => {
                     </>
                 )}
             </div>
-            {pwaEnabled && !loading && !error && (
-                // todo: info
-                <OnlineStatus dense />
-            )}
+            {pwaEnabled && !loading && !error && <OnlineStatus dense />}
 
             <style jsx>{`
                 .main {
