@@ -45,7 +45,7 @@
         "build"
     ],
     "devDependencies": {
-        "@dhis2/app-runtime": "^2.7.1",
+        "@dhis2/app-runtime": "^2.9.2",
         "@dhis2/d2-i18n": "^1.1.0",
         "@testing-library/react-hooks": "^7.0.1",
         "react": "16.13",
