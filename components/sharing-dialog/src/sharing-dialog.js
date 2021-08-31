@@ -246,7 +246,10 @@ export const SharingDialog = ({
         <Modal large position="top" onClose={onClose}>
             <ModalTitle>
                 {sharingSettings.name
-                    ? i18n.t('Sharing & Access: {{name}}', sharingSettings)
+                    ? i18n.t('Sharing & Access: {{objectName}}', {
+                          objectName: sharingSettings.name,
+                          nsSeparator: '|',
+                      })
                     : i18n.t('Sharing & Access')}
             </ModalTitle>
             <ModalContent>

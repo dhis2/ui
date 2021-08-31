@@ -43,6 +43,124 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
         Object.keys(sharingSettings.users).length +
         Object.keys(sharingSettings.groups).length
 
+    const getInfoMessage = () => {
+        let message
+
+        if (usersGroupsCount > 0) {
+            message = i18n.t(
+                'All {{itemsCount}} items on this dashboard will be potentially updated with sharing settings from {{usersGroupsCount}} users and groups. Public access is not affected.',
+                {
+                    itemsCount: queryResponse.dashboard.itemCount,
+                    usersGroupsCount,
+                }
+            )
+        } else {
+            message = i18n.t(
+                "There aren't any sharing settings to apply to dashboard items. Public access cannot be applied to items."
+            )
+        }
+
+        return (
+            <>
+                <style jsx>{cascadeSharingStyles}</style>
+                <div className="box box-info">
+                    <IconInfo16 color={colors.grey900} />
+                    <span className="box-text">{message}</span>
+                </div>
+            </>
+        )
+    }
+
+    const getResultMessage = () => {
+        let message
+
+        if (mutationResponse?.errorReports.length === 0) {
+            if (mutationResponse?.countUpdatedDashboardItems === 0) {
+                message = i18n.t(
+                    'No dashboard items were updated because they already have the sharing settings.'
+                )
+
+                return <NoticeBox>{message}</NoticeBox>
+            } else if (
+                mutationResponse?.countUpdatedDashboardItems ===
+                queryResponse?.dashboard.itemCount
+            ) {
+                message = i18n.t(
+                    'Successfully updated sharing for {{updatedDashboardItemsCount}} dashboard items.',
+                    {
+                        updatedDashboardItemsCount:
+                            queryResponse.dashboard.itemCount,
+                    }
+                )
+            } else if (
+                mutationResponse?.countUpdatedDashboardItems <
+                queryResponse?.dashboard.itemCount
+            ) {
+                // split in 2 because of nesting with plurals not working
+                message =
+                    i18n.t(
+                        '{{updatedDashboardItemsCount}} dashboard item was updated.',
+                        {
+                            updatedDashboardItemsCount:
+                                mutationResponse.countUpdatedDashboardItems,
+                            defaultValue:
+                                '{{updatedDashboardItemsCount}} dashboard item was updated.',
+                            defaultValue_plural:
+                                '{{updatedDashboarItemsCount}} dashboard items were updated.',
+                        }
+                    ) +
+                    ' ' +
+                    i18n.t(
+                        '{{ignoredDashboardItemsCount}} dashboard item already has the sharing settings or has public access.',
+                        {
+                            ignoredDashboardItemsCount:
+                                queryResponse.dashboard.itemCount -
+                                mutationResponse.countUpdatedDashboardItems,
+                            defaultValue:
+                                '{{ignoredDashboardItemsCount}} dashboard item already has the sharing settings or has public access.',
+                            defaultValue_plural:
+                                '{{ignoredDashboardItemsCount}} dashboard items already have the sharing settings or have public access.',
+                        }
+                    )
+            }
+
+            return (
+                <>
+                    <style jsx>{cascadeSharingStyles}</style>
+                    <div className="box box-success">
+                        <IconCheckmark16 color={colors.grey700} />
+                        <span className="box-text">{message}</span>
+                    </div>
+                </>
+            )
+        } else {
+            if (mutationResponse?.countUpdatedDashboardItems === 0) {
+                message = i18n.t(
+                    'No dashboard items were updated. Check that you have permission to change sharing for all items.'
+                )
+            } else if (
+                mutationResponse?.countUpdatedDashboardItems &&
+                queryResponse?.dashboard.itemsCount
+            ) {
+                message = i18n.t(
+                    '{{count}} dashboard items were updated, but {{ignoredDashboardItemsCount}} could not be updated. Check that you have permission to change sharing for all items.',
+                    {
+                        count: mutationResponse.countUpdatedDashboardItems,
+                        ignoredDashboardItemsCount:
+                            queryResponse.dashboard.itemCount -
+                            mutationResponse.countUpdatedDashboardItems,
+                        defaultValue:
+                            '{{count}} dashboard item was updated, but {{ignoredDashboardItemsCount}} could not be updated. Check that you have permission to change sharing for all items.',
+                        defaultValue_plural:
+                            '{{count}} dashboard items were updated, but {{ignoredDashboardItemsCount}} could not be updated. Check that you have permission to change sharing for all items.',
+                    }
+                )
+            }
+
+            return <NoticeBox warning>{message}</NoticeBox>
+        }
+    }
+
     return (
         <>
             <style jsx>{cascadeSharingStyles}</style>
@@ -51,28 +169,10 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
             </div>
             <div className="description">
                 {i18n.t(
-                    "All dashboard items will be updated. Users and groups with access to this dashboard will have the same access level for all dashboard items. Public sharing will not be applied to dashboard items. Applying sharing can not be undone, and needs to be performed each time you update a dashboard's sharing settings or items."
+                    "Dashboard sharing settings for viewers will be applied to dashboard items. Users and groups that can view this dashboard will be able to view dashboard items. Public sharing for items will not be applied or changed. Applying sharing can not be undone and needs to be done each time you update a dashboard's sharing settings or items."
                 )}
             </div>
-            <div className="box box-info">
-                <IconInfo16 color={colors.grey900} />
-                <span className="box-text">
-                    {usersGroupsCount > 0
-                        ? i18n.t(
-                              `
-            {{dashboardItemsCount}} dashboard items will be updated with sharing settings
-                    from {{usersGroupsCount}} users and groups. Public access is not affected.`,
-                              {
-                                  dashboardItemsCount:
-                                      queryResponse?.dashboard.itemCount,
-                                  usersGroupsCount,
-                              }
-                          )
-                        : i18n.t(
-                              "There aren't any sharing settings to apply to dashboard items. Public access cannot be applied to items."
-                          )}
-                </span>
-            </div>
+            {queryResponse?.dashboard.itemCount && getInfoMessage()}
             <Button
                 type="button"
                 disabled={loading || !usersGroupsCount}
@@ -95,38 +195,7 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
                         )}
                     </NoticeBox>
                 )}
-                {mutationResponse &&
-                    mutationResponse?.countUpdatedDashboardItems !==
-                        queryResponse?.dashboard.itemCount && (
-                        <NoticeBox warning>
-                            {i18n.t(
-                                '{{updatedDashboardItemsCount}} dashboard items were updated, but {{ignoredDashboardItemsCount}} could not be updated. Check that you have permission to change sharing for all items.',
-                                {
-                                    updatedDashboardItemsCount:
-                                        mutationResponse.countUpdatedDashboardItems,
-                                    ignoredDashboardItemsCount:
-                                        queryResponse.dashboard.itemCount -
-                                        mutationResponse.countUpdatedDashboardItems,
-                                }
-                            )}
-                        </NoticeBox>
-                    )}
-                {mutationResponse &&
-                    mutationResponse?.countUpdatedDashboardItems ===
-                        queryResponse?.dashboard.itemCount && (
-                        <div className="box box-success">
-                            <IconCheckmark16 color={colors.grey700} />
-                            <span className="box-text">
-                                {i18n.t(
-                                    'Successfully updated sharing for {{updatedDashboardItemsCount}} dashboard items',
-                                    {
-                                        updatedDashboardItemsCount:
-                                            mutationResponse.countUpdatedDashboardItems,
-                                    }
-                                )}
-                            </span>
-                        </div>
-                    )}
+                {mutationResponse && getResultMessage()}
             </div>
         </>
     )
