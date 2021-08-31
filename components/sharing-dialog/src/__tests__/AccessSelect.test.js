@@ -1,5 +1,5 @@
 import { SingleSelectField } from '@dhis2-ui/select'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import React from 'react'
 import { AccessSelect } from '../access-select.js'
 import { ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT } from '../sharing-constants.js'
@@ -12,7 +12,7 @@ describe('SharingDialog widget - AccessSelect component', () => {
 
     const getAccessSelectComponent = props => {
         if (!shallowAccessSelectComponent) {
-            shallowAccessSelectComponent = shallow(<AccessSelect {...props} />)
+            shallowAccessSelectComponent = mount(<AccessSelect {...props} />)
         }
 
         return shallowAccessSelectComponent
