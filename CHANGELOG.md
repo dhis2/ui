@@ -1,3 +1,10 @@
+# [6.20.0-alpha.3](https://github.com/dhis2/ui/compare/v6.20.0-alpha.2...v6.20.0-alpha.3) (2021-08-31)
+
+
+### Features
+
+* offline mode, form interaction is disabled ([0bc3d3b](https://github.com/dhis2/ui/commit/0bc3d3bf8519a17478c96f43f7eef00565758616))
+
 # [6.20.0-alpha.2](https://github.com/dhis2/ui/compare/v6.20.0-alpha.1...v6.20.0-alpha.2) (2021-08-31)
 
 
