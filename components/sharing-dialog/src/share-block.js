@@ -1,5 +1,5 @@
 import { Button } from '@dhis2-ui/button'
-import { useDataQuery } from '@dhis2/app-runtime'
+import { useDataQuery, useOnlineStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from '@dhis2/prop-types'
 import React, { useEffect, useState } from 'react'
@@ -27,6 +27,7 @@ export const ShareBlock = ({ onAdd }) => {
     const [usersAndGroups, setUsersAndGroups] = useState({})
     const [searchTimeout, setSearchTimeout] = useState(null)
     const [searchResults, setSearchResults] = useState([])
+    const { offline } = useOnlineStatus()
 
     const { data, error, refetch } = useDataQuery(query, {
         lazy: true,
@@ -126,7 +127,10 @@ export const ShareBlock = ({ onAdd }) => {
                     accessOptions={[ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT]}
                     onChange={setAccess}
                 />
-                <Button type="submit" disabled={!userOrGroup?.id || !access}>
+                <Button
+                    type="submit"
+                    disabled={offline || !userOrGroup?.id || !access}
+                >
                     {i18n.t('Give access')}
                 </Button>
             </form>

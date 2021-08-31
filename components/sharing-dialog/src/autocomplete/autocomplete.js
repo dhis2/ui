@@ -1,5 +1,8 @@
 import { InputField } from '@dhis2-ui/input'
 import { Menu, MenuItem } from '@dhis2-ui/menu'
+import { Tooltip } from '@dhis2-ui/tooltip'
+import { useOnlineStatus } from '@dhis2/app-runtime'
+import i18n from '@dhis2/d2-i18n'
 import PropTypes from '@dhis2/prop-types'
 import React, { createRef, useState, useEffect } from 'react'
 import { MenuWrapper } from './menu-wrapper'
@@ -47,6 +50,7 @@ export const Autocomplete = ({
     const inputRef = createRef()
     const menuRef = createRef()
 
+    const { offline } = useOnlineStatus()
     const [menuWidth, setMenuWidth] = useState('auto')
 
     useEffect(() => {
@@ -63,16 +67,27 @@ export const Autocomplete = ({
         onChange(value)
     }
 
+    const AutocompleteField = () => (
+        <InputField
+            label={label}
+            placeholder={placeholder}
+            onChange={onInputChange}
+            value={value}
+            inputWidth={inputWidth}
+            disabled={offline}
+        />
+    )
+
     return (
         <div className="autocomplete-block" ref={menuRef}>
             <div ref={inputRef}>
-                <InputField
-                    label={label}
-                    placeholder={placeholder}
-                    onChange={onInputChange}
-                    value={value}
-                    inputWidth={inputWidth}
-                />
+                {offline ? (
+                    <Tooltip content={i18n.t('Not available offline')}>
+                        <AutocompleteField />
+                    </Tooltip>
+                ) : (
+                    <AutocompleteField />
+                )}
             </div>
             {Boolean(searchResults.length) && (
                 <MenuWrapper

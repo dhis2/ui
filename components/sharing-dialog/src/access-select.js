@@ -1,5 +1,7 @@
 import { MenuDivider, MenuItem } from '@dhis2-ui/menu'
 import { SingleSelectField } from '@dhis2-ui/select'
+import { Tooltip } from '@dhis2-ui/tooltip'
+import { useOnlineStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from '@dhis2/prop-types'
 import React from 'react'
@@ -15,14 +17,15 @@ export const AccessSelect = ({
     showRemoveOption,
     disabled,
     onChange,
-}) => (
-    <div className="share-select">
-        <style jsx>{accessSelectStyles}</style>
+}) => {
+    const { offline } = useOnlineStatus()
+
+    const SelectField = () => (
         <SingleSelectField
             label={label}
             placeholder={placeholder}
             prefix={prefix}
-            disabled={disabled}
+            disabled={offline || disabled}
             selected={access}
             onChange={({ selected }) => onChange(selected)}
         >
@@ -43,8 +46,21 @@ export const AccessSelect = ({
                 />
             )}
         </SingleSelectField>
-    </div>
-)
+    )
+
+    return (
+        <div className="share-select">
+            <style jsx>{accessSelectStyles}</style>
+            {offline ? (
+                <Tooltip content={i18n.t('Not available offline')}>
+                    <SelectField />
+                </Tooltip>
+            ) : (
+                <SelectField />
+            )}
+        </div>
+    )
+}
 
 AccessSelect.propTypes = {
     accessOptions: PropTypes.array.isRequired,
