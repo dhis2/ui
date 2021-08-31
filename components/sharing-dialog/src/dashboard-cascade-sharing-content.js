@@ -1,7 +1,12 @@
 import { Button } from '@dhis2-ui/button'
 import { CircularLoader } from '@dhis2-ui/loader'
 import { NoticeBox } from '@dhis2-ui/notice-box'
-import { useDataQuery, useDataMutation } from '@dhis2/app-runtime'
+import { Tooltip } from '@dhis2-ui/tooltip'
+import {
+    useDataQuery,
+    useDataMutation,
+    useOnlineStatus,
+} from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
@@ -25,6 +30,8 @@ const getCascadeSharingMutation = id => ({
 })
 
 export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
+    const { offline } = useOnlineStatus()
+
     const { data: queryResponse } = useDataQuery(dashboardQuery, {
         variables: { id: sharingSettings.id },
     })
@@ -42,6 +49,17 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
     const usersGroupsCount =
         Object.keys(sharingSettings.users).length +
         Object.keys(sharingSettings.groups).length
+
+    const ApplySharingButton = () => (
+        <Button
+            type="button"
+            disabled={offline || loading || !usersGroupsCount}
+            secondary
+            onClick={() => mutate()}
+        >
+            {i18n.t('Apply sharing to dashboard items')}
+        </Button>
+    )
 
     const getInfoMessage = () => {
         let message
@@ -173,14 +191,13 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
                 )}
             </div>
             {queryResponse?.dashboard.itemCount && getInfoMessage()}
-            <Button
-                type="button"
-                disabled={loading || !usersGroupsCount}
-                secondary
-                onClick={() => mutate()}
-            >
-                {i18n.t('Apply sharing to dashboard items')}
-            </Button>
+            {offline ? (
+                <Tooltip content={i18n.t('Not available offline')}>
+                    <ApplySharingButton />
+                </Tooltip>
+            ) : (
+                <ApplySharingButton />
+            )}
             {loading && (
                 <div className="loading">
                     <CircularLoader small />{' '}
