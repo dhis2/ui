@@ -1,3 +1,10 @@
+# [6.20.0-alpha.2](https://github.com/dhis2/ui/compare/v6.20.0-alpha.1...v6.20.0-alpha.2) (2021-08-31)
+
+
+### Bug Fixes
+
+* fix info and explanation strings and use pluralisation ([295836a](https://github.com/dhis2/ui/commit/295836a64be54c1bb86dcfe6fe2080145b41121c))
+
 # [6.20.0-alpha.1](https://github.com/dhis2/ui/compare/v6.19.1...v6.20.0-alpha.1) (2021-08-31)
 
 
