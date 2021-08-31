@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-05-10T10:09:29.830Z\n"
+"POT-Creation-Date: 2021-08-30T10:10:25.885Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
 "Last-Translator: phil_dhis2, 2021\n"
 "Language-Team: Burmese (https://www.transifex.com/hisp-uio/teams/100509/my/)\n"
@@ -17,6 +17,12 @@ msgstr ""
 
 msgid "Search apps"
 msgstr "Search apps"
+
+msgid "Online"
+msgstr "အင်တာနက်နှင့်ချိတ်ဆက်ထားသည်"
+
+msgid "Offline"
+msgstr "အင်တာနက်နှင့်မချိတ်ဆက်ထားပါ"
 
 msgid "Edit profile"
 msgstr "အတ္ထုပ္ပတ္တိအကျဉ်းကိုပြင်ဆင်ခြင်း"

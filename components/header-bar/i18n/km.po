@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-05-10T10:09:29.830Z\n"
+"POT-Creation-Date: 2021-08-30T10:10:25.885Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
 "Last-Translator: phil_dhis2, 2021\n"
 "Language-Team: Khmer (https://www.transifex.com/hisp-uio/teams/100509/km/)\n"
@@ -17,6 +17,12 @@ msgstr ""
 
 msgid "Search apps"
 msgstr ""
+
+msgid "Online"
+msgstr "លើបណ្ដាញអិនធឺរណែត"
+
+msgid "Offline"
+msgstr "ក្រៅ​បណ្ដាញអិនធឺរណែត"
 
 msgid "Edit profile"
 msgstr "កែសម្រួល​​ជីវប្រវត្តិ"
