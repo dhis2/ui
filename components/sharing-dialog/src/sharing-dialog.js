@@ -287,9 +287,11 @@ SharingDialog.defaultProps = {
 }
 
 SharingDialog.propTypes = {
+    /** The id of the object to share */
+    id: PropTypes.string.isRequired,
+    /** The type of object to share */
     type: PropTypes.string.isRequired,
     onClose: PropTypes.func.isRequired,
-    id: PropTypes.string,
     initialSharingSettings: PropTypes.shape({
         allowExternal: PropTypes.bool,
         allowPublic: PropTypes.bool,

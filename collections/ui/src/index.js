@@ -53,6 +53,7 @@ export { Popper } from '@dhis2-ui/popper'
 export { Radio } from '@dhis2-ui/radio'
 export { Required } from '@dhis2-ui/required'
 export { Pagination } from '@dhis2-ui/pagination'
+export { SharingDialog } from '@dhis2-ui/sharing-dialog'
 export {
     MultiSelect,
     MultiSelectField,

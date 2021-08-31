@@ -51,6 +51,7 @@
         "@dhis2-ui/popper": "6.20.0-alpha.3",
         "@dhis2-ui/radio": "6.20.0-alpha.3",
         "@dhis2-ui/required": "6.20.0-alpha.3",
+        "@dhis2-ui/sharing-dialog": "6.20.0-alpha.3",
         "@dhis2-ui/select": "6.20.0-alpha.3",
         "@dhis2-ui/switch": "6.20.0-alpha.3",
         "@dhis2-ui/tab": "6.20.0-alpha.3",

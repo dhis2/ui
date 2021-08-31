@@ -5,11 +5,17 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-08-31T08:31:11.701Z\n"
-"PO-Revision-Date: 2021-08-31T08:31:11.701Z\n"
+"POT-Creation-Date: 2021-08-31T19:55:54.515Z\n"
+"PO-Revision-Date: 2021-08-31T19:55:54.515Z\n"
 
 msgid "Remove access"
 msgstr "Remove access"
+
+msgid "Not available offline"
+msgstr "Not available offline"
+
+msgid "Apply sharing to dashboard items"
+msgstr "Apply sharing to dashboard items"
 
 msgid ""
 "All {{itemsCount}} items on this dashboard will be potentially updated with "
@@ -90,9 +96,6 @@ msgstr ""
 "dashboard items. Public sharing for items will not be applied or changed. "
 "Applying sharing can not be undone and needs to be done each time you "
 "update a dashboard's sharing settings or items."
-
-msgid "Apply sharing to dashboard items"
-msgstr "Apply sharing to dashboard items"
 
 msgid "Updating sharing settings..."
 msgstr "Updating sharing settings..."
