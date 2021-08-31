@@ -1,3 +1,41 @@
+# [6.20.0](https://github.com/dhis2/ui/compare/v6.19.1...v6.20.0) (2021-08-31)
+
+
+### Bug Fixes
+
+* fix info and explanation strings and use pluralisation ([295836a](https://github.com/dhis2/ui/commit/295836a64be54c1bb86dcfe6fe2080145b41121c))
+* **release:** trigger release ([adbca7e](https://github.com/dhis2/ui/commit/adbca7e8bf73fa2c196cf629c019c4983da91bca))
+* add remove for user/groups ([c2149d9](https://github.com/dhis2/ui/commit/c2149d940b9fb7ae01dc3106b0570ebd8c076c49))
+* add stories for dashboard cascading sharing ([e4251fe](https://github.com/dhis2/ui/commit/e4251fef9f9f4495b1eae43ab6392cc564feddf4))
+* fix crash when an access string contains data settings ([f9ca3e5](https://github.com/dhis2/ui/commit/f9ca3e5b54065999630b04357abc064fb1afc392))
+* fix i18n string interpolation ([752b641](https://github.com/dhis2/ui/commit/752b641f823af58b9a5987789b3ddd2605b32053))
+* fix i18n.t usage ([bf02805](https://github.com/dhis2/ui/commit/bf02805c44564fbea99868a433a498c96f8e8f11))
+* fix icons while waiting for ui-icons to be released ([bcf4c22](https://github.com/dhis2/ui/commit/bcf4c22bae294fdac0dab36169ce3f629836d66c))
+* fix import ([da9f35e](https://github.com/dhis2/ui/commit/da9f35e5d36ffbd37a3ad3d813becc3c5a4e658d))
+* fix imports ([725b6f9](https://github.com/dhis2/ui/commit/725b6f9e2c8b32aec5eb5200c334207e342bc4c7))
+* fix imports after merging alpha ([91f6737](https://github.com/dhis2/ui/commit/91f67377707736399c2e84f16f8c94216fc50395))
+* fix prop types ([374ca57](https://github.com/dhis2/ui/commit/374ca5782a25587762e65eab6c9941b504597ade))
+* fix prop types ([a00b1ea](https://github.com/dhis2/ui/commit/a00b1ea115e753a9703b082fbd700879d36077be))
+* fix wrong boolean default for view and edit access ([919a287](https://github.com/dhis2/ui/commit/919a287600ae313d1a01da7f067a115c9e35f679))
+* implement disabled access select (external/public) ([4938603](https://github.com/dhis2/ui/commit/4938603fa8e6eb271955d32c5a52d02c2311d970))
+* implement latest design ([f3f5040](https://github.com/dhis2/ui/commit/f3f50404c33c59a26f947eb4b594992b40a190af))
+* make clear the type of access as per latest design ([1b0ada7](https://github.com/dhis2/ui/commit/1b0ada7fb070491baf94d6daf18e148f79800be9))
+* minor text correction ([9d91931](https://github.com/dhis2/ui/commit/9d9193110b32ccdcc71c8eef41f4ca49ba54ce45))
+* pass label for the search input ([2d8ceb8](https://github.com/dhis2/ui/commit/2d8ceb8e7b1b233e2d80641510831262a29f6b83))
+* prevent access-before-initialisation storybook errors ([#414](https://github.com/dhis2/ui/issues/414)) ([da68680](https://github.com/dhis2/ui/commit/da6868071f9e95b582bc907f72cae99d0b12244f))
+* use fixed version for [@dhis2-ui](https://github.com/dhis2-ui) dependencies ([6d89ba4](https://github.com/dhis2/ui/commit/6d89ba48a205c33c3e63c1d2e69da73ecd99ac74))
+* use the callback format for error handling ([15550cc](https://github.com/dhis2/ui/commit/15550ccf64093310c78c499f479a11182c998835))
+
+
+### Features
+
+* **ui:** expose SharingDialog from @dhis2/ui ([d842c23](https://github.com/dhis2/ui/commit/d842c2311124f3ebd0d30067e221a116982e1bb2))
+* Add DHIS2 Sharing Dialog ([758bb10](https://github.com/dhis2/ui/commit/758bb10d2eba47f2722b10fa99326b8139ce3a22))
+* implement cascade sharing for dashboard TECH-274 ([b1f7fcd](https://github.com/dhis2/ui/commit/b1f7fcda4add3c3bc883d17f89c683dc2e6911b0))
+* implement cascading sharing for dashboards ([efff245](https://github.com/dhis2/ui/commit/efff245105c51947376c65c8bcb34809dede98c5))
+* offline mode, form interaction is disabled ([0bc3d3b](https://github.com/dhis2/ui/commit/0bc3d3bf8519a17478c96f43f7eef00565758616))
+* search as you type for user/groups ([5fd447c](https://github.com/dhis2/ui/commit/5fd447c32a034fe626326c1942524367d90d1bb1))
+
 # [6.20.0-alpha.3](https://github.com/dhis2/ui/compare/v6.20.0-alpha.2...v6.20.0-alpha.3) (2021-08-31)
 
 

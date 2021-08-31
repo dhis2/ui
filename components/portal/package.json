@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/portal",
-    "version": "6.20.0-alpha.3",
+    "version": "6.20.0",
     "description": "UI Portal",
     "repository": {
         "type": "git",
