@@ -140,6 +140,16 @@ export const TabsWithScroller = args => (
 TabsWithScroller.args = { scrollable: true }
 TabsWithScroller.storyName = 'Tabs with scroller'
 
+export const TabsWithHiddenScrollButtons = args => (
+    <TabBar {...args}>
+        <Tab onClick={onClick}>Tab A</Tab>
+        <Tab onClick={onClick}>Tab B</Tab>
+        <Tab onClick={onClick}>Tab C</Tab>
+    </TabBar>
+)
+TabsWithHiddenScrollButtons.args = { scrollable: true }
+TabsWithHiddenScrollButtons.storyName = 'Tabs with hidden scroll buttons'
+
 export const TabStates = args => (
     <TabBar {...args}>
         <Tab onClick={onClick}>Default</Tab>
