@@ -1,27 +1,72 @@
 import propTypes from '@dhis2/prop-types'
-import { colors } from '@dhis2/ui-constants'
 import { IconChevronRight16, IconChevronLeft16 } from '@dhis2/ui-icons'
 import cx from 'classnames'
 import React, { Component, createRef } from 'react'
 import { animatedSideScroll } from './animated-side-scroll.js'
 import { detectHorizontalScrollbarHeight } from './detect-horizontal-scrollbar-height.js'
+import { ScrollButton } from './scroll-button.js'
 
 class ScrollBar extends Component {
     scrollBox = createRef()
     scrollArea = createRef()
-    state = {
-        scrolledToStart: false,
-        scrolledToEnd: false,
-    }
     horizontalScrollBarHeight = detectHorizontalScrollbarHeight()
+    scrollBoxResizeObserver = null
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            scrolledToStart: true,
+            scrolledToEnd: false,
+            // used to initially hide the entire content to prevent flickering
+            hideScrollButtonsInitialized: false,
+            // hide buttons initially to simplify calculations
+            hideScrollButtons: false,
+        }
+        this.scrollBoxResizeObserver = new ResizeObserver(
+            this.calculateShouldHideButtons
+        )
+    }
 
     componentDidMount() {
         this.scrollSelectedTabIntoView()
         this.attachSideScrollListener()
+        this.manageShouldHideButtons()
     }
 
     componentWillUnmount() {
         this.removeSideScrollListener()
+        this.scrollBoxResizeObserver.disconnect()
+    }
+
+    manageShouldHideButtons() {
+        const { current: scrollBox } = this.scrollBox
+        this.scrollBoxResizeObserver.observe(scrollBox)
+        this.calculateShouldHideButtons()
+    }
+
+    calculateShouldHideButtons = () => {
+        this.setState({ hideScrollButtonsInitialized: false })
+
+        const { current: scrollBox } = this.scrollBox
+        const { current: scrollArea } = this.scrollArea
+
+        const areaWidth = scrollArea.offsetWidth
+        const boxWidth = scrollBox.offsetWidth
+        const hideScrollButtons = areaWidth <= boxWidth
+
+        this.setState({ hideScrollButtons })
+
+        if (!hideScrollButtons) {
+            if (this.state.scrolledToStart) {
+                this.scrollLeft()
+            }
+
+            if (this.state.scrolledToEnd) {
+                this.scrollRight()
+            }
+        }
+
+        this.setState({ hideScrollButtonsInitialized: true })
     }
 
     scrollRight = () => this.scroll()
@@ -39,11 +84,11 @@ class ScrollBar extends Component {
     }
 
     animatedScrollCallback = () => {
-        this.toggleScrollButtonVisibility()
+        this.updateScrolledToStates()
         this.attachSideScrollListener()
     }
 
-    toggleScrollButtonVisibility = () => {
+    updateScrolledToStates = () => {
         const { scrollLeft, offsetWidth } = this.scrollBox.current
         const { offsetWidth: areaOffsetWidth } = this.scrollArea.current
         const scrolledToStart = scrollLeft <= 0
@@ -76,31 +121,38 @@ class ScrollBar extends Component {
     attachSideScrollListener() {
         this.scrollBox.current.addEventListener(
             'scroll',
-            this.toggleScrollButtonVisibility
+            this.updateScrolledToStates
         )
     }
 
     removeSideScrollListener() {
         this.scrollBox.current.removeEventListener(
             'scroll',
-            this.toggleScrollButtonVisibility
+            this.updateScrolledToStates
         )
     }
 
     render() {
-        const { scrolledToStart, scrolledToEnd } = this.state
+        const {
+            scrolledToStart,
+            scrolledToEnd,
+            hideScrollButtonsInitialized,
+            hideScrollButtons: hideScrollButtonsState,
+        } = this.state
         const { children, className, dataTest } = this.props
+        const hideScrollButtons =
+            !hideScrollButtonsInitialized || hideScrollButtonsState
 
         return (
             <div className={cx('scroll-bar', className)} data-test={dataTest}>
-                <button
-                    onClick={scrolledToStart ? undefined : this.scrollLeft}
-                    className={cx('scroll-button', {
-                        disabled: scrolledToStart,
-                    })}
+                <ScrollButton
+                    disabled={scrolledToStart}
+                    onClick={this.scrollLeft}
+                    hidden={hideScrollButtons}
                 >
                     <IconChevronLeft16 />
-                </button>
+                </ScrollButton>
+
                 <div className="scroll-box-clipper">
                     <div className="scroll-box" ref={this.scrollBox}>
                         <div className="scroll-area" ref={this.scrollArea}>
@@ -108,14 +160,14 @@ class ScrollBar extends Component {
                         </div>
                     </div>
                 </div>
-                <button
-                    onClick={scrolledToEnd ? undefined : this.scrollRight}
-                    className={cx('scroll-button', {
-                        disabled: scrolledToEnd,
-                    })}
+
+                <ScrollButton
+                    disabled={scrolledToEnd}
+                    onClick={this.scrollRight}
+                    hidden={hideScrollButtons}
                 >
                     <IconChevronRight16 />
-                </button>
+                </ScrollButton>
 
                 <style jsx>{`
                     .scroll-box {
@@ -127,49 +179,6 @@ class ScrollBar extends Component {
                     .scroll-bar {
                         display: flex;
                         flex-wrap: nowrap;
-                    }
-                    .scroll-button {
-                        display: inline-flex;
-                        justify-content: center;
-                        align-items: center;
-
-                        color: inherit;
-                        background-color: ${colors.white};
-                        border: none;
-                        border-bottom: 1px solid ${colors.grey400};
-                        outline: none;
-                        padding: 16px 16px 11px 16px;
-
-                        cursor: pointer;
-                    }
-
-                    .scroll-button :global(svg) {
-                        width: 20px;
-                        height: 20px;
-                        fill: ${colors.grey600};
-                        transition: opacity 150ms ease-in-out;
-                        opacity: 1;
-                    }
-
-                    .scroll-button:hover {
-                        background-color: ${colors.grey100};
-                    }
-
-                    .scroll-button:active {
-                        /* Briefly highlight clicked button */
-                        background-color: ${colors.grey200};
-                    }
-
-                    .scroll-button.disabled {
-                        cursor: not-allowed;
-                    }
-
-                    .scroll-button.disabled:hover {
-                        background-color: transparent;
-                    }
-
-                    .scroll-button.disabled :global(svg) {
-                        fill: ${colors.grey500};
                     }
 
                     .scroll-box-clipper {
