@@ -31,13 +31,12 @@ jobs:
             - name: Build
               run: yarn build
 
+            - run: tar -cvf lib-build.tar --exclude="node_modules" */**/build */**/src
+
             - uses: actions/upload-artifact@v2
               with:
                   name: lib-build
-                  path: |
-                      **/build
-                      **/src
-                      !**/node_modules
+                  path: lib-build.tar
                   retention-days: 1
 
     lint:
@@ -52,6 +51,8 @@ jobs:
             - uses: actions/download-artifact@v2
               with:
                   name: lib-build
+
+            - run: tar -xvf lib-build.tar
 
             - uses: c-hive/gha-yarn-cache@v1
             - run: yarn install --frozen-lockfile
@@ -71,6 +72,8 @@ jobs:
             - uses: actions/download-artifact@v2
               with:
                   name: lib-build
+
+            - run: tar -xvf lib-build.tar
 
             - uses: c-hive/gha-yarn-cache@v1
             - run: yarn install --frozen-lockfile
@@ -99,6 +102,8 @@ jobs:
             - uses: actions/download-artifact@v2
               with:
                   name: lib-build
+
+            - run: tar -xvf lib-build.tar
 
             - name: Increase FS watchers
               run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
@@ -136,6 +141,8 @@ jobs:
             - uses: actions/download-artifact@v2
               with:
                   name: lib-build
+
+            - run: tar -xvf lib-build.tar
 
             # ensure that d2-app-scripts is available
             - uses: c-hive/gha-yarn-cache@v1
