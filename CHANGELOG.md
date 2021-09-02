@@ -1,3 +1,10 @@
+## [6.22.1](https://github.com/dhis2/ui/compare/v6.22.0...v6.22.1) (2021-09-02)
+
+
+### Bug Fixes
+
+* **sharing-dialog:** use iframe for primary story  ([#727](https://github.com/dhis2/ui/issues/727)) ([adf0ce3](https://github.com/dhis2/ui/commit/adf0ce3269962aa9654f517b8b0ccbf49824eae0))
+
 # [6.22.0](https://github.com/dhis2/ui/compare/v6.21.0...v6.22.0) (2021-09-02)
 
 
