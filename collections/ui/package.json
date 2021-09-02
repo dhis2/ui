@@ -49,6 +49,7 @@
         "@dhis2-ui/pagination": "6.22.1",
         "@dhis2-ui/popover": "6.22.1",
         "@dhis2-ui/popper": "6.22.1",
+        "@dhis2-ui/portal": "6.22.1",
         "@dhis2-ui/radio": "6.22.1",
         "@dhis2-ui/required": "6.22.1",
         "@dhis2-ui/sharing-dialog": "6.22.1",
