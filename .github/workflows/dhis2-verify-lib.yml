@@ -31,7 +31,7 @@ jobs:
             - name: Build
               run: yarn build
 
-            - run: tar -cvf lib-build.tar --exclude="node_modules" */**/build */**/src
+            - run: ./scripts/create-artifact.sh
 
             - uses: actions/upload-artifact@v2
               with:
@@ -52,7 +52,7 @@ jobs:
               with:
                   name: lib-build
 
-            - run: tar -xvf lib-build.tar
+            - run: ./scripts/extract-artifact.sh
 
             - uses: c-hive/gha-yarn-cache@v1
             - run: yarn install --frozen-lockfile
