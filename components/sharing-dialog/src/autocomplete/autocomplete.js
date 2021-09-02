@@ -67,7 +67,7 @@ export const Autocomplete = ({
         onChange(value)
     }
 
-    const AutocompleteField = () => (
+    const renderInputField = () => (
         <InputField
             label={label}
             placeholder={placeholder}
@@ -83,10 +83,10 @@ export const Autocomplete = ({
             <div ref={inputRef}>
                 {offline ? (
                     <Tooltip content={i18n.t('Not available offline')}>
-                        <AutocompleteField />
+                        {renderInputField()}
                     </Tooltip>
                 ) : (
-                    <AutocompleteField />
+                    renderInputField()
                 )}
             </div>
             {Boolean(searchResults.length) && (
