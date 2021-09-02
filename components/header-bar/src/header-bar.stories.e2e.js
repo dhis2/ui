@@ -18,8 +18,28 @@ export const Default = () => (
     </Provider>
 )
 
+export const ShowOnlineStatus = () => (
+    <Provider config={{ ...config, headerbar: { showOnlineStatus: true } }}>
+        <HeaderBar appName="Example!" />
+    </Provider>
+)
+
 export const PWAEnabled = () => (
     <Provider config={{ ...config, pwaEnabled: true }}>
+        <HeaderBar appName="Example!" />
+    </Provider>
+)
+
+export const WithLastOnline = () => (
+    <Provider
+        config={{
+            ...config,
+            headerbar: {
+                showOnlineStatus: true,
+                onlineStatusInfo: 'LAST_ONLINE',
+            },
+        }}
+    >
         <HeaderBar appName="Example!" />
     </Provider>
 )

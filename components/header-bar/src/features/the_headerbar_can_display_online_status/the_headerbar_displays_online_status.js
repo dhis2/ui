@@ -52,12 +52,31 @@ const goOnline = () => {
 Before(() => goOnline())
 After(() => goOnline())
 
+Given(
+    'the HeaderBar loads without error with showOnlineStatus configured',
+    () => {
+        cy.visitStory('HeaderBarTesting', 'Show Online Status')
+    }
+)
+
 Given('the HeaderBar loads without error when PWA is enabled', () => {
     cy.visitStory('HeaderBarTesting', 'PWA Enabled')
 })
 
+Given("the HeaderBar loads without error with 'LAST_ONLINE' configured", () => {
+    cy.visitStory('HeaderBarTesting', 'With Last Online')
+})
+
 And('the viewport is narrower than 480px', () => {
     cy.viewport(460, 660)
+})
+
+Then('the HeaderBar does not render online status', () => {
+    cy.get('[data-test="headerbar-online-status"]').should('not.exist')
+})
+
+Then('the HeaderBar renders online status', () => {
+    cy.get('[data-test="headerbar-online-status"]').should('exist')
 })
 
 Then('the HeaderBar displays only the desktop status badge', () => {
@@ -100,5 +119,26 @@ Then('the status badge shows offline', () => {
         $icon => {
             expect($icon).to.have.class('offline')
         }
+    )
+})
+
+Then('no info text is displayed', () => {
+    cy.get('[data-test="headerbar-online-status"] .info').should('not.exist')
+    cy.get('[data-test="headerbar-online-status"] .info-dense').should(
+        'not.exist'
+    )
+})
+
+Then('last online text is displayed in the status badge', () => {
+    cy.get('[data-test="headerbar-online-status"].badge .info').should(
+        'include.text',
+        'Last online'
+    )
+})
+
+Then('last online text is displayed in the mobile status bar', () => {
+    cy.get('[data-test="headerbar-online-status"].bar .info-dense').should(
+        'include.text',
+        'Last online'
     )
 })

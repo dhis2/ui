@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-08-30T10:10:25.885Z\n"
-"PO-Revision-Date: 2021-08-30T10:10:25.885Z\n"
+"POT-Creation-Date: 2021-09-01T08:53:25.443Z\n"
+"PO-Revision-Date: 2021-09-01T08:53:25.443Z\n"
 
 msgid "Search apps"
 msgstr "Search apps"
@@ -16,6 +16,9 @@ msgstr "Online"
 
 msgid "Offline"
 msgstr "Offline"
+
+msgid "Last online {{relativeTime}}"
+msgstr "Last online {{relativeTime}}"
 
 msgid "Edit profile"
 msgstr "Edit profile"

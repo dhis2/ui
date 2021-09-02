@@ -39,7 +39,7 @@ export default css`
         margin-right: ${spacers.dp16};
     }
 
-    .info-mobile {
+    .info-dense {
         margin-left: ${spacers.dp12};
         font-size: 12px;
     }
