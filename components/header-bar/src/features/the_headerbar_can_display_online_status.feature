@@ -1,4 +1,20 @@
-Feature: The HeaderBar displays online status when PWA is enabled
+Feature: The HeaderBar can display online status
+
+    # Configuring to show
+
+    Scenario: The HeaderBar doesn't display online status when not configured
+        Given the HeaderBar loads without an error
+        Then the HeaderBar does not render online status
+
+    Scenario: The HeaderBar displays online status when configured to
+        Given the HeaderBar loads without error with showOnlineStatus configured
+        Then the HeaderBar renders online status
+
+    Scenario: The HeaderBar displays online status when PWA is enabled
+        Given the HeaderBar loads without error when PWA is enabled
+        Then the HeaderBar renders online status
+
+    # Large / small screens & Online / Offline status
 
     Scenario: The HeaderBar displays a badge on large screens
         Given the HeaderBar loads without error when PWA is enabled

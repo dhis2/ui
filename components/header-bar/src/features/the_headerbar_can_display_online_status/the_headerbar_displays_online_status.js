@@ -52,6 +52,13 @@ const goOnline = () => {
 Before(() => goOnline())
 After(() => goOnline())
 
+Given(
+    'the HeaderBar loads without error with showOnlineStatus configured',
+    () => {
+        cy.visitStory('HeaderBarTesting', 'Show Online Status')
+    }
+)
+
 Given('the HeaderBar loads without error when PWA is enabled', () => {
     cy.visitStory('HeaderBarTesting', 'PWA Enabled')
 })
@@ -62,6 +69,14 @@ Given("the HeaderBar loads without error with 'LAST_ONLINE' configured", () => {
 
 And('the viewport is narrower than 480px', () => {
     cy.viewport(460, 660)
+})
+
+Then('the HeaderBar does not render online status', () => {
+    cy.get('[data-test="headerbar-online-status"]').should('not.exist')
+})
+
+Then('the HeaderBar renders online status', () => {
+    cy.get('[data-test="headerbar-online-status"]').should('exist')
 })
 
 Then('the HeaderBar displays only the desktop status badge', () => {

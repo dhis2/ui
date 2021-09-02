@@ -36,7 +36,11 @@ const avatarUrl = (avatar, baseUrl) =>
     avatar ? joinPath(baseUrl, 'api/fileResources', avatar.id, 'data') : null
 
 export const HeaderBar = ({ appName, className }) => {
-    const { baseUrl, pwaEnabled } = useConfig()
+    const {
+        baseUrl,
+        pwaEnabled,
+        headerbar: { showOnlineStatus } = {},
+    } = useConfig()
     const { loading, error, data } = useDataQuery(query)
 
     const apps = useMemo(() => {
@@ -71,7 +75,7 @@ export const HeaderBar = ({ appName, className }) => {
                             instance={data.title.applicationTitle}
                         />
                         <div className="right-control-spacer" />
-                        {pwaEnabled && <OnlineStatus />}
+                        {(pwaEnabled || showOnlineStatus) && <OnlineStatus />}
                         <Notifications
                             interpretations={
                                 data.notifications.unreadInterpretations
@@ -91,7 +95,9 @@ export const HeaderBar = ({ appName, className }) => {
                     </>
                 )}
             </div>
-            {pwaEnabled && !loading && !error && <OnlineStatus dense />}
+            {(pwaEnabled || showOnlineStatus) && !loading && !error && (
+                <OnlineStatus dense />
+            )}
 
             <style jsx>{`
                 .main {
