@@ -1,3 +1,15 @@
+# [6.23.0](https://github.com/dhis2/ui/compare/v6.22.1...v6.23.0) (2021-09-02)
+
+
+### Bug Fixes
+
+* **sharing-dialog:** prevent search field remount and focus loss ([#729](https://github.com/dhis2/ui/issues/729)) ([2dc471b](https://github.com/dhis2/ui/commit/2dc471bda56dbc4a07960def4aa6ea352128df65))
+
+
+### Features
+
+* expose portal component from ui ([cdd000d](https://github.com/dhis2/ui/commit/cdd000dedcbf2ab165165a0869d9cf235c37b0bd))
+
 ## [6.22.1](https://github.com/dhis2/ui/compare/v6.22.0...v6.22.1) (2021-09-02)
 
 
