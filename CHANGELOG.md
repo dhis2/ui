@@ -1,3 +1,11 @@
+# [6.22.0](https://github.com/dhis2/ui/compare/v6.21.0...v6.22.0) (2021-09-02)
+
+
+### Features
+
+* **header-bar:** add 'Last online' info if configured ([610eb6d](https://github.com/dhis2/ui/commit/610eb6db1a16c3c7bd878439fb443a9cc800de8c))
+* **header-bar:** also show online status by showOnlineStatus config ([9739fa3](https://github.com/dhis2/ui/commit/9739fa3f7a38bb8cb0f9c3d965f5f185dca90c8a))
+
 # [6.21.0](https://github.com/dhis2/ui/compare/v6.20.0...v6.21.0) (2021-09-02)
 
 
