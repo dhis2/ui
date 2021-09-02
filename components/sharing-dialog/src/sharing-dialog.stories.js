@@ -18,7 +18,17 @@ export default {
     component: SharingDialog,
     parameters: {
         componentSubtitle: subtitle,
-        docs: { description: { component: description } },
+        docs: {
+            // Use iframes to contain modals in docs page (otherwise chaos ensues)
+            inlineStories: false,
+            iframeHeight: '620px',
+            /**
+             * Due to iframes being very slow, disable stories on the docs page by default and
+             * make one representative story as the primary ('Simple')
+             */
+            disable: true,
+            description: { component: description },
+        },
     },
     // Default args for stories
     args: {
@@ -156,6 +166,10 @@ export const Simple = args => (
         <SharingDialog {...args} />
     </CustomDataProvider>
 )
+// Have this be the primary story on the docs page
+Simple.parameters = {
+    docs: { disable: false, source: { type: 'dynamic' } },
+}
 
 export const WithName = args => (
     <CustomDataProvider data={customData}>
