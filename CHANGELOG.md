@@ -1,3 +1,11 @@
+# [6.21.0](https://github.com/dhis2/ui/compare/v6.20.0...v6.21.0) (2021-09-02)
+
+
+### Features
+
+* **tab bar:** add scroll button auto-hiding feature (LIBS-211) ([00dda5d](https://github.com/dhis2/ui/commit/00dda5d90c26dff2d10979798d9ef9508bfd3d5c))
+* **tab bar:** add scroll button auto-hiding feature (LIBS-211) ([7834be1](https://github.com/dhis2/ui/commit/7834be1537d3791a81798b0bc3d37bce212933da))
+
 # [6.20.0](https://github.com/dhis2/ui/compare/v6.19.1...v6.20.0) (2021-08-31)
 
 
