@@ -1,3 +1,10 @@
+## [6.23.1](https://github.com/dhis2/ui/compare/v6.23.0...v6.23.1) (2021-09-03)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([374ba64](https://github.com/dhis2/ui/commit/374ba640a92750a4e3b60f8f59ba9c39c7438d7d))
+
 # [6.23.0](https://github.com/dhis2/ui/compare/v6.22.1...v6.23.0) (2021-09-02)
 
 
