@@ -1,0 +1,51 @@
+{
+    "name": "@dhis2/ui-forms",
+    "version": "6.23.2",
+    "main": "./build/cjs/index.js",
+    "module": "./build/es/index.js",
+    "sideEffects": [
+        "build/es/locales/index.js",
+        "build/cjs/locales/index.js"
+    ],
+    "exports": {
+        "import": "./build/es/index.js",
+        "require": "./build/cjs/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dhis2/ui.git",
+        "directory": "collections/forms"
+    },
+    "homepage": "https://github.com/dhis2/ui#readme",
+    "author": "Jan-Gerke Salomon <jan-gerke@dhis2.org>",
+    "contributors": [],
+    "license": "BSD-3-Clause",
+    "private": false,
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "start": "start-storybook -c ../../storybook/config --port 5000",
+        "build": "d2-app-scripts build"
+    },
+    "peerDependencies": {
+        "react": "^16.8",
+        "react-dom": "^16.8"
+    },
+    "dependencies": {
+        "@dhis2/prop-types": "^1.6.4",
+        "@dhis2/ui-core": "6.23.2",
+        "@dhis2/ui-widgets": "6.23.2",
+        "classnames": "^2.3.1",
+        "final-form": "^4.20.2",
+        "prop-types": "^15.7.2",
+        "react-final-form": "^6.5.3"
+    },
+    "files": [
+        "build"
+    ],
+    "devDependencies": {
+        "react": "16.13",
+        "react-dom": "16.13"
+    }
+}

@@ -1,0 +1,110 @@
+# 
+# Translators:
+# phil_dhis2, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
+# 晓东 林 <13981924470@126.com>, 2021
+# easylin <lin_xd@126.com>, 2021
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2020-12-07T19:28:56.162Z\n"
+"PO-Revision-Date: 2021-06-24 12:50+0000\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2021\n"
+"Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Upload file"
+msgstr "上传文件"
+
+msgid "Upload files"
+msgstr "上传文件"
+
+msgid "Remove"
+msgstr "移除"
+
+msgid "No file(s) selected yet"
+msgstr "尚未选择任何文件"
+
+msgid "Please provide an alpha-numeric value"
+msgstr "请提供字母数字值"
+
+msgid "Please provide a boolean value"
+msgstr "请提供一个布尔值"
+
+msgid "Please enter between {{lowerBound}} and {{upperBound}} characters"
+msgstr "请在 {{lowerBound}} 和 {{upperBound}} 个字符之间输入"
+
+msgid ""
+"Please make sure the value of this input matches the value in "
+"\"{{otherField}}\"."
+msgstr "请确保此输入的值与“ {{otherField}}”中的值匹配。"
+
+msgid "Please enter a maximum of {{upperBound}} characters"
+msgstr "请输入最多 {{upperBound}} 个字符"
+
+msgid "Please enter a number with a maximum of {{upperBound}}"
+msgstr "请输入一个最大为 {{upperBound}} 的数字"
+
+msgid "Please enter at least {{lowerBound}} characters"
+msgstr "请至少输入 {{lowerBound}} 个字符"
+
+msgid "Please enter a number of at least {{lowerBound}}"
+msgstr "请输入至少为 {{lowerBound}} 的数字"
+
+msgid "Number cannot be less than {{lowerBound}} or more than {{upperBound}}"
+msgstr "数字不能小于 {{lowerBound}} 或大于 {{upperBound}}"
+
+msgid ""
+"Please make sure the value of this input matches the pattern "
+"{{patternString}}."
+msgstr "请确保此输入的值与模式 {{patternString}} 匹配。"
+
+msgid "Password should be a string"
+msgstr "密码应该是一个字符串"
+
+msgid "Password should be at least 8 characters long"
+msgstr "口令至少8个字符"
+
+msgid "Password should be no longer than 34 characters"
+msgstr "口令不能超过34字符"
+
+msgid "Password should contain at least one lowercase letter"
+msgstr "口令至少包括应该小写字母"
+
+msgid "Password should contain at least one UPPERCASE letter"
+msgstr "口令至少包括一个大写字母"
+
+msgid "Password should contain at least one number"
+msgstr "口令至少包括应该数字"
+
+msgid "Password should have at least one special character"
+msgstr "口令至少包括一个特殊字符"
+
+msgid "Please provide a username between 1 and 255 characters"
+msgstr "请提供 1 到 255 个字符之间的用户名"
+
+msgid "Please provide a valid email address"
+msgstr "有效的邮箱"
+
+msgid "Please provide a value"
+msgstr "请提供值"
+
+msgid "Please provide a round number without decimals"
+msgstr "请提供一个没有小数的整数"
+
+msgid "Please provide a valid international phone number."
+msgstr "请提供有效的国际电话号码。"
+
+msgid "Please provide a number"
+msgstr "请提供号码"
+
+msgid "Please provide a string"
+msgstr "请提供字符串"
+
+msgid "Please provide a valid url"
+msgstr "有效的URL"

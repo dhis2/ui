@@ -1,0 +1,174 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"POT-Creation-Date: 2021-08-31T19:55:54.515Z\n"
+"PO-Revision-Date: 2021-08-31T19:55:54.515Z\n"
+
+msgid "Remove access"
+msgstr "Remove access"
+
+msgid "Not available offline"
+msgstr "Not available offline"
+
+msgid "Apply sharing to dashboard items"
+msgstr "Apply sharing to dashboard items"
+
+msgid ""
+"All {{itemsCount}} items on this dashboard will be potentially updated with "
+"sharing settings from {{usersGroupsCount}} users and groups. Public access "
+"is not affected."
+msgstr ""
+"All {{itemsCount}} items on this dashboard will be potentially updated with "
+"sharing settings from {{usersGroupsCount}} users and groups. Public access "
+"is not affected."
+
+msgid ""
+"There aren't any sharing settings to apply to dashboard items. Public "
+"access cannot be applied to items."
+msgstr ""
+"There aren't any sharing settings to apply to dashboard items. Public "
+"access cannot be applied to items."
+
+msgid ""
+"No dashboard items were updated because they already have the sharing "
+"settings."
+msgstr ""
+"No dashboard items were updated because they already have the sharing "
+"settings."
+
+msgid ""
+"Successfully updated sharing for {{updatedDashboardItemsCount}} dashboard "
+"items."
+msgstr ""
+"Successfully updated sharing for {{updatedDashboardItemsCount}} dashboard "
+"items."
+
+msgid "{{updatedDashboardItemsCount}} dashboard item was updated."
+msgstr "{{updatedDashboardItemsCount}} dashboard item was updated."
+
+msgid ""
+"{{ignoredDashboardItemsCount}} dashboard item already has the sharing "
+"settings or has public access."
+msgstr ""
+"{{ignoredDashboardItemsCount}} dashboard item already has the sharing "
+"settings or has public access."
+
+msgid ""
+"No dashboard items were updated. Check that you have permission to change "
+"sharing for all items."
+msgstr ""
+"No dashboard items were updated. Check that you have permission to change "
+"sharing for all items."
+
+msgid ""
+"{{count}} dashboard items were updated, but {{ignoredDashboardItemsCount}} "
+"could not be updated. Check that you have permission to change sharing for "
+"all items."
+msgid_plural ""
+"{{count}} dashboard items were updated, but {{ignoredDashboardItemsCount}} "
+"could not be updated. Check that you have permission to change sharing for "
+"all items."
+msgstr[0] ""
+"{{count}} dashboard item was updated, but {{ignoredDashboardItemsCount}} "
+"could not be updated. Check that you have permission to change sharing for "
+"all items."
+msgstr[1] ""
+"{{count}} dashboard items were updated, but {{ignoredDashboardItemsCount}} "
+"could not be updated. Check that you have permission to change sharing for "
+"all items."
+
+msgid "Apply dashboard sharing settings to dashboard items"
+msgstr "Apply dashboard sharing settings to dashboard items"
+
+msgid ""
+"Dashboard sharing settings for viewers will be applied to dashboard items. "
+"Users and groups that can view this dashboard will be able to view "
+"dashboard items. Public sharing for items will not be applied or changed. "
+"Applying sharing can not be undone and needs to be done each time you "
+"update a dashboard's sharing settings or items."
+msgstr ""
+"Dashboard sharing settings for viewers will be applied to dashboard items. "
+"Users and groups that can view this dashboard will be able to view "
+"dashboard items. Public sharing for items will not be applied or changed. "
+"Applying sharing can not be undone and needs to be done each time you "
+"update a dashboard's sharing settings or items."
+
+msgid "Updating sharing settings..."
+msgstr "Updating sharing settings..."
+
+msgid ""
+"There was a problem updating dashboard items. No dashboard items were "
+"updated. Try again, or contact a system administrator"
+msgstr ""
+"There was a problem updating dashboard items. No dashboard items were "
+"updated. Try again, or contact a system administrator"
+
+msgid "Dashboard sharing"
+msgstr "Dashboard sharing"
+
+msgid "Give access to a user, group or role"
+msgstr "Give access to a user, group or role"
+
+msgid "Search"
+msgstr "Search"
+
+msgid "User, group or role"
+msgstr "User, group or role"
+
+msgid "Access level"
+msgstr "Access level"
+
+msgid "Select a level"
+msgstr "Select a level"
+
+msgid "Give access"
+msgstr "Give access"
+
+msgid "No access"
+msgstr "No access"
+
+msgid "Anyone logged in can view"
+msgstr "Anyone logged in can view"
+
+msgid "Can view"
+msgstr "Can view"
+
+msgid "View only"
+msgstr "View only"
+
+msgid "Anyone logged in can view and edit"
+msgstr "Anyone logged in can view and edit"
+
+msgid "Can view and edit"
+msgstr "Can view and edit"
+
+msgid "View and edit"
+msgstr "View and edit"
+
+msgid "Sharing & Access: {{objectName}}"
+msgstr "Sharing & Access: {{objectName}}"
+
+msgid "Sharing & Access"
+msgstr "Sharing & Access"
+
+msgid "Close"
+msgstr "Close"
+
+msgid "Metadata"
+msgstr "Metadata"
+
+msgid "Users, groups and roles that currently have access"
+msgstr "Users, groups and roles that currently have access"
+
+msgid "User / Group / Role"
+msgstr "User / Group / Role"
+
+msgid "External users"
+msgstr "External users"
+
+msgid "All users"
+msgstr "All users"

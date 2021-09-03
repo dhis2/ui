@@ -1,0 +1,53 @@
+{
+    "name": "@dhis2-ui/menu",
+    "version": "6.23.2",
+    "description": "UI Menu",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dhis2/ui.git",
+        "directory": "components/menu"
+    },
+    "homepage": "https://github.com/dhis2/ui#readme",
+    "license": "BSD-3-Clause",
+    "private": false,
+    "main": "./build/cjs/index.js",
+    "module": "./build/es/index.js",
+    "exports": {
+        "import": "./build/es/index.js",
+        "require": "./build/cjs/index.js"
+    },
+    "sideEffects": false,
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "start": "start-storybook -c ../../storybook/config --port 5000",
+        "build": "d2-app-scripts build",
+        "test": "d2-app-scripts test --jestConfig ../../jest.config.shared.js"
+    },
+    "peerDependencies": {
+        "react": "^16.8",
+        "react-dom": "^16.8",
+        "styled-jsx": "^3.2"
+    },
+    "dependencies": {
+        "@dhis2-ui/card": "6.23.2",
+        "@dhis2-ui/divider": "6.23.2",
+        "@dhis2-ui/layer": "6.23.2",
+        "@dhis2-ui/popper": "6.23.2",
+        "@dhis2-ui/portal": "6.23.2",
+        "@dhis2/prop-types": "^1.6.4",
+        "@dhis2/ui-constants": "6.23.2",
+        "@dhis2/ui-icons": "6.23.2",
+        "classnames": "^2.3.1",
+        "prop-types": "^15.7.2"
+    },
+    "files": [
+        "build"
+    ],
+    "devDependencies": {
+        "react": "16.13",
+        "react-dom": "16.13",
+        "styled-jsx": "^3.4.4"
+    }
+}

@@ -1,5 +1,6 @@
 module.exports = {
     rootDir: '.',
-    setupFilesAfterEnv: ['<rootDir>config/jest/enzymeSetup.js'],
-    roots: ['<rootDir>/packages/core/src', '<rootDir>/packages/widgets/src'],
+    setupFilesAfterEnv: ['<rootDir>/jest.enzyme.config.js'],
+    roots: ['<rootDir>/collections', '<rootDir>/components'],
+    testPathIgnorePatterns: ['/node_modules/', '/build/', '/.d2/'],
 }

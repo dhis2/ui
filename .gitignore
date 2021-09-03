@@ -1,10 +1,8 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
-.yarn
-.yarnrc
-
 # Editor settings
-/.vscode
+/.vscode/
+/.idea/
 
 # dependencies
 node_modules/
@@ -37,4 +35,15 @@ cypress.env.json
 # d2
 .d2/
 locales/
-packages/forms/i18n/
+
+# storybook
+storybook/storybook-static
+
+# Intermediate icons build directory. Our build tooling
+# currently only supports building from code in ./src
+# So we generate the react components in the src
+# folder, but since they're build artefacts, we
+# don't want them in version control.
+icons/src/react/
+
+.eslintcache

@@ -1,0 +1,111 @@
+# 
+# Translators:
+# trendspotter <jirka.p@volny.cz>, 2021
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2020-12-07T19:28:56.162Z\n"
+"PO-Revision-Date: 2021-06-24 12:50+0000\n"
+"Last-Translator: trendspotter <jirka.p@volny.cz>, 2021\n"
+"Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+
+msgid "Upload file"
+msgstr "Nahrát soubor"
+
+msgid "Upload files"
+msgstr "Nahrát soubory"
+
+msgid "Remove"
+msgstr "Odebrat"
+
+msgid "No file(s) selected yet"
+msgstr "Zatím není (nejsou) vybrány žádné soubory"
+
+msgid "Please provide an alpha-numeric value"
+msgstr "Uveďte alfanumerickou hodnotu"
+
+msgid "Please provide a boolean value"
+msgstr "Zadejte prosím booleovskou hodnotu"
+
+msgid "Please enter between {{lowerBound}} and {{upperBound}} characters"
+msgstr "Zadejte prosím mezi {{lowerBound}} a {{upperBound}} znaky"
+
+msgid ""
+"Please make sure the value of this input matches the value in "
+"\"{{otherField}}\"."
+msgstr ""
+"Zkontrolujte, zda se hodnota tohoto vstupu shoduje s hodnotou v "
+"\"{{otherField}}\"."
+
+msgid "Please enter a maximum of {{upperBound}} characters"
+msgstr "Zadejte prosím maximálně {{upperBound}} znaků"
+
+msgid "Please enter a number with a maximum of {{upperBound}}"
+msgstr "Zadejte číslo s maximální hodnotou {{upperBound}}"
+
+msgid "Please enter at least {{lowerBound}} characters"
+msgstr "Zadejte prosím alespoň {{lowerBound}} znaků"
+
+msgid "Please enter a number of at least {{lowerBound}}"
+msgstr "Zadejte prosím číslo alespoň {{lowerBound}}"
+
+msgid "Number cannot be less than {{lowerBound}} or more than {{upperBound}}"
+msgstr ""
+"Číslo nesmí být menší než {{lowerBound}} nebo větší než {{upperBound}}"
+
+msgid ""
+"Please make sure the value of this input matches the pattern "
+"{{patternString}}."
+msgstr ""
+"Ujistěte se, že hodnota tohoto vstupu odpovídá vzoru {{patternString}}."
+
+msgid "Password should be a string"
+msgstr "Heslo by mělo být řetězec"
+
+msgid "Password should be at least 8 characters long"
+msgstr "Heslo by mělo mít alespoň 8 znaků"
+
+msgid "Password should be no longer than 34 characters"
+msgstr "Heslo by nemělo být delší než 34 znaků"
+
+msgid "Password should contain at least one lowercase letter"
+msgstr "Heslo by mělo obsahovat alespoň jedno malé písmeno"
+
+msgid "Password should contain at least one UPPERCASE letter"
+msgstr "Heslo by mělo obsahovat alespoň jedno VELKÉ písmeno"
+
+msgid "Password should contain at least one number"
+msgstr "Heslo by mělo obsahovat alespoň jedno číslo"
+
+msgid "Password should have at least one special character"
+msgstr "Heslo by mělo mít alespoň jeden speciální znak"
+
+msgid "Please provide a username between 1 and 255 characters"
+msgstr "Zadejte prosím uživatelské jméno mezi 1 a 255 znaky"
+
+msgid "Please provide a valid email address"
+msgstr "Uveďte platnou e-mailovou adresu"
+
+msgid "Please provide a value"
+msgstr "Zadejte prosím hodnotu"
+
+msgid "Please provide a round number without decimals"
+msgstr "Uveďte prosím zaokrouhlené číslo bez desetinných míst"
+
+msgid "Please provide a valid international phone number."
+msgstr "Zadejte platné mezinárodní telefonní číslo."
+
+msgid "Please provide a number"
+msgstr "Uveďte prosím číslo"
+
+msgid "Please provide a string"
+msgstr "Zadejte řetězec"
+
+msgid "Please provide a valid url"
+msgstr "Uveďte platnou adresu URL"

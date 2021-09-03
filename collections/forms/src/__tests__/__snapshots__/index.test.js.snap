@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`final-form named export should re-export the expected exports 1`] = `
+Array [
+  "ARRAY_ERROR",
+  "FORM_ERROR",
+  "configOptions",
+  "createForm",
+  "fieldSubscriptionItems",
+  "formSubscriptionItems",
+  "getIn",
+  "setIn",
+  "version",
+]
+`;
+
+exports[`final-form named export should re-export the expected type for ARRAY_ERROR 1`] = `"string"`;
+
+exports[`final-form named export should re-export the expected type for FORM_ERROR 1`] = `"string"`;
+
+exports[`final-form named export should re-export the expected type for configOptions 1`] = `"object"`;
+
+exports[`final-form named export should re-export the expected type for createForm 1`] = `"function"`;
+
+exports[`final-form named export should re-export the expected type for fieldSubscriptionItems 1`] = `"object"`;
+
+exports[`final-form named export should re-export the expected type for formSubscriptionItems 1`] = `"object"`;
+
+exports[`final-form named export should re-export the expected type for getIn 1`] = `"function"`;
+
+exports[`final-form named export should re-export the expected type for setIn 1`] = `"function"`;
+
+exports[`final-form named export should re-export the expected type for version 1`] = `"string"`;
+
+exports[`react-final-form named export should re-export the expected exports 1`] = `
+Array [
+  "Field",
+  "Form",
+  "FormSpy",
+  "useField",
+  "useForm",
+  "useFormState",
+  "version",
+  "withTypes",
+]
+`;
+
+exports[`react-final-form named export should re-export the expected type for Field 1`] = `"object"`;
+
+exports[`react-final-form named export should re-export the expected type for Form 1`] = `"function"`;
+
+exports[`react-final-form named export should re-export the expected type for FormSpy 1`] = `"function"`;
+
+exports[`react-final-form named export should re-export the expected type for useField 1`] = `"function"`;
+
+exports[`react-final-form named export should re-export the expected type for useForm 1`] = `"function"`;
+
+exports[`react-final-form named export should re-export the expected type for useFormState 1`] = `"function"`;
+
+exports[`react-final-form named export should re-export the expected type for version 1`] = `"string"`;
+
+exports[`react-final-form named export should re-export the expected type for withTypes 1`] = `"function"`;

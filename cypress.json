@@ -1,6 +1,13 @@
 {
     "baseUrl": "http://localhost:5000",
-    "testFiles": "**/*.feature",
+    "ignoreTestFiles": "*/build/**/*.feature",
+    "testFiles": [
+        "components/*/src/**/*.feature",
+        "collections/*/src/**/*.feature",
+        "icons/src/**/*.feature",
+        "constants/src/**/*.feature"
+    ],
     "video": false,
-    "projectId": "vyavbk"
+    "projectId": "vyavbk",
+    "integrationFolder": "."
 }

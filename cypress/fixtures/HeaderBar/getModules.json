@@ -57,14 +57,6 @@
             "description": ""
         },
         {
-            "name": "dhis-web-importexport",
-            "namespace": "/dhis-web-importexport",
-            "defaultAction": "../dhis-web-importexport/index.action",
-            "displayName": "Import/Export",
-            "icon": "../icons/dhis-web-importexport.png",
-            "description": ""
-        },
-        {
             "name": "WHO Metadata browser",
             "namespace": "WHO Metadata browser",
             "defaultAction": "https://play.dhis2.org/2.32.0/api/apps/WHO-Metadata-browser/index.html",

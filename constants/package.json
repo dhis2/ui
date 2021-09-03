@@ -1,0 +1,35 @@
+{
+    "name": "@dhis2/ui-constants",
+    "version": "6.23.2",
+    "description": "Constants used in the UI libs",
+    "main": "./build/cjs/index.js",
+    "module": "./build/es/index.js",
+    "exports": {
+        "import": "./build/es/index.js",
+        "require": "./build/cjs/index.js"
+    },
+    "author": "Viktor Varland <viktor@dhis2.org>",
+    "license": "BSD-3-Clause",
+    "private": false,
+    "sideEffects": false,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dhis2/ui.git",
+        "directory": "constants"
+    },
+    "homepage": "https://github.com/dhis2/ui#readme",
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "start": "start-storybook -c ../storybook/config --port 5000",
+        "build": "d2-app-scripts build"
+    },
+    "dependencies": {
+        "@dhis2/prop-types": "^1.6.4",
+        "prop-types": "^15.7.2"
+    },
+    "files": [
+        "build"
+    ]
+}

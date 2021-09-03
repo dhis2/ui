@@ -1,0 +1,52 @@
+name: 'dhis2: pr preview'
+
+# Requirements:
+#
+# - Org secrets:
+#       DHIS2_BOT_NETLIFY_TOKEN
+#       DHIS2_BOT_GITHUB_TOKEN
+# - Repo secrets:
+#       NETLIFY_SITE_ID
+# - Customize the 'jobs.build.steps.netlify-deploy.publish-dir' property
+
+on:
+    pull_request:
+
+concurrency:
+    group: ${{ github.workflow}}-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    preview:
+        runs-on: ubuntu-latest
+        if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12.x
+
+            - uses: c-hive/gha-yarn-cache@v1
+            - run: |
+                  yarn install --frozen-lockfile
+                  yarn setup
+
+            - name: Build
+              run: yarn demo
+
+            - name: Deploy
+              id: netlify-deploy
+              uses: nwtgck/actions-netlify@v1.1
+              timeout-minutes: 1
+              with:
+                  github-token: ${{ secrets.DHIS2_BOT_GITHUB_TOKEN }}
+                  deploy-message: ${{ github.event.pull_request.title }}
+                  enable-pull-request-comment: true
+                  enable-commit-comment: false
+                  alias: pr-${{ github.event.number }}
+                  publish-dir: 'dist/demo'
+              env:
+                  # org secret
+                  NETLIFY_AUTH_TOKEN: ${{ secrets.DHIS2_BOT_NETLIFY_TOKEN }}
+                  # repo secret
+                  NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

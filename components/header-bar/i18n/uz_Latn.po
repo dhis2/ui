@@ -1,0 +1,46 @@
+# 
+# Translators:
+# Yury Rogachev <yury@dhis2.org>, 2021
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-09-02T19:24:35.672Z\n"
+"PO-Revision-Date: 2021-06-24 12:50+0000\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
+"Language-Team: Uzbek (Latin) (https://www.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uz@Latn\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Search apps"
+msgstr "Ilovalarni qidirish"
+
+msgid "Last online {{relativeTime}}"
+msgstr ""
+
+msgid "Online"
+msgstr "Onlayn"
+
+msgid "Offline"
+msgstr "Offlayn"
+
+msgid "Edit profile"
+msgstr "Profilni tahrir qilish"
+
+msgid "Settings"
+msgstr "Sozlamalar"
+
+msgid "Account"
+msgstr "Raqami"
+
+msgid "Help"
+msgstr "Yordam"
+
+msgid "About DHIS2"
+msgstr "DHIS2 Haqida"
+
+msgid "Logout"
+msgstr "Chiqib ketish"
