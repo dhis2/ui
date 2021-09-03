@@ -2,10 +2,7 @@
     "baseUrl": "http://localhost:5000",
     "ignoreTestFiles": "*/build/**/*.feature",
     "testFiles": [
-        "components/*/src/**/*.feature",
-        "collections/*/src/**/*.feature",
-        "icons/src/**/*.feature",
-        "constants/src/**/*.feature"
+        "components/header-bar/src/features/the_headerbar_can_display_online_status.feature"
     ],
     "video": false,
     "projectId": "vyavbk",
