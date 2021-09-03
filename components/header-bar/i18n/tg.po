@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-08-30T10:10:25.885Z\n"
+"POT-Creation-Date: 2021-09-02T19:24:35.672Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
 "Last-Translator: phil_dhis2, 2021\n"
 "Language-Team: Tajik (https://www.transifex.com/hisp-uio/teams/100509/tg/)\n"
@@ -16,6 +16,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Search apps"
+msgstr ""
+
+msgid "Last online {{relativeTime}}"
 msgstr ""
 
 msgid "Online"
