@@ -99,14 +99,14 @@ jobs:
               with:
                   node-version: 12.x
 
-            - uses: actions/download-artifact@v2
-              with:
-                  name: lib-build
+            # - uses: actions/download-artifact@v2
+            #   with:
+            #       name: lib-build
 
-            - run: ./scripts/extract-artifact.sh
+            # - run: ./scripts/extract-artifact.sh
 
-            - name: Increase FS watchers
-              run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+            # - name: Increase FS watchers
+            #   run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
             - name: End-to-End tests
               uses: cypress-io/github-action@v2
