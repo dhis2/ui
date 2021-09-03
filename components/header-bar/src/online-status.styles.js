@@ -36,9 +36,7 @@ export default css`
     }
 
     .unselectable {
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select: none;
+        cursor: default;
         user-select: none;
     }
 
