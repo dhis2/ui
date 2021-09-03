@@ -15,7 +15,7 @@ env:
     D2_VERBOSE: true
 
 jobs:
-    build:
+    setup&e2e:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
@@ -28,16 +28,50 @@ jobs:
                   yarn install --frozen-lockfile
                   yarn setup
 
-            # - name: Build
-            #   run: yarn build
+            - name: Increase FS watchers
+              run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
-            # - run: ./scripts/create-artifact.sh
+            - name: End-to-End tests
+              uses: cypress-io/github-action@v2
+              with:
+                  # This should be a command that starts the server to test against.
+                  start: 'STORYBOOK_TESTING=1 yarn start'
+                  wait-on: 'http://localhost:5000'
+                  wait-on-timeout: 300
+                  record: true
+                  parallel: true
+                  group: 'e2e'
+                  tag: ${{ github.event_name }}
+              env:
+                  BROWSER: none
+                  COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
+                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  STORYBOOK_TESTING: true
 
-            # - uses: actions/upload-artifact@v2
-            #   with:
-            #       name: lib-build
-            #       path: lib-build.tar
-            #       retention-days: 1
+    # build:
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #         - uses: actions/checkout@v2
+    #         - uses: actions/setup-node@v1
+    #           with:
+    #               node-version: 12.x
+
+    #         - uses: c-hive/gha-yarn-cache@v1
+    #         - run: |
+    #               yarn install --frozen-lockfile
+    #               yarn setup
+
+    #         - name: Build
+    #           run: yarn build
+
+    #         - run: ./scripts/create-artifact.sh
+
+    #         - uses: actions/upload-artifact@v2
+    #           with:
+    #               name: lib-build
+    #               path: lib-build.tar
+    #               retention-days: 1
 
     # lint:
     #     needs: [build]
@@ -81,50 +115,50 @@ jobs:
     #         - name: Test
     #           run: yarn test
 
-    e2e:
-        runs-on: ubuntu-latest
-        if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
-        needs: [build]
+    # e2e:
+    #     runs-on: ubuntu-latest
+    #     if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
+    #     needs: [build]
 
-        strategy:
-            fail-fast: false
-            matrix:
-                containers: [1, 2, 3, 4]
+    #     strategy:
+    #         fail-fast: false
+    #         matrix:
+    #             containers: [1, 2, 3, 4]
 
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v2
+    #     steps:
+    #         - name: Checkout
+    #           uses: actions/checkout@v2
 
-            - uses: actions/setup-node@v1
-              with:
-                  node-version: 12.x
+    #         - uses: actions/setup-node@v1
+    #           with:
+    #               node-version: 12.x
 
-            # - uses: actions/download-artifact@v2
-            #   with:
-            #       name: lib-build
+    #         - uses: actions/download-artifact@v2
+    #           with:
+    #               name: lib-build
 
-            # - run: ./scripts/extract-artifact.sh
+    #         - run: ./scripts/extract-artifact.sh
 
-            # - name: Increase FS watchers
-            #   run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+    #         - name: Increase FS watchers
+    #           run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
-            - name: End-to-End tests
-              uses: cypress-io/github-action@v2
-              with:
-                  # This should be a command that starts the server to test against.
-                  start: 'yarn cy:start'
-                  wait-on: 'http://localhost:5000'
-                  wait-on-timeout: 300
-                  record: true
-                  parallel: true
-                  group: 'e2e'
-                  tag: ${{ github.event_name }}
-              env:
-                  BROWSER: none
-                  COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
-                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  STORYBOOK_TESTING: true
+    #         - name: End-to-End tests
+    #           uses: cypress-io/github-action@v2
+    #           with:
+    #               # This should be a command that starts the server to test against.
+    #               start: 'yarn cy:start'
+    #               wait-on: 'http://localhost:5000'
+    #               wait-on-timeout: 300
+    #               record: true
+    #               parallel: true
+    #               group: 'e2e'
+    #               tag: ${{ github.event_name }}
+    #           env:
+    #               BROWSER: none
+    #               COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
+    #               CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+    #               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #               STORYBOOK_TESTING: true
 
     # publish:
     #     runs-on: ubuntu-latest
