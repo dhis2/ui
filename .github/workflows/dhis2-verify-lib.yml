@@ -35,7 +35,7 @@ jobs:
               uses: cypress-io/github-action@v2
               with:
                   # This should be a command that starts the server to test against.
-                  start: 'STORYBOOK_TESTING=1 yarn start'
+                  start: 'yarn start'
                   wait-on: 'http://localhost:5000'
                   wait-on-timeout: 300
                   record: true
