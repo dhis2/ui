@@ -1,3 +1,10 @@
+## [6.23.2](https://github.com/dhis2/ui/compare/v6.23.1...v6.23.2) (2021-09-03)
+
+
+### Bug Fixes
+
+* **header-bar:** make online status text unselectable ([#731](https://github.com/dhis2/ui/issues/731)) ([80efc26](https://github.com/dhis2/ui/commit/80efc260fecdb47d7c552c9be2e1b8bb7adb0897))
+
 ## [6.23.1](https://github.com/dhis2/ui/compare/v6.23.0...v6.23.1) (2021-09-03)
 
 
