@@ -1,13 +1,13 @@
+import classNames from 'classnames'
+import PropTypes from 'prop-types'
+import React, { useEffect, useState, useRef } from 'react'
+import { LayoutOverlay } from '../LayoutOverlay'
+import { useParentSize } from '../useParentSize'
 import {
     sidebarStyles,
     sidebarToggleStyles,
     sidebarSize,
 } from './SidebarLayout.styles'
-import classNames from 'classnames'
-import { useParentSize } from '../useParentSize'
-import { useEffect, useState, useRef } from 'react'
-
-import { LayoutOverlay } from '../LayoutOverlay'
 
 const isBooleanSpecified = x => x === true || x === false
 
@@ -17,10 +17,10 @@ export const Sidebar = ({
     toggleClassname,
     toggleStyle,
     children,
-    side = 'left',
+    side,
+    collapsible,
+    collapseBreakpoint,
     collapsed: forceCollapsed,
-    collapsible = true,
-    collapseBreakpoint = sidebarSize * 3,
     toggled: forceToggled,
 }) => {
     const [collapsed, setCollapsed] = useState(!!forceCollapsed)
@@ -71,4 +71,29 @@ export const Sidebar = ({
             )}
         </>
     )
+}
+
+Sidebar.defaultProps = {
+    side: 'left',
+    collapsible: true,
+    collapseBreakpoint: sidebarSize * 3,
+}
+
+Sidebar.propTypes = {
+    collapseBreakpoint: PropTypes.number.isRequired,
+    children: PropTypes.any,
+    className: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.instanceOf(Object),
+    ]),
+    collapsed: PropTypes.bool,
+    collapsible: PropTypes.bool,
+    side: PropTypes.string,
+    style: PropTypes.instanceOf(Object),
+    toggleClassname: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.instanceOf(Object),
+    ]),
+    toggleStyle: PropTypes.instanceOf(Object),
+    toggled: PropTypes.bool,
 }

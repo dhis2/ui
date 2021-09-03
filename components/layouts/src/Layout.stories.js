@@ -1,12 +1,10 @@
-import React, { useState } from 'react'
+import { Button, LogoIcon } from '@dhis2/ui-widgets'
 import { storiesOf } from '@storybook/react'
-import { TopbarLayout } from './TopbarLayout/TopbarLayout.js'
-import { Topbar } from './TopbarLayout/Topbar.js'
-import { SidebarLayout } from './SidebarLayout/SidebarLayout.js'
+import React, { useState } from 'react'
 import { Sidebar } from './SidebarLayout/Sidebar.js'
-
-import { LogoIcon } from '@dhis2/ui-widgets'
-import { Button } from '@dhis2/ui-widgets'
+import { SidebarLayout } from './SidebarLayout/SidebarLayout.js'
+import { Topbar } from './TopbarLayout/Topbar.js'
+import { TopbarLayout } from './TopbarLayout/TopbarLayout.js'
 
 const AppsIcon = () => (
     <svg
@@ -74,7 +72,7 @@ storiesOf('Component/Layout', module)
                     Resize your browser so that this viewport is narrower than
                     640px.
                 </p>
-                <p>The sidebar will "collapse" out of the way of the content</p>
+                <p>The sidebar will &quot;collapse&quot; out of the way of the content</p>
             </DemoContentBox>
         </SidebarLayout>
     ))
@@ -104,11 +102,11 @@ storiesOf('Component/Layout', module)
                 <DemoContentBox>
                     <h3>Sidebar Breakpoint</h3>
                     <p>
-                        Let's artificially constrain the width of the container
+                        Let&apos;s artificially constrain the width of the container
                         to 760px.
                     </p>
                     <p>
-                        We've also configured a custom{' '}
+                        We&apos;ve also configured a custom{' '}
                         <strong>collapseBreakpoint</strong> at 800px instead of
                         the default 640px
                     </p>
@@ -117,7 +115,7 @@ storiesOf('Component/Layout', module)
                         A Layout can be embedded within any element with{' '}
                         <strong>position: relative</strong> (notably including
                         the Content section of other layouts!) and will adopt
-                        that element's size.
+                        that element&apos;s size.
                     </p>
                 </DemoContentBox>
             </SidebarLayout>
@@ -149,7 +147,7 @@ storiesOf('Component/Layout', module)
                     <p>Click the button below to manually toggle the sidebar</p>
                     <p>
                         Unlike a standard collapsible sidebar, this one will
-                        "push" the main content out of the way
+                        &quot;push&quot; the main content out of the way
                     </p>
                     <button onClick={() => setOpen(x => !x)}>
                         Toggle sidebar
@@ -206,17 +204,17 @@ storiesOf('Component/Layout', module)
         <SidebarLayout side="right">
             <Sidebar>
                 <DemoContentBox>
-                    <h3>Hello, I'm a Right Sidebar!</h3>
+                    <h3>Hello, I&apos;m a Right Sidebar!</h3>
                 </DemoContentBox>
             </Sidebar>
             <DemoContentBox>
                 <h3>Try me!</h3>
                 <p>
-                    Just like before, here's a Sidebar - but now it's on the
+                    Just like before, here&apos;s a Sidebar - but now it&apos;s on the
                     right!
                 </p>
                 <p>
-                    It's collapsible too - Resize your browser so that this
+                    It&apos;s collapsible too - Resize your browser so that this
                     viewport is narrower than 640px.
                 </p>
             </DemoContentBox>
@@ -226,17 +224,17 @@ storiesOf('Component/Layout', module)
         <SidebarLayout side="right">
             <Sidebar collapsed>
                 <DemoContentBox>
-                    <h3>Hello, I'm a Right Sidebar!</h3>
+                    <h3>Hello, I&apos;m a Right Sidebar!</h3>
                 </DemoContentBox>
             </Sidebar>
             <DemoContentBox>
                 <h3>Try me!</h3>
                 <p>
-                    Here's another sidebar (look for the toggle button over
+                    Here&apos;s another sidebar (look for the toggle button over
                     there! &rarr;)
                 </p>
                 <p>
-                    We've set the <strong>collapsed</strong> prop to{' '}
+                    We&apos;ve set the <strong>collapsed</strong> prop to{' '}
                     <strong>true</strong> here.
                 </p>
                 <p>
@@ -253,7 +251,7 @@ storiesOf('Component/Layout', module)
                 {open && (
                     <Sidebar collapsible={false}>
                         <DemoContentBox>
-                            <h3>Hello, I'm a Right Sidebar!</h3>
+                            <h3>Hello, I&apos;m a Right Sidebar!</h3>
                         </DemoContentBox>
                     </Sidebar>
                 )}
@@ -293,7 +291,7 @@ storiesOf('Component/Layout', module)
                     <p>
                         Also note that the final content section will always be
                         automatically DHIS2-styled with a background color and
-                        some padding - it's ready for some content!
+                        some padding - it&apos;s ready for some content!
                     </p>
                 </DemoContentBox>
             </SidebarLayout>
@@ -320,14 +318,14 @@ storiesOf('Component/Layout', module)
             <SidebarLayout>
                 <Sidebar>
                     <p>
-                        Now let's take off the training wheels and get rid of
+                        Now let&apos;s take off the training wheels and get rid of
                         those content block outlines
                     </p>
                 </Sidebar>
                 <div>
                     <h1>So long, and thanks for all the fish!</h1>
                     <p>
-                        That's all for now, go build DHIS2 apps with these
+                        That&apos;s all for now, go build DHIS2 apps with these
                         stunningly simple Layouts!
                     </p>
                 </div>
@@ -372,10 +370,10 @@ storiesOf('Component/Layout', module)
                     <TopbarLayout>
                         <Topbar>
                             <strong>
-                                Please don't ever make a layout like this!
+                                Please don&apos;t ever make a layout like this!
                             </strong>
                             <span>
-                                Though it's technically possible, so that's
+                                Though it&apos;s technically possible, so that&apos;s
                                 cool...
                             </span>
                         </Topbar>

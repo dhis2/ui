@@ -1,13 +1,15 @@
 import classNames from 'classnames'
+import PropTypes from 'prop-types'
+import React from 'react'
 import { Layout } from '../Layout'
-import { sidebarLayoutStyles } from './SidebarLayout.styles'
 import { LayoutContent } from '../LayoutContent'
+import { sidebarLayoutStyles } from './SidebarLayout.styles'
 
 export const SidebarLayout = ({
     className,
     style,
     children,
-    side = 'left',
+    side,
 }) => (
     <Layout
         className={classNames(
@@ -23,3 +25,17 @@ export const SidebarLayout = ({
         <LayoutContent>{children[1]}</LayoutContent>
     </Layout>
 )
+
+SidebarLayout.defaultProps = {
+    side: 'left',
+}
+
+SidebarLayout.propTypes = {
+    children: PropTypes.any.isRequired,
+    className: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.instanceOf(Object),
+    ]),
+    side: PropTypes.string,
+    style: PropTypes.instanceOf(Object),
+}

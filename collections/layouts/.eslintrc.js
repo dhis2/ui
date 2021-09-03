@@ -15,7 +15,7 @@ module.exports = {
                     '@dhis2/ui-forms/*',
                     '@dhis2/ui/*',
                     '@dhis2/ui-widgets/*',
-                    '@dhis2/ui-layouts/*'
+                    '@dhis2/ui-layouts/*',
                 ],
             },
         ],

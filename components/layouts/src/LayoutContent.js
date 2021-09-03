@@ -1,4 +1,6 @@
 import classNames from 'classnames'
+import PropTypes from 'prop-types'
+import React from 'react'
 import { layoutContentStyles } from './Layout.styles'
 
 export const LayoutContent = ({ className, style, children }) => (
@@ -14,3 +16,12 @@ export const LayoutContent = ({ className, style, children }) => (
         {children}
     </div>
 )
+
+LayoutContent.propTypes = {
+    children: PropTypes.any.isRequired,
+    className: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.instanceOf(Object),
+    ]),
+    style: PropTypes.instanceOf(Object),
+}
