@@ -1,13 +1,11 @@
+import classNames from 'classnames'
+import { useEffect, useState, useRef } from 'react'
+import { useParentSize, LayoutOverlay } from '../index.js'
 import {
     sidebarStyles,
     sidebarToggleStyles,
     sidebarSize,
-} from './SidebarLayout.styles'
-import classNames from 'classnames'
-import { useParentSize } from '../useParentSize'
-import { useEffect, useState, useRef } from 'react'
-
-import { LayoutOverlay } from '../LayoutOverlay'
+} from './sidebar-layout.styles.js'
 
 const isBooleanSpecified = x => x === true || x === false
 

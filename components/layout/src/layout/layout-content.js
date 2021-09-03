@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { layoutContentStyles } from './Layout.styles'
+import { layoutContentStyles } from './layout.styles.js'
 
 export const LayoutContent = ({ className, style, children }) => (
     <div

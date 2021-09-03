@@ -4,13 +4,13 @@
 
 ## Components Available
 
-- `Layout` (internal)
-- `LayoutContent` (internal)
-- `LayoutOverlay` (internal)
-- `SidebarContainer`
-- `Sidebar`
-- `TopbarContainer`
-- `Topbar`
+-   `Layout` (internal)
+-   `LayoutContent` (internal)
+-   `LayoutOverlay` (internal)
+-   `SidebarContainer`
+-   `Sidebar`
+-   `TopbarContainer`
+-   `Topbar`
 
 ## Example Usage
 
@@ -37,15 +37,15 @@ Here's a simple full application layout example including both Topbar and Sideba
     <SidebarLayout>
         <Sidebar>
             <p>
-                Now let's take off the training wheels and get rid of
-                those content block outlines
+                Now let's take off the training wheels and get rid of those
+                content block outlines
             </p>
         </Sidebar>
         <div>
             <h1>So long, and thanks for all the fish!</h1>
             <p>
-                That's all for now, go build DHIS2 apps with these
-                stunningly simple Layouts!
+                That's all for now, go build DHIS2 apps with these stunningly
+                simple Layouts!
             </p>
         </div>
     </SidebarLayout>

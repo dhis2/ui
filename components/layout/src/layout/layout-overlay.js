@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { layoutOverlayStyles } from './Layout.styles'
+import { layoutOverlayStyles } from './layout.styles.js'
 
 export const LayoutOverlay = React.forwardRef(
     ({ className, children, ...props }, ref) => (

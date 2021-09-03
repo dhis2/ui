@@ -1,6 +1,6 @@
-import { topbarStyles } from './TopbarLayout.styles'
 import classNames from 'classnames'
-import { LayoutOverlay } from '../LayoutOverlay'
+import { LayoutOverlay } from '../index.js'
+import { topbarStyles } from './topbar-layout.styles.js'
 
 export const Topbar = ({ className, style, children }) => (
     <LayoutOverlay

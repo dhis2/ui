@@ -1,7 +1,6 @@
 import classNames from 'classnames'
-import { Layout } from '../Layout'
-import { sidebarLayoutStyles } from './SidebarLayout.styles'
-import { LayoutContent } from '../LayoutContent'
+import { Layout, LayoutContent } from '../index.js'
+import { sidebarLayoutStyles } from './sidebar-layout.styles.js'
 
 export const SidebarLayout = ({
     className,

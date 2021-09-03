@@ -1,12 +1,8 @@
-import React, { useState } from 'react'
+import { Button } from '@dhis2-ui/button'
+import { LogoIcon } from '@dhis2-ui/logo'
 import { storiesOf } from '@storybook/react'
-import { TopbarLayout } from './TopbarLayout/TopbarLayout.js'
-import { Topbar } from './TopbarLayout/Topbar.js'
-import { SidebarLayout } from './SidebarLayout/SidebarLayout.js'
-import { Sidebar } from './SidebarLayout/Sidebar.js'
-
-import { LogoIcon } from '@dhis2/ui-widgets'
-import { Button } from '@dhis2/ui-widgets'
+import React, { useState } from 'react'
+import { TopbarLayout, Topbar, SidebarLayout, Sidebar } from './index.js'
 
 const AppsIcon = () => (
     <svg

@@ -1,7 +1,6 @@
 import classNames from 'classnames'
-import { Layout } from '../Layout'
-import { topbarLayoutStyles } from './TopbarLayout.styles'
-import { LayoutContent } from '../LayoutContent'
+import { Layout, LayoutContent } from '../index.js'
+import { topbarLayoutStyles } from './topbar-layout.styles.js'
 
 export const TopbarLayout = ({ className, style, children }) => (
     <Layout
