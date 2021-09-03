@@ -35,6 +35,11 @@ export default css`
         }
     }
 
+    .unselectable {
+        cursor: default;
+        user-select: none;
+    }
+
     .info {
         margin-right: ${spacers.dp16};
     }

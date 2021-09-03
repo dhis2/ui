@@ -35,10 +35,14 @@ export function OnlineStatus({ dense }) {
             className={cx('container', dense ? 'bar' : 'badge')}
             data-test="headerbar-online-status"
         >
-            {info && !dense && <span className="info">{info}</span>}
+            {info && !dense && (
+                <span className="info unselectable">{info}</span>
+            )}
             <div className={cx('icon', online ? 'online' : 'offline')}></div>
-            <span className="label">{displayStatus}</span>
-            {info && dense && <span className="info-dense">{info}</span>}
+            <span className="label unselectable">{displayStatus}</span>
+            {info && dense && (
+                <span className="info-dense unselectable">{info}</span>
+            )}
             <style jsx>{styles}</style>
         </div>
     )
