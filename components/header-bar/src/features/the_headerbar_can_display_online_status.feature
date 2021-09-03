@@ -46,18 +46,17 @@ Feature: The HeaderBar can display online status
         And the browser goes offline
         Then no info text is displayed
 
-    # These tests can individually fail intermittently, disrupting CI.
-    # Disabled for the time being:
+    Scenario: Last online text is displayed in status badge when configured and offline
+        Given the HeaderBar loads without error with 'LAST_ONLINE' configured
+        Then no info text is displayed
+        And the browser goes offline
+        Then localStorage contains the correct lastOnline date
+        Then last online text is displayed in the status badge
 
-    # Scenario: Last online text is displayed in status badge when configured and offline
-    #     Given the HeaderBar loads without error with 'LAST_ONLINE' configured
-    #     Then no info text is displayed
-    #     And the browser goes offline
-    #     Then last online text is displayed in the status badge
-
-    # Scenario: Last online text is displayed in status bar when configured and offline
-    #     Given the HeaderBar loads without error with 'LAST_ONLINE' configured
-    #     And the viewport is narrower than 480px
-    #     Then no info text is displayed
-    #     And the browser goes offline
-    #     Then last online text is displayed in the mobile status bar
+    Scenario: Last online text is displayed in status bar when configured and offline
+        Given the HeaderBar loads without error with 'LAST_ONLINE' configured
+        And the viewport is narrower than 480px
+        Then no info text is displayed
+        And the browser goes offline
+        Then localStorage contains the correct lastOnline date
+        Then last online text is displayed in the mobile status bar

@@ -129,6 +129,14 @@ Then('no info text is displayed', () => {
     )
 })
 
+Then('localStorage contains the correct lastOnline date', () => {
+    const lastOnline = localStorage.getItem('dhis2.lastOnline')
+    const timeDiff = new Date(lastOnline).valueOf() - Date.now()
+    // Updated within last second?
+    console.log({ timeDiff })
+    expect(timeDiff).to.be.lessThan(100)
+})
+
 Then('last online text is displayed in the status badge', () => {
     cy.get('[data-test="headerbar-online-status"].badge .info').should(
         'include.text',
