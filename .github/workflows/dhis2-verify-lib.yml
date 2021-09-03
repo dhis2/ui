@@ -15,7 +15,7 @@ env:
     D2_VERBOSE: true
 
 jobs:
-    setup&e2e:
+    setup-and-e2e:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
