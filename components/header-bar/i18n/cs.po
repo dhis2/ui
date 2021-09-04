@@ -19,7 +19,7 @@ msgid "Search apps"
 msgstr "Hledat aplikace"
 
 msgid "Last online {{relativeTime}}"
-msgstr ""
+msgstr "Poslední online {{relativeTime}}"
 
 msgid "Online"
 msgstr "Online"
