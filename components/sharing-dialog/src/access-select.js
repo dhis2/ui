@@ -20,7 +20,7 @@ export const AccessSelect = ({
 }) => {
     const { offline } = useOnlineStatus()
 
-    const SelectField = () => (
+    const renderSingleSelectField = () => (
         <SingleSelectField
             label={label}
             placeholder={placeholder}
@@ -53,10 +53,10 @@ export const AccessSelect = ({
             <style jsx>{accessSelectStyles}</style>
             {offline ? (
                 <Tooltip content={i18n.t('Not available offline')}>
-                    <SelectField />
+                    {renderSingleSelectField()}
                 </Tooltip>
             ) : (
-                <SelectField />
+                renderSingleSelectField()
             )}
         </div>
     )

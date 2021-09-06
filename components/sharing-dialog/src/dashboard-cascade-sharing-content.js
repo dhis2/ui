@@ -50,7 +50,7 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
         Object.keys(sharingSettings.users).length +
         Object.keys(sharingSettings.groups).length
 
-    const ApplySharingButton = () => (
+    const renderApplySharingButton = () => (
         <Button
             type="button"
             disabled={offline || loading || !usersGroupsCount}
@@ -193,10 +193,10 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
             {queryResponse?.dashboard.itemCount && getInfoMessage()}
             {offline ? (
                 <Tooltip content={i18n.t('Not available offline')}>
-                    <ApplySharingButton />
+                    {renderApplySharingButton()}
                 </Tooltip>
             ) : (
-                <ApplySharingButton />
+                renderApplySharingButton()
             )}
             {loading && (
                 <div className="loading">
