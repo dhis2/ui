@@ -1,3 +1,11 @@
+## [6.23.5](https://github.com/dhis2/ui/compare/v6.23.4...v6.23.5) (2021-09-06)
+
+
+### Bug Fixes
+
+* avoid remounting components ([91ce18f](https://github.com/dhis2/ui/commit/91ce18fefd9a1f5704db6fd9cbe3996b464a4ee2))
+* unescape object title ([dd9e15c](https://github.com/dhis2/ui/commit/dd9e15c7844baf92fac459e1ec26500a7470bff2))
+
 ## [6.23.4](https://github.com/dhis2/ui/compare/v6.23.3...v6.23.4) (2021-09-05)
 
 
