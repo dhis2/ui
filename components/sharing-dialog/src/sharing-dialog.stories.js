@@ -103,7 +103,7 @@ const customData = {
         object: {
             ...customDefaultData.sharing.object,
             name: 'Sharing test',
-            displayName: 'Sharing test',
+            displayName: "Sharing dialog's test",
         },
     },
 }

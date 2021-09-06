@@ -26,6 +26,7 @@ describe('SharingDialog widget', () => {
     beforeEach(() => {
         shallowSharingDialog = undefined
         props = {
+            id: 'sharing-test',
             type: 'visualization',
             onClose,
             onError,
