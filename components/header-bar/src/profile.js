@@ -50,6 +50,7 @@ export default class Profile extends React.Component {
                         name={name}
                         email={email}
                         helpUrl={helpUrl}
+                        onLogout={this.props.onLogout}
                     />
                 ) : null}
 
@@ -85,4 +86,5 @@ Profile.propTypes = {
     avatarUrl: propTypes.string,
     email: propTypes.string,
     helpUrl: propTypes.string,
+    onLogout: propTypes.func,
 }

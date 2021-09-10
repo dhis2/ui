@@ -278,3 +278,12 @@ WithLastOnlineInfo.parameters = {
         },
     },
 }
+
+export const WithOnLogoutCallback = args => (
+    <Provider config={mockConfig}>
+        <CustomDataProvider data={customData}>
+            <HeaderBar {...args} />
+        </CustomDataProvider>
+    </Provider>
+)
+WithOnLogoutCallback.args = { onLogout: () => console.log('onLogout called') }

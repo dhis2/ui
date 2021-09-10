@@ -35,7 +35,7 @@ const query = {
 const avatarUrl = (avatar, baseUrl) =>
     avatar ? joinPath(baseUrl, 'api/fileResources', avatar.id, 'data') : null
 
-export const HeaderBar = ({ appName, className }) => {
+export const HeaderBar = ({ appName, className, onLogout }) => {
     const {
         baseUrl,
         pwaEnabled,
@@ -91,6 +91,7 @@ export const HeaderBar = ({ appName, className }) => {
                             email={data.user.email}
                             avatarUrl={avatarUrl(data.user.avatar, baseUrl)}
                             helpUrl={data.help.helpPageLink}
+                            onLogout={onLogout}
                         />
                     </>
                 )}
@@ -121,4 +122,6 @@ export const HeaderBar = ({ appName, className }) => {
 HeaderBar.propTypes = {
     appName: PropTypes.string,
     className: PropTypes.string,
+    /** Callback to be called when user logs out. Called with no arguments */
+    onLogout: PropTypes.func,
 }

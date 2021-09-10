@@ -16,7 +16,7 @@ import { joinPath } from '../join-path.js'
 import i18n from '../locales/index.js'
 import { ProfileHeader } from './profile-header.js'
 
-const ProfileContents = ({ name, email, avatarUrl, helpUrl }) => {
+const ProfileContents = ({ name, email, avatarUrl, helpUrl, onLogout }) => {
     const { baseUrl } = useConfig()
 
     return (
@@ -69,6 +69,7 @@ const ProfileContents = ({ name, email, avatarUrl, helpUrl }) => {
                             baseUrl,
                             'dhis-web-commons-security/logout.action'
                         )}
+                        onClick={onLogout}
                         label={i18n.t('Logout')}
                         value="logout"
                         icon={<IconLogOut24 color={colors.grey700} />}
@@ -105,15 +106,17 @@ ProfileContents.propTypes = {
     email: propTypes.string,
     helpUrl: propTypes.string,
     name: propTypes.string,
+    onLogout: propTypes.func,
 }
 
-export const ProfileMenu = ({ avatarUrl, name, email, helpUrl }) => (
+export const ProfileMenu = ({ avatarUrl, name, email, helpUrl, onLogout }) => (
     <div data-test="headerbar-profile-menu">
         <ProfileContents
             name={name}
             email={email}
             avatarUrl={avatarUrl}
             helpUrl={helpUrl}
+            onLogout={onLogout}
         />
         <style jsx>{`
             div {
@@ -133,4 +136,5 @@ ProfileMenu.propTypes = {
     email: propTypes.string,
     helpUrl: propTypes.string,
     name: propTypes.string,
+    onLogout: propTypes.func,
 }
