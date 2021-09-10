@@ -73,7 +73,9 @@ const ProfileContents = ({ name, email, avatarUrl, helpUrl, onLogout }) => {
                         // overwrites default navigation behavior but maintains
                         // the href attribute
                         onClick={async () => {
-                            await onLogout()
+                            if (onLogout) {
+                                await onLogout()
+                            }
                             window.location.assign(
                                 joinPath(
                                     baseUrl,
