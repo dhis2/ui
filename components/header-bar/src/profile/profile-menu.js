@@ -69,7 +69,18 @@ const ProfileContents = ({ name, email, avatarUrl, helpUrl, onLogout }) => {
                             baseUrl,
                             'dhis-web-commons-security/logout.action'
                         )}
-                        onClick={onLogout}
+                        // NB: By MenuItem implementation, this callback
+                        // overwrites default navigation behavior but maintains
+                        // the href attribute
+                        onClick={async () => {
+                            await onLogout()
+                            window.location.assign(
+                                joinPath(
+                                    baseUrl,
+                                    'dhis-web-commons-security/logout.action'
+                                )
+                            )
+                        }}
                         label={i18n.t('Logout')}
                         value="logout"
                         icon={<IconLogOut24 color={colors.grey700} />}

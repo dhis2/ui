@@ -286,4 +286,15 @@ export const WithOnLogoutCallback = args => (
         </CustomDataProvider>
     </Provider>
 )
-WithOnLogoutCallback.args = { onLogout: () => console.log('onLogout called') }
+WithOnLogoutCallback.args = {
+    onLogout: () => {
+        console.log('onLogout called')
+        // tests callback async handling
+        return new Promise(res =>
+            setTimeout(() => {
+                res()
+                console.log('onLogout resolved')
+            }, 2000)
+        )
+    },
+}
