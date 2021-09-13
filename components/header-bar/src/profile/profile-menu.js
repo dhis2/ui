@@ -24,7 +24,11 @@ import { ProfileHeader } from './profile-header.js'
 const clearSensitiveCaches = () => new Promise(res => setTimeout(res, 2000))
 
 const LoadingMask = () => (
-    <Layer translucent disablePortal>
+    <Layer
+        translucent
+        disablePortal
+        dataTest="headerbar-profile-menu-loading-mask"
+    >
         <Center>
             <CircularLoader />
         </Center>
