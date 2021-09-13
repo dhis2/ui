@@ -1,3 +1,20 @@
+# [6.24.0](https://github.com/dhis2/ui/compare/v6.23.5...v6.24.0) (2021-09-13)
+
+
+### Features
+
+* **button:** consistent focus styles ([8b1dd2e](https://github.com/dhis2/ui/commit/8b1dd2e7558d62e4dd535d04d27c04fe0c2aa2d2))
+* **checkbox:** consistent focus styles ([5ab51bd](https://github.com/dhis2/ui/commit/5ab51bd9519e066bf4fd853372b62307ec267304))
+* **file-input:** consistent focus styles ([5045342](https://github.com/dhis2/ui/commit/5045342c760e51ef400daa6e662d17a02f7b6458))
+* **input:** consistent focus styles ([bfeb69e](https://github.com/dhis2/ui/commit/bfeb69e77e7f425d0d4b22e6194b8f1e9bcddc12))
+* **menu:** consistent focus styles ([dd50f43](https://github.com/dhis2/ui/commit/dd50f439d385421741d86dd2214842fcbce84b0d))
+* **radio:** consistent focus styles ([708be8c](https://github.com/dhis2/ui/commit/708be8cde871f5bdefa85a41332de6961b54b602))
+* **select:** consistent focus styles ([7009aa1](https://github.com/dhis2/ui/commit/7009aa135f802430f6024702943281f9f3e06cf1))
+* **switch:** consistent focus styles ([b808192](https://github.com/dhis2/ui/commit/b80819236620ec23cf43df22539b158cd4d702c0))
+* **tab:** consistent focus styles ([917a275](https://github.com/dhis2/ui/commit/917a27589de1ba5db3a1dc003fc449e2fa9c3324))
+* **text-area:** consistent focus styles ([3b1ccf6](https://github.com/dhis2/ui/commit/3b1ccf6b139a8c5e56b71811437808e8809547d2))
+* **theme:** add focus theme color ([b74ae99](https://github.com/dhis2/ui/commit/b74ae9919ffeb8c187d68d4ce83e802007513d5b))
+
 ## [6.23.5](https://github.com/dhis2/ui/compare/v6.23.4...v6.23.5) (2021-09-06)
 
 
