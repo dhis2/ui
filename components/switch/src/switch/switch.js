@@ -148,7 +148,8 @@ class Switch extends Component {
                     }
 
                     input:focus + .icon {
-                        border-color: ${colors.blue600};
+                        outline: 3px solid ${theme.focus};
+                        outline-offset: -1px;
                     }
                 `}</style>
             </label>

@@ -34,4 +34,5 @@ export const theme = {
     valid: colors.blue600,
     warning: colors.yellow500,
     disabled: colors.grey600,
+    focus: colors.blue600,
 }

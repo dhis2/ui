@@ -53,8 +53,8 @@ const InputWrapper = ({
 
                 .root:focus,
                 .root:active {
-                    border-color: ${colors.teal400};
-                    outline: 0;
+                    outline: none;
+                    box-shadow: 0 0 0 3px ${theme.focus};
                 }
 
                 .root.valid {
