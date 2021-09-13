@@ -35,8 +35,11 @@
     "dependencies": {
         "@dhis2-ui/box": "6.23.5",
         "@dhis2-ui/card": "6.23.5",
+        "@dhis2-ui/center": "6.23.5",
         "@dhis2-ui/divider": "6.23.5",
         "@dhis2-ui/input": "6.23.5",
+        "@dhis2-ui/layer": "6.23.5",
+        "@dhis2-ui/loader": "6.23.5",
         "@dhis2-ui/logo": "6.23.5",
         "@dhis2-ui/menu": "6.23.5",
         "@dhis2/prop-types": "^1.6.4",

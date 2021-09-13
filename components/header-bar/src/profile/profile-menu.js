@@ -1,7 +1,11 @@
 import { Card } from '@dhis2-ui/card'
+import { Center } from '@dhis2-ui/center'
 import { Divider } from '@dhis2-ui/divider'
+import { Layer } from '@dhis2-ui/layer'
+import { CircularLoader } from '@dhis2-ui/loader'
 import { MenuItem } from '@dhis2-ui/menu'
-import { useConfig } from '@dhis2/app-runtime'
+// todo:
+import { useConfig /* , clearSensitiveCaches */ } from '@dhis2/app-runtime'
 import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
 import {
@@ -11,13 +15,25 @@ import {
     IconUser24,
     IconQuestion24,
 } from '@dhis2/ui-icons'
-import React from 'react'
+import React, { useState } from 'react'
 import { joinPath } from '../join-path.js'
 import i18n from '../locales/index.js'
 import { ProfileHeader } from './profile-header.js'
 
-const ProfileContents = ({ name, email, avatarUrl, helpUrl, onLogout }) => {
+// todo: swap out for app-runtime
+const clearSensitiveCaches = () => new Promise(res => setTimeout(res, 2000))
+
+const LoadingMask = () => (
+    <Layer translucent disablePortal>
+        <Center>
+            <CircularLoader />
+        </Center>
+    </Layer>
+)
+
+const ProfileContents = ({ name, email, avatarUrl, helpUrl }) => {
     const { baseUrl } = useConfig()
+    const [loading, setLoading] = useState(false)
 
     return (
         <Card>
@@ -73,9 +89,9 @@ const ProfileContents = ({ name, email, avatarUrl, helpUrl, onLogout }) => {
                         // overwrites default navigation behavior but maintains
                         // the href attribute
                         onClick={async () => {
-                            if (onLogout) {
-                                await onLogout()
-                            }
+                            setLoading(true)
+                            await clearSensitiveCaches()
+                            setLoading(false)
                             window.location.assign(
                                 joinPath(
                                     baseUrl,
@@ -89,6 +105,8 @@ const ProfileContents = ({ name, email, avatarUrl, helpUrl, onLogout }) => {
                     />
                 </ul>
             </div>
+
+            {loading && <LoadingMask />}
 
             <style jsx>{`
                 div {
@@ -119,17 +137,15 @@ ProfileContents.propTypes = {
     email: propTypes.string,
     helpUrl: propTypes.string,
     name: propTypes.string,
-    onLogout: propTypes.func,
 }
 
-export const ProfileMenu = ({ avatarUrl, name, email, helpUrl, onLogout }) => (
+export const ProfileMenu = ({ avatarUrl, name, email, helpUrl }) => (
     <div data-test="headerbar-profile-menu">
         <ProfileContents
             name={name}
             email={email}
             avatarUrl={avatarUrl}
             helpUrl={helpUrl}
-            onLogout={onLogout}
         />
         <style jsx>{`
             div {
@@ -149,5 +165,4 @@ ProfileMenu.propTypes = {
     email: propTypes.string,
     helpUrl: propTypes.string,
     name: propTypes.string,
-    onLogout: propTypes.func,
 }
