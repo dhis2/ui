@@ -32,31 +32,15 @@ export default css`
     }
 
     button:focus {
-        /* Prevent default browser behavior which adds an outline */
-        outline: none;
-    }
-
-    /* Use the ::after pseudo-element for focus styles */
-    button::after {
-        content: ' ';
-        pointer-events: none;
-
-        position: absolute;
-        top: -2px;
-        right: -2px;
-        bottom: -2px;
-        left: -2px;
-
-        border: 2px solid transparent;
-        border-radius: inherit;
-
-        transition: border-color 0.15s cubic-bezier(0.4, 0, 0.6, 1);
+        outline: 3px solid ${theme.focus};
+        outline-offset: 2px;
+        transition: none;
     }
 
     /* Prevent focus styles on active and disabled buttons */
-    button:active:focus::after,
-    button:disabled:focus::after {
-        border-color: transparent;
+    button:active:focus,
+    button:disabled:focus {
+        outline: none;
     }
 
     button:hover {
@@ -73,10 +57,6 @@ export default css`
 
     button:focus {
         background-color: #f9fafb;
-    }
-
-    button:focus::after {
-        border-color: ${theme.primary600};
     }
 
     button:disabled {
@@ -119,7 +99,6 @@ export default css`
 
     .primary:active,
     .primary:active:focus {
-        border-color: ${theme.primary800};
         background: linear-gradient(180deg, #054fa3 0%, #034793 100%);
         background-color: #1c4a90;
         box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18) inset;
@@ -128,10 +107,6 @@ export default css`
     .primary:focus {
         background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
         background-color: #285dac;
-    }
-
-    .primary:focus::after {
-        border-color: ${colors.yellow300};
     }
 
     .primary:disabled {
@@ -154,17 +129,12 @@ export default css`
 
     .secondary:active,
     .secondary:active:focus {
-        border-color: ${colors.grey400};
         background-color: rgba(160, 173, 186, 0.2);
         box-shadow: none;
     }
 
     .secondary:focus {
         background-color: transparent;
-    }
-
-    .secondary:focus::after {
-        border-color: ${theme.primary600};
     }
 
     .secondary:disabled {
@@ -192,7 +162,6 @@ export default css`
 
     .destructive:active,
     .destructive:active:focus {
-        border-color: #a10b0b;
         background: linear-gradient(180deg, #b81c1c 0%, #b80c0b 100%);
         background-color: #ac101b;
         box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18) inset;
@@ -201,10 +170,6 @@ export default css`
     .destructive:focus {
         background: linear-gradient(180deg, #d32f2f 0%, #b71c1c 100%);
         background-color: #b72229;
-    }
-
-    .destructive:focus:after {
-        border-color: #5e0303;
     }
 
     .destructive:disabled {
@@ -253,16 +218,11 @@ export default css`
 
     .toggled:focus {
         background: ${colors.grey800};
-        border: 1px solid ${colors.yellow300};
     }
 
     .toggled:hover {
         background: ${colors.grey800};
         border-color: ${colors.grey900};
-    }
-
-    .toggled:focus::after {
-        border-color: ${colors.yellow300};
     }
 
     .toggled:active,

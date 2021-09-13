@@ -1,6 +1,6 @@
 import { CircularLoader } from '@dhis2-ui/loader'
 import propTypes from '@dhis2/prop-types'
-import { colors, spacers } from '@dhis2/ui-constants'
+import { theme, colors, spacers } from '@dhis2/ui-constants'
 import { IconAttachment16 } from '@dhis2/ui-icons'
 import cx from 'classnames'
 import React from 'react'
@@ -88,6 +88,10 @@ const FileListItem = ({
             }
             .action:active {
                 color: ${colors.red800};
+            }
+            .action:focus {
+                outline: 3px solid ${theme.focus};
+                outline-offset: 2px;
             }
         `}</style>
     </p>
