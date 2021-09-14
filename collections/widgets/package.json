@@ -58,10 +58,10 @@
         "build"
     ],
     "devDependencies": {
-        "@dhis2/app-runtime": "^2.9.2",
+        "@dhis2/app-runtime": "^2.11.0",
         "@dhis2/d2-i18n": "^1.1.0",
-        "@dhis2/ui-constants": "6.24.1",
-        "@dhis2/ui-core": "6.24.1",
+        "@dhis2/ui-constants": "*",
+        "@dhis2/ui-core": "*",
         "react": "16.13",
         "react-dom": "16.13",
         "styled-jsx": "^3.4.7"

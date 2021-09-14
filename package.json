@@ -46,7 +46,7 @@
         }
     },
     "dependencies": {
-        "@dhis2/app-runtime": "^2.9.2",
+        "@dhis2/app-runtime": "^2.11.0",
         "@dhis2/cli-app-scripts": "^7.3.0",
         "@dhis2/cli-style": "^9.0.1",
         "@dhis2/cli-utils-cypress": "^8.0.1",
@@ -56,6 +56,7 @@
         "@dhis2/d2-i18n": "^1.1.0",
         "@manypkg/cli": "^0.18.0",
         "@svgr/cli": "^5.5.0",
+        "@testing-library/react-hooks": "^7.0.1",
         "concurrently": "^6.2.0",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.6",
