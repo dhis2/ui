@@ -2,7 +2,7 @@ const PRIMITIVE_TYPES = new Set(['string', 'number', 'boolean'])
 
 const createChangeHandler = ({ onChange }) => payload => {
     if (payload && 'value' in payload) {
-        // ui-core event signature
+        // ui event signature
         onChange(payload.value)
     } else if (payload && payload.target && 'value' in payload.target) {
         // synthetic event

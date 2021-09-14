@@ -1,4 +1,4 @@
-import { SwitchField } from '@dhis2/ui-widgets'
+import { SwitchField } from '@dhis2-ui/switch'
 import PropTypes from 'prop-types'
 import React from 'react'
 import {

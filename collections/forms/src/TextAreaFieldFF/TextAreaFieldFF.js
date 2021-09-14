@@ -1,4 +1,4 @@
-import { TextAreaField } from '@dhis2/ui-widgets'
+import { TextAreaField } from '@dhis2-ui/text-area'
 import PropTypes from 'prop-types'
 import React from 'react'
 import {

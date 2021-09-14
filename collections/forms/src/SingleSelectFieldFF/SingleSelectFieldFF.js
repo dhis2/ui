@@ -1,5 +1,4 @@
-import { SingleSelectOption } from '@dhis2/ui-core'
-import { SingleSelectField } from '@dhis2/ui-widgets'
+import { SingleSelectOption, SingleSelectField } from '@dhis2-ui/select'
 import PropTypes from 'prop-types'
 import React from 'react'
 import {

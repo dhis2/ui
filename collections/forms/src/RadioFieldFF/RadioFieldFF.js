@@ -1,4 +1,4 @@
-import { Radio } from '@dhis2/ui-core'
+import { Radio } from '@dhis2-ui/radio'
 import PropTypes from 'prop-types'
 import React from 'react'
 import {

@@ -1,4 +1,4 @@
-import { FieldGroup } from '@dhis2/ui-widgets'
+import { FieldGroup } from '@dhis2-ui/field'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { useField } from 'react-final-form'
