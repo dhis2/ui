@@ -71,13 +71,13 @@
         "@dhis2/d2-i18n": "^1",
         "react": "^16.8",
         "react-dom": "^16.8",
-        "styled-jsx": "^3.2"
+        "styled-jsx": "^4"
     },
     "devDependencies": {
         "@dhis2/app-runtime": "^2.11.0",
         "@dhis2/d2-i18n": "^1.1.0",
         "react": "16.13",
         "react-dom": "16.13",
-        "styled-jsx": "^3.4.7"
+        "styled-jsx": "^4.0.1"
     }
 }
