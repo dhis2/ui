@@ -1,3 +1,10 @@
+## [6.24.1](https://github.com/dhis2/ui/compare/v6.24.0...v6.24.1) (2021-09-14)
+
+
+### Bug Fixes
+
+* **deps:** bump styled-jsx from 3.4.4 to 4.0.1 ([#724](https://github.com/dhis2/ui/issues/724)) ([9513422](https://github.com/dhis2/ui/commit/95134229ba209f46283b2e6d154eec95d5776ed9))
+
 # [6.24.0](https://github.com/dhis2/ui/compare/v6.23.5...v6.24.0) (2021-09-13)
 
 
