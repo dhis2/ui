@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/header-bar",
-    "version": "6.24.1",
+    "version": "6.24.2",
     "description": "UI HeaderBar",
     "repository": {
         "type": "git",
@@ -33,15 +33,15 @@
         "styled-jsx": "^4"
     },
     "dependencies": {
-        "@dhis2-ui/box": "6.24.1",
-        "@dhis2-ui/card": "6.24.1",
-        "@dhis2-ui/divider": "6.24.1",
-        "@dhis2-ui/input": "6.24.1",
-        "@dhis2-ui/logo": "6.24.1",
-        "@dhis2-ui/menu": "6.24.1",
+        "@dhis2-ui/box": "6.24.2",
+        "@dhis2-ui/card": "6.24.2",
+        "@dhis2-ui/divider": "6.24.2",
+        "@dhis2-ui/input": "6.24.2",
+        "@dhis2-ui/logo": "6.24.2",
+        "@dhis2-ui/menu": "6.24.2",
         "@dhis2/prop-types": "^1.6.4",
-        "@dhis2/ui-constants": "6.24.1",
-        "@dhis2/ui-icons": "6.24.1",
+        "@dhis2/ui-constants": "6.24.2",
+        "@dhis2/ui-icons": "6.24.2",
         "classnames": "^2.3.1",
         "moment": "^2.29.1",
         "prop-types": "^15.7.2"

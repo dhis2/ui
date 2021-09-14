@@ -1,3 +1,10 @@
+## [6.24.2](https://github.com/dhis2/ui/compare/v6.24.1...v6.24.2) (2021-09-14)
+
+
+### Bug Fixes
+
+* **deps:** correct dependabot update error ([c68f41f](https://github.com/dhis2/ui/commit/c68f41f06aa45b291a4e6d0945853aa908079c75))
+
 ## [6.24.1](https://github.com/dhis2/ui/compare/v6.24.0...v6.24.1) (2021-09-14)
 
 
