@@ -18,9 +18,6 @@ And('there is no loading mask', () => {
 })
 
 Then('the user clicks the link to log out', () => {
-    // stub clearSensitiveCaches and window.location.assign here?
-    // window.location.assign can't be stubbed b/c window.location is read-only
-
     cy.get('[data-test="headerbar-profile-menu"] > li:nth-child(5)').trigger(
         'click'
     )
@@ -32,11 +29,25 @@ Then('a loading mask covers the screen', () => {
     )
 })
 
-And('clearSensitiveCaches is called', () => {
-    // todo: use with real app-runtime code
-    // expect(utils.clearSensitiveCaches).to.be.called
+// Currently not working
+And('clearSensitiveCaches is called', async () => {
+    // Open caches to test 'clearSensitiveCaches':
+    // A keepable cache
+    await caches.open('workbox-precache-v2-asdf')
+    // Other, potentially-sensitive cache
+    await caches.open('test-cache')
+
+    // Todo: wait for function to resolve (loading mask goes away?)
+    const keys = await caches.keys()
+    // Static asset caches are kept
+    expect(keys).to.include('workbox-precache-v2-asdf')
+    // Others are removed
+    expect(keys).not.to.include('test-cache')
 })
 
+// Currently not working
 Then('the window navigates to the logout URL', () => {
+    // (Currently unable to stub window.location.assign;
+    // would be done in 'Then the user clicks link to log out')
     // cy.get('@locationAssign').should('be.calledWith', logoutUrl)
 })

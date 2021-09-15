@@ -1690,35 +1690,35 @@
   dependencies:
     moment "^2.24.0"
 
-"@dhis2/app-runtime@^2.11.0", "@dhis2/app-runtime@^2.8.0", "@dhis2/app-runtime@^2.9.2":
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-2.11.0.tgz#85f6474ce8957e500ae129abe80bdc02a272d24d"
-  integrity sha512-rHqWttpOSgKpdSZXIe+Ay9fehkIAfYuTYshH4z0tYaCOdtRLz+J7z8EbESIwtTpcgrYaqv9gcojiqwc3/RwZiA==
+"@dhis2/app-runtime@^2.11.0", "@dhis2/app-runtime@^2.12.0", "@dhis2/app-runtime@^2.8.0", "@dhis2/app-runtime@^2.9.2":
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-2.12.0.tgz#a5cfcb49589e3deede7295e393794411e6f1c767"
+  integrity sha512-4CSA8ZMjvevSyueUv6n7dBsI7J9B1eL3syNNifecmBjF/pC0odaXo0FgDM161HWPd84Xsvvc2jOzWzafodp++A==
   dependencies:
-    "@dhis2/app-service-alerts" "2.11.0"
-    "@dhis2/app-service-config" "2.11.0"
-    "@dhis2/app-service-data" "2.11.0"
-    "@dhis2/app-service-offline" "2.11.0"
+    "@dhis2/app-service-alerts" "2.12.0"
+    "@dhis2/app-service-config" "2.12.0"
+    "@dhis2/app-service-data" "2.12.0"
+    "@dhis2/app-service-offline" "2.12.0"
 
-"@dhis2/app-service-alerts@2.11.0":
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-alerts/-/app-service-alerts-2.11.0.tgz#a6efcfc2c42558a6d4d1784c703d43d06d50625a"
-  integrity sha512-9PzDla7SxBERIYOoffWVF2bNMBQOjo46qRwNdoeXN6SCPyTpizNQjp5TGP5cSnvBIupcYtgAGnx/IIuxk0TBIA==
+"@dhis2/app-service-alerts@2.12.0":
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-alerts/-/app-service-alerts-2.12.0.tgz#c4817308a1379ff6158d7e8592519e990db3b849"
+  integrity sha512-Ilk/QjmIxjmalquCiXC39sY9wG+MhLjiryC1FXumOfI5imxSVN5lGWCZ6C4TjSZWA7z0WpfFQSXXqPDUDkfWIQ==
 
-"@dhis2/app-service-config@2.11.0":
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-config/-/app-service-config-2.11.0.tgz#9f3b4ca82b154528dd7e0fd9ff15382ae586a53e"
-  integrity sha512-nrlZSoVREuJ7wQXKAtaV8LmkuQpkKtTkvBMikuGXXKHJ/PT/Av56oSihLsLnHu4RiFFkgl7GHUdpYvFheNUhHQ==
+"@dhis2/app-service-config@2.12.0":
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-config/-/app-service-config-2.12.0.tgz#22e759da37654ee6648c9f83fd139d26a9718084"
+  integrity sha512-8hlFC+cvHUeYyBajCKl2IyJ15fjVTiT2+fN93rlvuO7t0ozrPTVCmjJb4d9s5NvKh9kqWQZKu0aZH90Ot2WBLA==
 
-"@dhis2/app-service-data@2.11.0":
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-data/-/app-service-data-2.11.0.tgz#77f7d2d47872a94c12758871bd4a09b18933f2d7"
-  integrity sha512-Pg4e8R05pIZkjCE6no4uYtshVwUVybPXAASRjx2VHw1vhGVPVCFqCmJdOgFSkQ1lHA1VtLkEd4uaKLXEKQpqXw==
+"@dhis2/app-service-data@2.12.0":
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-data/-/app-service-data-2.12.0.tgz#5c1b367508e89c40c3ebdb55b3b7f51edb0c472e"
+  integrity sha512-LkGh7jOqrhHZBU2lu/vApG9+6Zv5twcmCfB1uCtPl2tGnVh2BvUaOw/efmfFvWW3jODqX2T3Vey79i2+cpvjug==
 
-"@dhis2/app-service-offline@2.11.0":
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-offline/-/app-service-offline-2.11.0.tgz#75bf0c066911530906fb0e8487c5ba72a39ecc1f"
-  integrity sha512-s+5RzAvLYvkvH+x437KnmdiFv5yHaqaqUXoxbEVk0iHEp3b73giqLjONzUYf9ciWFdjEDeEwWvjZrkTzGlCl2w==
+"@dhis2/app-service-offline@2.12.0":
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-offline/-/app-service-offline-2.12.0.tgz#d64a9129d1413e03cab5d63a8b9b2fc6891841dd"
+  integrity sha512-dqkol98JN2uWR1hF0MVHSWW0h/YffePlq9yWtF3+3bVDp+aCGYr6Uio3EliRlOlggC+qzHjyd8o2cZWmS894WQ==
   dependencies:
     lodash "^4.17.21"
 
@@ -19673,10 +19673,8 @@ watchpack@^1.7.4:
   resolved "https://registry.yarnpkg.com/watchpack/-/watchpack-1.7.5.tgz#1267e6c55e0b9b5be44c2023aed5437a2c26c453"
   integrity sha512-9P3MWk6SrKjHsGkLT2KHXdQ/9SNkyoJbabxnKOoJepsvJjJG8uYTR3yTPxPQvNDI3w4Nz1xnE0TLHK4RIVe/MQ==
   dependencies:
-    chokidar "^3.4.1"
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
-    watchpack-chokidar2 "^2.0.1"
   optionalDependencies:
     chokidar "^3.4.1"
     watchpack-chokidar2 "^2.0.1"

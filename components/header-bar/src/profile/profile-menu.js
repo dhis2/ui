@@ -4,8 +4,7 @@ import { Divider } from '@dhis2-ui/divider'
 import { Layer } from '@dhis2-ui/layer'
 import { CircularLoader } from '@dhis2-ui/loader'
 import { MenuItem } from '@dhis2-ui/menu'
-// todo:
-import { useConfig /* , clearSensitiveCaches */ } from '@dhis2/app-runtime'
+import { useConfig, clearSensitiveCaches } from '@dhis2/app-runtime'
 import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
 import {
@@ -19,9 +18,6 @@ import React, { useState } from 'react'
 import { joinPath } from '../join-path.js'
 import i18n from '../locales/index.js'
 import { ProfileHeader } from './profile-header.js'
-
-// todo: swap out for app-runtime
-const clearSensitiveCaches = () => new Promise(res => setTimeout(res, 2000))
 
 const LoadingMask = () => (
     <Layer
