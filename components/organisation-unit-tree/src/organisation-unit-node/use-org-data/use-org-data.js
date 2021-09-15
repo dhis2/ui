@@ -1,5 +1,5 @@
 import { useDataQuery } from '@dhis2/app-runtime'
-import { useState } from 'react'
+import { useMemo, useEffect } from 'react'
 import { sortNodeChildrenAlphabetically } from '../../helpers/index.js'
 
 const ORG_DATA_QUERY = {
@@ -35,35 +35,27 @@ export const useOrgData = (
 
     const defaultData = { id, displayName }
     const variables = { id, isUserDataViewFallback }
-    const [state, setState] = useState({
-        loading: true,
-        error: null,
-        data: defaultData,
-    })
-
-    useDataQuery(ORG_DATA_QUERY, {
+    const { loading, error, data } = useDataQuery(ORG_DATA_QUERY, {
         variables,
-        onComplete: ({ orgUnit: node }) => {
-            const sorted = !suppressAlphabeticalSorting
-                ? sortNodeChildrenAlphabetically(node)
-                : node
-
-            const nextData = { ...defaultData, ...sorted }
-            setState({
-                ...state,
-                data: nextData,
-                loading: false,
-            })
-            onComplete && onComplete(nextData)
-        },
-        onError: queryError => {
-            setState({
-                ...state,
-                error: queryError,
-                loading: false,
-            })
-        },
     })
 
-    return state
+    const transformedData = useMemo(() => {
+        if (!data) {
+            return defaultData
+        }
+
+        const { orgUnit: node } = data
+        const transformed = suppressAlphabeticalSorting
+            ? node
+            : sortNodeChildrenAlphabetically(node)
+        const merged = { ...defaultData, ...transformed }
+
+        return merged
+    }, [data, suppressAlphabeticalSorting, id, displayName])
+
+    useEffect(() => {
+        onComplete && onComplete(transformedData)
+    }, [onComplete, transformedData])
+
+    return { loading, error: error || null, data: transformedData }
 }
