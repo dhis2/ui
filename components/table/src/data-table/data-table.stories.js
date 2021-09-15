@@ -1,4 +1,6 @@
-import { Box, Checkbox, Input } from '@dhis2/ui-core'
+import { Box } from '@dhis2-ui/box'
+import { Checkbox } from '@dhis2-ui/checkbox'
+import { Input } from '@dhis2-ui/input'
 import React, { useState } from 'react'
 import { DataTableBody } from './data-table-body.js'
 import { DataTableCell } from './data-table-cell.js'

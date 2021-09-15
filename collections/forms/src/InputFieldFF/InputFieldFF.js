@@ -1,4 +1,4 @@
-import { InputField } from '@dhis2/ui-widgets'
+import { InputField } from '@dhis2-ui/input'
 import PropTypes from 'prop-types'
 import React from 'react'
 import {

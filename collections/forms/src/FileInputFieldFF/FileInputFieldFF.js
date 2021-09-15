@@ -1,5 +1,4 @@
-import { FileListItem } from '@dhis2/ui-core'
-import { FileInputField } from '@dhis2/ui-widgets'
+import { FileListItem, FileInputField } from '@dhis2-ui/file-input'
 import PropTypes from 'prop-types'
 import React from 'react'
 import i18n from '../locales/index.js'

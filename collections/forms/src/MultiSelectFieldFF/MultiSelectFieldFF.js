@@ -1,5 +1,4 @@
-import { MultiSelectOption } from '@dhis2/ui-core'
-import { MultiSelectField } from '@dhis2/ui-widgets'
+import { MultiSelectOption, MultiSelectField } from '@dhis2-ui/select'
 import PropTypes from 'prop-types'
 import React from 'react'
 import {

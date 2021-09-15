@@ -1,4 +1,4 @@
-import { CheckboxField } from '@dhis2/ui-widgets'
+import { CheckboxField } from '@dhis2-ui/checkbox'
 import PropTypes from 'prop-types'
 import React from 'react'
 import {

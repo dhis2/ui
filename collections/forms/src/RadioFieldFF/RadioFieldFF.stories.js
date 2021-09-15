@@ -1,4 +1,4 @@
-import { FieldGroup } from '@dhis2/ui-widgets'
+import { FieldGroup } from '@dhis2-ui/field'
 import React from 'react'
 import { Field } from 'react-final-form'
 import { formDecorator } from '../formDecorator.js'

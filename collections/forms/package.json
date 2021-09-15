@@ -33,9 +33,16 @@
         "react-dom": "^16.8"
     },
     "dependencies": {
+        "@dhis2-ui/button": "6.24.1",
+        "@dhis2-ui/checkbox": "6.24.1",
+        "@dhis2-ui/field": "6.24.1",
+        "@dhis2-ui/file-input": "6.24.1",
+        "@dhis2-ui/input": "6.24.1",
+        "@dhis2-ui/select": "6.24.1",
+        "@dhis2-ui/radio": "6.24.1",
+        "@dhis2-ui/switch": "6.24.1",
+        "@dhis2-ui/text-area": "6.24.1",
         "@dhis2/prop-types": "^1.6.4",
-        "@dhis2/ui-core": "6.24.2",
-        "@dhis2/ui-widgets": "6.24.2",
         "classnames": "^2.3.1",
         "final-form": "^4.20.2",
         "prop-types": "^15.7.2",
