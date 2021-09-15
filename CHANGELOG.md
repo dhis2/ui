@@ -1,3 +1,16 @@
+# [7.0.0](https://github.com/dhis2/ui/compare/v6.24.2...v7.0.0) (2021-09-15)
+
+
+### Code Refactoring
+
+* remove ui-core and ui-widgets ([#742](https://github.com/dhis2/ui/issues/742)) ([cfa3609](https://github.com/dhis2/ui/commit/cfa360967b868e04f900d679f022d7767e9f48d7))
+
+
+### BREAKING CHANGES
+
+* Removes @dhis2/ui-core and @dhis2/ui-widgets.
+Please use @dhis2/ui as your main entry-point in apps.
+
 ## [6.24.2](https://github.com/dhis2/ui/compare/v6.24.1...v6.24.2) (2021-09-14)
 
 
