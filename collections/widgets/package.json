@@ -30,7 +30,7 @@
         "build": "d2-app-scripts build"
     },
     "peerDependencies": {
-        "@dhis2/app-runtime": "^2",
+        "@dhis2/app-runtime": "^3",
         "@dhis2/d2-i18n": "^1",
         "@dhis2/ui-constants": "6.24.2",
         "@dhis2/ui-core": "6.24.2",
@@ -58,7 +58,7 @@
         "build"
     ],
     "devDependencies": {
-        "@dhis2/app-runtime": "^2.11.0",
+        "@dhis2/app-runtime": "^3.1.0",
         "@dhis2/d2-i18n": "^1.1.0",
         "@dhis2/ui-constants": "6.24.2",
         "@dhis2/ui-core": "6.24.2",

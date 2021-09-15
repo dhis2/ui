@@ -26,7 +26,7 @@
         "test": "d2-app-scripts test --jestConfig ../../jest.config.shared.js"
     },
     "peerDependencies": {
-        "@dhis2/app-runtime": "^2",
+        "@dhis2/app-runtime": "^3",
         "@dhis2/d2-i18n": "^1",
         "react": "^16.8",
         "react-dom": "^16.8",
@@ -56,7 +56,7 @@
         "build"
     ],
     "devDependencies": {
-        "@dhis2/app-runtime": "^2.11.0",
+        "@dhis2/app-runtime": "^3.1.0",
         "@dhis2/d2-i18n": "^1.1.0",
         "react": "16.13",
         "react-dom": "16.13",
