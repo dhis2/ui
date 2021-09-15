@@ -1,6 +1,7 @@
 import { Button } from '@dhis2-ui/button'
 import { Modal, ModalTitle } from '@dhis2-ui/modal'
-import { shallow } from 'enzyme'
+import { CustomDataProvider } from '@dhis2/app-runtime'
+import { mount } from 'enzyme'
 import React from 'react'
 import { DashboardSharingContent } from '../dashboard-sharing-content.js'
 import { DefaultSharingContent } from '../default-sharing-content.js'
@@ -17,7 +18,9 @@ describe('SharingDialog widget', () => {
 
     const getSharingDialogWidget = props => {
         if (!shallowSharingDialog) {
-            shallowSharingDialog = shallow(<SharingDialog {...props} />)
+            shallowSharingDialog = mount(<SharingDialog {...props} />, {
+                wrappingComponent: CustomDataProvider,
+            })
         }
 
         return shallowSharingDialog
@@ -34,8 +37,9 @@ describe('SharingDialog widget', () => {
         }
     })
 
-    it('renders a Modal', () =>
-        expect(getSharingDialogWidget(props).find(Modal)).toHaveLength(1))
+    it('renders a Modal', () => {
+        expect(getSharingDialogWidget(props).find(Modal)).toHaveLength(1)
+    })
 
     it('renders the ModalTitle with the name of the AO if passed in props', () => {
         props.initialSharingSettings = {
@@ -49,16 +53,21 @@ describe('SharingDialog widget', () => {
     })
 
     it('renders a Close button', () => {
-        const button = getSharingDialogWidget(props).find(Button)
+        const buttons = getSharingDialogWidget(props).find(Button)
+        const closeButtons = buttons.filterWhere(button =>
+            button.html().includes('Close')
+        )
 
-        expect(button).toHaveLength(1)
-        expect(button.html()).toMatch('Close')
+        expect(closeButtons).toHaveLength(1)
     })
 
     it('calls the Close callback when the Close button is clicked', () => {
-        const button = getSharingDialogWidget(props).find(Button)
+        const buttons = getSharingDialogWidget(props).find(Button)
+        const closeButtons = buttons.filterWhere(button =>
+            button.html().includes('Close')
+        )
 
-        button.simulate('click')
+        closeButtons.first().simulate('click')
 
         expect(onClose).toHaveBeenCalled()
     })

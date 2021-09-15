@@ -1,5 +1,6 @@
 import { Button } from '@dhis2-ui/button'
-import { shallow } from 'enzyme'
+import { CustomDataProvider } from '@dhis2/app-runtime'
+import { mount } from 'enzyme'
 import React from 'react'
 import { AccessSelect } from '../access-select.js'
 import { Autocomplete } from '../autocomplete/autocomplete.js'
@@ -13,7 +14,9 @@ describe('SharingDialog widget - ShareBlock component', () => {
 
     const getShareBlockComponent = props => {
         if (!shallowShareBlockComponent) {
-            shallowShareBlockComponent = shallow(<ShareBlock {...props} />)
+            shallowShareBlockComponent = mount(<ShareBlock {...props} />, {
+                wrappingComponent: CustomDataProvider,
+            })
         }
 
         return shallowShareBlockComponent
