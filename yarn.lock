@@ -1690,7 +1690,7 @@
   dependencies:
     moment "^2.24.0"
 
-"@dhis2/app-runtime@^2.11.0", "@dhis2/app-runtime@^2.12.1", "@dhis2/app-runtime@^2.8.0", "@dhis2/app-runtime@^2.9.2":
+"@dhis2/app-runtime@^2.12.1", "@dhis2/app-runtime@^2.8.0":
   version "2.12.1"
   resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-2.12.1.tgz#d92903b1e21bcf114f60a2a2db549c0de33b0c5a"
   integrity sha512-rC3CAJSzfVxBbEAFyi4Cx1XLHAC7z2F+xYZQxPuyjmoT8UKsmIxwAaCgYQkkxqSmdxcIo7J5MMmpWdaiXHPQ5g==

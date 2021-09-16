@@ -52,8 +52,8 @@
         "@dhis2-ui/portal": "6.24.0",
         "@dhis2-ui/radio": "6.24.0",
         "@dhis2-ui/required": "6.24.0",
-        "@dhis2-ui/sharing-dialog": "6.24.0",
         "@dhis2-ui/select": "6.24.0",
+        "@dhis2-ui/sharing-dialog": "6.24.0",
         "@dhis2-ui/switch": "6.24.0",
         "@dhis2-ui/tab": "6.24.0",
         "@dhis2-ui/table": "6.24.0",
@@ -74,7 +74,7 @@
         "styled-jsx": "^3.2"
     },
     "devDependencies": {
-        "@dhis2/app-runtime": "^2.9.2",
+        "@dhis2/app-runtime": "^2.12.1",
         "@dhis2/d2-i18n": "^1.1.0",
         "react": "16.13",
         "react-dom": "16.13",
