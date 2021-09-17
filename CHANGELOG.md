@@ -1,3 +1,10 @@
+## [7.0.1](https://github.com/dhis2/ui/compare/v7.0.0...v7.0.1) (2021-09-17)
+
+
+### Bug Fixes
+
+* **storybook:** add react-scripts to workspace root ([d2c12bb](https://github.com/dhis2/ui/commit/d2c12bb5e832d9b95da5cdd997f6467d570d38ff))
+
 # [7.0.0](https://github.com/dhis2/ui/compare/v6.24.2...v7.0.0) (2021-09-15)
 
 

@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/ui-forms",
-    "version": "7.0.0",
+    "version": "7.0.1",
     "main": "./build/cjs/index.js",
     "module": "./build/es/index.js",
     "sideEffects": [
@@ -33,15 +33,15 @@
         "react-dom": "^16.8"
     },
     "dependencies": {
-        "@dhis2-ui/button": "7.0.0",
-        "@dhis2-ui/checkbox": "7.0.0",
-        "@dhis2-ui/field": "7.0.0",
-        "@dhis2-ui/file-input": "7.0.0",
-        "@dhis2-ui/input": "7.0.0",
-        "@dhis2-ui/select": "7.0.0",
-        "@dhis2-ui/radio": "7.0.0",
-        "@dhis2-ui/switch": "7.0.0",
-        "@dhis2-ui/text-area": "7.0.0",
+        "@dhis2-ui/button": "7.0.1",
+        "@dhis2-ui/checkbox": "7.0.1",
+        "@dhis2-ui/field": "7.0.1",
+        "@dhis2-ui/file-input": "7.0.1",
+        "@dhis2-ui/input": "7.0.1",
+        "@dhis2-ui/select": "7.0.1",
+        "@dhis2-ui/radio": "7.0.1",
+        "@dhis2-ui/switch": "7.0.1",
+        "@dhis2-ui/text-area": "7.0.1",
         "@dhis2/prop-types": "^1.6.4",
         "classnames": "^2.3.1",
         "final-form": "^4.20.2",
