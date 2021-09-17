@@ -17046,16 +17046,18 @@ react-docgen@^2.18.0:
     node-dir "^0.1.10"
     recast "^0.12.6"
 
-react-docgen@^5.0.0, react-docgen@^5.3.0:
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/react-docgen/-/react-docgen-5.3.1.tgz#940b519646a6c285c2950b96512aed59e8f90934"
-  integrity sha512-YG7YujVTwlLslr2Ny8nQiUfbBuEwKsLHJdQTSdEga1eY/nRFh/7LjCWUn6ogYhu2WDKg4z+6W/BJtUi+DPUIlA==
+react-docgen@^5.0.0, react-docgen@^5.4.0:
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/react-docgen/-/react-docgen-5.4.0.tgz#2cd7236720ec2769252ef0421f23250b39a153a1"
+  integrity sha512-JBjVQ9cahmNlfjMGxWUxJg919xBBKAoy3hgDgKERbR+BcF4ANpDuzWAScC7j27hZfd8sJNmMPOLWo9+vB/XJEQ==
   dependencies:
     "@babel/core" "^7.7.5"
+    "@babel/generator" "^7.12.11"
     "@babel/runtime" "^7.7.6"
     ast-types "^0.14.2"
     commander "^2.19.0"
     doctrine "^3.0.0"
+    estree-to-babel "^3.1.0"
     neo-async "^2.6.1"
     node-dir "^0.1.10"
     strip-indent "^3.0.0"
@@ -20754,10 +20756,8 @@ watchpack@^1.7.4:
   resolved "https://registry.yarnpkg.com/watchpack/-/watchpack-1.7.5.tgz#1267e6c55e0b9b5be44c2023aed5437a2c26c453"
   integrity sha512-9P3MWk6SrKjHsGkLT2KHXdQ/9SNkyoJbabxnKOoJepsvJjJG8uYTR3yTPxPQvNDI3w4Nz1xnE0TLHK4RIVe/MQ==
   dependencies:
-    chokidar "^3.4.1"
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
-    watchpack-chokidar2 "^2.0.1"
   optionalDependencies:
     chokidar "^3.4.1"
     watchpack-chokidar2 "^2.0.1"
