@@ -1,7 +1,10 @@
 import { Card } from '@dhis2-ui/card'
+import { Center } from '@dhis2-ui/center'
 import { Divider } from '@dhis2-ui/divider'
+import { Layer } from '@dhis2-ui/layer'
+import { CircularLoader } from '@dhis2-ui/loader'
 import { MenuItem } from '@dhis2-ui/menu'
-import { useConfig } from '@dhis2/app-runtime'
+import { useConfig, clearSensitiveCaches } from '@dhis2/app-runtime'
 import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
 import {
@@ -11,13 +14,26 @@ import {
     IconUser24,
     IconQuestion24,
 } from '@dhis2/ui-icons'
-import React from 'react'
+import React, { useState } from 'react'
 import { joinPath } from '../join-path.js'
 import i18n from '../locales/index.js'
 import { ProfileHeader } from './profile-header.js'
 
+const LoadingMask = () => (
+    <Layer
+        translucent
+        disablePortal
+        dataTest="headerbar-profile-menu-loading-mask"
+    >
+        <Center>
+            <CircularLoader />
+        </Center>
+    </Layer>
+)
+
 const ProfileContents = ({ name, email, avatarUrl, helpUrl }) => {
     const { baseUrl } = useConfig()
+    const [loading, setLoading] = useState(false)
 
     return (
         <Card>
@@ -69,12 +85,28 @@ const ProfileContents = ({ name, email, avatarUrl, helpUrl }) => {
                             baseUrl,
                             'dhis-web-commons-security/logout.action'
                         )}
+                        // NB: By MenuItem implementation, this callback
+                        // overwrites default navigation behavior but maintains
+                        // the href attribute
+                        onClick={async () => {
+                            setLoading(true)
+                            await clearSensitiveCaches()
+                            setLoading(false)
+                            window.location.assign(
+                                joinPath(
+                                    baseUrl,
+                                    'dhis-web-commons-security/logout.action'
+                                )
+                            )
+                        }}
                         label={i18n.t('Logout')}
                         value="logout"
                         icon={<IconLogOut24 color={colors.grey700} />}
                     />
                 </ul>
             </div>
+
+            {loading && <LoadingMask />}
 
             <style jsx>{`
                 div {

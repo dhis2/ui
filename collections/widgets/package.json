@@ -58,7 +58,7 @@
         "build"
     ],
     "devDependencies": {
-        "@dhis2/app-runtime": "^2.11.0",
+        "@dhis2/app-runtime": "^2.12.1",
         "@dhis2/d2-i18n": "^1.1.0",
         "@dhis2/ui-constants": "6.24.2",
         "@dhis2/ui-core": "6.24.2",
