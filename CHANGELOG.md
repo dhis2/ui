@@ -1,3 +1,44 @@
+# [7.1.0](https://github.com/dhis2/ui/compare/v7.0.1...v7.1.0) (2021-09-17)
+
+
+### Features
+
+* **header-bar:** clear sensitive caches on logout ([#740](https://github.com/dhis2/ui/issues/740)) ([b9e6c0c](https://github.com/dhis2/ui/commit/b9e6c0ca4d08ca03642932377f40866407961410))
+
+## [7.0.1](https://github.com/dhis2/ui/compare/v7.0.0...v7.0.1) (2021-09-17)
+
+
+### Bug Fixes
+
+* **storybook:** add react-scripts to workspace root ([d2c12bb](https://github.com/dhis2/ui/commit/d2c12bb5e832d9b95da5cdd997f6467d570d38ff))
+
+# [7.0.0](https://github.com/dhis2/ui/compare/v6.24.2...v7.0.0) (2021-09-15)
+
+
+### Code Refactoring
+
+* remove ui-core and ui-widgets ([#742](https://github.com/dhis2/ui/issues/742)) ([cfa3609](https://github.com/dhis2/ui/commit/cfa360967b868e04f900d679f022d7767e9f48d7))
+
+
+### BREAKING CHANGES
+
+* Removes @dhis2/ui-core and @dhis2/ui-widgets.
+Please use @dhis2/ui as your main entry-point in apps.
+
+## [6.24.2](https://github.com/dhis2/ui/compare/v6.24.1...v6.24.2) (2021-09-14)
+
+
+### Bug Fixes
+
+* **deps:** correct dependabot update error ([c68f41f](https://github.com/dhis2/ui/commit/c68f41f06aa45b291a4e6d0945853aa908079c75))
+
+## [6.24.1](https://github.com/dhis2/ui/compare/v6.24.0...v6.24.1) (2021-09-14)
+
+
+### Bug Fixes
+
+* **deps:** bump styled-jsx from 3.4.4 to 4.0.1 ([#724](https://github.com/dhis2/ui/issues/724)) ([9513422](https://github.com/dhis2/ui/commit/95134229ba209f46283b2e6d154eec95d5776ed9))
+
 # [6.24.0](https://github.com/dhis2/ui/compare/v6.23.5...v6.24.0) (2021-09-13)
 
 

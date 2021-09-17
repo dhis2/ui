@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/ui-root",
-    "version": "6.24.0",
+    "version": "7.1.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/dhis2/ui.git"
@@ -45,8 +45,11 @@
             "description": "Components and related resources for the DHIS2 design system"
         }
     },
+    "resolutions": {
+        "@dhis2/app-runtime": "^3.0.0"
+    },
     "dependencies": {
-        "@dhis2/app-runtime": "^2.12.1",
+        "@dhis2/app-runtime": "^3.0.0",
         "@dhis2/cli-app-scripts": "^7.3.0",
         "@dhis2/cli-style": "^9.0.1",
         "@dhis2/cli-utils-cypress": "^8.0.1",
@@ -56,6 +59,7 @@
         "@dhis2/d2-i18n": "^1.1.0",
         "@manypkg/cli": "^0.18.0",
         "@svgr/cli": "^5.5.0",
+        "@testing-library/react-hooks": "^7.0.1",
         "concurrently": "^6.2.0",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.6",
@@ -65,8 +69,9 @@
         "react": "16.13",
         "react-dev-utils": "^10.2.1",
         "react-dom": "16.13",
+        "react-scripts": "^4.0.3",
         "rimraf": "^3.0.2",
-        "styled-jsx": "^3.4.4",
+        "styled-jsx": "^4.0.1",
         "wait-on": "^5.3.0"
     }
 }

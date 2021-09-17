@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/legend",
-    "version": "6.24.0",
+    "version": "7.1.0",
     "description": "UI Legend",
     "repository": {
         "type": "git",
@@ -28,12 +28,12 @@
     "peerDependencies": {
         "react": "^16.8",
         "react-dom": "^16.8",
-        "styled-jsx": "^3.2"
+        "styled-jsx": "^4"
     },
     "dependencies": {
-        "@dhis2-ui/required": "6.24.0",
+        "@dhis2-ui/required": "7.1.0",
         "@dhis2/prop-types": "^1.6.4",
-        "@dhis2/ui-constants": "6.24.0",
+        "@dhis2/ui-constants": "7.1.0",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },
@@ -43,6 +43,6 @@
     "devDependencies": {
         "react": "16.13",
         "react-dom": "16.13",
-        "styled-jsx": "^3.4.4"
+        "styled-jsx": "^4.0.1"
     }
 }

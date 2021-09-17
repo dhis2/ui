@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/portal",
-    "version": "6.24.0",
+    "version": "7.1.0",
     "description": "UI Portal",
     "repository": {
         "type": "git",
@@ -28,7 +28,7 @@
     "peerDependencies": {
         "react": "^16.8",
         "react-dom": "^16.8",
-        "styled-jsx": "^3.2"
+        "styled-jsx": "^4"
     },
     "dependencies": {
         "classnames": "^2.3.1",
@@ -40,6 +40,6 @@
     "devDependencies": {
         "react": "16.13",
         "react-dom": "16.13",
-        "styled-jsx": "^3.4.4"
+        "styled-jsx": "^4.0.1"
     }
 }

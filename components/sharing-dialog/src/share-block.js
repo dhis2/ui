@@ -2,7 +2,7 @@ import { Button } from '@dhis2-ui/button'
 import { useDataQuery, useOnlineStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from '@dhis2/prop-types'
-import React, { useEffect, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { AccessSelect } from './access-select.js'
 import { Autocomplete } from './autocomplete/autocomplete.js'
 import { debounce } from './helpers'
@@ -21,40 +21,44 @@ const query = {
     },
 }
 
+const addType = type => result => ({ ...result, type })
+
 export const ShareBlock = ({ onAdd }) => {
     const [userOrGroup, setUserOrGroup] = useState(undefined)
     const [access, setAccess] = useState(undefined)
-    const [usersAndGroups, setUsersAndGroups] = useState({})
-    const [searchTimeout, setSearchTimeout] = useState(null)
-    const [searchResults, setSearchResults] = useState([])
+    const [didInvalidate, setDidInvalidate] = useState(true)
     const { offline } = useOnlineStatus()
-
-    const { data, error, refetch } = useDataQuery(query, {
+    const { data, refetch } = useDataQuery(query, {
         lazy: true,
+        onComplete: () => {
+            if (didInvalidate) {
+                setDidInvalidate(false)
+            }
+        },
     })
 
-    const addType = type => result => ({ ...result, type })
-
-    useEffect(() => {
-        if (data) {
-            setSearchResults(
-                data.usersAndGroups.users.concat(data.usersAndGroups.userGroups)
-            )
-
-            setUsersAndGroups(
-                data.usersAndGroups.users
-                    .map(addType('user'))
-                    .concat(
-                        data.usersAndGroups.userGroups.map(addType('group'))
-                    )
-                    .reduce((result, obj) => {
-                        result[obj.id] = obj
-
-                        return result
-                    }, {})
-            )
+    const searchResults = useMemo(() => {
+        if (!data || didInvalidate) {
+            return []
         }
-    }, [data])
+
+        return data.usersAndGroups.users.concat(data.usersAndGroups.userGroups)
+    }, [data, didInvalidate])
+
+    const usersAndGroups = useMemo(() => {
+        if (!data || didInvalidate) {
+            return {}
+        }
+
+        return data.usersAndGroups.users
+            .map(addType('user'))
+            .concat(data.usersAndGroups.userGroups.map(addType('group')))
+            .reduce((result, obj) => {
+                result[obj.id] = obj
+
+                return result
+            }, {})
+    }, [data, didInvalidate])
 
     const fetchData = debounce(text => {
         refetch({ search: text })
@@ -63,29 +67,20 @@ export const ShareBlock = ({ onAdd }) => {
     const onSearch = text => {
         setUserOrGroup({ name: text })
 
-        clearTimeout(searchTimeout)
-
         if (text.length) {
-            // debounce data fetch
-            setSearchTimeout(setTimeout(() => fetchData(text), 200))
+            fetchData(text)
         } else {
-            setSearchResults([])
-        }
-
-        if (error) {
-            console.error('onSearch error', error)
+            setDidInvalidate(true)
         }
     }
 
     const onClose = () => {
-        setSearchResults([])
-        setUsersAndGroups({})
+        setDidInvalidate(true)
     }
 
     const onChange = id => {
         setUserOrGroup(usersAndGroups[id])
-
-        onClose()
+        setDidInvalidate(true)
     }
 
     const onSubmit = e => {

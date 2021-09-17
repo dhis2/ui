@@ -4,10 +4,6 @@ import { LogoIconSvg } from './logo-icon-svg'
 import { LogoSvg } from './logo-svg'
 
 /*
- * This should likely not live in ui-core, but in ui-widgets
- */
-
-/*
  * These are official colors for dhis2 logos.
  *
  * They are isolated here and not in @dhis2/ui-constants as they should not be
