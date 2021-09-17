@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/field",
-    "version": "7.0.1",
+    "version": "7.1.0",
     "description": "UI Field",
     "repository": {
         "type": "git",
@@ -31,11 +31,11 @@
         "styled-jsx": "^4"
     },
     "dependencies": {
-        "@dhis2-ui/box": "7.0.1",
-        "@dhis2-ui/help": "7.0.1",
-        "@dhis2-ui/label": "7.0.1",
+        "@dhis2-ui/box": "7.1.0",
+        "@dhis2-ui/help": "7.1.0",
+        "@dhis2-ui/label": "7.1.0",
         "@dhis2/prop-types": "^1.6.4",
-        "@dhis2/ui-constants": "7.0.1",
+        "@dhis2/ui-constants": "7.1.0",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },
