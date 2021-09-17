@@ -1,5 +1,5 @@
 import { useDataQuery } from '@dhis2/app-runtime'
-import { useCallback, useState } from 'react'
+import { useMemo } from 'react'
 import { patchMissingDisplayName } from './patch-missing-display-name.js'
 
 export const createRootQuery = ids =>
@@ -29,37 +29,18 @@ export const createRootQuery = ids =>
 export const useRootOrgData = (ids, { isUserDataViewFallback } = {}) => {
     const query = createRootQuery(ids)
     const variables = { isUserDataViewFallback }
-    const [state, setState] = useState({
-        loading: true,
-        error: null,
-        data: null,
-    })
-
-    const { refetch: queryRefetch } = useDataQuery(query, {
+    const { loading, error, data, refetch } = useDataQuery(query, {
         variables,
-        onComplete: queryData =>
-            setState({
-                ...state,
-                data: queryData ? patchMissingDisplayName(queryData) : {},
-                loading: false,
-            }),
-        onError: queryError =>
-            setState({
-                ...state,
-                error: queryError,
-                loading: false,
-            }),
     })
 
-    const refetch = useCallback(() => {
-        setState({ ...state, data: null, error: null, loading: true })
-        queryRefetch()
-    }, [queryRefetch, setState])
+    const patchedData = useMemo(() => {
+        return data ? patchMissingDisplayName(data) : data
+    }, [data])
 
     return {
-        loading: state.loading,
-        error: state.error,
-        data: state.data,
+        loading,
+        error: error || null,
+        data: patchedData || null,
         refetch,
     }
 }
