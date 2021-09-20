@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { colors, spacers } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 // TODO: i18n translate
@@ -70,13 +70,13 @@ const PageSummary = ({
 }
 
 PageSummary.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    page: propTypes.number.isRequired,
-    pageCount: propTypes.number.isRequired,
-    pageSize: propTypes.number.isRequired,
-    pageSummaryText: propTypes.oneOfType([propTypes.string, propTypes.func])
+    dataTest: PropTypes.string.isRequired,
+    page: PropTypes.number.isRequired,
+    pageCount: PropTypes.number.isRequired,
+    pageSize: PropTypes.number.isRequired,
+    pageSummaryText: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
         .isRequired,
-    total: propTypes.number.isRequired,
+    total: PropTypes.number.isRequired,
 }
 
 export { PageSummary, getItemRange }

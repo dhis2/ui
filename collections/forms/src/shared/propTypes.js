@@ -1,18 +1,18 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 
-const toggleGroupOptionsProp = propTypes.arrayOf(
-    propTypes.shape({
-        label: propTypes.string.isRequired,
-        value: propTypes.string.isRequired,
+const toggleGroupOptionsProp = PropTypes.arrayOf(
+    PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        value: PropTypes.string.isRequired,
     })
 )
 
-const inputPropType = propTypes.shape({
-    name: propTypes.string.isRequired,
-    onChange: propTypes.func.isRequired,
-    value: propTypes.any,
-    onBlur: propTypes.func,
-    onFocus: propTypes.func,
+const inputPropType = PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+    value: PropTypes.any,
+    onBlur: PropTypes.func,
+    onFocus: PropTypes.func,
 })
 const inputArgType = {
     table: {
@@ -23,12 +23,12 @@ const inputArgType = {
     },
 }
 
-const metaPropType = propTypes.shape({
-    error: propTypes.string,
-    invalid: propTypes.bool,
-    touched: propTypes.bool,
-    valid: propTypes.bool,
-    validating: propTypes.bool,
+const metaPropType = PropTypes.shape({
+    error: PropTypes.string,
+    invalid: PropTypes.bool,
+    touched: PropTypes.bool,
+    valid: PropTypes.bool,
+    validating: PropTypes.bool,
 })
 const metaArgType = {
     table: {

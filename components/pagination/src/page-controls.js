@@ -1,7 +1,7 @@
 import { Button } from '@dhis2-ui/button'
-import propTypes from '@dhis2/prop-types'
 import { spacers } from '@dhis2/ui-constants'
 import { IconChevronLeft16, IconChevronRight16 } from '@dhis2/ui-icons'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 // TODO: i18n translate
@@ -62,14 +62,14 @@ const PageControls = ({
 )
 
 PageControls.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    nextPageText: propTypes.oneOfType([propTypes.string, propTypes.func])
+    dataTest: PropTypes.string.isRequired,
+    nextPageText: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
         .isRequired,
-    page: propTypes.number.isRequired,
-    pageCount: propTypes.number.isRequired,
-    previousPageText: propTypes.oneOfType([propTypes.string, propTypes.func])
+    page: PropTypes.number.isRequired,
+    pageCount: PropTypes.number.isRequired,
+    previousPageText: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
         .isRequired,
-    onClick: propTypes.func.isRequired,
+    onClick: PropTypes.func.isRequired,
 }
 
 export { PageControls }

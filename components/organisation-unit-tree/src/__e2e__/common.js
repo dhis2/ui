@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 
 export const namespace = 'OrganisationUnitTree'
@@ -130,6 +130,6 @@ export const StatefulMultiSelectionWrapper = ({
 }
 
 StatefulMultiSelectionWrapper.propTypes = {
-    children: propTypes.func.isRequired,
-    onSelectionChange: propTypes.func,
+    children: PropTypes.func.isRequired,
+    onSelectionChange: PropTypes.func,
 }

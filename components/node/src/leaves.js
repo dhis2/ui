@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export const Leaves = ({ children, open, dataTest }) => (
@@ -21,7 +21,7 @@ export const Leaves = ({ children, open, dataTest }) => (
 )
 
 Leaves.propTypes = {
-    children: propTypes.node,
-    dataTest: propTypes.string,
-    open: propTypes.bool,
+    children: PropTypes.node,
+    dataTest: PropTypes.string,
+    open: PropTypes.bool,
 }

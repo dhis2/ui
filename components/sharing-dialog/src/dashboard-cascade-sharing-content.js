@@ -8,9 +8,9 @@ import {
     useOnlineStatus,
 } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import PropTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
 import { IconInfo16, IconCheckmark16 } from '@dhis2/ui-icons'
+import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
 import { cascadeSharingStyles } from './sharing-dialog.styles.js'
 

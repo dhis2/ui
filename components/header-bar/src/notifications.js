@@ -1,5 +1,5 @@
 import { useConfig } from '@dhis2/app-runtime'
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { joinPath } from './join-path.js'
 import { NotificationIcon } from './notification-icon.js'
@@ -58,7 +58,7 @@ export const Notifications = ({
 }
 
 Notifications.propTypes = {
-    interpretations: propTypes.number,
-    messages: propTypes.number,
-    userAuthorities: propTypes.arrayOf(propTypes.string),
+    interpretations: PropTypes.number,
+    messages: PropTypes.number,
+    userAuthorities: PropTypes.arrayOf(PropTypes.string),
 }

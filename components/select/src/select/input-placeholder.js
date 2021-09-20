@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 const InputPlaceholder = ({ placeholder, className, dataTest }) => {
@@ -22,9 +22,9 @@ const InputPlaceholder = ({ placeholder, className, dataTest }) => {
 }
 
 InputPlaceholder.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    className: propTypes.string,
-    placeholder: propTypes.string,
+    dataTest: PropTypes.string.isRequired,
+    className: PropTypes.string,
+    placeholder: PropTypes.string,
 }
 
 export { InputPlaceholder }

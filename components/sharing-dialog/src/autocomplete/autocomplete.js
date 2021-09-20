@@ -3,7 +3,7 @@ import { Menu, MenuItem } from '@dhis2-ui/menu'
 import { Tooltip } from '@dhis2-ui/tooltip'
 import { useOnlineStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import PropTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React, { createRef, useState, useEffect } from 'react'
 import { MenuWrapper } from './menu-wrapper'
 

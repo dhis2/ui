@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { findOptionChild } from '../select/index.js'
 
@@ -42,9 +42,9 @@ const Selection = ({ options, selected, className }) => {
 }
 
 Selection.propTypes = {
-    className: propTypes.string,
-    options: propTypes.node,
-    selected: propTypes.string,
+    className: PropTypes.string,
+    options: PropTypes.node,
+    selected: PropTypes.string,
 }
 
 export { Selection }

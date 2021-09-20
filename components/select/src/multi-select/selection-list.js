@@ -1,5 +1,5 @@
 import { Chip } from '@dhis2-ui/chip'
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { removeOption, findOptionChild } from '../select/index.js'
 
@@ -51,10 +51,10 @@ const SelectionList = ({ selected, onChange, disabled, options }) => (
 )
 
 SelectionList.propTypes = {
-    disabled: propTypes.bool,
-    options: propTypes.node,
-    selected: propTypes.arrayOf(propTypes.string),
-    onChange: propTypes.func,
+    disabled: PropTypes.bool,
+    options: PropTypes.node,
+    selected: PropTypes.arrayOf(PropTypes.string),
+    onChange: PropTypes.func,
 }
 
 export { SelectionList }

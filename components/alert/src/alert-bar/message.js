@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 const Message = ({ children }) => (
@@ -14,7 +14,7 @@ const Message = ({ children }) => (
 )
 
 Message.propTypes = {
-    children: propTypes.string.isRequired,
+    children: PropTypes.string.isRequired,
 }
 
 export { Message }

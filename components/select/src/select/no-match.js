@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { colors, spacers, theme } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 const NoMatch = ({ message, className }) => (
@@ -20,8 +20,8 @@ const NoMatch = ({ message, className }) => (
 )
 
 NoMatch.propTypes = {
-    message: propTypes.string.isRequired,
-    className: propTypes.string,
+    message: PropTypes.string.isRequired,
+    className: PropTypes.string,
 }
 
 export { NoMatch }

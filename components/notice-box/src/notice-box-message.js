@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export const NoticeBoxMessage = ({ children, dataTest }) => {
@@ -23,6 +23,6 @@ export const NoticeBoxMessage = ({ children, dataTest }) => {
 }
 
 NoticeBoxMessage.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    children: propTypes.node,
+    dataTest: PropTypes.string.isRequired,
+    children: PropTypes.node,
 }

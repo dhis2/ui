@@ -1,5 +1,5 @@
 import { Button } from '@dhis2-ui/button'
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { FormSpy, Form } from 'react-final-form'
 
@@ -72,7 +72,7 @@ class FormWithSpyAndSubmit extends React.Component {
 }
 
 FormWithSpyAndSubmit.propTypes = {
-    renderChildren: propTypes.func.isRequired,
+    renderChildren: PropTypes.func.isRequired,
 }
 
 export const formDecorator = fn => <FormWithSpyAndSubmit renderChildren={fn} />

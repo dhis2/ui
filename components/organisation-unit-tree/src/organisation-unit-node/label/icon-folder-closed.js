@@ -1,4 +1,4 @@
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export const IconFolderClosed = ({ dataTest }) => (
@@ -34,5 +34,5 @@ export const IconFolderClosed = ({ dataTest }) => (
 )
 
 IconFolderClosed.propTypes = {
-    dataTest: propTypes.string.isRequired,
+    dataTest: PropTypes.string.isRequired,
 }

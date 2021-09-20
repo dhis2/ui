@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { colors, spacers } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 const InputPrefix = ({ prefix, className, dataTest }) => {
@@ -24,9 +24,9 @@ const InputPrefix = ({ prefix, className, dataTest }) => {
 }
 
 InputPrefix.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    className: propTypes.string,
-    prefix: propTypes.string,
+    dataTest: PropTypes.string.isRequired,
+    className: PropTypes.string,
+    prefix: PropTypes.string,
 }
 
 export { InputPrefix }

@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { FileListItem } from '../index.js'
 
@@ -24,11 +24,11 @@ class FileListItemWithRemove extends Component {
 }
 
 FileListItemWithRemove.propTypes = {
-    label: propTypes.string.isRequired,
-    removeText: propTypes.string.isRequired,
-    onRemove: propTypes.func.isRequired,
-    className: propTypes.string,
-    file: propTypes.instanceOf(File),
+    label: PropTypes.string.isRequired,
+    removeText: PropTypes.string.isRequired,
+    onRemove: PropTypes.func.isRequired,
+    className: PropTypes.string,
+    file: PropTypes.instanceOf(File),
 }
 
 export { FileListItemWithRemove }

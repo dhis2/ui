@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export const StackedTableHead = ({ children, className, dataTest }) => (
@@ -13,9 +13,9 @@ export const StackedTableHead = ({ children, className, dataTest }) => (
 )
 
 StackedTableHead.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
 }
 
 StackedTableHead.defaultProps = {

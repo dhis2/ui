@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 const FileList = ({ children, className, dataTest }) => (
@@ -20,9 +20,9 @@ FileList.defaultProps = {
 }
 
 FileList.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
 }
 
 export { FileList }

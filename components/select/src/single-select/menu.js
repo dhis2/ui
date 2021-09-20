@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { Empty, filterIgnored, checkIfValidOption } from '../select/index.js'
 
@@ -67,13 +67,13 @@ Menu.defaultProps = {
 }
 
 Menu.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    empty: propTypes.node,
-    handleClose: propTypes.func,
-    handleFocusInput: propTypes.func,
-    options: propTypes.node,
-    selected: propTypes.string,
-    onChange: propTypes.func,
+    dataTest: PropTypes.string.isRequired,
+    empty: PropTypes.node,
+    handleClose: PropTypes.func,
+    handleFocusInput: PropTypes.func,
+    options: PropTypes.node,
+    selected: PropTypes.string,
+    onChange: PropTypes.func,
 }
 
 export { Menu }

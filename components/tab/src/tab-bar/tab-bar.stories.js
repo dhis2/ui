@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { Tab } from '../tab/index.js'
 import { TabBar } from './index.js'
@@ -25,7 +25,7 @@ function AttachFile({ className }) {
 }
 
 AttachFile.propTypes = {
-    className: propTypes.string,
+    className: PropTypes.string,
 }
 
 const subtitle = 'Ssed to divide content into categories and/or sections'

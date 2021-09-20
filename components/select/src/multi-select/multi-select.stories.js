@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { sharedPropTypes } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { MultiSelectOption } from '../index.js'
 import { MultiSelect } from './index.js'
@@ -32,8 +32,8 @@ const CustomMultiSelectOption = ({ label, onClick }) => (
 )
 
 CustomMultiSelectOption.propTypes = {
-    label: propTypes.string,
-    onClick: propTypes.func,
+    label: PropTypes.string,
+    onClick: PropTypes.func,
 }
 
 const requiredIfArgType = {

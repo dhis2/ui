@@ -1,6 +1,6 @@
 import { CircularLoader } from '@dhis2-ui/loader'
 import { Node } from '@dhis2-ui/node'
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { resolve } from 'styled-jsx/css'
 import i18n from '../locales/index.js'
@@ -174,24 +174,24 @@ export const OrganisationUnitNode = ({
 }
 
 OrganisationUnitNode.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    id: propTypes.string.isRequired,
-    renderNodeLabel: propTypes.func.isRequired,
-    onChange: propTypes.func.isRequired,
+    dataTest: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    renderNodeLabel: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
 
-    autoExpandLoadingError: propTypes.bool,
-    disableSelection: propTypes.bool,
-    displayName: propTypes.string,
-    expanded: propTypes.arrayOf(orgUnitPathPropType),
-    filter: propTypes.arrayOf(orgUnitPathPropType),
-    highlighted: propTypes.arrayOf(orgUnitPathPropType),
-    isUserDataViewFallback: propTypes.bool,
+    autoExpandLoadingError: PropTypes.bool,
+    disableSelection: PropTypes.bool,
+    displayName: PropTypes.string,
+    expanded: PropTypes.arrayOf(orgUnitPathPropType),
+    filter: PropTypes.arrayOf(orgUnitPathPropType),
+    highlighted: PropTypes.arrayOf(orgUnitPathPropType),
+    isUserDataViewFallback: PropTypes.bool,
     path: orgUnitPathPropType,
-    selected: propTypes.arrayOf(orgUnitPathPropType),
-    singleSelection: propTypes.bool,
-    suppressAlphabeticalSorting: propTypes.bool,
+    selected: PropTypes.arrayOf(orgUnitPathPropType),
+    singleSelection: PropTypes.bool,
+    suppressAlphabeticalSorting: PropTypes.bool,
 
-    onChildrenLoaded: propTypes.func,
-    onCollapse: propTypes.func,
-    onExpand: propTypes.func,
+    onChildrenLoaded: PropTypes.func,
+    onCollapse: PropTypes.func,
+    onExpand: PropTypes.func,
 }

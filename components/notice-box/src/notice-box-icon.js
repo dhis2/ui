@@ -1,10 +1,11 @@
-import propTypes from '@dhis2/prop-types'
+import { mutuallyExclusive } from '@dhis2/prop-types'
 import { colors, spacers } from '@dhis2/ui-constants'
 import {
     IconErrorFilled24,
     IconWarningFilled24,
     IconInfoFilled24,
 } from '@dhis2/ui-icons'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export const NoticeBoxIcon = ({ warning, error, dataTest }) => {
@@ -34,7 +35,7 @@ export const NoticeBoxIcon = ({ warning, error, dataTest }) => {
 }
 
 NoticeBoxIcon.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    error: propTypes.mutuallyExclusive(['error', 'warning'], propTypes.bool),
-    warning: propTypes.mutuallyExclusive(['error', 'warning'], propTypes.bool),
+    dataTest: PropTypes.string.isRequired,
+    error: mutuallyExclusive(['error', 'warning'], PropTypes.bool),
+    warning: mutuallyExclusive(['error', 'warning'], PropTypes.bool),
 }
