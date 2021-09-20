@@ -26,7 +26,7 @@
         "build": "d2-app-scripts build"
     },
     "dependencies": {
-        "@dhis2/prop-types": "^1.6.4",
+        "@dhis2/prop-types": "^3.0.0-beta.1",
         "prop-types": "^15.7.2"
     },
     "files": [

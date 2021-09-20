@@ -1920,10 +1920,22 @@
   dependencies:
     prop-types "^15"
 
+<<<<<<< HEAD
 "@dhis2/pwa@8.0.0":
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/@dhis2/pwa/-/pwa-8.0.0.tgz#b50f1264f82d36bbf7f68aec51556ed404f80aed"
   integrity sha512-DZEt4flCWkkdn4Pglk12Vz2QVkrLmHdR3ChjuB2TZJCryQbaVTxyns2VR/e3AZTPp74zAdkEv1soeEU0B5D7Lw==
+=======
+"@dhis2/prop-types@^3.0.0-beta.1":
+  version "3.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-3.0.0-beta.1.tgz#31a724ebac900bed5218f3663b792b1b860e1b26"
+  integrity sha512-/1yZyXLwJXVkqvV9NJ9SQzU4/abdnoZ/nG1kGF/dPSCcPtGMGNF8ganV1JAxD/UFtLMU2g//7ohOUdrfLO2uow==
+
+"@dhis2/pwa@7.6.6":
+  version "7.6.6"
+  resolved "https://registry.yarnpkg.com/@dhis2/pwa/-/pwa-7.6.6.tgz#385dbf61b405a825838865ec57f6b7e3ea454274"
+  integrity sha512-q0109W8Hj3VhaIee845vR38lLW1giUJKJikz2NT75yEHS0JaBY1Os2TK4TqHGCVixsNHlhNRClpXlsMGBd/aaQ==
+>>>>>>> c58e9b08 (chore: upgrade to @dhis2/prop-types v3 beta)
   dependencies:
     idb "^6.0.0"
     workbox-core "^6.1.5"
