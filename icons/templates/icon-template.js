@@ -13,14 +13,14 @@ function template(
 
     return tpl.ast`
         ${imports}
-        import propTypes from '@dhis2/prop-types'
+        import PropTypes from 'prop-types'
 
         function ${componentName}({ color }) {
             return ${jsx};
         }
 
         ${componentName}.propTypes = {
-            color: propTypes.string,
+            color: PropTypes.string,
         }
 
         ${exports}
