@@ -12,6 +12,7 @@ const Pagination = ({
     dataTest,
     hidePageSizeSelect,
     hidePageSelect,
+    hidePageSummary,
     page,
     pageCount,
     pageSize,
@@ -38,14 +39,16 @@ const Pagination = ({
                     pageSizeSelectText={pageSizeSelectText}
                 />
             )}
-            <PageSummary
-                dataTest={dataTest}
-                page={page}
-                pageCount={pageCount}
-                pageSize={pageSize}
-                total={total}
-                pageSummaryText={pageSummaryText}
-            />
+            {!hidePageSummary && (
+                <PageSummary
+                    dataTest={dataTest}
+                    page={page}
+                    pageCount={pageCount}
+                    pageSize={pageSize}
+                    total={total}
+                    pageSummaryText={pageSummaryText}
+                />
+            )}
             <div className="page-navigation">
                 {!hidePageSelect && (
                     <PageSelect
@@ -107,6 +110,7 @@ Pagination.propTypes = {
     dataTest: PropTypes.string,
     hidePageSelect: PropTypes.bool,
     hidePageSizeSelect: PropTypes.bool,
+    hidePageSummary: PropTypes.bool,
     nextPageText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     pageSelectText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     pageSizeSelectText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),

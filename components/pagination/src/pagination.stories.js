@@ -1,3 +1,4 @@
+import i18n from '@dhis2/d2-i18n'
 import React from 'react'
 import * as pagers from './__fixtures__/index.js'
 import { Pagination } from './pagination.js'
@@ -56,6 +57,18 @@ WithoutPageSizeSelect.args = { hidePageSizeSelect: true }
 
 export const WithoutGoToPageSelect = Template.bind({})
 WithoutGoToPageSelect.args = { hidePageSelect: true }
+
+export const WithoutPageSummary = Template.bind({})
+WithoutPageSummary.args = { hidePageSummary: true }
+
+export const WithCustomPageSummary = Template.bind({})
+WithCustomPageSummary.args = {
+    pageSummaryText: interpolationObject =>
+        i18n.t(
+            'Page nr {{page}} of {{pageCount}} pages, items {{firstItem}}-{{lastItem}}, NO TOTAL',
+            interpolationObject
+        ),
+}
 
 export const WithoutAnySelect = Template.bind({})
 WithoutAnySelect.args = {
