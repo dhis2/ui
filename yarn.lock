@@ -1838,10 +1838,10 @@
     handlebars "^4.7.3"
     isbinaryfile "^4.0.4"
 
-"@dhis2/cli-style@^9.0.1":
-  version "9.0.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-style/-/cli-style-9.0.1.tgz#919bb978362ed9aeb7a253a3b58d6f25e3c09bd9"
-  integrity sha512-CGZQebdhh3EtpjyQGeQEbwVE0vmSqzz8TWrVEkuo9bVxBu7Gjpok5mnsFE0wXLP0kqga9zBuwfeIbY8iAoO1kA==
+"@dhis2/cli-style@^9.2.1":
+  version "9.2.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-style/-/cli-style-9.2.1.tgz#d9c4b5d36943a48c4185e70af9bffaf984d1625c"
+  integrity sha512-2s0oIDHcfJ86VJcGHWArkV9KIXCiCuWXi/oFYWvW9Jt1OqZHI5sAxeiqhiCW/UDAHOsoJ2TeAAw8bMy1qhrSxg==
   dependencies:
     "@commitlint/cli" "^11.0.0"
     "@commitlint/config-conventional" "^11.0.0"
