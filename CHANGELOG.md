@@ -1,3 +1,10 @@
+## [7.1.1](https://github.com/dhis2/ui/compare/v7.1.0...v7.1.1) (2021-09-20)
+
+
+### Bug Fixes
+
+* **deps:** update cli-app-scripts ([32afc2c](https://github.com/dhis2/ui/commit/32afc2ce4efe087d3b8713031e838768356790ee))
+
 # [7.1.0](https://github.com/dhis2/ui/compare/v7.0.1...v7.1.0) (2021-09-17)
 
 
