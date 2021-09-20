@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
 import { mutuallyExclusive } from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 
 /**
  * Status propType
