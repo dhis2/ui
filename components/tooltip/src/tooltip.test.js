@@ -3,30 +3,12 @@ import React from 'react'
 import { act } from 'react-dom/test-utils'
 import { Tooltip } from './tooltip.js'
 
-/* TODO: timeout counters
- * https://stackoverflow.com/questions/55788137/jest-settimeout-is-being-called-too-many-times
- *
- * for some reason, the setTimeout counter is unreliable, so when it is
- * expected to be 2, it is actually 3.
- *
- * the function below ignores counting timeouts that triggered here:
- * https://github.com/facebook/react/blob/962dfc2c33710b880d90ba8db4f531040077d48e/packages/scheduler/src/forks/SchedulerHostConfig.default.js#L49
- * and that corrects the count.
- *
- * we should come up with a better way than counting setTimeouts though.
- */
-const countSetTimeoutCalls = () =>
-    setTimeout.mock.calls.filter(
-        ([fn, t]) => t !== 0 || !String(fn).includes('_flushCallback')
-    )
-
 // Due to its global nature, tooltip & popper need to be unmounted after each test
 let wrapper
 const tooltipContent = 'tooltip content'
 const tooltipContentSelector = '[data-test="dhis2-uicore-tooltip-content"]'
 
 beforeEach(() => {
-    // note that 'setTimeout' becomes a mocked function to spy
     jest.useFakeTimers()
     wrapper = mount(<div />)
 })
@@ -39,17 +21,13 @@ afterEach(() => {
 describe('default delay behavior', () => {
     it('opens after a delay of 200ms', () => {
         wrapper = mount(<Tooltip content={tooltipContent}>Hi hi!</Tooltip>)
-
         wrapper.simulate('mouseover')
 
-        // 'open delay' function has been called with default delay = 200ms
-        expect(countSetTimeoutCalls()).toHaveLength(1)
-        expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 200)
         expect(document.querySelector(tooltipContentSelector)).toBe(null)
 
         // wait for 'open delay' to elapse to open tooltip
         act(() => {
-            jest.advanceTimersByTime(205)
+            jest.advanceTimersByTime(200)
         })
 
         // expect tooltip to be open after delay
@@ -70,7 +48,6 @@ describe('default delay behavior', () => {
 
         // open tooltip
         wrapper.simulate('mouseover')
-        expect(countSetTimeoutCalls()).toHaveLength(1)
 
         act(() => {
             jest.runAllTimers()
@@ -82,13 +59,11 @@ describe('default delay behavior', () => {
         wrapper.simulate('mouseout')
 
         // delay function has been called; tooltip is still open
-        expect(countSetTimeoutCalls()).toHaveLength(2)
-        expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 400)
         expect(document.querySelector(tooltipContentSelector)).not.toBe(null)
 
         // wait for close delay
         act(() => {
-            jest.advanceTimersByTime(405)
+            jest.advanceTimersByTime(400)
         })
 
         // expect tooltip to be closed
@@ -112,8 +87,6 @@ describe('it handles custom open and close delays', () => {
 
         // open tooltip
         wrapper.simulate('mouseover')
-        expect(countSetTimeoutCalls()).toHaveLength(1)
-        expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 0)
 
         // wait for open delay (necessary b/c timeout is still used)
         act(() => {
@@ -124,10 +97,6 @@ describe('it handles custom open and close delays', () => {
 
         // close tooltip
         wrapper.simulate('mouseout')
-
-        // delay function has been called
-        expect(countSetTimeoutCalls()).toHaveLength(2)
-        expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 0)
 
         // wait for close delay (necessary b/c timeout is used)
         act(() => {
@@ -151,8 +120,6 @@ describe('it handles custom open and close delays', () => {
 
         // open tooltip
         wrapper.simulate('mouseover')
-        expect(countSetTimeoutCalls()).toHaveLength(1)
-        expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 1000)
 
         // expect tooltip is not open after 950ms
         act(() => {
@@ -162,17 +129,13 @@ describe('it handles custom open and close delays', () => {
 
         // finish wait for open delay
         act(() => {
-            jest.advanceTimersByTime(55)
+            jest.advanceTimersByTime(50)
         })
         // verify tooltip is open
         expect(document.querySelector(tooltipContentSelector)).not.toBe(null)
 
         // close tooltip
         wrapper.simulate('mouseout')
-
-        // delay function has been called
-        expect(countSetTimeoutCalls()).toHaveLength(2)
-        expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 1000)
 
         // expect tooltip to still be open after 950ms
         act(() => {
@@ -182,7 +145,7 @@ describe('it handles custom open and close delays', () => {
 
         // Finisih waiting for close delay
         act(() => {
-            jest.advanceTimersByTime(55)
+            jest.advanceTimersByTime(50)
         })
 
         // expect tooltip to be closed
