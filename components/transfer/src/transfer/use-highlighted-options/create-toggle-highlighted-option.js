@@ -23,7 +23,9 @@ export const createToggleHighlightedOption = ({
     options,
     lastClicked,
 }) => ({ option, mode }) => {
-    if (disabled) return
+    if (disabled) {
+        return
+    }
 
     setHighlightedOptions([])
 

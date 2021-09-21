@@ -404,7 +404,9 @@ const createCustomFilteringInHeader = hideFilterInput => {
                 option => option.relativePeriod === relativePeriod
             )
 
-            if (filter === '') return optionsWithPeriod
+            if (filter === '') {
+                return optionsWithPeriod
+            }
 
             return optionsWithPeriod.filter(
                 ({ label }) => label.indexOf(filter) !== -1
@@ -489,7 +491,9 @@ export const InfiniteLoading = args => {
 
     const onEndReached = () => {
         // do nothing when loading already
-        if (loading) return
+        if (loading) {
+            return
+        }
         setPage(page + 1)
     }
 
