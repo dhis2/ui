@@ -3,11 +3,9 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import {
     SHARE_TARGET_PUBLIC,
-    SHARE_TARGET_EXTERNAL,
     SHARE_TARGET_GROUP,
     SHARE_TARGET_USER,
     accessStrings,
-    ACCESS_NONE,
     ACCESS_VIEW_ONLY,
     ACCESS_VIEW_AND_EDIT,
 } from './sharing-constants.js'
@@ -31,14 +29,6 @@ export const SharingList = ({ sharingSettings, onChange, onRemove }) => (
             <div className="sharing-header-2">{i18n.t('Access level')}</div>
         </div>
         <div className="sharing-list">
-            <SharingListItem
-                name={i18n.t('External users')}
-                target={SHARE_TARGET_EXTERNAL}
-                access={sharingSettings.external}
-                accessOptions={[ACCESS_NONE, ACCESS_VIEW_ONLY]}
-                disabled={!sharingSettings.allowExternal}
-                onChange={access => onChange({ type: 'external', access })}
-            />
             <SharingListItem
                 name={i18n.t('All users')}
                 target={SHARE_TARGET_PUBLIC}
