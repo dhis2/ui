@@ -25,7 +25,7 @@
         "@babel/plugin-proposal-private-property-in-object": "^7.14.0",
         "@dhis2-ui/css": "7.2.0",
         "@dhis2/ui-constants": "7.2.0",
-        "@fontsource/roboto": "^4.4.5",
+        "@fontsource/roboto": "^4.5.0",
         "@storybook/addon-a11y": "^6.3.7",
         "@storybook/addon-console": "^1.2.3",
         "@storybook/addon-docs": "^6.3.7",
