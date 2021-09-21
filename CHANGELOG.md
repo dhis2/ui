@@ -1,3 +1,10 @@
+# [7.2.0](https://github.com/dhis2/ui/compare/v7.1.1...v7.2.0) (2021-09-21)
+
+
+### Features
+
+* **pagination:** add hidePageSummary prop and story for custom summary ([#753](https://github.com/dhis2/ui/issues/753)) ([23c14e7](https://github.com/dhis2/ui/commit/23c14e7a8761167d583caaf54d2e81c2ae8bf23c))
+
 ## [7.1.1](https://github.com/dhis2/ui/compare/v7.1.0...v7.1.1) (2021-09-20)
 
 
