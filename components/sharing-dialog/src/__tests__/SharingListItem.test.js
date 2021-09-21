@@ -29,7 +29,7 @@ describe('SharingDialog widget - SharingListItem component', () => {
         return shallowSharingListItemComponent
     }
 
-    describe('external access', () => {
+    describe.skip('external access', () => {
         beforeEach(() => {
             shallowSharingListItemComponent = undefined
             props = {

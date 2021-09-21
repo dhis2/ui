@@ -33,7 +33,7 @@ describe('SharingDialog widget - SharingList component', () => {
         }
     })
 
-    it('renders a SharingListItem for external access', () => {
+    it.skip('renders a SharingListItem for external access', () => {
         const external = getSharingListComponent(props).findWhere(
             n => n.prop('target') === SHARE_TARGET_EXTERNAL
         )
