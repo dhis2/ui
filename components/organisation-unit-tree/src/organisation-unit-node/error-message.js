@@ -1,5 +1,5 @@
 import { colors, spacers, theme } from '@dhis2/ui-constants'
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export const ErrorMessage = ({ children, dataTest }) => (
@@ -18,6 +18,6 @@ export const ErrorMessage = ({ children, dataTest }) => (
 )
 
 ErrorMessage.propTypes = {
-    children: propTypes.any.isRequired,
-    dataTest: propTypes.string.isRequired,
+    children: PropTypes.any.isRequired,
+    dataTest: PropTypes.string.isRequired,
 }

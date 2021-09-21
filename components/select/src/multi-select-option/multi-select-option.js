@@ -1,7 +1,7 @@
 import { Checkbox } from '@dhis2-ui/checkbox'
-import propTypes from '@dhis2/prop-types'
 import { colors, spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { resolve } from 'styled-jsx/css'
 
@@ -54,13 +54,13 @@ MultiSelectOption.defaultProps = {
 }
 
 MultiSelectOption.propTypes = {
-    label: propTypes.string.isRequired,
-    value: propTypes.string.isRequired,
-    active: propTypes.bool,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    disabled: propTypes.bool,
-    onClick: propTypes.func,
+    label: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    active: PropTypes.bool,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    disabled: PropTypes.bool,
+    onClick: PropTypes.func,
 }
 
 export { MultiSelectOption }

@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { colors, theme } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 import css from 'styled-jsx/css'
 
@@ -67,7 +67,7 @@ export function RadioRegular({ className }) {
     )
 }
 RadioRegular.propTypes = {
-    className: propTypes.string,
+    className: PropTypes.string,
 }
 
 export function RadioDense({ className }) {
@@ -98,5 +98,5 @@ export function RadioDense({ className }) {
     )
 }
 RadioDense.propTypes = {
-    className: propTypes.string,
+    className: PropTypes.string,
 }

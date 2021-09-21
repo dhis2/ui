@@ -1,6 +1,6 @@
 import { SingleSelectField, SingleSelectOption } from '@dhis2-ui/select'
 import { Tab, TabBar } from '@dhis2-ui/tab'
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import { TransferOption } from './transfer-option.js'
 import { Transfer } from './transfer.js'
@@ -164,7 +164,7 @@ const StatefulTemplate = ({ initiallySelected, ...args }) => {
     return <Transfer {...args} selected={selected} onChange={onChange} />
 }
 StatefulTemplate.defaultProps = { initiallySelected: [] }
-StatefulTemplate.propTypes = { initiallySelected: propTypes.array }
+StatefulTemplate.propTypes = { initiallySelected: PropTypes.array }
 
 export const SingleSelection = StatefulTemplate.bind({})
 SingleSelection.args = { maxSelections: 1 }
@@ -255,7 +255,7 @@ StatefulTemplateCustomRenderOption.defaultProps = {
     initiallySelected: [],
 }
 StatefulTemplateCustomRenderOption.propTypes = {
-    initiallySelected: propTypes.array,
+    initiallySelected: PropTypes.array,
 }
 
 export const CustomListOptions = args => (

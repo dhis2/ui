@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { css, resolve } from 'styled-jsx/css'
 
@@ -25,7 +25,7 @@ function CancelOutline({ className }) {
     )
 }
 CancelOutline.propTypes = {
-    className: propTypes.string,
+    className: PropTypes.string,
 }
 
 const containerStyle = css`
@@ -77,6 +77,6 @@ export const Remove = ({ onRemove, dataTest }) => {
 }
 
 Remove.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    onRemove: propTypes.func,
+    dataTest: PropTypes.string.isRequired,
+    onRemove: PropTypes.func,
 }

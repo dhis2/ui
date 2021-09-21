@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 const Tabs = ({ children, fixed, dataTest }) => (
@@ -23,9 +23,9 @@ const Tabs = ({ children, fixed, dataTest }) => (
 )
 
 Tabs.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    children: propTypes.node,
-    fixed: propTypes.bool,
+    dataTest: PropTypes.string.isRequired,
+    children: PropTypes.node,
+    fixed: PropTypes.bool,
 }
 
 export { Tabs }

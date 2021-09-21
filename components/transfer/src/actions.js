@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { spacers } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export const Actions = ({ children, dataTest }) => (
@@ -28,6 +28,6 @@ export const Actions = ({ children, dataTest }) => (
 )
 
 Actions.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    children: propTypes.node,
+    dataTest: PropTypes.string.isRequired,
+    children: PropTypes.node,
 }

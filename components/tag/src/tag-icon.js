@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export const TagIcon = ({ children, dataTest }) => (
@@ -15,6 +15,6 @@ export const TagIcon = ({ children, dataTest }) => (
 )
 
 TagIcon.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    children: propTypes.node,
+    dataTest: PropTypes.string.isRequired,
+    children: PropTypes.node,
 }

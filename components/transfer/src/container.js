@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export const Container = ({ children, dataTest, className, height }) => (
@@ -16,8 +16,8 @@ export const Container = ({ children, dataTest, className, height }) => (
 )
 
 Container.propTypes = {
-    height: propTypes.string.isRequired,
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
+    height: PropTypes.string.isRequired,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
 }

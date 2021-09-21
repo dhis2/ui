@@ -1,5 +1,5 @@
 import { IntersectionDetector } from '@dhis2-ui/intersection-detector'
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export const EndIntersectionDetector = ({
@@ -27,9 +27,9 @@ export const EndIntersectionDetector = ({
 )
 
 EndIntersectionDetector.propTypes = {
-    rootRef: propTypes.shape({
-        current: propTypes.instanceOf(HTMLElement),
+    rootRef: PropTypes.shape({
+        current: PropTypes.instanceOf(HTMLElement),
     }).isRequired,
-    onEndReached: propTypes.func.isRequired,
-    dataTest: propTypes.string,
+    onEndReached: PropTypes.func.isRequired,
+    dataTest: PropTypes.string,
 }

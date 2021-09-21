@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export const Table = ({ children, className, dataTest }) => (
@@ -22,7 +22,7 @@ export const Table = ({ children, className, dataTest }) => (
 )
 
 Table.propTypes = {
-    children: propTypes.node.isRequired,
-    className: propTypes.string,
-    dataTest: propTypes.string,
+    children: PropTypes.node.isRequired,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
 }

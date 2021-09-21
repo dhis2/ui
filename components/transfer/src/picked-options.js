@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { spacers } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { EndIntersectionDetector } from './end-intersection-detector.js'
 
@@ -38,11 +38,11 @@ export const PickedOptions = ({
 )
 
 PickedOptions.propTypes = {
-    children: propTypes.node.isRequired,
-    dataTest: propTypes.string.isRequired,
-    pickedOptionsRef: propTypes.shape({
-        current: propTypes.instanceOf(HTMLElement),
+    children: PropTypes.node.isRequired,
+    dataTest: PropTypes.string.isRequired,
+    pickedOptionsRef: PropTypes.shape({
+        current: PropTypes.instanceOf(HTMLElement),
     }),
-    selectedEmptyComponent: propTypes.node,
-    onPickedEndReached: propTypes.func,
+    selectedEmptyComponent: PropTypes.node,
+    onPickedEndReached: PropTypes.func,
 }

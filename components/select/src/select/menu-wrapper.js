@@ -1,7 +1,7 @@
 import { Card } from '@dhis2-ui/card'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { resolve } from 'styled-jsx/css'
 
@@ -46,12 +46,12 @@ MenuWrapper.defaultProps = {
 }
 
 MenuWrapper.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    menuWidth: propTypes.string.isRequired,
-    selectRef: propTypes.object.isRequired,
-    children: propTypes.node,
-    maxHeight: propTypes.string,
-    onClick: propTypes.func,
+    dataTest: PropTypes.string.isRequired,
+    menuWidth: PropTypes.string.isRequired,
+    selectRef: PropTypes.object.isRequired,
+    children: PropTypes.node,
+    maxHeight: PropTypes.string,
+    onClick: PropTypes.func,
 }
 
 export { MenuWrapper }

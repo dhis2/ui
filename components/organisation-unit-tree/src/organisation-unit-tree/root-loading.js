@@ -1,5 +1,5 @@
 import { CircularLoader } from '@dhis2-ui/loader'
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export const RootLoading = ({ dataTest }) => (
@@ -16,5 +16,5 @@ export const RootLoading = ({ dataTest }) => (
 )
 
 RootLoading.propTypes = {
-    dataTest: propTypes.string.isRequired,
+    dataTest: PropTypes.string.isRequired,
 }

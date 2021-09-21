@@ -1,4 +1,4 @@
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { orgUnitPathPropType } from '../../prop-types.js'
 import { DisabledSelectionLabel } from './disabled-selection-label.js'
@@ -105,30 +105,30 @@ const Label = ({
 
 Label.propTypes = {
     // This is `any` so it can be customized by the app
-    children: propTypes.any.isRequired,
-    dataTest: propTypes.string.isRequired,
-    hasChildren: propTypes.bool.isRequired,
-    loading: propTypes.bool.isRequired,
-    node: propTypes.shape({
-        displayName: propTypes.string.isRequired,
-        id: propTypes.string.isRequired,
-        children: propTypes.arrayOf(
-            propTypes.shape({
-                displayName: propTypes.string.isRequired,
-                id: propTypes.string.isRequired,
+    children: PropTypes.any.isRequired,
+    dataTest: PropTypes.string.isRequired,
+    hasChildren: PropTypes.bool.isRequired,
+    loading: PropTypes.bool.isRequired,
+    node: PropTypes.shape({
+        displayName: PropTypes.string.isRequired,
+        id: PropTypes.string.isRequired,
+        children: PropTypes.arrayOf(
+            PropTypes.shape({
+                displayName: PropTypes.string.isRequired,
+                id: PropTypes.string.isRequired,
             })
         ),
-        path: propTypes.string,
+        path: PropTypes.string,
     }).isRequired,
-    open: propTypes.bool.isRequired,
-    onChange: propTypes.func.isRequired,
-    onToggleOpen: propTypes.func.isRequired,
-    checked: propTypes.bool,
-    disableSelection: propTypes.bool,
-    hasSelectedDescendants: propTypes.bool,
-    highlighted: propTypes.bool,
-    selected: propTypes.arrayOf(orgUnitPathPropType),
-    singleSelection: propTypes.bool,
+    open: PropTypes.bool.isRequired,
+    onChange: PropTypes.func.isRequired,
+    onToggleOpen: PropTypes.func.isRequired,
+    checked: PropTypes.bool,
+    disableSelection: PropTypes.bool,
+    hasSelectedDescendants: PropTypes.bool,
+    highlighted: PropTypes.bool,
+    selected: PropTypes.arrayOf(orgUnitPathPropType),
+    singleSelection: PropTypes.bool,
 }
 
 export { Label }

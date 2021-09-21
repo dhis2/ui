@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { ProfileMenu } from './profile/profile-menu.js'
 import { UserIcon } from './user-icon/user-icon.js'
@@ -81,8 +81,8 @@ export default class Profile extends React.Component {
 }
 
 Profile.propTypes = {
-    name: propTypes.string.isRequired,
-    avatarUrl: propTypes.string,
-    email: propTypes.string,
-    helpUrl: propTypes.string,
+    name: PropTypes.string.isRequired,
+    avatarUrl: PropTypes.string,
+    email: PropTypes.string,
+    helpUrl: PropTypes.string,
 }

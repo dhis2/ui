@@ -1,5 +1,5 @@
 import { colors } from '@dhis2/ui-constants'
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { ContentWithTitle } from './content-with-title.js'
 
@@ -44,15 +44,15 @@ export const StackedTableCell = ({
 }
 
 StackedTableCell.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    colSpan: propTypes.string,
-    column: propTypes.number,
-    dataTest: propTypes.string,
-    headerLabels: propTypes.arrayOf(propTypes.string),
-    hideTitle: propTypes.bool,
-    rowSpan: propTypes.string,
-    title: propTypes.string,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    colSpan: PropTypes.string,
+    column: PropTypes.number,
+    dataTest: PropTypes.string,
+    headerLabels: PropTypes.arrayOf(PropTypes.string),
+    hideTitle: PropTypes.bool,
+    rowSpan: PropTypes.string,
+    title: PropTypes.string,
 }
 
 StackedTableCell.defaultProps = {

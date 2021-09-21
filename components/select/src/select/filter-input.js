@@ -1,6 +1,6 @@
 import { Input } from '@dhis2-ui/input'
-import propTypes from '@dhis2/prop-types'
 import { spacers, colors } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 const FilterInput = ({ value, onChange, placeholder, className, dataTest }) => (
@@ -30,11 +30,11 @@ const FilterInput = ({ value, onChange, placeholder, className, dataTest }) => (
 )
 
 FilterInput.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    value: propTypes.string.isRequired,
-    className: propTypes.string,
-    placeholder: propTypes.string,
-    onChange: propTypes.func,
+    dataTest: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    className: PropTypes.string,
+    placeholder: PropTypes.string,
+    onChange: PropTypes.func,
 }
 
 export { FilterInput }

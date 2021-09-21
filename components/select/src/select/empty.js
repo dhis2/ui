@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { colors, spacers, theme } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 const Empty = ({ message, className, dataTest }) => (
@@ -19,9 +19,9 @@ const Empty = ({ message, className, dataTest }) => (
 )
 
 Empty.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    message: propTypes.string.isRequired,
-    className: propTypes.string,
+    dataTest: PropTypes.string.isRequired,
+    message: PropTypes.string.isRequired,
+    className: PropTypes.string,
 }
 
 export { Empty }

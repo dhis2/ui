@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { colors, theme, spacers } from '@dhis2/ui-constants'
 import { IconMessages24, IconMail24 } from '@dhis2/ui-icons'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 function icon(kind) {
@@ -58,8 +58,8 @@ NotificationIcon.defaultProps = {
 }
 
 NotificationIcon.propTypes = {
-    href: propTypes.string.isRequired,
-    count: propTypes.number,
-    dataTestId: propTypes.string,
-    kind: propTypes.oneOf(['interpretation', 'message']),
+    href: PropTypes.string.isRequired,
+    count: PropTypes.number,
+    dataTestId: PropTypes.string,
+    kind: PropTypes.oneOf(['interpretation', 'message']),
 }

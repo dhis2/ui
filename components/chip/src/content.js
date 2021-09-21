@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export const Content = ({ children, overflow }) => (
@@ -24,6 +24,6 @@ export const Content = ({ children, overflow }) => (
 )
 
 Content.propTypes = {
-    children: propTypes.any,
-    overflow: propTypes.bool,
+    children: PropTypes.any,
+    overflow: PropTypes.bool,
 }

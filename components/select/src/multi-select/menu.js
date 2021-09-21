@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import {
     Empty,
@@ -83,11 +83,11 @@ Menu.defaultProps = {
 }
 
 Menu.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    empty: propTypes.node,
-    options: propTypes.node,
-    selected: propTypes.arrayOf(propTypes.string),
-    onChange: propTypes.func,
+    dataTest: PropTypes.string.isRequired,
+    empty: PropTypes.node,
+    options: PropTypes.node,
+    selected: PropTypes.arrayOf(PropTypes.string),
+    onChange: PropTypes.func,
 }
 
 export { Menu }

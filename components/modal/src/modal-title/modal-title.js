@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export const ModalTitle = ({ children, dataTest }) => (
@@ -24,6 +24,6 @@ ModalTitle.defaultProps = {
 }
 
 ModalTitle.propTypes = {
-    children: propTypes.string,
-    dataTest: propTypes.string,
+    children: PropTypes.string,
+    dataTest: PropTypes.string,
 }

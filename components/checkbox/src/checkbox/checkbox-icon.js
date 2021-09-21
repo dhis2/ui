@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 import css from 'styled-jsx/css'
 
@@ -117,7 +117,7 @@ export function CheckboxRegular({ className }) {
     )
 }
 CheckboxRegular.propTypes = {
-    className: propTypes.string,
+    className: PropTypes.string,
 }
 
 export function CheckboxDense({ className }) {
@@ -205,5 +205,5 @@ export function CheckboxDense({ className }) {
     )
 }
 CheckboxDense.propTypes = {
-    className: propTypes.string,
+    className: PropTypes.string,
 }

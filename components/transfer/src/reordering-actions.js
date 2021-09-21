@@ -1,6 +1,6 @@
 import { Button } from '@dhis2-ui/button'
-import propTypes from '@dhis2/prop-types'
 import { spacers } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { IconMoveDown, IconMoveUp } from './icons.js'
 
@@ -57,9 +57,9 @@ export const ReorderingActions = ({
 )
 
 ReorderingActions.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    onChangeDown: propTypes.func.isRequired,
-    onChangeUp: propTypes.func.isRequired,
-    disabledDown: propTypes.bool,
-    disabledUp: propTypes.bool,
+    dataTest: PropTypes.string.isRequired,
+    onChangeDown: PropTypes.func.isRequired,
+    onChangeUp: PropTypes.func.isRequired,
+    disabledDown: PropTypes.bool,
+    disabledUp: PropTypes.bool,
 }

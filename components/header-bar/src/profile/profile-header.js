@@ -1,6 +1,6 @@
 import { Box } from '@dhis2-ui/box'
 import { useConfig } from '@dhis2/app-runtime'
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { joinPath } from '../join-path.js'
 import i18n from '../locales/index.js'
@@ -20,7 +20,7 @@ const ProfileName = ({ children }) => (
     </div>
 )
 ProfileName.propTypes = {
-    children: propTypes.string,
+    children: PropTypes.string,
 }
 
 const ProfileEmail = ({ children }) => (
@@ -37,7 +37,7 @@ const ProfileEmail = ({ children }) => (
     </div>
 )
 ProfileEmail.propTypes = {
-    children: propTypes.string,
+    children: PropTypes.string,
 }
 
 const ProfileEdit = ({ children }) => {
@@ -64,7 +64,7 @@ const ProfileEdit = ({ children }) => {
 }
 
 ProfileEdit.propTypes = {
-    children: propTypes.string,
+    children: PropTypes.string,
 }
 
 const ProfileDetails = ({ name, email }) => (
@@ -87,8 +87,8 @@ const ProfileDetails = ({ name, email }) => (
 )
 
 ProfileDetails.propTypes = {
-    email: propTypes.string,
-    name: propTypes.string,
+    email: PropTypes.string,
+    name: PropTypes.string,
 }
 
 export const ProfileHeader = ({ name, email, avatarUrl }) => (
@@ -114,7 +114,7 @@ export const ProfileHeader = ({ name, email, avatarUrl }) => (
 )
 
 ProfileHeader.propTypes = {
-    avatarUrl: propTypes.string,
-    email: propTypes.string,
-    name: propTypes.string,
+    avatarUrl: PropTypes.string,
+    email: PropTypes.string,
+    name: PropTypes.string,
 }

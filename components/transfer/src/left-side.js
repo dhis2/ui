@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { backgroundColor, borderColor, borderRadius } from './common/index.js'
 
@@ -28,7 +28,7 @@ export const LeftSide = ({ children, dataTest, width }) => (
 )
 
 LeftSide.propTypes = {
-    width: propTypes.string.isRequired,
-    children: propTypes.node,
-    dataTest: propTypes.string,
+    width: PropTypes.string.isRequired,
+    children: PropTypes.node,
+    dataTest: PropTypes.string,
 }

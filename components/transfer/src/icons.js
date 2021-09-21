@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { theme } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 import css from 'styled-jsx/css'
 
@@ -35,8 +35,8 @@ export const IconAddAll = ({ dataTest, disabled }) => (
 )
 
 IconAddAll.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    disabled: propTypes.bool,
+    dataTest: PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
 }
 
 export const IconAddIndividual = ({ dataTest, disabled }) => (
@@ -55,8 +55,8 @@ export const IconAddIndividual = ({ dataTest, disabled }) => (
 )
 
 IconAddIndividual.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    disabled: propTypes.bool,
+    dataTest: PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
 }
 
 export const IconRemoveAll = ({ dataTest, disabled }) => (
@@ -87,8 +87,8 @@ export const IconRemoveAll = ({ dataTest, disabled }) => (
 )
 
 IconRemoveAll.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    disabled: propTypes.bool,
+    dataTest: PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
 }
 
 export const IconRemoveIndividual = ({ dataTest, disabled }) => (
@@ -110,8 +110,8 @@ export const IconRemoveIndividual = ({ dataTest, disabled }) => (
 )
 
 IconRemoveIndividual.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    disabled: propTypes.bool,
+    dataTest: PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
 }
 
 export const IconMoveDown = ({ dataTest, disabled }) => (
@@ -131,8 +131,8 @@ export const IconMoveDown = ({ dataTest, disabled }) => (
 )
 
 IconMoveDown.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    disabled: propTypes.bool,
+    dataTest: PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
 }
 
 export const IconMoveUp = ({ dataTest, disabled }) => (
@@ -152,6 +152,6 @@ export const IconMoveUp = ({ dataTest, disabled }) => (
 )
 
 IconMoveUp.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    disabled: propTypes.bool,
+    dataTest: PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
 }

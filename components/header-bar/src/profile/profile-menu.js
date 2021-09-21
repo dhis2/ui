@@ -5,7 +5,6 @@ import { Layer } from '@dhis2-ui/layer'
 import { CircularLoader } from '@dhis2-ui/loader'
 import { MenuItem } from '@dhis2-ui/menu'
 import { useConfig, clearSensitiveCaches } from '@dhis2/app-runtime'
-import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
 import {
     IconSettings24,
@@ -14,6 +13,7 @@ import {
     IconUser24,
     IconQuestion24,
 } from '@dhis2/ui-icons'
+import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { joinPath } from '../join-path.js'
 import i18n from '../locales/index.js'
@@ -133,10 +133,10 @@ const ProfileContents = ({ name, email, avatarUrl, helpUrl }) => {
 }
 
 ProfileContents.propTypes = {
-    avatarUrl: propTypes.string,
-    email: propTypes.string,
-    helpUrl: propTypes.string,
-    name: propTypes.string,
+    avatarUrl: PropTypes.string,
+    email: PropTypes.string,
+    helpUrl: PropTypes.string,
+    name: PropTypes.string,
 }
 
 export const ProfileMenu = ({ avatarUrl, name, email, helpUrl }) => (
@@ -161,8 +161,8 @@ export const ProfileMenu = ({ avatarUrl, name, email, helpUrl }) => (
 )
 
 ProfileMenu.propTypes = {
-    avatarUrl: propTypes.string,
-    email: propTypes.string,
-    helpUrl: propTypes.string,
-    name: propTypes.string,
+    avatarUrl: PropTypes.string,
+    email: PropTypes.string,
+    helpUrl: PropTypes.string,
+    name: PropTypes.string,
 }

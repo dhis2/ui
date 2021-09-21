@@ -1,5 +1,5 @@
 import { Checkbox } from '@dhis2-ui/checkbox'
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { Icon } from './icon.js'
 
@@ -54,14 +54,14 @@ export const IconizedCheckbox = ({
 }
 
 IconizedCheckbox.propTypes = {
-    checked: propTypes.bool.isRequired,
-    children: propTypes.any.isRequired,
-    dataTest: propTypes.string.isRequired,
-    hasChildren: propTypes.bool.isRequired,
-    indeterminate: propTypes.bool.isRequired,
-    loading: propTypes.bool.isRequired,
-    name: propTypes.string.isRequired,
-    open: propTypes.bool.isRequired,
-    value: propTypes.string.isRequired,
-    onChange: propTypes.func.isRequired,
+    checked: PropTypes.bool.isRequired,
+    children: PropTypes.any.isRequired,
+    dataTest: PropTypes.string.isRequired,
+    hasChildren: PropTypes.bool.isRequired,
+    indeterminate: PropTypes.bool.isRequired,
+    loading: PropTypes.bool.isRequired,
+    name: PropTypes.string.isRequired,
+    open: PropTypes.bool.isRequired,
+    value: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
 }

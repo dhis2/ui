@@ -1,4 +1,4 @@
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import i18n from '../locales/index.js'
 
@@ -12,6 +12,6 @@ export const RootError = ({ dataTest, error }) => (
 )
 
 RootError.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    error: propTypes.string.isRequired,
+    dataTest: PropTypes.string.isRequired,
+    error: PropTypes.string.isRequired,
 }

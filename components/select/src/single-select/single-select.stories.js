@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { sharedPropTypes } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { SingleSelectOption } from '../index.js'
 import { SingleSelect } from './index.js'
@@ -30,8 +30,8 @@ const CustomSingleSelectOption = ({ label, onClick }) => (
 )
 
 CustomSingleSelectOption.propTypes = {
-    label: propTypes.string,
-    onClick: propTypes.func,
+    label: PropTypes.string,
+    onClick: PropTypes.func,
 }
 
 const requiredIfArgType = {

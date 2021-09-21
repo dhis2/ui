@@ -1,6 +1,6 @@
 import { SingleSelect, SingleSelectOption } from '@dhis2-ui/select'
-import propTypes from '@dhis2/prop-types'
 import { spacers } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 // TODO: i18n translate
@@ -48,12 +48,12 @@ const PageSelect = ({
 )
 
 PageSelect.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    page: propTypes.number.isRequired,
-    pageCount: propTypes.number.isRequired,
-    pageSelectText: propTypes.oneOfType([propTypes.string, propTypes.func])
+    dataTest: PropTypes.string.isRequired,
+    page: PropTypes.number.isRequired,
+    pageCount: PropTypes.number.isRequired,
+    pageSelectText: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
         .isRequired,
-    onChange: propTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
 }
 
 export { PageSelect, createAvailablePages }

@@ -31,12 +31,12 @@
         "styled-jsx": "^4"
     },
     "dependencies": {
+        "@dhis2/prop-types": "^3.0.0-beta.1",
         "@dhis2-ui/card": "7.1.1",
         "@dhis2-ui/divider": "7.1.1",
         "@dhis2-ui/layer": "7.1.1",
         "@dhis2-ui/popper": "7.1.1",
         "@dhis2-ui/portal": "7.1.1",
-        "@dhis2/prop-types": "^1.6.4",
         "@dhis2/ui-constants": "7.1.1",
         "@dhis2/ui-icons": "7.1.1",
         "classnames": "^2.3.1",

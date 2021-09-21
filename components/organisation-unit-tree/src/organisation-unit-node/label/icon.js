@@ -1,4 +1,4 @@
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { IconEmpty } from './icon-empty.js'
 import { IconFolderClosed } from './icon-folder-closed.js'
@@ -28,8 +28,8 @@ export const Icon = ({ loading, hasChildren, open, dataTest }) => {
 }
 
 Icon.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    hasChildren: propTypes.bool,
-    loading: propTypes.bool,
-    open: propTypes.bool,
+    dataTest: PropTypes.string.isRequired,
+    hasChildren: PropTypes.bool,
+    loading: PropTypes.bool,
+    open: PropTypes.bool,
 }

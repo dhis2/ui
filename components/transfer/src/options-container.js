@@ -1,6 +1,6 @@
 import { CircularLoader } from '@dhis2-ui/loader'
-import propTypes from '@dhis2/prop-types'
 import { spacers } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React, { Fragment, useRef } from 'react'
 import { EndIntersectionDetector } from './end-intersection-detector.js'
 import { useResizeCounter } from './use-resize-counter.js'
@@ -109,20 +109,20 @@ OptionsContainer.defaultProps = {
 }
 
 OptionsContainer.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    getOptionClickHandlers: propTypes.func.isRequired,
-    emptyComponent: propTypes.node,
-    highlightedOptions: propTypes.arrayOf(propTypes.string),
-    loading: propTypes.bool,
-    options: propTypes.arrayOf(
-        propTypes.shape({
-            label: propTypes.string.isRequired,
-            value: propTypes.string.isRequired,
+    dataTest: PropTypes.string.isRequired,
+    getOptionClickHandlers: PropTypes.func.isRequired,
+    emptyComponent: PropTypes.node,
+    highlightedOptions: PropTypes.arrayOf(PropTypes.string),
+    loading: PropTypes.bool,
+    options: PropTypes.arrayOf(
+        PropTypes.shape({
+            label: PropTypes.string.isRequired,
+            value: PropTypes.string.isRequired,
         })
     ),
-    renderOption: propTypes.func,
-    selected: propTypes.bool,
-    selectionHandler: propTypes.func,
-    toggleHighlightedOption: propTypes.func,
-    onEndReached: propTypes.func,
+    renderOption: PropTypes.func,
+    selected: PropTypes.bool,
+    selectionHandler: PropTypes.func,
+    toggleHighlightedOption: PropTypes.func,
+    onEndReached: PropTypes.func,
 }

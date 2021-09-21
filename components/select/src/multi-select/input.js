@@ -1,6 +1,7 @@
-import propTypes from '@dhis2/prop-types'
+import { requiredIf } from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 import {
     InputClearButton,
@@ -94,17 +95,17 @@ Input.defaultProps = {
 }
 
 Input.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    className: propTypes.string,
-    clearText: propTypes.requiredIf(props => props.clearable, propTypes.string),
-    clearable: propTypes.bool,
-    disabled: propTypes.bool,
-    inputMaxHeight: propTypes.string,
-    options: propTypes.node,
-    placeholder: propTypes.string,
-    prefix: propTypes.string,
-    selected: propTypes.arrayOf(propTypes.string),
-    onChange: propTypes.func,
+    dataTest: PropTypes.string.isRequired,
+    className: PropTypes.string,
+    clearText: requiredIf(props => props.clearable, PropTypes.string),
+    clearable: PropTypes.bool,
+    disabled: PropTypes.bool,
+    inputMaxHeight: PropTypes.string,
+    options: PropTypes.node,
+    placeholder: PropTypes.string,
+    prefix: PropTypes.string,
+    selected: PropTypes.arrayOf(PropTypes.string),
+    onChange: PropTypes.func,
 }
 
 export { Input }

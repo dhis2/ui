@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { FilterableMenu as CommonFilterableMenu } from '../select/index.js'
 import { Menu } from './menu.js'
@@ -29,15 +29,15 @@ const FilterableMenu = ({
 )
 
 FilterableMenu.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    noMatchText: propTypes.string.isRequired,
-    empty: propTypes.node,
-    handleClose: propTypes.func,
-    handleFocusInput: propTypes.func,
-    options: propTypes.node,
-    placeholder: propTypes.string,
-    selected: propTypes.arrayOf(propTypes.string),
-    onChange: propTypes.func,
+    dataTest: PropTypes.string.isRequired,
+    noMatchText: PropTypes.string.isRequired,
+    empty: PropTypes.node,
+    handleClose: PropTypes.func,
+    handleFocusInput: PropTypes.func,
+    options: PropTypes.node,
+    placeholder: PropTypes.string,
+    selected: PropTypes.arrayOf(PropTypes.string),
+    onChange: PropTypes.func,
 }
 
 export { FilterableMenu }

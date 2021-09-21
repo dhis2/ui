@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export const getInitials = name =>
@@ -38,6 +38,6 @@ export const TextIcon = ({ name, dataTest }) => (
 )
 
 TextIcon.propTypes = {
-    name: propTypes.string.isRequired,
-    dataTest: propTypes.string,
+    name: PropTypes.string.isRequired,
+    dataTest: PropTypes.string,
 }

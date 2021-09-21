@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { ImageIcon } from './image-icon.js'
 import { TextIcon } from './text-icon.js'
@@ -12,6 +12,6 @@ export const UserIcon = ({ avatarUrl, name, dataTest }) => {
 }
 
 UserIcon.propTypes = {
-    name: propTypes.string.isRequired,
-    avatarUrl: propTypes.string,
+    name: PropTypes.string.isRequired,
+    avatarUrl: PropTypes.string,
 }

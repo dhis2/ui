@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 const ArrowDown = () => (
@@ -68,8 +68,8 @@ export const Toggle = ({ open, onOpen, onClose, dataTest }) => {
 }
 
 Toggle.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    open: propTypes.bool,
-    onClose: propTypes.func,
-    onOpen: propTypes.func,
+    dataTest: PropTypes.string.isRequired,
+    open: PropTypes.bool,
+    onClose: PropTypes.func,
+    onOpen: PropTypes.func,
 }

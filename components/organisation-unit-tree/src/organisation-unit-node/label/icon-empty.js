@@ -1,4 +1,4 @@
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export const IconEmpty = ({ dataTest }) => (
@@ -27,5 +27,5 @@ export const IconEmpty = ({ dataTest }) => (
 )
 
 IconEmpty.propTypes = {
-    dataTest: propTypes.string.isRequired,
+    dataTest: PropTypes.string.isRequired,
 }

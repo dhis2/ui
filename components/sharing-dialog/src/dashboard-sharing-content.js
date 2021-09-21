@@ -1,6 +1,6 @@
 import { TabBar, Tab } from '@dhis2-ui/tab'
 import i18n from '@dhis2/d2-i18n'
-import PropTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { DashboardCascadeSharingContent } from './dashboard-cascade-sharing-content.js'
 import { DefaultSharingContent } from './default-sharing-content.js'

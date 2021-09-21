@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export const ImageIcon = ({ src, dataTest }) => (
@@ -17,6 +17,6 @@ export const ImageIcon = ({ src, dataTest }) => (
 )
 
 ImageIcon.propTypes = {
-    src: propTypes.string.isRequired,
-    dataTest: propTypes.string,
+    src: PropTypes.string.isRequired,
+    dataTest: PropTypes.string,
 }

@@ -1,4 +1,4 @@
-import PropTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { ShareBlock } from './share-block.js'
 import { SharingList } from './sharing-list.js'
