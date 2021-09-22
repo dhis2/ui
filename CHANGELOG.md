@@ -7,6 +7,7 @@
 
 # [7.2.0](https://github.com/dhis2/ui/compare/v7.1.1...v7.2.0) (2021-09-21)
 
+Note: this release has updated this library's version of @dhis2/prop-types to version 3. We've seen apps that implicitly rely on the version of @dhis2/prop-types shipped with this library. Since our internal upgrade to @dhis2/prop-types@3 is a major version upgrade your app could break if you update to this version and haven't explicitly installed a version of @dhis2/prop-types for your app. Make sure that if your app is using @dhis2/prop-types it's listed in your app's package.json before updating to this version of @dhis2/ui.
 
 ### Features
 
