@@ -500,27 +500,25 @@ export const LoadingErrorGrandchild = () => (
 )
 LoadingErrorGrandchild.storyName = 'Loading error grandchild'
 
-const DX_onChange = (selected, setSelected, singleSelection) => ({
-    id,
-    path,
-    checked,
-}) => {
-    console.log('onChange', { path, id, checked })
-    const pathIndex = selected.indexOf(path)
+const DX_onChange =
+    (selected, setSelected, singleSelection) =>
+    ({ id, path, checked }) => {
+        console.log('onChange', { path, id, checked })
+        const pathIndex = selected.indexOf(path)
 
-    if (checked) {
-        setSelected(singleSelection ? [path] : [...selected, path])
-    } else {
-        setSelected(
-            singleSelection
-                ? []
-                : [
-                      ...selected.slice(0, pathIndex),
-                      ...selected.slice(pathIndex + 1),
-                  ]
-        )
+        if (checked) {
+            setSelected(singleSelection ? [path] : [...selected, path])
+        } else {
+            setSelected(
+                singleSelection
+                    ? []
+                    : [
+                          ...selected.slice(0, pathIndex),
+                          ...selected.slice(pathIndex + 1),
+                      ]
+            )
+        }
     }
-}
 
 const Wrapper = props => {
     const [selected, setSelected] = useState([])

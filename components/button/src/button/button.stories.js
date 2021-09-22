@@ -69,8 +69,7 @@ Primary.args = {
 Primary.parameters = {
     docs: {
         description: {
-            story:
-                'Used to highlight the most important/main action on a page. \
+            story: 'Used to highlight the most important/main action on a page. \
                 A "Save" button for a form page should be primary, for example. \
                 Use sparingly, rarely should there be more than a single primary \
                 button per page.',
@@ -86,8 +85,7 @@ Secondary.args = {
 Secondary.parameters = {
     docs: {
         description: {
-            story:
-                'Used for passive actions, often as an alternative to the primary \
+            story: 'Used for passive actions, often as an alternative to the primary \
                 action. If "Save" is primary, "Cancel" could be secondary. \
                 Not intended to draw user attention. Do not use for the only \
                 action on a page.',
@@ -103,8 +101,7 @@ Destructive.args = {
 Destructive.parameters = {
     docs: {
         description: {
-            story:
-                'Used instead of a primary button when the main action is \
+            story: 'Used instead of a primary button when the main action is \
                 destructive in nature. Used to highlight to the user the \
                 seriousness of the action. \
                 **Destructive buttons must only be used for destructive actions.**',
@@ -126,8 +123,7 @@ Disabled.args = {
 Disabled.parameters = {
     docs: {
         description: {
-            story:
-                "Use disabled buttons when an action is being prevented for some reason. \
+            story: "Use disabled buttons when an action is being prevented for some reason. \
                 Always communicate to the user why the button can't be clicked. This can \
                 be done through a tooltip on hover, or with supplementary text underneath \
                 the button. Do not change the button label between disabled/enabled states.",
@@ -143,8 +139,7 @@ Small.args = {
 Small.parameters = {
     docs: {
         description: {
-            story:
-                'Buttons are available in three sizes: `small`, `medium`, and `large`. \
+            story: 'Buttons are available in three sizes: `small`, `medium`, and `large`. \
                 Medium is usually the correct choice.  Use small buttons in an information-\
                 dense ui.',
         },
@@ -159,8 +154,7 @@ Large.args = {
 Large.parameters = {
     docs: {
         description: {
-            story:
-                'Buttons are available in three sizes: `small`, `medium`, and `large`. \
+            story: 'Buttons are available in three sizes: `small`, `medium`, and `large`. \
                 Medium is usually the correct choice.  Large buttons can be used on very simple, \
                 single-action pages.',
         },
@@ -191,8 +185,7 @@ Icon.args = {
 Icon.parameters = {
     docs: {
         description: {
-            story:
-                'Icons can be included in Basic, Primary, Secondary and Destructive buttons. \
+            story: 'Icons can be included in Basic, Primary, Secondary and Destructive buttons. \
                 Use an icon to supplement the text label. Remember that the user may not be \
                 fluent in the working language, so an accompanying icon on an important action \
                 can be a welcome addition. Buttons with icons only should be used for \
@@ -219,8 +212,7 @@ Toggled.args = {
 Toggled.parameters = {
     docs: {
         description: {
-            story:
-                'A button can represent an on/off state using the toggle option. \
+            story: 'A button can represent an on/off state using the toggle option. \
                 Use a toggle button when the user can enable or disable an option and \
                 a checkbox or switch is not suitable. This will most often be in the case of \
                 a toolbar, such as bold or italic options in a text editing toolbar. \
@@ -257,8 +249,7 @@ Loading.args = {
 Loading.parameters = {
     docs: {
         description: {
-            story:
-                'A button can be in a loading state. Use the loading state to show a pending action after the button has been triggered. The button text should change to let the user know what is happening. For example, a button labelled "Send" might changed to "Sending..." when in a loading state.',
+            story: 'A button can be in a loading state. Use the loading state to show a pending action after the button has been triggered. The button text should change to let the user know what is happening. For example, a button labelled "Send" might changed to "Sending..." when in a loading state.',
         },
     },
 }

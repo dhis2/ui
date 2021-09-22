@@ -14,8 +14,7 @@ export const statusArgType = {
     table: {
         type: {
             summary: 'bool',
-            detail:
-                "'valid', 'warning', and 'error' are mutually exclusive props",
+            detail: "'valid', 'warning', and 'error' are mutually exclusive props",
         },
     },
     control: { type: 'boolean' },
@@ -35,8 +34,7 @@ export const buttonVariantArgType = {
     table: {
         type: {
             summary: 'bool',
-            detail:
-                "'primary', 'secondary', and 'destructive' are mutually exclusive props",
+            detail: "'primary', 'secondary', and 'destructive' are mutually exclusive props",
         },
     },
     control: {

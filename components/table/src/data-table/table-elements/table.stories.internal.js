@@ -1090,9 +1090,8 @@ const ScrollingTableWithToolbarsTemplate = args => (
     </Box>
 )
 
-export const ScrollingTableWithToolbars = ScrollingTableWithToolbarsTemplate.bind(
-    {}
-)
+export const ScrollingTableWithToolbars =
+    ScrollingTableWithToolbarsTemplate.bind({})
 ScrollingTableWithToolbars.args = {
     layout: 'fixed',
     borderless: true,

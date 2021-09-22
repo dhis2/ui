@@ -3,12 +3,14 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { removeOption, findOptionChild } from '../select/index.js'
 
-const createRemoveHandler = ({ selected, onChange, value }) => (_, e) => {
-    const filtered = removeOption(value, selected)
-    const data = { selected: filtered }
+const createRemoveHandler =
+    ({ selected, onChange, value }) =>
+    (_, e) => {
+        const filtered = removeOption(value, selected)
+        const data = { selected: filtered }
 
-    onChange(data, e)
-}
+        onChange(data, e)
+    }
 
 const SelectionList = ({ selected, onChange, disabled, options }) => (
     <React.Fragment>

@@ -9,12 +9,24 @@ import { SingleSelectionLabel } from './single-selection-label.js'
 const createNewSelected = ({ selected, path, checked, singleSelection }) => {
     const pathIndex = selected.indexOf(path)
 
-    if (checked && pathIndex !== -1) return selected
-    if (singleSelection && checked) return [path]
-    if (checked) return [...selected, path]
-    if (pathIndex === -1) return selected
-    if (singleSelection) return []
-    if (selected.indexOf(path) === 0) return selected.slice(1)
+    if (checked && pathIndex !== -1) {
+        return selected
+    }
+    if (singleSelection && checked) {
+        return [path]
+    }
+    if (checked) {
+        return [...selected, path]
+    }
+    if (pathIndex === -1) {
+        return selected
+    }
+    if (singleSelection) {
+        return []
+    }
+    if (selected.indexOf(path) === 0) {
+        return selected.slice(1)
+    }
 
     const prevSlice = selected.slice(0, pathIndex)
     const nextSlice = selected.slice(pathIndex + 1)

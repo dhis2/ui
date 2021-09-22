@@ -44,8 +44,7 @@ Dense.args = { dense: true }
 Dense.parameters = {
     docs: {
         description: {
-            story:
-                'Menus are available in regular or dense sizes. Use dense menus in data-heavy applications used by users comfortable with technology. Use regular menus in apps that are less complex or have few controls.',
+            story: 'Menus are available in regular or dense sizes. Use dense menus in data-heavy applications used by users comfortable with technology. Use regular menus in apps that are less complex or have few controls.',
         },
     },
 }

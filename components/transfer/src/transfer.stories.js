@@ -85,10 +85,8 @@ const options = [
         value: 'art_no_clients_who_stopped_trt_due_to_trt_failure',
     },
     {
-        label:
-            'ART No clients who stopped TRT due to adverse clinical status/event',
-        value:
-            'art_no_clients_who_stopped_trt_due_to_adverse_clinical_status/event',
+        label: 'ART No clients who stopped TRT due to adverse clinical status/event',
+        value: 'art_no_clients_who_stopped_trt_due_to_adverse_clinical_status/event',
     },
     {
         label: 'ART No clients with change of regimen due to drug toxicity',
@@ -404,7 +402,9 @@ const createCustomFilteringInHeader = hideFilterInput => {
                 option => option.relativePeriod === relativePeriod
             )
 
-            if (filter === '') return optionsWithPeriod
+            if (filter === '') {
+                return optionsWithPeriod
+            }
 
             return optionsWithPeriod.filter(
                 ({ label }) => label.indexOf(filter) !== -1
@@ -454,13 +454,11 @@ const createCustomFilteringInHeader = hideFilterInput => {
     }
 }
 
-export const CustomFilteringWithFilterInput = createCustomFilteringInHeader(
-    false
-)
+export const CustomFilteringWithFilterInput =
+    createCustomFilteringInHeader(false)
 
-export const CustomFilteringWithoutFilterInput = createCustomFilteringInHeader(
-    true
-)
+export const CustomFilteringWithoutFilterInput =
+    createCustomFilteringInHeader(true)
 
 const optionsPool = options
 const pageSize = 5
@@ -489,7 +487,9 @@ export const InfiniteLoading = args => {
 
     const onEndReached = () => {
         // do nothing when loading already
-        if (loading) return
+        if (loading) {
+            return
+        }
         setPage(page + 1)
     }
 

@@ -13,23 +13,25 @@ const onDisabledClick = (_, e) => {
     e.preventDefault()
 }
 
-const createHandler = ({ isActive, onChange, selected, value }) => (_, e) => {
-    e.stopPropagation()
+const createHandler =
+    ({ isActive, onChange, selected, value }) =>
+    (_, e) => {
+        e.stopPropagation()
 
-    // If the option is currently selected remove it from the array of selected options
-    if (isActive) {
-        const filtered = removeOption(value, selected)
-        const data = { selected: filtered }
+        // If the option is currently selected remove it from the array of selected options
+        if (isActive) {
+            const filtered = removeOption(value, selected)
+            const data = { selected: filtered }
 
+            return onChange(data, e)
+        }
+
+        // Otherwise, add it to selected
+        const data = {
+            selected: selected.concat([value]),
+        }
         return onChange(data, e)
     }
-
-    // Otherwise, add it to selected
-    const data = {
-        selected: selected.concat([value]),
-    }
-    return onChange(data, e)
-}
 
 const Menu = ({ options, onChange, selected, empty, dataTest }) => {
     const renderedOptions = filterIgnored(options)

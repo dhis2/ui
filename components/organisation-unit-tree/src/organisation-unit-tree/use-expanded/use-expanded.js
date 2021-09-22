@@ -8,9 +8,8 @@ import { getInitiallyExpandedPaths, createExpandHandlers } from './helpers.js'
  * @returns {{ expanded: string[], handleExpand: Function, handleCollapse: Function }}
  */
 export const useExpanded = (initiallyExpanded, onExpand, onCollapse) => {
-    const allInitiallyExpandedPaths = getInitiallyExpandedPaths(
-        initiallyExpanded
-    )
+    const allInitiallyExpandedPaths =
+        getInitiallyExpandedPaths(initiallyExpanded)
     const [expanded, setExpanded] = useState(allInitiallyExpandedPaths)
     const { handleExpand, handleCollapse } = createExpandHandlers({
         expanded,

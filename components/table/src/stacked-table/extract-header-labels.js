@@ -81,11 +81,15 @@ const combineRowLables = (columnCount, rowCount, headerLabels) =>
         }, [])
 
 export const extractHeaderLabels = children => {
-    if (React.Children.count(children) === 0) return []
+    if (React.Children.count(children) === 0) {
+        return []
+    }
 
     const rows = extractRowsFromTableChildren(children)
 
-    if (!rows.length) return []
+    if (!rows.length) {
+        return []
+    }
 
     const rowCount = rows.length
     const columnCount = calculateColumnCount(rows[0])

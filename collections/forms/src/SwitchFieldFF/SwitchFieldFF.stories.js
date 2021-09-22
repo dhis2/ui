@@ -142,8 +142,7 @@ export const ValueWhenChecked = () => (
 ValueWhenChecked.parameters = {
     docs: {
         description: {
-            story:
-                'See the details about using the `value` prop at the [Final Form docs](https://final-form.org/docs/react-final-form/types/FieldProps#value)',
+            story: 'See the details about using the `value` prop at the [Final Form docs](https://final-form.org/docs/react-final-form/types/FieldProps#value)',
         },
     },
 }

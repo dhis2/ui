@@ -95,8 +95,7 @@ Required.args = { required: true }
 export const InputWidth = Template.bind({})
 InputWidth.args = {
     inputWidth: '200px',
-    label:
-        'A very long label indeed, well at least longer than the input field to show how it looks and works and stuff',
+    label: 'A very long label indeed, well at least longer than the input field to show how it looks and works and stuff',
     required: true,
 }
 

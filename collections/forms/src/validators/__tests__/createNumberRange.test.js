@@ -38,13 +38,11 @@ describe('validator: createNumberRange', () => {
     })
 
     describe('allows within-range numbers', () => {
-        testValidatorValues(betweenSixAndTen, undefined, [
-            6,
-            8,
-            10,
-            9.999999,
-            6.000001,
-        ])
+        testValidatorValues(
+            betweenSixAndTen,
+            undefined,
+            [6, 8, 10, 9.999999, 6.000001]
+        )
     })
 
     describe('rejects non-numerical values', () => {
@@ -58,12 +56,10 @@ describe('validator: createNumberRange', () => {
     })
 
     describe('rejects out-of-range numbers', () => {
-        testValidatorValues(betweenSixAndTen, errorMessage, [
-            3,
-            5,
-            5.999999,
-            10.000001,
-            1000000,
-        ])
+        testValidatorValues(
+            betweenSixAndTen,
+            errorMessage,
+            [3, 5, 5.999999, 10.000001, 1000000]
+        )
     })
 })

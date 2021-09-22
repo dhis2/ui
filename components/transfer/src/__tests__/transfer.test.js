@@ -48,10 +48,8 @@ const options = [
         value: 'art_no_clients_who_stopped_trt_due_to_trt_failure',
     },
     {
-        label:
-            'ART No clients who stopped TRT due to adverse clinical status/event',
-        value:
-            'art_no_clients_who_stopped_trt_due_to_adverse_clinical_status/event',
+        label: 'ART No clients who stopped TRT due to adverse clinical status/event',
+        value: 'art_no_clients_who_stopped_trt_due_to_adverse_clinical_status/event',
     },
     {
         label: 'ART No clients with change of regimen due to drug toxicity',

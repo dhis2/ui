@@ -46,8 +46,7 @@ Destructive.args = { destructive: true }
 Destructive.parameters = {
     docs: {
         description: {
-            story:
-                "Destructive menu items should be used for critical, destructive actions such as 'Delete', 'Remove' or 'End process'. Do not use destructive menu items for actions that are simply important, they must also be destructive in nature. A menu should, ideally, only have one destructive action. Using a divider to separate normal and destructive options helps the user to understand that the destructive options is different from the rest of the options.",
+            story: "Destructive menu items should be used for critical, destructive actions such as 'Delete', 'Remove' or 'End process'. Do not use destructive menu items for actions that are simply important, they must also be destructive in nature. A menu should, ideally, only have one destructive action. Using a divider to separate normal and destructive options helps the user to understand that the destructive options is different from the rest of the options.",
         },
     },
 }
@@ -57,8 +56,7 @@ Disabled.args = { disabled: true }
 Disabled.parameters = {
     docs: {
         description: {
-            story:
-                'Menu items should be disabled when they are not available, but could be available if something changes. Do not include menu items that will never be available, this will confuse a user. Instead, remove them from the menu.',
+            story: 'Menu items should be disabled when they are not available, but could be available if something changes. Do not include menu items that will never be available, this will confuse a user. Instead, remove them from the menu.',
         },
     },
 }
@@ -82,8 +80,7 @@ Icon.parameters = {
     docs: {
         source: { type: 'code' },
         description: {
-            story:
-                'A menu item can include an icon to help the user understand or recognize the option. An icon should support the menu item text and be simple enough to be understood in a dense UI. Icons add a lot of visual noise a menu, so only include them where they will help the user. Do not include icons only for visual reasons, the icon must functionally support the users understanding. Do not use complex icons. All menu items in a single menu do not need to have icons.',
+            story: 'A menu item can include an icon to help the user understand or recognize the option. An icon should support the menu item text and be simple enough to be understood in a dense UI. Icons add a lot of visual noise a menu, so only include them where they will help the user. Do not include icons only for visual reasons, the icon must functionally support the users understanding. Do not use complex icons. All menu items in a single menu do not need to have icons.',
         },
     },
 }
@@ -145,8 +142,7 @@ SubMenus.parameters = {
     docs: {
         source: { type: 'code' },
         description: {
-            story:
-                "_View this story in the 'Canvas' tab for proper submenu alignment._",
+            story: "_View this story in the 'Canvas' tab for proper submenu alignment._",
         },
     },
 }

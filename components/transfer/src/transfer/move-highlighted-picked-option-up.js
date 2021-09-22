@@ -15,7 +15,9 @@ export const moveHighlightedPickedOptionUp = ({
     )
 
     // Can't move up option at index 0 or non-existing option
-    if (optionIndex < 1) return
+    if (optionIndex < 1) {
+        return
+    }
 
     // swap with previous item
     const reordered = [

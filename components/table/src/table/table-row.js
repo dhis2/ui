@@ -17,9 +17,8 @@ export const TableRow = ({
     dataTest,
     suppressZebraStriping,
 }) => {
-    const {
-        suppressZebraStriping: suppressZebraStripingFromContext,
-    } = useContext(TableContext)
+    const { suppressZebraStriping: suppressZebraStripingFromContext } =
+        useContext(TableContext)
 
     const zebraStriping =
         typeof suppressZebraStriping !== 'undefined'

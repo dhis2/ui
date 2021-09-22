@@ -15,7 +15,9 @@ export const moveHighlightedPickedOptionDown = ({
     )
 
     // Can't move down last or non-existing option
-    if (optionIndex === -1 || optionIndex > selected.length - 2) return
+    if (optionIndex === -1 || optionIndex > selected.length - 2) {
+        return
+    }
 
     // swap with next item
     const reordered = [

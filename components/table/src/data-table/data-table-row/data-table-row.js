@@ -23,10 +23,8 @@ export const DataTableRow = forwardRef(
         },
         ref
     ) => {
-        const [
-            isHoveringExpandedContent,
-            setIsHoveringExpandedContent,
-        ] = useState(false)
+        const [isHoveringExpandedContent, setIsHoveringExpandedContent] =
+            useState(false)
         const classes = cx(className, resolvedCss.className, {
             expanded,
             selected,

@@ -130,9 +130,8 @@ function List({ apps, filter }) {
                 .filter(({ displayName, name }) => {
                     const appName = displayName || name
                     const formattedAppName = appName.toLowerCase()
-                    const formattedFilter = escapeRegExpCharacters(
-                        filter
-                    ).toLowerCase()
+                    const formattedFilter =
+                        escapeRegExpCharacters(filter).toLowerCase()
 
                     return filter.length > 0
                         ? formattedAppName.match(formattedFilter)

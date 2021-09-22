@@ -120,8 +120,7 @@ const customData = {
                 defaultAction:
                     'https://debug.dhis2.org/dev/api/apps/WHO-Metadata-browser/index.html',
                 displayName: '',
-                icon:
-                    'https://debug.dhis2.org/dev/api/apps/WHO-Metadata-browser/icons/medicine-48.png',
+                icon: 'https://debug.dhis2.org/dev/api/apps/WHO-Metadata-browser/icons/medicine-48.png',
                 description: '',
             },
             {
@@ -130,8 +129,7 @@ const customData = {
                 defaultAction:
                     'https://debug.dhis2.org/dev/api/apps/Dashboard-Classic/index.html',
                 displayName: 'Dashboard Classic',
-                icon:
-                    'https://debug.dhis2.org/dev/api/apps/Dashboard-Classic/icon.png',
+                icon: 'https://debug.dhis2.org/dev/api/apps/Dashboard-Classic/icon.png',
                 description: 'DHIS2 Legacy Dashboard App',
             },
         ],
@@ -246,8 +244,7 @@ export const WithOnlineStatus = args => {
 WithOnlineStatus.parameters = {
     docs: {
         description: {
-            story:
-                'An online status badge will be shown in apps that set \
+            story: 'An online status badge will be shown in apps that set \
                 `pwa: { enabled: true }` in `d2.config.js`. The status \
                 indicator uses a different layout on viewports smaller \
                 than 480px.',
@@ -272,8 +269,7 @@ export const WithLastOnlineInfo = args => {
 WithLastOnlineInfo.parameters = {
     docs: {
         description: {
-            story:
-                'When offline, the status indicator will show text describing \
+            story: 'When offline, the status indicator will show text describing \
                 time since last online.',
         },
     },

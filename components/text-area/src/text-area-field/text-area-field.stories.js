@@ -45,8 +45,7 @@ WithHelpText.args = {
 
 export const WithValue = Template.bind({})
 WithValue.args = {
-    value:
-        'This is set through the value prop, which means the component is controlled.',
+    value: 'This is set through the value prop, which means the component is controlled.',
 }
 
 export const Focus = Template.bind({})
@@ -89,8 +88,7 @@ Dense.args = { dense: true, value: 'This field is dense' }
 
 export const LabelTextOverflow = Template.bind({})
 LabelTextOverflow.args = {
-    label:
-        "This label is too long to show on a single line of the input field's label. We just let it flow to the next line so the user can still read it. However, we should always aim to keep it shorter than this!",
+    label: "This label is too long to show on a single line of the input field's label. We just let it flow to the next line so the user can still read it. However, we should always aim to keep it shorter than this!",
 }
 LabelTextOverflow.storyName = 'Label text overflow'
 

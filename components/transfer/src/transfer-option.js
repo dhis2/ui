@@ -21,7 +21,9 @@ export const TransferOption = ({
         <div
             data-test={dataTest}
             onClick={event => {
-                if (disabled) return
+                if (disabled) {
+                    return
+                }
 
                 if (doubleClickTimeout.current) {
                     clearTimeout(doubleClickTimeout.current)
