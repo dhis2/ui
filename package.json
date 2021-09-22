@@ -64,7 +64,7 @@
         "fast-glob": "^3.2.7",
         "find-up": "^5.0.0",
         "react": "16.13",
-        "react-dev-utils": "^10.2.1",
+        "react-dev-utils": "^11.0.4",
         "react-dom": "16.13",
         "react-scripts": "^4.0.3",
         "rimraf": "^3.0.2",
