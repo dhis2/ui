@@ -1,3 +1,10 @@
+# [6.25.0](https://github.com/dhis2/ui/compare/v6.24.2...v6.25.0) (2021-09-22)
+
+
+### Features
+
+* **header-bar:** clear sensitive caches on logout v6.x ([4cb15b0](https://github.com/dhis2/ui/commit/4cb15b0c56439a7d2c4305f6f6efe551b796f9d7))
+
 ## [6.24.2](https://github.com/dhis2/ui/compare/v6.24.1...v6.24.2) (2021-09-14)
 
 
