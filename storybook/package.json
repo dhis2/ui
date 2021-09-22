@@ -41,7 +41,7 @@
         "@storybook/theming": "^6.3.7",
         "@wertarbyte/react-props-md-table": "^1.1.1",
         "react-docgen": "^5.4.0",
-        "storybook-addon-jsx": "^7.3.12"
+        "storybook-addon-jsx": "^7.3.14"
     },
     "devDependencies": {
         "react": "16.13",
