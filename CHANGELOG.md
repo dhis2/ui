@@ -1,3 +1,10 @@
+## [7.2.1](https://github.com/dhis2/ui/compare/v7.2.0...v7.2.1) (2021-09-22)
+
+
+### Bug Fixes
+
+* remove External users from sharing dialog ([129b71e](https://github.com/dhis2/ui/commit/129b71e5aa140a2202b6d658a2dfbb64c7c4d6cf))
+
 # [7.2.0](https://github.com/dhis2/ui/compare/v7.1.1...v7.2.0) (2021-09-21)
 
 
