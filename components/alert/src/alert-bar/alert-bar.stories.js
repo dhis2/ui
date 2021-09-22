@@ -46,8 +46,7 @@ const alertTypeArgType = {
     table: {
         type: {
             summary: 'bool',
-            detail:
-                "'success', 'warning', and 'critical' are mutually exclusive props",
+            detail: "'success', 'warning', and 'critical' are mutually exclusive props",
         },
     },
     control: {

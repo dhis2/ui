@@ -42,8 +42,7 @@ const uniqueOnStateArgType = {
     table: {
         type: {
             summary: 'bool',
-            detail:
-                "'checked' and 'indeterminate' are mutually exclusive props",
+            detail: "'checked' and 'indeterminate' are mutually exclusive props",
         },
     },
     control: { type: 'boolean' },

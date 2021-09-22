@@ -101,10 +101,12 @@ export const dataProviderData = {
     },
 }
 
-const onChange = (selected, setSelected) => ({ selected: newSelected }) => {
-    setSelected(newSelected)
-    return newSelected
-}
+const onChange =
+    (selected, setSelected) =>
+    ({ selected: newSelected }) => {
+        setSelected(newSelected)
+        return newSelected
+    }
 
 export const StatefulMultiSelectionWrapper = ({
     children,

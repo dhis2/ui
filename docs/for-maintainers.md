@@ -283,8 +283,7 @@ PrimaryButton.args = { primary: true }
 Primary.parameters = {
     docs: {
         description: {
-            story:
-                'Used to highlight the most important/main action on a page.',
+            story: 'Used to highlight the most important/main action on a page.',
         },
     },
 }
@@ -315,8 +314,7 @@ export const buttonVariantArgType = {
     table: {
         type: {
             summary: 'bool',
-            detail:
-                "'primary', 'secondary', and 'destructive' are mutually exclusive props",
+            detail: "'primary', 'secondary', and 'destructive' are mutually exclusive props",
         },
     },
     // What kind of prop control to use

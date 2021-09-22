@@ -5,7 +5,9 @@
  */
 export const isPathIncluded = (includedPaths, path) => {
     const isIncluded = includedPaths.some(includedPath => {
-        if (path === includedPath) return true
+        if (path === includedPath) {
+            return true
+        }
         return includedPath.startsWith(`${path}/`)
     })
 

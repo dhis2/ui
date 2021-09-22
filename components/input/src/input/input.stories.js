@@ -72,8 +72,7 @@ PlaceholderNoValue.storyName = 'Placeholder, no value'
 
 export const WithValue = Template.bind({})
 WithValue.args = {
-    value:
-        'This is set through the value prop, which means the component is controlled.',
+    value: 'This is set through the value prop, which means the component is controlled.',
 }
 
 export const NumberMaxMinStep = Template.bind({})
@@ -119,8 +118,7 @@ Dense.args = { dense: true, value: 'This field is dense' }
 
 export const ValueTextOverflow = Template.bind({})
 ValueTextOverflow.args = {
-    value:
-        "This value is too long in order to show on a single line of the input field. It should stay on one line, not in an extra line and which wouldn't look like a standard input",
+    value: "This value is too long in order to show on a single line of the input field. It should stay on one line, not in an extra line and which wouldn't look like a standard input",
     dense: true,
     warning: true,
 }

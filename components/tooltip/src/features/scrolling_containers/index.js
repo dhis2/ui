@@ -39,9 +39,11 @@ When(
 When(
     'the mouse cursor enters the bottom of the anchor without scrolling',
     () => {
-        cy.get(
-            '[data-test="dhis2-uicore-tooltip-reference"]'
-        ).trigger('mouseover', 'bottom', { scrollBehavior: false })
+        cy.get('[data-test="dhis2-uicore-tooltip-reference"]').trigger(
+            'mouseover',
+            'bottom',
+            { scrollBehavior: false }
+        )
     }
 )
 

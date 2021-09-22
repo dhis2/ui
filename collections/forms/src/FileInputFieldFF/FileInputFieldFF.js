@@ -21,15 +21,19 @@ const dedupeAndConcat = (currentFiles, newFileList) => {
     ).files
 }
 
-const createChangeHandler = (input, multifile) => ({ files }) => {
-    // A JavaScript FileList instance is read-only, so we cannot add files to it
-    // FileList also doesn't have a .map method so by destructuring the FileList
-    // instance into an array we can add, remove and map
-    const currentFiles = Array.isArray(input.value) ? input.value : []
-    const value = multifile ? dedupeAndConcat(currentFiles, files) : [...files]
+const createChangeHandler =
+    (input, multifile) =>
+    ({ files }) => {
+        // A JavaScript FileList instance is read-only, so we cannot add files to it
+        // FileList also doesn't have a .map method so by destructuring the FileList
+        // instance into an array we can add, remove and map
+        const currentFiles = Array.isArray(input.value) ? input.value : []
+        const value = multifile
+            ? dedupeAndConcat(currentFiles, files)
+            : [...files]
 
-    input.onChange(value)
-}
+        input.onChange(value)
+    }
 
 const createRemoveHandler = (input, fileToDelete) => () => {
     const files = input.value.filter(file => file !== fileToDelete)

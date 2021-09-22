@@ -272,10 +272,11 @@ Then(
             () => cy.get('@list').find('{transferoption}')
         ).should(
             ([$initiallyHighlightedMultiple, $firstShiftClicked, $all]) => {
-                const firstVisibleHighlightedIndex = $initiallyHighlightedMultiple
-                    .filter(':visible')
-                    .eq(0)
-                    .index()
+                const firstVisibleHighlightedIndex =
+                    $initiallyHighlightedMultiple
+                        .filter(':visible')
+                        .eq(0)
+                        .index()
                 const shiftIndex = $firstShiftClicked.index()
                 const from = Math.min(firstVisibleHighlightedIndex, shiftIndex)
                 const to = Math.max(firstVisibleHighlightedIndex, shiftIndex)

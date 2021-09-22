@@ -16,15 +16,18 @@ const WithState = ({ fn, initialState, initialSearchTerm, controlFilter }) => {
     })
 }
 
-export const statefulDecorator = ({
-    initialState = [],
-    controlFilter = false,
-    initialSearchTerm = '',
-} = {}) => fn => (
-    <WithState
-        initialState={initialState}
-        initialSearchTerm={initialSearchTerm}
-        controlFilter={controlFilter}
-        fn={fn}
-    />
-)
+export const statefulDecorator =
+    ({
+        initialState = [],
+        controlFilter = false,
+        initialSearchTerm = '',
+    } = {}) =>
+    fn =>
+        (
+            <WithState
+                initialState={initialState}
+                initialSearchTerm={initialSearchTerm}
+                controlFilter={controlFilter}
+                fn={fn}
+            />
+        )

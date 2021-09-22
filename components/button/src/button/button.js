@@ -30,7 +30,9 @@ export const Button = ({
     const ref = useRef()
 
     useEffect(() => {
-        if (initialFocus && ref.current) ref.current.focus()
+        if (initialFocus && ref.current) {
+            ref.current.focus()
+        }
     }, [initialFocus, ref.current])
 
     const handleClick = event => onClick && onClick({ value, name }, event)

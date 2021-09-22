@@ -165,16 +165,14 @@ export const Transfer = ({
      * Source & Picked options:
      * These are the double click handlers for (de-)selection
      */
-    const {
-        selectSingleOption,
-        deselectSingleOption,
-    } = createDoubleClickHandlers({
-        selected,
-        setHighlightedSourceOptions,
-        setHighlightedPickedOptions,
-        onChange,
-        maxSelections,
-    })
+    const { selectSingleOption, deselectSingleOption } =
+        createDoubleClickHandlers({
+            selected,
+            setHighlightedSourceOptions,
+            setHighlightedPickedOptions,
+            onChange,
+            maxSelections,
+        })
 
     /**
      * Disabled button states

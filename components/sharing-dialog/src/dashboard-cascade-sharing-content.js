@@ -41,10 +41,8 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
         []
     )
 
-    const [
-        mutate,
-        { loading, error, data: mutationResponse },
-    ] = useDataMutation(mutation)
+    const [mutate, { loading, error, data: mutationResponse }] =
+        useDataMutation(mutation)
 
     const usersGroupsCount =
         Object.keys(sharingSettings.users).length +

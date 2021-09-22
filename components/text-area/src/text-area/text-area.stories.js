@@ -62,8 +62,7 @@ PlaceholderNoValue.storyName = 'Placeholder, no value'
 
 export const WithValue = Template.bind({})
 WithValue.args = {
-    value:
-        'This is set through the value prop, which means the component is controlled.',
+    value: 'This is set through the value prop, which means the component is controlled.',
 }
 WithValue.storyName = 'With value'
 
