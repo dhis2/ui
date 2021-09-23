@@ -55,7 +55,7 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
             secondary
             onClick={() => mutate()}
         >
-            {i18n.t('Apply sharing to dashboard items')}
+            {i18n.t('Apply sharing to dashboard visualizations')}
         </Button>
     )
 
@@ -64,7 +64,7 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
 
         if (usersGroupsCount > 0) {
             message = i18n.t(
-                'All {{itemsCount}} items on this dashboard will be potentially updated with sharing settings from {{usersGroupsCount}} users and groups. Public access is not affected.',
+                'All {{itemsCount}} visualizations on this dashboard will be potentially updated with sharing settings from {{usersGroupsCount}} users and groups. Public access is not affected.',
                 {
                     itemsCount: queryResponse.dashboard.itemCount,
                     usersGroupsCount,
@@ -72,7 +72,7 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
             )
         } else {
             message = i18n.t(
-                "There aren't any sharing settings to apply to dashboard items. Public access cannot be applied to items."
+                "There aren't any sharing settings to apply to dashboard visualizations. Public access cannot be applied to items."
             )
         }
 
@@ -93,7 +93,7 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
         if (mutationResponse?.errorReports.length === 0) {
             if (mutationResponse?.countUpdatedDashboardItems === 0) {
                 message = i18n.t(
-                    'No dashboard items were updated because they already have the sharing settings.'
+                    'No visualizations were updated because sharing settings are already sufficient.'
                 )
 
                 return <NoticeBox>{message}</NoticeBox>
@@ -102,7 +102,7 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
                 queryResponse?.dashboard.itemCount
             ) {
                 message = i18n.t(
-                    'Successfully updated sharing for {{updatedDashboardItemsCount}} dashboard items.',
+                    'Successfully updated sharing for {{updatedDashboardItemsCount}} visualizations.',
                     {
                         updatedDashboardItemsCount:
                             queryResponse.dashboard.itemCount,
@@ -115,27 +115,27 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
                 // split in 2 because of nesting with plurals not working
                 message =
                     i18n.t(
-                        '{{updatedDashboardItemsCount}} dashboard item was updated.',
+                        '{{updatedDashboardItemsCount}} visualization was updated.',
                         {
                             updatedDashboardItemsCount:
                                 mutationResponse.countUpdatedDashboardItems,
                             defaultValue:
-                                '{{updatedDashboardItemsCount}} dashboard item was updated.',
+                                '{{updatedDashboardItemsCount}} visualization was updated.',
                             defaultValue_plural:
-                                '{{updatedDashboarItemsCount}} dashboard items were updated.',
+                                '{{updatedDashboarItemsCount}} visualizations were updated.',
                         }
                     ) +
                     ' ' +
                     i18n.t(
-                        '{{ignoredDashboardItemsCount}} dashboard item already has the sharing settings or has public access.',
+                        '{{ignoredDashboardItemsCount}} visualization already has sufficient sharing settings or has public access.',
                         {
                             ignoredDashboardItemsCount:
                                 queryResponse.dashboard.itemCount -
                                 mutationResponse.countUpdatedDashboardItems,
                             defaultValue:
-                                '{{ignoredDashboardItemsCount}} dashboard item already has the sharing settings or has public access.',
+                                '{{ignoredDashboardItemsCount}} visualization already has sufficient sharing settings or has public access.',
                             defaultValue_plural:
-                                '{{ignoredDashboardItemsCount}} dashboard items already have the sharing settings or have public access.',
+                                '{{ignoredDashboardItemsCount}} visualizations already have sufficient sharing settings or have public access.',
                         }
                     )
             }
@@ -152,23 +152,23 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
         } else {
             if (mutationResponse?.countUpdatedDashboardItems === 0) {
                 message = i18n.t(
-                    'No dashboard items were updated. Check that you have permission to change sharing for all items.'
+                    'No visualizations were updated. Check that you have permission to change sharing for all visualizations.'
                 )
             } else if (
                 mutationResponse?.countUpdatedDashboardItems &&
                 queryResponse?.dashboard.itemsCount
             ) {
                 message = i18n.t(
-                    '{{count}} dashboard items were updated, but {{ignoredDashboardItemsCount}} could not be updated. Check that you have permission to change sharing for all items.',
+                    '{{count}} visualizations were updated, but {{ignoredDashboardItemsCount}} could not be updated. Check that you have permission to change sharing for all visualizations.',
                     {
                         count: mutationResponse.countUpdatedDashboardItems,
                         ignoredDashboardItemsCount:
                             queryResponse.dashboard.itemCount -
                             mutationResponse.countUpdatedDashboardItems,
                         defaultValue:
-                            '{{count}} dashboard item was updated, but {{ignoredDashboardItemsCount}} could not be updated. Check that you have permission to change sharing for all items.',
+                            '{{count}} visualization was updated, but {{ignoredDashboardItemsCount}} could not be updated. Check that you have permission to change sharing for all visualizations.',
                         defaultValue_plural:
-                            '{{count}} dashboard items were updated, but {{ignoredDashboardItemsCount}} could not be updated. Check that you have permission to change sharing for all items.',
+                            '{{count}} visualizations were updated, but {{ignoredDashboardItemsCount}} could not be updated. Check that you have permission to change sharing for all visualizations.',
                     }
                 )
             }
@@ -181,11 +181,26 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
         <>
             <style jsx>{cascadeSharingStyles}</style>
             <div className="title">
-                {i18n.t('Apply dashboard sharing settings to dashboard items')}
+                {i18n.t('Apply dashboard sharing settings to visualizations')}
             </div>
             <div className="description">
                 {i18n.t(
-                    "Dashboard sharing settings for viewers will be applied to dashboard items. Users and groups that can view this dashboard will be able to view dashboard items. Public sharing for items will not be applied or changed. Applying sharing can not be undone and needs to be done each time you update a dashboard's sharing settings or items."
+                    'Applying the same sharing settings makes sure that users, groups and roles that have access to the dashboard also have access to view its visualizations (charts, tables, maps, event charts, event reports).'
+                )}
+            </div>
+            <div className="description">
+                {i18n.t(
+                    'If a user, group, or role already has "View and edit" access to a visualization, this won\'t be reduced to "View only".'
+                )}
+            </div>
+            <div className="description">
+                {i18n.t(
+                    '"All users" access level won\'t be updated or changed.'
+                )}
+            </div>
+            <div className="description">
+                {i18n.t(
+                    "Applying sharing can't be undone, and needs to done again if new visualizations are added to the dashboard or its sharing settings are changed."
                 )}
             </div>
             {queryResponse?.dashboard.itemCount && getInfoMessage()}
@@ -206,7 +221,7 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
                 {error && (
                     <NoticeBox error>
                         {i18n.t(
-                            'There was a problem updating dashboard items. No dashboard items were updated. Try again, or contact a system administrator'
+                            'There was a problem updating dashboard visualizations. No visualizations were updated. Try again, or contact a system administrator'
                         )}
                     </NoticeBox>
                 )}
