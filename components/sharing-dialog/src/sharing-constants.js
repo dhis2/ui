@@ -1,4 +1,4 @@
-import i18n from '@dhis2/d2-i18n'
+import i18n from './locales/index.js'
 
 export const ACCESS_NONE = 'ACCESS_NONE'
 export const ACCESS_VIEW_ONLY = 'ACCESS_VIEW_ONLY'

@@ -1,11 +1,11 @@
 import { ButtonStrip, Button } from '@dhis2-ui/button'
 import { Modal, ModalTitle, ModalContent, ModalActions } from '@dhis2-ui/modal'
 import { useAlert, useDataQuery, useDataMutation } from '@dhis2/app-runtime'
-import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import { DashboardSharingContent } from './dashboard-sharing-content.js'
 import { DefaultSharingContent } from './default-sharing-content.js'
+import i18n from './locales/index.js'
 import {
     defaultSharingSettings,
     convertAccessToConstant,

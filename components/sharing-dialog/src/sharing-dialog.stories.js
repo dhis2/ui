@@ -146,7 +146,15 @@ const customDataWithUserGroupAccesses = {
 const dashboardData = {
     ...customDataWithUserGroupAccesses,
     dashboards: {
-        itemCount: 24,
+        dashboardItems: [
+            { type: 'TEXT' },
+            { type: 'VISUALIZATION' },
+            { type: 'MAP' },
+            { type: 'EVENT_CHART' },
+            { type: 'EVENT_REPORT' },
+            { type: 'APP' },
+            { type: 'MESSAGES' },
+        ],
     },
 }
 
@@ -210,7 +218,8 @@ ForDashboardWithPublicAccess.args = { type: 'dashboard' }
 
 const cascadingSharingSuccess = {
     'dashboards/cascadeSharing/sharing-test': {
-        countUpdatedDashboardItems: 24,
+        countUpdatedDashboardItems: 4,
+        errorReports: [],
     },
 }
 
@@ -225,7 +234,8 @@ ForDashboardWithCascadeSharingSuccess.args = { type: 'dashboard' }
 
 const cascadingSharingPartialSuccess = {
     'dashboards/cascadeSharing/sharing-test': {
-        countUpdatedDashboardItems: 17,
+        countUpdatedDashboardItems: 3,
+        errorReports: [],
     },
 }
 

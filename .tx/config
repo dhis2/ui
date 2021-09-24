@@ -50,3 +50,10 @@ minimum_perc = 0
 source_file = components/header-bar/i18n/en.pot
 source_lang = en
 type = PO
+
+[app-component-ui.sharing-dialog]
+file_filter = components/sharing-dialog/i18n/<lang>.po
+minimum_perc = 0
+source_file = components/sharing-dialog/i18n/en.pot
+source_lang = en
+type = PO

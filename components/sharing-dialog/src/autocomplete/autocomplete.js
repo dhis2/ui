@@ -2,9 +2,9 @@ import { InputField } from '@dhis2-ui/input'
 import { Menu, MenuItem } from '@dhis2-ui/menu'
 import { Tooltip } from '@dhis2-ui/tooltip'
 import { useOnlineStatus } from '@dhis2/app-runtime'
-import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { createRef, useState, useEffect } from 'react'
+import i18n from '../locales/index.js'
 import { MenuWrapper } from './menu-wrapper'
 
 // Keycodes for the keypress event handlers

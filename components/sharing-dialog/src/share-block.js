@@ -1,11 +1,11 @@
 import { Button } from '@dhis2-ui/button'
 import { useDataQuery, useOnlineStatus } from '@dhis2/app-runtime'
-import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { useMemo, useState } from 'react'
 import { AccessSelect } from './access-select.js'
 import { Autocomplete } from './autocomplete/autocomplete.js'
 import { debounce } from './helpers'
+import i18n from './locales/index.js'
 import { ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT } from './sharing-constants.js'
 import {
     sharingCommonStyles,
