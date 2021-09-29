@@ -14,6 +14,10 @@ node_modules/
 build/
 dist/
 
+# unignore collections so it shows up when transitioning from older ui
+# versions to versions that no longer ship core
+!/collections/core/build/
+
 # misc
 .DS_Store
 .env.local
