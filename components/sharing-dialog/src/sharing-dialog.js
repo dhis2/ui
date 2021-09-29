@@ -48,40 +48,24 @@ export const SharingDialog = ({
     const [isDirty, setIsDirty] = useState(false)
     const { show } = useAlert((error) => error, { critical: true })
 
-    const onDataEngineError = (error) => {
-        show(error)
-
-        onError(error)
-    }
-
-    const onMutateError = (error) => {
-        onDataEngineError(error)
-        // after a mutate error the state won't reflect the stored sharing settings
-        // a refetch is needed
-        fetchSharingSettings(type, id)
-    }
-
     const { data, refetch } = useDataQuery(query, {
         lazy: true,
-        onError: onDataEngineError,
+        onError: (error) => {
+            show(error)
+            onError(error)
+        },
     })
-    const fetchSharingSettings = (type, id) => refetch({ type, id })
-
     const [mutate] = useDataMutation(mutation, {
-        onError: onMutateError,
+        onError: (error) => {
+            show(error)
+            onError(error)
+            refetch({ type, id })
+        },
         onComplete: onSave,
     })
-    const mutateSharingSettings = (sharing) => {
-        mutate({
-            type,
-            id,
-            sharing,
-        })
-    }
 
-    // refresh sharing settings if type/id changes
     useEffect(() => {
-        fetchSharingSettings(type, id)
+        refetch({ type, id })
     }, [type, id])
 
     // update state after fetch
@@ -221,7 +205,11 @@ export const SharingDialog = ({
             },
         }
 
-        mutateSharingSettings(payload)
+        mutate({
+            type,
+            id,
+            sharing: payload,
+        })
     }
 
     const onAdd = (data) => {
@@ -282,8 +270,8 @@ export const SharingDialog = ({
 
 SharingDialog.defaultProps = {
     initialSharingSettings: defaultSharingSettings,
-    onError: Function.prototype,
-    onSave: Function.prototype,
+    onError: () => {},
+    onSave: () => {},
 }
 
 SharingDialog.propTypes = {
