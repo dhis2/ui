@@ -3,20 +3,17 @@ import {
     ACCESS_NONE,
     ACCESS_VIEW_ONLY,
     ACCESS_VIEW_AND_EDIT,
-    defaultSharingSettings,
 } from '../sharing-constants.js'
 
 describe('helpers', () => {
     describe('convertAccessToConstant', () => {
-        it('returns the default value for public sharing if the access string is undefined', () => {
-            expect(convertAccessToConstant()).toEqual(
-                defaultSharingSettings.public
-            )
+        it('disallows access if the access string is undefined', () => {
+            expect(convertAccessToConstant()).toEqual(ACCESS_NONE)
         })
 
-        it('returns the default value for public sharing if the access string is invalid', () => {
+        it('disallows access if the access string is invalid', () => {
             expect(convertAccessToConstant('invalid-access-string')).toEqual(
-                defaultSharingSettings.public
+                ACCESS_NONE
             )
         })
 

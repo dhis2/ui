@@ -5,7 +5,6 @@ import {
     ACCESS_VIEW_AND_EDIT,
     SHARE_TARGET_EXTERNAL,
     SHARE_TARGET_PUBLIC,
-    defaultSharingSettings,
 } from './sharing-constants'
 
 export const debounce = function (f, ms) {
@@ -58,10 +57,8 @@ export const convertAccessToConstant = access => {
         return ACCESS_VIEW_AND_EDIT
     } else if (/^r-/.test(access)) {
         return ACCESS_VIEW_ONLY
-    } else if (/^--/.test(access)) {
-        return ACCESS_NONE
     } else {
-        return defaultSharingSettings.public
+        return ACCESS_NONE
     }
 }
 

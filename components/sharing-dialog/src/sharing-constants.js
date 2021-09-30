@@ -34,13 +34,3 @@ export const SHARE_TARGET_EXTERNAL = 'SHARE_TARGET_EXTERNAL'
 export const SHARE_TARGET_PUBLIC = 'SHARE_TARGET_PUBLIC'
 export const SHARE_TARGET_USER = 'SHARE_TARGET_USER'
 export const SHARE_TARGET_GROUP = 'SHARE_TARGET_GROUP'
-
-export const defaultSharingSettings = {
-    name: '',
-    allowExternal: true,
-    allowPublic: true,
-    external: ACCESS_NONE,
-    public: ACCESS_NONE,
-    groups: {},
-    users: {},
-}
