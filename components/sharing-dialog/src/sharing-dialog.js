@@ -29,9 +29,7 @@ const mutation = {
         id,
     }),
     type: 'update',
-    data: ({ sharing }) => ({
-        object: sharing.object,
-    }),
+    data: ({ data }) => data,
 }
 
 export const SharingDialog = ({
@@ -178,8 +176,7 @@ export const SharingDialog = ({
     }
 
     const saveSharingSettings = (sharingSettings) => {
-        // prepare payload
-        const payload = {
+        const data = {
             object: {
                 publicAccess: convertConstantToAccess(sharingSettings.public),
                 externalAccess: convertConstantToAccess(
@@ -208,7 +205,7 @@ export const SharingDialog = ({
         mutate({
             type,
             id,
-            sharing: payload,
+            data,
         })
     }
 
