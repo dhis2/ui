@@ -3,6 +3,7 @@ import { Modal, ModalTitle, ModalContent, ModalActions } from '@dhis2-ui/modal'
 import { useAlert, useDataQuery, useDataMutation } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
+import { nameToTitle } from './helpers'
 import i18n from './locales/index.js'
 import {
     defaultSharingSettings,
@@ -210,14 +211,7 @@ export const SharingDialog = ({
 
     return (
         <Modal large position="top" onClose={onClose}>
-            <ModalTitle>
-                {sharingSettings.name
-                    ? i18n.t('Sharing and access: {{- objectName}}', {
-                          objectName: sharingSettings.name,
-                          nsSeparator: '|',
-                      })
-                    : i18n.t('Sharing and access')}
-            </ModalTitle>
+            <ModalTitle>{nameToTitle(sharingSettings.name)}</ModalTitle>
             <ModalContent>
                 <SharingContent
                     type={type}
