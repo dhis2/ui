@@ -3,14 +3,13 @@ import { Modal, ModalTitle, ModalContent, ModalActions } from '@dhis2-ui/modal'
 import { useAlert, useDataQuery, useDataMutation } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
-import { DashboardSharingContent } from './dashboard-sharing-content.js'
-import { DefaultSharingContent } from './default-sharing-content.js'
 import i18n from './locales/index.js'
 import {
     defaultSharingSettings,
     convertAccessToConstant,
     convertConstantToAccess,
 } from './sharing-constants.js'
+import { SharingContent } from './sharing-content.js'
 
 const query = {
     sharing: {
@@ -209,24 +208,6 @@ export const SharingDialog = ({
         })
     }
 
-    const onAdd = (data) => {
-        setIsDirty(true)
-
-        addUserOrGroupAccess(data)
-    }
-
-    const onChange = (data) => {
-        setIsDirty(true)
-
-        changeAccess(data)
-    }
-
-    const onRemove = (data) => {
-        setIsDirty(true)
-
-        removeUserOrGroupAccess(data)
-    }
-
     return (
         <Modal large position="top" onClose={onClose}>
             <ModalTitle>
@@ -238,21 +219,22 @@ export const SharingDialog = ({
                     : i18n.t('Sharing and access')}
             </ModalTitle>
             <ModalContent>
-                {type === 'dashboard' ? (
-                    <DashboardSharingContent
-                        sharingSettings={sharingSettings}
-                        onAdd={onAdd}
-                        onChange={onChange}
-                        onRemove={onRemove}
-                    />
-                ) : (
-                    <DefaultSharingContent
-                        sharingSettings={sharingSettings}
-                        onAdd={onAdd}
-                        onChange={onChange}
-                        onRemove={onRemove}
-                    />
-                )}
+                <SharingContent
+                    type={type}
+                    sharingSettings={sharingSettings}
+                    onAdd={(data) => {
+                        setIsDirty(true)
+                        addUserOrGroupAccess(data)
+                    }}
+                    onChange={(data) => {
+                        setIsDirty(true)
+                        changeAccess(data)
+                    }}
+                    onRemove={(data) => {
+                        setIsDirty(true)
+                        removeUserOrGroupAccess(data)
+                    }}
+                />
             </ModalContent>
             <ModalActions>
                 <ButtonStrip end>
