@@ -9,7 +9,7 @@ import {
     convertConstantToAccess,
 } from './helpers.js'
 import i18n from './locales/index.js'
-import { defaultSharingSettings } from './sharing-constants.js'
+import { ACCESS_NONE } from './sharing-constants.js'
 import { SharingContent } from './sharing-content.js'
 
 const query = {
@@ -242,7 +242,15 @@ export const SharingDialog = ({
 }
 
 SharingDialog.defaultProps = {
-    initialSharingSettings: defaultSharingSettings,
+    initialSharingSettings: {
+        name: '',
+        allowExternal: true,
+        allowPublic: true,
+        external: ACCESS_NONE,
+        public: ACCESS_NONE,
+        groups: {},
+        users: {},
+    },
     onError: () => {},
     onSave: () => {},
 }
