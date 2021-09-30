@@ -1,29 +1,11 @@
 import { InputField } from '@dhis2-ui/input'
-import { Menu, MenuItem } from '@dhis2-ui/menu'
 import { useOnlineStatus } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 import React, { createRef, useState, useEffect } from 'react'
-import { ConditionalTooltip } from '../conditional-tooltip'
+import { ConditionalTooltip } from '../conditional-tooltip.js'
 import i18n from '../locales/index.js'
 import { MenuWrapper } from './menu-wrapper.js'
-
-const SearchResults = ({ searchResults, onClick }) => (
-    <Menu>
-        {searchResults.map((searchResult) => (
-            <MenuItem
-                key={searchResult.id}
-                label={searchResult.displayName}
-                value={searchResult.id}
-                onClick={onClick}
-            />
-        ))}
-    </Menu>
-)
-
-SearchResults.propTypes = {
-    searchResults: PropTypes.array.isRequired,
-    onClick: PropTypes.func.isRequired,
-}
+import { SearchResults } from './search-results.js'
 
 export const Autocomplete = ({
     label,
@@ -92,7 +74,7 @@ export const Autocomplete = ({
 }
 
 Autocomplete.defaultProps = {
-    dataTest: 'dhis2-uicore-select',
+    dataTest: 'dhis2-sharingdialog-autocomplete',
 }
 
 Autocomplete.propTypes = {
