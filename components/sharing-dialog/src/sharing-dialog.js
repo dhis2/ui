@@ -3,13 +3,13 @@ import { Modal, ModalTitle, ModalContent, ModalActions } from '@dhis2-ui/modal'
 import { useAlert, useDataQuery, useDataMutation } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
-import { nameToTitle } from './helpers'
-import i18n from './locales/index.js'
 import {
-    defaultSharingSettings,
+    nameToTitle,
     convertAccessToConstant,
     convertConstantToAccess,
-} from './sharing-constants.js'
+} from './helpers.js'
+import i18n from './locales/index.js'
+import { defaultSharingSettings } from './sharing-constants.js'
 import { SharingContent } from './sharing-content.js'
 
 const query = {
