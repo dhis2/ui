@@ -3,13 +3,12 @@ import css from 'styled-jsx/css'
 
 export default css`
     td {
-        padding: 0 12px;
+        padding: 14px 12px;
         font-size: 14px;
         border: 1px solid transparant;
         border-bottom: 1px solid ${colors.grey300};
         background-color: ${colors.white};
         color: ${colors.grey900};
-        height: 45px;
     }
     td.active {
         background-color: ${colors.white};
@@ -33,8 +32,8 @@ export default css`
         color: ${colors.green700};
     }
     td.large {
+        padding: 20px 12px;
         font-size: 16px;
-        height: 60px;
     }
     :global(tr:last-child) td {
         border-bottom: 1px solid transparent;

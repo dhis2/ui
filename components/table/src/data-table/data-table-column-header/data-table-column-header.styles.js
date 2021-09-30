@@ -14,9 +14,5 @@ export default css`
         display: flex;
         flex-direction: row;
         align-items: center;
-        height: 36px;
-    }
-    span.top.large {
-        height: 48px;
     }
 `
