@@ -8,80 +8,80 @@ import { DefaultSharingContent } from '../default-sharing-content.js'
 import { defaultSharingSettings } from '../sharing-constants.js'
 import { SharingDialog } from '../sharing-dialog.js'
 
-describe('SharingDialog widget', () => {
-    const onClose = jest.fn()
-    const onSave = jest.fn()
-    const onError = jest.fn()
-
-    let shallowSharingDialog
-    let props
-
-    const getSharingDialogWidget = (props) => {
-        if (!shallowSharingDialog) {
-            shallowSharingDialog = mount(<SharingDialog {...props} />, {
-                wrappingComponent: CustomDataProvider,
-            })
-        }
-
-        return shallowSharingDialog
+describe('SharingDialog', () => {
+    const requiredProps = {
+        id: 'sharing-test',
+        type: 'visualization',
+        onClose: () => {},
     }
 
-    beforeEach(() => {
-        shallowSharingDialog = undefined
-        props = {
-            id: 'sharing-test',
-            type: 'visualization',
-            onClose,
-            onError,
-            onSave,
-        }
-    })
-
     it('renders a Modal', () => {
-        expect(getSharingDialogWidget(props).find(Modal)).toHaveLength(1)
+        const wrapper = mount(<SharingDialog {...requiredProps} />, {
+            wrappingComponent: CustomDataProvider,
+        })
+        const modals = wrapper.find(Modal)
+
+        expect(modals).toHaveLength(1)
     })
 
-    it('renders the ModalTitle with the name of the AO if passed in props', () => {
-        props.initialSharingSettings = {
-            ...defaultSharingSettings,
-            name: 'test object',
+    it('renders the name of the AO in the ModalTitle if passed in initialSharingSettings as name', () => {
+        const expected = 'The name of the AO'
+        const props = {
+            ...requiredProps,
+            initialSharingSettings: {
+                ...defaultSharingSettings,
+                name: expected,
+            },
         }
+        const wrapper = mount(<SharingDialog {...props} />, {
+            wrappingComponent: CustomDataProvider,
+        })
+        const modalTitles = wrapper.find(ModalTitle)
 
-        expect(getSharingDialogWidget(props).find(ModalTitle).html()).toMatch(
-            props.initialSharingSettings.name
-        )
+        expect(modalTitles.text()).toContain(expected)
     })
 
-    it('renders a Close button', () => {
-        const buttons = getSharingDialogWidget(props).find(Button)
-        const closeButtons = buttons.filterWhere((button) =>
-            button.html().includes('Close')
+    it('calls the onClose callback when the close button is clicked', () => {
+        const spy = jest.fn()
+        const wrapper = mount(
+            <SharingDialog {...requiredProps} onClose={spy} />,
+            {
+                wrappingComponent: CustomDataProvider,
+            }
         )
+        const closeButtons = wrapper
+            .find(Button)
+            .filterWhere((button) => button.text().includes('Close'))
 
         expect(closeButtons).toHaveLength(1)
-    })
-
-    it('calls the Close callback when the Close button is clicked', () => {
-        const buttons = getSharingDialogWidget(props).find(Button)
-        const closeButtons = buttons.filterWhere((button) =>
-            button.html().includes('Close')
-        )
+        expect(spy).toHaveBeenCalledTimes(0)
 
         closeButtons.first().simulate('click')
 
-        expect(onClose).toHaveBeenCalled()
+        expect(spy).toHaveBeenCalledTimes(1)
     })
 
-    it('renders a DefaultSharingContent component when the type is not dashboard', () =>
-        expect(
-            getSharingDialogWidget(props).find(DefaultSharingContent)
-        ).toHaveLength(1))
+    it('renders a DefaultSharingContent component when the type is not dashboard', () => {
+        const wrapper = mount(
+            <SharingDialog {...requiredProps} type="visualization" />,
+            {
+                wrappingComponent: CustomDataProvider,
+            }
+        )
+        const defaultSharingContent = wrapper.find(DefaultSharingContent)
+
+        expect(defaultSharingContent).toHaveLength(1)
+    })
 
     it('renders a DashboardSharingContent component when the type is dashboard', () => {
-        props.type = 'dashboard'
+        const wrapper = mount(
+            <SharingDialog {...requiredProps} type="dashboard" />,
+            {
+                wrappingComponent: CustomDataProvider,
+            }
+        )
+        const dashboardSharingContent = wrapper.find(DashboardSharingContent)
 
-        expect(
-            getSharingDialogWidget(props).find(DashboardSharingContent)
-        ).toHaveLength(1)
+        expect(dashboardSharingContent).toHaveLength(1)
     })
 })

@@ -1,7 +1,7 @@
 import { IconWorld24, IconUserGroup24 } from '@dhis2/ui-icons'
 import { shallow } from 'enzyme'
 import React from 'react'
-import { Avatar } from '../icons/avatar.js'
+import { Avatar } from '../avatar.js'
 import {
     ACCESS_NONE,
     SHARE_TARGET_EXTERNAL,

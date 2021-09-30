@@ -15,12 +15,14 @@ export const debounce = function (f, ms) {
 }
 
 export const nameToTitle = name => {
-    name
+    const title = name
         ? i18n.t('Sharing and access: {{- objectName}}', {
-                objectName: name,
-                nsSeparator: '|',
-            })
+              objectName: name,
+              nsSeparator: '|',
+          })
         : i18n.t('Sharing and access')
+
+    return title
 }
 
 export const nameToInitials = name => {
