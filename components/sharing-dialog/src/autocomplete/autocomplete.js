@@ -1,22 +1,12 @@
 import { InputField } from '@dhis2-ui/input'
 import { Menu, MenuItem } from '@dhis2-ui/menu'
-import { Tooltip } from '@dhis2-ui/tooltip'
 import { useOnlineStatus } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 import React, { createRef, useState, useEffect } from 'react'
+import { ConditionalTooltip } from '../conditional-tooltip'
 import i18n from '../locales/index.js'
 import { MenuWrapper } from './menu-wrapper.js'
 
-// Keycodes for the keypress event handlers
-// XXX implement keyboard navigation in the Menu ?!
-/*const ESCAPE_KEY = 27
-const SPACE_KEY = 32
-const UP_KEY = 38
-const DOWN_KEY = 40
-*/
-
-// XXX pass this whole component or the one that renders the MenuItem
-// from the app/parent to make it as flexible as possible
 const SearchResults = ({ searchResults, onClick }) => (
     <Menu>
         {searchResults.map((searchResult) => (
@@ -49,7 +39,6 @@ export const Autocomplete = ({
 }) => {
     const inputRef = createRef()
     const menuRef = createRef()
-
     const { offline } = useOnlineStatus()
     const [menuWidth, setMenuWidth] = useState('auto')
 
@@ -67,29 +56,24 @@ export const Autocomplete = ({
         onChange(value)
     }
 
-    const renderInputField = () => (
-        <InputField
-            label={label}
-            placeholder={placeholder}
-            onChange={onInputChange}
-            value={value}
-            inputWidth={inputWidth}
-            disabled={offline}
-        />
-    )
-
     return (
         <div className="autocomplete-block" ref={menuRef}>
             <div ref={inputRef}>
-                {offline ? (
-                    <Tooltip content={i18n.t('Not available offline')}>
-                        {renderInputField()}
-                    </Tooltip>
-                ) : (
-                    renderInputField()
-                )}
+                <ConditionalTooltip
+                    show={offline}
+                    content={i18n.t('Not available offline')}
+                >
+                    <InputField
+                        label={label}
+                        placeholder={placeholder}
+                        onChange={onInputChange}
+                        value={value}
+                        inputWidth={inputWidth}
+                        disabled={offline}
+                    />
+                </ConditionalTooltip>
             </div>
-            {Boolean(searchResults.length) && (
+            {searchResults.length > 0 && (
                 <MenuWrapper
                     onClick={onClose}
                     maxHeight={maxHeight}

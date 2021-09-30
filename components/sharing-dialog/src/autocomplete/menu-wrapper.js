@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { resolve } from 'styled-jsx/css'
 
-const MenuWrapper = ({
+export const MenuWrapper = ({
     children,
     dataTest,
     maxHeight,
@@ -53,5 +53,3 @@ MenuWrapper.propTypes = {
     maxHeight: PropTypes.string,
     onClick: PropTypes.func,
 }
-
-export { MenuWrapper }
