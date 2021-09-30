@@ -1,7 +1,7 @@
 import { InputField } from '@dhis2-ui/input'
 import { useOnlineStatus } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
-import React, { createRef, useState, useEffect } from 'react'
+import React, { createRef, useState, useLayoutEffect } from 'react'
 import { ConditionalTooltip } from '../conditional-tooltip.js'
 import i18n from '../locales/index.js'
 import { MenuWrapper } from './menu-wrapper.js'
@@ -24,19 +24,11 @@ export const Autocomplete = ({
     const { offline } = useOnlineStatus()
     const [menuWidth, setMenuWidth] = useState('auto')
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (inputRef.current) {
             setMenuWidth(`${inputRef.current.offsetWidth}px`)
         }
     }, [])
-
-    const onInputChange = ({ value }) => {
-        onSearch(value)
-    }
-
-    const onSelect = ({ value }) => {
-        onChange(value)
-    }
 
     return (
         <div className="autocomplete-block" ref={menuRef}>
@@ -48,7 +40,9 @@ export const Autocomplete = ({
                     <InputField
                         label={label}
                         placeholder={placeholder}
-                        onChange={onInputChange}
+                        onChange={({ value }) => {
+                            onSearch(value)
+                        }}
                         value={value}
                         inputWidth={inputWidth}
                         disabled={offline}
@@ -65,7 +59,9 @@ export const Autocomplete = ({
                 >
                     <SearchResults
                         searchResults={searchResults}
-                        onClick={onSelect}
+                        onClick={({ value }) => {
+                            onChange(value)
+                        }}
                     />
                 </MenuWrapper>
             )}
