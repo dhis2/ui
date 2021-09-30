@@ -90,30 +90,6 @@ export const accessSelectStyles = css`
     }
 `
 
-export const avatarStyles = css`
-    .share-details-avatar {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 24px;
-        height: 24px;
-        overflow: hidden;
-        border-radius: 50%;
-        background-color: ${colors.grey800};
-        opacity: 0.8;
-    }
-
-    .share-details-avatar p {
-        margin-left: 1px;
-        font-size: 9px;
-        font-weight: 500;
-        letter-spacing: 1px;
-        text-align: center;
-        text-transform: uppercase;
-        color: ${colors.grey050};
-    }
-`
-
 export const dashboardSharingStyles = css`
     .tab-content {
         padding-top: 15px;

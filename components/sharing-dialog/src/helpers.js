@@ -22,3 +22,11 @@ export const nameToTitle = name => {
             })
         : i18n.t('Sharing and access')
 }
+
+export const nameToInitials = name => {
+    const parts = name.split(' ')
+    const firstNameInitial = parts.length > 0 ? parts.shift().charAt(0) : ''
+    const lastNameInitial = parts.length > 0 ? parts.pop().charAt(0) : ''
+
+    return `${firstNameInitial}${lastNameInitial}`
+}

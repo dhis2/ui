@@ -4,7 +4,7 @@ import { IconWorld24, IconUserGroup24 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { AccessSelect } from './access-select.js'
-import { Avatar } from './icons/avatar.js'
+import { Avatar } from './avatar.js'
 import i18n from './locales/index.js'
 import {
     SHARE_TARGET_EXTERNAL,
