@@ -5,16 +5,16 @@ import { IconWorld24, IconUserGroup24 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { AccessSelect } from './access-select.js'
+import { isPermanentTarget } from './helpers'
 import i18n from './locales/index.js'
 import {
     SHARE_TARGET_EXTERNAL,
     SHARE_TARGET_PUBLIC,
     SHARE_TARGET_USER,
     SHARE_TARGET_GROUP,
-    isPermanentTarget,
     accessStrings,
-} from './sharing-constants.js'
-import { sharingListItemStyles } from './sharing-dialog.styles.js'
+} from './sharing-constants'
+import { sharingListItemStyles } from './sharing-dialog.styles'
 
 export const SharingListItem = ({
     name,
