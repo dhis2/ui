@@ -1,9 +1,9 @@
-import { MenuDivider, MenuItem } from '@dhis2-ui/menu'
 import { SingleSelectField } from '@dhis2-ui/select'
 import { useOnlineStatus } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { ConditionalTooltip } from './conditional-tooltip.js'
+import { CustomSingleSelectOption } from './custom-single-select-option.js'
 import i18n from './locales/index.js'
 import { accessStrings } from './sharing-constants.js'
 import { accessSelectStyles } from './sharing-dialog.styles.js'
@@ -66,32 +66,4 @@ AccessSelect.propTypes = {
     placeholder: PropTypes.string,
     prefix: PropTypes.string,
     showRemoveOption: PropTypes.bool,
-}
-
-const CustomSingleSelectOption = ({
-    label,
-    value,
-    active,
-    destructive,
-    onClick,
-}) => (
-    <>
-        {destructive && <MenuDivider dense />}
-        <MenuItem
-            label={label}
-            value={value}
-            active={active}
-            destructive={destructive}
-            onClick={(_, e) => onClick({ selected: value }, e)}
-            dense
-        />
-    </>
-)
-
-CustomSingleSelectOption.propTypes = {
-    label: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    active: PropTypes.bool,
-    destructive: PropTypes.bool,
-    onClick: PropTypes.func,
 }
