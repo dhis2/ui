@@ -7,11 +7,11 @@ import {
     useDataMutation,
     useOnlineStatus,
 } from '@dhis2/app-runtime'
-import i18n from '@dhis2/d2-i18n'
 import PropTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
 import { IconInfo16, IconCheckmark16 } from '@dhis2/ui-icons'
 import React, { useMemo } from 'react'
+import i18n from './locales/index.js'
 import { cascadeSharingStyles } from './sharing-dialog.styles.js'
 
 const dashboardQuery = {
@@ -19,9 +19,19 @@ const dashboardQuery = {
         resource: 'dashboards',
         id: ({ id }) => id,
         params: {
-            fields: 'itemCount',
+            fields: 'dashboardItems[type]',
         },
     },
+}
+
+const getVisualizationsCount = queryResponse => {
+    return queryResponse?.dashboard.dashboardItems?.length > 0
+        ? queryResponse.dashboard.dashboardItems.filter(item =>
+              ['VISUALIZATION', 'MAP', 'EVENT_CHART', 'EVENT_REPORT'].includes(
+                  item.type
+              )
+          ).length
+        : 0
 }
 
 const getCascadeSharingMutation = id => ({
@@ -35,6 +45,8 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
     const { data: queryResponse } = useDataQuery(dashboardQuery, {
         variables: { id: sharingSettings.id },
     })
+
+    const visualizationsCount = getVisualizationsCount(queryResponse)
 
     const mutation = useMemo(
         () => getCascadeSharingMutation(sharingSettings.id),
@@ -57,7 +69,7 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
             secondary
             onClick={() => mutate()}
         >
-            {i18n.t('Apply sharing to dashboard items')}
+            {i18n.t('Apply sharing to dashboard visualizations')}
         </Button>
     )
 
@@ -65,25 +77,43 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
         let message
 
         if (usersGroupsCount > 0) {
-            message = i18n.t(
-                'All {{itemsCount}} items on this dashboard will be potentially updated with sharing settings from {{usersGroupsCount}} users and groups. Public access is not affected.',
+            const messagePart1 = i18n.t(
+                '{{count}} visualization on this dashboard will potentially get updated sharing settings.',
                 {
-                    itemsCount: queryResponse.dashboard.itemCount,
-                    usersGroupsCount,
+                    count: visualizationsCount,
+                    defaultValue:
+                        '{{count}} visualization on this dashboard will potentially get updated sharing settings.',
+                    defaultValue_plural:
+                        'All {{count}} visualizations on this dashboard will potentially get updated sharing settings.',
                 }
             )
+            message =
+                messagePart1 +
+                ' ' +
+                i18n.t(
+                    'These updated sharing settings will apply to {{count}} user or group.',
+                    {
+                        count: usersGroupsCount,
+                        defaultValue:
+                            'These updated sharing settings will apply to {{count}} user or group.',
+                        defaultValue_plural:
+                            'These updated sharing settings will apply to {{count}} users or groups.',
+                    }
+                )
         } else {
             message = i18n.t(
-                "There aren't any sharing settings to apply to dashboard items. Public access cannot be applied to items."
+                'There are no users, groups or roles to apply sharing settings for.'
             )
         }
 
         return (
             <>
                 <style jsx>{cascadeSharingStyles}</style>
-                <div className="box box-info">
-                    <IconInfo16 color={colors.grey900} />
-                    <span className="box-text">{message}</span>
+                <div className="box-block">
+                    <div className="box box-info">
+                        <IconInfo16 color={colors.grey900} />
+                        <span className="box-text">{message}</span>
+                    </div>
                 </div>
             </>
         )
@@ -93,51 +123,42 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
         let message
 
         if (mutationResponse?.errorReports.length === 0) {
-            if (mutationResponse?.countUpdatedDashboardItems === 0) {
+            const updatedItems = mutationResponse.countUpdatedDashboardItems
+            if (updatedItems === 0) {
                 message = i18n.t(
-                    'No dashboard items were updated because they already have the sharing settings.'
+                    'No visualizations were updated because sharing settings are already sufficient.'
                 )
 
                 return <NoticeBox>{message}</NoticeBox>
-            } else if (
-                mutationResponse?.countUpdatedDashboardItems ===
-                queryResponse?.dashboard.itemCount
-            ) {
+            } else if (updatedItems === visualizationsCount) {
                 message = i18n.t(
-                    'Successfully updated sharing for {{updatedDashboardItemsCount}} dashboard items.',
+                    'Successfully updated sharing for {{count}} visualization.',
                     {
-                        updatedDashboardItemsCount:
-                            queryResponse.dashboard.itemCount,
+                        count: visualizationsCount,
+                        defaultValue:
+                            'Successfully updated sharing for {{count}} visualization.',
+                        defaultValue_plural:
+                            'Successfully updated sharing for {{count}} visualizations.',
                     }
                 )
-            } else if (
-                mutationResponse?.countUpdatedDashboardItems <
-                queryResponse?.dashboard.itemCount
-            ) {
+            } else if (updatedItems < visualizationsCount) {
                 // split in 2 because of nesting with plurals not working
                 message =
-                    i18n.t(
-                        '{{updatedDashboardItemsCount}} dashboard item was updated.',
-                        {
-                            updatedDashboardItemsCount:
-                                mutationResponse.countUpdatedDashboardItems,
-                            defaultValue:
-                                '{{updatedDashboardItemsCount}} dashboard item was updated.',
-                            defaultValue_plural:
-                                '{{updatedDashboarItemsCount}} dashboard items were updated.',
-                        }
-                    ) +
+                    i18n.t('{{count}} visualization was updated.', {
+                        count: updatedItems,
+                        defaultValue: '{{count}} visualization was updated.',
+                        defaultValue_plural:
+                            '{{count}} visualizations were updated.',
+                    }) +
                     ' ' +
                     i18n.t(
-                        '{{ignoredDashboardItemsCount}} dashboard item already has the sharing settings or has public access.',
+                        '{{count}} visualization already has sufficient sharing settings.',
                         {
-                            ignoredDashboardItemsCount:
-                                queryResponse.dashboard.itemCount -
-                                mutationResponse.countUpdatedDashboardItems,
+                            count: visualizationsCount - updatedItems,
                             defaultValue:
-                                '{{ignoredDashboardItemsCount}} dashboard item already has the sharing settings or has public access.',
+                                '{{count}} visualization already has sufficient sharing settings.',
                             defaultValue_plural:
-                                '{{ignoredDashboardItemsCount}} dashboard items already have the sharing settings or have public access.',
+                                '{{count}} visualizations already have sufficient sharing settings.',
                         }
                     )
             }
@@ -145,34 +166,50 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
             return (
                 <>
                     <style jsx>{cascadeSharingStyles}</style>
-                    <div className="box box-success">
-                        <IconCheckmark16 color={colors.grey700} />
-                        <span className="box-text">{message}</span>
+                    <div className="box-block">
+                        <div className="box box-success">
+                            <IconCheckmark16 color={colors.grey700} />
+                            <span className="box-text">{message}</span>
+                        </div>
                     </div>
                 </>
             )
         } else {
+            const messageCheckPermissions = i18n.t(
+                'Check that you have permission to change sharing for all visualizations.'
+            )
             if (mutationResponse?.countUpdatedDashboardItems === 0) {
-                message = i18n.t(
-                    'No dashboard items were updated. Check that you have permission to change sharing for all items.'
-                )
+                message =
+                    i18n.t('No visualizations were updated.') +
+                    ' ' +
+                    messageCheckPermissions
             } else if (
                 mutationResponse?.countUpdatedDashboardItems &&
                 queryResponse?.dashboard.itemsCount
             ) {
-                message = i18n.t(
-                    '{{count}} dashboard items were updated, but {{ignoredDashboardItemsCount}} could not be updated. Check that you have permission to change sharing for all items.',
+                const messagePart1 = i18n.t(
+                    '{{count}} visualization was updated',
                     {
                         count: mutationResponse.countUpdatedDashboardItems,
-                        ignoredDashboardItemsCount:
-                            queryResponse.dashboard.itemCount -
-                            mutationResponse.countUpdatedDashboardItems,
-                        defaultValue:
-                            '{{count}} dashboard item was updated, but {{ignoredDashboardItemsCount}} could not be updated. Check that you have permission to change sharing for all items.',
+                        defaultValue: '{{count}} visualization was updated',
                         defaultValue_plural:
-                            '{{count}} dashboard items were updated, but {{ignoredDashboardItemsCount}} could not be updated. Check that you have permission to change sharing for all items.',
+                            '{{count}} visualizations were updated.',
                     }
                 )
+                message =
+                    messagePart1 +
+                    ' ' +
+                    i18n.t('{{count}} visualization could not be updated.', {
+                        count:
+                            visualizationsCount -
+                            mutationResponse.countUpdatedDashboardItems,
+                        defaultValue:
+                            '{{count}} visualization could not be updated.',
+                        defaultValue_plural:
+                            '{{count}} visualizations could not be updated.',
+                    }) +
+                    ' ' +
+                    messageCheckPermissions
             }
 
             return <NoticeBox warning>{message}</NoticeBox>
@@ -183,14 +220,24 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
         <>
             <style jsx>{cascadeSharingStyles}</style>
             <div className="title">
-                {i18n.t('Apply dashboard sharing settings to dashboard items')}
+                {i18n.t('Apply dashboard sharing settings to visualizations')}
             </div>
             <div className="description">
                 {i18n.t(
-                    "Dashboard sharing settings for viewers will be applied to dashboard items. Users and groups that can view this dashboard will be able to view dashboard items. Public sharing for items will not be applied or changed. Applying sharing can not be undone and needs to be done each time you update a dashboard's sharing settings or items."
+                    'Applying the same sharing settings makes sure that users, groups and roles that have access to the dashboard also have at least "View only" access to its visualizations (charts, tables, maps, event charts, event reports).'
                 )}
             </div>
-            {queryResponse?.dashboard.itemCount && getInfoMessage()}
+            <div className="description">
+                {i18n.t(
+                    'If a user, group, or role already has "View and edit" access to a visualization, this won\'t be reduced to "View only". "All users" access level won\'t be updated or changed.'
+                )}
+            </div>
+            <div className="description">
+                {i18n.t(
+                    "Applying sharing can't be undone, and needs to done again if new visualizations are added to the dashboard or its sharing settings are changed."
+                )}
+            </div>
+            {visualizationsCount && getInfoMessage()}
             {offline ? (
                 <Tooltip content={i18n.t('Not available offline')}>
                     {renderApplySharingButton()}
@@ -208,7 +255,7 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
                 {error && (
                     <NoticeBox error>
                         {i18n.t(
-                            'There was a problem updating dashboard items. No dashboard items were updated. Try again, or contact a system administrator'
+                            'There was a problem updating dashboard visualizations. No visualizations were updated. Try again, or contact a system administrator.'
                         )}
                     </NoticeBox>
                 )}
