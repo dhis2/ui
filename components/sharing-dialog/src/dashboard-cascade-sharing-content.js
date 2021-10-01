@@ -95,7 +95,7 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
                         defaultValue:
                             'These updated sharing settings will apply to {{count}} user or group.',
                         defaultValue_plural:
-                            'These updated sharing settings will apply to {{count}} users and groups.',
+                            'These updated sharing settings will apply to {{count}} users or groups.',
                     }
                 )
         } else {
@@ -222,7 +222,7 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
             </div>
             <div className="description">
                 {i18n.t(
-                    'Applying the same sharing settings ensures that users, groups and roles that have access to the dashboard also have at least "View only" access to its visualizations (charts, tables, maps, event charts, event reports).'
+                    'Applying the same sharing settings makes sure that users, groups and roles that have access to the dashboard also have at least "View only" access to its visualizations (charts, tables, maps, event charts, event reports).'
                 )}
             </div>
             <div className="description">
