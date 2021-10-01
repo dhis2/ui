@@ -1,11 +1,11 @@
 import { Divider } from '@dhis2-ui/divider'
-import i18n from '@dhis2/d2-i18n'
 import { colors } from '@dhis2/ui-constants'
 import { IconWorld24, IconUserGroup24 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { AccessSelect } from './access-select.js'
 import { Avatar } from './icons/avatar.js'
+import i18n from './locales/index.js'
 import {
     SHARE_TARGET_EXTERNAL,
     SHARE_TARGET_PUBLIC,

@@ -134,6 +134,10 @@ export const cascadeSharingStyles = css`
         color: ${colors.grey800};
     }
 
+    .box-block {
+        display: block;
+    }
+
     .box {
         display: inline-flex;
         margin-bottom: 14px;
