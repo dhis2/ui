@@ -1,3 +1,10 @@
+## [7.2.3](https://github.com/dhis2/ui/compare/v7.2.2...v7.2.3) (2021-10-01)
+
+
+### Bug Fixes
+
+* sharing dialog text improvements ([#772](https://github.com/dhis2/ui/issues/772)) ([ef16df2](https://github.com/dhis2/ui/commit/ef16df246b2eed1363dcc63d650b4218344971d9))
+
 ## [7.2.2](https://github.com/dhis2/ui/compare/v7.2.1...v7.2.2) (2021-10-01)
 
 
