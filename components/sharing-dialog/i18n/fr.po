@@ -1,0 +1,176 @@
+# 
+# Translators:
+# phil_dhis2, 2021
+# Edem Kossi <ekossi@hispwca.org>, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-09-29T09:08:15.255Z\n"
+"PO-Revision-Date: 2021-10-01 23:39+0000\n"
+"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
+"Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Remove access"
+msgstr ""
+
+msgid "Not available offline"
+msgstr ""
+
+msgid "Apply sharing to dashboard visualizations"
+msgstr ""
+
+msgid ""
+"{{count}} visualization on this dashboard will potentially get updated "
+"sharing settings."
+msgid_plural ""
+"{{count}} visualization on this dashboard will potentially get updated "
+"sharing settings."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "These updated sharing settings will apply to {{count}} user or group."
+msgid_plural ""
+"These updated sharing settings will apply to {{count}} user or group."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "There are no users, groups or roles to apply sharing settings for."
+msgstr ""
+
+msgid ""
+"No visualizations were updated because sharing settings are already "
+"sufficient."
+msgstr ""
+
+msgid "Successfully updated sharing for {{count}} visualization."
+msgid_plural "Successfully updated sharing for {{count}} visualization."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "{{count}} visualization was updated."
+msgid_plural "{{count}} visualization was updated."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "{{count}} visualization already has sufficient sharing settings."
+msgid_plural ""
+"{{count}} visualization already has sufficient sharing settings."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid ""
+"Check that you have permission to change sharing for all visualizations."
+msgstr ""
+
+msgid "No visualizations were updated."
+msgstr ""
+
+msgid "{{count}} visualization was updated"
+msgid_plural "{{count}} visualization was updated"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "{{count}} visualization could not be updated."
+msgid_plural "{{count}} visualization could not be updated."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Apply dashboard sharing settings to visualizations"
+msgstr ""
+
+msgid ""
+"Applying the same sharing settings makes sure that users, groups and roles "
+"that have access to the dashboard also have at least \"View only\" access to"
+" its visualizations (charts, tables, maps, event charts, event reports)."
+msgstr ""
+
+msgid ""
+"If a user, group, or role already has \"View and edit\" access to a "
+"visualization, this won't be reduced to \"View only\". \"All users\" access "
+"level won't be updated or changed."
+msgstr ""
+
+msgid ""
+"Applying sharing can't be undone, and needs to done again if new "
+"visualizations are added to the dashboard or its sharing settings are "
+"changed."
+msgstr ""
+
+msgid "Updating sharing settings..."
+msgstr ""
+
+msgid ""
+"There was a problem updating dashboard visualizations. No visualizations "
+"were updated. Try again, or contact a system administrator."
+msgstr ""
+
+msgid "Dashboard sharing"
+msgstr ""
+
+msgid "Give access to a user, group or role"
+msgstr ""
+
+msgid "Search"
+msgstr "Chercher"
+
+msgid "User, group or role"
+msgstr ""
+
+msgid "Access level"
+msgstr "Niveau d'accès"
+
+msgid "Select a level"
+msgstr "Sélectionnez un niveau"
+
+msgid "Give access"
+msgstr ""
+
+msgid "No access"
+msgstr "Pas d'accès"
+
+msgid "Anyone logged in can view"
+msgstr ""
+
+msgid "Can view"
+msgstr "Peut afficher"
+
+msgid "View only"
+msgstr ""
+
+msgid "Anyone logged in can view and edit"
+msgstr ""
+
+msgid "Can view and edit"
+msgstr ""
+
+msgid "View and edit"
+msgstr ""
+
+msgid "Sharing and access: {{- objectName}}"
+msgstr ""
+
+msgid "Sharing and access"
+msgstr ""
+
+msgid "Close"
+msgstr "Fermer"
+
+msgid "Metadata"
+msgstr "Métadonnées"
+
+msgid "Users, groups and roles that currently have access"
+msgstr ""
+
+msgid "User / Group / Role"
+msgstr ""
+
+msgid "All users"
+msgstr ""
