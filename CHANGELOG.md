@@ -1,3 +1,10 @@
+## [7.2.2](https://github.com/dhis2/ui/compare/v7.2.1...v7.2.2) (2021-10-01)
+
+
+### Bug Fixes
+
+* sharing-dialog - enable internationalization and improve text for cascade sharing ([#768](https://github.com/dhis2/ui/issues/768)) ([2775a4e](https://github.com/dhis2/ui/commit/2775a4e6a8785632e872bf59363e18926fb34f4b))
+
 ## [7.2.1](https://github.com/dhis2/ui/compare/v7.2.0...v7.2.1) (2021-09-22)
 
 
