@@ -16,13 +16,13 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 msgid "Remove access"
-msgstr ""
+msgstr "Odebrat přístup"
 
 msgid "Not available offline"
 msgstr "Není k dispozici offline"
 
 msgid "Apply sharing to dashboard visualizations"
-msgstr ""
+msgstr "Použít sdílení na vizualizace ovládacího panelu"
 
 msgid ""
 "{{count}} visualization on this dashboard will potentially get updated "
@@ -45,11 +45,15 @@ msgstr[3] ""
 
 msgid "There are no users, groups or roles to apply sharing settings for."
 msgstr ""
+"Neexistují žádní uživatelé, skupiny ani role, pro které by bylo možné použít"
+" nastavení sdílení."
 
 msgid ""
 "No visualizations were updated because sharing settings are already "
 "sufficient."
 msgstr ""
+"Nebyly aktualizovány žádné vizualizace, protože nastavení sdílení je již "
+"dostačující."
 
 msgid "Successfully updated sharing for {{count}} visualization."
 msgid_plural "Successfully updated sharing for {{count}} visualization."
@@ -76,9 +80,10 @@ msgstr[3] ""
 msgid ""
 "Check that you have permission to change sharing for all visualizations."
 msgstr ""
+"Zkontrolujte, zda máte oprávnění změnit sdílení pro všechny vizualizace."
 
 msgid "No visualizations were updated."
-msgstr ""
+msgstr "Nebyly aktualizovány žádné vizualizace."
 
 msgid "{{count}} visualization was updated"
 msgid_plural "{{count}} visualization was updated"
@@ -89,51 +94,63 @@ msgstr[3] ""
 
 msgid "{{count}} visualization could not be updated."
 msgid_plural "{{count}} visualization could not be updated."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "{{count}} vizualizaci nelze aktualizovat."
+msgstr[1] "{{count}} vizualizace nelze aktualizovat."
+msgstr[2] "{{count}} vizualizací nelze aktualizovat."
+msgstr[3] "{{count}} vizualizace nelze aktualizovat."
 
 msgid "Apply dashboard sharing settings to visualizations"
-msgstr ""
+msgstr "Na vizualizace použijte nastavení sdílení ovládacího panelu"
 
 msgid ""
 "Applying the same sharing settings makes sure that users, groups and roles "
 "that have access to the dashboard also have at least \"View only\" access to"
 " its visualizations (charts, tables, maps, event charts, event reports)."
 msgstr ""
+"Použitím stejného nastavení sdílení je zajištěno, že uživatelé, skupiny a "
+"role, které mají přístup k řídicímu panelu, budou mít také alespoň přístup "
+"„Zobrazit pouze“ k jeho vizualizacím (grafy, tabulky, mapy, grafy událostí, "
+"zprávy o událostech)."
 
 msgid ""
 "If a user, group, or role already has \"View and edit\" access to a "
 "visualization, this won't be reduced to \"View only\". \"All users\" access "
 "level won't be updated or changed."
 msgstr ""
+"Pokud uživatel, skupina nebo role již má k vizualizaci přístup „Zobrazit a "
+"upravit“, nebude omezen na „Pouze zobrazit“. Úroveň přístupu „Všichni "
+"uživatelé“ nebude aktualizována ani změněna."
 
 msgid ""
 "Applying sharing can't be undone, and needs to done again if new "
 "visualizations are added to the dashboard or its sharing settings are "
 "changed."
 msgstr ""
+"Aplikaci sdílení nelze vrátit zpět a je třeba ji provést znovu, pokud jsou "
+"na hlavní panel přidány nové vizualizace nebo se změní nastavení sdílení."
 
 msgid "Updating sharing settings..."
-msgstr ""
+msgstr "Aktualizace nastavení sdílení ..."
 
 msgid ""
 "There was a problem updating dashboard visualizations. No visualizations "
 "were updated. Try again, or contact a system administrator."
 msgstr ""
+"Při aktualizaci vizualizací ovládacího panelu došlo k problému. Nebyly "
+"aktualizovány žádné vizualizace. Zkuste to znovu nebo se obraťte na správce "
+"systému."
 
 msgid "Dashboard sharing"
-msgstr ""
+msgstr "Sdílení ovládacího panelu"
 
 msgid "Give access to a user, group or role"
-msgstr ""
+msgstr "Poskytněte přístup uživateli, skupině nebo roli"
 
 msgid "Search"
 msgstr "Hledat"
 
 msgid "User, group or role"
-msgstr ""
+msgstr "Uživatel, skupina nebo role"
 
 msgid "Access level"
 msgstr "Úroveň přístupu"
@@ -142,34 +159,34 @@ msgid "Select a level"
 msgstr "Vybrat úroveň"
 
 msgid "Give access"
-msgstr ""
+msgstr "Povolit přístup"
 
 msgid "No access"
 msgstr "Žádný přístup"
 
 msgid "Anyone logged in can view"
-msgstr ""
+msgstr "Kdokoli přihlášený může prohlížet"
 
 msgid "Can view"
 msgstr "Může zobrazit"
 
 msgid "View only"
-msgstr ""
+msgstr "Pouze zobrazit"
 
 msgid "Anyone logged in can view and edit"
-msgstr ""
+msgstr "Kdokoli přihlášený může prohlížet a upravovat"
 
 msgid "Can view and edit"
-msgstr ""
+msgstr "Lze prohlížet a upravovat"
 
 msgid "View and edit"
-msgstr ""
+msgstr "Zobrazit a upravit"
 
 msgid "Sharing and access: {{- objectName}}"
-msgstr ""
+msgstr "Sdílení a přístup: {{- objectName}}"
 
 msgid "Sharing and access"
-msgstr ""
+msgstr "Sdílení a přístup"
 
 msgid "Close"
 msgstr "Zavřít"
@@ -178,10 +195,10 @@ msgid "Metadata"
 msgstr "Metadata"
 
 msgid "Users, groups and roles that currently have access"
-msgstr ""
+msgstr "Uživatelé, skupiny a role, které mají aktuálně přístup"
 
 msgid "User / Group / Role"
-msgstr ""
+msgstr "Uživatel / Skupina / Role"
 
 msgid "All users"
-msgstr ""
+msgstr "Všichni uživatelé"
