@@ -5,7 +5,7 @@ import { IconWorld24, IconUserGroup24 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { AccessSelect } from './access-select.js'
-import { isPermanentTarget } from './helpers'
+import { isRemovableTarget } from './helpers.js'
 import i18n from './locales/index.js'
 import {
     SHARE_TARGET_EXTERNAL,
@@ -13,8 +13,8 @@ import {
     SHARE_TARGET_USER,
     SHARE_TARGET_GROUP,
     accessStrings,
-} from './sharing-constants'
-import { sharingListItemStyles } from './sharing-dialog.styles'
+} from './sharing-constants.js'
+import { sharingListItemStyles } from './sharing-dialog.styles.js'
 
 export const SharingListItem = ({
     name,
@@ -57,7 +57,7 @@ export const SharingListItem = ({
                     access={access}
                     accessOptions={accessOptions}
                     disabled={disabled}
-                    showRemoveOption={!isPermanentTarget(target)}
+                    showRemoveOption={isRemovableTarget(target)}
                     onChange={(selected) =>
                         selected === 'remove' ? onRemove() : onChange(selected)
                     }

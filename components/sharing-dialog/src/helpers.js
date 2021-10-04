@@ -76,9 +76,12 @@ export const convertConstantToAccess = (constant, useBoolean) => {
 }
 
 /**
- * Helper to check whether to allow removing for the selected target,
- * i.e. if permanent, do not allow removal.
+ * Helper to check whether to allow removing for the selected target
  */
 
-export const isPermanentTarget = target =>
-    [SHARE_TARGET_EXTERNAL, SHARE_TARGET_PUBLIC].includes(target)
+export const isRemovableTarget = target => {
+    const permanentTargets = [SHARE_TARGET_EXTERNAL, SHARE_TARGET_PUBLIC]
+
+    // Do not allow removal of permanent targets
+    return !permanentTargets.includes(target)
+}
