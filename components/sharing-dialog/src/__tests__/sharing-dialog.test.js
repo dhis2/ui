@@ -5,10 +5,10 @@ import { mount } from 'enzyme'
 import React from 'react'
 import { DashboardSharingContent } from '../dashboard-sharing-content.js'
 import { DefaultSharingContent } from '../default-sharing-content.js'
-import { defaultSharingSettings } from '../sharing-constants.js'
-import { SharingDialog } from '../sharing-dialog.js'
+import { ACCESS_NONE } from '../sharing-constants'
+import { SharingDialog } from '../sharing-dialog'
 
-describe('SharingDialog', () => {
+describe('<SharingDialog />', () => {
     const requiredProps = {
         id: 'sharing-test',
         type: 'visualization',
@@ -29,8 +29,13 @@ describe('SharingDialog', () => {
         const props = {
             ...requiredProps,
             initialSharingSettings: {
-                ...defaultSharingSettings,
                 name: expected,
+                allowExternal: true,
+                allowPublic: true,
+                external: ACCESS_NONE,
+                public: ACCESS_NONE,
+                groups: {},
+                users: {},
             },
         }
         const wrapper = mount(<SharingDialog {...props} />, {
