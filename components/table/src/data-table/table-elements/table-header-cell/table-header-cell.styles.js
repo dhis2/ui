@@ -10,6 +10,7 @@ export default css`
         background-color: ${colors.grey200};
         font-weight: normal;
         font-size: 14px;
+        vertical-align: top;
     }
     :global(thead) th {
         padding: 8px 12px;

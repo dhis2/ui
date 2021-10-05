@@ -13,6 +13,10 @@ export default css`
     span.top {
         display: flex;
         flex-direction: row;
+        align-items: top;
+    }
+    span.content {
+        display: flex;
         align-items: center;
     }
 `

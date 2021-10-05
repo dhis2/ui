@@ -55,7 +55,7 @@ export const DataTableColumnHeader = forwardRef(
         >
             <span className={cx('container', { showFilter })}>
                 <span className={cx('top', { large })}>
-                    {children}
+                    <span className="content">{children}</span>
                     {sortDirection && (
                         <Sorter
                             name={name}
