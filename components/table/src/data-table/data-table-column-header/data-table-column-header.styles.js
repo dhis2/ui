@@ -13,7 +13,7 @@ export default css`
     span.top {
         display: flex;
         flex-direction: row;
-        align-items: top;
+        align-items: flex-start;
     }
     span.content {
         display: flex;
