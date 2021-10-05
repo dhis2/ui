@@ -26,6 +26,7 @@ export const TableHeaderCellAction = forwardRef(
                     flex-shrink: 0;
                     cursor: pointer;
                     border-radius: 4px;
+                    margin-left: 2px;
                 }
                 button:hover,
                 button:focus-visible {
