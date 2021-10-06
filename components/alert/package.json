@@ -28,7 +28,7 @@
     "peerDependencies": {
         "react": "^16.8",
         "react-dom": "^16.8",
-        "styled-jsx": "^4"
+        "styled-jsx": "^3"
     },
     "dependencies": {
         "@dhis2-ui/portal": "6.25.2",
@@ -44,6 +44,6 @@
     "devDependencies": {
         "react": "16.13",
         "react-dom": "16.13",
-        "styled-jsx": "^4.0.1"
+        "styled-jsx": "^3.4.4"
     }
 }
