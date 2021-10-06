@@ -2,7 +2,7 @@ import { colors } from '@dhis2/ui-constants'
 import { IconWorld24, IconUserGroup24 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Avatar } from './avatar'
+import { IconInitials } from './icon-initials'
 import {
     SHARE_TARGET_EXTERNAL,
     SHARE_TARGET_PUBLIC,
@@ -18,7 +18,7 @@ export const SharingListItemIcon = ({ target, name }) => {
         case SHARE_TARGET_GROUP:
             return <IconUserGroup24 color={colors.grey600} />
         case SHARE_TARGET_USER:
-            return <Avatar name={name} />
+            return <IconInitials name={name} />
         default:
             return null
     }

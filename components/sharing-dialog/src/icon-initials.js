@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { nameToInitials } from './helpers'
 
-export const Avatar = ({ name }) => {
+export const IconInitials = ({ name }) => {
     return (
-        <div className="avatar">
-            <p className="initials">{nameToInitials(name)}</p>
+        <div>
+            <p>{nameToInitials(name)}</p>
             <style jsx>{`
-                .avatar {
+                div {
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -20,7 +20,7 @@ export const Avatar = ({ name }) => {
                     opacity: 0.8;
                 }
 
-                .initials {
+                p {
                     margin-left: 1px;
                     font-size: 9px;
                     font-weight: 500;
@@ -34,10 +34,10 @@ export const Avatar = ({ name }) => {
     )
 }
 
-Avatar.defaultProps = {
+IconInitials.defaultProps = {
     name: 'USER',
 }
 
-Avatar.propTypes = {
+IconInitials.propTypes = {
     name: PropTypes.string,
 }

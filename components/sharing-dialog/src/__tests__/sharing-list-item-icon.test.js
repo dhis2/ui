@@ -1,7 +1,7 @@
 import { IconWorld24, IconUserGroup24 } from '@dhis2/ui-icons'
 import { shallow } from 'enzyme'
 import React from 'react'
-import { Avatar } from '../avatar'
+import { IconInitials } from '../icon-initials'
 import {
     SHARE_TARGET_EXTERNAL,
     SHARE_TARGET_PUBLIC,
@@ -38,11 +38,11 @@ describe('<SharingListItemIcon />', () => {
         expect(icon.length === 1).toBe(true)
     })
 
-    it('renders an avatar for user targets', () => {
+    it('renders an icon with initials for user targets', () => {
         const wrapper = shallow(
             <SharingListItemIcon target={SHARE_TARGET_USER} name="Name" />
         )
-        const icon = wrapper.find(Avatar)
+        const icon = wrapper.find(IconInitials)
 
         expect(icon.length === 1).toBe(true)
     })
