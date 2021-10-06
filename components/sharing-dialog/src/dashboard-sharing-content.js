@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 import { DashboardCascadeSharingContent } from './dashboard-cascade-sharing-content.js'
 import { DefaultSharingContent } from './default-sharing-content.js'
 import i18n from './locales/index.js'
-import { dashboardSharingStyles } from './sharing-dialog.styles.js'
 
 export const DashboardSharingContent = ({
     sharingSettings,
@@ -45,7 +44,11 @@ export const DashboardSharingContent = ({
                     />
                 )}
             </div>
-            <style jsx>{dashboardSharingStyles}</style>
+            <style jsx>{`
+                .tab-content {
+                    padding-top: 15px;
+                }
+            `}</style>
         </>
     )
 }

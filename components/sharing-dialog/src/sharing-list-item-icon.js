@@ -10,7 +10,7 @@ import {
     SHARE_TARGET_GROUP,
 } from './sharing-constants'
 
-export const SharingListItemIcon = ({ target }) => {
+export const SharingListItemIcon = ({ target, name }) => {
     switch (target) {
         case SHARE_TARGET_EXTERNAL:
             return <IconWorld24 color={colors.grey600} />
@@ -26,4 +26,5 @@ export const SharingListItemIcon = ({ target }) => {
 
 SharingListItemIcon.propTypes = {
     target: PropTypes.string.isRequired,
+    name: PropTypes.string,
 }

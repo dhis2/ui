@@ -12,7 +12,6 @@ import { IconInfo16, IconCheckmark16 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
 import i18n from './locales/index.js'
-import { cascadeSharingStyles } from './sharing-dialog.styles.js'
 
 const dashboardQuery = {
     dashboard: {
@@ -105,15 +104,63 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
         }
 
         return (
-            <>
-                <style jsx>{cascadeSharingStyles}</style>
-                <div className="box-block">
-                    <div className="box box-info">
-                        <IconInfo16 color={colors.grey900} />
-                        <span className="box-text">{message}</span>
-                    </div>
+            <div className="box-block">
+                <div className="box box-info">
+                    <IconInfo16 color={colors.grey900} />
+                    <span className="box-text">{message}</span>
                 </div>
-            </>
+                <style jsx>{`
+                    .title {
+                        font-size: 16px;
+                        color: ${colors.grey900};
+                        font-weight: 500;
+                    }
+
+                    .description {
+                        margin: 8px 0 13px 0;
+                        font-size: 14px;
+                        line-height: 19px;
+                        color: ${colors.grey800};
+                    }
+
+                    .box-block {
+                        display: block;
+                    }
+
+                    .box {
+                        display: inline-flex;
+                        margin-bottom: 14px;
+                        border-radius: 3px;
+                        padding: 8px 8px 6px 8px;
+                    }
+                    .box-text {
+                        padding-left: 6px;
+                        font-size: 14px;
+                        color: ${colors.grey900};
+                        line-height: 19px;
+                    }
+
+                    .box-info {
+                        background-color: ${colors.grey200};
+                    }
+
+                    .box-success {
+                        background-color: ${colors.green100};
+                    }
+
+                    .result-box {
+                        margin-top: 14px;
+                    }
+
+                    .loading {
+                        display: flex;
+                        align-items: center;
+                        color: ${colors.grey800};
+                        font-size: 14px;
+                        line-height: 19px;
+                    }
+                `}</style>
+            </div>
         )
     }
 
@@ -162,15 +209,63 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
             }
 
             return (
-                <>
-                    <style jsx>{cascadeSharingStyles}</style>
-                    <div className="box-block">
-                        <div className="box box-success">
-                            <IconCheckmark16 color={colors.grey700} />
-                            <span className="box-text">{message}</span>
-                        </div>
+                <div className="box-block">
+                    <div className="box box-success">
+                        <IconCheckmark16 color={colors.grey700} />
+                        <span className="box-text">{message}</span>
                     </div>
-                </>
+                    <style jsx>{`
+                        .title {
+                            font-size: 16px;
+                            color: ${colors.grey900};
+                            font-weight: 500;
+                        }
+
+                        .description {
+                            margin: 8px 0 13px 0;
+                            font-size: 14px;
+                            line-height: 19px;
+                            color: ${colors.grey800};
+                        }
+
+                        .box-block {
+                            display: block;
+                        }
+
+                        .box {
+                            display: inline-flex;
+                            margin-bottom: 14px;
+                            border-radius: 3px;
+                            padding: 8px 8px 6px 8px;
+                        }
+                        .box-text {
+                            padding-left: 6px;
+                            font-size: 14px;
+                            color: ${colors.grey900};
+                            line-height: 19px;
+                        }
+
+                        .box-info {
+                            background-color: ${colors.grey200};
+                        }
+
+                        .box-success {
+                            background-color: ${colors.green100};
+                        }
+
+                        .result-box {
+                            margin-top: 14px;
+                        }
+
+                        .loading {
+                            display: flex;
+                            align-items: center;
+                            color: ${colors.grey800};
+                            font-size: 14px;
+                            line-height: 19px;
+                        }
+                    `}</style>
+                </div>
             )
         } else {
             const messageCheckPermissions = i18n.t(
@@ -216,7 +311,6 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
 
     return (
         <>
-            <style jsx>{cascadeSharingStyles}</style>
             <div className="title">
                 {i18n.t('Apply dashboard sharing settings to visualizations')}
             </div>
@@ -259,6 +353,57 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
                 )}
                 {mutationResponse && getResultMessage()}
             </div>
+            <style jsx>{`
+                .title {
+                    font-size: 16px;
+                    color: ${colors.grey900};
+                    font-weight: 500;
+                }
+
+                .description {
+                    margin: 8px 0 13px 0;
+                    font-size: 14px;
+                    line-height: 19px;
+                    color: ${colors.grey800};
+                }
+
+                .box-block {
+                    display: block;
+                }
+
+                .box {
+                    display: inline-flex;
+                    margin-bottom: 14px;
+                    border-radius: 3px;
+                    padding: 8px 8px 6px 8px;
+                }
+                .box-text {
+                    padding-left: 6px;
+                    font-size: 14px;
+                    color: ${colors.grey900};
+                    line-height: 19px;
+                }
+
+                .box-info {
+                    background-color: ${colors.grey200};
+                }
+
+                .box-success {
+                    background-color: ${colors.green100};
+                }
+
+                .result-box {
+                    margin-top: 14px;
+                }
+
+                .loading {
+                    display: flex;
+                    align-items: center;
+                    color: ${colors.grey800};
+                    font-size: 14px;
+                    line-height: 19px;
+                }
+            `}</style>
         </>
     )
 }
