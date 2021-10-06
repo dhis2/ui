@@ -55,7 +55,8 @@ export const HeaderBar = ({ appName, className }) => {
 
     // See https://jira.dhis2.org/browse/LIBS-180
     if (!loading && !error) {
-        // TODO: This will run every render which is probably wrong!  Also, setting the global locale shouldn't be done in the headerbar
+        // TODO: This will run every render which is probably wrong!
+        // Also, setting the global locale shouldn't be done in the headerbar
         const locale = data.user.settings.keyUiLocale || 'en'
         i18n.setDefaultNamespace('default')
         i18n.changeLanguage(locale)
@@ -67,12 +68,16 @@ export const HeaderBar = ({ appName, className }) => {
                 {!loading && !error && (
                     <>
                         <Logo />
+
                         <Title
                             app={appName}
                             instance={data.title.applicationTitle}
                         />
+
                         <div className="right-control-spacer" />
+
                         {(pwaEnabled || showOnlineStatus) && <OnlineStatus />}
+
                         <Notifications
                             interpretations={
                                 data.notifications.unreadInterpretations
@@ -83,6 +88,7 @@ export const HeaderBar = ({ appName, className }) => {
                             userAuthorities={data.user.authorities}
                         />
                         <Apps apps={apps} />
+
                         <Profile
                             name={data.user.name}
                             email={data.user.email}
@@ -92,6 +98,7 @@ export const HeaderBar = ({ appName, className }) => {
                     </>
                 )}
             </div>
+
             {(pwaEnabled || showOnlineStatus) && !loading && !error && (
                 <OnlineStatus dense />
             )}
