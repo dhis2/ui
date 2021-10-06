@@ -20,11 +20,11 @@ export const styles = css`
 
 export const resolvedTableHeaderCss = css.resolve`
     :global(thead) > :global(tr) > th.DataTableColumnHeader {
-        padding-top: 3px;
-        padding-bottom: 3px;
+        padding-top: 6px;
+        padding-bottom: 6px;
     }
     :global(thead) > :global(tr) > th.DataTableColumnHeader.large {
-        padding-top: 8px;
-        padding-bottom: 8px;
+        padding-top: 12px;
+        padding-bottom: 12px;
     }
 `
