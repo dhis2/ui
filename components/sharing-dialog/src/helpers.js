@@ -37,6 +37,10 @@ export const nameToTitle = name => {
 }
 
 export const nameToInitials = name => {
+    if (!name) {
+        return ''
+    }
+
     const parts = name.split(' ')
     const firstNameInitial = parts.length > 0 ? parts.shift().charAt(0) : ''
     const lastNameInitial = parts.length > 0 ? parts.pop().charAt(0) : ''
