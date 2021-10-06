@@ -1,3 +1,4 @@
+import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 import i18n from './locales/index.js'
@@ -9,16 +10,10 @@ import {
     ACCESS_VIEW_ONLY,
     ACCESS_VIEW_AND_EDIT,
 } from './sharing-constants.js'
-import {
-    sharingCommonStyles,
-    sharingListStyles,
-} from './sharing-dialog.styles.js'
 import { SharingListItem } from './sharing-list-item.js'
 
 export const SharingList = ({ sharingSettings, onChange, onRemove }) => (
     <>
-        <style jsx>{sharingCommonStyles}</style>
-        <style jsx>{sharingListStyles}</style>
         <p className="sharing-subtitle">
             {i18n.t('Users, groups and roles that currently have access')}
         </p>
@@ -82,6 +77,39 @@ export const SharingList = ({ sharingSettings, onChange, onRemove }) => (
                     )
             )}
         </div>
+        <style jsx>{`
+            .sharing-subtitle {
+                color: ${colors.grey700};
+                font-size: 15px;
+                font-weight: 500;
+                margin: 0 0 8px 0;
+            }
+
+            .sharing-headers {
+                display: flex;
+                width: 100%;
+                padding: 10px 8px;
+                margin: 0 0 8px 0;
+                background-color: ${colors.grey200};
+                color: ${colors.grey900};
+                font-size: 13px;
+            }
+
+            .sharing-header-1 {
+                flex: 2;
+            }
+
+            .sharing-header-2 {
+                flex: 1;
+            }
+
+            .sharing-list {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                overflow-y: auto;
+            }
+        `}</style>
     </>
 )
 

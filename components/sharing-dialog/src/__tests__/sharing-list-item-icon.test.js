@@ -40,7 +40,7 @@ describe('<SharingListItemIcon />', () => {
 
     it('renders an avatar for user targets', () => {
         const wrapper = shallow(
-            <SharingListItemIcon target={SHARE_TARGET_USER} />
+            <SharingListItemIcon target={SHARE_TARGET_USER} name="Name" />
         )
         const icon = wrapper.find(Avatar)
 

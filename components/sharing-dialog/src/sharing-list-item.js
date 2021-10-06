@@ -1,11 +1,11 @@
 import { Divider } from '@dhis2-ui/divider'
+import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { AccessSelect } from './access-select.js'
 import { isRemovableTarget } from './helpers.js'
 import i18n from './locales/index.js'
 import { SHARE_TARGET_PUBLIC, accessStrings } from './sharing-constants.js'
-import { sharingListItemStyles } from './sharing-dialog.styles.js'
 import { SharingListItemIcon } from './sharing-list-item-icon.js'
 
 export const SharingListItem = ({
@@ -20,9 +20,8 @@ export const SharingListItem = ({
     return (
         <>
             <div className="sharing-list-item">
-                <style jsx>{sharingListItemStyles}</style>
                 <div className="share-details">
-                    <SharingListItemIcon target={target} />
+                    <SharingListItemIcon target={target} name={name} />
                     <div className="share-details-text">
                         <p className="share-entity">{name}</p>
                         <p className="share-context">
@@ -44,6 +43,36 @@ export const SharingListItem = ({
                 />
             </div>
             <Divider />
+            <style jsx>{`
+                .sharing-list-item {
+                    display: flex;
+                    padding: 4px 8px;
+                }
+
+                .share-details-text {
+                    margin-left: 8px;
+                }
+
+                div.share-details {
+                    display: flex;
+                    flex: 2;
+                }
+
+                p.share-entity {
+                    font-size: 15px;
+                    font-weight: 500;
+                    color: ${colors.grey900};
+                    margin: 0;
+                    padding: 0;
+                }
+
+                p.share-context {
+                    font-size: 14px;
+                    color: ${colors.grey700};
+                    margin: 6px 0 0 0;
+                    padding: 0;
+                }
+            `}</style>
         </>
     )
 }

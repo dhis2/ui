@@ -1,5 +1,6 @@
 import { Button } from '@dhis2-ui/button'
 import { useDataQuery, useOnlineStatus } from '@dhis2/app-runtime'
+import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useMemo, useState } from 'react'
 import { AccessSelect } from './access-select.js'
@@ -7,10 +8,6 @@ import { Autocomplete } from './autocomplete/autocomplete.js'
 import { debounce } from './helpers.js'
 import i18n from './locales/index.js'
 import { ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT } from './sharing-constants.js'
-import {
-    sharingCommonStyles,
-    shareBlockStyles,
-} from './sharing-dialog.styles.js'
 
 const query = {
     usersAndGroups: {
@@ -99,8 +96,6 @@ export const ShareBlock = ({ onAdd }) => {
 
     return (
         <>
-            <style jsx>{sharingCommonStyles}</style>
-            <style jsx>{shareBlockStyles}</style>
             <p className="sharing-subtitle">
                 {i18n.t('Give access to a user, group or role')}
             </p>
@@ -129,6 +124,28 @@ export const ShareBlock = ({ onAdd }) => {
                     {i18n.t('Give access')}
                 </Button>
             </form>
+            <style jsx>{`
+                .sharing-subtitle {
+                    color: ${colors.grey700};
+                    font-size: 15px;
+                    font-weight: 500;
+                    margin: 0 0 8px 0;
+                }
+
+                .share-block {
+                    background-color: ${colors.grey100};
+                    color: ${colors.grey900};
+                    margin-bottom: 21px;
+                    padding: 8px 12px;
+                    border-radius: 5px;
+                }
+
+                .sharing-inputs {
+                    display: flex;
+                    align-items: flex-end;
+                    width: 100%;
+                }
+            `}</style>
         </>
     )
 }

@@ -6,7 +6,6 @@ import { ConditionalTooltip } from './conditional-tooltip.js'
 import { CustomSingleSelectOption } from './custom-single-select-option.js'
 import i18n from './locales/index.js'
 import { accessStrings } from './sharing-constants.js'
-import { accessSelectStyles } from './sharing-dialog.styles.js'
 
 export const AccessSelect = ({
     label,
@@ -22,7 +21,6 @@ export const AccessSelect = ({
 
     return (
         <div className="share-select">
-            <style jsx>{accessSelectStyles}</style>
             <ConditionalTooltip
                 show={offline}
                 content={i18n.t('Not available offline')}
@@ -53,6 +51,11 @@ export const AccessSelect = ({
                     )}
                 </SingleSelectField>
             </ConditionalTooltip>
+            <style jsx>{`
+                .share-select {
+                    flex: 1;
+                }
+            `}</style>
         </div>
     )
 }
