@@ -38,10 +38,11 @@ describe('<DataTableColumnHeader>', () => {
         expect(wrapper.find(TableHeaderCell).prop('align')).toBe(right)
     })
     it('accepts a className prop', () => {
-        const className = 'test'
-        const wrapper = shallow(<DataTableColumnHeader className={className} />)
+        const wrapper = shallow(<DataTableColumnHeader className="test" />)
 
-        expect(wrapper.find(TableHeaderCell).prop('className')).toBe(className)
+        expect(wrapper.find(TableHeaderCell).prop('className')).toBe(
+            'test DataTableColumnHeader'
+        )
     })
     it('accepts a colSpan prop', () => {
         const colSpan = '3'
