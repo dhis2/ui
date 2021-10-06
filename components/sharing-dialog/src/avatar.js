@@ -4,7 +4,6 @@ import React from 'react'
 import { nameToInitials } from './helpers'
 
 export const Avatar = ({ name }) => {
-    console.log(name)
     return (
         <div className="avatar">
             <p className="initials">{nameToInitials(name)}</p>

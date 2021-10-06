@@ -65,7 +65,7 @@ describe('helpers', () => {
         )
 
         it.each(cases)(
-            'returns the correct boolean value',
+            'returns the correct boolean value for %s',
             (accessConstant, accessString, accessBoolean) => {
                 expect(convertConstantToAccess(accessConstant, true)).toEqual(
                     accessBoolean
@@ -90,10 +90,10 @@ describe('helpers', () => {
 
     describe('nameToInitials', () => {
         it('returns an empty string when the name parameter is falsy', () => {
-            expect(nameToInitials()).toBe("")
-            expect(nameToInitials(false)).toBe("")
-            expect(nameToInitials(undefined)).toBe("")
-            expect(nameToInitials(null)).toBe("")
+            expect(nameToInitials()).toBe('')
+            expect(nameToInitials(false)).toBe('')
+            expect(nameToInitials(undefined)).toBe('')
+            expect(nameToInitials(null)).toBe('')
         })
 
         it('converts a string without spaces to initials', () => {
@@ -123,7 +123,7 @@ describe('helpers', () => {
         })
 
         it('returns true for all other targets', () => {
-            expect(isRemovableTarget("Does not exist")).toBe(true)
+            expect(isRemovableTarget('Does not exist')).toBe(true)
         })
     })
 })
