@@ -1,3 +1,10 @@
+## [7.2.7](https://github.com/dhis2/ui/compare/v7.2.6...v7.2.7) (2021-10-06)
+
+
+### Bug Fixes
+
+* **data-table:** use padding instead of fixed cell heights ([#771](https://github.com/dhis2/ui/issues/771)) ([01e9d2f](https://github.com/dhis2/ui/commit/01e9d2fc59abfee2035635e07c9ad85b0baf1c80))
+
 ## [7.2.6](https://github.com/dhis2/ui/compare/v7.2.5...v7.2.6) (2021-10-06)
 
 
