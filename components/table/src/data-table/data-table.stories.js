@@ -1217,3 +1217,97 @@ export const InlineFiltering = InlineFilteringTemplate.bind({})
 InlineFiltering.args = {
     layout: 'fixed',
 }
+
+const LongCellContentTemplate = ({ large }) => (
+    <DataTable>
+        <DataTableHead>
+            <DataTableRow>
+                <DataTableColumnHeader
+                    large={large}
+                    onSortIconClick={() => {}}
+                    sortDirection="asc"
+                    name="first"
+                >
+                    FIRST - Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit. Eligendi non quis exercitationem culpa nesciunt nihil
+                    aut nostrum explicabo reprehenderit optio amet ab temporibus
+                    asperiores quasi cupiditate. Voluptatum ducimus voluptates
+                    voluptas?
+                </DataTableColumnHeader>
+                <DataTableColumnHeader
+                    large={large}
+                    onFilterIconClick={() => {}}
+                    name="firstName"
+                    showFilter={true}
+                    filter={
+                        <Input
+                            dense
+                            onChange={() => {}}
+                            name="firstName"
+                            value="Filter value"
+                        />
+                    }
+                >
+                    SECOND - Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit. Eligendi non quis exercitationem culpa nesciunt nihil
+                    aut nostrum explicabo reprehenderit optio amet ab temporibus
+                    asperiores quasi cupiditate. Voluptatum ducimus voluptates
+                    voluptas?
+                </DataTableColumnHeader>
+                <DataTableColumnHeader
+                    large={large}
+                    onSortIconClick={() => {}}
+                    sortDirection="asc"
+                    name="third"
+                >
+                    Third (short)
+                </DataTableColumnHeader>
+                <DataTableColumnHeader
+                    large={large}
+                    onSortIconClick={() => {}}
+                    sortDirection="asc"
+                    name="fourth"
+                >
+                    Fourth - Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit. Eligendi non quis exercitationem culpa nesciunt nihil
+                    aut nostrum explicabo reprehenderit optio amet ab temporibus
+                    asperiores quasi cupiditate. Voluptatum ducimus voluptates
+                    voluptas?
+                </DataTableColumnHeader>
+            </DataTableRow>
+        </DataTableHead>
+        <DataTableBody>
+            <DataTableRow>
+                <DataTableCell large={large}>
+                    FIRST - Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit. Eligendi non quis exercitationem culpa nesciunt nihil
+                    aut nostrum explicabo reprehenderit optio amet ab temporibus
+                    asperiores quasi cupiditate. Voluptatum ducimus voluptates
+                    voluptas?
+                </DataTableCell>
+                <DataTableCell large={large}>
+                    SECOND - Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit. Eligendi non quis exercitationem culpa nesciunt nihil
+                    aut nostrum explicabo reprehenderit optio amet ab temporibus
+                    asperiores quasi cupiditate. Voluptatum ducimus voluptates
+                    voluptas?
+                </DataTableCell>
+                <DataTableCell large={large}>Third (short)</DataTableCell>
+                <DataTableCell large={large}>
+                    Fourth - Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit. Eligendi non quis exercitationem culpa nesciunt nihil
+                    aut nostrum explicabo reprehenderit optio amet ab temporibus
+                    asperiores quasi cupiditate. Voluptatum ducimus voluptates
+                    voluptas?
+                </DataTableCell>
+            </DataTableRow>
+        </DataTableBody>
+    </DataTable>
+)
+
+export const LongCellContent = LongCellContentTemplate.bind({})
+
+export const LongCellContentLargeCells = LongCellContentTemplate.bind({})
+LongCellContentLargeCells.args = {
+    large: 'true',
+}

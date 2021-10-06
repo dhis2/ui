@@ -3,18 +3,18 @@ import css from 'styled-jsx/css'
 
 export default css`
     th {
-        padding: 0 12px;
+        padding: 12px;
         border: 1px solid transparant;
         border-bottom: 1px solid ${colors.grey300};
         color: ${colors.grey800};
         background-color: ${colors.grey200};
         font-weight: normal;
         font-size: 14px;
-        height: 45px;
+        vertical-align: top;
     }
     :global(thead) th {
+        padding: 8px 12px;
         font-size: 13px;
-        height: 36px;
     }
     th:last-of-type {
         border-right: 1px solid ${colors.grey300};
@@ -41,12 +41,12 @@ export default css`
         color: ${colors.green700};
     }
     th.large {
+        padding: 14px 12px;
         font-size: 16px;
-        height: 60px;
     }
     :global(thead) th.large {
+        padding: 13px 12px;
         font-size: 15px;
-        height: 48px;
     }
     th.fixed {
         position: sticky;

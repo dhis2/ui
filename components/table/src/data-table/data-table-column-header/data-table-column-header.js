@@ -3,7 +3,10 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
 import { TableHeaderCell } from '../table-elements/index.js'
-import styles from './data-table-column-header.styles.js'
+import {
+    styles,
+    resolvedTableHeaderCss,
+} from './data-table-column-header.styles.js'
 import { FilterHandle } from './filter-handle.js'
 import { Sorter, SORT_DIRECTIONS } from './sorter.js'
 
@@ -40,7 +43,11 @@ export const DataTableColumnHeader = forwardRef(
     ) => (
         <TableHeaderCell
             align={align}
-            className={className}
+            className={cx(
+                className,
+                'DataTableColumnHeader',
+                resolvedTableHeaderCss.className
+            )}
             colSpan={colSpan}
             dataTest={dataTest}
             fixed={fixed}
@@ -53,9 +60,9 @@ export const DataTableColumnHeader = forwardRef(
             top={top}
             width={width}
         >
-            <span className={cx('container', { showFilter })}>
+            <span className="container">
                 <span className={cx('top', { large })}>
-                    {children}
+                    <span className="content">{children}</span>
                     {sortDirection && (
                         <Sorter
                             name={name}
@@ -73,6 +80,7 @@ export const DataTableColumnHeader = forwardRef(
                 </span>
                 {showFilter && filter}
             </span>
+            {resolvedTableHeaderCss.styles}
             <style jsx>{styles}</style>
             <style jsx>{`
                 .label {
