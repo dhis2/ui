@@ -1033,8 +1033,9 @@ const ScrollingDataTableWithToolbarsTemplate = args => (
     </Box>
 )
 
-export const ScrollingDataTableWithToolbars =
-    ScrollingDataTableWithToolbarsTemplate.bind({})
+export const ScrollingDataTableWithToolbars = ScrollingDataTableWithToolbarsTemplate.bind(
+    {}
+)
 ScrollingDataTableWithToolbars.args = {
     layout: 'fixed',
     width: '1000px',
@@ -1218,11 +1219,12 @@ InlineFiltering.args = {
     layout: 'fixed',
 }
 
-const LongCellContentTemplate = () => (
+const LongCellContentTemplate = ({ large }) => (
     <DataTable>
         <DataTableHead>
             <DataTableRow>
                 <DataTableColumnHeader
+                    large={large}
                     onSortIconClick={() => {}}
                     sortDirection="asc"
                     name="first"
@@ -1234,6 +1236,7 @@ const LongCellContentTemplate = () => (
                     voluptas?
                 </DataTableColumnHeader>
                 <DataTableColumnHeader
+                    large={large}
                     onFilterIconClick={() => {}}
                     name="firstName"
                     showFilter={true}
@@ -1253,6 +1256,7 @@ const LongCellContentTemplate = () => (
                     voluptas?
                 </DataTableColumnHeader>
                 <DataTableColumnHeader
+                    large={large}
                     onSortIconClick={() => {}}
                     sortDirection="asc"
                     name="third"
@@ -1260,6 +1264,7 @@ const LongCellContentTemplate = () => (
                     Third (short)
                 </DataTableColumnHeader>
                 <DataTableColumnHeader
+                    large={large}
                     onSortIconClick={() => {}}
                     sortDirection="asc"
                     name="fourth"
@@ -1274,22 +1279,22 @@ const LongCellContentTemplate = () => (
         </DataTableHead>
         <DataTableBody>
             <DataTableRow>
-                <DataTableCell>
+                <DataTableCell large={large}>
                     FIRST - Lorem ipsum dolor sit amet, consectetur adipisicing
                     elit. Eligendi non quis exercitationem culpa nesciunt nihil
                     aut nostrum explicabo reprehenderit optio amet ab temporibus
                     asperiores quasi cupiditate. Voluptatum ducimus voluptates
                     voluptas?
                 </DataTableCell>
-                <DataTableCell>
+                <DataTableCell large={large}>
                     SECOND - Lorem ipsum dolor sit amet, consectetur adipisicing
                     elit. Eligendi non quis exercitationem culpa nesciunt nihil
                     aut nostrum explicabo reprehenderit optio amet ab temporibus
                     asperiores quasi cupiditate. Voluptatum ducimus voluptates
                     voluptas?
                 </DataTableCell>
-                <DataTableCell>Third (short)</DataTableCell>
-                <DataTableCell>
+                <DataTableCell large={large}>Third (short)</DataTableCell>
+                <DataTableCell large={large}>
                     Fourth - Lorem ipsum dolor sit amet, consectetur adipisicing
                     elit. Eligendi non quis exercitationem culpa nesciunt nihil
                     aut nostrum explicabo reprehenderit optio amet ab temporibus
@@ -1302,3 +1307,8 @@ const LongCellContentTemplate = () => (
 )
 
 export const LongCellContent = LongCellContentTemplate.bind({})
+
+export const LongCellContentLargeCells = LongCellContentTemplate.bind({})
+LongCellContentLargeCells.args = {
+    large: 'true',
+}

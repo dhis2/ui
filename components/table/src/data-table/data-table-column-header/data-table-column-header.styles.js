@@ -1,14 +1,10 @@
-import { spacers } from '@dhis2/ui-constants'
 import css from 'styled-jsx/css'
 
-export default css`
+export const styles = css`
     span.container {
         display: flex;
         flex-direction: column;
         height: 100%;
-    }
-    span.showFilter {
-        padding-bottom: ${spacers.dp4};
     }
     span.top {
         display: flex;
@@ -18,5 +14,17 @@ export default css`
     span.content {
         display: flex;
         align-items: center;
+        min-height: 24px;
+    }
+`
+
+export const resolvedTableHeaderCss = css.resolve`
+    :global(thead) > :global(tr) > th.DataTableColumnHeader {
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+    :global(thead) > :global(tr) > th.DataTableColumnHeader.large {
+        padding-top: 8px;
+        padding-bottom: 8px;
     }
 `
