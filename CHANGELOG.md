@@ -1,3 +1,10 @@
+## [6.25.3](https://github.com/dhis2/ui/compare/v6.25.2...v6.25.3) (2021-10-06)
+
+
+### Reverts
+
+* "fix(deps): bump styled-jsx from 3.4.4 to 4.0.1 ([#724](https://github.com/dhis2/ui/issues/724))" ([c3a1a1b](https://github.com/dhis2/ui/commit/c3a1a1b68d38586cc3f8acef344b201d9a352292))
+
 ## [6.25.2](https://github.com/dhis2/ui/compare/v6.25.1...v6.25.2) (2021-10-01)
 
 
