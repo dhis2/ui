@@ -26,7 +26,8 @@ const mockConfig = {
 const customData = {
     'system/info': {
         contextPath: 'https://debug.dhis2.org/dev',
-        userAgent: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36',
+        userAgent:
+            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36',
         calendar: 'iso8601',
         dateFormat: 'yyyy-mm-dd',
         serverDate: '2021-10-06T08:06:15.256',
@@ -42,7 +43,7 @@ const customData = {
         jasperReportsVersion: '6.3.1',
         environmentVariable: 'DHIS2_HOME',
         databaseInfo: {
-          spatialSupport: true
+            spatialSupport: true,
         },
         encryption: false,
         emailConfigured: false,
@@ -52,7 +53,7 @@ const customData = {
         instanceBaseUrl: 'https://debug.dhis2.org/dev',
         clusterHostname: '',
         isMetadataVersionEnabled: true,
-        metadataSyncEnabled: false
+        metadataSyncEnabled: false,
     },
     'systemSettings/applicationTitle': {
         applicationTitle: 'Foobar',
@@ -260,10 +261,12 @@ export const WithOnlineStatus = () => (
     </CustomDataProvider>
 )
 
-WithOnlineStatus.decorators = [fn => {
-    const config = { ...mockConfig, pwaEnabled: true }
-    return <Provider config={config}>{fn()}</Provider>
-}]
+WithOnlineStatus.decorators = [
+    fn => {
+        const config = { ...mockConfig, pwaEnabled: true }
+        return <Provider config={config}>{fn()}</Provider>
+    },
+]
 
 WithOnlineStatus.parameters = {
     docs: {
@@ -282,14 +285,16 @@ export const WithLastOnlineInfo = () => (
     </CustomDataProvider>
 )
 
-WithLastOnlineInfo.decorators = [fn => {
-    const config = {
-        ...mockConfig,
-        pwaEnabled: true,
-        headerbar: { onlineStatusInfo: 'LAST_ONLINE' },
-    }
-    return <Provider config={config}>{fn()}</Provider>
-}]
+WithLastOnlineInfo.decorators = [
+    fn => {
+        const config = {
+            ...mockConfig,
+            pwaEnabled: true,
+            headerbar: { onlineStatusInfo: 'LAST_ONLINE' },
+        }
+        return <Provider config={config}>{fn()}</Provider>
+    },
+]
 
 WithLastOnlineInfo.parameters = {
     docs: {

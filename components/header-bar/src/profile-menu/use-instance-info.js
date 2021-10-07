@@ -1,26 +1,12 @@
-import { useConfig, useDataQuery } from '@dhis2/app-runtime'
-import { useMemo } from 'react'
+import { useDataQuery } from '@dhis2/app-runtime'
 
 const QUERY_INSTANCE_INFO = {
     systemInfo: {
         resource: 'system/info',
         params: {
-            fields: ['version', 'revision']
-        }
-    }
+            fields: ['version', 'revision'],
+        },
+    },
 }
 
-export const useInstanceInfo = () => {
-    const config = useConfig()
-    const result = useDataQuery(QUERY_INSTANCE_INFO)
-    const data = useMemo(() => {
-        if (!result.data) {
-            return result.data
-        }
-
-        const { systemInfo } = result.data
-        return { ...systemInfo, ...config }
-    }, [result.data])
-
-    return { ...result, data }
-}
+export const useInstanceInfo = () => useDataQuery(QUERY_INSTANCE_INFO)

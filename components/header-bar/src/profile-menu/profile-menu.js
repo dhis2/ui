@@ -32,7 +32,14 @@ const LoadingMask = () => (
     </Layer>
 )
 
-const ProfileContents = ({ appName, appVersion, name, email, avatarId, helpUrl }) => {
+const ProfileContents = ({
+    appName,
+    appVersion,
+    name,
+    email,
+    avatarId,
+    helpUrl,
+}) => {
     const { baseUrl } = useConfig()
     const [loading, setLoading] = useState(false)
 
@@ -100,7 +107,10 @@ const ProfileContents = ({ appName, appVersion, name, email, avatarId, helpUrl }
                         value="logout"
                         icon={<IconLogOut24 color={colors.grey700} />}
                     />
-                    <InstanceAndAppInfo appName={appName} appVersion={appVersion} />
+                    <InstanceAndAppInfo
+                        appName={appName}
+                        appVersion={appVersion}
+                    />
                 </ul>
             </div>
 
@@ -139,7 +149,14 @@ ProfileContents.propTypes = {
     name: PropTypes.string,
 }
 
-export const ProfileMenu = ({ appName, appVersion, avatarId, name, email, helpUrl }) => (
+export const ProfileMenu = ({
+    appName,
+    appVersion,
+    avatarId,
+    name,
+    email,
+    helpUrl,
+}) => (
     <div data-test="headerbar-profile-menu">
         <ProfileContents
             appName={appName}

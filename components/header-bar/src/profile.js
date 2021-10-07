@@ -17,10 +17,7 @@ const Profile = ({ name, email, avatarId, helpUrl, appName, appVersion }) => {
             data-test="headerbar-profile"
             className="headerbar-profile"
         >
-            <button
-                className="headerbar-profile-btn"
-                onClick={toggle}
-            >
+            <button className="headerbar-profile-btn" onClick={toggle}>
                 <UserAvatar
                     avatarUrl={avatarId}
                     name={name}

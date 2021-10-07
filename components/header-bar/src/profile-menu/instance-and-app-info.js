@@ -17,12 +17,11 @@ const InstanceInfo = ({ instanceData }) => {
 
             {', '}
 
-            <span className="build">
-                {`${i18n.t('Build')} ${revision}`}
-            </span>
+            <span className="build">{`${i18n.t('Build')} ${revision}`}</span>
 
             <style jsx>{`
-                .version, .build {
+                .version,
+                .build {
                     white-space: nowrap;
                 }
             `}</style>
@@ -67,16 +66,14 @@ export const InstanceAndAppInfo = ({ appName, appVersion }) => {
     // other instance info when an error occurs
     return (
         <MenuItemWithBorderTop>
-            {loading && (
-                <div>{i18n.t('Loading instance information..')}</div>
+            {loading && <div>{i18n.t('Loading instance information..')}</div>}
+
+            {!loading && !error && (
+                <InstanceInfo instanceData={data.systemInfo} />
             )}
 
-            {!loading && !error && <InstanceInfo instanceData={data} />}
-
             {appName && appVersion && (
-                <div className="app-info">
-                    {`${appName}, ${appVersion}`}
-                </div>
+                <div className="app-info">{`${appName}, ${appVersion}`}</div>
             )}
         </MenuItemWithBorderTop>
     )
