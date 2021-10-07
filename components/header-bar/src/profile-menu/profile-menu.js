@@ -172,7 +172,7 @@ export const ProfileMenu = ({
                 position: absolute;
                 top: 34px;
                 right: -6px;
-                width: 310px;
+                width: 320px;
                 border-top: 4px solid transparent;
             }
         `}</style>

@@ -10,7 +10,7 @@ const InstanceInfo = ({ instanceData }) => {
     const { version, revision } = instanceData
 
     return (
-        <div className="instance-info">
+        <>
             <span className="version">
                 {`${i18n.t('DHIS2 version')} ${version}`}
             </span>
@@ -25,7 +25,7 @@ const InstanceInfo = ({ instanceData }) => {
                     white-space: nowrap;
                 }
             `}</style>
-        </div>
+        </>
     )
 }
 
@@ -41,6 +41,7 @@ const menuItemWithBorderTopStyles = resolve`
         border-top: 1px solid ${colors.grey400};
         color: ${colors.grey700};
         font-size: 14px;
+        line-height: 17px;
     }
 `
 
@@ -66,15 +67,25 @@ export const InstanceAndAppInfo = ({ appName, appVersion }) => {
     // other instance info when an error occurs
     return (
         <MenuItemWithBorderTop>
-            {loading && <div>{i18n.t('Loading instance information..')}</div>}
+            <div className="instance-infos">
+                {loading && <div>{i18n.t('Checking DHIS2 version...')}</div>}
 
-            {!loading && !error && (
-                <InstanceInfo instanceData={data.systemInfo} />
-            )}
+                {error && <div>{i18n.t('There was a problem getting DHIS2 version.')}</div>}
+
+                {!loading && !error && (
+                    <InstanceInfo instanceData={data.systemInfo} />
+                )}
+            </div>
 
             {appName && appVersion && (
                 <div className="app-info">{`${appName}, ${appVersion}`}</div>
             )}
+
+            <style jsx>{`
+                .instance-infos {
+                    margin-bottom: 6px;
+                }
+            `}</style>
         </MenuItemWithBorderTop>
     )
 }
