@@ -1,3 +1,10 @@
+## [7.2.8](https://github.com/dhis2/ui/compare/v7.2.7...v7.2.8) (2021-10-07)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([4cc50ab](https://github.com/dhis2/ui/commit/4cc50ab451fd2613753873bd4ef6c8f09caa9419))
+
 ## [7.2.7](https://github.com/dhis2/ui/compare/v7.2.6...v7.2.7) (2021-10-06)
 
 
