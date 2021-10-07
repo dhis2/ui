@@ -28,7 +28,8 @@ export const useOpenState = ({
         }
     }, [autoExpand, openedOnceDueToError])
 
-    const open = (autoExpand && !openedOnceDueToError) || !!expanded.includes(path)
+    const open =
+        (autoExpand && !openedOnceDueToError) || !!expanded.includes(path)
     const onToggleOpen = () =>
         !open ? onExpand({ path }) : onCollapse({ path })
 

@@ -3,7 +3,6 @@ import React from 'react'
 import { OrganisationUnitTree } from '../index.js'
 import { customData, onChange } from './shared.js'
 
-
 export const RootError = () => (
     <CustomDataProvider
         data={{

@@ -7,8 +7,12 @@ const checkIsControlled = ({
     handleExpandControlled,
     handleCollapseControlled,
 }) => {
-    const hasAll = expandedControlled && handleExpandControlled && handleCollapseControlled
-    const hasNone = !expandedControlled && !handleExpandControlled && !handleCollapseControlled
+    const hasAll =
+        expandedControlled && handleExpandControlled && handleCollapseControlled
+    const hasNone =
+        !expandedControlled &&
+        !handleExpandControlled &&
+        !handleCollapseControlled
 
     if (!hasAll && !hasNone) {
         throw new Error(
@@ -39,8 +43,9 @@ export const useExpanded = ({
         handleCollapseControlled,
     })
 
-    const allInitiallyExpandedPaths =
-        isControlled ? [] : getAllExpandedPaths(initiallyExpanded)
+    const allInitiallyExpandedPaths = isControlled
+        ? []
+        : getAllExpandedPaths(initiallyExpanded)
 
     const [expanded, setExpanded] = useState(allInitiallyExpandedPaths)
 

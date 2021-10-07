@@ -4,7 +4,9 @@ import { OrganisationUnitTree, getAllExpandedOrgUnitPaths } from '../index.js'
 import { onChange } from './shared.js'
 
 export const CustomExpandedImperativeOpen = () => {
-    const orgUnit2Paths = getAllExpandedOrgUnitPaths(['/A0000000000/A0000000001'])
+    const orgUnit2Paths = getAllExpandedOrgUnitPaths([
+        '/A0000000000/A0000000001',
+    ])
     const initiallyExpanded = getAllExpandedOrgUnitPaths([])
 
     const [expanded, setExpanded] = useState(initiallyExpanded)
@@ -50,9 +52,7 @@ export const CustomExpandedImperativeOpen = () => {
                 handleCollapse={handleCollapse}
             />
             <br />
-            <Button onClick={imperativeToggle}>
-                Toggle Org Unit 2
-            </Button>
+            <Button onClick={imperativeToggle}>Toggle Org Unit 2</Button>
         </>
     )
 }
