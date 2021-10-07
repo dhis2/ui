@@ -5,7 +5,7 @@ import React from 'react'
 import { AccessSelect } from './access-select.js'
 import { isRemovableTarget } from './helpers.js'
 import i18n from './locales/index.js'
-import { SHARE_TARGET_PUBLIC, accessStrings } from './sharing-constants.js'
+import { SharingListItemContext } from './sharing-list-item-context.js'
 import { SharingListItemIcon } from './sharing-list-item-icon.js'
 
 export const SharingListItem = ({
@@ -24,11 +24,7 @@ export const SharingListItem = ({
                     <SharingListItemIcon target={target} name={name} />
                     <div className="share-details-text">
                         <p className="share-entity">{name}</p>
-                        <p className="share-context">
-                            {target === SHARE_TARGET_PUBLIC
-                                ? accessStrings[access]?.publicDescription()
-                                : accessStrings[access]?.description()}
-                        </p>
+                        <SharingListItemContext access={access} />
                     </div>
                 </div>
                 <AccessSelect

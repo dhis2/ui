@@ -6,7 +6,7 @@ import {
     SHARE_TARGET_PUBLIC,
     SHARE_TARGET_GROUP,
     SHARE_TARGET_USER,
-    accessStrings,
+    ACCESS_NONE,
     ACCESS_VIEW_ONLY,
     ACCESS_VIEW_AND_EDIT,
 } from './sharing-constants.js'
@@ -28,7 +28,11 @@ export const SharingList = ({ sharingSettings, onChange, onRemove }) => (
                 name={i18n.t('All users')}
                 target={SHARE_TARGET_PUBLIC}
                 access={sharingSettings.public}
-                accessOptions={Object.keys(accessStrings)}
+                accessOptions={[
+                    ACCESS_NONE,
+                    ACCESS_VIEW_ONLY,
+                    ACCESS_VIEW_AND_EDIT,
+                ]}
                 disabled={!sharingSettings.allowPublic}
                 onChange={(newAccess) =>
                     onChange({ type: 'public', access: newAccess })

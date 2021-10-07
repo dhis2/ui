@@ -1,5 +1,3 @@
-import i18n from './locales/index.js'
-
 /**
  * Access
  */
@@ -7,24 +5,6 @@ import i18n from './locales/index.js'
 export const ACCESS_NONE = 'ACCESS_NONE'
 export const ACCESS_VIEW_ONLY = 'ACCESS_VIEW_ONLY'
 export const ACCESS_VIEW_AND_EDIT = 'ACCESS_VIEW_AND_EDIT'
-
-export const accessStrings = {
-    [ACCESS_NONE]: {
-        publicDescription: () => i18n.t('No access'),
-        description: () => i18n.t('No access'),
-        option: i18n.t('No access'),
-    },
-    [ACCESS_VIEW_ONLY]: {
-        publicDescription: () => i18n.t('Anyone logged in can view'),
-        description: () => i18n.t('Can view'),
-        option: i18n.t('View only'),
-    },
-    [ACCESS_VIEW_AND_EDIT]: {
-        publicDescription: () => i18n.t('Anyone logged in can view and edit'),
-        description: () => i18n.t('Can view and edit'),
-        option: i18n.t('View and edit'),
-    },
-}
 
 /**
  * Sharing

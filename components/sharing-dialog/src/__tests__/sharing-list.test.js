@@ -23,7 +23,7 @@ describe('<SharingList />', () => {
         }
         const wrapper = shallow(<SharingList {...props} />)
         const publicItem = wrapper.findWhere(
-            component => component.prop('target') === SHARE_TARGET_PUBLIC
+            (component) => component.prop('target') === SHARE_TARGET_PUBLIC
         )
 
         expect(publicItem).toHaveLength(1)
@@ -52,7 +52,7 @@ describe('<SharingList />', () => {
         }
         const wrapper = shallow(<SharingList {...props} />)
         const groupItem = wrapper.findWhere(
-            component => component.prop('target') === SHARE_TARGET_GROUP
+            (component) => component.prop('target') === SHARE_TARGET_GROUP
         )
 
         expect(groupItem).toHaveLength(1)
@@ -85,7 +85,7 @@ describe('<SharingList />', () => {
         }
         const wrapper = shallow(<SharingList {...props} />)
         const userItem = wrapper.findWhere(
-            component => component.prop('target') === SHARE_TARGET_USER
+            (component) => component.prop('target') === SHARE_TARGET_USER
         )
 
         expect(userItem).toHaveLength(1)

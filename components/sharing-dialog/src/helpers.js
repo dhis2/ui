@@ -5,7 +5,7 @@ import {
     ACCESS_VIEW_AND_EDIT,
     SHARE_TARGET_EXTERNAL,
     SHARE_TARGET_PUBLIC,
-} from './sharing-constants'
+} from './sharing-constants.js'
 
 export const debounce = function (f, ms) {
     let timeout
@@ -25,7 +25,7 @@ export const debounce = function (f, ms) {
  * Name conversion
  */
 
-export const nameToTitle = name => {
+export const nameToTitle = (name) => {
     const title = name
         ? i18n.t('Sharing and access: {{- objectName}}', {
               objectName: name,
@@ -36,7 +36,7 @@ export const nameToTitle = name => {
     return title
 }
 
-export const nameToInitials = name => {
+export const nameToInitials = (name) => {
     if (!name) {
         return ''
     }
@@ -52,7 +52,7 @@ export const nameToInitials = name => {
  * Access and constant conversion
  */
 
-export const convertAccessToConstant = access => {
+export const convertAccessToConstant = (access) => {
     if (typeof access === 'boolean') {
         return access ? ACCESS_VIEW_ONLY : ACCESS_NONE
     }
@@ -83,7 +83,7 @@ export const convertConstantToAccess = (constant, useBoolean) => {
  * Helper to check whether to allow removing for the selected target
  */
 
-export const isRemovableTarget = target => {
+export const isRemovableTarget = (target) => {
     const permanentTargets = [SHARE_TARGET_EXTERNAL, SHARE_TARGET_PUBLIC]
 
     // Do not allow removal of permanent targets
