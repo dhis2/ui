@@ -1,6 +1,6 @@
 # 
 # Translators:
-# drprabhjot, 2021
+# Prabhjot Singh, 2021
 # phil_dhis2, 2021
 # 
 msgid ""
