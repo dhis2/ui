@@ -18,22 +18,42 @@ import { HeaderBar } from '@dhis2/ui'
 \`\`\`
 `
 
-export default {
-    title: 'Utils/Header Bar',
-    component: HeaderBar,
-    parameters: {
-        componentSubtitle: subtitle,
-        docs: { description: { component: description } },
-    },
-    args: { appName: 'Example!' },
-}
-
 const mockConfig = {
     baseUrl: 'https://debug.dhis2.org/dev/',
     apiVersion: 33,
 }
 
 const customData = {
+    'system/info': {
+        contextPath: 'https://debug.dhis2.org/dev',
+        userAgent: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36',
+        calendar: 'iso8601',
+        dateFormat: 'yyyy-mm-dd',
+        serverDate: '2021-10-06T08:06:15.256',
+        serverTimeZoneId: 'Etc/UTC',
+        serverTimeZoneDisplayName: 'Coordinated Universal Time',
+        lastAnalyticsTableSuccess: '2021-09-18T10:24:03.536',
+        intervalSinceLastAnalyticsTableSuccess: '429 h, 42 m, 11 s',
+        lastAnalyticsTableRuntime: '520835',
+        lastSystemMonitoringSuccess: '2019-03-26T17:07:15.418',
+        version: '2.38-SNAPSHOT',
+        revision: '6607c3c',
+        buildTime: '2021-10-05T17:13:00.000',
+        jasperReportsVersion: '6.3.1',
+        environmentVariable: 'DHIS2_HOME',
+        databaseInfo: {
+          spatialSupport: true
+        },
+        encryption: false,
+        emailConfigured: false,
+        redisEnabled: false,
+        systemId: 'eed3d451-4ff5-4193-b951-ffcc68954299',
+        systemName: 'DHIS 2 Demo - Sierra Leone',
+        instanceBaseUrl: 'https://debug.dhis2.org/dev',
+        clusterHostname: '',
+        isMetadataVersionEnabled: true,
+        metadataSyncEnabled: false
+    },
     'systemSettings/applicationTitle': {
         applicationTitle: 'Foobar',
     },
@@ -161,7 +181,7 @@ const customLocaleData = {
         },
     },
     'action::menu/getModules': {
-        modules: customData['action::menu/getModules'].modules.map((mod) => ({
+        modules: customData['action::menu/getModules'].modules.map(mod => ({
             ...mod,
             displayName: `Le ${mod.displayName}`,
         })),
@@ -176,71 +196,75 @@ const customAuthoritiesData = {
     },
 }
 
-export const Default = (args) => (
-    <Provider config={mockConfig}>
-        <CustomDataProvider data={customData}>
-            <HeaderBar {...args} />
-        </CustomDataProvider>
-    </Provider>
+export default {
+    title: 'Utils/Header Bar',
+    component: HeaderBar,
+    parameters: {
+        componentSubtitle: subtitle,
+        docs: { description: { component: description } },
+    },
+    decorators: [fn => <Provider config={mockConfig}>{fn()}</Provider>],
+}
+
+export const Default = () => (
+    <CustomDataProvider data={customData}>
+        <HeaderBar appName="Example!" />
+    </CustomDataProvider>
 )
 
-export const CustomLogoWideDimension = (args) => (
-    <Provider config={mockConfig}>
-        <CustomDataProvider data={customLogoData}>
-            <HeaderBar {...args} />
-        </CustomDataProvider>
-    </Provider>
+export const CustomLogoWideDimension = () => (
+    <CustomDataProvider data={customLogoData}>
+        <HeaderBar appName="Example!" />
+    </CustomDataProvider>
 )
 CustomLogoWideDimension.storyName = 'Custom Logo (wide dimension)'
 
-export const NonEnglishUserLocale = (args) => (
-    <Provider config={mockConfig}>
-        <CustomDataProvider data={customLocaleData}>
-            <HeaderBar {...args} />
-        </CustomDataProvider>
-    </Provider>
+export const NonEnglishUserLocale = () => (
+    <CustomDataProvider data={customLocaleData}>
+        <HeaderBar appName="Exemple!" />
+    </CustomDataProvider>
 )
-NonEnglishUserLocale.args = { appName: 'Exemple!' }
 NonEnglishUserLocale.storyName = 'Non-english user locale'
 
-export const NoAuthorityForInterpretationsApp = (args) => (
-    <Provider config={mockConfig}>
-        <CustomDataProvider data={customAuthoritiesData}>
-            <HeaderBar {...args} />
-        </CustomDataProvider>
-    </Provider>
+export const NoAuthorityForInterpretationsApp = () => (
+    <CustomDataProvider data={customAuthoritiesData}>
+        <HeaderBar appName="Example!" />
+    </CustomDataProvider>
 )
 NoAuthorityForInterpretationsApp.storyName =
     'No authority for interpretations app'
 
-export const Loading = (args) => (
-    <Provider config={mockConfig}>
-        <CustomDataProvider options={{ loadForever: true }}>
-            <HeaderBar {...args} />
-        </CustomDataProvider>
-    </Provider>
+export const WithAppInfoInProfileMenu = () => (
+    <CustomDataProvider data={customData}>
+        <HeaderBar appName="Data Visualizer" appVersion="100.3.2" />
+    </CustomDataProvider>
+)
+
+export const Loading = () => (
+    <CustomDataProvider options={{ loadForever: true }}>
+        <HeaderBar appName="Example!" />
+    </CustomDataProvider>
 )
 Loading.storyName = 'Loading...'
 
-export const Error = (args) => (
-    <Provider config={mockConfig}>
-        <CustomDataProvider data={{}}>
-            <HeaderBar {...args} />
-        </CustomDataProvider>
-    </Provider>
+export const Error = () => (
+    <CustomDataProvider data={{}}>
+        <HeaderBar appName="Exemple!" />
+    </CustomDataProvider>
 )
 Error.storyName = 'Error!'
 
-export const WithOnlineStatus = (args) => {
+export const WithOnlineStatus = () => (
+    <CustomDataProvider data={customData}>
+        <HeaderBar appName="Exemple!" />
+    </CustomDataProvider>
+)
+
+WithOnlineStatus.decorators = [fn => {
     const config = { ...mockConfig, pwaEnabled: true }
-    return (
-        <Provider config={config}>
-            <CustomDataProvider data={customData}>
-                <HeaderBar {...args} />
-            </CustomDataProvider>
-        </Provider>
-    )
-}
+    return <Provider config={config}>{fn()}</Provider>
+}]
+
 WithOnlineStatus.parameters = {
     docs: {
         description: {
@@ -252,20 +276,21 @@ WithOnlineStatus.parameters = {
     },
 }
 
-export const WithLastOnlineInfo = (args) => {
+export const WithLastOnlineInfo = () => (
+    <CustomDataProvider data={customData}>
+        <HeaderBar appName="Exemple!" />
+    </CustomDataProvider>
+)
+
+WithLastOnlineInfo.decorators = [fn => {
     const config = {
         ...mockConfig,
         pwaEnabled: true,
         headerbar: { onlineStatusInfo: 'LAST_ONLINE' },
     }
-    return (
-        <Provider config={config}>
-            <CustomDataProvider data={customData}>
-                <HeaderBar {...args} />
-            </CustomDataProvider>
-        </Provider>
-    )
-}
+    return <Provider config={config}>{fn()}</Provider>
+}]
+
 WithLastOnlineInfo.parameters = {
     docs: {
         description: {
