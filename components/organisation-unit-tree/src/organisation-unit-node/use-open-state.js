@@ -23,7 +23,7 @@ export const useOpenState = ({
 
     useEffect(() => {
         if (autoExpand && !openedOnceDueToError) {
-            onExpand({ path })(true)
+            onExpand({ path })
             setOpenedOnce(true)
         }
     }, [autoExpand, openedOnceDueToError])
