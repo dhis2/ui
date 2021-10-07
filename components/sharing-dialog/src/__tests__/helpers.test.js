@@ -4,7 +4,7 @@ import {
     nameToTitle,
     nameToInitials,
     isRemovableTarget,
-} from '../helpers'
+} from '../helpers.js'
 import {
     ACCESS_NONE,
     ACCESS_VIEW_ONLY,

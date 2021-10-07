@@ -5,7 +5,17 @@ import React from 'react'
 import { ConditionalTooltip } from './conditional-tooltip.js'
 import { CustomSingleSelectOption } from './custom-single-select-option.js'
 import i18n from './locales/index.js'
-import { accessStrings } from './sharing-constants.js'
+import {
+    ACCESS_NONE,
+    ACCESS_VIEW_ONLY,
+    ACCESS_VIEW_AND_EDIT,
+} from './sharing-constants.js'
+
+const accessToLabel = {
+    [ACCESS_NONE]: i18n.t('No access'),
+    [ACCESS_VIEW_ONLY]: i18n.t('View only'),
+    [ACCESS_VIEW_AND_EDIT]: i18n.t('View and edit'),
+}
 
 export const AccessSelect = ({
     label,
@@ -36,7 +46,7 @@ export const AccessSelect = ({
                     {accessOptions.map((value) => (
                         <CustomSingleSelectOption
                             key={value}
-                            label={accessStrings[value].option}
+                            label={accessToLabel[value]}
                             value={value}
                             active={value === access}
                         />

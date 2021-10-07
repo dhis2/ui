@@ -4,7 +4,7 @@ import React from 'react'
 
 export const SearchResults = ({ searchResults, onClick }) => (
     <Menu>
-        {searchResults.map(searchResult => (
+        {searchResults.map((searchResult) => (
             <MenuItem
                 key={searchResult.id}
                 label={searchResult.displayName}

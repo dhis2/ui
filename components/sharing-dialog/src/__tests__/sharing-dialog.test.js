@@ -5,8 +5,8 @@ import { mount } from 'enzyme'
 import React from 'react'
 import { DashboardSharingContent } from '../dashboard-sharing-content.js'
 import { DefaultSharingContent } from '../default-sharing-content.js'
-import { ACCESS_NONE } from '../sharing-constants'
-import { SharingDialog } from '../sharing-dialog'
+import { ACCESS_NONE } from '../sharing-constants.js'
+import { SharingDialog } from '../sharing-dialog.js'
 
 describe('<SharingDialog />', () => {
     const requiredProps = {
