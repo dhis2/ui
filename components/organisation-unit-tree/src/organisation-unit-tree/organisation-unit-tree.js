@@ -1,3 +1,4 @@
+import { requiredIf } from '@dhis2/prop-types'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import { OrganisationUnitNode } from '../organisation-unit-node/index.js'
@@ -27,6 +28,10 @@ const OrganisationUnitTree = ({
     singleSelection,
     suppressAlphabeticalSorting,
 
+    expanded: expandedControlled,
+    handleExpand: handleExpandControlled,
+    handleCollapse: handleCollapseControlled,
+
     onExpand,
     onCollapse,
     onChildrenLoaded,
@@ -41,11 +46,15 @@ const OrganisationUnitTree = ({
         isUserDataViewFallback,
         suppressAlphabeticalSorting,
     })
-    const { expanded, handleExpand, handleCollapse } = useExpanded(
+
+    const { expanded, handleExpand, handleCollapse } = useExpanded({
         initiallyExpanded,
         onExpand,
-        onCollapse
-    )
+        onCollapse,
+        expandedControlled,
+        handleExpandControlled,
+        handleCollapseControlled,
+    })
 
     useEffect(() => {
         // do not refetch on initial render
@@ -119,6 +128,11 @@ OrganisationUnitTree.propTypes = {
     /** When set to true, no unit can be selected */
     disableSelection: PropTypes.bool,
 
+    expanded: requiredIf(
+        props => !!props.handleExpand || !!props.handleCollapse,
+        PropTypes.arrayOf(PropTypes.string)
+    ),
+
     /**
      * All organisation units with a path that includes the provided paths will be shown.
      * All others will not be rendered. When not provided, all org units will be shown.
@@ -127,6 +141,16 @@ OrganisationUnitTree.propTypes = {
 
     /** When true, everything will be reloaded. In order to load it again after reloading, `forceReload` has to be set to `false` and then to `true` again */
     forceReload: PropTypes.bool,
+
+    handleCollapse: requiredIf(
+        props => !!props.expanded || !!props.handleExpand,
+        PropTypes.func
+    ),
+
+    handleExpand: requiredIf(
+        props => !!props.expanded || !!props.handleCollapse,
+        PropTypes.func
+    ),
 
     /**
      * All units provided to "highlighted" as path will be visually

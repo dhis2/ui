@@ -20,27 +20,17 @@ export const useOpenState = ({
 }) => {
     const autoExpand = autoExpandLoadingError && !!errorMessage
     const [openedOnceDueToError, setOpenedOnce] = useState(!!errorMessage)
-    const [open, setOpen] = useState(autoExpand || expanded.includes(path))
 
     useEffect(() => {
         if (autoExpand && !openedOnceDueToError) {
-            setOpen(true)
+            onExpand({ path })(true)
             setOpenedOnce(true)
         }
     }, [autoExpand, openedOnceDueToError])
 
-    const onToggleOpen = () => {
-        const newOpen = !open
-        const payload = { path }
-
-        setOpen(newOpen)
-
-        if (onExpand && newOpen) {
-            onExpand(payload)
-        } else if (onCollapse && !newOpen) {
-            onCollapse(payload)
-        }
-    }
+    const open = (autoExpand && !openedOnceDueToError) || !!expanded.includes(path)
+    const onToggleOpen = () =>
+        !open ? onExpand({ path }) : onCollapse({ path })
 
     return { open, onToggleOpen }
 }

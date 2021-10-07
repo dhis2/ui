@@ -1,25 +1,4 @@
-import { createExpandHandlers, getInitiallyExpandedPaths } from './helpers.js'
-
-describe('OrganisationUnitTree - useExpanded - getInitiallyExpandedPaths', () => {
-    const initiallyExpanded = ['/foo/bar/baz', '/foobar/barbaz/bazfoo']
-
-    it('should include all initiallyExpanded paths in the returned expanded array', () => {
-        const actual = getInitiallyExpandedPaths(initiallyExpanded)
-        const expected = expect.arrayContaining(initiallyExpanded)
-        expect(actual).toEqual(expected)
-    })
-
-    it('should include all sub paths of the paths in initiallyExpanded in the returned exanded array', () => {
-        const actual = getInitiallyExpandedPaths(initiallyExpanded)
-        const expected = expect.arrayContaining([
-            '/foo',
-            '/foo/bar',
-            '/foobar',
-            '/foobar/barbaz',
-        ])
-        expect(actual).toEqual(expected)
-    })
-})
+import { createExpandHandlers } from './create-expand-handlers.js'
 
 describe('OrganisationUnitTree - useExpanded - createExpandHandlers', () => {
     const initiallyExpanded = ['/foo/bar/baz', '/foobar/barbaz/bazfoo']
