@@ -4,7 +4,7 @@ import { Divider } from '@dhis2-ui/divider'
 import { Layer } from '@dhis2-ui/layer'
 import { CircularLoader } from '@dhis2-ui/loader'
 import { MenuItem } from '@dhis2-ui/menu'
-import { useConfig, clearSensitiveCaches } from '@dhis2/app-runtime'
+import { clearSensitiveCaches, useConfig } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import {
     IconSettings24,
@@ -17,6 +17,7 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { joinPath } from '../join-path.js'
 import i18n from '../locales/index.js'
+import { InstanceAndAppInfo } from './instance-and-app-info.js'
 import { ProfileHeader } from './profile-header.js'
 
 const LoadingMask = () => (
@@ -31,7 +32,7 @@ const LoadingMask = () => (
     </Layer>
 )
 
-const ProfileContents = ({ name, email, avatarId, helpUrl }) => {
+const ProfileContents = ({ appName, appVersion, name, email, avatarId, helpUrl }) => {
     const { baseUrl } = useConfig()
     const [loading, setLoading] = useState(false)
 
@@ -99,6 +100,7 @@ const ProfileContents = ({ name, email, avatarId, helpUrl }) => {
                         value="logout"
                         icon={<IconLogOut24 color={colors.grey700} />}
                     />
+                    <InstanceAndAppInfo appName={appName} appVersion={appVersion} />
                 </ul>
             </div>
 
@@ -129,15 +131,19 @@ const ProfileContents = ({ name, email, avatarId, helpUrl }) => {
 }
 
 ProfileContents.propTypes = {
+    appName: PropTypes.string,
+    appVersion: PropTypes.string,
     avatarId: PropTypes.string,
     email: PropTypes.string,
     helpUrl: PropTypes.string,
     name: PropTypes.string,
 }
 
-export const ProfileMenu = ({ avatarId, name, email, helpUrl }) => (
+export const ProfileMenu = ({ appName, appVersion, avatarId, name, email, helpUrl }) => (
     <div data-test="headerbar-profile-menu">
         <ProfileContents
+            appName={appName}
+            appVersion={appVersion}
             name={name}
             email={email}
             avatarId={avatarId}
@@ -157,6 +163,8 @@ export const ProfileMenu = ({ avatarId, name, email, helpUrl }) => (
 )
 
 ProfileMenu.propTypes = {
+    appName: PropTypes.string,
+    appVersion: PropTypes.string,
     avatarId: PropTypes.string,
     email: PropTypes.string,
     helpUrl: PropTypes.string,

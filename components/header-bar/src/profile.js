@@ -1,10 +1,10 @@
 import { UserAvatar } from '@dhis2-ui/user-avatar'
 import PropTypes from 'prop-types'
 import React, { useRef, useState } from 'react'
-import { ProfileMenu } from './profile/profile-menu.js'
+import { ProfileMenu } from './profile-menu/index.js'
 import { useOnDocClick } from './profile/use-on-doc-click.js'
 
-const Profile = ({ name, email, avatarId, helpUrl }) => {
+const Profile = ({ name, email, avatarId, helpUrl, appName, appVersion }) => {
     const [show, setShow] = useState(false)
     const hide = () => setShow(false)
     const toggle = () => setShow(!show)
@@ -30,7 +30,9 @@ const Profile = ({ name, email, avatarId, helpUrl }) => {
 
             {show && (
                 <ProfileMenu
-                    avatarUrl={avatarId}
+                    avatarId={avatarId}
+                    appName={appName}
+                    appVersion={appVersion}
                     name={name}
                     email={email}
                     helpUrl={helpUrl}
@@ -65,6 +67,8 @@ const Profile = ({ name, email, avatarId, helpUrl }) => {
 
 Profile.propTypes = {
     name: PropTypes.string.isRequired,
+    appName: PropTypes.string,
+    appVersion: PropTypes.string,
     avatarId: PropTypes.string,
     email: PropTypes.string,
     helpUrl: PropTypes.string,

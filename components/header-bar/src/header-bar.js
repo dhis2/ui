@@ -32,7 +32,7 @@ const query = {
     },
 }
 
-export const HeaderBar = ({ appName, className }) => {
+export const HeaderBar = ({ appName, appVersion, className }) => {
     const {
         baseUrl,
         pwaEnabled,
@@ -94,6 +94,8 @@ export const HeaderBar = ({ appName, className }) => {
                             email={data.user.email}
                             avatarId={data.user.avatar?.id}
                             helpUrl={data.help.helpPageLink}
+                            appName={appName}
+                            appVersion={appVersion}
                         />
                     </>
                 )}
@@ -124,5 +126,6 @@ export const HeaderBar = ({ appName, className }) => {
 
 HeaderBar.propTypes = {
     appName: PropTypes.string,
+    appVersion: PropTypes.string,
     className: PropTypes.string,
 }
