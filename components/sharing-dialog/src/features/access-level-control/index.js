@@ -14,6 +14,10 @@ Given('the all users section is labeled no access', () => {
 })
 
 Given('the access control is set to no access', () => {
+    cy.contains('[data-test="dhis2-uicore-singleselect"]', 'Metadata').should(
+        'be.visible'
+    )
+
     cy.contains('[data-test="dhis2-uicore-singleselect"]', 'No access').should(
         'be.visible'
     )

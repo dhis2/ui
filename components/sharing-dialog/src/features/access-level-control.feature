@@ -1,4 +1,4 @@
-Feature: Sharing dialog
+Feature: Allows users to view and change the access level for specific entities
 
     Scenario: User can change the access level for all users
         Given a sharing dialog is visible
