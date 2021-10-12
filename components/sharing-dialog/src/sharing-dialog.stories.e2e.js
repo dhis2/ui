@@ -61,7 +61,7 @@ const data = {
     },
 }
 
-export const Default = () => (
+export const AllUsers = () => (
     <CustomDataProvider data={data}>
         <SharingDialog type="visualization" id="sharing-test" />
     </CustomDataProvider>

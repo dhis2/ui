@@ -1,10 +1,14 @@
 Feature: Allows users to view and change the access level for specific entities
 
-    Scenario: User can change the access level for all users
-        Given a sharing dialog is visible
-        And the all users section is visible
-        And the all users section is labeled no access
-        And the access control is set to no access
-        When the user sets the access level to view only
-        Then the access control is set to view only
-        And the all users section is labeled for view only
+    Scenario Outline: User can change the access level from <initial> to <changed> for <user>
+        Given a sharing dialog with an <target> item is visible
+        And the <target> section is labeled <initial>
+        And the access control is set to <initial>
+        When the user sets the access level to <changed>
+        Then the access control is set to <changed>
+        And the <target> section is labeled for <changed>
+
+    Scenarios:
+        | target    | initial   | changed       |
+        | all users | no access | view only     |
+        | all users | no access | view and edit |
