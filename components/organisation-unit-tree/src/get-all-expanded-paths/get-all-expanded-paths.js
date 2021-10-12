@@ -1,8 +1,15 @@
 /**
+ * @template T
+ * @param {Array.<T>} arr
+ * @returns {Array.<T>}
+ */
+const removeDuplicates = arr => Array.from(new Set(arr))
+
+/**
  * @param {string} path
  * @returns {string[]}
  */
-export const extractAllPathsFromPath = path => {
+const extractAllPathsFromPath = path => {
     // remove leading slash and split by path delimiter/slashes
     const segments = path.replace(/^\//, '').split('/')
 
@@ -11,7 +18,7 @@ export const extractAllPathsFromPath = path => {
         return `/${segments.slice(0, index + 1).join('/')}`
     })
 
-    return withSubPaths
+    return removeDuplicates(withSubPaths)
 }
 
 /**
