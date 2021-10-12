@@ -33,5 +33,5 @@ export const useOpenState = ({
     const onToggleOpen = () =>
         !open ? onExpand({ path }) : onCollapse({ path })
 
-    return { open, onToggleOpen }
+    return { open, onToggleOpen, openedOnceDueToError }
 }

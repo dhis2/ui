@@ -1,160 +1,106 @@
-import { useEffect, useState } from 'react'
+import { renderHook } from '@testing-library/react-hooks'
 import { useOpenState } from './use-open-state.js'
-
-jest.mock('react', () => ({
-    useState: jest.fn(),
-    useEffect: jest.fn(),
-}))
 
 describe('OrganisationUnitTree - useOpenState', () => {
     const onExpand = jest.fn()
     const onCollapse = jest.fn()
-
-    beforeEach(() => {
-        useState.mockImplementation(initialValue => [initialValue, () => null])
-        useEffect.mockImplementation(callback => callback())
-    })
 
     afterEach(() => {
         onExpand.mockClear()
         onCollapse.mockClear()
     })
 
-    it('should not have an initial open state if the path is not in the expanded array', () => {
+    it('should set open to false if the path is not in the expanded array', () => {
         const path = '/foo'
         const expanded = ['/bar']
         const expected = false
-        const { open: actual } = useOpenState({ path, expanded })
+        const { result } = renderHook(() => useOpenState({ path, expanded }))
+        const { open: actual } = result.current
 
         expect(actual).toBe(expected)
     })
 
-    it('should have an initial open state if the path is in the expanded array', () => {
+    it('should set open to true if the path is in the expanded array', () => {
         const path = '/foo'
         const expanded = ['/foo']
         const expected = true
-        const { open: actual } = useOpenState({ path, expanded })
+        const { result } = renderHook(() => useOpenState({ path, expanded }))
+        const { open: actual } = result.current
 
         expect(actual).toBe(expected)
     })
 
-    it('should call setOpen with false when calling onToggleOpen if open is true', () => {
-        let useStateCall = 0
-        const open = true
-        const setOpen = jest.fn()
-
-        useState.mockImplementation(initialValue => {
-            useStateCall++
-
-            if (useStateCall === 1) {
-                return [initialValue, jest.fn()]
-            }
-
-            return [open, setOpen]
-        })
-
+    it('should call onCollapse when calling onToggleOpen while open is true', () => {
         const path = '/foo'
         const expanded = ['/foo']
 
-        const { onToggleOpen } = useOpenState({ path, expanded })
+        const { result } = renderHook(() => useOpenState({ path, expanded, onCollapse }))
+        const { onToggleOpen } = result.current
         onToggleOpen()
 
-        expect(setOpen).toHaveBeenCalledWith(!open)
-    })
-
-    it('should call setOpen with true when calling onToggleOpen if open is false', () => {
-        let useStateCall = 0
-        const open = true
-        const setOpen = jest.fn()
-
-        useState.mockImplementation(initialValue => {
-            useStateCall++
-
-            if (useStateCall === 1) {
-                return [initialValue, jest.fn()]
-            }
-
-            return [open, setOpen]
-        })
-
-        const { onToggleOpen } = useOpenState({ path: '/foo', expanded: [] })
-        onToggleOpen()
-
-        expect(setOpen).toHaveBeenCalledWith(!open)
-    })
-
-    it('should call the onExpand callback with the path when calling onToggleOpen and open was false', () => {
-        useState.mockImplementation(() => [false, jest.fn()])
-
-        const path = '/foo'
-        const { onToggleOpen } = useOpenState({
-            path,
-            expanded: [],
-            onExpand,
-            onCollapse,
-        })
-
-        onToggleOpen()
-
-        expect(onExpand).toHaveBeenCalledWith({ path })
-        expect(onCollapse).toHaveBeenCalledTimes(0)
-    })
-
-    it('should call the onCollapse callback with the path when calling onToggleOpen and open was true', () => {
-        useState.mockImplementation(() => [true, jest.fn()])
-
-        const path = '/foo'
-        const { onToggleOpen } = useOpenState({
-            path,
-            expanded: [],
-            onExpand,
-            onCollapse,
-        })
-
-        onToggleOpen()
-
-        expect(onCollapse).toHaveBeenCalledWith({ path })
+        expect(onCollapse).toHaveBeenCalledWith({ path: '/foo' })
         expect(onExpand).toHaveBeenCalledTimes(0)
     })
 
-    it('should set the state to open if there is an error and autoExpandLoadingError is true', () => {
+    it('should call onExpand when calling onToggleOpen while open is false', () => {
         const path = '/foo'
-        const { open } = useOpenState({
-            autoExpandLoadingError: true,
-            errorMessage: 'error message',
-            path,
-            expanded: [],
-            onExpand,
-            onCollapse,
-        })
+        const expanded = []
 
-        expect(open).toBe(true)
+        const { result } = renderHook(() => useOpenState({ path, expanded, onExpand }))
+        const { onToggleOpen } = result.current
+        onToggleOpen()
+
+        expect(onExpand).toHaveBeenCalledWith({ path: '/foo' })
+        expect(onCollapse).toHaveBeenCalledTimes(0)
     })
 
-    it('should not alter the state if there is an error but autoExpandLoadingError is falsy', () => {
+    it('should set openedOnceDueToError to true if there is an error and autoExpandLoadingError is true', async () => {
         const path = '/foo'
-        const { open } = useOpenState({
-            autoExpandLoadingError: undefined,
-            errorMessage: 'error message',
-            path,
-            expanded: [],
-            onExpand,
-            onCollapse,
-        })
+        const { result } = renderHook(() =>
+            useOpenState({
+                autoExpandLoadingError: true,
+                errorMessage: 'error message',
+                path,
+                expanded: [],
+                onExpand,
+                onCollapse,
+            })
+        )
+
+        const { openedOnceDueToError } = result.current
+        expect(openedOnceDueToError).toBe(true)
+    })
+
+    it('should not set open to true if there is an error but autoExpandLoadingError is falsy', () => {
+        const path = '/foo'
+        const { result } = renderHook(() =>
+            useOpenState({
+                autoExpandLoadingError: undefined,
+                errorMessage: 'error message',
+                path,
+                expanded: [],
+                onExpand,
+                onCollapse,
+            })
+        )
+        const { open } = result.current
 
         expect(open).toBe(false)
     })
 
-    it('should not alter the state if autoExpandLoadingError is true but there is no error', () => {
+    it('should not set open to true if autoExpandLoadingError is true but there is no error', () => {
         const path = '/foo'
-        const { open } = useOpenState({
-            autoExpandLoadingError: true,
-            errorMessage: '',
-            path,
-            expanded: [],
-            onExpand,
-            onCollapse,
-        })
+        const { result } = renderHook(() =>
+            useOpenState({
+                autoExpandLoadingError: true,
+                errorMessage: '',
+                path,
+                expanded: [],
+                onExpand,
+                onCollapse,
+            })
+        )
+        const { open } = result.current
 
         expect(open).toBe(false)
     })
