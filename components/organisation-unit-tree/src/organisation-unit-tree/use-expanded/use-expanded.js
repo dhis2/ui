@@ -2,27 +2,6 @@ import { useState } from 'react'
 import { getAllExpandedPaths } from '../../get-all-expanded-paths/index.js'
 import { createExpandHandlers } from './create-expand-handlers.js'
 
-const checkIsControlled = ({
-    expandedControlled,
-    handleExpandControlled,
-    handleCollapseControlled,
-}) => {
-    const hasAll =
-        expandedControlled && handleExpandControlled && handleCollapseControlled
-    const hasNone =
-        !expandedControlled &&
-        !handleExpandControlled &&
-        !handleCollapseControlled
-
-    if (!hasAll && !hasNone) {
-        throw new Error(
-            'A controlled <Transfer> component requires all of the following props: expandedControlled, handleExpandControlled, handleCollapseControlled'
-        )
-    }
-
-    return hasAll
-}
-
 /**
  * @param {string[]} initiallyExpanded
  * @param {Function} [onExpand]
@@ -37,12 +16,7 @@ export const useExpanded = ({
     handleExpandControlled,
     handleCollapseControlled,
 }) => {
-    const isControlled = checkIsControlled({
-        expandedControlled,
-        handleExpandControlled,
-        handleCollapseControlled,
-    })
-
+    const isControlled = !!expandedControlled
     const allInitiallyExpandedPaths = isControlled
         ? []
         : getAllExpandedPaths(initiallyExpanded)

@@ -10,32 +10,34 @@ import { RootLoading } from './root-loading.js'
 import { useExpanded } from './use-expanded/index.js'
 import { useForceReload } from './use-force-reload.js'
 import { useRootOrgData } from './use-root-org-data/index.js'
+import { verifyProps } from './verify-props.js'
 
-const OrganisationUnitTree = ({
-    onChange,
-    roots,
+const OrganisationUnitTree = props => {
+    const {
+        onChange,
+        roots,
 
-    autoExpandLoadingError,
-    dataTest,
-    disableSelection,
-    forceReload,
-    highlighted,
-    isUserDataViewFallback,
-    initiallyExpanded,
-    filter,
-    renderNodeLabel,
-    selected,
-    singleSelection,
-    suppressAlphabeticalSorting,
+        autoExpandLoadingError,
+        dataTest,
+        disableSelection,
+        forceReload,
+        highlighted,
+        isUserDataViewFallback,
+        initiallyExpanded,
+        filter,
+        renderNodeLabel,
+        selected,
+        singleSelection,
+        suppressAlphabeticalSorting,
 
-    expanded: expandedControlled,
-    handleExpand: handleExpandControlled,
-    handleCollapse: handleCollapseControlled,
+        expanded: expandedControlled,
+        handleExpand: handleExpandControlled,
+        handleCollapse: handleCollapseControlled,
 
-    onExpand,
-    onCollapse,
-    onChildrenLoaded,
-}) => {
+        onExpand,
+        onCollapse,
+        onChildrenLoaded,
+    } = props
     const rootIds = filterRootIds(
         filter,
         Array.isArray(roots) ? roots : [roots]
@@ -68,6 +70,18 @@ const OrganisationUnitTree = ({
                 '@TODO: Why does this component unmount after a force reload?'
             )
     }, [reloadId, prevReloadId, refetch])
+
+    const wrongPropsMessage = verifyProps(props)
+
+    if (wrongPropsMessage) {
+        return (
+            <div data-test={dataTest}>
+                <div data-test={`${dataTest}-wrongpropsmessage`}>
+                    {wrongPropsMessage}
+                </div>
+            </div>
+        )
+    }
 
     return (
         <div data-test={dataTest}>
