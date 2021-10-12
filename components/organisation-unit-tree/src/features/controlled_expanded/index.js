@@ -42,13 +42,6 @@ Given(
     }
 )
 
-Given(
-    'the org unit tree is not being provided with all required props for controlled expanded state',
-    () => {
-        cy.visitStory(namespace, 'Missing Props')
-    }
-)
-
 When('the org unit tree should is done loading the provided paths', () => {
     cy.window().then(win => {
         const expandedIds = win.initiallyExpandedPaths.map(
@@ -91,13 +84,4 @@ Then('the path should close', () => {
 
         expectOrgUnitsToNotBeDisplayed(hiddenChildrenIds)
     })
-})
-
-Then('the org unit tree should display an error', () => {
-    cy.get(
-        '[data-test="dhis2-uiwidgets-orgunittree-wrongpropsmessage"]'
-    ).should(
-        'contain',
-        'A controlled <Transfer> component requires all of the following props: expandedControlled, handleExpandControlled, handleCollapseControlled'
-    )
 })
