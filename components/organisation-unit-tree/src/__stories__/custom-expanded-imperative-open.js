@@ -4,9 +4,7 @@ import { OrganisationUnitTree, getAllExpandedOrgUnitPaths } from '../index.js'
 import { onChange } from './shared.js'
 
 export const CustomExpandedImperativeOpen = () => {
-    const orgUnit2Paths = getAllExpandedOrgUnitPaths([
-        '/A0000000000/A0000000001',
-    ])
+    const orgUnit2Path = '/A0000000000/A0000000001'
     const initiallyExpanded = getAllExpandedOrgUnitPaths([])
 
     const [expanded, setExpanded] = useState(initiallyExpanded)
@@ -35,7 +33,13 @@ export const CustomExpandedImperativeOpen = () => {
 
     const imperativeToggle = () => {
         if (!expanded.includes('/A0000000000/A0000000001')) {
-            return setExpanded([...expanded, ...orgUnit2Paths])
+            // Make sure that all required sub paths are included as well
+            const nextPaths = getAllExpandedOrgUnitPaths([
+                ...expanded,
+                orgUnit2Path,
+            ])
+
+            return setExpanded(nextPaths)
         }
 
         setExpanded(expanded.filter(v => v !== '/A0000000000/A0000000001'))

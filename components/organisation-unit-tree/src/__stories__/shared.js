@@ -6,11 +6,9 @@ export const onChildrenLoaded = (...args) =>
     log && console.log('onChildrenLoaded', ...args)
 
 export const customData = {
-    organisationUnits: (...args) => {
-        const [, { id }] = args
-
-        let data,
-            delay = 0
+    organisationUnits: (type, { id }) => {
+        let data
+        let delay = 0
 
         if (id === 'A0000000000') {
             delay = 1000
