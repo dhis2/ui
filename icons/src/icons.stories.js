@@ -1,5 +1,5 @@
 import React from 'react'
-import * as icons from '../react/index.js'
+import * as icons from './react/index.js'
 
 export default {
     title: 'Icons/List',
