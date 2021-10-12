@@ -67,10 +67,7 @@ export const Controlled = () => {
 
             <br />
 
-            <Button
-                dataTest="org-unit-toggle"
-                onClick={imperativeToggle}
-            >
+            <Button dataTest="org-unit-toggle" onClick={imperativeToggle}>
                 Toggle Org Unit 2
             </Button>
         </>

@@ -1,4 +1,4 @@
-/* eslint-disable react/display-name,react/no-children-prop */
+/* eslint-disable react/display-name */
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
@@ -20,10 +20,7 @@ export const getOrganisationUnitData = id => {
                 {
                     id: 'A0000000001',
                     path: '/A0000000000/A0000000001',
-                    children: [
-                        { id: 'A0000000003' },
-                        { id: 'A0000000004' },
-                    ],
+                    children: [{ id: 'A0000000003' }, { id: 'A0000000004' }],
                     displayName: 'Org Unit 2',
                 },
                 {
@@ -151,22 +148,20 @@ StatefulMultiSelectionWrapper.propTypes = {
     onSelectionChange: PropTypes.func,
 }
 
-export const createDecoratorStatefulMultiSelection =
-    args => {
-        return fn => (
-            <StatefulMultiSelectionWrapper
-                onSelectionChange={args?.onSelectionChange}
-            >
-                {fn}
-            </StatefulMultiSelectionWrapper>
-        )
-    }
+export const createDecoratorStatefulMultiSelection = args => {
+    return fn => (
+        <StatefulMultiSelectionWrapper
+            onSelectionChange={args?.onSelectionChange}
+        >
+            {fn}
+        </StatefulMultiSelectionWrapper>
+    )
+}
 
-export const createDecoratorCustomDataProvider =
-    args => {
-        return fn => (
-            <CustomDataProvider data={args?.data || dataProviderData}>
-                {fn()}
-            </CustomDataProvider>
-        )
-    }
+export const createDecoratorCustomDataProvider = args => {
+    return fn => (
+        <CustomDataProvider data={args?.data || dataProviderData}>
+            {fn()}
+        </CustomDataProvider>
+    )
+}

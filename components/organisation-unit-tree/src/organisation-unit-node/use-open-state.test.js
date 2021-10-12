@@ -34,7 +34,9 @@ describe('OrganisationUnitTree - useOpenState', () => {
         const path = '/foo'
         const expanded = ['/foo']
 
-        const { result } = renderHook(() => useOpenState({ path, expanded, onCollapse }))
+        const { result } = renderHook(() =>
+            useOpenState({ path, expanded, onCollapse })
+        )
         const { onToggleOpen } = result.current
         onToggleOpen()
 
@@ -46,7 +48,9 @@ describe('OrganisationUnitTree - useOpenState', () => {
         const path = '/foo'
         const expanded = []
 
-        const { result } = renderHook(() => useOpenState({ path, expanded, onExpand }))
+        const { result } = renderHook(() =>
+            useOpenState({ path, expanded, onExpand })
+        )
         const { onToggleOpen } = result.current
         onToggleOpen()
 

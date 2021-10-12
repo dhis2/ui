@@ -30,6 +30,7 @@ const config = {
                 '**/__tests__/**/*.js',
                 '*.test.js',
                 '*.stories*.js',
+                '**/__stories__/*.js',
                 '**/__stories__/**/*.js',
             ],
             rules: {

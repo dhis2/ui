@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import React from 'react'
 import { customData } from './__stories__/shared.js'
