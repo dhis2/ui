@@ -47,7 +47,10 @@ export {
 export { Modal, ModalActions, ModalContent, ModalTitle } from '@dhis2-ui/modal'
 export { Node } from '@dhis2-ui/node'
 export { NoticeBox } from '@dhis2-ui/notice-box'
-export { OrganisationUnitTree } from '@dhis2-ui/organisation-unit-tree'
+export {
+    OrganisationUnitTree,
+    getAllExpandedOrgUnitPaths,
+} from '@dhis2-ui/organisation-unit-tree'
 export { Popover } from '@dhis2-ui/popover'
 export { Popper } from '@dhis2-ui/popper'
 export { Portal } from '@dhis2-ui/portal'
