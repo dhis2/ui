@@ -16,7 +16,7 @@ export default class Profile extends React.Component {
         document.removeEventListener('click', this.onDocClick)
     }
 
-    onDocClick = evt => {
+    onDocClick = (evt) => {
         if (this.elContainer && !this.elContainer.contains(evt.target)) {
             this.setState({ show: false })
         }
@@ -29,7 +29,7 @@ export default class Profile extends React.Component {
 
         return (
             <div
-                ref={c => (this.elContainer = c)}
+                ref={(c) => (this.elContainer = c)}
                 data-test="headerbar-profile"
                 className="headerbar-profile"
             >

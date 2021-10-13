@@ -121,7 +121,7 @@ export const customData = {
             return Promise.reject(new Error('404 - Org unit not found'))
         }
 
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             setTimeout(() => resolve(data), delay)
         })
     },

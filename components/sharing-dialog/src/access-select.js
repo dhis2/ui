@@ -29,7 +29,7 @@ export const AccessSelect = ({
             selected={access}
             onChange={({ selected }) => onChange(selected)}
         >
-            {accessOptions.map(value => (
+            {accessOptions.map((value) => (
                 <CustomSingleSelectOption
                     key={value}
                     label={accessStrings[value].option}

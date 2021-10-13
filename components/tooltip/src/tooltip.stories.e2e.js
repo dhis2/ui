@@ -96,5 +96,5 @@ export const ModalWithTooltip = () => (
 export const ScrollingContainers = HidesWhenOutOfFrame.bind({})
 ScrollingContainers.args = { content: 'Tooltip content' }
 ScrollingContainers.decorators = [
-    story => <div style={{ marginTop: '150px' }}>{story()}</div>,
+    (story) => <div style={{ marginTop: '150px' }}>{story()}</div>,
 ]

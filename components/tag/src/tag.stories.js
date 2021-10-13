@@ -70,7 +70,7 @@ const ExampleLargeIcon = () => (
     </svg>
 )
 
-const Template = args => <Tag {...args} />
+const Template = (args) => <Tag {...args} />
 
 export const Default = Template.bind({})
 

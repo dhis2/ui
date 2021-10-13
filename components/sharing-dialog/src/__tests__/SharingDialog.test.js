@@ -16,7 +16,7 @@ describe('SharingDialog widget', () => {
     let shallowSharingDialog
     let props
 
-    const getSharingDialogWidget = props => {
+    const getSharingDialogWidget = (props) => {
         if (!shallowSharingDialog) {
             shallowSharingDialog = mount(<SharingDialog {...props} />, {
                 wrappingComponent: CustomDataProvider,
@@ -54,7 +54,7 @@ describe('SharingDialog widget', () => {
 
     it('renders a Close button', () => {
         const buttons = getSharingDialogWidget(props).find(Button)
-        const closeButtons = buttons.filterWhere(button =>
+        const closeButtons = buttons.filterWhere((button) =>
             button.html().includes('Close')
         )
 
@@ -63,7 +63,7 @@ describe('SharingDialog widget', () => {
 
     it('calls the Close callback when the Close button is clicked', () => {
         const buttons = getSharingDialogWidget(props).find(Button)
-        const closeButtons = buttons.filterWhere(button =>
+        const closeButtons = buttons.filterWhere((button) =>
             button.html().includes('Close')
         )
 

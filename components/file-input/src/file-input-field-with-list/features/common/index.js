@@ -5,7 +5,7 @@ Given('a FileInputFieldWithList with multiple files is rendered', () => {
 })
 
 Then('the onChange handler is called', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         const calls = win.onChange.getCalls()
         expect(calls).to.have.lengthOf(1)
 

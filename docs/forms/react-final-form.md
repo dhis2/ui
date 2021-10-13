@@ -31,7 +31,7 @@ import {
 import React from 'react'
 import styles from './Form.module.css'
 
-const alertValues = values => {
+const alertValues = (values) => {
     const formattedValuesString = JSON.stringify(values, null, 2)
     alert(formattedValuesString)
 }

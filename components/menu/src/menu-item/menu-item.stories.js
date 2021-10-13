@@ -24,7 +24,7 @@ export default {
     parameters: { docs: { description: { component: description } } },
 }
 
-const Template = args => (
+const Template = (args) => (
     <Menu>
         <MenuItem {...args} />
     </Menu>
@@ -64,7 +64,7 @@ Disabled.parameters = {
 export const Link = Template.bind({})
 Link.args = { target: '_blank', href: 'http://dhis2.org' }
 
-export const Icon = args => {
+export const Icon = (args) => {
     // import { IconApps24 } from '@dhis2/ui'
     return (
         <Menu>
@@ -85,7 +85,7 @@ Icon.parameters = {
     },
 }
 
-export const OnClick = args => (
+export const OnClick = (args) => (
     <Menu>
         <MenuItem
             onClick={(payload, event) => {
@@ -100,7 +100,7 @@ export const OnClick = args => (
 OnClick.parameters = { docs: { source: { type: 'code' } } }
 OnClick.args = { onClick: console.log }
 
-export const ToggleMenuItem = args => {
+export const ToggleMenuItem = (args) => {
     const [on, setOn] = useState(false)
     const toggleOn = () => setOn(!on)
     const checkMarkStyle = { fontSize: '24px', lineHeight: '24px' }
@@ -119,7 +119,7 @@ export const ToggleMenuItem = args => {
 }
 ToggleMenuItem.parameters = { docs: { source: { type: 'code' } } }
 
-export const SubMenus = args => {
+export const SubMenus = (args) => {
     const [showSubMenu, setShowSubMenu] = React.useState(false)
     const toggleSubMenu = () => setShowSubMenu(!showSubMenu)
 

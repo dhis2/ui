@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { LogoIconSvg } from './logo-icon-svg'
-import { LogoSvg } from './logo-svg'
+import { LogoIconSvg } from './logo-icon-svg.js'
+import { LogoSvg } from './logo-svg.js'
 
 /*
  * These are official colors for dhis2 logos.

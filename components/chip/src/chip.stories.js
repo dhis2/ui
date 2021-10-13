@@ -45,7 +45,7 @@ export default {
     args: { onClick },
 }
 
-const Template = args => <Chip {...args} />
+const Template = (args) => <Chip {...args} />
 
 export const Default = Template.bind({})
 Default.args = { children: 'Chippy' }

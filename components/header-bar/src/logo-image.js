@@ -22,7 +22,7 @@ const query = {
     },
 }
 
-const pathExists = data =>
+const pathExists = (data) =>
     data &&
     data.customLogo &&
     data.customLogo.images &&

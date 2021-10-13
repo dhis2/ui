@@ -1,9 +1,9 @@
-import '../common/index'
+import '../common/index.js'
 import { Then, Given } from 'cypress-cucumber-preprocessor/steps'
 
 Given('there are 0 unread messages', () => {
     cy.fixture('HeaderBar/dashboard')
-        .then(response => ({
+        .then((response) => ({
             ...response,
             unreadMessages: 0,
         }))

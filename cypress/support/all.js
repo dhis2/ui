@@ -10,7 +10,9 @@
  */
 const all = (...commands) => {
     const results = []
-    commands.forEach(command => command().then(result => results.push(result)))
+    commands.forEach((command) =>
+        command().then((result) => results.push(result))
+    )
     return cy.wrap(results)
 }
 

@@ -7,7 +7,7 @@ const invalidAlphaNumericMessage = i18n.t(
     'Please provide an alpha-numeric value'
 )
 
-const alphaNumeric = value =>
+const alphaNumeric = (value) =>
     isEmpty(value) || (isString(value) && ALPHA_NUMERIC_PATTERN.test(value))
         ? undefined
         : invalidAlphaNumericMessage

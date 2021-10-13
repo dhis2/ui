@@ -46,15 +46,15 @@ export const SharingDialog = ({
         initialSharingSettings
     )
     const [isDirty, setIsDirty] = useState(false)
-    const { show } = useAlert(error => error, { critical: true })
+    const { show } = useAlert((error) => error, { critical: true })
 
-    const onDataEngineError = error => {
+    const onDataEngineError = (error) => {
         show(error)
 
         onError(error)
     }
 
-    const onMutateError = error => {
+    const onMutateError = (error) => {
         onDataEngineError(error)
         // after a mutate error the state won't reflect the stored sharing settings
         // a refetch is needed
@@ -71,7 +71,7 @@ export const SharingDialog = ({
         onError: onMutateError,
         onComplete: onSave,
     })
-    const mutateSharingSettings = sharing => {
+    const mutateSharingSettings = (sharing) => {
         mutate({
             type,
             id,
@@ -88,7 +88,7 @@ export const SharingDialog = ({
     useEffect(() => {
         if (data?.sharing) {
             if (data.sharing.object.userAccesses.length) {
-                data.sharing.object.userAccesses.forEach(userAccess =>
+                data.sharing.object.userAccesses.forEach((userAccess) =>
                     addUserOrGroupAccess({
                         type: 'user',
                         id: userAccess.id,
@@ -99,7 +99,7 @@ export const SharingDialog = ({
             }
 
             if (data.sharing.object.userGroupAccesses.length) {
-                data.sharing.object.userGroupAccesses.forEach(groupAccess =>
+                data.sharing.object.userGroupAccesses.forEach((groupAccess) =>
                     addUserOrGroupAccess({
                         type: 'group',
                         id: groupAccess.id,
@@ -111,7 +111,7 @@ export const SharingDialog = ({
 
             setIsDirty(false)
 
-            updateSharingSettings(prevState => ({
+            updateSharingSettings((prevState) => ({
                 ...prevState,
                 allowExternal: data.sharing.meta.allowExternalAccess,
                 allowPublic: data.sharing.meta.allowPublicAccess,
@@ -136,7 +136,7 @@ export const SharingDialog = ({
     }, [sharingSettings, isDirty])
 
     const addUserOrGroupAccess = ({ type, id, name, access }) =>
-        updateSharingSettings(prevState => ({
+        updateSharingSettings((prevState) => ({
             ...prevState,
             [`${type}s`]: {
                 ...prevState[`${type}s`],
@@ -149,7 +149,7 @@ export const SharingDialog = ({
         }))
 
     const removeUserOrGroupAccess = ({ type, id }) =>
-        updateSharingSettings(prevState => {
+        updateSharingSettings((prevState) => {
             const usersOrGroups = prevState[`${type}s`]
 
             delete usersOrGroups[id]
@@ -187,13 +187,13 @@ export const SharingDialog = ({
             }
         }
 
-        updateSharingSettings(prevState => ({
+        updateSharingSettings((prevState) => ({
             ...prevState,
             ...updatedAccess,
         }))
     }
 
-    const saveSharingSettings = sharingSettings => {
+    const saveSharingSettings = (sharingSettings) => {
         // prepare payload
         const payload = {
             object: {
@@ -203,7 +203,7 @@ export const SharingDialog = ({
                     true
                 ),
                 userAccesses: Object.values(sharingSettings.users).map(
-                    userSharingSettings => ({
+                    (userSharingSettings) => ({
                         ...userSharingSettings,
                         access: convertConstantToAccess(
                             userSharingSettings.access
@@ -211,7 +211,7 @@ export const SharingDialog = ({
                     })
                 ),
                 userGroupAccesses: Object.values(sharingSettings.groups).map(
-                    groupSharingSettings => ({
+                    (groupSharingSettings) => ({
                         ...groupSharingSettings,
                         access: convertConstantToAccess(
                             groupSharingSettings.access
@@ -224,19 +224,19 @@ export const SharingDialog = ({
         mutateSharingSettings(payload)
     }
 
-    const onAdd = data => {
+    const onAdd = (data) => {
         setIsDirty(true)
 
         addUserOrGroupAccess(data)
     }
 
-    const onChange = data => {
+    const onChange = (data) => {
         setIsDirty(true)
 
         changeAccess(data)
     }
 
-    const onRemove = data => {
+    const onRemove = (data) => {
         setIsDirty(true)
 
         removeUserOrGroupAccess(data)

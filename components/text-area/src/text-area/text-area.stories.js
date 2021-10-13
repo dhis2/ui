@@ -52,7 +52,7 @@ export default {
     },
 }
 
-const Template = args => <TextArea {...args} />
+const Template = (args) => <TextArea {...args} />
 
 export const Default = Template.bind({})
 
@@ -66,7 +66,7 @@ WithValue.args = {
 }
 WithValue.storyName = 'With value'
 
-export const Focus = args => (
+export const Focus = (args) => (
     <>
         <TextArea {...args} initialFocus className="initially-focused" />
         <TextArea {...args} className="initially-unfocused" />
@@ -135,7 +135,7 @@ Rows.args = {
     label: 'You can set the height with the rows prop. I have 8',
 }
 
-export const Resize = args => (
+export const Resize = (args) => (
     <>
         <TextArea
             {...args}
@@ -163,7 +163,7 @@ export const Resize = args => (
     </>
 )
 
-export const Autogrow = args => (
+export const Autogrow = (args) => (
     <>
         <TextArea
             {...args}

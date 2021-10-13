@@ -18,7 +18,7 @@ const createNumberRange = (lowerBound, upperBound, customMessage) => {
             { lowerBound, upperBound }
         )
 
-    return value =>
+    return (value) =>
         isEmpty(value) ||
         (isNumeric(value) && isInRange(lowerBound, upperBound, toNumber(value)))
             ? undefined

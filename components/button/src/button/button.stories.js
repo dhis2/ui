@@ -54,7 +54,7 @@ const DemoIcon = (
     </svg>
 )
 
-const Template = args => <Button {...args} />
+const Template = (args) => <Button {...args} />
 
 export const Basic = Template.bind({})
 Basic.args = {
@@ -109,7 +109,7 @@ Destructive.parameters = {
     },
 }
 
-export const Disabled = args => (
+export const Disabled = (args) => (
     <>
         <Button name="Disabled button" {...args} />
         <Button primary name="Disabled primary button" {...args} />
@@ -170,7 +170,7 @@ InitialFocus.args = {
 // in the docs page. Disabled for better UX
 InitialFocus.parameters = { docs: { disable: true } }
 
-export const Icon = args => (
+export const Icon = (args) => (
     <>
         <Button {...args} />
         <Button primary {...args} />
@@ -232,7 +232,7 @@ ToggledDisabled.args = {
     children: null,
 }
 
-export const Loading = args => (
+export const Loading = (args) => (
     <>
         <Button {...args} />
         <Button primary {...args} />

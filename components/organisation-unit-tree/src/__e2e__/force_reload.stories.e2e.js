@@ -51,7 +51,7 @@ const ForceReloading = () => {
                         onChange={onChange}
                         selected={selected}
                         forceReload={forceReload}
-                        onChildrenLoaded={data => {
+                        onChildrenLoaded={(data) => {
                             if (data.A0000000000) {
                                 setForceReload(false)
                             }

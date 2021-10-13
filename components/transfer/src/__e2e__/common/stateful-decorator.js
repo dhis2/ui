@@ -9,7 +9,7 @@ const WithState = ({ fn, initialState, initialSearchTerm, controlFilter }) => {
     return fn({
         selected,
         searchTerm: controlFilter ? searchTerm : undefined,
-        onChange: payload => setSelected(payload.selected),
+        onChange: (payload) => setSelected(payload.selected),
         onFilterChange: controlFilter
             ? ({ value }) => setSearchTerm(value)
             : undefined,
@@ -22,7 +22,7 @@ export const statefulDecorator =
         controlFilter = false,
         initialSearchTerm = '',
     } = {}) =>
-    fn =>
+    (fn) =>
         (
             <WithState
                 initialState={initialState}

@@ -7,7 +7,7 @@ window.onClick = window.Cypress && window.Cypress.cy.stub()
 export default {
     title: 'MenuItem',
     component: MenuItem,
-    decorators: [story => <Menu>{story()}</Menu>],
+    decorators: [(story) => <Menu>{story()}</Menu>],
 }
 
 export const WithLabel = () => <MenuItem label="label" />

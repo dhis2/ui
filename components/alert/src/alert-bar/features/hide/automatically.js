@@ -1,4 +1,4 @@
-import '../common/index'
+import '../common/index.js'
 import { Given, When } from 'cypress-cucumber-preprocessor/steps'
 
 Given('an AlertBar with a custom duration is rendered', () => {

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import React, { useMemo, useState } from 'react'
 import { AccessSelect } from './access-select.js'
 import { Autocomplete } from './autocomplete/autocomplete.js'
-import { debounce } from './helpers'
+import { debounce } from './helpers.js'
 import i18n from './locales/index.js'
 import { ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT } from './sharing-constants.js'
 import {
@@ -21,7 +21,7 @@ const query = {
     },
 }
 
-const addType = type => result => ({ ...result, type })
+const addType = (type) => (result) => ({ ...result, type })
 
 export const ShareBlock = ({ onAdd }) => {
     const [userOrGroup, setUserOrGroup] = useState(undefined)
@@ -60,11 +60,11 @@ export const ShareBlock = ({ onAdd }) => {
             }, {})
     }, [data, didInvalidate])
 
-    const fetchData = debounce(text => {
+    const fetchData = debounce((text) => {
         refetch({ search: text })
     }, 500)
 
-    const onSearch = text => {
+    const onSearch = (text) => {
         setUserOrGroup({ name: text })
 
         if (text.length) {
@@ -78,12 +78,12 @@ export const ShareBlock = ({ onAdd }) => {
         setDidInvalidate(true)
     }
 
-    const onChange = id => {
+    const onChange = (id) => {
         setUserOrGroup(usersAndGroups[id])
         setDidInvalidate(true)
     }
 
-    const onSubmit = e => {
+    const onSubmit = (e) => {
         e.preventDefault()
 
         onAdd({

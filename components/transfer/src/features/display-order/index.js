@@ -1,5 +1,5 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { extractOptionFromElement } from '../common'
+import { extractOptionFromElement } from '../common/index.js'
 
 Given('none of the supplied options have been selected', () => {
     cy.visitStory('Transfer Display Order', 'No Selection')
@@ -17,7 +17,7 @@ When('the user deselects one selected option', () => {
     cy.get('{transfer-pickedoptions} {transferoption}').first().click()
     cy.get('{transfer-pickedoptions}')
         .find('.highlighted')
-        .then($el => $el.toArray().map(extractOptionFromElement))
+        .then(($el) => $el.toArray().map(extractOptionFromElement))
         .as('deselectedOptions')
     cy.get('{transfer-actions-removeindividual}').click()
 })
@@ -25,12 +25,12 @@ When('the user deselects one selected option', () => {
 When('the user deselects multiple selected options', () => {
     cy.get('{transfer-pickedoptions} {transferoption}')
         // should take third, then first item
-        .then($options => {
+        .then(($options) => {
             const $arr = $options.toArray()
             return [$arr[2], $arr[0]]
         })
-        .each($option => cy.wrap($option).clickWith('cmd'))
-        .then($options =>
+        .each(($option) => cy.wrap($option).clickWith('cmd'))
+        .then(($options) =>
             cy
                 .wrap($options.toArray().map(extractOptionFromElement))
                 .as('deselectedOptions')
@@ -43,7 +43,7 @@ When('the user selects one option', () => {
     cy.get('{transfer-sourceoptions} {transferoption}').first().click()
     cy.get('{transfer-sourceoptions}')
         .find('.highlighted')
-        .then($el => $el.toArray().map(extractOptionFromElement))
+        .then(($el) => $el.toArray().map(extractOptionFromElement))
         .as('selectedOptions')
     cy.get('{transfer-actions-addindividual}').click()
 })
@@ -51,12 +51,12 @@ When('the user selects one option', () => {
 When('the user selects multiple options', () => {
     cy.get('{transfer-sourceoptions} {transferoption}')
         // should take fifth, then first item
-        .then($options => {
+        .then(($options) => {
             const $arr = $options.toArray()
             return [$arr[4], $arr[0]]
         })
-        .each($option => cy.wrap($option).clickWith('ctrl'))
-        .then($options => {
+        .each(($option) => cy.wrap($option).clickWith('ctrl'))
+        .then(($options) => {
             cy.wrap($options.toArray().map(extractOptionFromElement)).as(
                 'selectedOptions'
             )
@@ -93,7 +93,7 @@ Then(
                 .toArray()
                 .map(extractOptionFromElement)
 
-            const options = win.options.filter(option =>
+            const options = win.options.filter((option) =>
                 selectableSourceOptions.find(
                     ({ label, value }) =>
                         label === option.label && value === option.value
@@ -118,7 +118,7 @@ Then(
             const selectableSourceOptions = $selectableSourceOptions
                 .toArray()
                 .map(extractOptionFromElement)
-            const originalOptions = win.options.filter(option =>
+            const originalOptions = win.options.filter((option) =>
                 selectableSourceOptions.find(
                     ({ label, value }) =>
                         label === option.label && value === option.value
@@ -149,7 +149,7 @@ Then(
             const selectableSourceOptions = $selectableSourceOptions
                 .toArray()
                 .map(extractOptionFromElement)
-            const options = win.options.filter(option =>
+            const options = win.options.filter((option) =>
                 selectableSourceOptions.find(
                     ({ label, value }) =>
                         label === option.label && value === option.value
@@ -157,15 +157,17 @@ Then(
             )
             expect(selectableSourceOptions).to.eql(options)
 
-            const hasAllOptions = deselectedOptions.every(deselectedOption => {
-                const result = !!selectableSourceOptions.find(
-                    ({ label, value }) =>
-                        label === deselectedOption.label &&
-                        value === deselectedOption.value
-                )
+            const hasAllOptions = deselectedOptions.every(
+                (deselectedOption) => {
+                    const result = !!selectableSourceOptions.find(
+                        ({ label, value }) =>
+                            label === deselectedOption.label &&
+                            value === deselectedOption.value
+                    )
 
-                return result
-            })
+                    return result
+                }
+            )
             expect(hasAllOptions).to.equal(true)
         })
     }

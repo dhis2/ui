@@ -30,7 +30,7 @@ const EMAIL_ADDRESS_PATTERN =
 
 const invalidEmailMessage = i18n.t('Please provide a valid email address')
 
-const email = value =>
+const email = (value) =>
     isEmpty(value) || (isString(value) && EMAIL_ADDRESS_PATTERN.test(value))
         ? undefined
         : invalidEmailMessage

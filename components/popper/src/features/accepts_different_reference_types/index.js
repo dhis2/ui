@@ -48,7 +48,7 @@ Then(
 Then(
     'the top and left of the popper correspond with the virtualElement',
     () => {
-        cy.get('[data-test="dhis2-uicore-popper"]').should($popper => {
+        cy.get('[data-test="dhis2-uicore-popper"]').should(($popper) => {
             const popperRect = $popper.get(0).getBoundingClientRect()
 
             expect(popperRect.top).to.equal(200)

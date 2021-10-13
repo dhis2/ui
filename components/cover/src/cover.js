@@ -3,7 +3,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const createClickHandler = onClick => event => {
+const createClickHandler = (onClick) => (event) => {
     // don't respond to clicks that originated in the children
     if (onClick && event.target === event.currentTarget) {
         onClick({}, event)

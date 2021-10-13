@@ -36,7 +36,7 @@ const createChangeHandler =
     }
 
 const createRemoveHandler = (input, fileToDelete) => () => {
-    const files = input.value.filter(file => file !== fileToDelete)
+    const files = input.value.filter((file) => file !== fileToDelete)
     const value = files.length > 0 ? files : ''
 
     input.onChange(value)
@@ -68,7 +68,7 @@ export const FileInputFieldFF = ({
             valid={isValid(meta, valid, showValidStatus)}
             validationText={getValidationText(meta, validationText, error)}
         >
-            {files.map(file => (
+            {files.map((file) => (
                 <FileListItem
                     key={file.name}
                     label={file.name}

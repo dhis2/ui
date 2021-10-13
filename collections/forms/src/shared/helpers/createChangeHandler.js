@@ -2,7 +2,7 @@ const PRIMITIVE_TYPES = new Set(['string', 'number', 'boolean'])
 
 const createChangeHandler =
     ({ onChange }) =>
-    payload => {
+    (payload) => {
         if (payload && 'value' in payload) {
             // ui event signature
             onChange(payload.value)

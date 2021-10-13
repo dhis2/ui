@@ -16,7 +16,7 @@ export default {
     parameters: { docs: { description: { component: description } } },
 }
 
-const Template = args => (
+const Template = (args) => (
     <Menu>
         <MenuItem label="Item above divider" />
         <MenuDivider {...args} />

@@ -144,7 +144,7 @@ MultiSelect.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     /** Required if `clearable` prop is `true` */
-    clearText: requiredIf(props => props.clearable, PropTypes.string),
+    clearText: requiredIf((props) => props.clearable, PropTypes.string),
     /** Adds a 'clear' option to the menu */
     clearable: PropTypes.bool,
     dataTest: PropTypes.string,
@@ -161,7 +161,7 @@ MultiSelect.propTypes = {
     loadingText: PropTypes.string,
     maxHeight: PropTypes.string,
     /** Required if `filterable` prop is `true` */
-    noMatchText: requiredIf(props => props.filterable, PropTypes.string),
+    noMatchText: requiredIf((props) => props.filterable, PropTypes.string),
     placeholder: PropTypes.string,
     prefix: PropTypes.string,
     selected: PropTypes.arrayOf(PropTypes.string),

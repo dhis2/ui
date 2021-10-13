@@ -1,4 +1,4 @@
-const shouldHaveChildNodes = subject => {
+const shouldHaveChildNodes = (subject) => {
     cy.wrap(subject, { log: false })
         .shouldBeAnOrgUnitNode()
         .find('[data-test="dhis2-uiwidgets-orgunittree-node"]', { log: false })

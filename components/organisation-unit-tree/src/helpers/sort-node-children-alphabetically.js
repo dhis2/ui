@@ -1,4 +1,4 @@
-export const sortNodeChildrenAlphabetically = node => {
+export const sortNodeChildrenAlphabetically = (node) => {
     if (!node.children) {
         return node
     }

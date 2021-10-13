@@ -2,7 +2,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useContext } from 'react'
 import css from 'styled-jsx/css'
-import { TableContext } from './table-context'
+import { TableContext } from './table-context.js'
 
 const tableRowStyles = css`
     .zebraStriping:nth-child(even) {

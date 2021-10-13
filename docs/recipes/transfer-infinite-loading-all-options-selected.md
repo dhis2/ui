@@ -92,8 +92,8 @@ timeout:
 
 ```js
 // fake fetch request
-const fetchOptions = nextPage =>
-    new Promise(resolve =>
+const fetchOptions = (nextPage) =>
+    new Promise((resolve) =>
         setTimeout(() => {
             const nextOptions = optionsPool.slice(
                 options.length,
@@ -199,8 +199,8 @@ export const InfiniteLoading = () => {
     }
 
     // fake fetch request
-    const fetchOptions = nextPage =>
-        new Promise(resolve =>
+    const fetchOptions = (nextPage) =>
+        new Promise((resolve) =>
             setTimeout(() => {
                 const nextOptions = optionsPool.slice(
                     options.length,
@@ -253,7 +253,7 @@ const loadNextOptions = async () => {
 
     const allAlreadySelected =
         nextOptions.length !== 0 &&
-        nextOptions.every(nextOption => {
+        nextOptions.every((nextOption) => {
             const { value } = nextOption
             return selected.includes(value)
         })
@@ -310,8 +310,8 @@ export const InfiniteLoading = () => {
     }
 
     // fake fetch request
-    const fetchOptions = nextPage =>
-        new Promise(resolve =>
+    const fetchOptions = (nextPage) =>
+        new Promise((resolve) =>
             setTimeout(() => {
                 const nextOptions = optionsPool.slice(
                     options.length,
@@ -331,7 +331,7 @@ export const InfiniteLoading = () => {
 
         const allAlreadySelected =
             nextOptions.length !== 0 &&
-            nextOptions.every(nextOption => {
+            nextOptions.every((nextOption) => {
                 const { value } = nextOption
                 return selected.includes(value)
             })

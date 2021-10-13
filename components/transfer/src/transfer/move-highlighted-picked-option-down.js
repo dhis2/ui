@@ -11,7 +11,7 @@ export const moveHighlightedPickedOptionDown = ({
     onChange,
 }) => {
     const optionIndex = selected.findIndex(
-        selectedOption => selectedOption === highlightedPickedOptions[0]
+        (selectedOption) => selectedOption === highlightedPickedOptions[0]
     )
 
     // Can't move down last or non-existing option

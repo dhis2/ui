@@ -32,7 +32,7 @@ const noSpecialCharacter = i18n.t(
  * - Contains at least 1 number
  * - Contains at least 1 special character
  */
-const dhis2Password = value => {
+const dhis2Password = (value) => {
     if (isEmpty(value)) {
         return undefined
     }

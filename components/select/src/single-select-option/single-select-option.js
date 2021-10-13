@@ -17,7 +17,7 @@ const SingleSelectOption = ({
             disabled,
             active,
         })}
-        onClick={e => onClick({}, e)}
+        onClick={(e) => onClick({}, e)}
         data-test={dataTest}
         data-value={value}
         data-label={label}

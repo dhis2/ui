@@ -12,7 +12,7 @@ Given('the selected list has some items', () => {
     cy.visitStory('Transfer Reorder Buttons', 'Has Some Selected')
 })
 
-Given('the {int}. item is highlighted', previousPisition => {
+Given('the {int}. item is highlighted', (previousPisition) => {
     const index = previousPisition - 1
 
     cy.get('{transfer-pickedoptions} {transferoption}')
@@ -29,8 +29,8 @@ Given('no items are highlighted in the list', () => {
 
 Given('more than one item is highlighted in the list', () => {
     cy.get('{transfer-pickedoptions} {transferoption}')
-        .filter(index => index < 2)
-        .each($option => cy.wrap($option).clickWith('ctrl'))
+        .filter((index) => index < 2)
+        .each(($option) => cy.wrap($option).clickWith('ctrl'))
 })
 
 When("the user clicks the 'move up' button", () => {
@@ -43,7 +43,7 @@ When("the user clicks the 'move down' button", () => {
     cy.get('{transfer-reorderingactions-buttonmovedown}').click({ force: true })
 })
 
-Then('the highlighted item should be moved to the {int}. place', next => {
+Then('the highlighted item should be moved to the {int}. place', (next) => {
     const index = next - 1
     cy.get('@previous').invoke('index').should('equal', index)
 })

@@ -1,4 +1,4 @@
-import '../common/index'
+import '../common/index.js'
 import { When } from 'cypress-cucumber-preprocessor/steps'
 
 When('the user clicks outside of the menu', () => {

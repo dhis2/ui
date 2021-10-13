@@ -27,14 +27,14 @@ export default {
     parameters: { docs: { description: { component: description } } },
 }
 
-export const Default = args => (
+export const Default = (args) => (
     <Menu {...args}>
         <MenuItem label="Menu item" />
         <MenuItem label="Menu item" />
     </Menu>
 )
 
-export const Dense = args => (
+export const Dense = (args) => (
     <Menu {...args}>
         <MenuItem label="Menu item" />
         <MenuItem label="Menu item" />
@@ -49,14 +49,14 @@ Dense.parameters = {
     },
 }
 
-export const AutoHideFirstSectionHeaderDivider = args => (
+export const AutoHideFirstSectionHeaderDivider = (args) => (
     <Menu {...args}>
         <MenuSectionHeader label="First - no divider above" />
         <MenuSectionHeader label="Second - with divider above" />
     </Menu>
 )
 
-export const SideBarMenu = args => (
+export const SideBarMenu = (args) => (
     <main
         style={{
             display: 'flex',

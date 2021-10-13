@@ -30,7 +30,7 @@ const FileListItem = ({
             {loading && onCancel && cancelText && (
                 <span
                     className="action"
-                    onClick={event => onCancel({}, event)}
+                    onClick={(event) => onCancel({}, event)}
                     data-test={`${dataTest}-cancel`}
                 >
                     {cancelText}
@@ -40,7 +40,7 @@ const FileListItem = ({
             {!loading && (
                 <span
                     className="action"
-                    onClick={event => onRemove({}, event)}
+                    onClick={(event) => onRemove({}, event)}
                     data-test={`${dataTest}-remove`}
                 >
                     {removeText}

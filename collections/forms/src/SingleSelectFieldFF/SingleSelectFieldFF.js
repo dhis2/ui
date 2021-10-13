@@ -39,7 +39,7 @@ export const SingleSelectFieldFF = ({
             onBlur={createBlurHandler(input, onBlur)}
             selected={input.value || ''}
         >
-            {options.map(option => (
+            {options.map((option) => (
                 <SingleSelectOption key={option.value} {...option} />
             ))}
         </SingleSelectField>

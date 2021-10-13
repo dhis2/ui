@@ -1,10 +1,10 @@
 import { And, Then } from 'cypress-cucumber-preprocessor/steps'
-import { baseUrl } from '../common/index'
+import { baseUrl } from '../common/index.js'
 
 const logoutUrl = `${baseUrl}dhis-web-commons-security/logout.action`
 
 Then('contains a link to log out the user', () => {
-    cy.get('[data-test="headerbar-profile-menu"] > li').should(lis => {
+    cy.get('[data-test="headerbar-profile-menu"] > li').should((lis) => {
         const menuItem = lis.eq(4)
         expect(menuItem).to.be.visible
         expect(menuItem.find('a')).to.have.attr('href', logoutUrl)

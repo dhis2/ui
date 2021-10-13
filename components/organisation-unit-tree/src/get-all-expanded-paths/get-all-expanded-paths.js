@@ -3,13 +3,13 @@
  * @param {Array.<T>} arr
  * @returns {Array.<T>}
  */
-const removeDuplicates = arr => Array.from(new Set(arr))
+const removeDuplicates = (arr) => Array.from(new Set(arr))
 
 /**
  * @param {string} path
  * @returns {string[]}
  */
-const extractAllPathsFromPath = path => {
+const extractAllPathsFromPath = (path) => {
     // remove leading slash and split by path delimiter/slashes
     const segments = path.replace(/^\//, '').split('/')
 
@@ -25,7 +25,7 @@ const extractAllPathsFromPath = path => {
  * @param {string[]} initiallyExpanded
  * @returns {string[]}
  */
-export const getAllExpandedPaths = initiallyExpanded =>
+export const getAllExpandedPaths = (initiallyExpanded) =>
     initiallyExpanded.reduce((all, curPath) => {
         const allPathsInCurPath = extractAllPathsFromPath(curPath)
         return [...all, ...allPathsInCurPath]

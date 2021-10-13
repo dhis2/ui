@@ -5,7 +5,7 @@ const invalidIntegerMessage = i18n.t(
     'Please provide a round number without decimals'
 )
 
-const integer = value =>
+const integer = (value) =>
     isEmpty(value) || (isNumeric(value) && isInteger(toNumber(value)))
         ? undefined
         : invalidIntegerMessage

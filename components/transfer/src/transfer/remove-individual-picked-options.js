@@ -26,15 +26,15 @@ export const removeIndividualPickedOptions = ({
      * clicks the "add individuals" button
      */
     const filteredHighlightedPickedOptions = filterablePicked
-        ? highlightedPickedOptions.filter(value =>
+        ? highlightedPickedOptions.filter((value) =>
               pickedOptions.find(
-                  filteredOption => filteredOption.value === value
+                  (filteredOption) => filteredOption.value === value
               )
           )
         : highlightedPickedOptions
 
     const newSelected = selected.filter(
-        selectedOption =>
+        (selectedOption) =>
             !filteredHighlightedPickedOptions.includes(selectedOption)
     )
 

@@ -19,7 +19,7 @@ Then("its children are nodes inside the unit's node", () => {
         )
         .children()
         .should('have.length', 3)
-        .and(children =>
+        .and((children) =>
             children.each((_, child) => {
                 const $child = Cypress.$(child)
                 const dataTest = $child.data('test')

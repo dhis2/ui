@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export const getInitials = name =>
+export const getInitials = (name) =>
     name
         .split(' ')
         .slice(0, 2)
-        .map(n => n[0])
+        .map((n) => n[0])
         .join('')
 
 export const TextIcon = ({ name, dataTest }) => (

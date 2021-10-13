@@ -1,10 +1,10 @@
 import React from 'react'
 import { StackedTableHead } from './stacked-table-head.js'
 
-const isChildTableHead = child => child.type === StackedTableHead
-const extractChildrenProp = component => component.props.children
+const isChildTableHead = (child) => child.type === StackedTableHead
+const extractChildrenProp = (component) => component.props.children
 
-const extractRowsFromTableChildren = children =>
+const extractRowsFromTableChildren = (children) =>
     React.Children.toArray(children)
         .filter(isChildTableHead)
 
@@ -25,7 +25,7 @@ const extractRowsFromTableChildren = children =>
         // will return an array with arrays of cells
         .map(extractChildrenProp)
 
-const calculateColumnCount = row =>
+const calculateColumnCount = (row) =>
     Array.isArray(row)
         ? row.reduce(
               (total, col) =>
@@ -37,7 +37,7 @@ const calculateColumnCount = row =>
           )
         : 1
 
-const mapCellsToLabels = rowChildren => {
+const mapCellsToLabels = (rowChildren) => {
     let labels = []
     // in case there's only one cell, the children are not an array
     const row = Array.isArray(rowChildren) ? rowChildren : [rowChildren]
@@ -59,7 +59,7 @@ const mapCellsToLabels = rowChildren => {
     return labels
 }
 
-const extractLabelFromCell = cell =>
+const extractLabelFromCell = (cell) =>
     !cell.props.hideResponsiveLabel ? cell.props.children : ''
 
 const combineRowLables = (columnCount, rowCount, headerLabels) =>
@@ -75,12 +75,12 @@ const combineRowLables = (columnCount, rowCount, headerLabels) =>
                     // get label for current row & col
                     .map((__, rowIndex) => headerLabels[rowIndex][colIndex])
                     // remove empty ones
-                    .filter(val => val)
+                    .filter((val) => val)
 
             return [...labels, colLabels.join(' / ')]
         }, [])
 
-export const extractHeaderLabels = children => {
+export const extractHeaderLabels = (children) => {
     if (React.Children.count(children) === 0) {
         return []
     }

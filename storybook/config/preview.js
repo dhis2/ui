@@ -20,7 +20,7 @@ export const decorators = [
      * Basic wrapper for all our components, styles the root elements and applies
      * our css reset for consistency/
      */
-    Component => (
+    (Component) => (
         <Fragment>
             <CssReset />
             <Component />
@@ -77,9 +77,9 @@ export const parameters = {
         ),
     },
     jsx: {
-        filterProps: val => val !== undefined,
+        filterProps: (val) => val !== undefined,
         showDefaultProps: false,
-        functionValue: fn => fn.name,
+        functionValue: (fn) => fn.name,
         tabStop: 4,
         maxInlineAttributesLineLength: 80,
     },

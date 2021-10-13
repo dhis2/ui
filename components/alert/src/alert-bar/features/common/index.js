@@ -19,7 +19,7 @@ When('the default duration has passed', () => {
 })
 
 Then('the onHidden handler is called', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onHidden).to.be.calledOnce
         expect(win.onHidden).to.be.calledWith({}, null)
     })

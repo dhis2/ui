@@ -11,7 +11,7 @@ describe('final-form named export', () => {
 
     it.each(Object.keys(FinalForm))(
         'should re-export the expected type for %s',
-        exportName => {
+        (exportName) => {
             const type = typeof FinalForm[exportName]
 
             expect(type).toMatchSnapshot()
@@ -28,7 +28,7 @@ describe('react-final-form named export', () => {
 
     it.each(Object.keys(ReactFinalForm))(
         'should re-export the expected type for %s',
-        exportName => {
+        (exportName) => {
             const type = typeof ReactFinalForm[exportName]
 
             expect(type).toMatchSnapshot()

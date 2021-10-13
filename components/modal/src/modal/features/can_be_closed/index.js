@@ -9,7 +9,7 @@ When('the Screencover is clicked above the modal', () => {
 })
 
 Then('the onClose handler is called', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onClose).to.be.calledWith({})
     })
 })

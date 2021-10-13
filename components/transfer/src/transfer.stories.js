@@ -157,7 +157,7 @@ export default {
 
 const StatefulTemplate = ({ initiallySelected, ...args }) => {
     const [selected, setSelected] = useState(initiallySelected)
-    const onChange = payload => setSelected(payload.selected)
+    const onChange = (payload) => setSelected(payload.selected)
 
     return <Transfer {...args} selected={selected} onChange={onChange} />
 }
@@ -214,7 +214,7 @@ FilteredPlaceholder.args = {
 
 const renderOption = ({ label, value, onClick, highlighted, selected }) => (
     <p
-        onClick={event => onClick({ label, value }, event)}
+        onClick={(event) => onClick({ label, value }, event)}
         style={{
             background: highlighted ? 'green' : 'blue',
             color: selected ? 'orange' : 'white',
@@ -245,7 +245,7 @@ const RenderOptionCode = () => (
 
 const StatefulTemplateCustomRenderOption = ({ initiallySelected, ...args }) => {
     const [selected, setSelected] = useState(initiallySelected)
-    const onChange = payload => setSelected(payload.selected)
+    const onChange = (payload) => setSelected(payload.selected)
 
     return <Transfer {...args} selected={selected} onChange={onChange} />
 }
@@ -256,7 +256,7 @@ StatefulTemplateCustomRenderOption.propTypes = {
     initiallySelected: PropTypes.array,
 }
 
-export const CustomListOptions = args => (
+export const CustomListOptions = (args) => (
     <>
         <RenderOptionCode />
         <StatefulTemplateCustomRenderOption {...args} />
@@ -276,7 +276,7 @@ IndividualCustomOption.args = {
     addIndividualText: 'Add individual',
     removeAllText: 'Remove all',
     removeIndividualText: 'Remove individual',
-    renderOption: option => {
+    renderOption: (option) => {
         if (option.value === options[0].value) {
             return renderOption(option)
         }
@@ -337,7 +337,7 @@ DifferentWidths.args = {
     selectedWidth: '240px',
 }
 
-const createCustomFilteringInHeader = hideFilterInput => {
+const createCustomFilteringInHeader = (hideFilterInput) => {
     const relativePeriods = options.slice(0, 10).map((option, index) => ({
         ...option,
         relativePeriod: true,
@@ -389,17 +389,17 @@ const createCustomFilteringInHeader = hideFilterInput => {
     )
     /* eslint-enable react/prop-types */
 
-    const CustomTransfer = props => {
+    const CustomTransfer = (props) => {
         const [filter, setFilter] = useState('')
         const [relativePeriod, setRelativePeriod] = useState(true)
         const [year, setYear] = useState('2020')
         const filterCallback = (options, filter) => {
             const optionsWithYear = options.filter(
-                option => option.year === year
+                (option) => option.year === year
             )
 
             const optionsWithPeriod = optionsWithYear.filter(
-                option => option.relativePeriod === relativePeriod
+                (option) => option.relativePeriod === relativePeriod
             )
 
             if (filter === '') {
@@ -446,7 +446,7 @@ const createCustomFilteringInHeader = hideFilterInput => {
 
     return ({ initiallySelected, ...args }) => {
         const [selected, setSelected] = useState(initiallySelected)
-        const onChange = payload => setSelected(payload.selected)
+        const onChange = (payload) => setSelected(payload.selected)
 
         return (
             <CustomTransfer {...args} selected={selected} onChange={onChange} />
@@ -468,7 +468,7 @@ const pageSize = 5
  * To keep the code as small as possible, handling selecting items is not
    included
  */
-export const InfiniteLoading = args => {
+export const InfiniteLoading = (args) => {
     useEffect(() => {
         console.clear()
     }, [])
@@ -494,8 +494,8 @@ export const InfiniteLoading = args => {
     }
 
     // fake fetch request
-    const fetchOptions = nextPage =>
-        new Promise(resolve =>
+    const fetchOptions = (nextPage) =>
+        new Promise((resolve) =>
             setTimeout(() => {
                 const nextOptions = optionsPool.slice(
                     options.length,
@@ -515,7 +515,7 @@ export const InfiniteLoading = args => {
 
         const allAlreadySelected =
             nextOptions.length !== 0 &&
-            nextOptions.every(nextOption => {
+            nextOptions.every((nextOption) => {
                 const { value } = nextOption
                 return selected.includes(value)
             })

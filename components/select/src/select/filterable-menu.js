@@ -53,7 +53,7 @@ export class FilterableMenu extends Component {
             )
         }
 
-        const filtered = React.Children.map(options, child => {
+        const filtered = React.Children.map(options, (child) => {
             const isValidOption = checkIfValidOption(child)
 
             // Filter it out if it's an invalid option

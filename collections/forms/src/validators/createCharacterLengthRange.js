@@ -17,7 +17,7 @@ const createCharacterLengthRange = (lowerBound, upperBound, customMessage) => {
             { lowerBound, upperBound }
         )
 
-    return value =>
+    return (value) =>
         isEmpty(value) ||
         (isString(value) && isInRange(lowerBound, upperBound, value.length))
             ? undefined

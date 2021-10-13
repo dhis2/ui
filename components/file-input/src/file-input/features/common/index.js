@@ -1,14 +1,14 @@
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('the FileInput does not have any files', () => {
-    cy.get('[data-test="dhis2-uicore-fileinput"] input').then($input => {
+    cy.get('[data-test="dhis2-uicore-fileinput"] input').then(($input) => {
         const files = $input[0].files
         expect(files).to.have.lengthOf(0)
     })
 })
 
 Then('the onChange handler is called', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         const calls = win.onChange.getCalls()
         expect(calls).to.have.lengthOf(1)
 

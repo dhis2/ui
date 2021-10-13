@@ -1,4 +1,4 @@
-const getOrgUnitByLabel = label => {
+const getOrgUnitByLabel = (label) => {
     return cy
         .get(
             `[data-test="dhis2-uiwidgets-orgunittree-node-label"]:contains("${label}")`,

@@ -15,7 +15,7 @@ const data = {
         if (id === 'A0000000000') {
             return dataProviderData
                 .organisationUnits(...args)
-                .then(response => ({
+                .then((response) => ({
                     ...response,
                     children: [],
                 }))
@@ -24,7 +24,7 @@ const data = {
         if (id === 'A0000000001') {
             return dataProviderData
                 .organisationUnits(...args)
-                .then(response => ({
+                .then((response) => ({
                     ...response,
                     path: '/A0000000001',
                     children: [],

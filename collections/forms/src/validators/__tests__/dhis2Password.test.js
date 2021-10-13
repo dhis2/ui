@@ -1,5 +1,8 @@
 import { dhis2Password, errorMessages } from '../dhis2Password.js'
-import { testValidatorValues, allowsEmptyValues } from '../test-helpers'
+import {
+    testValidatorValues,
+    allowsEmptyValues,
+} from '../test-helpers/index.js'
 
 describe('validator: dhis2Password', () => {
     allowsEmptyValues(dhis2Password)

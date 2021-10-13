@@ -1,4 +1,4 @@
-import '../common'
+import '../common/index.js'
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 When('the mouse cursor leaves the anchor', () => {

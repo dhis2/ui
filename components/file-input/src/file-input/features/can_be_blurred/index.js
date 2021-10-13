@@ -10,9 +10,9 @@ When('the FileInput is blurred', () => {
 })
 
 Then('the onBlur handler is called', () => {
-    cy.window().then(win => {
+    cy.window().then((win) => {
         cy.get('[data-test="dhis2-uicore-fileinput"] input').should(
-            fileInput => {
+            (fileInput) => {
                 expect(win.onBlur).to.be.calledWith({
                     name: 'upload',
                     files: fileInput[0].files,

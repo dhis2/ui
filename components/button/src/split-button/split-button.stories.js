@@ -39,7 +39,7 @@ export default {
     },
 }
 
-const Template = args => <SplitButton {...args} />
+const Template = (args) => <SplitButton {...args} />
 
 export const Default = Template.bind({})
 

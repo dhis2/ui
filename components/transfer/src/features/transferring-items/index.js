@@ -1,6 +1,6 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { parseSelectorWithDataTest } from '../../../../../cypress/support/common/parseSelectorWithDataTest'
-import { extractOptionFromElement } from '../common'
+import { parseSelectorWithDataTest } from '../../../../../cypress/support/common/parseSelectorWithDataTest.js'
+import { extractOptionFromElement } from '../common/index.js'
 
 Given('some options are selectable', () => {
     cy.visitStory('Transfer Transferring Items', 'Has Options')
@@ -12,31 +12,31 @@ Given('some options are selected', () => {
 
 Given('one or more items in the options list are highlighted', () => {
     cy.get('{transfer-sourceoptions} {transferoption}')
-        .filter(index => index < 3)
+        .filter((index) => index < 3)
         // shuffle order so we can check they're added in the right order
-        .then($options => cy.wrap([$options[2], $options[0], $options[1]]))
-        .each($option => cy.wrap($option).clickWith('ctrl'))
-        .then($options => $options.toArray().map(extractOptionFromElement))
+        .then(($options) => cy.wrap([$options[2], $options[0], $options[1]]))
+        .each(($option) => cy.wrap($option).clickWith('ctrl'))
+        .then(($options) => $options.toArray().map(extractOptionFromElement))
         .as('itemsToBeSelected')
 })
 
 Given('some items in the options list are highlighted', () => {
     cy.get('{transfer-sourceoptions} {transferoption}')
-        .filter(index => index < 3)
+        .filter((index) => index < 3)
         // shuffle order so we can check they're added in the right order
-        .then($options => cy.wrap([$options[2], $options[0], $options[1]]))
-        .each($option => cy.wrap($option).clickWith('ctrl'))
-        .then($options => $options.toArray().map(extractOptionFromElement))
+        .then(($options) => cy.wrap([$options[2], $options[0], $options[1]]))
+        .each(($option) => cy.wrap($option).clickWith('ctrl'))
+        .then(($options) => $options.toArray().map(extractOptionFromElement))
         .as('itemsToBeSelected')
 })
 
 Given('some items in the selected list are highlighted', () => {
     cy.get('{transfer-pickedoptions} {transferoption}')
-        .filter(index => index < 3)
+        .filter((index) => index < 3)
         // shuffle order so we can check they're added in the right order
-        .then($options => cy.wrap([$options[2], $options[0], $options[1]]))
-        .each($option => cy.wrap($option).clickWith('ctrl'))
-        .then($options => $options.toArray().map(extractOptionFromElement))
+        .then(($options) => cy.wrap([$options[2], $options[0], $options[1]]))
+        .each(($option) => cy.wrap($option).clickWith('ctrl'))
+        .then(($options) => $options.toArray().map(extractOptionFromElement))
         .as('itemsToBeDeselected')
 })
 
@@ -50,14 +50,14 @@ When("the user clicks the 'move to options list' button", () => {
 
 When("the user clicks the 'move all to selected list' button", () => {
     cy.get('{transfer-sourceoptions} {transferoption}')
-        .then($options => $options.toArray().map(extractOptionFromElement))
+        .then(($options) => $options.toArray().map(extractOptionFromElement))
         .as('itemsToBeSelected')
     cy.get('{transfer-actions-addall}').click()
 })
 
 When("the user clicks the 'move all to options list' button", () => {
     cy.get('{transfer-pickedoptions} {transferoption}')
-        .then($options => $options.toArray().map(extractOptionFromElement))
+        .then(($options) => $options.toArray().map(extractOptionFromElement))
         .as('itemsToBeDeselected')
     cy.get('{transfer-actions-removeall}').click()
 })
@@ -87,7 +87,7 @@ Then('the highlighted items should be removed from the options list', () => {
             .toArray()
             .map(extractOptionFromElement)
         const itemsStillSelectable = itemsToBeSelected.every(
-            itemToBeSelected => {
+            (itemToBeSelected) => {
                 const result = selectableSourceOptions.find(
                     ({ label, value }) =>
                         label === itemToBeSelected.label &&
@@ -110,7 +110,7 @@ Then('the highlighted items should be visible in the selected list', () => {
         const selectedOptions = $selectedOptions
             .toArray()
             .map(extractOptionFromElement)
-        const itemsSelected = itemsToBeSelected.every(itemToBeSelected =>
+        const itemsSelected = itemsToBeSelected.every((itemToBeSelected) =>
             selectedOptions.find(
                 ({ label, value }) =>
                     label === itemToBeSelected.label &&
@@ -148,7 +148,7 @@ Then('the highlighted items should be removed from the selected list', () => {
             .toArray()
             .map(extractOptionFromElement)
         const itemsStillSelected = itemsToBeDeselected.every(
-            itemToBeSelected => {
+            (itemToBeSelected) => {
                 const result = selectedOptions.find(
                     ({ label, value }) =>
                         label === itemToBeSelected.label &&
@@ -171,15 +171,17 @@ Then('the highlighted items should be visible in the options list', () => {
         const selectedOptions = $selectedOptions
             .toArray()
             .map(extractOptionFromElement)
-        const itemsSelectable = itemsToBeDeselected.every(itemToBeSelected => {
-            const result = selectedOptions.find(
-                ({ label, value }) =>
-                    label === itemToBeSelected.label &&
-                    value === itemToBeSelected.value
-            )
+        const itemsSelectable = itemsToBeDeselected.every(
+            (itemToBeSelected) => {
+                const result = selectedOptions.find(
+                    ({ label, value }) =>
+                        label === itemToBeSelected.label &&
+                        value === itemToBeSelected.value
+                )
 
-            return result
-        })
+                return result
+            }
+        )
 
         expect(itemsSelectable).to.equal(true)
     })
@@ -199,7 +201,7 @@ Then(
             const selectableSourceOptions = $selectableSourceOptions
                 .toArray()
                 .map(extractOptionFromElement)
-            const allOptionsWithoutSelected = win.options.filter(option => {
+            const allOptionsWithoutSelected = win.options.filter((option) => {
                 return !selectedOptions.find(
                     ({ label, value }) =>
                         option.label === label && option.value === value
@@ -225,7 +227,7 @@ Then(
             const selectedOptions = $selectedOptions
                 .toArray()
                 .map(extractOptionFromElement)
-            const allSelected = itemsToBeSelected.every(option => {
+            const allSelected = itemsToBeSelected.every((option) => {
                 return selectedOptions.find(
                     ({ label, value }) =>
                         option.label === label && option.value === value
@@ -270,7 +272,7 @@ Then(
             const selectableSourceOptions = $selectableSourceOptions
                 .toArray()
                 .map(extractOptionFromElement)
-            const allSelectable = itemsToBeDeselected.every(option => {
+            const allSelectable = itemsToBeDeselected.every((option) => {
                 return selectableSourceOptions.find(
                     ({ label, value }) =>
                         option.label === label && option.value === value
@@ -306,7 +308,7 @@ Then('the options list items should be ordered in the original order', () => {
         () => cy.window(),
         () => cy.get('{transfer-sourceoptions} {transferoption}'),
         () =>
-            cy.get('{transfer-pickedoptions}').then($pickedOptions => {
+            cy.get('{transfer-pickedoptions}').then(($pickedOptions) => {
                 return $pickedOptions.find(
                     parseSelectorWithDataTest('{transferoption}')
                 )
@@ -317,9 +319,9 @@ Then('the options list items should be ordered in the original order', () => {
             .map(extractOptionFromElement)
 
         const originalOrderWithoutSelected = win.options.filter(
-            originalOption => {
+            (originalOption) => {
                 return !pickedPlainOptions.find(
-                    pickedPlainOption =>
+                    (pickedPlainOption) =>
                         pickedPlainOption.value === originalOption.value &&
                         pickedPlainOption.label === originalOption.label
                 )
@@ -344,7 +346,7 @@ Then('the item should be removed from its options list', () => {
             .map(extractOptionFromElement)
 
         const found = sourcePlainOptions.find(
-            sourcePlainOption =>
+            (sourcePlainOption) =>
                 sourcePlainOption.value === doubleClickedPlainOption.value &&
                 sourcePlainOption.label === doubleClickedPlainOption.label
         )
@@ -382,7 +384,7 @@ Then('the item should be removed from the selected list', () => {
             .map(extractOptionFromElement)
 
         const found = pickedPlainOptions.find(
-            sourcePlainOption =>
+            (sourcePlainOption) =>
                 sourcePlainOption.value === doubleClickedPlainOption.value &&
                 sourcePlainOption.label === doubleClickedPlainOption.label
         )

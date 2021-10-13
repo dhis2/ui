@@ -13,42 +13,42 @@ Before(() => {
     cy.fixture('HeaderBar/logo_banner').as('logoFixture')
     cy.server()
 
-    cy.get('@applicationTitleFixture').then(fx => {
+    cy.get('@applicationTitleFixture').then((fx) => {
         cy.route({
             url: `${baseUrl}/api/systemSettings/applicationTitle`,
             response: fx,
         }).as('applicationTitle')
     })
 
-    cy.get('@helpPageLinkFixture').then(fx => {
+    cy.get('@helpPageLinkFixture').then((fx) => {
         cy.route({
             url: `${baseUrl}/api/systemSettings/helpPageLink`,
             response: fx,
         }).as('helpPageLink')
     })
 
-    cy.get('@meFixture').then(fx => {
+    cy.get('@meFixture').then((fx) => {
         cy.route({
             url: `${baseUrl}/api/me?fields=authorities,avatar,email,name,settings`,
             response: fx,
         }).as('me')
     })
 
-    cy.get('@modulesFixture').then(fx => {
+    cy.get('@modulesFixture').then((fx) => {
         cy.route({
             url: `${baseUrl}/dhis-web-commons/menu/getModules.action`,
             response: fx,
         }).as('modules')
     })
 
-    cy.get('@dashboardFixture').then(fx => {
+    cy.get('@dashboardFixture').then((fx) => {
         cy.route({
             url: `${baseUrl}/api/me/dashboard`,
             response: fx,
         }).as('dashboard')
     })
 
-    cy.get('@logoFixture').then(fx => {
+    cy.get('@logoFixture').then((fx) => {
         cy.route({
             url: `${baseUrl}/api/staticContent/logo_banner`,
             response: fx,

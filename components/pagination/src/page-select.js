@@ -12,7 +12,7 @@ const translate = (prop, interpolationObject) => {
     return prop
 }
 
-const createAvailablePages = length =>
+const createAvailablePages = (length) =>
     Array.from({ length }, (_x, i) => (i + 1).toString())
 
 const PageSelect = ({
@@ -31,7 +31,7 @@ const PageSelect = ({
             dataTest={`${dataTest}-page-select`}
             prefix={translate(pageSelectText)}
         >
-            {createAvailablePages(pageCount).map(availablePage => (
+            {createAvailablePages(pageCount).map((availablePage) => (
                 <SingleSelectOption
                     key={availablePage}
                     value={availablePage}

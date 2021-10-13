@@ -28,7 +28,7 @@ export default {
     },
 }
 
-const Template = args => <TextAreaField {...args} />
+const Template = (args) => <TextAreaField {...args} />
 
 export const NoPlaceholderNoValue = Template.bind({})
 NoPlaceholderNoValue.storyName = 'No placeholder, no value'
@@ -130,7 +130,7 @@ Rows.args = {
     label: 'You can set the height with the rows prop. I have 8',
 }
 
-export const InputWidth = args => (
+export const InputWidth = (args) => (
     <>
         <TextAreaField
             {...args}
@@ -145,7 +145,7 @@ export const InputWidth = args => (
     </>
 )
 
-export const Resize = args => (
+export const Resize = (args) => (
     <>
         <TextAreaField
             {...args}
@@ -173,7 +173,7 @@ export const Resize = args => (
     </>
 )
 
-export const Autogrow = args => (
+export const Autogrow = (args) => (
     <>
         <TextAreaField
             {...args}

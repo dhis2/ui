@@ -105,27 +105,27 @@ DataTableColumnHeader.propTypes = {
     dataTest: PropTypes.string,
     /** The filter element (JSX), required when onFilterIconClick or showFilter are present */
     filter: requiredIf(
-        props => props.onFilterIconClick || props.showFilter,
+        (props) => props.onFilterIconClick || props.showFilter,
         PropTypes.node
     ),
     fixed: PropTypes.bool,
     large: PropTypes.bool,
     /** Left or top required when fixed */
-    left: requiredIf(props => props.fixed && !props.top, PropTypes.string),
+    left: requiredIf((props) => props.fixed && !props.top, PropTypes.string),
     /** Can be used to match a column with a property name */
     name: PropTypes.string,
     role: PropTypes.string,
     rowSpan: PropTypes.string,
     scope: PropTypes.string,
-    showFilter: requiredIf(props => props.filter, PropTypes.bool),
+    showFilter: requiredIf((props) => props.filter, PropTypes.bool),
     sortDirection: requiredIf(
-        props => props.onSortIconClick,
+        (props) => props.onSortIconClick,
         PropTypes.oneOf(SORT_DIRECTIONS)
     ),
     /** Left or top required when fixed */
-    top: requiredIf(props => props.fixed && !props.left, PropTypes.string),
+    top: requiredIf((props) => props.fixed && !props.left, PropTypes.string),
     width: PropTypes.string,
-    onFilterIconClick: requiredIf(props => props.filter, PropTypes.func),
+    onFilterIconClick: requiredIf((props) => props.filter, PropTypes.func),
     /** Sort icon click callback with `nextSortDirection` and `name` in payload */
-    onSortIconClick: requiredIf(props => props.sortDirection, PropTypes.func),
+    onSortIconClick: requiredIf((props) => props.sortDirection, PropTypes.func),
 }

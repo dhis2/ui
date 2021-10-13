@@ -5,7 +5,7 @@ import { useOnlineStatus } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 import React, { createRef, useState, useEffect } from 'react'
 import i18n from '../locales/index.js'
-import { MenuWrapper } from './menu-wrapper'
+import { MenuWrapper } from './menu-wrapper.js'
 
 // Keycodes for the keypress event handlers
 // XXX implement keyboard navigation in the Menu ?!
@@ -19,7 +19,7 @@ const DOWN_KEY = 40
 // from the app/parent to make it as flexible as possible
 const SearchResults = ({ searchResults, onClick }) => (
     <Menu>
-        {searchResults.map(searchResult => (
+        {searchResults.map((searchResult) => (
             <MenuItem
                 key={searchResult.id}
                 label={searchResult.displayName}

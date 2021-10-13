@@ -29,9 +29,9 @@ export const addIndividualSourceOptions = ({
      * clicks the "add individuals" button
      */
     const filteredHighlightedSourceOptions = filterable
-        ? highlightedSourceOptions.filter(value =>
+        ? highlightedSourceOptions.filter((value) =>
               sourceOptions.find(
-                  filteredOption => filteredOption.value === value
+                  (filteredOption) => filteredOption.value === value
               )
           )
         : highlightedSourceOptions
@@ -40,7 +40,7 @@ export const addIndividualSourceOptions = ({
         (accumulatedSelected, value) => [
             ...accumulatedSelected,
             filteredHighlightedSourceOptions.find(
-                filteredHighlightedSourceOption =>
+                (filteredHighlightedSourceOption) =>
                     filteredHighlightedSourceOption === value
             ),
         ],

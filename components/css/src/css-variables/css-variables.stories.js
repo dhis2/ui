@@ -17,7 +17,7 @@ export default {
     parameters: { docs: { description: { component: description } } },
 }
 
-export const AllVariables = args => (
+export const AllVariables = (args) => (
     <App>
         <CssVariables {...args} />
 
@@ -42,7 +42,7 @@ AllVariables.args = {
     elevations: true,
 }
 
-export const NoVariables = args => (
+export const NoVariables = (args) => (
     <App>
         <CssVariables {...args} />
 

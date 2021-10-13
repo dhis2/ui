@@ -20,7 +20,7 @@ const Chip = ({
     dataTest,
 }) => (
     <span
-        onClick={e => {
+        onClick={(e) => {
             if (!disabled && onClick) {
                 onClick({}, e)
             }

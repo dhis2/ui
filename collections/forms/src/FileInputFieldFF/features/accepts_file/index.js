@@ -20,7 +20,7 @@ When('more than one files are provided', () => {
 })
 
 Then('the form state contains that file', () => {
-    cy.window().then(win => {
+    cy.window().then((win) => {
         const { fileTxt } = win.formValues
         expect(fileTxt).to.have.lengthOf(1)
 
@@ -30,7 +30,7 @@ Then('the form state contains that file', () => {
 })
 
 Then('the form state contains those files', () => {
-    cy.window().then(win => {
+    cy.window().then((win) => {
         const { fileJpgs } = win.formValues
         expect(fileJpgs).to.have.lengthOf(2)
 

@@ -144,7 +144,7 @@ SingleSelect.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     /** Text on button that clears selection. Required if `clearable` prop is true */
-    clearText: requiredIf(props => props.clearable, PropTypes.string),
+    clearText: requiredIf((props) => props.clearable, PropTypes.string),
     /** Adds a button to clear selection */
     clearable: PropTypes.bool,
     dataTest: PropTypes.string,
@@ -163,7 +163,7 @@ SingleSelect.propTypes = {
     loadingText: PropTypes.string,
     maxHeight: PropTypes.string,
     /** Text to show when filter returns no results. Required if `filterable` prop is true */
-    noMatchText: requiredIf(props => props.filterable, PropTypes.string),
+    noMatchText: requiredIf((props) => props.filterable, PropTypes.string),
     placeholder: PropTypes.string,
     prefix: PropTypes.string,
     selected: PropTypes.string,

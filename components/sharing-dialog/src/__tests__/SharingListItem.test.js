@@ -19,7 +19,7 @@ describe('SharingDialog widget - SharingListItem component', () => {
     const onChange = jest.fn()
     const onRemove = jest.fn()
 
-    const getSharingListItemComponent = props => {
+    const getSharingListItemComponent = (props) => {
         if (!shallowSharingListItemComponent) {
             shallowSharingListItemComponent = shallow(
                 <SharingListItem {...props} />

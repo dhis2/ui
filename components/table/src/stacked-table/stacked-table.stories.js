@@ -28,7 +28,7 @@ import {
 \`\`\`
 `
 
-const CustomCell = props => (
+const CustomCell = (props) => (
     <td>
         Received props:
         <code>
@@ -43,7 +43,7 @@ export default {
     parameters: { docs: { description: { component: description } } },
 }
 
-export const Default = args => (
+export const Default = (args) => (
     <StackedTable {...args}>
         <StackedTableHead>
             <StackedTableRowHead>
@@ -79,7 +79,7 @@ export const Default = args => (
     </StackedTable>
 )
 
-export const HiddenLabel = args => (
+export const HiddenLabel = (args) => (
     <StackedTable {...args}>
         <StackedTableHead>
             <StackedTableRowHead>
@@ -115,7 +115,7 @@ export const HiddenLabel = args => (
     </StackedTable>
 )
 
-export const HiddenLabelInCell = args => (
+export const HiddenLabelInCell = (args) => (
     <StackedTable {...args}>
         <StackedTableHead>
             <StackedTableRowHead>
@@ -161,7 +161,7 @@ export const HiddenLabelInCell = args => (
     </StackedTable>
 )
 
-export const ColspanInHeader = args => (
+export const ColspanInHeader = (args) => (
     <StackedTable {...args}>
         <StackedTableHead>
             <StackedTableRowHead>
@@ -189,7 +189,7 @@ export const ColspanInHeader = args => (
     </StackedTable>
 )
 
-export const ColspanInBody = args => (
+export const ColspanInBody = (args) => (
     <StackedTable {...args}>
         <StackedTableHead>
             <StackedTableRowHead>
@@ -231,7 +231,7 @@ export const ColspanInBody = args => (
     </StackedTable>
 )
 
-export const MultipleHeaderRows = args => (
+export const MultipleHeaderRows = (args) => (
     <StackedTable {...args}>
         <StackedTableHead>
             <StackedTableRowHead>
@@ -264,7 +264,7 @@ export const MultipleHeaderRows = args => (
     </StackedTable>
 )
 
-export const LongTitle = args => (
+export const LongTitle = (args) => (
     <StackedTable {...args}>
         <StackedTableHead>
             <StackedTableRowHead>
@@ -292,7 +292,7 @@ export const LongTitle = args => (
     </StackedTable>
 )
 
-export const _CustomCell = args => (
+export const _CustomCell = (args) => (
     <StackedTable {...args}>
         <StackedTableHead>
             <StackedTableRowHead>
@@ -310,7 +310,7 @@ export const _CustomCell = args => (
     </StackedTable>
 )
 
-export const CustomCellTitle = args => (
+export const CustomCellTitle = (args) => (
     <StackedTable {...args}>
         <StackedTableHead>
             <StackedTableRowHead>
@@ -330,7 +330,7 @@ export const CustomCellTitle = args => (
     </StackedTable>
 )
 
-export const LargerTable = args => (
+export const LargerTable = (args) => (
     <StackedTable {...args}>
         <StackedTableHead>
             <StackedTableRowHead>

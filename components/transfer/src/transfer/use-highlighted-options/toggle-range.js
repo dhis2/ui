@@ -25,7 +25,7 @@ export const toggleRange = ({
 
         const clickedOptionIndex = findOptionIndex(options, option)
         const lastClickedSourceOptionWithoutRangeModeIndex = lastClicked
-            ? options.findIndex(curOption => curOption.value === lastClicked)
+            ? options.findIndex((curOption) => curOption.value === lastClicked)
             : -1
 
         if (lastClickedSourceOptionWithoutRangeModeIndex !== -1) {
@@ -35,9 +35,9 @@ export const toggleRange = ({
             /**
              * A filter-change has removed the most recently highlighted option
              */
-            const firstHighlightedInList = options.findIndex(option =>
+            const firstHighlightedInList = options.findIndex((option) =>
                 highlightedOptions.find(
-                    highlightedOption => highlightedOption === option.value
+                    (highlightedOption) => highlightedOption === option.value
                 )
             )
 
@@ -52,7 +52,7 @@ export const toggleRange = ({
         const higher = Math.max(from, to)
         const newHighlightedSourceOptions = options
             .slice(lower, higher + 1)
-            .filter(option => !option.disabled)
+            .filter((option) => !option.disabled)
             .slice(maxSelections * -1)
             .map(({ value }) => value)
 

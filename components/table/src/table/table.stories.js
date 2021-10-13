@@ -62,7 +62,7 @@ export default {
     },
 }
 
-export const StaticLayout = args => (
+export const StaticLayout = (args) => (
     <Table {...args}>
         <TableHead>
             <TableRowHead>
@@ -188,7 +188,7 @@ export const StaticLayout = args => (
     </Table>
 )
 
-export const OneDenseCell = args => (
+export const OneDenseCell = (args) => (
     <Table {...args}>
         <TableHead>
             <TableRowHead>
@@ -334,7 +334,7 @@ export const OneDenseCell = args => (
     </Table>
 )
 
-export const NoAlternatingBgColor = args => (
+export const NoAlternatingBgColor = (args) => (
     <Table {...args}>
         <TableHead>
             <TableRowHead>

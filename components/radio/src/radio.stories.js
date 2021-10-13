@@ -66,9 +66,9 @@ export default {
     },
 }
 
-const Template = args => <Radio {...args} />
+const Template = (args) => <Radio {...args} />
 
-const CheckedUncheckedTemplate = args => (
+const CheckedUncheckedTemplate = (args) => (
     <>
         <Radio {...args} />
         <Radio {...args} checked />
@@ -77,7 +77,7 @@ const CheckedUncheckedTemplate = args => (
 
 export const Default = Template.bind({})
 
-export const FocusedUnchecked = args => (
+export const FocusedUnchecked = (args) => (
     <>
         <Radio {...args} initialFocus className="initially-focused" />
         <Radio {...args} className="initially-unfocused" />

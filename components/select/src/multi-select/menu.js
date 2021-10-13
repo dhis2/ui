@@ -46,7 +46,7 @@ const Menu = ({ options, onChange, selected, empty, dataTest }) => {
         return empty
     }
 
-    const children = React.Children.map(options, child => {
+    const children = React.Children.map(options, (child) => {
         const isValidOption = checkIfValidOption(child)
 
         // Return early if the child isn't an option, to prevent attaching handlers etc.

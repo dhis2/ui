@@ -1,4 +1,4 @@
-import '../common'
+import '../common/index.js'
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a SingleSelect with a placeholder and no selection is rendered', () => {

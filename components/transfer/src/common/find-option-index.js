@@ -6,4 +6,4 @@ import { isOption } from './is-option.js'
  * @returns {Int}
  */
 export const findOptionIndex = (options, option) =>
-    options.findIndex(current => isOption(current, option))
+    options.findIndex((current) => isOption(current, option))

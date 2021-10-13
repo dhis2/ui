@@ -31,7 +31,7 @@ storiesOf('AlertBar', module)
     .add('Permanent', () => <AlertBar permanent>Message</AlertBar>)
     .add('Hidden prop', () => {
         const [hidden, setHidden] = useState(true)
-        const toggleVisibility = () => setHidden(prevHidden => !prevHidden)
+        const toggleVisibility = () => setHidden((prevHidden) => !prevHidden)
         return (
             <React.Fragment>
                 <button

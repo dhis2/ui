@@ -9,7 +9,7 @@ When('the user clicks on the remove text', () => {
 })
 
 Then('the onRemove handler is called', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onRemove).to.be.calledWith({})
     })
 })

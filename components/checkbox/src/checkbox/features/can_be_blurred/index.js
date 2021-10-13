@@ -9,7 +9,7 @@ When('the Checkbox is blurred', () => {
 })
 
 Then('the onBlur handler is called', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onBlur).to.be.calledWith({
             value: 'default',
             name: 'Ex',

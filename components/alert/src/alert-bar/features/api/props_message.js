@@ -1,4 +1,4 @@
-import '../common/index'
+import '../common/index.js'
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('an AlertBar with a message is rendered', () => {

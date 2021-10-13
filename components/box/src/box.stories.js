@@ -15,7 +15,7 @@ export default {
     parameters: { docs: { description: { component: description } } },
 }
 
-const Template = args => <Box {...args} />
+const Template = (args) => <Box {...args} />
 
 export const Default = Template.bind({})
 Default.args = { children: 'I am a child in a Box.' }

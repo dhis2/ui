@@ -56,9 +56,9 @@ export default {
     },
 }
 
-const Template = args => <Switch {...args} />
+const Template = (args) => <Switch {...args} />
 
-const CheckedUncheckedTemplate = args => (
+const CheckedUncheckedTemplate = (args) => (
     <>
         <Switch {...args} />
         <Switch {...args} checked />
@@ -67,7 +67,7 @@ const CheckedUncheckedTemplate = args => (
 
 export const Default = Template.bind({})
 
-export const FocusedUnchecked = args => (
+export const FocusedUnchecked = (args) => (
     <>
         <Switch {...args} initialFocus className="initially-focused" />
         <Switch {...args} className="initially-unfocused" />

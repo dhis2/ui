@@ -1,5 +1,5 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { extractOptionFromElement } from '../common'
+import { extractOptionFromElement } from '../common/index.js'
 
 Given('the option list has one or more items', () => {
     cy.visitStory('Transfer highlight range of options', 'Has Options')
@@ -80,9 +80,9 @@ Given('there are at least two options following the highlighted option', () => {
 Given('several options are highlighted', () => {
     cy.get('@list')
         .find('{transferoption}')
-        .then($option => $option.eq(0).add($option.eq(4)).add($option.eq(6)))
+        .then(($option) => $option.eq(0).add($option.eq(4)).add($option.eq(6)))
         .as('initiallyHighlightedMultiple')
-        .each($option => cy.wrap($option).clickWith('ctrl'))
+        .each(($option) => cy.wrap($option).clickWith('ctrl'))
 })
 
 Given(
@@ -136,7 +136,7 @@ When(
     }
 )
 
-When('the user {string} clicks a highlighted option', modifierKey => {
+When('the user {string} clicks a highlighted option', (modifierKey) => {
     cy.get('@initiallyHighlightedMultiple')
         .eq(0)
         .clickWith(modifierKey)

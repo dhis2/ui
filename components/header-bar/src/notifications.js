@@ -14,7 +14,7 @@ import { NotificationIcon } from './notification-icon.js'
 const hasAuthority = (userAuthorities, authId) =>
     Array.isArray(userAuthorities) &&
     userAuthorities.some(
-        userAuthId => userAuthId === 'ALL' || userAuthId === authId
+        (userAuthId) => userAuthId === 'ALL' || userAuthId === authId
     )
 
 export const Notifications = ({

@@ -2,8 +2,8 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import i18n from './locales/index.js'
-import { PageControls } from './page-controls'
-import { PageSelect } from './page-select'
+import { PageControls } from './page-controls.js'
+import { PageSelect } from './page-select.js'
 import { PageSizeSelect } from './page-size-select.js'
 import { PageSummary } from './page-summary.js'
 
@@ -93,7 +93,7 @@ Pagination.defaultProps = {
     nextPageText: () => i18n.t('Next'),
     pageSelectText: () => i18n.t('Page'),
     pageSizeSelectText: () => i18n.t('Items per page'),
-    pageSummaryText: interpolationObject =>
+    pageSummaryText: (interpolationObject) =>
         i18n.t(
             'Page {{page}} of {{pageCount}}, items {{firstItem}}-{{lastItem}} of {{total}}',
             interpolationObject

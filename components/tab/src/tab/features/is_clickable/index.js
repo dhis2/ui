@@ -13,13 +13,13 @@ When('the Tab is clicked', () => {
 })
 
 Then('the onClick handler is called', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onClick).to.be.calledWith({})
     })
 })
 
 Then('the onClick handler is not called', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onClick).not.to.be.called
     })
 })

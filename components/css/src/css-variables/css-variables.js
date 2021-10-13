@@ -2,14 +2,14 @@ import * as theme from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const toPrefixedThemeSection = themeSectionKey =>
+const toPrefixedThemeSection = (themeSectionKey) =>
     Object.entries(theme[themeSectionKey]).reduce((prefixed, [key, value]) => {
         prefixed[`${themeSectionKey}-${key}`] = value
 
         return prefixed
     }, {})
 
-const toCustomPropertyString = themeSection =>
+const toCustomPropertyString = (themeSection) =>
     Object.entries(themeSection)
         .map(([key, value]) => `--${key}: ${value};`)
         .join('\n')
@@ -18,7 +18,7 @@ const CssVariables = ({ colors, theme, layers, spacers, elevations }) => {
     const allowedProps = { colors, theme, layers, spacers, elevations }
     const variables = Object.keys(allowedProps)
         // Filter all props that are false
-        .filter(prop => allowedProps[prop])
+        .filter((prop) => allowedProps[prop])
         // Map props to corresponding theme section and prefixes keys with section name
         .map(toPrefixedThemeSection)
         // Map each section to a single string of css custom property declarations

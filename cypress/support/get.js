@@ -1,4 +1,4 @@
-import { parseSelectorWithDataTest } from './common/parseSelectorWithDataTest'
+import { parseSelectorWithDataTest } from './common/parseSelectorWithDataTest.js'
 
 /**
  * Takes a space-separated list of dataTestIds and wraps & prefixes them

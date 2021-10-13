@@ -97,7 +97,7 @@ TableHeaderCell.propTypes = {
     fixed: PropTypes.bool,
     large: PropTypes.bool,
     /** Left or top required when fixed */
-    left: requiredIf(props => props.fixed && !props.top, PropTypes.string),
+    left: requiredIf((props) => props.fixed && !props.top, PropTypes.string),
     /** Mutually exclusive with error and valid */
     muted: stylePropType,
     role: PropTypes.string,
@@ -106,7 +106,7 @@ TableHeaderCell.propTypes = {
     /** Surpress hover and active event styles */
     staticStyle: PropTypes.bool,
     /** Left or top required when fixed */
-    top: requiredIf(props => props.fixed && !props.left, PropTypes.string),
+    top: requiredIf((props) => props.fixed && !props.left, PropTypes.string),
     /** Mutually exclusive with error and muted */
     valid: stylePropType,
     width: PropTypes.string,

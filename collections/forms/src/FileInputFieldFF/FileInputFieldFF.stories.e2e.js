@@ -64,7 +64,7 @@ const StandardForm = ({ values }) => {
                     required={values.subscribe}
                     label="E-mail address"
                     name="email1"
-                    validate={composeValidators(email, value => {
+                    validate={composeValidators(email, (value) => {
                         if (values.subscribe && !value) {
                             return 'You need to provide an e-mail address'
                         }
@@ -214,7 +214,7 @@ const StandardForm = ({ values }) => {
                 accept=".txt"
                 label="If you want to send us a txt file, please attach it here"
                 className="fileTxt"
-                validate={files => {
+                validate={(files) => {
                     if (!files) {
                         return undefined
                     }
@@ -232,7 +232,7 @@ const StandardForm = ({ values }) => {
                 accept="image/jpg"
                 name="fileJpgs"
                 label="If you want to send us some picture file, please attach it here"
-                validate={files => {
+                validate={(files) => {
                     if (!files) {
                         return undefined
                     }

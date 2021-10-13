@@ -1,4 +1,4 @@
-import '../common/index'
+import '../common/index.js'
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a TextArea with onChange handler is rendered', () => {
@@ -10,7 +10,7 @@ When('the TextArea is filled with a character', () => {
 })
 
 Then('the onChange handler is called', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onChange).to.be.calledWith({
             value: 'a',
             name: 'textarea',

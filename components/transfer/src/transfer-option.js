@@ -20,7 +20,7 @@ export const TransferOption = ({
     return (
         <div
             data-test={dataTest}
-            onClick={event => {
+            onClick={(event) => {
                 if (disabled) {
                     return
                 }

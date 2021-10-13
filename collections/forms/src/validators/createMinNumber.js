@@ -1,7 +1,7 @@
 import i18n from '../locales/index.js'
 import { createNumberRange } from './createNumberRange.js'
 
-const createMinNumber = lowerBound =>
+const createMinNumber = (lowerBound) =>
     createNumberRange(
         lowerBound,
         Infinity,

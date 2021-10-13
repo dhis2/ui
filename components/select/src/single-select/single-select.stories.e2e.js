@@ -11,7 +11,7 @@ window.onFocus = window.Cypress && window.Cypress.cy.stub()
 window.onBlur = window.Cypress && window.Cypress.cy.stub()
 
 const CustomSingleSelectOption = ({ label, onClick }) => (
-    <div onClick={e => onClick({}, e)}>{label}</div>
+    <div onClick={(e) => onClick({}, e)}>{label}</div>
 )
 
 CustomSingleSelectOption.propTypes = {

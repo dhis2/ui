@@ -75,7 +75,7 @@ const stylePropType = mutuallyExclusive(
     PropTypes.bool
 )
 const requiredIfFixedPropType = requiredIf(
-    props => props.fixed,
+    (props) => props.fixed,
     PropTypes.string
 )
 DataTableCell.propTypes = {

@@ -1,4 +1,4 @@
-import '../common'
+import '../common/index.js'
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
 const TOOLTIP_OFFSET = 4

@@ -5,7 +5,7 @@ import { Layer } from './layer.js'
 window.onButtonClick = window.Cypress && window.Cypress.cy.stub()
 window.onLayerClick = window.Cypress && window.Cypress.cy.stub()
 
-const createNamedLayerClick = name => () => {
+const createNamedLayerClick = (name) => () => {
     window.onLayerClick(name)
 }
 

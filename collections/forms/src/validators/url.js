@@ -7,7 +7,7 @@ const URL_PATTERN =
 
 const invalidUrlMessage = i18n.t('Please provide a valid url')
 
-const url = value =>
+const url = (value) =>
     isEmpty(value) || (isString(value) && URL_PATTERN.test(value))
         ? undefined
         : invalidUrlMessage

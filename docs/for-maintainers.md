@@ -60,7 +60,7 @@ Make sure you add the `component` property to the default export of the stories 
 To take advantage of Controls and enable 'dynamic' JSX-style code snippets in the Docs Page, make sure you use the '[Component Story Format](https://storybook.js.org/docs/react/api/csf)' and the `args` syntax. For an individual story, that looks like this:
 
 ```js
-export const DefaultStory = args => <Button {...args} />
+export const DefaultStory = (args) => <Button {...args} />
 ```
 
 The Controls addon will automatically set up the props control table, which will dynamically change the component props via the `args`. There are options to customize the controls for the purposes of complex components or some prop types - see more in the 'Making sure propTypes are correctly documented' section below.
@@ -78,7 +78,7 @@ Example:
 ```js
 const onClick = (...args) => console.log('onClick args:', ...args)
 
-export const Button = args => <Button {...args} />
+export const Button = (args) => <Button {...args} />
 Button.args = { onClick: onClick }
 ```
 
@@ -131,7 +131,7 @@ To keep stories concise and DRY, you can reuse a story template (that uses the `
 
 ```js
 // The story template
-const Template = args => <Button {...args} />
+const Template = (args) => <Button {...args} />
 
 // Stories to render
 export const Primary = Template.bind({}) // Makes a copy of the template
@@ -170,7 +170,7 @@ See this example from the Popper component:
 
 ```js
 // Popper.stories.js
-const Template = args => {
+const Template = (args) => {
     const ref = useRef(null)
 
     return (
@@ -201,7 +201,7 @@ Here is an easy, 'good-enough' solution for variations on a single component:
 Apply `{...args}` to each one, then hard-code the prop of interest after the args. The hard-coded prop will take precedent over `args` and won't be controllable with the Controls addon, but all other props will be.
 
 ```js
-export const ButtonSizes = args => (
+export const ButtonSizes = (args) => (
     <>
         <Button {...args} small />
         <Button {...args} />

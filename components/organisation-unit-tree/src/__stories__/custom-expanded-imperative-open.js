@@ -42,7 +42,7 @@ export const CustomExpandedImperativeOpen = () => {
             return setExpanded(nextPaths)
         }
 
-        setExpanded(expanded.filter(v => v !== '/A0000000000/A0000000001'))
+        setExpanded(expanded.filter((v) => v !== '/A0000000000/A0000000001'))
     }
 
     return (

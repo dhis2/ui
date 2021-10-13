@@ -17,7 +17,7 @@ export default {
     parameters: { docs: { description: { component: description } } },
 }
 
-const Template = args => (
+const Template = (args) => (
     <div
         style={{
             width: '400px',

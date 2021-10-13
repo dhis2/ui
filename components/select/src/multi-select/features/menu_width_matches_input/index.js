@@ -1,9 +1,9 @@
-import '../common'
+import '../common/index.js'
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a MultiSelect with hidden sibling elements', () => {
     cy.visitStory('MultiSelect', 'Menu width changing')
-    cy.get('[data-test="dhis2-uicore-multiselect"]').then($el => {
+    cy.get('[data-test="dhis2-uicore-multiselect"]').then(($el) => {
         cy.wrap($el.outerWidth()).as('originalWidth')
     })
 })
@@ -14,7 +14,7 @@ Then('the siblings are displayed', () => {
     cy.get('.toggler').should('exist').and('have.length', 2)
 })
 Then('the menu width has decreased', () => {
-    cy.get('[data-test="dhis2-uicore-multiselect"]').then($el => {
+    cy.get('[data-test="dhis2-uicore-multiselect"]').then(($el) => {
         const newWidth = $el.outerWidth()
         cy.get('@originalWidth').should('be.greaterThan', newWidth)
     })

@@ -1,4 +1,4 @@
-import '../common/index'
+import '../common/index.js'
 import { Given, Then, When } from 'cypress-cucumber-preprocessor/steps'
 import { getInitials } from '../../user-icon/text-icon.js'
 

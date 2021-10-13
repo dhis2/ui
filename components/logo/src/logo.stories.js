@@ -9,7 +9,7 @@ import { Logo, LogoWhite, LogoIcon, LogoIconWhite } from '@dhis2/ui'
 \`\`\`
 `
 
-const Wrapper = fn => <div style={{ width: '358px' }}>{fn()}</div>
+const Wrapper = (fn) => <div style={{ width: '358px' }}>{fn()}</div>
 
 const Background = ({ children }) => (
     <div style={{ backgroundColor: '#276696' }}>{children}</div>
@@ -22,9 +22,9 @@ export default {
     parameters: { docs: { description: { component: description } } },
 }
 
-export const _Logo = args => <Logo {...args} />
+export const _Logo = (args) => <Logo {...args} />
 
-export const _LogoWhite = args => (
+export const _LogoWhite = (args) => (
     <Background>
         <LogoWhite {...args} />
     </Background>
@@ -37,7 +37,7 @@ _LogoWhite.parameters = {
     },
 }
 
-export const _LogoIcon = args => <LogoIcon {...args} />
+export const _LogoIcon = (args) => <LogoIcon {...args} />
 _LogoIcon.parameters = {
     docs: {
         description: {
@@ -46,7 +46,7 @@ _LogoIcon.parameters = {
     },
 }
 
-export const _LogoIconWhite = args => (
+export const _LogoIconWhite = (args) => (
     <Background>
         <LogoIconWhite {...args} />
     </Background>
