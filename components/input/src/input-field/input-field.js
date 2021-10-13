@@ -33,6 +33,7 @@ class InputField extends React.Component {
             helpText,
             validationText,
             inputWidth,
+            autoComplete,
             dataTest,
         } = this.props
 
@@ -71,6 +72,7 @@ class InputField extends React.Component {
                         tabIndex={tabIndex}
                         initialFocus={initialFocus}
                         readOnly={readOnly}
+                        autoComplete={autoComplete}
                     />
                 </Box>
             </Field>
@@ -83,6 +85,8 @@ InputField.defaultProps = {
 }
 
 InputField.propTypes = {
+    /** The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete) */
+    autoComplete: PropTypes.string,
     className: PropTypes.string,
     dataTest: PropTypes.string,
     /** Makes the input smaller */

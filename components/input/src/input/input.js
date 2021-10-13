@@ -162,6 +162,7 @@ export class Input extends Component {
             max,
             min,
             step,
+            autoComplete,
             dataTest,
         } = this.props
 
@@ -181,6 +182,7 @@ export class Input extends Component {
                     disabled={disabled}
                     readOnly={readOnly}
                     tabIndex={tabIndex}
+                    autoComplete={autoComplete}
                     onFocus={this.handleFocus}
                     onBlur={this.handleBlur}
                     onChange={this.handleChange}
@@ -220,6 +222,8 @@ Input.defaultProps = {
 }
 
 Input.propTypes = {
+    /** The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete) */
+    autoComplete: PropTypes.string,
     className: PropTypes.string,
     dataTest: PropTypes.string,
     /** Makes the input smaller */
