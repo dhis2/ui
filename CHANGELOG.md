@@ -1,3 +1,10 @@
+# [7.3.0](https://github.com/dhis2/ui/compare/v7.2.8...v7.3.0) (2021-10-13)
+
+
+### Features
+
+* **table:** loading state for DataTableBody ([#800](https://github.com/dhis2/ui/issues/800)) ([dbae161](https://github.com/dhis2/ui/commit/dbae161fe8e4a3554f9851fc6fd51b7778c9db22))
+
 ## [7.2.8](https://github.com/dhis2/ui/compare/v7.2.7...v7.2.8) (2021-10-07)
 
 
