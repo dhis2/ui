@@ -1,3 +1,10 @@
+# [7.4.0](https://github.com/dhis2/ui/compare/v7.3.0...v7.4.0) (2021-10-13)
+
+
+### Features
+
+* **org unit tree:** add option to control expanded paths ([#798](https://github.com/dhis2/ui/issues/798)) ([cbb2314](https://github.com/dhis2/ui/commit/cbb23146ab23a292dcf71b2796bb583d808f7174))
+
 # [7.3.0](https://github.com/dhis2/ui/compare/v7.2.8...v7.3.0) (2021-10-13)
 
 
