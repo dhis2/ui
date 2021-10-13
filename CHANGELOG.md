@@ -1,3 +1,10 @@
+## [7.4.1](https://github.com/dhis2/ui/compare/v7.4.0...v7.4.1) (2021-10-13)
+
+
+### Bug Fixes
+
+* **input:** add autoComplete prop to Input and InputField ([#810](https://github.com/dhis2/ui/issues/810)) ([fe80e88](https://github.com/dhis2/ui/commit/fe80e88ddafc1748a1e45f4072a375fdf4255e02))
+
 # [7.4.0](https://github.com/dhis2/ui/compare/v7.3.0...v7.4.0) (2021-10-13)
 
 
