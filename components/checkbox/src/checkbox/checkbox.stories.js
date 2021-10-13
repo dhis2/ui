@@ -66,9 +66,9 @@ export default {
     },
 }
 
-const Template = args => <Checkbox {...args} />
+const Template = (args) => <Checkbox {...args} />
 
-const CheckedUncheckedTemplate = args => (
+const CheckedUncheckedTemplate = (args) => (
     <>
         <Checkbox {...args} />
         <Checkbox checked {...args} />
@@ -78,7 +78,7 @@ const CheckedUncheckedTemplate = args => (
 export const Default = Template.bind({})
 Default.args = { value: 'default' }
 
-export const FocusedUnchecked = args => (
+export const FocusedUnchecked = (args) => (
     <>
         <Checkbox
             initialFocus
@@ -96,7 +96,7 @@ FocusedUnchecked.storyName = 'Focused unchecked'
  */
 FocusedUnchecked.parameters = { docs: { disable: true } }
 
-export const FocusedChecked = args => (
+export const FocusedChecked = (args) => (
     <>
         <Checkbox initialFocus checked value="default" {...args} />
         <Checkbox checked value="default2" {...args} />

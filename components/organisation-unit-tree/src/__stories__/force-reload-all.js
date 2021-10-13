@@ -5,7 +5,7 @@ import { onChange } from './shared.js'
 
 export const ForceReloadAll = () => {
     const [forceReload, _setForceReload] = useState(false)
-    const setForceReload = v =>
+    const setForceReload = (v) =>
         console.log('setForceReload', v) || _setForceReload(v)
 
     return (
@@ -22,7 +22,7 @@ export const ForceReloadAll = () => {
                     roots={['A0000000000']}
                     initiallyExpanded={['/A0000000000/A0000000001']}
                     selected={['/A0000000000/A0000000001/A0000000003']}
-                    onChildrenLoaded={data => {
+                    onChildrenLoaded={(data) => {
                         const { id } = data
                         if (id === 'A0000000000') {
                             setForceReload(false)

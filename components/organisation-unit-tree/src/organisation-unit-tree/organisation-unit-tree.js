@@ -75,7 +75,7 @@ const OrganisationUnitTree = ({
             {loading && <RootLoading dataTest={dataTest} />}
             {!error &&
                 !loading &&
-                rootIds.map(rootId => {
+                rootIds.map((rootId) => {
                     const rootNode = data[rootId]
                     const rootPath = `/${rootId}`
 
@@ -129,7 +129,7 @@ OrganisationUnitTree.propTypes = {
     disableSelection: PropTypes.bool,
 
     expanded: requiredIf(
-        props => !!props.handleExpand || !!props.handleCollapse,
+        (props) => !!props.handleExpand || !!props.handleCollapse,
         PropTypes.arrayOf(PropTypes.string)
     ),
 
@@ -143,12 +143,12 @@ OrganisationUnitTree.propTypes = {
     forceReload: PropTypes.bool,
 
     handleCollapse: requiredIf(
-        props => !!props.expanded || !!props.handleExpand,
+        (props) => !!props.expanded || !!props.handleExpand,
         PropTypes.func
     ),
 
     handleExpand: requiredIf(
-        props => !!props.expanded || !!props.handleCollapse,
+        (props) => !!props.expanded || !!props.handleCollapse,
         PropTypes.func
     ),
 

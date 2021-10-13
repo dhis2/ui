@@ -1,5 +1,5 @@
 import { createMaxNumber } from '../createMaxNumber.js'
-import { testValidatorValues } from '../test-helpers'
+import { testValidatorValues } from '../test-helpers/index.js'
 
 describe('validator: createMaxNumber', () => {
     const maxSix = createMaxNumber(6)

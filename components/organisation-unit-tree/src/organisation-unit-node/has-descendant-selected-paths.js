@@ -8,6 +8,6 @@
  */
 export const hasDescendantSelectedPaths = (path, selected) =>
     selected.some(
-        selectedPath =>
+        (selectedPath) =>
             selectedPath !== path && selectedPath.indexOf(path) === 0
     )

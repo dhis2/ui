@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react'
  * @param {bool} forceReload
  * @returns {Int}
  */
-export const useForceReload = forceReload => {
+export const useForceReload = (forceReload) => {
     const [reloadId, setReloadId] = useState(0)
 
     useEffect(() => {

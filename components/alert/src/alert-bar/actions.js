@@ -11,7 +11,7 @@ const Actions = ({ actions, hide, dataTest }) => {
 
     return (
         <div>
-            {actions.map(action => (
+            {actions.map((action) => (
                 <Action
                     key={action.label}
                     {...action}

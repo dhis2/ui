@@ -12,7 +12,7 @@ describe('SharingDialog widget - ShareBlock component', () => {
 
     const onAdd = jest.fn()
 
-    const getShareBlockComponent = props => {
+    const getShareBlockComponent = (props) => {
         if (!shallowShareBlockComponent) {
             shallowShareBlockComponent = mount(<ShareBlock {...props} />, {
                 wrappingComponent: CustomDataProvider,

@@ -18,7 +18,7 @@ import { MultiSelect, MultiSelectOption } from '@dhis2/ui'
 _**Note:** Due to demo limitations on this page, only one representative example is rendered here. For more (props-interactive) examples, see individual stories in the 'Canvas' tab._
 `
 
-const eventHandler = handlerName => (payload, event) => {
+const eventHandler = (handlerName) => (payload, event) => {
     console.log(`${handlerName} payload`, payload)
     console.log(`${handlerName} event`, event)
 }
@@ -28,7 +28,7 @@ const onFocus = eventHandler('onFocus')
 const onBlur = eventHandler('onBlur')
 
 const CustomMultiSelectOption = ({ label, onClick }) => (
-    <div onClick={e => onClick({}, e)}>{label}</div>
+    <div onClick={(e) => onClick({}, e)}>{label}</div>
 )
 
 CustomMultiSelectOption.propTypes = {
@@ -65,7 +65,7 @@ export default {
     },
 }
 
-const WithOptionsTemplate = args => (
+const WithOptionsTemplate = (args) => (
     <MultiSelect {...args}>
         <MultiSelectOption value="1" label="option one" />
         <MultiSelectOption value="2" label="option two" />
@@ -73,7 +73,7 @@ const WithOptionsTemplate = args => (
     </MultiSelect>
 )
 
-const EmptyTemplate = args => <MultiSelect {...args} />
+const EmptyTemplate = (args) => <MultiSelect {...args} />
 
 export const WithOptionsAndOnChange = WithOptionsTemplate.bind({})
 WithOptionsAndOnChange.storyName = 'With options and onChange'
@@ -92,7 +92,7 @@ export const WithOnBlur = WithOptionsTemplate.bind({})
 WithOnBlur.args = { onBlur }
 WithOnBlur.storyName = 'With onBlur'
 
-export const WithCustomOptionsAndOnChange = args => (
+export const WithCustomOptionsAndOnChange = (args) => (
     <MultiSelect {...args}>
         <CustomMultiSelectOption value="1" label="option one" />
         <CustomMultiSelectOption value="2" label="option two" />
@@ -101,7 +101,7 @@ export const WithCustomOptionsAndOnChange = args => (
 )
 WithCustomOptionsAndOnChange.storyName = 'With custom options and onChange'
 
-export const WithInvalidOptions = args => (
+export const WithInvalidOptions = (args) => (
     <MultiSelect {...args}>
         <div>invalid one</div>
         <MultiSelectOption value="1" label="option one" />
@@ -115,7 +115,7 @@ export const WithInvalidOptions = args => (
     </MultiSelect>
 )
 
-export const WithInvalidFilterableOptions = args => (
+export const WithInvalidFilterableOptions = (args) => (
     <MultiSelect {...args}>
         <div>invalid one</div>
         <MultiSelectOption value="1" label="option one" />
@@ -156,7 +156,7 @@ WithOptionsLoadingAndLoadingText.args = {
 WithOptionsLoadingAndLoadingText.storyName =
     'With options, loading and loading text'
 
-export const WithMoreThanTenOptions = args => (
+export const WithMoreThanTenOptions = (args) => (
     <MultiSelect {...args}>
         <MultiSelectOption value="1" label="option one" />
         <MultiSelectOption value="2" label="option two" />
@@ -173,7 +173,7 @@ export const WithMoreThanTenOptions = args => (
     </MultiSelect>
 )
 
-export const WithMoreThanThreeOptionsAndA100PxMaxHeight = args => (
+export const WithMoreThanThreeOptionsAndA100PxMaxHeight = (args) => (
     <MultiSelect {...args}>
         <MultiSelectOption value="1" label="option one" />
         <MultiSelectOption value="2" label="option two" />
@@ -223,7 +223,7 @@ WithPlaceholderAndSelection.args = {
     ...WithOptionsAndASelection.args,
 }
 
-export const WithDisabledOptionAndOnChange = args => (
+export const WithDisabledOptionAndOnChange = (args) => (
     <MultiSelect {...args}>
         <MultiSelectOption value="1" label="option one" />
         <MultiSelectOption value="2" label="option two" />
@@ -248,7 +248,7 @@ WithClearButtonSelectionAndOnChange.storyName =
 export const WithFilterField = WithOptionsTemplate.bind({})
 WithFilterField.args = { ...WithInvalidFilterableOptions.args }
 
-export const DefaultPosition = args => (
+export const DefaultPosition = (args) => (
     <>
         <MultiSelect {...args}>
             <MultiSelectOption value="1" label="option one" />
@@ -272,7 +272,7 @@ export const DefaultPosition = args => (
     </>
 )
 
-export const FlippedPosition = args => (
+export const FlippedPosition = (args) => (
     <>
         <MultiSelect {...args}>
             <MultiSelectOption value="1" label="option one" />
@@ -303,7 +303,7 @@ export const FlippedPosition = args => (
     </>
 )
 
-export const ShiftedIntoView = args => (
+export const ShiftedIntoView = (args) => (
     <>
         <MultiSelect {...args}>
             <MultiSelectOption value="1" label="option one" />

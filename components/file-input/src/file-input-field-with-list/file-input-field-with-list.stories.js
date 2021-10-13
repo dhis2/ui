@@ -38,7 +38,7 @@ export default {
     },
 }
 
-const Template = args => <FileInputFieldWithList {...args} />
+const Template = (args) => <FileInputFieldWithList {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

@@ -1,6 +1,6 @@
-import '../common'
-import '../positions'
-import '../visibility_toggling'
+import '../common/index.js'
+import '../positions/index.js'
+import '../visibility_toggling/index.js'
 import { Given, When, Then, And } from 'cypress-cucumber-preprocessor/steps'
 
 /**

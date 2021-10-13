@@ -35,9 +35,9 @@ class FileInputFieldWithList extends Component {
 
         return files
             .filter(
-                file =>
+                (file) =>
                     !newFiles.some(
-                        x =>
+                        (x) =>
                             x.name === file.name &&
                             x.lastModified === file.lastModified &&
                             x.size === file.size &&
@@ -52,7 +52,7 @@ class FileInputFieldWithList extends Component {
 
         onChange(
             {
-                files: files.filter(file => file !== fileToRemove),
+                files: files.filter((file) => file !== fileToRemove),
                 name,
             },
             event
@@ -112,7 +112,7 @@ class FileInputFieldWithList extends Component {
                 warning={warning}
             >
                 {files.length > 0 &&
-                    files.map(file => (
+                    files.map((file) => (
                         <FileListItemWithRemove
                             key={file.name}
                             label={file.name}

@@ -64,7 +64,7 @@ export class Select extends Component {
         this.inputRef.current.focus()
     }
 
-    onFocus = e => {
+    onFocus = (e) => {
         const { onFocus, disabled, selected } = this.props
 
         if (disabled || !onFocus) {
@@ -85,7 +85,7 @@ export class Select extends Component {
         this.setState({ open: false })
     }
 
-    onToggle = e => {
+    onToggle = (e) => {
         if (this.props.disabled) {
             return
         }
@@ -95,7 +95,7 @@ export class Select extends Component {
         this.state.open ? this.handleClose() : this.handleOpen()
     }
 
-    onOutsideClick = e => {
+    onOutsideClick = (e) => {
         const { onBlur, disabled, selected } = this.props
 
         if (disabled) {
@@ -109,7 +109,7 @@ export class Select extends Component {
         }
     }
 
-    onKeyDown = e => {
+    onKeyDown = (e) => {
         if (this.props.disabled) {
             return
         }

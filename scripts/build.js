@@ -30,7 +30,7 @@ const { uiPackages } = require(path.resolve(
 
 const packages = uiPackages({ absolute: true }).reduce((a, b) => a.concat(b))
 
-const commands = packages.map(p => {
+const commands = packages.map((p) => {
     const pkg = require(path.join(p, 'package.json'))
     return {
         name: path.basename(p),
@@ -51,7 +51,7 @@ concurrently([...commands], {
         console.log('Built UI successfully')
         process.exit(0)
     },
-    failure => {
+    (failure) => {
         console.log('Build error for UI')
         console.dir(failure, { depth: null })
         process.exit(1)

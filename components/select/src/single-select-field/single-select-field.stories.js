@@ -15,7 +15,7 @@ import { SingleSelectField, SingleSelectOption } from '@dhis2/ui'
 _**Note**: The dropdowns in some of the following stories won't appear correctly on this page. View these demos in the 'Canvas' tab._
 `
 
-const onChange = selected =>
+const onChange = (selected) =>
     alert(`Selected changed to: ${JSON.stringify(selected, null, 2)}`)
 
 const options = [
@@ -51,7 +51,7 @@ export default {
     },
 }
 
-const Template = args => <SingleSelectField {...args} />
+const Template = (args) => <SingleSelectField {...args} />
 
 export const Default = Template.bind({})
 

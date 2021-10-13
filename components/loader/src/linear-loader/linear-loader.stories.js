@@ -27,10 +27,10 @@ export default {
     argTypes: { margin: { table: { defaultValue: { summary: '12px' } } } },
 }
 
-export const Determinate = args => <LinearLoader {...args} />
+export const Determinate = (args) => <LinearLoader {...args} />
 Determinate.args = { amount: 60 }
 
-export const OverlayPage = args => (
+export const OverlayPage = (args) => (
     <Layer level={layers.blocking} translucent>
         <Center>
             <LinearLoader {...args} />
@@ -40,7 +40,7 @@ export const OverlayPage = args => (
 OverlayPage.args = { amount: 30 }
 OverlayPage.parameters = { docs: { inlineStories: false } }
 
-export const OverlayComponent = args => (
+export const OverlayComponent = (args) => (
     <div style={{ width: '400px', height: '400px' }}>
         <Cover translucent>
             <Center>

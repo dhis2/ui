@@ -53,7 +53,7 @@ import { TabBar, Tab } from '@dhis2/ui'
 \`\`\`
 `
 
-const Wrapper = fn => (
+const Wrapper = (fn) => (
     <div
         style={{
             maxWidth: 700,
@@ -82,7 +82,7 @@ export default {
     decorators: [Wrapper],
 }
 
-export const DefaultFluid = args => (
+export const DefaultFluid = (args) => (
     <TabBar {...args}>
         <Tab onClick={onClick}>Tab A</Tab>
         <Tab onClick={onClick}>Tab B</Tab>
@@ -97,7 +97,7 @@ export const DefaultFluid = args => (
 )
 DefaultFluid.storyName = 'Default (fluid)'
 
-export const FixedTabsFillContent = args => (
+export const FixedTabsFillContent = (args) => (
     <TabBar {...args}>
         <Tab onClick={onClick}>Tab A</Tab>
         <Tab onClick={onClick}>Tab B</Tab>
@@ -113,7 +113,7 @@ export const FixedTabsFillContent = args => (
 FixedTabsFillContent.args = { fixed: true }
 FixedTabsFillContent.storyName = 'Fixed - tabs fill content'
 
-export const TabsWithScroller = args => (
+export const TabsWithScroller = (args) => (
     <TabBar {...args}>
         <Tab onClick={onClick}>Tab A</Tab>
         <Tab onClick={onClick}>Tab B</Tab>
@@ -140,7 +140,7 @@ export const TabsWithScroller = args => (
 TabsWithScroller.args = { scrollable: true }
 TabsWithScroller.storyName = 'Tabs with scroller'
 
-export const TabsWithHiddenScrollButtons = args => (
+export const TabsWithHiddenScrollButtons = (args) => (
     <TabBar {...args}>
         <Tab onClick={onClick}>Tab A</Tab>
         <Tab onClick={onClick}>Tab B</Tab>
@@ -150,7 +150,7 @@ export const TabsWithHiddenScrollButtons = args => (
 TabsWithHiddenScrollButtons.args = { scrollable: true }
 TabsWithHiddenScrollButtons.storyName = 'Tabs with hidden scroll buttons'
 
-export const TabStates = args => (
+export const TabStates = (args) => (
     <TabBar {...args}>
         <Tab onClick={onClick}>Default</Tab>
         <Tab onClick={onClick} selected>
@@ -165,7 +165,7 @@ export const TabStates = args => (
 )
 TabStates.storyName = 'Tab states'
 
-export const TabStatesWithIcon = args => (
+export const TabStatesWithIcon = (args) => (
     <TabBar {...args}>
         <Tab onClick={onClick} icon={<AttachFile />}>
             Default

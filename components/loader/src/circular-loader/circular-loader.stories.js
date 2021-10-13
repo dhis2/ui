@@ -28,7 +28,7 @@ export default {
     },
 }
 
-const Template = args => <CircularLoader {...args} />
+const Template = (args) => <CircularLoader {...args} />
 
 export const Default = Template.bind({})
 

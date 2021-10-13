@@ -48,10 +48,10 @@ const [components] = uiPackages({ absolute: true })
  * https://github.com/dhis2/notes/discussions/154
  *
  */
-const hasDep = deps => (deps ? deps['@dhis2/d2-i18n'] : false)
+const hasDep = (deps) => (deps ? deps['@dhis2/d2-i18n'] : false)
 
 const commands = components
-    .map(p => {
+    .map((p) => {
         const pkg = require(path.join(p, 'package.json'))
 
         if (hasDep(pkg.dependencies) || hasDep(pkg.peerDependencies)) {
@@ -63,7 +63,7 @@ const commands = components
 
         return
     })
-    .filter(p => p)
+    .filter((p) => p)
 
 concurrently(
     [
@@ -91,7 +91,7 @@ concurrently(
         console.log('UI setup complete')
         process.exit(0)
     },
-    failure => {
+    (failure) => {
         console.log('UI setup failed')
         console.dir(failure, { depth: null })
         process.exit(1)

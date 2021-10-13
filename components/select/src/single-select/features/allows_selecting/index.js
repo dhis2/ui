@@ -1,4 +1,4 @@
-import '../common'
+import '../common/index.js'
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given(
@@ -24,7 +24,7 @@ When('the disabled option is clicked', () => {
 })
 
 Then('the clicked option is selected', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onChange).to.be.calledOnce
         expect(win.onChange).to.be.calledWith({
             selected: '1',
@@ -33,7 +33,7 @@ Then('the clicked option is selected', () => {
 })
 
 Then('the onchange handler is not called', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onChange).to.not.be.called
     })
 })

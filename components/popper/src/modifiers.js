@@ -15,7 +15,7 @@ const attachResizeObservers = ({
     }, [])
 
     return () => {
-        observers.forEach(observer => {
+        observers.forEach((observer) => {
             observer.disconnect()
         })
     }
@@ -58,7 +58,7 @@ export const deduplicateModifiers = (modifiers, resizeObservers) => {
     // when duplicates are encountered (by name), use the
     // modifier from props so each Popper can be fully custom
     return getBaseModifiers(resizeObservers)
-        .filter(({ name }) => !modifiers.some(m => m.name === name))
+        .filter(({ name }) => !modifiers.some((m) => m.name === name))
         .concat(modifiers)
 }
 
@@ -78,7 +78,7 @@ export const resizeObserver = {
         }, [])
 
         return () => {
-            observers.forEach(observer => {
+            observers.forEach((observer) => {
                 observer.disconnect()
             })
         }

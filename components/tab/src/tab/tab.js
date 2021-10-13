@@ -17,7 +17,7 @@ const Tab = ({
             selected,
             disabled,
         })}`}
-        onClick={disabled ? undefined : event => onClick({}, event)}
+        onClick={disabled ? undefined : (event) => onClick({}, event)}
         data-test={dataTest}
     >
         {icon}

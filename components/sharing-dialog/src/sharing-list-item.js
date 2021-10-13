@@ -25,7 +25,7 @@ export const SharingListItem = ({
     onChange,
     onRemove,
 }) => {
-    const getIcon = target => {
+    const getIcon = (target) => {
         switch (target) {
             case SHARE_TARGET_EXTERNAL:
                 return <IconWorld24 color={colors.grey600} />
@@ -58,7 +58,7 @@ export const SharingListItem = ({
                     accessOptions={accessOptions}
                     disabled={disabled}
                     showRemoveOption={!isPermanentTarget(target)}
-                    onChange={selected =>
+                    onChange={(selected) =>
                         selected === 'remove' ? onRemove() : onChange(selected)
                     }
                 />

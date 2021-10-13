@@ -10,7 +10,7 @@ describe('SharingDialog widget - AccessSelect component', () => {
 
     const onChange = jest.fn()
 
-    const getAccessSelectComponent = props => {
+    const getAccessSelectComponent = (props) => {
         if (!shallowAccessSelectComponent) {
             shallowAccessSelectComponent = mount(<AccessSelect {...props} />)
         }

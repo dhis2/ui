@@ -14,7 +14,7 @@ const createRemoveHandler =
 
 const SelectionList = ({ selected, onChange, disabled, options }) => (
     <React.Fragment>
-        {selected.map(value => {
+        {selected.map((value) => {
             const selectedOption = findOptionChild(value, options)
 
             if (!selectedOption) {

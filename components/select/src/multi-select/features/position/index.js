@@ -1,4 +1,4 @@
-import '../common'
+import '../common/index.js'
 import { Given, Then, When } from 'cypress-cucumber-preprocessor/steps'
 
 Given(
@@ -26,7 +26,7 @@ Given('the input is empty', () => {
     cy.get('[data-test="dhis2-uicore-select-input"]')
         .should('exist')
         .should('have.length', 1)
-        .then(inputs => {
+        .then((inputs) => {
             const $input = inputs[0]
             const inputRect = $input.getBoundingClientRect()
 

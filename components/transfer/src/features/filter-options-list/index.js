@@ -1,5 +1,5 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { extractOptionFromElement } from '../common'
+import { extractOptionFromElement } from '../common/index.js'
 
 Given('filtering is enabled', () => {
     // no op
@@ -21,17 +21,20 @@ Given('a no-result message has been provided', () => {
     // no op
 })
 
-Given('the options are being search with a {string} search term', firstCase => {
-    if (firstCase === 'uppercase') {
-        cy.visitStory('Transfer filtering', 'Uppercase Search')
-    } else if (firstCase === 'lowercase') {
-        cy.visitStory('Transfer filtering', 'Lowercase Search')
-    }
+Given(
+    'the options are being search with a {string} search term',
+    (firstCase) => {
+        if (firstCase === 'uppercase') {
+            cy.visitStory('Transfer filtering', 'Uppercase Search')
+        } else if (firstCase === 'lowercase') {
+            cy.visitStory('Transfer filtering', 'Lowercase Search')
+        }
 
-    cy.get('{transfer-filter} input')
-        .then($input => $input.val())
-        .as('firstCaseTerm')
-})
+        cy.get('{transfer-filter} input')
+            .then(($input) => $input.val())
+            .as('firstCaseTerm')
+    }
+)
 
 Given('some options are listed', () => {
     cy.get('{transfer-sourceoptions} {transferoption}')
@@ -47,7 +50,7 @@ Given("the filter value is controlled by the component's consumer", () => {
     cy.visitStory('Transfer filtering', 'Controlled Filter')
 })
 
-When('the user uses the same search term but {string}', secondCase => {
+When('the user uses the same search term but {string}', (secondCase) => {
     cy.all(
         () => cy.get('@firstCaseTerm'),
         () => cy.get('{transfer-filter} input')
@@ -70,7 +73,7 @@ When('searching for "s"', () => {
 
 When('the filter value changes', () => {
     cy.get('{transfer-filter} input')
-        .then($input => console.log('$input', $input) || $input)
+        .then(($input) => console.log('$input', $input) || $input)
         .type('ANC')
 })
 
@@ -114,13 +117,13 @@ Then('the same options should be shown', () => {
 })
 
 Then('only the results including the word "ANC" are included', () => {
-    cy.get('{transfer-sourceoptions} {transferoption}').each($option =>
+    cy.get('{transfer-sourceoptions} {transferoption}').each(($option) =>
         expect($option.text()).to.match(/ANC/)
     )
 })
 
 Then('the onFilterChange callback will be called with the new value', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.customFilterCallback.callCount).to.equal(4)
         expect(win.customFilterCallback.getCall(0).args[1]).to.equal('')
         expect(win.customFilterCallback.getCall(1).args[1]).to.equal('A')

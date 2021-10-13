@@ -1,4 +1,4 @@
-import '../common'
+import '../common/index.js'
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a SingleSelect with onBlur handler is rendered', () => {
@@ -6,7 +6,7 @@ Given('a SingleSelect with onBlur handler is rendered', () => {
 })
 
 Then('the onBlur handler is called', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onBlur).to.be.calledOnce
         expect(win.onBlur).to.be.calledWith({
             selected: '',

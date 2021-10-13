@@ -161,7 +161,7 @@ const customLocaleData = {
         },
     },
     'action::menu/getModules': {
-        modules: customData['action::menu/getModules'].modules.map(mod => ({
+        modules: customData['action::menu/getModules'].modules.map((mod) => ({
             ...mod,
             displayName: `Le ${mod.displayName}`,
         })),
@@ -176,7 +176,7 @@ const customAuthoritiesData = {
     },
 }
 
-export const Default = args => (
+export const Default = (args) => (
     <Provider config={mockConfig}>
         <CustomDataProvider data={customData}>
             <HeaderBar {...args} />
@@ -184,7 +184,7 @@ export const Default = args => (
     </Provider>
 )
 
-export const CustomLogoWideDimension = args => (
+export const CustomLogoWideDimension = (args) => (
     <Provider config={mockConfig}>
         <CustomDataProvider data={customLogoData}>
             <HeaderBar {...args} />
@@ -193,7 +193,7 @@ export const CustomLogoWideDimension = args => (
 )
 CustomLogoWideDimension.storyName = 'Custom Logo (wide dimension)'
 
-export const NonEnglishUserLocale = args => (
+export const NonEnglishUserLocale = (args) => (
     <Provider config={mockConfig}>
         <CustomDataProvider data={customLocaleData}>
             <HeaderBar {...args} />
@@ -203,7 +203,7 @@ export const NonEnglishUserLocale = args => (
 NonEnglishUserLocale.args = { appName: 'Exemple!' }
 NonEnglishUserLocale.storyName = 'Non-english user locale'
 
-export const NoAuthorityForInterpretationsApp = args => (
+export const NoAuthorityForInterpretationsApp = (args) => (
     <Provider config={mockConfig}>
         <CustomDataProvider data={customAuthoritiesData}>
             <HeaderBar {...args} />
@@ -213,7 +213,7 @@ export const NoAuthorityForInterpretationsApp = args => (
 NoAuthorityForInterpretationsApp.storyName =
     'No authority for interpretations app'
 
-export const Loading = args => (
+export const Loading = (args) => (
     <Provider config={mockConfig}>
         <CustomDataProvider options={{ loadForever: true }}>
             <HeaderBar {...args} />
@@ -222,7 +222,7 @@ export const Loading = args => (
 )
 Loading.storyName = 'Loading...'
 
-export const Error = args => (
+export const Error = (args) => (
     <Provider config={mockConfig}>
         <CustomDataProvider data={{}}>
             <HeaderBar {...args} />
@@ -231,7 +231,7 @@ export const Error = args => (
 )
 Error.storyName = 'Error!'
 
-export const WithOnlineStatus = args => {
+export const WithOnlineStatus = (args) => {
     const config = { ...mockConfig, pwaEnabled: true }
     return (
         <Provider config={config}>
@@ -252,7 +252,7 @@ WithOnlineStatus.parameters = {
     },
 }
 
-export const WithLastOnlineInfo = args => {
+export const WithLastOnlineInfo = (args) => {
     const config = {
         ...mockConfig,
         pwaEnabled: true,

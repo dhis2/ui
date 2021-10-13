@@ -2,7 +2,7 @@ import { useDataQuery } from '@dhis2/app-runtime'
 import { useMemo } from 'react'
 import { patchMissingDisplayName } from './patch-missing-display-name.js'
 
-export const createRootQuery = ids =>
+export const createRootQuery = (ids) =>
     ids.reduce(
         (query, id) => ({
             ...query,

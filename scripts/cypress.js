@@ -4,7 +4,7 @@ const path = require('path')
 const { PerformanceObserver, performance } = require('perf_hooks')
 const concurrently = require('concurrently')
 
-const obs = new PerformanceObserver(items => {
+const obs = new PerformanceObserver((items) => {
     console.log(items.getEntries()[0].duration)
     performance.clearMarks()
 })
@@ -34,7 +34,7 @@ concurrently(
         )
         process.exit(0)
     },
-    failure => {
+    (failure) => {
         console.dir(failure, { depth: null })
         performance.mark('test-run-ko')
         performance.measure('Tests failed in', 'test-run-start', 'test-run-ko')

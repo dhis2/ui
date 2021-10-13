@@ -24,7 +24,7 @@ export default {
     },
 }
 
-export const WithCheckbox = args => (
+export const WithCheckbox = (args) => (
     <FieldGroup {...args}>
         <Checkbox value="first" label="First" />
         <Checkbox value="second" label="Second" />
@@ -32,7 +32,7 @@ export const WithCheckbox = args => (
     </FieldGroup>
 )
 
-export const WithRadio = args => (
+export const WithRadio = (args) => (
     <FieldGroup {...args}>
         <Radio value="first" label="First" />
         <Radio value="second" label="Second" checked />
@@ -41,7 +41,7 @@ export const WithRadio = args => (
     </FieldGroup>
 )
 
-export const WithSwitch = args => (
+export const WithSwitch = (args) => (
     <FieldGroup {...args}>
         <Switch value="first" label="First" />
         <Switch value="second" label="Second" />
@@ -50,7 +50,7 @@ export const WithSwitch = args => (
     </FieldGroup>
 )
 
-export const WithLabel = args => (
+export const WithLabel = (args) => (
     <>
         <FieldGroup {...args}>
             <Checkbox value="first" label="First" />
@@ -66,7 +66,7 @@ export const WithLabel = args => (
 )
 WithLabel.args = { label: 'I am a label/legend' }
 
-export const HelpAndValidationTexts = args => (
+export const HelpAndValidationTexts = (args) => (
     <>
         <FieldGroup {...args}>
             <Checkbox value="first" label="First" />

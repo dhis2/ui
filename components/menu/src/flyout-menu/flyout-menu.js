@@ -14,7 +14,7 @@ const FlyoutMenu = ({
     maxWidth,
 }) => {
     const [openedSubMenu, setOpenedSubMenu] = useState(null)
-    const toggleSubMenu = index => {
+    const toggleSubMenu = (index) => {
         const toggleValue = index === openedSubMenu ? null : index
         setOpenedSubMenu(toggleValue)
     }

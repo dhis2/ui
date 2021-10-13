@@ -23,7 +23,7 @@ describe('SharingDialog - convertConstantToAccess', () => {
         ))
 
     it('returns the correct boolean value', () =>
-        testCases.forEach(testCase =>
+        testCases.forEach((testCase) =>
             expect(convertConstantToAccess(testCase[0], true)).toEqual(
                 testCase[2]
             )

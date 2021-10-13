@@ -1,4 +1,4 @@
-import '../common/index'
+import '../common/index.js'
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('an AlertBar with a custom duration is rendered', () => {
@@ -30,7 +30,7 @@ When('the user clicks on the "Cancel" button', () => {
 })
 
 Then('the onHidden handler is not called', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onHidden).to.not.be.called
     })
 })

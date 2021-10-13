@@ -29,7 +29,7 @@ export default {
     },
 }
 
-export const Default = args => (
+export const Default = (args) => (
     <Box width="358px" height="358px">
         <Card {...args} />
     </Box>

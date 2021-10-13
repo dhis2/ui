@@ -17,7 +17,7 @@ export default {
     parameters: { docs: { description: { component: description } } },
 }
 
-const Template = args => (
+const Template = (args) => (
     <Legend {...args}>I am wrapped in a legend which has some styling</Legend>
 )
 

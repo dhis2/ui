@@ -29,7 +29,7 @@ export const SHARE_TARGET_PUBLIC = 'SHARE_TARGET_PUBLIC'
 export const SHARE_TARGET_USER = 'SHARE_TARGET_USER'
 export const SHARE_TARGET_GROUP = 'SHARE_TARGET_GROUP'
 
-export const isPermanentTarget = target =>
+export const isPermanentTarget = (target) =>
     [SHARE_TARGET_EXTERNAL, SHARE_TARGET_PUBLIC].includes(target)
 
 export const defaultSharingSettings = {
@@ -42,7 +42,7 @@ export const defaultSharingSettings = {
     users: {},
 }
 
-export const convertAccessToConstant = access => {
+export const convertAccessToConstant = (access) => {
     if (typeof access === 'boolean') {
         return access ? ACCESS_VIEW_ONLY : ACCESS_NONE
     }

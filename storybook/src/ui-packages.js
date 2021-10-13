@@ -9,8 +9,8 @@ const {
 
 const prepend = (c, p) => path.join(p, c)
 
-const dirs = file => file.isDirectory()
-const filepaths = file => file.name
+const dirs = (file) => file.isDirectory()
+const filepaths = (file) => file.name
 
 exports.uiPackages = ({ absolute = false } = {}) => {
     const components = fs
@@ -34,8 +34,8 @@ exports.uiPackages = ({ absolute = false } = {}) => {
         const constants = [CONSTANTS_DIR]
 
         return [
-            components.map(c => prepend(c, COMPONENTS_DIR)),
-            collections.map(c => prepend(c, COLLECTIONS_DIR)),
+            components.map((c) => prepend(c, COMPONENTS_DIR)),
+            collections.map((c) => prepend(c, COLLECTIONS_DIR)),
             icons,
             constants,
         ]

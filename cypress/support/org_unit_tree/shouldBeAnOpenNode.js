@@ -1,4 +1,4 @@
-const shouldBeAnOpenNode = subject => {
+const shouldBeAnOpenNode = (subject) => {
     cy.wrap(subject, { log: false })
         .shouldBeAnOrgUnitNode()
         .find('[data-test="dhis2-uiwidgets-orgunittree-node-toggle"]', {

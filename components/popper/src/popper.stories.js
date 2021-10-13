@@ -49,7 +49,7 @@ const popperStyle = {
     padding: 6,
 }
 
-const Template = args => {
+const Template = (args) => {
     const ref = useRef(null)
 
     return (
@@ -104,7 +104,7 @@ LeftStart.args = { placement: 'left-start' }
 export const LeftEnd = Template.bind({})
 LeftEnd.args = { placement: 'left-end' }
 
-export const ElementRef = args => {
+export const ElementRef = (args) => {
     const anchor = document.createElement('div')
     document.body.appendChild(anchor)
 
@@ -119,7 +119,7 @@ export const ElementRef = args => {
 ElementRef.args = { placement: 'left-end' }
 ElementRef.parameters = { docs: { source: { type: 'code' } } }
 
-export const VirtualElementRef = args => {
+export const VirtualElementRef = (args) => {
     const virtualElement = {
         getBoundingClientRect: () => ({
             width: 0,

@@ -33,9 +33,9 @@ export const OptionsContainer = ({
             <div className="container" data-test={dataTest} ref={optionsRef}>
                 <div className="content-container" ref={wrapperRef}>
                     {!options.length && emptyComponent}
-                    {options.map(option => {
+                    {options.map((option) => {
                         const highlighted = !!highlightedOptions.find(
-                            highlightedSourceOption =>
+                            (highlightedSourceOption) =>
                                 highlightedSourceOption === option.value
                         )
 

@@ -9,7 +9,7 @@ When('the Input is filled with a character', () => {
 })
 
 Then('the onChange handler is called', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onChange).to.be.calledWith({
             value: 'a',
             name: 'Default',

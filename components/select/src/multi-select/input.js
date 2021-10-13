@@ -97,7 +97,7 @@ Input.defaultProps = {
 Input.propTypes = {
     dataTest: PropTypes.string.isRequired,
     className: PropTypes.string,
-    clearText: requiredIf(props => props.clearable, PropTypes.string),
+    clearText: requiredIf((props) => props.clearable, PropTypes.string),
     clearable: PropTypes.bool,
     disabled: PropTypes.bool,
     inputMaxHeight: PropTypes.string,

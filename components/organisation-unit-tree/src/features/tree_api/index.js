@@ -25,7 +25,7 @@ Given('the node has been expanded', () => {
 })
 
 Given("the children haven't been loaded yet", () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onExpand).not.to.be.called
     })
 })
@@ -51,72 +51,72 @@ When('the children have been loaded', () => {
 })
 
 Then('the onChange callback gets called', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onChange).to.be.called
     })
 })
 
 Then('the payload includes the path of the selected node', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expectStubPayloadToEqual(win.onChange, 'path', '/A0000000000')
     })
 })
 
 Then('the payload includes checked which is set to "true"', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expectStubPayloadToEqual(win.onChange, 'checked', true)
     })
 })
 
 Then('the payload includes all selected nodes', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expectStubPayloadToEqual(win.onChange, 'selected', ['/A0000000000'])
     })
 })
 
 Then('the payload includes checked which is set to "false"', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expectStubPayloadToEqual(win.onChange, 'checked', false)
     })
 })
 
 Then('the onExpand callback gets called', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onExpand).to.be.called
     })
 })
 
 Then('the payload includes the path of the expanded node', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expectStubPayloadToEqual(win.onExpand, 'path', '/A0000000000')
     })
 })
 
 Then('the onCollapse callback gets called', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onCollapse).to.be.called
     })
 })
 
 Then('the payload includes the path of the collapsed node', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expectStubPayloadToEqual(win.onCollapse, 'path', '/A0000000000')
     })
 })
 
 Then('the onChildrenLoaded callback gets called', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onChildrenLoaded).to.be.called
     })
 })
 
 Then("the payload contains the loaded children's data", () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         const calls = win.onChildrenLoaded.getCalls()
         const { args } = calls[calls.length - 1]
         win.dataProviderData
             .organisationUnits('get', { id: 'A0000000001' })
-            .then(response => {
+            .then((response) => {
                 expect(args[0]).to.deep.eql(response)
             })
     })

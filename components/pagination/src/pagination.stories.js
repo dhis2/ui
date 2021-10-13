@@ -17,11 +17,11 @@ import { Pagination } from '@dhis2/ui'
 _**Note**: Dropdown menus may not display properly on this page. View these demos in the 'Canvas' tab._
 `
 
-const logOnPageChange = page => {
+const logOnPageChange = (page) => {
     console.log(`Now navigate to page ${page}...`)
 }
 
-const logOnPageSizeChange = pageSize => {
+const logOnPageSizeChange = (pageSize) => {
     console.log(`Now change page size to ${pageSize}...`)
 }
 
@@ -42,7 +42,7 @@ export default {
     },
 }
 
-const Template = args => <Pagination {...args} />
+const Template = (args) => <Pagination {...args} />
 
 export const Default = Template.bind({})
 
@@ -63,7 +63,7 @@ WithoutPageSummary.args = { hidePageSummary: true }
 
 export const WithCustomPageSummary = Template.bind({})
 WithCustomPageSummary.args = {
-    pageSummaryText: interpolationObject =>
+    pageSummaryText: (interpolationObject) =>
         i18n.t(
             'Page nr {{page}} of {{pageCount}} pages, items {{firstItem}}-{{lastItem}}, NO TOTAL',
             interpolationObject

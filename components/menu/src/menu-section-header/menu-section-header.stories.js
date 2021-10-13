@@ -35,7 +35,7 @@ Dense.args = { menuArgs: { dense: true }, dense: true }
 export const WithoutDivider = Template.bind({})
 WithoutDivider.args = { hideDivider: true }
 
-export const TopOfList = args => (
+export const TopOfList = (args) => (
     <Menu>
         <MenuSectionHeader {...args} />
         <MenuItem label="Item 1" />

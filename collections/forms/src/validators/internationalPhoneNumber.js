@@ -31,7 +31,7 @@ const invalidInternationalPhoneNumberMessage = i18n.t(
     'Please provide a valid international phone number.'
 )
 
-const internationalPhoneNumber = value => {
+const internationalPhoneNumber = (value) => {
     // allow empty values
     if (isEmpty(value)) {
         return undefined

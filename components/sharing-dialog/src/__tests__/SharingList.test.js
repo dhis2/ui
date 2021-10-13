@@ -16,7 +16,7 @@ describe('SharingDialog widget - SharingList component', () => {
     const onChange = jest.fn()
     const onRemove = jest.fn()
 
-    const getSharingListComponent = props => {
+    const getSharingListComponent = (props) => {
         if (!shallowSharingListComponent) {
             shallowSharingListComponent = shallow(<SharingList {...props} />)
         }
@@ -35,7 +35,7 @@ describe('SharingDialog widget - SharingList component', () => {
 
     it.skip('renders a SharingListItem for external access', () => {
         const external = getSharingListComponent(props).findWhere(
-            n => n.prop('target') === SHARE_TARGET_EXTERNAL
+            (n) => n.prop('target') === SHARE_TARGET_EXTERNAL
         )
 
         expect(external).toHaveLength(1)
@@ -45,7 +45,7 @@ describe('SharingDialog widget - SharingList component', () => {
 
     it('renders a SharingListItem for public access', () => {
         const external = getSharingListComponent(props).findWhere(
-            n => n.prop('target') === SHARE_TARGET_PUBLIC
+            (n) => n.prop('target') === SHARE_TARGET_PUBLIC
         )
 
         expect(external).toHaveLength(1)
@@ -65,7 +65,7 @@ describe('SharingDialog widget - SharingList component', () => {
         }
 
         const group = getSharingListComponent(props).findWhere(
-            n => n.prop('target') === SHARE_TARGET_GROUP
+            (n) => n.prop('target') === SHARE_TARGET_GROUP
         )
 
         expect(group).toHaveLength(1)
@@ -89,7 +89,7 @@ describe('SharingDialog widget - SharingList component', () => {
         }
 
         const user = getSharingListComponent(props).findWhere(
-            n => n.prop('target') === SHARE_TARGET_USER
+            (n) => n.prop('target') === SHARE_TARGET_USER
         )
 
         expect(user).toHaveLength(1)

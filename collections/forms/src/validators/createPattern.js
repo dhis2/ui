@@ -9,7 +9,7 @@ const createPattern = (pattern, message) => {
         throw new Error(invalidPatternMessage)
     }
 
-    return value =>
+    return (value) =>
         isEmpty(value) || (isString(value) && pattern.test(value))
             ? undefined
             : message ||

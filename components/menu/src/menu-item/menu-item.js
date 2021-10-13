@@ -7,12 +7,12 @@ import React, { useRef } from 'react'
 import { FlyoutMenu } from '../index.js'
 import styles from './menu-item.styles.js'
 
-const isModifiedEvent = evt =>
+const isModifiedEvent = (evt) =>
     evt.metaKey || evt.altKey || evt.ctrlKey || evt.shiftKey
 
 const createOnClickHandler =
     ({ onClick, toggleSubMenu, isLink, value }) =>
-    evt => {
+    (evt) => {
         if ((isLink && isModifiedEvent(evt)) || !(onClick || toggleSubMenu)) {
             return
         }

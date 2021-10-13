@@ -4,7 +4,7 @@
  * @returns {bool}
  */
 export const isPathIncluded = (includedPaths, path) => {
-    const isIncluded = includedPaths.some(includedPath => {
+    const isIncluded = includedPaths.some((includedPath) => {
         if (path === includedPath) {
             return true
         }

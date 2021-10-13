@@ -1,7 +1,7 @@
 import i18n from '../locales/index.js'
 import { createNumberRange } from './createNumberRange.js'
 
-const createMaxNumber = upperBound =>
+const createMaxNumber = (upperBound) =>
     createNumberRange(
         -Infinity,
         upperBound,

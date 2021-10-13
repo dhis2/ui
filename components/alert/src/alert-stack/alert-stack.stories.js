@@ -25,7 +25,7 @@ export default {
     },
 }
 
-export const Default = args => (
+export const Default = (args) => (
     <AlertStack {...args}>
         <AlertBar permanent>First notification - I am at the bottom</AlertBar>
         <AlertBar permanent critical>

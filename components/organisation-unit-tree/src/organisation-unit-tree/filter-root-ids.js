@@ -5,5 +5,5 @@ export const filterRootIds = (filter, rootIds) => {
         return rootIds
     }
 
-    return rootIds.filter(rootId => isPathIncluded(filter, `/${rootId}`))
+    return rootIds.filter((rootId) => isPathIncluded(filter, `/${rootId}`))
 }

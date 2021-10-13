@@ -9,7 +9,7 @@ When('the MenuItem is clicked', () => {
 })
 
 Then('the onClick handler is called with value', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onClick).to.be.calledWith({
             value: 'Value',
         })

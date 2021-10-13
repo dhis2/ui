@@ -18,7 +18,7 @@ export const SingleSelectionLabel = ({
     loading,
 }) => (
     <span
-        onClick={event => {
+        onClick={(event) => {
             const payload = { checked: !checked }
             onChange(payload, event)
         }}

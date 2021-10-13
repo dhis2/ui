@@ -1,4 +1,4 @@
-const closeOrgUnitNode = subject =>
+const closeOrgUnitNode = (subject) =>
     cy
         .wrap(subject, { log: false })
         .shouldBeAnOpenNode()

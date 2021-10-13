@@ -36,7 +36,7 @@ export default {
     args: { ...Layer.defaultProps },
 }
 
-const Template = args => (
+const Template = (args) => (
     <>
         <Layer {...args} />
 

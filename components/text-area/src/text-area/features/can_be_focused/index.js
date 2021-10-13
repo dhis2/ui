@@ -1,4 +1,4 @@
-import '../common/index'
+import '../common/index.js'
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a TextArea with onFocus handler is rendered', () => {
@@ -10,7 +10,7 @@ When('the TextArea is focused', () => {
 })
 
 Then('the onFocus handler is called', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onFocus).to.be.calledWith({
             value: '',
             name: 'textarea',

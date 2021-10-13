@@ -209,7 +209,7 @@ DraggableRows.args = {
     draggableRows: true,
 }
 
-const IndividualCellTemplate = args => (
+const IndividualCellTemplate = (args) => (
     <Table {...args}>
         <TableHead>
             <TableRow>
@@ -252,7 +252,7 @@ const IndividualCellTemplate = args => (
 export const CellStyling = IndividualCellTemplate.bind({})
 CellStyling.args = {}
 
-const IrregularHeadersTemplate = args => (
+const IrregularHeadersTemplate = (args) => (
     <Table {...args}>
         <colgroup />
         <colgroup span="2"></colgroup>
@@ -306,7 +306,7 @@ const IrregularHeadersTemplate = args => (
 export const IrregularHeaders = IrregularHeadersTemplate.bind({})
 IrregularHeaders.args = {}
 
-const ToolbarsTemplate = args => (
+const ToolbarsTemplate = (args) => (
     <>
         <TableToolbar>
             <p>Content</p>
@@ -349,7 +349,7 @@ const ToolbarsTemplate = args => (
 export const Toolbars = ToolbarsTemplate.bind({})
 Toolbars.args = {}
 
-const SelectableRowsTemplate = args => {
+const SelectableRowsTemplate = (args) => {
     const [selected, setSelected] = useState({ id_2: true })
     const toggleSelected = ({ value, checked }) => {
         setSelected({
@@ -365,7 +365,7 @@ const SelectableRowsTemplate = args => {
         })
     }
     const allSelected = () =>
-        Object.values(selected).filter(value => value).length === 3
+        Object.values(selected).filter((value) => value).length === 3
 
     return (
         <Table {...args}>
@@ -571,7 +571,7 @@ FixedHeader.args = {
     borderless: true,
 }
 
-const FixedFirstColumnTemplate = args => (
+const FixedFirstColumnTemplate = (args) => (
     <TableScrollBox maxWidth="500px">
         <Table {...args}>
             <TableHead>
@@ -719,7 +719,7 @@ FixedFirstColumn.args = {
     width: '1000px',
 }
 
-const FixedHeaderAndTwoColumnsTemplate = args => (
+const FixedHeaderAndTwoColumnsTemplate = (args) => (
     <TableScrollBox maxHeight="350px" maxWidth="500px">
         <Table {...args}>
             <TableHead>
@@ -905,7 +905,7 @@ FixedHeaderAndTwoColumns.args = {
     width: '1000px',
 }
 
-const ScrollingTableWithToolbarsTemplate = args => (
+const ScrollingTableWithToolbarsTemplate = (args) => (
     <Box width="500px">
         <TableToolbar>
             <p>Content</p>
@@ -1098,7 +1098,7 @@ ScrollingTableWithToolbars.args = {
     width: '1000px',
 }
 
-const HeaderActionsTemplate = args => (
+const HeaderActionsTemplate = (args) => (
     <Table {...args}>
         <TableHead>
             <TableRow>

@@ -1,6 +1,6 @@
 import { createEqualTo } from '../createEqualTo.js'
 import { requiredArgumentErrorMessage } from '../helpers/index.js'
-import { allowsEmptyValues } from '../test-helpers'
+import { allowsEmptyValues } from '../test-helpers/index.js'
 
 describe('validator: createEqualTo', () => {
     const equalToFoo = createEqualTo('foo')

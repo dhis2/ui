@@ -9,7 +9,7 @@ jest.mock(
 )
 
 jest.mock('react', () => ({
-    useState: jest.fn(initialValue => [initialValue, jest.fn()]),
+    useState: jest.fn((initialValue) => [initialValue, jest.fn()]),
 }))
 
 describe('Transfer - useHighlightedOptions', () => {

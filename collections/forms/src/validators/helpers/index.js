@@ -1,19 +1,19 @@
-export const isEmpty = value =>
+export const isEmpty = (value) =>
     typeof value === 'undefined' || value === null || value === ''
 
-export const isString = value => typeof value === 'string'
+export const isString = (value) => typeof value === 'string'
 
-export const isInteger = value => Number.isSafeInteger(value)
+export const isInteger = (value) => Number.isSafeInteger(value)
 
-export const isNumber = value => typeof value === 'number'
+export const isNumber = (value) => typeof value === 'number'
 
-export const isNumeric = value =>
+export const isNumeric = (value) =>
     (isString(value) || isNumber(value)) && !isNaN(value)
 
 export const isInRange = (lowerBound, upperBound, value) =>
     value >= lowerBound && value <= upperBound
 
-export const toNumber = value => Number(value)
+export const toNumber = (value) => Number(value)
 
 export const requiredArgumentErrorMessage =
     'Incorrect arguments provided when creating validator'

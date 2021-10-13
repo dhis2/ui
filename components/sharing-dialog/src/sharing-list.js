@@ -35,7 +35,7 @@ export const SharingList = ({ sharingSettings, onChange, onRemove }) => (
                 access={sharingSettings.public}
                 accessOptions={Object.keys(accessStrings)}
                 disabled={!sharingSettings.allowPublic}
-                onChange={newAccess =>
+                onChange={(newAccess) =>
                     onChange({ type: 'public', access: newAccess })
                 }
             />
@@ -47,7 +47,7 @@ export const SharingList = ({ sharingSettings, onChange, onRemove }) => (
                         target={SHARE_TARGET_GROUP}
                         access={access}
                         accessOptions={[ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT]}
-                        onChange={newAccess =>
+                        onChange={(newAccess) =>
                             onChange({
                                 type: 'group',
                                 id,
@@ -70,7 +70,7 @@ export const SharingList = ({ sharingSettings, onChange, onRemove }) => (
                                 ACCESS_VIEW_ONLY,
                                 ACCESS_VIEW_AND_EDIT,
                             ]}
-                            onChange={newAccess =>
+                            onChange={(newAccess) =>
                                 onChange({
                                     type: 'user',
                                     id,

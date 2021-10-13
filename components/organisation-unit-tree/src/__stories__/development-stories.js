@@ -23,7 +23,7 @@ const DX_onChange =
         }
     }
 
-const Wrapper = props => {
+const Wrapper = (props) => {
     const [selected, setSelected] = useState([])
 
     return (

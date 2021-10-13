@@ -9,7 +9,7 @@ When('the Switch is clicked', () => {
 })
 
 Then('the onChange handler is called', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onChange).to.be.calledWith({
             value: 'default',
             name: 'Ex',

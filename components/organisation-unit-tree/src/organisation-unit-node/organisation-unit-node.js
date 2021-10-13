@@ -138,7 +138,7 @@ export const OrganisationUnitNode = ({
             )}
             {showPlaceholder && <span data-test={`${dataTest}-placeholder`} />}
             {showChildNodes &&
-                childNodes.map(child => {
+                childNodes.map((child) => {
                     const childPath = `${path}/${child.id}`
                     const grandChildNodes = computeChildNodes(child, filter)
 

@@ -5,7 +5,7 @@ import {
     Then,
     And,
 } from 'cypress-cucumber-preprocessor/steps'
-import '../common/index'
+import '../common/index.js'
 
 // https://www.cypress.io/blog/2020/11/12/testing-application-in-offline-network-mode/
 const goOffline = () => {
@@ -87,12 +87,12 @@ Then('the HeaderBar displays only the desktop status badge', () => {
 
 And('the status badge shows online', () => {
     cy.get('[data-test="headerbar-online-status"].badge .label').should(
-        $label => {
+        ($label) => {
             expect($label.text()).to.equal('Online')
         }
     )
     cy.get('[data-test="headerbar-online-status"].badge .icon').should(
-        $icon => {
+        ($icon) => {
             expect($icon).to.have.class('online')
         }
     )
@@ -111,12 +111,12 @@ And('the browser goes offline', () => {
 
 Then('the status badge shows offline', () => {
     cy.get('[data-test="headerbar-online-status"].badge .label').should(
-        $label => {
+        ($label) => {
             expect($label.text()).to.equal('Offline')
         }
     )
     cy.get('[data-test="headerbar-online-status"].badge .icon').should(
-        $icon => {
+        ($icon) => {
             expect($icon).to.have.class('offline')
         }
     )

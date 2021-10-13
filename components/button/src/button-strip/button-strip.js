@@ -9,7 +9,7 @@ const ButtonStrip = ({ className, children, middle, end, dataTest }) => (
         className={cx(className, { start: !middle && !end, middle, end })}
         data-test={dataTest}
     >
-        {Children.map(children, child => (
+        {Children.map(children, (child) => (
             <div className="box">{child}</div>
         ))}
 

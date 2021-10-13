@@ -6,7 +6,7 @@ Then('the HeaderBar should display the dhis2 logo', () => {
 })
 
 Then('the logo should link to the homepage', () => {
-    cy.get('[data-test="headerbar-logo"] a').should($a => {
+    cy.get('[data-test="headerbar-logo"] a').should(($a) => {
         expect($a.attr('href')).to.equal(baseUrl)
     })
 })

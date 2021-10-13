@@ -101,11 +101,11 @@ Then('there is some space between the anchor and the popover', () => {
 })
 
 // helper
-const compareRefAndPopoverPositions = callback => {
+const compareRefAndPopoverPositions = (callback) => {
     // this needs to be done as the cypress reference to the popover is lost
     // once react re-renders it to adjust to the changed viewport size,
     // which happens async
-    cy.get('body').should($body => {
+    cy.get('body').should(($body) => {
         const body = $body.get(0)
         const ref = body.querySelector('[data-test="reference-element"]')
         const popover = body.querySelector('[data-test="dhis2-uicore-popover"]')

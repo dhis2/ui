@@ -62,7 +62,7 @@ export const Remove = ({ onRemove, dataTest }) => {
 
     return (
         <span
-            onClick={e => {
+            onClick={(e) => {
                 e.stopPropagation() // stop onRemove from triggering onClick on container
                 onRemove({}, e)
             }}

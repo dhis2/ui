@@ -1,4 +1,4 @@
-import '../common'
+import '../common/index.js'
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given(
@@ -16,7 +16,7 @@ When('the clear button is clicked', () => {
 })
 
 Then('the MultiSelect is cleared', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onChange).to.be.calledOnce
         expect(win.onChange).to.be.calledWith({ selected: [] })
     })

@@ -1,4 +1,4 @@
-export const extractOptionFromElement = element => {
+export const extractOptionFromElement = (element) => {
     const $element = Cypress.$(element)
 
     return {

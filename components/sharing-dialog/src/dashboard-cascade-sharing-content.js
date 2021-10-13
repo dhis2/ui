@@ -24,9 +24,9 @@ const dashboardQuery = {
     },
 }
 
-const getVisualizationsCount = queryResponse => {
+const getVisualizationsCount = (queryResponse) => {
     return queryResponse?.dashboard.dashboardItems?.length > 0
-        ? queryResponse.dashboard.dashboardItems.filter(item =>
+        ? queryResponse.dashboard.dashboardItems.filter((item) =>
               ['VISUALIZATION', 'MAP', 'EVENT_CHART', 'EVENT_REPORT'].includes(
                   item.type
               )
@@ -34,7 +34,7 @@ const getVisualizationsCount = queryResponse => {
         : 0
 }
 
-const getCascadeSharingMutation = id => ({
+const getCascadeSharingMutation = (id) => ({
     resource: `dashboards/cascadeSharing/${id}`,
     type: 'create',
 })

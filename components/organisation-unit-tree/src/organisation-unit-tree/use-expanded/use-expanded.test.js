@@ -4,11 +4,11 @@ import { createExpandHandlers } from './create-expand-handlers.js'
 import { useExpanded } from './use-expanded.js'
 
 jest.mock('react', () => ({
-    useState: jest.fn(initialValue => [initialValue, () => null]),
+    useState: jest.fn((initialValue) => [initialValue, () => null]),
 }))
 
 jest.mock('../../get-all-expanded-paths/index.js', () => ({
-    getAllExpandedPaths: jest.fn(input => input),
+    getAllExpandedPaths: jest.fn((input) => input),
 }))
 
 jest.mock('./create-expand-handlers.js', () => ({
@@ -23,7 +23,7 @@ describe('OrganisationUnitTree - useExpanded hook', () => {
     const onCollapse = jest.fn()
 
     it('should use the getAllExpandedPaths helper to determine the initial state', () => {
-        getAllExpandedPaths.mockImplementationOnce(input => [
+        getAllExpandedPaths.mockImplementationOnce((input) => [
             ...input,
             '/foo/bar/baz',
         ])

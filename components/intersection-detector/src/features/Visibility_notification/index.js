@@ -2,7 +2,7 @@ import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('the detector is not intersecting with the root', () => {
     cy.visitStory('IntersectionDetector', 'Out Of View')
-    cy.window().then(win => {
+    cy.window().then((win) => {
         cy.wrap(win.onChange)
             .as('onChangeStub')
             .should('be.calledOnce')
@@ -12,7 +12,7 @@ Given('the detector is not intersecting with the root', () => {
 
 Given('the detector is intersecting with the root', () => {
     cy.visitStory('IntersectionDetector', 'In View')
-    cy.window().then(win => {
+    cy.window().then((win) => {
         cy.wrap(win.onChange)
             .as('onChangeStub')
             .should('be.calledOnce')
@@ -32,7 +32,7 @@ When('the user scrolls the detector out of view', () => {
 })
 
 Then('the callback passed to onChange should be called', () => {
-    cy.get('@onChangeStub').should(stub => {
+    cy.get('@onChangeStub').should((stub) => {
         expect(stub).to.be.calledTwice
     })
 })

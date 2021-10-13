@@ -60,7 +60,7 @@ const referenceElementStyle = {
     padding: 6,
 }
 
-const Template = args => {
+const Template = (args) => {
     const ref = useRef(null)
 
     return (

@@ -10,7 +10,7 @@ export const DESC = 'desc'
 export const DEFAULT = 'default'
 export const SORT_DIRECTIONS = [DEFAULT, ASC, DESC]
 
-export const getNextSortDirection = currentDirection => {
+export const getNextSortDirection = (currentDirection) => {
     const currentIndex = SORT_DIRECTIONS.indexOf(currentDirection)
     const nextIndex = (currentIndex + 1) % SORT_DIRECTIONS.length
 
@@ -20,7 +20,7 @@ export const getNextSortDirection = currentDirection => {
 export const Sorter = ({ name, sortDirection, onClick }) => {
     const nextSortDirection = getNextSortDirection(sortDirection)
     const clickHandler = onClick
-        ? event => {
+        ? (event) => {
               onClick({ name, direction: nextSortDirection }, event)
           }
         : undefined
@@ -59,7 +59,7 @@ export const Sorter = ({ name, sortDirection, onClick }) => {
 Sorter.propTypes = {
     name: PropTypes.string,
     sortDirection: requiredIf(
-        props => props.onClick,
+        (props) => props.onClick,
         PropTypes.oneOf(SORT_DIRECTIONS)
     ),
     onClick: PropTypes.func,

@@ -44,12 +44,12 @@ export const HeaderBar = ({ appName, className }) => {
     const { loading, error, data } = useDataQuery(query)
 
     const apps = useMemo(() => {
-        const getPath = path =>
+        const getPath = (path) =>
             path.startsWith('http:') || path.startsWith('https:')
                 ? path
                 : joinPath(baseUrl, 'api', path)
 
-        return data?.apps.modules.map(app => ({
+        return data?.apps.modules.map((app) => ({
             ...app,
             icon: getPath(app.icon),
             defaultAction: getPath(app.defaultAction),

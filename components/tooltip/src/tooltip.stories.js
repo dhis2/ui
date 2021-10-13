@@ -32,7 +32,7 @@ export default {
         },
     },
     decorators: [
-        story => (
+        (story) => (
             <div
                 style={{
                     display: 'flex',
@@ -49,7 +49,7 @@ export default {
     args: { content: 'Some tooltip content here' },
 }
 
-const Template = args => (
+const Template = (args) => (
     <p>
         Mouse over <Tooltip {...args}>[these words]</Tooltip> to open a tooltip.
     </p>
@@ -73,7 +73,7 @@ PlacementBottom.args = { placement: 'bottom' }
 export const PlacementLeft = Template.bind({})
 PlacementLeft.args = { placement: 'left' }
 
-export const ConfigurableOpenAndCloseDelays = args => (
+export const ConfigurableOpenAndCloseDelays = (args) => (
     <p>
         <Tooltip {...args}>
             The tooltip that opens when this content is moused over opens with 0
@@ -99,7 +99,7 @@ export const CustomElementViaTagProp = () => {
     )
 }
 
-export const CustomBuiltInComponent = args => {
+export const CustomBuiltInComponent = (args) => {
     return (
         <p>
             Mouse over{' '}
@@ -125,7 +125,7 @@ export const CustomBuiltInComponent = args => {
     )
 }
 
-export const CustomComponent = args => {
+export const CustomComponent = (args) => {
     return (
         <p>
             Mouse over{' '}
@@ -150,7 +150,7 @@ export const CustomComponent = args => {
     )
 }
 
-export const HidesWhenOutOfFrame = args => (
+export const HidesWhenOutOfFrame = (args) => (
     <div
         style={{
             height: '250px',

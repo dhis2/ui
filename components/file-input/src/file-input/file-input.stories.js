@@ -48,7 +48,7 @@ export default {
     },
 }
 
-const Template = args => <FileInput {...args} />
+const Template = (args) => <FileInput {...args} />
 
 export const Default = Template.bind({})
 
@@ -58,7 +58,7 @@ Multiple.args = { multiple: true, buttonLabel: 'Upload files' }
 export const Disabled = Template.bind({})
 Disabled.args = { disabled: true }
 
-export const Sizes = args => (
+export const Sizes = (args) => (
     <>
         <FileInput {...args} buttonLabel="Default size" name="default" />
         <FileInput {...args} small buttonLabel="Small" name="small" />
@@ -66,7 +66,7 @@ export const Sizes = args => (
     </>
 )
 
-export const Statuses = args => (
+export const Statuses = (args) => (
     <>
         <FileInput {...args} buttonLabel="Default" name="default" />
         <FileInput {...args} buttonLabel="Valid" name="valid" valid />

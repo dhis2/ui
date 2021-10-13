@@ -43,7 +43,7 @@ import { Modal } from '@dhis2/ui'
 \`\`\`
 `
 
-const say = something => () => alert(something)
+const say = (something) => () => alert(something)
 
 window.onClose = (payload, event) => {
     console.log('onClose payload', payload)
@@ -75,7 +75,7 @@ export default {
     },
 }
 
-export const DefaultContent = args => (
+export const DefaultContent = (args) => (
     <Modal {...args}>
         <ModalContent>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -95,7 +95,7 @@ DefaultContent.args = {
 }
 DefaultContent.storyName = 'Default: Content'
 
-export const AlignmentMiddle = args => (
+export const AlignmentMiddle = (args) => (
     <Modal {...args}>
         <ModalContent>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -113,7 +113,7 @@ export const AlignmentMiddle = args => (
 AlignmentMiddle.args = { onClose, position: 'middle' }
 AlignmentMiddle.storyName = 'Alignment: Middle'
 
-export const AlignmentBottom = args => (
+export const AlignmentBottom = (args) => (
     <Modal {...args}>
         <ModalContent>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -131,7 +131,7 @@ export const AlignmentBottom = args => (
 AlignmentBottom.args = { onClose, alignment: 'bottom' }
 AlignmentBottom.storyName = 'Alignment: Bottom'
 
-export const SmallTitleContentAction = args => (
+export const SmallTitleContentAction = (args) => (
     <Modal {...args}>
         <ModalTitle>
             This is a small modal with title, content and primary action
@@ -169,7 +169,7 @@ SmallTitleContentAction.parameters = {
 SmallTitleContentAction.args = { small: true, onClose }
 SmallTitleContentAction.storyName = 'Small: Title, Content, Action'
 
-export const MediumTitleContentAction = args => (
+export const MediumTitleContentAction = (args) => (
     <Modal {...args}>
         <ModalTitle>
             This is a medium modal with title, content and primary action
@@ -202,7 +202,7 @@ export const MediumTitleContentAction = args => (
 )
 MediumTitleContentAction.storyName = 'Medium: Title, Content, Action'
 
-export const LargeTitleContentPrimary = args => (
+export const LargeTitleContentPrimary = (args) => (
     <Modal {...args}>
         <ModalTitle>
             This is a large modal with title, content and primary action
@@ -236,7 +236,7 @@ export const LargeTitleContentPrimary = args => (
 LargeTitleContentPrimary.args = { large: true }
 LargeTitleContentPrimary.storyName = 'Large: Title, Content, Primary'
 
-export const SmallContentPrimary = args => (
+export const SmallContentPrimary = (args) => (
     <Modal {...args}>
         <ModalContent>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -266,7 +266,7 @@ export const SmallContentPrimary = args => (
 SmallContentPrimary.args = { small: true }
 SmallContentPrimary.storyName = 'Small: Content & Primary'
 
-export const SmallDestructivePrimary = args => (
+export const SmallDestructivePrimary = (args) => (
     <Modal {...args}>
         <ModalContent>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -296,7 +296,7 @@ export const SmallDestructivePrimary = args => (
 SmallDestructivePrimary.args = { small: true }
 SmallDestructivePrimary.storyName = 'Small: Destructive Primary'
 
-export const SmallClickableScreenCover = args => (
+export const SmallClickableScreenCover = (args) => (
     <Modal {...args}>
         <ModalTitle>This is a modal with clickable screen cover</ModalTitle>
 
@@ -321,14 +321,14 @@ export const SmallClickableScreenCover = args => (
 )
 SmallClickableScreenCover.args = {
     small: true,
-    onClose: args => {
+    onClose: (args) => {
         onClose(args)
         say('Clickable screen cover')()
     },
 }
 SmallClickableScreenCover.storyName = 'Small: Clickable screen cover'
 
-export const TopScrollable = args => (
+export const TopScrollable = (args) => (
     <Modal {...args}>
         <ModalTitle>This is a modal with scrollable content</ModalTitle>
 
@@ -396,7 +396,7 @@ export const TopScrollable = args => (
 TopScrollable.args = { ...SmallClickableScreenCover.args }
 TopScrollable.storyName = 'Top: scrollable'
 
-export const MiddleScrollable = args => (
+export const MiddleScrollable = (args) => (
     <Modal {...args}>
         <ModalTitle>This is a modal with scrollable content</ModalTitle>
 
@@ -464,7 +464,7 @@ export const MiddleScrollable = args => (
 MiddleScrollable.args = { ...TopScrollable.args, position: 'middle' }
 MiddleScrollable.storyName = 'Middle: scrollable'
 
-export const BottomScrollable = args => (
+export const BottomScrollable = (args) => (
     <Modal {...args}>
         <ModalTitle>This is a modal with scrollable content</ModalTitle>
 
@@ -532,7 +532,7 @@ export const BottomScrollable = args => (
 BottomScrollable.args = { ...TopScrollable.args, position: 'bottom' }
 BottomScrollable.storyName = 'Bottom: scrollable'
 
-export const SmallLongTitle = args => (
+export const SmallLongTitle = (args) => (
     <Modal {...args}>
         <ModalTitle>
             This headline should break into multiple lines because it&apos;s way
@@ -562,7 +562,7 @@ export const SmallLongTitle = args => (
 SmallLongTitle.args = { small: true }
 SmallLongTitle.storyName = 'Small: Long title'
 
-export const LargeWithSelectComponent = args => (
+export const LargeWithSelectComponent = (args) => (
     <Modal {...args}>
         <ModalTitle>Select opens on top of the Modal</ModalTitle>
 
@@ -597,7 +597,7 @@ export const LargeWithSelectComponent = args => (
 LargeWithSelectComponent.args = { large: true }
 LargeWithSelectComponent.storyName = 'Large: with Select component'
 
-export const LargeModalWithMoreNestedModals = args => (
+export const LargeModalWithMoreNestedModals = (args) => (
     <>
         <Modal {...args}>
             <ModalTitle>Select opens on top of the Modal - Level 1</ModalTitle>

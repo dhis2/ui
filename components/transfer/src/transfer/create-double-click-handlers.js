@@ -25,7 +25,7 @@ export const createDoubleClickHandlers = ({
 
     const deselectSingleOption = ({ value }) => {
         const newSelected = selected.filter(
-            curSelected => curSelected !== value
+            (curSelected) => curSelected !== value
         )
 
         setHighlightedPickedOptions([])

@@ -33,9 +33,9 @@ export default {
     },
 }
 
-const Template = args => <SwitchField {...args} />
+const Template = (args) => <SwitchField {...args} />
 
-const CheckedUncheckedTemplate = args => (
+const CheckedUncheckedTemplate = (args) => (
     <>
         <SwitchField {...args} />
         <SwitchField {...args} checked />
@@ -62,7 +62,7 @@ Required.args = { required: true }
 export const Disabled = CheckedUncheckedTemplate.bind({})
 Disabled.args = { disabled: true }
 
-export const HelpText = args => (
+export const HelpText = (args) => (
     <>
         <SwitchField {...args} />
         <SwitchField

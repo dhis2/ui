@@ -35,9 +35,9 @@ export const Button = ({
         }
     }, [initialFocus, ref.current])
 
-    const handleClick = event => onClick && onClick({ value, name }, event)
-    const handleBlur = event => onBlur && onBlur({ value, name }, event)
-    const handleFocus = event => onFocus && onFocus({ value, name }, event)
+    const handleClick = (event) => onClick && onClick({ value, name }, event)
+    const handleBlur = (event) => onBlur && onBlur({ value, name }, event)
+    const handleFocus = (event) => onFocus && onFocus({ value, name }, event)
 
     const iconOnly = icon && !children
     const buttonClassName = cx(className, {

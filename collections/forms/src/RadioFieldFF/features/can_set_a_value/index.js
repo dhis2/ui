@@ -9,7 +9,7 @@ Given('there are three options', () => {
     ]
 
     cy.wrap(options).as('options')
-    cy.window().then(win => {
+    cy.window().then((win) => {
         win.updateCypressProps({ options })
     })
 })
@@ -19,7 +19,7 @@ When('the user selects the last option', () => {
 })
 
 Then("the form state's value equals the last option's value", () => {
-    cy.get('@options').then(options => {
+    cy.get('@options').then((options) => {
         cy.verifyFormValue('choice', options[2].value)
     })
 })

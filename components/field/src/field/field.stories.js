@@ -22,7 +22,7 @@ export default {
     parameters: { docs: { description: { component: description } } },
 }
 
-export const Default = args => (
+export const Default = (args) => (
     <>
         <Field {...args}>
             <Input

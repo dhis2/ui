@@ -149,7 +149,7 @@ DraggableRows.args = {
     draggable: true,
 }
 
-const IndividualCellTemplate = args => (
+const IndividualCellTemplate = (args) => (
     <DataTable {...args}>
         <DataTableHead>
             <DataTableRow>
@@ -192,7 +192,7 @@ const IndividualCellTemplate = args => (
 export const CellStyling = IndividualCellTemplate.bind({})
 CellStyling.args = {}
 
-const ToolbarsTemplate = args => (
+const ToolbarsTemplate = (args) => (
     <>
         <DataTableToolbar>
             <p>Content</p>
@@ -235,9 +235,9 @@ const ToolbarsTemplate = args => (
 export const Toolbars = ToolbarsTemplate.bind({})
 Toolbars.args = {}
 
-const ExpandableContentTemplate = args => {
+const ExpandableContentTemplate = (args) => {
     const [openRowIndex, setOpenRowIndex] = useState(null)
-    const toggleOpenRow = index =>
+    const toggleOpenRow = (index) =>
         setOpenRowIndex(openRowIndex === index ? null : index)
     const style = {
         margin: 8,
@@ -259,7 +259,7 @@ const ExpandableContentTemplate = args => {
             <DataTableBody>
                 <DataTableRow
                     expanded={openRowIndex === 0}
-                    onExpandToggle={payload => {
+                    onExpandToggle={(payload) => {
                         console.log(payload)
                         toggleOpenRow(0)
                     }}
@@ -297,7 +297,7 @@ const ExpandableContentTemplate = args => {
 export const ExpandableContent = ExpandableContentTemplate.bind({})
 ExpandableContent.args = {}
 
-const SelectableRowsTemplate = args => {
+const SelectableRowsTemplate = (args) => {
     const [selected, setSelected] = useState({ id_2: true })
     const toggleSelected = ({ value, checked }) => {
         setSelected({
@@ -313,7 +313,7 @@ const SelectableRowsTemplate = args => {
         })
     }
     const allSelected = () =>
-        Object.values(selected).filter(value => value).length === 3
+        Object.values(selected).filter((value) => value).length === 3
 
     return (
         <DataTable {...args}>
@@ -378,7 +378,7 @@ const SelectableRowsTemplate = args => {
 export const SelectableRows = SelectableRowsTemplate.bind({})
 SelectableRows.args = {}
 
-const FixedHeaderTemplate = args => (
+const FixedHeaderTemplate = (args) => (
     <DataTable {...args}>
         <DataTableHead>
             <DataTableRow>
@@ -517,7 +517,7 @@ FixedHeader.args = {
     scrollHeight: '350px',
 }
 
-const FixedFirstColumnTemplate = args => (
+const FixedFirstColumnTemplate = (args) => (
     <DataTable {...args}>
         <DataTableHead>
             <DataTableRow>
@@ -662,7 +662,7 @@ FixedFirstColumn.args = {
     scrollWidth: '500px',
 }
 
-const FixedHeaderAndTwoColumnsTemplate = args => (
+const FixedHeaderAndTwoColumnsTemplate = (args) => (
     <DataTable {...args}>
         <DataTableHead>
             <DataTableRow>
@@ -847,7 +847,7 @@ FixedHeaderAndTwoColumns.args = {
     scrollHeight: '400px',
 }
 
-const ScrollingDataTableWithToolbarsTemplate = args => (
+const ScrollingDataTableWithToolbarsTemplate = (args) => (
     <Box width="500px">
         <DataTableToolbar>
             <p>Content</p>
@@ -1045,7 +1045,7 @@ ScrollingDataTableWithToolbars.args = {
     scrollHeight: '400px',
 }
 
-const ColumnHeaderSortingTemplate = args => {
+const ColumnHeaderSortingTemplate = (args) => {
     const rows = [
         {
             firstName: 'Onyekachukwu',
@@ -1064,7 +1064,7 @@ const ColumnHeaderSortingTemplate = args => {
         column: 'firstName',
         direction: 'default',
     })
-    const getSortDirection = columnName =>
+    const getSortDirection = (columnName) =>
         columnName === column ? direction : 'default'
     const onSortIconClick = ({ name, direction }) => {
         setSortInstructions({
@@ -1127,7 +1127,7 @@ const ColumnHeaderSortingTemplate = args => {
 export const ColumnHeaderSorting = ColumnHeaderSortingTemplate.bind({})
 ColumnHeaderSorting.args = {}
 
-const InlineFilteringTemplate = args => {
+const InlineFilteringTemplate = (args) => {
     const rows = [
         {
             firstName: 'Onyekachukwu',
@@ -1197,7 +1197,7 @@ const InlineFilteringTemplate = args => {
             </DataTableHead>
             <DataTableBody>
                 {rows
-                    .filter(row => {
+                    .filter((row) => {
                         if (!column || !value) {
                             return true
                         }

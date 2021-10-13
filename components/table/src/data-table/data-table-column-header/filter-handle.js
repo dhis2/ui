@@ -8,7 +8,7 @@ import { TableHeaderCellAction } from '../table-elements/index.js'
 export const FilterHandle = ({ active, name, onClick }) => {
     const filterIconColor = active ? colors.blue700 : colors.grey600
     const clickHandler = onClick
-        ? event => {
+        ? (event) => {
               onClick({ name, show: !active }, event)
           }
         : undefined

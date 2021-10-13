@@ -1,4 +1,4 @@
-import { hexStringToByte } from './uploadFile/hexStringToByte'
+import { hexStringToByte } from './uploadFile/hexStringToByte.js'
 
 /**
  * @param {string} fileType
@@ -7,7 +7,7 @@ import { hexStringToByte } from './uploadFile/hexStringToByte'
  */
 function uploadSingleFile(subject, fileType, fixture) {
     cy.fixture(fixture, 'hex')
-        .then(fileHex => {
+        .then((fileHex) => {
             const fileBytes = hexStringToByte(fileHex)
             const fileName = fixture.replace(/.+\//g, '')
             const testFile = new File([fileBytes], fileName, {
@@ -18,9 +18,9 @@ function uploadSingleFile(subject, fileType, fixture) {
 
             return dataTransfer.files
         })
-        .then(files => {
+        .then((files) => {
             cy.wrap(subject).as('element')
-            cy.get('@element').then($el => ($el[0].files = files))
+            cy.get('@element').then(($el) => ($el[0].files = files))
             cy.get('@element').trigger('change', { force: true })
             return cy
         })

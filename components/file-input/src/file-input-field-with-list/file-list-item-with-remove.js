@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { FileListItem } from '../index.js'
 
 class FileListItemWithRemove extends Component {
-    handleRemove = event => {
+    handleRemove = (event) => {
         const { onRemove, file } = this.props
 
         onRemove({ file }, event)

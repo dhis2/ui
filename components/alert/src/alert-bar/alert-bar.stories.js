@@ -25,7 +25,7 @@ import { AlertBar } from '@dhis2/ui'
 \`\`\`
 `
 
-const Wrapper = fn => (
+const Wrapper = (fn) => (
     <div style={{ height: '260px' }}>
         <div
             className="alert-bars"
@@ -89,7 +89,7 @@ export default {
     },
 }
 
-export const Default = args => (
+export const Default = (args) => (
     <AlertBar {...args}>Default - I will autohide</AlertBar>
 )
 
@@ -174,7 +174,7 @@ TextOverflow.storyName = 'Text overflow'
 
 export const HiddenProp = () => {
     const [hidden, setHidden] = useState(true)
-    const toggleVisibility = () => setHidden(prevHidden => !prevHidden)
+    const toggleVisibility = () => setHidden((prevHidden) => !prevHidden)
     return (
         <React.Fragment>
             <button

@@ -11,7 +11,7 @@ import { Node } from '@dhis2/ui'
 \`\`\`
 `
 
-const say = something => () => alert(something)
+const say = (something) => () => alert(something)
 
 window.onOpen = (payload, event) => {
     console.log('onOpen payload', payload)
@@ -32,7 +32,7 @@ export default {
     parameters: { docs: { description: { component: description } } },
 }
 
-export const CustomIcon = args => <Node {...args} />
+export const CustomIcon = (args) => <Node {...args} />
 CustomIcon.args = {
     icon: <CircularLoader small />,
     open: false,
@@ -50,7 +50,7 @@ CustomIcon.args = {
 }
 CustomIcon.storyName = 'Custom icon'
 
-export const MultipleRoots = args => (
+export const MultipleRoots = (args) => (
     <div>
         <Node
             {...args}

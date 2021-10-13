@@ -14,7 +14,7 @@ module.exports = {
         'storybook-addon-jsx',
         '@storybook/addon-a11y',
     ],
-    stories: async list => [...list, ...loadStories()],
+    stories: async (list) => [...list, ...loadStories()],
     babel: babelConfig,
     webpackFinal: webpackConfig,
 }

@@ -62,7 +62,7 @@ export default {
     },
 }
 
-const Template = args => <InputField {...args} />
+const Template = (args) => <InputField {...args} />
 
 export const Default = Template.bind({})
 
@@ -123,7 +123,7 @@ ReadOnly.args = { readOnly: true, value: 'This field is read-only' }
 export const Dense = Template.bind({})
 Dense.args = { dense: true, value: 'This field is dense' }
 
-export const InputWidth = args => (
+export const InputWidth = (args) => (
     <>
         <InputField
             {...args}

@@ -88,7 +88,7 @@ TableDataCell.propTypes = {
     error: stylePropType,
     large: PropTypes.bool,
     /** Required when fixed */
-    left: requiredIf(props => props.fixed, PropTypes.string),
+    left: requiredIf((props) => props.fixed, PropTypes.string),
     /** Mutually exclusive with error and valid */
     muted: stylePropType,
     role: PropTypes.string,

@@ -42,7 +42,7 @@ export default {
     },
 }
 
-const Template = args => <DropdownButton {...args} />
+const Template = (args) => <DropdownButton {...args} />
 
 export const Default = Template.bind({})
 

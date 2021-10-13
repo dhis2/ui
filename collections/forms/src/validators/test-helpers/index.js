@@ -12,7 +12,7 @@ const testValidatorValues = (validator, returnValue, values) => {
     }
 }
 
-const allowsEmptyValues = validator => {
+const allowsEmptyValues = (validator) => {
     describe('allows empty values', () => {
         testValidatorValues(validator, undefined, ['', null, undefined])
     })

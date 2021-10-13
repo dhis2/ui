@@ -1,4 +1,4 @@
-const shouldBeDoneLoading = subject => {
+const shouldBeDoneLoading = (subject) => {
     cy.wrap(subject, { log: false }).find(
         '> [data-test="dhis2-uiwidgets-orgunittree-node-toggle"]'
     )

@@ -45,7 +45,7 @@ export const CompleteIconSet = () => (
             </tr>
         </thead>
         <tbody>
-            {Object.keys(icons).map(key => {
+            {Object.keys(icons).map((key) => {
                 // eslint-disable-next-line import/namespace
                 const Icon = icons[key]
                 return (

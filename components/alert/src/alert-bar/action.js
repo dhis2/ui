@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
 class Action extends Component {
-    onClick = event => {
+    onClick = (event) => {
         this.props.onClick(event)
         this.props.hide(event)
     }

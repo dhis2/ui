@@ -207,7 +207,7 @@ const Apps = ({ apps }) => {
     const handleFilterChange = useCallback(({ value }) => setFilter(value), [])
 
     const containerEl = useRef(null)
-    const onDocClick = useCallback(evt => {
+    const onDocClick = useCallback((evt) => {
         if (containerEl.current && !containerEl.current.contains(evt.target)) {
             setShow(false)
         }

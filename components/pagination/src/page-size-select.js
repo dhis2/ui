@@ -28,7 +28,7 @@ const PageSizeSelect = ({
             dataTest={`${dataTest}-pagesize-select`}
             prefix={translate(pageSizeSelectText)}
         >
-            {pageSizes.map(length => (
+            {pageSizes.map((length) => (
                 <SingleSelectOption
                     key={length}
                     value={length}

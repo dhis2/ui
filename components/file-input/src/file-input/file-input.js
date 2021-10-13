@@ -108,7 +108,7 @@ class FileInput extends Component {
         this.ref.current.click()
     }
 
-    handleChange = e => {
+    handleChange = (e) => {
         if (this.props.onChange) {
             this.props.onChange(this.createHandlerPayload(), e)
         }
@@ -118,13 +118,13 @@ class FileInput extends Component {
         this.ref.current.value = ''
     }
 
-    handleBlur = e => {
+    handleBlur = (e) => {
         if (this.props.onBlur) {
             this.props.onBlur(this.createHandlerPayload(), e)
         }
     }
 
-    handleFocus = e => {
+    handleFocus = (e) => {
         if (this.props.onFocus) {
             this.props.onFocus(this.createHandlerPayload(), e)
         }

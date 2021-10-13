@@ -1,4 +1,4 @@
-import '../common'
+import '../common/index.js'
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a FileInput with onChange handler is rendered', () => {
@@ -13,7 +13,7 @@ When('a file is selected', () => {
 })
 
 Then("the onChange handler's payload contains the file", () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         const calls = win.onChange.getCalls()
         const callArgs = calls[0].args
         const payload = callArgs[0]

@@ -37,7 +37,9 @@ export default {
     title: 'Forms/Organisation Unit Tree',
     component: OrganisationUnitTree,
     decorators: [
-        fn => <CustomDataProvider data={customData}>{fn()}</CustomDataProvider>,
+        (fn) => (
+            <CustomDataProvider data={customData}>{fn()}</CustomDataProvider>
+        ),
     ],
     parameters: {
         componentSubtitle: subtitle,

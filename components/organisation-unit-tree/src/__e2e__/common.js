@@ -6,9 +6,9 @@ import React, { useState } from 'react'
 export const namespace = 'OrganisationUnitTree'
 
 export const delayResponse = (delay, response) => () =>
-    new Promise(resolve => setTimeout(() => resolve(response), delay))
+    new Promise((resolve) => setTimeout(() => resolve(response), delay))
 
-export const getOrganisationUnitData = id => {
+export const getOrganisationUnitData = (id) => {
     let data
 
     if (id === 'A0000000000') {
@@ -148,8 +148,8 @@ StatefulMultiSelectionWrapper.propTypes = {
     onSelectionChange: PropTypes.func,
 }
 
-export const createDecoratorStatefulMultiSelection = args => {
-    return fn => (
+export const createDecoratorStatefulMultiSelection = (args) => {
+    return (fn) => (
         <StatefulMultiSelectionWrapper
             onSelectionChange={args?.onSelectionChange}
         >
@@ -158,8 +158,8 @@ export const createDecoratorStatefulMultiSelection = args => {
     )
 }
 
-export const createDecoratorCustomDataProvider = args => {
-    return fn => (
+export const createDecoratorCustomDataProvider = (args) => {
+    return (fn) => (
         <CustomDataProvider data={args?.data || dataProviderData}>
             {fn()}
         </CustomDataProvider>
