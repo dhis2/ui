@@ -162,6 +162,7 @@ export class Input extends Component {
             max,
             min,
             step,
+            autoComplete,
             dataTest,
         } = this.props
 
@@ -181,6 +182,7 @@ export class Input extends Component {
                     disabled={disabled}
                     readOnly={readOnly}
                     tabIndex={tabIndex}
+                    autoComplete={autoComplete}
                     onFocus={this.handleFocus}
                     onBlur={this.handleBlur}
                     onChange={this.handleChange}
@@ -220,6 +222,8 @@ Input.defaultProps = {
 }
 
 Input.propTypes = {
+    /** The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete) */
+    autoComplete: PropTypes.string,
     className: PropTypes.string,
     dataTest: PropTypes.string,
     /** Makes the input smaller */
@@ -232,9 +236,9 @@ Input.propTypes = {
     initialFocus: PropTypes.bool,
     /** Adds a loading indicator beside the input */
     loading: PropTypes.bool,
-    /** The [native `max` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefmax), for use when `type` is `'number'` */
+    /** The [native `max` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-max), for use when `type` is `'number'` */
     max: PropTypes.string,
-    /** The [native `min` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefmin), for use when `type` is `'number'` */
+    /** The [native `min` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-min), for use when `type` is `'number'` */
     min: PropTypes.string,
     /** Name associated with the input. Passed to event handler callbacks in object */
     name: PropTypes.string,
@@ -244,7 +248,7 @@ Input.propTypes = {
     readOnly: PropTypes.bool,
     /** Sets a role attribute on the input */
     role: PropTypes.string,
-    /** The [native `step` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefstep), for use when `type` is `'number'` */
+    /** The [native `step` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-step), for use when `type` is `'number'` */
     step: PropTypes.string,
     tabIndex: PropTypes.string,
     /** The native input `type` attribute */
