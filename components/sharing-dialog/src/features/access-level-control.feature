@@ -11,3 +11,4 @@ Feature: Allows users to view and change the access level for specific entities
         | all users | no access | view only     |
         | all users | no access | view and edit |
         | user      | view      | view and edit |
+        | group     | view      | view and edit |
