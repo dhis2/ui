@@ -32,16 +32,6 @@ Given(
     }
 )
 
-Given(
-    'the org unit tree is being provided with the required props to control the expanded state',
-    () => {
-        cy.get('[data-test="dhis2-uiwidgets-orgunittree"]').should('exist')
-        cy.get(
-            '[data-test="dhis2-uiwidgets-orgunittree-wrongpropsmessage"]'
-        ).should('not.exist')
-    }
-)
-
 When('the org unit tree should is done loading the provided paths', () => {
     cy.window().then(win => {
         const expandedIds = win.initiallyExpandedPaths.map(
