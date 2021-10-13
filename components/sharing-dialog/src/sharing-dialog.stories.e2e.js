@@ -19,8 +19,20 @@ const data = {
             displayName: '',
             externalAccess: false,
             publicAccess: '--------',
-            userAccesses: [],
-            userGroupAccesses: [],
+            userAccesses: [
+                {
+                    id: 'user-1',
+                    name: 'A user',
+                    access: '--------',
+                },
+            ],
+            userGroupAccesses: [
+                {
+                    id: 'group-1',
+                    name: 'A group',
+                    access: '--------',
+                },
+            ],
         },
     },
     'sharing/search': {
@@ -61,8 +73,56 @@ const data = {
     },
 }
 
-export const AllUsers = () => (
-    <CustomDataProvider data={data}>
+const allUsersNoAccessData = {
+    sharing: {
+        meta: {
+            allowExternalAccess: true,
+            allowPublicAccess: true,
+        },
+        object: {
+            id: 'sharing-test',
+            name: '',
+            displayName: '',
+            externalAccess: false,
+            publicAccess: '--------',
+            userAccesses: [],
+            userGroupAccesses: [],
+        },
+    },
+}
+
+export const AllUsersNoAccess = () => (
+    <CustomDataProvider data={allUsersNoAccessData}>
+        <SharingDialog type="visualization" id="sharing-test" />
+    </CustomDataProvider>
+)
+
+const userViewAccessData = {
+    sharing: {
+        meta: {
+            allowExternalAccess: false,
+            allowPublicAccess: false,
+        },
+        object: {
+            id: 'sharing-test',
+            name: '',
+            displayName: '',
+            externalAccess: false,
+            publicAccess: '--------',
+            userAccesses: [
+                {
+                    id: 'user-1',
+                    name: 'A user',
+                    access: 'r-------',
+                },
+            ],
+            userGroupAccesses: [],
+        },
+    },
+}
+
+export const userViewAccess = () => (
+    <CustomDataProvider data={userViewAccessData}>
         <SharingDialog type="visualization" id="sharing-test" />
     </CustomDataProvider>
 )
