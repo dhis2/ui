@@ -57,7 +57,7 @@ export default {
     },
 }
 
-const BasicTemplate = ({ bordered, large, draggable, ...args }) => (
+const BasicTemplate = ({ bordered, large, draggable, bodyProps, ...args }) => (
     <DataTable {...args}>
         <DataTableHead>
             <DataTableRow>
@@ -76,7 +76,7 @@ const BasicTemplate = ({ bordered, large, draggable, ...args }) => (
                 </DataTableColumnHeader>
             </DataTableRow>
         </DataTableHead>
-        <DataTableBody>
+        <DataTableBody {...bodyProps}>
             <DataTableRow draggable={draggable}>
                 <DataTableCell large={large} bordered={bordered}>
                     Onyekachukwu
@@ -132,6 +132,9 @@ const BasicTemplate = ({ bordered, large, draggable, ...args }) => (
 
 export const Default = BasicTemplate.bind({})
 Default.args = {}
+
+export const Loading = BasicTemplate.bind({})
+Loading.args = { bodyProps: { loading: true } }
 
 export const BorderedCells = BasicTemplate.bind({})
 BorderedCells.args = {
