@@ -13,19 +13,18 @@ window.dataProviderData = {
         const [, { id }] = args
 
         if (id === 'A0000000000') {
-            const data = dataProviderData.organisationUnits(...args)
-            return {
+            return dataProviderData.organisationUnits(...args).then(data => ({
                 ...data,
                 children: data.children.slice(0, 1),
-            }
+            }))
         }
 
         if (id === 'A0000000001') {
-            return {
-                ...dataProviderData.organisationUnits(...args),
+            return dataProviderData.organisationUnits(...args).then(data => ({
+                ...data,
                 path: '/A0000000001',
                 children: [],
-            }
+            }))
         }
 
         return Promise.resolve({})
