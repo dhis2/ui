@@ -105,9 +105,9 @@ InputField.propTypes = {
     label: PropTypes.string,
     /** Adds a loading indicator beside the input */
     loading: PropTypes.bool,
-    /** The [native `max` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefmax), for use when `type` is `'number'` */
+    /** The [native `max` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-max), for use when `type` is `'number'` */
     max: PropTypes.string,
-    /** The [native `min` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefmin), for use when `type` is `'number'` */
+    /** The [native `min` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-min), for use when `type` is `'number'` */
     min: PropTypes.string,
     /** Name associated with the input. Passed to event handler callbacks in object */
     name: PropTypes.string,
@@ -117,7 +117,7 @@ InputField.propTypes = {
     readOnly: PropTypes.bool,
     /** Indicates this input is required */
     required: PropTypes.bool,
-    /** The [native `step` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefstep), for use when `type` is `'number'` */
+    /** The [native `step` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-step), for use when `type` is `'number'` */
     step: PropTypes.string,
     tabIndex: PropTypes.string,
     /** Type of input */
