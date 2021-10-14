@@ -222,3 +222,43 @@ export const disabledAccess = () => (
         <SharingDialog type="visualization" id="sharing-test" />
     </CustomDataProvider>
 )
+
+const searchData = {
+    sharing: {
+        meta: {
+            allowExternalAccess: true,
+            allowPublicAccess: true,
+        },
+        object: {
+            id: 'sharing-test',
+            name: '',
+            displayName: '',
+            externalAccess: false,
+            publicAccess: '--------',
+            userAccesses: [],
+            userGroupAccesses: [],
+        },
+    },
+    'sharing/search': {
+        userGroups: [
+            {
+                id: 'wl5cDMuUhmF',
+                name: 'A group',
+                displayName: 'A group',
+            },
+        ],
+        users: [
+            {
+                id: 'xE7jOejl9FI',
+                name: 'A user',
+                displayName: 'A user',
+            },
+        ],
+    },
+}
+
+export const search = () => (
+    <CustomDataProvider data={searchData}>
+        <SharingDialog type="visualization" id="sharing-test" />
+    </CustomDataProvider>
+)
