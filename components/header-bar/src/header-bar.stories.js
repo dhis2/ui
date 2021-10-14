@@ -182,7 +182,7 @@ const customLocaleData = {
         },
     },
     'action::menu/getModules': {
-        modules: customData['action::menu/getModules'].modules.map(mod => ({
+        modules: customData['action::menu/getModules'].modules.map((mod) => ({
             ...mod,
             displayName: `Le ${mod.displayName}`,
         })),
@@ -204,7 +204,7 @@ export default {
         componentSubtitle: subtitle,
         docs: { description: { component: description } },
     },
-    decorators: [fn => <Provider config={mockConfig}>{fn()}</Provider>],
+    decorators: [(fn) => <Provider config={mockConfig}>{fn()}</Provider>],
 }
 
 export const Default = () => (
@@ -262,7 +262,7 @@ export const WithOnlineStatus = () => (
 )
 
 WithOnlineStatus.decorators = [
-    fn => {
+    (fn) => {
         const config = { ...mockConfig, pwaEnabled: true }
         return <Provider config={config}>{fn()}</Provider>
     },
@@ -286,7 +286,7 @@ export const WithLastOnlineInfo = () => (
 )
 
 WithLastOnlineInfo.decorators = [
-    fn => {
+    (fn) => {
         const config = {
             ...mockConfig,
             pwaEnabled: true,

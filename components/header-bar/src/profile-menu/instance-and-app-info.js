@@ -70,7 +70,11 @@ export const InstanceAndAppInfo = ({ appName, appVersion }) => {
             <div className="instance-infos">
                 {loading && <div>{i18n.t('Checking DHIS2 version...')}</div>}
 
-                {error && <div>{i18n.t('There was a problem getting DHIS2 version.')}</div>}
+                {error && (
+                    <div>
+                        {i18n.t('There was a problem getting DHIS2 version.')}
+                    </div>
+                )}
 
                 {!loading && !error && (
                     <InstanceInfo instanceData={data.systemInfo} />
