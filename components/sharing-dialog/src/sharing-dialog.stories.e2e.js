@@ -198,3 +198,27 @@ export const withADisplayname = () => (
         <SharingDialog type="visualization" id="sharing-test" />
     </CustomDataProvider>
 )
+
+const disabledAccessData = {
+    sharing: {
+        meta: {
+            allowExternalAccess: true,
+            allowPublicAccess: false,
+        },
+        object: {
+            id: 'sharing-test',
+            name: '',
+            displayName: 'custom displayname',
+            externalAccess: false,
+            publicAccess: '--------',
+            userAccesses: [],
+            userGroupAccesses: [],
+        },
+    },
+}
+
+export const disabledAccess = () => (
+    <CustomDataProvider data={disabledAccessData}>
+        <SharingDialog type="visualization" id="sharing-test" />
+    </CustomDataProvider>
+)

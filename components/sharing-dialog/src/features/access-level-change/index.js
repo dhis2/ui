@@ -81,7 +81,7 @@ When('the user sets the all users access level to view only', () => {
         .click()
 
     // Menu should be closed before continuing
-    cy.contains('[data-test="dhis2-uicore-select-menu-menuwrapper"]').should(
+    cy.get('[data-test="dhis2-uicore-select-menu-menuwrapper"]').should(
         'not.exist'
     )
 })
@@ -99,7 +99,7 @@ When('the user sets the all users access level to view and edit', () => {
         .click()
 
     // Menu should be closed before continuing
-    cy.contains('[data-test="dhis2-uicore-select-menu-menuwrapper"]').should(
+    cy.get('[data-test="dhis2-uicore-select-menu-menuwrapper"]').should(
         'not.exist'
     )
 })
@@ -117,7 +117,7 @@ When('the user sets the user access level to view and edit', () => {
         .click()
 
     // Menu should be closed before continuing
-    cy.contains('[data-test="dhis2-uicore-select-menu-menuwrapper"]').should(
+    cy.get('[data-test="dhis2-uicore-select-menu-menuwrapper"]').should(
         'not.exist'
     )
 })
@@ -135,7 +135,7 @@ When('the user sets the group access level to view and edit', () => {
         .click()
 
     // Menu should be closed before continuing
-    cy.contains('[data-test="dhis2-uicore-select-menu-menuwrapper"]').should(
+    cy.get('[data-test="dhis2-uicore-select-menu-menuwrapper"]').should(
         'not.exist'
     )
 })

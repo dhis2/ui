@@ -69,7 +69,7 @@ When('the user removes the access for the user', () => {
         .click()
 
     // Menu should be closed before continuing
-    cy.contains('[data-test="dhis2-uicore-select-menu-menuwrapper"]').should(
+    cy.get('[data-test="dhis2-uicore-select-menu-menuwrapper"]').should(
         'not.exist'
     )
 })
@@ -87,7 +87,7 @@ When('the user removes the access for the group', () => {
         .click()
 
     // Menu should be closed before continuing
-    cy.contains('[data-test="dhis2-uicore-select-menu-menuwrapper"]').should(
+    cy.get('[data-test="dhis2-uicore-select-menu-menuwrapper"]').should(
         'not.exist'
     )
 })
