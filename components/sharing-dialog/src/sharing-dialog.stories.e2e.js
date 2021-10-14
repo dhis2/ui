@@ -150,3 +150,51 @@ export const groupViewAndEditAccess = () => (
         <SharingDialog type="visualization" id="sharing-test" />
     </CustomDataProvider>
 )
+
+const withoutADisplaynameData = {
+    sharing: {
+        meta: {
+            allowExternalAccess: false,
+            allowPublicAccess: false,
+        },
+        object: {
+            id: 'sharing-test',
+            name: '',
+            displayName: '',
+            externalAccess: false,
+            publicAccess: '--------',
+            userAccesses: [],
+            userGroupAccesses: [],
+        },
+    },
+}
+
+export const withoutADisplayname = () => (
+    <CustomDataProvider data={withoutADisplaynameData}>
+        <SharingDialog type="visualization" id="sharing-test" />
+    </CustomDataProvider>
+)
+
+const withDisplaynameData = {
+    sharing: {
+        meta: {
+            allowExternalAccess: false,
+            allowPublicAccess: false,
+        },
+        object: {
+            id: 'sharing-test',
+            name: '',
+            displayName: 'custom displayname',
+            externalAccess: false,
+            publicAccess: '--------',
+            userAccesses: [],
+            userGroupAccesses: [],
+        },
+    },
+}
+
+export const withADisplayname = () => (
+    <CustomDataProvider data={withDisplaynameData}>
+        <SharingDialog type="visualization" id="sharing-test" />
+    </CustomDataProvider>
+)
