@@ -1,18 +1,19 @@
 import React from 'react'
-import { HeaderBar } from '../index.js'
+import { HeaderBar } from '../../index.js'
 import {
     dataProviderData,
     createDecoratorCustomDataProviderHeaderBar,
     createDecoratorProvider,
 } from './common.js'
 
-export const ZeroUnreadInterpretations = () => <HeaderBar appName="Example!" />
+export const UserHasNoAuthorities = () => <HeaderBar appName="Example!" />
 
-ZeroUnreadInterpretations.decorators = [
+UserHasNoAuthorities.decorators = [
     createDecoratorCustomDataProviderHeaderBar({
         ...dataProviderData,
-        ['me/dashboard']: {
-            unreadInterpretations: 0,
+        me: {
+            ...dataProviderData.me,
+            authorities: [],
         }
     }),
     createDecoratorProvider(),

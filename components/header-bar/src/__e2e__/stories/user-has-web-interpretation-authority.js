@@ -1,5 +1,5 @@
 import React from 'react'
-import { HeaderBar } from '../index.js'
+import { HeaderBar } from '../../index.js'
 import {
     dataProviderData,
     createDecoratorCustomDataProviderHeaderBar,

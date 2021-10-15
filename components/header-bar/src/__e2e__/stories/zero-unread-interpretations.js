@@ -1,18 +1,18 @@
 import React from 'react'
-import { HeaderBar } from '../index.js'
+import { HeaderBar } from '../../index.js'
 import {
     dataProviderData,
     createDecoratorCustomDataProviderHeaderBar,
     createDecoratorProvider,
 } from './common.js'
 
-export const CustomApplicationTitle = () => <HeaderBar appName="Example!" />
+export const ZeroUnreadInterpretations = () => <HeaderBar appName="Example!" />
 
-CustomApplicationTitle.decorators = [
+ZeroUnreadInterpretations.decorators = [
     createDecoratorCustomDataProviderHeaderBar({
         ...dataProviderData,
-        ['systemSettings/applicationTitle']: {
-            applicationTitle: 'Barbaz',
+        ['me/dashboard']: {
+            unreadInterpretations: 0,
         }
     }),
     createDecoratorProvider(),

@@ -1,17 +1,20 @@
 import React from 'react'
-import { HeaderBar } from '../index.js'
+import { HeaderBar } from '../../index.js'
 import {
     providerConfig,
     createDecoratorCustomDataProviderHeaderBar,
     createDecoratorProvider,
 } from './common.js'
 
-export const PWAEnabled = () => <HeaderBar appName="Example!" />
+export const WithLastOnline = () => <HeaderBar appName="Example!" />
 
-PWAEnabled.decorators = [
+WithLastOnline.decorators = [
     createDecoratorCustomDataProviderHeaderBar(),
     createDecoratorProvider({
         ...providerConfig,
-        pwaEnabled: true,
+        headerbar: {
+            showOnlineStatus: true,
+            onlineStatusInfo: 'LAST_ONLINE',
+        },
     }),
 ]

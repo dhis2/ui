@@ -1,19 +1,21 @@
 import React from 'react'
-import { HeaderBar } from '../index.js'
+import { HeaderBar } from '../../index.js'
 import {
     dataProviderData,
     createDecoratorCustomDataProviderHeaderBar,
     createDecoratorProvider,
 } from './common.js'
 
-export const UserHasNoAuthorities = () => <HeaderBar appName="Example!" />
+export const UserHasWebMessagingAuthority = () => <HeaderBar appName="Example!" />
 
-UserHasNoAuthorities.decorators = [
+UserHasWebMessagingAuthority.decorators = [
     createDecoratorCustomDataProviderHeaderBar({
         ...dataProviderData,
         me: {
             ...dataProviderData.me,
-            authorities: [],
+            authorities: [
+                'M_dhis-web-messaging',
+            ],
         }
     }),
     createDecoratorProvider(),
