@@ -1,27 +1,18 @@
-import '../common/index.js'
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { modulesWithSpecialCharacters } from '../../__e2e__/common.js'
+import '../common/index.js'
 
 Given(/some app names contain a (.*)/, (character) => {
-    // use fixture with special chars
-    cy.fixture('HeaderBar/getModulesWithSpecialChars').as('modulesFixture')
-
-    // set fixture as response of the modules action endpoint
-    cy.get('@modulesFixture').then((fx) => {
-        cy.route({
-            url: 'https://domain.tld/dhis-web-commons/menu/getModules.action',
-            response: fx,
-        }).as('modules')
-    })
-
-    // verify that there's a module with the special char in its name
+    // Needs to be wrapped, otherwise for some reason the wrong char is in the scope
     cy.wrap(character).then((char) => {
-        cy.get('@modulesFixture').then((fx) => {
-            const modulesWithSpecialChar = fx.modules.filter((module) => {
-                return module.displayName.indexOf(char) !== -1
-            })
+        cy.visitStory('HeaderBarTesting', 'With Special App Name Characters')
 
-            expect(modulesWithSpecialChar).to.have.length.of.at.least(1)
+        // verify that there's a module with the special char in its name
+        const modulesWithSpecialChar = modulesWithSpecialCharacters.filter((module) => {
+            return module.displayName.indexOf(char) !== -1
         })
+
+        expect(modulesWithSpecialChar).to.have.length.of.at.least(1)
     })
 })
 
