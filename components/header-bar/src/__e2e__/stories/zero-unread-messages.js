@@ -13,7 +13,7 @@ ZeroUnreadMessages.decorators = [
         ...dataProviderData,
         ['me/dashboard']: {
             unreadMessages: 0,
-        }
+        },
     }),
     createDecoratorProvider(),
 ]

@@ -164,10 +164,6 @@ export const createDecoratorCustomDataProvider = (args) => {
     return (fn) => {
         window.dataProviderData = data
 
-        return (
-            <CustomDataProvider data={data}>
-                {fn()}
-            </CustomDataProvider>
-        )
+        return <CustomDataProvider data={data}>{fn()}</CustomDataProvider>
     }
 }

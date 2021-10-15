@@ -17,7 +17,7 @@ WithSpecialAppNameCharacters.decorators = [
         ['action::menu/getModules']: {
             ...dataProviderData['action::menu/getModules'],
             modules: modulesWithSpecialCharacters,
-        }
+        },
     }),
     createDecoratorProvider(),
 ]

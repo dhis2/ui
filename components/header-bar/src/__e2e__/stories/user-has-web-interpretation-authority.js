@@ -6,17 +6,17 @@ import {
     createDecoratorProvider,
 } from './common.js'
 
-export const UserHasWebInterpretationAuthority = () => <HeaderBar appName="Example!" />
+export const UserHasWebInterpretationAuthority = () => (
+    <HeaderBar appName="Example!" />
+)
 
 UserHasWebInterpretationAuthority.decorators = [
     createDecoratorCustomDataProviderHeaderBar({
         ...dataProviderData,
         me: {
             ...dataProviderData.me,
-            authorities: [
-                'M_dhis-web-interpretation',
-            ],
-        }
+            authorities: ['M_dhis-web-interpretation'],
+        },
     }),
     createDecoratorProvider(),
 ]

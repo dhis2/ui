@@ -1,5 +1,5 @@
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
-import { modulesWithSpecialCharacters } from '../../__e2e__/common.js'
+import { modulesWithSpecialCharacters } from '../../stories/common.js'
 import '../common/index.js'
 
 Given(/some app names contain a (.*)/, (character) => {
@@ -8,9 +8,11 @@ Given(/some app names contain a (.*)/, (character) => {
         cy.visitStory('HeaderBarTesting', 'With Special App Name Characters')
 
         // verify that there's a module with the special char in its name
-        const modulesWithSpecialChar = modulesWithSpecialCharacters.filter((module) => {
-            return module.displayName.indexOf(char) !== -1
-        })
+        const modulesWithSpecialChar = modulesWithSpecialCharacters.filter(
+            (module) => {
+                return module.displayName.indexOf(char) !== -1
+            }
+        )
 
         expect(modulesWithSpecialChar).to.have.length.of.at.least(1)
     })

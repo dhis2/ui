@@ -12,16 +12,16 @@ MeWithAvatar.decorators = [
     createDecoratorCustomDataProviderHeaderBar({
         ...dataProviderData,
         me: {
-            "name": "John Doe",
-            "email": "john_doe@dhis2.org",
-            "settings": {
-                "keyUiLocale": "en"
+            name: 'John Doe',
+            email: 'john_doe@dhis2.org',
+            settings: {
+                keyUiLocale: 'en',
             },
-            "authorities": ["ALL"],
-            "avatar": {
-                "id": "avatarId"
-            }
-        }
+            authorities: ['ALL'],
+            avatar: {
+                id: 'avatarId',
+            },
+        },
     }),
     createDecoratorProvider(),
 ]

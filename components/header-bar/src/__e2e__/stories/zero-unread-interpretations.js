@@ -13,7 +13,7 @@ ZeroUnreadInterpretations.decorators = [
         ...dataProviderData,
         ['me/dashboard']: {
             unreadInterpretations: 0,
-        }
+        },
     }),
     createDecoratorProvider(),
 ]

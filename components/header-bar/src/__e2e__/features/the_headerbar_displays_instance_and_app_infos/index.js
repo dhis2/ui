@@ -12,9 +12,15 @@ Given('the profile menu has successfully loaded the instance infos', () => {})
 
 Given('the profile menu is loading the instance infos', () => {})
 
-Then('a message stating that loading the instance infos has failed should be displayed', () => {})
+Then(
+    'a message stating that loading the instance infos has failed should be displayed',
+    () => {}
+)
 
-Then('a message stating that the instance infos are being loaded should be displayed', () => {})
+Then(
+    'a message stating that the instance infos are being loaded should be displayed',
+    () => {}
+)
 
 Then('the app infos should be displayed', () => {})
 

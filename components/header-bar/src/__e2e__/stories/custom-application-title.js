@@ -13,7 +13,7 @@ CustomApplicationTitle.decorators = [
         ...dataProviderData,
         ['systemSettings/applicationTitle']: {
             applicationTitle: 'Barbaz',
-        }
+        },
     }),
     createDecoratorProvider(),
 ]

@@ -1,13 +1,15 @@
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
-import { modulesWithSpecialCharacters } from '../../__e2e__/common.js'
+import { modulesWithSpecialCharacters } from '../../stories/common.js'
 import '../common/index.js'
 
 Given(/no app name contains a (.*)/, (character) => {
     // Needs to be wrapped, otherwise for some reason the wrong char is in the scope
     cy.wrap(character).then((char) => {
-        const modulesWithSpecialChar = modulesWithSpecialCharacters.filter((module) => {
-            return module.displayName.indexOf(char) !== -1
-        })
+        const modulesWithSpecialChar = modulesWithSpecialCharacters.filter(
+            (module) => {
+                return module.displayName.indexOf(char) !== -1
+            }
+        )
 
         expect(modulesWithSpecialChar).to.have.length(0)
     })

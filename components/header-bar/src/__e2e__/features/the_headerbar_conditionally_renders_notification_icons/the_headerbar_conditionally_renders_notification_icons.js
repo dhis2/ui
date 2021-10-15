@@ -7,7 +7,10 @@ Given('the user has the ALL authority', () => {
 Given(
     'the user has the M_dhis-web-interpretation and M_dhis-web-messaging authority',
     () => {
-        cy.visitStory('HeaderBarTesting', 'User Has Web Interpretation And Messaging Authority')
+        cy.visitStory(
+            'HeaderBarTesting',
+            'User Has Web Interpretation And Messaging Authority'
+        )
     }
 )
 

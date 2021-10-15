@@ -14,7 +14,7 @@ UserHasNoAuthorities.decorators = [
         me: {
             ...dataProviderData.me,
             authorities: [],
-        }
+        },
     }),
     createDecoratorProvider(),
 ]
