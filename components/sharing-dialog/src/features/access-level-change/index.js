@@ -174,13 +174,13 @@ Then('the group access control is set to view and edit', () => {
 
 Given('the all users section is labeled for view only', () => {
     cy.get('@all-users-list-item')
-        .contains('.share-details-text', 'Anyone logged in can view')
+        .contains('.share-details-text', 'Can view')
         .should('be.visible')
 })
 
 Given('the all users section is labeled for view and edit', () => {
     cy.get('@all-users-list-item')
-        .contains('.share-details-text', 'Anyone logged in can view and edit')
+        .contains('.share-details-text', 'Can view and edit')
         .should('be.visible')
 })
 
