@@ -262,3 +262,67 @@ export const search = () => (
         <SharingDialog type="visualization" id="sharing-test" />
     </CustomDataProvider>
 )
+
+const dashboardData = {
+    dashboards: {
+        dashboardItems: [
+            {
+                type: 'VISUALIZATION',
+            },
+            {
+                type: 'MAP',
+            },
+            {
+                type: 'EVENT_CHART',
+            },
+            {
+                type: 'EVENT_REPORT',
+            },
+            {
+                type: 'IGNORED 1',
+            },
+            {
+                type: 'IGNORED 2',
+            },
+            {
+                type: 'IGNORED 3',
+            },
+            {
+                type: 'IGNORED 4',
+            },
+        ],
+    },
+    sharing: {
+        meta: {
+            allowExternalAccess: true,
+            allowPublicAccess: true,
+        },
+        object: {
+            displayName: "Sharing dialog's test",
+            externalAccess: false,
+            id: 'sharing-test',
+            name: 'Sharing test',
+            publicAccess: '--------',
+            userAccesses: [
+                {
+                    access: 'rw------',
+                    id: 'A user',
+                    name: 'A user',
+                },
+            ],
+            userGroupAccesses: [
+                {
+                    access: 'r-------',
+                    id: 'A group',
+                    name: 'A group',
+                },
+            ],
+        },
+    },
+}
+
+export const dashboard = () => (
+    <CustomDataProvider data={dashboardData}>
+        <SharingDialog type="dashboard" id="sharing-test" />
+    </CustomDataProvider>
+)
