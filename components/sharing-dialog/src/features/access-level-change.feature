@@ -7,8 +7,8 @@ Feature: Allows users to view and change the access level for specific entities
         And the <target> section is labeled for <changed>
 
     Scenarios:
-        | target    | initial   | changed       |
-        | all users | no access | view only     |
-        | all users | no access | view and edit |
-        | user      | view      | view and edit |
-        | group     | view      | view and edit |
+        | initial   | target    | changed       |
+        | no access | all users | view only     |
+        | no access | all users | view and edit |
+        | view      | user      | view and edit |
+        | view      | group     | view and edit |
