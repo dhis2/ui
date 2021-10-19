@@ -5,10 +5,10 @@ import {
     SHARE_TARGET_GROUP,
     SHARE_TARGET_USER,
     ACCESS_NONE,
-} from '../sharing-constants.js'
-import { SharingList } from '../sharing-list.js'
+} from '../../sharing-constants.js'
+import { AccessList } from '../access-list.js'
 
-describe('<SharingList />', () => {
+describe('<AccessList />', () => {
     it('renders an item for public access', () => {
         const props = {
             sharingSettings: {
@@ -21,7 +21,7 @@ describe('<SharingList />', () => {
                 users: {},
             },
         }
-        const wrapper = shallow(<SharingList {...props} />)
+        const wrapper = shallow(<AccessList {...props} />)
         const publicItem = wrapper.findWhere(
             (component) => component.prop('target') === SHARE_TARGET_PUBLIC
         )
@@ -50,7 +50,7 @@ describe('<SharingList />', () => {
                 users: {},
             },
         }
-        const wrapper = shallow(<SharingList {...props} />)
+        const wrapper = shallow(<AccessList {...props} />)
         const groupItem = wrapper.findWhere(
             (component) => component.prop('target') === SHARE_TARGET_GROUP
         )
@@ -83,7 +83,7 @@ describe('<SharingList />', () => {
                 },
             },
         }
-        const wrapper = shallow(<SharingList {...props} />)
+        const wrapper = shallow(<AccessList {...props} />)
         const userItem = wrapper.findWhere(
             (component) => component.prop('target') === SHARE_TARGET_USER
         )

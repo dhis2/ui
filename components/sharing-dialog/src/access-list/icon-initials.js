@@ -1,7 +1,7 @@
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { nameToInitials } from './helpers.js'
+import { nameToInitials } from '../helpers.js'
 
 export const IconInitials = ({ name }) => {
     return (

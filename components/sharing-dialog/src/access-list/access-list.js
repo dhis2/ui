@@ -1,7 +1,7 @@
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
-import i18n from './locales/index.js'
+import i18n from '../locales/index.js'
 import {
     SHARE_TARGET_PUBLIC,
     SHARE_TARGET_GROUP,
@@ -9,10 +9,10 @@ import {
     ACCESS_NONE,
     ACCESS_VIEW_ONLY,
     ACCESS_VIEW_AND_EDIT,
-} from './sharing-constants.js'
+} from '../sharing-constants.js'
 import { SharingListItem } from './sharing-list-item.js'
 
-export const SharingList = ({ sharingSettings, onChange, onRemove }) => (
+export const AccessList = ({ sharingSettings, onChange, onRemove }) => (
     <>
         <p className="sharing-subtitle">
             {i18n.t('Users, groups and roles that currently have access')}
@@ -117,7 +117,7 @@ export const SharingList = ({ sharingSettings, onChange, onRemove }) => (
     </>
 )
 
-SharingList.propTypes = {
+AccessList.propTypes = {
     sharingSettings: PropTypes.object,
     onChange: PropTypes.func,
     onRemove: PropTypes.func,

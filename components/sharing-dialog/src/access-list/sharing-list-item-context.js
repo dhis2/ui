@@ -1,12 +1,12 @@
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
-import i18n from './locales/index.js'
+import i18n from '../locales/index.js'
 import {
     ACCESS_NONE,
     ACCESS_VIEW_ONLY,
     ACCESS_VIEW_AND_EDIT,
-} from './sharing-constants.js'
+} from '../sharing-constants.js'
 
 export const SharingListItemContext = ({ access }) => {
     let message

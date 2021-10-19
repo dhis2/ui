@@ -27,7 +27,7 @@
     "scripts": {
         "build": "./scripts/build.js",
         "setup": "./scripts/setup.js",
-        "cy:start": "yarn build && STORYBOOK_TESTING=1 yarn start",
+        "cy:start": "STORYBOOK_TESTING=1 yarn start",
         "cy:open": "wait-on 'http://localhost:5000' && cypress open",
         "cy:run": "wait-on 'http://localhost:5000' && cypress run",
         "cy:test": "./scripts/cypress.js",

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import { AccessList } from './access-list/index.js'
 import { ShareBlock } from './share-block.js'
-import { SharingList } from './sharing-list.js'
 
 export const DefaultSharingContent = ({
     sharingSettings,
@@ -11,7 +11,7 @@ export const DefaultSharingContent = ({
 }) => (
     <>
         <ShareBlock onAdd={onAdd} />
-        <SharingList
+        <AccessList
             sharingSettings={sharingSettings}
             onChange={onChange}
             onRemove={onRemove}
