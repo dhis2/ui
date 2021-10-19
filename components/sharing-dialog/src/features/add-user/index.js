@@ -98,8 +98,8 @@ Then('the user is added to the access list with view only access', () => {
         .should('be.visible')
         .as('user-item')
 
-    cy.get('@user-item').contains('Can view')
-    cy.get('@user-item').contains('View only')
+    cy.get('@user-item').contains('Can view').should('be.visible')
+    cy.get('@user-item').contains('View only').should('be.visible')
 })
 
 Then('the user is added to the access list with view and edit access', () => {
@@ -107,8 +107,8 @@ Then('the user is added to the access list with view and edit access', () => {
         .should('be.visible')
         .as('user-item')
 
-    cy.get('@user-item').contains('Can view and edit')
-    cy.get('@user-item').contains('View and edit')
+    cy.get('@user-item').contains('Can view and edit').should('be.visible')
+    cy.get('@user-item').contains('View and edit').should('be.visible')
 })
 
 Then('the group is added to the access list with view only access', () => {
@@ -116,8 +116,8 @@ Then('the group is added to the access list with view only access', () => {
         .should('be.visible')
         .as('group-item')
 
-    cy.get('@group-item').contains('Can view')
-    cy.get('@group-item').contains('View only')
+    cy.get('@group-item').contains('Can view').should('be.visible')
+    cy.get('@group-item').contains('View only').should('be.visible')
 })
 
 Then('the group is added to the access list with view and edit access', () => {
@@ -125,6 +125,6 @@ Then('the group is added to the access list with view and edit access', () => {
         .should('be.visible')
         .as('group-item')
 
-    cy.get('@group-item').contains('Can view and edit')
-    cy.get('@group-item').contains('View and edit')
+    cy.get('@group-item').contains('Can view and edit').should('be.visible')
+    cy.get('@group-item').contains('View and edit').should('be.visible')
 })
