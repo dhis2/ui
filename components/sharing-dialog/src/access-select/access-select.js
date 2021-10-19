@@ -2,14 +2,14 @@ import { SingleSelectField } from '@dhis2-ui/select'
 import { useOnlineStatus } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { ConditionalTooltip } from './conditional-tooltip.js'
-import { CustomSingleSelectOption } from './custom-single-select-option.js'
-import i18n from './locales/index.js'
+import { ConditionalTooltip } from '../conditional-tooltip.js'
+import i18n from '../locales/index.js'
 import {
     ACCESS_NONE,
     ACCESS_VIEW_ONLY,
     ACCESS_VIEW_AND_EDIT,
-} from './sharing-constants.js'
+} from '../sharing-constants.js'
+import { CustomSingleSelectOption } from './custom-single-select-option.js'
 
 const accessToLabel = {
     [ACCESS_NONE]: i18n.t('No access'),

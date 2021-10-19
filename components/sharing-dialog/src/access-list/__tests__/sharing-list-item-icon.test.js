@@ -1,13 +1,13 @@
 import { IconWorld24, IconUserGroup24 } from '@dhis2/ui-icons'
 import { shallow } from 'enzyme'
 import React from 'react'
-import { IconInitials } from '../icon-initials.js'
 import {
     SHARE_TARGET_EXTERNAL,
     SHARE_TARGET_PUBLIC,
     SHARE_TARGET_USER,
     SHARE_TARGET_GROUP,
 } from '../../sharing-constants.js'
+import { IconInitials } from '../icon-initials.js'
 import { SharingListItemIcon } from '../sharing-list-item-icon.js'
 
 describe('<SharingListItemIcon />', () => {

@@ -1,8 +1,11 @@
 import { SingleSelectField } from '@dhis2-ui/select'
 import { shallow } from 'enzyme'
 import React from 'react'
+import {
+    ACCESS_VIEW_ONLY,
+    ACCESS_VIEW_AND_EDIT,
+} from '../../sharing-constants.js'
 import { AccessSelect } from '../access-select.js'
-import { ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT } from '../sharing-constants.js'
 
 describe('<AccessSelect />', () => {
     it('renders a single SingleSelectField ', () => {
