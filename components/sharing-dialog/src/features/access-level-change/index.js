@@ -172,25 +172,25 @@ Then('the group access control is set to view and edit', () => {
  * the <target> section is labeled for <changed>
  */
 
-Given('the all users section is labeled for view only', () => {
+Then('the all users section is labeled for view only', () => {
     cy.get('@all-users-list-item')
         .contains('.share-details-text', 'Anyone logged in can view')
         .should('be.visible')
 })
 
-Given('the all users section is labeled for view and edit', () => {
+Then('the all users section is labeled for view and edit', () => {
     cy.get('@all-users-list-item')
         .contains('.share-details-text', 'Anyone logged in can view and edit')
         .should('be.visible')
 })
 
-Given('the user section is labeled for view and edit', () => {
+Then('the user section is labeled for view and edit', () => {
     cy.get('@user-list-item')
         .contains('.share-details-text', 'Can view and edit')
         .should('be.visible')
 })
 
-Given('the group section is labeled for view and edit', () => {
+Then('the group section is labeled for view and edit', () => {
     cy.get('@group-list-item')
         .contains('.share-details-text', 'Can view and edit')
         .should('be.visible')
