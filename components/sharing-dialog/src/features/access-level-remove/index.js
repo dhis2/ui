@@ -93,13 +93,13 @@ When('the user removes the access for the group', () => {
 })
 
 /**
- * the <target> item is removed
+ * the <target> item should be removed
  */
 
-Then('the user item is removed', () => {
+Then('the user item should be removed', () => {
     cy.contains('.share-details-text', 'A user').should('not.exist')
 })
 
-Then('the group item is removed', () => {
+Then('the group item should be removed', () => {
     cy.contains('.share-details-text', 'A group').should('not.exist')
 })

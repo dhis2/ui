@@ -15,7 +15,7 @@ When('the apply sharing tab is clicked', () => {
     cy.contains('button', 'Apply sharing to dashboard visualizations').click()
 })
 
-Then('the correct counts are displayed', () => {
+Then('the correct counts should be displayed', () => {
     /**
      * The visualization count comes from the dashboarditems returned by the backend.
      * The only types that are counted are: 'VISUALIZATION', 'MAP', 'EVENT_CHART' and
@@ -28,7 +28,7 @@ Then('the correct counts are displayed', () => {
     ).should('be.visible')
 })
 
-Then('the apply sharing button is visible', () => {
+Then('the apply sharing button should be visible', () => {
     cy.contains('Apply sharing to dashboard visualizations').should(
         'be.visible'
     )

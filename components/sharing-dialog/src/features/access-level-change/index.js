@@ -141,56 +141,56 @@ When('the user sets the group access level to view and edit', () => {
 })
 
 /**
- * the <target> access control is set to <changed>
+ * the <target> access control should be set to <changed>
  */
 
-Then('the all users access control is set to view only', () => {
+Then('the all users access control should be set to view only', () => {
     cy.get('@all-users-list-item')
         .contains('[data-test="dhis2-uicore-singleselect"]', 'View only')
         .should('be.visible')
 })
 
-Then('the all users access control is set to view and edit', () => {
+Then('the all users access control should be set to view and edit', () => {
     cy.get('@all-users-list-item')
         .contains('[data-test="dhis2-uicore-singleselect"]', 'View and edit')
         .should('be.visible')
 })
 
-Then('the user access control is set to view and edit', () => {
+Then('the user access control should be set to view and edit', () => {
     cy.get('@user-list-item')
         .contains('[data-test="dhis2-uicore-singleselect"]', 'View and edit')
         .should('be.visible')
 })
 
-Then('the group access control is set to view and edit', () => {
+Then('the group access control should be set to view and edit', () => {
     cy.get('@group-list-item')
         .contains('[data-test="dhis2-uicore-singleselect"]', 'View and edit')
         .should('be.visible')
 })
 
 /**
- * the <target> section is labeled for <changed>
+ * the <target> section should be labeled for <changed>
  */
 
-Then('the all users section is labeled for view only', () => {
+Then('the all users section should be labeled for view only', () => {
     cy.get('@all-users-list-item')
         .contains('.share-details-text', 'Anyone logged in can view')
         .should('be.visible')
 })
 
-Then('the all users section is labeled for view and edit', () => {
+Then('the all users section should be labeled for view and edit', () => {
     cy.get('@all-users-list-item')
         .contains('.share-details-text', 'Anyone logged in can view and edit')
         .should('be.visible')
 })
 
-Then('the user section is labeled for view and edit', () => {
+Then('the user section should be labeled for view and edit', () => {
     cy.get('@user-list-item')
         .contains('.share-details-text', 'Can view and edit')
         .should('be.visible')
 })
 
-Then('the group section is labeled for view and edit', () => {
+Then('the group section should be labeled for view and edit', () => {
     cy.get('@group-list-item')
         .contains('.share-details-text', 'Can view and edit')
         .should('be.visible')

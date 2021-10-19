@@ -3,8 +3,8 @@ Feature: Allows users to view and change the access level for specific entities
     Scenario Outline: User can change the access level from <initial> to <changed> for <target>
         Given a sharing dialog with <target> item with <initial> is visible
         When the user sets the <target> access level to <changed>
-        Then the <target> access control is set to <changed>
-        And the <target> section is labeled for <changed>
+        Then the <target> access control should be set to <changed>
+        And the <target> section should be labeled for <changed>
 
     Scenarios:
         | initial   | target    | changed       |

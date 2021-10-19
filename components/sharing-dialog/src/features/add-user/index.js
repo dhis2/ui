@@ -90,10 +90,10 @@ When('the user gives group view and edit access', () => {
 })
 
 /**
- * the <target> is added to the access list with <level> access
+ * the <target> should be added to the access list with <level> access
  */
 
-Then('the user is added to the access list with view only access', () => {
+Then('the user should be added to the access list with view only access', () => {
     cy.contains('.sharing-list-item', 'A user')
         .should('be.visible')
         .as('user-item')
@@ -102,7 +102,7 @@ Then('the user is added to the access list with view only access', () => {
     cy.get('@user-item').contains('View only').should('be.visible')
 })
 
-Then('the user is added to the access list with view and edit access', () => {
+Then('the user should be added to the access list with view and edit access', () => {
     cy.contains('.sharing-list-item', 'A user')
         .should('be.visible')
         .as('user-item')
@@ -111,7 +111,7 @@ Then('the user is added to the access list with view and edit access', () => {
     cy.get('@user-item').contains('View and edit').should('be.visible')
 })
 
-Then('the group is added to the access list with view only access', () => {
+Then('the group should be added to the access list with view only access', () => {
     cy.contains('.sharing-list-item', 'A group')
         .should('be.visible')
         .as('group-item')
@@ -120,7 +120,7 @@ Then('the group is added to the access list with view only access', () => {
     cy.get('@group-item').contains('View only').should('be.visible')
 })
 
-Then('the group is added to the access list with view and edit access', () => {
+Then('the group should be added to the access list with view and edit access', () => {
     cy.contains('.sharing-list-item', 'A group')
         .should('be.visible')
         .as('group-item')
