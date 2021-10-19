@@ -1,6 +1,6 @@
 Feature: Can be set to dashboard type
 
-    Scenario: Dashboard type
+    Scenario: User clicks on the apply sharing tab of a dashboard sharing dialog
         Given a sharing dialog of the dashboard type is visible
         And the two dashboard tabs should be visible
         When the apply sharing tab is clicked
