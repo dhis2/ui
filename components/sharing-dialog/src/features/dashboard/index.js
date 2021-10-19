@@ -4,7 +4,7 @@ Given('a sharing dialog of the dashboard type is visible', () => {
     cy.visitStory('sharing-dialog', 'dashboard')
 })
 
-Given('the two dashboard tabs should be visible', () => {
+Given('the two dashboard tabs are visible', () => {
     cy.contains('button', 'Dashboard sharing').should('be.visible')
     cy.contains('button', 'Apply sharing to dashboard visualizations').should(
         'be.visible'
