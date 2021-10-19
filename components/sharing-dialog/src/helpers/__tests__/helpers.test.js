@@ -1,17 +1,17 @@
 import {
+    ACCESS_NONE,
+    ACCESS_VIEW_ONLY,
+    ACCESS_VIEW_AND_EDIT,
+    SHARE_TARGET_EXTERNAL,
+    SHARE_TARGET_PUBLIC,
+} from '../../sharing-constants.js'
+import {
     convertAccessToConstant,
     convertConstantToAccess,
     nameToTitle,
     nameToInitials,
     isRemovableTarget,
 } from '../helpers.js'
-import {
-    ACCESS_NONE,
-    ACCESS_VIEW_ONLY,
-    ACCESS_VIEW_AND_EDIT,
-    SHARE_TARGET_EXTERNAL,
-    SHARE_TARGET_PUBLIC,
-} from '../sharing-constants.js'
 
 describe('helpers', () => {
     describe('convertAccessToConstant', () => {

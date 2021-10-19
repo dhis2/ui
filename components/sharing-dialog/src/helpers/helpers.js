@@ -1,11 +1,11 @@
-import i18n from './locales/index.js'
+import i18n from '../locales/index.js'
 import {
     ACCESS_VIEW_ONLY,
     ACCESS_NONE,
     ACCESS_VIEW_AND_EDIT,
     SHARE_TARGET_EXTERNAL,
     SHARE_TARGET_PUBLIC,
-} from './sharing-constants.js'
+} from '../sharing-constants.js'
 
 export const debounce = function (f, ms) {
     let timeout

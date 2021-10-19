@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import React, { useMemo, useState } from 'react'
 import { AccessSelect } from '../access-select/index.js'
 import { Autocomplete } from '../autocomplete/index.js'
-import { debounce } from '../helpers.js'
+import { debounce } from '../helpers/index.js'
 import i18n from '../locales/index.js'
 import { ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT } from '../sharing-constants.js'
 
@@ -20,7 +20,7 @@ const query = {
 
 const addType = (type) => (result) => ({ ...result, type })
 
-export const AllowAccess = ({ onAdd }) => {
+export const AccessAdd = ({ onAdd }) => {
     const [userOrGroup, setUserOrGroup] = useState(undefined)
     const [access, setAccess] = useState(undefined)
     const [didInvalidate, setDidInvalidate] = useState(true)
@@ -150,6 +150,6 @@ export const AllowAccess = ({ onAdd }) => {
     )
 }
 
-AllowAccess.propTypes = {
+AccessAdd.propTypes = {
     onAdd: PropTypes.func.isRequired,
 }

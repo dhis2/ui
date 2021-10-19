@@ -4,11 +4,11 @@ import { mount } from 'enzyme'
 import React from 'react'
 import { AccessSelect } from '../../access-select/index.js'
 import { Autocomplete } from '../../autocomplete/index.js'
-import { AllowAccess } from '../allow-access.js'
+import { AccessAdd } from '../access-add.js'
 
-describe('<AllowAccess />', () => {
+describe('<AccessAdd />', () => {
     it('renders a single Autocomplete component ', () => {
-        const wrapper = mount(<AllowAccess onAdd={() => {}} />, {
+        const wrapper = mount(<AccessAdd onAdd={() => {}} />, {
             wrappingComponent: CustomDataProvider,
         })
         const autocompletes = wrapper.find(Autocomplete)
@@ -17,7 +17,7 @@ describe('<AllowAccess />', () => {
     })
 
     it('renders a single AccessSelect component', () => {
-        const wrapper = mount(<AllowAccess onAdd={() => {}} />, {
+        const wrapper = mount(<AccessAdd onAdd={() => {}} />, {
             wrappingComponent: CustomDataProvider,
         })
         const accessSelects = wrapper.find(AccessSelect)
@@ -26,7 +26,7 @@ describe('<AllowAccess />', () => {
     })
 
     it('renders a button with "Give access"', () => {
-        const wrapper = mount(<AllowAccess onAdd={() => {}} />, {
+        const wrapper = mount(<AccessAdd onAdd={() => {}} />, {
             wrappingComponent: CustomDataProvider,
         })
         const buttons = wrapper.find(Button)

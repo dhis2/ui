@@ -7,7 +7,7 @@ import {
     nameToTitle,
     convertAccessToConstant,
     convertConstantToAccess,
-} from './helpers.js'
+} from './helpers/index.js'
 import i18n from './locales/index.js'
 import { ACCESS_NONE } from './sharing-constants.js'
 import { SharingContent } from './sharing-content.js'
