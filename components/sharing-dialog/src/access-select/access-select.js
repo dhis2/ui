@@ -2,7 +2,6 @@ import { SingleSelectField } from '@dhis2-ui/select'
 import { useOnlineStatus } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { ConditionalTooltip } from '../conditional-tooltip.js'
 import i18n from '../locales/index.js'
 import {
     ACCESS_NONE,
@@ -31,36 +30,32 @@ export const AccessSelect = ({
 
     return (
         <div className="share-select">
-            <ConditionalTooltip
-                show={offline}
-                content={i18n.t('Not available offline')}
+            <SingleSelectField
+                label={label}
+                placeholder={placeholder}
+                prefix={prefix}
+                disabled={offline || disabled}
+                selected={access}
+                helpText={offline ? i18n.t('Not available offline') : ''}
+                onChange={({ selected }) => onChange(selected)}
             >
-                <SingleSelectField
-                    label={label}
-                    placeholder={placeholder}
-                    prefix={prefix}
-                    disabled={offline || disabled}
-                    selected={access}
-                    onChange={({ selected }) => onChange(selected)}
-                >
-                    {accessOptions.map((value) => (
-                        <CustomSingleSelectOption
-                            key={value}
-                            label={accessToLabel[value]}
-                            value={value}
-                            active={value === access}
-                        />
-                    ))}
-                    {showRemoveOption && (
-                        <CustomSingleSelectOption
-                            key="remove"
-                            label={i18n.t('Remove access')}
-                            value="remove"
-                            destructive
-                        />
-                    )}
-                </SingleSelectField>
-            </ConditionalTooltip>
+                {accessOptions.map((value) => (
+                    <CustomSingleSelectOption
+                        key={value}
+                        label={accessToLabel[value]}
+                        value={value}
+                        active={value === access}
+                    />
+                ))}
+                {showRemoveOption && (
+                    <CustomSingleSelectOption
+                        key="remove"
+                        label={i18n.t('Remove access')}
+                        value="remove"
+                        destructive
+                    />
+                )}
+            </SingleSelectField>
             <style jsx>{`
                 .share-select {
                     flex: 1;
