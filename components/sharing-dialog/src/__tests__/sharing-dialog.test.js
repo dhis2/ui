@@ -3,8 +3,6 @@ import { Modal, ModalTitle } from '@dhis2-ui/modal'
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import { mount } from 'enzyme'
 import React from 'react'
-import { DashboardSharingContent } from '../dashboard-sharing-content.js'
-import { DefaultSharingContent } from '../default-sharing-content.js'
 import { ACCESS_NONE } from '../sharing-constants.js'
 import { SharingDialog } from '../sharing-dialog.js'
 
@@ -64,29 +62,5 @@ describe('<SharingDialog />', () => {
         closeButtons.first().simulate('click')
 
         expect(spy).toHaveBeenCalledTimes(1)
-    })
-
-    it('renders a DefaultSharingContent component when the type is not dashboard', () => {
-        const wrapper = mount(
-            <SharingDialog {...requiredProps} type="visualization" />,
-            {
-                wrappingComponent: CustomDataProvider,
-            }
-        )
-        const defaultSharingContent = wrapper.find(DefaultSharingContent)
-
-        expect(defaultSharingContent).toHaveLength(1)
-    })
-
-    it('renders a DashboardSharingContent component when the type is dashboard', () => {
-        const wrapper = mount(
-            <SharingDialog {...requiredProps} type="dashboard" />,
-            {
-                wrappingComponent: CustomDataProvider,
-            }
-        )
-        const dashboardSharingContent = wrapper.find(DashboardSharingContent)
-
-        expect(dashboardSharingContent).toHaveLength(1)
     })
 })

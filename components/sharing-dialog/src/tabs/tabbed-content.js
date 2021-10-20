@@ -1,17 +1,29 @@
 import { TabBar, Tab } from '@dhis2-ui/tab'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import { DashboardCascadeSharingContent } from './dashboard-cascade-sharing-content.js'
-import { DefaultSharingContent } from './default-sharing-content.js'
-import i18n from './locales/index.js'
+import i18n from '../locales/index.js'
+import { AccessTab } from './access-tab.js'
+import { CascadeTab } from './cascade-tab.js'
 
-export const DashboardSharingContent = ({
+export const TabbedContent = ({
+    type,
     sharingSettings,
     onAdd,
     onChange,
     onRemove,
 }) => {
     const [activeTabIndex, setActiveTabIndex] = useState(0)
+
+    if (type === 'visualization') {
+        return (
+            <AccessTab
+                sharingSettings={sharingSettings}
+                onAdd={onAdd}
+                onChange={onChange}
+                onRemove={onRemove}
+            />
+        )
+    }
 
     return (
         <>
@@ -31,7 +43,7 @@ export const DashboardSharingContent = ({
             </TabBar>
             <div className="tab-content">
                 {activeTabIndex === 0 && (
-                    <DefaultSharingContent
+                    <AccessTab
                         sharingSettings={sharingSettings}
                         onAdd={onAdd}
                         onChange={onChange}
@@ -39,9 +51,7 @@ export const DashboardSharingContent = ({
                     />
                 )}
                 {activeTabIndex === 1 && (
-                    <DashboardCascadeSharingContent
-                        sharingSettings={sharingSettings}
-                    />
+                    <CascadeTab sharingSettings={sharingSettings} />
                 )}
             </div>
             <style jsx>{`
@@ -53,8 +63,9 @@ export const DashboardSharingContent = ({
     )
 }
 
-DashboardSharingContent.propTypes = {
+TabbedContent.propTypes = {
     sharingSettings: PropTypes.object.isRequired,
+    type: PropTypes.string.isRequired,
     onAdd: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
     onRemove: PropTypes.func.isRequired,

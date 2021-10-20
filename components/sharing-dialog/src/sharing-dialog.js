@@ -10,7 +10,7 @@ import {
 } from './helpers/index.js'
 import i18n from './locales/index.js'
 import { ACCESS_NONE } from './sharing-constants.js'
-import { SharingContent } from './sharing-content.js'
+import { TabbedContent } from './tabs/index.js'
 
 const query = {
     sharing: {
@@ -213,7 +213,7 @@ export const SharingDialog = ({
         <Modal large position="top" onClose={onClose}>
             <ModalTitle>{nameToTitle(sharingSettings.name)}</ModalTitle>
             <ModalContent>
-                <SharingContent
+                <TabbedContent
                     type={type}
                     sharingSettings={sharingSettings}
                     onAdd={(data) => {

@@ -11,7 +11,7 @@ import { colors } from '@dhis2/ui-constants'
 import { IconInfo16, IconCheckmark16 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
-import i18n from './locales/index.js'
+import i18n from '../locales/index.js'
 
 const dashboardQuery = {
     dashboard: {
@@ -38,7 +38,7 @@ const getCascadeSharingMutation = (id) => ({
     type: 'create',
 })
 
-export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
+export const CascadeTab = ({ sharingSettings }) => {
     const { offline } = useOnlineStatus()
 
     const { data: queryResponse } = useDataQuery(dashboardQuery, {
@@ -408,6 +408,6 @@ export const DashboardCascadeSharingContent = ({ sharingSettings }) => {
     )
 }
 
-DashboardCascadeSharingContent.propTypes = {
+CascadeTab.propTypes = {
     sharingSettings: PropTypes.object.isRequired,
 }

@@ -1,14 +1,9 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { AccessAdd } from './access-add/index.js'
-import { AccessList } from './access-list/index.js'
+import { AccessAdd } from '../access-add/index.js'
+import { AccessList } from '../access-list/index.js'
 
-export const DefaultSharingContent = ({
-    sharingSettings,
-    onAdd,
-    onChange,
-    onRemove,
-}) => (
+export const AccessTab = ({ sharingSettings, onAdd, onChange, onRemove }) => (
     <>
         <AccessAdd onAdd={onAdd} />
         <AccessList
@@ -19,7 +14,7 @@ export const DefaultSharingContent = ({
     </>
 )
 
-DefaultSharingContent.propTypes = {
+AccessTab.propTypes = {
     sharingSettings: PropTypes.object.isRequired,
     onAdd: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
