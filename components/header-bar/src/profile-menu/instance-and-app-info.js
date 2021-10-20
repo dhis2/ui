@@ -82,7 +82,7 @@ export const InstanceAndAppInfo = ({ appName, appVersion }) => {
             </div>
 
             {appName && appVersion && (
-                <div className="app-info">{`${appName}, ${appVersion}`}</div>
+                <div className="app-info">{`${appName} ${appVersion}`}</div>
             )}
 
             <style jsx>{`
