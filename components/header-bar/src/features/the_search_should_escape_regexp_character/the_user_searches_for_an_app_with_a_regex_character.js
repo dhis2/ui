@@ -1,5 +1,5 @@
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
-import { modulesWithSpecialCharacters } from '../../stories/common.js'
+import { modulesWithSpecialCharacters } from '../../__e2e__/stories/common.js'
 import '../common/index.js'
 
 Given(/some app names contain a (.*)/, (character) => {

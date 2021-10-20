@@ -60,14 +60,6 @@ export const defaultModules = [
         description: '',
     },
     {
-        name: 'dhis-web-import-export',
-        namespace: '/dhis-web-import-export',
-        defaultAction: '../dhis-web-import-export/index.action',
-        displayName: 'Import/Export',
-        icon: '../icons/dhis-web-import-export.png',
-        description: '',
-    },
-    {
         name: 'WHO Metadata browser',
         namespace: 'WHO Metadata browser',
         defaultAction:
