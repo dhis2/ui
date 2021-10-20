@@ -43,6 +43,11 @@ const menuItemWithBorderTopStyles = resolve`
         font-size: 14px;
         line-height: 17px;
     }
+
+    li:hover {
+        background-color: ${colors.white};
+        cursor: default;
+    }
 `
 
 const MenuItemWithBorderTop = ({ children }) => (
