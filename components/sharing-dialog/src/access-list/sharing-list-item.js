@@ -1,8 +1,10 @@
 import { Divider } from '@dhis2-ui/divider'
+import { SingleSelectField, SingleSelectOption } from '@dhis2-ui/select'
+import { useOnlineStatus } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { AccessSelect } from '../access-select/index.js'
+import { DestructiveSelectOption } from '../destructive-select-option/index.js'
 import { isRemovableTarget } from '../helpers/index.js'
 import i18n from '../locales/index.js'
 import { SharingListItemContext } from './sharing-list-item-context.js'
@@ -17,6 +19,13 @@ export const SharingListItem = ({
     onChange,
     onRemove,
 }) => {
+    const { offline } = useOnlineStatus()
+    const valueToLabel = {
+        ACCESS_NONE: i18n.t('No access'),
+        ACCESS_VIEW_ONLY: i18n.t('View only'),
+        ACCESS_VIEW_AND_EDIT: i18n.t('View and edit'),
+    }
+
     return (
         <>
             <div className="sharing-list-item">
@@ -27,16 +36,32 @@ export const SharingListItem = ({
                         <SharingListItemContext access={access} />
                     </div>
                 </div>
-                <AccessSelect
-                    prefix={i18n.t('Metadata')}
-                    access={access}
-                    accessOptions={accessOptions}
-                    disabled={disabled}
-                    showRemoveOption={isRemovableTarget(target)}
-                    onChange={(selected) =>
-                        selected === 'remove' ? onRemove() : onChange(selected)
-                    }
-                />
+                <div className="select-wrapper">
+                    <SingleSelectField
+                        disabled={disabled || offline}
+                        prefix={i18n.t('Metadata')}
+                        selected={access}
+                        helpText={
+                            offline ? i18n.t('Not available offline') : ''
+                        }
+                        onChange={({ selected }) => onChange(selected)}
+                    >
+                        {accessOptions.map((value) => (
+                            <SingleSelectOption
+                                key={value}
+                                label={valueToLabel[value]}
+                                value={value}
+                                active={value === access}
+                            />
+                        ))}
+                        {isRemovableTarget(target) && (
+                            <DestructiveSelectOption
+                                onClick={onRemove}
+                                label={i18n.t('Remove access')}
+                            />
+                        )}
+                    </SingleSelectField>
+                </div>
             </div>
             <Divider />
             <style jsx>{`
@@ -67,6 +92,10 @@ export const SharingListItem = ({
                     color: ${colors.grey700};
                     margin: 6px 0 0 0;
                     padding: 0;
+                }
+
+                .select-wrapper {
+                    flex: 1;
                 }
             `}</style>
         </>

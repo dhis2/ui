@@ -74,7 +74,7 @@ When('the user sets the all users access level to view only', () => {
         .click()
 
     cy.contains(
-        '[data-test="dhis2-uicore-select-menu-menuwrapper"] [data-test="dhis2-uicore-menuitem"]',
+        '[data-test="dhis2-uicore-select-menu-menuwrapper"] [data-test="dhis2-uicore-singleselectoption"]',
         'View only'
     )
         .should('be.visible')
@@ -92,7 +92,7 @@ When('the user sets the all users access level to view and edit', () => {
         .click()
 
     cy.contains(
-        '[data-test="dhis2-uicore-select-menu-menuwrapper"] [data-test="dhis2-uicore-menuitem"]',
+        '[data-test="dhis2-uicore-select-menu-menuwrapper"] [data-test="dhis2-uicore-singleselectoption"]',
         'View and edit'
     )
         .should('be.visible')
@@ -110,7 +110,7 @@ When('the user sets the user access level to view and edit', () => {
         .click()
 
     cy.contains(
-        '[data-test="dhis2-uicore-select-menu-menuwrapper"] [data-test="dhis2-uicore-menuitem"]',
+        '[data-test="dhis2-uicore-select-menu-menuwrapper"] [data-test="dhis2-uicore-singleselectoption"]',
         'View and edit'
     )
         .should('be.visible')
@@ -128,7 +128,7 @@ When('the user sets the group access level to view and edit', () => {
         .click()
 
     cy.contains(
-        '[data-test="dhis2-uicore-select-menu-menuwrapper"] [data-test="dhis2-uicore-menuitem"]',
+        '[data-test="dhis2-uicore-select-menu-menuwrapper"] [data-test="dhis2-uicore-singleselectoption"]',
         'View and edit'
     )
         .should('be.visible')

@@ -1,9 +1,9 @@
 import { Button } from '@dhis2-ui/button'
+import { SingleSelectField, SingleSelectOption } from '@dhis2-ui/select'
 import { useDataQuery, useOnlineStatus } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useMemo, useState } from 'react'
-import { AccessSelect } from '../access-select/index.js'
 import { Autocomplete } from '../autocomplete/index.js'
 import { debounce } from '../helpers/index.js'
 import i18n from '../locales/index.js'
@@ -94,6 +94,17 @@ export const AccessAdd = ({ onAdd }) => {
         setAccess(undefined)
     }
 
+    const accessOptions = [
+        {
+            value: ACCESS_VIEW_ONLY,
+            label: i18n.t('View only'),
+        },
+        {
+            value: ACCESS_VIEW_AND_EDIT,
+            label: i18n.t('View and edit'),
+        },
+    ]
+
     return (
         <>
             <p className="sharing-subtitle">
@@ -110,13 +121,27 @@ export const AccessAdd = ({ onAdd }) => {
                     onChange={onChange}
                     onSearch={onSearch}
                 />
-                <AccessSelect
-                    label={i18n.t('Access level')}
-                    placeholder={i18n.t('Select a level')}
-                    access={access}
-                    accessOptions={[ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT]}
-                    onChange={setAccess}
-                />
+                <div className="select-wrapper">
+                    <SingleSelectField
+                        label={i18n.t('Access level')}
+                        placeholder={i18n.t('Select a level')}
+                        disabled={offline}
+                        selected={access}
+                        helpText={
+                            offline ? i18n.t('Not available offline') : ''
+                        }
+                        onChange={({ selected }) => setAccess(selected)}
+                    >
+                        {accessOptions.map(({ value, label }) => (
+                            <SingleSelectOption
+                                key={value}
+                                label={label}
+                                value={value}
+                                active={value === access}
+                            />
+                        ))}
+                    </SingleSelectField>
+                </div>
                 <Button
                     type="submit"
                     disabled={offline || !userOrGroup?.id || !access}
@@ -144,6 +169,10 @@ export const AccessAdd = ({ onAdd }) => {
                     display: flex;
                     align-items: flex-end;
                     width: 100%;
+                }
+
+                .select-wrapper {
+                    flex: 1;
                 }
             `}</style>
         </>

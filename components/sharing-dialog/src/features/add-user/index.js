@@ -27,7 +27,10 @@ When('the user gives user view only access', () => {
     cy.contains('[data-test="dhis2-uicore-menuitem"]', 'A user').click()
 
     cy.contains('Select a level').click()
-    cy.contains('[data-test="dhis2-uicore-menuitem"]', 'View only').click()
+    cy.contains(
+        '[data-test="dhis2-uicore-singleselectoption"]',
+        'View only'
+    ).click()
 
     cy.contains('button', 'Give access').click()
 })
@@ -46,7 +49,10 @@ When('the user gives user view and edit access', () => {
     cy.contains('[data-test="dhis2-uicore-menuitem"]', 'A user').click()
 
     cy.contains('Select a level').click()
-    cy.contains('[data-test="dhis2-uicore-menuitem"]', 'View and edit').click()
+    cy.contains(
+        '[data-test="dhis2-uicore-singleselectoption"]',
+        'View and edit'
+    ).click()
 
     cy.contains('button', 'Give access').click()
 })
@@ -65,7 +71,10 @@ When('the user gives group view only access', () => {
     cy.contains('[data-test="dhis2-uicore-menuitem"]', 'A group').click()
 
     cy.contains('Select a level').click()
-    cy.contains('[data-test="dhis2-uicore-menuitem"]', 'View only').click()
+    cy.contains(
+        '[data-test="dhis2-uicore-singleselectoption"]',
+        'View only'
+    ).click()
 
     cy.contains('button', 'Give access').click()
 })
@@ -84,7 +93,10 @@ When('the user gives group view and edit access', () => {
     cy.contains('[data-test="dhis2-uicore-menuitem"]', 'A group').click()
 
     cy.contains('Select a level').click()
-    cy.contains('[data-test="dhis2-uicore-menuitem"]', 'View and edit').click()
+    cy.contains(
+        '[data-test="dhis2-uicore-singleselectoption"]',
+        'View and edit'
+    ).click()
 
     cy.contains('button', 'Give access').click()
 })

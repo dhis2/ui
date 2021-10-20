@@ -61,12 +61,7 @@ When('the user removes the access for the user', () => {
         .find('[data-test="dhis2-uicore-singleselect"]')
         .click()
 
-    cy.contains(
-        '[data-test="dhis2-uicore-select-menu-menuwrapper"] [data-test="dhis2-uicore-menuitem"]',
-        'Remove access'
-    )
-        .should('be.visible')
-        .click()
+    cy.contains('Remove access').should('be.visible').click()
 
     // Menu should be closed before continuing
     cy.get('[data-test="dhis2-uicore-select-menu-menuwrapper"]').should(
@@ -79,12 +74,7 @@ When('the user removes the access for the group', () => {
         .find('[data-test="dhis2-uicore-singleselect"]')
         .click()
 
-    cy.contains(
-        '[data-test="dhis2-uicore-select-menu-menuwrapper"] [data-test="dhis2-uicore-menuitem"]',
-        'Remove access'
-    )
-        .should('be.visible')
-        .click()
+    cy.contains('Remove access').should('be.visible').click()
 
     // Menu should be closed before continuing
     cy.get('[data-test="dhis2-uicore-select-menu-menuwrapper"]').should(
