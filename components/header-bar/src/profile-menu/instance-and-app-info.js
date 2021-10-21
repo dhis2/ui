@@ -12,7 +12,7 @@ const InstanceInfo = ({ instanceData }) => {
     return (
         <>
             <span className="version">
-                {`${i18n.t('DHIS2 version')} ${version}`}
+                {i18n.t('DHIS2 {{version}}', { version })}
             </span>
 
             {', '}
