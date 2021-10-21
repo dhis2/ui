@@ -38,31 +38,24 @@ const getCascadeSharingMutation = (id) => ({
     type: 'create',
 })
 
-export const CascadeTab = ({ sharingSettings }) => {
+export const CascadeTab = ({ id, entityAmount }) => {
     const { offline } = useOnlineStatus()
 
     const { data: queryResponse } = useDataQuery(dashboardQuery, {
-        variables: { id: sharingSettings.id },
+        variables: { id },
     })
 
     const visualizationsCount = getVisualizationsCount(queryResponse)
 
-    const mutation = useMemo(
-        () => getCascadeSharingMutation(sharingSettings.id),
-        []
-    )
+    const mutation = useMemo(() => getCascadeSharingMutation(id), [])
 
     const [mutate, { loading, error, data: mutationResponse }] =
         useDataMutation(mutation)
 
-    const usersGroupsCount =
-        Object.keys(sharingSettings.users).length +
-        Object.keys(sharingSettings.groups).length
-
     const renderApplySharingButton = () => (
         <Button
             type="button"
-            disabled={offline || loading || !usersGroupsCount}
+            disabled={offline || loading || !entityAmount}
             secondary
             onClick={() => mutate()}
         >
@@ -73,7 +66,7 @@ export const CascadeTab = ({ sharingSettings }) => {
     const getInfoMessage = () => {
         let message
 
-        if (usersGroupsCount > 0) {
+        if (entityAmount > 0) {
             const messagePart1 = i18n.t(
                 '{{count}} visualization on this dashboard will potentially get updated sharing settings.',
                 {
@@ -90,7 +83,7 @@ export const CascadeTab = ({ sharingSettings }) => {
                 i18n.t(
                     'These updated sharing settings will apply to {{count}} user or group.',
                     {
-                        count: usersGroupsCount,
+                        count: entityAmount,
                         defaultValue:
                             'These updated sharing settings will apply to {{count}} user or group.',
                         defaultValue_plural:
@@ -409,5 +402,6 @@ export const CascadeTab = ({ sharingSettings }) => {
 }
 
 CascadeTab.propTypes = {
-    sharingSettings: PropTypes.object.isRequired,
+    entityAmount: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
 }

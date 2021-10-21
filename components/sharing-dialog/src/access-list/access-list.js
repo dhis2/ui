@@ -12,7 +12,14 @@ import {
 } from '../sharing-constants.js'
 import { SharingListItem } from './sharing-list-item.js'
 
-export const AccessList = ({ sharingSettings, onChange, onRemove }) => (
+export const AccessList = ({
+    onChange,
+    onRemove,
+    allUsersAccessLevel,
+    disableAllUsers,
+    users,
+    groups,
+}) => (
     <>
         <p className="sharing-subtitle">
             {i18n.t('Users, groups and roles that currently have access')}
@@ -27,37 +34,35 @@ export const AccessList = ({ sharingSettings, onChange, onRemove }) => (
             <SharingListItem
                 name={i18n.t('All users')}
                 target={SHARE_TARGET_PUBLIC}
-                access={sharingSettings.public}
+                access={allUsersAccessLevel}
                 accessOptions={[
                     ACCESS_NONE,
                     ACCESS_VIEW_ONLY,
                     ACCESS_VIEW_AND_EDIT,
                 ]}
-                disabled={!sharingSettings.allowPublic}
+                disabled={disableAllUsers}
                 onChange={(newAccess) =>
                     onChange({ type: 'public', access: newAccess })
                 }
             />
-            {Object.values(sharingSettings.groups).map(
-                ({ id, name, access }) => (
-                    <SharingListItem
-                        key={id}
-                        name={name}
-                        target={SHARE_TARGET_GROUP}
-                        access={access}
-                        accessOptions={[ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT]}
-                        onChange={(newAccess) =>
-                            onChange({
-                                type: 'group',
-                                id,
-                                access: newAccess,
-                            })
-                        }
-                        onRemove={() => onRemove({ type: 'group', id })}
-                    />
-                )
-            )}
-            {Object.values(sharingSettings.users).map(
+            {Object.values(groups).map(({ id, name, access }) => (
+                <SharingListItem
+                    key={id}
+                    name={name}
+                    target={SHARE_TARGET_GROUP}
+                    access={access}
+                    accessOptions={[ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT]}
+                    onChange={(newAccess) =>
+                        onChange({
+                            type: 'group',
+                            id,
+                            access: newAccess,
+                        })
+                    }
+                    onRemove={() => onRemove({ type: 'group', id })}
+                />
+            ))}
+            {Object.values(users).map(
                 ({ id, name, access }) =>
                     access && (
                         <SharingListItem
@@ -118,7 +123,10 @@ export const AccessList = ({ sharingSettings, onChange, onRemove }) => (
 )
 
 AccessList.propTypes = {
-    sharingSettings: PropTypes.object,
-    onChange: PropTypes.func,
-    onRemove: PropTypes.func,
+    allUsersAccessLevel: PropTypes.string.isRequired,
+    disableAllUsers: PropTypes.bool.isRequired,
+    groups: PropTypes.object.isRequired,
+    users: PropTypes.object.isRequired,
+    onChange: PropTypes.func.isRequired,
+    onRemove: PropTypes.func.isRequired,
 }

@@ -214,8 +214,12 @@ export const SharingDialog = ({
             <ModalTitle>{nameToTitle(sharingSettings.name)}</ModalTitle>
             <ModalContent>
                 <TabbedContent
+                    id={id}
+                    users={sharingSettings.users}
+                    groups={sharingSettings.groups}
+                    allUsersAccessLevel={sharingSettings.public}
+                    disableAllUsers={!sharingSettings.allowPublic}
                     type={type}
-                    sharingSettings={sharingSettings}
                     onAdd={(data) => {
                         setIsDirty(true)
                         addUserOrGroupAccess(data)

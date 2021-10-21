@@ -7,7 +7,11 @@ import { CascadeTab } from './cascade-tab.js'
 
 export const TabbedContent = ({
     type,
-    sharingSettings,
+    users,
+    groups,
+    allUsersAccessLevel,
+    disableAllUsers,
+    id,
     onAdd,
     onChange,
     onRemove,
@@ -17,7 +21,10 @@ export const TabbedContent = ({
     if (type === 'visualization') {
         return (
             <AccessTab
-                sharingSettings={sharingSettings}
+                users={users}
+                groups={groups}
+                disableAllUsers={disableAllUsers}
+                allUsersAccessLevel={allUsersAccessLevel}
                 onAdd={onAdd}
                 onChange={onChange}
                 onRemove={onRemove}
@@ -44,14 +51,23 @@ export const TabbedContent = ({
             <div className="tab-content">
                 {activeTabIndex === 0 && (
                     <AccessTab
-                        sharingSettings={sharingSettings}
+                        users={users}
+                        groups={groups}
+                        disableAllUsers={disableAllUsers}
+                        allUsersAccessLevel={allUsersAccessLevel}
                         onAdd={onAdd}
                         onChange={onChange}
                         onRemove={onRemove}
                     />
                 )}
                 {activeTabIndex === 1 && (
-                    <CascadeTab sharingSettings={sharingSettings} />
+                    <CascadeTab
+                        id={id}
+                        entityAmount={
+                            Object.keys(users).length +
+                            Object.keys(groups).length
+                        }
+                    />
                 )}
             </div>
             <style jsx>{`
@@ -64,8 +80,12 @@ export const TabbedContent = ({
 }
 
 TabbedContent.propTypes = {
-    sharingSettings: PropTypes.object.isRequired,
+    allUsersAccessLevel: PropTypes.string.isRequired,
+    disableAllUsers: PropTypes.bool.isRequired,
+    groups: PropTypes.object.isRequired,
+    id: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
+    users: PropTypes.object.isRequired,
     onAdd: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
     onRemove: PropTypes.func.isRequired,
