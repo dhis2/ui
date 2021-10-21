@@ -28,8 +28,8 @@ export const AccessTab = ({
 AccessTab.propTypes = {
     allUsersAccessLevel: PropTypes.string.isRequired,
     disableAllUsers: PropTypes.bool.isRequired,
-    groups: PropTypes.object.isRequired,
-    users: PropTypes.object.isRequired,
+    groups: PropTypes.array.isRequired,
+    users: PropTypes.array.isRequired,
     onAdd: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
     onRemove: PropTypes.func.isRequired,

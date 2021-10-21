@@ -63,10 +63,7 @@ export const TabbedContent = ({
                 {activeTabIndex === 1 && (
                     <CascadeTab
                         id={id}
-                        entityAmount={
-                            Object.keys(users).length +
-                            Object.keys(groups).length
-                        }
+                        entityAmount={users.length + groups.length}
                     />
                 )}
             </div>
@@ -82,10 +79,10 @@ export const TabbedContent = ({
 TabbedContent.propTypes = {
     allUsersAccessLevel: PropTypes.string.isRequired,
     disableAllUsers: PropTypes.bool.isRequired,
-    groups: PropTypes.object.isRequired,
+    groups: PropTypes.array.isRequired,
     id: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
-    users: PropTypes.object.isRequired,
+    users: PropTypes.array.isRequired,
     onAdd: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
     onRemove: PropTypes.func.isRequired,

@@ -13,8 +13,8 @@ describe('<AccessList />', () => {
         const props = {
             disableAllUsers: true,
             allUsersAccessLevel: ACCESS_NONE,
-            groups: {},
-            users: {},
+            groups: [],
+            users: [],
             onChange: () => {},
             onRemove: () => {},
         }
@@ -30,17 +30,19 @@ describe('<AccessList />', () => {
 
     it('renders a SharingListItem for user group access', () => {
         const id = 'groupId'
+        const name = 'Name'
+        const access = 'r-------'
         const props = {
             disableAllUsers: true,
             allUsersAccessLevel: ACCESS_NONE,
-            groups: {
-                [id]: {
+            groups: [
+                {
                     id,
-                    name: 'Test group',
-                    access: 'r-------',
+                    name,
+                    access,
                 },
-            },
-            users: {},
+            ],
+            users: [],
             onChange: () => {},
             onRemove: () => {},
         }
@@ -51,23 +53,25 @@ describe('<AccessList />', () => {
         )
 
         expect(groupItem).toHaveLength(1)
-        expect(groupItem.prop('name')).toEqual(props.groups[id].name)
-        expect(groupItem.prop('access')).toEqual(props.groups[id].access)
+        expect(groupItem.prop('name')).toEqual(name)
+        expect(groupItem.prop('access')).toEqual(access)
     })
 
     it('renders a SharingListItem for user access', () => {
         const id = 'userId'
+        const name = 'Name'
+        const access = 'rw------'
         const props = {
             disableAllUsers: true,
             allUsersAccessLevel: ACCESS_NONE,
-            groups: {},
-            users: {
-                [id]: {
+            groups: [],
+            users: [
+                {
                     id,
-                    name: 'User group',
-                    access: 'rw------',
+                    name,
+                    access,
                 },
-            },
+            ],
             onChange: () => {},
             onRemove: () => {},
         }
@@ -78,7 +82,7 @@ describe('<AccessList />', () => {
         )
 
         expect(userItem).toHaveLength(1)
-        expect(userItem.prop('name')).toEqual(props.users[id].name)
-        expect(userItem.prop('access')).toEqual(props.users[id].access)
+        expect(userItem.prop('name')).toEqual(name)
+        expect(userItem.prop('access')).toEqual(access)
     })
 })

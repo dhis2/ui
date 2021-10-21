@@ -45,7 +45,7 @@ export const AccessList = ({
                     onChange({ type: 'public', access: newAccess })
                 }
             />
-            {Object.values(groups).map(({ id, name, access }) => (
+            {groups.map(({ id, name, access }) => (
                 <SharingListItem
                     key={id}
                     name={name}
@@ -62,7 +62,7 @@ export const AccessList = ({
                     onRemove={() => onRemove({ type: 'group', id })}
                 />
             ))}
-            {Object.values(users).map(
+            {users.map(
                 ({ id, name, access }) =>
                     access && (
                         <SharingListItem
@@ -125,8 +125,20 @@ export const AccessList = ({
 AccessList.propTypes = {
     allUsersAccessLevel: PropTypes.string.isRequired,
     disableAllUsers: PropTypes.bool.isRequired,
-    groups: PropTypes.object.isRequired,
-    users: PropTypes.object.isRequired,
+    groups: PropTypes.arrayOf(
+        PropTypes.shape({
+            access: PropTypes.string.isRequired,
+            id: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired,
+        })
+    ).isRequired,
+    users: PropTypes.arrayOf(
+        PropTypes.shape({
+            access: PropTypes.string.isRequired,
+            id: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired,
+        })
+    ).isRequired,
     onChange: PropTypes.func.isRequired,
     onRemove: PropTypes.func.isRequired,
 }

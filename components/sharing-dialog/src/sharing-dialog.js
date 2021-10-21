@@ -215,8 +215,8 @@ export const SharingDialog = ({
             <ModalContent>
                 <TabbedContent
                     id={id}
-                    users={sharingSettings.users}
-                    groups={sharingSettings.groups}
+                    users={Object.values(sharingSettings.users)}
+                    groups={Object.values(sharingSettings.groups)}
                     allUsersAccessLevel={sharingSettings.public}
                     disableAllUsers={!sharingSettings.allowPublic}
                     type={type}
