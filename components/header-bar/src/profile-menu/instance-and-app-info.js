@@ -74,7 +74,10 @@ export const InstanceAndAppInfo = ({ appName, appVersion }) => {
     // other instance info when an error occurs
     return (
         <MenuItemWithBorderTop>
-            <div className="instance-infos" data-test="dhis2-ui-headerbar-instanceinfo">
+            <div
+                className="instance-infos"
+                data-test="dhis2-ui-headerbar-instanceinfo"
+            >
                 {loading && <div>{i18n.t('Checking DHIS2 version...')}</div>}
 
                 {error && (

@@ -7,10 +7,7 @@ import {
 } from './common.js'
 
 export const InstanceInfosAreLoading = () => (
-    <HeaderBar
-        appName="Data Visualizer"
-        appVersion="100.3.2"
-    />
+    <HeaderBar appName="Data Visualizer" appVersion="100.3.2" />
 )
 
 InstanceInfosAreLoading.decorators = [

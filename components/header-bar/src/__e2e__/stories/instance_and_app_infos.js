@@ -6,10 +6,7 @@ import {
 } from './common.js'
 
 export const InstanceAndAppInfos = () => (
-    <HeaderBar
-        appName="Data Visualizer"
-        appVersion="100.3.2"
-    />
+    <HeaderBar appName="Data Visualizer" appVersion="100.3.2" />
 )
 
 InstanceAndAppInfos.decorators = [
