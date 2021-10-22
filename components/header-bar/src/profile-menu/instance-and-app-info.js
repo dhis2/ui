@@ -42,6 +42,7 @@ const menuItemWithBorderTopStyles = resolve`
         color: ${colors.grey700};
         font-size: 14px;
         line-height: 17px;
+        user-select: auto;
     }
 
     li:hover {
@@ -55,6 +56,7 @@ const MenuItemWithBorderTop = ({ children }) => (
         <MenuItem
             className={menuItemWithBorderTopStyles.className}
             label={children}
+            dataTest="dhis2-ui-headerbar-instanceandappinfo"
         />
 
         {menuItemWithBorderTopStyles.styles}
@@ -72,7 +74,7 @@ export const InstanceAndAppInfo = ({ appName, appVersion }) => {
     // other instance info when an error occurs
     return (
         <MenuItemWithBorderTop>
-            <div className="instance-infos">
+            <div className="instance-infos" data-test="dhis2-ui-headerbar-instanceinfo">
                 {loading && <div>{i18n.t('Checking DHIS2 version...')}</div>}
 
                 {error && (
@@ -87,7 +89,12 @@ export const InstanceAndAppInfo = ({ appName, appVersion }) => {
             </div>
 
             {appName && appVersion && (
-                <div className="app-info">{`${appName} ${appVersion}`}</div>
+                <div
+                    className="app-info"
+                    data-test="dhis2-ui-headerbar-appinfo"
+                >
+                    {`${appName} ${appVersion}`}
+                </div>
             )}
 
             <style jsx>{`
