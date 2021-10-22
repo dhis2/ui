@@ -159,9 +159,11 @@ export const createDecoratorStatefulMultiSelection = (args) => {
 }
 
 export const createDecoratorCustomDataProvider = (args) => {
-    return (fn) => (
-        <CustomDataProvider data={args?.data || dataProviderData}>
-            {fn()}
-        </CustomDataProvider>
-    )
+    const data = args?.data || dataProviderData
+
+    return (fn) => {
+        window.dataProviderData = data
+
+        return <CustomDataProvider data={data}>{fn()}</CustomDataProvider>
+    }
 }

@@ -1,17 +1,8 @@
 import { Then, Given } from 'cypress-cucumber-preprocessor/steps'
-import { baseUrl } from '../common/index.js'
 
-Given(
-    'the custom title is {string} and the app title is "Example!"',
-    (applicationTitle) => {
-        cy.get('@applicationTitleFixture').then((fx) => {
-            cy.route({
-                url: `${baseUrl}api/systemSettings/applicationTitle`,
-                response: { ...fx, applicationTitle },
-            }).as('applicationTitle')
-        })
-    }
-)
+Given('the custom title is "Barbaz" and the app title is "Example!"', () => {
+    cy.visitStory('HeaderBarTesting', 'Custom Application Title')
+})
 
 Then('the displayed title should be "Barbaz - Example!"', () => {
     cy.get('[data-test="headerbar-title"]').should(($title) => {

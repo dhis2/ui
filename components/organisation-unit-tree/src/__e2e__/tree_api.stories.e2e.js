@@ -8,7 +8,7 @@ import {
     namespace,
 } from './common.js'
 
-window.dataProviderData = {
+const customizedDataProviderData = {
     organisationUnits: (...args) => {
         const [, { id }] = args
 
@@ -37,7 +37,7 @@ window.onExpand = window.Cypress && window.Cypress.cy.stub()
 window.onChildrenLoaded = window.Cypress && window.Cypress.cy.stub()
 
 storiesOf(namespace, module).add('Events', () => (
-    <CustomDataProvider data={window.dataProviderData}>
+    <CustomDataProvider data={customizedDataProviderData}>
         <StatefulMultiSelectionWrapper>
             {({ selected, onChange }) => (
                 <OrganisationUnitTree

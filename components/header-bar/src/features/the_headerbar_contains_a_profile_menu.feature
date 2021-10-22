@@ -6,7 +6,6 @@ Feature: The HeaderBar contains a profile menu
         When the user clicks on the text icon
         Then the profile menu contains a text icon of size 48px with the user's initials
 
-    @avatar
     Scenario: The HeaderBar shows an image icon if the user has an avatar
         Given the HeaderBar loads without an error and the user has an avatar
         Then the headerbar contains an image icon of size 36px
@@ -61,7 +60,7 @@ Feature: The HeaderBar contains a profile menu
 
         # The following are omitted because of testing complications
         # around navigation:
-        
+
         # Then the user clicks the link to log out
         # Then a loading mask covers the screen
         # And clearSensitiveCaches is called
