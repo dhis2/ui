@@ -11,8 +11,8 @@ import { AccessList } from '../access-list.js'
 describe('<AccessList />', () => {
     it('renders an item for public access', () => {
         const props = {
-            disableAllUsers: true,
-            allUsersAccessLevel: ACCESS_NONE,
+            allowPublicAccess: false,
+            publicAccess: ACCESS_NONE,
             groups: [],
             users: [],
             onChange: () => {},
@@ -25,7 +25,7 @@ describe('<AccessList />', () => {
 
         expect(publicItem).toHaveLength(1)
         expect(publicItem.prop('name')).toEqual('All users')
-        expect(publicItem.prop('access')).toEqual(props.allUsersAccessLevel)
+        expect(publicItem.prop('access')).toEqual(props.publicAccess)
     })
 
     it('renders a SharingListItem for user group access', () => {
@@ -33,8 +33,8 @@ describe('<AccessList />', () => {
         const name = 'Name'
         const access = 'r-------'
         const props = {
-            disableAllUsers: true,
-            allUsersAccessLevel: ACCESS_NONE,
+            allowPublicAccess: false,
+            publicAccess: ACCESS_NONE,
             groups: [
                 {
                     id,
@@ -62,8 +62,8 @@ describe('<AccessList />', () => {
         const name = 'Name'
         const access = 'rw------'
         const props = {
-            disableAllUsers: true,
-            allUsersAccessLevel: ACCESS_NONE,
+            allowPublicAccess: false,
+            publicAccess: ACCESS_NONE,
             groups: [],
             users: [
                 {

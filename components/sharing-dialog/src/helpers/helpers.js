@@ -1,4 +1,3 @@
-import i18n from '../locales/index.js'
 import {
     ACCESS_VIEW_ONLY,
     ACCESS_NONE,
@@ -24,17 +23,6 @@ export const debounce = function (f, ms) {
 /**
  * Name conversion
  */
-
-export const nameToTitle = (name) => {
-    const title = name
-        ? i18n.t('Sharing and access: {{- objectName}}', {
-              objectName: name,
-              nsSeparator: '|',
-          })
-        : i18n.t('Sharing and access')
-
-    return title
-}
 
 export const nameToInitials = (name) => {
     if (!name) {
@@ -80,6 +68,22 @@ export const convertConstantToAccess = (constant, useBoolean) => {
 }
 
 /**
+ * Mapping users and groups to style used internally
+ */
+
+export const mapUsers = ({ id, name, access }) => ({
+    id,
+    name,
+    access: convertAccessToConstant(access),
+})
+
+export const mapGroups = ({ id, name, access }) => ({
+    id,
+    name,
+    access: convertAccessToConstant(access),
+})
+
+/**
  * Helper to check whether to allow removing for the selected target
  */
 
@@ -89,3 +93,140 @@ export const isRemovableTarget = (target) => {
     // Do not allow removal of permanent targets
     return !permanentTargets.includes(target)
 }
+
+/**
+ * Mutation handlers
+ */
+
+export const createOnChange =
+    ({ mutate, object }) =>
+    ({ type, id, access }) => {
+        switch (type) {
+            case 'public': {
+                const data = {
+                    object: {
+                        ...object,
+                        publicAccess: convertConstantToAccess(access),
+                    },
+                }
+                mutate({ data })
+                break
+            }
+            case 'group': {
+                const userGroupAccesses = object.userGroupAccesses.map(
+                    (group) => {
+                        if (group.id !== id) {
+                            return group
+                        }
+
+                        return {
+                            ...group,
+                            access: convertConstantToAccess(access),
+                        }
+                    }
+                )
+                const data = {
+                    object: {
+                        ...object,
+                        userGroupAccesses,
+                    },
+                }
+                mutate({ data })
+                break
+            }
+            case 'user': {
+                const userAccesses = object.userAccesses.map((user) => {
+                    if (user.id !== id) {
+                        return user
+                    }
+
+                    return {
+                        ...user,
+                        access: convertConstantToAccess(access),
+                    }
+                })
+                const data = {
+                    object: {
+                        ...object,
+                        userAccesses,
+                    },
+                }
+                mutate({ data })
+                break
+            }
+        }
+    }
+
+export const createOnAdd =
+    ({ mutate, object }) =>
+    ({ type, id, access, name }) => {
+        switch (type) {
+            case 'group': {
+                const data = {
+                    object: {
+                        ...object,
+                        userGroupAccesses: [
+                            ...object.userGroupAccesses,
+                            {
+                                id,
+                                name,
+                                access: convertConstantToAccess(access),
+                            },
+                        ],
+                    },
+                }
+                mutate({ data })
+                break
+            }
+            case 'user': {
+                const data = {
+                    object: {
+                        ...object,
+                        userAccesses: [
+                            ...object.userAccesses,
+                            {
+                                id,
+                                name,
+                                access: convertConstantToAccess(access),
+                            },
+                        ],
+                    },
+                }
+                mutate({ data })
+                break
+            }
+        }
+    }
+
+export const createOnDelete =
+    ({ mutate, object }) =>
+    ({ type, id }) => {
+        switch (type) {
+            case 'group': {
+                const userGroupAccesses = object.userGroupAccesses.filter(
+                    (group) => group.id !== id
+                )
+                const data = {
+                    object: {
+                        ...object,
+                        userGroupAccesses,
+                    },
+                }
+                mutate({ data })
+                break
+            }
+            case 'user': {
+                const userAccesses = object.userAccesses.filter(
+                    (user) => user.id !== id
+                )
+                const data = {
+                    object: {
+                        ...object,
+                        userAccesses,
+                    },
+                }
+                mutate({ data })
+                break
+            }
+        }
+    }

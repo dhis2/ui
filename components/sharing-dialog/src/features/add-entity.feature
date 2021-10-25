@@ -1,7 +1,7 @@
 Feature: Allows users to add entities to the allowed list
 
     Scenario Outline: User can give <target> <level> access
-        Given a sharing dialog that allows adding entities is visible
+        Given a sharing dialog that allows adding <target> entities is visible
         When the user gives <target> <level> access
         Then the <target> should be added to the access list with <level> access
 

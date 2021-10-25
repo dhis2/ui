@@ -9,16 +9,16 @@ export const AccessTab = ({
     onRemove,
     users,
     groups,
-    allUsersAccessLevel,
-    disableAllUsers,
+    publicAccess,
+    allowPublicAccess,
 }) => (
     <>
         <AccessAdd onAdd={onAdd} />
         <AccessList
             users={users}
             groups={groups}
-            allUsersAccessLevel={allUsersAccessLevel}
-            disableAllUsers={disableAllUsers}
+            publicAccess={publicAccess}
+            allowPublicAccess={allowPublicAccess}
             onChange={onChange}
             onRemove={onRemove}
         />
@@ -26,9 +26,9 @@ export const AccessTab = ({
 )
 
 AccessTab.propTypes = {
-    allUsersAccessLevel: PropTypes.string.isRequired,
-    disableAllUsers: PropTypes.bool.isRequired,
+    allowPublicAccess: PropTypes.bool.isRequired,
     groups: PropTypes.array.isRequired,
+    publicAccess: PropTypes.string.isRequired,
     users: PropTypes.array.isRequired,
     onAdd: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,

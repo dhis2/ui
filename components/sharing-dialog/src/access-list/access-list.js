@@ -15,8 +15,8 @@ import { SharingListItem } from './sharing-list-item.js'
 export const AccessList = ({
     onChange,
     onRemove,
-    allUsersAccessLevel,
-    disableAllUsers,
+    publicAccess,
+    allowPublicAccess,
     users,
     groups,
 }) => (
@@ -34,13 +34,13 @@ export const AccessList = ({
             <SharingListItem
                 name={i18n.t('All users')}
                 target={SHARE_TARGET_PUBLIC}
-                access={allUsersAccessLevel}
+                access={publicAccess}
                 accessOptions={[
                     ACCESS_NONE,
                     ACCESS_VIEW_ONLY,
                     ACCESS_VIEW_AND_EDIT,
                 ]}
-                disabled={disableAllUsers}
+                disabled={!allowPublicAccess}
                 onChange={(newAccess) =>
                     onChange({ type: 'public', access: newAccess })
                 }
@@ -123,8 +123,7 @@ export const AccessList = ({
 )
 
 AccessList.propTypes = {
-    allUsersAccessLevel: PropTypes.string.isRequired,
-    disableAllUsers: PropTypes.bool.isRequired,
+    allowPublicAccess: PropTypes.bool.isRequired,
     groups: PropTypes.arrayOf(
         PropTypes.shape({
             access: PropTypes.string.isRequired,
@@ -132,6 +131,7 @@ AccessList.propTypes = {
             name: PropTypes.string.isRequired,
         })
     ).isRequired,
+    publicAccess: PropTypes.string.isRequired,
     users: PropTypes.arrayOf(
         PropTypes.shape({
             access: PropTypes.string.isRequired,

@@ -1,7 +1,12 @@
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { disabledAccess } from '../fixtures/index.js'
 
 Given('a sharing dialog without public access is visible', () => {
-    cy.visitStory('sharing-dialog', 'disabled access')
+    cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
+        body: disabledAccess,
+    })
+
+    cy.visitStory('sharing-dialog', 'visualization')
     cy.contains('Sharing and access').should('be.visible')
 })
 

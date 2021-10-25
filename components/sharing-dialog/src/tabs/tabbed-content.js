@@ -9,8 +9,8 @@ export const TabbedContent = ({
     type,
     users,
     groups,
-    allUsersAccessLevel,
-    disableAllUsers,
+    publicAccess,
+    allowPublicAccess,
     id,
     onAdd,
     onChange,
@@ -23,8 +23,8 @@ export const TabbedContent = ({
             <AccessTab
                 users={users}
                 groups={groups}
-                disableAllUsers={disableAllUsers}
-                allUsersAccessLevel={allUsersAccessLevel}
+                allowPublicAccess={allowPublicAccess}
+                publicAccess={publicAccess}
                 onAdd={onAdd}
                 onChange={onChange}
                 onRemove={onRemove}
@@ -53,8 +53,8 @@ export const TabbedContent = ({
                     <AccessTab
                         users={users}
                         groups={groups}
-                        disableAllUsers={disableAllUsers}
-                        allUsersAccessLevel={allUsersAccessLevel}
+                        allowPublicAccess={allowPublicAccess}
+                        publicAccess={publicAccess}
                         onAdd={onAdd}
                         onChange={onChange}
                         onRemove={onRemove}
@@ -77,10 +77,10 @@ export const TabbedContent = ({
 }
 
 TabbedContent.propTypes = {
-    allUsersAccessLevel: PropTypes.string.isRequired,
-    disableAllUsers: PropTypes.bool.isRequired,
+    allowPublicAccess: PropTypes.bool.isRequired,
     groups: PropTypes.array.isRequired,
     id: PropTypes.string.isRequired,
+    publicAccess: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     users: PropTypes.array.isRequired,
     onAdd: PropTypes.func.isRequired,

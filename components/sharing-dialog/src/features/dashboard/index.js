@@ -1,6 +1,10 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { dashboards, dashboardSharing } from '../fixtures/index.js'
 
 Given('a sharing dialog of the dashboard type is visible', () => {
+    cy.intercept('GET', '/api/38/sharing?type=dashboard&id=id', {
+        body: dashboardSharing,
+    })
     cy.visitStory('sharing-dialog', 'dashboard')
 })
 
@@ -12,6 +16,13 @@ Given('the two dashboard tabs are visible', () => {
 })
 
 When('the apply sharing tab is clicked', () => {
+    cy.intercept(
+        'GET',
+        '/api/38/dashboards/id?fields=dashboardItems%5Btype%5D',
+        {
+            body: dashboards,
+        }
+    )
     cy.contains('button', 'Apply sharing to dashboard visualizations').click()
 })
 

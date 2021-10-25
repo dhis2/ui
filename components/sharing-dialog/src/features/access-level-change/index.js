@@ -1,11 +1,23 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import {
+    allUsersNoAccess,
+    allUsersViewAccess,
+    allUsersViewEditAccess,
+    userViewAccess,
+    userViewEditAccess,
+    groupViewAccess,
+    groupViewEditAccess,
+} from '../fixtures/index.js'
 
 /**
  * a sharing dialog with <target> item with <initial> is visible
  */
 
 Given('a sharing dialog with all users item with no access is visible', () => {
-    cy.visitStory('sharing-dialog', 'all users no access')
+    cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
+        body: allUsersNoAccess,
+    })
+    cy.visitStory('sharing-dialog', 'visualization')
     cy.contains('Sharing and access').should('be.visible')
 
     cy.contains('.share-details-text', 'All users')
@@ -25,7 +37,10 @@ Given('a sharing dialog with all users item with no access is visible', () => {
 })
 
 Given('a sharing dialog with user item with view is visible', () => {
-    cy.visitStory('sharing-dialog', 'user view access')
+    cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
+        body: userViewAccess,
+    })
+    cy.visitStory('sharing-dialog', 'visualization')
     cy.contains('Sharing and access').should('be.visible')
 
     cy.contains('.share-details-text', 'A user')
@@ -45,7 +60,10 @@ Given('a sharing dialog with user item with view is visible', () => {
 })
 
 Given('a sharing dialog with group item with view is visible', () => {
-    cy.visitStory('sharing-dialog', 'group view access')
+    cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
+        body: groupViewAccess,
+    })
+    cy.visitStory('sharing-dialog', 'visualization')
     cy.contains('Sharing and access').should('be.visible')
 
     cy.contains('.share-details-text', 'A group')
@@ -69,6 +87,18 @@ Given('a sharing dialog with group item with view is visible', () => {
  */
 
 When('the user sets the all users access level to view only', () => {
+    cy.intercept('PUT', '/api/38/sharing?type=visualization&id=id', (req) => {
+        const expected = {
+            object: allUsersViewAccess.object,
+        }
+        expect(req.body).to.deep.equal(expected)
+        req.reply({ statusCode: 200 })
+    })
+
+    cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
+        body: allUsersViewAccess,
+    })
+
     cy.get('@all-users-list-item')
         .find('[data-test="dhis2-uicore-singleselect"]')
         .click()
@@ -87,6 +117,17 @@ When('the user sets the all users access level to view only', () => {
 })
 
 When('the user sets the all users access level to view and edit', () => {
+    cy.intercept('PUT', '/api/38/sharing?type=visualization&id=id', (req) => {
+        const expected = {
+            object: allUsersViewEditAccess.object,
+        }
+        expect(req.body).to.deep.equal(expected)
+        req.reply({ statusCode: 200 })
+    })
+    cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
+        body: allUsersViewEditAccess,
+    })
+
     cy.get('@all-users-list-item')
         .find('[data-test="dhis2-uicore-singleselect"]')
         .click()
@@ -105,6 +146,17 @@ When('the user sets the all users access level to view and edit', () => {
 })
 
 When('the user sets the user access level to view and edit', () => {
+    cy.intercept('PUT', '/api/38/sharing?type=visualization&id=id', (req) => {
+        const expected = {
+            object: userViewEditAccess.object,
+        }
+        expect(req.body).to.deep.equal(expected)
+        req.reply({ statusCode: 200 })
+    })
+    cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
+        body: userViewEditAccess,
+    })
+
     cy.get('@user-list-item')
         .find('[data-test="dhis2-uicore-singleselect"]')
         .click()
@@ -123,6 +175,17 @@ When('the user sets the user access level to view and edit', () => {
 })
 
 When('the user sets the group access level to view and edit', () => {
+    cy.intercept('PUT', '/api/38/sharing?type=visualization&id=id', (req) => {
+        const expected = {
+            object: groupViewEditAccess.object,
+        }
+        expect(req.body).to.deep.equal(expected)
+        req.reply({ statusCode: 200 })
+    })
+    cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
+        body: groupViewEditAccess,
+    })
+
     cy.get('@group-list-item')
         .find('[data-test="dhis2-uicore-singleselect"]')
         .click()

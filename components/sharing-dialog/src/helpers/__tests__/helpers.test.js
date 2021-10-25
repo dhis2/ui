@@ -8,7 +8,6 @@ import {
 import {
     convertAccessToConstant,
     convertConstantToAccess,
-    nameToTitle,
     nameToInitials,
     isRemovableTarget,
 } from '../helpers.js'
@@ -72,20 +71,6 @@ describe('helpers', () => {
                 )
             }
         )
-    })
-
-    describe('nameToTitle', () => {
-        it('prefixes the name if a name is passed', () => {
-            const actual = nameToTitle('A name')
-
-            expect(actual).toMatchInlineSnapshot(`"Sharing and access: A name"`)
-        })
-
-        it('returns a fallback title if no name was passed', () => {
-            const actual = nameToTitle()
-
-            expect(actual).toMatchInlineSnapshot(`"Sharing and access"`)
-        })
     })
 
     describe('nameToInitials', () => {

@@ -1,11 +1,18 @@
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { withDisplayname, withoutDisplayname } from '../fixtures/index.js'
 
 Given('a sharing dialog without a displayname is visible', () => {
-    cy.visitStory('sharing-dialog', 'without a displayname')
+    cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
+        body: withoutDisplayname,
+    })
+    cy.visitStory('sharing-dialog', 'visualization')
 })
 
 Given('a sharing dialog with a displayname is visible', () => {
-    cy.visitStory('sharing-dialog', 'with a displayname')
+    cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
+        body: withDisplayname,
+    })
+    cy.visitStory('sharing-dialog', 'visualization')
 })
 
 Then('the default title should be visible', () => {

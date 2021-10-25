@@ -1,9 +1,8 @@
 import { Button } from '@dhis2-ui/button'
-import { Modal, ModalTitle } from '@dhis2-ui/modal'
+import { Modal } from '@dhis2-ui/modal'
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import { mount } from 'enzyme'
 import React from 'react'
-import { ACCESS_NONE } from '../sharing-constants.js'
 import { SharingDialog } from '../sharing-dialog.js'
 
 describe('<SharingDialog />', () => {
@@ -20,28 +19,6 @@ describe('<SharingDialog />', () => {
         const modals = wrapper.find(Modal)
 
         expect(modals).toHaveLength(1)
-    })
-
-    it('renders the name of the AO in the ModalTitle if passed in initialSharingSettings as name', () => {
-        const expected = 'The name of the AO'
-        const props = {
-            ...requiredProps,
-            initialSharingSettings: {
-                name: expected,
-                allowExternal: true,
-                allowPublic: true,
-                external: ACCESS_NONE,
-                public: ACCESS_NONE,
-                groups: {},
-                users: {},
-            },
-        }
-        const wrapper = mount(<SharingDialog {...props} />, {
-            wrappingComponent: CustomDataProvider,
-        })
-        const modalTitles = wrapper.find(ModalTitle)
-
-        expect(modalTitles.text()).toContain(expected)
     })
 
     it('calls the onClose callback when the close button is clicked', () => {

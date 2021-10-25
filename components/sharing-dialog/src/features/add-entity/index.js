@@ -1,11 +1,33 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import {
+    noAccess,
+    searchUser,
+    searchGroup,
+    userViewAccess,
+    userViewEditAccess,
+    groupViewAccess,
+    groupViewEditAccess,
+} from '../fixtures/index.js'
 
 /**
  * a sharing dialog that allows adding entities is visible
  */
 
-Given('a sharing dialog that allows adding entities is visible', () => {
-    cy.visitStory('sharing-dialog', 'search')
+Given('a sharing dialog that allows adding user entities is visible', () => {
+    cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
+        body: noAccess,
+    })
+
+    cy.visitStory('sharing-dialog', 'visualization')
+    cy.contains('Give access to a user, group or role').should('be.visible')
+})
+
+Given('a sharing dialog that allows adding group entities is visible', () => {
+    cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
+        body: noAccess,
+    })
+
+    cy.visitStory('sharing-dialog', 'visualization')
     cy.contains('Give access to a user, group or role').should('be.visible')
 })
 
@@ -14,6 +36,9 @@ Given('a sharing dialog that allows adding entities is visible', () => {
  */
 
 When('the user gives user view only access', () => {
+    cy.intercept('GET', '/api/38/sharing/search?key=A%20user', {
+        body: searchUser,
+    })
     cy.get('[placeholder="Search"]').type('A user')
 
     /**
@@ -32,10 +57,24 @@ When('the user gives user view only access', () => {
         'View only'
     ).click()
 
+    cy.intercept('PUT', '/api/38/sharing?type=visualization&id=id', (req) => {
+        const expected = {
+            object: userViewAccess.object,
+        }
+        expect(req.body).to.deep.equal(expected)
+        req.reply({ statusCode: 200 })
+    })
+
+    cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
+        body: userViewAccess,
+    })
     cy.contains('button', 'Give access').click()
 })
 
 When('the user gives user view and edit access', () => {
+    cy.intercept('GET', '/api/38/sharing/search?key=A%20user', {
+        body: searchUser,
+    })
     cy.get('[placeholder="Search"]').type('A user')
 
     /**
@@ -54,10 +93,24 @@ When('the user gives user view and edit access', () => {
         'View and edit'
     ).click()
 
+    cy.intercept('PUT', '/api/38/sharing?type=visualization&id=id', (req) => {
+        const expected = {
+            object: userViewEditAccess.object,
+        }
+        expect(req.body).to.deep.equal(expected)
+        req.reply({ statusCode: 200 })
+    })
+
+    cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
+        body: userViewEditAccess,
+    })
     cy.contains('button', 'Give access').click()
 })
 
 When('the user gives group view only access', () => {
+    cy.intercept('GET', '/api/38/sharing/search?key=A%20group', {
+        body: searchGroup,
+    })
     cy.get('[placeholder="Search"]').type('A group')
 
     /**
@@ -76,10 +129,24 @@ When('the user gives group view only access', () => {
         'View only'
     ).click()
 
+    cy.intercept('PUT', '/api/38/sharing?type=visualization&id=id', (req) => {
+        const expected = {
+            object: groupViewAccess.object,
+        }
+        expect(req.body).to.deep.equal(expected)
+        req.reply({ statusCode: 200 })
+    })
+
+    cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
+        body: groupViewAccess,
+    })
     cy.contains('button', 'Give access').click()
 })
 
 When('the user gives group view and edit access', () => {
+    cy.intercept('GET', '/api/38/sharing/search?key=A%20group', {
+        body: searchGroup,
+    })
     cy.get('[placeholder="Search"]').type('A group')
 
     /**
@@ -98,6 +165,17 @@ When('the user gives group view and edit access', () => {
         'View and edit'
     ).click()
 
+    cy.intercept('PUT', '/api/38/sharing?type=visualization&id=id', (req) => {
+        const expected = {
+            object: groupViewEditAccess.object,
+        }
+        expect(req.body).to.deep.equal(expected)
+        req.reply({ statusCode: 200 })
+    })
+
+    cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
+        body: groupViewEditAccess,
+    })
     cy.contains('button', 'Give access').click()
 })
 
