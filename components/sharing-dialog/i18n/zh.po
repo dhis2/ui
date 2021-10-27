@@ -1,16 +1,16 @@
 # 
 # Translators:
-# easylin <lin_xd@126.com>, 2021
 # phil_dhis2, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # 晓东 林 <13981924470@126.com>, 2021
+# easylin <lin_xd@126.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-09-29T09:08:15.255Z\n"
 "PO-Revision-Date: 2021-10-01 23:39+0000\n"
-"Last-Translator: 晓东 林 <13981924470@126.com>, 2021\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,13 +19,13 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Remove access"
-msgstr ""
+msgstr "删除访问权限"
 
 msgid "Not available offline"
 msgstr "离线不可用"
 
 msgid "Apply sharing to dashboard visualizations"
-msgstr ""
+msgstr "将共享应用于仪表板可视化"
 
 msgid ""
 "{{count}} visualization on this dashboard will potentially get updated "
@@ -33,89 +33,89 @@ msgid ""
 msgid_plural ""
 "{{count}} visualization on this dashboard will potentially get updated "
 "sharing settings."
-msgstr[0] ""
+msgstr[0] "此仪表板上的所有 {{count}} 个可视化都可能会获得更新的共享设置。"
 
 msgid "These updated sharing settings will apply to {{count}} user or group."
 msgid_plural ""
 "These updated sharing settings will apply to {{count}} user or group."
-msgstr[0] ""
+msgstr[0] "这些更新的共享设置将应用于 {{count}} 个用户或群组。"
 
 msgid "There are no users, groups or roles to apply sharing settings for."
-msgstr ""
+msgstr "没有可应用共享设置的用户、组或角色。"
 
 msgid ""
 "No visualizations were updated because sharing settings are already "
 "sufficient."
-msgstr ""
+msgstr "没有更新可视化，因为共享设置已经足够了。"
 
 msgid "Successfully updated sharing for {{count}} visualization."
 msgid_plural "Successfully updated sharing for {{count}} visualization."
-msgstr[0] ""
+msgstr[0] "已成功更新 {{count}} 个可视化的共享。"
 
 msgid "{{count}} visualization was updated."
 msgid_plural "{{count}} visualization was updated."
-msgstr[0] ""
+msgstr[0] "{{count}} 个可视化已更新。"
 
 msgid "{{count}} visualization already has sufficient sharing settings."
 msgid_plural ""
 "{{count}} visualization already has sufficient sharing settings."
-msgstr[0] ""
+msgstr[0] "{{count}} 个可视化已经有足够的共享设置。"
 
 msgid ""
 "Check that you have permission to change sharing for all visualizations."
-msgstr ""
+msgstr "检查您是否有权更改所有可视化的共享。"
 
 msgid "No visualizations were updated."
-msgstr ""
+msgstr "没有更新可视化。"
 
 msgid "{{count}} visualization was updated"
 msgid_plural "{{count}} visualization was updated"
-msgstr[0] ""
+msgstr[0] "{{count}} 个可视化已更新。"
 
 msgid "{{count}} visualization could not be updated."
 msgid_plural "{{count}} visualization could not be updated."
-msgstr[0] ""
+msgstr[0] "{{count}} 个可视化无法更新。"
 
 msgid "Apply dashboard sharing settings to visualizations"
-msgstr ""
+msgstr "将仪表板共享设置应用于可视化"
 
 msgid ""
 "Applying the same sharing settings makes sure that users, groups and roles "
 "that have access to the dashboard also have at least \"View only\" access to"
 " its visualizations (charts, tables, maps, event charts, event reports)."
-msgstr ""
+msgstr "应用相同的共享设置可确保有权访问仪表板的用户、组和角色也至少具有对其可视化（图表、表格、地图、事件图表、事件报告）的“仅查看”访问权限。"
 
 msgid ""
 "If a user, group, or role already has \"View and edit\" access to a "
 "visualization, this won't be reduced to \"View only\". \"All users\" access "
 "level won't be updated or changed."
-msgstr ""
+msgstr "如果用户、组或角色已经对可视化具有“查看和编辑”访问权限，则该权限不会简化为“仅查看”。 “所有用户”访问级别不会更新或更改。"
 
 msgid ""
 "Applying sharing can't be undone, and needs to done again if new "
 "visualizations are added to the dashboard or its sharing settings are "
 "changed."
-msgstr ""
+msgstr "应用共享无法撤消，如果新的可视化添加到仪表板或更改其共享设置，则需要再次执行。"
 
 msgid "Updating sharing settings..."
-msgstr ""
+msgstr "正在更新共享设置..."
 
 msgid ""
 "There was a problem updating dashboard visualizations. No visualizations "
 "were updated. Try again, or contact a system administrator."
-msgstr ""
+msgstr "更新仪表板可视化时出现问题。没有更新可视化。再试一次，或联系系统管理员。"
 
 msgid "Dashboard sharing"
-msgstr ""
+msgstr "仪表板共享"
 
 msgid "Give access to a user, group or role"
-msgstr ""
+msgstr "授予对用户、组或角色的访问权限"
 
 msgid "Search"
 msgstr "搜索"
 
 msgid "User, group or role"
-msgstr ""
+msgstr "用户、组或角色"
 
 msgid "Access level"
 msgstr "访问等级"
@@ -124,34 +124,34 @@ msgid "Select a level"
 msgstr "选择一个等级"
 
 msgid "Give access"
-msgstr ""
+msgstr "授予访问权限"
 
 msgid "No access"
 msgstr "不能访问"
 
 msgid "Anyone logged in can view"
-msgstr ""
+msgstr "任何登录的人都可以查看"
 
 msgid "Can view"
 msgstr "可查看"
 
 msgid "View only"
-msgstr ""
+msgstr "只读"
 
 msgid "Anyone logged in can view and edit"
-msgstr ""
+msgstr "任何登录的人都可以查看和编辑"
 
 msgid "Can view and edit"
-msgstr ""
+msgstr "可以查看和编辑"
 
 msgid "View and edit"
-msgstr ""
+msgstr "查看和编辑"
 
 msgid "Sharing and access: {{- objectName}}"
-msgstr ""
+msgstr "共享和访问：{{- objectName}}"
 
 msgid "Sharing and access"
-msgstr ""
+msgstr "共享和访问"
 
 msgid "Close"
 msgstr "关闭"
@@ -160,10 +160,10 @@ msgid "Metadata"
 msgstr "元数据"
 
 msgid "Users, groups and roles that currently have access"
-msgstr ""
+msgstr "当前具有访问权限的用户、组和角色"
 
 msgid "User / Group / Role"
-msgstr ""
+msgstr "用户/组/角色"
 
 msgid "All users"
-msgstr ""
+msgstr "全部用户"
