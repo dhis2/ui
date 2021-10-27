@@ -3,13 +3,14 @@
 # phil_dhis2, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Ulanbek Abakirov <ulans@mail.ru>, 2021
+# Valeriu Plesca <vplesca@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-12-07T19:28:56.162Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
-"Last-Translator: Ulanbek Abakirov <ulans@mail.ru>, 2021\n"
+"Last-Translator: Valeriu Plesca <vplesca@gmail.com>, 2021\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -67,22 +68,22 @@ msgid "Password should be a string"
 msgstr ""
 
 msgid "Password should be at least 8 characters long"
-msgstr ""
+msgstr "Пароль должен состоять не менее чем из 8 символов."
 
 msgid "Password should be no longer than 34 characters"
-msgstr ""
+msgstr "Пароль не должен быть длиннее 34 символов"
 
 msgid "Password should contain at least one lowercase letter"
-msgstr ""
+msgstr "Пароль должен содержать хотя бы одну СТРОЧНУЮ букву"
 
 msgid "Password should contain at least one UPPERCASE letter"
-msgstr ""
+msgstr "Пароль должен содержать хотя бы одну ЗАГЛАВНУЮ букву"
 
 msgid "Password should contain at least one number"
-msgstr ""
+msgstr "Пароль должен содержать хотя бы одну цифру"
 
 msgid "Password should have at least one special character"
-msgstr ""
+msgstr "В пароле должен быть хотя бы один специальный символ"
 
 msgid "Please provide a username between 1 and 255 characters"
 msgstr ""
