@@ -19,7 +19,7 @@ Given('a sharing dialog that allows adding user entities is visible', () => {
     })
 
     cy.visitStory('sharing-dialog', 'visualization')
-    cy.contains('Give access to a user, group or role').should('be.visible')
+    cy.contains('Give access to a user or group').should('be.visible')
 })
 
 Given('a sharing dialog that allows adding group entities is visible', () => {
@@ -28,7 +28,7 @@ Given('a sharing dialog that allows adding group entities is visible', () => {
     })
 
     cy.visitStory('sharing-dialog', 'visualization')
-    cy.contains('Give access to a user, group or role').should('be.visible')
+    cy.contains('Give access to a user or group').should('be.visible')
 })
 
 /**
@@ -40,15 +40,6 @@ When('the user gives user view only access', () => {
         body: searchUser,
     })
     cy.get('[placeholder="Search"]').type('A user')
-
-    /**
-     * This is necessary because the sharing dialog rerenders multiple times
-     * after a search has been typed. So without the timeout the DOM node will
-     * be detached whilst cypress is still working with it, causing an error.
-     * We should address the unnecessary renders, after which this line can be
-     * removed.
-     */
-    cy.wait(1000)
     cy.contains('[data-test="dhis2-uicore-menuitem"]', 'A user').click()
 
     cy.contains('Select a level').click()
@@ -76,15 +67,6 @@ When('the user gives user view and edit access', () => {
         body: searchUser,
     })
     cy.get('[placeholder="Search"]').type('A user')
-
-    /**
-     * This is necessary because the sharing dialog rerenders multiple times
-     * after a search has been typed. So without the timeout the DOM node will
-     * be detached whilst cypress is still working with it, causing an error.
-     * We should address the unnecessary renders, after which this line can be
-     * removed.
-     */
-    cy.wait(1000)
     cy.contains('[data-test="dhis2-uicore-menuitem"]', 'A user').click()
 
     cy.contains('Select a level').click()
@@ -112,15 +94,6 @@ When('the user gives group view only access', () => {
         body: searchGroup,
     })
     cy.get('[placeholder="Search"]').type('A group')
-
-    /**
-     * This is necessary because the sharing dialog rerenders multiple times
-     * after a search has been typed. So without the timeout the DOM node will
-     * be detached whilst cypress is still working with it, causing an error.
-     * We should address the unnecessary renders, after which this line can be
-     * removed.
-     */
-    cy.wait(1000)
     cy.contains('[data-test="dhis2-uicore-menuitem"]', 'A group').click()
 
     cy.contains('Select a level').click()
@@ -148,15 +121,6 @@ When('the user gives group view and edit access', () => {
         body: searchGroup,
     })
     cy.get('[placeholder="Search"]').type('A group')
-
-    /**
-     * This is necessary because the sharing dialog rerenders multiple times
-     * after a search has been typed. So without the timeout the DOM node will
-     * be detached whilst cypress is still working with it, causing an error.
-     * We should address the unnecessary renders, after which this line can be
-     * removed.
-     */
-    cy.wait(1000)
     cy.contains('[data-test="dhis2-uicore-menuitem"]', 'A group').click()
 
     cy.contains('Select a level').click()

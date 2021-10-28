@@ -1,1 +1,1 @@
-export { Autocomplete } from './autocomplete.js'
+export { SharingAutocomplete } from './sharing-autocomplete.js'

@@ -2,17 +2,17 @@ import { Button } from '@dhis2-ui/button'
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import { mount } from 'enzyme'
 import React from 'react'
-import { Autocomplete } from '../../autocomplete/index.js'
+import { SharingAutocomplete } from '../../autocomplete/index.js'
 import { AccessAdd } from '../access-add.js'
 
 describe('<AccessAdd />', () => {
-    it('renders a single Autocomplete component ', () => {
+    it('renders a single SharingAutocomplete component ', () => {
         const wrapper = mount(<AccessAdd onAdd={() => {}} />, {
             wrappingComponent: CustomDataProvider,
         })
-        const autocompletes = wrapper.find(Autocomplete)
+        const components = wrapper.find(SharingAutocomplete)
 
-        expect(autocompletes).toHaveLength(1)
+        expect(components).toHaveLength(1)
     })
 
     it('renders a button with "Give access"', () => {

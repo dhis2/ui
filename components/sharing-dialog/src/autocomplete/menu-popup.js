@@ -3,9 +3,8 @@ import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { resolve } from 'styled-jsx/css'
 
-export const MenuWrapper = ({
+export const MenuPopup = ({
     children,
     dataTest,
     maxHeight,
@@ -13,11 +12,6 @@ export const MenuWrapper = ({
     onClick,
     menuRef,
 }) => {
-    const { styles, className: cardClassName } = resolve`
-        height: auto;
-        max-height: ${maxHeight};
-        overflow: auto;
-    `
     return (
         <Layer onClick={onClick} transparent>
             <Popper
@@ -25,27 +19,25 @@ export const MenuWrapper = ({
                 placement="bottom"
                 observeReferenceResize
             >
-                <div data-test={`${dataTest}-menuwrapper`}>
-                    <Card className={cardClassName}>{children}</Card>
-
-                    {styles}
-
-                    <style jsx>{`
-                        div {
-                            width: ${menuWidth};
-                        }
-                    `}</style>
+                <div className="card" data-test={`${dataTest}-menuwrapper`}>
+                    <Card>{children}</Card>
                 </div>
             </Popper>
+            <style jsx>{`
+                .card {
+                    width: ${menuWidth};
+                    max-height: ${maxHeight};
+                }
+            `}</style>
         </Layer>
     )
 }
 
-MenuWrapper.defaultProps = {
+MenuPopup.defaultProps = {
     maxHeight: '280px',
 }
 
-MenuWrapper.propTypes = {
+MenuPopup.propTypes = {
     dataTest: PropTypes.string.isRequired,
     menuRef: PropTypes.object.isRequired,
     menuWidth: PropTypes.string.isRequired,

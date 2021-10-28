@@ -6,17 +6,34 @@ import {
     SHARE_TARGET_PUBLIC,
 } from '../sharing-constants.js'
 
-export const debounce = function (f, ms) {
+/**
+ * Returns a function, that, as long as it continues to be invoked, will not be triggered. The
+ * function will be called after it stops being called for N milliseconds. If `immediate` is
+ * passed, trigger the function on the leading edge, instead of the trailing.
+ */
+
+export const debounce = (func, wait, immediate) => {
     let timeout
 
-    return function (...args) {
-        if (timeout) {
-            clearTimeout(timeout)
+    return (...args) => {
+        const context = this
+
+        const later = () => {
+            timeout = null
+
+            if (!immediate) {
+                func.apply(context, args)
+            }
         }
-        timeout = setTimeout(function () {
-            timeout = undefined
-            f(...args)
-        }, ms)
+
+        const callNow = immediate && !timeout
+
+        clearTimeout(timeout)
+        timeout = setTimeout(later, wait)
+
+        if (callNow) {
+            func.apply(context, args)
+        }
     }
 }
 
