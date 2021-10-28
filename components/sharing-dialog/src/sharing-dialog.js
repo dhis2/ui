@@ -47,7 +47,7 @@ export const SharingDialog = ({
      * Data fetching
      */
 
-    const { data, refetch, loading } = useDataQuery(query, {
+    const { data, refetch, loading, fetching } = useDataQuery(query, {
         variables: { id, type },
         onError: (error) => {
             showError(error)
@@ -118,7 +118,7 @@ export const SharingDialog = ({
 
     return (
         <Modal
-            block={mutating}
+            block={mutating || fetching}
             onClose={onClose}
             name={object.displayName || object.name}
         >
