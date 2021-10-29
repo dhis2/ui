@@ -1,4 +1,4 @@
-import { spacers } from '@dhis2/ui-constants'
+import { colors, spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -9,6 +9,7 @@ export const ModalTitle = ({ children, dataTest }) => (
 
         <style jsx>{`
             h1 {
+                color: ${colors.grey900};
                 font-size: 20px;
                 font-weight: 500;
                 line-height: 24px;
