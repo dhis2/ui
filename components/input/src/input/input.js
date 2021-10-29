@@ -90,8 +90,9 @@ const styles = css`
     }
 
     input.read-only {
-        background-color: ${colors.grey100};
-        border-color: ${colors.grey500};
+        background-color: ${colors.grey050};
+        border-color: ${colors.grey300};
+        box-shadow: none;
         cursor: text;
     }
 
