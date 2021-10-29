@@ -1,3 +1,10 @@
+## [7.4.5](https://github.com/dhis2/ui/compare/v7.4.4...v7.4.5) (2021-10-29)
+
+
+### Bug Fixes
+
+* **input:** adjust read-only style ([a22fe52](https://github.com/dhis2/ui/commit/a22fe52327b7fa64ab303e502a166c6a88f62407))
+
 ## [7.4.4](https://github.com/dhis2/ui/compare/v7.4.3...v7.4.4) (2021-10-29)
 
 
