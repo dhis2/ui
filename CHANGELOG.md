@@ -1,3 +1,10 @@
+## [7.4.4](https://github.com/dhis2/ui/compare/v7.4.3...v7.4.4) (2021-10-29)
+
+
+### Bug Fixes
+
+* **modal:** use correct title color ([bc1da82](https://github.com/dhis2/ui/commit/bc1da82b23b494f83d756e2cc6af2aaaad3db0ee))
+
 ## [7.4.3](https://github.com/dhis2/ui/compare/v7.4.2...v7.4.3) (2021-10-28)
 
 
