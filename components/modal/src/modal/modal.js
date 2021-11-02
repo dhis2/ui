@@ -67,8 +67,8 @@ export const Modal = ({
                 aside {
                     overflow-y: hidden;
                     height: ${height || 'auto'};
-                    max-height: ${height ? 'auto' : 'calc(100vh - 128px)'};
-                    max-height: ${width ? 'auto' : 'calc(100vw - 128px)'};
+                    max-height: ${height ? 'none' : 'calc(100vh - 128px)'};
+                    max-height: ${width ? 'none' : 'calc(100vw - 128px)'};
                     width: ${width || '600px'};
                 }
 
