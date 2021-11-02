@@ -35,11 +35,13 @@ export const Modal = ({
     children,
     className,
     dataTest,
+    height,
     hide,
     large,
     onClose,
     position,
     small,
+    width,
 }) => {
     return (
         <Layer
@@ -64,18 +66,18 @@ export const Modal = ({
             <style jsx>{`
                 aside {
                     overflow-y: hidden;
-                    height: auto;
-                    max-height: calc(100vh - ${2 * spacersNum.dp64}px);
-                    max-width: calc(100vw - ${2 * spacersNum.dp64}px);
-                    width: 600px;
+                    height: ${height || 'auto'};
+                    max-height: ${height ? 'auto' : 'calc(100vh - 128px)'};
+                    max-height: ${width ? 'auto' : 'calc(100vw - 128px)'};
+                    width: ${width || '600px'};
                 }
 
                 aside.small {
-                    width: 400px;
+                    width: ${width || '400px'};
                 }
 
                 aside.large {
-                    width: 800px;
+                    width: ${width || '800px'};
                 }
             `}</style>
         </Layer>
@@ -91,10 +93,12 @@ Modal.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     dataTest: PropTypes.string,
+    height: PropTypes.string,
     hide: PropTypes.bool,
     large: sharedPropTypes.sizePropType,
     position: sharedPropTypes.insideAlignmentPropType,
     small: sharedPropTypes.sizePropType,
+    width: PropTypes.string,
     /** Callback used when screen cover is clicked */
     onClose: PropTypes.func,
 }
