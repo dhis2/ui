@@ -1,9 +1,10 @@
 import { TabBar, Tab } from '@dhis2-ui/tab'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
+import { AccessAdd } from '../access-add/index.js'
+import { AccessList } from '../access-list/index.js'
+import { CascadeSharing } from '../cascade-sharing/index.js'
 import i18n from '../locales/index.js'
-import { AccessTab } from './access-tab.js'
-import { CascadeTab } from './cascade-tab.js'
 
 export const TabbedContent = ({
     type,
@@ -20,15 +21,17 @@ export const TabbedContent = ({
 
     if (type === 'visualization') {
         return (
-            <AccessTab
-                users={users}
-                groups={groups}
-                allowPublicAccess={allowPublicAccess}
-                publicAccess={publicAccess}
-                onAdd={onAdd}
-                onChange={onChange}
-                onRemove={onRemove}
-            />
+            <>
+                <AccessAdd onAdd={onAdd} />
+                <AccessList
+                    users={users}
+                    groups={groups}
+                    publicAccess={publicAccess}
+                    allowPublicAccess={allowPublicAccess}
+                    onChange={onChange}
+                    onRemove={onRemove}
+                />
+            </>
         )
     }
 
@@ -50,18 +53,20 @@ export const TabbedContent = ({
             </TabBar>
             <div className="tab-content">
                 {activeTabIndex === 0 && (
-                    <AccessTab
-                        users={users}
-                        groups={groups}
-                        allowPublicAccess={allowPublicAccess}
-                        publicAccess={publicAccess}
-                        onAdd={onAdd}
-                        onChange={onChange}
-                        onRemove={onRemove}
-                    />
+                    <>
+                        <AccessAdd onAdd={onAdd} />
+                        <AccessList
+                            users={users}
+                            groups={groups}
+                            publicAccess={publicAccess}
+                            allowPublicAccess={allowPublicAccess}
+                            onChange={onChange}
+                            onRemove={onRemove}
+                        />
+                    </>
                 )}
                 {activeTabIndex === 1 && (
-                    <CascadeTab
+                    <CascadeSharing
                         id={id}
                         entityAmount={users.length + groups.length}
                     />
