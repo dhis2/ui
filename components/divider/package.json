@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/divider",
-    "version": "7.4.5",
+    "version": "7.4.6",
     "description": "UI Divider",
     "repository": {
         "type": "git",
@@ -32,7 +32,7 @@
     },
     "dependencies": {
         "@dhis2/prop-types": "^3.0.0-beta.1",
-        "@dhis2/ui-constants": "7.4.5",
+        "@dhis2/ui-constants": "7.4.6",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },
