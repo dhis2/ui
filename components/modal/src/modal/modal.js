@@ -38,6 +38,8 @@ export const Modal = ({
     height,
     hide,
     large,
+    maxHeight,
+    maxWidth,
     onClose,
     position,
     small,
@@ -67,9 +69,12 @@ export const Modal = ({
                 aside {
                     overflow-y: hidden;
                     height: ${height || 'auto'};
-                    max-height: ${height ? 'none' : 'calc(100vh - 128px)'};
-                    max-height: ${width ? 'none' : 'calc(100vw - 128px)'};
+                    max-height: ${maxHeight ||
+                    (height ? 'none' : 'calc(100vh - 128px)')};
                     width: ${width || '600px'};
+                    max-width: ${maxWidth ||
+                    (width ? 'none' : 'calc(100vw - 128px)')};
+                    margin: auto;
                 }
 
                 aside.small {
@@ -96,6 +101,8 @@ Modal.propTypes = {
     height: PropTypes.string,
     hide: PropTypes.bool,
     large: sharedPropTypes.sizePropType,
+    maxHeight: PropTypes.string,
+    maxWidth: PropTypes.string,
     position: sharedPropTypes.insideAlignmentPropType,
     small: sharedPropTypes.sizePropType,
     width: PropTypes.string,
