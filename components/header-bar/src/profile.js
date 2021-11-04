@@ -1,7 +1,7 @@
+import { UserAvatar } from '@dhis2-ui/user-avatar'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { ProfileMenu } from './profile/profile-menu.js'
-import { UserIcon } from './user-icon/user-icon.js'
 
 export default class Profile extends React.Component {
     state = {
@@ -37,7 +37,7 @@ export default class Profile extends React.Component {
                     className="headerbar-profile-btn"
                     onClick={this.handleToggle}
                 >
-                    <UserIcon
+                    <UserAvatar
                         avatarId={avatarId}
                         name={name}
                         dataTest="headerbar-profile-icon"
