@@ -25,7 +25,7 @@ export default class Profile extends React.Component {
     handleToggle = () => this.setState({ show: !this.state.show })
 
     render() {
-        const { name, email, avatarUrl, helpUrl } = this.props
+        const { name, email, avatarId, helpUrl } = this.props
 
         return (
             <div
@@ -38,7 +38,7 @@ export default class Profile extends React.Component {
                     onClick={this.handleToggle}
                 >
                     <UserIcon
-                        avatarUrl={avatarUrl}
+                        avatarId={avatarId}
                         name={name}
                         dataTest="headerbar-profile-icon"
                     />
@@ -46,7 +46,7 @@ export default class Profile extends React.Component {
 
                 {this.state.show ? (
                     <ProfileMenu
-                        avatarUrl={avatarUrl}
+                        avatarId={avatarId}
                         name={name}
                         email={email}
                         helpUrl={helpUrl}
@@ -82,7 +82,7 @@ export default class Profile extends React.Component {
 
 Profile.propTypes = {
     name: PropTypes.string.isRequired,
-    avatarUrl: PropTypes.string,
+    avatarId: PropTypes.string,
     email: PropTypes.string,
     helpUrl: PropTypes.string,
 }

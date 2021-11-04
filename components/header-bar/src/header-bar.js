@@ -32,9 +32,6 @@ const query = {
     },
 }
 
-const avatarUrl = (avatar, baseUrl) =>
-    avatar ? joinPath(baseUrl, 'api/fileResources', avatar.id, 'data') : null
-
 export const HeaderBar = ({ appName, className }) => {
     const {
         baseUrl,
@@ -89,7 +86,7 @@ export const HeaderBar = ({ appName, className }) => {
                         <Profile
                             name={data.user.name}
                             email={data.user.email}
-                            avatarUrl={avatarUrl(data.user.avatar, baseUrl)}
+                            avatarId={data.user.avatar?.id}
                             helpUrl={data.help.helpPageLink}
                         />
                     </>

@@ -91,11 +91,11 @@ ProfileDetails.propTypes = {
     name: PropTypes.string,
 }
 
-export const ProfileHeader = ({ name, email, avatarUrl }) => (
+export const ProfileHeader = ({ name, email, avatarId }) => (
     <div>
         <Box width="48px" height="48px">
             <UserIcon
-                avatarUrl={avatarUrl}
+                avatarId={avatarId}
                 name={name}
                 dataTest="headerbar-profile-menu-icon"
             />
@@ -114,7 +114,7 @@ export const ProfileHeader = ({ name, email, avatarUrl }) => (
 )
 
 ProfileHeader.propTypes = {
-    avatarUrl: PropTypes.string,
+    avatarId: PropTypes.string,
     email: PropTypes.string,
     name: PropTypes.string,
 }

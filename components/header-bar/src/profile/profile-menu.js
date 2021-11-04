@@ -31,18 +31,14 @@ const LoadingMask = () => (
     </Layer>
 )
 
-const ProfileContents = ({ name, email, avatarUrl, helpUrl }) => {
+const ProfileContents = ({ name, email, avatarId, helpUrl }) => {
     const { baseUrl } = useConfig()
     const [loading, setLoading] = useState(false)
 
     return (
         <Card>
             <div>
-                <ProfileHeader
-                    name={name}
-                    email={email}
-                    avatarUrl={avatarUrl}
-                />
+                <ProfileHeader name={name} email={email} avatarId={avatarId} />
                 <Divider margin="13px 0 7px 0" />
                 <ul data-test="headerbar-profile-menu">
                     <MenuItem
@@ -133,18 +129,18 @@ const ProfileContents = ({ name, email, avatarUrl, helpUrl }) => {
 }
 
 ProfileContents.propTypes = {
-    avatarUrl: PropTypes.string,
+    avatarId: PropTypes.string,
     email: PropTypes.string,
     helpUrl: PropTypes.string,
     name: PropTypes.string,
 }
 
-export const ProfileMenu = ({ avatarUrl, name, email, helpUrl }) => (
+export const ProfileMenu = ({ avatarId, name, email, helpUrl }) => (
     <div data-test="headerbar-profile-menu">
         <ProfileContents
             name={name}
             email={email}
-            avatarUrl={avatarUrl}
+            avatarId={avatarId}
             helpUrl={helpUrl}
         />
         <style jsx>{`
@@ -161,7 +157,7 @@ export const ProfileMenu = ({ avatarUrl, name, email, helpUrl }) => (
 )
 
 ProfileMenu.propTypes = {
-    avatarUrl: PropTypes.string,
+    avatarId: PropTypes.string,
     email: PropTypes.string,
     helpUrl: PropTypes.string,
     name: PropTypes.string,
