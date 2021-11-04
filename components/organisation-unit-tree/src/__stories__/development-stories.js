@@ -3,25 +3,27 @@ import { DataProvider } from '@dhis2/app-runtime'
 import React, { useState } from 'react'
 import { OrganisationUnitTree } from '../index.js'
 
-const DX_onChange =
-    (selected, setSelected, singleSelection) =>
-    ({ id, path, checked }) => {
-        console.log('onChange', { path, id, checked })
-        const pathIndex = selected.indexOf(path)
+const DX_onChange = (selected, setSelected, singleSelection) => ({
+    id,
+    path,
+    checked,
+}) => {
+    console.log('onChange', { path, id, checked })
+    const pathIndex = selected.indexOf(path)
 
-        if (checked) {
-            setSelected(singleSelection ? [path] : [...selected, path])
-        } else {
-            setSelected(
-                singleSelection
-                    ? []
-                    : [
-                          ...selected.slice(0, pathIndex),
-                          ...selected.slice(pathIndex + 1),
-                      ]
-            )
-        }
+    if (checked) {
+        setSelected(singleSelection ? [path] : [...selected, path])
+    } else {
+        setSelected(
+            singleSelection
+                ? []
+                : [
+                      ...selected.slice(0, pathIndex),
+                      ...selected.slice(pathIndex + 1),
+                  ]
+        )
     }
+}
 
 const Wrapper = (props) => {
     const [selected, setSelected] = useState([])
@@ -86,3 +88,21 @@ export const DxWithRealBackend = () => (
 )
 
 DxWithRealBackend.storyName = 'DX: With real backend'
+
+export const DxWithRealBackendAndMultipleRoots = () => {
+    const [selected, setSelected] = useState([])
+    return (
+        <div>
+            <DataProvider baseUrl="http://localhost:8080/" apiVersion="">
+                <Wrapper
+                    roots={['O6uvpzGd5pu', 'fdc6uOvgoji']} // Bo + Bombali
+                    selected={selected}
+                    onSelect={(response) => setSelected(response.items)}
+                />
+            </DataProvider>
+        </div>
+    )
+}
+
+DxWithRealBackendAndMultipleRoots.storyName =
+    'DX: With real backend and multiple roots'
