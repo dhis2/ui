@@ -2,7 +2,7 @@ import { useConfig } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const useAvatarId = (avatarId) => {
+const useAvatarImgSrc = (avatarId) => {
     const { baseUrl } = useConfig()
 
     return avatarId
@@ -14,7 +14,7 @@ const useAvatarId = (avatarId) => {
 }
 
 export const ImageIcon = ({ avatarId, dataTest }) => {
-    const src = useAvatarId(avatarId)
+    const src = useAvatarImgSrc(avatarId)
 
     return (
         <>
