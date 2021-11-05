@@ -52,6 +52,7 @@
         "@dhis2-ui/portal": "7.4.6",
         "@dhis2-ui/radio": "7.4.6",
         "@dhis2-ui/required": "7.4.6",
+        "@dhis2-ui/segmented-control": "7.4.6",
         "@dhis2-ui/select": "7.4.6",
         "@dhis2-ui/sharing-dialog": "7.4.6",
         "@dhis2-ui/switch": "7.4.6",
