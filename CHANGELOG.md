@@ -1,3 +1,10 @@
+# [7.5.0](https://github.com/dhis2/ui/compare/v7.4.6...v7.5.0) (2021-11-08)
+
+
+### Features
+
+* **icons:** text formatting icons ([3d7826f](https://github.com/dhis2/ui/commit/3d7826fbf5bb43d3112dd8f37debed4ba6c26306))
+
 ## [7.4.6](https://github.com/dhis2/ui/compare/v7.4.5...v7.4.6) (2021-11-03)
 
 
