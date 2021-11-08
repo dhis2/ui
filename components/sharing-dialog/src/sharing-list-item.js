@@ -5,7 +5,6 @@ import { colors } from '@dhis2/ui-constants'
 import { IconWorld24, IconUserGroup24 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React from 'react'
-// import { UserAvatar } from '../../user-avatar/src/index.js'
 import { AccessSelect } from './access-select.js'
 import i18n from './locales/index.js'
 import {

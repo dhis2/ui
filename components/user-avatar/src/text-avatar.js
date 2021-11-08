@@ -1,12 +1,17 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export const getInitials = (name) =>
-    name
-        .split(' ')
-        .slice(0, 2)
-        .map((n) => n[0])
-        .join('')
+export const getInitials = (name) => {
+    const nameParts = name.split(' ')
+
+    let initials = nameParts.shift().charAt(0)
+
+    if (nameParts.length) {
+        initials += nameParts.pop().charAt(0)
+    }
+
+    return initials
+}
 
 export const TextAvatar = ({ name, dataTest }) => (
     <div className="text-avatar" data-test={dataTest}>

@@ -13,9 +13,9 @@ describe('TextAvatar - getInitials', () => {
         expect(actual).toBe(expected)
     })
 
-    it('should only return the first two initials', () => {
+    it('should return the first and last initials', () => {
         const actual = getInitials('A Very Long Name')
-        const expected = 'AV'
+        const expected = 'AN'
         expect(actual).toBe(expected)
     })
 
