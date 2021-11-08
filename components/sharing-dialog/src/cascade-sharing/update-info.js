@@ -4,6 +4,7 @@ import { IconInfo16 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React from 'react'
 import i18n from '../locales/index.js'
+import { getVisualizationsCount } from './helpers.js'
 
 const query = {
     dashboard: {
@@ -13,18 +14,6 @@ const query = {
             fields: 'dashboardItems[type]',
         },
     },
-}
-
-const getVisualizationsCount = (dashboardItems) => {
-    if (dashboardItems.length === 0) {
-        return dashboardItems.length
-    }
-
-    // Only these types will be updated
-    const keep = ['VISUALIZATION', 'MAP', 'EVENT_CHART', 'EVENT_REPORT']
-
-    // Filter the dashboardItems by the above types and count them only
-    return dashboardItems.filter((item) => keep.includes(item.type)).length
 }
 
 const getInfoMessage = ({ entityAmount, visualizationsCount }) => {
