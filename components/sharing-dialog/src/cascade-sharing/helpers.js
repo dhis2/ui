@@ -26,38 +26,13 @@ export const getResultMessage = ({
         }
 
         if (updatedItems && itemsCount) {
-            const successAmount = i18n.t(
-                '{{count}} visualization was updated',
+            return i18n.t(
+                'Not all visualizations could be updated successfully. {{ success }} updated successfully, {{ failed }} failed to update. Check that you have permission to change sharing for all visualizations.',
                 {
-                    count: updatedItems,
-                    defaultValue: '{{count}} visualization was updated',
-                    defaultValue_plural:
-                        '{{count}} visualizations were updated.',
+                    success: updatedItems,
+                    failed: visualizationsCount - updatedItems,
                 }
             )
-
-            const failAmount = i18n.t(
-                '{{count}} visualization could not be updated.',
-                {
-                    count: visualizationsCount - updatedItems,
-                    defaultValue:
-                        '{{count}} visualization could not be updated.',
-                    defaultValue_plural:
-                        '{{count}} visualizations could not be updated.',
-                }
-            )
-
-            const checkPermissions = i18n.t(
-                'Check that you have permission to change sharing for all visualizations.'
-            )
-
-            /**
-             * It's likely this will not be the correct order for certain languages. Our
-             * translators will also not know that their translations are being concatenated
-             * whilst translating. The i18next.com examples for nesting counts does not seem
-             * to work for our i18n helper. We'll need to resolve this for proper translations.
-             */
-            return `${successAmount} ${failAmount} ${checkPermissions}`
         }
     }
 
@@ -68,36 +43,16 @@ export const getResultMessage = ({
     }
 
     if (updatedItems === visualizationsCount) {
-        return i18n.t(
-            'Successfully updated sharing for {{count}} visualization.',
-            {
-                count: visualizationsCount,
-                defaultValue:
-                    'Successfully updated sharing for {{count}} visualization.',
-                defaultValue_plural:
-                    'Successfully updated sharing for {{count}} visualizations.',
-            }
-        )
+        return i18n.t('Successfully updated sharing for all visualizations.')
     }
 
     if (updatedItems < visualizationsCount) {
-        const successAmount = i18n.t('{{count}} visualization was updated.', {
-            count: updatedItems,
-            defaultValue: '{{count}} visualization was updated.',
-            defaultValue_plural: '{{count}} visualizations were updated.',
-        })
-
-        const sufficientAmount = i18n.t(
-            '{{count}} visualization already has sufficient sharing settings.',
+        return i18n.t(
+            'Not all visualization sharing settings needed to be updated. {{ updated }} updated, {{ skipped }} already had sufficient sharing settings.',
             {
-                count: visualizationsCount - updatedItems,
-                defaultValue:
-                    '{{count}} visualization already has sufficient sharing settings.',
-                defaultValue_plural:
-                    '{{count}} visualizations already have sufficient sharing settings.',
+                updated: updatedItems,
+                skipped: visualizationsCount - updatedItems,
             }
         )
-
-        return `${successAmount} ${sufficientAmount}`
     }
 }
