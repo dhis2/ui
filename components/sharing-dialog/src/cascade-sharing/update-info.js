@@ -3,8 +3,7 @@ import { colors } from '@dhis2/ui-constants'
 import { IconInfo16 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React from 'react'
-import i18n from '../locales/index.js'
-import { getVisualizationsCount } from './helpers.js'
+import { getVisualizationsCount, getInfoMessage } from './helpers.js'
 
 const query = {
     dashboard: {
@@ -14,38 +13,6 @@ const query = {
             fields: 'dashboardItems[type]',
         },
     },
-}
-
-const getInfoMessage = ({ entityAmount, visualizationsCount }) => {
-    if (entityAmount === 0) {
-        return i18n.t(
-            'There are no users, groups or roles to apply sharing settings for.'
-        )
-    }
-
-    const first = i18n.t(
-        '{{count}} visualization on this dashboard will potentially get updated sharing settings.',
-        {
-            count: visualizationsCount,
-            defaultValue:
-                '{{count}} visualization on this dashboard will potentially get updated sharing settings.',
-            defaultValue_plural:
-                'All {{count}} visualizations on this dashboard will potentially get updated sharing settings.',
-        }
-    )
-
-    const second = i18n.t(
-        'These updated sharing settings will apply to {{count}} user or group.',
-        {
-            count: entityAmount,
-            defaultValue:
-                'These updated sharing settings will apply to {{count}} user or group.',
-            defaultValue_plural:
-                'These updated sharing settings will apply to {{count}} users or groups.',
-        }
-    )
-
-    return `${first} ${second}`
 }
 
 export const UpdateInfo = ({ id, entityAmount }) => {
