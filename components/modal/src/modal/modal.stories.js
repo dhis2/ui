@@ -1,3 +1,4 @@
+import { Box } from '@dhis2-ui/box'
 import { Button, ButtonStrip } from '@dhis2-ui/button'
 import {
     FlyoutMenu,
@@ -128,8 +129,8 @@ export const AlignmentBottom = (args) => (
         </ModalContent>
     </Modal>
 )
-AlignmentBottom.args = { onClose, alignment: 'bottom' }
-AlignmentBottom.storyName = 'Alignment: Bottom'
+AlignmentBottom.args = { onClose, position: 'bottom' }
+AlignmentBottom.storyName = 'Position: Bottom'
 
 export const SmallTitleContentAction = (args) => (
     <Modal {...args}>
@@ -236,46 +237,47 @@ export const LargeTitleContentPrimary = (args) => (
 LargeTitleContentPrimary.args = { large: true }
 LargeTitleContentPrimary.storyName = 'Large: Title, Content, Primary'
 
-export const CustomDimensionsTitleContentPrimary = (args) => (
+export const FluidTitleContentPrimary = (args) => (
     <Modal {...args}>
-        <ModalTitle>
-            This is a modal using custom dimensions, with title, content and
-            primary action
-        </ModalTitle>
+        <Box width="98vw" height="98vh">
+            <ModalTitle>
+                This is a modal using custom dimensions, with title, content and
+                primary action
+            </ModalTitle>
 
-        <ModalContent>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-            Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-            sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-            et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-            accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-            no sea takimata sanctus est Lorem ipsum dolor sit amet.
-        </ModalContent>
+            <ModalContent>
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+                takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+                dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                sed diam voluptua. At vero eos et accusam et justo duo dolores
+                et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
+                est Lorem ipsum dolor sit amet.
+            </ModalContent>
 
-        <ModalActions>
-            <ButtonStrip end>
-                <Button onClick={say('Button secondary')} secondary>
-                    Secondary action
-                </Button>
+            <ModalActions>
+                <ButtonStrip end>
+                    <Button onClick={say('Button secondary')} secondary>
+                        Secondary action
+                    </Button>
 
-                <Button onClick={say('Button primary')} primary>
-                    Primary action
-                </Button>
-            </ButtonStrip>
-        </ModalActions>
+                    <Button onClick={say('Button primary')} primary>
+                        Primary action
+                    </Button>
+                </ButtonStrip>
+            </ModalActions>
+        </Box>
     </Modal>
 )
-CustomDimensionsTitleContentPrimary.args = {
-    width: '50%',
-    height: '50%',
-    maxWidth: '95vw',
-    maxHeight: '95vh',
+FluidTitleContentPrimary.args = {
+    fluid: true,
+    position: 'middle',
 }
-CustomDimensionsTitleContentPrimary.storyName =
-    'Custom dimensions: Title, Content, Primary'
+FluidTitleContentPrimary.storyName =
+    'Fluid (Custom sizes): Title, Content, Primary'
 
 export const SmallContentPrimary = (args) => (
     <Modal {...args}>
