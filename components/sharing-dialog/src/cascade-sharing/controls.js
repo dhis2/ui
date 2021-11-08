@@ -1,11 +1,11 @@
 import { Button } from '@dhis2-ui/button'
 import {
     useDataQuery,
-    useDataMutation,
+    useDataEngine,
     useOnlineStatus,
 } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useState } from 'react'
 import i18n from '../locales/index.js'
 import { ResultInfo } from './result-info.js'
 
@@ -19,25 +19,43 @@ const query = {
     },
 }
 
-const mutation = {
-    resource: 'dashboards/cascadeSharing',
-    id: ({ id }) => id,
-    type: 'create',
-}
-
 export const Controls = ({ id, entityAmount }) => {
     const { offline } = useOnlineStatus()
-    const mutationResult = useDataMutation(mutation)
     const queryResult = useDataQuery(query, {
         variables: { id },
     })
 
-    const hasErrors = mutationResult.data?.errorReports?.length > 0
-    const updatedItems = mutationResult.data?.countUpdatedDashboardItems
+    /**
+     * The useDataMutation hook does not allow for a variable id,
+     * so we're using the engine directly as a workaround.
+     */
+
+    const engine = useDataEngine(mutation)
+    const [mutating, setMutating] = useState(false)
+    const [mutationResult, setMutationResult] = useState(null)
+    const mutation = {
+        resource: `dashboards/cascadeSharing/${id}`,
+        type: 'create',
+    }
+    const mutate = () => {
+        setMutating(true)
+        engine
+            .mutate(mutation)
+            .then((data) => {
+                setMutationResult(data)
+                setMutating(false)
+            })
+            .catch(() => {
+                setMutating(false)
+            })
+    }
+
+    const hasErrors = mutationResult?.errorReports?.length > 0
+    const updatedItems = mutationResult?.countUpdatedDashboardItems
 
     return (
         <>
-            {queryResult.data && mutationResult.data && (
+            {queryResult.data && mutationResult && (
                 <ResultInfo
                     hasErrors={hasErrors}
                     updatedItems={updatedItems}
@@ -47,10 +65,10 @@ export const Controls = ({ id, entityAmount }) => {
             )}
             <Button
                 type="button"
-                disabled={offline || mutationResult.loading || !entityAmount}
-                loading={mutationResult.loading}
+                disabled={offline || mutating || !entityAmount}
+                loading={mutating}
                 secondary
-                onClick={() => mutationResult.mutate({ id })}
+                onClick={mutate}
             >
                 {i18n.t('Apply sharing to dashboard visualizations')}
             </Button>

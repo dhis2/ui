@@ -26,6 +26,22 @@ When('the apply sharing tab is clicked', () => {
     cy.contains('button', 'Apply sharing to dashboard visualizations').click()
 })
 
+When('the apply sharing button is clicked', () => {
+    cy.intercept('POST', '/api/38/dashboards/cascadeSharing/id', {
+        // Response to simulate a successful update for all items
+        body: {
+            errorReports: [],
+            countUpdatedDashboardItems: 4,
+        },
+    })
+
+    cy.get('[data-test="dhis2-uicore-modalcontent"]').scrollTo('bottom')
+    cy.contains(
+        '[data-test="dhis2-uicore-button"]',
+        'Apply sharing to dashboard visualizations'
+    ).click()
+})
+
 Then('the correct counts should be displayed', () => {
     /**
      * The visualization count comes from the dashboarditems returned by the backend.
@@ -40,7 +56,15 @@ Then('the correct counts should be displayed', () => {
 })
 
 Then('the apply sharing button should be visible', () => {
-    cy.contains('Apply sharing to dashboard visualizations').should(
+    cy.get('[data-test="dhis2-uicore-modalcontent"]').scrollTo('bottom')
+    cy.contains(
+        '[data-test="dhis2-uicore-button"]',
+        'Apply sharing to dashboard visualizations'
+    ).should('be.visible')
+})
+
+Then('a result message should be displayed', () => {
+    cy.contains('Successfully updated sharing for all visualizations.').should(
         'be.visible'
     )
 })
