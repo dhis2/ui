@@ -102,6 +102,11 @@ export const SegmentedControl = ({ options, selected, onChange }) => {
                     color: white;
                 }
 
+                .segment.selected:not(:last-of-type) {
+                    z-index: 1;
+                    margin-right: -1px;
+                }
+
                 .segment.disabled {
                     cursor: not-allowed;
                     opacity: 0.5;
