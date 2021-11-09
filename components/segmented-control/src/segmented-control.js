@@ -60,6 +60,7 @@ export const SegmentedControl = ({ options, selected, onChange }) => {
                     font-size: 14px;
                     text-align: center;
                     border: 1px solid ${colors.grey400};
+                    border-right-width: 0;
                     background: ${colors.grey050};
                     color: ${colors.grey600};
                     min-width: 72px;
@@ -89,6 +90,7 @@ export const SegmentedControl = ({ options, selected, onChange }) => {
                 }
 
                 .segment:last-of-type {
+                    border-right-width: 1px;
                     border-radius: 0 3px 3px 0;
                 }
 
