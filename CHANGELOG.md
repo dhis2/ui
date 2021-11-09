@@ -1,3 +1,10 @@
+# [7.6.0](https://github.com/dhis2/ui/compare/v7.5.0...v7.6.0) (2021-11-09)
+
+
+### Features
+
+* user-avatar component ([#830](https://github.com/dhis2/ui/issues/830)) ([222e21f](https://github.com/dhis2/ui/commit/222e21f93a8b0482f94ff6e499ce8b7cdd380824))
+
 # [7.5.0](https://github.com/dhis2/ui/compare/v7.4.6...v7.5.0) (2021-11-08)
 
 
