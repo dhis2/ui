@@ -46,7 +46,7 @@ export const TextAvatar = ({
                 height: 100%;
                 overflow: hidden;
                 border-radius: 50%;
-                background-color: ${colors.grey800}90;
+                background-color: ${colors.grey800}80;
                 color: ${colors.grey050};
                 cursor: pointer;
             }
@@ -62,17 +62,21 @@ export const TextAvatar = ({
             .text-avatar-initials.extrasmall {
                 font-size: 7px;
             }
+
             .text-avatar-initials.small {
                 font-size: 9px;
             }
+
             .text-avatar-initials.medium {
                 font-size: 14px;
             }
+
             .text-avatar-initials.large {
-                font-size: 18px;
+                font-size: 22px;
             }
+
             .text-avatar-initials.extralarge {
-                font-size: 28px;
+                font-size: 32px;
             }
         `}</style>
     </div>
