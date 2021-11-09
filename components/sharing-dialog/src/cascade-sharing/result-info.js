@@ -1,3 +1,4 @@
+import { NoticeBox } from '@dhis2-ui/notice-box'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { getVisualizationsCount, getResultMessage } from './helpers.js'
@@ -21,7 +22,7 @@ export const ResultInfo = ({
         updatedItems,
     })
 
-    return <div>{message}</div>
+    return <NoticeBox>{message}</NoticeBox>
 }
 
 ResultInfo.propTypes = {

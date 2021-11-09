@@ -1,9 +1,12 @@
+import { Box } from '@dhis2-ui/box'
 import { Button } from '@dhis2-ui/button'
+import { NoticeBox } from '@dhis2-ui/notice-box'
 import {
     useDataQuery,
     useDataEngine,
     useOnlineStatus,
 } from '@dhis2/app-runtime'
+import { spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import i18n from '../locales/index.js'
@@ -60,24 +63,30 @@ export const Controls = ({ id, entityAmount }) => {
 
     return (
         <>
-            {error && <div>{error}</div>}
+            {error && <NoticeBox error>{error}</NoticeBox>}
             {queryResult.data && mutationResult && (
-                <ResultInfo
-                    hasErrors={hasErrors}
-                    updatedItems={updatedItems}
-                    dashboardItems={queryResult.data.dashboard.dashboardItems}
-                    itemsCount={queryResult.data.dashboard.itemsCount}
-                />
+                <Box marginTop={spacers.dp12}>
+                    <ResultInfo
+                        hasErrors={hasErrors}
+                        updatedItems={updatedItems}
+                        dashboardItems={
+                            queryResult.data.dashboard.dashboardItems
+                        }
+                        itemsCount={queryResult.data.dashboard.itemsCount}
+                    />
+                </Box>
             )}
-            <Button
-                type="button"
-                disabled={offline || mutating || !entityAmount}
-                loading={mutating}
-                secondary
-                onClick={mutate}
-            >
-                {i18n.t('Apply sharing to dashboard visualizations')}
-            </Button>
+            <Box marginTop={spacers.dp12}>
+                <Button
+                    type="button"
+                    disabled={offline || mutating || !entityAmount}
+                    loading={mutating}
+                    secondary
+                    onClick={mutate}
+                >
+                    {i18n.t('Apply sharing to dashboard visualizations')}
+                </Button>
+            </Box>
         </>
     )
 }
