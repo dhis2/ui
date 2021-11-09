@@ -41,6 +41,7 @@ export default class Profile extends React.Component {
                         avatarId={avatarId}
                         name={name}
                         dataTest="headerbar-profile-icon"
+                        medium
                     />
                 </button>
 

@@ -1,4 +1,3 @@
-import { Box } from '@dhis2-ui/box'
 import { UserAvatar } from '@dhis2-ui/user-avatar'
 import { useConfig } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
@@ -93,13 +92,12 @@ ProfileDetails.propTypes = {
 
 export const ProfileHeader = ({ name, email, avatarId }) => (
     <div>
-        <Box width="48px" height="48px">
-            <UserAvatar
-                avatarId={avatarId}
-                name={name}
-                dataTest="headerbar-profile-menu-icon"
-            />
-        </Box>
+        <UserAvatar
+            avatarId={avatarId}
+            name={name}
+            dataTest="headerbar-profile-menu-icon"
+            large
+        />
         <ProfileDetails name={name} email={email} />
 
         <style jsx>{`
