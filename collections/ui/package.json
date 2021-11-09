@@ -62,6 +62,7 @@
         "@dhis2-ui/text-area": "7.5.0",
         "@dhis2-ui/tooltip": "7.5.0",
         "@dhis2-ui/transfer": "7.5.0",
+        "@dhis2-ui/user-avatar": "7.5.0",
         "@dhis2/ui-constants": "7.5.0",
         "@dhis2/ui-forms": "7.5.0",
         "@dhis2/ui-icons": "7.5.0",

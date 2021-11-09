@@ -1,7 +1,7 @@
+import { UserAvatar } from '@dhis2-ui/user-avatar'
 import { IconWorld24, IconUserGroup24 } from '@dhis2/ui-icons'
 import { shallow } from 'enzyme'
 import React from 'react'
-import { Avatar } from '../icons/avatar.js'
 import {
     ACCESS_NONE,
     SHARE_TARGET_EXTERNAL,
@@ -135,7 +135,7 @@ describe('SharingDialog widget - SharingListItem component', () => {
 
         it('renders the icon for user access', () =>
             expect(
-                getSharingListItemComponent(props).find(Avatar)
+                getSharingListItemComponent(props).find(UserAvatar)
             ).toHaveLength(1))
 
         it('renders the label for user access', () =>

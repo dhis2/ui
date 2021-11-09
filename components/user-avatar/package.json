@@ -1,11 +1,11 @@
 {
-    "name": "@dhis2-ui/sharing-dialog",
+    "name": "@dhis2-ui/user-avatar",
     "version": "7.5.0",
-    "description": "UI SharingDialog",
+    "description": "UI User Avatar",
     "repository": {
         "type": "git",
         "url": "https://github.com/dhis2/ui.git",
-        "directory": "components/sharing-dialog"
+        "directory": "components/user-avatar"
     },
     "homepage": "https://github.com/dhis2/ui#readme",
     "license": "BSD-3-Clause",
@@ -27,29 +27,13 @@
     },
     "peerDependencies": {
         "@dhis2/app-runtime": "^3",
-        "@dhis2/d2-i18n": "^1",
         "react": "^16.8",
         "react-dom": "^16.8",
         "styled-jsx": "^4"
     },
     "dependencies": {
-        "@dhis2/prop-types": "^3.0.0-beta.1",
-        "@dhis2-ui/button": "7.5.0",
-        "@dhis2-ui/card": "7.5.0",
-        "@dhis2-ui/divider": "7.5.0",
-        "@dhis2-ui/input": "7.5.0",
-        "@dhis2-ui/layer": "7.5.0",
-        "@dhis2-ui/loader": "7.5.0",
-        "@dhis2-ui/menu": "7.5.0",
-        "@dhis2-ui/modal": "7.5.0",
-        "@dhis2-ui/notice-box": "7.5.0",
-        "@dhis2-ui/popper": "7.5.0",
-        "@dhis2-ui/select": "7.5.0",
-        "@dhis2-ui/tab": "7.5.0",
-        "@dhis2-ui/tooltip": "7.5.0",
-        "@dhis2-ui/user-avatar": "7.5.0",
+        "@dhis2/prop-types": "^3.0.0",
         "@dhis2/ui-constants": "7.5.0",
-        "@dhis2/ui-icons": "7.5.0",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },
@@ -57,8 +41,7 @@
         "build"
     ],
     "devDependencies": {
-        "@dhis2/app-runtime": "^3.0.0",
-        "@dhis2/d2-i18n": "^1.1.0",
+        "@dhis2/app-runtime": "^3",
         "react": "16.13",
         "react-dom": "16.13",
         "styled-jsx": "^4.0.1"

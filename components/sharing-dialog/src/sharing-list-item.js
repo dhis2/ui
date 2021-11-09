@@ -1,10 +1,10 @@
 import { Divider } from '@dhis2-ui/divider'
+import { UserAvatar } from '@dhis2-ui/user-avatar'
 import { colors } from '@dhis2/ui-constants'
 import { IconWorld24, IconUserGroup24 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { AccessSelect } from './access-select.js'
-import { Avatar } from './icons/avatar.js'
 import i18n from './locales/index.js'
 import {
     SHARE_TARGET_EXTERNAL,
@@ -33,7 +33,7 @@ export const SharingListItem = ({
             case SHARE_TARGET_GROUP:
                 return <IconUserGroup24 color={colors.grey600} />
             case SHARE_TARGET_USER:
-                return <Avatar name={name} />
+                return <UserAvatar name={name} small />
         }
     }
 

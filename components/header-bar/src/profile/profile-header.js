@@ -1,10 +1,9 @@
-import { Box } from '@dhis2-ui/box'
+import { UserAvatar } from '@dhis2-ui/user-avatar'
 import { useConfig } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { joinPath } from '../join-path.js'
 import i18n from '../locales/index.js'
-import { UserIcon } from '../user-icon/user-icon.js'
 
 const ProfileName = ({ children }) => (
     <div data-test="headerbar-profile-username">
@@ -91,15 +90,14 @@ ProfileDetails.propTypes = {
     name: PropTypes.string,
 }
 
-export const ProfileHeader = ({ name, email, avatarUrl }) => (
+export const ProfileHeader = ({ name, email, avatarId }) => (
     <div>
-        <Box width="48px" height="48px">
-            <UserIcon
-                avatarUrl={avatarUrl}
-                name={name}
-                dataTest="headerbar-profile-menu-icon"
-            />
-        </Box>
+        <UserAvatar
+            avatarId={avatarId}
+            name={name}
+            dataTest="headerbar-profile-menu-icon"
+            large
+        />
         <ProfileDetails name={name} email={email} />
 
         <style jsx>{`
@@ -114,7 +112,7 @@ export const ProfileHeader = ({ name, email, avatarUrl }) => (
 )
 
 ProfileHeader.propTypes = {
-    avatarUrl: PropTypes.string,
+    avatarId: PropTypes.string,
     email: PropTypes.string,
     name: PropTypes.string,
 }
