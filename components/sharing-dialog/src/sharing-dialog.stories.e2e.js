@@ -1,4 +1,4 @@
-import { DataProvider } from '@dhis2/app-runtime'
+import { Provider } from '@dhis2/app-runtime'
 import React from 'react'
 import { SharingDialog } from './sharing-dialog.js'
 
@@ -7,14 +7,19 @@ export default {
     component: SharingDialog,
 }
 
+const config = {
+    baseUrl: 'http://dhis2.test',
+    apiVersion: 38,
+}
+
 export const Visualization = () => (
-    <DataProvider baseUrl="http://dhis2.test" apiVersion={38}>
+    <Provider config={config}>
         <SharingDialog type="visualization" id="id" />
-    </DataProvider>
+    </Provider>
 )
 
 export const Dashboard = () => (
-    <DataProvider baseUrl="http://dhis2.test" apiVersion={38}>
+    <Provider config={config}>
         <SharingDialog type="dashboard" id="id" />
-    </DataProvider>
+    </Provider>
 )

@@ -32,6 +32,7 @@ export const Controls = ({ id, entityAmount }) => {
 
     const engine = useDataEngine(mutation)
     const [mutating, setMutating] = useState(false)
+    const [error, setError] = useState(null)
     const [mutationResult, setMutationResult] = useState(null)
     const mutation = {
         resource: `dashboards/cascadeSharing/${id}`,
@@ -39,13 +40,17 @@ export const Controls = ({ id, entityAmount }) => {
     }
     const mutate = () => {
         setMutating(true)
+        setMutationResult(null)
+        setError(null)
         engine
             .mutate(mutation)
             .then((data) => {
                 setMutationResult(data)
-                setMutating(false)
             })
-            .catch(() => {
+            .catch((e) => {
+                setError(e.message || i18n.t('Something went wrong'))
+            })
+            .finally(() => {
                 setMutating(false)
             })
     }
@@ -55,6 +60,7 @@ export const Controls = ({ id, entityAmount }) => {
 
     return (
         <>
+            {error && <div>{error}</div>}
             {queryResult.data && mutationResult && (
                 <ResultInfo
                     hasErrors={hasErrors}

@@ -42,6 +42,18 @@ When('the apply sharing button is clicked', () => {
     ).click()
 })
 
+When('the apply sharing button is clicked and the backend fails', () => {
+    cy.intercept('POST', '/api/38/dashboards/cascadeSharing/id', {
+        statusCode: 500,
+    })
+
+    cy.get('[data-test="dhis2-uicore-modalcontent"]').scrollTo('bottom')
+    cy.contains(
+        '[data-test="dhis2-uicore-button"]',
+        'Apply sharing to dashboard visualizations'
+    ).click()
+})
+
 Then('the correct counts should be displayed', () => {
     /**
      * The visualization count comes from the dashboarditems returned by the backend.
@@ -51,7 +63,7 @@ Then('the correct counts should be displayed', () => {
      */
 
     cy.contains(
-        '4 visualization on this dashboard will potentially get updated sharing settings. These updated sharing settings will apply to 2 user or group.'
+        'Amount of visualizations on this dashboard that will potentially get updated sharing settings: 4. The amount of users or groups that these updated settings will apply to: 2.'
     ).should('be.visible')
 })
 
@@ -67,4 +79,10 @@ Then('a result message should be displayed', () => {
     cy.contains('Successfully updated sharing for all visualizations.').should(
         'be.visible'
     )
+})
+
+Then('an alert with the error message should be displayed', () => {
+    cy.contains(
+        'An unknown error occurred - Internal Server Error (500)'
+    ).should('be.visible')
 })
