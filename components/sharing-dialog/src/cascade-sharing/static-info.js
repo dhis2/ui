@@ -1,3 +1,4 @@
+import { colors } from '@dhis2/ui-constants'
 import React from 'react'
 import i18n from '../locales/index.js'
 
@@ -19,6 +20,13 @@ export const StaticInfo = () => {
                     "Applying sharing can't be undone, and needs to be done again if new visualizations are added to the dashboard or its sharing settings are changed."
                 )}
             </p>
+            <style jsx>{`
+                p {
+                    font-size: 14px;
+                    line-height: 19px;
+                    color: ${colors.grey800};
+                }
+            `}</style>
         </>
     )
 }

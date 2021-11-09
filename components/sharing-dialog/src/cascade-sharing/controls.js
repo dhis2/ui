@@ -63,7 +63,11 @@ export const Controls = ({ id, entityAmount }) => {
 
     return (
         <>
-            {error && <NoticeBox error>{error}</NoticeBox>}
+            {error && (
+                <Box marginTop={spacers.dp12}>
+                    <NoticeBox error>{error}</NoticeBox>
+                </Box>
+            )}
             {queryResult.data && mutationResult && (
                 <Box marginTop={spacers.dp12}>
                     <ResultInfo
