@@ -7,11 +7,24 @@ import { UserAvatar } from './user-avatar.js'
 describe('UserAvatar', () => {
     it('renders an ImageAvatar when a avatarId is provided', () => {
         const wrapper = shallow(<UserAvatar name="John Doe" avatarId="123" />)
-        expect(wrapper.type()).toBe(ImageAvatar)
+        expect(wrapper.find(ImageAvatar)).toHaveLength(1)
     })
 
-    it('renders an ImageAvatar when a avatarId is provided', () => {
+    it('renders a TextAvatar when no avatarId is provided', () => {
         const wrapper = shallow(<UserAvatar name="John Doe" />)
-        expect(wrapper.type()).toBe(TextAvatar)
+        expect(wrapper.find(TextAvatar)).toHaveLength(1)
+    })
+    describe('sizes', () => {
+        const sizes = ['extrasmall', 'small', 'medium', 'large', 'extralarge']
+        for (const size of sizes) {
+            it(`should accept size prop "${size}"`, () => {
+                const props = {
+                    name: 'John Doe',
+                    [size]: true,
+                }
+                const wrapper = shallow(<UserAvatar {...props} />)
+                expect(wrapper.hasClass(size)).toBe(true)
+            })
+        }
     })
 })

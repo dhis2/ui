@@ -1,4 +1,3 @@
-import { Box } from '@dhis2-ui/box'
 import React from 'react'
 import { UserAvatar } from './user-avatar.js'
 
@@ -7,11 +6,17 @@ export default {
     component: UserAvatar,
 }
 
-const Template = (args) => (
-    <Box width="32px" height="32px">
-        <UserAvatar {...args} />
-    </Box>
-)
+const Template = (args) => <UserAvatar {...args} />
 
 export const Default = Template.bind({})
 Default.args = { name: 'John Doe' }
+
+export const Sizes = () => (
+    <>
+        <UserAvatar name="John Doe" extrasmall />
+        <UserAvatar name="John Doe" small />
+        <UserAvatar name="John Doe" medium />
+        <UserAvatar name="John Doe" large />
+        <UserAvatar name="John Doe" extralarge />
+    </>
+)
