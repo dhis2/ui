@@ -1,4 +1,3 @@
-import { Box } from '@dhis2-ui/box'
 import { Divider } from '@dhis2-ui/divider'
 import { UserAvatar } from '@dhis2-ui/user-avatar'
 import { colors } from '@dhis2/ui-constants'
@@ -34,11 +33,7 @@ export const SharingListItem = ({
             case SHARE_TARGET_GROUP:
                 return <IconUserGroup24 color={colors.grey600} />
             case SHARE_TARGET_USER:
-                return (
-                    <Box height="24px" width="24px">
-                        <UserAvatar name={name} />
-                    </Box>
-                )
+                return <UserAvatar name={name} small />
         }
     }
 
