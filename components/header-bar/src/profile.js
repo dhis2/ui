@@ -1,7 +1,7 @@
+import { UserAvatar } from '@dhis2-ui/user-avatar'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { ProfileMenu } from './profile/profile-menu.js'
-import { UserIcon } from './user-icon/user-icon.js'
 
 export default class Profile extends React.Component {
     state = {
@@ -25,7 +25,7 @@ export default class Profile extends React.Component {
     handleToggle = () => this.setState({ show: !this.state.show })
 
     render() {
-        const { name, email, avatarUrl, helpUrl } = this.props
+        const { name, email, avatarId, helpUrl } = this.props
 
         return (
             <div
@@ -37,16 +37,17 @@ export default class Profile extends React.Component {
                     className="headerbar-profile-btn"
                     onClick={this.handleToggle}
                 >
-                    <UserIcon
-                        avatarUrl={avatarUrl}
+                    <UserAvatar
+                        avatarId={avatarId}
                         name={name}
                         dataTest="headerbar-profile-icon"
+                        medium
                     />
                 </button>
 
                 {this.state.show ? (
                     <ProfileMenu
-                        avatarUrl={avatarUrl}
+                        avatarId={avatarId}
                         name={name}
                         email={email}
                         helpUrl={helpUrl}
@@ -82,7 +83,7 @@ export default class Profile extends React.Component {
 
 Profile.propTypes = {
     name: PropTypes.string.isRequired,
-    avatarUrl: PropTypes.string,
+    avatarId: PropTypes.string,
     email: PropTypes.string,
     helpUrl: PropTypes.string,
 }

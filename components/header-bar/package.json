@@ -43,6 +43,7 @@
         "@dhis2-ui/loader": "7.5.0",
         "@dhis2-ui/logo": "7.5.0",
         "@dhis2-ui/menu": "7.5.0",
+        "@dhis2-ui/user-avatar": "7.5.0",
         "@dhis2/ui-constants": "7.5.0",
         "@dhis2/ui-icons": "7.5.0",
         "classnames": "^2.3.1",
