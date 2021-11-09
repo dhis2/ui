@@ -112,6 +112,7 @@ export const SegmentedControl = ({ options, selected, onChange }) => {
 }
 
 SegmentedControl.propTypes = {
+    /** Options to populate the segmented control */
     options: PropTypes.arrayOf(
         PropTypes.shape({
             label: PropTypes.string.isRequired,
@@ -119,6 +120,8 @@ SegmentedControl.propTypes = {
             disabled: PropTypes.bool,
         })
     ).isRequired,
+    /** An option to select; should match the `value` property of the option to be selected */
     selected: PropTypes.string.isRequired,
+    /** Called with the signature `({ value: string }, event)` */
     onChange: PropTypes.func.isRequired,
 }
