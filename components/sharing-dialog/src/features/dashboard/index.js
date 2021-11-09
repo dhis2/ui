@@ -35,7 +35,6 @@ When('the apply sharing button is clicked', () => {
         },
     })
 
-    cy.get('[data-test="dhis2-uicore-modalcontent"]').scrollTo('bottom')
     cy.contains(
         '[data-test="dhis2-uicore-button"]',
         'Apply sharing to dashboard visualizations'
@@ -47,7 +46,6 @@ When('the apply sharing button is clicked and the backend fails', () => {
         statusCode: 500,
     })
 
-    cy.get('[data-test="dhis2-uicore-modalcontent"]').scrollTo('bottom')
     cy.contains(
         '[data-test="dhis2-uicore-button"]',
         'Apply sharing to dashboard visualizations'
@@ -68,7 +66,6 @@ Then('the correct counts should be displayed', () => {
 })
 
 Then('the apply sharing button should be visible', () => {
-    cy.get('[data-test="dhis2-uicore-modalcontent"]').scrollTo('bottom')
     cy.contains(
         '[data-test="dhis2-uicore-button"]',
         'Apply sharing to dashboard visualizations'

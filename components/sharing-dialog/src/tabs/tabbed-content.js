@@ -51,7 +51,7 @@ export const TabbedContent = ({
                     {i18n.t('Apply sharing to dashboard visualizations')}
                 </Tab>
             </TabBar>
-            <div className="tab-content">
+            <div>
                 {activeTabIndex === 0 && (
                     <>
                         <AccessAdd onAdd={onAdd} />
@@ -72,11 +72,6 @@ export const TabbedContent = ({
                     />
                 )}
             </div>
-            <style jsx>{`
-                .tab-content {
-                    padding-top: 15px;
-                }
-            `}</style>
         </>
     )
 }

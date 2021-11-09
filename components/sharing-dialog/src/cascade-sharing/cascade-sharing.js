@@ -1,14 +1,17 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import i18n from '../locales/index.js'
+import { Title } from '../text/index.js'
 import { Controls } from './controls.js'
 import { StaticInfo } from './static-info.js'
-import { Title } from './title.js'
 import { UpdateInfo } from './update-info.js'
 
 export const CascadeSharing = ({ id, entityAmount }) => {
     return (
         <>
-            <Title />
+            <Title>
+                {i18n.t('Apply dashboard sharing settings to visualizations')}
+            </Title>
             <StaticInfo />
             <UpdateInfo id={id} entityAmount={entityAmount} />
             <Controls id={id} entityAmount={entityAmount} />

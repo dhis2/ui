@@ -6,7 +6,7 @@ import { nameToInitials } from '../helpers/index.js'
 export const IconInitials = ({ name }) => {
     return (
         <div>
-            <p>{nameToInitials(name)}</p>
+            <span>{nameToInitials(name)}</span>
             <style jsx>{`
                 div {
                     display: flex;
@@ -16,11 +16,10 @@ export const IconInitials = ({ name }) => {
                     height: 24px;
                     overflow: hidden;
                     border-radius: 50%;
-                    background-color: ${colors.grey800};
-                    opacity: 0.8;
+                    background-color: ${colors.grey600};
                 }
 
-                p {
+                span {
                     margin-left: 1px;
                     font-size: 9px;
                     font-weight: 500;

@@ -7,6 +7,7 @@ import React, { useState } from 'react'
 import { SharingAutocomplete } from '../autocomplete/index.js'
 import i18n from '../locales/index.js'
 import { ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT } from '../sharing-constants.js'
+import { Title } from '../text/index.js'
 
 export const AccessAdd = ({ onAdd }) => {
     const [entity, setEntity] = useState(null)
@@ -40,10 +41,8 @@ export const AccessAdd = ({ onAdd }) => {
 
     return (
         <>
-            <p className="sharing-subtitle">
-                {i18n.t('Give access to a user or group')}
-            </p>
-            <form onSubmit={onSubmit} className="share-block sharing-inputs">
+            <Title>{i18n.t('Give access to a user or group')}</Title>
+            <form onSubmit={onSubmit}>
                 <SharingAutocomplete
                     selected={entity?.displayName || entity?.name}
                     onSelection={setEntity}
@@ -74,25 +73,14 @@ export const AccessAdd = ({ onAdd }) => {
                 </Button>
             </form>
             <style jsx>{`
-                .sharing-subtitle {
-                    color: ${colors.grey700};
-                    font-size: 15px;
-                    font-weight: 500;
-                    margin: 0 0 8px 0;
-                }
-
-                .share-block {
+                form {
                     background-color: ${colors.grey100};
                     color: ${colors.grey900};
                     margin-bottom: 21px;
                     padding: 8px 12px;
                     border-radius: 5px;
-                }
-
-                .sharing-inputs {
                     display: flex;
                     align-items: flex-end;
-                    width: 100%;
                 }
 
                 .select-wrapper {

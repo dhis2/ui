@@ -10,6 +10,7 @@ import {
     ACCESS_VIEW_ONLY,
     ACCESS_VIEW_AND_EDIT,
 } from '../sharing-constants.js'
+import { Title } from '../text/index.js'
 import { SharingListItem } from './sharing-list-item.js'
 
 export const AccessList = ({
@@ -21,16 +22,12 @@ export const AccessList = ({
     groups,
 }) => (
     <>
-        <p className="sharing-subtitle">
-            {i18n.t('Users, groups and roles that currently have access')}
-        </p>
-        <div className="sharing-headers">
-            <div className="sharing-header-1">
-                {i18n.t('User / Group / Role')}
-            </div>
-            <div className="sharing-header-2">{i18n.t('Access level')}</div>
+        <Title>{i18n.t('Users and groups that currently have access')}</Title>
+        <div className="header">
+            <div className="header-left-column">{i18n.t('User / Group')}</div>
+            <div className="header-right-column">{i18n.t('Access level')}</div>
         </div>
-        <div className="sharing-list">
+        <div className="list">
             <SharingListItem
                 name={i18n.t('All users')}
                 target={SHARE_TARGET_PUBLIC}
@@ -87,16 +84,8 @@ export const AccessList = ({
             )}
         </div>
         <style jsx>{`
-            .sharing-subtitle {
-                color: ${colors.grey700};
-                font-size: 15px;
-                font-weight: 500;
-                margin: 0 0 8px 0;
-            }
-
-            .sharing-headers {
+            .header {
                 display: flex;
-                width: 100%;
                 padding: 10px 8px;
                 margin: 0 0 8px 0;
                 background-color: ${colors.grey200};
@@ -104,18 +93,17 @@ export const AccessList = ({
                 font-size: 13px;
             }
 
-            .sharing-header-1 {
+            .header-left-column {
                 flex: 2;
             }
 
-            .sharing-header-2 {
+            .header-right-column {
                 flex: 1;
             }
 
-            .sharing-list {
+            .list {
                 display: flex;
                 flex-direction: column;
-                width: 100%;
                 overflow-y: auto;
             }
         `}</style>
