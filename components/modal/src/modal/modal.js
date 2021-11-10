@@ -7,31 +7,13 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { resolve } from 'styled-jsx/css'
 
-const getScrollBoxCardStyles = () => {
-    return resolve`
+const resolveLayerStyles = (hide) =>
+    resolve`
         div {
-            display: flex;
-            flex-direction: column;
-            max-height: calc(100vh - ${2 * spacersNum.dp64}px);
-            max-width: calc(100vw - ${2 * spacersNum.dp64}px);
+            padding: ${spacers.dp64};
+            display: ${hide ? 'none' : ''};
         }
     `
-}
-
-const centeredContentStyles = resolve`
-    .top {
-        padding-top: ${spacers.dp64};
-    }
-    .bottom {
-        padding-bottom: ${spacers.dp64};
-    }
-`
-
-const layerStyles = resolve`
-    div {
-		display: none;
-    }
-`
 
 export const Modal = ({
     children,
@@ -44,40 +26,41 @@ export const Modal = ({
     position,
     small,
 }) => {
-    const scrollBoxCardStyles = getScrollBoxCardStyles()
-
+    const layerStyles = resolveLayerStyles(hide)
     return (
         <Layer
             onClick={onClose}
-            className={hide ? layerStyles.className : ''}
+            className={layerStyles.className}
             translucent={!hide}
         >
-            <Center
-                position={position}
-                className={cx(centeredContentStyles.className)}
-            >
+            <Center position={position}>
                 <aside
                     role="dialog"
                     aria-modal="true"
                     data-test={dataTest}
                     className={cx(className, { small, large, fluid })}
                 >
-                    <Card className={scrollBoxCardStyles.className}>
-                        {children}
+                    <Card>
+                        <div>{children}</div>
                     </Card>
                 </aside>
-                {scrollBoxCardStyles.styles}
                 {layerStyles.styles}
-                {centeredContentStyles.styles}
             </Center>
 
             <style jsx>{`
+                div {
+                    padding: 24px;
+                    display: flex;
+                    flex-flow: column;
+                    max-width: calc(100vw - ${2 * spacersNum.dp64}px);
+                    max-height: calc(100vh - ${2 * spacersNum.dp64}px);
+                }
+
                 aside {
-                    overflow-y: hidden;
                     height: auto;
                     width: 600px;
-                    max-height: calc(100vh - 128px);
-                    max-width: calc(100vw - 128px);
+                    max-width: calc(100vw - ${2 * spacersNum.dp64}px);
+                    max-height: calc(100vh - ${2 * spacersNum.dp64}px);
                 }
 
                 aside.small {

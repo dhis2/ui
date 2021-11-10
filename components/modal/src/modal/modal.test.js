@@ -42,8 +42,8 @@ describe('Modal', () => {
             const style = window.getComputedStyle(modalEl)
 
             expect(style.height).toBe('auto')
-            expect(style.maxHeight).toBe('100vh')
-            expect(style.maxWidth).toBe('100vw')
+            expect(style.maxHeight).toBe('calc(100vh - 128px)')
+            expect(style.maxWidth).toBe('calc(100vw - 128px)')
             expect(style.width).toBe('auto')
         })
     })
