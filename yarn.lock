@@ -2449,13 +2449,6 @@
     "@dhis2/prop-types" "^1.6.4"
     prop-types "^15.7.2"
 
-"@dhis2/ui-constants@7.4.6":
-  version "7.4.6"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-constants/-/ui-constants-7.4.6.tgz#b88683a6a774b4a1f9c0553ec0601d02ef31afc0"
-  integrity sha512-wFHRIkasZIOeJTSHvL/wRT5JHpd5w6G2QKN3DAAnTc8vmZHJ+JGIMPqE7wHBHSF+hmgpVbyb3s8SXmAZ4pYcxw==
-  dependencies:
-    prop-types "^15.7.2"
-
 "@dhis2/ui-forms@7.1.0":
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-forms/-/ui-forms-7.1.0.tgz#004e6293445159074a924c89e0f743f80bd85d86"
