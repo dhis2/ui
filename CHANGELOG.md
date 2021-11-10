@@ -1,3 +1,10 @@
+## [7.6.2](https://github.com/dhis2/ui/compare/v7.6.1...v7.6.2) (2021-11-10)
+
+
+### Bug Fixes
+
+* **menu:** adjust flyout background elevation and style ([6e68dc5](https://github.com/dhis2/ui/commit/6e68dc544b95007cc019c44f0cfcd3feb4e1f347))
+
 ## [7.6.1](https://github.com/dhis2/ui/compare/v7.6.0...v7.6.1) (2021-11-10)
 
 
