@@ -1,3 +1,10 @@
+# [7.7.0](https://github.com/dhis2/ui/compare/v7.6.2...v7.7.0) (2021-11-10)
+
+
+### Features
+
+* **segmented-control:** add SegmentedControl component ([#831](https://github.com/dhis2/ui/issues/831)) ([f6a42c2](https://github.com/dhis2/ui/commit/f6a42c23025543546d3506b5d6932bc52a9af7c4))
+
 ## [7.6.2](https://github.com/dhis2/ui/compare/v7.6.1...v7.6.2) (2021-11-10)
 
 
