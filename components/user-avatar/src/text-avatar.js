@@ -46,7 +46,7 @@ export const TextAvatar = ({
                 height: 100%;
                 overflow: hidden;
                 border-radius: 50%;
-                background-color: ${colors.grey800}80;
+                background-color: ${colors.grey800}cc;
                 color: ${colors.grey050};
                 cursor: pointer;
             }
