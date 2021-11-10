@@ -1,3 +1,17 @@
+## [7.6.1](https://github.com/dhis2/ui/compare/v7.6.0...v7.6.1) (2021-11-10)
+
+
+### Bug Fixes
+
+* **user-avatar:** use correct hex value for 0.8 background opacity ([#837](https://github.com/dhis2/ui/issues/837)) ([b72f449](https://github.com/dhis2/ui/commit/b72f44975c71a5ada28009ff4c98f1e0525d8baf))
+
+# [7.6.0](https://github.com/dhis2/ui/compare/v7.5.0...v7.6.0) (2021-11-09)
+
+
+### Features
+
+* user-avatar component ([#830](https://github.com/dhis2/ui/issues/830)) ([222e21f](https://github.com/dhis2/ui/commit/222e21f93a8b0482f94ff6e499ce8b7cdd380824))
+
 # [7.5.0](https://github.com/dhis2/ui/compare/v7.4.6...v7.5.0) (2021-11-08)
 
 
