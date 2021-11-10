@@ -1,3 +1,10 @@
+## [7.7.1](https://github.com/dhis2/ui/compare/v7.7.0...v7.7.1) (2021-11-10)
+
+
+### Bug Fixes
+
+* **segmented-control:** export SegmentedControl from ui collection ([#840](https://github.com/dhis2/ui/issues/840)) ([21322d7](https://github.com/dhis2/ui/commit/21322d72b9fd8a66b07b80ecdb37ab94cadec451))
+
 # [7.7.0](https://github.com/dhis2/ui/compare/v7.6.2...v7.7.0) (2021-11-10)
 
 
