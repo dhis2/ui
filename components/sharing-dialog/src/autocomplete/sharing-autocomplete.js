@@ -70,7 +70,7 @@ export const SharingAutocomplete = ({ selected, onSelection }) => {
     return (
         <Autocomplete
             inputWidth="400px"
-            label={i18n.t('User, group or role')}
+            label={i18n.t('User or group')}
             loading={fetching}
             placeholder={i18n.t('Search')}
             search={search}

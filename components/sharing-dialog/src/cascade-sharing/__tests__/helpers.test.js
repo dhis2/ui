@@ -75,7 +75,7 @@ describe('getInfoMessage', () => {
         }
 
         expect(getInfoMessage(args)).toMatchInlineSnapshot(
-            `"There are no users, groups or roles to apply sharing settings for."`
+            `"There are no users or groups to apply sharing settings for."`
         )
     })
 

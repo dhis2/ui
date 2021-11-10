@@ -60,7 +60,7 @@ export const getResultMessage = ({
 export const getInfoMessage = ({ entityAmount, visualizationsCount }) => {
     if (entityAmount === 0) {
         return i18n.t(
-            'There are no users, groups or roles to apply sharing settings for.'
+            'There are no users or groups to apply sharing settings for.'
         )
     }
 
