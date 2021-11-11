@@ -11,6 +11,7 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import i18n from '../locales/index.js'
 import { ResultInfo } from './result-info.js'
+import { UpdateInfo } from './update-info.js'
 
 const query = {
     dashboard: {
@@ -34,6 +35,7 @@ export const Controls = ({ id, entityAmount }) => {
      */
 
     const engine = useDataEngine(mutation)
+    const [called, setCalled] = useState(false)
     const [mutating, setMutating] = useState(false)
     const [error, setError] = useState(null)
     const [mutationResult, setMutationResult] = useState(null)
@@ -42,6 +44,7 @@ export const Controls = ({ id, entityAmount }) => {
         type: 'create',
     }
     const mutate = () => {
+        setCalled(true)
         setMutating(true)
         setMutationResult(null)
         setError(null)
@@ -63,6 +66,7 @@ export const Controls = ({ id, entityAmount }) => {
 
     return (
         <>
+            {!called && <UpdateInfo id={id} entityAmount={entityAmount} />}
             {error && (
                 <Box marginTop={spacers.dp12}>
                     <NoticeBox error>{error}</NoticeBox>

@@ -4,7 +4,6 @@ import i18n from '../locales/index.js'
 import { Title } from '../text/index.js'
 import { Controls } from './controls.js'
 import { StaticInfo } from './static-info.js'
-import { UpdateInfo } from './update-info.js'
 
 export const CascadeSharing = ({ id, entityAmount }) => {
     return (
@@ -13,7 +12,6 @@ export const CascadeSharing = ({ id, entityAmount }) => {
                 {i18n.t('Apply dashboard sharing settings to visualizations')}
             </Title>
             <StaticInfo />
-            <UpdateInfo id={id} entityAmount={entityAmount} />
             <Controls id={id} entityAmount={entityAmount} />
         </>
     )
