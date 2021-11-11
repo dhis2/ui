@@ -8,7 +8,7 @@ import {
     ACCESS_VIEW_AND_EDIT,
 } from '../sharing-constants.js'
 
-export const SharingListItemContext = ({ access }) => {
+export const ListItemContext = ({ access }) => {
     let message
 
     switch (access) {
@@ -40,6 +40,6 @@ export const SharingListItemContext = ({ access }) => {
     )
 }
 
-SharingListItemContext.propTypes = {
+ListItemContext.propTypes = {
     access: PropTypes.string.isRequired,
 }

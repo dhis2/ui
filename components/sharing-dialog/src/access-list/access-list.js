@@ -11,7 +11,7 @@ import {
     ACCESS_VIEW_AND_EDIT,
 } from '../sharing-constants.js'
 import { Title } from '../text/index.js'
-import { SharingListItem } from './sharing-list-item.js'
+import { ListItem } from './list-item.js'
 
 export const AccessList = ({
     onChange,
@@ -28,7 +28,7 @@ export const AccessList = ({
             <div className="header-right-column">{i18n.t('Access level')}</div>
         </div>
         <div className="list">
-            <SharingListItem
+            <ListItem
                 name={i18n.t('All users')}
                 target={SHARE_TARGET_PUBLIC}
                 access={publicAccess}
@@ -43,7 +43,7 @@ export const AccessList = ({
                 }
             />
             {groups.map(({ id, name, access }) => (
-                <SharingListItem
+                <ListItem
                     key={id}
                     name={name}
                     target={SHARE_TARGET_GROUP}
@@ -62,7 +62,7 @@ export const AccessList = ({
             {users.map(
                 ({ id, name, access }) =>
                     access && (
-                        <SharingListItem
+                        <ListItem
                             key={id}
                             name={name}
                             target={SHARE_TARGET_USER}

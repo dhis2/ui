@@ -11,7 +11,7 @@ import {
 } from '../sharing-constants.js'
 import { IconInitials } from './icon-initials.js'
 
-export const SharingListItemIcon = ({ target, name }) => {
+export const ListItemIcon = ({ target, name }) => {
     switch (target) {
         case SHARE_TARGET_EXTERNAL:
             return <IconWorld24 color={colors.grey600} />
@@ -25,7 +25,7 @@ export const SharingListItemIcon = ({ target, name }) => {
     }
 }
 
-SharingListItemIcon.propTypes = {
+ListItemIcon.propTypes = {
     target: PropTypes.string.isRequired,
     name: PropTypes.string,
 }

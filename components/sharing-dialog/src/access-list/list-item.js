@@ -7,10 +7,10 @@ import React from 'react'
 import { DestructiveSelectOption } from '../destructive-select-option/index.js'
 import { isRemovableTarget } from '../helpers/index.js'
 import i18n from '../locales/index.js'
-import { SharingListItemContext } from './sharing-list-item-context.js'
-import { SharingListItemIcon } from './sharing-list-item-icon.js'
+import { ListItemContext } from './list-item-context.js'
+import { ListItemIcon } from './list-item-icon.js'
 
-export const SharingListItem = ({
+export const ListItem = ({
     name,
     target,
     access,
@@ -30,10 +30,10 @@ export const SharingListItem = ({
         <>
             <div className="sharing-list-item">
                 <div className="share-details">
-                    <SharingListItemIcon target={target} name={name} />
+                    <ListItemIcon target={target} name={name} />
                     <div className="share-details-text">
                         <p className="share-entity">{name}</p>
-                        <SharingListItemContext access={access} />
+                        <ListItemContext access={access} />
                     </div>
                 </div>
                 <div className="select-wrapper">
@@ -102,7 +102,7 @@ export const SharingListItem = ({
     )
 }
 
-SharingListItem.propTypes = {
+ListItem.propTypes = {
     access: PropTypes.string.isRequired,
     accessOptions: PropTypes.array.isRequired,
     name: PropTypes.string.isRequired,
