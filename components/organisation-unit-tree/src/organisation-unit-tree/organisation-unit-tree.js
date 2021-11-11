@@ -77,11 +77,11 @@ const OrganisationUnitTree = ({
                 !loading &&
                 rootIds.map((rootId) => {
                     const rootNode = data[rootId]
-                    const rootPath = `/${rootId}`
 
                     return (
                         <OrganisationUnitNode
-                            key={rootPath}
+                            key={rootNode.path}
+                            rootId={rootId}
                             autoExpandLoadingError={autoExpandLoadingError}
                             dataTest={dataTest}
                             disableSelection={disableSelection}
@@ -91,7 +91,7 @@ const OrganisationUnitTree = ({
                             id={rootId}
                             isUserDataViewFallback={isUserDataViewFallback}
                             filter={filter}
-                            path={rootPath}
+                            path={rootNode.path}
                             renderNodeLabel={renderNodeLabel}
                             selected={selected}
                             singleSelection={singleSelection}
