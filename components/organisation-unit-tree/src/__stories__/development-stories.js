@@ -5,23 +5,26 @@ import { OrganisationUnitTree } from '../index.js'
 
 const DX_onChange =
     (selected, setSelected, singleSelection) =>
-    ({ id, path, checked }) => {
-        console.log('onChange', { path, id, checked })
-        const pathIndex = selected.indexOf(path)
+        ({ id, path, checked }) => {
+            console.log('onChange', { path, id, checked })
+            const pathIndex = selected.indexOf(path)
 
-        if (checked) {
-            setSelected(singleSelection ? [path] : [...selected, path])
-        } else {
-            setSelected(
-                singleSelection
+            let nextSelected
+
+            if (checked) {
+                nextSelected = singleSelection ? [path] : [...selected, path]
+            } else {
+                nextSelected = singleSelection
                     ? []
                     : [
-                          ...selected.slice(0, pathIndex),
-                          ...selected.slice(pathIndex + 1),
-                      ]
-            )
+                        ...selected.slice(0, pathIndex),
+                        ...selected.slice(pathIndex + 1),
+                    ]
+            }
+
+            console.log('> nextSelected', nextSelected)
+            setSelected(nextSelected)
         }
-    }
 
 const Wrapper = (props) => {
     const [selected, setSelected] = useState([])
@@ -79,7 +82,7 @@ export const DxWithRealBackend = () => (
             <Wrapper
                 //initiallyExpanded={['/ImspTQPwCqd/eIQbndfxQMb']}
                 suppressAlphabeticalSorting
-                roots="ImspTQPwCqd"
+                roots={['ImspTQPwCqd', 'O6uvpzGd5pu', 'fdc6uOvgoji']}
             />
         </DataProvider>
     </div>
