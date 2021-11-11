@@ -28,15 +28,15 @@ export const ListItem = ({
 
     return (
         <>
-            <div className="sharing-list-item">
-                <div className="share-details">
+            <div className="wrapper">
+                <div className="details">
                     <ListItemIcon target={target} name={name} />
-                    <div className="share-details-text">
-                        <p className="share-entity">{name}</p>
+                    <div className="details-text">
+                        <p className="details-name">{name}</p>
                         <ListItemContext access={access} />
                     </div>
                 </div>
-                <div className="select-wrapper">
+                <div className="select">
                     <SingleSelectField
                         disabled={disabled || offline}
                         prefix={i18n.t('Metadata')}
@@ -65,21 +65,21 @@ export const ListItem = ({
             </div>
             <Divider />
             <style jsx>{`
-                .sharing-list-item {
+                .wrapper {
                     display: flex;
                     padding: 4px 8px;
                 }
 
-                .share-details-text {
-                    margin-left: 8px;
-                }
-
-                div.share-details {
+                .details {
                     display: flex;
                     flex: 2;
                 }
 
-                p.share-entity {
+                .details-text {
+                    margin-left: 8px;
+                }
+
+                .details-name {
                     font-size: 15px;
                     font-weight: 500;
                     color: ${colors.grey900};
@@ -87,14 +87,7 @@ export const ListItem = ({
                     padding: 0;
                 }
 
-                p.share-context {
-                    font-size: 14px;
-                    color: ${colors.grey700};
-                    margin: 6px 0 0 0;
-                    padding: 0;
-                }
-
-                .select-wrapper {
+                .select {
                     flex: 1;
                 }
             `}</style>

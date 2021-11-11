@@ -11,9 +11,9 @@ Given('a sharing dialog without public access is visible', () => {
 })
 
 Then('the access control for all users should be disabled', () => {
-    cy.contains('.share-details-text', 'All users')
+    cy.contains('.details-text', 'All users')
         .should('be.visible')
-        .closest('.sharing-list-item')
+        .closest('.wrapper')
         .as('all-users-list-item')
 
     cy.get('@all-users-list-item')

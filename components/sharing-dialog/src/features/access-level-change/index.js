@@ -20,11 +20,11 @@ Given('a sharing dialog with all users item with no access is visible', () => {
     cy.visitStory('sharing-dialog', 'visualization')
     cy.contains('Sharing and access').should('be.visible')
 
-    cy.contains('.share-details-text', 'All users')
+    cy.contains('.details-text', 'All users')
         .should('be.visible')
         .contains('No access')
         .should('be.visible')
-        .closest('.sharing-list-item')
+        .closest('.wrapper')
         .as('all-users-list-item')
 
     cy.get('@all-users-list-item')
@@ -43,11 +43,11 @@ Given('a sharing dialog with user item with view is visible', () => {
     cy.visitStory('sharing-dialog', 'visualization')
     cy.contains('Sharing and access').should('be.visible')
 
-    cy.contains('.share-details-text', 'A user')
+    cy.contains('.details-text', 'A user')
         .should('be.visible')
         .contains('Can view')
         .should('be.visible')
-        .closest('.sharing-list-item')
+        .closest('.wrapper')
         .as('user-list-item')
 
     cy.get('@user-list-item')
@@ -66,11 +66,11 @@ Given('a sharing dialog with group item with view is visible', () => {
     cy.visitStory('sharing-dialog', 'visualization')
     cy.contains('Sharing and access').should('be.visible')
 
-    cy.contains('.share-details-text', 'A group')
+    cy.contains('.details-text', 'A group')
         .should('be.visible')
         .contains('Can view')
         .should('be.visible')
-        .closest('.sharing-list-item')
+        .closest('.wrapper')
         .as('group-list-item')
 
     cy.get('@group-list-item')
@@ -237,24 +237,24 @@ Then('the group access control should be set to view and edit', () => {
 
 Then('the all users section should be labeled for view only', () => {
     cy.get('@all-users-list-item')
-        .contains('.share-details-text', 'Can view')
+        .contains('.details-text', 'Can view')
         .should('be.visible')
 })
 
 Then('the all users section should be labeled for view and edit', () => {
     cy.get('@all-users-list-item')
-        .contains('.share-details-text', 'Can view and edit')
+        .contains('.details-text', 'Can view and edit')
         .should('be.visible')
 })
 
 Then('the user section should be labeled for view and edit', () => {
     cy.get('@user-list-item')
-        .contains('.share-details-text', 'Can view and edit')
+        .contains('.details-text', 'Can view and edit')
         .should('be.visible')
 })
 
 Then('the group section should be labeled for view and edit', () => {
     cy.get('@group-list-item')
-        .contains('.share-details-text', 'Can view and edit')
+        .contains('.details-text', 'Can view and edit')
         .should('be.visible')
 })
