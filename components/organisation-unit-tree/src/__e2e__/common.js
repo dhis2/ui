@@ -149,11 +149,16 @@ StatefulMultiSelectionWrapper.propTypes = {
 }
 
 export const createDecoratorStatefulMultiSelection = (args) => {
-    return (fn) => (
+    return (Story) => (
         <StatefulMultiSelectionWrapper
             onSelectionChange={args?.onSelectionChange}
         >
-            {fn}
+            {({ selected, onChange }) => (
+                <Story
+                    selected={selected}
+                    onChange={onChange}
+                />
+            )}
         </StatefulMultiSelectionWrapper>
     )
 }
@@ -161,9 +166,13 @@ export const createDecoratorStatefulMultiSelection = (args) => {
 export const createDecoratorCustomDataProvider = (args) => {
     const data = args?.data || dataProviderData
 
-    return (fn) => {
+    return (Story) => {
         window.dataProviderData = data
 
-        return <CustomDataProvider data={data}>{fn()}</CustomDataProvider>
+        return (
+            <CustomDataProvider data={data}>
+                <Story />
+            </CustomDataProvider>
+        )
     }
 }
