@@ -26,7 +26,7 @@ export const InitiallyExpandedPaths = (_, { onChange, selected }) => (
         roots="A0000000000"
         selected={selected}
         onChange={onChange}
-                        initiallyExpanded={['/A0000000000']}
+        initiallyExpanded={['/A0000000000']}
     />
 )
 

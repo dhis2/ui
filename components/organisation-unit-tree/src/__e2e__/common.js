@@ -154,10 +154,7 @@ export const createDecoratorStatefulMultiSelection = (args) => {
             onSelectionChange={args?.onSelectionChange}
         >
             {({ selected, onChange }) => (
-                <Story
-                    selected={selected}
-                    onChange={onChange}
-                />
+                <Story selected={selected} onChange={onChange} />
             )}
         </StatefulMultiSelectionWrapper>
     )

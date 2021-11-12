@@ -65,7 +65,11 @@ export const OrganisationUnitNode = ({
 
     const childNodes = !loading && !error ? computeChildNodes(node, filter) : []
     const hasChildren = !!childNodes.length
-    const hasSelectedDescendants = hasDescendantSelectedPaths(strippedPath, selected, rootId)
+    const hasSelectedDescendants = hasDescendantSelectedPaths(
+        strippedPath,
+        selected,
+        rootId
+    )
     const isHighlighted = highlighted.includes(path)
     const { open, onToggleOpen } = useOpenState({
         autoExpandLoadingError,
@@ -76,8 +80,8 @@ export const OrganisationUnitNode = ({
         onCollapse,
     })
 
-    const isSelected = !!selected.find(
-        curPath => curPath.match(new RegExp(`${strippedPath}$`))
+    const isSelected = !!selected.find((curPath) =>
+        curPath.match(new RegExp(`${strippedPath}$`))
     )
 
     const labelContent = renderNodeLabel({
@@ -173,7 +177,9 @@ export const OrganisationUnitNode = ({
                             rootId={rootId}
                             selected={selected}
                             singleSelection={singleSelection}
-                            suppressAlphabeticalSorting={suppressAlphabeticalSorting }
+                            suppressAlphabeticalSorting={
+                                suppressAlphabeticalSorting
+                            }
                         />
                     )
                 })}

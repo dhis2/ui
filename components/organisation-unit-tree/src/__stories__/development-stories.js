@@ -5,26 +5,26 @@ import { OrganisationUnitTree } from '../index.js'
 
 const DX_onChange =
     (selected, setSelected, singleSelection) =>
-        ({ id, path, checked }) => {
-            console.log('onChange', { path, id, checked })
-            const pathIndex = selected.indexOf(path)
+    ({ id, path, checked }) => {
+        console.log('onChange', { path, id, checked })
+        const pathIndex = selected.indexOf(path)
 
-            let nextSelected
+        let nextSelected
 
-            if (checked) {
-                nextSelected = singleSelection ? [path] : [...selected, path]
-            } else {
-                nextSelected = singleSelection
-                    ? []
-                    : [
-                        ...selected.slice(0, pathIndex),
-                        ...selected.slice(pathIndex + 1),
-                    ]
-            }
-
-            console.log('> nextSelected', nextSelected)
-            setSelected(nextSelected)
+        if (checked) {
+            nextSelected = singleSelection ? [path] : [...selected, path]
+        } else {
+            nextSelected = singleSelection
+                ? []
+                : [
+                      ...selected.slice(0, pathIndex),
+                      ...selected.slice(pathIndex + 1),
+                  ]
         }
+
+        console.log('> nextSelected', nextSelected)
+        setSelected(nextSelected)
+    }
 
 const Wrapper = (props) => {
     const [selected, setSelected] = useState([])

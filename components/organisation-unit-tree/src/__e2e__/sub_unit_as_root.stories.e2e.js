@@ -18,10 +18,7 @@ export const MultipleRootSubAndOneMainOrgUnit = (_, { selected, onChange }) => {
 
     return (
         <>
-            <input
-                type="input"
-                onChange={e => setFilter(e.target.value)}
-            />
+            <input type="input" onChange={(e) => setFilter(e.target.value)} />
 
             <OrganisationUnitTree
                 filter={filter ? filter.split(',') : []}
