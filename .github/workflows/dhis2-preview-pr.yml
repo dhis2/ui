@@ -45,6 +45,8 @@ jobs:
                   enable-commit-comment: false
                   alias: pr-${{ github.event.number }}
                   publish-dir: 'dist/demo'
+                  github-deployment-environment: pull request
+                  github-deployment-description: Pull request preview
               env:
                   # org secret
                   NETLIFY_AUTH_TOKEN: ${{ secrets.DHIS2_BOT_NETLIFY_TOKEN }}
