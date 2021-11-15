@@ -48,7 +48,7 @@
         }
     },
     "dependencies": {
-        "@dhis2/app-runtime": "^3.0.0",
+        "@dhis2/app-runtime": "^3.2.5",
         "@dhis2/cli-app-scripts": "^8.0.0",
         "@dhis2/cli-style": "10.0.0",
         "@dhis2/cli-utils-cypress": "^8.0.3",
