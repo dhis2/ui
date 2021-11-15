@@ -1,4 +1,4 @@
-import { colors } from '@dhis2/ui-constants'
+import { colors, elevations } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -17,8 +17,7 @@ const Card = ({ className, children, dataTest }) => (
 
                 border-radius: 3px;
                 background: ${colors.white};
-                box-shadow: 0 0 1px 0 rgba(64, 75, 90, 0.2),
-                    0 2px 1px 0 rgba(64, 75, 90, 0.28);
+                box-shadow: ${elevations.e100};
             }
         `}</style>
     </div>
