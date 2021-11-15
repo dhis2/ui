@@ -50,6 +50,7 @@
         "@dhis2-ui/user-avatar": "7.7.5",
         "@dhis2/ui-constants": "7.7.5",
         "@dhis2/ui-icons": "7.7.5",
+        "@react-hook/size": "^2.1.2",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },

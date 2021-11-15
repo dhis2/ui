@@ -1,8 +1,9 @@
 import { InputField } from '@dhis2-ui/input'
 import { Menu, MenuItem } from '@dhis2-ui/menu'
 import { useOnlineStatus } from '@dhis2/app-runtime'
+import useSize from '@react-hook/size'
 import PropTypes from 'prop-types'
-import React, { createRef, useState, useLayoutEffect } from 'react'
+import React, { useRef } from 'react'
 import i18n from '../locales/index.js'
 import { MenuPopup } from './menu-popup.js'
 
@@ -18,19 +19,13 @@ export const Autocomplete = ({
     search,
     searchResults,
 }) => {
-    const wrapperRef = createRef()
+    const wrapper = useRef(null)
+    const [menuWidth] = useSize(wrapper)
     const { offline } = useOnlineStatus()
-    const [menuWidth, setMenuWidth] = useState(inputWidth || 'auto')
-
-    useLayoutEffect(() => {
-        if (wrapperRef.current) {
-            setMenuWidth(`${wrapperRef.current.offsetWidth}px`)
-        }
-    }, [])
 
     return (
         <>
-            <div ref={wrapperRef}>
+            <div ref={wrapper}>
                 <InputField
                     label={label}
                     loading={loading}
@@ -45,8 +40,8 @@ export const Autocomplete = ({
             {searchResults.length > 0 && (
                 <MenuPopup
                     onClick={onClose}
-                    menuWidth={menuWidth}
-                    menuRef={wrapperRef}
+                    menuWidth={`${menuWidth}px`}
+                    menuRef={wrapper}
                     dataTest={`${dataTest}-menu`}
                 >
                     <Menu>
