@@ -6,7 +6,7 @@
     "object": {
         "id": "id",
         "name": "",
-        "displayName": "custom displayname",
+        "displayName": "",
         "externalAccess": false,
         "publicAccess": "--------",
         "userAccesses": [],

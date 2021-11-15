@@ -8,7 +8,7 @@ import {
 } from '@dhis2/app-runtime'
 import { spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import i18n from '../locales/index.js'
 import { ResultInfo } from './result-info.js'
 import { UpdateInfo } from './update-info.js'
@@ -28,6 +28,10 @@ export const Controls = ({ id, entityAmount }) => {
     const queryResult = useDataQuery(query, {
         variables: { id },
     })
+
+    useEffect(() => {
+        queryResult.refetch({ id })
+    }, [id])
 
     /**
      * The useDataMutation hook does not allow for a variable id,

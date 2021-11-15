@@ -3,13 +3,15 @@ import { SingleSelectField, SingleSelectOption } from '@dhis2-ui/select'
 import { useOnlineStatus } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { SharingAutocomplete } from '../autocomplete/index.js'
+import { FetchingContext } from '../context/index.js'
 import i18n from '../locales/index.js'
 import { ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT } from '../sharing-constants.js'
 import { Title } from '../text/index.js'
 
 export const AccessAdd = ({ onAdd }) => {
+    const isFetching = useContext(FetchingContext)
     const [entity, setEntity] = useState(null)
     const [access, setAccess] = useState('')
     const { offline } = useOnlineStatus()
@@ -68,7 +70,10 @@ export const AccessAdd = ({ onAdd }) => {
                         ))}
                     </SingleSelectField>
                 </div>
-                <Button type="submit" disabled={offline || !entity || !access}>
+                <Button
+                    type="submit"
+                    disabled={offline || isFetching || !entity || !access}
+                >
                     {i18n.t('Give access')}
                 </Button>
             </form>

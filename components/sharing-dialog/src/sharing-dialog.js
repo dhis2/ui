@@ -1,6 +1,7 @@
 import { useAlert, useDataQuery, useDataMutation } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
+import { FetchingContext } from './context/index.js'
 import {
     convertAccessToConstant,
     mapUsers,
@@ -75,15 +76,8 @@ export const SharingDialog = ({
      * Refresh data when type or id props change
      */
 
-    // Used to prevent unnecessary refetches, using a ref to prevent unnecessary rerenders
-    const isInitialRender = useRef(true)
-
     useEffect(() => {
-        if (!isInitialRender.current) {
-            refetch({ type, id })
-        } else {
-            isInitialRender.current = false
-        }
+        refetch({ type, id })
     }, [type, id])
 
     /**
@@ -95,19 +89,21 @@ export const SharingDialog = ({
         const groups = Object.keys(initialSharingSettings.groups).map(mapGroups)
 
         return (
-            <Modal onClose={onClose} block>
-                <TabbedContent
-                    id={id}
-                    users={users}
-                    groups={groups}
-                    publicAccess={initialSharingSettings.public}
-                    allowPublicAccess={initialSharingSettings.allowPublic}
-                    type={type}
-                    onAdd={() => {}}
-                    onChange={() => {}}
-                    onRemove={() => {}}
-                />
-            </Modal>
+            <FetchingContext.Provider value={true}>
+                <Modal onClose={onClose}>
+                    <TabbedContent
+                        id={id}
+                        users={users}
+                        groups={groups}
+                        publicAccess={initialSharingSettings.public}
+                        allowPublicAccess={initialSharingSettings.allowPublic}
+                        type={type}
+                        onAdd={() => {}}
+                        onChange={() => {}}
+                        onRemove={() => {}}
+                    />
+                </Modal>
+            </FetchingContext.Provider>
         )
     }
 
@@ -117,23 +113,21 @@ export const SharingDialog = ({
     const groups = object.userGroupAccesses.map(mapGroups)
 
     return (
-        <Modal
-            block={mutating || fetching}
-            onClose={onClose}
-            name={object.displayName || object.name}
-        >
-            <TabbedContent
-                id={id}
-                users={users}
-                groups={groups}
-                publicAccess={publicAccess}
-                allowPublicAccess={meta.allowPublicAccess}
-                type={type}
-                onAdd={createOnAdd({ mutate, object })}
-                onChange={createOnChange({ mutate, object })}
-                onRemove={createOnDelete({ mutate, object })}
-            />
-        </Modal>
+        <FetchingContext.Provider value={mutating || fetching}>
+            <Modal onClose={onClose} name={object.displayName || object.name}>
+                <TabbedContent
+                    id={id}
+                    users={users}
+                    groups={groups}
+                    publicAccess={publicAccess}
+                    allowPublicAccess={meta.allowPublicAccess}
+                    type={type}
+                    onAdd={createOnAdd({ mutate, object })}
+                    onChange={createOnChange({ mutate, object })}
+                    onRemove={createOnDelete({ mutate, object })}
+                />
+            </Modal>
+        </FetchingContext.Provider>
     )
 }
 

@@ -3,7 +3,8 @@ import { SingleSelectField, SingleSelectOption } from '@dhis2-ui/select'
 import { useOnlineStatus } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useContext } from 'react'
+import { FetchingContext } from '../context/index.js'
 import { DestructiveSelectOption } from '../destructive-select-option/index.js'
 import { isRemovableTarget } from '../helpers/index.js'
 import i18n from '../locales/index.js'
@@ -19,6 +20,7 @@ export const ListItem = ({
     onChange,
     onRemove,
 }) => {
+    const isFetching = useContext(FetchingContext)
     const { offline } = useOnlineStatus()
     const valueToLabel = {
         ACCESS_NONE: i18n.t('No access'),
@@ -38,7 +40,7 @@ export const ListItem = ({
                 </div>
                 <div className="select">
                     <SingleSelectField
-                        disabled={disabled || offline}
+                        disabled={disabled || offline || isFetching}
                         prefix={i18n.t('Metadata')}
                         selected={access}
                         helpText={
