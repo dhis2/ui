@@ -1,3 +1,11 @@
+## [7.7.2](https://github.com/dhis2/ui/compare/v7.7.1...v7.7.2) (2021-11-15)
+
+
+### Bug Fixes
+
+* **card:** use elevation constant ([0ad7fa1](https://github.com/dhis2/ui/commit/0ad7fa1b5cf2a1c4ab7db622b98ba7c98825654e))
+* **select:** adjust menu style ([44bb18a](https://github.com/dhis2/ui/commit/44bb18a137506fa066be52420e7d16c133384973))
+
 ## [7.7.1](https://github.com/dhis2/ui/compare/v7.7.0...v7.7.1) (2021-11-10)
 
 
