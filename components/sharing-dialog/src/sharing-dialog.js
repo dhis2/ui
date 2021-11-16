@@ -11,7 +11,7 @@ import {
     createOnDelete,
 } from './helpers/index.js'
 import { Modal } from './modal/index.js'
-import { ACCESS_NONE } from './sharing-constants.js'
+import { ACCESS_NONE, VISUALIZATION, DASHBOARD } from './sharing-constants.js'
 import { TabbedContent } from './tabs/index.js'
 
 const query = {
@@ -150,7 +150,7 @@ SharingDialog.propTypes = {
     /** The id of the object to share */
     id: PropTypes.string.isRequired,
     /** The type of object to share */
-    type: PropTypes.string.isRequired,
+    type: PropTypes.oneOf([VISUALIZATION, DASHBOARD]).isRequired,
     initialSharingSettings: PropTypes.shape({
         allowExternal: PropTypes.bool,
         allowPublic: PropTypes.bool,

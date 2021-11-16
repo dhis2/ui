@@ -5,6 +5,7 @@ import { AccessAdd } from '../access-add/index.js'
 import { AccessList } from '../access-list/index.js'
 import { CascadeSharing } from '../cascade-sharing/index.js'
 import i18n from '../locales/index.js'
+import { VISUALIZATION, DASHBOARD } from '../sharing-constants.js'
 
 export const TabbedContent = ({
     type,
@@ -19,7 +20,7 @@ export const TabbedContent = ({
 }) => {
     const [activeTabIndex, setActiveTabIndex] = useState(0)
 
-    if (type === 'visualization') {
+    if (type === VISUALIZATION) {
         return (
             <>
                 <AccessAdd onAdd={onAdd} />
@@ -81,7 +82,7 @@ TabbedContent.propTypes = {
     groups: PropTypes.array.isRequired,
     id: PropTypes.string.isRequired,
     publicAccess: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
+    type: PropTypes.oneOf([VISUALIZATION, DASHBOARD]).isRequired,
     users: PropTypes.array.isRequired,
     onAdd: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
