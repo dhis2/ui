@@ -3,6 +3,7 @@ import { Node } from '@dhis2-ui/node'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { resolve } from 'styled-jsx/css'
+import { leftTrimToRootId } from '../helpers/index.js'
 import i18n from '../locales/index.js'
 import { orgUnitPathPropType } from '../prop-types.js'
 import { computeChildNodes } from './compute-child-nodes.js'
@@ -42,6 +43,7 @@ export const OrganisationUnitNode = ({
     isUserDataViewFallback,
     path,
     renderNodeLabel,
+    rootId,
     selected,
     singleSelection,
     filter,
@@ -58,20 +60,29 @@ export const OrganisationUnitNode = ({
         onComplete: onChildrenLoaded,
     })
 
-    const childNodes = !loading && !error ? computeChildNodes(data, filter) : []
+    const strippedPath = leftTrimToRootId(path, rootId)
+    const node = { ...data, path: strippedPath }
+
+    const childNodes = !loading && !error ? computeChildNodes(node, filter) : []
     const hasChildren = !!childNodes.length
-    const hasSelectedDescendants = hasDescendantSelectedPaths(path, selected)
+    const hasSelectedDescendants = hasDescendantSelectedPaths(
+        strippedPath,
+        selected,
+        rootId
+    )
     const isHighlighted = highlighted.includes(path)
     const { open, onToggleOpen } = useOpenState({
         autoExpandLoadingError,
         errorMessage: error && error.toString(),
-        path,
+        path: strippedPath,
         expanded,
         onExpand,
         onCollapse,
     })
 
-    const isSelected = selected.includes(path)
+    const isSelected = !!selected.find((curPath) =>
+        curPath.match(new RegExp(`${strippedPath}$`))
+    )
 
     const labelContent = renderNodeLabel({
         disableSelection,
@@ -83,18 +94,20 @@ export const OrganisationUnitNode = ({
         open,
         path,
         singleSelection,
-        node: data,
-        label: data.displayName,
+        node,
+        label: node.displayName,
         checked: isSelected,
         highlighted: isHighlighted,
     })
 
     const label = (
         <Label
-            node={data}
+            node={node}
+            fullPath={path}
             open={open}
             loading={loading}
             checked={isSelected}
+            rootId={rootId}
             onChange={onChange}
             dataTest={`${dataTest}-label`}
             selected={selected}
@@ -144,7 +157,6 @@ export const OrganisationUnitNode = ({
 
                     return (
                         <OrganisationUnitNode
-                            key={childPath}
                             autoExpandLoadingError={autoExpandLoadingError}
                             childNodes={grandChildNodes}
                             dataTest={dataTest}
@@ -155,17 +167,19 @@ export const OrganisationUnitNode = ({
                             highlighted={highlighted}
                             id={child.id}
                             isUserDataViewFallback={isUserDataViewFallback}
-                            suppressAlphabeticalSorting={
-                                suppressAlphabeticalSorting
-                            }
-                            path={childPath}
-                            renderNodeLabel={renderNodeLabel}
-                            selected={selected}
-                            singleSelection={singleSelection}
+                            key={childPath}
                             onChange={onChange}
                             onChildrenLoaded={onChildrenLoaded}
                             onCollapse={onCollapse}
                             onExpand={onExpand}
+                            path={childPath}
+                            renderNodeLabel={renderNodeLabel}
+                            rootId={rootId}
+                            selected={selected}
+                            singleSelection={singleSelection}
+                            suppressAlphabeticalSorting={
+                                suppressAlphabeticalSorting
+                            }
                         />
                     )
                 })}
@@ -177,6 +191,7 @@ OrganisationUnitNode.propTypes = {
     dataTest: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     renderNodeLabel: PropTypes.func.isRequired,
+    rootId: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
 
     autoExpandLoadingError: PropTypes.bool,

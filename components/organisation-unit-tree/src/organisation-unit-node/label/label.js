@@ -34,39 +34,42 @@ const createNewSelected = ({ selected, path, checked, singleSelection }) => {
 }
 
 const Label = ({
-    children,
-    node,
-    open,
-    loading,
     checked,
-    onChange,
+    children,
     dataTest,
-    selected,
-    hasChildren,
-    highlighted,
-    onToggleOpen,
     disableSelection,
-    singleSelection,
+    fullPath,
+    hasChildren,
     hasSelectedDescendants,
+    highlighted,
+    loading,
+    node,
+    onChange,
+    onToggleOpen,
+    open,
+    rootId,
+    selected,
+    singleSelection,
 }) => {
     const onClick = ({ checked }, event) => {
         const newSelected = createNewSelected({
-            path: node.path,
+            path: fullPath,
             selected,
             checked,
             singleSelection,
+            rootId,
         })
 
-        onChange(
-            {
-                // @TODO: It'd make more sense to pass the node as an object
-                // isntead of spread it. But that'd be a breaking change
-                ...node,
-                checked,
-                selected: newSelected,
-            },
-            event
-        )
+        // @TODO: It'd make more sense to pass the node as an object
+        // isntead of spread it. But that'd be a breaking change
+        const payload = {
+            ...node,
+            path: fullPath,
+            checked,
+            selected: newSelected,
+        }
+
+        onChange(payload, event)
     }
 
     if (disableSelection) {
@@ -119,6 +122,7 @@ Label.propTypes = {
     // This is `any` so it can be customized by the app
     children: PropTypes.any.isRequired,
     dataTest: PropTypes.string.isRequired,
+    fullPath: PropTypes.string.isRequired,
     hasChildren: PropTypes.bool.isRequired,
     loading: PropTypes.bool.isRequired,
     node: PropTypes.shape({
@@ -133,6 +137,7 @@ Label.propTypes = {
         path: PropTypes.string,
     }).isRequired,
     open: PropTypes.bool.isRequired,
+    rootId: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     onToggleOpen: PropTypes.func.isRequired,
     checked: PropTypes.bool,

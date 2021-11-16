@@ -1,13 +1,20 @@
 import React from 'react'
 import { OrganisationUnitTree } from '../index.js'
-import { onChange } from './shared.js'
+import {
+    createDecoratorCustomDataProvider,
+    createDecoratorStatefulMultiSelection,
+} from './shared.js'
 
-export const MultipleRoots = () => (
+export const MultipleRoots = (_, { onChange, selected }) => (
     <OrganisationUnitTree
+        selected={selected}
         onChange={onChange}
-        name="Root org unit"
         roots={['A0000000000', 'A0000000001']}
         initiallyExpanded={['/A0000000000/A0000000001']}
     />
 )
-MultipleRoots.storyName = 'Multiple roots'
+
+MultipleRoots.decorators = [
+    createDecoratorStatefulMultiSelection(),
+    createDecoratorCustomDataProvider(),
+]

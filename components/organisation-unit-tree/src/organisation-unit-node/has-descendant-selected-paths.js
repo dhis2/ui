@@ -6,8 +6,10 @@
  * @param {string[]} selected
  * @returns {bool}
  */
-export const hasDescendantSelectedPaths = (path, selected) =>
-    selected.some(
-        (selectedPath) =>
-            selectedPath !== path && selectedPath.indexOf(path) === 0
-    )
+export const hasDescendantSelectedPaths = (path, selected) => {
+    return selected.some((selectedPath) => {
+        const isNotPath = !selectedPath.match(new RegExp(`${path}$`))
+        const isSubPath = selectedPath.match(new RegExp(path))
+        return isNotPath && isSubPath
+    })
+}

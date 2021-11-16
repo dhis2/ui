@@ -9,18 +9,21 @@ const DX_onChange =
         console.log('onChange', { path, id, checked })
         const pathIndex = selected.indexOf(path)
 
+        let nextSelected
+
         if (checked) {
-            setSelected(singleSelection ? [path] : [...selected, path])
+            nextSelected = singleSelection ? [path] : [...selected, path]
         } else {
-            setSelected(
-                singleSelection
-                    ? []
-                    : [
-                          ...selected.slice(0, pathIndex),
-                          ...selected.slice(pathIndex + 1),
-                      ]
-            )
+            nextSelected = singleSelection
+                ? []
+                : [
+                      ...selected.slice(0, pathIndex),
+                      ...selected.slice(pathIndex + 1),
+                  ]
         }
+
+        console.log('> nextSelected', nextSelected)
+        setSelected(nextSelected)
     }
 
 const Wrapper = (props) => {
@@ -79,7 +82,7 @@ export const DxWithRealBackend = () => (
             <Wrapper
                 //initiallyExpanded={['/ImspTQPwCqd/eIQbndfxQMb']}
                 suppressAlphabeticalSorting
-                roots="ImspTQPwCqd"
+                roots={['ImspTQPwCqd', 'O6uvpzGd5pu', 'fdc6uOvgoji']}
             />
         </DataProvider>
     </div>
