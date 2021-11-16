@@ -2,7 +2,7 @@ import { Popper } from '@dhis2-ui/popper'
 import { Portal } from '@dhis2-ui/portal'
 import { colors, layers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { resolve } from 'styled-jsx/css'
 
 const TOOLTIP_OFFSET = 4
@@ -65,6 +65,14 @@ const Tooltip = ({
             setOpen(false)
         }, closeDelay)
     }
+
+    useEffect(
+        () => () => {
+            clearTimeout(openTimerRef.current)
+            clearTimeout(closeTimerRef.current)
+        },
+        []
+    )
 
     return (
         <>
