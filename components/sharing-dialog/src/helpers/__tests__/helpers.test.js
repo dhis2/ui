@@ -8,7 +8,6 @@ import {
 import {
     convertAccessToConstant,
     convertConstantToAccess,
-    nameToInitials,
     isRemovableTarget,
 } from '../helpers.js'
 
@@ -71,34 +70,6 @@ describe('helpers', () => {
                 )
             }
         )
-    })
-
-    describe('nameToInitials', () => {
-        it('returns an empty string when the name parameter is falsy', () => {
-            expect(nameToInitials()).toBe('')
-            expect(nameToInitials(false)).toBe('')
-            expect(nameToInitials(undefined)).toBe('')
-            expect(nameToInitials(null)).toBe('')
-        })
-
-        it('converts a string without spaces to initials', () => {
-            expect(nameToInitials('A')).toMatchInlineSnapshot(`"A"`)
-            expect(nameToInitials('String')).toMatchInlineSnapshot(`"S"`)
-        })
-
-        it('converts a string with a single space to initials', () => {
-            expect(nameToInitials('Single Space')).toMatchInlineSnapshot(`"SS"`)
-            expect(
-                nameToInitials('WithMultiple CapitalizedLetters')
-            ).toMatchInlineSnapshot(`"WC"`)
-        })
-
-        it('uses the first and last word for a string with more than one space', () => {
-            expect(nameToInitials('A B C D')).toMatchInlineSnapshot(`"AD"`)
-            expect(nameToInitials('One Two Three Four')).toMatchInlineSnapshot(
-                `"OF"`
-            )
-        })
     })
 
     describe('isRemovableTarget', () => {

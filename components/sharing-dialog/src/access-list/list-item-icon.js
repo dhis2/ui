@@ -9,7 +9,6 @@ import {
     SHARE_TARGET_USER,
     SHARE_TARGET_GROUP,
 } from '../sharing-constants.js'
-import { IconInitials } from './icon-initials.js'
 
 export const ListItemIcon = ({ target, name }) => {
     switch (target) {
