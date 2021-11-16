@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import React, { useState, useContext } from 'react'
 import { SharingAutocomplete } from '../autocomplete/index.js'
 import { ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT } from '../constants.js'
-import { FetchingContext } from '../context/index.js'
+import { FetchingContext } from '../fetching-context/index.js'
 import i18n from '../locales/index.js'
 import { Title } from '../text/index.js'
 

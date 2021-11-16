@@ -2,7 +2,7 @@ import { useAlert, useDataQuery, useDataMutation } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 import { ACCESS_NONE, VISUALIZATION, DASHBOARD } from './constants.js'
-import { FetchingContext } from './context/index.js'
+import { FetchingContext } from './fetching-context/index.js'
 import {
     convertAccessToConstant,
     mapUsers,
