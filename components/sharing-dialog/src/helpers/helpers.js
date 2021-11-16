@@ -4,7 +4,7 @@ import {
     ACCESS_VIEW_AND_EDIT,
     SHARE_TARGET_EXTERNAL,
     SHARE_TARGET_PUBLIC,
-} from '../sharing-constants.js'
+} from '../constants.js'
 
 /**
  * Returns a function, that, as long as it continues to be invoked, will not be triggered. The

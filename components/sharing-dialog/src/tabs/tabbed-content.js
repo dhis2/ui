@@ -4,8 +4,8 @@ import React, { useState } from 'react'
 import { AccessAdd } from '../access-add/index.js'
 import { AccessList } from '../access-list/index.js'
 import { CascadeSharing } from '../cascade-sharing/index.js'
+import { VISUALIZATION, DASHBOARD } from '../constants.js'
 import i18n from '../locales/index.js'
-import { VISUALIZATION, DASHBOARD } from '../sharing-constants.js'
 
 export const TabbedContent = ({
     type,

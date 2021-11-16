@@ -1,6 +1,7 @@
 import { useAlert, useDataQuery, useDataMutation } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
+import { ACCESS_NONE, VISUALIZATION, DASHBOARD } from './constants.js'
 import { FetchingContext } from './context/index.js'
 import {
     convertAccessToConstant,
@@ -11,7 +12,6 @@ import {
     createOnDelete,
 } from './helpers/index.js'
 import { Modal } from './modal/index.js'
-import { ACCESS_NONE, VISUALIZATION, DASHBOARD } from './sharing-constants.js'
 import { TabbedContent } from './tabs/index.js'
 
 const query = {

@@ -1,7 +1,6 @@
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
-import i18n from '../locales/index.js'
 import {
     SHARE_TARGET_PUBLIC,
     SHARE_TARGET_GROUP,
@@ -9,7 +8,8 @@ import {
     ACCESS_NONE,
     ACCESS_VIEW_ONLY,
     ACCESS_VIEW_AND_EDIT,
-} from '../sharing-constants.js'
+} from '../constants.js'
+import i18n from '../locales/index.js'
 import { Title } from '../text/index.js'
 import { ListItem } from './list-item.js'
 

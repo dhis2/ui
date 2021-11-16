@@ -8,7 +8,7 @@ import {
     SHARE_TARGET_PUBLIC,
     SHARE_TARGET_USER,
     SHARE_TARGET_GROUP,
-} from '../sharing-constants.js'
+} from '../constants.js'
 
 export const ListItemIcon = ({ target, name }) => {
     switch (target) {

@@ -4,7 +4,7 @@ import {
     ACCESS_VIEW_AND_EDIT,
     SHARE_TARGET_EXTERNAL,
     SHARE_TARGET_PUBLIC,
-} from '../../sharing-constants.js'
+} from '../../constants.js'
 import {
     convertAccessToConstant,
     convertConstantToAccess,
