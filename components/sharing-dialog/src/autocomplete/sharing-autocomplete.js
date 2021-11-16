@@ -1,6 +1,7 @@
 import { useDataQuery } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
+import { debounce } from '../helpers/index.js'
 import i18n from '../locales/index.js'
 import { Autocomplete } from './autocomplete.js'
 
@@ -37,11 +38,11 @@ export const SharingAutocomplete = ({ selected, onSelection }) => {
      * clear the selection.
      */
 
+    const debouncedRefetch = useCallback(debounce(refetch, 250), [refetch])
+
     useEffect(() => {
         if (search) {
-            // This should be debounced, currently not possible since refetch changes
-            // for each render. Should be fixed in the app-runtime.
-            refetch({ search })
+            debouncedRefetch({ search })
         } else {
             onSelection(null)
             setShowResults(false)
