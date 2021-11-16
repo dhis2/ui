@@ -1,3 +1,10 @@
+## [7.7.3](https://github.com/dhis2/ui/compare/v7.7.2...v7.7.3) (2021-11-16)
+
+
+### Bug Fixes
+
+* handle sub-unit as root unit handling ([c8be3e7](https://github.com/dhis2/ui/commit/c8be3e7413b854bd1637489e9a6857ffce6a1564))
+
 ## [7.7.2](https://github.com/dhis2/ui/compare/v7.7.1...v7.7.2) (2021-11-15)
 
 
