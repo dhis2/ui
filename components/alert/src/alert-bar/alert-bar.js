@@ -8,20 +8,23 @@ import { Dismiss } from './dismiss.js'
 import { Icon, iconPropType } from './icon.js'
 import { Message } from './message.js'
 
-const AlertBar = ({
-    actions,
-    children,
-    className,
-    critical,
-    dataTest,
-    duration,
-    hidden,
-    icon,
-    permanent,
-    success,
-    warning,
-    onHidden,
-}) => {
+export const AlertBar = React.forwardRef(function AlertBar(
+    {
+        actions,
+        children,
+        className,
+        critical,
+        dataTest,
+        duration,
+        hidden,
+        icon,
+        permanent,
+        success,
+        warning,
+        onHidden,
+    },
+    ref
+) {
     const [inViewport, setInViewport] = useState(!hidden)
     const [inDOM, setInDOM] = useState(!hidden)
     const showTimeout = useRef(null)
@@ -102,6 +105,7 @@ const AlertBar = ({
 
     return !inDOM ? null : (
         <div
+            ref={ref}
             className={cx(className, {
                 info,
                 success,
@@ -135,7 +139,7 @@ const AlertBar = ({
             <style jsx>{styles}</style>
         </div>
     )
-}
+})
 
 const alertTypePropType = mutuallyExclusive(
     ['success', 'warning', 'critical'],
@@ -170,5 +174,3 @@ AlertBar.propTypes = {
     warning: alertTypePropType,
     onHidden: PropTypes.func,
 }
-
-export { AlertBar }
