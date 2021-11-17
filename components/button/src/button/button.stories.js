@@ -56,6 +56,22 @@ const DemoIcon = (
 
 const Template = (args) => <Button {...args} />
 
+// Todo: remove me
+export const RefTest = (args) => {
+    const ref = React.useRef()
+
+    React.useEffect(() => {
+        ref.current && ref.current.focus()
+    }, [ref.current])
+
+    return <Button ref={ref} {...args} />
+}
+RefTest.args = {
+    role: 'button',
+    formmethod: 'post',
+    'aria-pressed': true,
+}
+
 export const Basic = Template.bind({})
 Basic.args = {
     name: 'Basic button',

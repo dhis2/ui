@@ -59,6 +59,17 @@ export default {
     },
 }
 
+// Todo: remove me
+export const RefTest = (args) => {
+    const ref = React.useRef()
+
+    React.useEffect(() => {
+        ref.current && ref.current.focus()
+    }, [ref.current])
+
+    return <Input ref={ref} {...args} />
+}
+
 const Template = (args) => <Input {...args} />
 
 export const Default = Template.bind({})
