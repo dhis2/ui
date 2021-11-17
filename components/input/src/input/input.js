@@ -110,8 +110,8 @@ const styles = css`
     }
 `
 
-export class Input extends Component {
-    inputRef = React.createRef()
+export class InputClass extends Component {
+    inputRef = this.props.insideRef || React.createRef()
 
     componentDidMount() {
         if (this.props.initialFocus) {
@@ -165,11 +165,13 @@ export class Input extends Component {
             step,
             autoComplete,
             dataTest,
+            ...rest
         } = this.props
 
         return (
             <div className={cx('input', className)} data-test={dataTest}>
                 <input
+                    {...rest}
                     role={role}
                     id={name}
                     name={name}
@@ -217,12 +219,12 @@ export class Input extends Component {
     }
 }
 
-Input.defaultProps = {
+InputClass.defaultProps = {
     type: 'text',
     dataTest: 'dhis2-uicore-input',
 }
 
-Input.propTypes = {
+InputClass.propTypes = {
     /** The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete) */
     autoComplete: PropTypes.string,
     className: PropTypes.string,
@@ -235,6 +237,7 @@ Input.propTypes = {
     error: sharedPropTypes.statusPropType,
     /** The input grabs initial focus on the page */
     initialFocus: PropTypes.bool,
+    insideRef: PropTypes.any,
     /** Adds a loading indicator beside the input */
     loading: PropTypes.bool,
     /** The [native `max` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-max), for use when `type` is `'number'` */
@@ -281,3 +284,8 @@ Input.propTypes = {
     /** Called with signature `({ name: string, value: string }, event)` */
     onFocus: PropTypes.func,
 }
+
+// Forward ref to Class component
+export const Input = React.forwardRef(function Input(props, ref) {
+    return <InputClass insideRef={ref} {...props} />
+})
