@@ -1,3 +1,4 @@
+export { ButtonBase } from './button-base/index.js'
 export { Button } from './button/index.js'
 export { ButtonStrip } from './button-strip/index.js'
 export { SplitButton } from './split-button/index.js'
