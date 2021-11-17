@@ -129,7 +129,7 @@ const Tooltip = ({
 }
 
 Tooltip.defaultProps = {
-    closeDelay: 400,
+    closeDelay: 200,
     dataTest: 'dhis2-uicore-tooltip',
     maxWidth: 300,
     openDelay: 200,
