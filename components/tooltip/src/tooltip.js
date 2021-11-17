@@ -116,12 +116,12 @@ const Tooltip = ({
                     max-width: ${maxWidth}px;
                 }
                 div {
-                    padding: 6px 8px;
-                    background-color: ${colors.grey800};
+                    padding: 4px 6px;
+                    background-color: ${colors.grey900};
                     border-radius: 3px;
                     color: ${colors.white};
-                    font-size: 12px;
-                    line-height: 16px;
+                    font-size: 13px;
+                    line-height: 17px;
                 }
             `}</style>
         </>
