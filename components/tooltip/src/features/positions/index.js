@@ -2,7 +2,7 @@ import '../common/index.js'
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
 const TOOLTIP_OFFSET = 4
-const TOOLTIP_HEIGHT = 28
+const TOOLTIP_HEIGHT = 25
 
 // Stories
 Given(
@@ -33,7 +33,7 @@ Then(
             const refCenterX = refPos.left + refPos.width / 2
             const contentCenterX = contentPos.left + contentPos.width / 2
 
-            expect(refCenterX).to.be.approximately(contentCenterX, 0.5)
+            expect(refCenterX).to.be.approximately(contentCenterX, 1)
         })
     }
 )
