@@ -28,6 +28,7 @@ export const Button = React.forwardRef(
             onClick,
             onFocus,
             loading,
+            ...rest
         },
         forwardedRef
     ) => {
@@ -60,6 +61,7 @@ export const Button = React.forwardRef(
 
         return (
             <button
+                {...rest}
                 ref={ref}
                 name={name}
                 className={buttonClassName}
