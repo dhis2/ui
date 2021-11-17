@@ -1,3 +1,10 @@
+## [7.7.4](https://github.com/dhis2/ui/compare/v7.7.3...v7.7.4) (2021-11-17)
+
+
+### Bug Fixes
+
+* **tooltip:** clear timeouts when unmounting ([#847](https://github.com/dhis2/ui/issues/847)) ([8762fa8](https://github.com/dhis2/ui/commit/8762fa8059f7f26ea51ee480a5d9587653408ace))
+
 ## [7.7.3](https://github.com/dhis2/ui/compare/v7.7.2...v7.7.3) (2021-11-16)
 
 
