@@ -5,90 +5,86 @@ import PropTypes from 'prop-types'
 import React, { useEffect, useRef } from 'react'
 import styles from './button.styles.js'
 
-export const Button = React.forwardRef(
-    (
-        {
-            children,
-            className,
-            dataTest,
-            destructive,
-            disabled,
-            icon,
-            initialFocus,
-            large,
-            name,
-            primary,
-            secondary,
-            small,
-            tabIndex,
-            toggled,
-            type,
-            value,
-            onBlur,
-            onClick,
-            onFocus,
-            loading,
-            ...rest
-        },
-        forwardedRef
-    ) => {
-        const localRef = useRef()
-        const ref = forwardedRef || localRef
+export const Button = React.forwardRef(function Button(
+    {
+        children,
+        className,
+        dataTest,
+        destructive,
+        disabled,
+        icon,
+        initialFocus,
+        large,
+        name,
+        primary,
+        secondary,
+        small,
+        tabIndex,
+        toggled,
+        type,
+        value,
+        onBlur,
+        onClick,
+        onFocus,
+        loading,
+        ...rest
+    },
+    forwardedRef
+) {
+    const localRef = useRef()
+    const ref = forwardedRef || localRef
 
-        useEffect(() => {
-            if (initialFocus && ref.current) {
-                ref.current.focus()
-            }
-        }, [initialFocus, ref.current])
+    useEffect(() => {
+        if (initialFocus && ref.current) {
+            ref.current.focus()
+        }
+    }, [initialFocus, ref.current])
 
-        const handleClick = (event) =>
-            onClick && onClick({ value, name }, event)
-        const handleBlur = (event) => onBlur && onBlur({ value, name }, event)
-        const handleFocus = (event) =>
-            onFocus && onFocus({ value, name }, event)
+    const handleClick = (event) => onClick && onClick({ value, name }, event)
+    const handleBlur = (event) => onBlur && onBlur({ value, name }, event)
+    const handleFocus = (event) => onFocus && onFocus({ value, name }, event)
 
-        const iconOnly = icon && !children
-        const buttonClassName = cx(className, {
-            primary,
-            secondary,
-            destructive,
-            small,
-            large,
-            'icon-only': iconOnly,
-            toggled,
-            loading: loading,
-        })
+    const iconOnly = icon && !children
+    const buttonClassName = cx(className, {
+        primary,
+        secondary,
+        destructive,
+        small,
+        large,
+        'icon-only': iconOnly,
+        toggled,
+        loading: loading,
+    })
 
-        return (
-            <button
-                {...rest}
-                ref={ref}
-                name={name}
-                className={buttonClassName}
-                data-test={dataTest}
-                disabled={disabled || loading}
-                tabIndex={tabIndex}
-                type={type}
-                onBlur={handleBlur}
-                onClick={handleClick}
-                onFocus={handleFocus}
-            >
-                {loading && (
-                    <span className="loader">
-                        {destructive || primary ? (
-                            <CircularLoader extrasmall invert />
-                        ) : (
-                            <CircularLoader extrasmall />
-                        )}
-                    </span>
-                )}
-                {icon && <span className="button-icon">{icon}</span>}
-                {children}
-                <style jsx>{styles}</style>
-            </button>
-        )
-    }
-)
+    return (
+        <button
+            {...rest}
+            ref={ref}
+            name={name}
+            className={buttonClassName}
+            data-test={dataTest}
+            disabled={disabled || loading}
+            tabIndex={tabIndex}
+            type={type}
+            onBlur={handleBlur}
+            onClick={handleClick}
+            onFocus={handleFocus}
+        >
+            {loading && (
+                <span className="loader">
+                    {destructive || primary ? (
+                        <CircularLoader extrasmall invert />
+                    ) : (
+                        <CircularLoader extrasmall />
+                    )}
+                </span>
+            )}
+            {icon && <span className="button-icon">{icon}</span>}
+            {children}
+            <style jsx>{styles}</style>
+        </button>
+    )
+})
 
 Button.defaultProps = {
     type: 'button',
