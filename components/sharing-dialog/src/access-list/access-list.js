@@ -114,15 +114,27 @@ AccessList.propTypes = {
     allowPublicAccess: PropTypes.bool.isRequired,
     groups: PropTypes.arrayOf(
         PropTypes.shape({
-            access: PropTypes.string.isRequired,
+            access: PropTypes.oneOf([
+                ACCESS_NONE,
+                ACCESS_VIEW_ONLY,
+                ACCESS_VIEW_AND_EDIT,
+            ]).isRequired,
             id: PropTypes.string.isRequired,
             name: PropTypes.string.isRequired,
         })
     ).isRequired,
-    publicAccess: PropTypes.string.isRequired,
+    publicAccess: PropTypes.oneOf([
+        ACCESS_NONE,
+        ACCESS_VIEW_ONLY,
+        ACCESS_VIEW_AND_EDIT,
+    ]).isRequired,
     users: PropTypes.arrayOf(
         PropTypes.shape({
-            access: PropTypes.string.isRequired,
+            access: PropTypes.oneOf([
+                ACCESS_NONE,
+                ACCESS_VIEW_ONLY,
+                ACCESS_VIEW_AND_EDIT,
+            ]).isRequired,
             id: PropTypes.string.isRequired,
             name: PropTypes.string.isRequired,
         })

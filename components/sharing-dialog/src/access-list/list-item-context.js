@@ -41,5 +41,9 @@ export const ListItemContext = ({ access }) => {
 }
 
 ListItemContext.propTypes = {
-    access: PropTypes.string.isRequired,
+    access: PropTypes.oneOf([
+        ACCESS_NONE,
+        ACCESS_VIEW_ONLY,
+        ACCESS_VIEW_AND_EDIT,
+    ]).isRequired,
 }

@@ -4,6 +4,14 @@ import { useOnlineStatus } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useContext } from 'react'
+import {
+    SHARE_TARGET_PUBLIC,
+    SHARE_TARGET_GROUP,
+    SHARE_TARGET_USER,
+    ACCESS_NONE,
+    ACCESS_VIEW_ONLY,
+    ACCESS_VIEW_AND_EDIT,
+} from '../constants.js'
 import { DestructiveSelectOption } from '../destructive-select-option/index.js'
 import { FetchingContext } from '../fetching-context/index.js'
 import { isRemovableTarget } from '../helpers/index.js'
@@ -98,10 +106,20 @@ export const ListItem = ({
 }
 
 ListItem.propTypes = {
-    access: PropTypes.string.isRequired,
-    accessOptions: PropTypes.array.isRequired,
+    access: PropTypes.oneOf([
+        ACCESS_NONE,
+        ACCESS_VIEW_ONLY,
+        ACCESS_VIEW_AND_EDIT,
+    ]).isRequired,
+    accessOptions: PropTypes.arrayOf(
+        PropTypes.oneOf([ACCESS_NONE, ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT])
+    ).isRequired,
     name: PropTypes.string.isRequired,
-    target: PropTypes.string.isRequired,
+    target: PropTypes.oneOf([
+        SHARE_TARGET_PUBLIC,
+        SHARE_TARGET_GROUP,
+        SHARE_TARGET_USER,
+    ]).isRequired,
     onChange: PropTypes.func.isRequired,
     disabled: PropTypes.bool,
     onRemove: PropTypes.func,

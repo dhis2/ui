@@ -25,6 +25,11 @@ export const ListItemIcon = ({ target, name }) => {
 }
 
 ListItemIcon.propTypes = {
-    target: PropTypes.string.isRequired,
+    target: PropTypes.oneOf([
+        SHARE_TARGET_EXTERNAL,
+        SHARE_TARGET_PUBLIC,
+        SHARE_TARGET_USER,
+        SHARE_TARGET_GROUP,
+    ]).isRequired,
     name: PropTypes.string,
 }
