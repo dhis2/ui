@@ -11,8 +11,7 @@ import {
 import { FetchingContext } from './fetching-context/index.js'
 import {
     convertAccessToConstant,
-    mapUsers,
-    mapGroups,
+    replaceAccessWithConstant,
     createOnChange,
     createOnAdd,
     createOnDelete,
@@ -91,8 +90,12 @@ export const SharingDialog = ({
      */
 
     if (loading) {
-        const users = Object.keys(initialSharingSettings.users).map(mapUsers)
-        const groups = Object.keys(initialSharingSettings.groups).map(mapGroups)
+        const users = Object.keys(initialSharingSettings.users).map(
+            replaceAccessWithConstant
+        )
+        const groups = Object.keys(initialSharingSettings.groups).map(
+            replaceAccessWithConstant
+        )
 
         return (
             <FetchingContext.Provider value={true}>
@@ -115,8 +118,8 @@ export const SharingDialog = ({
 
     const { object, meta } = data.sharing
     const publicAccess = convertAccessToConstant(object.publicAccess)
-    const users = object.userAccesses.map(mapUsers)
-    const groups = object.userGroupAccesses.map(mapGroups)
+    const users = object.userAccesses.map(replaceAccessWithConstant)
+    const groups = object.userGroupAccesses.map(replaceAccessWithConstant)
 
     return (
         <FetchingContext.Provider value={mutating || fetching}>

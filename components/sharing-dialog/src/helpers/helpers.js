@@ -73,18 +73,11 @@ export const convertConstantToAccess = (constant, useBoolean) => {
 }
 
 /**
- * Mapping users and groups to style used internally
+ * Replaces access property with constants used internally
  */
 
-export const mapUsers = ({ id, name, access }) => ({
-    id,
-    name,
-    access: convertAccessToConstant(access),
-})
-
-export const mapGroups = ({ id, name, access }) => ({
-    id,
-    name,
+export const replaceAccessWithConstant = ({ access, ...rest }) => ({
+    ...rest,
     access: convertAccessToConstant(access),
 })
 
