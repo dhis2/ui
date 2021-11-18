@@ -85,9 +85,9 @@ export const replaceAccessWithConstant = ({ access, ...rest }) => ({
  * Helper to check whether to allow removing for the selected target
  */
 
-export const isRemovableTarget = (target) => {
-    const permanentTargets = [SHARE_TARGET_EXTERNAL, SHARE_TARGET_PUBLIC]
+const permanentTargets = [SHARE_TARGET_EXTERNAL, SHARE_TARGET_PUBLIC]
 
+export const isRemovableTarget = (target) => {
     // Do not allow removal of permanent targets
     return !permanentTargets.includes(target)
 }
