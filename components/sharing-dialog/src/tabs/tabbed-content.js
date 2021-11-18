@@ -4,7 +4,13 @@ import React, { useState } from 'react'
 import { AccessAdd } from '../access-add/index.js'
 import { AccessList } from '../access-list/index.js'
 import { CascadeSharing } from '../cascade-sharing/index.js'
-import { VISUALIZATION, DASHBOARD } from '../constants.js'
+import {
+    ACCESS_NONE,
+    ACCESS_VIEW_ONLY,
+    ACCESS_VIEW_AND_EDIT,
+    VISUALIZATION,
+    DASHBOARD,
+} from '../constants.js'
 import i18n from '../locales/index.js'
 
 export const TabbedContent = ({
@@ -79,11 +85,35 @@ export const TabbedContent = ({
 
 TabbedContent.propTypes = {
     allowPublicAccess: PropTypes.bool.isRequired,
-    groups: PropTypes.array.isRequired,
+    groups: PropTypes.arrayOf(
+        PropTypes.shape({
+            access: PropTypes.oneOf([
+                ACCESS_NONE,
+                ACCESS_VIEW_ONLY,
+                ACCESS_VIEW_AND_EDIT,
+            ]).isRequired,
+            id: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired,
+        })
+    ).isRequired,
     id: PropTypes.string.isRequired,
-    publicAccess: PropTypes.string.isRequired,
+    publicAccess: PropTypes.oneOf([
+        ACCESS_NONE,
+        ACCESS_VIEW_ONLY,
+        ACCESS_VIEW_AND_EDIT,
+    ]).isRequired,
     type: PropTypes.oneOf([VISUALIZATION, DASHBOARD]).isRequired,
-    users: PropTypes.array.isRequired,
+    users: PropTypes.arrayOf(
+        PropTypes.shape({
+            access: PropTypes.oneOf([
+                ACCESS_NONE,
+                ACCESS_VIEW_ONLY,
+                ACCESS_VIEW_AND_EDIT,
+            ]).isRequired,
+            id: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired,
+        })
+    ).isRequired,
     onAdd: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
     onRemove: PropTypes.func.isRequired,

@@ -157,9 +157,7 @@ SharingDialog.propTypes = {
     type: PropTypes.oneOf([VISUALIZATION, DASHBOARD]).isRequired,
     /** Used to seed the component with data to show whilst loading */
     initialSharingSettings: PropTypes.shape({
-        /** Maps to meta.allowPublicAccess from the /sharing responsse */
         allowPublic: PropTypes.bool.isRequired,
-        /** Maps to object.userGroupAccesses from the /sharing responsse */
         groups: PropTypes.objectOf(
             PropTypes.shape({
                 access: PropTypes.string.isRequired,
@@ -167,15 +165,12 @@ SharingDialog.propTypes = {
                 name: PropTypes.string.isRequired,
             })
         ),
-        /** Maps to object.displayName or object.name from the /sharing responsse */
         name: PropTypes.string,
-        /** Maps to object.publicAccess from the /sharing responsse */
         public: PropTypes.oneOf([
             ACCESS_NONE,
             ACCESS_VIEW_ONLY,
             ACCESS_VIEW_AND_EDIT,
         ]),
-        /** Maps to object.userAccesses from the /sharing responsse */
         users: PropTypes.objectOf(
             PropTypes.shape({
                 access: PropTypes.string.isRequired,
