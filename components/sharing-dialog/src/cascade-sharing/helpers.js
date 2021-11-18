@@ -55,6 +55,8 @@ export const getResultMessage = ({
             }
         )
     }
+
+    return ''
 }
 
 export const getInfoMessage = ({ entityAmount, visualizationsCount }) => {
