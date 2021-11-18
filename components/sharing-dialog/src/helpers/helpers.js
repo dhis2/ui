@@ -42,13 +42,17 @@ export const debounce = (func, wait, immediate) => {
  */
 
 export const convertAccessToConstant = (access) => {
+    if (access === undefined) {
+        return ACCESS_NONE
+    }
+
     if (typeof access === 'boolean') {
         return access ? ACCESS_VIEW_ONLY : ACCESS_NONE
     }
 
-    if (/^rw/.test(access)) {
+    if (access.startsWith('rw')) {
         return ACCESS_VIEW_AND_EDIT
-    } else if (/^r-/.test(access)) {
+    } else if (access.startsWith('r-')) {
         return ACCESS_VIEW_ONLY
     } else {
         return ACCESS_NONE
