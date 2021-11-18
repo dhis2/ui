@@ -1,7 +1,13 @@
 import { useAlert, useDataQuery, useDataMutation } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
-import { ACCESS_NONE, VISUALIZATION, DASHBOARD } from './constants.js'
+import {
+    ACCESS_NONE,
+    ACCESS_VIEW_ONLY,
+    ACCESS_VIEW_AND_EDIT,
+    VISUALIZATION,
+    DASHBOARD,
+} from './constants.js'
 import { FetchingContext } from './fetching-context/index.js'
 import {
     convertAccessToConstant,
@@ -134,9 +140,7 @@ export const SharingDialog = ({
 SharingDialog.defaultProps = {
     initialSharingSettings: {
         name: '',
-        allowExternal: true,
         allowPublic: true,
-        external: ACCESS_NONE,
         public: ACCESS_NONE,
         groups: {},
         users: {},
@@ -151,14 +155,34 @@ SharingDialog.propTypes = {
     id: PropTypes.string.isRequired,
     /** The type of object to share */
     type: PropTypes.oneOf([VISUALIZATION, DASHBOARD]).isRequired,
+    /** Used to seed the component with data to show whilst loading */
     initialSharingSettings: PropTypes.shape({
-        allowExternal: PropTypes.bool,
-        allowPublic: PropTypes.bool,
-        external: PropTypes.string,
-        groups: PropTypes.object,
+        /** Maps to meta.allowPublicAccess from the /sharing responsse */
+        allowPublic: PropTypes.bool.isRequired,
+        /** Maps to object.userGroupAccesses from the /sharing responsse */
+        groups: PropTypes.objectOf(
+            PropTypes.shape({
+                access: PropTypes.string.isRequired,
+                id: PropTypes.string.isRequired,
+                name: PropTypes.string.isRequired,
+            })
+        ),
+        /** Maps to object.displayName or object.name from the /sharing responsse */
         name: PropTypes.string,
-        public: PropTypes.string,
-        users: PropTypes.object,
+        /** Maps to object.publicAccess from the /sharing responsse */
+        public: PropTypes.oneOf([
+            ACCESS_NONE,
+            ACCESS_VIEW_ONLY,
+            ACCESS_VIEW_AND_EDIT,
+        ]),
+        /** Maps to object.userAccesses from the /sharing responsse */
+        users: PropTypes.objectOf(
+            PropTypes.shape({
+                access: PropTypes.string.isRequired,
+                id: PropTypes.string.isRequired,
+                name: PropTypes.string.isRequired,
+            })
+        ),
     }),
     onClose: PropTypes.func,
     onError: PropTypes.func,
