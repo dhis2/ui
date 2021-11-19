@@ -1,3 +1,11 @@
+## [7.7.5](https://github.com/dhis2/ui/compare/v7.7.4...v7.7.5) (2021-11-19)
+
+
+### Bug Fixes
+
+* **tooltip:** increase readability ([1fa6a49](https://github.com/dhis2/ui/commit/1fa6a49173131118e528351e8c765af95d4aeb89))
+* **tooltip:** reduce default close delay ([122f045](https://github.com/dhis2/ui/commit/122f04586c34668b5504da5e7096fc6b992d1e84))
+
 ## [7.7.4](https://github.com/dhis2/ui/compare/v7.7.3...v7.7.4) (2021-11-17)
 
 
