@@ -31,6 +31,10 @@ export const FlippedVertically = () => (
         contains a tooltip.
         <style jsx>{noPaddingStyles}</style>
         <style jsx>{`
+            :global(div#root) {
+                padding-top: 0;
+            }
+
             p {
                 margin-top: 0;
             }
