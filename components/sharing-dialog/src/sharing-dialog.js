@@ -125,34 +125,34 @@ export const SharingDialog = ({
      * Handlers
      */
 
-    const onAdd = ({ type, id, access, name }) => {
+    const onAdd = ({ type: newType, id: newId, access, name }) => {
         const data = createOnAddPayload({
             object,
-            type,
+            type: newType,
             access,
-            id,
+            id: newId,
             name,
         })
-        mutate({ data })
+        mutate({ data, type, id })
     }
 
-    const onChange = ({ type, id, access }) => {
+    const onChange = ({ type: changedType, id: changedId, access }) => {
         const data = createOnChangePayload({
             object,
-            type,
+            type: changedType,
             access,
-            id,
+            id: changedId,
         })
-        mutate({ data })
+        mutate({ data, type, id })
     }
 
-    const onRemove = ({ type, id }) => {
+    const onRemove = ({ type: removedType, id: removedId }) => {
         const data = createOnRemovePayload({
             object,
-            type,
-            id,
+            type: removedType,
+            id: removedId,
         })
-        mutate({ data })
+        mutate({ data, type, id })
     }
 
     return (
