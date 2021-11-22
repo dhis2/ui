@@ -12,9 +12,9 @@ import { FetchingContext } from './fetching-context/index.js'
 import {
     convertAccessToConstant,
     replaceAccessWithConstant,
-    createOnChange,
-    createOnAdd,
-    createOnDelete,
+    createOnChangePayload,
+    createOnAddPayload,
+    createOnRemovePayload,
 } from './helpers/index.js'
 import { Modal } from './modal/index.js'
 import { TabbedContent } from './tabs/index.js'
@@ -121,6 +121,40 @@ export const SharingDialog = ({
     const users = object.userAccesses.map(replaceAccessWithConstant)
     const groups = object.userGroupAccesses.map(replaceAccessWithConstant)
 
+    /**
+     * Handlers
+     */
+
+    const onAdd = ({ type, id, access, name }) => {
+        const data = createOnAddPayload({
+            object,
+            type,
+            access,
+            id,
+            name,
+        })
+        mutate({ data })
+    }
+
+    const onChange = ({ type, id, access }) => {
+        const data = createOnChangePayload({
+            object,
+            type,
+            access,
+            id,
+        })
+        mutate({ data })
+    }
+
+    const onRemove = ({ type, id }) => {
+        const data = createOnRemovePayload({
+            object,
+            type,
+            id,
+        })
+        mutate({ data })
+    }
+
     return (
         <FetchingContext.Provider value={mutating || fetching}>
             <Modal onClose={onClose} name={object.displayName || object.name}>
@@ -131,9 +165,9 @@ export const SharingDialog = ({
                     publicAccess={publicAccess}
                     allowPublicAccess={meta.allowPublicAccess}
                     type={type}
-                    onAdd={createOnAdd({ mutate, object })}
-                    onChange={createOnChange({ mutate, object })}
-                    onRemove={createOnDelete({ mutate, object })}
+                    onAdd={onAdd}
+                    onChange={onChange}
+                    onRemove={onRemove}
                 />
             </Modal>
         </FetchingContext.Provider>
