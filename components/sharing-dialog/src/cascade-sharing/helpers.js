@@ -71,6 +71,7 @@ export const getInfoMessage = ({ entityAmount, visualizationsCount }) => {
         {
             visualizationsCount,
             entityAmount,
+            nsSeparator: '>',
         }
     )
 }
