@@ -1,0 +1,29 @@
+{
+    "dashboardItems": [
+        {
+            "type": "VISUALIZATION"
+        },
+        {
+            "type": "MAP"
+        },
+        {
+            "type": "EVENT_CHART"
+        },
+        {
+            "type": "EVENT_REPORT"
+        },
+        {
+            "type": "IGNORED 1"
+        },
+        {
+            "type": "IGNORED 2"
+        },
+        {
+            "type": "IGNORED 3"
+        },
+        {
+            "type": "IGNORED 4"
+        }
+    ],
+    "itemsCount": 8
+}

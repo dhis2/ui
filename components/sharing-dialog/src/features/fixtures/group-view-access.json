@@ -1,0 +1,21 @@
+{
+    "meta": {
+        "allowExternalAccess": false,
+        "allowPublicAccess": false
+    },
+    "object": {
+        "id": "id",
+        "name": "",
+        "displayName": "",
+        "externalAccess": false,
+        "publicAccess": "--------",
+        "userAccesses": [],
+        "userGroupAccesses": [
+            {
+                "id": "group-1",
+                "name": "A group",
+                "access": "r-------"
+            }
+        ]
+    }
+}
