@@ -1,3 +1,10 @@
+## [7.7.7](https://github.com/dhis2/ui/compare/v7.7.6...v7.7.7) (2021-11-24)
+
+
+### Bug Fixes
+
+* **sharing-dialog:** fall back to visualization for undefined type ([59c02d8](https://github.com/dhis2/ui/commit/59c02d85ab6ad93886510a634948b34709e09ec9))
+
 ## [7.7.6](https://github.com/dhis2/ui/compare/v7.7.5...v7.7.6) (2021-11-24)
 
 
