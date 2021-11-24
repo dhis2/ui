@@ -1,3 +1,11 @@
+## [7.7.6](https://github.com/dhis2/ui/compare/v7.7.5...v7.7.6) (2021-11-24)
+
+
+### Bug Fixes
+
+* **noop:** trigger patch release ([ed46049](https://github.com/dhis2/ui/commit/ed46049e6911f0c6d2dd81a400296aa1c49f1744))
+* **sharing-dialog:** update sharing dialog to match new app-runtime conventions ([#770](https://github.com/dhis2/ui/issues/770)) ([09b335b](https://github.com/dhis2/ui/commit/09b335b7ab6c74113ef40e02055052ab74e5b119))
+
 ## [7.7.5](https://github.com/dhis2/ui/compare/v7.7.4...v7.7.5) (2021-11-19)
 
 
