@@ -26,59 +26,59 @@ export const TabbedContent = ({
 }) => {
     const [activeTabIndex, setActiveTabIndex] = useState(0)
 
-    if (type === VISUALIZATION) {
+    if (type === DASHBOARD) {
         return (
             <>
-                <AccessAdd onAdd={onAdd} />
-                <AccessList
-                    users={users}
-                    groups={groups}
-                    publicAccess={publicAccess}
-                    allowPublicAccess={allowPublicAccess}
-                    onChange={onChange}
-                    onRemove={onRemove}
-                />
+                <TabBar>
+                    <Tab
+                        onClick={() => setActiveTabIndex(0)}
+                        selected={activeTabIndex === 0}
+                    >
+                        {i18n.t('Dashboard sharing')}
+                    </Tab>
+                    <Tab
+                        onClick={() => setActiveTabIndex(1)}
+                        selected={activeTabIndex === 1}
+                    >
+                        {i18n.t('Apply sharing to dashboard visualizations')}
+                    </Tab>
+                </TabBar>
+                <div>
+                    {activeTabIndex === 0 && (
+                        <>
+                            <AccessAdd onAdd={onAdd} />
+                            <AccessList
+                                users={users}
+                                groups={groups}
+                                publicAccess={publicAccess}
+                                allowPublicAccess={allowPublicAccess}
+                                onChange={onChange}
+                                onRemove={onRemove}
+                            />
+                        </>
+                    )}
+                    {activeTabIndex === 1 && (
+                        <CascadeSharing
+                            id={id}
+                            entityAmount={users.length + groups.length}
+                        />
+                    )}
+                </div>
             </>
         )
     }
 
     return (
         <>
-            <TabBar>
-                <Tab
-                    onClick={() => setActiveTabIndex(0)}
-                    selected={activeTabIndex === 0}
-                >
-                    {i18n.t('Dashboard sharing')}
-                </Tab>
-                <Tab
-                    onClick={() => setActiveTabIndex(1)}
-                    selected={activeTabIndex === 1}
-                >
-                    {i18n.t('Apply sharing to dashboard visualizations')}
-                </Tab>
-            </TabBar>
-            <div>
-                {activeTabIndex === 0 && (
-                    <>
-                        <AccessAdd onAdd={onAdd} />
-                        <AccessList
-                            users={users}
-                            groups={groups}
-                            publicAccess={publicAccess}
-                            allowPublicAccess={allowPublicAccess}
-                            onChange={onChange}
-                            onRemove={onRemove}
-                        />
-                    </>
-                )}
-                {activeTabIndex === 1 && (
-                    <CascadeSharing
-                        id={id}
-                        entityAmount={users.length + groups.length}
-                    />
-                )}
-            </div>
+            <AccessAdd onAdd={onAdd} />
+            <AccessList
+                users={users}
+                groups={groups}
+                publicAccess={publicAccess}
+                allowPublicAccess={allowPublicAccess}
+                onChange={onChange}
+                onRemove={onRemove}
+            />
         </>
     )
 }
