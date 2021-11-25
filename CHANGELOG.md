@@ -1,3 +1,10 @@
+## [7.7.9](https://github.com/dhis2/ui/compare/v7.7.8...v7.7.9) (2021-11-25)
+
+
+### Bug Fixes
+
+* **sharing-dialog:** use number for countable entities ([6185f5f](https://github.com/dhis2/ui/commit/6185f5f691ae924b69f493e64f36775771ce52ea))
+
 ## [7.7.8](https://github.com/dhis2/ui/compare/v7.7.7...v7.7.8) (2021-11-25)
 
 
