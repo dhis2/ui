@@ -27,7 +27,7 @@ const ButtonStrip = ({ className, children, middle, end, dataTest }) => (
             }
 
             .box {
-                margin-left: ${spacers.dp16};
+                margin-left: ${spacers.dp8};
             }
 
             .box:first-child {
