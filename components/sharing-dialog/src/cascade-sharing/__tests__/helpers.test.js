@@ -86,7 +86,7 @@ describe('getInfoMessage', () => {
         }
 
         expect(getInfoMessage(args)).toMatchInlineSnapshot(
-            `"Amount of visualizations on this dashboard that will potentially get updated sharing settings: 5. The amount of users or groups that these updated settings will apply to: 10."`
+            `"Number of visualizations on this dashboard that will potentially get updated sharing settings: 5. The number of users or groups that these updated settings will apply to: 10."`
         )
     })
 })
