@@ -64,7 +64,6 @@ export const parameters = {
     },
     docs: {
         // Customize docs page layout (in order to rename 'Stories' section)
-        /* eslint-disable-next-line react/display-name */
         page: () => (
             <>
                 <Title />

@@ -31,11 +31,8 @@ StatusIcon.defaultProps = {
 }
 
 StatusIcon.propTypes = {
-    className: PropTypes.string,
     defaultTo: PropTypes.element,
     error: PropTypes.bool,
-    info: PropTypes.bool,
-    loading: PropTypes.bool,
     valid: PropTypes.bool,
     warning: PropTypes.bool,
 }
