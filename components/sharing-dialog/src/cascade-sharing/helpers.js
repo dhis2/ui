@@ -67,7 +67,7 @@ export const getInfoMessage = ({ entityAmount, visualizationsCount }) => {
     }
 
     return i18n.t(
-        'Amount of visualizations on this dashboard that will potentially get updated sharing settings: {{ visualizationsCount }}. The amount of users or groups that these updated settings will apply to: {{ entityAmount }}.',
+        'Number of visualizations on this dashboard that will potentially get updated sharing settings: {{ visualizationsCount }}. The number of users or groups that these updated settings will apply to: {{ entityAmount }}.',
         {
             visualizationsCount,
             entityAmount,

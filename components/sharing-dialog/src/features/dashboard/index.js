@@ -61,7 +61,7 @@ Then('the correct counts should be displayed', () => {
      */
 
     cy.contains(
-        'Amount of visualizations on this dashboard that will potentially get updated sharing settings: 4. The amount of users or groups that these updated settings will apply to: 2.'
+        'Number of visualizations on this dashboard that will potentially get updated sharing settings: 4. The number of users or groups that these updated settings will apply to: 2.'
     ).should('be.visible')
 })
 
