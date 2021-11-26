@@ -11,7 +11,7 @@ const resolveLayerStyles = (hide) =>
     resolve`
         div {
             padding: ${spacers.dp64};
-            display: ${hide ? 'none' : ''};
+            display: ${hide ? 'none' : 'block'};
         }
     `
 
