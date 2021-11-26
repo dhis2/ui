@@ -1,3 +1,16 @@
+# [7.8.0](https://github.com/dhis2/ui/compare/v7.7.10...v7.8.0) (2021-11-26)
+
+
+### Bug Fixes
+
+* **button:** adjust button-strip margin between buttons ([a1fbf65](https://github.com/dhis2/ui/commit/a1fbf6503d508305c70e9c1c92362fa684c95518))
+
+
+### Features
+
+* **modal:** constrain fluidity to viewport ([f68dc08](https://github.com/dhis2/ui/commit/f68dc08e92e33048aabe58714079c2703097f1bd))
+* **modal:** implement dynamic dimension via fluid prop ([1bbaf09](https://github.com/dhis2/ui/commit/1bbaf09b020ad14c0e242f5a63237ce1284125de))
+
 ## [7.7.10](https://github.com/dhis2/ui/compare/v7.7.9...v7.7.10) (2021-11-26)
 
 
