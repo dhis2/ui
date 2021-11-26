@@ -1,4 +1,4 @@
-import { colors, spacers } from '@dhis2/ui-constants'
+import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -14,7 +14,7 @@ export const ModalTitle = ({ children, dataTest }) => (
                 color: ${colors.grey900};
                 font-size: 20px;
                 font-weight: 500;
-                line-height: ${spacers.dp24};
+                line-height: 24px;
                 margin: 0;
             }
         `}</style>
