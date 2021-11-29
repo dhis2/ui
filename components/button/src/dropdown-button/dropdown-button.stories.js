@@ -1,6 +1,6 @@
 import { FlyoutMenu, MenuItem } from '@dhis2-ui/menu'
 import { sharedPropTypes } from '@dhis2/ui-constants'
-import React from 'react'
+import React, { useState } from 'react'
 import { DropdownButton } from './index.js'
 
 const description = `
@@ -89,3 +89,25 @@ InitialFocus.args = { initialFocus: true }
  * not the normal 'canvas' story viewer)
  */
 InitialFocus.parameters = { docs: { disable: true } }
+
+const ControlledTemplate = (args) => {
+    const [open, setOpen] = useState(false)
+    const toggleOpen = ({ open }) => {
+        console.log(`Set open to ${open}`)
+        setOpen(open)
+    }
+    const onComponentClick = () => {
+        console.log('dropdown will close')
+        setOpen(false)
+    }
+    return (
+        <DropdownButton
+            {...args}
+            component={<button onClick={onComponentClick}>Click me</button>}
+            onClick={toggleOpen}
+            open={open}
+        />
+    )
+}
+export const Controlled = ControlledTemplate.bind({})
+Controlled.args = {}

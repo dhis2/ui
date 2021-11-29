@@ -1,5 +1,6 @@
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
+import { requiredIf } from '@dhis2/prop-types/build/cjs/propTypes'
 import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
@@ -67,7 +68,18 @@ class DropdownButton extends Component {
     }
     anchorRef = React.createRef()
 
-    onToggle = ({ name, value }, event) => {
+    controlledOnClick = ({ name, value } = {}, event) => {
+        this.props.onClick(
+            {
+                name,
+                value,
+                open: !this.props.open,
+            },
+            event
+        )
+    }
+
+    toggleOpenState = ({ name, value }, event) => {
         this.setState({ open: !this.state.open }, () => {
             if (this.props.onClick) {
                 this.props.onClick(
@@ -83,7 +95,6 @@ class DropdownButton extends Component {
     }
 
     render() {
-        const { open } = this.state
         const {
             component,
             children,
@@ -102,7 +113,13 @@ class DropdownButton extends Component {
             initialFocus,
             dataTest,
         } = this.props
-
+        const isControlled =
+            typeof this.props.open === 'boolean' &&
+            typeof this.props.onClick === 'function'
+        const open = isControlled ? this.props.open : this.state.open
+        const onClick = isControlled
+            ? this.controlledOnClick
+            : this.toggleOpenState
         const ArrowIconComponent = open ? ArrowUp : ArrowDown
 
         return (
@@ -116,7 +133,7 @@ class DropdownButton extends Component {
                     primary={primary}
                     secondary={secondary}
                     small={small}
-                    onClick={this.onToggle}
+                    onClick={onClick}
                     name={name}
                     value={value}
                     tabIndex={tabIndex}
@@ -128,7 +145,7 @@ class DropdownButton extends Component {
                 </Button>
 
                 {open && (
-                    <Layer onClick={this.onToggle} transparent>
+                    <Layer onClick={onClick} transparent>
                         <Popper
                             dataTest={`${dataTest}-popper`}
                             placement="bottom-start"
@@ -174,6 +191,8 @@ DropdownButton.propTypes = {
     /** Button size. Mutually exclusive with `small` prop */
     large: sharedPropTypes.sizePropType,
     name: PropTypes.string,
+    /** Controls popper visibility. When implementing this prop the component becomes a controlled component */
+    open: PropTypes.bool,
     /** Button variant. Mutually exclusive with `destructive` and `secondary` props */
     primary: sharedPropTypes.buttonVariantPropType,
     /** Button variant. Mutually exclusive with `primary` and `destructive` props */
@@ -187,8 +206,12 @@ DropdownButton.propTypes = {
     /**
      * Callback triggered on click.
      * Called with signature `({ name: string, value: string, open: bool }, event)`
+     * Is required when using this component in controlled mode, i.e. when
      */
-    onClick: PropTypes.func,
+    onClick: requiredIf(
+        (props) => typeof props.open === 'boolean',
+        PropTypes.func
+    ),
 }
 
 export { DropdownButton }
