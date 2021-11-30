@@ -111,7 +111,7 @@ const styles = css`
 `
 
 export class InputClass extends Component {
-    inputRef = this.props.insideRef || React.createRef()
+    localInputRef = React.createRef(null)
 
     componentDidMount() {
         if (this.props.initialFocus) {
@@ -165,18 +165,24 @@ export class InputClass extends Component {
             step,
             autoComplete,
             dataTest,
-            ...rest
+            containerRef,
+            inputRef: inputRefProp,
         } = this.props
 
+        const inputRef = inputRefProp || this.localInputRef
+
         return (
-            <div className={cx('input', className)} data-test={dataTest}>
+            <div
+                className={cx('input', className)}
+                data-test={dataTest}
+                ref={containerRef}
+            >
                 <input
-                    {...rest}
                     role={role}
                     id={name}
                     name={name}
                     placeholder={placeholder}
-                    ref={this.inputRef}
+                    ref={inputRef}
                     type={type}
                     value={value}
                     max={max}
@@ -228,6 +234,8 @@ InputClass.propTypes = {
     /** The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete) */
     autoComplete: PropTypes.string,
     className: PropTypes.string,
+    /** Ref to apply to outermost element in the component */
+    containerRef: PropTypes.any,
     dataTest: PropTypes.string,
     /** Makes the input smaller */
     dense: PropTypes.bool,
@@ -237,7 +245,8 @@ InputClass.propTypes = {
     error: sharedPropTypes.statusPropType,
     /** The input grabs initial focus on the page */
     initialFocus: PropTypes.bool,
-    insideRef: PropTypes.any,
+    /** Ref to apply to `input` element */
+    inputRef: PropTypes.any,
     /** Adds a loading indicator beside the input */
     loading: PropTypes.bool,
     /** The [native `max` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-max), for use when `type` is `'number'` */
@@ -285,7 +294,14 @@ InputClass.propTypes = {
     onFocus: PropTypes.func,
 }
 
-// Forward ref to Class component
-export const Input = React.forwardRef(function Input(props, ref) {
-    return <InputClass insideRef={ref} {...props} />
+// Forward ref to Class component:
+// Forwarded ref becomes props.containerRef,
+// inputRef prop remains inputRef
+const Input = React.forwardRef(function Input(props, ref) {
+    return <InputClass containerRef={ref} {...props} />
 })
+const inputPropTypes = { ...InputClass.propTypes }
+delete inputPropTypes.containerRef
+Input.propTypes = inputPropTypes
+
+export { Input }

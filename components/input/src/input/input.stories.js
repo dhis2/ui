@@ -61,13 +61,18 @@ export default {
 
 // Todo: remove me
 export const RefTest = (args) => {
-    const ref = React.useRef()
+    const inputRef = React.useRef(null)
+    const containerRef = React.useRef(null)
 
     React.useEffect(() => {
-        ref.current && ref.current.focus()
-    }, [ref.current])
+        inputRef.current && inputRef.current.focus()
+    }, [inputRef.current])
 
-    return <Input ref={ref} {...args} />
+    React.useEffect(() => {
+        containerRef.current && containerRef.current.focus()
+    }, [containerRef.current])
+
+    return <Input inputRef={inputRef} containerRef={containerRef} {...args} />
 }
 
 const Template = (args) => <Input {...args} />
