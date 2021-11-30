@@ -68,7 +68,7 @@ class DropdownButton extends Component {
     }
     anchorRef = React.createRef()
 
-    controlledOnClick = ({ name, value } = {}, event) => {
+    controlledOnClick = ({ name, value }, event) => {
         this.props.onClick(
             {
                 name,
