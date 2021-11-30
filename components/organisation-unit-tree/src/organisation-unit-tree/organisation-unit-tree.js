@@ -11,31 +11,34 @@ import { useExpanded } from './use-expanded/index.js'
 import { useForceReload } from './use-force-reload.js'
 import { useRootOrgData } from './use-root-org-data/index.js'
 
-const OrganisationUnitTree = ({
-    onChange,
-    roots,
+const OrganisationUnitTree = React.forwardRef(function OrganisationUnitTree(
+    {
+        onChange,
+        roots,
 
-    autoExpandLoadingError,
-    dataTest,
-    disableSelection,
-    forceReload,
-    highlighted,
-    isUserDataViewFallback,
-    initiallyExpanded,
-    filter,
-    renderNodeLabel,
-    selected,
-    singleSelection,
-    suppressAlphabeticalSorting,
+        autoExpandLoadingError,
+        dataTest,
+        disableSelection,
+        forceReload,
+        highlighted,
+        isUserDataViewFallback,
+        initiallyExpanded,
+        filter,
+        renderNodeLabel,
+        selected,
+        singleSelection,
+        suppressAlphabeticalSorting,
 
-    expanded: expandedControlled,
-    handleExpand: handleExpandControlled,
-    handleCollapse: handleCollapseControlled,
+        expanded: expandedControlled,
+        handleExpand: handleExpandControlled,
+        handleCollapse: handleCollapseControlled,
 
-    onExpand,
-    onCollapse,
-    onChildrenLoaded,
-}) => {
+        onExpand,
+        onCollapse,
+        onChildrenLoaded,
+    },
+    ref
+) {
     const rootIds = filterRootIds(
         filter,
         Array.isArray(roots) ? roots : [roots]
@@ -70,7 +73,7 @@ const OrganisationUnitTree = ({
     }, [reloadId, prevReloadId, refetch])
 
     return (
-        <div data-test={dataTest}>
+        <div data-test={dataTest} ref={ref}>
             {error && <RootError error={error} dataTest={dataTest} />}
             {loading && <RootLoading dataTest={dataTest} />}
             {!error &&
@@ -107,7 +110,7 @@ const OrganisationUnitTree = ({
                 })}
         </div>
     )
-}
+})
 
 OrganisationUnitTree.propTypes = {
     /** Root org unit ID(s) */
