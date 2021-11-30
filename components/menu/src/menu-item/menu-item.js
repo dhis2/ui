@@ -22,25 +22,29 @@ const createOnClickHandler =
         onClick && onClick({ value }, evt)
         toggleSubMenu && toggleSubMenu()
     }
-const MenuItem = ({
-    href,
-    onClick,
-    children,
-    target,
-    icon,
-    className,
-    destructive,
-    disabled,
-    dense,
-    active,
-    dataTest,
-    chevron,
-    value,
-    label,
-    showSubMenu,
-    toggleSubMenu,
-}) => {
-    const menuItemRef = useRef()
+const MenuItem = React.forwardRef(function MenuItem(
+    {
+        href,
+        onClick,
+        children,
+        target,
+        icon,
+        className,
+        destructive,
+        disabled,
+        dense,
+        active,
+        dataTest,
+        chevron,
+        value,
+        label,
+        showSubMenu,
+        toggleSubMenu,
+    },
+    ref
+) {
+    const localRef = useRef(null)
+    const menuItemRef = ref || localRef
 
     return (
         <>
@@ -91,7 +95,7 @@ const MenuItem = ({
             )}
         </>
     )
-}
+})
 
 MenuItem.defaultProps = {
     dataTest: 'dhis2-uicore-menuitem',

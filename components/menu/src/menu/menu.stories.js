@@ -33,6 +33,7 @@ export const Default = (args) => (
         <MenuItem label="Menu item" />
     </Menu>
 )
+
 // Todo: remove me
 export const RefTest = (args) => {
     const ref = React.useRef()

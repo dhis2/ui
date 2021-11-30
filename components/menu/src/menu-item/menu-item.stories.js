@@ -30,6 +30,21 @@ const Template = (args) => (
     </Menu>
 )
 
+// TODO: Remove me
+export const RefTest = (args) => {
+    const ref = React.useRef()
+
+    React.useEffect(() => {
+        ref.current && console.log(ref.current)
+    }, [ref.current])
+
+    return (
+        <Menu>
+            <MenuItem {...args} ref={ref} />
+        </Menu>
+    )
+}
+
 export const Default = Template.bind({})
 
 export const Active = Template.bind({})
