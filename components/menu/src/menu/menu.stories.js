@@ -33,6 +33,21 @@ export const Default = (args) => (
         <MenuItem label="Menu item" />
     </Menu>
 )
+// Todo: remove me
+export const RefTest = (args) => {
+    const ref = React.useRef()
+
+    React.useEffect(() => {
+        ref.current && console.log(ref.current)
+    }, [ref.current])
+
+    return (
+        <Menu {...args} ref={ref}>
+            <MenuItem label="Menu item" />
+            <MenuItem label="Menu item" />
+        </Menu>
+    )
+}
 
 export const Dense = (args) => (
     <Menu {...args}>
