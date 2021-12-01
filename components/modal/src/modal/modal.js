@@ -1,7 +1,14 @@
 import { Card } from '@dhis2-ui/card'
 import { Center } from '@dhis2-ui/center'
 import { Layer } from '@dhis2-ui/layer'
-import { spacers, spacersNum, sharedPropTypes } from '@dhis2/ui-constants'
+import {
+    colors,
+    spacers,
+    spacersNum,
+    sharedPropTypes,
+    theme,
+} from '@dhis2/ui-constants'
+import { IconCross16 } from '@dhis2/ui-icons'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -41,6 +48,11 @@ export const Modal = ({
                     className={cx(className, { small, large, fluid })}
                 >
                     <Card>
+                        {onClose && (
+                            <button onClick={onClose}>
+                                <IconCross16 color={colors.grey800} />
+                            </button>
+                        )}
                         <div>{children}</div>
                     </Card>
                 </aside>
@@ -73,6 +85,24 @@ export const Modal = ({
 
                 aside.fluid {
                     width: auto;
+                }
+
+                button {
+                    background-color: transparent;
+                    border: none;
+                    padding: 4px 4px 0px;
+                    outline: none;
+                    position: absolute;
+                    top: 8px;
+                    right: 8px;
+                    border-radius: 3px;
+                }
+                button:hover {
+                    background-color: ${colors.grey200};
+                }
+                button:focus {
+                    background-color: ${colors.grey200};
+                    outline: 3px solid ${theme.focus};
                 }
             `}</style>
         </Layer>
