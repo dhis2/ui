@@ -1,6 +1,5 @@
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
-import { requiredIf } from '@dhis2/prop-types/build/cjs/propTypes'
 import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
@@ -68,30 +67,29 @@ class DropdownButton extends Component {
     }
     anchorRef = React.createRef()
 
-    controlledOnClick = ({ name, value }, event) => {
-        this.props.onClick(
-            {
-                name,
-                value,
-                open: !this.props.open,
-            },
-            event
-        )
-    }
+    isControlled = typeof this.props.open === 'boolean'
 
-    toggleOpenState = ({ name, value }, event) => {
-        this.setState({ open: !this.state.open }, () => {
+    onClickHandler = ({ name, value }, event) => {
+        const handleClick = (open) => {
             if (this.props.onClick) {
                 this.props.onClick(
                     {
                         name,
                         value,
-                        open: this.state.open,
+                        open,
                     },
                     event
                 )
             }
-        })
+        }
+
+        if (this.isControlled) {
+            handleClick(!this.props.open)
+        } else {
+            this.setState({ open: !this.state.open }, () =>
+                handleClick(this.state.open)
+            )
+        }
     }
 
     render() {
@@ -113,13 +111,8 @@ class DropdownButton extends Component {
             initialFocus,
             dataTest,
         } = this.props
-        const isControlled =
-            typeof this.props.open === 'boolean' &&
-            typeof this.props.onClick === 'function'
-        const open = isControlled ? this.props.open : this.state.open
-        const onClick = isControlled
-            ? this.controlledOnClick
-            : this.toggleOpenState
+        const open = this.isControlled ? this.props.open : this.state.open
+        const onClick = this.onClickHandler
         const ArrowIconComponent = open ? ArrowUp : ArrowDown
 
         return (
@@ -208,10 +201,7 @@ DropdownButton.propTypes = {
      * Called with signature `({ name: string, value: string, open: bool }, event)`
      * Is required when using this component in controlled mode, i.e. when
      */
-    onClick: requiredIf(
-        (props) => typeof props.open === 'boolean',
-        PropTypes.func
-    ),
+    onClick: PropTypes.func,
 }
 
 export { DropdownButton }

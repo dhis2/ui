@@ -1,6 +1,6 @@
 import { FlyoutMenu, MenuItem } from '@dhis2-ui/menu'
 import { sharedPropTypes } from '@dhis2/ui-constants'
-import React, { useState } from 'react'
+import React from 'react'
 import { DropdownButton } from './index.js'
 
 const description = `
@@ -10,13 +10,6 @@ Presents several actions to a user in a small space. Can replace single, individ
 import { DropdownButton } from '@dhis2/ui'
 \`\`\`
 `
-
-window.onClick = (payload, event) => {
-    console.log('onClick payload', payload)
-    console.log('onClick event', event)
-}
-
-const onClick = (...args) => window.onClick(...args)
 
 const Simple = <span>Simplest thing</span>
 
@@ -47,7 +40,9 @@ const Template = (args) => <DropdownButton {...args} />
 export const Default = Template.bind({})
 
 export const WithClick = Template.bind({})
-WithClick.args = { onClick: onClick }
+WithClick.args = {
+    onClick: ({ open }) => console.log('onClick: the dropdown is open: ', open),
+}
 
 export const Primary = Template.bind({})
 Primary.args = { primary: true }
@@ -91,23 +86,14 @@ InitialFocus.args = { initialFocus: true }
 InitialFocus.parameters = { docs: { disable: true } }
 
 const ControlledTemplate = (args) => {
-    const [open, setOpen] = useState(false)
-    const toggleOpen = ({ open }) => {
-        console.log(`Set open to ${open}`)
-        setOpen(open)
-    }
-    const onComponentClick = () => {
-        console.log('dropdown will close')
-        setOpen(false)
-    }
     return (
         <DropdownButton
             {...args}
-            component={<button onClick={onComponentClick}>Click me</button>}
-            onClick={toggleOpen}
-            open={open}
+            component={<span>Hello I am a controlled dropdown button</span>}
         />
     )
 }
 export const Controlled = ControlledTemplate.bind({})
-Controlled.args = {}
+Controlled.args = {
+    open: true,
+}
