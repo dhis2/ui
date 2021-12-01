@@ -49,7 +49,10 @@ export const Modal = ({
                 >
                     <Card>
                         {onClose && (
-                            <button onClick={onClose}>
+                            <button
+                                data-test="modal-close-button"
+                                onClick={onClose}
+                            >
                                 <IconCross16 color={colors.grey800} />
                             </button>
                         )}
