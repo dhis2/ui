@@ -50,7 +50,7 @@ export const Modal = ({
                     <Card>
                         {onClose && (
                             <button
-                                data-test="modal-close-button"
+                                data-test="dhis2-modal-close-button"
                                 onClick={onClose}
                             >
                                 <IconCross16 color={colors.grey800} />
