@@ -1,5 +1,6 @@
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
+import { requiredIf } from '@dhis2/prop-types'
 import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
@@ -67,29 +68,19 @@ class DropdownButton extends Component {
     }
     anchorRef = React.createRef()
 
-    isControlled = typeof this.props.open === 'boolean'
-
     onClickHandler = ({ name, value }, event) => {
-        const handleClick = (open) => {
+        this.setState({ open: !this.state.open }, () => {
             if (this.props.onClick) {
                 this.props.onClick(
                     {
                         name,
                         value,
-                        open,
+                        open: this.state.open,
                     },
                     event
                 )
             }
-        }
-
-        if (this.isControlled) {
-            handleClick(!this.props.open)
-        } else {
-            this.setState({ open: !this.state.open }, () =>
-                handleClick(this.state.open)
-            )
-        }
+        })
     }
 
     render() {
@@ -111,8 +102,10 @@ class DropdownButton extends Component {
             initialFocus,
             dataTest,
         } = this.props
-        const open = this.isControlled ? this.props.open : this.state.open
-        const onClick = this.onClickHandler
+        const open =
+            typeof this.props.open === 'boolean'
+                ? this.props.open
+                : this.state.open
         const ArrowIconComponent = open ? ArrowUp : ArrowDown
 
         return (
@@ -126,7 +119,7 @@ class DropdownButton extends Component {
                     primary={primary}
                     secondary={secondary}
                     small={small}
-                    onClick={onClick}
+                    onClick={this.onClickHandler}
                     name={name}
                     value={value}
                     tabIndex={tabIndex}
@@ -138,7 +131,7 @@ class DropdownButton extends Component {
                 </Button>
 
                 {open && (
-                    <Layer onClick={onClick} transparent>
+                    <Layer onClick={this.onClickHandler} transparent>
                         <Popper
                             dataTest={`${dataTest}-popper`}
                             placement="bottom-start"
@@ -199,9 +192,13 @@ DropdownButton.propTypes = {
     /**
      * Callback triggered on click.
      * Called with signature `({ name: string, value: string, open: bool }, event)`
-     * Is required when using this component in controlled mode, i.e. when
+     * Is required when using the `open` prop to override the internal
+     * state.
      */
-    onClick: PropTypes.func,
+    onClick: requiredIf(
+        (props) => typeof props.open === 'boolean',
+        PropTypes.func
+    ),
 }
 
 export { DropdownButton }
