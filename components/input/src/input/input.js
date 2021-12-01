@@ -112,6 +112,7 @@ const styles = css`
 
 export class InputClass extends Component {
     localInputRef = React.createRef(null)
+    inputRef = this.props.inputRef || this.localInputRef
 
     componentDidMount() {
         if (this.props.initialFocus) {
@@ -166,10 +167,7 @@ export class InputClass extends Component {
             autoComplete,
             dataTest,
             containerRef,
-            inputRef: inputRefProp,
         } = this.props
-
-        const inputRef = inputRefProp || this.localInputRef
 
         return (
             <div
@@ -182,7 +180,7 @@ export class InputClass extends Component {
                     id={name}
                     name={name}
                     placeholder={placeholder}
-                    ref={inputRef}
+                    ref={this.inputRef}
                     type={type}
                     value={value}
                     max={max}
