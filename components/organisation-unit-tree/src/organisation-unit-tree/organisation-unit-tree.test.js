@@ -32,7 +32,7 @@ describe('OrganisationUnitTree', () => {
 
                 expect(errorMock).toHaveBeenCalledTimes(1)
                 expect(errorMock.mock.calls[0][0]).toMatch(
-                    /^Warning: Failed prop type: Invalid prop `handleCollapse` supplied to `OrganisationUnitTree`/
+                    /^Warning: Failed prop type: Invalid prop `handleCollapse` supplied to `.*OrganisationUnitTree.*`/
                 )
             })
 
@@ -50,7 +50,7 @@ describe('OrganisationUnitTree', () => {
 
                 expect(errorMock).toHaveBeenCalledTimes(1)
                 expect(errorMock.mock.calls[0][0]).toMatch(
-                    /^Warning: Failed prop type: Invalid prop `handleExpand` supplied to `OrganisationUnitTree`/
+                    /^Warning: Failed prop type: Invalid prop `handleExpand` supplied to `.*OrganisationUnitTree.*`/
                 )
             })
 
@@ -68,7 +68,7 @@ describe('OrganisationUnitTree', () => {
 
                 expect(errorMock).toHaveBeenCalledTimes(1)
                 expect(errorMock.mock.calls[0][0]).toMatch(
-                    /^Warning: Failed prop type: Invalid prop `expanded` supplied to `OrganisationUnitTree`/
+                    /^Warning: Failed prop type: Invalid prop `expanded` supplied to `.*OrganisationUnitTree.*`/
                 )
             })
         })
