@@ -66,21 +66,29 @@ class DropdownButton extends Component {
     state = {
         open: false,
     }
+
     anchorRef = React.createRef()
 
     onClickHandler = ({ name, value }, event) => {
-        this.setState({ open: !this.state.open }, () => {
+        const handleClick = (open) => {
             if (this.props.onClick) {
                 this.props.onClick(
                     {
                         name,
                         value,
-                        open: this.state.open,
+                        open,
                     },
                     event
                 )
             }
-        })
+        }
+        if (typeof this.props.open === 'boolean') {
+            handleClick(!this.props.open)
+        } else {
+            this.setState({ open: !this.state.open }, () => {
+                handleClick(this.state.open)
+            })
+        }
     }
 
     render() {
