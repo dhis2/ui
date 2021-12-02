@@ -11,13 +11,6 @@ import { DropdownButton } from '@dhis2/ui'
 \`\`\`
 `
 
-window.onClick = (payload, event) => {
-    console.log('onClick payload', payload)
-    console.log('onClick event', event)
-}
-
-const onClick = (...args) => window.onClick(...args)
-
 const Simple = <span>Simplest thing</span>
 
 const { sizeArgType, buttonVariantArgType } = sharedPropTypes
@@ -47,7 +40,9 @@ const Template = (args) => <DropdownButton {...args} />
 export const Default = Template.bind({})
 
 export const WithClick = Template.bind({})
-WithClick.args = { onClick: onClick }
+WithClick.args = {
+    onClick: ({ open }) => console.log('onClick: the dropdown is open: ', open),
+}
 
 export const Primary = Template.bind({})
 Primary.args = { primary: true }
@@ -90,24 +85,36 @@ InitialFocus.args = { initialFocus: true }
  */
 InitialFocus.parameters = { docs: { disable: true } }
 
-const ControlledTemplate = (args) => {
-    const [open, setOpen] = useState(false)
-    const toggleOpen = ({ open }) => {
-        console.log(`Set open to ${open}`)
-        setOpen(open)
-    }
-    const onComponentClick = () => {
-        console.log('dropdown will close')
-        setOpen(false)
-    }
+const OpenTemplate = (args) => {
+    return <DropdownButton {...args} />
+}
+export const Open = OpenTemplate.bind({})
+Open.args = {
+    open: true,
+    component: Simple,
+    onClick: () => {},
+}
+
+const ManualControlTemplate = (args) => {
+    const [isOpen, setIsOpen] = useState(true)
+
+    const handleOpen = () => setIsOpen(false)
+
+    const Menu = (
+        <ul>
+            <li>First option does nothing</li>
+            <li onClick={handleOpen}>Close the dropdown</li>
+        </ul>
+    )
+
     return (
         <DropdownButton
             {...args}
-            component={<button onClick={onComponentClick}>Click me</button>}
-            onClick={toggleOpen}
-            open={open}
+            onClick={() => setIsOpen(!isOpen)}
+            open={isOpen}
+            component={Menu}
         />
     )
 }
-export const Controlled = ControlledTemplate.bind({})
-Controlled.args = {}
+export const ManualControl = ManualControlTemplate.bind({})
+ManualControl.args = {}
