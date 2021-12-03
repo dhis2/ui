@@ -1,4 +1,3 @@
-import { spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -10,7 +9,6 @@ export const ModalContent = ({ children, className, dataTest }) => (
             div {
                 order: 2;
                 flex-grow: 2;
-                margin: ${spacers.dp24} 0;
                 overflow-y: auto;
             }
         `}</style>
