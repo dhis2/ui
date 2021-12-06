@@ -1,3 +1,4 @@
+import { spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -11,6 +12,7 @@ export const ModalActions = ({ children, dataTest }) => (
                 display: flex;
                 justify-content: flex-end;
                 align-self: flex-end;
+                margin: ${spacers.dp16} 0 0;
             }
         `}</style>
     </div>
