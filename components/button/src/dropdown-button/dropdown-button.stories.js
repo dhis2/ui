@@ -1,6 +1,6 @@
 import { FlyoutMenu, MenuItem } from '@dhis2-ui/menu'
 import { sharedPropTypes } from '@dhis2/ui-constants'
-import React from 'react'
+import React, { useState } from 'react'
 import { DropdownButton } from './index.js'
 
 const description = `
@@ -10,13 +10,6 @@ Presents several actions to a user in a small space. Can replace single, individ
 import { DropdownButton } from '@dhis2/ui'
 \`\`\`
 `
-
-window.onClick = (payload, event) => {
-    console.log('onClick payload', payload)
-    console.log('onClick event', event)
-}
-
-const onClick = (...args) => window.onClick(...args)
 
 const Simple = <span>Simplest thing</span>
 
@@ -47,7 +40,9 @@ const Template = (args) => <DropdownButton {...args} />
 export const Default = Template.bind({})
 
 export const WithClick = Template.bind({})
-WithClick.args = { onClick: onClick }
+WithClick.args = {
+    onClick: ({ open }) => console.log('onClick: the dropdown is open: ', open),
+}
 
 export const Primary = Template.bind({})
 Primary.args = { primary: true }
@@ -89,3 +84,37 @@ InitialFocus.args = { initialFocus: true }
  * not the normal 'canvas' story viewer)
  */
 InitialFocus.parameters = { docs: { disable: true } }
+
+const OpenTemplate = (args) => {
+    return <DropdownButton {...args} />
+}
+export const Open = OpenTemplate.bind({})
+Open.args = {
+    open: true,
+    component: Simple,
+    onClick: () => {},
+}
+
+const ManualControlTemplate = (args) => {
+    const [isOpen, setIsOpen] = useState(true)
+
+    const handleOpen = () => setIsOpen(false)
+
+    const Menu = (
+        <ul>
+            <li>First option does nothing</li>
+            <li onClick={handleOpen}>Close the dropdown</li>
+        </ul>
+    )
+
+    return (
+        <DropdownButton
+            {...args}
+            onClick={() => setIsOpen(!isOpen)}
+            open={isOpen}
+            component={Menu}
+        />
+    )
+}
+export const ManualControl = ManualControlTemplate.bind({})
+ManualControl.args = {}
