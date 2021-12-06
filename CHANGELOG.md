@@ -1,3 +1,10 @@
+## [7.9.1](https://github.com/dhis2/ui/compare/v7.9.0...v7.9.1) (2021-12-06)
+
+
+### Bug Fixes
+
+* **modal:** reduce spacing between elements ([7390a9c](https://github.com/dhis2/ui/commit/7390a9cf2bf536a5edce3cf4772f9fd21a2d437e))
+
 # [7.9.0](https://github.com/dhis2/ui/compare/v7.8.1...v7.9.0) (2021-12-06)
 
 
