@@ -1,3 +1,10 @@
+# [7.9.0](https://github.com/dhis2/ui/compare/v7.8.1...v7.9.0) (2021-12-06)
+
+
+### Features
+
+* **dropdown-button:** add controlled mode ([#865](https://github.com/dhis2/ui/issues/865)) ([41a3671](https://github.com/dhis2/ui/commit/41a36716f8c2b347ef787c2baaf63dca295e346f))
+
 ## [7.8.1](https://github.com/dhis2/ui/compare/v7.8.0...v7.8.1) (2021-11-28)
 
 
