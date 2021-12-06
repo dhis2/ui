@@ -1,4 +1,7 @@
 -   [**Getting started**](getting-started)
+-   [**Design system**](design-system/readme)
+    -   [Principles](design-system/principles-index)
+    -   [Components](design-system/components-index)
 -   [**API**](api)
 -   [**Live demos**](/demo/ ':ignore Live demos')
 -   [**Troubleshooting**](troubleshooting)
