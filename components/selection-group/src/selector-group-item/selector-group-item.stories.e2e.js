@@ -1,6 +1,6 @@
 import { SingleSelectField, SingleSelectOption } from '@dhis2-ui/select'
 import React, { useState } from 'react'
-import { ContextSelector } from './context-selector.js'
+import { SelectorGroupItem } from './selector-group-item.js'
 
 const options = [
     { value: 'value 1', label: 'label 1' },
@@ -20,8 +20,8 @@ const createStory =
     () =>
     (_, { open, setOpen, selected, setSelected }) =>
         (
-            <ContextSelector
-                label="Context selector"
+            <SelectorGroupItem
+                label="Selection group item"
                 noValueMessage="No value message"
                 open={open}
                 setOpen={setOpen}
@@ -44,10 +44,10 @@ const createStory =
                         />
                     ))}
                 </SingleSelectField>
-            </ContextSelector>
+            </SelectorGroupItem>
         )
 
-export default { title: 'ContextSelector' }
+export default { title: 'SelectorGroupItem' }
 
 export const ClosedNoValue = createStory()
 ClosedNoValue.decorators = [createStateDecorator()]

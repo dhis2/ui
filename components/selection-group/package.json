@@ -1,11 +1,11 @@
 {
-    "name": "@dhis2-ui/context-selection",
+    "name": "@dhis2-ui/selector-group",
     "version": "7.8.0",
     "description": "UI Select",
     "repository": {
         "type": "git",
         "url": "https://github.com/dhis2/ui.git",
-        "directory": "components/context-selection"
+        "directory": "components/selector-group"
     },
     "homepage": "https://github.com/dhis2/ui#readme",
     "license": "BSD-3-Clause",

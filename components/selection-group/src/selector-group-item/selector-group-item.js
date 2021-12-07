@@ -10,11 +10,11 @@ import React, { useRef } from 'react'
  * to false as well.
  * A good example is selecting a value (which is not a click outside) and this
  * component neither has any control over that component nor does it have a way
- * to "observe" that behavior. Especially for context selections that allow
+ * to "observe" that behavior. Especially for selection group items that allow
  * "multiple" selections, this would be more or less impossible to predict
  * inside this component
  */
-export const ContextSelector = ({
+export const SelectorGroupItem = ({
     open,
     setOpen,
     children,
@@ -29,7 +29,7 @@ export const ContextSelector = ({
     return (
         <button
             ref={buttonRef}
-            className="context-selector"
+            className="selector-group-item"
             disabled={disabled}
             onClick={() => setOpen(true)}
         >
@@ -58,7 +58,7 @@ export const ContextSelector = ({
             )}
 
             <style jsx>{`
-                .context-selector {
+                .selector-group-item {
                     display: flex;
                     cursor: pointer;
                     background: none;
@@ -77,11 +77,11 @@ export const ContextSelector = ({
                     border: 1px solid ${colors.grey400};
                 }
 
-                .context-selector:last-child {
+                .selector-group-item:last-child {
                     border-right: 0;
                 }
 
-                .context-selector:disabled {
+                .selector-group-item:disabled {
                     cursor: not-allowed;
                 }
 
@@ -104,7 +104,7 @@ export const ContextSelector = ({
     )
 }
 
-ContextSelector.propTypes = {
+SelectorGroupItem.propTypes = {
     children: PropTypes.any.isRequired,
     label: PropTypes.string.isRequired,
     noValueMessage: PropTypes.string.isRequired,

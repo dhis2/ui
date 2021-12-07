@@ -29,7 +29,7 @@ ClearSelection.propTypes = {
     onClick: PropTypes.func,
 }
 
-export const ContextSelection = ({
+export const SelectorGroup = ({
     children,
     onClearSelectionClick,
     disableClearSelections,
@@ -88,7 +88,7 @@ export const ContextSelection = ({
     </>
 )
 
-ContextSelection.propTypes = {
+SelectorGroup.propTypes = {
     children: PropTypes.any.isRequired,
     disableClearSelections: PropTypes.bool,
     rightHandSideContents: PropTypes.any,

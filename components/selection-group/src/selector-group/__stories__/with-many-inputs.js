@@ -4,7 +4,7 @@ import { SingleSelect, SingleSelectOption } from '@dhis2-ui/select'
 import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React, { useState } from 'react'
-import { ContextSelection, ContextSelector } from '../../index.js'
+import { SelectorGroup, SelectorGroupItem } from '../../index.js'
 import { createDecoratorCustomDataProvider } from './common.js'
 
 const workflows = [
@@ -19,7 +19,7 @@ export const WithManyInputs = () => {
     const [orgUnitOpen, setOrgUnitOpen] = useState(false)
 
     return (
-        <ContextSelection
+        <SelectorGroup
             disableClearSelections={!workflow || !orgUnit}
             onClearSelectionClick={() => {
                 setWorkflow(null)
@@ -38,7 +38,7 @@ export const WithManyInputs = () => {
                 </div>
             }
         >
-            <ContextSelector
+            <SelectorGroupItem
                 disabled={false}
                 label="Workflow"
                 value={workflow?.label}
@@ -73,9 +73,9 @@ export const WithManyInputs = () => {
                         })}
                     </SingleSelect>
                 </div>
-            </ContextSelector>
+            </SelectorGroupItem>
 
-            <ContextSelector
+            <SelectorGroupItem
                 disabled={!workflow}
                 label="Org unit"
                 value={orgUnit?.displayName}
@@ -95,9 +95,9 @@ export const WithManyInputs = () => {
                         selected={orgUnit ? [orgUnit.path] : []}
                     />
                 </div>
-            </ContextSelector>
+            </SelectorGroupItem>
 
-            <ContextSelector
+            <SelectorGroupItem
                 disabled={!workflow}
                 label="Org unit"
                 value={orgUnit?.displayName}
@@ -117,9 +117,9 @@ export const WithManyInputs = () => {
                         selected={orgUnit ? [orgUnit.path] : []}
                     />
                 </div>
-            </ContextSelector>
+            </SelectorGroupItem>
 
-            <ContextSelector
+            <SelectorGroupItem
                 disabled={!workflow}
                 label="Org unit"
                 value={orgUnit?.displayName}
@@ -139,9 +139,9 @@ export const WithManyInputs = () => {
                         selected={orgUnit ? [orgUnit.path] : []}
                     />
                 </div>
-            </ContextSelector>
+            </SelectorGroupItem>
 
-            <ContextSelector
+            <SelectorGroupItem
                 disabled={false}
                 label="Workflow"
                 value={workflow?.label}
@@ -176,9 +176,9 @@ export const WithManyInputs = () => {
                         })}
                     </SingleSelect>
                 </div>
-            </ContextSelector>
+            </SelectorGroupItem>
 
-            <ContextSelector
+            <SelectorGroupItem
                 disabled={false}
                 label="Workflow"
                 value={workflow?.label}
@@ -213,9 +213,9 @@ export const WithManyInputs = () => {
                         })}
                     </SingleSelect>
                 </div>
-            </ContextSelector>
+            </SelectorGroupItem>
 
-            <ContextSelector
+            <SelectorGroupItem
                 disabled={!workflow}
                 label="Org unit"
                 value={orgUnit?.displayName}
@@ -235,7 +235,7 @@ export const WithManyInputs = () => {
                         selected={orgUnit ? [orgUnit.path] : []}
                     />
                 </div>
-            </ContextSelector>
+            </SelectorGroupItem>
 
             <style jsx>{`
                 :global(body) {
@@ -260,7 +260,7 @@ export const WithManyInputs = () => {
                     background: grey;
                 }
             `}</style>
-        </ContextSelection>
+        </SelectorGroup>
     )
 }
 

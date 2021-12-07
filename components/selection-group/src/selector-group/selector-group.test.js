@@ -1,51 +1,51 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import React from 'react'
-import { ContextSelector } from '../context-selector/index.js'
-import { ContextSelection } from './context-selection.js'
+import { SelectorGroupItem } from '../selector-group-item/index.js'
+import { SelectorGroup } from './selector-group.js'
 
 const noop = () => null
 
-describe('ContextSelection', () => {
-    it('should render the context selectors', () => {
+describe('SelectorGroup', () => {
+    it('should render the selection group items', () => {
         render(
-            <ContextSelection>
-                <ContextSelector
-                    label="Context selector 1"
+            <SelectorGroup>
+                <SelectorGroupItem
+                    label="Selection group item 1"
                     noValueMessage="No value message 1"
                     open={false}
                     setOpen={noop}
                 >
                     Content
-                </ContextSelector>
+                </SelectorGroupItem>
 
-                <ContextSelector
-                    label="Context selector 2"
+                <SelectorGroupItem
+                    label="Selection group item 2"
                     noValueMessage="No value message 2"
                     open={false}
                     setOpen={noop}
                 >
                     Content
-                </ContextSelector>
-            </ContextSelection>
+                </SelectorGroupItem>
+            </SelectorGroup>
         )
 
-        expect(screen.getByText('Context selector 1')).not.toBeNull()
-        expect(screen.getByText('Context selector 2')).not.toBeNull()
+        expect(screen.getByText('Selection group item 1')).not.toBeNull()
+        expect(screen.getByText('Selection group item 2')).not.toBeNull()
     })
 
     it('should not disable the clear selection button by default', () => {
         render(
-            <ContextSelection onClearSelectionClick={noop}>
-                <ContextSelector
+            <SelectorGroup onClearSelectionClick={noop}>
+                <SelectorGroupItem
                     label="label"
                     noValueMessage="msg"
                     open={false}
                     setOpen={noop}
                 >
                     Content
-                </ContextSelector>
-            </ContextSelection>
+                </SelectorGroupItem>
+            </SelectorGroup>
         )
 
         const clearBtn = screen.getByText('Clear selections')
@@ -55,19 +55,16 @@ describe('ContextSelection', () => {
 
     it('should disable the clear selection button', () => {
         render(
-            <ContextSelection
-                disableClearSelections
-                onClearSelectionClick={noop}
-            >
-                <ContextSelector
+            <SelectorGroup disableClearSelections onClearSelectionClick={noop}>
+                <SelectorGroupItem
                     label="label"
                     noValueMessage="msg"
                     open={false}
                     setOpen={noop}
                 >
                     Content
-                </ContextSelector>
-            </ContextSelection>
+                </SelectorGroupItem>
+            </SelectorGroup>
         )
 
         const clearBtn = screen.getByText('Clear selections')
@@ -77,16 +74,16 @@ describe('ContextSelection', () => {
 
     it('should render the optional content', () => {
         render(
-            <ContextSelection rightHandSideContents={<div>Foobar</div>}>
-                <ContextSelector
+            <SelectorGroup rightHandSideContents={<div>Foobar</div>}>
+                <SelectorGroupItem
                     label="label"
                     noValueMessage="msg"
                     open={false}
                     setOpen={noop}
                 >
                     Content
-                </ContextSelector>
-            </ContextSelection>
+                </SelectorGroupItem>
+            </SelectorGroup>
         )
 
         const extraContent = screen.getByText('Foobar')

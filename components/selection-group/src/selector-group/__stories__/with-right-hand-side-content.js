@@ -1,9 +1,10 @@
+import { Button } from '@dhis2-ui/button'
 import { OrganisationUnitTree } from '@dhis2-ui/organisation-unit-tree'
 import { SingleSelect, SingleSelectOption } from '@dhis2-ui/select'
 import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React, { useState } from 'react'
-import { ContextSelection, ContextSelector } from '../../index.js'
+import { SelectorGroup, SelectorGroupItem } from '../../index.js'
 import { createDecoratorCustomDataProvider } from './common.js'
 
 const workflows = [
@@ -11,21 +12,33 @@ const workflows = [
     { value: 'm<5y', label: 'Mortality < 5 years' },
 ]
 
-export const WithSomeInputs = () => {
+export const WithRightHandSideContent = () => {
     const [workflow, setWorkflow] = useState(workflows[0])
     const [workflowOpen, setWorkflowOpen] = useState(false)
     const [orgUnit, setOrgUnit] = useState(null)
     const [orgUnitOpen, setOrgUnitOpen] = useState(false)
 
     return (
-        <ContextSelection
+        <SelectorGroup
             disableClearSelections={!workflow || !orgUnit}
             onClearSelectionClick={() => {
                 setWorkflow(null)
                 setOrgUnit(null)
             }}
+            rightHandSideContents={
+                <div
+                    style={{
+                        display: 'flex',
+                        height: '40px',
+                        padding: '0 16px',
+                        alignItems: 'center',
+                    }}
+                >
+                    <Button small>Options</Button>
+                </div>
+            }
         >
-            <ContextSelector
+            <SelectorGroupItem
                 disabled={false}
                 label="Workflow"
                 value={workflow?.label}
@@ -60,9 +73,9 @@ export const WithSomeInputs = () => {
                         })}
                     </SingleSelect>
                 </div>
-            </ContextSelector>
+            </SelectorGroupItem>
 
-            <ContextSelector
+            <SelectorGroupItem
                 disabled={!workflow}
                 label="Org unit"
                 value={orgUnit?.displayName}
@@ -82,7 +95,7 @@ export const WithSomeInputs = () => {
                         selected={orgUnit ? [orgUnit.path] : []}
                     />
                 </div>
-            </ContextSelector>
+            </SelectorGroupItem>
 
             <style jsx>{`
                 :global(body) {
@@ -107,8 +120,8 @@ export const WithSomeInputs = () => {
                     background: grey;
                 }
             `}</style>
-        </ContextSelection>
+        </SelectorGroup>
     )
 }
 
-WithSomeInputs.decorators = [createDecoratorCustomDataProvider()]
+WithRightHandSideContent.decorators = [createDecoratorCustomDataProvider()]
