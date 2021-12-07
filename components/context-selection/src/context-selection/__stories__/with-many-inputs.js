@@ -4,7 +4,7 @@ import { SingleSelect, SingleSelectOption } from '@dhis2-ui/select'
 import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React, { useState } from 'react'
-import { ContextSelection, ContextSelector } from '../index.js'
+import { ContextSelection, ContextSelector } from '../../index.js'
 import { createDecoratorCustomDataProvider } from './common.js'
 
 const workflows = [

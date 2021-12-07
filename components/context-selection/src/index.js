@@ -1,2 +1,2 @@
-export { ContextSelection } from './context-selection.js'
-export { ContextSelector } from './context-selector.js'
+export { ContextSelection } from './context-selection/index.js'
+export { ContextSelector } from './context-selector/index.js'
