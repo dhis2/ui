@@ -1,18 +1,12 @@
 import { Card } from '@dhis2-ui/card'
 import { Center } from '@dhis2-ui/center'
 import { Layer } from '@dhis2-ui/layer'
-import {
-    colors,
-    spacers,
-    spacersNum,
-    sharedPropTypes,
-    theme,
-} from '@dhis2/ui-constants'
-import { IconCross16 } from '@dhis2/ui-icons'
+import { spacers, spacersNum, sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { resolve } from 'styled-jsx/css'
+import { CloseButton } from './close-button.js'
 
 const resolveLayerStyles = (hide) =>
     resolve`
@@ -48,14 +42,7 @@ export const Modal = ({
                     className={cx(className, { small, large, fluid })}
                 >
                     <Card>
-                        {onClose && (
-                            <button
-                                data-test="dhis2-modal-close-button"
-                                onClick={onClose}
-                            >
-                                <IconCross16 color={colors.grey800} />
-                            </button>
-                        )}
+                        {onClose && <CloseButton onClick={onClose} />}
                         <div>{children}</div>
                     </Card>
                 </aside>
@@ -89,24 +76,6 @@ export const Modal = ({
                 aside.fluid {
                     width: auto;
                 }
-
-                button {
-                    background-color: transparent;
-                    border: none;
-                    padding: 4px 4px 0px;
-                    outline: none;
-                    position: absolute;
-                    top: 8px;
-                    right: 8px;
-                    border-radius: 3px;
-                }
-                button:hover {
-                    background-color: ${colors.grey200};
-                }
-                button:focus {
-                    background-color: ${colors.grey200};
-                    outline: 3px solid ${theme.focus};
-                }
             `}</style>
         </Layer>
     )
@@ -126,6 +95,6 @@ Modal.propTypes = {
     large: sharedPropTypes.sizePropType,
     position: sharedPropTypes.insideAlignmentPropType,
     small: sharedPropTypes.sizePropType,
-    /** Callback used when screen cover is clicked */
+    /** Callback used when the Modal closes */
     onClose: PropTypes.func,
 }
