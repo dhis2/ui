@@ -54,6 +54,7 @@
         "@dhis2-ui/required": "7.10.1",
         "@dhis2-ui/segmented-control": "7.10.1",
         "@dhis2-ui/select": "7.10.1",
+        "@dhis2-ui/selector-bar": "7.10.1",
         "@dhis2-ui/sharing-dialog": "7.10.1",
         "@dhis2-ui/switch": "7.10.1",
         "@dhis2-ui/tab": "7.10.1",
