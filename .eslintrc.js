@@ -12,7 +12,7 @@ const config = {
     },
     overrides: [
         {
-            files: ['*.stories.js', '*.stories.e2e.js'],
+            files: ['*.stories.js', '*.stories.e2e.js', '**/__stories__/*.js'],
             rules: {
                 'import/no-extraneous-dependencies': 'off',
                 'react/display-name': 'off',

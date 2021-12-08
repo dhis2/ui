@@ -42,6 +42,7 @@
     },
     "devDependencies": {
         "@dhis2-ui/css": "7.8.0",
+        "@dhis2-ui/menu": "7.8.0",
         "@dhis2-ui/organisation-unit-tree": "7.8.0",
         "@dhis2-ui/select": "7.8.0",
         "@dhis2/d2-i18n": "^1.1.0",

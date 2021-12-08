@@ -1,6 +1,25 @@
 /* eslint-disable react/display-name */
+import { Menu, MenuItem } from '@dhis2-ui/menu'
+import { OrganisationUnitTree } from '@dhis2-ui/organisation-unit-tree'
 import { CustomDataProvider } from '@dhis2/app-runtime'
-import React from 'react'
+import { colors } from '@dhis2/ui-constants'
+import React, { useState } from 'react'
+
+export const decoratorCommonStyles = fn => (
+    <>
+        {fn()}
+        <style jsx>{`
+            :global(body) {
+                background: ${colors.grey100};
+                padding: 0 !important;
+            }
+
+            :global(div#root) {
+                padding: 0;
+            }
+        `}</style>
+    </>
+)
 
 export const getOrganisationUnitData = (id) => {
     let data
@@ -134,4 +153,75 @@ export const createDecoratorCustomDataProvider = (args) => {
             </CustomDataProvider>
         )
     }
+}
+
+export const createStatefulDecorator = (args) => {
+    return fn => {
+        const [workflow, setWorkflow] = useState(args?.workflow || null)
+        const [workflowOpen, setWorkflowOpen] = useState(args?.workflowOpen || false)
+        const [dataSet, setDataSet] = useState(args?.dataSet || null)
+        const [dataSetOpen, setDataSetOpen] = useState(args?.dataSetOpen || false)
+        const [orgUnit, setOrgUnit] = useState(args?.orgUnit || null)
+        const [orgUnitOpen, setOrgUnitOpen] = useState(args?.orgUnitOpen || false)
+
+        return (
+            <>
+                {fn({
+                    workflow,
+                    setWorkflow,
+                    workflowOpen,
+                    setWorkflowOpen,
+                    dataSet,
+                    setDataSet,
+                    dataSetOpen,
+                    setDataSetOpen,
+                    orgUnit,
+                    setOrgUnit,
+                    orgUnitOpen,
+                    setOrgUnitOpen,
+                })}
+            </>
+        )
+    }
+}
+
+export const workflows = [
+    { value: 'm<4y', label: 'Mortality < 4 years' },
+    { value: 'm<5y', label: 'Mortality < 5 years' },
+]
+
+export const dataSets = [
+    { value: 'data-set-1', label: 'Data set 1' },
+    { value: 'data-set-2', label: 'Data set 2' },
+    { value: 'data-set-3', label: 'Data set 3' },
+]
+
+export const MenuSelect = ({ values, selected, onChange }) => {
+    return (
+        <div style={{ width: 400, padding: 16, background: 'white' }}>
+            <Menu>
+                {values.map(({ value, label }) => (
+                    <MenuItem
+                        key={value}
+                        label={label}
+                        active={selected === value}
+                        onClick={() => onChange({ selected: value })}
+                    />
+                ))}
+            </Menu>
+        </div>
+    )
+}
+
+export const OrgUnitSelect = ({ onChange, selected }) => {
+    return (
+        <div style={{ width: 400, minHeight: 400, maxHeight: '70vh' }}>
+            <OrganisationUnitTree
+                singleSelection
+                onChange={onChange}
+                roots={['A0000000000']}
+                selected={selected}
+            />
+        </div>
+    )
 }
