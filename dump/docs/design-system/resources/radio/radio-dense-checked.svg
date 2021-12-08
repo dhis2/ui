@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <g id="radio-dense-checked" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="radio-fill" fill="#FFFFFF" cx="7" cy="7" r="7"></circle>
+        <path d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,12 C4.23857625,12 2,9.76142375 2,7 C2,4.23857625 4.23857625,2 7,2 C9.76142375,2 12,4.23857625 12,7 C12,9.76142375 9.76142375,12 7,12 Z" id="outer" fill="#00897B" fill-rule="nonzero"></path>
+        <circle id="inner" fill="#00897B" cx="7" cy="7" r="3"></circle>
+    </g>
+</svg>
