@@ -77,10 +77,6 @@ export const SelectorGroupItem = ({
                     border: 1px solid ${colors.grey400};
                 }
 
-                .selector-group-item:last-child {
-                    border-right: 0;
-                }
-
                 .selector-group-item:disabled {
                     cursor: not-allowed;
                 }
