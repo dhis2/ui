@@ -74,7 +74,7 @@ describe('SelectorGroup', () => {
 
     it('should render the optional content', () => {
         render(
-            <SelectorGroup rightHandSideContents={<div>Foobar</div>}>
+            <SelectorGroup additionalContent={<div>Foobar</div>}>
                 <SelectorGroupItem
                     label="label"
                     noValueMessage="msg"

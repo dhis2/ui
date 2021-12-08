@@ -24,7 +24,7 @@ const RHSContent = () => (
     </div>
 )
 
-export const WithRightHandSideContent = (_, {
+export const WithAdditionalContent = (_, {
     workflow,
     setWorkflow,
     workflowOpen,
@@ -41,7 +41,7 @@ export const WithRightHandSideContent = (_, {
                 setWorkflow(null)
                 setOrgUnit(null)
             }}
-            rightHandSideContents={<RHSContent />}
+            additionalContent={<RHSContent />}
         >
             <SelectorGroupItem
                 disabled={false}
@@ -87,7 +87,7 @@ export const WithRightHandSideContent = (_, {
     )
 }
 
-WithRightHandSideContent.decorators = [
+WithAdditionalContent.decorators = [
     decoratorCommonStyles,
     createStatefulDecorator(),
     createDecoratorCustomDataProvider(),

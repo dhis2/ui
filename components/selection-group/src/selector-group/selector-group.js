@@ -33,12 +33,12 @@ export const SelectorGroup = ({
     children,
     onClearSelectionClick,
     disableClearSelections,
-    rightHandSideContents,
+    additionalContent,
 }) => (
     <>
         <div
             className={cx('container', {
-                withRHSContents: rightHandSideContents,
+                withRHSContents: additionalContent,
             })}
         >
             <div className="controls">
@@ -51,9 +51,9 @@ export const SelectorGroup = ({
                 )}
             </div>
 
-            {rightHandSideContents && (
-                <div className="right-hand-side-contents">
-                    {rightHandSideContents}
+            {additionalContent && (
+                <div className="additional-contents">
+                    {additionalContent}
                 </div>
             )}
 
@@ -74,7 +74,7 @@ export const SelectorGroup = ({
                     flex-grow: 1;
                 }
 
-                .right-hand-side-contents {
+                .additional-contents {
                     ${
                         /*
                          * Specs define the space to be 12px.
@@ -90,7 +90,7 @@ export const SelectorGroup = ({
 
 SelectorGroup.propTypes = {
     children: PropTypes.any.isRequired,
+    additionalContent: PropTypes.any,
     disableClearSelections: PropTypes.bool,
-    rightHandSideContents: PropTypes.any,
     onClearSelectionClick: PropTypes.func,
 }
