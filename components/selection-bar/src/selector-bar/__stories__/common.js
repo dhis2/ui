@@ -203,7 +203,7 @@ export const dataSets = [
 
 export const MenuSelect = ({ values, selected, onChange }) => {
     return (
-        <div style={{ width: 400, padding: 16, background: 'white' }}>
+        <div style={{ width: 400 }}>
             <Menu>
                 {values.map(({ value, label }) => (
                     <MenuItem
