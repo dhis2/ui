@@ -1,13 +1,24 @@
+import { Menu, MenuItem } from '@dhis2-ui/menu'
+import { OrganisationUnitTree } from '@dhis2-ui/organisation-unit-tree'
 import { CustomDataProvider } from '@dhis2/app-runtime'
-import PropTypes from 'prop-types'
+import { colors } from '@dhis2/ui-constants'
 import React, { useState } from 'react'
 
-export const log = true
-export const onChange = (...args) => log && console.log('onChange', ...args)
-export const onExpand = (...args) => log && console.log('onExpand', ...args)
-export const onCollapse = (...args) => log && console.log('onCollapse', ...args)
-export const onChildrenLoaded = (...args) =>
-    log && console.log('onChildrenLoaded', ...args)
+export const decoratorCommonStyles = (fn) => (
+    <>
+        {fn()}
+        <style jsx>{`
+            :global(body) {
+                background: ${colors.grey100};
+                padding: 0 !important;
+            }
+
+            :global(div#root) {
+                padding: 0;
+            }
+        `}</style>
+    </>
+)
 
 export const getOrganisationUnitData = (id) => {
     let data
@@ -117,7 +128,7 @@ export const getOrganisationUnitData = (id) => {
     return data
 }
 
-export const customData = {
+export const dataProviderData = {
     organisationUnits: (_, { id }) => {
         const data = getOrganisationUnitData(id)
 
@@ -129,49 +140,93 @@ export const customData = {
     },
 }
 
-export const StatefulMultiSelectionWrapper = ({
-    children,
-    onSelectionChange = () => null,
-}) => {
-    const [selected, setSelected] = useState([])
-
-    return children({
-        selected,
-        onChange: (...args) => {
-            onChange(...args)
-
-            const [{ selected: newSelected }] = args
-            setSelected(newSelected)
-            onSelectionChange(newSelected)
-        },
-    })
-}
-
-StatefulMultiSelectionWrapper.propTypes = {
-    children: PropTypes.func.isRequired,
-    onSelectionChange: PropTypes.func,
-}
-
-export const createDecoratorStatefulMultiSelection = (args) => {
-    return (Story) => (
-        <StatefulMultiSelectionWrapper
-            onSelectionChange={args?.onSelectionChange}
-        >
-            {({ selected, onChange }) => (
-                <Story selected={selected} onChange={onChange} />
-            )}
-        </StatefulMultiSelectionWrapper>
-    )
-}
-
 export const createDecoratorCustomDataProvider = (args) => {
-    const data = args?.data || customData
+    const data = args?.data || dataProviderData
 
     return (Story) => {
+        window.dataProviderData = data
+
         return (
             <CustomDataProvider data={data}>
                 <Story />
             </CustomDataProvider>
         )
     }
+}
+
+export const createStatefulDecorator = (args) => {
+    return (fn) => {
+        const [workflow, setWorkflow] = useState(args?.workflow || null)
+        const [workflowOpen, setWorkflowOpen] = useState(
+            args?.workflowOpen || false
+        )
+        const [dataSet, setDataSet] = useState(args?.dataSet || null)
+        const [dataSetOpen, setDataSetOpen] = useState(
+            args?.dataSetOpen || false
+        )
+        const [orgUnit, setOrgUnit] = useState(args?.orgUnit || null)
+        const [orgUnitOpen, setOrgUnitOpen] = useState(
+            args?.orgUnitOpen || false
+        )
+
+        return (
+            <>
+                {fn({
+                    workflow,
+                    setWorkflow,
+                    workflowOpen,
+                    setWorkflowOpen,
+                    dataSet,
+                    setDataSet,
+                    dataSetOpen,
+                    setDataSetOpen,
+                    orgUnit,
+                    setOrgUnit,
+                    orgUnitOpen,
+                    setOrgUnitOpen,
+                })}
+            </>
+        )
+    }
+}
+
+export const workflows = [
+    { value: 'm<4y', label: 'Mortality < 4 years' },
+    { value: 'm<5y', label: 'Mortality < 5 years' },
+]
+
+export const dataSets = [
+    { value: 'data-set-1', label: 'Data set 1' },
+    { value: 'data-set-2', label: 'Data set 2' },
+    { value: 'data-set-3', label: 'Data set 3' },
+]
+
+export const MenuSelect = ({ values, selected, onChange }) => {
+    return (
+        <div style={{ width: 400 }}>
+            <Menu>
+                {values.map(({ value, label }) => (
+                    <MenuItem
+                        key={value}
+                        label={label}
+                        active={selected === value}
+                        onClick={() => onChange({ selected: value })}
+                    />
+                ))}
+            </Menu>
+        </div>
+    )
+}
+
+export const OrgUnitSelect = ({ onChange, selected }) => {
+    return (
+        <div style={{ width: 400, minHeight: 400, maxHeight: '70vh' }}>
+            <OrganisationUnitTree
+                singleSelection
+                onChange={onChange}
+                roots={['A0000000000']}
+                selected={selected}
+            />
+        </div>
+    )
 }
