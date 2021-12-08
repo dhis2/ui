@@ -1,8 +1,16 @@
-import { Popover } from '@dhis2-ui/popover'
+import { Layer } from '@dhis2-ui/layer'
+import { Popper } from '@dhis2-ui/popper'
 import { colors, spacers } from '@dhis2/ui-constants'
 import { IconChevronUp24, IconChevronDown24 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React, { useRef } from 'react'
+
+const offsetModifier = {
+    name: 'offset',
+    options: {
+        offset: [0, 2],
+    },
+}
 
 /**
  * The reason this component expects the "open" state and "setOpen" function is
@@ -44,17 +52,20 @@ export const SelectorBarItem = ({
             </span>
 
             {open && (
-                <Popover
-                    reference={buttonRef}
-                    arrow={false}
-                    placement="bottom-end"
-                    onClickOutside={(_, evt) => {
+                <Layer
+                    onClick={(_, evt) => {
                         evt.stopPropagation()
                         setOpen(false)
                     }}
                 >
-                    {children}
-                </Popover>
+                    <Popper
+                        reference={buttonRef}
+                        placement="bottom-end"
+                        modifiers={[offsetModifier]}
+                    >
+                        {children}
+                    </Popper>
+                </Layer>
             )}
 
             <style jsx>{`
