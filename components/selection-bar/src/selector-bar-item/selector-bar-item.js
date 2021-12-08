@@ -62,7 +62,6 @@ export const SelectorBarItem = ({
                     display: flex;
                     cursor: pointer;
                     background: none;
-                    border: 0;
                     height: 40px;
                     align-items: center;
                     ${
@@ -74,7 +73,8 @@ export const SelectorBarItem = ({
                     padding: 0 ${spacers.dp8} 0 ${spacers.dp12};
                     font-size: 14px;
                     line-height: 16px;
-                    border: 1px solid ${colors.grey400};
+                    border: none;
+                    box-shadow: 0px 0px 0px 1px ${colors.grey400};
                 }
 
                 .selector-bar-item:disabled {

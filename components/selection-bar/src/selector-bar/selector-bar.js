@@ -70,6 +70,7 @@ export const SelectorBar = ({
                     display: flex;
                     flex-wrap: wrap;
                     flex-grow: 1;
+                    gap: 1px;
                 }
 
                 .additional-contents {
