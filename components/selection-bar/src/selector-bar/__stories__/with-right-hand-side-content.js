@@ -1,6 +1,6 @@
 import { Button } from '@dhis2-ui/button'
 import React from 'react'
-import { SelectorGroup, SelectorGroupItem } from '../../index.js'
+import { SelectorBar, SelectorBarItem } from '../../index.js'
 import {
     OrgUnitSelect,
     MenuSelect,
@@ -35,7 +35,7 @@ export const WithAdditionalContent = (_, {
     setOrgUnitOpen,
 }) => {
     return (
-        <SelectorGroup
+        <SelectorBar
             disableClearSelections={!workflow || !orgUnit}
             onClearSelectionClick={() => {
                 setWorkflow(null)
@@ -43,7 +43,7 @@ export const WithAdditionalContent = (_, {
             }}
             additionalContent={<RHSContent />}
         >
-            <SelectorGroupItem
+            <SelectorBarItem
                 disabled={false}
                 label="Workflow"
                 value={workflow?.label}
@@ -64,9 +64,9 @@ export const WithAdditionalContent = (_, {
                         setWorkflowOpen(false)
                     }}
                 />
-            </SelectorGroupItem>
+            </SelectorBarItem>
 
-            <SelectorGroupItem
+            <SelectorBarItem
                 disabled={!workflow}
                 label="Org unit"
                 value={orgUnit?.displayName}
@@ -82,8 +82,8 @@ export const WithAdditionalContent = (_, {
                         setOrgUnitOpen(false)
                     }}
                 />
-            </SelectorGroupItem>
-        </SelectorGroup>
+            </SelectorBarItem>
+        </SelectorBar>
     )
 }
 

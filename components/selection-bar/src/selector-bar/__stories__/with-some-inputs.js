@@ -1,5 +1,5 @@
 import React from 'react'
-import { SelectorGroup, SelectorGroupItem } from '../../index.js'
+import { SelectorBar, SelectorBarItem } from '../../index.js'
 import {
     OrgUnitSelect,
     MenuSelect,
@@ -20,14 +20,14 @@ export const WithSomeInputs = (_, {
     setOrgUnitOpen,
 }) => {
     return (
-        <SelectorGroup
+        <SelectorBar
             disableClearSelections={!workflow && !orgUnit}
             onClearSelectionClick={() => {
                 setWorkflow(null)
                 setOrgUnit(null)
             }}
         >
-            <SelectorGroupItem
+            <SelectorBarItem
                 disabled={false}
                 label="Workflow"
                 value={workflow?.label}
@@ -48,9 +48,9 @@ export const WithSomeInputs = (_, {
                         setWorkflowOpen(false)
                     }}
                 />
-            </SelectorGroupItem>
+            </SelectorBarItem>
 
-            <SelectorGroupItem
+            <SelectorBarItem
                 disabled={!workflow}
                 label="Org unit"
                 value={orgUnit?.displayName}
@@ -66,8 +66,8 @@ export const WithSomeInputs = (_, {
                         setOrgUnitOpen(false)
                     }}
                 />
-            </SelectorGroupItem>
-        </SelectorGroup>
+            </SelectorBarItem>
+        </SelectorBar>
     )
 }
 

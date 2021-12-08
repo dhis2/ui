@@ -1,51 +1,51 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import React from 'react'
-import { SelectorGroupItem } from '../selector-group-item/index.js'
-import { SelectorGroup } from './selector-group.js'
+import { SelectorBarItem } from '../selector-bar-item/index.js'
+import { SelectorBar } from './selector-bar.js'
 
 const noop = () => null
 
-describe('SelectorGroup', () => {
-    it('should render the selection group items', () => {
+describe('SelectorBar', () => {
+    it('should render the selection bar items', () => {
         render(
-            <SelectorGroup>
-                <SelectorGroupItem
-                    label="Selection group item 1"
+            <SelectorBar>
+                <SelectorBarItem
+                    label="Selection bar item 1"
                     noValueMessage="No value message 1"
                     open={false}
                     setOpen={noop}
                 >
                     Content
-                </SelectorGroupItem>
+                </SelectorBarItem>
 
-                <SelectorGroupItem
-                    label="Selection group item 2"
+                <SelectorBarItem
+                    label="Selection bar item 2"
                     noValueMessage="No value message 2"
                     open={false}
                     setOpen={noop}
                 >
                     Content
-                </SelectorGroupItem>
-            </SelectorGroup>
+                </SelectorBarItem>
+            </SelectorBar>
         )
 
-        expect(screen.getByText('Selection group item 1')).not.toBeNull()
-        expect(screen.getByText('Selection group item 2')).not.toBeNull()
+        expect(screen.getByText('Selection bar item 1')).not.toBeNull()
+        expect(screen.getByText('Selection bar item 2')).not.toBeNull()
     })
 
     it('should not disable the clear selection button by default', () => {
         render(
-            <SelectorGroup onClearSelectionClick={noop}>
-                <SelectorGroupItem
+            <SelectorBar onClearSelectionClick={noop}>
+                <SelectorBarItem
                     label="label"
                     noValueMessage="msg"
                     open={false}
                     setOpen={noop}
                 >
                     Content
-                </SelectorGroupItem>
-            </SelectorGroup>
+                </SelectorBarItem>
+            </SelectorBar>
         )
 
         const clearBtn = screen.getByText('Clear selections')
@@ -55,16 +55,16 @@ describe('SelectorGroup', () => {
 
     it('should disable the clear selection button', () => {
         render(
-            <SelectorGroup disableClearSelections onClearSelectionClick={noop}>
-                <SelectorGroupItem
+            <SelectorBar disableClearSelections onClearSelectionClick={noop}>
+                <SelectorBarItem
                     label="label"
                     noValueMessage="msg"
                     open={false}
                     setOpen={noop}
                 >
                     Content
-                </SelectorGroupItem>
-            </SelectorGroup>
+                </SelectorBarItem>
+            </SelectorBar>
         )
 
         const clearBtn = screen.getByText('Clear selections')
@@ -74,16 +74,16 @@ describe('SelectorGroup', () => {
 
     it('should render the optional content', () => {
         render(
-            <SelectorGroup additionalContent={<div>Foobar</div>}>
-                <SelectorGroupItem
+            <SelectorBar additionalContent={<div>Foobar</div>}>
+                <SelectorBarItem
                     label="label"
                     noValueMessage="msg"
                     open={false}
                     setOpen={noop}
                 >
                     Content
-                </SelectorGroupItem>
-            </SelectorGroup>
+                </SelectorBarItem>
+            </SelectorBar>
         )
 
         const extraContent = screen.getByText('Foobar')

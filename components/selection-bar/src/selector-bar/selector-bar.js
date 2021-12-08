@@ -29,7 +29,7 @@ ClearSelection.propTypes = {
     onClick: PropTypes.func,
 }
 
-export const SelectorGroup = ({
+export const SelectorBar = ({
     children,
     onClearSelectionClick,
     disableClearSelections,
@@ -88,7 +88,7 @@ export const SelectorGroup = ({
     </>
 )
 
-SelectorGroup.propTypes = {
+SelectorBar.propTypes = {
     children: PropTypes.any.isRequired,
     additionalContent: PropTypes.any,
     disableClearSelections: PropTypes.bool,

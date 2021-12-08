@@ -1,6 +1,6 @@
 import { OrganisationUnitTree } from '@dhis2-ui/organisation-unit-tree'
 import React from 'react'
-import { SelectorGroup, SelectorGroupItem } from '../../index.js'
+import { SelectorBar, SelectorBarItem } from '../../index.js'
 import {
     MenuSelect,
     createDecoratorCustomDataProvider,
@@ -26,11 +26,11 @@ export const WithMultipleRows = (_, {
 }) => {
     return (
         <div className="narrow-container">
-            <SelectorGroup
+            <SelectorBar
                 disableClearSelections
                 onClearSelectionClick={() => null}
             >
-                <SelectorGroupItem
+                <SelectorBarItem
                     disabled={false}
                     label="Workflow"
                     value={workflow?.label}
@@ -51,9 +51,9 @@ export const WithMultipleRows = (_, {
                             setWorkflowOpen(false)
                         }}
                     />
-                </SelectorGroupItem>
+                </SelectorBarItem>
 
-                <SelectorGroupItem
+                <SelectorBarItem
                     disabled={!workflow}
                     label="Data set"
                     value={dataSet?.label}
@@ -74,9 +74,9 @@ export const WithMultipleRows = (_, {
                             setDataSetOpen(false)
                         }}
                     />
-                </SelectorGroupItem>
+                </SelectorBarItem>
 
-                <SelectorGroupItem
+                <SelectorBarItem
                     disabled={!workflow && !dataSet}
                     label="Org unit"
                     value={orgUnit?.displayName}
@@ -96,11 +96,11 @@ export const WithMultipleRows = (_, {
                             selected={orgUnit ? [orgUnit.path] : []}
                         />
                     </div>
-                </SelectorGroupItem>
-            </SelectorGroup>
+                </SelectorBarItem>
+            </SelectorBar>
 
             <p style={{ padding: '0 16px', textAlign: 'center' }}>
-                This story shows the selection group component with multiple rows when a workflow has been selected.
+                This story shows the selection bar component with multiple rows when a workflow has been selected.
             </p>
 
             <style jsx>{`

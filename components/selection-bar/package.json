@@ -1,11 +1,11 @@
 {
-    "name": "@dhis2-ui/selector-group",
+    "name": "@dhis2-ui/selector-bar",
     "version": "7.8.0",
     "description": "UI Select",
     "repository": {
         "type": "git",
         "url": "https://github.com/dhis2/ui.git",
-        "directory": "components/selector-group"
+        "directory": "components/selector-bar"
     },
     "homepage": "https://github.com/dhis2/ui#readme",
     "license": "BSD-3-Clause",

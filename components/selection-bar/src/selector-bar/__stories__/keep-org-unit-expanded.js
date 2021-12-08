@@ -1,6 +1,6 @@
 import { OrganisationUnitTree } from '@dhis2-ui/organisation-unit-tree'
 import React, { useState } from 'react'
-import { SelectorGroup, SelectorGroupItem } from '../../index.js'
+import { SelectorBar, SelectorBarItem } from '../../index.js'
 import {
     createStatefulDecorator,
     decoratorCommonStyles,
@@ -21,11 +21,11 @@ export const KeepOrgUnitExpanded = (_, {
 
     return (
         <>
-            <SelectorGroup
+            <SelectorBar
                 disableClearSelections={!orgUnit}
                 onClearSelectionClick={() => setOrgUnit(null)}
             >
-                <SelectorGroupItem
+                <SelectorBarItem
                     label="Org unit"
                     value={orgUnit?.displayName}
                     noValueMessage="Choose an organisation unit"
@@ -47,12 +47,12 @@ export const KeepOrgUnitExpanded = (_, {
                             handleCollapse={handleCollapse}
                         />
                     </div>
-                </SelectorGroupItem>
-            </SelectorGroup>
+                </SelectorBarItem>
+            </SelectorBar>
 
             <p style={{ padding: '0 16px' }}>
                 This story illustrates how to keep states between mount/unmount
-                cycles of the component rendered inside the selector group icon
+                cycles of the component rendered inside the selector bar icon
             </p>
         </>
     )

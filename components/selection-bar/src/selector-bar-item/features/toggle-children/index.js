@@ -1,18 +1,18 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('the selector group item is closed', () => {
-    cy.visitStory('SelectorGroupItem', 'closed no value')
+Given('the selector bar item is closed', () => {
+    cy.visitStory('SelectorBarItem', 'closed no value')
 })
 
-Given('the selector group item is open', () => {
-    cy.visitStory('SelectorGroupItem', 'open no value')
+Given('the selector bar item is open', () => {
+    cy.visitStory('SelectorBarItem', 'open no value')
 })
 
-When('the user opens the selector group item', () => {
-    cy.contains('Selection group item', { selector: 'button' }).click()
+When('the user opens the selector bar item', () => {
+    cy.contains('Selection bar item', { selector: 'button' }).click()
 })
 
-When('the user closes the selector group item', () => {
+When('the user closes the selector bar item', () => {
     cy.get('body').click('topLeft')
 })
 
