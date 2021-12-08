@@ -1,11 +1,10 @@
-/* eslint-disable react/display-name */
 import { Menu, MenuItem } from '@dhis2-ui/menu'
 import { OrganisationUnitTree } from '@dhis2-ui/organisation-unit-tree'
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import React, { useState } from 'react'
 
-export const decoratorCommonStyles = fn => (
+export const decoratorCommonStyles = (fn) => (
     <>
         {fn()}
         <style jsx>{`
@@ -156,13 +155,19 @@ export const createDecoratorCustomDataProvider = (args) => {
 }
 
 export const createStatefulDecorator = (args) => {
-    return fn => {
+    return (fn) => {
         const [workflow, setWorkflow] = useState(args?.workflow || null)
-        const [workflowOpen, setWorkflowOpen] = useState(args?.workflowOpen || false)
+        const [workflowOpen, setWorkflowOpen] = useState(
+            args?.workflowOpen || false
+        )
         const [dataSet, setDataSet] = useState(args?.dataSet || null)
-        const [dataSetOpen, setDataSetOpen] = useState(args?.dataSetOpen || false)
+        const [dataSetOpen, setDataSetOpen] = useState(
+            args?.dataSetOpen || false
+        )
         const [orgUnit, setOrgUnit] = useState(args?.orgUnit || null)
-        const [orgUnitOpen, setOrgUnitOpen] = useState(args?.orgUnitOpen || false)
+        const [orgUnitOpen, setOrgUnitOpen] = useState(
+            args?.orgUnitOpen || false
+        )
 
         return (
             <>

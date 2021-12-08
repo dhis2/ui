@@ -52,9 +52,7 @@ export const SelectorBar = ({
             </div>
 
             {additionalContent && (
-                <div className="additional-contents">
-                    {additionalContent}
-                </div>
+                <div className="additional-contents">{additionalContent}</div>
             )}
 
             <style jsx>{`

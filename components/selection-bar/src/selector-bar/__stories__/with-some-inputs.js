@@ -9,16 +9,19 @@ import {
     workflows,
 } from './common.js'
 
-export const WithSomeInputs = (_, {
-    workflow,
-    setWorkflow,
-    workflowOpen,
-    setWorkflowOpen,
-    orgUnit,
-    setOrgUnit,
-    orgUnitOpen,
-    setOrgUnitOpen,
-}) => {
+export const WithSomeInputs = (
+    _,
+    {
+        workflow,
+        setWorkflow,
+        workflowOpen,
+        setWorkflowOpen,
+        orgUnit,
+        setOrgUnit,
+        orgUnitOpen,
+        setOrgUnitOpen,
+    }
+) => {
     return (
         <SelectorBar
             disableClearSelections={!workflow && !orgUnit}

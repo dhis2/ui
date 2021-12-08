@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types,react/no-unescaped-entities */
 import { DataProvider } from '@dhis2/app-runtime'
 import React, { useState } from 'react'
 import { OrganisationUnitTree } from '../index.js'
@@ -54,8 +53,8 @@ export const DxWithRealBackend = () => (
     <div>
         <div style={{ marginBottom: 20, lineHeight: '28px' }}>
             <b>
-                This story doesn't work on netlify for some reason, just run it
-                locally.
+                This story doesn&apos;t work on netlify for some reason, just
+                run it locally.
             </b>
             <br />
             You need to log in to{' '}

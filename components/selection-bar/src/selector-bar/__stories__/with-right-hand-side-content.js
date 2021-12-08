@@ -24,16 +24,19 @@ const RHSContent = () => (
     </div>
 )
 
-export const WithAdditionalContent = (_, {
-    workflow,
-    setWorkflow,
-    workflowOpen,
-    setWorkflowOpen,
-    orgUnit,
-    setOrgUnit,
-    orgUnitOpen,
-    setOrgUnitOpen,
-}) => {
+export const WithAdditionalContent = (
+    _,
+    {
+        workflow,
+        setWorkflow,
+        workflowOpen,
+        setWorkflowOpen,
+        orgUnit,
+        setOrgUnit,
+        orgUnitOpen,
+        setOrgUnitOpen,
+    }
+) => {
     return (
         <SelectorBar
             disableClearSelections={!workflow || !orgUnit}

@@ -7,17 +7,14 @@ import {
     createDecoratorCustomDataProvider,
 } from './common.js'
 
-export const KeepOrgUnitExpanded = (_, {
-    orgUnit,
-    setOrgUnit,
-    orgUnitOpen,
-    setOrgUnitOpen,
-}) => {
+export const KeepOrgUnitExpanded = (
+    _,
+    { orgUnit, setOrgUnit, orgUnitOpen, setOrgUnitOpen }
+) => {
     const [expanded, setExpanded] = useState([])
-    const handleExpand = ({ path }) => setExpanded([ ...expanded, path ])
-    const handleCollapse = ({ path }) => setExpanded(
-        expanded.filter(p => p !== path)
-    )
+    const handleExpand = ({ path }) => setExpanded([...expanded, path])
+    const handleCollapse = ({ path }) =>
+        setExpanded(expanded.filter((p) => p !== path))
 
     return (
         <>
@@ -32,7 +29,13 @@ export const KeepOrgUnitExpanded = (_, {
                     open={orgUnitOpen}
                     setOpen={setOrgUnitOpen}
                 >
-                    <div style={{ width: 400, minHeight: 400, maxHeight: '70vh' }}>
+                    <div
+                        style={{
+                            width: 400,
+                            minHeight: 400,
+                            maxHeight: '70vh',
+                        }}
+                    >
                         <OrganisationUnitTree
                             singleSelection
                             roots={['A0000000000']}

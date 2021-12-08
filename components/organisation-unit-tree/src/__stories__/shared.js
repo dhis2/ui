@@ -1,4 +1,3 @@
-/* eslint-disable react/display-name */
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'

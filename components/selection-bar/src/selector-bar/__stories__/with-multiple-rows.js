@@ -10,20 +10,23 @@ import {
     workflows,
 } from './common.js'
 
-export const WithMultipleRows = (_, {
-    workflow,
-    setWorkflow,
-    workflowOpen,
-    setWorkflowOpen,
-    dataSet,
-    setDataSet,
-    dataSetOpen,
-    setDataSetOpen,
-    orgUnit,
-    setOrgUnit,
-    orgUnitOpen,
-    setOrgUnitOpen,
-}) => {
+export const WithMultipleRows = (
+    _,
+    {
+        workflow,
+        setWorkflow,
+        workflowOpen,
+        setWorkflowOpen,
+        dataSet,
+        setDataSet,
+        dataSetOpen,
+        setDataSetOpen,
+        orgUnit,
+        setOrgUnit,
+        orgUnitOpen,
+        setOrgUnitOpen,
+    }
+) => {
     return (
         <div className="narrow-container">
             <SelectorBar
@@ -84,7 +87,13 @@ export const WithMultipleRows = (_, {
                     open={orgUnitOpen}
                     setOpen={setOrgUnitOpen}
                 >
-                    <div style={{ width: 400, minHeight: 400, maxHeight: '70vh' }}>
+                    <div
+                        style={{
+                            width: 400,
+                            minHeight: 400,
+                            maxHeight: '70vh',
+                        }}
+                    >
                         <OrganisationUnitTree
                             singleSelection
                             onChange={(nextOrgUnit, evt) => {
@@ -100,7 +109,8 @@ export const WithMultipleRows = (_, {
             </SelectorBar>
 
             <p style={{ padding: '0 16px', textAlign: 'center' }}>
-                This story shows the selection bar component with multiple rows when a workflow has been selected.
+                This story shows the selection bar component with multiple rows
+                when a workflow has been selected.
             </p>
 
             <style jsx>{`
