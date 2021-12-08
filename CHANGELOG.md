@@ -1,3 +1,18 @@
+# [7.10.0](https://github.com/dhis2/ui/compare/v7.9.1...v7.10.0) (2021-12-08)
+
+
+### Bug Fixes
+
+* **selection-bar-item:** wrap children in card ([c15415b](https://github.com/dhis2/ui/commit/c15415bf8df6ef7337de918a24171adba019729b))
+* use popper and custom offset ([f493bb5](https://github.com/dhis2/ui/commit/f493bb53f89d4697370fa4ee7f4ae537e7330450))
+* **selection-bar:** address double border issue ([4cf8f75](https://github.com/dhis2/ui/commit/4cf8f75d9cfe329984057dc5da6e927bae87c93f))
+* **selector bar item:** ensure that component always has a right-side border ([de2325d](https://github.com/dhis2/ui/commit/de2325d9ddefa37b8b0f8fdfcf7958d1d60ee2ec))
+
+
+### Features
+
+* **context selection:** add components & stories ([80f34d3](https://github.com/dhis2/ui/commit/80f34d38f540677c955b4c4aac06e0e1b2f9d40f))
+
 ## [7.9.1](https://github.com/dhis2/ui/compare/v7.9.0...v7.9.1) (2021-12-06)
 
 
