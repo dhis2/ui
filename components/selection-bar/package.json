@@ -33,6 +33,7 @@
     },
     "dependencies": {
         "@dhis2-ui/button": "7.8.0",
+        "@dhis2-ui/card": "7.8.0",
         "@dhis2-ui/popper": "7.8.0",
         "@dhis2-ui/layer": "7.8.0",
         "@dhis2/ui-constants": "7.8.0",

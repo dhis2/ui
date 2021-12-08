@@ -1,3 +1,4 @@
+import { Card } from '@dhis2-ui/card'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
 import { colors, spacers } from '@dhis2/ui-constants'
@@ -63,7 +64,7 @@ export const SelectorBarItem = ({
                         placement="bottom-end"
                         modifiers={[offsetModifier]}
                     >
-                        {children}
+                        <Card>{children}</Card>
                     </Popper>
                 </Layer>
             )}
