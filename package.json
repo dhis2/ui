@@ -21,7 +21,8 @@
             "components/*",
             "constants",
             "icons",
-            "storybook"
+            "storybook",
+            "dump"
         ]
     },
     "scripts": {
