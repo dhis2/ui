@@ -64,16 +64,18 @@ export const parameters = {
     },
     docs: {
         // Customize docs page layout (in order to rename 'Stories' section)
-        page: () => (
-            <>
-                <Title />
-                <Subtitle />
-                <Description />
-                <Primary />
-                <ArgsTable story={PRIMARY_STORY} />
-                <Stories title="Examples" />
-            </>
-        ),
+        page: function Page() {
+            return (
+                <>
+                    <Title />
+                    <Subtitle />
+                    <Description />
+                    <Primary />
+                    <ArgsTable story={PRIMARY_STORY} />
+                    <Stories title="Examples" />
+                </>
+            )
+        },
     },
     jsx: {
         filterProps: (val) => val !== undefined,
