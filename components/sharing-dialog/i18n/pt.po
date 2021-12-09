@@ -5,13 +5,14 @@
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # Ge Joao <gsimango@saudigitus.org>, 2021
 # Sheila André <sandre@saudigitus.org>, 2021
+# Fernando Jorge Bade, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-11-25T09:59:40.995Z\n"
 "PO-Revision-Date: 2021-10-01 23:39+0000\n"
-"Last-Translator: Sheila André <sandre@saudigitus.org>, 2021\n"
+"Last-Translator: Fernando Jorge Bade, 2021\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +36,7 @@ msgid "Select a level"
 msgstr "Selecione um nível"
 
 msgid "Not available offline"
-msgstr ""
+msgstr "Não disponível offline"
 
 msgid "Give access"
 msgstr ""
