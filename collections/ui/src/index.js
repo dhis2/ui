@@ -66,6 +66,7 @@ export {
     SingleSelectField,
     SingleSelectOption,
 } from '@dhis2-ui/select'
+export { SelectorBar, SelectorBarItem } from '@dhis2-ui/selector-bar'
 export { Switch, SwitchField } from '@dhis2-ui/switch'
 export {
     DataTable,
