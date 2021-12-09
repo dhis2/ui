@@ -1,3 +1,10 @@
+## [7.10.1](https://github.com/dhis2/ui/compare/v7.10.0...v7.10.1) (2021-12-09)
+
+
+### Bug Fixes
+
+* **button:** secondary button contrast ([4ce00ac](https://github.com/dhis2/ui/commit/4ce00ac46e0195d89cfbd5acc00c445ebfd15ecf))
+
 # [7.10.0](https://github.com/dhis2/ui/compare/v7.9.1...v7.10.0) (2021-12-08)
 
 
