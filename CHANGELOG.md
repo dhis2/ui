@@ -1,3 +1,10 @@
+## [7.10.2](https://github.com/dhis2/ui/compare/v7.10.1...v7.10.2) (2021-12-09)
+
+
+### Bug Fixes
+
+* **selector bar:** add to ui collection ([6093f7a](https://github.com/dhis2/ui/commit/6093f7a3497e3441eea45dc19cbb2ccf1ba023c5))
+
 ## [7.10.1](https://github.com/dhis2/ui/compare/v7.10.0...v7.10.1) (2021-12-09)
 
 
