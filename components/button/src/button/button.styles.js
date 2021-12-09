@@ -118,13 +118,13 @@ export default css`
     }
 
     .secondary {
-        border-color: ${colors.grey400};
+        border-color: rgba(74, 87, 104, 0.25);
         background-color: transparent;
     }
 
     .secondary:hover {
-        border-color: ${colors.grey400};
-        background-color: rgba(160, 173, 186, 0.08);
+        border-color: rgba(74, 87, 104, 0.5);
+        background-color: rgba(160, 173, 186, 0.05);
     }
 
     .secondary:active,
@@ -138,7 +138,7 @@ export default css`
     }
 
     .secondary:disabled {
-        border-color: ${colors.grey400};
+        border-color: rgba(74, 87, 104, 0.25);
         background-color: transparent;
         box-shadow: none;
         color: ${theme.disabled};
