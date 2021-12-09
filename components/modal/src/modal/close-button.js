@@ -12,24 +12,32 @@ export const CloseButton = ({ onClick }) => (
         data-test="dhis2-modal-close-button"
         onClick={createClickHandler(onClick)}
     >
-        <IconCross16 color={colors.grey800} />
+        <IconCross16 />
         <style jsx>{`
             button {
                 background-color: transparent;
+                color: ${colors.grey700};
                 border: none;
-                padding: 4px 4px 0px;
                 outline: none;
-                position: absolute;
-                top: 8px;
-                right: 8px;
+                padding: 4px 4px 0px;
                 border-radius: 3px;
+                position: absolute;
+                top: 0px;
+                right: 0px;
             }
             button:hover {
                 background-color: ${colors.grey200};
+                color: ${colors.grey900};
             }
             button:focus {
                 background-color: ${colors.grey200};
                 outline: 3px solid ${theme.focus};
+            }
+            button:focus:not(:focus-visible) {
+                outline: none;
+            }
+            button:active {
+                background-color: ${colors.grey300};
             }
         `}</style>
     </button>
