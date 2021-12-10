@@ -17,13 +17,13 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 msgid "View only"
-msgstr ""
+msgstr "العرض فقط"
 
 msgid "View and edit"
-msgstr ""
+msgstr "عرض وتعديل"
 
 msgid "Give access to a user or group"
-msgstr ""
+msgstr "منح حق الوصول إلى مستخدم أو مجموعة"
 
 msgid "Access level"
 msgstr "مستوى الوصول"
@@ -32,19 +32,19 @@ msgid "Select a level"
 msgstr "حدد مستوى"
 
 msgid "Not available offline"
-msgstr ""
+msgstr "غير متوفر في وضع عدم الإتصال"
 
 msgid "Give access"
-msgstr ""
+msgstr "السماح بالوصول"
 
 msgid "Users and groups that currently have access"
-msgstr ""
+msgstr "المستخدمون والمجموعات التي لديها حق الوصول حاليًا"
 
 msgid "User / Group"
 msgstr ""
 
 msgid "All users"
-msgstr ""
+msgstr "جميع المستخدمين"
 
 msgid "No access"
 msgstr "لا يمكن الوصول"
@@ -53,16 +53,16 @@ msgid "Can view"
 msgstr "إمكانية الاستعراض"
 
 msgid "Can view and edit"
-msgstr ""
+msgstr "يمكن العرض والتعديل"
 
 msgid "Metadata"
 msgstr "البيانات الوصفية"
 
 msgid "Remove access"
-msgstr ""
+msgstr "إزالة الوصول"
 
 msgid "User or group"
-msgstr ""
+msgstr "مستخدم أو مجموعة"
 
 msgid "Search"
 msgstr "بحث"

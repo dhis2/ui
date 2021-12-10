@@ -20,13 +20,13 @@ msgid "Upload file"
 msgstr "تحميل الملف"
 
 msgid "Upload files"
-msgstr ""
+msgstr "تحميل الملفات"
 
 msgid "Remove"
 msgstr "إزلة"
 
 msgid "No file(s) selected yet"
-msgstr ""
+msgstr "لم يتم تحديد ملف (ملفات) حتى الآن"
 
 msgid "Please provide an alpha-numeric value"
 msgstr ""
@@ -107,4 +107,4 @@ msgid "Please provide a string"
 msgstr ""
 
 msgid "Please provide a valid url"
-msgstr "يرجى ادخال صيغة ارتباط تشعبي سليمة"
+msgstr "يرجى ادخال صيغة ارتباط url سليمة"

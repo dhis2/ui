@@ -19,4 +19,4 @@ msgid "Could not load children"
 msgstr "تعذر تحميل الأبناء"
 
 msgid "Error: {{ ERRORMESSAGE }}"
-msgstr ""
+msgstr "خطأ: {{ERRORMESSAGE}}"
