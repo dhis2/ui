@@ -23,10 +23,10 @@ msgid "No data found"
 msgstr "لم يتم إيجاد بيانات"
 
 msgid "Type to filter options"
-msgstr ""
+msgstr "اكتب لتصفية الخيارات"
 
 msgid "Loading options"
-msgstr ""
+msgstr "تحميل الخيارات"
 
 msgid "No options found"
-msgstr ""
+msgstr "لم يتم العثور على خيارات"
