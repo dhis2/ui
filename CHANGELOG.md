@@ -1,3 +1,17 @@
+## [7.10.5](https://github.com/dhis2/ui/compare/v7.10.4...v7.10.5) (2021-12-20)
+
+
+### Bug Fixes
+
+* **button:** focus style ([b6594d1](https://github.com/dhis2/ui/commit/b6594d1cdb22fbdf120b5b95d5cd225384773f61))
+* **checkbox:** focus style ([bb56aaa](https://github.com/dhis2/ui/commit/bb56aaa1c796fcb9e46610e03883f1ddb86c4504))
+* **input:** focus style ([70651f8](https://github.com/dhis2/ui/commit/70651f8383780f1f9476761937efbfad07116065))
+* **radio:** focus style ([91a18fa](https://github.com/dhis2/ui/commit/91a18fa262a99535986bf0406162128be733da29))
+* **segmented-control:** focus style ([dcd5e7d](https://github.com/dhis2/ui/commit/dcd5e7dc1e111020ccf10253a7b7a512bdcc178a))
+* **select:** focus style ([3568d6c](https://github.com/dhis2/ui/commit/3568d6cefa9c2af70d23145442e6eb4681a67644))
+* **switch:** focus style ([1c4e782](https://github.com/dhis2/ui/commit/1c4e7828a1c7d8d70388d146d4932d1634a2e3aa))
+* **textarea:** focus style ([0e2f414](https://github.com/dhis2/ui/commit/0e2f414baaf5bb5c74e957fead3104fb0be85d57))
+
 ## [7.10.4](https://github.com/dhis2/ui/compare/v7.10.3...v7.10.4) (2021-12-11)
 
 
