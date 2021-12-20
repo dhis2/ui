@@ -33,14 +33,22 @@ export default css`
 
     button:focus {
         outline: 3px solid ${theme.focus};
-        outline-offset: 2px;
+        outline-offset: -3px;
         transition: none;
+        text-decoration: underline;
+    }
+
+    /* Prevent focus styles when mouse clicking */
+    button:focus:not(:focus-visible) {
+        outline: none;
+        text-decoration: none;
     }
 
     /* Prevent focus styles on active and disabled buttons */
     button:active:focus,
     button:disabled:focus {
         outline: none;
+        text-decoration: none;
     }
 
     button:hover {
@@ -105,8 +113,9 @@ export default css`
     }
 
     .primary:focus {
-        background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
-        background-color: #285dac;
+        background: ${colors.blue800};
+        border-color: ${colors.blue900};
+        outline-offset: -5px;
     }
 
     .primary:disabled {

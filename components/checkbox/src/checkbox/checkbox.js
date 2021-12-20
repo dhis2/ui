@@ -163,7 +163,7 @@ class Checkbox extends Component {
 
                     input:focus + .icon {
                         outline: 3px solid ${theme.focus};
-                        outline-offset: -1px;
+                        outline-offset: -3px;
                     }
                 `}</style>
             </label>

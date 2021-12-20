@@ -131,11 +131,6 @@ class SplitButton extends Component {
                         border-top-left-radius: 0;
                         border-bottom-left-radius: 0;
                     }
-
-                    /*bring the focused button to the front*/
-                    div > :global(button:focus) {
-                        z-index: 10;
-                    }
                 `}</style>
             </div>
         )
