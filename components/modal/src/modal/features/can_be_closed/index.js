@@ -21,3 +21,11 @@ Given('a bottom-aligned Modal with onClose handler is rendered', () => {
 When('the Screencover is clicked below the modal', () => {
     cy.get('[data-test="dhis2-uicore-layer"]').click('bottom')
 })
+
+Given('a Modal with onClose handler is rendered', () => {
+    cy.visitStory('Modal', 'With onClose')
+})
+
+When('the close button is clicked', () => {
+    cy.get('[data-test="dhis2-modal-close-button"]').click()
+})

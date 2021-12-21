@@ -6,6 +6,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { resolve } from 'styled-jsx/css'
+import { CloseButton } from './close-button.js'
 
 const resolveLayerStyles = (hide) =>
     resolve`
@@ -41,6 +42,7 @@ export const Modal = ({
                     className={cx(className, { small, large, fluid })}
                 >
                     <Card>
+                        {onClose && <CloseButton onClick={onClose} />}
                         <div>{children}</div>
                     </Card>
                 </aside>
@@ -93,6 +95,6 @@ Modal.propTypes = {
     large: sharedPropTypes.sizePropType,
     position: sharedPropTypes.insideAlignmentPropType,
     small: sharedPropTypes.sizePropType,
-    /** Callback used when screen cover is clicked */
+    /** Callback used when the Modal closes */
     onClose: PropTypes.func,
 }
