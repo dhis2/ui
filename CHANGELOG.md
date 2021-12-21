@@ -1,3 +1,15 @@
+# [7.11.0](https://github.com/dhis2/ui/compare/v7.10.5...v7.11.0) (2021-12-21)
+
+
+### Bug Fixes
+
+* change close button position, add focus style ([d1147bf](https://github.com/dhis2/ui/commit/d1147bf620119f38ef6e6bf403d630ce043ee7fa))
+
+
+### Features
+
+* **modal:** add close button to nonblocking modals ([885182b](https://github.com/dhis2/ui/commit/885182b9f41e0acb5a16ea3f949f6902f578cce3))
+
 ## [7.10.5](https://github.com/dhis2/ui/compare/v7.10.4...v7.10.5) (2021-12-20)
 
 
