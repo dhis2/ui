@@ -7,7 +7,6 @@ const Message = ({ children }) => (
         <style jsx>{`
             div {
                 flex-grow: 1;
-                min-width: 240px;
             }
         `}</style>
     </div>
