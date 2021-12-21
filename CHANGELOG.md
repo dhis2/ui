@@ -1,3 +1,10 @@
+## [7.11.1](https://github.com/dhis2/ui/compare/v7.11.0...v7.11.1) (2021-12-21)
+
+
+### Bug Fixes
+
+* **alert-bar:** prevent cutoff on small screens ([490a6fa](https://github.com/dhis2/ui/commit/490a6fa70c90da49aaa8df15ab35de56c00c29c9))
+
 # [7.11.0](https://github.com/dhis2/ui/compare/v7.10.5...v7.11.0) (2021-12-21)
 
 
