@@ -36,6 +36,7 @@
         "@dhis2-ui/card": "7.11.2",
         "@dhis2-ui/popper": "7.11.2",
         "@dhis2-ui/layer": "7.11.2",
+        "@dhis2-ui/tooltip": "7.11.2",
         "@dhis2/ui-constants": "7.11.2",
         "@dhis2/ui-icons": "7.11.2",
         "@testing-library/react": "^12.1.2",
