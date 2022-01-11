@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-07T19:28:56.162Z\n"
+"POT-Creation-Date: 2022-01-10T18:10:56.819Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
 "Last-Translator: Valeriu Plesca <vplesca@gmail.com>, 2021\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
@@ -85,7 +85,7 @@ msgstr "Пароль должен содержать хотя бы одну ци
 msgid "Password should have at least one special character"
 msgstr "В пароле должен быть хотя бы один специальный символ"
 
-msgid "Please provide a username between 1 and 255 characters"
+msgid "Please provide a username between 4 and 255 characters"
 msgstr ""
 
 msgid "Please provide a valid email address"

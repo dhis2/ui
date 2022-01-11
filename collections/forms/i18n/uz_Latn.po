@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-07T19:28:56.162Z\n"
+"POT-Creation-Date: 2022-01-10T18:10:56.819Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
 "Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
 "Language-Team: Uzbek (Latin) (https://www.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
@@ -84,7 +84,7 @@ msgstr "Parol tarkibida kamida 1 ta raqam boʼlishi lozim"
 msgid "Password should have at least one special character"
 msgstr "Parol tarkibida kamida 1 ta maxsus belgi boʼlishi lozim"
 
-msgid "Please provide a username between 1 and 255 characters"
+msgid "Please provide a username between 4 and 255 characters"
 msgstr ""
 
 msgid "Please provide a valid email address"
