@@ -5,96 +5,100 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-12-07T19:28:56.162Z\n"
-"PO-Revision-Date: 2020-12-07T19:28:56.162Z\n"
+"POT-Creation-Date: 2022-01-10T18:10:56.819Z\n"
+"PO-Revision-Date: 2022-01-10T18:10:56.819Z\n"
 
 msgid "Upload file"
-msgstr ""
+msgstr "Upload file"
 
 msgid "Upload files"
-msgstr ""
+msgstr "Upload files"
 
 msgid "Remove"
-msgstr ""
+msgstr "Remove"
 
 msgid "No file(s) selected yet"
-msgstr ""
+msgstr "No file(s) selected yet"
 
 msgid "Please provide an alpha-numeric value"
-msgstr ""
+msgstr "Please provide an alpha-numeric value"
 
 msgid "Please provide a boolean value"
-msgstr ""
+msgstr "Please provide a boolean value"
 
 msgid "Please enter between {{lowerBound}} and {{upperBound}} characters"
-msgstr ""
+msgstr "Please enter between {{lowerBound}} and {{upperBound}} characters"
 
 msgid ""
 "Please make sure the value of this input matches the value in "
 "\"{{otherField}}\"."
 msgstr ""
+"Please make sure the value of this input matches the value in "
+"\"{{otherField}}\"."
 
 msgid "Please enter a maximum of {{upperBound}} characters"
-msgstr ""
+msgstr "Please enter a maximum of {{upperBound}} characters"
 
 msgid "Please enter a number with a maximum of {{upperBound}}"
-msgstr ""
+msgstr "Please enter a number with a maximum of {{upperBound}}"
 
 msgid "Please enter at least {{lowerBound}} characters"
-msgstr ""
+msgstr "Please enter at least {{lowerBound}} characters"
 
 msgid "Please enter a number of at least {{lowerBound}}"
-msgstr ""
+msgstr "Please enter a number of at least {{lowerBound}}"
 
 msgid "Number cannot be less than {{lowerBound}} or more than {{upperBound}}"
-msgstr ""
+msgstr "Number cannot be less than {{lowerBound}} or more than {{upperBound}}"
 
 msgid ""
 "Please make sure the value of this input matches the pattern "
 "{{patternString}}."
 msgstr ""
+"Please make sure the value of this input matches the pattern "
+"{{patternString}}."
 
 msgid "Password should be a string"
-msgstr ""
+msgstr "Password should be a string"
 
 msgid "Password should be at least 8 characters long"
-msgstr ""
+msgstr "Password should be at least 8 characters long"
 
 msgid "Password should be no longer than 34 characters"
-msgstr ""
+msgstr "Password should be no longer than 34 characters"
 
 msgid "Password should contain at least one lowercase letter"
-msgstr ""
+msgstr "Password should contain at least one lowercase letter"
 
 msgid "Password should contain at least one UPPERCASE letter"
-msgstr ""
+msgstr "Password should contain at least one UPPERCASE letter"
 
 msgid "Password should contain at least one number"
-msgstr ""
+msgstr "Password should contain at least one number"
 
 msgid "Password should have at least one special character"
-msgstr ""
+msgstr "Password should have at least one special character"
 
-msgid "Please provide a username between 1 and 255 characters"
-msgstr ""
+msgid "Please provide a username between 4 and 255 characters"
+msgstr "Please provide a username between 4 and 255 characters"
 
 msgid "Please provide a valid email address"
-msgstr ""
+msgstr "Please provide a valid email address"
 
 msgid "Please provide a value"
-msgstr ""
+msgstr "Please provide a value"
 
 msgid "Please provide a round number without decimals"
-msgstr ""
+msgstr "Please provide a round number without decimals"
 
 msgid "Please provide a valid international phone number."
-msgstr ""
+msgstr "Please provide a valid international phone number."
 
 msgid "Please provide a number"
-msgstr ""
+msgstr "Please provide a number"
 
 msgid "Please provide a string"
-msgstr ""
+msgstr "Please provide a string"
 
 msgid "Please provide a valid url"
-msgstr ""
+msgstr "Please provide a valid url"
