@@ -1,3 +1,10 @@
+## [7.11.3](https://github.com/dhis2/ui/compare/v7.11.2...v7.11.3) (2022-01-11)
+
+
+### Bug Fixes
+
+* **forms:** update username regex to match 2.38 backend ([#914](https://github.com/dhis2/ui/issues/914)) ([f497bb0](https://github.com/dhis2/ui/commit/f497bb0c290e71725d66a5db9cd8f93bec46622a))
+
 ## [7.11.2](https://github.com/dhis2/ui/compare/v7.11.1...v7.11.2) (2022-01-07)
 
 

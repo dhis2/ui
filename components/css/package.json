@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/css",
-    "version": "7.11.2",
+    "version": "7.11.3",
     "description": "UI CSS",
     "repository": {
         "type": "git",
@@ -32,7 +32,7 @@
     },
     "dependencies": {
         "@dhis2/prop-types": "^3.0.0-beta.1",
-        "@dhis2/ui-constants": "7.11.2",
+        "@dhis2/ui-constants": "7.11.3",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },
