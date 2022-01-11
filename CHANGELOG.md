@@ -1,3 +1,10 @@
+## [7.11.4](https://github.com/dhis2/ui/compare/v7.11.3...v7.11.4) (2022-01-11)
+
+
+### Bug Fixes
+
+* remove focus outline from disabled select components ([#916](https://github.com/dhis2/ui/issues/916)) ([b85bdae](https://github.com/dhis2/ui/commit/b85bdae1facad06c04c0ca1efc0c57a936fceabe))
+
 ## [7.11.3](https://github.com/dhis2/ui/compare/v7.11.2...v7.11.3) (2022-01-11)
 
 
