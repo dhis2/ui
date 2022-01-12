@@ -1080,6 +1080,7 @@ const ColumnHeaderSortingTemplate = (args) => {
                         onSortIconClick={onSortIconClick}
                         sortDirection={getSortDirection('firstName')}
                         name={'firstName'}
+                        sortIconTitle="Sort by first name"
                     >
                         First name
                     </DataTableColumnHeader>
@@ -1087,6 +1088,7 @@ const ColumnHeaderSortingTemplate = (args) => {
                         onSortIconClick={onSortIconClick}
                         sortDirection={getSortDirection('lastName')}
                         name={'lastName'}
+                        sortIconTitle="Sort by last name"
                     >
                         Last name
                     </DataTableColumnHeader>

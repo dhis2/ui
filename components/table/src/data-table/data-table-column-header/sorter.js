@@ -17,7 +17,7 @@ export const getNextSortDirection = (currentDirection) => {
     return SORT_DIRECTIONS[nextIndex]
 }
 
-export const Sorter = ({ name, sortDirection, onClick }) => {
+export const Sorter = ({ name, sortDirection, title, onClick }) => {
     const nextSortDirection = getNextSortDirection(sortDirection)
     const clickHandler = onClick
         ? (event) => {
@@ -28,7 +28,7 @@ export const Sorter = ({ name, sortDirection, onClick }) => {
     return (
         <TableHeaderCellAction
             onClick={clickHandler}
-            title={i18n.t('Sort items')}
+            title={title || i18n.t('Sort items')}
         >
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -62,5 +62,6 @@ Sorter.propTypes = {
         (props) => props.onClick,
         PropTypes.oneOf(SORT_DIRECTIONS)
     ),
+    title: PropTypes.string,
     onClick: PropTypes.func,
 }
