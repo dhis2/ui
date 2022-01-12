@@ -93,10 +93,10 @@ const styles = css`
         padding-bottom: 1px;
     }
 
-    input[type='date']::-webkit-datetime-edit,
-    input[type='datetime-local']::-webkit-datetime-edit,
-    input[type='time']::-webkit-datetime-edit {
-        line-height: 14px;
+    input[type='date']::-webkit-datetime-edit-fields-wrapper,
+    input[type='datetime-local']::-webkit-datetime-edit-fields-wrapper,
+    input[type='time']::-webkit-datetime-edit-fields-wrapper {
+        padding: 0;
     }
 
     input.warning {
