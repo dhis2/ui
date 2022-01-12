@@ -1,3 +1,10 @@
+# [7.12.0](https://github.com/dhis2/ui/compare/v7.11.4...v7.12.0) (2022-01-12)
+
+
+### Features
+
+* **data-table:** configurable sort icon button title ([#922](https://github.com/dhis2/ui/issues/922)) ([806a7ca](https://github.com/dhis2/ui/commit/806a7ca53ff57ead17ce3455020b4251e007a34c))
+
 ## [7.11.4](https://github.com/dhis2/ui/compare/v7.11.3...v7.11.4) (2022-01-11)
 
 
