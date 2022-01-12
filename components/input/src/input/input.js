@@ -82,13 +82,21 @@ const styles = css`
         border-color: ${theme.focus};
     }
 
-    input[type="date"]::-webkit-inner-spin-button,
-    input[type="date"]::-webkit-calendar-picker-indicator,
-    input[type="time"]::-webkit-inner-spin-button,
-    input[type="time"]::-webkit-calendar-picker-indicator,
-    input[type="datetime-local"]::-webkit-inner-spin-button,
-    input[type="datetime-local"]::-webkit-calendar-picker-indicator  {
+    input[type='date']::-webkit-inner-spin-button,
+    input[type='date']::-webkit-calendar-picker-indicator,
+    input[type='time']::-webkit-inner-spin-button,
+    input[type='time']::-webkit-calendar-picker-indicator,
+    input[type='datetime-local']::-webkit-inner-spin-button,
+    input[type='datetime-local']::-webkit-calendar-picker-indicator {
         height: 14px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+
+    input[type='date']::-webkit-datetime-edit,
+    input[type='datetime-local']::-webkit-datetime-edit,
+    input[type='time']::-webkit-datetime-edit {
+        line-height: 14px;
     }
 
     input.warning {
