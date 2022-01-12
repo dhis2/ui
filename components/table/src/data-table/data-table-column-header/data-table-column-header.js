@@ -34,6 +34,7 @@ export const DataTableColumnHeader = forwardRef(
             scope,
             showFilter,
             sortDirection,
+            sortIconTitle,
             top,
             width,
             onFilterIconClick,
@@ -68,6 +69,7 @@ export const DataTableColumnHeader = forwardRef(
                             name={name}
                             sortDirection={sortDirection}
                             onClick={onSortIconClick}
+                            title={sortIconTitle}
                         />
                     )}
                     {filter && (
@@ -122,6 +124,7 @@ DataTableColumnHeader.propTypes = {
         (props) => props.onSortIconClick,
         PropTypes.oneOf(SORT_DIRECTIONS)
     ),
+    sortIconTitle: PropTypes.string,
     /** Left or top required when fixed */
     top: requiredIf((props) => props.fixed && !props.left, PropTypes.string),
     width: PropTypes.string,
