@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 export const RootLoading = ({ dataTest }) => (
-    <div data-test={`${dataTest}-loading`}>
+    <div data-test={dataTest}>
         <CircularLoader small />
 
         <style jsx>{`
@@ -15,6 +15,10 @@ export const RootLoading = ({ dataTest }) => (
     </div>
 )
 
+RootLoading.defaultProps = {
+    dataTest: 'dhis2-uiwidgets-orgunittree-loading',
+}
+
 RootLoading.propTypes = {
-    dataTest: PropTypes.string.isRequired,
+    dataTest: PropTypes.string,
 }
