@@ -1,3 +1,10 @@
+# [7.13.0](https://github.com/dhis2/ui/compare/v7.12.2...v7.13.0) (2022-01-13)
+
+
+### Features
+
+* **org unit tree:** expose <RootError /> & <RootLoading /> ([5198c96](https://github.com/dhis2/ui/commit/5198c96e9ae75b505e8904854b93b794d138b507))
+
 ## [7.12.2](https://github.com/dhis2/ui/compare/v7.12.1...v7.12.2) (2022-01-13)
 
 
