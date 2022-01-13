@@ -1,3 +1,12 @@
+## [7.12.2](https://github.com/dhis2/ui/compare/v7.12.1...v7.12.2) (2022-01-13)
+
+
+### Bug Fixes
+
+* further reduce size ([14df26b](https://github.com/dhis2/ui/commit/14df26b70e8515624860bb862c3c641653522fd3))
+* reduce size of date/time icon in Chrome ([f1e8985](https://github.com/dhis2/ui/commit/f1e8985e15080651bdc05f6f9332f13b8050109e))
+* reduce size of date/time icon in Chrome (LIBS-212) [#921](https://github.com/dhis2/ui/issues/921) ([54de53c](https://github.com/dhis2/ui/commit/54de53cf77b6ebe73b87780e4f47d53c46977185))
+
 ## [7.12.1](https://github.com/dhis2/ui/compare/v7.12.0...v7.12.1) (2022-01-13)
 
 
