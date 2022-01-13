@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-07T19:28:56.162Z\n"
+"POT-Creation-Date: 2022-01-10T18:10:56.819Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
 "Last-Translator: 晓东 林 <13981924470@126.com>, 2021\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
@@ -83,7 +83,7 @@ msgstr "口令至少包括应该数字"
 msgid "Password should have at least one special character"
 msgstr "口令至少包括一个特殊字符"
 
-msgid "Please provide a username between 1 and 255 characters"
+msgid "Please provide a username between 4 and 255 characters"
 msgstr ""
 
 msgid "Please provide a valid email address"
