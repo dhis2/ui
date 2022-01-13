@@ -49,6 +49,8 @@ export { Node } from '@dhis2-ui/node'
 export { NoticeBox } from '@dhis2-ui/notice-box'
 export {
     OrganisationUnitTree,
+    OrganisationUnitTreeRootError,
+    OrganisationUnitTreeRootLoading,
     getAllExpandedOrgUnitPaths,
 } from '@dhis2-ui/organisation-unit-tree'
 export { Popover } from '@dhis2-ui/popover'

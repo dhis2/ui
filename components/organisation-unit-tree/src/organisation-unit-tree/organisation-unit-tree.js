@@ -71,8 +71,8 @@ const OrganisationUnitTree = ({
 
     return (
         <div data-test={dataTest}>
-            {error && <RootError error={error} dataTest={dataTest} />}
-            {loading && <RootLoading dataTest={dataTest} />}
+            {loading && <RootLoading />}
+            {error && <RootError error={error} />}
             {!error &&
                 !loading &&
                 rootIds.map((rootId) => {
