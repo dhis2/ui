@@ -39,9 +39,11 @@ export const SelectorBar = ({
 }) => (
     <>
         <div
-            className={cx('container', {
-                withRHSContents: additionalContent,
-            }, className)}
+            className={cx(
+                'container',
+                { withRHSContents: additionalContent },
+                className
+            )}
             data-test={dataTest}
         >
             <div className="controls">
@@ -91,7 +93,7 @@ export const SelectorBar = ({
 )
 
 SelectorBar.defaultProps = {
-    dataTest: 'dhis2-ui-selectorbar'
+    dataTest: 'dhis2-ui-selectorbar',
 }
 
 SelectorBar.propTypes = {

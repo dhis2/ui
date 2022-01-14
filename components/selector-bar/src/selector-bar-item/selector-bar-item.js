@@ -117,7 +117,7 @@ export const SelectorBarItem = ({
 }
 
 SelectorBarItem.defaultProps = {
-    dataTest: 'dhis2-ui-selectorbaritem'
+    dataTest: 'dhis2-ui-selectorbaritem',
 }
 
 SelectorBarItem.propTypes = {
