@@ -24,13 +24,14 @@ const offsetModifier = {
  * inside this component
  */
 export const SelectorBarItem = ({
-    open,
-    setOpen,
     children,
+    dataTest,
     disabled,
     label,
-    value,
     noValueMessage,
+    open,
+    setOpen,
+    value,
 }) => {
     const buttonRef = useRef()
     const Icon = open ? IconChevronUp24 : IconChevronDown24
@@ -41,6 +42,7 @@ export const SelectorBarItem = ({
             className="selector-bar-item"
             disabled={disabled}
             onClick={() => setOpen(true)}
+            data-test={dataTest}
         >
             <span className="label">{label}</span>
 
@@ -112,12 +114,17 @@ export const SelectorBarItem = ({
     )
 }
 
+SelectorBarItem.defaultProps = {
+    dataTest: 'dhis2-ui-selectorbaritem'
+}
+
 SelectorBarItem.propTypes = {
     children: PropTypes.any.isRequired,
     label: PropTypes.string.isRequired,
     noValueMessage: PropTypes.string.isRequired,
     open: PropTypes.bool.isRequired,
     setOpen: PropTypes.func.isRequired,
+    dataTest: PropTypes.string,
     disabled: PropTypes.bool,
     value: PropTypes.string,
 }

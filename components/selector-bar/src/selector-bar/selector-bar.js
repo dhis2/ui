@@ -32,6 +32,7 @@ ClearSelection.propTypes = {
 export const SelectorBar = ({
     children,
     onClearSelectionClick,
+    dataTest,
     disableClearSelections,
     additionalContent,
 }) => (
@@ -40,6 +41,7 @@ export const SelectorBar = ({
             className={cx('container', {
                 withRHSContents: additionalContent,
             })}
+            data-test={dataTest}
         >
             <div className="controls">
                 {children}
@@ -87,9 +89,14 @@ export const SelectorBar = ({
     </>
 )
 
+SelectorBar.defaultProps = {
+    dataTest: 'dhis2-ui-selectorbar'
+}
+
 SelectorBar.propTypes = {
     children: PropTypes.any.isRequired,
     additionalContent: PropTypes.any,
+    dataTest: PropTypes.string,
     disableClearSelections: PropTypes.bool,
     onClearSelectionClick: PropTypes.func,
 }
