@@ -20,7 +20,7 @@ const onClick = (...args) => window.onClick(...args)
 const DropdownComponent = <span>Dropdown component</span>
 
 export default {
-    title: 'Actions/Buttons/Split Button',
+    title: 'Split Button',
     component: SplitButton,
     parameters: { docs: { description: { component: description } } },
     args: {

@@ -32,7 +32,7 @@ Press **Submit** to see the form values logged to the console.
 `
 
 export default {
-    title: 'Forms/Input/Input Field (Final Form)',
+    title: 'Input Field (Final Form)',
     component: InputFieldFF,
     decorators: [formDecorator],
     parameters: { docs: { description: { component: description } } },

@@ -39,7 +39,7 @@ const requiredIfArgType = {
 }
 
 export default {
-    title: 'Forms/Single Select/Single Select',
+    title: 'Single Select',
     component: SingleSelect,
     parameters: {
         docs: {

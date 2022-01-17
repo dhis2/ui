@@ -27,7 +27,7 @@ const onOpen = (...args) => window.onOpen(...args)
 const onClose = (...args) => window.onClose(...args)
 
 export default {
-    title: 'Helpers/Node',
+    title: 'Node',
     component: Node,
     parameters: { docs: { description: { component: description } } },
 }

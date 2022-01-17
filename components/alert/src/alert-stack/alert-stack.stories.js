@@ -13,7 +13,7 @@ import { AlertStack } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Feedback/Alerts/Alert Stack',
+    title: 'Alert Stack',
     component: AlertStack,
     // Use an iframe in docs to contain 'portal'
     parameters: {

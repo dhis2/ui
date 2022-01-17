@@ -13,7 +13,7 @@ import { TextAreaField } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Forms/Text Area/Text Area Field',
+    title: 'Text Area Field',
     component: TextAreaField,
     parameters: { docs: { description: { component: description } } },
     // Default args:

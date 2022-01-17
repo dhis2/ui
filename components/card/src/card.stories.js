@@ -21,7 +21,7 @@ import { Card } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Layout/Card',
+    title: 'Card',
     component: Card,
     parameters: {
         componentSubtitle: subtitle,

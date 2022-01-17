@@ -23,7 +23,7 @@ _**Note**: Due to the full-page interaction of this component, only one represen
 `
 
 export default {
-    title: 'Data Display/Popover',
+    title: 'Popover',
     component: Popover,
     parameters: {
         componentSubtitle: subtitle,

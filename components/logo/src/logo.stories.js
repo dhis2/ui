@@ -16,7 +16,7 @@ const Background = ({ children }) => (
 )
 
 export default {
-    title: 'Utils/Logo',
+    title: 'Logo',
     component: Logo,
     decorators: [Wrapper],
     parameters: { docs: { description: { component: description } } },

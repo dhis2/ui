@@ -13,7 +13,7 @@ import { IntersectionDetector } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Helpers/Intersection Observer',
+    title: 'Intersection Observer',
     component: IntersectionDetector,
     parameters: {
         docs: {
