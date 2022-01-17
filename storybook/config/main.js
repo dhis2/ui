@@ -5,7 +5,12 @@ const { webpackConfig } = require('../src/webpack-config.js')
 module.exports = {
     addons: [
         '@storybook/preset-create-react-app',
-        '@storybook/addon-essentials',
+        {
+            name: '@storybook/addon-essentials',
+            options: {
+                docs: false,
+            },
+        },
         {
             name: '@storybook/addon-storysource',
             options: { loaderOptions: { injectDecorator: false } },
