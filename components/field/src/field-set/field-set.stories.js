@@ -18,7 +18,7 @@ const onChange = () => {
 }
 
 export default {
-    title: 'Forms/Field Set/Field Set',
+    title: 'Field Set',
     component: FieldSet,
     parameters: { docs: { description: { component: description } } },
 }

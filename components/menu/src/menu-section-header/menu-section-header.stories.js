@@ -12,7 +12,7 @@ import { MenuSectionHeader } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Actions/Menu/Menu Section Header',
+    title: 'Menu Section Header',
     component: MenuSectionHeader,
     args: { label: 'Section header' },
     parameters: { docs: { description: { component: description } } },

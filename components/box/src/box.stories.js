@@ -10,7 +10,7 @@ import { Box } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Layout/Box',
+    title: 'Box',
     component: Box,
     parameters: { docs: { description: { component: description } } },
 }

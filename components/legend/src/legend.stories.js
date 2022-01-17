@@ -12,7 +12,7 @@ import { Legend } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Forms/Field Set/Legend',
+    title: 'Legend',
     component: Legend,
     parameters: { docs: { description: { component: description } } },
 }

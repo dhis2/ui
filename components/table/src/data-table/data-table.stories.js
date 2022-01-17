@@ -31,7 +31,7 @@ import {
 `
 
 export default {
-    title: 'Data Display/DataTable',
+    title: 'DataTable',
     component: DataTable,
     // Add subcomponents to the args datatable
     subcomponents: {

@@ -32,7 +32,7 @@ const options = [
 ]
 
 export default {
-    title: 'Forms/Single Select/Single Select Field',
+    title: 'Single Select Field',
     component: SingleSelectField,
     subcomponents: { SingleSelectOption },
     parameters: { docs: { description: { component: description } } },

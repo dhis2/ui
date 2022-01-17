@@ -44,7 +44,7 @@ const onFocus = (...args) => window.onFocus(...args)
 const onBlur = (...args) => window.onBlur(...args)
 
 export default {
-    title: 'Forms/Radio/Radio',
+    title: 'Radio',
     component: Radio,
     parameters: {
         componentSubtitle: subtitle,

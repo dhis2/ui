@@ -1,6 +1,5 @@
 const path = require('path')
 const {
-    PROJECT_ROOT,
     COMPONENTS_DIR,
     COLLECTIONS_DIR,
     ICONS_DIR,
@@ -80,7 +79,6 @@ exports.loadStories = () => {
                       `${CONSTANTS_DIR}/src/**/*.stories.e2e.@(js|jsx)`,
                   ]
                 : [
-                      `${PROJECT_ROOT}/docs/**/*.stories.mdx`,
                       `${COLLECTIONS_DIR}/*/src/**/*.stories.@(js|jsx|mdx)`,
                       `${COMPONENTS_DIR}/*/src/**/*.stories.@(js|jsx|mdx)`,
                       `${ICONS_DIR}/src/**/*.stories.@(js|jsx|mdx)`,

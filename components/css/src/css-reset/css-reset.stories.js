@@ -15,7 +15,7 @@ import { CssReset } from '@dhis2/ui'
 const App = ({ children }) => <div>{children}</div>
 
 export default {
-    title: 'Helpers/CSS Reset',
+    title: 'CSS Reset',
     component: CssReset,
     parameters: { docs: { description: { component: description } } },
 }

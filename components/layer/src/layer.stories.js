@@ -17,7 +17,7 @@ _**Note:** These demos may take some time to load._
 `
 
 export default {
-    title: 'Helpers/Layer',
+    title: 'Layer',
     component: Layer,
     /**
      * `inlineStories: false` renders these layers in iframes instead of inline.

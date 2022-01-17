@@ -23,7 +23,7 @@ const tagArgType = {
 }
 
 export default {
-    title: 'Data Display/Tag',
+    title: 'Tag',
     component: Tag,
     parameters: {
         componentSubtitle: subtitle,

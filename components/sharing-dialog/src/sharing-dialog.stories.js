@@ -14,7 +14,7 @@ import { SharingDialog } from '@dhis2/ui'
 \`\`\`
 `
 export default {
-    title: 'Utils/Sharing Dialog',
+    title: 'Sharing Dialog',
     component: SharingDialog,
     parameters: {
         componentSubtitle: subtitle,

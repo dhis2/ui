@@ -4,7 +4,7 @@ import { SegmentedControl } from './segmented-control.js'
 const logger = ({ value }) => console.log(`Selected value: ${value}`)
 
 export default {
-    title: 'Actions/Segmented Control',
+    title: 'Segmented Control',
     component: SegmentedControl,
     parameters: {
         componentSubtitle: 'Allows selection between related options',
