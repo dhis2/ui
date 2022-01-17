@@ -3,6 +3,7 @@ import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
 import { colors, spacers } from '@dhis2/ui-constants'
 import { IconChevronUp24, IconChevronDown24 } from '@dhis2/ui-icons'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useRef } from 'react'
 
@@ -24,13 +25,15 @@ const offsetModifier = {
  * inside this component
  */
 export const SelectorBarItem = ({
-    open,
-    setOpen,
     children,
+    className,
+    dataTest,
     disabled,
     label,
-    value,
     noValueMessage,
+    open,
+    setOpen,
+    value,
 }) => {
     const buttonRef = useRef()
     const Icon = open ? IconChevronUp24 : IconChevronDown24
@@ -38,9 +41,10 @@ export const SelectorBarItem = ({
     return (
         <button
             ref={buttonRef}
-            className="selector-bar-item"
+            className={cx('selector-bar-item', className)}
             disabled={disabled}
             onClick={() => setOpen(true)}
+            data-test={dataTest}
         >
             <span className="label">{label}</span>
 
@@ -112,12 +116,18 @@ export const SelectorBarItem = ({
     )
 }
 
+SelectorBarItem.defaultProps = {
+    dataTest: 'dhis2-ui-selectorbaritem',
+}
+
 SelectorBarItem.propTypes = {
     children: PropTypes.any.isRequired,
     label: PropTypes.string.isRequired,
     noValueMessage: PropTypes.string.isRequired,
     open: PropTypes.bool.isRequired,
     setOpen: PropTypes.func.isRequired,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
     disabled: PropTypes.bool,
     value: PropTypes.string,
 }
