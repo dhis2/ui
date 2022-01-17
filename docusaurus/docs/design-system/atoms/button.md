@@ -1,3 +1,4 @@
+import { Demo } from '../../../DemoComponent.jsx'
 import { Button, DropdownButton, SplitButton } from '@dhis2/ui'
 
 |                      |                                                                             |
@@ -18,7 +19,10 @@ Old image:
 ![](../images/button.png)
 
 Live component:
-<Button>Enroll in program</Button>
+
+<Demo>
+    <Button>Enroll in program</Button>
+</Demo>
 
 ##### Contents
 
