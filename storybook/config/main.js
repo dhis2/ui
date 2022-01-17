@@ -4,7 +4,6 @@ const { webpackConfig } = require('../src/webpack-config.js')
 
 module.exports = {
     addons: [
-        '@storybook/addon-docs',
         '@storybook/preset-create-react-app',
         '@storybook/addon-essentials',
         {
