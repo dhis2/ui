@@ -9,7 +9,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'DHIS2 UI',
-  tagline: 'Dinosaurs are cool',
+  tagline: 'React Components for DHIS2 Web Applications',
   url: 'https://ui.dhis2.nu',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -50,9 +50,9 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'My Site',
+        title: 'DHIS2 UI',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'DHIS2 UI Logotype',
           src: 'img/logo.svg',
         },
         items: [
@@ -60,7 +60,7 @@ const config = {
             type: 'doc',
             docId: 'getting-started',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Getting started',
           },
           {
             href: 'https://github.com/dhis2/ui',
@@ -76,8 +76,8 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'Getting started',
+                to: '/docs/getting-started',
               },
             ],
           },
@@ -85,16 +85,8 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                label: 'DHIS2 Community of Practice',
+                href: 'https://community.dhis2.org/tag/ui',
               },
             ],
           },
