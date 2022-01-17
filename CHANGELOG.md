@@ -1,3 +1,11 @@
+# [7.14.0](https://github.com/dhis2/ui/compare/v7.13.0...v7.14.0) (2022-01-17)
+
+
+### Features
+
+* **selector bar:** add missing className props ([b5a24f1](https://github.com/dhis2/ui/commit/b5a24f10e06b23ec1d30c284838efeccab04ea2f))
+* **selector bar:** add missing data test props ([6479c7b](https://github.com/dhis2/ui/commit/6479c7b8fa6c052e46b578a9a1474d814bdedd88))
+
 # [7.13.0](https://github.com/dhis2/ui/compare/v7.12.2...v7.13.0) (2022-01-13)
 
 
