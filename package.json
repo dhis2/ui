@@ -22,7 +22,7 @@
             "constants",
             "icons",
             "storybook",
-            "dump"
+            "docs"
         ]
     },
     "scripts": {
@@ -32,8 +32,8 @@
         "cy:open": "wait-on 'http://localhost:5000' && cypress open",
         "cy:run": "wait-on 'http://localhost:5000' && cypress run",
         "cy:test": "./scripts/cypress.js",
-        "docs": "d2-utils-docsite build ./docs -o ./dist --reactDocs ./components/**/src/index.js --reactDocsOutputFile api.md --reactDocsLinkSource",
-        "docs:serve": "d2-utils-docsite serve ./docs -o ./dist --reactDocs ./components/**/src/index.js --reactDocsOutputFile api.md --reactDocsLinkSource",
+        "docs": "yarn workspace ui-docs start",
+        "docs:build": "yarn workspace ui-docs build",
         "format": "d2-style apply",
         "format:staged": "d2-style apply --staged",
         "lint": "d2-style check",
@@ -41,12 +41,6 @@
         "test": "d2-app-scripts test",
         "start": "yarn workspace ui-storybook start",
         "demo": "yarn workspace ui-storybook build"
-    },
-    "d2": {
-        "docsite": {
-            "name": "DHIS2 UI Components",
-            "description": "Components and related resources for the DHIS2 design system"
-        }
     },
     "dependencies": {
         "@dhis2/app-runtime": "^3.2.5",
