@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
-    <g id="dropdown-arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M5.29289,8.7071 C5.68342,9.0976 6.31658,9.0976 6.70711,8.7071 L9.7071,5.70711 C10.0976,5.31658 10.0976,4.68342 9.7071,4.29289 C9.3166,3.90237 8.6834,3.90237 8.2929,4.29289 L6,6.58579 L3.70711,4.29289 C3.31658,3.90237 2.68342,3.90237 2.29289,4.29289 C1.90237,4.68342 1.90237,5.31658 2.29289,5.70711 L5.29289,8.7071 Z" id="arrow" fill="#4A5768"></path>
-    </g>
-</svg>
