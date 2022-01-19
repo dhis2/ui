@@ -1,0 +1,24 @@
+{
+  "unversionedId": "design-system/organisms/organisation-unit-tree/org-unit-tree",
+  "id": "design-system/organisms/organisation-unit-tree/org-unit-tree",
+  "isDocsHomePage": false,
+  "title": "Organization Unit Tree",
+  "description": "Display, manipulate and select organization units displayed in a hierarchical tree.",
+  "source": "@site/docs/design-system/organisms/organisation-unit-tree/org-unit-tree.md",
+  "sourceDirName": "design-system/organisms/organisation-unit-tree",
+  "slug": "/design-system/organisms/organisation-unit-tree/org-unit-tree",
+  "permalink": "/docs/design-system/organisms/organisation-unit-tree/org-unit-tree",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/design-system/organisms/organisation-unit-tree/org-unit-tree.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "transfer",
+    "permalink": "/docs/design-system/organisms/transfer"
+  },
+  "next": {
+    "title": "Color",
+    "permalink": "/docs/design-system/principles/color"
+  }
+}

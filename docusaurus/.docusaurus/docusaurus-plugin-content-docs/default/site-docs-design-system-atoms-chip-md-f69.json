@@ -1,0 +1,24 @@
+{
+  "unversionedId": "design-system/atoms/chip",
+  "id": "design-system/atoms/chip",
+  "isDocsHomePage": false,
+  "title": "chip",
+  "description": "|                      |                                                                     |",
+  "source": "@site/docs/design-system/atoms/chip.md",
+  "sourceDirName": "design-system/atoms",
+  "slug": "/design-system/atoms/chip",
+  "permalink": "/docs/design-system/atoms/chip",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/design-system/atoms/chip.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "checkbox",
+    "permalink": "/docs/design-system/atoms/checkbox"
+  },
+  "next": {
+    "title": "elevation",
+    "permalink": "/docs/design-system/atoms/elevation"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "readme",
+  "id": "readme",
+  "isDocsHomePage": false,
+  "title": "DHIS2 Design System",
+  "description": "The DHIS2 Design System is a collection of design principles and a library of UI components for designing applications for the DHIS2 platform. Using this system you can design and build applications that are usable, powerful and consistent with other DHIS2 applications.",
+  "source": "@site/docs/readme.md",
+  "sourceDirName": ".",
+  "slug": "/readme",
+  "permalink": "/docs/readme",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/readme.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "DHIS2 UI",
+    "permalink": "/docs/overview"
+  },
+  "next": {
+    "title": "Overriding the styled-jsx from our libraries",
+    "permalink": "/docs/Package/advanced-usage"
+  }
+}

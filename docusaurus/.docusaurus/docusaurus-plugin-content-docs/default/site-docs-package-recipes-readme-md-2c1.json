@@ -1,0 +1,24 @@
+{
+  "unversionedId": "Package/recipes/README",
+  "id": "Package/recipes/README",
+  "isDocsHomePage": false,
+  "title": "Recipes",
+  "description": "Recipes in this section are guides for composing components from the UI library to achieve a desired result that may be too specific to create a dedicated component for it in the UI library.",
+  "source": "@site/docs/Package/recipes/README.md",
+  "sourceDirName": "Package/recipes",
+  "slug": "/Package/recipes/README",
+  "permalink": "/docs/Package/recipes/README",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Package/recipes/README.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Troubleshooting",
+    "permalink": "/docs/Package/troubleshooting"
+  },
+  "next": {
+    "title": "Transfer: Infinite loading - All loaded options are already selected",
+    "permalink": "/docs/Package/recipes/transfer-infinite-loading-all-options-selected"
+  }
+}

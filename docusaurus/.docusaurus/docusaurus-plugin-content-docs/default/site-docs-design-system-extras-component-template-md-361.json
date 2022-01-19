@@ -1,0 +1,24 @@
+{
+  "unversionedId": "design-system/extras/component-template",
+  "id": "design-system/extras/component-template",
+  "isDocsHomePage": false,
+  "title": "component-template",
+  "description": "",
+  "source": "@site/docs/design-system/extras/component-template.md",
+  "sourceDirName": "design-system/extras",
+  "slug": "/design-system/extras/component-template",
+  "permalink": "/docs/design-system/extras/component-template",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/design-system/extras/component-template.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "tooltip",
+    "permalink": "/docs/design-system/atoms/tooltip"
+  },
+  "next": {
+    "title": "alertbar",
+    "permalink": "/docs/design-system/molecules/alertbar"
+  }
+}

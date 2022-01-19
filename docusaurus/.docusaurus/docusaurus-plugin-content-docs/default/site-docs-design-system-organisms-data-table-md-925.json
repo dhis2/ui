@@ -1,0 +1,24 @@
+{
+  "unversionedId": "design-system/organisms/data-table",
+  "id": "design-system/organisms/data-table",
+  "isDocsHomePage": false,
+  "title": "data-table",
+  "description": "|                      |                                                                     |",
+  "source": "@site/docs/design-system/organisms/data-table.md",
+  "sourceDirName": "design-system/organisms",
+  "slug": "/design-system/organisms/data-table",
+  "permalink": "/docs/design-system/organisms/data-table",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/design-system/organisms/data-table.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "color-picker",
+    "permalink": "/docs/design-system/organisms/color-picker"
+  },
+  "next": {
+    "title": "header-bar",
+    "permalink": "/docs/design-system/organisms/header-bar"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "design-system/atoms/card",
+  "id": "design-system/atoms/card",
+  "isDocsHomePage": false,
+  "title": "card",
+  "description": "|                      |                                                                    |",
+  "source": "@site/docs/design-system/atoms/card.md",
+  "sourceDirName": "design-system/atoms",
+  "slug": "/design-system/atoms/card",
+  "permalink": "/docs/design-system/atoms/card",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/design-system/atoms/card.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "button",
+    "permalink": "/docs/design-system/atoms/button"
+  },
+  "next": {
+    "title": "checkbox",
+    "permalink": "/docs/design-system/atoms/checkbox"
+  }
+}

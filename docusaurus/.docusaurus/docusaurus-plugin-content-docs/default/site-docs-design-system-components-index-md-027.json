@@ -1,0 +1,24 @@
+{
+  "unversionedId": "design-system/components-index",
+  "id": "design-system/components-index",
+  "isDocsHomePage": false,
+  "title": "Components",
+  "description": "Each component has guidelines for use, explanations of the different options and types available and examples of how the component is used in real DHIS2 applications. Components are organized by usage.",
+  "source": "@site/docs/design-system/components-index.md",
+  "sourceDirName": "design-system",
+  "slug": "/design-system/components-index",
+  "permalink": "/docs/design-system/components-index",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/design-system/components-index.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Typography",
+    "permalink": "/docs/Principles/typography"
+  },
+  "next": {
+    "title": "Design Principles",
+    "permalink": "/docs/design-system/principles-index"
+  }
+}

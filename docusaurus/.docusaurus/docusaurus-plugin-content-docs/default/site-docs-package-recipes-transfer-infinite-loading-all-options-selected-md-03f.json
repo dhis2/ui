@@ -1,0 +1,24 @@
+{
+  "unversionedId": "Package/recipes/transfer-infinite-loading-all-options-selected",
+  "id": "Package/recipes/transfer-infinite-loading-all-options-selected",
+  "isDocsHomePage": false,
+  "title": "Transfer: Infinite loading - All loaded options are already selected",
+  "description": "Abstract",
+  "source": "@site/docs/Package/recipes/transfer-infinite-loading-all-options-selected.md",
+  "sourceDirName": "Package/recipes",
+  "slug": "/Package/recipes/transfer-infinite-loading-all-options-selected",
+  "permalink": "/docs/Package/recipes/transfer-infinite-loading-all-options-selected",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Package/recipes/transfer-infinite-loading-all-options-selected.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Recipes",
+    "permalink": "/docs/Package/recipes/README"
+  },
+  "next": {
+    "title": "Color",
+    "permalink": "/docs/Principles/color"
+  }
+}

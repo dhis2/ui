@@ -1,0 +1,24 @@
+{
+  "unversionedId": "design-system/molecules/pagination",
+  "id": "design-system/molecules/pagination",
+  "isDocsHomePage": false,
+  "title": "pagination",
+  "description": "|                      |                                                                                |",
+  "source": "@site/docs/design-system/molecules/pagination.md",
+  "sourceDirName": "design-system/molecules",
+  "slug": "/design-system/molecules/pagination",
+  "permalink": "/docs/design-system/molecules/pagination",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/design-system/molecules/pagination.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "notice-box",
+    "permalink": "/docs/design-system/molecules/notice-box"
+  },
+  "next": {
+    "title": "popover",
+    "permalink": "/docs/design-system/molecules/popover"
+  }
+}

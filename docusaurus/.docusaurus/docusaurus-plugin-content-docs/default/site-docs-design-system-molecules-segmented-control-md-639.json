@@ -1,0 +1,24 @@
+{
+  "unversionedId": "design-system/molecules/segmented-control",
+  "id": "design-system/molecules/segmented-control",
+  "isDocsHomePage": false,
+  "title": "segmented-control",
+  "description": "|                      |                                                                   |",
+  "source": "@site/docs/design-system/molecules/segmented-control.md",
+  "sourceDirName": "design-system/molecules",
+  "slug": "/design-system/molecules/segmented-control",
+  "permalink": "/docs/design-system/molecules/segmented-control",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/design-system/molecules/segmented-control.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "popover",
+    "permalink": "/docs/design-system/molecules/popover"
+  },
+  "next": {
+    "title": "select",
+    "permalink": "/docs/design-system/molecules/select"
+  }
+}

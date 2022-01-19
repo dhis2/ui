@@ -1,0 +1,24 @@
+{
+  "unversionedId": "Principles/typography",
+  "id": "Principles/typography",
+  "isDocsHomePage": false,
+  "title": "Typography",
+  "description": "Typography, the selection and use of fonts, colors and sizes, is an effective way to communicate information to users.",
+  "source": "@site/docs/Principles/typography.md",
+  "sourceDirName": "Principles",
+  "slug": "/Principles/typography",
+  "permalink": "/docs/Principles/typography",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Principles/typography.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Design Principles",
+    "permalink": "/docs/Principles/principles-index"
+  },
+  "next": {
+    "title": "UI Constants",
+    "permalink": "/docs/Utilities/constants"
+  }
+}

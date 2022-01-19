@@ -1,0 +1,24 @@
+{
+  "unversionedId": "Utilities/constants",
+  "id": "Utilities/constants",
+  "isDocsHomePage": false,
+  "title": "UI Constants",
+  "description": "There are are a number of constants that can be imported from the UI library that are useful for applying the DHIS2 design system to your application.",
+  "source": "@site/docs/Utilities/constants.md",
+  "sourceDirName": "Utilities",
+  "slug": "/Utilities/constants",
+  "permalink": "/docs/Utilities/constants",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Utilities/constants.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Typography",
+    "permalink": "/docs/Principles/typography"
+  },
+  "next": {
+    "title": "React Final Form in the UI library",
+    "permalink": "/docs/Utilities/forms/react-final-form"
+  }
+}

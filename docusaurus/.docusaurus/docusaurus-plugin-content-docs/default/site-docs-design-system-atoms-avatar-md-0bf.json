@@ -1,0 +1,24 @@
+{
+  "unversionedId": "design-system/atoms/avatar",
+  "id": "design-system/atoms/avatar",
+  "isDocsHomePage": false,
+  "title": "avatar",
+  "description": "|                      |                                                          |",
+  "source": "@site/docs/design-system/atoms/avatar.md",
+  "sourceDirName": "design-system/atoms",
+  "slug": "/design-system/atoms/avatar",
+  "permalink": "/docs/design-system/atoms/avatar",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/design-system/atoms/avatar.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "DHIS2 Design System",
+    "permalink": "/docs/design-system/readme"
+  },
+  "next": {
+    "title": "button",
+    "permalink": "/docs/design-system/atoms/button"
+  }
+}

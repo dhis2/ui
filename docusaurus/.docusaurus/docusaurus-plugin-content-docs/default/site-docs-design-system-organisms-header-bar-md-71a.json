@@ -1,0 +1,24 @@
+{
+  "unversionedId": "design-system/organisms/header-bar",
+  "id": "design-system/organisms/header-bar",
+  "isDocsHomePage": false,
+  "title": "header-bar",
+  "description": "|                      |                                                                         |",
+  "source": "@site/docs/design-system/organisms/header-bar.md",
+  "sourceDirName": "design-system/organisms",
+  "slug": "/design-system/organisms/header-bar",
+  "permalink": "/docs/design-system/organisms/header-bar",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/design-system/organisms/header-bar.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "data-table",
+    "permalink": "/docs/design-system/organisms/data-table"
+  },
+  "next": {
+    "title": "rich-text",
+    "permalink": "/docs/design-system/organisms/rich-text"
+  }
+}

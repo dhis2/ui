@@ -1,0 +1,24 @@
+{
+  "unversionedId": "Package/migrating",
+  "id": "Package/migrating",
+  "isDocsHomePage": false,
+  "title": "Migrating from previous UI versions",
+  "description": "< v5",
+  "source": "@site/docs/Package/migrating.md",
+  "sourceDirName": "Package",
+  "slug": "/Package/migrating",
+  "permalink": "/docs/Package/migrating",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Package/migrating.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Getting Started",
+    "permalink": "/docs/Package/getting-started"
+  },
+  "next": {
+    "title": "Troubleshooting",
+    "permalink": "/docs/Package/troubleshooting"
+  }
+}

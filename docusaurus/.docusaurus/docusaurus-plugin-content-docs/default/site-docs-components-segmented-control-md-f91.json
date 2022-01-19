@@ -1,0 +1,24 @@
+{
+  "unversionedId": "Components/segmented-control",
+  "id": "Components/segmented-control",
+  "isDocsHomePage": false,
+  "title": "segmented-control",
+  "description": "|                      |                                                                   |",
+  "source": "@site/docs/Components/segmented-control.md",
+  "sourceDirName": "Components",
+  "slug": "/Components/segmented-control",
+  "permalink": "/docs/Components/segmented-control",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/segmented-control.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "rich-text",
+    "permalink": "/docs/Components/rich-text"
+  },
+  "next": {
+    "title": "select",
+    "permalink": "/docs/Components/select"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "design-system/principles/content-communication",
+  "id": "design-system/principles/content-communication",
+  "isDocsHomePage": false,
+  "title": "Content & Communication",
+  "description": "Communicating consistently helps DHIS2 users understand, use and extend DHIS2. Follow these principles, each of which is expanded below:",
+  "source": "@site/docs/design-system/principles/content-communication.md",
+  "sourceDirName": "design-system/principles",
+  "slug": "/design-system/principles/content-communication",
+  "permalink": "/docs/design-system/principles/content-communication",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/design-system/principles/content-communication.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Color",
+    "permalink": "/docs/design-system/principles/color"
+  },
+  "next": {
+    "title": "Design for use",
+    "permalink": "/docs/design-system/principles/design-for-use"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "troubleshooting",
+  "id": "troubleshooting",
+  "isDocsHomePage": false,
+  "title": "Troubleshooting",
+  "description": "Encountering z-index issues?",
+  "source": "@site/docs/troubleshooting.md",
+  "sourceDirName": ".",
+  "slug": "/troubleshooting",
+  "permalink": "/docs/troubleshooting",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/troubleshooting.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "DHIS2 Design System",
+    "permalink": "/docs/readme"
+  },
+  "next": {
+    "title": "Color",
+    "permalink": "/docs/Principles/color"
+  }
+}

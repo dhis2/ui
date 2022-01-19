@@ -1,0 +1,24 @@
+{
+  "unversionedId": "design-system/principles/forms",
+  "id": "design-system/principles/forms",
+  "isDocsHomePage": false,
+  "title": "Forms",
+  "description": "Forms are one of the most common ways an application collects user input. Forms accept various types of user input: text, selection, checkboxes and more. DHIS2 applications should follow some common form guidelines to make sure users are not unnecessarily challenged when working with forms.",
+  "source": "@site/docs/design-system/principles/forms.md",
+  "sourceDirName": "design-system/principles",
+  "slug": "/design-system/principles/forms",
+  "permalink": "/docs/design-system/principles/forms",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/design-system/principles/forms.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Design for use",
+    "permalink": "/docs/design-system/principles/design-for-use"
+  },
+  "next": {
+    "title": "Icons",
+    "permalink": "/docs/design-system/principles/icons"
+  }
+}

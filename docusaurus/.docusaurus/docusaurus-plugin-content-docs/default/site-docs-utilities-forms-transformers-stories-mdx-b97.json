@@ -1,0 +1,24 @@
+{
+  "unversionedId": "Utilities/forms/transformers.stories",
+  "id": "Utilities/forms/transformers.stories",
+  "isDocsHomePage": false,
+  "title": "transformers.stories",
+  "description": "",
+  "source": "@site/docs/Utilities/forms/transformers.stories.mdx",
+  "sourceDirName": "Utilities/forms",
+  "slug": "/Utilities/forms/transformers.stories",
+  "permalink": "/docs/Utilities/forms/transformers.stories",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Utilities/forms/transformers.stories.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Data parsing and formatting",
+    "permalink": "/docs/Utilities/forms/transformers"
+  },
+  "next": {
+    "title": "Validators",
+    "permalink": "/docs/Utilities/forms/validators"
+  }
+}

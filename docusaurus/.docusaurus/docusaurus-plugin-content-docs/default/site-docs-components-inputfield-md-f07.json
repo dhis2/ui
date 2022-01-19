@@ -1,0 +1,24 @@
+{
+  "unversionedId": "Components/inputfield",
+  "id": "Components/inputfield",
+  "isDocsHomePage": false,
+  "title": "inputfield",
+  "description": "|                      |                                                                          |",
+  "source": "@site/docs/Components/inputfield.md",
+  "sourceDirName": "Components",
+  "slug": "/Components/inputfield",
+  "permalink": "/docs/Components/inputfield",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/inputfield.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "header-bar",
+    "permalink": "/docs/Components/header-bar"
+  },
+  "next": {
+    "title": "loading",
+    "permalink": "/docs/Components/loading"
+  }
+}

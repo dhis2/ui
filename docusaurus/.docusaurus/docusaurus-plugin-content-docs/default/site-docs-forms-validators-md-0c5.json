@@ -1,0 +1,24 @@
+{
+  "unversionedId": "forms/validators",
+  "id": "forms/validators",
+  "isDocsHomePage": false,
+  "title": "Validators",
+  "description": "The UI library provides a number of premade validator functions to use with React Final Form. Here is an example of how one can be used:",
+  "source": "@site/docs/forms/validators.md",
+  "sourceDirName": "forms",
+  "slug": "/forms/validators",
+  "permalink": "/docs/forms/validators",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/forms/validators.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "transformers.stories",
+    "permalink": "/docs/forms/transformers.stories"
+  },
+  "next": {
+    "title": "validators.stories",
+    "permalink": "/docs/forms/validators.stories"
+  }
+}

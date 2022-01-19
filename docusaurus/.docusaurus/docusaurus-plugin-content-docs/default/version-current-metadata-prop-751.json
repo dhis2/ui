@@ -1,0 +1,336 @@
+{
+  "pluginId": "default",
+  "version": "current",
+  "label": "Next",
+  "banner": null,
+  "badge": false,
+  "className": "docs-version-current",
+  "isLast": true,
+  "docsSidebars": {
+    "tutorialSidebar": [
+      {
+        "type": "link",
+        "label": "Getting Started",
+        "href": "/docs/getting-started"
+      },
+      {
+        "type": "link",
+        "label": "DHIS2 UI",
+        "href": "/docs/overview"
+      },
+      {
+        "type": "link",
+        "label": "DHIS2 Design System",
+        "href": "/docs/readme"
+      },
+      {
+        "type": "category",
+        "label": "Package",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+          {
+            "type": "link",
+            "label": "Overriding the styled-jsx from our libraries",
+            "href": "/docs/Package/advanced-usage"
+          },
+          {
+            "type": "link",
+            "label": "Getting Started",
+            "href": "/docs/Package/getting-started"
+          },
+          {
+            "type": "link",
+            "label": "Migrating from previous UI versions",
+            "href": "/docs/Package/migrating"
+          },
+          {
+            "type": "link",
+            "label": "Troubleshooting",
+            "href": "/docs/Package/troubleshooting"
+          },
+          {
+            "type": "category",
+            "label": "recipes",
+            "collapsible": true,
+            "collapsed": true,
+            "items": [
+              {
+                "type": "link",
+                "label": "Recipes",
+                "href": "/docs/Package/recipes/README"
+              },
+              {
+                "type": "link",
+                "label": "Transfer: Infinite loading - All loaded options are already selected",
+                "href": "/docs/Package/recipes/transfer-infinite-loading-all-options-selected"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Principles",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+          {
+            "type": "link",
+            "label": "Color",
+            "href": "/docs/Principles/color"
+          },
+          {
+            "type": "link",
+            "label": "Content & Communication",
+            "href": "/docs/Principles/content-communication"
+          },
+          {
+            "type": "link",
+            "label": "Design for use",
+            "href": "/docs/Principles/design-for-use"
+          },
+          {
+            "type": "link",
+            "label": "Forms",
+            "href": "/docs/Principles/forms"
+          },
+          {
+            "type": "link",
+            "label": "Icons",
+            "href": "/docs/Principles/icons"
+          },
+          {
+            "type": "link",
+            "label": "Layout, spacing, stacking",
+            "href": "/docs/Principles/layout"
+          },
+          {
+            "type": "link",
+            "label": "Design Principles",
+            "href": "/docs/Principles/principles-index"
+          },
+          {
+            "type": "link",
+            "label": "Typography",
+            "href": "/docs/Principles/typography"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Utilities",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+          {
+            "type": "link",
+            "label": "UI Constants",
+            "href": "/docs/Utilities/constants"
+          },
+          {
+            "type": "category",
+            "label": "forms",
+            "collapsible": true,
+            "collapsed": true,
+            "items": [
+              {
+                "type": "link",
+                "label": "React Final Form in the UI library",
+                "href": "/docs/Utilities/forms/react-final-form"
+              },
+              {
+                "type": "link",
+                "label": "react-final-form.stories",
+                "href": "/docs/Utilities/forms/react-final-form.stories"
+              },
+              {
+                "type": "link",
+                "label": "Data parsing and formatting",
+                "href": "/docs/Utilities/forms/transformers"
+              },
+              {
+                "type": "link",
+                "label": "transformers.stories",
+                "href": "/docs/Utilities/forms/transformers.stories"
+              },
+              {
+                "type": "link",
+                "label": "Validators",
+                "href": "/docs/Utilities/forms/validators"
+              },
+              {
+                "type": "link",
+                "label": "validators.stories",
+                "href": "/docs/Utilities/forms/validators.stories"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Components",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+          {
+            "type": "link",
+            "label": "alertbar",
+            "href": "/docs/Components/alertbar"
+          },
+          {
+            "type": "link",
+            "label": "avatar",
+            "href": "/docs/Components/avatar"
+          },
+          {
+            "type": "link",
+            "label": "button",
+            "href": "/docs/Components/button"
+          },
+          {
+            "type": "link",
+            "label": "card",
+            "href": "/docs/Components/card"
+          },
+          {
+            "type": "link",
+            "label": "checkbox",
+            "href": "/docs/Components/checkbox"
+          },
+          {
+            "type": "link",
+            "label": "chip",
+            "href": "/docs/Components/chip"
+          },
+          {
+            "type": "link",
+            "label": "color-picker",
+            "href": "/docs/Components/color-picker"
+          },
+          {
+            "type": "link",
+            "label": "comment",
+            "href": "/docs/Components/comment"
+          },
+          {
+            "type": "link",
+            "label": "Components",
+            "href": "/docs/Components/components-index"
+          },
+          {
+            "type": "link",
+            "label": "data-table",
+            "href": "/docs/Components/data-table"
+          },
+          {
+            "type": "link",
+            "label": "elevation",
+            "href": "/docs/Components/elevation"
+          },
+          {
+            "type": "link",
+            "label": "fileinput",
+            "href": "/docs/Components/fileinput"
+          },
+          {
+            "type": "link",
+            "label": "header-bar",
+            "href": "/docs/Components/header-bar"
+          },
+          {
+            "type": "link",
+            "label": "inputfield",
+            "href": "/docs/Components/inputfield"
+          },
+          {
+            "type": "link",
+            "label": "loading",
+            "href": "/docs/Components/loading"
+          },
+          {
+            "type": "link",
+            "label": "menu",
+            "href": "/docs/Components/menu"
+          },
+          {
+            "type": "link",
+            "label": "modal",
+            "href": "/docs/Components/modal"
+          },
+          {
+            "type": "link",
+            "label": "notice-box",
+            "href": "/docs/Components/notice-box"
+          },
+          {
+            "type": "link",
+            "label": "Organization Unit Tree",
+            "href": "/docs/Components/org-unit-tree"
+          },
+          {
+            "type": "link",
+            "label": "pagination",
+            "href": "/docs/Components/pagination"
+          },
+          {
+            "type": "link",
+            "label": "popover",
+            "href": "/docs/Components/popover"
+          },
+          {
+            "type": "link",
+            "label": "radio",
+            "href": "/docs/Components/radio"
+          },
+          {
+            "type": "link",
+            "label": "rich-text",
+            "href": "/docs/Components/rich-text"
+          },
+          {
+            "type": "link",
+            "label": "segmented-control",
+            "href": "/docs/Components/segmented-control"
+          },
+          {
+            "type": "link",
+            "label": "select",
+            "href": "/docs/Components/select"
+          },
+          {
+            "type": "link",
+            "label": "switch",
+            "href": "/docs/Components/switch"
+          },
+          {
+            "type": "link",
+            "label": "tab",
+            "href": "/docs/Components/tab"
+          },
+          {
+            "type": "link",
+            "label": "Table",
+            "href": "/docs/Components/table"
+          },
+          {
+            "type": "link",
+            "label": "tag",
+            "href": "/docs/Components/tag"
+          },
+          {
+            "type": "link",
+            "label": "tooltip",
+            "href": "/docs/Components/tooltip"
+          },
+          {
+            "type": "link",
+            "label": "transfer",
+            "href": "/docs/Components/transfer"
+          }
+        ]
+      }
+    ]
+  }
+}

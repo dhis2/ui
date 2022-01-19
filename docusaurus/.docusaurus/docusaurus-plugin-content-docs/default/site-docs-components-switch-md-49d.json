@@ -1,0 +1,24 @@
+{
+  "unversionedId": "Components/switch",
+  "id": "Components/switch",
+  "isDocsHomePage": false,
+  "title": "switch",
+  "description": "|                      |                                                                            |",
+  "source": "@site/docs/Components/switch.md",
+  "sourceDirName": "Components",
+  "slug": "/Components/switch",
+  "permalink": "/docs/Components/switch",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/switch.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "select",
+    "permalink": "/docs/Components/select"
+  },
+  "next": {
+    "title": "tab",
+    "permalink": "/docs/Components/tab"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "Components/fileinput",
+  "id": "Components/fileinput",
+  "isDocsHomePage": false,
+  "title": "fileinput",
+  "description": "|                      |                                                                                    |",
+  "source": "@site/docs/Components/fileinput.md",
+  "sourceDirName": "Components",
+  "slug": "/Components/fileinput",
+  "permalink": "/docs/Components/fileinput",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/fileinput.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "elevation",
+    "permalink": "/docs/Components/elevation"
+  },
+  "next": {
+    "title": "header-bar",
+    "permalink": "/docs/Components/header-bar"
+  }
+}

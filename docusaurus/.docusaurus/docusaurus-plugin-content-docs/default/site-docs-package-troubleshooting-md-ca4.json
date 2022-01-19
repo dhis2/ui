@@ -1,0 +1,24 @@
+{
+  "unversionedId": "Package/troubleshooting",
+  "id": "Package/troubleshooting",
+  "isDocsHomePage": false,
+  "title": "Troubleshooting",
+  "description": "Encountering z-index issues?",
+  "source": "@site/docs/Package/troubleshooting.md",
+  "sourceDirName": "Package",
+  "slug": "/Package/troubleshooting",
+  "permalink": "/docs/Package/troubleshooting",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Package/troubleshooting.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Migrating from previous UI versions",
+    "permalink": "/docs/Package/migrating"
+  },
+  "next": {
+    "title": "Recipes",
+    "permalink": "/docs/Package/recipes/README"
+  }
+}

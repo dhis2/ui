@@ -1,0 +1,24 @@
+{
+  "unversionedId": "Components/data-table",
+  "id": "Components/data-table",
+  "isDocsHomePage": false,
+  "title": "data-table",
+  "description": "|                      |                                                                     |",
+  "source": "@site/docs/Components/data-table.md",
+  "sourceDirName": "Components",
+  "slug": "/Components/data-table",
+  "permalink": "/docs/Components/data-table",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/data-table.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Components",
+    "permalink": "/docs/Components/components-index"
+  },
+  "next": {
+    "title": "elevation",
+    "permalink": "/docs/Components/elevation"
+  }
+}
