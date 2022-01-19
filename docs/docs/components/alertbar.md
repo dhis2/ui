@@ -1,48 +1,25 @@
-|                      |                                                                                  |
-| -------------------- | -------------------------------------------------------------------------------- |
-| **Component**        | Alert bar                                                                        |
-| **Type**             | Molecule ([?](http://atomicdesign.bradfrost.com/chapter-2/))                     |
-| **Design Spec**      | [Link](https://sketch.cloud/s/DwkDk/a/eO0DKP)                                    |
-| **Working Examples** | [Link](https://ui.dhis2.nu/demo/?path=/story/feedback-alerts-alert-bar--default) |
-| **Status**           | `Ready to use`                                                                   |
-
 ---
+title: Alert bar
+---
+
+import { Demo } from '../../DemoComponent.jsx'
+import { AlertBar } from '@dhis2/ui'
 
 # Alert Bar
 
+<Demo>
+    <AlertBar permanent>Hello world</AlertBar>
+</Demo>
+
 A floating alert that informs the user about temporary information in the context of the current screen.
 
-![](../images/alertbar.png)
-
-##### Contents
-
--   [Usage](#usage)
--   [Composition](#composition)
--   [Options](#options)
--   [Types](#types)
--   [Examples in use](#examples-in-use)
-
----
+<!-- ![](../images/alertbar.png) -->
 
 ## Usage
 
 Alert bars notify a user of some information. There are different types of alert bar for displaying different types of content. Use the alert bar type that matches your content type and importance. Note that alert bar can be ignored by the user, so they shouldn't be used for content that needs to block an app flow, use a [modal](modal.md) instead.
 
 Alert bars are always displayed at centered and fixed at the bottom of the screen. Some types of alert bar dismiss after a set time, others must be dismissed by the user.
-
----
-
-## Composition
-
-![example spec for alertbar](../images/alertbar-comp.png)
-
-An alert bar is made up of multiple elements, some of which are optional:
-
-1. **Background, required:** background of the alert bar. The color is defined by the type.
-2. **Icon, optional:** an icon to help the user quickly understand the context of the alert.
-3. **Text, required:** concise, informative text. Should give the user a quick, understandable snapshot of the content in a few words.
-4. **Actions, optional:** actions can be local (on the current page), or link elsewhere. An alert bar can have up to two actions.
-5. **Dismiss control, required:** A control to manually dismiss the alert bar.
 
 ---
 
@@ -81,7 +58,9 @@ It is important to use the correct type of alert bar. Users should not be overlo
 
 ### Info
 
-![info alert bar](../images/alertbar.png)
+<Demo>
+    <AlertBar permanent>Data export complete.</AlertBar>
+</Demo>
 
 The default alert bar that should be used in most situations. An information alert can be used to confirm minor actions instead of a success type. An info alert bar would be used, for example, for:
 
@@ -94,7 +73,9 @@ Info alert bars dismiss automatically after 5 seconds, so the message should not
 
 ### Success
 
-![info alert bar](../images/alertbar-success.png)
+<Demo>
+    <AlertBar success permanent>1000 objects updated.</AlertBar>
+</Demo>
 
 Success alert bars should be used to confirm successful major actions. Not all successful actions need a success alert bar, only those that are considered "large tasks", such as defining a program or creating a dashboard. Some example success alert bars:
 
@@ -106,7 +87,9 @@ Success alerts dismiss automatically after 5 seconds, like info alert bars they 
 
 ### Warning
 
-![info alert bar](../images/alertbar-warning.png)
+<Demo>
+    <AlertBar warning permanent>Some data is taking a long time to sync.</AlertBar>
+</Demo>
 
 Warning alert bars warn users of potential problems. Ideally warnings should be shown before a problem occurs. If a problem has already occurred, a critical type is probably a better choice. Example content for warning alert bars:
 
@@ -118,11 +101,13 @@ Warning alerts do not dismiss automatically. They disappear if the warning condi
 
 ### Critical
 
-![info alert bar](../images/alertbar-critical.png)
+<Demo>
+    <AlertBar permanent>There was a problem loading this dashboard.</AlertBar>
+</Demo>
 
 Critical alerts are used to highlight a severe problem. They should only be used to inform the user of broken functionality after it has occurred. Critical alerts should be used where the user can still interact with the application even though there is an error. If there is a catastrophic error that requires blocking the application, use a [modal](modal.md) instead. Critical alert text should inform the user what happened and why. Sample critical alert bars:
 
--   "Dashboard failed to load."
+-   "There was a problem loading this dashboard."
 -   "Relationship not created, invalid relationship type."
 -   "Message failed to send because there is no connection."
 
