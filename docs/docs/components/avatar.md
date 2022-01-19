@@ -2,7 +2,7 @@
 title: Avatar
 ---
 
-import { Demo } from '../../DemoComponent.jsx'
+import { Demo } from '../../src/components/DemoComponent.jsx'
 import { UserAvatar } from '@dhis2/ui'
 
 # Avatar
