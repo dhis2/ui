@@ -12,8 +12,7 @@ export const Demo = (props) => {
 
     const mountHead = contentRef?.contentWindow?.document?.head
 
-    const jsxStyle = document
-    if (mountHead) {
+    if (mountHead && styleTag) {
         for (const stylesheet of document.styleSheets) {
             const iframeDoc = contentRef?.contentWindow?.document
             const style = iframeDoc.createElement('style')
@@ -24,7 +23,9 @@ export const Demo = (props) => {
 
             if (stylesheet.ownerNode === styleTag) {
                 for (const rule of stylesheet.cssRules) {
-                    console.log(rule)
+                    // Good debugging entry-point for figuring out which
+                    // styles are injected into the iframe.
+                    // console.log(rule)
                     style.sheet.insertRule(rule.cssText)
                 }
             }
