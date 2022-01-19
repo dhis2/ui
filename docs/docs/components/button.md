@@ -2,7 +2,7 @@
 title: Button
 ---
 
-import { Demo } from '../../DemoComponent.jsx'
+import { Demo } from '../../src/components/DemoComponent.jsx'
 import { Button, DropdownButton, SplitButton, IconCheckmark24 } from '@dhis2/ui'
 
 # Button

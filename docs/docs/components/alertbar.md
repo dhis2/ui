@@ -2,7 +2,7 @@
 title: Alert bar
 ---
 
-import { Demo } from '../../DemoComponent.jsx'
+import { Demo } from '../../src/components/DemoComponent.jsx'
 import { AlertBar } from '@dhis2/ui'
 
 # Alert Bar
