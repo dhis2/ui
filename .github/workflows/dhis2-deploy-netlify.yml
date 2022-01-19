@@ -33,11 +33,7 @@ jobs:
                   yarn install --frozen-lockfile
                   yarn setup
 
-            - name: Docsite
-              run: yarn docs
-
-            - name: Demo
-              run: yarn demo
+            - run: yarn build:docs
 
             - uses: nwtgck/actions-netlify@v1.1
               with:

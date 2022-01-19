@@ -26,21 +26,20 @@
         ]
     },
     "scripts": {
-        "build": "./scripts/build.js",
         "setup": "./scripts/setup.js",
+        "build": "./scripts/build.js",
+        "build:docs": "./scripts/build-docs.js",
         "cy:start": "yarn build && STORYBOOK_TESTING=1 yarn start",
         "cy:open": "wait-on 'http://localhost:5000' && cypress open",
         "cy:run": "wait-on 'http://localhost:5000' && cypress run",
         "cy:test": "./scripts/cypress.js",
-        "docs": "yarn workspace ui-docs start",
-        "docs:build": "yarn workspace ui-docs build",
         "format": "d2-style apply",
         "format:staged": "d2-style apply --staged",
         "lint": "d2-style check",
         "lint:staged": "d2-style check --staged",
         "test": "d2-app-scripts test",
         "start": "yarn workspace ui-storybook start",
-        "demo": "yarn workspace ui-storybook build"
+        "start:docs": "yarn workspace ui-docusaurus start"
     },
     "dependencies": {
         "@dhis2/app-runtime": "^3.2.5",
