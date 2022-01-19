@@ -39,13 +39,6 @@ export const Demo = (props) => {
 
     return (
         <div className={styles.demo}>
-            { loading && (
-                <ComponentCover translucent>
-                    <CenteredContent>
-                        <CircularLoader />
-                    </CenteredContent>
-                </ComponentCover>
-            ) }
             <div className={styles.demoTitle}>Demo</div>
             <iframe loading="lazy" onLoad={e => setLoading(false)}className={styles.demoFrame} {...props} ref={setContentRef}>
                 {mountNode && createPortal(props.children, mountNode)}
