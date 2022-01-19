@@ -3,6 +3,12 @@
     margin-bottom: 16px;
     position: relative;
 }
+.visible {
+    visibility: visible;
+}
+.hidden {
+    visibility: hidden;
+}
 .demoFrame {
     position: relative;
     width: 100%;

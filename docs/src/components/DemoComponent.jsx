@@ -1,46 +1,52 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 
 import { ComponentCover, CenteredContent, CircularLoader } from '@dhis2/ui'
+import clsx from 'clsx'
 
 import styles from './DemoComponent.module.css'
 
 export const Demo = (props) => {
-    const [ loading, setLoading ] = useState(true)
+    const [ styleLoading, setStyleLoading ] = useState(true)
+    const [ frameLoading, setFrameLoading ] = useState(true)
     const [contentRef, setContentRef] = useState(null)
+    const [ mountNode, setMountNode ] = useState(null)
 
-    const mountNode = contentRef?.contentWindow?.document?.body
+    useEffect(() => {
+        const styleTag = document.querySelector('[data-styled-jsx]')
 
-    const styleTag = document.querySelector('[data-styled-jsx]')
+        setMountNode(contentRef?.contentWindow?.document?.body)
 
-    const mountHead = contentRef?.contentWindow?.document?.head
+        const mountHead = contentRef?.contentWindow?.document?.head
 
-    if (mountHead && styleTag) {
-        for (const stylesheet of document.styleSheets) {
-            const iframeDoc = contentRef?.contentWindow?.document
-            const style = iframeDoc.createElement('style')
+        if (mountHead && styleTag) {
+            for (const stylesheet of document.styleSheets) {
+                const iframeDoc = contentRef?.contentWindow?.document
+                const style = iframeDoc.createElement('style')
 
-            style.appendChild(iframeDoc.createTextNode(''))
+                style.appendChild(iframeDoc.createTextNode(''))
 
-            mountHead.appendChild(style)
+                mountHead.appendChild(style)
 
-            if (stylesheet.ownerNode === styleTag) {
-                for (const rule of stylesheet.cssRules) {
-                    // Good debugging entry-point for figuring out which
-                    // styles are injected into the iframe.
-                    // console.log(rule)
-                    style.sheet.insertRule(rule.cssText)
+                if (stylesheet.ownerNode === styleTag) {
+                    for (const rule of stylesheet.cssRules) {
+                        // Good debugging entry-point for figuring out which
+                        // styles are injected into the iframe.
+                        // console.log(rule)
+                        style.sheet.insertRule(rule.cssText)
+                    }
                 }
             }
-        }
 
-        mountHead.appendChild(styleTag.cloneNode())
-    }
+            mountHead.appendChild(styleTag.cloneNode())
+            setStyleLoading(false)
+        }
+    })
 
     return (
         <div className={styles.demo}>
             <div className={styles.demoTitle}>Demo</div>
-            <iframe loading="lazy" onLoad={e => setLoading(false)}className={styles.demoFrame} {...props} ref={setContentRef}>
+            <iframe loading="lazy" onLoad={e => setFrameLoading(false)} className={clsx(styles.demoFrame, styleLoading ? styles.hidden : styles.visible)} {...props} ref={setContentRef}>
                 {mountNode && createPortal(props.children, mountNode)}
             </iframe>
         </div>
