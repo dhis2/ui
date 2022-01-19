@@ -1,37 +1,17 @@
-import { Demo } from '../../DemoComponent.jsx'
-import { Button, DropdownButton, SplitButton } from '@dhis2/ui'
-
-|                      |                                                                             |
-| -------------------- | --------------------------------------------------------------------------- |
-| **Component**        | Button                                                                      |
-| **Type**             | Atom ([?](http://atomicdesign.bradfrost.com/chapter-2/))                    |
-| **Design Spec**      | [Link](https://sketch.cloud/s/DwkDk/a/ll8Arx)                               |
-| **Working Examples** | [Link](https://ui.dhis2.nu/demo/?path=/story/actions-buttons-button--basic) |
-| **Status**           | `Ready to use`                                                              |
-
+---
+title: Button
 ---
 
+import { Demo } from '../../DemoComponent.jsx'
+import { Button, DropdownButton, SplitButton, IconCheckmark24 } from '@dhis2/ui'
+
 # Button
-
-Buttons are used for triggering actions. There are different types of buttons in the design system which are intended for different types of actions.
-
-Old image:
-![](../images/button.png)
-
-Live component:
 
 <Demo>
     <Button>Enroll in program</Button>
 </Demo>
 
-##### Contents
-
--   [Usage](#usage)
--   [Options](#options)
--   [States](#states)
--   [Examples in use](#examples-in-use)
-
----
+Buttons are used for triggering actions. There are different types of buttons in the design system which are intended for different types of actions.
 
 ## Usage
 
@@ -59,19 +39,28 @@ Avoid ambiguous labels like 'Ok', using an action verb will make it clearer to t
 
 ### Toggle
 
-![](../images/button-toggle.png)
+<Demo>
+    <Button icon={<IconCheckmark24/>}></Button>
+    <Button icon={<IconCheckmark24/>} toggled></Button>
+</Demo>
 
 A button can represent an on/off state using the toggle option. Use a toggle button when the user can enable or disable an option and a checkbox or switch is not suitable. This will most often be in the case of a toolbar, such as bold or italic options in a text editing toolbar. A toggle button in this example uses an icon and does not need text. A text label should be provided in a tooltip on hover. The toggle option is available for basic and secondary type buttons.
 
 ### Icons
 
-![](../images/button-icon.png)
+<Demo>
+    <Button icon={<IconCheckmark24/>}>Mark as complete</Button>
+</Demo>
 
 Icons can be included in Basic, Primary, Secondary and Destructive buttons. Use an icon to supplement the text label. Remember that the user may not be fluent in the working language, so an accompanying icon on an important action can be a welcome addition. Buttons with icons only should be used for supplementary actions and should include a text tooltip on hover.
 
 ### Size
 
-![](../images/button-sizes.png)
+<Demo>
+    <Button small>Small</Button>
+    <Button>Default</Button>
+    <Button large>Large</Button>
+</Demo>
 
 Buttons are available in three sizes: `small`, `medium`, `large`. Medium is usually the correct choice. Use small button in an information dense ui. Large buttons can be use on very simple, single action pages.
 
@@ -81,7 +70,9 @@ Buttons are available in three sizes: `small`, `medium`, `large`. Medium is usua
 
 ### Disabled
 
-![](../images/button-disabled.png)
+<Demo>
+    <Button disabled>Enroll in program</Button>
+</Demo>
 
 Use disabled buttons when an action is being prevented for some reason. Always communicate to the user why the button can't be clicked. This can be done through a tooltip on hover, or with supplementary text underneath the button. Do not change the button label between disabled/enabled states.
 
