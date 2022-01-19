@@ -29,8 +29,32 @@ export const Demo = (props) => {
     }
 
     return (
-        <iframe {...props} ref={setContentRef}>
-            {mountNode && createPortal(props.children, mountNode)}
-        </iframe>
+        <div className="demo">
+            <div className="demo-title">Demo</div>
+                <iframe {...props} ref={setContentRef}>
+                    {mountNode && createPortal(props.children, mountNode)}
+                </iframe>
+            <style>
+                {`
+                    iframe {
+                        width: 100%;
+                        overflow: clip;
+                        padding: 24px 16px;
+
+                    }
+                    .demo {
+                        border: 1px solid #e5e5e5;
+                        margin-bottom: 16px;
+                    }
+                    .demo-title {
+                        width: 100%;
+                        background-color: #e5e5e5;
+                        font-size: 0.8rem;
+                        padding: 2px 4px;
+                        font-family: monospace;
+                    }
+                `}
+            </style>
+        </div>
     )
 }
