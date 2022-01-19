@@ -1,25 +1,17 @@
-|                      |                                                          |
-| -------------------- | -------------------------------------------------------- |
-| **Component**        | Avatar                                                   |
-| **Type**             | Atom ([?](http://atomicdesign.bradfrost.com/chapter-2/)) |
-| **Design Spec**      | [Link](https://sketch.cloud/s/DwkDk/a/OlqYEk)            |
-| **Working Examples** | _pending_                                                |
-| **Status**           | `Waiting for build`                                      |
-
 ---
+title: Avatar
+---
+
+import { Demo } from '../../DemoComponent.jsx'
+import { UserAvatar } from '@dhis2/ui'
 
 # Avatar
 
 An avatar is a visual icon that represents a user.
 
-![](../images/avatar.png)
-
-##### Contents
-
--   [Usage](#usage)
--   [Options](#options)
--   [Types](#types)
--   [Examples in use](#examples-in-use)
+<Demo>
+    <UserAvatar name="Karimbe Olefeme"/>
+</Demo>
 
 ---
 
@@ -33,15 +25,21 @@ Avatars are used to give extra information when a user is mentioned or displayed
 
 ### Sizes
 
-![](../images/avatar-sizes.png)
+<Demo>
+    <UserAvatar extrasmall name="Example Person"/>
+    <UserAvatar  name="Example Person"/>
+    <UserAvatar medium name="Example Person"/>
+    <UserAvatar large name="Example Person"/>
+    <UserAvatar extralarge name="Example Person"/>
+</Demo>
 
-Avatars are available in five sizes. The default size is 'medium'. Use the size avatar that represents how important the user information is. Often an avatar is supporting information, so it doesn't need to be displayed too large.
+Avatars are available in five sizes. The default size is `medium`. Use the size avatar that represents how important the user information is. Often an avatar is supporting information, so it doesn't need to be displayed too large.
 
----
+<!-- ---
 
 ## Types
 
-There are different types of avatar depending on the metadata available for a user. If available, the default avatar displays the user uploaded profile picture. If a profile picture is not available the user initials are displayed (JC for Joe Cooper). If the user initials are not available, or there are issues with the character-set (for example, non-latin characters), a default icon is displayed instead.
+There are different types of avatar depending on the metadata available for a user. If available, the default avatar displays the user uploaded profile picture. If a profile picture is not available the user initials are displayed (JC for Joe Cooper). If the user initials are not available, or there are issues with the character-set (for example, non-latin characters), a default icon is displayed instead. -->
 
 ---
 
