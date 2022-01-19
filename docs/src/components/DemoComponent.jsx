@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import { createPortal } from 'react-dom'
 
+import { ComponentCover, CenteredContent, CircularLoader } from '@dhis2/ui'
+
 import styles from './DemoComponent.module.css'
 
 export const Demo = (props) => {
+    const [ loading, setLoading ] = useState(true)
     const [contentRef, setContentRef] = useState(null)
 
     const mountNode = contentRef?.contentWindow?.document?.body
@@ -36,8 +39,15 @@ export const Demo = (props) => {
 
     return (
         <div className={styles.demo}>
+            { loading && (
+                <ComponentCover translucent>
+                    <CenteredContent>
+                        <CircularLoader />
+                    </CenteredContent>
+                </ComponentCover>
+            ) }
             <div className={styles.demoTitle}>Demo</div>
-            <iframe loading="lazy" className={styles.demoFrame} {...props} ref={setContentRef}>
+            <iframe loading="lazy" onLoad={e => setLoading(false)}className={styles.demoFrame} {...props} ref={setContentRef}>
                 {mountNode && createPortal(props.children, mountNode)}
             </iframe>
         </div>
