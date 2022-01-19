@@ -1,0 +1,24 @@
+{
+  "unversionedId": "design-system/principles/color",
+  "id": "design-system/principles/color",
+  "isDocsHomePage": false,
+  "title": "Color",
+  "description": "Color is used in DHIS2 to support effective communication. DHIS2 applications use color to help the user understand information, feedback and more. The colors used in an application should not be chosen based primarily on how they look, but how they convey information and aid understanding.",
+  "source": "@site/docs/design-system/principles/color.md",
+  "sourceDirName": "design-system/principles",
+  "slug": "/design-system/principles/color",
+  "permalink": "/docs/design-system/principles/color",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/design-system/principles/color.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Organization Unit Tree",
+    "permalink": "/docs/design-system/organisms/organisation-unit-tree/org-unit-tree"
+  },
+  "next": {
+    "title": "Content & Communication",
+    "permalink": "/docs/design-system/principles/content-communication"
+  }
+}

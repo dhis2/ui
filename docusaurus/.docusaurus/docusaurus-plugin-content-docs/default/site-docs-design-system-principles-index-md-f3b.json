@@ -1,0 +1,24 @@
+{
+  "unversionedId": "design-system/principles-index",
+  "id": "design-system/principles-index",
+  "isDocsHomePage": false,
+  "title": "Design Principles",
+  "description": "-   Content & Communication",
+  "source": "@site/docs/design-system/principles-index.md",
+  "sourceDirName": "design-system",
+  "slug": "/design-system/principles-index",
+  "permalink": "/docs/design-system/principles-index",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/design-system/principles-index.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Components",
+    "permalink": "/docs/design-system/components-index"
+  },
+  "next": {
+    "title": "DHIS2 Design System",
+    "permalink": "/docs/design-system/readme"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "migrating",
+  "id": "migrating",
+  "isDocsHomePage": false,
+  "title": "Migrating from previous UI versions",
+  "description": "< v5",
+  "source": "@site/docs/migrating.md",
+  "sourceDirName": ".",
+  "slug": "/migrating",
+  "permalink": "/docs/migrating",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/migrating.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Getting Started",
+    "permalink": "/docs/getting-started"
+  },
+  "next": {
+    "title": "DHIS2 UI",
+    "permalink": "/docs/overview"
+  }
+}

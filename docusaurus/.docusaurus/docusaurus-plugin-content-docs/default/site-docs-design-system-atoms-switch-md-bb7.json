@@ -1,0 +1,24 @@
+{
+  "unversionedId": "design-system/atoms/switch",
+  "id": "design-system/atoms/switch",
+  "isDocsHomePage": false,
+  "title": "switch",
+  "description": "|                      |                                                                            |",
+  "source": "@site/docs/design-system/atoms/switch.md",
+  "sourceDirName": "design-system/atoms",
+  "slug": "/design-system/atoms/switch",
+  "permalink": "/docs/design-system/atoms/switch",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/design-system/atoms/switch.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "radio",
+    "permalink": "/docs/design-system/atoms/radio"
+  },
+  "next": {
+    "title": "tag",
+    "permalink": "/docs/design-system/atoms/tag"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "Utilities/forms/react-final-form",
+  "id": "Utilities/forms/react-final-form",
+  "isDocsHomePage": false,
+  "title": "React Final Form in the UI library",
+  "description": "React Final Form is the preferred library for form data handling and validation in DHIS2 apps, and comes with a number of useful features. It is included in and exported from the UI library and can be imported in your project like so:",
+  "source": "@site/docs/Utilities/forms/react-final-form.md",
+  "sourceDirName": "Utilities/forms",
+  "slug": "/Utilities/forms/react-final-form",
+  "permalink": "/docs/Utilities/forms/react-final-form",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Utilities/forms/react-final-form.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "UI Constants",
+    "permalink": "/docs/Utilities/constants"
+  },
+  "next": {
+    "title": "react-final-form.stories",
+    "permalink": "/docs/Utilities/forms/react-final-form.stories"
+  }
+}

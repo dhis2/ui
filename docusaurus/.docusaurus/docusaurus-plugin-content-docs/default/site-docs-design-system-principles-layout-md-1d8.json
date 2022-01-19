@@ -1,0 +1,24 @@
+{
+  "unversionedId": "design-system/principles/layout",
+  "id": "design-system/principles/layout",
+  "isDocsHomePage": false,
+  "title": "Layout, spacing, stacking",
+  "description": "A visual architecture of an application is made up of layout, spacing and stacking. The visual architecture of DHIS2 applications should follow some basic rules to provide a consistent user experience across different types of apps.",
+  "source": "@site/docs/design-system/principles/layout.md",
+  "sourceDirName": "design-system/principles",
+  "slug": "/design-system/principles/layout",
+  "permalink": "/docs/design-system/principles/layout",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/design-system/principles/layout.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Icons",
+    "permalink": "/docs/design-system/principles/icons"
+  },
+  "next": {
+    "title": "Typography",
+    "permalink": "/docs/design-system/principles/typography"
+  }
+}

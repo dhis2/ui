@@ -1,0 +1,24 @@
+{
+  "unversionedId": "Components/chip",
+  "id": "Components/chip",
+  "isDocsHomePage": false,
+  "title": "chip",
+  "description": "|                      |                                                                     |",
+  "source": "@site/docs/Components/chip.md",
+  "sourceDirName": "Components",
+  "slug": "/Components/chip",
+  "permalink": "/docs/Components/chip",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/chip.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "checkbox",
+    "permalink": "/docs/Components/checkbox"
+  },
+  "next": {
+    "title": "color-picker",
+    "permalink": "/docs/Components/color-picker"
+  }
+}

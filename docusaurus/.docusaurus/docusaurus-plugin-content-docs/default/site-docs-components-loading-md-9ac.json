@@ -1,0 +1,24 @@
+{
+  "unversionedId": "Components/loading",
+  "id": "Components/loading",
+  "isDocsHomePage": false,
+  "title": "loading",
+  "description": "|                      |                                                                                                    |",
+  "source": "@site/docs/Components/loading.md",
+  "sourceDirName": "Components",
+  "slug": "/Components/loading",
+  "permalink": "/docs/Components/loading",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/loading.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "inputfield",
+    "permalink": "/docs/Components/inputfield"
+  },
+  "next": {
+    "title": "menu",
+    "permalink": "/docs/Components/menu"
+  }
+}

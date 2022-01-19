@@ -1,0 +1,24 @@
+{
+  "unversionedId": "design-system/molecules/menu",
+  "id": "design-system/molecules/menu",
+  "isDocsHomePage": false,
+  "title": "menu",
+  "description": "|                      |                                                                                 |",
+  "source": "@site/docs/design-system/molecules/menu.md",
+  "sourceDirName": "design-system/molecules",
+  "slug": "/design-system/molecules/menu",
+  "permalink": "/docs/design-system/molecules/menu",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/design-system/molecules/menu.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "comment",
+    "permalink": "/docs/design-system/molecules/comment"
+  },
+  "next": {
+    "title": "modal",
+    "permalink": "/docs/design-system/molecules/modal"
+  }
+}

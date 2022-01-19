@@ -1,0 +1,24 @@
+{
+  "unversionedId": "design-system/principles/icons",
+  "id": "design-system/principles/icons",
+  "isDocsHomePage": false,
+  "title": "Icons",
+  "description": "Icons are used to help communicate information to users. Icons can provide supporting information and help users to recognize common ideas, concepts and actions. Icons are visual cues and should not be used alone, they are supporting elements.",
+  "source": "@site/docs/design-system/principles/icons.md",
+  "sourceDirName": "design-system/principles",
+  "slug": "/design-system/principles/icons",
+  "permalink": "/docs/design-system/principles/icons",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/design-system/principles/icons.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Forms",
+    "permalink": "/docs/design-system/principles/forms"
+  },
+  "next": {
+    "title": "Layout, spacing, stacking",
+    "permalink": "/docs/design-system/principles/layout"
+  }
+}

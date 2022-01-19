@@ -1,0 +1,1643 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "loadedVersions": [
+        {
+          "versionName": "current",
+          "versionLabel": "Next",
+          "versionPath": "/docs",
+          "tagsPath": "/docs/tags",
+          "versionEditUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs",
+          "versionEditUrlLocalized": "https://github.com/facebook/docusaurus/edit/main/website/i18n/en/docusaurus-plugin-content-docs/current",
+          "versionBanner": null,
+          "versionBadge": false,
+          "versionClassName": "docs-version-current",
+          "isLast": true,
+          "routePriority": -1,
+          "sidebarFilePath": "/Users/joe-dhis2/Documents/GitHub/ui/docusaurus/sidebars.js",
+          "contentPath": "/Users/joe-dhis2/Documents/GitHub/ui/docusaurus/docs",
+          "contentPathLocalized": "/Users/joe-dhis2/Documents/GitHub/ui/docusaurus/i18n/en/docusaurus-plugin-content-docs/current",
+          "mainDocId": "getting-started",
+          "docs": [
+            {
+              "unversionedId": "Components/alertbar",
+              "id": "Components/alertbar",
+              "isDocsHomePage": false,
+              "title": "alertbar",
+              "description": "|                      |                                                                                  |",
+              "source": "@site/docs/Components/alertbar.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/alertbar",
+              "permalink": "/docs/Components/alertbar",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/alertbar.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "validators.stories",
+                "permalink": "/docs/Utilities/forms/validators.stories"
+              },
+              "next": {
+                "title": "avatar",
+                "permalink": "/docs/Components/avatar"
+              }
+            },
+            {
+              "unversionedId": "Components/avatar",
+              "id": "Components/avatar",
+              "isDocsHomePage": false,
+              "title": "avatar",
+              "description": "|                      |                                                          |",
+              "source": "@site/docs/Components/avatar.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/avatar",
+              "permalink": "/docs/Components/avatar",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/avatar.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "alertbar",
+                "permalink": "/docs/Components/alertbar"
+              },
+              "next": {
+                "title": "button",
+                "permalink": "/docs/Components/button"
+              }
+            },
+            {
+              "unversionedId": "Components/button",
+              "id": "Components/button",
+              "isDocsHomePage": false,
+              "title": "button",
+              "description": "|                      |                                                                             |",
+              "source": "@site/docs/Components/button.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/button",
+              "permalink": "/docs/Components/button",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/button.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "avatar",
+                "permalink": "/docs/Components/avatar"
+              },
+              "next": {
+                "title": "card",
+                "permalink": "/docs/Components/card"
+              }
+            },
+            {
+              "unversionedId": "Components/card",
+              "id": "Components/card",
+              "isDocsHomePage": false,
+              "title": "card",
+              "description": "|                      |                                                                    |",
+              "source": "@site/docs/Components/card.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/card",
+              "permalink": "/docs/Components/card",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/card.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "button",
+                "permalink": "/docs/Components/button"
+              },
+              "next": {
+                "title": "checkbox",
+                "permalink": "/docs/Components/checkbox"
+              }
+            },
+            {
+              "unversionedId": "Components/checkbox",
+              "id": "Components/checkbox",
+              "isDocsHomePage": false,
+              "title": "checkbox",
+              "description": "|                      |                                                                                |",
+              "source": "@site/docs/Components/checkbox.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/checkbox",
+              "permalink": "/docs/Components/checkbox",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/checkbox.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "card",
+                "permalink": "/docs/Components/card"
+              },
+              "next": {
+                "title": "chip",
+                "permalink": "/docs/Components/chip"
+              }
+            },
+            {
+              "unversionedId": "Components/chip",
+              "id": "Components/chip",
+              "isDocsHomePage": false,
+              "title": "chip",
+              "description": "|                      |                                                                     |",
+              "source": "@site/docs/Components/chip.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/chip",
+              "permalink": "/docs/Components/chip",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/chip.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "checkbox",
+                "permalink": "/docs/Components/checkbox"
+              },
+              "next": {
+                "title": "color-picker",
+                "permalink": "/docs/Components/color-picker"
+              }
+            },
+            {
+              "unversionedId": "Components/color-picker",
+              "id": "Components/color-picker",
+              "isDocsHomePage": false,
+              "title": "color-picker",
+              "description": "|                      |                                                                         |",
+              "source": "@site/docs/Components/color-picker.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/color-picker",
+              "permalink": "/docs/Components/color-picker",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/color-picker.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "chip",
+                "permalink": "/docs/Components/chip"
+              },
+              "next": {
+                "title": "comment",
+                "permalink": "/docs/Components/comment"
+              }
+            },
+            {
+              "unversionedId": "Components/comment",
+              "id": "Components/comment",
+              "isDocsHomePage": false,
+              "title": "comment",
+              "description": "|                      |                                                              |",
+              "source": "@site/docs/Components/comment.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/comment",
+              "permalink": "/docs/Components/comment",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/comment.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "color-picker",
+                "permalink": "/docs/Components/color-picker"
+              },
+              "next": {
+                "title": "Components",
+                "permalink": "/docs/Components/components-index"
+              }
+            },
+            {
+              "unversionedId": "Components/components-index",
+              "id": "Components/components-index",
+              "isDocsHomePage": false,
+              "title": "Components",
+              "description": "Each component has guidelines for use, explanations of the different options and types available and examples of how the component is used in real DHIS2 applications. Components are organized by usage.",
+              "source": "@site/docs/Components/components-index.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/components-index",
+              "permalink": "/docs/Components/components-index",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/components-index.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "comment",
+                "permalink": "/docs/Components/comment"
+              },
+              "next": {
+                "title": "data-table",
+                "permalink": "/docs/Components/data-table"
+              }
+            },
+            {
+              "unversionedId": "Components/data-table",
+              "id": "Components/data-table",
+              "isDocsHomePage": false,
+              "title": "data-table",
+              "description": "|                      |                                                                     |",
+              "source": "@site/docs/Components/data-table.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/data-table",
+              "permalink": "/docs/Components/data-table",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/data-table.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Components",
+                "permalink": "/docs/Components/components-index"
+              },
+              "next": {
+                "title": "elevation",
+                "permalink": "/docs/Components/elevation"
+              }
+            },
+            {
+              "unversionedId": "Components/elevation",
+              "id": "Components/elevation",
+              "isDocsHomePage": false,
+              "title": "elevation",
+              "description": "|                      |                                                                                    |",
+              "source": "@site/docs/Components/elevation.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/elevation",
+              "permalink": "/docs/Components/elevation",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/elevation.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "data-table",
+                "permalink": "/docs/Components/data-table"
+              },
+              "next": {
+                "title": "fileinput",
+                "permalink": "/docs/Components/fileinput"
+              }
+            },
+            {
+              "unversionedId": "Components/fileinput",
+              "id": "Components/fileinput",
+              "isDocsHomePage": false,
+              "title": "fileinput",
+              "description": "|                      |                                                                                    |",
+              "source": "@site/docs/Components/fileinput.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/fileinput",
+              "permalink": "/docs/Components/fileinput",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/fileinput.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "elevation",
+                "permalink": "/docs/Components/elevation"
+              },
+              "next": {
+                "title": "header-bar",
+                "permalink": "/docs/Components/header-bar"
+              }
+            },
+            {
+              "unversionedId": "Components/header-bar",
+              "id": "Components/header-bar",
+              "isDocsHomePage": false,
+              "title": "header-bar",
+              "description": "|                      |                                                                         |",
+              "source": "@site/docs/Components/header-bar.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/header-bar",
+              "permalink": "/docs/Components/header-bar",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/header-bar.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "fileinput",
+                "permalink": "/docs/Components/fileinput"
+              },
+              "next": {
+                "title": "inputfield",
+                "permalink": "/docs/Components/inputfield"
+              }
+            },
+            {
+              "unversionedId": "Components/inputfield",
+              "id": "Components/inputfield",
+              "isDocsHomePage": false,
+              "title": "inputfield",
+              "description": "|                      |                                                                          |",
+              "source": "@site/docs/Components/inputfield.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/inputfield",
+              "permalink": "/docs/Components/inputfield",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/inputfield.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "header-bar",
+                "permalink": "/docs/Components/header-bar"
+              },
+              "next": {
+                "title": "loading",
+                "permalink": "/docs/Components/loading"
+              }
+            },
+            {
+              "unversionedId": "Components/loading",
+              "id": "Components/loading",
+              "isDocsHomePage": false,
+              "title": "loading",
+              "description": "|                      |                                                                                                    |",
+              "source": "@site/docs/Components/loading.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/loading",
+              "permalink": "/docs/Components/loading",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/loading.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "inputfield",
+                "permalink": "/docs/Components/inputfield"
+              },
+              "next": {
+                "title": "menu",
+                "permalink": "/docs/Components/menu"
+              }
+            },
+            {
+              "unversionedId": "Components/menu",
+              "id": "Components/menu",
+              "isDocsHomePage": false,
+              "title": "menu",
+              "description": "|                      |                                                                                 |",
+              "source": "@site/docs/Components/menu.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/menu",
+              "permalink": "/docs/Components/menu",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/menu.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "loading",
+                "permalink": "/docs/Components/loading"
+              },
+              "next": {
+                "title": "modal",
+                "permalink": "/docs/Components/modal"
+              }
+            },
+            {
+              "unversionedId": "Components/modal",
+              "id": "Components/modal",
+              "isDocsHomePage": false,
+              "title": "modal",
+              "description": "|                      |                                                                             |",
+              "source": "@site/docs/Components/modal.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/modal",
+              "permalink": "/docs/Components/modal",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/modal.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "menu",
+                "permalink": "/docs/Components/menu"
+              },
+              "next": {
+                "title": "notice-box",
+                "permalink": "/docs/Components/notice-box"
+              }
+            },
+            {
+              "unversionedId": "Components/notice-box",
+              "id": "Components/notice-box",
+              "isDocsHomePage": false,
+              "title": "notice-box",
+              "description": "|                      |                                                                                |",
+              "source": "@site/docs/Components/notice-box.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/notice-box",
+              "permalink": "/docs/Components/notice-box",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/notice-box.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "modal",
+                "permalink": "/docs/Components/modal"
+              },
+              "next": {
+                "title": "Organization Unit Tree",
+                "permalink": "/docs/Components/org-unit-tree"
+              }
+            },
+            {
+              "unversionedId": "Components/org-unit-tree",
+              "id": "Components/org-unit-tree",
+              "isDocsHomePage": false,
+              "title": "Organization Unit Tree",
+              "description": "Display, manipulate and select organization units displayed in a hierarchical tree.",
+              "source": "@site/docs/Components/org-unit-tree.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/org-unit-tree",
+              "permalink": "/docs/Components/org-unit-tree",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/org-unit-tree.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "notice-box",
+                "permalink": "/docs/Components/notice-box"
+              },
+              "next": {
+                "title": "pagination",
+                "permalink": "/docs/Components/pagination"
+              }
+            },
+            {
+              "unversionedId": "Components/pagination",
+              "id": "Components/pagination",
+              "isDocsHomePage": false,
+              "title": "pagination",
+              "description": "|                      |                                                                                |",
+              "source": "@site/docs/Components/pagination.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/pagination",
+              "permalink": "/docs/Components/pagination",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/pagination.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Organization Unit Tree",
+                "permalink": "/docs/Components/org-unit-tree"
+              },
+              "next": {
+                "title": "popover",
+                "permalink": "/docs/Components/popover"
+              }
+            },
+            {
+              "unversionedId": "Components/popover",
+              "id": "Components/popover",
+              "isDocsHomePage": false,
+              "title": "popover",
+              "description": "|                      |                                                                             |",
+              "source": "@site/docs/Components/popover.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/popover",
+              "permalink": "/docs/Components/popover",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/popover.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "pagination",
+                "permalink": "/docs/Components/pagination"
+              },
+              "next": {
+                "title": "radio",
+                "permalink": "/docs/Components/radio"
+              }
+            },
+            {
+              "unversionedId": "Components/radio",
+              "id": "Components/radio",
+              "isDocsHomePage": false,
+              "title": "radio",
+              "description": "|                      |                                                                          |",
+              "source": "@site/docs/Components/radio.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/radio",
+              "permalink": "/docs/Components/radio",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/radio.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "popover",
+                "permalink": "/docs/Components/popover"
+              },
+              "next": {
+                "title": "rich-text",
+                "permalink": "/docs/Components/rich-text"
+              }
+            },
+            {
+              "unversionedId": "Components/rich-text",
+              "id": "Components/rich-text",
+              "isDocsHomePage": false,
+              "title": "rich-text",
+              "description": "|                      |                                                              |",
+              "source": "@site/docs/Components/rich-text.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/rich-text",
+              "permalink": "/docs/Components/rich-text",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/rich-text.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "radio",
+                "permalink": "/docs/Components/radio"
+              },
+              "next": {
+                "title": "segmented-control",
+                "permalink": "/docs/Components/segmented-control"
+              }
+            },
+            {
+              "unversionedId": "Components/segmented-control",
+              "id": "Components/segmented-control",
+              "isDocsHomePage": false,
+              "title": "segmented-control",
+              "description": "|                      |                                                                   |",
+              "source": "@site/docs/Components/segmented-control.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/segmented-control",
+              "permalink": "/docs/Components/segmented-control",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/segmented-control.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "rich-text",
+                "permalink": "/docs/Components/rich-text"
+              },
+              "next": {
+                "title": "select",
+                "permalink": "/docs/Components/select"
+              }
+            },
+            {
+              "unversionedId": "Components/select",
+              "id": "Components/select",
+              "isDocsHomePage": false,
+              "title": "select",
+              "description": "|                      |                                                                                                             |",
+              "source": "@site/docs/Components/select.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/select",
+              "permalink": "/docs/Components/select",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/select.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "segmented-control",
+                "permalink": "/docs/Components/segmented-control"
+              },
+              "next": {
+                "title": "switch",
+                "permalink": "/docs/Components/switch"
+              }
+            },
+            {
+              "unversionedId": "Components/switch",
+              "id": "Components/switch",
+              "isDocsHomePage": false,
+              "title": "switch",
+              "description": "|                      |                                                                            |",
+              "source": "@site/docs/Components/switch.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/switch",
+              "permalink": "/docs/Components/switch",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/switch.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "select",
+                "permalink": "/docs/Components/select"
+              },
+              "next": {
+                "title": "tab",
+                "permalink": "/docs/Components/tab"
+              }
+            },
+            {
+              "unversionedId": "Components/tab",
+              "id": "Components/tab",
+              "isDocsHomePage": false,
+              "title": "tab",
+              "description": "|                      |                                                                                 |",
+              "source": "@site/docs/Components/tab.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/tab",
+              "permalink": "/docs/Components/tab",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/tab.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "switch",
+                "permalink": "/docs/Components/switch"
+              },
+              "next": {
+                "title": "Table",
+                "permalink": "/docs/Components/table"
+              }
+            },
+            {
+              "unversionedId": "Components/table",
+              "id": "Components/table",
+              "isDocsHomePage": false,
+              "title": "Table",
+              "description": "Tables are used to display data in a standard, effective way.",
+              "source": "@site/docs/Components/table.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/table",
+              "permalink": "/docs/Components/table",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/table.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tab",
+                "permalink": "/docs/Components/tab"
+              },
+              "next": {
+                "title": "tag",
+                "permalink": "/docs/Components/tag"
+              }
+            },
+            {
+              "unversionedId": "Components/tag",
+              "id": "Components/tag",
+              "isDocsHomePage": false,
+              "title": "tag",
+              "description": "|                      |                                                                         |",
+              "source": "@site/docs/Components/tag.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/tag",
+              "permalink": "/docs/Components/tag",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/tag.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Table",
+                "permalink": "/docs/Components/table"
+              },
+              "next": {
+                "title": "tooltip",
+                "permalink": "/docs/Components/tooltip"
+              }
+            },
+            {
+              "unversionedId": "Components/tooltip",
+              "id": "Components/tooltip",
+              "isDocsHomePage": false,
+              "title": "tooltip",
+              "description": "|                      |                                                                                           |",
+              "source": "@site/docs/Components/tooltip.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/tooltip",
+              "permalink": "/docs/Components/tooltip",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/tooltip.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tag",
+                "permalink": "/docs/Components/tag"
+              },
+              "next": {
+                "title": "transfer",
+                "permalink": "/docs/Components/transfer"
+              }
+            },
+            {
+              "unversionedId": "Components/transfer",
+              "id": "Components/transfer",
+              "isDocsHomePage": false,
+              "title": "transfer",
+              "description": "|                      |                                                                                                               |",
+              "source": "@site/docs/Components/transfer.md",
+              "sourceDirName": "Components",
+              "slug": "/Components/transfer",
+              "permalink": "/docs/Components/transfer",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/transfer.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "tooltip",
+                "permalink": "/docs/Components/tooltip"
+              }
+            },
+            {
+              "unversionedId": "getting-started",
+              "id": "getting-started",
+              "isDocsHomePage": false,
+              "title": "Getting Started",
+              "description": "npm",
+              "source": "@site/docs/getting-started.md",
+              "sourceDirName": ".",
+              "slug": "/getting-started",
+              "permalink": "/docs/getting-started",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/getting-started.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "next": {
+                "title": "DHIS2 UI",
+                "permalink": "/docs/overview"
+              }
+            },
+            {
+              "unversionedId": "overview",
+              "id": "overview",
+              "isDocsHomePage": false,
+              "title": "DHIS2 UI",
+              "description": "This is the homepage.",
+              "source": "@site/docs/overview.md",
+              "sourceDirName": ".",
+              "slug": "/overview",
+              "permalink": "/docs/overview",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/overview.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Getting Started",
+                "permalink": "/docs/getting-started"
+              },
+              "next": {
+                "title": "DHIS2 Design System",
+                "permalink": "/docs/readme"
+              }
+            },
+            {
+              "unversionedId": "Package/advanced-usage",
+              "id": "Package/advanced-usage",
+              "isDocsHomePage": false,
+              "title": "Overriding the styled-jsx from our libraries",
+              "description": "Recommendations",
+              "source": "@site/docs/Package/advanced-usage.md",
+              "sourceDirName": "Package",
+              "slug": "/Package/advanced-usage",
+              "permalink": "/docs/Package/advanced-usage",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Package/advanced-usage.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "DHIS2 Design System",
+                "permalink": "/docs/readme"
+              },
+              "next": {
+                "title": "Getting Started",
+                "permalink": "/docs/Package/getting-started"
+              }
+            },
+            {
+              "unversionedId": "Package/getting-started",
+              "id": "Package/getting-started",
+              "isDocsHomePage": false,
+              "title": "Getting Started",
+              "description": "npm",
+              "source": "@site/docs/Package/getting-started.md",
+              "sourceDirName": "Package",
+              "slug": "/Package/getting-started",
+              "permalink": "/docs/Package/getting-started",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Package/getting-started.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Overriding the styled-jsx from our libraries",
+                "permalink": "/docs/Package/advanced-usage"
+              },
+              "next": {
+                "title": "Migrating from previous UI versions",
+                "permalink": "/docs/Package/migrating"
+              }
+            },
+            {
+              "unversionedId": "Package/migrating",
+              "id": "Package/migrating",
+              "isDocsHomePage": false,
+              "title": "Migrating from previous UI versions",
+              "description": "< v5",
+              "source": "@site/docs/Package/migrating.md",
+              "sourceDirName": "Package",
+              "slug": "/Package/migrating",
+              "permalink": "/docs/Package/migrating",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Package/migrating.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Getting Started",
+                "permalink": "/docs/Package/getting-started"
+              },
+              "next": {
+                "title": "Troubleshooting",
+                "permalink": "/docs/Package/troubleshooting"
+              }
+            },
+            {
+              "unversionedId": "Package/recipes/README",
+              "id": "Package/recipes/README",
+              "isDocsHomePage": false,
+              "title": "Recipes",
+              "description": "Recipes in this section are guides for composing components from the UI library to achieve a desired result that may be too specific to create a dedicated component for it in the UI library.",
+              "source": "@site/docs/Package/recipes/README.md",
+              "sourceDirName": "Package/recipes",
+              "slug": "/Package/recipes/README",
+              "permalink": "/docs/Package/recipes/README",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Package/recipes/README.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Troubleshooting",
+                "permalink": "/docs/Package/troubleshooting"
+              },
+              "next": {
+                "title": "Transfer: Infinite loading - All loaded options are already selected",
+                "permalink": "/docs/Package/recipes/transfer-infinite-loading-all-options-selected"
+              }
+            },
+            {
+              "unversionedId": "Package/recipes/transfer-infinite-loading-all-options-selected",
+              "id": "Package/recipes/transfer-infinite-loading-all-options-selected",
+              "isDocsHomePage": false,
+              "title": "Transfer: Infinite loading - All loaded options are already selected",
+              "description": "Abstract",
+              "source": "@site/docs/Package/recipes/transfer-infinite-loading-all-options-selected.md",
+              "sourceDirName": "Package/recipes",
+              "slug": "/Package/recipes/transfer-infinite-loading-all-options-selected",
+              "permalink": "/docs/Package/recipes/transfer-infinite-loading-all-options-selected",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Package/recipes/transfer-infinite-loading-all-options-selected.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Recipes",
+                "permalink": "/docs/Package/recipes/README"
+              },
+              "next": {
+                "title": "Color",
+                "permalink": "/docs/Principles/color"
+              }
+            },
+            {
+              "unversionedId": "Package/troubleshooting",
+              "id": "Package/troubleshooting",
+              "isDocsHomePage": false,
+              "title": "Troubleshooting",
+              "description": "Encountering z-index issues?",
+              "source": "@site/docs/Package/troubleshooting.md",
+              "sourceDirName": "Package",
+              "slug": "/Package/troubleshooting",
+              "permalink": "/docs/Package/troubleshooting",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Package/troubleshooting.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Migrating from previous UI versions",
+                "permalink": "/docs/Package/migrating"
+              },
+              "next": {
+                "title": "Recipes",
+                "permalink": "/docs/Package/recipes/README"
+              }
+            },
+            {
+              "unversionedId": "Principles/color",
+              "id": "Principles/color",
+              "isDocsHomePage": false,
+              "title": "Color",
+              "description": "Color is used in DHIS2 to support effective communication. DHIS2 applications use color to help the user understand information, feedback and more. The colors used in an application should not be chosen based primarily on how they look, but how they convey information and aid understanding.",
+              "source": "@site/docs/Principles/color.md",
+              "sourceDirName": "Principles",
+              "slug": "/Principles/color",
+              "permalink": "/docs/Principles/color",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Principles/color.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Transfer: Infinite loading - All loaded options are already selected",
+                "permalink": "/docs/Package/recipes/transfer-infinite-loading-all-options-selected"
+              },
+              "next": {
+                "title": "Content & Communication",
+                "permalink": "/docs/Principles/content-communication"
+              }
+            },
+            {
+              "unversionedId": "Principles/content-communication",
+              "id": "Principles/content-communication",
+              "isDocsHomePage": false,
+              "title": "Content & Communication",
+              "description": "Communicating consistently helps DHIS2 users understand, use and extend DHIS2. Follow these principles, each of which is expanded below:",
+              "source": "@site/docs/Principles/content-communication.md",
+              "sourceDirName": "Principles",
+              "slug": "/Principles/content-communication",
+              "permalink": "/docs/Principles/content-communication",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Principles/content-communication.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Color",
+                "permalink": "/docs/Principles/color"
+              },
+              "next": {
+                "title": "Design for use",
+                "permalink": "/docs/Principles/design-for-use"
+              }
+            },
+            {
+              "unversionedId": "Principles/design-for-use",
+              "id": "Principles/design-for-use",
+              "isDocsHomePage": false,
+              "title": "Design for use",
+              "description": "To build complex applications that are user-friendly, focus on:",
+              "source": "@site/docs/Principles/design-for-use.md",
+              "sourceDirName": "Principles",
+              "slug": "/Principles/design-for-use",
+              "permalink": "/docs/Principles/design-for-use",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Principles/design-for-use.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Content & Communication",
+                "permalink": "/docs/Principles/content-communication"
+              },
+              "next": {
+                "title": "Forms",
+                "permalink": "/docs/Principles/forms"
+              }
+            },
+            {
+              "unversionedId": "Principles/forms",
+              "id": "Principles/forms",
+              "isDocsHomePage": false,
+              "title": "Forms",
+              "description": "Forms are one of the most common ways an application collects user input. Forms accept various types of user input: text, selection, checkboxes and more. DHIS2 applications should follow some common form guidelines to make sure users are not unnecessarily challenged when working with forms.",
+              "source": "@site/docs/Principles/forms.md",
+              "sourceDirName": "Principles",
+              "slug": "/Principles/forms",
+              "permalink": "/docs/Principles/forms",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Principles/forms.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Design for use",
+                "permalink": "/docs/Principles/design-for-use"
+              },
+              "next": {
+                "title": "Icons",
+                "permalink": "/docs/Principles/icons"
+              }
+            },
+            {
+              "unversionedId": "Principles/icons",
+              "id": "Principles/icons",
+              "isDocsHomePage": false,
+              "title": "Icons",
+              "description": "Icons are used to help communicate information to users. Icons can provide supporting information and help users to recognize common ideas, concepts and actions. Icons are visual cues and should not be used alone, they are supporting elements.",
+              "source": "@site/docs/Principles/icons.md",
+              "sourceDirName": "Principles",
+              "slug": "/Principles/icons",
+              "permalink": "/docs/Principles/icons",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Principles/icons.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Forms",
+                "permalink": "/docs/Principles/forms"
+              },
+              "next": {
+                "title": "Layout, spacing, stacking",
+                "permalink": "/docs/Principles/layout"
+              }
+            },
+            {
+              "unversionedId": "Principles/layout",
+              "id": "Principles/layout",
+              "isDocsHomePage": false,
+              "title": "Layout, spacing, stacking",
+              "description": "A visual architecture of an application is made up of layout, spacing and stacking. The visual architecture of DHIS2 applications should follow some basic rules to provide a consistent user experience across different types of apps.",
+              "source": "@site/docs/Principles/layout.md",
+              "sourceDirName": "Principles",
+              "slug": "/Principles/layout",
+              "permalink": "/docs/Principles/layout",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Principles/layout.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Icons",
+                "permalink": "/docs/Principles/icons"
+              },
+              "next": {
+                "title": "Design Principles",
+                "permalink": "/docs/Principles/principles-index"
+              }
+            },
+            {
+              "unversionedId": "Principles/principles-index",
+              "id": "Principles/principles-index",
+              "isDocsHomePage": false,
+              "title": "Design Principles",
+              "description": "-   Content & Communication",
+              "source": "@site/docs/Principles/principles-index.md",
+              "sourceDirName": "Principles",
+              "slug": "/Principles/principles-index",
+              "permalink": "/docs/Principles/principles-index",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Principles/principles-index.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Layout, spacing, stacking",
+                "permalink": "/docs/Principles/layout"
+              },
+              "next": {
+                "title": "Typography",
+                "permalink": "/docs/Principles/typography"
+              }
+            },
+            {
+              "unversionedId": "Principles/typography",
+              "id": "Principles/typography",
+              "isDocsHomePage": false,
+              "title": "Typography",
+              "description": "Typography, the selection and use of fonts, colors and sizes, is an effective way to communicate information to users.",
+              "source": "@site/docs/Principles/typography.md",
+              "sourceDirName": "Principles",
+              "slug": "/Principles/typography",
+              "permalink": "/docs/Principles/typography",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Principles/typography.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Design Principles",
+                "permalink": "/docs/Principles/principles-index"
+              },
+              "next": {
+                "title": "UI Constants",
+                "permalink": "/docs/Utilities/constants"
+              }
+            },
+            {
+              "unversionedId": "readme",
+              "id": "readme",
+              "isDocsHomePage": false,
+              "title": "DHIS2 Design System",
+              "description": "The DHIS2 Design System is a collection of design principles and a library of UI components for designing applications for the DHIS2 platform. Using this system you can design and build applications that are usable, powerful and consistent with other DHIS2 applications.",
+              "source": "@site/docs/readme.md",
+              "sourceDirName": ".",
+              "slug": "/readme",
+              "permalink": "/docs/readme",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/readme.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "DHIS2 UI",
+                "permalink": "/docs/overview"
+              },
+              "next": {
+                "title": "Overriding the styled-jsx from our libraries",
+                "permalink": "/docs/Package/advanced-usage"
+              }
+            },
+            {
+              "unversionedId": "Utilities/constants",
+              "id": "Utilities/constants",
+              "isDocsHomePage": false,
+              "title": "UI Constants",
+              "description": "There are are a number of constants that can be imported from the UI library that are useful for applying the DHIS2 design system to your application.",
+              "source": "@site/docs/Utilities/constants.md",
+              "sourceDirName": "Utilities",
+              "slug": "/Utilities/constants",
+              "permalink": "/docs/Utilities/constants",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Utilities/constants.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Typography",
+                "permalink": "/docs/Principles/typography"
+              },
+              "next": {
+                "title": "React Final Form in the UI library",
+                "permalink": "/docs/Utilities/forms/react-final-form"
+              }
+            },
+            {
+              "unversionedId": "Utilities/forms/react-final-form",
+              "id": "Utilities/forms/react-final-form",
+              "isDocsHomePage": false,
+              "title": "React Final Form in the UI library",
+              "description": "React Final Form is the preferred library for form data handling and validation in DHIS2 apps, and comes with a number of useful features. It is included in and exported from the UI library and can be imported in your project like so:",
+              "source": "@site/docs/Utilities/forms/react-final-form.md",
+              "sourceDirName": "Utilities/forms",
+              "slug": "/Utilities/forms/react-final-form",
+              "permalink": "/docs/Utilities/forms/react-final-form",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Utilities/forms/react-final-form.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "UI Constants",
+                "permalink": "/docs/Utilities/constants"
+              },
+              "next": {
+                "title": "react-final-form.stories",
+                "permalink": "/docs/Utilities/forms/react-final-form.stories"
+              }
+            },
+            {
+              "unversionedId": "Utilities/forms/react-final-form.stories",
+              "id": "Utilities/forms/react-final-form.stories",
+              "isDocsHomePage": false,
+              "title": "react-final-form.stories",
+              "description": "",
+              "source": "@site/docs/Utilities/forms/react-final-form.stories.mdx",
+              "sourceDirName": "Utilities/forms",
+              "slug": "/Utilities/forms/react-final-form.stories",
+              "permalink": "/docs/Utilities/forms/react-final-form.stories",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Utilities/forms/react-final-form.stories.mdx",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "React Final Form in the UI library",
+                "permalink": "/docs/Utilities/forms/react-final-form"
+              },
+              "next": {
+                "title": "Data parsing and formatting",
+                "permalink": "/docs/Utilities/forms/transformers"
+              }
+            },
+            {
+              "unversionedId": "Utilities/forms/transformers",
+              "id": "Utilities/forms/transformers",
+              "isDocsHomePage": false,
+              "title": "Data parsing and formatting",
+              "description": "There are a few helper functions called 'transformers' in the UI library that are useful for managing and transforming data.",
+              "source": "@site/docs/Utilities/forms/transformers.md",
+              "sourceDirName": "Utilities/forms",
+              "slug": "/Utilities/forms/transformers",
+              "permalink": "/docs/Utilities/forms/transformers",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Utilities/forms/transformers.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "react-final-form.stories",
+                "permalink": "/docs/Utilities/forms/react-final-form.stories"
+              },
+              "next": {
+                "title": "transformers.stories",
+                "permalink": "/docs/Utilities/forms/transformers.stories"
+              }
+            },
+            {
+              "unversionedId": "Utilities/forms/transformers.stories",
+              "id": "Utilities/forms/transformers.stories",
+              "isDocsHomePage": false,
+              "title": "transformers.stories",
+              "description": "",
+              "source": "@site/docs/Utilities/forms/transformers.stories.mdx",
+              "sourceDirName": "Utilities/forms",
+              "slug": "/Utilities/forms/transformers.stories",
+              "permalink": "/docs/Utilities/forms/transformers.stories",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Utilities/forms/transformers.stories.mdx",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Data parsing and formatting",
+                "permalink": "/docs/Utilities/forms/transformers"
+              },
+              "next": {
+                "title": "Validators",
+                "permalink": "/docs/Utilities/forms/validators"
+              }
+            },
+            {
+              "unversionedId": "Utilities/forms/validators",
+              "id": "Utilities/forms/validators",
+              "isDocsHomePage": false,
+              "title": "Validators",
+              "description": "The UI library provides a number of premade validator functions to use with React Final Form. Here is an example of how one can be used:",
+              "source": "@site/docs/Utilities/forms/validators.md",
+              "sourceDirName": "Utilities/forms",
+              "slug": "/Utilities/forms/validators",
+              "permalink": "/docs/Utilities/forms/validators",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Utilities/forms/validators.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "transformers.stories",
+                "permalink": "/docs/Utilities/forms/transformers.stories"
+              },
+              "next": {
+                "title": "validators.stories",
+                "permalink": "/docs/Utilities/forms/validators.stories"
+              }
+            },
+            {
+              "unversionedId": "Utilities/forms/validators.stories",
+              "id": "Utilities/forms/validators.stories",
+              "isDocsHomePage": false,
+              "title": "validators.stories",
+              "description": "",
+              "source": "@site/docs/Utilities/forms/validators.stories.mdx",
+              "sourceDirName": "Utilities/forms",
+              "slug": "/Utilities/forms/validators.stories",
+              "permalink": "/docs/Utilities/forms/validators.stories",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Utilities/forms/validators.stories.mdx",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Validators",
+                "permalink": "/docs/Utilities/forms/validators"
+              },
+              "next": {
+                "title": "alertbar",
+                "permalink": "/docs/Components/alertbar"
+              }
+            }
+          ],
+          "sidebars": {
+            "tutorialSidebar": [
+              {
+                "type": "doc",
+                "id": "getting-started"
+              },
+              {
+                "type": "doc",
+                "id": "overview"
+              },
+              {
+                "type": "doc",
+                "id": "readme"
+              },
+              {
+                "type": "category",
+                "label": "Package",
+                "collapsible": true,
+                "collapsed": true,
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "Package/advanced-usage"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Package/getting-started"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Package/migrating"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Package/troubleshooting"
+                  },
+                  {
+                    "type": "category",
+                    "label": "recipes",
+                    "collapsible": true,
+                    "collapsed": true,
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "Package/recipes/README"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "Package/recipes/transfer-infinite-loading-all-options-selected"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "category",
+                "label": "Principles",
+                "collapsible": true,
+                "collapsed": true,
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "Principles/color"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Principles/content-communication"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Principles/design-for-use"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Principles/forms"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Principles/icons"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Principles/layout"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Principles/principles-index"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Principles/typography"
+                  }
+                ]
+              },
+              {
+                "type": "category",
+                "label": "Utilities",
+                "collapsible": true,
+                "collapsed": true,
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "Utilities/constants"
+                  },
+                  {
+                    "type": "category",
+                    "label": "forms",
+                    "collapsible": true,
+                    "collapsed": true,
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "Utilities/forms/react-final-form"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "Utilities/forms/react-final-form.stories"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "Utilities/forms/transformers"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "Utilities/forms/transformers.stories"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "Utilities/forms/validators"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "Utilities/forms/validators.stories"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "category",
+                "label": "Components",
+                "collapsible": true,
+                "collapsed": true,
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "Components/alertbar"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/avatar"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/button"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/card"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/checkbox"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/chip"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/color-picker"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/comment"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/components-index"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/data-table"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/elevation"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/fileinput"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/header-bar"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/inputfield"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/loading"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/menu"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/modal"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/notice-box"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/org-unit-tree"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/pagination"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/popover"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/radio"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/rich-text"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/segmented-control"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/select"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/switch"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/tab"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/table"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/tag"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/tooltip"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Components/transfer"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "docusaurus-plugin-content-blog": {
+    "default": {
+      "blogSidebarTitle": "Recent posts",
+      "blogPosts": [],
+      "blogListPaginated": [],
+      "blogTags": {},
+      "blogTagsListPath": null
+    }
+  },
+  "docusaurus-plugin-content-pages": {
+    "default": [
+      {
+        "type": "jsx",
+        "permalink": "/",
+        "source": "@site/src/pages/index.js"
+      },
+      {
+        "type": "mdx",
+        "permalink": "/markdown-page",
+        "source": "@site/src/pages/markdown-page.md"
+      }
+    ]
+  },
+  "docusaurus-plugin-debug": {
+    "default": null
+  },
+  "docusaurus-theme-classic": {
+    "default": null
+  },
+  "custom-webpack": {
+    "default": null
+  }
+}

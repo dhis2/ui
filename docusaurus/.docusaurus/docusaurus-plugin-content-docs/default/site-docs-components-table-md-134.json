@@ -1,0 +1,24 @@
+{
+  "unversionedId": "Components/table",
+  "id": "Components/table",
+  "isDocsHomePage": false,
+  "title": "Table",
+  "description": "Tables are used to display data in a standard, effective way.",
+  "source": "@site/docs/Components/table.md",
+  "sourceDirName": "Components",
+  "slug": "/Components/table",
+  "permalink": "/docs/Components/table",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/table.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "tab",
+    "permalink": "/docs/Components/tab"
+  },
+  "next": {
+    "title": "tag",
+    "permalink": "/docs/Components/tag"
+  }
+}

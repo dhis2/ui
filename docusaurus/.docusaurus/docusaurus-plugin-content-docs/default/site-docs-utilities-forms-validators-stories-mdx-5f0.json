@@ -1,0 +1,24 @@
+{
+  "unversionedId": "Utilities/forms/validators.stories",
+  "id": "Utilities/forms/validators.stories",
+  "isDocsHomePage": false,
+  "title": "validators.stories",
+  "description": "",
+  "source": "@site/docs/Utilities/forms/validators.stories.mdx",
+  "sourceDirName": "Utilities/forms",
+  "slug": "/Utilities/forms/validators.stories",
+  "permalink": "/docs/Utilities/forms/validators.stories",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Utilities/forms/validators.stories.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Validators",
+    "permalink": "/docs/Utilities/forms/validators"
+  },
+  "next": {
+    "title": "alertbar",
+    "permalink": "/docs/Components/alertbar"
+  }
+}

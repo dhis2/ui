@@ -1,0 +1,24 @@
+{
+  "unversionedId": "Components/rich-text",
+  "id": "Components/rich-text",
+  "isDocsHomePage": false,
+  "title": "rich-text",
+  "description": "|                      |                                                              |",
+  "source": "@site/docs/Components/rich-text.md",
+  "sourceDirName": "Components",
+  "slug": "/Components/rich-text",
+  "permalink": "/docs/Components/rich-text",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/rich-text.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "radio",
+    "permalink": "/docs/Components/radio"
+  },
+  "next": {
+    "title": "segmented-control",
+    "permalink": "/docs/Components/segmented-control"
+  }
+}

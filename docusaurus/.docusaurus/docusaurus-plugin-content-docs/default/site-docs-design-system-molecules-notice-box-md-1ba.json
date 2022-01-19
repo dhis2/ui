@@ -1,0 +1,24 @@
+{
+  "unversionedId": "design-system/molecules/notice-box",
+  "id": "design-system/molecules/notice-box",
+  "isDocsHomePage": false,
+  "title": "notice-box",
+  "description": "|                      |                                                                                |",
+  "source": "@site/docs/design-system/molecules/notice-box.md",
+  "sourceDirName": "design-system/molecules",
+  "slug": "/design-system/molecules/notice-box",
+  "permalink": "/docs/design-system/molecules/notice-box",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/design-system/molecules/notice-box.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "modal",
+    "permalink": "/docs/design-system/molecules/modal"
+  },
+  "next": {
+    "title": "pagination",
+    "permalink": "/docs/design-system/molecules/pagination"
+  }
+}

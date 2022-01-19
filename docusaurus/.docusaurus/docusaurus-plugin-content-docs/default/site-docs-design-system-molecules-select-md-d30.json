@@ -1,0 +1,24 @@
+{
+  "unversionedId": "design-system/molecules/select",
+  "id": "design-system/molecules/select",
+  "isDocsHomePage": false,
+  "title": "select",
+  "description": "|                      |                                                                                                             |",
+  "source": "@site/docs/design-system/molecules/select.md",
+  "sourceDirName": "design-system/molecules",
+  "slug": "/design-system/molecules/select",
+  "permalink": "/docs/design-system/molecules/select",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/design-system/molecules/select.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "segmented-control",
+    "permalink": "/docs/design-system/molecules/segmented-control"
+  },
+  "next": {
+    "title": "tab",
+    "permalink": "/docs/design-system/molecules/tab"
+  }
+}

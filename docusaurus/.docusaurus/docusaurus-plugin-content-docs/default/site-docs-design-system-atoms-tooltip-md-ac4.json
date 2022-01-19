@@ -1,0 +1,24 @@
+{
+  "unversionedId": "design-system/atoms/tooltip",
+  "id": "design-system/atoms/tooltip",
+  "isDocsHomePage": false,
+  "title": "tooltip",
+  "description": "|                      |                                                                                           |",
+  "source": "@site/docs/design-system/atoms/tooltip.md",
+  "sourceDirName": "design-system/atoms",
+  "slug": "/design-system/atoms/tooltip",
+  "permalink": "/docs/design-system/atoms/tooltip",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/design-system/atoms/tooltip.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "tag",
+    "permalink": "/docs/design-system/atoms/tag"
+  },
+  "next": {
+    "title": "component-template",
+    "permalink": "/docs/design-system/extras/component-template"
+  }
+}

@@ -1,0 +1,293 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/docs",
+          "mainDocId": "getting-started",
+          "docs": [
+            {
+              "id": "Components/alertbar",
+              "path": "/docs/Components/alertbar",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/avatar",
+              "path": "/docs/Components/avatar",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/button",
+              "path": "/docs/Components/button",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/card",
+              "path": "/docs/Components/card",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/checkbox",
+              "path": "/docs/Components/checkbox",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/chip",
+              "path": "/docs/Components/chip",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/color-picker",
+              "path": "/docs/Components/color-picker",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/comment",
+              "path": "/docs/Components/comment",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/components-index",
+              "path": "/docs/Components/components-index",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/data-table",
+              "path": "/docs/Components/data-table",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/elevation",
+              "path": "/docs/Components/elevation",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/fileinput",
+              "path": "/docs/Components/fileinput",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/header-bar",
+              "path": "/docs/Components/header-bar",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/inputfield",
+              "path": "/docs/Components/inputfield",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/loading",
+              "path": "/docs/Components/loading",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/menu",
+              "path": "/docs/Components/menu",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/modal",
+              "path": "/docs/Components/modal",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/notice-box",
+              "path": "/docs/Components/notice-box",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/org-unit-tree",
+              "path": "/docs/Components/org-unit-tree",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/pagination",
+              "path": "/docs/Components/pagination",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/popover",
+              "path": "/docs/Components/popover",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/radio",
+              "path": "/docs/Components/radio",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/rich-text",
+              "path": "/docs/Components/rich-text",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/segmented-control",
+              "path": "/docs/Components/segmented-control",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/select",
+              "path": "/docs/Components/select",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/switch",
+              "path": "/docs/Components/switch",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/tab",
+              "path": "/docs/Components/tab",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/table",
+              "path": "/docs/Components/table",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/tag",
+              "path": "/docs/Components/tag",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/tooltip",
+              "path": "/docs/Components/tooltip",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Components/transfer",
+              "path": "/docs/Components/transfer",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "getting-started",
+              "path": "/docs/getting-started",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "overview",
+              "path": "/docs/overview",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Package/advanced-usage",
+              "path": "/docs/Package/advanced-usage",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Package/getting-started",
+              "path": "/docs/Package/getting-started",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Package/migrating",
+              "path": "/docs/Package/migrating",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Package/recipes/README",
+              "path": "/docs/Package/recipes/README",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Package/recipes/transfer-infinite-loading-all-options-selected",
+              "path": "/docs/Package/recipes/transfer-infinite-loading-all-options-selected",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Package/troubleshooting",
+              "path": "/docs/Package/troubleshooting",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Principles/color",
+              "path": "/docs/Principles/color",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Principles/content-communication",
+              "path": "/docs/Principles/content-communication",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Principles/design-for-use",
+              "path": "/docs/Principles/design-for-use",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Principles/forms",
+              "path": "/docs/Principles/forms",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Principles/icons",
+              "path": "/docs/Principles/icons",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Principles/layout",
+              "path": "/docs/Principles/layout",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Principles/principles-index",
+              "path": "/docs/Principles/principles-index",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Principles/typography",
+              "path": "/docs/Principles/typography",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "readme",
+              "path": "/docs/readme",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Utilities/constants",
+              "path": "/docs/Utilities/constants",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Utilities/forms/react-final-form",
+              "path": "/docs/Utilities/forms/react-final-form",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Utilities/forms/react-final-form.stories",
+              "path": "/docs/Utilities/forms/react-final-form.stories",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Utilities/forms/transformers",
+              "path": "/docs/Utilities/forms/transformers",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Utilities/forms/transformers.stories",
+              "path": "/docs/Utilities/forms/transformers.stories",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Utilities/forms/validators",
+              "path": "/docs/Utilities/forms/validators",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Utilities/forms/validators.stories",
+              "path": "/docs/Utilities/forms/validators.stories",
+              "sidebar": "tutorialSidebar"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

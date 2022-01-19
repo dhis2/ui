@@ -1,0 +1,24 @@
+{
+  "unversionedId": "design-system/atoms/tag",
+  "id": "design-system/atoms/tag",
+  "isDocsHomePage": false,
+  "title": "tag",
+  "description": "|                      |                                                                         |",
+  "source": "@site/docs/design-system/atoms/tag.md",
+  "sourceDirName": "design-system/atoms",
+  "slug": "/design-system/atoms/tag",
+  "permalink": "/docs/design-system/atoms/tag",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/design-system/atoms/tag.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "switch",
+    "permalink": "/docs/design-system/atoms/switch"
+  },
+  "next": {
+    "title": "tooltip",
+    "permalink": "/docs/design-system/atoms/tooltip"
+  }
+}

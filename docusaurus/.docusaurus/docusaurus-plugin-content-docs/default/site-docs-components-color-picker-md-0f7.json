@@ -1,0 +1,24 @@
+{
+  "unversionedId": "Components/color-picker",
+  "id": "Components/color-picker",
+  "isDocsHomePage": false,
+  "title": "color-picker",
+  "description": "|                      |                                                                         |",
+  "source": "@site/docs/Components/color-picker.md",
+  "sourceDirName": "Components",
+  "slug": "/Components/color-picker",
+  "permalink": "/docs/Components/color-picker",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/color-picker.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "chip",
+    "permalink": "/docs/Components/chip"
+  },
+  "next": {
+    "title": "comment",
+    "permalink": "/docs/Components/comment"
+  }
+}

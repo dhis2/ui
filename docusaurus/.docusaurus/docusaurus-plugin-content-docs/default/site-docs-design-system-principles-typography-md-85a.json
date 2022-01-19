@@ -1,0 +1,20 @@
+{
+  "unversionedId": "design-system/principles/typography",
+  "id": "design-system/principles/typography",
+  "isDocsHomePage": false,
+  "title": "Typography",
+  "description": "Typography, the selection and use of fonts, colors and sizes, is an effective way to communicate information to users.",
+  "source": "@site/docs/design-system/principles/typography.md",
+  "sourceDirName": "design-system/principles",
+  "slug": "/design-system/principles/typography",
+  "permalink": "/docs/design-system/principles/typography",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/design-system/principles/typography.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Layout, spacing, stacking",
+    "permalink": "/docs/design-system/principles/layout"
+  }
+}

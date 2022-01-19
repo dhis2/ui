@@ -1,0 +1,24 @@
+{
+  "unversionedId": "design-system/principles/design-for-use",
+  "id": "design-system/principles/design-for-use",
+  "isDocsHomePage": false,
+  "title": "Design for use",
+  "description": "To build complex applications that are user-friendly, focus on:",
+  "source": "@site/docs/design-system/principles/design-for-use.md",
+  "sourceDirName": "design-system/principles",
+  "slug": "/design-system/principles/design-for-use",
+  "permalink": "/docs/design-system/principles/design-for-use",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/design-system/principles/design-for-use.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Content & Communication",
+    "permalink": "/docs/design-system/principles/content-communication"
+  },
+  "next": {
+    "title": "Forms",
+    "permalink": "/docs/design-system/principles/forms"
+  }
+}

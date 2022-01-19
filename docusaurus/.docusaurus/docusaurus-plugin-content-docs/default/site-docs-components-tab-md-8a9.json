@@ -1,0 +1,24 @@
+{
+  "unversionedId": "Components/tab",
+  "id": "Components/tab",
+  "isDocsHomePage": false,
+  "title": "tab",
+  "description": "|                      |                                                                                 |",
+  "source": "@site/docs/Components/tab.md",
+  "sourceDirName": "Components",
+  "slug": "/Components/tab",
+  "permalink": "/docs/Components/tab",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/tab.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "switch",
+    "permalink": "/docs/Components/switch"
+  },
+  "next": {
+    "title": "Table",
+    "permalink": "/docs/Components/table"
+  }
+}

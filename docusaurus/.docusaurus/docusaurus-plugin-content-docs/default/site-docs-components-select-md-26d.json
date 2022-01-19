@@ -1,0 +1,24 @@
+{
+  "unversionedId": "Components/select",
+  "id": "Components/select",
+  "isDocsHomePage": false,
+  "title": "select",
+  "description": "|                      |                                                                                                             |",
+  "source": "@site/docs/Components/select.md",
+  "sourceDirName": "Components",
+  "slug": "/Components/select",
+  "permalink": "/docs/Components/select",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/select.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "segmented-control",
+    "permalink": "/docs/Components/segmented-control"
+  },
+  "next": {
+    "title": "switch",
+    "permalink": "/docs/Components/switch"
+  }
+}

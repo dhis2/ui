@@ -1,0 +1,24 @@
+{
+  "unversionedId": "Components/comment",
+  "id": "Components/comment",
+  "isDocsHomePage": false,
+  "title": "comment",
+  "description": "|                      |                                                              |",
+  "source": "@site/docs/Components/comment.md",
+  "sourceDirName": "Components",
+  "slug": "/Components/comment",
+  "permalink": "/docs/Components/comment",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/Components/comment.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "color-picker",
+    "permalink": "/docs/Components/color-picker"
+  },
+  "next": {
+    "title": "Components",
+    "permalink": "/docs/Components/components-index"
+  }
+}

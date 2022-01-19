@@ -1,0 +1,24 @@
+{
+  "unversionedId": "design-system/atoms/radio",
+  "id": "design-system/atoms/radio",
+  "isDocsHomePage": false,
+  "title": "radio",
+  "description": "|                      |                                                                          |",
+  "source": "@site/docs/design-system/atoms/radio.md",
+  "sourceDirName": "design-system/atoms",
+  "slug": "/design-system/atoms/radio",
+  "permalink": "/docs/design-system/atoms/radio",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/design-system/atoms/radio.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "loading",
+    "permalink": "/docs/design-system/atoms/loading"
+  },
+  "next": {
+    "title": "switch",
+    "permalink": "/docs/design-system/atoms/switch"
+  }
+}

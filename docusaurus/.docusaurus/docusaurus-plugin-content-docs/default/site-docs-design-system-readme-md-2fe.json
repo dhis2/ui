@@ -1,0 +1,24 @@
+{
+  "unversionedId": "design-system/readme",
+  "id": "design-system/readme",
+  "isDocsHomePage": false,
+  "title": "DHIS2 Design System",
+  "description": "The DHIS2 Design System is a collection of design principles and a library of UI components for designing applications for the DHIS2 platform. Using this system you can design and build applications that are usable, powerful and consistent with other DHIS2 applications.",
+  "source": "@site/docs/design-system/readme.md",
+  "sourceDirName": "design-system",
+  "slug": "/design-system/readme",
+  "permalink": "/docs/design-system/readme",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/design-system/readme.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Design Principles",
+    "permalink": "/docs/design-system/principles-index"
+  },
+  "next": {
+    "title": "avatar",
+    "permalink": "/docs/design-system/atoms/avatar"
+  }
+}
