@@ -1,25 +1,17 @@
-|                      |                                                                                |
-| -------------------- | ------------------------------------------------------------------------------ |
-| **Component**        | Checkbox                                                                       |
-| **Type**             | Atom ([?](http://atomicdesign.bradfrost.com/chapter-2/))                       |
-| **Design Spec**      | _pending_                                                                      |
-| **Working Examples** | [Link](https://ui.dhis2.nu/demo/?path=/story/forms-checkbox-checkbox--default) |
-| **Status**           | `Ready to use`                                                                 |
-
 ---
+title: Checkbox
+---
+
+import { Demo } from '../../src/components/DemoComponent.jsx'
+import { Checkbox } from '@dhis2/ui'
 
 # Checkbox
 
+<Demo>
+    <Checkbox label="Checkbox" />
+</Demo>
+
 A checkbox is a control that allows a user to toggle an option.
-
-![](../images/checkbox.png)
-
-##### Contents
-
--   [Usage](#usage)
--   [Options](#options)
--   [States](#states)
--   [Examples in use](#examples-in-use)
 
 ---
 
