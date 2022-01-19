@@ -1,3 +1,7 @@
+---
+title: Transfer – infinite loading
+---
+
 import { InfiniteLoading } from './transfer-infinite-loading-all-options-selected.jsx'
 
 # Transfer: Infinite loading - All loaded options are already selected

@@ -1,4 +1,4 @@
-# UI Constants
+# Constants
 
 There are are a number of constants that can be imported from the UI library that are useful for applying the [DHIS2 design system](https://github.com/dhis2/design-system) to your application.
 

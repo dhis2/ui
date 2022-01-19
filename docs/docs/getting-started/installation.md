@@ -1,8 +1,6 @@
-# Getting Started
+# Installation
 
 [![npm](https://img.shields.io/npm/v/@dhis2/ui.svg)](https://www.npmjs.com/package/@dhis2/ui)
-
-## Installation
 
 ```bash
 yarn add @dhis2/ui

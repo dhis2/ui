@@ -1,3 +1,7 @@
+---
+title: Large data volume
+---
+
 # Designing user experiences for working with large amounts of data
 
 DHIS2 instances often contain large amounts of data and all DHIS2 applications should allow the user to work effectively with these large data sets. Consider the following user interface guidelines when designing and building. Note that these guidelines don't offer technical guidance for handling large amounts of data, check out the DHIS2 developer portal for more information.

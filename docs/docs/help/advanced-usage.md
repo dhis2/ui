@@ -1,4 +1,6 @@
-# Overriding the styled-jsx from our libraries
+# Advanced usage
+
+## Overriding the styled-jsx from our libraries
 
 ### Recommendations
 

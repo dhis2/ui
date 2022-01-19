@@ -15,9 +15,10 @@
 const sidebars = {
     Sidebar: [
         {
-            type: 'doc',
-            id: 'readme', // document id
-            label: 'Overview', // sidebar label
+            'Getting started': [
+                'getting-started/readme',
+                'getting-started/installation',
+            ],
         },
         {
             Principles: [
@@ -77,12 +78,19 @@ const sidebars = {
             ],
         },
         {
-            Package: [
-                'getting-started',
-                'package/advanced-usage',
-                'package/migrating',
-                'package/troubleshooting',
-                // 'package/recipes',
+            Package: ['package/api', 'package/changelog'],
+        },
+        {
+            Help: [
+                'help/migrating',
+                'help/troubleshooting',
+                'help/advanced-usage',
+            ],
+        },
+        {
+            Recipes: [
+                'recipes/recipes',
+                'recipes/transfer-infinite-loading-all-options-selected',
             ],
         },
     ],
