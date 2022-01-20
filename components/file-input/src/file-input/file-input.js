@@ -1,107 +1,11 @@
 import { Button } from '@dhis2-ui/button'
-import { CircularLoader } from '@dhis2-ui/loader'
-import { colors, theme, spacers, sharedPropTypes } from '@dhis2/ui-constants'
-import {
-    IconErrorFilled24,
-    IconCheckmark24,
-    IconInfo24,
-    IconUpload24,
-    IconWarningFilled24,
-} from '@dhis2/ui-icons'
+import { StatusIcon } from '@dhis2-ui/status-icon'
+import { colors, spacers, sharedPropTypes } from '@dhis2/ui-constants'
+import { IconUpload24 } from '@dhis2/ui-icons'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { createRef, Component } from 'react'
 
-function Valid({ className }) {
-    return <IconCheckmark24 color={theme.valid} className={className} />
-}
-
-Valid.propTypes = {
-    className: PropTypes.string,
-}
-
-function Warning({ className }) {
-    return <IconWarningFilled24 color={theme.warning} className={className} />
-}
-
-Warning.propTypes = {
-    className: PropTypes.string,
-}
-
-function Error({ className }) {
-    return <IconErrorFilled24 color={theme.error} className={className} />
-}
-
-Error.propTypes = {
-    className: PropTypes.string,
-}
-
-function Info({ className }) {
-    return <IconInfo24 color={theme.info} className={className} />
-}
-
-Info.propTypes = {
-    className: PropTypes.string,
-}
-
-function Loading({ className }) {
-    return <CircularLoader small className={className} />
-}
-
-Loading.propTypes = {
-    className: PropTypes.string,
-}
-
-// TODO: extract
-const StatusIcon = ({
-    error,
-    warning,
-    valid,
-    loading,
-    info,
-    className,
-    defaultTo,
-}) => {
-    if (error) {
-        return <Error className={className} />
-    }
-    if (warning) {
-        return <Warning className={className} />
-    }
-    if (valid) {
-        return <Valid className={className} />
-    }
-    if (loading) {
-        return <Loading className={className} />
-    }
-    if (info) {
-        return <Info className={className} />
-    }
-
-    return defaultTo
-}
-
-StatusIcon.defaultProps = {
-    defaultTo: null,
-}
-
-StatusIcon.propTypes = {
-    className: PropTypes.string,
-    defaultTo: PropTypes.element,
-    error: PropTypes.bool,
-    info: PropTypes.bool,
-    loading: PropTypes.bool,
-    valid: PropTypes.bool,
-    warning: PropTypes.bool,
-}
-
-function Upload({ className }) {
-    return <IconUpload24 color={colors.grey700} className={className} />
-}
-
-Upload.propTypes = {
-    className: PropTypes.string,
-}
 class FileInput extends Component {
     ref = createRef()
 
@@ -171,7 +75,7 @@ class FileInput extends Component {
                     />
                     <Button
                         disabled={disabled}
-                        icon={<Upload />}
+                        icon={<IconUpload24 color={colors.grey700} />}
                         initialFocus={initialFocus}
                         large={large}
                         onBlur={this.handleBlur}

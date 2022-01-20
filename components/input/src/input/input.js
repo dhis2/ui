@@ -1,39 +1,9 @@
-import { CircularLoader } from '@dhis2-ui/loader'
+import { StatusIcon } from '@dhis2-ui/status-icon'
 import { theme, colors, spacers, sharedPropTypes } from '@dhis2/ui-constants'
-import {
-    IconErrorFilled24,
-    IconWarningFilled24,
-    IconCheckmark24,
-} from '@dhis2/ui-icons'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import css from 'styled-jsx/css'
-
-// TODO: extract
-const StatusIcon = ({ error, warning, valid, loading }) => {
-    if (error) {
-        return <IconErrorFilled24 color={theme.error} />
-    }
-    if (warning) {
-        return <IconWarningFilled24 color={theme.warning} />
-    }
-    if (valid) {
-        return <IconCheckmark24 color={theme.valid} />
-    }
-    if (loading) {
-        return <CircularLoader small />
-    }
-
-    return null
-}
-
-StatusIcon.propTypes = {
-    error: PropTypes.bool,
-    loading: PropTypes.bool,
-    valid: PropTypes.bool,
-    warning: PropTypes.bool,
-}
 
 const styles = css`
     .input {

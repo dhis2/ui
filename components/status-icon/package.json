@@ -1,11 +1,11 @@
 {
-    "name": "@dhis2-ui/text-area",
+    "name": "@dhis2-ui/status-icon",
     "version": "7.14.1",
-    "description": "UI TextArea",
+    "description": "UI StatusIcon",
     "repository": {
         "type": "git",
         "url": "https://github.com/dhis2/ui.git",
-        "directory": "components/text-area"
+        "directory": "components/status-icon"
     },
     "homepage": "https://github.com/dhis2/ui#readme",
     "license": "BSD-3-Clause",
@@ -32,10 +32,7 @@
     },
     "dependencies": {
         "@dhis2/prop-types": "^3.0.0-beta.1",
-        "@dhis2-ui/box": "7.14.1",
-        "@dhis2-ui/field": "7.14.1",
         "@dhis2-ui/loader": "7.14.1",
-        "@dhis2-ui/status-icon": "7.14.1",
         "@dhis2/ui-constants": "7.14.1",
         "@dhis2/ui-icons": "7.14.1",
         "classnames": "^2.3.1",
