@@ -12,7 +12,8 @@ import { FilterableMenu } from './filterable-menu.js'
 import { Input } from './input.js'
 import { Menu } from './menu.js'
 
-const StatusIcon = ({ error, warning, valid, defaultTo }) => {
+// TODO: extract
+const StatusIcon = ({ error, warning, valid }) => {
     if (error) {
         return <IconErrorFilled24 color={theme.error} />
     }
@@ -23,15 +24,10 @@ const StatusIcon = ({ error, warning, valid, defaultTo }) => {
         return <IconCheckmark24 color={theme.valid} />
     }
 
-    return defaultTo
-}
-
-StatusIcon.defaultProps = {
-    defaultTo: null,
+    return null
 }
 
 StatusIcon.propTypes = {
-    defaultTo: PropTypes.element,
     error: PropTypes.bool,
     valid: PropTypes.bool,
     warning: PropTypes.bool,
@@ -121,10 +117,10 @@ const SingleSelect = ({
                 .root {
                     align-items: center;
                     display: flex;
+                    gap: ${spacers.dp8};
                 }
 
                 .root-input {
-                    margin-right: ${spacers.dp8};
                     flex: 1;
                 }
             `}</style>

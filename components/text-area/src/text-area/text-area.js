@@ -10,14 +10,8 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { styles } from './text-area.styles.js'
 
-const StatusIcon = ({
-    error,
-    warning,
-    valid,
-    loading,
-    className,
-    defaultTo,
-}) => {
+// TODO: extract
+const StatusIcon = ({ error, warning, valid, loading }) => {
     if (error) {
         return <IconErrorFilled24 color={theme.error} />
     }
@@ -28,19 +22,13 @@ const StatusIcon = ({
         return <IconCheckmark24 color={theme.valid} />
     }
     if (loading) {
-        return <CircularLoader small className={className} />
+        return <CircularLoader small />
     }
 
-    return defaultTo
-}
-
-StatusIcon.defaultProps = {
-    defaultTo: null,
+    return null
 }
 
 StatusIcon.propTypes = {
-    className: PropTypes.string,
-    defaultTo: PropTypes.element,
     error: PropTypes.bool,
     loading: PropTypes.bool,
     valid: PropTypes.bool,
@@ -188,15 +176,12 @@ export class TextArea extends Component {
                         'read-only': readOnly,
                     })}
                 />
-
-                <div className="status-icon">
-                    <StatusIcon
-                        error={error}
-                        valid={valid}
-                        loading={loading}
-                        warning={warning}
-                    />
-                </div>
+                <StatusIcon
+                    error={error}
+                    valid={valid}
+                    loading={loading}
+                    warning={warning}
+                />
 
                 <style jsx>{styles}</style>
                 <style jsx>{`

@@ -52,6 +52,7 @@ Loading.propTypes = {
     className: PropTypes.string,
 }
 
+// TODO: extract
 const StatusIcon = ({
     error,
     warning,
@@ -157,30 +158,32 @@ class FileInput extends Component {
 
         return (
             <div className={cx('file-input', className)} data-test={dataTest}>
-                <input
-                    id={name}
-                    name={name}
-                    type="file"
-                    ref={this.ref}
-                    onChange={this.handleChange}
-                    accept={accept}
-                    multiple={multiple}
-                    disabled={disabled}
-                />
-                <Button
-                    disabled={disabled}
-                    icon={<Upload />}
-                    initialFocus={initialFocus}
-                    large={large}
-                    onBlur={this.handleBlur}
-                    onClick={this.handleClick}
-                    onFocus={this.handleFocus}
-                    small={small}
-                    tabIndex={tabIndex}
-                    type="button"
-                >
-                    {buttonLabel}
-                </Button>
+                <div>
+                    <input
+                        id={name}
+                        name={name}
+                        type="file"
+                        ref={this.ref}
+                        onChange={this.handleChange}
+                        accept={accept}
+                        multiple={multiple}
+                        disabled={disabled}
+                    />
+                    <Button
+                        disabled={disabled}
+                        icon={<Upload />}
+                        initialFocus={initialFocus}
+                        large={large}
+                        onBlur={this.handleBlur}
+                        onClick={this.handleClick}
+                        onFocus={this.handleFocus}
+                        small={small}
+                        tabIndex={tabIndex}
+                        type="button"
+                    >
+                        {buttonLabel}
+                    </Button>
+                </div>
                 <StatusIcon error={error} valid={valid} warning={warning} />
 
                 <style jsx>{`
@@ -191,11 +194,8 @@ class FileInput extends Component {
                     .file-input {
                         display: flex;
                         align-items: center;
+                        gap: ${spacers.dp8};
                         padding-bottom: ${spacers.dp4};
-                    }
-
-                    .file-input > :global(svg) {
-                        margin-left: ${spacers.dp8};
                     }
                 `}</style>
             </div>
