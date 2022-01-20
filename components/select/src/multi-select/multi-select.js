@@ -1,41 +1,12 @@
+import { StatusIcon } from '@dhis2-ui/status-icon'
 import { requiredIf } from '@dhis2/prop-types'
-import { theme, spacers, sharedPropTypes } from '@dhis2/ui-constants'
-import {
-    IconErrorFilled24,
-    IconWarningFilled24,
-    IconCheckmark24,
-} from '@dhis2/ui-icons'
+import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Loading as CommonLoading, Select } from '../select/index.js'
 import { FilterableMenu } from './filterable-menu.js'
 import { Input } from './input.js'
 import { Menu } from './menu.js'
-
-const StatusIcon = ({ error, warning, valid, defaultTo }) => {
-    if (error) {
-        return <IconErrorFilled24 color={theme.error} />
-    }
-    if (warning) {
-        return <IconWarningFilled24 color={theme.warning} />
-    }
-    if (valid) {
-        return <IconCheckmark24 color={theme.valid} />
-    }
-
-    return defaultTo
-}
-
-StatusIcon.defaultProps = {
-    defaultTo: null,
-}
-
-StatusIcon.propTypes = {
-    defaultTo: PropTypes.element,
-    error: PropTypes.bool,
-    valid: PropTypes.bool,
-    warning: PropTypes.bool,
-}
 
 const MultiSelect = ({
     className,
@@ -121,10 +92,10 @@ const MultiSelect = ({
                 .root {
                     align-items: center;
                     display: flex;
+                    gap: ${spacers.dp8};
                 }
 
                 .root-input {
-                    margin-right: ${spacers.dp8};
                     flex: 1;
                 }
             `}</style>

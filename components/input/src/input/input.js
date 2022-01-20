@@ -1,56 +1,15 @@
-import { CircularLoader } from '@dhis2-ui/loader'
+import { StatusIcon } from '@dhis2-ui/status-icon'
 import { theme, colors, spacers, sharedPropTypes } from '@dhis2/ui-constants'
-import {
-    IconErrorFilled24,
-    IconWarningFilled24,
-    IconCheckmark24,
-} from '@dhis2/ui-icons'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import css from 'styled-jsx/css'
 
-const StatusIcon = ({
-    error,
-    warning,
-    valid,
-    loading,
-    className,
-    defaultTo,
-}) => {
-    if (error) {
-        return <IconErrorFilled24 color={theme.error} />
-    }
-    if (warning) {
-        return <IconWarningFilled24 color={theme.warning} />
-    }
-    if (valid) {
-        return <IconCheckmark24 color={theme.valid} />
-    }
-    if (loading) {
-        return <CircularLoader small className={className} />
-    }
-
-    return defaultTo
-}
-
-StatusIcon.defaultProps = {
-    defaultTo: null,
-}
-
-StatusIcon.propTypes = {
-    className: PropTypes.string,
-    defaultTo: PropTypes.element,
-    error: PropTypes.bool,
-    loading: PropTypes.bool,
-    valid: PropTypes.bool,
-    warning: PropTypes.bool,
-}
-
 const styles = css`
     .input {
         display: flex;
         align-items: center;
+        gap: ${spacers.dp8};
     }
 
     input {
@@ -119,12 +78,6 @@ const styles = css`
         border-color: ${colors.grey500};
         color: ${theme.disabled};
         cursor: not-allowed;
-    }
-
-    .status-icon {
-        flex-shrink: 0;
-        flex-grow: 0;
-        margin-left: ${spacers.dp8};
     }
 `
 
@@ -214,15 +167,12 @@ export class Input extends Component {
                         'read-only': readOnly,
                     })}
                 />
-
-                <div className="status-icon">
-                    <StatusIcon
-                        error={error}
-                        valid={valid}
-                        loading={loading}
-                        warning={warning}
-                    />
-                </div>
+                <StatusIcon
+                    error={error}
+                    valid={valid}
+                    loading={loading}
+                    warning={warning}
+                />
 
                 <style jsx>{styles}</style>
                 <style jsx>{`
