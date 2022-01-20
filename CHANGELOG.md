@@ -1,3 +1,10 @@
+## [7.14.2](https://github.com/dhis2/ui/compare/v7.14.1...v7.14.2) (2022-01-20)
+
+
+### Bug Fixes
+
+* **status-icon:** only apply margin between input and status icon if icon rendered ([#941](https://github.com/dhis2/ui/issues/941)) ([3f23cc5](https://github.com/dhis2/ui/commit/3f23cc541e52ed02e4846dadb7a8e54baa92aef6))
+
 ## [7.14.1](https://github.com/dhis2/ui/compare/v7.14.0...v7.14.1) (2022-01-20)
 
 
