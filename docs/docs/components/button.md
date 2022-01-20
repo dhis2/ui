@@ -7,79 +7,164 @@ import { Button, DropdownButton, SplitButton, IconCheckmark24 } from '@dhis2/ui'
 
 # Button
 
-<Demo>
-    <Button>Enroll in program</Button>
-</Demo>
+## Overview
 
-Buttons are used for triggering actions. There are different types of buttons in the design system which are intended for different types of actions.
+Buttons are used to trigger actions. There are different button variants that are used for different types of actions.
+<Demo>
+<Button>Enroll in program</Button>
+</Demo>
 
 ## Usage
 
-Each type of button has a specific usage:
+### When to use
 
-| Type          | View                                      | Usage                                                                                                                                                                                                                                                                                                                                                  |
-| ------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Basic`       | <Button>Basic</Button>                    | The most often used button that will suit the majority of actions. Should be the default choice. Several basic buttons can be in the same area.                                                                                                                                                                                                        |
-| `Primary`     | <Button primary>Primary</Button>          | Used to highlight the most important/main action on a page. A 'Save' button for a form page should be primary, for example. Use sparingly, rarely should there be more than a single primary button per page.                                                                                                                                          |
-| `Secondary`   | <Button secondary>Secondary</Button>      | Used for passive actions, often as an alternative to the primary action. If 'Save' is primary, 'Cancel' could be secondary. Not intended to draw user attention. Do not use for the only action on a page.                                                                                                                                             |
-| `Destructive` | <Button destructive>Destructive</Button>  | Used instead of a primary button when the main action is destructive in nature. Used to highlight to the user the seriousness of the action. **Destructive buttons must only be used for destructive actions.**                                                                                                                                        |
-| `Dropdown`    | <DropdownButton>Dropdown</DropdownButton> | Presents several actions to a user in a small space. Can replace single, individual buttons. Should only be used for actions that are related to one another. Ensure the button has a useful level that communicates that actions are contained within. Dropdown buttons do not have an explicit action, only expanding the list of contained actions. |
-| `Split`       | <SplitButton>Main action</SplitButton>    | Similar to the dropdown button, but can be triggered independently of opening the contained action list. The main action may be 'Save' and the contained actions may be "Save and add another" and "Save and open".                                                                                                                                    |
-| `Text`        | <Button text>Text</Button>                | Text only button. This style of button should only be used for auxiliary actions, for example clearing the content of an input. Text only buttons should not be used for main actions.                                                                                                                                                                 |
+-   **Trigger an action.** Interacting with a button should always trigger an action.
 
-### Button label
+### When not to use
 
-Make sure the button's action is a clear verb. "Save" is clear, it could be even clearer if what is being saved is specified, "Save data", for example. Remember that some languages can be 3x longer than english, so specifying a fixed width will not work.
+-   **Navigation**. Don't use a button for actions that are only navigational, like moving to a different screen in an app. Use a link instead.
 
-Avoid ambiguous labels like 'Ok', using an action verb will make it clearer to the user what action will come from clicking the button.
+### Variants
 
----
+#### Quick reference
+
+| Variant       | When to use                                                                                                                |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `Basic`       | Default. Will suit the majority of actions on a page.                                                                      |
+| `Primary`     | Use for the most important action on a page, like a _Save data_ button in a form. Only use one `primary` button on a page. |
+| `Secondary`   | Use for less important actions, usually in combination with other buttons.                                                 |
+| `Destructive` | Only for primary-type actions that will delete or destroy something. Don't use several on a single page.                   |
+
+#### Basic
+
+<Demo>
+    <Button basic>Basic button</Button>
+</Demo>
+
+-   A `basic` button is the default button to use. It suits the majority of use cases.
+-   Don't use a `basic` button for the most important action on the page. Use `primary` instead.
+
+#### Primary
+
+<Demo>
+    <Button primary>Primary button</Button>
+</Demo>
+
+-   Only use for the most important action on a page, like _Save data_ in a form.
+-   Only use one `primary` button per page, otherwise it's not clear what the main action is.
+-   A page doesn't need to have a `primary` button if there isn't a clear main action.
+
+#### Secondary
+
+<Demo>
+    <Button secondary>Secondary button</Button>
+</Demo>
+
+-   Use for actions that are used less often. Using `secondary` buttons reduces amount of elements on a page competing for a user's attention.
+-   Use as a passive alternative to `primary` actions, like _Cancel_ as a passive alternative to _Save_.
+-   Don't use if there's only one action on the page.
+
+#### Destructive
+
+<Demo>
+    <Button destructive>Destructive button</Button>
+</Demo>
+
+-   Only use for primary-type actions that will destroy data.
+-   Don't use if the action will only remove an item from the current context.
+-   Only use a one `destructive` button per page.
+
+### Format
+
+#### Content
+
+-   Button labels should be clear and concise.
+-   It should be clear what will happen when triggering the button. _Save data_ is clearer than just _Save_, for example.
+-   Use an action verb for labels. Avoid ambiguous labels like "OK".
+-   Check the A-Z glossary ==link== and communication guidelines ==link== for more tips for writing useful labels.
+
+#### Size
+
+Buttons are available in different sizes. Use the size that matches the usage guidelines.
+
+| Size     | When to use                                                   |
+| -------- | ------------------------------------------------------------- |
+| `small`  | Compact interfaces and secondary actions.                     |
+| `medium` | Default. The standard size that should be used in most cases. |
+| `large`  | Simple interfaces with only one or two main actions.          |
+
+#### Spacing
+
+-   As a general rule, leave at least `dp4` spacing around a button. For interfaces with more space, use `dp8`.
 
 ## Options
 
-### Toggle
+### Dropdown button
+
+<Demo>
+    <DropdownButton>Dropdown button</DropdownButton>
+</Demo>
+
+-   A dropdown button offers several actions in a small space. Clicking the button opens a menu with several actions.
+-   Use to replace a group of buttons where space is limited.
+-   A dropdown button label should make it clear there are more options inside, like _Actions_.
+
+### Split button
+
+<Demo>
+    <SplitButton>Split button</SplitButton>
+</Demo>
+
+-   A split button offers a main action and a dropdown of several other actions. Clicking the main button triggers an action. Clicking the split arrow opens a menu with several actions.
+-   Use when there is a main action and several secondary actions, like a main action of _Save_ and secondary actions of _Save and add another_ and _Save and open_.
+-   Use when space is limited. Otherwise, show buttons for all the actions.
+-   Don't use when there isn't an obvious main action.
+
+### Toggle button
 
 <Demo>
     <Button icon={<IconCheckmark24/>}></Button>
     <Button icon={<IconCheckmark24/>} toggled></Button>
 </Demo>
 
-A button can represent an on/off state using the toggle option. Use a toggle button when the user can enable or disable an option and a checkbox or switch is not suitable. This will most often be in the case of a toolbar, such as bold or italic options in a text editing toolbar. A toggle button in this example uses an icon and does not need text. A text label should be provided in a tooltip on hover. The toggle option is available for basic and secondary type buttons.
+-   Represents an on/off state.
+-   Use a toggle button when an option can be turned on or off, and a checkbox ==link== isn't suitable, like in a toolbar.
+-   Toggle buttons can be used with `basic` and `secondary` variants.
+-   If the button doesn't have a text label, show a tooltip ==link== on hover and focus that tells the user what is being toggled.
 
-### Icons
+### Icon
 
 <Demo>
     <Button icon={<IconCheckmark24/>}>Mark as complete</Button>
+    <Button icon={<IconCheckmark24/>}></Button>
 </Demo>
 
-Icons can be included in Basic, Primary, Secondary and Destructive buttons. Use an icon to supplement the text label. Remember that the user may not be fluent in the working language, so an accompanying icon on an important action can be a welcome addition. Buttons with icons only should be used for supplementary actions and should include a text tooltip on hover.
+-   Buttons can have an optional icon alongside the text label.
+-   Buttons can show only an icon.
+-   Icons with a text label are useful for providing more information about the action. Users scanning an interface might recognize an icon quicker than text.
+-   Buttons with only an icon need to show a tooltip ==link== on hover and focus that tells the user what the button action is.
 
-### Size
-
-<Demo>
-    <Button small>Small</Button>
-    <Button>Default</Button>
-    <Button large>Large</Button>
-</Demo>
-
-Buttons are available in three sizes: `small`, `medium`, `large`. Medium is usually the correct choice. Use small button in an information dense ui. Large buttons can be use on very simple, single action pages.
-
----
-
-## States
-
-### Disabled
+### State: disabled
 
 <Demo>
     <Button disabled>Enroll in program</Button>
 </Demo>
 
-Use disabled buttons when an action is being prevented for some reason. Always communicate to the user why the button can't be clicked. This can be done through a tooltip on hover, or with supplementary text underneath the button. Do not change the button label between disabled/enabled states.
+-   Use a disabled state when the button action can't be triggered.
+-   Show a tooltip ==link== on hover, or help text, that tells the user why the action can't be triggered.
+-   Don't change the button label between disabled and enabled states.
+-   If a button action won't ever be enabled in the current context, consider removing it instead.
 
----
+### State: loading
 
-## Examples in use
+<Demo>
+    <Button loading>Loading...</Button>
+</Demo>
 
-![](../images/button-example.png)
+-   Use a loading state after a user triggers that button.
+-   Change the button label to tell the user what's happening. For example, after clicking a _Start job_ button, the loading state label could be _Starting job..._.
+-   If triggering other actions on the page should be prevented, consider showing a blocking loader ==link== instead.
 
-_Buttons are used on a dashboard to present the main actions: entering edit mode, sharing the dashboard and adding filters_
+# Examples in use
+
+==todo==
