@@ -7,8 +7,6 @@ import { Button, DropdownButton, SplitButton, IconCheckmark24 } from '@dhis2/ui'
 
 # Button
 
-## Overview
-
 Buttons are used to trigger actions. There are different button variants that are used for different types of actions.
 <Demo>
 <Button>Enroll in program</Button>
@@ -165,6 +163,11 @@ Buttons are available in different sizes. Use the size that matches the usage gu
 -   Change the button label to tell the user what's happening. For example, after clicking a _Start job_ button, the loading state label could be _Starting job…_.
 -   If triggering other actions on the page should be prevented, consider showing a blocking loader ==link== instead.
 
-# Examples in use
+## Examples in use
 
-==todo==
+==TODO: examples==
+
+## Links
+
+-   Demo
+-   API reference
