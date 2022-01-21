@@ -7,48 +7,46 @@ import { Checkbox } from '@dhis2/ui'
 
 # Checkbox
 
+Checkboxes are used to choose one or more items from a list. A checkbox can also be used to toggle an option.
+
 <Demo>
     <Checkbox label="Checkbox" />
+    <Checkbox checked label="Checkbox" />
 </Demo>
-
-A checkbox is a control that allows a user to toggle an option.
-
----
 
 ## Usage
 
-Checkboxes are used when an option can be toggled on or off. Toggling a checkbox on (true) is always considered a positive action and should reflect a positive/true/on state. Multiple checkboxes can be used in a list where a user can toggle multiple elements.
+### When to use
 
-Do not use checkboxes in a list of several options where only a single option can be toggled, use [radio buttons](radio.md) here instead.
+-   **Choose one or more items from a list of choices**. Use checkboxes when more than one option can be chosen.
+-   **Toggle an option**. A single checkbox can be used as a toggle, to enable or disable a feature, for example.
 
-If there are many options that need to select from, consider using a [select](../molecules/select.md) instead.
+### When not to use
 
----
+-   **Choosing a single item**. Don't use checkboxes if only one option can be chosen. Use a radio button ==TODO: link== instead.
+-   **Choosing from many items.** Don't use checkboxes if there are many items to choose from. 7–10 checkboxes is an upper limit. If there's more choices than this, use a `MultiSelect` ==TODO: link== instead.
 
-## Options
+### Format
 
-### Size
+#### Content
 
-![](../images/checkbox-sizes.png)
+-   Checkbox labels should be positive, so that checking a checkbox means the option is _on_ or _true_. So, a checkbox label would read _Show legend key_, not _Hide legend key_.
+-   Always show a label with a checkbox.
 
-Checkboxes are available in Regular and Dense sizes. Regular size is usually used in forms and whenever a checkbox, or checkboxes, are used standalone. Dense size checkboxes are used inside other complex components, not as main elements of a UI.
+#### Size
 
----
+<Demo>
+    <Checkbox checked label="Checkbox" />
+    <Checkbox checked dense label="Checkbox" />
+</Demo>
 
-## States
+-   Checkboxes are available in two sizes, regular and `dense`. Regular sized checkboxes are useful when there's space available. Use `dense` sized checkboxes in compact, information-dense interfaces.
 
-The checked/unchecked/disabled states of a checkbox are self-explanatory. Checked state should be use to represent a positive selection, unchecked should indicate 'empty' or 'not chosen'.
+## Examples
 
-### Indeterminate
+==TODO: examples==
 
-![](../images/checkbox-indeterminate.png)
+## Links
 
-An indeterminate state is used when some, but not all, of the child elements are selected. This state represents a middle ground between checked/unchecked.
-
----
-
-## Examples in use
-
-![](../images/checkbox-example.png)
-
-_Checkboxes are used for toggling on/off the display of certain elements. Checkbox status True/On indicates that this element will display, an example of using a checked state for a positive action (displaying that type of element)._
+-   Demo ==TODO: link==
+-   API reference ==TODO: link==
