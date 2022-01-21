@@ -1,40 +1,33 @@
-|                      |                                                                    |
-| -------------------- | ------------------------------------------------------------------ |
-| **Component**        | Card                                                               |
-| **Type**             | Atom ([?](http://atomicdesign.bradfrost.com/chapter-2/))           |
-| **Design Spec**      | _pending_                                                          |
-| **Working Examples** | [Link](https://ui.dhis2.nu/demo/?path=/story/layout-card--default) |
-| **Status**           | `Ready to use`                                                     |
-
 ---
+title: Card
+---
+
+import { Demo } from '../../src/components/DemoComponent.jsx'
+import { Card } from '@dhis2/ui'
 
 # Card
 
-A card is a container element for grouping together and separating blocks of content.
+A card is a container element used to group together and separate blocks of content.
 
-![](../images/card.png)
-
-##### Contents
-
--   [Usage](#usage)
--   [Examples in use](#examples-in-use)
-
----
+<Demo>
+    <Card>This is content that's inside a card.</Card>
+</Demo>
 
 ## Usage
 
-Use a card where there is content that can be grouped together. Cards are most often useful when this grouped content may be repeated, for example with items on a dashboard, or different sections of patient information displayed in a profile.
+### When to use
 
----
+-   **Group content**. Use a card as a container for related content. When there's different areas of content on a page, a card helps to establish boundaries between them.
 
-## Examples in use
+### When not to use
 
-![](../images/dashboard-example.jpg)
+-   **Few items**. A card probably isn't necessary to contain one or two items. Everything on a page doesn't need to be wrapped in a card.
 
-_Dashboard items are displayed inside cards, highlighting the fact they are self-contained blocks of information_
+## Examples
 
----
+==TODO: examples==
 
-![](../images/event-example.jpg)
+## Links
 
-_Different sections of information, all relating to the same event, are displayed in their own cards_
+-   Demo ==TODO: link==
+-   API reference ==TODO: link==
