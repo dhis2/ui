@@ -13,17 +13,25 @@ An avatar is a visual icon that represents a user.
     <UserAvatar name="Karimbe Olefeme"/>
 </Demo>
 
----
-
 ## Usage
 
-Avatars are used to give extra information when a user is mentioned or displayed in DHIS2. The avatar contains either user uploaded photograph, initials or a default icon. The avatar is intended to give context to a user and help to quickly identify different users. An avatar is usually shown alongside the user name, but can be used alone to show a visual hint of a user.
+### When to use
 
----
+-   **In a list of user generated items**. An avatar can help to identify different users and give context to user generated content, alongside the user name.
 
-## Options
+### When not to use
 
-### Sizes
+-   **Decoration**. Don't use an avatar for decoration only. It should serve a purpose and help give context to some information.
+
+### Format
+
+#### Content
+
+-   By default, avatars show two initials from the user's name.
+-   An avatar can also show a user's profile photo, if they have one.
+-   An avatar should usually be used alongside a user name, unless it's the current user's own avatar.
+
+#### Size
 
 <Demo>
     <UserAvatar extrasmall name="Example Person"/>
@@ -33,18 +41,13 @@ Avatars are used to give extra information when a user is mentioned or displayed
     <UserAvatar extralarge name="Example Person"/>
 </Demo>
 
-Avatars are available in five sizes. The default size is `medium`. Use the size avatar that represents how important the user information is. Often an avatar is supporting information, so it doesn't need to be displayed too large.
-
-<!-- ---
-
-## Types
-
-There are different types of avatar depending on the metadata available for a user. If available, the default avatar displays the user uploaded profile picture. If a profile picture is not available the user initials are displayed (JC for Joe Cooper). If the user initials are not available, or there are issues with the character-set (for example, non-latin characters), a default icon is displayed instead. -->
-
----
+Avatars are available in different sizes. Use the size that works best for the space available and the context.
 
 ## Examples in use
 
-![](../images/avatar-example-1.png)
+==TODO: examples==
 
-_Avatars are used in comments to quickly understand that these comments belong to different users, without needing to read the username. The users own avatar is used to show that they can input data here too._
+## Links
+
+-   Demo ==TODO: link==
+-   API reference ==TODO: link==
