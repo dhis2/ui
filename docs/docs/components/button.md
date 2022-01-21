@@ -130,7 +130,7 @@ Buttons are available in different sizes. Use the size that matches the usage gu
 -   Represents an on/off state.
 -   Use a toggle button when an option can be turned on or off, and a checkbox ==link== isn't suitable, like in a toolbar.
 -   Toggle buttons can be used with `basic` and `secondary` variants.
--   If the button doesn't have a text label, show a tooltip ==link== on hover and focus that tells the user what is being toggled.
+-   If the button doesn't have a text label, show a tooltip ==link== on hover and focus that tells the user what's being toggled.
 
 ### Icon
 
@@ -144,7 +144,7 @@ Buttons are available in different sizes. Use the size that matches the usage gu
 -   Icons with a text label are useful for providing more information about the action. Users scanning an interface might recognize an icon quicker than text.
 -   Buttons with only an icon need to show a tooltip ==link== on hover and focus that tells the user what the button action is.
 
-### State: disabled
+### State: Disabled
 
 <Demo>
     <Button disabled>Enroll in program</Button>
@@ -155,14 +155,14 @@ Buttons are available in different sizes. Use the size that matches the usage gu
 -   Don't change the button label between disabled and enabled states.
 -   If a button action won't ever be enabled in the current context, consider removing it instead.
 
-### State: loading
+### State: Loading
 
 <Demo>
-    <Button loading>Loading...</Button>
+    <Button loading>Loading…</Button>
 </Demo>
 
 -   Use a loading state after a user triggers that button.
--   Change the button label to tell the user what's happening. For example, after clicking a _Start job_ button, the loading state label could be _Starting job..._.
+-   Change the button label to tell the user what's happening. For example, after clicking a _Start job_ button, the loading state label could be _Starting job…_.
 -   If triggering other actions on the page should be prevented, consider showing a blocking loader ==link== instead.
 
 # Examples in use
