@@ -1,106 +1,86 @@
-|                      |                                                                                    |
-| -------------------- | ---------------------------------------------------------------------------------- |
-| **Component**        | File Input                                                                         |
-| **Type**             | Atom ([?](http://atomicdesign.bradfrost.com/chapter-2/))                           |
-| **Design Spec**      | [Link](https://sketch.cloud/s/DwkDk/a/jWp5Oz)                                      |
-| **Working Examples** | [Link](https://ui.dhis2.nu/demo/?path=/story/forms-file-input-file-input--default) |
-| **Status**           | `Ready to use`                                                                     |
-
+---
+title: File input
 ---
 
-# File Input
+import { Demo } from '../../src/components/DemoComponent.jsx'
+import { FileInputField, FileListItem } from '@dhis2/ui'
 
-The file input component allows users to select and upload files from their local machine.
+# File input
 
-![](../images/file-upload.png)
+A file input is used to choose and upload files.
 
-##### Contents
-
--   [Usage](#usage)
--   [Composition](#composition)
--   [Options](#options)
--   [Types](#types)
--   [States](#states)
-
----
+<Demo>
+    <FileInputField
+    helpText="Max size 5mb. Supported file types are .jpg, .png, and .pdf."
+    label="Upload birth certificate"
+    />
+</Demo>
 
 ## Usage
 
-Use a file input component in forms and interfaces wherever a user needs to be able to select and upload a file from their local machine.
+### When to use
 
----
+-   **Adding files from a user's machine**. Use a file input when a user can upload a file from their local machine. This is usually as part of a form.
 
-## Composition
+### When not to use
 
-![](../images/file-input-composition.png)
+-   **Adding files that exist elsewhere**. Don't use a file input if a user is choosing files from somewhere else than their local machine, like files already uploaded to an app.
 
-A file input is made up of multiple elements, some of which are optional:
+### Format
 
-1. **Label, optional:** A short text to identify what the file is, or relates to.
-2. **Input button, required:** The input control for selecting a file.
-3. **Help text, optional:** Informative text to advise the user of restrictions.
-4. **File list, required:** Display which files have been selected and/or uploaded.
+#### Content
 
----
+##### Label
+
+<Demo>
+    <FileInputField
+    label="Upload birth certificate"
+    />
+</Demo>
+
+-   Use a label above the button if the file input is part of a form with other controls.
+
+##### Button
+
+<Demo>
+    <FileInputField
+    buttonLabel="Upload test data"
+    />
+</Demo>
+
+-   When a form label isn't used, the button label should make it clear what kind of file is expected. Use _Upload certificate_ instead of just _Upload_, for example.
+
+##### Help text
+
+<Demo>
+    <FileInputField
+    helpText="Max size 5mb. Supported file types are .jpg, .png, and .pdf."
+    label="Upload birth certificate"
+    />
+</Demo>
+
+-   Use help text to tell the user about any limitations or expectations of the files, like size or format.
 
 ## Options
 
-### Label
+### Multiple files
 
-![](../images/file-upload-label.png)
+<Demo>
+    <FileInputField label="Upload documents">
+        <FileListItem label="document-name.pdf" removeText="Remove"/>
+        <FileListItem label="uploaded-document.pdf" removeText="Remove"/>
+        <FileListItem label="DHIS2-UI-Guide.pdf" removeText="Remove"/>
+    </FileInputField>
+</Demo>
 
-An optional label can be included. Use a label where it makes sense, especially when using a file input component as part of a form with other inputs.
+-   Allow multiple file upload if that fits the use case.
+-   Don't use several file inputs for the same kind of file, use one with multiple files allowed.
 
-### Help text
+## Examples
 
-![](../images/file-upload-help.png)
+==TODO: examples==
 
-It is important to include help text to inform the user what files are acceptable to upload. Do not wait for the user to select a problematic file to reveal limitations and requirements. If the upload only accepts .jpg files under 1mb, tell the user this up front.
+## Links
 
-### File list
-
-![](../images/file-upload-full.png)
-
-The filename of successfully uploaded files, or files queued for upload, are displayed in the file list. Each file in the list has a control to remove that file.
-
-#### File list placeholder text
-
-![](../images/file-upload-placeholder.png)
-
-Placeholder text can also be included in place of the file list, before a file has been uploaded. This text can be customized. In the above example 'No files uploaded yet.' is included as placeholder text. This text is useful for making the current component state completely obvious to the user. Placeholder text is optional, but highly recommended.
-
-### Button text
-
-The button text and icon can be customized. Ensure the text makes sense and is an action verb. For example 'Upload a file', 'Add patient records', 'Upload a photo' and so on.
-
----
-
-## Types
-
-### Single vs. Multiple file upload
-
-![](../images/file-upload-multi.png)
-
-Where multiple files can be uploaded by a single file input component, those file names are stacked in the file list in the order they were selected (newest last). All files in the file list have their own remove control and loading indicators.
-
-If a file input is set to accept one file only, the button will be disabled when a file has been selected/uploaded.
-
----
-
-## States
-
-~If this component has states, why?~
-
-### Error
-
-![](../images/file-upload-error.png)
-
-Error messages appear below the file input button and above the file list, if one exists. An icon is also shown to draw user attention to the error. Make sure to follow the [guidelines for writing helpful error messages](https://github.com/dhis2/design-system/blob/master/principles/content-communication.md#error-messages).
-
-### Loading progress
-
-![](../images/file-upload-loader.png)
-
-It is important to communicate to the user that a file is in the process of being uploaded, but hasn't finished yet. It is important that any forms or page actions are not submitted in this time.
-
-Upload progress is shown with a circular loader and 'Uploading:' text in front of the filename. Where possible a cancel action should be included.
+-   Demo ==TODO: link==
+-   API reference ==TODO: link==
