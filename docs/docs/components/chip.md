@@ -1,69 +1,86 @@
-|                      |                                                                     |
-| -------------------- | ------------------------------------------------------------------- |
-| **Component**        | Chip                                                                |
-| **Type**             | Atom ([?](http://atomicdesign.bradfrost.com/chapter-2/))            |
-| **Design Spec**      | _pending_                                                           |
-| **Working Examples** | [Link](https://ui.dhis2.nu/demo/?path=/story/actions-chip--default) |
-| **Status**           | `Ready to use`                                                      |
-
 ---
+title: Chip
+---
+
+import { Demo } from '../../src/components/DemoComponent.jsx'
+import { Chip, IconStar24 } from '@dhis2/ui'
 
 # Chip
 
-Chips are useful for displaying a selection of defined choices and filters to the user.
+Chips are used to select from a set of defined options. Chips can also represent a set of chosen options.
 
-![](../images/chip.png)
-
-##### Contents
-
--   [Usage](#usage)
--   [Options](#options)
--   [Examples in use](#examples-in-use)
-
----
+<Demo>
+    <Chip>Hello world</Chip>
+</Demo>
 
 ## Usage
 
-Chips are used to display a list of defined options, filters or views for a related view. Chips are always a secondary content to a main element, for example a data table or a dashboard. A common usage of this that can help to understand the pattern is a table with a set of filters:
+### When to use
 
-![example of a chips being displayed with a data table](../images/chip-table@2x.png)
+-   **Choose from defined options**. Use chips to represent a set of options. Each option is represented by a chip. Choosing a chip updates another area or object.
+-   **Add or remove options**. Chips can be used to show items or attributes assigned to an object, like choosing filters to be applied to a list.
 
-_In this example the group of chips above represent 'Saved Filters' for the user to choose from. These filters will apply to the data table below_
+### When not to use
 
-The chips displayed above the table act as defined filters for the table. In the example above, selecting "Overdue Patients" chip will select that chip and display only that data in the table below. **To deselect the chip the user can click again, or a 'Clear filters' control could be provided.**
+-   **Actions**. Don't use chips for triggering actions. Use a `Button` ==TODO: link== instead.
+-   **Display only**. Don't use chips if they aren't interactive. For displaying a status or label, use a `Tag` ==TODO: link== instead.
 
-![example of a selected chip and data table](../images/chip-table-selected.jpg)
+### Format
 
-_"Overdue patients" is selected/active, so the data in the table below changes to reflect this. The 'Overdue Patients' chip is displayed in 'Selected' style to highlight this._
+#### Content
 
-### Chip vs. Button
+-   Keep chip labels short. Chips with long labels don't work well in a group.
+-   Don't use action verbs in chip labels. Chips for choosing a dashboard to view should use the dashboard name without any verbn as a label.
 
-Chips should only be used for filtering or selecting an option. Do not use filters to trigger actions such as 'Save', 'Exit' or 'Open'. Use a [button](button.md) to trigger actions.
+#### Size
 
-### Displaying chips
+<Demo>
+    <Chip>Hello world</Chip>
+    <Chip dense>Hello world</Chip>
+</Demo>
 
--   Chips should be displayed in a horizontal list, where space permits.
--   Do not stack single chips on top of one another if there is space to display them inline.
--   Do not use horizontal scrolling to display a large number of chips. Always wrap chips onto a new line below.
+-   Chips are available in two sizes, regular and `dense`.
+-   Use regular sized chips where there is space.
+-   Use `dense` sized chips in information-dense pages, or inside other components.
 
----
+#### Spacing
+
+-   Chips have a default margin, so that they'll be spaced correctly in a group.
+-   A smaller margin can be useful for `dense` chips when space is limited.
+-   Always include some space between chips in a group.
 
 ## Options
 
+### Single or multiple selection
+
+-   A group of chips can allow choosing or one chip or several chips.
+-   **Single selection**. Choosing one chip is useful when toggling betwen objects, like choosing which dashboard to view.
+-   **Multiple selection**. Choosing several chips is useful when applying options to something, like applying filters to a list of data, or choosing options from a list.
+
+### Removeable
+
+<Demo>
+    <Chip onRemove>Hello world</Chip>
+</Demo>
+
+-   Use removeable chips if an option can be removed from the group.
+-   Only use removeable chips when chips can be added back to the same group through another action, like choosing from a menu.
+
 ### Icon
 
-![](../images/chip-icon.png)
+<Demo>
+    <Chip icon={<IconStar24/>} >Hello world</Chip>
+</Demo>
 
-A chip can display an optional icon. Use icons in chips to highlight special/unique chip items. Do not use the same icon on all chips, otherwise it will be meaningless. To clarify what a group of chips are, use a title or header instead.
+-   Chips can show an icon before the text label.
+-   Icons are useful to highlight special chips, like starred items.
+-   Don't use the same icon for all the chips in a group. Use a title or heading for that group of chips instead.
 
-### Single vs. Multiple Selections
+## Examples
 
-A group of chips can be set up for single or multiple selection, it depends on the usage. When using chips for selecting the active dashboard it makes sense to only allow a single selection at a time. You may choose to allow the user to select multiple chips, or filters, for a table displaying data.
+==TODO: examples==
 
----
+## Links
 
-## Examples in use
-
-![](../images/chip-example-1.png)
-
-_A users dashboards are represented by chips. Favorite dashboards use chips with a star icon._
+-   Demo ==TODO: link==
+-   API reference ==TODO: link==
