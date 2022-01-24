@@ -1,180 +1,182 @@
-|                      |                                                                          |
-| -------------------- | ------------------------------------------------------------------------ |
-| **Component**        | Input                                                                    |
-| **Type**             | Molecule ([?](http://atomicdesign.bradfrost.com/chapter-2/))             |
-| **Design Spec**      | _pending_                                                                |
-| **Working Examples** | [Link](https://ui.dhis2.nu/demo/?path=/story/forms-input-input--default) |
-| **Status**           | `Ready to use`                                                           |
-
 ---
+title: Input
+---
+
+import { Demo } from '../../src/components/DemoComponent.jsx'
+import { InputField, TextAreaField, Tooltip } from '@dhis2/ui'
 
 # Input
 
-An input allows a user to enter data, usually text.
+An input is used to enter data, like text or a number.
 
-![](../images/input.png)
-
-##### Contents
-
--   [Usage](#usage)
--   [Composition](#composition)
--   [Options](#options)
--   [Types](#types)
--   [States](#states)
--   [Examples in use](#examples-in-use)
-
----
+<Demo>
+    <InputField value="Input label" label="Value" />
+</Demo>
 
 ## Usage
 
-Inputs are used wherever a user needs to input standard text information. Inputs are often used as part of forms. An input can also be used to capture information outside of a form, perhaps as a 'Filter' or 'Search' field.
+### When to use
 
----
+-   **Entering or editing data**. Inputs are used to add or change data, like text or a number.
 
-## Composition
+### When not to use
 
-![](../images/input-composition.png)
+-   **Choosing from options**. Don't use an input to choose from other a list of options, use a `Select` instead.
 
-An input is made up of multiple elements, some of which are optional:
+### Variants
 
-1. **Label, optional**
-2. **Input element, required**
-3. **Help text, optional**
-4. **Validation text, optional**
+| Variant    | Usage                                   |
+| ---------- | --------------------------------------- |
+| `input`    | A couple of words, sentence, or number. |
+| `textarea` | Several sentences                       |
 
----
+### Format
+
+#### Content
+
+##### Label
+
+<Demo>
+    <InputField value="Malaria Registration" label="Program name" />
+</Demo>
+
+-   Use a label above the input to show what the input is for.
+
+##### Placeholder
+
+<Demo>
+    <InputField placeholder="Example: Malaria Registration" label="Program name" />
+</Demo>
+
+-   Only use placeholder text to clarify what kind of content is expected.
+-   Placeholder text shouldn't repeat the label.
+-   Always use placeholder text if a label isn't used.
+-   Placeholder text disappears when entering content, so make sure it's not critical.
+
+##### Help text
+
+<Demo>
+    <InputField value="Malaria Registration" label="Program name" helpText="Used for data entry and shown on all reports." />
+</Demo>
+
+-   Use help text to tell the user about any limitations or expectations for the content.
+-   Help text can also be used to clarify what the input is for if it's a complex concept.
+
+#### Size
+
+<Demo>
+    <InputField value="Malaria Registration" label="Program name" />
+    <InputField value="Malaria Registration" label="Program name" dense />
+</Demo>
+
+-   Inputs are available in two sizes, regular and `dense`. Regular sized inputs are useful when there's space available. Use `dense` sized inputs in compact, information-dense interfaces.
+
+#### Width
+
+<Demo>
+    <InputField label="Address" inputWidth="400px" />
+    <InputField label="Number of district clinics" inputWidth="120px" type="number" />
+</Demo>
+
+-   Inputs width should reflect the expected content.
+-   If a three digit number is expected then the input should be narrow.
+-   If a longer sentence is expected then the input should be wider.
 
 ## Options
 
-Inputs have several options, each detailed below. All of the options listed below are available for all types of input. Specific options for each type of input are listed in the Types section.
-
-### Labels
-
-Make sure to provide useful label text that is short, concise and describes the intended input.
-
-### Help text
-
-Input fields can include helper text below. This helper text provides guidance to the user. Do not use helper text on every form field, this will be overwhelming to the user. Only include help text for difficult to learn, or one-off inputs.
-
-### Placeholder text
-
-![](../images/input-placeholder.png)
-
-Placeholder text can give the user some guidance on how the field should be used or what kind of information is expected. Do not include critical information in placeholder text, it will not be visible once a user inputs text.
-
-### Width
-
-All input fields are set to 100% width by default, so they will fill the width of their parent container. Alternatively, a custom width can be defined.
-
-It is important that the width of an input reflects the expected content. If an input will be used to enter numbers between 1-1000, the width of the input can be relatively narrow. If an input will be used to enter a long dashboard description, allow for a wider input. The width of an input is a subtle hint to a user that "this input expects this type of content", so use the width to aid the user to enter the right type of content.
-
-### Sizes
-
-![](../images/input-sizes.png)
-
-All input types are available in Regular and Dense sizes. Regular sizes are best for applications with plenty of space and few controls, or in forms. Dense sizes work well in data-heavy, complex layouts, especially when using an input as a filter or search field as part of another component.
-
-### Disabled
-
-![](../images/input-disabled.png)
-
-A user cannot edit a disabled input. The content is selectable and can be copied, but it cannot be edited. Use a disabled input whenever a user should, or cannot, edit a field. If it is not obvious to the user why the field is disabled, make sure to inform them.
-
----
-
-## Types
-
-There are several different types of input, each targeting specific functionality. Use the right type of input that matches the expected user input.
-
-### Text
-
-![](../images/input.png)
-
-Text is the default input type and will be used if no other type is specified. Text inputs, by default, accept all textual characters. Remember to perform any necessary validation on the user input.
-
 ### Textarea
 
-![](../images/input-textarea.png)
+<Demo>
+    <TextAreaField label="Description of symptoms" />
+</Demo>
 
-A textarea allows multiple lines of text input. Use a textarea wherever a user needs to input a lot of information. Do not use a textarea if a short, single line of content is expected.
+-   Use a `Textarea` if more than a single sentence of content is expected.
+-   `Textarea` is available as a standalone component ==TODO: link==.
 
-Options for textarea inputs are:
+### Validation
 
--   **Rows**: the height of the input, defined by the number of rows of text
--   **Resizable**: whether the textarea can be resized by the user or not. Can be set for both width and height.
--   **Autoheight**: if enabled, the texarea will grow in height to adapt to the content.
+-   Validating the type of data entered isn't part of the components themselves.
+-   Read more about form handling in DHIS2 ==TODO: link==.
 
-### Number
+### Read-only
 
-![](../images/input-number.png)
+<Demo>
+    <InputField value="OU897234798" label="Unique ID" readOnly />
+</Demo>
 
-A number input accepts number inputs only. A number input should only be used if you are certain that only numbers should be input, as the input will reject non-number characters.
+-   Use a read-only input if it makes sense to show the input, but the content can't be changed.
+-   Read-only inputs are useful to show that a value is locked, like a unique ID.
+-   Offer help text for read-only inputs if it's unclear why the content can't be changed.
 
-Options for number inputs are:
+### State: Error
 
--   **Maximum value**: the maximum numerical value that is valid.
--   **Minimum value**: the minimum numerical value that is valid.
--   **Step**: a step value that the inputted number must be divisible by. For example, a step value of 5 means that 10 or 15 is valid, but not 22.
+<Demo>
+    <InputField value="Malaria Registration" label="Program name" error validationText="There's a program with this name already. Try another program name." />
+</Demo>
 
-### Password
+-   Use an error state if there's a problem with the content of the input, or if it's required but empty.
+-   Don't show an error too early, give the user a chance to finish entering data.
+-   The error text should help the user fix the problem. Refer to the error writing guidelines ==TODO: link== for examples.
 
-![](../images/input-password.png)
+### State: Disabled
 
-A password input is used only when the user is inputting a password. The users browser may provide additional controls for this input. Make sure to inform the user of any password rules, such as required length or characters, upfront. Do not wait for the user to enter an invalid password before you tell them the rules.
+<Demo>
+    <Tooltip content="Stage name is automatically generated and can't be changed."><InputField value="Referrals" label="Stage name" readOnly /></Tooltip>
+</Demo>
 
-### Email
+-   Use a disabled state if the input temporarily can't be used.
+-   Show a `Tooltip` ==TODO: link== on hover or focus to explain why the input is disabled.
 
-![](../images/input-email.png)
+### Data type: Text
 
-An email input that provides validation, only accepting valid email addresses. Only use an email input where you are certain that email addresses are the only valid content. Make sure to provide information to the user, via placeholder text or help text, of what is valid content. Do not wait until the user makes an error to tell them the rules.
+<Demo>
+    <InputField value="Olukayode" label="First name" inputWidth="240px" />
+</Demo>
 
-Options for email inputs are:
+-   Text inputs are the default type.
+-   Use a text input for entering any kind of text content, like a mix of letters and numbers.
 
--   **Multiple**: if enabled, the input will accept multiple email addresses.
+### Data type: Number
 
-### URL
+<Demo>
+    <InputField value="19" label="Admission count" inputWidth="100px" type="number" />
+</Demo>
 
-![](../images/input-url.png)
+-   Use a number input for entering numbers.
+-   The `step` value should reflect the expected content. If entering a number that's always a multiple of 10, use 10 as the `step` value.
 
-A URL input only accepts valid URLs. Only use a URL input where you are certain that URLs are the only valid content. Make sure to provide information to the user, via placeholder text or help text, of what is valid content. Do not wait until the user makes an error to tell them the rules.
+### Data type: Password
 
-### Telephone
+<Demo>
+    <InputField value="It's a secret!" label="Password" inputWidth="320px"  type="password" />
+</Demo>
 
-![](../images/input-telephone.png)
+-   Use a password input whenever a user is entering a password or secret value.
 
-A telephone input accepts any type of content, it does not automatically provide any validation. A telephone input can be useful because it will provide a better experience for mobile users. Only use a telephone input where telephone numbers are the only valid content.
+### Data type: Date / time
 
-Telephone number formats vary around the world. It can be difficult to set defined rules for valid formats. Be careful not to define too strict rules, otherwise a user may get stuck filling out a form if their telephone number is different than the formats you allow for.
+<Demo>
+    <InputField  label="Incident date and time" inputWidth="240px" type="datetime-local" />
+</Demo>
 
----
+-   Using date/time inputs offers different interactions depending on the user's browser.
 
-## States
+### Other data types
 
-An input can display a state to communicate some information to the user about it's current status. There are several different types of state:
+The following data types don't change the interaction with the input, but should be used for clarity:
 
-### Error
-
-![example of text input errors](../images/input-error.png)
-
-An error is indicated with a change of color and inclusion of an ! icon and an optional error message underneath the input. For guidance on writing error messages, see [Content and Communication](../principles/content-communication.md). This error state should only be triggered on inputs that contain an error. Do not apply to the entire form unless all inputs happen to contain an error.
-
-### Valid
-
-![example of text input validity](../images/input-valid.png)
-
-A valid value can be communicated using the 'valid' input field state. This state shows a check icon and adjusts the element color to communicate to the user that the inputted value is value. Only use this field if there are rules/criteria the input must fulfill. Do not use valid inputs for all inputs, and never use a valid input without actually checking for validity.
-
-### Loading
-
-![example of text input loading](../images/input-loading.png)
-
-The loading state is useful for communicating to the user that the application is checking the user entered value and another state will follow, either valid or error. Only use loading states where loading is actually taking place.
-
----
+-   Telephone (`tel`)
+-   Email (`email`)
+-   Month (`month`)
+-   Week (`week`)
+-   Search (`search`)
 
 ## Examples in use
 
-WIP
+==TODO: examples==
 
-<!-- ![](../images/checkbox-example.png)
-*Checkboxes are used for toggling on/off the display of certain elements. Checkbox status True/On indicates that this element will display* -->
+## Links
+
+-   Demo ==TODO: link==
+-   API reference ==TODO: link==
+-   `Textarea` API refere ==TODO: link==
