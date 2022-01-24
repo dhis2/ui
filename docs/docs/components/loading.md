@@ -1,65 +1,90 @@
-|                      |                                                                                                    |
-| -------------------- | -------------------------------------------------------------------------------------------------- |
-| **Component**        | Loader                                                                                             |
-| **Type**             | Atom ([?](http://atomicdesign.bradfrost.com/chapter-2/))                                           |
-| **Design Spec**      | _pending_                                                                                          |
-| **Working Examples** | [Link](https://ui.dhis2.nu/demo/?path=/story/feedback-loading-indicators-circular-loader--default) |
-| **Status**           | `Ready to use`                                                                                     |
-
 ---
+title: Loader
+---
+
+import { Demo } from '../../src/components/DemoComponent.jsx'
+import { CircularLoader, LinearLoader } from '@dhis2/ui'
 
 # Loader
 
-Loaders are used to inform the user that an element is in a loading state. This could apply to a single component, multiple components, or the entire application/page.
+Loaders are used to show that something is in progress. They keep users informed about the what's going on.
 
-![example loading indicators](../images/loader.png)
-
-##### Contents
-
--   [Usage](#usage)
--   [Types](#types)
-
----
+<Demo>
+    <CircularLoader />
+</Demo>
 
 ## Usage
 
-Use loading indicators whenever a component or application takes longer than 700ms to load. After this time a loader should be displayed so that the user can understand what is happening: loading is in progress. Consider that without a loading indicator a user would be unsure of their current status, so they are important UI elements.
+### When to use
 
----
+-   **Wait times longer than a second**. If the potential waiting time could be longer than a second, show a loader.
 
-## Types
+### When not to use
 
-There are different types of loader, circular and linear, and both can be used in different ways. The general rule to follow:
+-   **Wait times are expected to be instant.** Don't show a loader if the expected wait time is effectively zero, like when loading a small, cached resource. Flashing loaders can be distracting and make an interface look broken.
+-   **Ongoing processes**. Don't show a loader for processes that are ongoing and that don't have an end. For example, don't use a loader to show that an app is running.
 
-| Loader   | Usage                                                                                                       |
-| -------- | ----------------------------------------------------------------------------------------------------------- |
-| Circular | Indeterminate loading, e.g. when the loading time is uncertain and cannot be communicated with a percentage |
-| Linear   | Determinate loading, e.g. when the loading process can be communicated from 0–100%.                         |
+### Variants
 
-### Circular
+#### Quick reference
 
-A circular loader is used when the loading time is uncertain and cannot be displayed as a percentage. A circular loader can spin many times, and each spin does not represent any amount of completion.
+| Variant  | Usage                                                         |
+| -------- | ------------------------------------------------------------- |
+| circular | Processes that can't say how much they're complete.           |
+| linear   | Processes that can say how complete they are, from 0 to 100%. |
 
-#### Circular Page Loader
+#### Circular
 
-A circular loader can be used to indicate loading of an entire application. A circular loader is always combined with a ScreenCover which prevents the user from interacting with the application. Page loaders are always centered in the viewport. Use a 'Large' size loader for page loaders. If some components have loaded but not others, display Component Loaders instead (see below), and let the user interact with the available components.
+<Demo>
+    <CircularLoader />
+</Demo>
 
-![Page loader example](../images/pageloader.png)
+-   Use a circular loader when the loading time is uncertain.
 
-_This page loader covers the whole screen while the application loads._
+#### Linear
 
-#### Circular Component Loader
+<Demo>
+    <LinearLoader amount="25"/>
+</Demo>
 
-Component loaders are used to indicate a loading state for an individual component, for example a dashboard item. Components loaders are useful to inform the user that while the application/page has loaded, not all the elements are ready yet. Without a component loader a user can mistakenly think that data is missing or an error has occurred. Circular component loaders should always be centered in the component and include a ComponentCover element to block the content beneath. Use 'Small' size loader for Component Loaders.
+-   Use a linear loader when the progress can be shown as a percentage of 100%.
 
-![Component loader example](../images/componentloader.png)
+### Format
 
-_An example of a dashboard item that has not loaded yet, so displays a component loader inside._
+#### Size
 
-### Linear
+<Demo>
+    <CircularLoader extrasmall />
+    <CircularLoader small/>
+    <CircularLoader />
+    <CircularLoader large />
+</Demo>
 
-Linear loaders are used when the percentage loaded is known and be shown to the user. They can be used in the same page/component variations as circular loaders.
+-   Circular loaders are available in four sizes.
+-   Use the size that matches the size of the component being loaded.
 
-![Component Linear loader example](../images/componentloaderlinear.png)
+## Options
 
-_A dashboard item with a linear loader, which shows the user the approximate progress of the loading._
+### Inverted
+
+<Demo>
+    <div style={{
+        backgroundColor: '#999',
+        padding: '8px',
+    }}>
+    <CircularLoader invert />
+    <LinearLoader amount="25" invert />
+    </div>
+</Demo>
+
+-   Inverted loaders can be used on dark backgrounds, like a blocking backdrop layer.
+
+## Examples
+
+==TODO: examples==
+
+## Links
+
+-   Demo ==TODO: link==
+-   `CircularLoader` API reference ==TODO: link==
+-   `LinearLoader` API reference ==TODO: link==
