@@ -1,98 +1,157 @@
-|                      |                                                                                 |
-| -------------------- | ------------------------------------------------------------------------------- |
-| **Component**        | Menu                                                                            |
-| **Type**             | Molecule ([?](http://atomicdesign.bradfrost.com/chapter-2/))                    |
-| **Design Spec**      | [Link](https://www.sketch.com/s/0nGd0/a/DQAppk)                                 |
-| **Working Examples** | [Link](https://ui.dhis2.nu/demo/?path=/story/actions-menu-flyout-menu--default) |
-| **Status**           | `Ready to use`/`Waiting for update`                                             |
-
 ---
+title: Menu
+---
+
+import { Demo } from '../../src/components/DemoComponent.jsx'
+import { FlyoutMenu, MenuItem, MenuDivider, MenuSectionHeader, IconSave24, IconDelete24, IconShare24, IconEdit24 } from '@dhis2/ui'
 
 # Menu
 
-A menu provides user access to options that are available when clicking the menu toggle. A menu toggle can be almost anything: button, table row, avatar etc.
+A menu gives access to menu items, through a panel that opens from a trigger element. Menu items usually trigger actions.
 
-![](../images/menu.png)
-
-##### Contents
-
--   [Usage](#usage)
--   [Options](#options)
--   [Types](#types)
--   [States](#states)
--   [Examples in use](#examples-in-use)
-
----
+<Demo>
+    <FlyoutMenu>
+        <MenuItem label="Menu item label" />
+        <MenuItem label="Menu item label" />
+        <MenuItem label="Menu item label" />
+    </FlyoutMenu>
+</Demo>
 
 ## Usage
 
-Use menus to provide access to options and actions where space is limited and displaying all the options would be impractical. For example, providing access to a range of actions for every dashboard item displayed. Containing all those actions in menus keeps the page manageable.
+### When to use
 
-The menu component is flexible in where it can be used and its contents can be flexible too. However, the most common use case is a menu containing menu items.
+-   **Show more options in a limited space**. Use a menu to show more options and actions when there's limited space.
 
-Make sure the menu item labels are short and easy to understand. One word is often enough to describe an action or option. Do not use sentences as labels. Some examples of good menu item labels:
+### When not to use
 
--   "Save"
--   "Open as map"
--   "Export PDF"
--   "Duplicate"
+-   **Choosing options in a form**. Use a `Select` ==TODO: link== to choose from a set of options as part of a form.
 
-### Menu levels
+### Format
 
-![](../images/menu-levels.png)
+#### Content
 
-Splitting menus into several levels with child menus makes sense when there are a lot of options that can be grouped together. An example may be an option in level 1 menu of 'Download' that has several different download formats as child menu items. Make sure that child menu items relate to their parent item, otherwise a user will struggle to discover them. A menu item with children is not selectable/actionable itself, it serves only as a container for the child elements. Try to keep menus to a maximum of 1, 2 or 3 levels, anything more than this can easily confuse the user.
+##### Label
 
-### Ordering items
+-   Menu item labels should be short and easy to understand.
+-   One or two words is often enough to explain the action.
+-   Refer to the writing guidelines ==TODO: link== and glossary ==TODO: link== for more information about writing useful labels.
 
-There is no enforced ordering of menu items, they should be presented in order of relevance. Put the most commonly used items at the top of the menu for easy discovery and access.
+##### Order and grouping
 
----
+<Demo>
+    <FlyoutMenu>
+        <MenuItem label="Add to program" />
+        <MenuItem label="Add to stage" />
+        <MenuDivider />
+        <MenuItem label="Analyze data" />
+        <MenuItem label="Run integrity check" />
+    </FlyoutMenu>
+</Demo>
+
+-   Order the menu items in a logical way, grouping together related actions.
+-   Destructive menu items should be shown in their own group, usually last.
+
+##### Size
+
+<Demo>
+    <FlyoutMenu>
+        <MenuItem label="Menu item label" />
+        <MenuItem label="Menu item label" />
+    </FlyoutMenu>
+    <FlyoutMenu>
+        <MenuItem dense label="Menu item label" />
+        <MenuItem dense label="Menu item label" />
+    </FlyoutMenu>
+</Demo>
+
+-   Menu items are available in two sizes, regular and `dense`.
+-   Use `dense` sized menu items in complex, information-dense layouts. Otherwise, the regular size.
+
+#### Nesting
+
+<Demo>
+    <FlyoutMenu>
+    <MenuItem label="Menu item label">
+        <MenuItem label="Menu item label" />
+    </MenuItem>
+    </FlyoutMenu>
+</Demo>
+
+-   A menu item can open another menu.
+-   Use nested menus when there's complex options that can be grouped together, like a _Download_ parent item containing different file formats.
+-   Avoid nesting more than 3 levels of menus.
 
 ## Options
 
-### Size
+### Dividers and section headers
 
-![](../images/menu-size.png)
+<Demo>
+    <FlyoutMenu>
+        <MenuSectionHeader label="Actions"/>
+        <MenuItem label="Add to program" />
+        <MenuItem label="Add to stage" />
+        <MenuDivider />
+        <MenuSectionHeader label="Other"/>
+        <MenuItem label="Analyze data" />
+        <MenuItem label="Run integrity check" />
+    </FlyoutMenu>
+</Demo>
 
-Menus are available in regular or dense sizes. Use dense menus in data-heavy applications used by users comfortable with technology. Use regular menus in apps that are less complex or have few controls.
+-   A menu can show dividers between groups of menu items.
+-   Use dividers to split items that logically belong together. This makes the menu easier to scan.
+-   Dividers can also show a section header, a text label for that group of menu items.
+-   Use a section header to clarify what the menu items refer to, but don't rely on it. Menus and menu item actions should be clear without needing section headers.
 
-### Dividers & Section Headers
+### Icon
 
-![](../images/menu-sections.png)
+<Demo>
+    <FlyoutMenu>
+        <MenuItem icon= {<IconSave24 /> } label="Save" />
+        <MenuItem icon= {<IconEdit24 /> } label="Rename" />
+        <MenuItem icon= {<IconShare24 /> } label="Share" />
+    </FlyoutMenu>
+</Demo>
 
-Items in a menu can be split into separate sections by using dividers. Group relevant menu items together to help the user understand the options quickly. A divider can be used alone. If using a section header a divider will be automatically included. Try not to group single menu items together. An exception to this is a critical destructive menu item, like 'Delete', which can be separated from other menu items.
+-   A menu item can show an icon.
+-   Use icons to support the text label by providing context or a visual reference.
+-   Don't include icons for decoration only, they add complexity to the interface.
 
-### Icons
+### Type: Destructive
 
-![](../images/menu-icons.png)
+<Demo>
+    <FlyoutMenu>
+        <MenuItem icon= {<IconSave24 /> } label="Save" />
+        <MenuItem icon= {<IconEdit24 /> } label="Rename" />
+        <MenuItem icon= {<IconShare24 /> } label="Share" />
+        <MenuDivider />
+        <MenuItem destructive icon= {<IconDelete24 /> } label="Delete program" />
+    </FlyoutMenu>
+</Demo>
 
-A menu item can include an icon to help the user understand or recognize the option. An icon should support the menu item text and be simple enough to be understood in a dense UI. Icons add a lot of visual noise a menu, so only include them where they will help the user. Do not include icons only for visual reasons, the icon must functionally support the users understanding. Do not use complex icons. All menu items in a single menu do not need to have icons.
+-   Use destructive menu items for critical, destructive actions like _Delete_ or _End process_.
+-   Don't use a destructive menu item unless the item is both critical and destructive. Important menu items shouldn't use the destructive type to highlight only their importance.
+-   Most menus should have a maximum of one destructive item.
+-   Use a divider to separate the destructive menu item from the other menu items. A section header usually isn't necessary.
 
----
+### State: Disabled
 
-## Types
+<Demo>
+    <FlyoutMenu>
+        <MenuItem disabled icon= {<IconSave24 /> } label="Save" />
+        <MenuItem icon= {<IconEdit24 /> } label="Rename" />
+        <MenuItem icon= {<IconShare24 /> } label="Share" />
+    </FlyoutMenu>
+</Demo>
 
-### Destructive
-
-![](../images/menu-destructive.png)
-
-Destructive menu items should be used for critical, destructive actions such as 'Delete', 'Remove' or 'End process'. Do not use destructive menu items for actions that are simply important, they must also be destructive in nature. A menu should, ideally, only have one destructive action. Using a divider to separate normal and destructive options helps the user to understand that the destructive options is different from the rest of the options.
-
----
-
-## States
-
-### Disabled
-
-![](../images/menu-disabled.png)
-
-Menu items should be disabled when they are not available, but could be available if something changes. Do not include menu items that will never be available, this will confuse a user. Instead, remove them from the menu.
-
----
+-   Use disabled menu items when a menu item is temporarily unavailable.
+-   Don't use the disabled state if the menu item will never be available in this context. Remove it instead.
 
 ## Examples in use
 
-![](../images/menu-example.png)
+==TODO: examples==
 
-_Complex actions and options for this embedded analytical object are available in a menu. If all of these options were available and visible all the time, for multiple objects, it would take up a lot of space and be very difficult to understand and use._
+## Links
+
+-   Demo ==TODO: link==
+-   API reference ==TODO: link==
