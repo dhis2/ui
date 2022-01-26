@@ -30,7 +30,7 @@ Chips are used to select from a set of defined options. Chips can also represent
 #### Content
 
 -   Keep chip labels short. Chips with long labels don't work well in a group.
--   Don't use action verbs in chip labels. Chips for choosing a dashboard to view should use the dashboard name without any verbn as a label.
+-   Don't use action verbs in chip labels. Chips for choosing a dashboard to view should use the dashboard name without any verb as a label.
 
 #### Size
 
@@ -54,17 +54,17 @@ Chips are used to select from a set of defined options. Chips can also represent
 ### Single or multiple selection
 
 -   A group of chips can allow choosing or one chip or several chips.
--   **Single selection**. Choosing one chip is useful when toggling betwen objects, like choosing which dashboard to view.
+-   **Single selection**. Choosing one chip is useful when toggling between objects, like choosing which dashboard to view.
 -   **Multiple selection**. Choosing several chips is useful when applying options to something, like applying filters to a list of data, or choosing options from a list.
 
-### Removeable
+### Removable
 
 <Demo>
     <Chip onRemove>Hello world</Chip>
 </Demo>
 
--   Use removeable chips if an option can be removed from the group.
--   Only use removeable chips when chips can be added back to the same group through another action, like choosing from a menu.
+-   Use removable chips if an option can be removed from the group.
+-   Only use removable chips when chips can be added back to the same group through another action, like choosing from a menu.
 
 ### Icon
 

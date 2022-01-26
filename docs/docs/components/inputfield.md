@@ -179,4 +179,4 @@ The following data types don't change the interaction with the input, but should
 
 -   Demo ==TODO: link==
 -   API reference ==TODO: link==
--   `Textarea` API refere ==TODO: link==
+-   `Textarea` API reference ==TODO: link==
