@@ -1,16 +1,13 @@
+import clsx from 'clsx'
 import React, { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
-
-import { ComponentCover, CenteredContent, CircularLoader } from '@dhis2/ui'
-import clsx from 'clsx'
-
 import styles from './DemoComponent.module.css'
 
 export const Demo = (props) => {
-    const [ styleLoading, setStyleLoading ] = useState(true)
-    const [ frameLoading, setFrameLoading ] = useState(true)
+    const [styleLoading, setStyleLoading] = useState(true)
+    const [frameLoading, setFrameLoading] = useState(true)
     const [contentRef, setContentRef] = useState(null)
-    const [ mountNode, setMountNode ] = useState(null)
+    const [mountNode, setMountNode] = useState(null)
 
     useEffect(() => {
         const styleTag = document.querySelector('[data-styled-jsx]')
@@ -36,6 +33,9 @@ export const Demo = (props) => {
                         style.sheet.insertRule(rule.cssText)
                     }
                 }
+                style.sheet.insertRule(
+                    'body { font-family: "Roboto", sans-serif; }'
+                )
             }
 
             mountHead.appendChild(styleTag.cloneNode())
@@ -46,7 +46,16 @@ export const Demo = (props) => {
     return (
         <div className={styles.demo}>
             <div className={styles.demoTitle}>Demo</div>
-            <iframe loading="lazy" onLoad={e => setFrameLoading(false)} className={clsx(styles.demoFrame, styleLoading ? styles.hidden : styles.visible)} {...props} ref={setContentRef}>
+            <iframe
+                loading="lazy"
+                onLoad={(e) => setFrameLoading(false)}
+                className={clsx(
+                    styles.demoFrame,
+                    styleLoading ? styles.hidden : styles.visible
+                )}
+                {...props}
+                ref={setContentRef}
+            >
                 {mountNode && createPortal(props.children, mountNode)}
             </iframe>
         </div>
