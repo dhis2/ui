@@ -1,5 +1,5 @@
 ---
-title: Button
+title: Notice box
 ---
 
 import { Demo } from '../../src/components/DemoComponent.jsx'
