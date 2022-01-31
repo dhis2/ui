@@ -1,3 +1,10 @@
+# [7.15.0](https://github.com/dhis2/ui/compare/v7.14.3...v7.15.0) (2022-01-31)
+
+
+### Features
+
+* **chip:** allow custom margins ([713f65c](https://github.com/dhis2/ui/commit/713f65c529bf67b915cfe0e4b6de056b2b722588))
+
 ## [7.14.3](https://github.com/dhis2/ui/compare/v7.14.2...v7.14.3) (2022-01-27)
 
 
