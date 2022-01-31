@@ -1,13 +1,45 @@
-# Organization Unit Tree
+---
+title: Organisation unit tree
+---
 
-Display, manipulate and select organization units displayed in a hierarchical tree.
+# Organisation unit tree
 
-<!-- ![](../images/switch.png) -->
+import { Demo } from '../../src/components/DemoComponent.jsx'
+import { OrganisationUnitTree } from '@dhis2/ui'
 
-[Specs for build](https://sketch.cloud/s/Kno0n/a/JDdL9k)
+> This component is under development. Advanced functionality is planned. Basic functionality, outlined below, is available now.
+
+An organisation unit tree is used to choose organisation units from a hierarchy.
+
+<Demo>
+    <p>See <a href="https://ui.dhis2.nu/demo/?path=/story/forms-organisation-unit-tree--collapsed" target="_blank">storybook</a> for demos</p> 
+</Demo>
 
 ## Usage
 
-WIP
+### When to use
 
-<!-- ## Examples in use -->
+-   **Choosing organisation units**: Use when one or more organisation units can be chosen.
+
+### Format
+
+-   An organisation unit tree can grow when units are expanded. Make sure the container can handle overflowing content by scrolling.
+-   Choosing organisation units can be a complex task when there are a lot to choose from. In complex situations, make sure there is room to look at the tree clearly.
+
+## Options
+
+### Selection mode: Single
+
+==TODO: demo==
+
+-   In _Single selection mode_ only one organisation unit can be chosen.
+-   Use this mode when choosing more than one organisation unit isn't valid.
+
+## Examples in use
+
+==TODO: examples==
+
+## Links
+
+-   Demo ==TODO: link==
+-   API reference ==TODO: link==
