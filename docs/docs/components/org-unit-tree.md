@@ -30,8 +30,6 @@ An organisation unit tree is used to choose organisation units from a hierarchy.
 
 ### Selection mode: Single
 
-==TODO: demo==
-
 -   In _Single selection mode_ only one organisation unit can be chosen.
 -   Use this mode when choosing more than one organisation unit isn't valid.
 
