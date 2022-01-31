@@ -1,49 +1,61 @@
-|                      |                                                                   |
-| -------------------- | ----------------------------------------------------------------- |
-| **Component**        | Segmented Control                                                 |
-| **Type**             | Molecule ([?](http://atomicdesign.bradfrost.com/chapter-2/))      |
-| **Design Spec**      | [Link](https://sleepy-yalow-3c0c76.netlify.app/segmented-control) |
-| **Working Examples** | _pending_                                                         |
-| **Status**           | `Waiting for build`                                               |
-
+---
+title: Segmented control
 ---
 
-# Segmented Control
+import { Demo } from '../../src/components/DemoComponent.jsx'
+import { SegmentedControl } from '@dhis2/ui'
 
-Using a segmented control, a user can select between related options. The selection made will change or effect another area of content.
+# Segmented control
 
-![](../images/segmented-control.png)
+A segmented control is used to choose between related options that have an effect on a related area.
 
-##### Contents
-
--   [Usage](#usage)
--   [Examples in use](#examples-in-use)
-
----
+<Demo>
+    <SegmentedControl options
+    ={[
+            {
+                label: 'Option 1',
+                value: 'option1'
+            },
+            {
+                label: 'Option 2',
+                value: 'option2'
+            },
+            {
+                label: 'Option 3',
+                value: 'option3'
+            }
+        ]}
+        selected
+        ="option1"
+    />
+</Demo>
 
 ## Usage
 
-A segmented control is used to select between options that relate to another area of content. All of the options in a segmented control should be closely related.
+### When to use
 
-Do not use a segmented control as a standalone selection, it should always be used as a selector for other content. For example, do not use a segmented control in place of radio buttons when making a single, standalone choice.
+-   **Choose between related options**. Use a segmented control to choose between closely related options.
+-   **Change another view, area, or element**. A segmented control can change or have an effect on another element, like a view of data.
+-   **Choose between modes**. A segmented control can be used to choose between modes. For example, choosing between different view modes of the same data.
 
-Keep the text label for each option clear and concise. Long labels will make this component difficult to use.
+### When not to use
 
-There must always be a selected option. Ensure the default selected option is the most used option where possible.
+-   **High-level navigation**. Don't use a segmented control to navigate between different parts of unrelated content. Use tabs ==TODO: link== instead.
+-   **Instead of radio inputs**. Don't use a segmented control instead of radio buttons to make a choice between options that don't have a direct effect on another element.
 
-#### Segmented Control vs. Tabs
+### Format
 
-A segmented control is similar in functionality to the [tab component](tab.md), however there are differences in their intended usage.
+#### Content
 
--   Tabs are used to select between several options, usually more than three, that are loosely related. Tabs are a high-level navigational component.
--   A segmented control is used to select between a few options, usually less than three, that are closely related or as part of a single theme. A segmented control is a low-level selection component.
+-   Segmented control option labels shouldn't be longer than a few short words.
+-   Option labels should state clearly what each option is.
+-   A separate label above the component can offer extra context for the options, if needed.
 
-Tabs can be used to provide navigation between several sections of an application, for example. A segmented control might be used to select between difference selection modes inside another component.
+## Examples
 
----
+==TODO: examples==
 
-## Examples in use
+## Links
 
-![](../images/segmented-control-example.png)
-
-_This example illustrates the difference between a segmented control and tab selection. A segmented control is used to select between different modes of period selection: predefined or by start/end dates. The choice here is focused and applies to a single theme. The tabs above provide navigation between the global sections of this options dialog._
+-   Demo ==TODO: link==
+-   API reference ==TODO: link==
