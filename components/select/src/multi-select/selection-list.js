@@ -42,6 +42,9 @@ const SelectionList = ({ selected, onChange, disabled, options }) => (
                     key={value}
                     onRemove={onRemove}
                     disabled={isDisabled}
+                    marginBottom="0"
+                    marginLeft="0"
+                    marginTop="0"
                     overflow
                     dense
                 >
