@@ -1,86 +1,73 @@
-|                      |                                                                                |
-| -------------------- | ------------------------------------------------------------------------------ |
-| **Component**        | Pagination                                                                     |
-| **Type**             | Molecule ([?](http://atomicdesign.bradfrost.com/chapter-2/))                   |
-| **Design Spec**      | [Link](https://www.sketch.com/s/3b3cacfc-bde2-4f89-ab9f-3ffc05cfd34d/a/AlV1YR) |
-| **Working Examples** | [Link](https://ui.dhis2.nu/demo/?path=/story/navigation-pagination--default)   |
-| **Status**           | `Ready to use`                                                                 |
-
 ---
+title: Pagination
+---
+
+import { Demo } from '../../src/components/DemoComponent.jsx'
+import { Pagination } from '@dhis2/ui'
 
 # Pagination
 
-Pagination is used to allow navigation through data displayed over several pages.
+Pagination is used to navigate content across several pages.
 
-![](../images/pagination.png)
-
-##### Contents
-
--   [Usage](#usage)
--   [Composition](#composition)
--   [Options](#options)
--   [Types](#types)
--   [Examples in use](#examples-in-use)
-
----
+<Demo>
+    <Pagination page={2} pageCount={10} pageSize={50} total={430}/>
+</Demo>
 
 ## Usage
 
-Pagination allows data to be split in pages. Paging large amounts of data avoids overwhelming users and should always be used wherever a lot of data is displayed. Pagination controls allow a user to browse through a set of data or navigate to a specific page depending on the type of pagination used.
+### When to use
 
-**Do not rely on pagination for navigating datasets. A user should be able to search within, sort and filter datasets too, rather than needing to click through many pages looking for the right data item.**
+-   **Many items to navigate**. Use pagination when there could be many items to look through.
+-   **Paired with tables**. Pagination is often used with a data table to navigate between pages of item rows in the table.
+-   **In combination with search or filter**. Pagination shouldn't be the only way to find items in a long list. Make sure searching or filtering are available too.
 
----
+### When not to use
 
-## Composition
+-   **Few items**. If there will only be few items in a list or table, don't show a redundant pagination element.
 
-![](../images/pagination-composition.png)
+## Format
 
-The pagination component is made up of several elements, some of which are optional:
+### Position
 
-1. **Previous & Next buttons, required**
-2. **Page control dropdown, optional**
-3. **Context information, optional**
-4. **Result count selector, optional**
-
----
+-   Pagination should always be shown at the end of a list of items.
 
 ## Options
 
-### Page control dropdown
+Different elements of the pagination component can be included, depending on the use case.
 
-The page control dropdown allows quick access to any page of the data without needing to use the previous and next buttons. The page control dropdown should be included if a user might need to jump around between pages often. Do not include the dropdown unless there is an identified need, it adds visual noise and complexity to the component.
+### Element: Page number selector
 
-### Context information
+<Demo>
+    <Pagination page={2} pageCount={10} pageSize={50} total={430} hidePageSizeSelect hidePageSummary/>
+</Demo>
 
-Context information helps the user understand where they are in within a large dataset. Include context information whenever it is important to a user to understand how the data they are viewing relates to the dataset as a whole. Do not include the context information unless there is an identified need, it adds visual noise and complexity to the component.
+-   Offers access to any page without navigating with previous or next buttons.
+-   Use if a user might need to jump between non-sequential pages often.
 
-### Result count selector
+### Element: Context information
 
-The result count selector allows a user to adjust the number of data items displayed in the component that the pagination relates to. Use a result count selector wherever a user might want to customize their view of the data. Remember that allowing large counts may negatively affect users on slow connections.
+<Demo>
+    <Pagination page={2} pageCount={10} pageSize={50} total={430} hidePageSelect hidePageSizeSelect/>
+</Demo>
 
----
+-   Shows a short summary of the current page in context of the whole set of items.
+-   Use when positional context could be useful.
+-   Showing the total number of items can be problematic for large data sets. Omit the total number of items and pages in situations when there can be many items.
 
-## Types
+### Element: Item count selector
 
-There are no strict types of pagination component, the different optional elements can be included individually. This allows the component to be as flexible as possible. The most often used 'types' of pagination are Compact and Full, explained below.
+<Demo>
+    <Pagination page={2} pageCount={10} pageSize={50} total={430} hidePageSelect hidePageSummary/>
+</Demo>
 
-### Compact
+-   Changes the number of items included in a page.
+-   Use when a user might want to customize the view.
 
-![](../images/pagination-compact.png)
+## Examples
 
-Smaller datasets might not need full pagination controls. Only including the previous and next buttons results in a simple, compact component.
+==TODO: examples==
 
-### Full pagination
+## Links
 
-![](../images/pagination.png)
-
-Including all of the pagination elements results in a full-featured pagination control, useful to managing large datasets.
-
----
-
-## Examples in use
-
-![](../images/pagination-example.png)
-
-_Full pagination is used to view and navigate search results in Capture app._
+-   Demo ==TODO: link==
+-   API reference ==TODO: link==
