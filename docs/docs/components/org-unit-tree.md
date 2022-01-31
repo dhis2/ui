@@ -2,17 +2,17 @@
 title: Organisation unit tree
 ---
 
-# Organisation unit tree
-
 import { Demo } from '../../src/components/DemoComponent.jsx'
 import { OrganisationUnitTree } from '@dhis2/ui'
+
+# Organisation unit tree
 
 > This component is under development. Advanced functionality is planned. Basic functionality, outlined below, is available now.
 
 An organisation unit tree is used to choose organisation units from a hierarchy.
 
 <Demo>
-    <p>See <a href="https://ui.dhis2.nu/demo/?path=/story/forms-organisation-unit-tree--collapsed" target="_blank">storybook</a> for demos</p> 
+    <p>See <a href="https://ui.dhis2.nu/demo/?path=/story/forms-organisation-unit-tree--collapsed" target="_blank">storybook</a> for demos.</p> 
 </Demo>
 
 ## Usage
