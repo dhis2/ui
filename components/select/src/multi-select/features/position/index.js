@@ -53,7 +53,7 @@ When('an option is clicked', () => {
     cy.contains('option one').click()
 })
 
-Then('the Input grows in height', () => {
+Then('the Input remains the same height', () => {
     const emptyInputHeight = '@emptyInputHeight'
     const inputDataTest = '[data-test="dhis2-uicore-select-input"]'
 
@@ -64,7 +64,7 @@ Then('the Input grows in height', () => {
             const $input = inputs[0]
             const inputRect = $input.getBoundingClientRect()
 
-            expect(inputRect.height).to.be.greaterThan(emptyInputHeight)
+            expect(inputRect.height).to.equal(emptyInputHeight)
         }
     )
 })
