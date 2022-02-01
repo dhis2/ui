@@ -1,3 +1,10 @@
+## [7.15.1](https://github.com/dhis2/ui/compare/v7.15.0...v7.15.1) (2022-02-01)
+
+
+### Bug Fixes
+
+* **select:** reduce selected option chip margins ([0141235](https://github.com/dhis2/ui/commit/014123572bc4ffa3e60b1ad2bb6dddf32488eb3b))
+
 # [7.15.0](https://github.com/dhis2/ui/compare/v7.14.3...v7.15.0) (2022-01-31)
 
 
