@@ -1,108 +1,255 @@
-|                      |                                                                                                             |
-| -------------------- | ----------------------------------------------------------------------------------------------------------- |
-| **Component**        | Select                                                                                                      |
-| **Type**             | Molecule ([?](http://atomicdesign.bradfrost.com/chapter-2/))                                                |
-| **Design Spec**      | [Link](https://sketch.cloud/s/DwkDk/a/Q5EqdY)                                                               |
-| **Working Examples** | [Link](https://ui.dhis2.nu/demo/?path=/story/forms-single-select-single-select--with-options-and-on-change) |
-| **Status**           | `Ready to use`                                                                                              |
-
 ---
+title: Select
+---
+
+import { Demo } from '../../src/components/DemoComponent.jsx'
+import { SingleSelectField, MultiSelectField, SingleSelectOption, MultiSelectOption } from '@dhis2/ui'
 
 # Select
 
-The select component allows selection of one or more options from a list.
+Selects are used to choose one or more items from a list of options.
 
-![](../images/select.png)
-
-##### Contents
-
--   [Usage](#usage)
--   [Options](#options)
--   [States](#states)
--   [Examples in use](#examples-in-use)
-
----
+<Demo>
+    <SingleSelectField label="Label">
+        <SingleSelectOption label="Option one" value="1" />
+        <SingleSelectOption label="Option two" value="2" />
+        <SingleSelectOption label="Option three" value="3" />
+        <SingleSelectOption label="Option four" value="4" />
+        <SingleSelectOption label="Option five" value="5" />
+        <SingleSelectOption label="Option six" value="6" />
+        <SingleSelectOption label="Option seven" value="7" />
+        <SingleSelectOption label="Option eight" value="8" />
+        <SingleSelectOption label="Option nine" value="9" />
+        <SingleSelectOption label="Option ten" value="10" />
+    </SingleSelectField>
+</Demo>
 
 ## Usage
 
-Use a select component wherever the user needs to make a selection of one or more options from a list of 6 or more options. If there are less than 6 options to choose from and space permits, use [checkboxes](../atoms/checkbox.md) for multiple selection and [radio buttons](../atoms/radio.md) for single selection. If the user needs to make a complex selection with a specific ordering, use a [transfer](../organisms/transfer.md) instead.
+### When to use
 
----
+-   **Choosing one or several options from a list of many**. Use a select if there are many options to choose from, especially in compact layouts.
+
+### When not to use
+
+-   **Ordering selections**. Don't use a select to choose options when their order is important. Use a Transfer ==todo: link== instead.
+
+### Variants
+
+#### Single select
+
+<Demo>
+    <SingleSelectField label="Aggregation type">
+        <SingleSelectOption label="Sum" value="1" />
+        <SingleSelectOption label="Mean" value="2" />
+        <SingleSelectOption label="Average" value="3" />
+        <SingleSelectOption label="Mode" value="4" />
+        <SingleSelectOption label="Min" value="5" />
+        <SingleSelectOption label="Max" value="6" />
+        <SingleSelectOption label="Median" value="7" />
+        <SingleSelectOption label="Total" value="8" />
+    </SingleSelectField>
+</Demo>
+
+-   Use a single select if the user can only choose one option.
+
+#### Multi select
+
+<Demo>
+    <MultiSelectField label="Priority" selected={['1', '5',]}>
+        <MultiSelectOption label="Very low" value="1" />
+        <MultiSelectOption label="Low" value="2" />
+        <MultiSelectOption label="Medium" value="3" />
+        <MultiSelectOption label="High" value="4" />
+        <MultiSelectOption label="Very high" value="5" />
+        <MultiSelectOption label="Critical" value="6" />
+    </MultiSelectField>
+</Demo>
+
+-   Use a multi select if the user can choose one or more options.
+
+### Format
+
+#### Label
+
+-   Show a label above the select to show what it's for.
+-   Labels should clearly describe the selection to be made. Don't use long sentences.
+-   A noun is often the simplest choice of label, rather than a verb. For example, _Period type_ is more concise in a layout than _Choose a period type_. Only use a verb if the use of the control is ambiguous.
+
+##### Placeholder
+
+<Demo>
+    <SingleSelectField label="Label" placeholder="Choose an option">
+        <SingleSelectOption label="Option one" value="1" />
+        <SingleSelectOption label="Option two" value="2" />
+        <SingleSelectOption label="Option three" value="3" />
+        <SingleSelectOption label="Option four" value="4" />
+        <SingleSelectOption label="Option five" value="5" />
+        <SingleSelectOption label="Option six" value="6" />
+        <SingleSelectOption label="Option seven" value="7" />
+        <SingleSelectOption label="Option eight" value="8" />
+        <SingleSelectOption label="Option nine" value="9" />
+        <SingleSelectOption label="Option ten" value="10" />
+    </SingleSelectField>
+</Demo>
+
+-   Only use placeholder text to clarify what kind of content is expected.
+-   Placeholder text shouldn't repeat the label.
+-   Always use placeholder text if a label isn't used.
+-   Placeholder text disappears when choosing an option, so make sure it's not critical.
+
+##### Help text
+
+<Demo>
+    <SingleSelectField label="Aggregation type" helpText="Choose the aggregation type to apply to imported data.">
+        <SingleSelectOption label="Option one" value="1" />
+        <SingleSelectOption label="Option two" value="2" />
+        <SingleSelectOption label="Option three" value="3" />
+        <SingleSelectOption label="Option four" value="4" />
+        <SingleSelectOption label="Option five" value="5" />
+        <SingleSelectOption label="Option six" value="6" />
+        <SingleSelectOption label="Option seven" value="7" />
+        <SingleSelectOption label="Option eight" value="8" />
+        <SingleSelectOption label="Option nine" value="9" />
+        <SingleSelectOption label="Option ten" value="10" />
+    </SingleSelectField>
+</Demo>
+
+-   Use help text to tell the user about any limitations or expectations for the content.
+-   Help text can also be used to clarify what the input is for if it's a complex concept.
+
+#### Size
+
+<Demo>
+    <SingleSelectField label="Regular sized select">
+        <SingleSelectOption label="Option one" value="1" />
+        <SingleSelectOption label="Option two" value="2" />
+        <SingleSelectOption label="Option three" value="3" />
+    </SingleSelectField>
+    <SingleSelectField dense label="Dense sized select">
+        <SingleSelectOption label="Option one" value="1" />
+        <SingleSelectOption label="Option two" value="2" />
+        <SingleSelectOption label="Option three" value="3" />
+    </SingleSelectField>
+</Demo>
+
+-   Selects are available in two sizes, regular and `dense`. Regular sized selects are useful when there's space available. Use `dense` sized selects in compact, information-dense interfaces.
+
+#### Width
+
+-   A selects width should reflect the expected content.
+-   Avoid full-width selects, which can be visually unclear.
 
 ## Options
 
-### Single selection
-
-![](../images/select-single.png)
-
-The default functionality of a select component allows for a single selection. The user clicks in the input field to open a menu that displays a list of options. The user selects an option and the menu closes. The input now displays the selected option.
-
-### Multiple selection
-
-![](../images/select-multiple.png)
-
-Multiple selection allows the user to select more than one option from the list. Checkboxes are used to highlight the possibility of making more than one selection. Selected options are displayed as chips inside the input. Make sure to communicate clearly to the user if there is a limit to the number of selectable elements.
-
-Use multiple selection wherever the user needs to make more than one selection. If the multiple selection is complex, requires a defined order or needs to made from different groups, consider using a transfer(WIP) component instead.
-
 ### Filtering
 
-![](../images/select-filter.png)
+<Demo>
+    <SingleSelectField filterable label="Label">
+        <SingleSelectOption label="Option one" value="1" />
+        <SingleSelectOption label="Option two" value="2" />
+        <SingleSelectOption label="Option three" value="3" />
+        <SingleSelectOption label="Option four" value="4" />
+        <SingleSelectOption label="Option five" value="5" />
+        <SingleSelectOption label="Option six" value="6" />
+        <SingleSelectOption label="Option seven" value="7" />
+        <SingleSelectOption label="Option eight" value="8" />
+        <SingleSelectOption label="Option nine" value="9" />
+        <SingleSelectOption label="Option ten" value="10" />
+    </SingleSelectField>
+</Demo>
 
-Filtering allows the user to search in the available options. The filter input appears above the options and remains fixed on top when scrolling a long list of options.
+-   A select can show a filter control that filters the available options.
+-   Use a filter when there's many options, more than 10, to choose from.
 
-Use filtering if there are many options to choose from. There is no minimum amount of options needed before filtering is needing, it also depends on the complexity of the options. If a user may struggle to find the right option, include filtering. Make sure to provide meaningful feedback to the user if there are no options available when filtering, the user should never wonder why there are no options in the list.
+### Clearing
 
-### Custom content
+<Demo>
+    <SingleSelectField clearable label="Label" selected="1">
+        <SingleSelectOption label="Option one" value="1" />
+        <SingleSelectOption label="Option two" value="2" />
+        <SingleSelectOption label="Option three" value="3" />
+        <SingleSelectOption label="Option four" value="4" />
+        <SingleSelectOption label="Option five" value="5" />
+        <SingleSelectOption label="Option six" value="6" />
+        <SingleSelectOption label="Option seven" value="7" />
+        <SingleSelectOption label="Option eight" value="8" />
+        <SingleSelectOption label="Option nine" value="9" />
+        <SingleSelectOption label="Option ten" value="10" />
+    </SingleSelectField>
+</Demo>
 
-![](../images/select-custom.png)
+-   A select can show a _Clear_ button that removes the current selection.
+-   Use a clearable select if there isn't a _None_ choice in the options.
 
-By default a select component uses a simple menu to display options, however options can be customized to display in any way. In the example above the options include an icon, title and description. The 'selected' state of an option can also be customized, the example above uses a custom color background and check icon.
+### Prefix
 
-The selected state of the input can also be customized. An option title must always be provided, this title will be displayed in the input when selected. Optional graphics or icons can also be included. Do not use large graphics and make sure any icons used communicate clearly with the user.
+<Demo>
+    <SingleSelectField prefix="Data type" selected="3">
+        <SingleSelectOption label="Data element" value="1" />
+        <SingleSelectOption label="Event data item" value="2" />
+        <SingleSelectOption label="Program indicator" value="3" />
+        <SingleSelectOption label="Option four" value="4" />
+        <SingleSelectOption label="Option five" value="5" />
+        <SingleSelectOption label="Option six" value="6" />
+        <SingleSelectOption label="Option seven" value="7" />
+        <SingleSelectOption label="Option eight" value="8" />
+        <SingleSelectOption label="Option nine" value="9" />
+        <SingleSelectOption label="Option ten" value="10" />
+    </SingleSelectField>
+</Demo>
 
-Use custom content whenever a short text option would be insufficient or not communicate clearly enough. However, keep in mind that if the content is very complex it should not be contained within a menu as this may be difficult to navigate and view. In this case, use a custom component instead of a select.
+-   A select can show a label that prefixes the chosen option label.
+-   Use a prefix when there is limited space and a label above the select would take up too much space.
+-   Prefix labels should be short and clear.
 
-### Clearable single select
+### State: Error
 
-![](../images/select-clear.png)
+<Demo>
+    <SingleSelectField error validationText="There's a problem with this choice." label="Label">
+        <SingleSelectOption label="Option one" value="1" />
+        <SingleSelectOption label="Option two" value="2" />
+        <SingleSelectOption label="Option three" value="3" />
+        <SingleSelectOption label="Option four" value="4" />
+        <SingleSelectOption label="Option five" value="5" />
+        <SingleSelectOption label="Option six" value="6" />
+        <SingleSelectOption label="Option seven" value="7" />
+        <SingleSelectOption label="Option eight" value="8" />
+        <SingleSelectOption label="Option nine" value="9" />
+        <SingleSelectOption label="Option ten" value="10" />
+    </SingleSelectField>
+</Demo>
 
-An optional 'clear' control can be included on select components. The purpose of this control is to allow users the option of clearing the selected option, rather than having to refresh the page to reset the component.
+-   Use an error state if there's a problem with the chosen option, or if it's required but empty.
+-   Don't show an error too early, give the user a chance to make a choice.
+-   The error text should help the user fix the problem. Refer to the error writing guidelines ==TODO: link== for examples.
 
-'Clear' functionality should be included on a non-required select if there is not a 'No selection' option provided in the list.
+### State: Disabled
 
-### Inline label
+<Demo>
+    <SingleSelectField disabled label="Label">
+        <SingleSelectOption label="Option one" value="1" />
+        <SingleSelectOption label="Option two" value="2" />
+        <SingleSelectOption label="Option three" value="3" />
+        <SingleSelectOption label="Option four" value="4" />
+        <SingleSelectOption label="Option five" value="5" />
+        <SingleSelectOption label="Option six" value="6" />
+        <SingleSelectOption label="Option seven" value="7" />
+        <SingleSelectOption label="Option eight" value="8" />
+        <SingleSelectOption label="Option nine" value="9" />
+        <SingleSelectOption label="Option ten" value="10" />
+    </SingleSelectField>
+</Demo>
 
-![](../images/select-inlinelabel.png)
-
-An inline label is a placeholder text that persists after the user has made a selection. The inline label communicates the purpose of the field after a selection has been made, where it might not have been obvious otherwise. In the example above, 'Sort by' is used an inline label because displaying only the selected option 'Status' would not have communicated the purpose of the field to the user. Inline labels are used instead of a label above the input field.
-
-Only use inline labels on select components that are displayed in toolbars and space restricted areas. Inline labels must be short and concise.
-
----
-
-## States
-
-### Empty
-
-![](../images/select-empty.png)
-
-The select menu displays an empty state if there are no options to display, perhaps due to a lack of data. An empty state is not an error state, it is displayed only when a lack of data can be confirmed.
-
-Use the empty state to provide useful information to the user and, where possible, help them fix the issue. In the example above the empty state informs the user that no programs exist and provides them with a link to create a new program directly from the select component. Only include simple, one click actions in the select empty state, do not attempt to include complex flows inside the menu. A select menu empty state should never be the only place to carry out an action, rather it is a helpful shortcut.
-
----
+-   Use a disabled state if the select temporarily can't be used.
+-   Show a `Tooltip` ==TODO: link== on hover or focus to explain why the select is disabled.
 
 ## Examples in use
 
-![Example of a select in use](../images/select-example-1.png)
+==TODO: examples==
 
-_Selects are used for program and stage selection in Import/Export app. Selects work well here because the total number of options is not known and will differ greatly between different implementations._
+## Links
 
-![Example of multiple selects in use](../images/select-example-2.png)
-
-_Multiple selects are used to choose data for map layers in Maps app. Again, the number of options is not known so a select is the safe choice. Dense selects are used as these controls are displayed alongside others in a modal._
-
-![Example of selects using prefix and dense options](../images/select-example-3.png)
-
-_Size and position options are provided using dense selects with a prefix label. The dense size and the prefixed labels use minimal space and allow for an information dense set of controls. These controls are used alongside others inside a modal view in Data Visualizer app, so it is important they do not use a lot of space._
+-   Demo ==TODO: link==
+-   `Singleselect` API reference ==TODO: link==
+-   `Multiselect` API reference ==TODO: link==
