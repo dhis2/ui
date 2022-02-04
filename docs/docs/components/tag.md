@@ -1,66 +1,68 @@
-|                      |                                                                         |
-| -------------------- | ----------------------------------------------------------------------- |
-| **Component**        | Tag                                                                     |
-| **Type**             | Atom ([?](http://atomicdesign.bradfrost.com/chapter-2/))                |
-| **Design Spec**      | [CSS Spec](https://sleepy-yalow-3c0c76.netlify.com/)                    |
-| **Working Examples** | [Link](https://ui.dhis2.nu/demo/?path=/story/data-display-tag--default) |
-| **Status**           | `Ready to use`                                                          |
-
 ---
+title: Tag
+---
+
+import { Demo } from '../../src/components/DemoComponent.jsx'
+import { Chip, Tag, IconError16, IconCheckmarkCircle16 } from '@dhis2/ui'
 
 # Tag
 
-A tag is used to display categorizing labels or information for other elements in a collection.
+Tags are used to label items by a set of shared properties, like category or status.
 
-![](../images/tag/tag.png)
-
-##### Contents
-
--   [Usage](#usage)
--   [Options](#options)
--   [Examples in use](#examples-in-use)
-
----
+<Tag>Tag label</Tag>
 
 ## Usage
 
-Tags are used whenever an element in a collection needs to display its category or status. Tags should not be used for one-off, unique information. Tags can be displayed in any kind of component.
+### When to use
 
-Tags are useful when displaying multiple elements in a collection that have the same basic attributes but belong to different categories or have different statuses. Do not use tags for elements that will always be the same, instead use a heading or other grouping method.
+-   **Showing a status or category**. Use a tag to give a quick indicator of something's status or category, usually as part of a group of many items.
+-   **Several items share common properties**. Use tags when several items, like rows in a table, share subsets of common properties. Tags help a user quickly understand which items have which properties.
 
-Tags are never used for primary interaction and should not be used as buttons. Clicking a tag could sort a collection by that tag, or open a page to display all elements that have that tag type. Tags should not be used as navigation elements.
+### When not to use
 
-![](../images/tag/tag-ex-1.png)
+-   **Primary actions**. Don't use tags for any type of important action. A tag isn't a button. A tag could be used to a secondary action, like opening a convenient view of items with similar tags.
 
----
+### Variants
+
+| Variant                      | When to use                                                               |
+| ---------------------------- | ------------------------------------------------------------------------- |
+| <Tag>Default</Tag>           | The default choice. Use this if no other variant matches the use case.    |
+| <Tag neutral>Neutral</Tag>   | Use to communicate neutrality, when something isn't positive or negative. |
+| <Tag positive>Positive</Tag> | Use to communicate success or validity.                                   |
+| <Tag negative>Negative</Tag> | Use to communicate a problem or error.                                    |
+
+### Format
+
+#### Label
+
+-   Use short, understandable words for tag labels. If possible, use a single word.
 
 ## Options
 
-### Color
-
-Tags are available in four different colors. The color of a tag depends on its content and the meaning of that tag. The following system is used for tag coloring:
-
-| Tag                              | Meaning                                                                                     |
-| -------------------------------- | ------------------------------------------------------------------------------------------- |
-| ![](../images/tag/tag-grey.png)  | Default. The grey tag is default and has its color should not imply meaning.                |
-| ![](../images/tag/tag-blue.png)  | Neutral. Blue is used when a tag could have valid or error status but is currently neutral. |
-| ![](../images/tag/tag-red.png)   | Error. Red tags imply an error or a problem.                                                |
-| ![](../images/tag/tag-green.png) | Valid. Green tags should be used to indicate validity or success.                           |
-
 ### Icon
 
-![](../images/tag/tag-icons.png)
+<Tag icon={<IconCheckmarkCircle16/>} positive>Passed</Tag>
+<Tag icon={<IconError16/>} negative>Failed</Tag>
 
-Tags can contain icons. Use icons where they will help users easily identify the content of the tag. Tags must have a text label and cannot display only an icon.
+-   A tag can show an icon before the text label.
+-   Use icons to support the text label by providing context or a visual reference.
+-   Don't include icons for decoration only, they add complexity to the interface.
 
 ### Bold
 
-Tags have an optional `bold` property. Use bold tags where it is important that the tag is seen by the user in an information dense interface. Bold tags should be reserved for edge cases and not overused.
+==TODO: demo==
 
----
+-   Use bold tags where it's important the information is noticed by a user.
+-   Don't overuse bold tags, only use them when the information is important.
 
 ## Examples in use
 
-![](../images/tag/tag-ex-2.png)
+<Tag bold>Tag label</Tag>
+<Tag bold neutral>Tag label</Tag>
+<Tag bold positive>Tag label</Tag>
+<Tag bold negative>Tag label</Tag>
 
-_Tags are used to give an overview of the status of all the patients displayed in a list in Capture app._
+## Links
+
+-   Demo ==TODO: link==
+-   API reference ==TODO: link==
