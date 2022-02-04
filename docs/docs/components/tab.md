@@ -1,65 +1,78 @@
-|                      |                                                                                 |
-| -------------------- | ------------------------------------------------------------------------------- |
-| **Component**        | Tabs                                                                            |
-| **Type**             | Molecule ([?](http://atomicdesign.bradfrost.com/chapter-2/))                    |
-| **Design Spec**      | [Link](https://sketch.cloud/s/DwkDk/GmKbAL5)                                    |
-| **Working Examples** | [Link](https://ui.dhis2.nu/demo/?path=/story/navigation-tab-bar--default-fluid) |
-| **Status**           | `Ready to use`                                                                  |
-
+---
+title: Tabs
 ---
 
-# Tabs
+import { Demo } from '../../src/components/DemoComponent.jsx'
+import { TabBar, Tab, IconSubscribe16, IconShare16, IconDownload16 } from '@dhis2/ui'
 
-Tabs act as containers for content. Tabs are used to divide content into categories and/or sections.
+# Tab
 
-![](../images/tabs.png)
+Tabs are used to navigate between different views within the same page or context.
 
-##### Contents
-
--   [Usage](#usage)
--   [Types](#types)
--   [Examples in use](#examples-in-use)
-
----
+<Demo>
+    <TabBar>
+        <Tab>Tab label 1</Tab>
+        <Tab selected>Tab label 2</Tab>
+        <Tab>Tab label 3</Tab>
+        <Tab>Tab label 4</Tab>
+    </TabBar>
+</Demo>
 
 ## Usage
 
--   Use tabs to split related content into separate sections.
--   Each tab should contain content that relates to one another, but the content should not overlap.
--   Tabs are especially useful for splitting up content that may be relevant to different user groups, instead of displaying overwhelming amounts of information on a single page.
--   Do not use tabs to compare content.
--   Do not use tabs for sequential content that needs to be done in order.
--   Do not use tabs for content that needs to be viewed at the same time.
--   The number of tabs is less important than splitting content into understandable, predictable groups. Do not group together unrelated content in order to reduce tab count. Users struggle more with unpredictable tabs than too many tabs.
+### When to use
 
-### Naming
+-   **Navigate between different views in the same context**. Use tabs to show several areas of related content.
 
-Give tabs short, understandable names. Try to find a word or very short phrase that summarizes the content. If you cannot find a suitable word this may mean you are trying to fit too much content under a single tab. The content of a tab should be obvious from its name.
+### When not to use
 
-For example:
-Do use "Legends" instead of "Set up legends",
-Do use "Data analysis" instead of "Options for analysis of data",
+-   **Comparing content**. Don't use tabs to compare content.
+-   **Content with a set order**. Don't use tabs to show content or forms that need to be completed in a set order. A user can move back and forth between tabs.
 
-Do not repeat a term across tabs. If tabs are used inside a 'Options' modal, it is enough to use tab names "Data", "Legend", "Style". Do not repeat 'options' for all, e.g. "Data options", "Legend options" etc.
+### Format
 
----
+#### Label
 
-## Types
+-   Use short, easy to understand labels for tabs.
+-   The label should summarize the content. Content inside a tab should be obvious from it's label.
+-   Don't repeat the same word across several tabs.
 
-### Fluid vs. Fixed
+## Options
 
-The default tab style is fluid, where each tab width is defined by its name:
-![](../images/tabs-fluid.png)
+### Icon
 
-Fixed tabs always fill the width of their container:
-![](../images/tabs-fixed.png)
+<Demo>
+    <TabBar>
+        <Tab icon={<IconSubscribe16/>}>Notifications</Tab>
+        <Tab icon={<IconShare16/>} selected>Sharing and access</Tab>
+        <Tab icon={<IconDownload16/>}>Downloads</Tab>
+    </TabBar>
+</Demo>
 
-Fluid tabs should be used in most situations. Fixed tabs are useful when there is an either/or selection between two modes. For example, fixed tabs may give the user an option between 'Table' or 'Form' entry for the same data entry screen.
+-   A tab can show an icon.
+-   Use icons to support the text label by providing context or a visual reference.
+-   Don't include icons for decoration only, they add complexity to the interface.
 
----
+### State: Disabled
 
-## Examples in use
+<Demo>
+    <TabBar>
+        <Tab>Tab label 1</Tab>
+        <Tab selected>Tab label 2</Tab>
+        <Tab disabled >Tab label 3</Tab>
+        <Tab disabled>Tab label 4</Tab>
+    </TabBar>
+</Demo>
 
-![](../images/tabs-example.png)
+-   Use a disabled state if a tab can't be used temporarily.
+-   Show a tooltip ==TODO: link== when hovering a disabled tab to give a short explanation of why the tab can't be used.
+-   If a tab will never be enabled in the current context, remove it instead.
 
-_Tabs are used inside the 'Options' modal in Pivot Tables. Different categories of option are split into logical categories. Attempting to list all these options in a single screen would be overwhelming for a user._
+## Examples
+
+==TODO: examples==
+
+## Links
+
+-   Demo ==TODO: link==
+-   API reference ==TODO: link==
