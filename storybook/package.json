@@ -38,7 +38,7 @@
         "@storybook/node-logger": "^6.3.7",
         "@storybook/preset-create-react-app": "^3.2.0",
         "@storybook/react": "^6.3.7",
-        "@storybook/theming": "^6.3.7",
+        "@storybook/theming": "^6.4.18",
         "@wertarbyte/react-props-md-table": "^1.1.1",
         "react-docgen": "^5.4.0",
         "storybook-addon-jsx": "^7.3.14"
