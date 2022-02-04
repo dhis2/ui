@@ -1,74 +1,69 @@
-|                      |                                                                                           |
-| -------------------- | ----------------------------------------------------------------------------------------- |
-| **Component**        | Tooltip                                                                                   |
-| **Type**             | Atom ([?](http://atomicdesign.bradfrost.com/chapter-2/))                                  |
-| **Design Spec**      | [Link](https://sketch.cloud/s/DwkDk/a/zY21gy)                                             |
-| **Working Examples** | [Link](https://ui.dhis2.nu/demo/?path=/story/data-display-tooltip--default-placement-top) |
-| **Status**           | `Ready to use`                                                                            |
-
 ---
+title: Tooltip
+---
+
+import { Demo } from '../../src/components/DemoComponent.jsx'
+import { Tooltip } from '@dhis2/ui'
 
 # Tooltip
 
-A tooltip is a container for displaying information about an element, it is displayed when a user hovers over the element.
+A tooltip is used to show contextual information when triggered by clicking, focusing, or hovering an element.
 
-![](../images/tooltip.png)
-
-##### Contents
-
--   [Usage](#usage)
--   [Options](#options)
--   [Examples in use](#examples-in-use)
-
----
+<Demo>
+    <Tooltip content="Tooltip content">Hover to trigger tooltip.</Tooltip>
+</Demo>
 
 ## Usage
 
-Tooltips only display when a user hovers over an element. Do not use tooltips for critical or important information, users may not find the information or it may completely unavailable to mobile users. Information provided in tooltips should be supplementary or provide helpful context. Icon buttons can use tooltips to inform the user of their action. Never put important information or actions inside a tooltip.
+### When to use
 
--   Common usage of a tooltip is to expand on the displayed information when the user hovers over the element.
--   Do not place actions inside a tooltip, they would be hidden from the user and difficult to click.
--   Only text can be displayed in a tooltip. A [popover](../molecules/popover.md) can be used for rich information.
--   Limit the text inside a tooltip to a single, short sentence.
--   Do not repeat information in a tooltip, provide extra relevant, useful information.
+-   **Offer more information**. Use tooltips to offer more information about an element. This can help users who are unsure about something.
+-   **Preview contents**. Use tooltips to show a preview of something inside an element. For example, a tooltip when hovering over a folder that has several items could show the item names.
 
----
+### When not to use
+
+-   **Essential information**. Don't use tooltips for essential information, because a user might not know they're there.
+-   **Actions**. Don't put actions inside tooltips.
+-   **Repeated information**. Don't repeat information that's already on the screen. Only use tooltips to offer more context or useful information about something.
+
+### Format
+
+#### Content
+
+-   Use easy to understand content, no longer than a short sentence.
 
 ## Options
 
-### Placement
+### Position
 
-By default the tooltip should display above the hovered element. Alternatively, a tooltip may be displayed underneath or to the side of an element if there is limited space.
+<Demo>
+    <Tooltip content="Tooltip content">Hover to trigger top tooltip.</Tooltip>
+    <br/>
+    <Tooltip placement="left" content="Tooltip content">Hover to trigger left tooltip.</Tooltip>
+    <br/>
+    <Tooltip placement="right" content="Tooltip content">Hover to trigger right tooltip.</Tooltip>
+    <br/>
+    <Tooltip placement="bottom" content="Tooltip content">Hover to trigger bottom tooltip.</Tooltip>
+</Demo>
+
+-   By default, tooltips are shown above the triggering element.
+-   Other positions, `left`, `right`, and `bottom`, are available. Only use these positions if there's a reason `top` doesn't work, like in an information dense layout.
 
 ### Delay
 
-Tooltips allow customization of two delay durations:
+<Demo>
+    <Tooltip openDelay={500} closeDelay={50} content="Tooltip content">Hover to trigger a tooltip with a longer open delay and shorter close delay.</Tooltip>
+</Demo>
 
-1. `Open`: the delay between the user hovering or focusing the trigger element and the tooltip displaying
-2. `Close`: the delay between the user hover or focus leaving the trigger element and the tooltip hiding
-
-The default delay values cover generic tooltip use cases. Use the default values unless there is a specific reason, backed by a use case, not to. Where a custom duration is used, consider the following guidelines:
-
--   the default `open` and `close` delay are suited to tooltips that provide guidance and hints for all users
--   a longer `open` delay may be suitable if a tooltip is used to expose more details about an element for advanced users.
--   a shorter `close` delay might be suitable if there are many tooltip triggers in a single interface, for example, a list where every element triggers a tooltip.
-
----
+-   Tooltips have two delay durations: `open` and `close`.
+-   Use the default delay durations unless there's a specific use case to change them.
+-   Longer `open` delays and shorter `close` delays can help prevent too many tooltips showing in a complex layout.
 
 ## Examples in use
 
-![](../images/tooltip-example-1.png)
+==TODO: examples==
 
-_This tooltip gives the user some more context for the upwards arrow inside the cell: the percentage positive growth and the previous value._
+## Links
 
----
-
-![](../images/tooltip-example-2.png)
-
-_This tooltip gives extra information for new users about the action attributed to this icon used in an information dense environment._
-
----
-
-![](../images/tooltip-example-3.png)
-
-_Hovering over the selected period elements displays extra information, which period is selected. The tooltip is positioned down to avoid overlapping the information above._
+-   Demo ==TODO: link==
+-   API reference ==TODO: link==
