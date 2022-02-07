@@ -1,3 +1,10 @@
+# [7.16.0](https://github.com/dhis2/ui/compare/v7.15.1...v7.16.0) (2022-02-07)
+
+
+### Features
+
+* **icons:** add pivot table, linelist icons ([c179000](https://github.com/dhis2/ui/commit/c179000f01e5340db0532c3fcfb0f267f78c814a))
+
 ## [7.15.1](https://github.com/dhis2/ui/compare/v7.15.0...v7.15.1) (2022-02-01)
 
 
