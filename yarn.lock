@@ -2406,10 +2406,10 @@
     react-docgen "^6.0.0-alpha.0"
     url-join "^4.0.1"
 
-"@dhis2/cypress-commands@^8.0.1":
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-8.0.1.tgz#23b8fc7146a07c3bf41082dc662d0788a737e590"
-  integrity sha512-VM4IcTeqwri3WXavBPfeYiXil/ZStk6dSCowiPNjPR10fhlKczjuCWt/TOJhw5oVl9D1QW20Ba2253ldwG0dgA==
+"@dhis2/cypress-commands@^9.0.2":
+  version "9.0.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-9.0.2.tgz#676870ccb2d5fe3811d5f480c7edf2f0b8507255"
+  integrity sha512-G6H9bOpjxqa2X+pc5vJqiwZLp+8utuac/BMRehb/8T6CeIWF4r6keCTq9HTof47szC+06JbsB2ZiviInmZGXJA==
   dependencies:
     jscodeshift "^0.11.0"
 
