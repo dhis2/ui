@@ -50,17 +50,17 @@ Tags are used to label items by a set of shared properties, like category or sta
 
 ### Bold
 
-==TODO: demo==
+<Tag bold>Tag label</Tag>
+<Tag bold neutral>Tag label</Tag>
+<Tag bold positive>Tag label</Tag>
+<Tag bold negative>Tag label</Tag>
 
 -   Use bold tags where it's important the information is noticed by a user.
 -   Don't overuse bold tags, only use them when the information is important.
 
 ## Examples in use
 
-<Tag bold>Tag label</Tag>
-<Tag bold neutral>Tag label</Tag>
-<Tag bold positive>Tag label</Tag>
-<Tag bold negative>Tag label</Tag>
+==TODO: examples==
 
 ## Links
 
