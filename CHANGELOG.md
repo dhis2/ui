@@ -1,3 +1,10 @@
+## [7.16.1](https://github.com/dhis2/ui/compare/v7.16.0...v7.16.1) (2022-02-08)
+
+
+### Bug Fixes
+
+* **select:** don't render circular loader as flex item in order to preserve dimensions ([#977](https://github.com/dhis2/ui/issues/977)) ([1b5288a](https://github.com/dhis2/ui/commit/1b5288a80ab7f3b6fa0f7c2eca2603d6b7619de6))
+
 # [7.16.0](https://github.com/dhis2/ui/compare/v7.15.1...v7.16.0) (2022-02-07)
 
 
