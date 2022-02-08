@@ -14,6 +14,7 @@ export const TableScrollBox = forwardRef(
                     max-height: ${maxHeight};
                     max-width: ${maxWidth};
                     overflow: auto;
+                    flex-grow: 0;
                 }
             `}</style>
         </div>
