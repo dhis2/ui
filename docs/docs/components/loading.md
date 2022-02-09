@@ -85,6 +85,6 @@ Loaders are used to show that something is in progress. They keep users informed
 
 ## Links
 
--   Demo ==TODO: link==
+-   [Demo](https://ui.dhis2.nu/demo/?path=/story/feedback-loading-indicators-circular-loader--default)
 -   `CircularLoader` API reference ==TODO: link==
 -   `LinearLoader` API reference ==TODO: link==

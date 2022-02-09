@@ -82,5 +82,5 @@ A file input is used to choose and upload files.
 
 ## Links
 
--   Demo ==TODO: link==
+-   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-file-input-file-input--default)
 -   API reference ==TODO: link==

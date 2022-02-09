@@ -23,8 +23,8 @@ Radio inputs are used to choose one item from a list.
 
 ### When not to use
 
--   **Choosing from many items**. Don't use radio inputs if there's more than about 7–10 choices. Use a select ==TODO: link== instead.
--   **Choosing several options**. Don't use radio inputs if several options can be chosen. Use checkboxes ==TODO: link== instead.
+-   **Choosing from many items**. Don't use radio inputs if there's more than about 7–10 choices. Use a [`Select`](select.md) instead.
+-   **Choosing several options**. Don't use radio inputs if several options can be chosen. Use several [`Checkbox`](checkbox.md) components instead.
 
 ### Usability
 
@@ -54,5 +54,5 @@ Radio inputs are used to choose one item from a list.
 
 ## Links
 
--   Demo ==TODO: link==
+-   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-radio-radio--default)
 -   API reference ==TODO: link==

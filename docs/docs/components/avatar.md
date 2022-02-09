@@ -49,5 +49,5 @@ Avatars are available in different sizes. Use the size that works best for the s
 
 ## Links
 
--   Demo ==TODO: link==
+-   [Demo](https://ui.dhis2.nu/demo/?path=/story/utils-user-avatar--default)
 -   API reference ==TODO: link==

@@ -25,7 +25,7 @@ A notice box shows important information about a situation.
 
 ### When not to use
 
--   **In response to an action**. Don't use a notice box to show information that's in response to an action that doesn't navigate away from the page. Use an alert bar ==TODO: link== instead.
+-   **In response to an action**. Don't use a notice box to show information that's in response to an action that doesn't navigate away from the page. Use an [`Alert bar`](alertbar.md) instead.
 -   **Permanent information**. Don't use a notice box to show information that will never disappear. For example, introductory text that tells a user about a page should use plain text, not a notice box.
 
 ### Variants
@@ -78,7 +78,7 @@ A notice box shows important information about a situation.
 
 -   Notice box titles should be a short summary to help the user scan elements the page.
 -   Notice box text should be clear and informative. Explain what the situation is and, if relevant, offer a solution.
--   Check the writing guidelines ==TODO: link== for more information.
+-   Check the [writing guidelines](../patterns/writing.md) for more information.
 
 ## Options
 
@@ -94,5 +94,5 @@ A notice box shows important information about a situation.
 
 ## Links
 
--   Demo ==TODO: link==
+-   [Demo](https://ui.dhis2.nu/demo/?path=/story/data-display-notice-box--default)
 -   API reference ==TODO: link==

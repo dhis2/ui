@@ -32,7 +32,7 @@ Selects are used to choose one or more items from a list of options.
 
 ### When not to use
 
--   **Ordering selections**. Don't use a select to choose options when their order is important. Use a Transfer ==todo: link== instead.
+-   **Ordering selections**. Don't use a select to choose options when their order is important. Use a [`Transfer`](transfer.md) instead.
 
 ### Variants
 
@@ -222,7 +222,7 @@ Selects are used to choose one or more items from a list of options.
 
 -   Use an error state if there's a problem with the chosen option, or if it's required but empty.
 -   Don't show an error too early, give the user a chance to make a choice.
--   The error text should help the user fix the problem. Refer to the error writing guidelines ==TODO: link== for examples.
+-   The error text should help the user fix the problem. Refer to the [error writing guidelines](../principles/content-communication.md) for examples.
 
 ### State: Disabled
 
@@ -242,7 +242,7 @@ Selects are used to choose one or more items from a list of options.
 </Demo>
 
 -   Use a disabled state if the select temporarily can't be used.
--   Show a `Tooltip` ==TODO: link== on hover or focus to explain why the select is disabled.
+-   Show a [`Tooltip`](tooltip.md) on hover or focus to explain why the select is disabled.
 
 ## Examples in use
 
@@ -250,6 +250,6 @@ Selects are used to choose one or more items from a list of options.
 
 ## Links
 
--   Demo ==TODO: link==
+-   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-single-select-single-select-field--default)
 -   `Singleselect` API reference ==TODO: link==
 -   `Multiselect` API reference ==TODO: link==

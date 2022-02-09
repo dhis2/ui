@@ -65,5 +65,5 @@ A tooltip is used to show contextual information when triggered by clicking, foc
 
 ## Links
 
--   Demo ==TODO: link==
+-   [Demo](https://ui.dhis2.nu/demo/?path=/story/data-display-tooltip--default-placement-top)
 -   API reference ==TODO: link==

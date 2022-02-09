@@ -49,5 +49,4 @@ Elevation is used to create and communicate depth in an interface.
 
 ## Links
 
--   Demo ==TODO: link==
 -   API reference ==TODO: link==

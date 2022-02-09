@@ -25,7 +25,7 @@ A modal shows content on a layer on top of page, interrupting a workflow and foc
 
 -   **Workflows with several steps**. Don't use a modal for a workflow that has more than a single step. Navigate to a new page instead.
 -   **Complex tasks**. Modals aren't well suited to complex tasks. Limit the number of controls and logic in a modal. If the task is too complex, navigate to a new page instead.
--   **Non-urgent tasks**. Don't automatically show a modal unless the task requires urgent attention or if the current workflow is blocked. Use a notice box ==TODO: link== or alert bar ==TODO: link== instead.
+-   **Non-urgent tasks**. Don't automatically show a modal unless the task requires urgent attention or if the current workflow is blocked. Use a [`Notice box`](notice-box.md) or [`Alert bar`](alertbar.md) instead.
 -   **Tasks unrelated to the page**. Modal content should always relate to the current page. Don't use modals to show unrelated content.
 
 ### Format
@@ -66,7 +66,7 @@ A modal shows content on a layer on top of page, interrupting a workflow and foc
     <ModalDemoLoading/>
 </Demo>
 
--   Show a loader ==TODO: link== when a modal is loading content.
+-   Show a [`Loader`](loading.md) when a modal is loading content.
 -   Don't show a full page loader before showing the modal. Show the modal immediately.
 
 ### State: Error
@@ -75,8 +75,8 @@ A modal shows content on a layer on top of page, interrupting a workflow and foc
     <ModalDemoError/>
 </Demo>
 
--   If there's a problem with something inside the modal, like a missing input field, show a notice box ==TODO: link== at the bottom of the modal.
--   If there's a problem with something outside of the modal, like getting an empty response back from the server, show an alert bar ==TODO: link== outside of the modal.
+-   If there's a problem with something inside the modal, like a missing input field, show a [`Notice box`](notice-box.md) at the bottom of the modal.
+-   If there's a problem with something outside of the modal, like getting an empty response back from the server, show an [`Alert bar`](alertbar.md) outside of the modal.
 
 ## Examples
 
@@ -84,5 +84,5 @@ A modal shows content on a layer on top of page, interrupting a workflow and foc
 
 ## Links
 
--   Demo ==TODO: link==
+-   [Demo](https://ui.dhis2.nu/demo/?path=/story/layout-modal--default-content)
 -   API reference ==TODO: link==

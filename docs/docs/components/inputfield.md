@@ -91,12 +91,12 @@ An input is used to enter data, like text or a number.
 </Demo>
 
 -   Use a `Textarea` if more than a single sentence of content is expected.
--   `Textarea` is available as a standalone component ==TODO: link==.
+-   [`Textarea`](https://ui.dhis2.nu/demo/?path=/story/forms-text-area-text-area-field--no-placeholder-no-value) is available as a standalone component.
 
 ### Validation
 
 -   Validating the type of data entered isn't part of the components themselves.
--   Read more about form handling in DHIS2 ==TODO: link==.
+-   Read more about [form handling in DHIS2](../utilities/forms/react-final-form.md).
 
 ### Read-only
 
@@ -116,7 +116,7 @@ An input is used to enter data, like text or a number.
 
 -   Use an error state if there's a problem with the content of the input, or if it's required but empty.
 -   Don't show an error too early, give the user a chance to finish entering data.
--   The error text should help the user fix the problem. Refer to the error writing guidelines ==TODO: link== for examples.
+-   The error text should help the user fix the problem. Refer to the [error writing guidelines](../principles/content-communication.md) for examples.
 
 ### State: Disabled
 
@@ -125,7 +125,7 @@ An input is used to enter data, like text or a number.
 </Demo>
 
 -   Use a disabled state if the input temporarily can't be used.
--   Show a `Tooltip` ==TODO: link== on hover or focus to explain why the input is disabled.
+-   Show a [`Tooltip`](tooltip.md) on hover or focus to explain why the input is disabled.
 
 ### Data type: Text
 
@@ -177,6 +177,7 @@ The following data types don't change the interaction with the input, but should
 
 ## Links
 
--   Demo ==TODO: link==
+-   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-input-input-field--default)
+-   [`TextArea` demo](https://ui.dhis2.nu/demo/?path=/story/forms-text-area-text-area-field--no-placeholder-no-value)
 -   API reference ==TODO: link==
--   `Textarea` API reference ==TODO: link==
+-   `Textarea` API reference

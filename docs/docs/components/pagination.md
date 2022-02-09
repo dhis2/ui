@@ -69,5 +69,5 @@ Different elements of the pagination component can be included, depending on the
 
 ## Links
 
--   Demo ==TODO: link==
+-   [Demo](https://ui.dhis2.nu/demo/?path=/story/navigation-pagination--default)
 -   API reference ==TODO: link==

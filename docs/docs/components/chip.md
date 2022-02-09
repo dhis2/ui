@@ -22,8 +22,8 @@ Chips are used to select from a set of defined options. Chips can also represent
 
 ### When not to use
 
--   **Actions**. Don't use chips for triggering actions. Use a `Button` ==TODO: link== instead.
--   **Display only**. Don't use chips if they aren't interactive. For displaying a status or label, use a `Tag` ==TODO: link== instead.
+-   **Actions**. Don't use chips for triggering actions. Use a [`Button`](button.md) instead.
+-   **Display only**. Don't use chips if they aren't interactive. For displaying a status or label, use a [`Tag`](tag.md) instead.
 
 ### Format
 
@@ -82,5 +82,5 @@ Chips are used to select from a set of defined options. Chips can also represent
 
 ## Links
 
--   Demo ==TODO: link==
+-   [Demo](https://ui.dhis2.nu/demo/?path=/story/actions-chip--default)
 -   API reference ==TODO: link==

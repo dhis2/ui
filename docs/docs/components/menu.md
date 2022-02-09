@@ -25,7 +25,7 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
 
 ### When not to use
 
--   **Choosing options in a form**. Use a `Select` ==TODO: link== to choose from a set of options as part of a form.
+-   **Choosing options in a form**. Use a [`Select`](select.md) to choose from a set of options as part of a form.
 
 ### Format
 
@@ -35,7 +35,7 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
 
 -   Menu item labels should be short and easy to understand.
 -   One or two words is often enough to explain the action.
--   Refer to the writing guidelines ==TODO: link== and glossary ==TODO: link== for more information about writing useful labels.
+-   Refer to the [writing guidelines](../patterns/writing.md) and [glossary](../patterns/glossary.md) for more information about writing useful labels.
 
 ##### Order and grouping
 
@@ -153,5 +153,5 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
 
 ## Links
 
--   Demo ==TODO: link==
+-   [Demo](https://ui.dhis2.nu/demo/?path=/story/actions-menu-flyout-menu--default)
 -   API reference ==TODO: link==

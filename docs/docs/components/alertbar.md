@@ -76,7 +76,7 @@ An alert bar communicates something to the user by showing a prominent, floating
 </Demo>
 
 -   Only use to communicate a serious problem, like broken functionality or a failed process.
--   Use when a user can still interact with the page. If the entire page broken, use a modal dialog ==TODO: link== or error screen instead.
+-   Use when a user can still interact with the page. If the entire page broken, use a [`Modal`](modal.md) dialog or error screen instead.
 -   Communicate clearly what happened. Use labels like _There was a problem loading this dashboard_ or _Message failed to send_.
 -   Won't automatically dismiss.
 
@@ -86,12 +86,12 @@ An alert bar communicates something to the user by showing a prominent, floating
 
 -   Alert bar labels should be clear, concise, and easy to understand. Remember, `info` and `success` alert bars dismiss automatically.
 -   Don't use unclear labels like _Success_, _Failed_, or vague descriptions like _There was a problem_. Be clear and precise.
--   Check the A-Z glossary ==TODO: link== and communication guidelines ==TODO: link== for more tips for writing useful labels.
+-   Check the [A-Z glossary](../patterns/glossary.md) and [communication guidelines](../principles/content-communication.md) for more tips for writing useful labels.
 
 #### Display
 
 -   Several alert bars can be shown at the same time.
--   Alert bars are automatically shown in the correct size and spacings when using an `AlertStack` ==TODO: link==.
+-   Alert bars are automatically shown in the correct size and spacings when using an [`AlertStack`](https://ui.dhis2.nu/demo/?path=/story/feedback-alerts-alert-stack--default).
 
 ## Options
 
@@ -126,5 +126,5 @@ An alert bar communicates something to the user by showing a prominent, floating
 
 ## Links
 
--   Demo ==TODO: link==
+-   [Demo](https://ui.dhis2.nu/demo/?path=/story/feedback-alerts-alert-bar--default)
 -   API reference ==TODO: link==

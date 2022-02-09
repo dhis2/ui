@@ -40,7 +40,7 @@ A data table is used to display and allow interaction with data in a structured 
 </Demo>
 
 -   Use inline filters in complex interfaces to offer filtering functionality without extra controls outside of the table.
--   If filtering is the main functionality of the data table, consider offering standalone filters. Read more about the standalone filters pattern here ==TODO: LINK==.
+-   If filtering is the main functionality of the data table, consider offering standalone filters.
 
 ### Fixed header
 
@@ -117,13 +117,13 @@ Patterns are common ways of achieving some functionality. Patterns aren't offere
 
 ==TODO: example==
 
--   Use the pagination component ==TODO: link== in a data table footer to allow navigation between pages.
+-   Use the [`Pagination`](pagination.md) component in a data table footer to allow navigation between pages.
 
 ### Search
 
 ==TODO: example==
 
--   A text input ==TODO: link== offers a quick way to search for items in a data table.
+-   A text [`Input`](inputfield.md) offers a quick way to search for items in a data table.
 -   Make it clear what attributes the search applies to with placeholder text, like _Search by name or code_.
 
 ### Filtering: Standalone
@@ -131,7 +131,7 @@ Patterns are common ways of achieving some functionality. Patterns aren't offere
 ==TODO: example==
 
 -   Use standalone filters when the filtering functionality is likely to be used as the main use case for the data table.
--   A common design is to use a select ==TODO: link== control for each column, as in the demo above.
+-   A common design is to use a [`Select`](select.md) control for each column, as in the demo above.
 
 ### Row actions
 
@@ -170,5 +170,5 @@ Patterns are common ways of achieving some functionality. Patterns aren't offere
 
 ## Links
 
--   Demo ==TODO: link==
+-   [Demo](https://ui.dhis2.nu/demo/?path=/story/data-display-datatable--default)
 -   API reference ==TODO: link==

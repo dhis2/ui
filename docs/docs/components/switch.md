@@ -22,8 +22,8 @@ Switches are used to toggle something between an on and off state.
 
 ### When not to use
 
--   **Toggling an option**. Don't use a switch to toggle options, like _Show legend set_. Options aren't constantly running processes. Use a checkbox ==TODO: link== instead.
--   **Form controls**. Don't use a switch to toggle options in a form. Use a checkbox ==TODO: link== instead.
+-   **Toggling an option**. Don't use a switch to toggle options, like _Show legend set_. Options aren't constantly running processes. Use a [`Checkbox`](checkbox.md) instead.
+-   **Form controls**. Don't use a switch to toggle options in a form. Use a [`Checkbox`](checkbox.md) instead.
 
 ### Format
 
@@ -45,5 +45,5 @@ Switches are used to toggle something between an on and off state.
 
 ## Links
 
--   Demo ==TODO: link==
+-   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-switch-switch-field--default)
 -   API reference ==TODO: link==

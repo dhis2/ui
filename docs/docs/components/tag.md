@@ -64,5 +64,5 @@ Tags are used to label items by a set of shared properties, like category or sta
 
 ## Links
 
--   Demo ==TODO: link==
+-   [Demo](https://ui.dhis2.nu/demo/?path=/story/data-display-tag--default)
 -   API reference ==TODO: link==

@@ -65,7 +65,7 @@ Tabs are used to navigate between different views within the same page or contex
 </Demo>
 
 -   Use a disabled state if a tab can't be used temporarily.
--   Show a tooltip ==TODO: link== when hovering a disabled tab to give a short explanation of why the tab can't be used.
+-   Show a [`Tooltip`](tooltip.md) when hovering a disabled tab to give a short explanation of why the tab can't be used.
 -   If a tab will never be enabled in the current context, remove it instead.
 
 ## Examples
@@ -74,5 +74,5 @@ Tabs are used to navigate between different views within the same page or contex
 
 ## Links
 
--   Demo ==TODO: link==
+-   [Demo](https://ui.dhis2.nu/demo/?path=/story/data-display-tooltip--default-placement-top)
 -   API reference ==TODO: link==

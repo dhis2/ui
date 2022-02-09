@@ -23,8 +23,8 @@ Checkboxes are used to choose one or more items from a list. A checkbox can also
 
 ### When not to use
 
--   **Choosing a single item**. Don't use checkboxes if only one option can be chosen. Use a radio button ==TODO: link== instead.
--   **Choosing from many items.** Don't use checkboxes if there are many items to choose from. 7–10 checkboxes is an upper limit. If there's more choices than this, use a `MultiSelect` ==TODO: link== instead.
+-   **Choosing a single item**. Don't use checkboxes if only one option can be chosen. Use a [`Radio`](radio.md) instead.
+-   **Choosing from many items.** Don't use checkboxes if there are many items to choose from. 7–10 checkboxes is an upper limit. If there's more choices than this, use a [`MultiSelect`](select.md) instead.
 
 ### Format
 
@@ -48,5 +48,5 @@ Checkboxes are used to choose one or more items from a list. A checkbox can also
 
 ## Links
 
--   Demo ==TODO: link==
+-   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-checkbox-checkbox--default)
 -   API reference ==TODO: link==

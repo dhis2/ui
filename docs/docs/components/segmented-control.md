@@ -40,7 +40,7 @@ A segmented control is used to choose between related options that have an effec
 
 ### When not to use
 
--   **High-level navigation**. Don't use a segmented control to navigate between different parts of unrelated content. Use tabs ==TODO: link== instead.
+-   **High-level navigation**. Don't use a segmented control to navigate between different parts of unrelated content. Use [`Tabs`](tab.md) instead.
 -   **Instead of radio inputs**. Don't use a segmented control instead of radio buttons to make a choice between options that don't have a direct effect on another element.
 
 ### Format
@@ -57,5 +57,5 @@ A segmented control is used to choose between related options that have an effec
 
 ## Links
 
--   Demo ==TODO: link==
+-   [Demo](https://ui.dhis2.nu/demo/?path=/story/actions-segmented-control--default)
 -   API reference ==TODO: link==
