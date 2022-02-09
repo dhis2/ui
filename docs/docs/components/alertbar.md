@@ -3,6 +3,7 @@ title: Alert bar
 ---
 
 import { Demo } from '../../src/components/DemoComponent.jsx'
+import { DocFigure } from '../../src/components/DocFigure.jsx'
 import { AlertBar } from '@dhis2/ui'
 
 # Alert bar
@@ -122,7 +123,7 @@ An alert bar communicates something to the user by showing a prominent, floating
 
 ## Examples in use
 
-==TODO: examples==
+<DocFigure src="/images/examples/alertbar-1.png" text="An alert bar let's the user know that the approval action was successful without blocking their workflow" alt="screenshot of Data Approvals app showing an alert bar"/>
 
 ## Links
 
