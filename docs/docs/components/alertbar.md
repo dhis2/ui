@@ -123,7 +123,7 @@ An alert bar communicates something to the user by showing a prominent, floating
 
 ## Examples in use
 
-<DocFigure src="/images/examples/alertbar-1.png" text="An alert bar let's the user know that the approval action was successful without blocking their workflow" alt="screenshot of Data Approvals app showing an alert bar"/>
+<DocFigure src="/images/examples/alertbar-1.png" caption="An alert bar let's the user know that the approval action was successful without blocking their workflow" alt="screenshot of Data Approvals app showing an alert bar"/>
 
 ## Links
 
