@@ -58,6 +58,7 @@ const sidebars = {
                 'components/notice-box',
                 'components/org-unit-tree',
                 'components/pagination',
+                'components/popover',
                 'components/radio',
                 'components/rich-text',
                 'components/segmented-control',
@@ -73,7 +74,6 @@ const sidebars = {
         {
             Utilities: [
                 'utilities/constants',
-                'utilities/popover',
                 // 'utilities/forms',
             ],
         },
