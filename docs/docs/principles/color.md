@@ -14,15 +14,15 @@ Color alone should not be relied upon to communicate effectively. Read more abou
 
 ## DHIS2 Color Scale
 
-<DocFigure src="/images/color/color-scale.png" text="The DHIS2 color scale"/>
+<DocFigure src="/images/color/color-scale.png" text="The UI color scale" alt="Example swatches of the UI color scale"/>
 
-The DHIS2 color scale contains 7 colors. Each color has 10 shades. This color system provides enough colors for all situations.
+The UI color scale contains 7 colors. Each color has 10 shades. This color system provides enough colors for all situations.
 
-Reference: [Color codes and #hex values for the DHIS2 color scale](#color-scale-reference).
+Reference: [Color codes and #hex values for the UI color scale](#color-scale-reference).
 
 ## General, simplified principles
 
-Each color in the DHIS2 color scale has a purpose. Put simply:
+Each color in the UI color scale has a purpose. Put simply:
 
 -   **Grey**: general interface elements, neutral information
 -   **Blue**: important neutral information, primary actions
