@@ -49,13 +49,13 @@ A relative label might offer enough information most of the time, but it helps t
 
 ##### Tooltip
 
-![example using a tooltip to display timestamp](../images/pattern/time/timestamp-tooltip.png)
+![example using a tooltip to display timestamp](/images/pattern/time/timestamp-tooltip.png)
 
 One useful pattern is displaying the timestamp in a tooltip when hovering the cursor over the relative label. This offers detailed information when needed, but hides it for the majority of cases where it's unnecessary. Tooltips are good if only a single timestamp needs to be seen at a time, and if the user doesn't need to interact with the timestamp.
 
 ##### Expansion
 
-![example using a expandable label to display timestamp](../images/pattern/time/timestamp-expand.png)
+![example using a expandable label to display timestamp](/images/pattern/time/timestamp-expand.png)
 Another pattern is using the relative time as an expandable label that can be opened to show the full timestamp. Use this pattern if it could be useful to compare several timestamps, or when a user might want to select and copy the timestamp.
 
 ## Timestamp

@@ -20,7 +20,7 @@ The information collected by a form and the method for input should be predictab
 
 Progressive disclosure in forms refers to the method of only displaying inputs when they become necessary. Options that relate to another option can be hidden when the main option is disabled. For example, only display a text input for 'Title' when a user has checked the box labelled "Display a title". Progressive disclosure keeps forms concise and hides unnecessary complexity until it is required.
 
-![example of progressive disclosure](../images/forms/progressive-disclosure.png)
+![example of progressive disclosure](/images/forms/progressive-disclosure.png)
 
 While a useful tool, progressive disclosure should be used with caution. The principles of clarity still apply. Do not hide form inputs or information that are essential to the user's understanding of a form. Where possible, strike a balance between hiding key information and information overload.
 
@@ -58,11 +58,11 @@ Forms are made up of different types of inputs. There are various inputs availab
 
 A form should always have a single, clear primary action. Often this action is 'Submit' or 'Save data'. Make sure the user understands what will happen when they submit a form. Additional options, like 'Save and add another', can be offered, but only a single primary action should be included. Make sure the action button label accurately describes the action. See the [content and communication section](../principles/content-communication.md) for more information of writing effective button labels.
 
-![example of clear form actions](../images/forms/actions.png)
+![example of clear form actions](/images/forms/actions.png)
 
 Form actions should always be placed at the end of the form. When a user is working with critical data or a long, complex form it can be helpful to provide help text to remind them of their current context. See the example below.
 
-![example of saving context in a form](../images/forms/save-context.png)
+![example of saving context in a form](/images/forms/save-context.png)
 
 #### Discarding data
 
@@ -72,11 +72,11 @@ Always make it clear to users what will happen if they abandon a critical form. 
 
 Providing contextual help inside a form where a user may need assistance. This is useful for complex forms and forms that a user may not interact with often. Contextual help means that the user does not need to search through documentation or visit another site to get help with their current task.
 
-![example of input help text](../images/forms/input-help.png)
+![example of input help text](/images/forms/input-help.png)
 
 Often a single line of contextual help underneath a form input is enough to guide the user, as in the examples above.
 
-![example of section help text](../images/forms/contextual-help.png)
+![example of section help text](/images/forms/contextual-help.png)
 
 For complex topics or concepts, an information box can help the user understand a section of a form, as in the example above.
 

@@ -29,7 +29,7 @@ The DHIS2 Design System provides a library of icons for use in DHIS2 application
 
 Icons should only be used to support other content, like labels. Icons should not be used alone. An icon can be interpreted in different ways, so relying on an icon to communicate a single idea will lead to confused users. Icons will most often be paired with a text label. In this case, the icon is a supporting element.
 
-![Icons and labels in use together](../images/icons/icon-and-text.png)
+![Icons and labels in use together](/images/icons/icon-and-text.png)
 
 In cases where displaying a text label explanation for an icon is impractical, make sure that the icon meaning can be clarified with text. If using a padlock to imply a locked state, make sure that hovering the locked element provides a textual explanation of it's state too.
 
@@ -39,7 +39,7 @@ Not all actions need icons. Consider whether an icon is supporting the text labe
 
 Icons are most useful when users can recognize them and pair them with ideas and concepts. This requires that icons are used consistently. Using the same icon for the same concept means that users can recognize similar concepts across different DHIS2 applications. For example, using the same "Organization Unit" icon across all DHIS2 applications means that wherever users see that icon, they will recall the concept of DHIS2 organization units.
 
-![Consistent icon usage helps understanding](../images/icons/consistency.png)
+![Consistent icon usage helps understanding](/images/icons/consistency.png)
 
 Icons provided by the DHIS2 icon library sometimes have names that imply what the icon should be used for. "Fullscreen" icon, for example, should only be used when communicating a concept related to fullscreen mode. The "Edit" icon is pen but should only be used to represent an edit action, not a writing action. Some icons, like arrows or common marks, can be reused and are therefore named after their object.
 
@@ -51,17 +51,17 @@ Icons are available in different sizes. Always use the icon at it's intended siz
 
 In most cases, icons should be used in the same color–or a few shades lighter–as the content they are supporting. Icons are supporting content and should not distract from their purpose with contrasting colors.
 
-![Example of correct and incorrect use of icon color](../images/icons/icon-color.png)
+![Example of correct and incorrect use of icon color](/images/icons/icon-color.png)
 
 Color can be used as an additional supporting element when an icon communicates a state. Remember that [color cannot be relied upon to communicate alone](color.md#accessibility). An icon and a color can be a useful way to add extra information that is accessible to all.
 
-![Example of color used as a supporting element for icons](../images/icons/icon-color-state.png)
+![Example of color used as a supporting element for icons](/images/icons/icon-color-state.png)
 
 ### Alignment and spacing
 
 Align icons with the vertical center of the content they support.
 
-![Vertically centering icons with their content](../images/icons/icon-alignment.png)
+![Vertically centering icons with their content](/images/icons/icon-alignment.png)
 
 Icons provided by the DHIS2 icon library have padding and margins included to ensure visual consistency and weighting. Additional padding can be added if necessary, but should not be needed in most cases.
 

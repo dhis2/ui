@@ -11,7 +11,7 @@ DHIS2 instances often contain large amounts of data and all DHIS2 applications s
 Keeping the user informed about what's going on behind the scenes in an application is a key part of a positive user experience. If a user knows that the application is loading many data items, they can guess the amount of time this will take. Useful information and feedback are particularly important when working with large amounts of data because the cost, both real and perceived, of loading the data is high. It would be a frustrating experience to wait several minutes for a page to load, only to find out an error had occurred. Always keeping the user informed avoids this frustration.
 Learn more about keeping the user informed from the [key principle of the DHIS2 design system](https://github.com/dhis2/design-system/blob/master/principles/content-communication.md#keeping-the-user-informed).
 
-![example of providing useful feedback](../images/large-data/example-user-information.png)
+![example of providing useful feedback](/images/large-data/example-user-information.png)
 
 ## 2. Respect user resources
 
@@ -26,7 +26,7 @@ Respecting user resources might look like the following:
 -   giving the user controls to manage their local storage
 -   gracefully degrading the application and features when resources aren't available
 
-![example of respecting user resources](../images/large-data/respect-user-resources.png)
+![example of respecting user resources](/images/large-data/respect-user-resources.png)
 
 ## 3. Filtering, searching and sorting
 
@@ -34,13 +34,13 @@ Paging through data records is inefficient and frustrating. With a limited netwo
 
 Study the data to identify useful values for filtering. A value that's the same across all items isn't a useful filter. A value that splits the data into groups is handy and should be exposed as a filter. The right filters for the data depend on the use case. All applications dealing with a lot of data need to have some methods of filtering, searching and sorting data.
 
-![example of filtering and sort controls](../images/large-data/filtering-searching-sorting.png)
+![example of filtering and sort controls](/images/large-data/filtering-searching-sorting.png)
 
 ## 4. Allow batch editing
 
 Batch editing, editing several data items in a single action, can speed up workflows that might otherwise take many hours into a single action. Consider the use case of removing several hundred records from a data set. If a user has to navigate to each record to delete it then this task will inevitably take a long time. It's more effective if a user can filter for, select and then perform a batch `Delete` operation on the items.
 
-![example of batch editing](../images/large-data/batch-editing.png)
+![example of batch editing](/images/large-data/batch-editing.png)
 
 ## 5. Confirm expensive operations
 
@@ -52,7 +52,7 @@ Consider an application action that would download all 100,000 data items. A but
 
 The amount of detail and information that should be provided is informed by the use cases and user stories. For example, an application for clinics or health centers that often have data connection issues should display more information, confirmations and warnings about high network usage. On the other hand, an application for data processing that would be used by organizations with stronger networks might need less information.
 
-![example of confirming expensive operations](../images/large-data/expensive-operations.png)
+![example of confirming expensive operations](/images/large-data/expensive-operations.png)
 
 ## 6. Remember the state
 

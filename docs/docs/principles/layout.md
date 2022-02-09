@@ -28,7 +28,7 @@ It is not possible to define strict rules for when to use different layout types
 
 If an application serves a single purpose it should have a simple, focused layout. The main content comes first so the user can get on with their task.
 
-![example of a single purpose layout](../images/layout-single-purpose.png)
+![example of a single purpose layout](/images/layout-single-purpose.png)
 
 The example above uses a single column to display the content, in this case some options. There is no need for a secondary navigation or toolbar in this case.
 
@@ -38,7 +38,7 @@ Only use this type of layout when an application has a single purpose. If an app
 
 An application with different sections needs a clear way to navigate between those sections. Most often a sidebar will work well for this purpose. A sidebar can be collapsed when a user doesn't need to use it.
 
-![example of an application with a sidebar](../images/layout-sidebar.png)
+![example of an application with a sidebar](/images/layout-sidebar.png)
 
 The example above uses a left-aligned sidebar to provide navigation for the different sections of the application. Each section has it's own content. The user can clearly understand where they are in the application. The titles of each section in the sidebar navigation help the user understand what tasks can be achieved there.
 
@@ -48,7 +48,7 @@ Sidebar navigation can display multiple sub-levels of navigation to help the use
 
 Sometime applications do not have separate sections to navigate between, but they do need to provide tools or options on all screens. A toolbar can work here. A toolbar, aligned to the top of the screen (under the header bar), provides quick access at all times.
 
-![example of an application with a toolbar](../images/layout-toolbar.png)
+![example of an application with a toolbar](/images/layout-toolbar.png)
 
 The example layout above demonstrates a toolbar with some global options. The content below the toolbar changes and can respond to actions taken in the toolbar.
 
@@ -56,7 +56,7 @@ A toolbar is more suited to this case than a sidebar. A sidebar takes up a lot o
 
 #### Complexity
 
-![example of an application with a complex layout](../images/layout-complex.png)
+![example of an application with a complex layout](/images/layout-complex.png)
 
 Complex applications can make use of multiple different layout elements. Secondary navigation inside a sidebar, quick options in a toolbar, a third sidebar with auxiliary content to support the main content. Panels that open at the bottom of the screen can provide extra content to a user and be hidden when they are not needed. The example above, Data Visualizer, uses a left sidebar, right sidebar and multiple toolbars to provide the right functionality when the user needs it.
 
@@ -78,11 +78,11 @@ Spacing of page elements is important. The space between and around elements tel
 
 One of the most important examples of communicating with space is grouping elements. Following [the laws of proximity](https://en.wikipedia.org/wiki/Principles_of_grouping), the relationship of elements can be understood by their proximity to one another.
 
-![example of grouping elements by proximity](../images/grouping.png)
+![example of grouping elements by proximity](/images/grouping.png)
 
 For a DHIS2 application, that means placing related elements in proper proximity helps to communicate their relationships to one another. Related settings or options should be grouped together, rather than spaced out evenly.
 
-![example of grouping form elements](../images/ex-group-inputs.png)
+![example of grouping form elements](/images/ex-group-inputs.png)
 
 A user looking at the interface in the example above doesn't see any relationships without proper spacing. They have to read each item to understand how it relates to another. The example with spacing that reflects the relationship between items helps the user build a mental model of the structure and work more efficiently.
 
@@ -94,17 +94,17 @@ Page titles should have enough spacing to help the user understand that they are
 
 Consider the following example of a page and section title:
 
-![example of spacing page and section titles](../images/ex-layout-titles.png)
+![example of spacing page and section titles](/images/ex-layout-titles.png)
 
 The incorrect example on the right is difficult to understand at a glance. Which title applies to the page and which to the content? They are all in similar proximity to one another. The correct example on the left makes it clear that the page title is separate from the content displayed on the page. The section title is grouped together with it's content. Without even reading the words a user can understand the underlying structure.
 
 ### The spacing scale and 8-point-grid
 
-![example of 8 point grid spacing](../images/layout-8grid.png)
+![example of 8 point grid spacing](/images/layout-8grid.png)
 
 Working on an [8 point grid](https://spec.fm/specifics/8-pt-grid) helps to keep spacing and layout consistent throughout an application. In the example above each element is spaced according to the 8 point grid - 8, 16, 32 and so on. [Learn more about the 8 point grid here](https://spec.fm/specifics/8-pt-grid). The DHIS2 Design System also defines a spacing scale of values based on this grid that fit most situations. Instead of deciding between single pixel values, use values from the spacing scale. Consistent use of the spacing system creates vertical rhythm on a screen. The spacing scale is available as part of the [DHIS2 ui library](https://ui.dhis2.nu/#/api) as ready-to-use 'spacers'.
 
-![spacing scale](../images/layout-spacing-scale.png)
+![spacing scale](/images/layout-spacing-scale.png)
 
 ### Information dense layouts
 
@@ -126,7 +126,7 @@ The consistent usage of stacking creates applications that work in similar ways,
 
 The DHIS2 design system defines fives stack layers:
 
-![example of stacking layers](../images/stacking.png)
+![example of stacking layers](/images/stacking.png)
 
 | Layer                           | Description                                                                                                                                                                                                                                                           |
 | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

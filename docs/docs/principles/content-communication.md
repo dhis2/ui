@@ -17,7 +17,7 @@ Keep communication concise and to the point. Do not attempt to guide the user th
 
 For example, when prompting a user to confirm an action:
 
-![communication example](../images/communication/ex-comms-1.png)
+![communication example](/images/communication/ex-comms-1.png)
 
 The correct example is clear, still providing enough detail about the consequences. Focusing on the intended action: applying legend sets to layers, makes the text easier to understand. The incorrect example uses several unnecessary words, DHIS2 technical terms and passively states the action. The correct example directly states the action and consequences.
 
@@ -33,7 +33,7 @@ Those involved in building applications have a very different idea of how they w
 
 Think about what the user is trying to do, not what the application is doing:
 
-![communication example](../images/communication/ex-comms-2.png)
+![communication example](/images/communication/ex-comms-2.png)
 
 Remember: **always communicate to the user.**
 
@@ -45,7 +45,7 @@ Clear, understandable language is very helpful in error messages. Error messages
 
 Consider the following error messages, both communicate the same technical error:
 
-![communication example](../images/communication/ex-comms-3.png)
+![communication example](/images/communication/ex-comms-3.png)
 
 A technical error, like the one in the incorrect example, may make sense to a technical user. For an end-user this information is rarely useful. Provide the information in a way that communicates _what went wrong_ and _what can be done to fix it_.
 
@@ -69,9 +69,9 @@ Practically, this means:
 
 ### Examples
 
-![communication example](../images/communication/ex-comms-4.png)
+![communication example](/images/communication/ex-comms-4.png)
 
-![communication example](../images/communication/ex-comms-5.png)
+![communication example](/images/communication/ex-comms-5.png)
 
 ## Tone of voice
 
@@ -85,11 +85,11 @@ DHIS2 applications should communicate in a clear, honest and friendly tone of vo
 
 ##### Introducing the user to the available features in a modal view
 
-![communication example](../images/communication/ex-comms-6.png)
+![communication example](/images/communication/ex-comms-6.png)
 
 ##### Letting the user know there was an error
 
-![communication example](../images/communication/ex-comms-7.png)
+![communication example](/images/communication/ex-comms-7.png)
 
 ## Referring to the user
 
