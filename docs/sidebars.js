@@ -33,10 +33,10 @@ const sidebars = {
         },
         {
             Patterns: [
-                'patterns/designing-with-time',
                 'patterns/glossary',
-                'patterns/large-data',
+                'patterns/designing-with-time',
                 'patterns/writing',
+                'patterns/large-data',
             ],
         },
         {
@@ -71,7 +71,13 @@ const sidebars = {
         {
             Utilities: [
                 'utilities/constants',
-                // 'utilities/forms',
+                {
+                    Forms: [
+                        'utilities/forms/react-final-form',
+                        'utilities/forms/transformers',
+                        'utilities/forms/validators',
+                    ],
+                },
             ],
         },
         {
