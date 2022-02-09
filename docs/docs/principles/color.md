@@ -14,7 +14,7 @@ Color alone should not be relied upon to communicate effectively. Read more abou
 
 ## DHIS2 Color Scale
 
-<DocFigure src="/images/color/color-scale.png" text="The UI color scale" alt="Example swatches of the UI color scale"/>
+<DocFigure src="/images/color/color-scale.png" caption="The UI color scale" alt="Example swatches of the UI color scale"/>
 
 The UI color scale contains 7 colors. Each color has 10 shades. This color system provides enough colors for all situations.
 

@@ -8,7 +8,7 @@ export const DocFigure = (props) => {
         <p>
             <figure>
                 <img src={useBaseUrl(props.src)} alt={props.alt} />
-                <figcaption>{props.text}</figcaption>
+                <figcaption>{props.caption}</figcaption>
             </figure>
         </p>
     )
@@ -16,6 +16,6 @@ export const DocFigure = (props) => {
 
 DocFigure.propTypes = {
     alt: PropTypes.string,
+    caption: PropTypes.string,
     src: PropTypes.string,
-    text: PropTypes.string,
 }
