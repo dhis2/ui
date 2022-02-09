@@ -78,6 +78,12 @@ const sidebars = {
                         'utilities/forms/validators',
                     ],
                 },
+                {
+                    Recipes: [
+                        'recipes/recipes',
+                        'recipes/transfer-infinite-loading-all-options-selected',
+                    ],
+                },
             ],
         },
         {
@@ -88,12 +94,6 @@ const sidebars = {
                 'help/migrating',
                 'help/troubleshooting',
                 'help/advanced-usage',
-            ],
-        },
-        {
-            Recipes: [
-                'recipes/recipes',
-                'recipes/transfer-infinite-loading-all-options-selected',
             ],
         },
     ],
