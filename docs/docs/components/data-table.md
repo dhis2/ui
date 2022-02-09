@@ -1,383 +1,174 @@
-|                      |                                                                     |
-| -------------------- | ------------------------------------------------------------------- |
-| **Component**        | Data table                                                          |
-| **Type**             | Organism ([?](http://atomicdesign.bradfrost.com/chapter-2/))        |
-| **Design Spec**      | [HTML&CSS spec](https://sleepy-yalow-3c0c76.netlify.com/data-table) |
-| **Working Examples** | _pending_                                                           |
-| **Status**           | `Work in progress`                                                  |
-
 ---
+title: Data table
+---
+
+import { Demo } from '../../src/components/DemoComponent.jsx'
 
 # Data table
 
-A data table is used to display data in a structured way. Data tables have functionality for viewing and manipulating data.
+A data table is used to display and allow interaction with data in a structured way.
 
-![](../images/data-table.png)
-
-##### Contents
-
--   [Usage](#usage)
--   [Composition](#composition)
--   [Options](#options)
--   [Types](#types)
--   [States](#states)
-    <!-- - [Examples in use](#examples-in-use) -->
-
----
+<Demo>
+    <p><a href="https://ui.dhis2.nu/demo/?path=/story/data-display-datatable--default" target="_blank">Storybook demo: Date table</a>.</p> 
+</Demo>
 
 ## Usage
 
-Displaying data in a structured way aids understanding and highlights relationships in data sets. Data tables allow the user to see detailed information about data sets. Each record in a data table can be viewed, interacted with and manipulated.
+### When to use
 
-Data tables should only be presented to the user when needed. A data table full of complex data can be overwhelming. Before using a data table, consider whether an application could parse and display the information in a more user-friendly, understandable way. In cases where the user wants to see all of the data available, a data table is perfect.
+-   **Working with complex data**. Use a data table whenever a user needs to look at or work with complex data.
 
-There are several different types of functionality and options available in the data table component. The correct data table to use will depend on the use case and type of data being displayed. The functionality and options available in the data table component are highlighted and discussed below.
+### When not to use
 
----
-
-## Composition
-
-![](../images/datatable-composition.png)
-
-A data table is made up of multiple elements, some of which are optional:
-
-1. **Toolbar, optional**
-2. **Data rows and header, required**
-3. **Footer, optional**
-
----
+-   **Summarizing data**. Don't use a data table if a user doesn't need to look at all the data, but instead needs a summary. An alternative is a summary with optional access to the source data table if needed.
 
 ## Options
 
-### Search
+### Sorting
 
-![](../images/data-table/search.png)
+<Demo>
+    <p><a href="https://ui.dhis2.nu/demo/?path=/story/data-display-datatable--column-header-sorting" target="_blank">Storybook demo: Sorting</a>.</p> 
+</Demo>
 
-##### What is search?
-
-Search allows a user to search for a specific term across the entire data table.
-
-##### How is search used?
-
-A search input can be included inside the table toolbar area or made available outside of the table. The location of the search input depends on the importance of search and how it relates to the task. If searching is a logical step performed before looking at the table the input should be shown outside, above the table. If searching is a secondary action it can be included inside the table.
-
-Be sure to inform the user with an [empty state](#empty-state) if there are no results for a search term.
-
-##### When to use search?
-
-Include search whenever a user might need to find a specific data record in the table. Search can be quicker than filtering if the user knows the exact data item they are looking for. Often search and filtering work well in combination.
-
----
-
-### Filtering
-
-Filters allow a user to view a precise, focused set of data. Filtering is a very effective way of finding the right data. Enabling filtering on a data table means that a single data table can fulfill several different functions for varying users and use cases.
-
-Filtering works best when a user wants to return multiple results that fit some criteria. If a user is looking for a single result, especially where they know a name/title/attribute, then provide search functionality outside of the table.
-
-Never filter data in a table without informing the user, the user must know they are viewing a filtered set of data.
-
-There are two ways to filter data in a data table: [standalone](#filtering-standalone) or [inline](#filtering-inline).
-
-### Filtering: Standalone
-
-![](../images/data-table/standalone-filter.png)
-
-##### What are standalone filters?
-
-Standalone filters are buttons that can be used to filter on a column in a data table.
-
-##### How are standalone filters used?
-
-Standalone filter buttons should be displayed inside the table toolbar area. The available filters must be defined, none will be provided by default. Clicking a filter button opens a popover with input controls. An actively filtered column is highlighted with an active button and text indicating the applied filter.
-
-##### When to use standalone filters?
-
-Standalone filters are useful when filtering is one of the main actions available on the page. Standalone filters will draw the user's attention and are easier to use for users with lower tech literacy. Only provide standalone filters that are useful to the user, as filter buttons add visual noise and potential confusion to a data table.
+-   Data table items can be sorted by different columns by clicking on the sort icon in a column header.
+-   Always allow sorting of items by different columns unless the order is specific and shouldn't be changed.
 
 ### Filtering: Inline
 
-![](../images/data-table/inline-filter.png)
+<Demo>
+    <p><a href="https://ui.dhis2.nu/demo/?path=/story/data-display-datatable--inline-filtering" target="_blank">Storybook demo: Filtering inline</a>.</p> 
+</Demo>
 
-##### What are inline filters?
-
-Inline filter controls are a compact way to filter data in the data table.
-
-##### How are inline filters used?
-
-The filter input for a column is displayed by clicking the filter icon in the column header. Multiple columns can be filtered at the same time.
-
-##### When to use inline filters?
-
-Use inline filters in data-heavy, compact tables where standalone filters would take too much space. Inline filters are useful when filtering is not one of the main actions on a page, but is a tool that will be used occasionally.
-
----
-
-### Table actions
-
-![](../images/data-table/table-actions.png)
-
-##### What are table actions?
-
-Actions that can be applied to the entire data table or the currently selected data rows.
-
-##### How are table actions used?
-
-Table actions are presented as buttons in the toolbar area. Important, often used table actions can be displayed as individual buttons: 'Export' and 'Print' in the example above. Other secondary options contained within a dropdown button. Use a button label like 'Actions', 'More' or the three-dot icon.
-
-##### When to use table actions?
-
-Only include actions in the toolbar that apply directly to the data in the data table, not to the rest of the interface.
-
-Table action buttons will be very visible to the user, so only include actions here that will apply to most use cases. Edge case or rarely used options should be accessed through the overflow menu to avoid overwhelming users with options.
-
----
-
-### Row actions
-
-![](../images/data-table/row-actions.png)
-
-##### What are row actions?
-
-Actions that apply to a single row in a data table.
-
-##### How are row actions used?
-
-Row actions are usually displayed as the last column in a row. Main row actions can be displayed as text links in the row. A maximum of 2 main row actions can be shown in a table row. Other actions are made available through the 'three-dots' overflow menu.
-
-A click action can be also be set for all rows that will be activated by clicking on that row. For example, clicking on a row may activate 'View' action and navigate to that row on a new page.
-
-##### When to use row actions?
-
-Row actions add a lot of potential action points to a page, so use them with care. Only use text link row actions where that action needs to be available for all rows at all times. Secondary, less important, actions available through the overflow menu can be included anytime it is useful for users to take action when viewing the data table.
-
----
-
-### Sorting/Ordering
-
-![](../images/data-table/sorting.png)
-
-##### What is sorting/ordering?
-
-Sorting/ordering allows the user to reorder the rows in a data table based on column contents. The column can be sorted ascending or descending.
-
-##### How is sorting/ordering used?
-
-Column headings can be clicked to enable sorting by that column. The direction of sorting is indicated by a highlighted icon. Clicking a column heading multiple times toggles ascending/descending/off.
-
-##### When to use sorting/ordering?
-
-Sorting is often useful and should be enabled for most data tables. Only disable sorting if the order of the displayed data is intentional or meaningful and therefore should not be changed by a user.
-
----
+-   Use inline filters in complex interfaces to offer filtering functionality without extra controls outside of the table.
+-   If filtering is the main functionality of the data table, consider offering standalone filters. Read more about the standalone filters pattern here ==TODO: LINK==.
 
 ### Fixed header
 
-![](../images/datatable-fixed-header.png)
+<Demo>
+    <p><a href="https://ui.dhis2.nu/demo/?path=/story/data-display-datatable--fixed-header" target="_blank">Storybook demo: Fixed header</a>.</p> 
+</Demo>
 
-##### What is a fixed header?
-
-A table header that remains in view when vertically scrolling a data table. If displayed, a table toolbar will also be fixed.
-
-##### When to use a fixed header?
-
-Fixed headers are useful for browsing data in limited space where the header would otherwise be hidden and users may not remember the content of each column. A fixed header ensures users always have context for the table data.
-
----
+-   Use a fixed header in data tables that are used to browse a lot of data. Fixed headers stay in view and make it easier to understand what cells contain.
 
 ### Fixed columns
 
-![](../images/datatable-fixed-column.png)
+<Demo>
+    <p><a href="https://ui.dhis2.nu/demo/?path=/story/data-display-datatable--fixed-first-column" target="_blank">Storybook demo: Fixed column</a>.</p> 
+</Demo>
 
-##### What are fixed columns?
-
-Columns in a data table that remain in view when a table horizontally scrolls. In the above example, the first two columns are fixed and the rest of the table scrolls horizontally.
-
-##### When to use fixed columns?
-
-Use fixed columns where space is limited and a user may need to scroll the table horizontally. Keeping a column(s) fixed helps the user to understand which row they are viewing/editing when scrolling.
-
----
-
-### Inline editing
-
-##### What is inline editing?
-
-Cells or rows can be edited directly in the data table without navigating to another page.
-
-##### How is inline editing used?
-
-###### Cells
-
-![](../images/data-table/cell-edit.png)
-
-If a single cell is editable it will display an edit icon inside the cell, after the value.
-
-Clicking an editable cell opens a popover where editing controls can be presented. No default controls are present here, so use the relevant inputs for the type of data being editing. Always make it clear to the user how they save their data: is their data saved automatically or do they have to click a 'Save' button. Providing a 'Save' button is a straightforward and easily understandable pattern to follow.
-
-Clicking an editable cell triggers the edit process. The interface for editing needs to match the use case:
-
--   editing a single, focused value: display a popover with inputs and buttons,
-    ![](../images/data-table/cell-edit-active.png)
--   editing a complex value: display a modal with all the required inputs.
-
-###### Rows
-
-![](../images/data-table/row-edit.png)
-
-Edit control for an entire row should be displayed as a row action. Like cells, the interface for editing should match the use case:
-
--   editing simple values in a row: each cell in the row can display an input control with save and cancel buttons in the last cell. When a row is in edit mode the other actions in the table should be disabled,
-    ![](../images/data-table/row-edit-active.png)
--   editing complex values in a row: open a modal view that displays all the relevant controls.
-
-##### When to use inline editing?
-
-Inline editing should be used with restraint. It can be useful for power users, they can quickly edit values without leaving the data table. However, it can be overwhelming for some users and can be particularly difficult when working with large data sets. Consider network conditions, an unreliable network can make inline editing difficult as the distinction between saved, synced or failed is not always clear to a user.
-
----
+-   Use fixed columns in dense interfaces where the table might need to be scrolled horizontally.
+-   Any number of columns can be fixed, but usually a single column is enough, as long as it provides a clear reference for the rest of the row.
 
 ### Expandable rows
 
-![](../images/datatable-expandable.png)
+<Demo>
+    <p><a href="https://ui.dhis2.nu/demo/?path=/story/data-display-datatable--expandable-content" target="_blank">Storybook demo: Expandable rows</a>.</p> 
+</Demo>
 
-##### What are expandable rows?
-
-Expandable rows are table rows that can be expanded inline, without leaving the page, to reveal more information and actions.
-
-##### How are expandable rows used?
-
-The user can expand a row by clicking on the arrow in the left-most area of the row. Alternatively, the default click action could expand the row.
-
-##### When to use expandable rows?
-
-Expandable rows are useful when there is a lot of useful information to display, more than would fit in a table row on a normal-sized screen. A row that can expand can show this useful information to a user without leaving the page, so this pattern works well for reference screens where a user might be checking many pieces of information. Expandable rows also work well for displaying information that cannot easily be shown inside a table row: paragraphs of text or videos, for example.
-
----
+-   Use expandable rows if there's more useful information that doesn't fit well into columns, like paragraphs of text, images, or video.
 
 ### Selectable rows
 
-![](../images/data-table/selectable.png)
+<Demo>
+    <p><a href="https://ui.dhis2.nu/demo/?path=/story/data-display-datatable--selectable-rows" target="_blank">Storybook demo: Selectable rows</a>.</p> 
+</Demo>
 
-##### What are selectable rows?
+-   Use selectable rows if a user can perform batch actions on rows in the data table, like selecting several rows and exporting or deleting them.
 
-Selectable rows allow the user to select/mark one or more rows in a data table.
+### Draggable rows
 
-##### How are selectable rows used?
+<Demo>
+    <p><a href="https://ui.dhis2.nu/demo/?path=/story/data-display-datatable--draggable-rows" target="_blank">Storybook demo: Draggable rows</a>.</p> 
+</Demo>
 
-Rows are selected via a checkbox or radio button in each row. If using checkboxes, a checkbox control is also present in the header, clicking this checkbox selects all visible rows.
-
-Selected rows can have actions applied to them from the Table Actions. In the above example, the 'Remove selected' button becomes active when one or more rows are selected. When no rows are selected this action is disabled. This is useful for performing actions on some, but not all rows.
-
-If only one row can be selected the rows will have a radio button control. If multiple rows can be selected the rows will have a checkbox control.
-
-##### When to use selectable rows?
-
-Use selectable rows with checkboxes to allow users to act on one or more rows easily. Do not enable selectable rows if there are no actions to perform.
-
-Use a single selectable row (radio button) when a user needs to choose an option from a data table. Think carefully if a data table is the correct way to display the options, would a dropdown or a simpler list work? Only use a single selectable row if the user needs to see/manipulate all of the data when making a choice.
-
----
-
-### Reordering rows
-
-![](../images/datatable-reorder.png)
-
-##### What is row reordering?
-
-Row reordering allows a user to drag and drop data table rows to change their order.
-
-##### How is row reordering used?
-
-When row reordering is enabled the primary action (e.g. clicking the row) will always activate the drag and drop functionality. If the row requires more actions they must be included as inline [row actions](#row-actions).
-
-##### When to use row reordering?
-
-Row reordering should only be used where it will have a lasting, meaningful effect on the data in the data table. Do not use row reordering for temporarily sorting data in a table.
-
----
-
-### Editable columns
-
-![](../images/datatable-edit-columns.png)
-
-##### What are editable columns?
-
-Editable columns allow users to change which columns to display, and their ordering, in a data table.
-
-##### How are editable columns used?
-
-If column editing is enabled a button will be shown in the Table Actions. This button opens a modal view with controls for toggling on/off and reordering columns.
-
-##### When to use editable columns?
-
-Allowing users to edit column visibility and ordering can be useful for creating flexible data tables that need to show different data to different types of users. A single data table can fulfill many different needs and purposes.
-
-However, do not include editable columns by default. There must be an identified use case. Editing columns is advanced functionality and can be intimidating for some users, so it should be used with care.
-
----
+-   Use draggable rows if the order of rows in the data table has a meaningful impact. With draggable rows, a user can drag rows to change the order.
 
 ### Bordered cells
 
-![](../images/datatable-bordered.png)
+<Demo>
+    <p><a href="https://ui.dhis2.nu/demo/?path=/story/data-display-datatable--bordered-cells" target="_blank">Storybook demo: Bordered cells</a>.</p> 
+</Demo>
 
-Bordered cells are useful when displaying very complex data that may have similar values. For example, a table that displays only number values is best shown with borders to help visually separate the values. Tables where rows represent one 'record' with different value types (name, address, age, etc.) do not need borders.
+-   Use bordered cells when showing complex data that might have similar values, like long numbers, to help a user visually scan data values.
 
----
+### Built-in styles
 
-### Built-in formatting
+<Demo>
+    <p><a href="https://ui.dhis2.nu/demo/?path=/story/data-display-datatable--cell-styling" target="_blank">Storybook demo: Built-in styles</a>.</p> 
+</Demo>
 
-![](../images/datatable-cell-formatting.png)
-
-Several built-in text styles are available for cells. Technically any type of content can be input into a table cell, but using these styles where possible helps to build a consistent DHIS2 platform.
-
----
-
-### Status
-
-![](../images/datatable-status-badge.png)
-
-It is often useful to display the status of an item in a data table. Statuses allow easy comparison between rows of data and can highlight important or notable data items.
-
-Use the [tag](../atoms/tag.md) component to display status in data tables. Be sure to follow the usage guidelines for tags.
-
-Only display status when it is relevant to the user. Do not display the status unless multiple statuses are available. For example, do not display statuses if the only status available is 'Active'.
-
----
+-   A data table offers several built-in text styles.
+-   Use the built-in styles to help offer a consistent data table experience across DHIS2 apps.
 
 ### Large cells
 
-![](../images/datatable-large.png)
+<Demo>
+    <p><a href="https://ui.dhis2.nu/demo/?path=/story/data-display-datatable--large-cells" target="_blank">Storybook demo: Large cells</a>.</p> 
+</Demo>
 
-Large cells use a larger font-size and cell height. Use large cells where users will rarely see large amounts of data, or where users may be intimidated by compact data.
+-   Use large cells can be used for data tables that will don't show a lot of rows.
+-   Large cells can help users scan and work with a few rows.
 
----
+## Patterns
 
-### Combining options
+Patterns are common ways of achieving some functionality. Patterns aren't offered as prebuilt components, but should be built and tweaked according to the use case.
 
-Combining the options listed above allows for flexible, powerful data tables. However, there are some combinations of options that may create confusing or difficult to use interfaces. Try to keep data tables focused on the relevant task. Consider the following guidelines:
+### Pagination
 
--   Avoid using `expandable` and `reordering` together. The drag and drop interaction relies on static heights, and expandable rows allow for dynamic heights which blur the drag and drop interaction.
--   Avoid using `expandable` and `bordered` together. The cell borders will confuse the relationship between the table row and it's expanded content.
+==TODO: example==
 
-For all data tables, only include options that address a user need. Using unnecessary table options will create confusing interfaces.
+-   Use the pagination component ==TODO: link== in a data table footer to allow navigation between pages.
 
-## States
+### Search
 
-### Empty state
+==TODO: example==
 
-![](../images/datatable-empty.png)
+-   A text input ==TODO: link== offers a quick way to search for items in a data table.
+-   Make it clear what attributes the search applies to with placeholder text, like _Search by name or code_.
 
-An empty data table should be communicating helpful information to a user. If there is no data to display do not simply show an empty table. Sometimes it may make sense to hide an empty table, but keep in mind that users will be unaware of why the table is hidden and may be confused. In most situations, it is best to show a data table with a useful empty state.
+### Filtering: Standalone
 
-The empty state is flexible and accepts any elements, but by default, it is recommended to present some informative text and an optional action. Without an action, it can be difficult for the user to fix the cause of the empty data. For example, if there are no patients registered in a program, the data table is empty, the action could be 'Register a patient'.
+==TODO: example==
 
-Column headers can be displayed in an empty state if they are available, this can help the user to understand the data that would be there if the table was not empty.
+-   Use standalone filters when the filtering functionality is likely to be used as the main use case for the data table.
+-   A common design is to use a select ==TODO: link== control for each column, as in the demo above.
 
----
+### Row actions
 
-## Examples in use
+==TODO: example==
 
-![](../images/data-table/data-table-example-1.png)
+-   Row actions are often shown as buttons in the last column of a data table.
+-   Use row actions to offer actions for every row in the table.
+-   Row actions can add a lot of complexity to a page, so don't show too many buttons. It often makes sense to offer secondary actions through a context menu button.
 
-_A list of technical data is displayed as a data table in the SMS configuration app. There might be many rows of this data, so a data table is used to display it in a way that a user can filter and scan the data._
+### Status
+
+==TODO: example==
+
+-   Use a tag to show a status for every row in a data table.
+-   Make sure every row has a status, even if a tag shows _None_ or _No status_. Don't leave status cells blank.
+
+### State: Empty
+
+==TODO: example==
+
+-   Use the data table empty state to explain why there isn't anything to show and to offer a way of fixing that, if it's a problem.
+-   In the example above, the empty data table tells the user that there aren't any patients and offers them a shortcut to start registering.
+-   A data table empty state should be customized for each use case.
+
+## Guidelines
+
+### Using and combining options
+
+-   Only use the options that target a specific user need for that data table.
+-   Avoid using `expandable` and `reorderable` rows together. Dragging and dropping doesn't work well when each row can have a different height.
+-   Avoid using `expandable` and `bordered` rows together. The cell borders make the relationship between the row and the expanded content unclear.
+
+## Examples
+
+==TODO: examples==
+
+## Links
+
+-   Demo ==TODO: link==
+-   API reference ==TODO: link==
