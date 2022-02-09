@@ -148,6 +148,16 @@ strong {
     font-weight: var(--ifm-font-weight-semibold);
 }
 
+figure {
+    max-width: 100;
+    margin: 0;
+    background: var(--ifm-color-emphasis-100);
+    padding: 1rem 1rem 0.5rem;
+}
+figure figcaption {
+    font-style: oblique;
+}
+
 /* component header */
 .header .header-links {
     display: flex;
