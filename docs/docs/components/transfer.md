@@ -69,10 +69,6 @@ A transfer is made up of two lists. The _source list_ that shows the available o
 -   Use a [`Loader`](loading.md) to block interaction if using the transfer while loading is taking place can cause problems.
 -   A common pattern is loading more options as a user scrolls. See the [Transfer: Infinite Loading recipe](../recipes/transfer-infinite-loading-all-options-selected.md) for more information.
 
-## Examples
-
-==TODO: examples==
-
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-transfer--multiple)

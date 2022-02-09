@@ -78,10 +78,6 @@ A modal shows content on a layer on top of page, interrupting a workflow and foc
 -   If there's a problem with something inside the modal, like a missing input field, show a [`Notice box`](notice-box.md) at the bottom of the modal.
 -   If there's a problem with something outside of the modal, like getting an empty response back from the server, show an [`Alert bar`](alertbar.md) outside of the modal.
 
-## Examples
-
-==TODO: examples==
-
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/layout-modal--default-content)

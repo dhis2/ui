@@ -63,10 +63,6 @@ Different elements of the pagination component can be included, depending on the
 -   Changes the number of items included in a page.
 -   Use when a user might want to customize the view.
 
-## Examples
-
-==TODO: examples==
-
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/navigation-pagination--default)

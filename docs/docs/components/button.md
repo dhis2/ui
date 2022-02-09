@@ -163,10 +163,6 @@ Buttons are available in different sizes. Use the size that matches the usage gu
 -   Change the button label to tell the user what's happening. For example, after clicking a _Start job_ button, the loading state label could be _Starting job…_.
 -   If triggering other actions on the page should be prevented, consider showing a blocking loader ==link== instead.
 
-## Examples in use
-
-==TODO: examples==
-
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/actions-buttons-button--basic)

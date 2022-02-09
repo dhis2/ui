@@ -3,6 +3,7 @@ title: Avatar
 ---
 
 import { Demo } from '../../src/components/DemoComponent.jsx'
+import { DocFigure } from '../../src/components/DocFigure.jsx'
 import { UserAvatar } from '@dhis2/ui'
 
 # Avatar
@@ -42,10 +43,6 @@ An avatar is a visual icon that represents a user.
 </Demo>
 
 Avatars are available in different sizes. Use the size that works best for the space available and the context.
-
-## Examples in use
-
-==TODO: examples==
 
 ## Links
 

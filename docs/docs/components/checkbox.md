@@ -42,10 +42,6 @@ Checkboxes are used to choose one or more items from a list. A checkbox can also
 
 -   Checkboxes are available in two sizes, regular and `dense`. Regular sized checkboxes are useful when there's space available. Use `dense` sized checkboxes in compact, information-dense interfaces.
 
-## Examples
-
-==TODO: examples==
-
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-checkbox-checkbox--default)

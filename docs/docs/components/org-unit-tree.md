@@ -33,10 +33,6 @@ An organisation unit tree is used to choose organisation units from a hierarchy.
 -   In _Single selection mode_ only one organisation unit can be chosen.
 -   Use this mode when choosing more than one organisation unit isn't valid.
 
-## Examples in use
-
-==TODO: examples==
-
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-organisation-unit-tree--collapsed)

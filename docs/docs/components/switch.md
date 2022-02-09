@@ -39,10 +39,6 @@ Switches are used to toggle something between an on and off state.
 </Demo>
 - Switches are available in two sizes, regular and `dense`. Regular sized switches are useful when there's space available. Use `dense` sized switches in compact, information-dense interfaces.
 
-## Examples in use
-
-==TODO: examples==
-
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-switch-switch-field--default)

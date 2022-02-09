@@ -79,10 +79,6 @@ Loaders are used to show that something is in progress. They keep users informed
 
 -   Inverted loaders can be used on dark backgrounds, like a blocking backdrop layer.
 
-## Examples
-
-==TODO: examples==
-
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/feedback-loading-indicators-circular-loader--default)

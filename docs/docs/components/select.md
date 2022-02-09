@@ -244,10 +244,6 @@ Selects are used to choose one or more items from a list of options.
 -   Use a disabled state if the select temporarily can't be used.
 -   Show a [`Tooltip`](tooltip.md) on hover or focus to explain why the select is disabled.
 
-## Examples in use
-
-==TODO: examples==
-
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-single-select-single-select-field--default)

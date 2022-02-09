@@ -171,10 +171,6 @@ The following data types don't change the interaction with the input, but should
 -   Week (`week`)
 -   Search (`search`)
 
-## Examples in use
-
-==TODO: examples==
-
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-input-input-field--default)

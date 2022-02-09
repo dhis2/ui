@@ -121,10 +121,6 @@ An alert bar communicates something to the user by showing a prominent, floating
 -   Each variant shows a default icon to support the content being communicated.
 -   A custom icon can be used. Only use icons that are relevant to the content and that help the user understand the context. Use the default icon unless there's a good reason not to.
 
-## Examples in use
-
-<DocFigure src="/images/examples/alertbar-1.png" caption="An alert bar let's the user know that the approval action was successful without blocking their workflow" alt="screenshot of Data Approvals app showing an alert bar"/>
-
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/feedback-alerts-alert-bar--default)

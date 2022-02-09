@@ -49,10 +49,6 @@ A popover is used to show more information when a user interacts with a trigger 
 -   A popover doesn't offer any default content styling.
 -   Include padding between the popover frame and the content inside. The amount of padding depends on the content and density of the interface. Use a [spacer constant](../utilities/constants.md) for a consistent visual experience.
 
-## Examples in use
-
-==TODO: examples==
-
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/data-display-popover--default)

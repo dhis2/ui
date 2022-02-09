@@ -88,10 +88,6 @@ A notice box shows important information about a situation.
 -   Actions should always relate to the content of the notice box. Don't use notice box actions for unrelated, generic actions.
 -   Use simple action verbs as action links.
 
-## Examples in use
-
--   Images. Should be formatted similarly with a caption. Possibly use a standard component for this.
-
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/data-display-notice-box--default)

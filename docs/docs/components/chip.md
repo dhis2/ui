@@ -76,10 +76,6 @@ Chips are used to select from a set of defined options. Chips can also represent
 -   Icons are useful to highlight special chips, like starred items.
 -   Don't use the same icon for all the chips in a group. Use a title or heading for that group of chips instead.
 
-## Examples
-
-==TODO: examples==
-
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/actions-chip--default)

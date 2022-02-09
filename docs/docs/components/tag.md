@@ -58,10 +58,6 @@ Tags are used to label items by a set of shared properties, like category or sta
 -   Use bold tags where it's important the information is noticed by a user.
 -   Don't overuse bold tags, only use them when the information is important.
 
-## Examples in use
-
-==TODO: examples==
-
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/data-display-tag--default)

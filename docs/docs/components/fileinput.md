@@ -76,10 +76,6 @@ A file input is used to choose and upload files.
 -   Allow multiple file upload if that fits the use case.
 -   Don't use several file inputs for the same kind of file, use one with multiple files allowed.
 
-## Examples
-
-==TODO: examples==
-
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-file-input-file-input--default)

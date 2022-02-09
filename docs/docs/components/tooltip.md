@@ -59,10 +59,6 @@ A tooltip is used to show contextual information when triggered by clicking, foc
 -   Use the default delay durations unless there's a specific use case to change them.
 -   Longer `open` delays and shorter `close` delays can help prevent too many tooltips showing in a complex layout.
 
-## Examples in use
-
-==TODO: examples==
-
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/data-display-tooltip--default-placement-top)

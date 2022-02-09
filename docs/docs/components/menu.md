@@ -147,10 +147,6 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
 -   Use disabled menu items when a menu item is temporarily unavailable.
 -   Don't use the disabled state if the menu item will never be available in this context. Remove it instead.
 
-## Examples in use
-
-==TODO: examples==
-
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/actions-menu-flyout-menu--default)

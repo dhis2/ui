@@ -23,10 +23,6 @@ A card is a container element used to group together and separate blocks of cont
 
 -   **Few items**. A card probably isn't necessary to contain one or two items. Everything on a page doesn't need to be wrapped in a card.
 
-## Examples
-
-==TODO: examples==
-
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/layout-card--default)

@@ -51,10 +51,6 @@ A segmented control is used to choose between related options that have an effec
 -   Option labels should state clearly what each option is.
 -   A separate label above the component can offer extra context for the options, if needed.
 
-## Examples
-
-==TODO: examples==
-
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/actions-segmented-control--default)
