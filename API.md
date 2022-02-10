@@ -1,5 +1,154 @@
 # @dhis2/ui-forms
 
+## CheckboxFieldFF
+
+From [`src/CheckboxFieldFF/CheckboxFieldFF.js`](/home/varl/dev/dhis2/libs/ui/collections/forms/src/CheckboxFieldFF/CheckboxFieldFF.js)
+
+| prop                |    type    | default | required | description                    |
+| ------------------- | :--------: | :-----: | :------: | ------------------------------ |
+| **error**           | `Boolean`  |         |   :x:    |
+| **input**           |  `custom`  |         |   :x:    | Provided by Final Form `Field` |
+| **meta**            |  `custom`  |         |   :x:    | Provided by Final Form `Field` |
+| **onBlur**          | `Function` |         |   :x:    |
+| **onFocus**         | `Function` |         |   :x:    |
+| **showValidStatus** | `Boolean`  |         |   :x:    |
+| **valid**           | `Boolean`  |         |   :x:    |
+| **validationText**  |  `String`  |         |   :x:    |
+
+## FileInputFieldFF
+
+From [`src/FileInputFieldFF/FileInputFieldFF.js`](/home/varl/dev/dhis2/libs/ui/collections/forms/src/FileInputFieldFF/FileInputFieldFF.js)
+
+| prop                |               type               | default | required | description                                  |
+| ------------------- | :------------------------------: | :-----: | :------: | -------------------------------------------- |
+| **buttonLabel**     |             `String`             |         |   :x:    |
+| **disabled**        |            `Boolean`             |         |   :x:    |
+| **error**           |            `Boolean`             |         |   :x:    |
+| **input**           |             `custom`             |         |   :x:    | `input` props provided by Final Form `Field` |
+| **meta**            |             `custom`             |         |   :x:    | `meta` props provided by Final Form `Field`  |
+| **multifile**       |            `Boolean`             |         |   :x:    |
+| **showValidStatus** |            `Boolean`             |         |   :x:    |
+| **valid**           |            `Boolean`             |         |   :x:    |
+| **validationText**  |             `String`             |         |   :x:    |
+| **value**           | `Union<Array[]<File>\|Enum('')>` |         |   :x:    |
+| **value<1>**        |         `Array[]<File>`          |         |   :x:    |
+| **value<2>**        |            `Enum('')`            |         |   :x:    |
+
+## InputFieldFF
+
+From [`src/InputFieldFF/InputFieldFF.js`](/home/varl/dev/dhis2/libs/ui/collections/forms/src/InputFieldFF/InputFieldFF.js)
+
+| prop                  |    type    | default | required | description                                    |
+| --------------------- | :--------: | :-----: | :------: | ---------------------------------------------- |
+| **error**             | `Boolean`  |         |   :x:    |
+| **input**             |  `custom`  |         |   :x:    | `input` props received from Final Form `Field` |
+| **loading**           | `Boolean`  |         |   :x:    |
+| **meta**              |  `custom`  |         |   :x:    | `meta` props received from Final Form `Field`  |
+| **onBlur**            | `Function` |         |   :x:    |
+| **onFocus**           | `Function` |         |   :x:    |
+| **showLoadingStatus** | `Boolean`  |         |   :x:    |
+| **showValidStatus**   | `Boolean`  |         |   :x:    |
+| **valid**             | `Boolean`  |         |   :x:    |
+| **validationText**    |  `String`  |         |   :x:    |
+
+## MultiSelectFieldFF
+
+From [`src/MultiSelectFieldFF/MultiSelectFieldFF.js`](/home/varl/dev/dhis2/libs/ui/collections/forms/src/MultiSelectFieldFF/MultiSelectFieldFF.js)
+
+| prop                  |       type       | default | required | description                                  |
+| --------------------- | :--------------: | :-----: | :------: | -------------------------------------------- |
+| **error**             |    `Boolean`     |         |   :x:    |
+| **input**             |     `custom`     |         |   :x:    | `input` props provided by Final Form `Field` |
+| **loading**           |    `Boolean`     |         |   :x:    |
+| **meta**              |     `custom`     |         |   :x:    | `meta` props provided by Final Form `Field`  |
+| **onBlur**            |    `Function`    |         |   :x:    |
+| **onFocus**           |    `Function`    |         |   :x:    |
+| **options**           | `Array[]<Shape>` |  `[]`   |   :x:    |
+| **options[].label**   |     `String`     |         |   :x:    |
+| **options[].value**   |     `String`     |         |   :x:    |
+| **showLoadingStatus** |    `Boolean`     |         |   :x:    |
+| **showValidStatus**   |    `Boolean`     |         |   :x:    |
+| **valid**             |    `Boolean`     |         |   :x:    |
+| **validationText**    |     `String`     |         |   :x:    |
+
+## SingleSelectFieldFF
+
+From [`src/SingleSelectFieldFF/SingleSelectFieldFF.js`](/home/varl/dev/dhis2/libs/ui/collections/forms/src/SingleSelectFieldFF/SingleSelectFieldFF.js)
+
+| prop                  |       type       | default |      required      | description                                    |
+| --------------------- | :--------------: | :-----: | :----------------: | ---------------------------------------------- |
+| **error**             |    `Boolean`     |         |        :x:         |
+| **input**             |     `custom`     |         |        :x:         | `input` props received from Final Form `Field` |
+| **loading**           |    `Boolean`     |         |        :x:         |
+| **meta**              |     `custom`     |         |        :x:         | `meta` props received from Final Form `Field`  |
+| **onBlur**            |    `Function`    |         |        :x:         |
+| **onFocus**           |    `Function`    |         |        :x:         |
+| **options**           | `Array[]<Shape>` |         | :white_check_mark: |
+| **options[].label**   |     `String`     |         |        :x:         |
+| **options[].value**   |     `String`     |         |        :x:         |
+| **showLoadingStatus** |    `Boolean`     |         |        :x:         |
+| **showValidStatus**   |    `Boolean`     |         |        :x:         |
+| **valid**             |    `Boolean`     |         |        :x:         |
+| **validationText**    |     `String`     |         |        :x:         |
+
+## RadioFieldFF
+
+From [`src/RadioFieldFF/RadioFieldFF.js`](/home/varl/dev/dhis2/libs/ui/collections/forms/src/RadioFieldFF/RadioFieldFF.js)
+
+| prop                |    type    | default | required | description                                    |
+| ------------------- | :--------: | :-----: | :------: | ---------------------------------------------- |
+| **error**           | `Boolean`  |         |   :x:    |
+| **input**           |  `custom`  |         |   :x:    | `input` props received from Final Form `Field` |
+| **meta**            |  `custom`  |         |   :x:    | `meta` props received from Final Form `Field`  |
+| **onBlur**          | `Function` |         |   :x:    |
+| **onFocus**         | `Function` |         |   :x:    |
+| **showValidStatus** | `Boolean`  |         |   :x:    |
+| **valid**           | `Boolean`  |         |   :x:    |
+| **validationText**  |  `String`  |         |   :x:    |
+
+## SwitchFieldFF
+
+From [`src/SwitchFieldFF/SwitchFieldFF.js`](/home/varl/dev/dhis2/libs/ui/collections/forms/src/SwitchFieldFF/SwitchFieldFF.js)
+
+| prop                |    type    | default | required | description                                    |
+| ------------------- | :--------: | :-----: | :------: | ---------------------------------------------- |
+| **error**           | `Boolean`  |         |   :x:    |
+| **input**           |  `custom`  |         |   :x:    | `input` props received from Final Form `Field` |
+| **meta**            |  `custom`  |         |   :x:    | `meta` props received from Final Form `Field`  |
+| **onBlur**          | `Function` |         |   :x:    |
+| **onFocus**         | `Function` |         |   :x:    |
+| **showValidStatus** | `Boolean`  |         |   :x:    |
+| **valid**           | `Boolean`  |         |   :x:    |
+| **validationText**  |  `String`  |         |   :x:    |
+
+## TextAreaFieldFF
+
+From [`src/TextAreaFieldFF/TextAreaFieldFF.js`](/home/varl/dev/dhis2/libs/ui/collections/forms/src/TextAreaFieldFF/TextAreaFieldFF.js)
+
+| prop                  |    type    | default | required | description                                    |
+| --------------------- | :--------: | :-----: | :------: | ---------------------------------------------- |
+| **error**             | `Boolean`  |         |   :x:    |
+| **input**             |  `custom`  |         |   :x:    | `input` props received from Final Form `Field` |
+| **loading**           | `Boolean`  |         |   :x:    |
+| **meta**              |  `custom`  |         |   :x:    | `meta` props received from Final Form `Field`  |
+| **onBlur**            | `Function` |         |   :x:    |
+| **onFocus**           | `Function` |         |   :x:    |
+| **showLoadingStatus** | `Boolean`  |         |   :x:    |
+| **showValidStatus**   | `Boolean`  |         |   :x:    |
+| **valid**             | `Boolean`  |         |   :x:    |
+| **validationText**    |  `String`  |         |   :x:    |
+
+## FieldGroupFF
+
+From [`src/FieldGroupFF/FieldGroupFF.js`](/home/varl/dev/dhis2/libs/ui/collections/forms/src/FieldGroupFF/FieldGroupFF.js)
+
+| prop         |    type     | default | required | description |
+| ------------ | :---------: | :-----: | :------: | ----------- |
+| **children** | `ReactNode` |         |   :x:    |
+| **label**    |  `String`   |         |   :x:    |
+| **name**     |  `String`   |         |   :x:    |
+| **required** |  `Boolean`  |         |   :x:    |
+
 # @dhis2/ui
 
 ## AlertBar
@@ -1719,15 +1868,11 @@ import { SegmentedControl } from '@dhis2/ui'
 
 ## SvgAdd16
 
-From [`src/react/Add16.js`](icons/src/react/Add16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgAdd24
-
-From [`src/react/Add24.js`](icons/src/react/Add24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1735,15 +1880,11 @@ From [`src/react/Add24.js`](icons/src/react/Add24.js)
 
 ## SvgAddCircle16
 
-From [`src/react/AddCircle16.js`](icons/src/react/AddCircle16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgAddCircle24
-
-From [`src/react/AddCircle24.js`](icons/src/react/AddCircle24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1751,15 +1892,11 @@ From [`src/react/AddCircle24.js`](icons/src/react/AddCircle24.js)
 
 ## SvgApps16
 
-From [`src/react/Apps16.js`](icons/src/react/Apps16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgApps24
-
-From [`src/react/Apps24.js`](icons/src/react/Apps24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1767,15 +1904,11 @@ From [`src/react/Apps24.js`](icons/src/react/Apps24.js)
 
 ## SvgArchive16
 
-From [`src/react/Archive16.js`](icons/src/react/Archive16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgArchive24
-
-From [`src/react/Archive24.js`](icons/src/react/Archive24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1783,15 +1916,11 @@ From [`src/react/Archive24.js`](icons/src/react/Archive24.js)
 
 ## SvgArrowDown16
 
-From [`src/react/ArrowDown16.js`](icons/src/react/ArrowDown16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgArrowDown24
-
-From [`src/react/ArrowDown24.js`](icons/src/react/ArrowDown24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1799,15 +1928,11 @@ From [`src/react/ArrowDown24.js`](icons/src/react/ArrowDown24.js)
 
 ## SvgArrowLeft16
 
-From [`src/react/ArrowLeft16.js`](icons/src/react/ArrowLeft16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgArrowLeft24
-
-From [`src/react/ArrowLeft24.js`](icons/src/react/ArrowLeft24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1815,15 +1940,11 @@ From [`src/react/ArrowLeft24.js`](icons/src/react/ArrowLeft24.js)
 
 ## SvgArrowLeftMulti16
 
-From [`src/react/ArrowLeftMulti16.js`](icons/src/react/ArrowLeftMulti16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgArrowLeftMulti24
-
-From [`src/react/ArrowLeftMulti24.js`](icons/src/react/ArrowLeftMulti24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1831,15 +1952,11 @@ From [`src/react/ArrowLeftMulti24.js`](icons/src/react/ArrowLeftMulti24.js)
 
 ## SvgArrowRight16
 
-From [`src/react/ArrowRight16.js`](icons/src/react/ArrowRight16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgArrowRight24
-
-From [`src/react/ArrowRight24.js`](icons/src/react/ArrowRight24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1847,15 +1964,11 @@ From [`src/react/ArrowRight24.js`](icons/src/react/ArrowRight24.js)
 
 ## SvgArrowRightMulti16
 
-From [`src/react/ArrowRightMulti16.js`](icons/src/react/ArrowRightMulti16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgArrowRightMulti24
-
-From [`src/react/ArrowRightMulti24.js`](icons/src/react/ArrowRightMulti24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1863,15 +1976,11 @@ From [`src/react/ArrowRightMulti24.js`](icons/src/react/ArrowRightMulti24.js)
 
 ## SvgArrowUp16
 
-From [`src/react/ArrowUp16.js`](icons/src/react/ArrowUp16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgArrowUp24
-
-From [`src/react/ArrowUp24.js`](icons/src/react/ArrowUp24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1879,15 +1988,11 @@ From [`src/react/ArrowUp24.js`](icons/src/react/ArrowUp24.js)
 
 ## SvgAt16
 
-From [`src/react/At16.js`](icons/src/react/At16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgAt24
-
-From [`src/react/At24.js`](icons/src/react/At24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1895,15 +2000,11 @@ From [`src/react/At24.js`](icons/src/react/At24.js)
 
 ## SvgAttachment16
 
-From [`src/react/Attachment16.js`](icons/src/react/Attachment16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgAttachment24
-
-From [`src/react/Attachment24.js`](icons/src/react/Attachment24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1911,15 +2012,11 @@ From [`src/react/Attachment24.js`](icons/src/react/Attachment24.js)
 
 ## SvgBlock16
 
-From [`src/react/Block16.js`](icons/src/react/Block16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgBlock24
-
-From [`src/react/Block24.js`](icons/src/react/Block24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1927,15 +2024,11 @@ From [`src/react/Block24.js`](icons/src/react/Block24.js)
 
 ## SvgCalendar16
 
-From [`src/react/Calendar16.js`](icons/src/react/Calendar16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgCalendar24
-
-From [`src/react/Calendar24.js`](icons/src/react/Calendar24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1943,15 +2036,11 @@ From [`src/react/Calendar24.js`](icons/src/react/Calendar24.js)
 
 ## SvgCheckmark12
 
-From [`src/react/Checkmark12.js`](icons/src/react/Checkmark12.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgCheckmark16
-
-From [`src/react/Checkmark16.js`](icons/src/react/Checkmark16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1959,15 +2048,11 @@ From [`src/react/Checkmark16.js`](icons/src/react/Checkmark16.js)
 
 ## SvgCheckmark24
 
-From [`src/react/Checkmark24.js`](icons/src/react/Checkmark24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgCheckmarkCircle16
-
-From [`src/react/CheckmarkCircle16.js`](icons/src/react/CheckmarkCircle16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1975,15 +2060,11 @@ From [`src/react/CheckmarkCircle16.js`](icons/src/react/CheckmarkCircle16.js)
 
 ## SvgCheckmarkCircle24
 
-From [`src/react/CheckmarkCircle24.js`](icons/src/react/CheckmarkCircle24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgChevronDown16
-
-From [`src/react/ChevronDown16.js`](icons/src/react/ChevronDown16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1991,15 +2072,11 @@ From [`src/react/ChevronDown16.js`](icons/src/react/ChevronDown16.js)
 
 ## SvgChevronDown24
 
-From [`src/react/ChevronDown24.js`](icons/src/react/ChevronDown24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgChevronLeft16
-
-From [`src/react/ChevronLeft16.js`](icons/src/react/ChevronLeft16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2007,15 +2084,11 @@ From [`src/react/ChevronLeft16.js`](icons/src/react/ChevronLeft16.js)
 
 ## SvgChevronLeft24
 
-From [`src/react/ChevronLeft24.js`](icons/src/react/ChevronLeft24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgChevronRight16
-
-From [`src/react/ChevronRight16.js`](icons/src/react/ChevronRight16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2023,15 +2096,11 @@ From [`src/react/ChevronRight16.js`](icons/src/react/ChevronRight16.js)
 
 ## SvgChevronRight24
 
-From [`src/react/ChevronRight24.js`](icons/src/react/ChevronRight24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgChevronUp16
-
-From [`src/react/ChevronUp16.js`](icons/src/react/ChevronUp16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2039,15 +2108,11 @@ From [`src/react/ChevronUp16.js`](icons/src/react/ChevronUp16.js)
 
 ## SvgChevronUp24
 
-From [`src/react/ChevronUp24.js`](icons/src/react/ChevronUp24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgClock16
-
-From [`src/react/Clock16.js`](icons/src/react/Clock16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2055,15 +2120,11 @@ From [`src/react/Clock16.js`](icons/src/react/Clock16.js)
 
 ## SvgClock24
 
-From [`src/react/Clock24.js`](icons/src/react/Clock24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgClockHistory16
-
-From [`src/react/ClockHistory16.js`](icons/src/react/ClockHistory16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2071,15 +2132,11 @@ From [`src/react/ClockHistory16.js`](icons/src/react/ClockHistory16.js)
 
 ## SvgClockHistory24
 
-From [`src/react/ClockHistory24.js`](icons/src/react/ClockHistory24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgColor16
-
-From [`src/react/Color16.js`](icons/src/react/Color16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2087,15 +2144,11 @@ From [`src/react/Color16.js`](icons/src/react/Color16.js)
 
 ## SvgColor24
 
-From [`src/react/Color24.js`](icons/src/react/Color24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgCopy16
-
-From [`src/react/Copy16.js`](icons/src/react/Copy16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2103,15 +2156,11 @@ From [`src/react/Copy16.js`](icons/src/react/Copy16.js)
 
 ## SvgCopy24
 
-From [`src/react/Copy24.js`](icons/src/react/Copy24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgCross16
-
-From [`src/react/Cross16.js`](icons/src/react/Cross16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2119,15 +2168,11 @@ From [`src/react/Cross16.js`](icons/src/react/Cross16.js)
 
 ## SvgCross24
 
-From [`src/react/Cross24.js`](icons/src/react/Cross24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgDashboardWindow16
-
-From [`src/react/DashboardWindow16.js`](icons/src/react/DashboardWindow16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2135,15 +2180,11 @@ From [`src/react/DashboardWindow16.js`](icons/src/react/DashboardWindow16.js)
 
 ## SvgDashboardWindow24
 
-From [`src/react/DashboardWindow24.js`](icons/src/react/DashboardWindow24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgDataInteger16
-
-From [`src/react/DataInteger16.js`](icons/src/react/DataInteger16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2151,15 +2192,11 @@ From [`src/react/DataInteger16.js`](icons/src/react/DataInteger16.js)
 
 ## SvgDataInteger24
 
-From [`src/react/DataInteger24.js`](icons/src/react/DataInteger24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgDataString16
-
-From [`src/react/DataString16.js`](icons/src/react/DataString16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2167,15 +2204,11 @@ From [`src/react/DataString16.js`](icons/src/react/DataString16.js)
 
 ## SvgDataString24
 
-From [`src/react/DataString24.js`](icons/src/react/DataString24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgDelete16
-
-From [`src/react/Delete16.js`](icons/src/react/Delete16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2183,15 +2216,11 @@ From [`src/react/Delete16.js`](icons/src/react/Delete16.js)
 
 ## SvgDelete24
 
-From [`src/react/Delete24.js`](icons/src/react/Delete24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgDimensionCategoryOptionGroupset16
-
-From [`src/react/DimensionCategoryOptionGroupset16.js`](icons/src/react/DimensionCategoryOptionGroupset16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2199,15 +2228,11 @@ From [`src/react/DimensionCategoryOptionGroupset16.js`](icons/src/react/Dimensio
 
 ## SvgDimensionData16
 
-From [`src/react/DimensionData16.js`](icons/src/react/DimensionData16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgDimensionDataElementGroupset16
-
-From [`src/react/DimensionDataElementGroupset16.js`](icons/src/react/DimensionDataElementGroupset16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2215,15 +2240,11 @@ From [`src/react/DimensionDataElementGroupset16.js`](icons/src/react/DimensionDa
 
 ## SvgDimensionDataSet16
 
-From [`src/react/DimensionDataSet16.js`](icons/src/react/DimensionDataSet16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgDimensionEventDataItem16
-
-From [`src/react/DimensionEventDataItem16.js`](icons/src/react/DimensionEventDataItem16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2231,15 +2252,11 @@ From [`src/react/DimensionEventDataItem16.js`](icons/src/react/DimensionEventDat
 
 ## SvgDimensionIndicator16
 
-From [`src/react/DimensionIndicator16.js`](icons/src/react/DimensionIndicator16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgDimensionOrgUnit16
-
-From [`src/react/DimensionOrgUnit16.js`](icons/src/react/DimensionOrgUnit16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2247,15 +2264,11 @@ From [`src/react/DimensionOrgUnit16.js`](icons/src/react/DimensionOrgUnit16.js)
 
 ## SvgDimensionOrgUnitGroupset16
 
-From [`src/react/DimensionOrgUnitGroupset16.js`](icons/src/react/DimensionOrgUnitGroupset16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgDimensionProgramIndicator16
-
-From [`src/react/DimensionProgramIndicator16.js`](icons/src/react/DimensionProgramIndicator16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2263,15 +2276,11 @@ From [`src/react/DimensionProgramIndicator16.js`](icons/src/react/DimensionProgr
 
 ## SvgDimensionValidationRule16
 
-From [`src/react/DimensionValidationRule16.js`](icons/src/react/DimensionValidationRule16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgDirectionNorth16
-
-From [`src/react/DirectionNorth16.js`](icons/src/react/DirectionNorth16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2279,15 +2288,11 @@ From [`src/react/DirectionNorth16.js`](icons/src/react/DirectionNorth16.js)
 
 ## SvgDirectionNorth24
 
-From [`src/react/DirectionNorth24.js`](icons/src/react/DirectionNorth24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgDownload16
-
-From [`src/react/Download16.js`](icons/src/react/Download16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2295,15 +2300,11 @@ From [`src/react/Download16.js`](icons/src/react/Download16.js)
 
 ## SvgDownload24
 
-From [`src/react/Download24.js`](icons/src/react/Download24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgDragHandle16
-
-From [`src/react/DragHandle16.js`](icons/src/react/DragHandle16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2311,15 +2312,11 @@ From [`src/react/DragHandle16.js`](icons/src/react/DragHandle16.js)
 
 ## SvgDragHandle24
 
-From [`src/react/DragHandle24.js`](icons/src/react/DragHandle24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgDuplicate16
-
-From [`src/react/Duplicate16.js`](icons/src/react/Duplicate16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2327,15 +2324,11 @@ From [`src/react/Duplicate16.js`](icons/src/react/Duplicate16.js)
 
 ## SvgDuplicate24
 
-From [`src/react/Duplicate24.js`](icons/src/react/Duplicate24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgEdit16
-
-From [`src/react/Edit16.js`](icons/src/react/Edit16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2343,15 +2336,11 @@ From [`src/react/Edit16.js`](icons/src/react/Edit16.js)
 
 ## SvgEdit24
 
-From [`src/react/Edit24.js`](icons/src/react/Edit24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgEditItems16
-
-From [`src/react/EditItems16.js`](icons/src/react/EditItems16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2359,15 +2348,11 @@ From [`src/react/EditItems16.js`](icons/src/react/EditItems16.js)
 
 ## SvgEditItems24
 
-From [`src/react/EditItems24.js`](icons/src/react/EditItems24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgEmptyFrame16
-
-From [`src/react/EmptyFrame16.js`](icons/src/react/EmptyFrame16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2375,15 +2360,11 @@ From [`src/react/EmptyFrame16.js`](icons/src/react/EmptyFrame16.js)
 
 ## SvgEmptyFrame24
 
-From [`src/react/EmptyFrame24.js`](icons/src/react/EmptyFrame24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgError16
-
-From [`src/react/Error16.js`](icons/src/react/Error16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2391,15 +2372,11 @@ From [`src/react/Error16.js`](icons/src/react/Error16.js)
 
 ## SvgError24
 
-From [`src/react/Error24.js`](icons/src/react/Error24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgErrorFilled16
-
-From [`src/react/ErrorFilled16.js`](icons/src/react/ErrorFilled16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2407,15 +2384,11 @@ From [`src/react/ErrorFilled16.js`](icons/src/react/ErrorFilled16.js)
 
 ## SvgErrorFilled24
 
-From [`src/react/ErrorFilled24.js`](icons/src/react/ErrorFilled24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgExportItems24
-
-From [`src/react/ExportItems24.js`](icons/src/react/ExportItems24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2423,15 +2396,11 @@ From [`src/react/ExportItems24.js`](icons/src/react/ExportItems24.js)
 
 ## SvgFaceAdd16
 
-From [`src/react/FaceAdd16.js`](icons/src/react/FaceAdd16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgFaceAdd24
-
-From [`src/react/FaceAdd24.js`](icons/src/react/FaceAdd24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2439,15 +2408,11 @@ From [`src/react/FaceAdd24.js`](icons/src/react/FaceAdd24.js)
 
 ## SvgFile16
 
-From [`src/react/File16.js`](icons/src/react/File16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgFile24
-
-From [`src/react/File24.js`](icons/src/react/File24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2455,15 +2420,11 @@ From [`src/react/File24.js`](icons/src/react/File24.js)
 
 ## SvgFileDocument16
 
-From [`src/react/FileDocument16.js`](icons/src/react/FileDocument16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgFileDocument24
-
-From [`src/react/FileDocument24.js`](icons/src/react/FileDocument24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2471,15 +2432,11 @@ From [`src/react/FileDocument24.js`](icons/src/react/FileDocument24.js)
 
 ## SvgFilter16
 
-From [`src/react/Filter16.js`](icons/src/react/Filter16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgFilter24
-
-From [`src/react/Filter24.js`](icons/src/react/Filter24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2487,15 +2444,11 @@ From [`src/react/Filter24.js`](icons/src/react/Filter24.js)
 
 ## SvgFlag16
 
-From [`src/react/Flag16.js`](icons/src/react/Flag16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgFlag24
-
-From [`src/react/Flag24.js`](icons/src/react/Flag24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2503,15 +2456,11 @@ From [`src/react/Flag24.js`](icons/src/react/Flag24.js)
 
 ## SvgFolder16
 
-From [`src/react/Folder16.js`](icons/src/react/Folder16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgFolder24
-
-From [`src/react/Folder24.js`](icons/src/react/Folder24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2519,15 +2468,11 @@ From [`src/react/Folder24.js`](icons/src/react/Folder24.js)
 
 ## SvgFolderOpen16
 
-From [`src/react/FolderOpen16.js`](icons/src/react/FolderOpen16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgFolderOpen24
-
-From [`src/react/FolderOpen24.js`](icons/src/react/FolderOpen24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2535,15 +2480,11 @@ From [`src/react/FolderOpen24.js`](icons/src/react/FolderOpen24.js)
 
 ## SvgFullscreen16
 
-From [`src/react/Fullscreen16.js`](icons/src/react/Fullscreen16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgFullscreen24
-
-From [`src/react/Fullscreen24.js`](icons/src/react/Fullscreen24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2551,15 +2492,11 @@ From [`src/react/Fullscreen24.js`](icons/src/react/Fullscreen24.js)
 
 ## SvgFullscreenExit16
 
-From [`src/react/FullscreenExit16.js`](icons/src/react/FullscreenExit16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgFullscreenExit24
-
-From [`src/react/FullscreenExit24.js`](icons/src/react/FullscreenExit24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2567,15 +2504,11 @@ From [`src/react/FullscreenExit24.js`](icons/src/react/FullscreenExit24.js)
 
 ## SvgHome16
 
-From [`src/react/Home16.js`](icons/src/react/Home16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgHome24
-
-From [`src/react/Home24.js`](icons/src/react/Home24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2583,15 +2516,11 @@ From [`src/react/Home24.js`](icons/src/react/Home24.js)
 
 ## SvgImage16
 
-From [`src/react/Image16.js`](icons/src/react/Image16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgImage24
-
-From [`src/react/Image24.js`](icons/src/react/Image24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2599,15 +2528,11 @@ From [`src/react/Image24.js`](icons/src/react/Image24.js)
 
 ## SvgImportItems24
 
-From [`src/react/ImportItems24.js`](icons/src/react/ImportItems24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgInfo16
-
-From [`src/react/Info16.js`](icons/src/react/Info16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2615,15 +2540,11 @@ From [`src/react/Info16.js`](icons/src/react/Info16.js)
 
 ## SvgInfo24
 
-From [`src/react/Info24.js`](icons/src/react/Info24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgInfoFilled16
-
-From [`src/react/InfoFilled16.js`](icons/src/react/InfoFilled16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2631,15 +2552,11 @@ From [`src/react/InfoFilled16.js`](icons/src/react/InfoFilled16.js)
 
 ## SvgInfoFilled24
 
-From [`src/react/InfoFilled24.js`](icons/src/react/InfoFilled24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgLaunch16
-
-From [`src/react/Launch16.js`](icons/src/react/Launch16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2647,15 +2564,11 @@ From [`src/react/Launch16.js`](icons/src/react/Launch16.js)
 
 ## SvgLaunch24
 
-From [`src/react/Launch24.js`](icons/src/react/Launch24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgLayoutColumns16
-
-From [`src/react/LayoutColumns16.js`](icons/src/react/LayoutColumns16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2663,15 +2576,11 @@ From [`src/react/LayoutColumns16.js`](icons/src/react/LayoutColumns16.js)
 
 ## SvgLayoutColumns24
 
-From [`src/react/LayoutColumns24.js`](icons/src/react/LayoutColumns24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgLayoutRows16
-
-From [`src/react/LayoutRows16.js`](icons/src/react/LayoutRows16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2679,15 +2588,11 @@ From [`src/react/LayoutRows16.js`](icons/src/react/LayoutRows16.js)
 
 ## SvgLayoutRows24
 
-From [`src/react/LayoutRows24.js`](icons/src/react/LayoutRows24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgLegend16
-
-From [`src/react/Legend16.js`](icons/src/react/Legend16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2695,15 +2600,11 @@ From [`src/react/Legend16.js`](icons/src/react/Legend16.js)
 
 ## SvgLegend24
 
-From [`src/react/Legend24.js`](icons/src/react/Legend24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgLink16
-
-From [`src/react/Link16.js`](icons/src/react/Link16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2711,15 +2612,11 @@ From [`src/react/Link16.js`](icons/src/react/Link16.js)
 
 ## SvgLink24
 
-From [`src/react/Link24.js`](icons/src/react/Link24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgList16
-
-From [`src/react/List16.js`](icons/src/react/List16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2727,15 +2624,11 @@ From [`src/react/List16.js`](icons/src/react/List16.js)
 
 ## SvgList24
 
-From [`src/react/List24.js`](icons/src/react/List24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgLocation16
-
-From [`src/react/Location16.js`](icons/src/react/Location16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2743,15 +2636,11 @@ From [`src/react/Location16.js`](icons/src/react/Location16.js)
 
 ## SvgLocation24
 
-From [`src/react/Location24.js`](icons/src/react/Location24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgLock16
-
-From [`src/react/Lock16.js`](icons/src/react/Lock16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2759,15 +2648,11 @@ From [`src/react/Lock16.js`](icons/src/react/Lock16.js)
 
 ## SvgLock24
 
-From [`src/react/Lock24.js`](icons/src/react/Lock24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgLockOpen16
-
-From [`src/react/LockOpen16.js`](icons/src/react/LockOpen16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2775,15 +2660,11 @@ From [`src/react/LockOpen16.js`](icons/src/react/LockOpen16.js)
 
 ## SvgLockOpen24
 
-From [`src/react/LockOpen24.js`](icons/src/react/LockOpen24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgLogOut16
-
-From [`src/react/LogOut16.js`](icons/src/react/LogOut16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2791,15 +2672,11 @@ From [`src/react/LogOut16.js`](icons/src/react/LogOut16.js)
 
 ## SvgLogOut24
 
-From [`src/react/LogOut24.js`](icons/src/react/LogOut24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgMail16
-
-From [`src/react/Mail16.js`](icons/src/react/Mail16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2807,15 +2684,11 @@ From [`src/react/Mail16.js`](icons/src/react/Mail16.js)
 
 ## SvgMail24
 
-From [`src/react/Mail24.js`](icons/src/react/Mail24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgMailOpen16
-
-From [`src/react/MailOpen16.js`](icons/src/react/MailOpen16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2823,15 +2696,11 @@ From [`src/react/MailOpen16.js`](icons/src/react/MailOpen16.js)
 
 ## SvgMailOpen24
 
-From [`src/react/MailOpen24.js`](icons/src/react/MailOpen24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgMessages16
-
-From [`src/react/Messages16.js`](icons/src/react/Messages16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2839,15 +2708,11 @@ From [`src/react/Messages16.js`](icons/src/react/Messages16.js)
 
 ## SvgMessages24
 
-From [`src/react/Messages24.js`](icons/src/react/Messages24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgMore16
-
-From [`src/react/More16.js`](icons/src/react/More16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2855,15 +2720,11 @@ From [`src/react/More16.js`](icons/src/react/More16.js)
 
 ## SvgMore24
 
-From [`src/react/More24.js`](icons/src/react/More24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgMove16
-
-From [`src/react/Move16.js`](icons/src/react/Move16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2871,15 +2732,11 @@ From [`src/react/Move16.js`](icons/src/react/Move16.js)
 
 ## SvgMove24
 
-From [`src/react/Move24.js`](icons/src/react/Move24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgPushLeft16
-
-From [`src/react/PushLeft16.js`](icons/src/react/PushLeft16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2887,15 +2744,11 @@ From [`src/react/PushLeft16.js`](icons/src/react/PushLeft16.js)
 
 ## SvgPushLeft24
 
-From [`src/react/PushLeft24.js`](icons/src/react/PushLeft24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgPushRight16
-
-From [`src/react/PushRight16.js`](icons/src/react/PushRight16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2903,15 +2756,11 @@ From [`src/react/PushRight16.js`](icons/src/react/PushRight16.js)
 
 ## SvgPushRight24
 
-From [`src/react/PushRight24.js`](icons/src/react/PushRight24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgQuestion16
-
-From [`src/react/Question16.js`](icons/src/react/Question16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2919,15 +2768,11 @@ From [`src/react/Question16.js`](icons/src/react/Question16.js)
 
 ## SvgQuestion24
 
-From [`src/react/Question24.js`](icons/src/react/Question24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgQuestionFilled16
-
-From [`src/react/QuestionFilled16.js`](icons/src/react/QuestionFilled16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2935,15 +2780,11 @@ From [`src/react/QuestionFilled16.js`](icons/src/react/QuestionFilled16.js)
 
 ## SvgQuestionFilled24
 
-From [`src/react/QuestionFilled24.js`](icons/src/react/QuestionFilled24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgQueue16
-
-From [`src/react/Queue16.js`](icons/src/react/Queue16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2951,15 +2792,11 @@ From [`src/react/Queue16.js`](icons/src/react/Queue16.js)
 
 ## SvgQueue24
 
-From [`src/react/Queue24.js`](icons/src/react/Queue24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgRedo16
-
-From [`src/react/Redo16.js`](icons/src/react/Redo16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2967,15 +2804,11 @@ From [`src/react/Redo16.js`](icons/src/react/Redo16.js)
 
 ## SvgRedo24
 
-From [`src/react/Redo24.js`](icons/src/react/Redo24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgReorder16
-
-From [`src/react/Reorder16.js`](icons/src/react/Reorder16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2983,15 +2816,11 @@ From [`src/react/Reorder16.js`](icons/src/react/Reorder16.js)
 
 ## SvgReorder24
 
-From [`src/react/Reorder24.js`](icons/src/react/Reorder24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgReply16
-
-From [`src/react/Reply16.js`](icons/src/react/Reply16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2999,15 +2828,11 @@ From [`src/react/Reply16.js`](icons/src/react/Reply16.js)
 
 ## SvgReply24
 
-From [`src/react/Reply24.js`](icons/src/react/Reply24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgRuler16
-
-From [`src/react/Ruler16.js`](icons/src/react/Ruler16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3015,15 +2840,11 @@ From [`src/react/Ruler16.js`](icons/src/react/Ruler16.js)
 
 ## SvgRuler24
 
-From [`src/react/Ruler24.js`](icons/src/react/Ruler24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgSave16
-
-From [`src/react/Save16.js`](icons/src/react/Save16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3031,15 +2852,11 @@ From [`src/react/Save16.js`](icons/src/react/Save16.js)
 
 ## SvgSave24
 
-From [`src/react/Save24.js`](icons/src/react/Save24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgSearch16
-
-From [`src/react/Search16.js`](icons/src/react/Search16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3047,15 +2864,11 @@ From [`src/react/Search16.js`](icons/src/react/Search16.js)
 
 ## SvgSearch24
 
-From [`src/react/Search24.js`](icons/src/react/Search24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgSettings16
-
-From [`src/react/Settings16.js`](icons/src/react/Settings16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3063,15 +2876,11 @@ From [`src/react/Settings16.js`](icons/src/react/Settings16.js)
 
 ## SvgSettings24
 
-From [`src/react/Settings24.js`](icons/src/react/Settings24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgShare16
-
-From [`src/react/Share16.js`](icons/src/react/Share16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3079,15 +2888,11 @@ From [`src/react/Share16.js`](icons/src/react/Share16.js)
 
 ## SvgShare24
 
-From [`src/react/Share24.js`](icons/src/react/Share24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgStar16
-
-From [`src/react/Star16.js`](icons/src/react/Star16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3095,15 +2900,11 @@ From [`src/react/Star16.js`](icons/src/react/Star16.js)
 
 ## SvgStar24
 
-From [`src/react/Star24.js`](icons/src/react/Star24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgStarFilled16
-
-From [`src/react/StarFilled16.js`](icons/src/react/StarFilled16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3111,15 +2912,11 @@ From [`src/react/StarFilled16.js`](icons/src/react/StarFilled16.js)
 
 ## SvgStarFilled24
 
-From [`src/react/StarFilled24.js`](icons/src/react/StarFilled24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgSubscribe16
-
-From [`src/react/Subscribe16.js`](icons/src/react/Subscribe16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3127,15 +2924,11 @@ From [`src/react/Subscribe16.js`](icons/src/react/Subscribe16.js)
 
 ## SvgSubscribe24
 
-From [`src/react/Subscribe24.js`](icons/src/react/Subscribe24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgSubscribeOff16
-
-From [`src/react/SubscribeOff16.js`](icons/src/react/SubscribeOff16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3143,15 +2936,11 @@ From [`src/react/SubscribeOff16.js`](icons/src/react/SubscribeOff16.js)
 
 ## SvgSubscribeOff24
 
-From [`src/react/SubscribeOff24.js`](icons/src/react/SubscribeOff24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgSubtractCircle16
-
-From [`src/react/SubtractCircle16.js`](icons/src/react/SubtractCircle16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3159,15 +2948,11 @@ From [`src/react/SubtractCircle16.js`](icons/src/react/SubtractCircle16.js)
 
 ## SvgSubtractCircle24
 
-From [`src/react/SubtractCircle24.js`](icons/src/react/SubtractCircle24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgSync16
-
-From [`src/react/Sync16.js`](icons/src/react/Sync16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3175,15 +2960,11 @@ From [`src/react/Sync16.js`](icons/src/react/Sync16.js)
 
 ## SvgSync24
 
-From [`src/react/Sync24.js`](icons/src/react/Sync24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgTable16
-
-From [`src/react/Table16.js`](icons/src/react/Table16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3191,15 +2972,11 @@ From [`src/react/Table16.js`](icons/src/react/Table16.js)
 
 ## SvgTable24
 
-From [`src/react/Table24.js`](icons/src/react/Table24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgTerminalWindow16
-
-From [`src/react/TerminalWindow16.js`](icons/src/react/TerminalWindow16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3207,15 +2984,11 @@ From [`src/react/TerminalWindow16.js`](icons/src/react/TerminalWindow16.js)
 
 ## SvgTerminalWindow24
 
-From [`src/react/TerminalWindow24.js`](icons/src/react/TerminalWindow24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgTextBold16
-
-From [`src/react/TextBold16.js`](icons/src/react/TextBold16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3223,15 +2996,11 @@ From [`src/react/TextBold16.js`](icons/src/react/TextBold16.js)
 
 ## SvgTextBold24
 
-From [`src/react/TextBold24.js`](icons/src/react/TextBold24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgTextBox16
-
-From [`src/react/TextBox16.js`](icons/src/react/TextBox16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3239,15 +3008,11 @@ From [`src/react/TextBox16.js`](icons/src/react/TextBox16.js)
 
 ## SvgTextBox24
 
-From [`src/react/TextBox24.js`](icons/src/react/TextBox24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgTextHeading16
-
-From [`src/react/TextHeading16.js`](icons/src/react/TextHeading16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3255,15 +3020,11 @@ From [`src/react/TextHeading16.js`](icons/src/react/TextHeading16.js)
 
 ## SvgTextHeading24
 
-From [`src/react/TextHeading24.js`](icons/src/react/TextHeading24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgTextItalic16
-
-From [`src/react/TextItalic16.js`](icons/src/react/TextItalic16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3271,15 +3032,11 @@ From [`src/react/TextItalic16.js`](icons/src/react/TextItalic16.js)
 
 ## SvgTextItalic24
 
-From [`src/react/TextItalic24.js`](icons/src/react/TextItalic24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgTextListOrdered16
-
-From [`src/react/TextListOrdered16.js`](icons/src/react/TextListOrdered16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3287,15 +3044,11 @@ From [`src/react/TextListOrdered16.js`](icons/src/react/TextListOrdered16.js)
 
 ## SvgTextListOrdered24
 
-From [`src/react/TextListOrdered24.js`](icons/src/react/TextListOrdered24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgTextListUnordered16
-
-From [`src/react/TextListUnordered16.js`](icons/src/react/TextListUnordered16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3303,15 +3056,11 @@ From [`src/react/TextListUnordered16.js`](icons/src/react/TextListUnordered16.js
 
 ## SvgTextListUnordered24
 
-From [`src/react/TextListUnordered24.js`](icons/src/react/TextListUnordered24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgThumbDown16
-
-From [`src/react/ThumbDown16.js`](icons/src/react/ThumbDown16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3319,15 +3068,11 @@ From [`src/react/ThumbDown16.js`](icons/src/react/ThumbDown16.js)
 
 ## SvgThumbDown24
 
-From [`src/react/ThumbDown24.js`](icons/src/react/ThumbDown24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgThumbUp16
-
-From [`src/react/ThumbUp16.js`](icons/src/react/ThumbUp16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3335,15 +3080,11 @@ From [`src/react/ThumbUp16.js`](icons/src/react/ThumbUp16.js)
 
 ## SvgThumbUp24
 
-From [`src/react/ThumbUp24.js`](icons/src/react/ThumbUp24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgTranslate16
-
-From [`src/react/Translate16.js`](icons/src/react/Translate16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3351,15 +3092,11 @@ From [`src/react/Translate16.js`](icons/src/react/Translate16.js)
 
 ## SvgTranslate24
 
-From [`src/react/Translate24.js`](icons/src/react/Translate24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgUndo16
-
-From [`src/react/Undo16.js`](icons/src/react/Undo16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3367,15 +3104,11 @@ From [`src/react/Undo16.js`](icons/src/react/Undo16.js)
 
 ## SvgUndo24
 
-From [`src/react/Undo24.js`](icons/src/react/Undo24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgUpload16
-
-From [`src/react/Upload16.js`](icons/src/react/Upload16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3383,15 +3116,11 @@ From [`src/react/Upload16.js`](icons/src/react/Upload16.js)
 
 ## SvgUpload24
 
-From [`src/react/Upload24.js`](icons/src/react/Upload24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgUser16
-
-From [`src/react/User16.js`](icons/src/react/User16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3399,15 +3128,11 @@ From [`src/react/User16.js`](icons/src/react/User16.js)
 
 ## SvgUser24
 
-From [`src/react/User24.js`](icons/src/react/User24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgUserGroup16
-
-From [`src/react/UserGroup16.js`](icons/src/react/UserGroup16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3415,15 +3140,11 @@ From [`src/react/UserGroup16.js`](icons/src/react/UserGroup16.js)
 
 ## SvgUserGroup24
 
-From [`src/react/UserGroup24.js`](icons/src/react/UserGroup24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgView16
-
-From [`src/react/View16.js`](icons/src/react/View16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3431,15 +3152,11 @@ From [`src/react/View16.js`](icons/src/react/View16.js)
 
 ## SvgView24
 
-From [`src/react/View24.js`](icons/src/react/View24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgViewOff16
-
-From [`src/react/ViewOff16.js`](icons/src/react/ViewOff16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3447,15 +3164,11 @@ From [`src/react/ViewOff16.js`](icons/src/react/ViewOff16.js)
 
 ## SvgViewOff24
 
-From [`src/react/ViewOff24.js`](icons/src/react/ViewOff24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgVisualizationArea16
-
-From [`src/react/VisualizationArea16.js`](icons/src/react/VisualizationArea16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3463,15 +3176,11 @@ From [`src/react/VisualizationArea16.js`](icons/src/react/VisualizationArea16.js
 
 ## SvgVisualizationArea24
 
-From [`src/react/VisualizationArea24.js`](icons/src/react/VisualizationArea24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgVisualizationAreaStacked16
-
-From [`src/react/VisualizationAreaStacked16.js`](icons/src/react/VisualizationAreaStacked16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3479,15 +3188,11 @@ From [`src/react/VisualizationAreaStacked16.js`](icons/src/react/VisualizationAr
 
 ## SvgVisualizationAreaStacked24
 
-From [`src/react/VisualizationAreaStacked24.js`](icons/src/react/VisualizationAreaStacked24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgVisualizationBar16
-
-From [`src/react/VisualizationBar16.js`](icons/src/react/VisualizationBar16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3495,15 +3200,11 @@ From [`src/react/VisualizationBar16.js`](icons/src/react/VisualizationBar16.js)
 
 ## SvgVisualizationBar24
 
-From [`src/react/VisualizationBar24.js`](icons/src/react/VisualizationBar24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgVisualizationBarStacked16
-
-From [`src/react/VisualizationBarStacked16.js`](icons/src/react/VisualizationBarStacked16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3511,15 +3212,11 @@ From [`src/react/VisualizationBarStacked16.js`](icons/src/react/VisualizationBar
 
 ## SvgVisualizationBarStacked24
 
-From [`src/react/VisualizationBarStacked24.js`](icons/src/react/VisualizationBarStacked24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgVisualizationColumn16
-
-From [`src/react/VisualizationColumn16.js`](icons/src/react/VisualizationColumn16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3527,15 +3224,11 @@ From [`src/react/VisualizationColumn16.js`](icons/src/react/VisualizationColumn1
 
 ## SvgVisualizationColumn24
 
-From [`src/react/VisualizationColumn24.js`](icons/src/react/VisualizationColumn24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgVisualizationColumnMulti16
-
-From [`src/react/VisualizationColumnMulti16.js`](icons/src/react/VisualizationColumnMulti16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3543,15 +3236,11 @@ From [`src/react/VisualizationColumnMulti16.js`](icons/src/react/VisualizationCo
 
 ## SvgVisualizationColumnMulti24
 
-From [`src/react/VisualizationColumnMulti24.js`](icons/src/react/VisualizationColumnMulti24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgVisualizationColumnStacked16
-
-From [`src/react/VisualizationColumnStacked16.js`](icons/src/react/VisualizationColumnStacked16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3559,15 +3248,11 @@ From [`src/react/VisualizationColumnStacked16.js`](icons/src/react/Visualization
 
 ## SvgVisualizationColumnStacked24
 
-From [`src/react/VisualizationColumnStacked24.js`](icons/src/react/VisualizationColumnStacked24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgVisualizationGauge16
-
-From [`src/react/VisualizationGauge16.js`](icons/src/react/VisualizationGauge16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3575,15 +3260,11 @@ From [`src/react/VisualizationGauge16.js`](icons/src/react/VisualizationGauge16.
 
 ## SvgVisualizationGauge24
 
-From [`src/react/VisualizationGauge24.js`](icons/src/react/VisualizationGauge24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgVisualizationLine16
-
-From [`src/react/VisualizationLine16.js`](icons/src/react/VisualizationLine16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3591,15 +3272,11 @@ From [`src/react/VisualizationLine16.js`](icons/src/react/VisualizationLine16.js
 
 ## SvgVisualizationLine24
 
-From [`src/react/VisualizationLine24.js`](icons/src/react/VisualizationLine24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgVisualizationLineMulti16
-
-From [`src/react/VisualizationLineMulti16.js`](icons/src/react/VisualizationLineMulti16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3607,15 +3284,11 @@ From [`src/react/VisualizationLineMulti16.js`](icons/src/react/VisualizationLine
 
 ## SvgVisualizationLineMulti24
 
-From [`src/react/VisualizationLineMulti24.js`](icons/src/react/VisualizationLineMulti24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgVisualizationPie16
-
-From [`src/react/VisualizationPie16.js`](icons/src/react/VisualizationPie16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3623,15 +3296,11 @@ From [`src/react/VisualizationPie16.js`](icons/src/react/VisualizationPie16.js)
 
 ## SvgVisualizationPie24
 
-From [`src/react/VisualizationPie24.js`](icons/src/react/VisualizationPie24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgVisualizationRadar16
-
-From [`src/react/VisualizationRadar16.js`](icons/src/react/VisualizationRadar16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3639,15 +3308,11 @@ From [`src/react/VisualizationRadar16.js`](icons/src/react/VisualizationRadar16.
 
 ## SvgVisualizationRadar24
 
-From [`src/react/VisualizationRadar24.js`](icons/src/react/VisualizationRadar24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgVisualizationScatter16
-
-From [`src/react/VisualizationScatter16.js`](icons/src/react/VisualizationScatter16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3655,15 +3320,11 @@ From [`src/react/VisualizationScatter16.js`](icons/src/react/VisualizationScatte
 
 ## SvgVisualizationScatter24
 
-From [`src/react/VisualizationScatter24.js`](icons/src/react/VisualizationScatter24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgVisualizationSingleValue16
-
-From [`src/react/VisualizationSingleValue16.js`](icons/src/react/VisualizationSingleValue16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3671,15 +3332,11 @@ From [`src/react/VisualizationSingleValue16.js`](icons/src/react/VisualizationSi
 
 ## SvgVisualizationSingleValue24
 
-From [`src/react/VisualizationSingleValue24.js`](icons/src/react/VisualizationSingleValue24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgWarning16
-
-From [`src/react/Warning16.js`](icons/src/react/Warning16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3687,15 +3344,11 @@ From [`src/react/Warning16.js`](icons/src/react/Warning16.js)
 
 ## SvgWarning24
 
-From [`src/react/Warning24.js`](icons/src/react/Warning24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgWarningFilled16
-
-From [`src/react/WarningFilled16.js`](icons/src/react/WarningFilled16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3703,15 +3356,11 @@ From [`src/react/WarningFilled16.js`](icons/src/react/WarningFilled16.js)
 
 ## SvgWarningFilled24
 
-From [`src/react/WarningFilled24.js`](icons/src/react/WarningFilled24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgWindow16
-
-From [`src/react/Window16.js`](icons/src/react/Window16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3719,23 +3368,17 @@ From [`src/react/Window16.js`](icons/src/react/Window16.js)
 
 ## SvgWindow24
 
-From [`src/react/Window24.js`](icons/src/react/Window24.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgWorld16
 
-From [`src/react/World16.js`](icons/src/react/World16.js)
-
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
 
 ## SvgWorld24
-
-From [`src/react/World24.js`](icons/src/react/World24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
