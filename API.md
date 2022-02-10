@@ -1718,7 +1718,11 @@ import { SegmentedControl } from '@dhis2/ui'
 | **options[].value**    |     `String`     |         | :white_check_mark: |
 | **selected**           |     `String`     |         | :white_check_mark: | An option to select; should match the `value` property of the option to be selected |
 
+[:top:](#)
+
 # @dhis2/ui-constants
+
+[:top:](#)
 
 # @dhis2/ui-forms
 
@@ -1870,6 +1874,8 @@ From [`src/FieldGroupFF/FieldGroupFF.js`](/home/varl/dev/dhis2/libs/ui/collectio
 | **label**    |  `String`   |         |   :x:    |
 | **name**     |  `String`   |         |   :x:    |
 | **required** |  `Boolean`  |         |   :x:    |
+
+[:top:](#)
 
 # @dhis2/ui-icons
 
@@ -3390,3 +3396,5 @@ From [`src/FieldGroupFF/FieldGroupFF.js`](/home/varl/dev/dhis2/libs/ui/collectio
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
 | **color** | `String` |         |   :x:    |
+
+[:top:](#)
