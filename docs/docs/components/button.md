@@ -121,8 +121,10 @@ Buttons are available in different sizes. Use the size that matches the usage gu
 ### Toggle button
 
 <Demo>
-    <Button icon={<IconCheckmark24/>}></Button>
-    <Button icon={<IconCheckmark24/>} toggled></Button>
+    <div className='stacked-examples-horizontal'>
+        <Button icon={<IconCheckmark24/>}></Button>
+        <Button icon={<IconCheckmark24/>} toggled></Button>
+    </div>
 </Demo>
 
 -   Represents an on/off state.
@@ -133,8 +135,10 @@ Buttons are available in different sizes. Use the size that matches the usage gu
 ### Icon
 
 <Demo>
-    <Button icon={<IconCheckmark24/>}>Mark as complete</Button>
-    <Button icon={<IconCheckmark24/>}></Button>
+    <div className='stacked-examples-horizontal'>
+        <Button icon={<IconCheckmark24/>}>Mark as complete</Button>
+        <Button icon={<IconCheckmark24/>}></Button>
+    </div>
 </Demo>
 
 -   Buttons can have an optional icon alongside the text label.

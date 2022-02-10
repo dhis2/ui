@@ -35,11 +35,13 @@ An avatar is a visual icon that represents a user.
 #### Size
 
 <Demo>
-    <UserAvatar extrasmall name="Example Person"/>
-    <UserAvatar  name="Example Person"/>
-    <UserAvatar medium name="Example Person"/>
-    <UserAvatar large name="Example Person"/>
-    <UserAvatar extralarge name="Example Person"/>
+    <div className='stacked-examples-horizontal'>
+        <UserAvatar extrasmall name="Example Person"/>
+        <UserAvatar small name="Example Person"/>
+        <UserAvatar medium name="Example Person"/>
+        <UserAvatar large name="Example Person"/>
+        <UserAvatar extralarge name="Example Person"/>
+    </div>
 </Demo>
 
 Avatars are available in different sizes. Use the size that works best for the space available and the context.

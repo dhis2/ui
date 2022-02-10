@@ -208,3 +208,14 @@ footer {
     text-align: left;
     font-size: 0.8125rem;
 }
+
+/* examples */
+.stacked-examples-horizontal {
+    display: flex;
+    gap: 8px;
+}
+.stacked-examples-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}

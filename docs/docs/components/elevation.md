@@ -3,7 +3,7 @@ title: Elevation
 ---
 
 import { Demo } from '../../src/components/DemoComponent.jsx'
-import { Box, CssVariables } from '@dhis2/ui'
+import { CssVariables } from '@dhis2/ui'
 
 # Elevation
 
@@ -31,12 +31,12 @@ Elevation is used to create and communicate depth in an interface.
 
 <Demo>
     <CssVariables elevations/>
-    <Box>
-    <div style={{background: 'white', boxShadow: 'var(--elevations-e100', display: 'inline-block', padding: '16px', marginRight: '16px', fontFamily: 'monospace'}}>e100</div>
-    <div style={{background: 'white', boxShadow: 'var(--elevations-e200', display: 'inline-block', padding: '16px', marginRight: '16px', fontFamily: 'monospace'}}>e200</div>
-    <div style={{background: 'white', boxShadow: 'var(--elevations-e300', display: 'inline-block', padding: '16px', marginRight: '16px', fontFamily: 'monospace'}}>e300</div>
-    <div style={{background: 'white', boxShadow: 'var(--elevations-e400', display: 'inline-block', padding: '16px', marginRight: '16px', fontFamily: 'monospace'}}>e400</div>
-    </Box>
+    <div className='stacked-examples-horizontal'>
+        <div style={{background: 'white', boxShadow: 'var(--elevations-e100', display: 'inline-block', padding: '16px', marginRight: '16px', fontFamily: 'monospace'}}>e100</div>
+        <div style={{background: 'white', boxShadow: 'var(--elevations-e200', display: 'inline-block', padding: '16px', marginRight: '16px', fontFamily: 'monospace'}}>e200</div>
+        <div style={{background: 'white', boxShadow: 'var(--elevations-e300', display: 'inline-block', padding: '16px', marginRight: '16px', fontFamily: 'monospace'}}>e300</div>
+        <div style={{background: 'white', boxShadow: 'var(--elevations-e400', display: 'inline-block', padding: '16px', marginRight: '16px', fontFamily: 'monospace'}}>e400</div>
+    </div>
 </Demo>
 
 -   There are four levels of elevation: `e100`, `e200`, `e300`, `e400`.

@@ -9,7 +9,9 @@ import { Chip, Tag, IconError16, IconCheckmarkCircle16 } from '@dhis2/ui'
 
 Tags are used to label items by a set of shared properties, like category or status.
 
-<Tag>Tag label</Tag>
+<Demo>
+    <Tag>Tag label</Tag>
+</Demo>
 
 ## Usage
 
@@ -41,8 +43,12 @@ Tags are used to label items by a set of shared properties, like category or sta
 
 ### Icon
 
-<Tag icon={<IconCheckmarkCircle16/>} positive>Passed</Tag>
-<Tag icon={<IconError16/>} negative>Failed</Tag>
+<Demo>
+    <div className='stacked-examples-horizontal'>
+        <Tag icon={<IconCheckmarkCircle16/>} positive>Passed</Tag>
+        <Tag icon={<IconError16/>} negative>Failed</Tag>
+    </div>
+</Demo>
 
 -   A tag can show an icon before the text label.
 -   Use icons to support the text label by providing context or a visual reference.
@@ -50,10 +56,14 @@ Tags are used to label items by a set of shared properties, like category or sta
 
 ### Bold
 
-<Tag bold>Tag label</Tag>
-<Tag bold neutral>Tag label</Tag>
-<Tag bold positive>Tag label</Tag>
-<Tag bold negative>Tag label</Tag>
+<Demo>
+    <div className='stacked-examples-horizontal'>
+        <Tag bold>Tag label</Tag>
+        <Tag bold neutral>Tag label</Tag>
+        <Tag bold positive>Tag label</Tag>
+        <Tag bold negative>Tag label</Tag>
+    </div>
+</Demo>
 
 -   Use bold tags where it's important the information is noticed by a user.
 -   Don't overuse bold tags, only use them when the information is important.

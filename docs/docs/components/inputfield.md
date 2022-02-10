@@ -65,8 +65,10 @@ An input is used to enter data, like text or a number.
 #### Size
 
 <Demo>
-    <InputField value="Malaria Registration" label="Program name" />
-    <InputField value="Malaria Registration" label="Program name" dense />
+    <div className='stacked-examples-vertical'>
+        <InputField value="Malaria Registration" label="Program name" />
+        <InputField value="Malaria Registration" label="Program name" dense />
+    </div>
 </Demo>
 
 -   Inputs are available in two sizes, regular and `dense`. Regular sized inputs are useful when there's space available. Use `dense` sized inputs in compact, information-dense interfaces.
@@ -74,8 +76,10 @@ An input is used to enter data, like text or a number.
 #### Width
 
 <Demo>
-    <InputField label="Address" inputWidth="400px" />
-    <InputField label="Number of district clinics" inputWidth="120px" type="number" />
+    <div className='stacked-examples-vertical'>
+        <InputField label="Address" inputWidth="400px" />
+        <InputField label="Number of district clinics" inputWidth="120px" type="number" />
+    </div>
 </Demo>
 
 -   Inputs width should reflect the expected content.

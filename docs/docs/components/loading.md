@@ -54,10 +54,12 @@ Loaders are used to show that something is in progress. They keep users informed
 #### Size
 
 <Demo>
-    <CircularLoader extrasmall />
-    <CircularLoader small/>
-    <CircularLoader />
-    <CircularLoader large />
+    <div className='stacked-examples-vertical'>
+        <CircularLoader extrasmall />
+        <CircularLoader small/>
+        <CircularLoader />
+        <CircularLoader large />
+    </div>
 </Demo>
 
 -   Circular loaders are available in four sizes.
@@ -72,8 +74,8 @@ Loaders are used to show that something is in progress. They keep users informed
         backgroundColor: '#999',
         padding: '8px',
     }}>
-    <CircularLoader invert />
-    <LinearLoader amount="25" invert />
+        <CircularLoader invert />
+        <LinearLoader amount="25" invert />
     </div>
 </Demo>
 

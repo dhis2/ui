@@ -55,14 +55,16 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
 ##### Size
 
 <Demo>
-    <FlyoutMenu>
-        <MenuItem label="Menu item label" />
-        <MenuItem label="Menu item label" />
-    </FlyoutMenu>
-    <FlyoutMenu>
-        <MenuItem dense label="Menu item label" />
-        <MenuItem dense label="Menu item label" />
-    </FlyoutMenu>
+    <div className='stacked-examples-horizontal'>
+        <FlyoutMenu>
+            <MenuItem label="Menu item label" />
+            <MenuItem label="Menu item label" />
+        </FlyoutMenu>
+        <FlyoutMenu>
+            <MenuItem dense label="Menu item label" />
+            <MenuItem dense label="Menu item label" />
+        </FlyoutMenu>
+    </div>
 </Demo>
 
 -   Menu items are available in two sizes, regular and `dense`.
@@ -91,7 +93,6 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
         <MenuSectionHeader label="Actions"/>
         <MenuItem label="Add to program" />
         <MenuItem label="Add to stage" />
-        <MenuDivider />
         <MenuSectionHeader label="Other"/>
         <MenuItem label="Analyze data" />
         <MenuItem label="Run integrity check" />
