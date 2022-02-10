@@ -1,9 +1,9 @@
 Jump:
 
--   [@dhis2/ui](#@dhis2/ui)
--   [@dhis2/ui-constants](#@dhis2/ui-constants)
--   [@dhis2/ui-forms](#@dhis2/ui-forms)
--   [@dhis2/ui-icons](#@dhis2/ui-icons)
+-   [@dhis2/ui](#@dhis2ui)
+-   [@dhis2/ui-constants](#@dhis2ui-constants)
+-   [@dhis2/ui-forms](#@dhis2ui-forms)
+-   [@dhis2/ui-icons](#@dhis2ui-icons)
 
 # @dhis2/ui
 
