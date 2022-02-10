@@ -1719,7 +1719,7 @@ import { SegmentedControl } from '@dhis2/ui'
 
 ## SvgAdd16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Add16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Add16.js)
+From [`src/react/Add16.js`](icons/src/react/Add16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1727,7 +1727,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Add16.js`](/home/varl/dev/dh
 
 ## SvgAdd24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Add24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Add24.js)
+From [`src/react/Add24.js`](icons/src/react/Add24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1735,7 +1735,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Add24.js`](/home/varl/dev/dh
 
 ## SvgAddCircle16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/AddCircle16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/AddCircle16.js)
+From [`src/react/AddCircle16.js`](icons/src/react/AddCircle16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1743,7 +1743,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/AddCircle16.js`](/home/varl/
 
 ## SvgAddCircle24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/AddCircle24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/AddCircle24.js)
+From [`src/react/AddCircle24.js`](icons/src/react/AddCircle24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1751,7 +1751,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/AddCircle24.js`](/home/varl/
 
 ## SvgApps16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Apps16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Apps16.js)
+From [`src/react/Apps16.js`](icons/src/react/Apps16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1759,7 +1759,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Apps16.js`](/home/varl/dev/d
 
 ## SvgApps24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Apps24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Apps24.js)
+From [`src/react/Apps24.js`](icons/src/react/Apps24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1767,7 +1767,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Apps24.js`](/home/varl/dev/d
 
 ## SvgArchive16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Archive16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Archive16.js)
+From [`src/react/Archive16.js`](icons/src/react/Archive16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1775,7 +1775,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Archive16.js`](/home/varl/de
 
 ## SvgArchive24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Archive24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Archive24.js)
+From [`src/react/Archive24.js`](icons/src/react/Archive24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1783,7 +1783,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Archive24.js`](/home/varl/de
 
 ## SvgArrowDown16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowDown16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowDown16.js)
+From [`src/react/ArrowDown16.js`](icons/src/react/ArrowDown16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1791,7 +1791,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowDown16.js`](/home/varl/
 
 ## SvgArrowDown24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowDown24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowDown24.js)
+From [`src/react/ArrowDown24.js`](icons/src/react/ArrowDown24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1799,7 +1799,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowDown24.js`](/home/varl/
 
 ## SvgArrowLeft16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowLeft16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowLeft16.js)
+From [`src/react/ArrowLeft16.js`](icons/src/react/ArrowLeft16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1807,7 +1807,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowLeft16.js`](/home/varl/
 
 ## SvgArrowLeft24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowLeft24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowLeft24.js)
+From [`src/react/ArrowLeft24.js`](icons/src/react/ArrowLeft24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1815,7 +1815,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowLeft24.js`](/home/varl/
 
 ## SvgArrowLeftMulti16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowLeftMulti16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowLeftMulti16.js)
+From [`src/react/ArrowLeftMulti16.js`](icons/src/react/ArrowLeftMulti16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1823,7 +1823,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowLeftMulti16.js`](/home/
 
 ## SvgArrowLeftMulti24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowLeftMulti24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowLeftMulti24.js)
+From [`src/react/ArrowLeftMulti24.js`](icons/src/react/ArrowLeftMulti24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1831,7 +1831,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowLeftMulti24.js`](/home/
 
 ## SvgArrowRight16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowRight16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowRight16.js)
+From [`src/react/ArrowRight16.js`](icons/src/react/ArrowRight16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1839,7 +1839,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowRight16.js`](/home/varl
 
 ## SvgArrowRight24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowRight24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowRight24.js)
+From [`src/react/ArrowRight24.js`](icons/src/react/ArrowRight24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1847,7 +1847,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowRight24.js`](/home/varl
 
 ## SvgArrowRightMulti16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowRightMulti16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowRightMulti16.js)
+From [`src/react/ArrowRightMulti16.js`](icons/src/react/ArrowRightMulti16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1855,7 +1855,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowRightMulti16.js`](/home
 
 ## SvgArrowRightMulti24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowRightMulti24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowRightMulti24.js)
+From [`src/react/ArrowRightMulti24.js`](icons/src/react/ArrowRightMulti24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1863,7 +1863,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowRightMulti24.js`](/home
 
 ## SvgArrowUp16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowUp16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowUp16.js)
+From [`src/react/ArrowUp16.js`](icons/src/react/ArrowUp16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1871,7 +1871,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowUp16.js`](/home/varl/de
 
 ## SvgArrowUp24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowUp24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowUp24.js)
+From [`src/react/ArrowUp24.js`](icons/src/react/ArrowUp24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1879,7 +1879,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ArrowUp24.js`](/home/varl/de
 
 ## SvgAt16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/At16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/At16.js)
+From [`src/react/At16.js`](icons/src/react/At16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1887,7 +1887,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/At16.js`](/home/varl/dev/dhi
 
 ## SvgAt24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/At24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/At24.js)
+From [`src/react/At24.js`](icons/src/react/At24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1895,7 +1895,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/At24.js`](/home/varl/dev/dhi
 
 ## SvgAttachment16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Attachment16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Attachment16.js)
+From [`src/react/Attachment16.js`](icons/src/react/Attachment16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1903,7 +1903,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Attachment16.js`](/home/varl
 
 ## SvgAttachment24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Attachment24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Attachment24.js)
+From [`src/react/Attachment24.js`](icons/src/react/Attachment24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1911,7 +1911,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Attachment24.js`](/home/varl
 
 ## SvgBlock16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Block16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Block16.js)
+From [`src/react/Block16.js`](icons/src/react/Block16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1919,7 +1919,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Block16.js`](/home/varl/dev/
 
 ## SvgBlock24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Block24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Block24.js)
+From [`src/react/Block24.js`](icons/src/react/Block24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1927,7 +1927,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Block24.js`](/home/varl/dev/
 
 ## SvgCalendar16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Calendar16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Calendar16.js)
+From [`src/react/Calendar16.js`](icons/src/react/Calendar16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1935,7 +1935,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Calendar16.js`](/home/varl/d
 
 ## SvgCalendar24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Calendar24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Calendar24.js)
+From [`src/react/Calendar24.js`](icons/src/react/Calendar24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1943,7 +1943,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Calendar24.js`](/home/varl/d
 
 ## SvgCheckmark12
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Checkmark12.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Checkmark12.js)
+From [`src/react/Checkmark12.js`](icons/src/react/Checkmark12.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1951,7 +1951,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Checkmark12.js`](/home/varl/
 
 ## SvgCheckmark16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Checkmark16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Checkmark16.js)
+From [`src/react/Checkmark16.js`](icons/src/react/Checkmark16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1959,7 +1959,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Checkmark16.js`](/home/varl/
 
 ## SvgCheckmark24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Checkmark24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Checkmark24.js)
+From [`src/react/Checkmark24.js`](icons/src/react/Checkmark24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1967,7 +1967,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Checkmark24.js`](/home/varl/
 
 ## SvgCheckmarkCircle16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/CheckmarkCircle16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/CheckmarkCircle16.js)
+From [`src/react/CheckmarkCircle16.js`](icons/src/react/CheckmarkCircle16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1975,7 +1975,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/CheckmarkCircle16.js`](/home
 
 ## SvgCheckmarkCircle24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/CheckmarkCircle24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/CheckmarkCircle24.js)
+From [`src/react/CheckmarkCircle24.js`](icons/src/react/CheckmarkCircle24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1983,7 +1983,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/CheckmarkCircle24.js`](/home
 
 ## SvgChevronDown16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ChevronDown16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ChevronDown16.js)
+From [`src/react/ChevronDown16.js`](icons/src/react/ChevronDown16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1991,7 +1991,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ChevronDown16.js`](/home/var
 
 ## SvgChevronDown24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ChevronDown24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ChevronDown24.js)
+From [`src/react/ChevronDown24.js`](icons/src/react/ChevronDown24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -1999,7 +1999,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ChevronDown24.js`](/home/var
 
 ## SvgChevronLeft16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ChevronLeft16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ChevronLeft16.js)
+From [`src/react/ChevronLeft16.js`](icons/src/react/ChevronLeft16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2007,7 +2007,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ChevronLeft16.js`](/home/var
 
 ## SvgChevronLeft24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ChevronLeft24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ChevronLeft24.js)
+From [`src/react/ChevronLeft24.js`](icons/src/react/ChevronLeft24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2015,7 +2015,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ChevronLeft24.js`](/home/var
 
 ## SvgChevronRight16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ChevronRight16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ChevronRight16.js)
+From [`src/react/ChevronRight16.js`](icons/src/react/ChevronRight16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2023,7 +2023,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ChevronRight16.js`](/home/va
 
 ## SvgChevronRight24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ChevronRight24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ChevronRight24.js)
+From [`src/react/ChevronRight24.js`](icons/src/react/ChevronRight24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2031,7 +2031,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ChevronRight24.js`](/home/va
 
 ## SvgChevronUp16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ChevronUp16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ChevronUp16.js)
+From [`src/react/ChevronUp16.js`](icons/src/react/ChevronUp16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2039,7 +2039,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ChevronUp16.js`](/home/varl/
 
 ## SvgChevronUp24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ChevronUp24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ChevronUp24.js)
+From [`src/react/ChevronUp24.js`](icons/src/react/ChevronUp24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2047,7 +2047,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ChevronUp24.js`](/home/varl/
 
 ## SvgClock16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Clock16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Clock16.js)
+From [`src/react/Clock16.js`](icons/src/react/Clock16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2055,7 +2055,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Clock16.js`](/home/varl/dev/
 
 ## SvgClock24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Clock24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Clock24.js)
+From [`src/react/Clock24.js`](icons/src/react/Clock24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2063,7 +2063,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Clock24.js`](/home/varl/dev/
 
 ## SvgClockHistory16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ClockHistory16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ClockHistory16.js)
+From [`src/react/ClockHistory16.js`](icons/src/react/ClockHistory16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2071,7 +2071,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ClockHistory16.js`](/home/va
 
 ## SvgClockHistory24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ClockHistory24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ClockHistory24.js)
+From [`src/react/ClockHistory24.js`](icons/src/react/ClockHistory24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2079,7 +2079,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ClockHistory24.js`](/home/va
 
 ## SvgColor16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Color16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Color16.js)
+From [`src/react/Color16.js`](icons/src/react/Color16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2087,7 +2087,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Color16.js`](/home/varl/dev/
 
 ## SvgColor24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Color24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Color24.js)
+From [`src/react/Color24.js`](icons/src/react/Color24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2095,7 +2095,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Color24.js`](/home/varl/dev/
 
 ## SvgCopy16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Copy16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Copy16.js)
+From [`src/react/Copy16.js`](icons/src/react/Copy16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2103,7 +2103,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Copy16.js`](/home/varl/dev/d
 
 ## SvgCopy24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Copy24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Copy24.js)
+From [`src/react/Copy24.js`](icons/src/react/Copy24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2111,7 +2111,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Copy24.js`](/home/varl/dev/d
 
 ## SvgCross16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Cross16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Cross16.js)
+From [`src/react/Cross16.js`](icons/src/react/Cross16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2119,7 +2119,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Cross16.js`](/home/varl/dev/
 
 ## SvgCross24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Cross24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Cross24.js)
+From [`src/react/Cross24.js`](icons/src/react/Cross24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2127,7 +2127,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Cross24.js`](/home/varl/dev/
 
 ## SvgDashboardWindow16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DashboardWindow16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/DashboardWindow16.js)
+From [`src/react/DashboardWindow16.js`](icons/src/react/DashboardWindow16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2135,7 +2135,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DashboardWindow16.js`](/home
 
 ## SvgDashboardWindow24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DashboardWindow24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/DashboardWindow24.js)
+From [`src/react/DashboardWindow24.js`](icons/src/react/DashboardWindow24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2143,7 +2143,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DashboardWindow24.js`](/home
 
 ## SvgDataInteger16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DataInteger16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/DataInteger16.js)
+From [`src/react/DataInteger16.js`](icons/src/react/DataInteger16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2151,7 +2151,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DataInteger16.js`](/home/var
 
 ## SvgDataInteger24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DataInteger24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/DataInteger24.js)
+From [`src/react/DataInteger24.js`](icons/src/react/DataInteger24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2159,7 +2159,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DataInteger24.js`](/home/var
 
 ## SvgDataString16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DataString16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/DataString16.js)
+From [`src/react/DataString16.js`](icons/src/react/DataString16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2167,7 +2167,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DataString16.js`](/home/varl
 
 ## SvgDataString24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DataString24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/DataString24.js)
+From [`src/react/DataString24.js`](icons/src/react/DataString24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2175,7 +2175,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DataString24.js`](/home/varl
 
 ## SvgDelete16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Delete16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Delete16.js)
+From [`src/react/Delete16.js`](icons/src/react/Delete16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2183,7 +2183,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Delete16.js`](/home/varl/dev
 
 ## SvgDelete24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Delete24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Delete24.js)
+From [`src/react/Delete24.js`](icons/src/react/Delete24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2191,7 +2191,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Delete24.js`](/home/varl/dev
 
 ## SvgDimensionCategoryOptionGroupset16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionCategoryOptionGroupset16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionCategoryOptionGroupset16.js)
+From [`src/react/DimensionCategoryOptionGroupset16.js`](icons/src/react/DimensionCategoryOptionGroupset16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2199,7 +2199,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionCategoryOptionGroup
 
 ## SvgDimensionData16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionData16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionData16.js)
+From [`src/react/DimensionData16.js`](icons/src/react/DimensionData16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2207,7 +2207,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionData16.js`](/home/v
 
 ## SvgDimensionDataElementGroupset16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionDataElementGroupset16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionDataElementGroupset16.js)
+From [`src/react/DimensionDataElementGroupset16.js`](icons/src/react/DimensionDataElementGroupset16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2215,7 +2215,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionDataElementGroupset
 
 ## SvgDimensionDataSet16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionDataSet16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionDataSet16.js)
+From [`src/react/DimensionDataSet16.js`](icons/src/react/DimensionDataSet16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2223,7 +2223,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionDataSet16.js`](/hom
 
 ## SvgDimensionEventDataItem16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionEventDataItem16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionEventDataItem16.js)
+From [`src/react/DimensionEventDataItem16.js`](icons/src/react/DimensionEventDataItem16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2231,7 +2231,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionEventDataItem16.js`
 
 ## SvgDimensionIndicator16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionIndicator16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionIndicator16.js)
+From [`src/react/DimensionIndicator16.js`](icons/src/react/DimensionIndicator16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2239,7 +2239,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionIndicator16.js`](/h
 
 ## SvgDimensionOrgUnit16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionOrgUnit16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionOrgUnit16.js)
+From [`src/react/DimensionOrgUnit16.js`](icons/src/react/DimensionOrgUnit16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2247,7 +2247,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionOrgUnit16.js`](/hom
 
 ## SvgDimensionOrgUnitGroupset16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionOrgUnitGroupset16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionOrgUnitGroupset16.js)
+From [`src/react/DimensionOrgUnitGroupset16.js`](icons/src/react/DimensionOrgUnitGroupset16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2255,7 +2255,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionOrgUnitGroupset16.j
 
 ## SvgDimensionProgramIndicator16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionProgramIndicator16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionProgramIndicator16.js)
+From [`src/react/DimensionProgramIndicator16.js`](icons/src/react/DimensionProgramIndicator16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2263,7 +2263,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionProgramIndicator16.
 
 ## SvgDimensionValidationRule16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionValidationRule16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionValidationRule16.js)
+From [`src/react/DimensionValidationRule16.js`](icons/src/react/DimensionValidationRule16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2271,7 +2271,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DimensionValidationRule16.js
 
 ## SvgDirectionNorth16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DirectionNorth16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/DirectionNorth16.js)
+From [`src/react/DirectionNorth16.js`](icons/src/react/DirectionNorth16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2279,7 +2279,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DirectionNorth16.js`](/home/
 
 ## SvgDirectionNorth24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DirectionNorth24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/DirectionNorth24.js)
+From [`src/react/DirectionNorth24.js`](icons/src/react/DirectionNorth24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2287,7 +2287,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DirectionNorth24.js`](/home/
 
 ## SvgDownload16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Download16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Download16.js)
+From [`src/react/Download16.js`](icons/src/react/Download16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2295,7 +2295,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Download16.js`](/home/varl/d
 
 ## SvgDownload24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Download24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Download24.js)
+From [`src/react/Download24.js`](icons/src/react/Download24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2303,7 +2303,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Download24.js`](/home/varl/d
 
 ## SvgDragHandle16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DragHandle16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/DragHandle16.js)
+From [`src/react/DragHandle16.js`](icons/src/react/DragHandle16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2311,7 +2311,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DragHandle16.js`](/home/varl
 
 ## SvgDragHandle24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DragHandle24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/DragHandle24.js)
+From [`src/react/DragHandle24.js`](icons/src/react/DragHandle24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2319,7 +2319,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/DragHandle24.js`](/home/varl
 
 ## SvgDuplicate16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Duplicate16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Duplicate16.js)
+From [`src/react/Duplicate16.js`](icons/src/react/Duplicate16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2327,7 +2327,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Duplicate16.js`](/home/varl/
 
 ## SvgDuplicate24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Duplicate24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Duplicate24.js)
+From [`src/react/Duplicate24.js`](icons/src/react/Duplicate24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2335,7 +2335,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Duplicate24.js`](/home/varl/
 
 ## SvgEdit16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Edit16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Edit16.js)
+From [`src/react/Edit16.js`](icons/src/react/Edit16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2343,7 +2343,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Edit16.js`](/home/varl/dev/d
 
 ## SvgEdit24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Edit24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Edit24.js)
+From [`src/react/Edit24.js`](icons/src/react/Edit24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2351,7 +2351,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Edit24.js`](/home/varl/dev/d
 
 ## SvgEditItems16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/EditItems16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/EditItems16.js)
+From [`src/react/EditItems16.js`](icons/src/react/EditItems16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2359,7 +2359,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/EditItems16.js`](/home/varl/
 
 ## SvgEditItems24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/EditItems24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/EditItems24.js)
+From [`src/react/EditItems24.js`](icons/src/react/EditItems24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2367,7 +2367,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/EditItems24.js`](/home/varl/
 
 ## SvgEmptyFrame16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/EmptyFrame16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/EmptyFrame16.js)
+From [`src/react/EmptyFrame16.js`](icons/src/react/EmptyFrame16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2375,7 +2375,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/EmptyFrame16.js`](/home/varl
 
 ## SvgEmptyFrame24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/EmptyFrame24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/EmptyFrame24.js)
+From [`src/react/EmptyFrame24.js`](icons/src/react/EmptyFrame24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2383,7 +2383,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/EmptyFrame24.js`](/home/varl
 
 ## SvgError16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Error16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Error16.js)
+From [`src/react/Error16.js`](icons/src/react/Error16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2391,7 +2391,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Error16.js`](/home/varl/dev/
 
 ## SvgError24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Error24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Error24.js)
+From [`src/react/Error24.js`](icons/src/react/Error24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2399,7 +2399,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Error24.js`](/home/varl/dev/
 
 ## SvgErrorFilled16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ErrorFilled16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ErrorFilled16.js)
+From [`src/react/ErrorFilled16.js`](icons/src/react/ErrorFilled16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2407,7 +2407,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ErrorFilled16.js`](/home/var
 
 ## SvgErrorFilled24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ErrorFilled24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ErrorFilled24.js)
+From [`src/react/ErrorFilled24.js`](icons/src/react/ErrorFilled24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2415,7 +2415,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ErrorFilled24.js`](/home/var
 
 ## SvgExportItems24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ExportItems24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ExportItems24.js)
+From [`src/react/ExportItems24.js`](icons/src/react/ExportItems24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2423,7 +2423,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ExportItems24.js`](/home/var
 
 ## SvgFaceAdd16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/FaceAdd16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/FaceAdd16.js)
+From [`src/react/FaceAdd16.js`](icons/src/react/FaceAdd16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2431,7 +2431,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/FaceAdd16.js`](/home/varl/de
 
 ## SvgFaceAdd24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/FaceAdd24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/FaceAdd24.js)
+From [`src/react/FaceAdd24.js`](icons/src/react/FaceAdd24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2439,7 +2439,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/FaceAdd24.js`](/home/varl/de
 
 ## SvgFile16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/File16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/File16.js)
+From [`src/react/File16.js`](icons/src/react/File16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2447,7 +2447,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/File16.js`](/home/varl/dev/d
 
 ## SvgFile24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/File24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/File24.js)
+From [`src/react/File24.js`](icons/src/react/File24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2455,7 +2455,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/File24.js`](/home/varl/dev/d
 
 ## SvgFileDocument16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/FileDocument16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/FileDocument16.js)
+From [`src/react/FileDocument16.js`](icons/src/react/FileDocument16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2463,7 +2463,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/FileDocument16.js`](/home/va
 
 ## SvgFileDocument24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/FileDocument24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/FileDocument24.js)
+From [`src/react/FileDocument24.js`](icons/src/react/FileDocument24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2471,7 +2471,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/FileDocument24.js`](/home/va
 
 ## SvgFilter16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Filter16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Filter16.js)
+From [`src/react/Filter16.js`](icons/src/react/Filter16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2479,7 +2479,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Filter16.js`](/home/varl/dev
 
 ## SvgFilter24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Filter24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Filter24.js)
+From [`src/react/Filter24.js`](icons/src/react/Filter24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2487,7 +2487,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Filter24.js`](/home/varl/dev
 
 ## SvgFlag16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Flag16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Flag16.js)
+From [`src/react/Flag16.js`](icons/src/react/Flag16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2495,7 +2495,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Flag16.js`](/home/varl/dev/d
 
 ## SvgFlag24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Flag24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Flag24.js)
+From [`src/react/Flag24.js`](icons/src/react/Flag24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2503,7 +2503,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Flag24.js`](/home/varl/dev/d
 
 ## SvgFolder16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Folder16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Folder16.js)
+From [`src/react/Folder16.js`](icons/src/react/Folder16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2511,7 +2511,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Folder16.js`](/home/varl/dev
 
 ## SvgFolder24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Folder24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Folder24.js)
+From [`src/react/Folder24.js`](icons/src/react/Folder24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2519,7 +2519,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Folder24.js`](/home/varl/dev
 
 ## SvgFolderOpen16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/FolderOpen16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/FolderOpen16.js)
+From [`src/react/FolderOpen16.js`](icons/src/react/FolderOpen16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2527,7 +2527,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/FolderOpen16.js`](/home/varl
 
 ## SvgFolderOpen24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/FolderOpen24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/FolderOpen24.js)
+From [`src/react/FolderOpen24.js`](icons/src/react/FolderOpen24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2535,7 +2535,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/FolderOpen24.js`](/home/varl
 
 ## SvgFullscreen16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Fullscreen16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Fullscreen16.js)
+From [`src/react/Fullscreen16.js`](icons/src/react/Fullscreen16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2543,7 +2543,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Fullscreen16.js`](/home/varl
 
 ## SvgFullscreen24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Fullscreen24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Fullscreen24.js)
+From [`src/react/Fullscreen24.js`](icons/src/react/Fullscreen24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2551,7 +2551,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Fullscreen24.js`](/home/varl
 
 ## SvgFullscreenExit16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/FullscreenExit16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/FullscreenExit16.js)
+From [`src/react/FullscreenExit16.js`](icons/src/react/FullscreenExit16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2559,7 +2559,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/FullscreenExit16.js`](/home/
 
 ## SvgFullscreenExit24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/FullscreenExit24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/FullscreenExit24.js)
+From [`src/react/FullscreenExit24.js`](icons/src/react/FullscreenExit24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2567,7 +2567,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/FullscreenExit24.js`](/home/
 
 ## SvgHome16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Home16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Home16.js)
+From [`src/react/Home16.js`](icons/src/react/Home16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2575,7 +2575,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Home16.js`](/home/varl/dev/d
 
 ## SvgHome24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Home24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Home24.js)
+From [`src/react/Home24.js`](icons/src/react/Home24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2583,7 +2583,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Home24.js`](/home/varl/dev/d
 
 ## SvgImage16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Image16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Image16.js)
+From [`src/react/Image16.js`](icons/src/react/Image16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2591,7 +2591,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Image16.js`](/home/varl/dev/
 
 ## SvgImage24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Image24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Image24.js)
+From [`src/react/Image24.js`](icons/src/react/Image24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2599,7 +2599,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Image24.js`](/home/varl/dev/
 
 ## SvgImportItems24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ImportItems24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ImportItems24.js)
+From [`src/react/ImportItems24.js`](icons/src/react/ImportItems24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2607,7 +2607,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ImportItems24.js`](/home/var
 
 ## SvgInfo16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Info16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Info16.js)
+From [`src/react/Info16.js`](icons/src/react/Info16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2615,7 +2615,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Info16.js`](/home/varl/dev/d
 
 ## SvgInfo24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Info24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Info24.js)
+From [`src/react/Info24.js`](icons/src/react/Info24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2623,7 +2623,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Info24.js`](/home/varl/dev/d
 
 ## SvgInfoFilled16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/InfoFilled16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/InfoFilled16.js)
+From [`src/react/InfoFilled16.js`](icons/src/react/InfoFilled16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2631,7 +2631,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/InfoFilled16.js`](/home/varl
 
 ## SvgInfoFilled24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/InfoFilled24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/InfoFilled24.js)
+From [`src/react/InfoFilled24.js`](icons/src/react/InfoFilled24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2639,7 +2639,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/InfoFilled24.js`](/home/varl
 
 ## SvgLaunch16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Launch16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Launch16.js)
+From [`src/react/Launch16.js`](icons/src/react/Launch16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2647,7 +2647,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Launch16.js`](/home/varl/dev
 
 ## SvgLaunch24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Launch24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Launch24.js)
+From [`src/react/Launch24.js`](icons/src/react/Launch24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2655,7 +2655,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Launch24.js`](/home/varl/dev
 
 ## SvgLayoutColumns16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/LayoutColumns16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/LayoutColumns16.js)
+From [`src/react/LayoutColumns16.js`](icons/src/react/LayoutColumns16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2663,7 +2663,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/LayoutColumns16.js`](/home/v
 
 ## SvgLayoutColumns24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/LayoutColumns24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/LayoutColumns24.js)
+From [`src/react/LayoutColumns24.js`](icons/src/react/LayoutColumns24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2671,7 +2671,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/LayoutColumns24.js`](/home/v
 
 ## SvgLayoutRows16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/LayoutRows16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/LayoutRows16.js)
+From [`src/react/LayoutRows16.js`](icons/src/react/LayoutRows16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2679,7 +2679,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/LayoutRows16.js`](/home/varl
 
 ## SvgLayoutRows24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/LayoutRows24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/LayoutRows24.js)
+From [`src/react/LayoutRows24.js`](icons/src/react/LayoutRows24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2687,7 +2687,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/LayoutRows24.js`](/home/varl
 
 ## SvgLegend16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Legend16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Legend16.js)
+From [`src/react/Legend16.js`](icons/src/react/Legend16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2695,7 +2695,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Legend16.js`](/home/varl/dev
 
 ## SvgLegend24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Legend24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Legend24.js)
+From [`src/react/Legend24.js`](icons/src/react/Legend24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2703,7 +2703,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Legend24.js`](/home/varl/dev
 
 ## SvgLink16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Link16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Link16.js)
+From [`src/react/Link16.js`](icons/src/react/Link16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2711,7 +2711,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Link16.js`](/home/varl/dev/d
 
 ## SvgLink24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Link24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Link24.js)
+From [`src/react/Link24.js`](icons/src/react/Link24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2719,7 +2719,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Link24.js`](/home/varl/dev/d
 
 ## SvgList16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/List16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/List16.js)
+From [`src/react/List16.js`](icons/src/react/List16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2727,7 +2727,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/List16.js`](/home/varl/dev/d
 
 ## SvgList24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/List24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/List24.js)
+From [`src/react/List24.js`](icons/src/react/List24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2735,7 +2735,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/List24.js`](/home/varl/dev/d
 
 ## SvgLocation16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Location16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Location16.js)
+From [`src/react/Location16.js`](icons/src/react/Location16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2743,7 +2743,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Location16.js`](/home/varl/d
 
 ## SvgLocation24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Location24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Location24.js)
+From [`src/react/Location24.js`](icons/src/react/Location24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2751,7 +2751,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Location24.js`](/home/varl/d
 
 ## SvgLock16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Lock16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Lock16.js)
+From [`src/react/Lock16.js`](icons/src/react/Lock16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2759,7 +2759,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Lock16.js`](/home/varl/dev/d
 
 ## SvgLock24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Lock24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Lock24.js)
+From [`src/react/Lock24.js`](icons/src/react/Lock24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2767,7 +2767,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Lock24.js`](/home/varl/dev/d
 
 ## SvgLockOpen16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/LockOpen16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/LockOpen16.js)
+From [`src/react/LockOpen16.js`](icons/src/react/LockOpen16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2775,7 +2775,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/LockOpen16.js`](/home/varl/d
 
 ## SvgLockOpen24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/LockOpen24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/LockOpen24.js)
+From [`src/react/LockOpen24.js`](icons/src/react/LockOpen24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2783,7 +2783,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/LockOpen24.js`](/home/varl/d
 
 ## SvgLogOut16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/LogOut16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/LogOut16.js)
+From [`src/react/LogOut16.js`](icons/src/react/LogOut16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2791,7 +2791,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/LogOut16.js`](/home/varl/dev
 
 ## SvgLogOut24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/LogOut24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/LogOut24.js)
+From [`src/react/LogOut24.js`](icons/src/react/LogOut24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2799,7 +2799,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/LogOut24.js`](/home/varl/dev
 
 ## SvgMail16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Mail16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Mail16.js)
+From [`src/react/Mail16.js`](icons/src/react/Mail16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2807,7 +2807,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Mail16.js`](/home/varl/dev/d
 
 ## SvgMail24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Mail24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Mail24.js)
+From [`src/react/Mail24.js`](icons/src/react/Mail24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2815,7 +2815,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Mail24.js`](/home/varl/dev/d
 
 ## SvgMailOpen16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/MailOpen16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/MailOpen16.js)
+From [`src/react/MailOpen16.js`](icons/src/react/MailOpen16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2823,7 +2823,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/MailOpen16.js`](/home/varl/d
 
 ## SvgMailOpen24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/MailOpen24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/MailOpen24.js)
+From [`src/react/MailOpen24.js`](icons/src/react/MailOpen24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2831,7 +2831,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/MailOpen24.js`](/home/varl/d
 
 ## SvgMessages16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Messages16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Messages16.js)
+From [`src/react/Messages16.js`](icons/src/react/Messages16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2839,7 +2839,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Messages16.js`](/home/varl/d
 
 ## SvgMessages24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Messages24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Messages24.js)
+From [`src/react/Messages24.js`](icons/src/react/Messages24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2847,7 +2847,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Messages24.js`](/home/varl/d
 
 ## SvgMore16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/More16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/More16.js)
+From [`src/react/More16.js`](icons/src/react/More16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2855,7 +2855,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/More16.js`](/home/varl/dev/d
 
 ## SvgMore24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/More24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/More24.js)
+From [`src/react/More24.js`](icons/src/react/More24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2863,7 +2863,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/More24.js`](/home/varl/dev/d
 
 ## SvgMove16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Move16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Move16.js)
+From [`src/react/Move16.js`](icons/src/react/Move16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2871,7 +2871,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Move16.js`](/home/varl/dev/d
 
 ## SvgMove24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Move24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Move24.js)
+From [`src/react/Move24.js`](icons/src/react/Move24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2879,7 +2879,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Move24.js`](/home/varl/dev/d
 
 ## SvgPushLeft16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/PushLeft16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/PushLeft16.js)
+From [`src/react/PushLeft16.js`](icons/src/react/PushLeft16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2887,7 +2887,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/PushLeft16.js`](/home/varl/d
 
 ## SvgPushLeft24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/PushLeft24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/PushLeft24.js)
+From [`src/react/PushLeft24.js`](icons/src/react/PushLeft24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2895,7 +2895,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/PushLeft24.js`](/home/varl/d
 
 ## SvgPushRight16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/PushRight16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/PushRight16.js)
+From [`src/react/PushRight16.js`](icons/src/react/PushRight16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2903,7 +2903,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/PushRight16.js`](/home/varl/
 
 ## SvgPushRight24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/PushRight24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/PushRight24.js)
+From [`src/react/PushRight24.js`](icons/src/react/PushRight24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2911,7 +2911,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/PushRight24.js`](/home/varl/
 
 ## SvgQuestion16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Question16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Question16.js)
+From [`src/react/Question16.js`](icons/src/react/Question16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2919,7 +2919,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Question16.js`](/home/varl/d
 
 ## SvgQuestion24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Question24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Question24.js)
+From [`src/react/Question24.js`](icons/src/react/Question24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2927,7 +2927,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Question24.js`](/home/varl/d
 
 ## SvgQuestionFilled16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/QuestionFilled16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/QuestionFilled16.js)
+From [`src/react/QuestionFilled16.js`](icons/src/react/QuestionFilled16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2935,7 +2935,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/QuestionFilled16.js`](/home/
 
 ## SvgQuestionFilled24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/QuestionFilled24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/QuestionFilled24.js)
+From [`src/react/QuestionFilled24.js`](icons/src/react/QuestionFilled24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2943,7 +2943,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/QuestionFilled24.js`](/home/
 
 ## SvgQueue16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Queue16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Queue16.js)
+From [`src/react/Queue16.js`](icons/src/react/Queue16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2951,7 +2951,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Queue16.js`](/home/varl/dev/
 
 ## SvgQueue24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Queue24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Queue24.js)
+From [`src/react/Queue24.js`](icons/src/react/Queue24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2959,7 +2959,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Queue24.js`](/home/varl/dev/
 
 ## SvgRedo16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Redo16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Redo16.js)
+From [`src/react/Redo16.js`](icons/src/react/Redo16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2967,7 +2967,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Redo16.js`](/home/varl/dev/d
 
 ## SvgRedo24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Redo24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Redo24.js)
+From [`src/react/Redo24.js`](icons/src/react/Redo24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2975,7 +2975,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Redo24.js`](/home/varl/dev/d
 
 ## SvgReorder16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Reorder16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Reorder16.js)
+From [`src/react/Reorder16.js`](icons/src/react/Reorder16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2983,7 +2983,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Reorder16.js`](/home/varl/de
 
 ## SvgReorder24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Reorder24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Reorder24.js)
+From [`src/react/Reorder24.js`](icons/src/react/Reorder24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2991,7 +2991,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Reorder24.js`](/home/varl/de
 
 ## SvgReply16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Reply16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Reply16.js)
+From [`src/react/Reply16.js`](icons/src/react/Reply16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -2999,7 +2999,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Reply16.js`](/home/varl/dev/
 
 ## SvgReply24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Reply24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Reply24.js)
+From [`src/react/Reply24.js`](icons/src/react/Reply24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3007,7 +3007,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Reply24.js`](/home/varl/dev/
 
 ## SvgRuler16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Ruler16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Ruler16.js)
+From [`src/react/Ruler16.js`](icons/src/react/Ruler16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3015,7 +3015,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Ruler16.js`](/home/varl/dev/
 
 ## SvgRuler24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Ruler24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Ruler24.js)
+From [`src/react/Ruler24.js`](icons/src/react/Ruler24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3023,7 +3023,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Ruler24.js`](/home/varl/dev/
 
 ## SvgSave16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Save16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Save16.js)
+From [`src/react/Save16.js`](icons/src/react/Save16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3031,7 +3031,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Save16.js`](/home/varl/dev/d
 
 ## SvgSave24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Save24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Save24.js)
+From [`src/react/Save24.js`](icons/src/react/Save24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3039,7 +3039,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Save24.js`](/home/varl/dev/d
 
 ## SvgSearch16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Search16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Search16.js)
+From [`src/react/Search16.js`](icons/src/react/Search16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3047,7 +3047,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Search16.js`](/home/varl/dev
 
 ## SvgSearch24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Search24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Search24.js)
+From [`src/react/Search24.js`](icons/src/react/Search24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3055,7 +3055,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Search24.js`](/home/varl/dev
 
 ## SvgSettings16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Settings16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Settings16.js)
+From [`src/react/Settings16.js`](icons/src/react/Settings16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3063,7 +3063,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Settings16.js`](/home/varl/d
 
 ## SvgSettings24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Settings24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Settings24.js)
+From [`src/react/Settings24.js`](icons/src/react/Settings24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3071,7 +3071,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Settings24.js`](/home/varl/d
 
 ## SvgShare16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Share16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Share16.js)
+From [`src/react/Share16.js`](icons/src/react/Share16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3079,7 +3079,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Share16.js`](/home/varl/dev/
 
 ## SvgShare24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Share24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Share24.js)
+From [`src/react/Share24.js`](icons/src/react/Share24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3087,7 +3087,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Share24.js`](/home/varl/dev/
 
 ## SvgStar16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Star16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Star16.js)
+From [`src/react/Star16.js`](icons/src/react/Star16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3095,7 +3095,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Star16.js`](/home/varl/dev/d
 
 ## SvgStar24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Star24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Star24.js)
+From [`src/react/Star24.js`](icons/src/react/Star24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3103,7 +3103,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Star24.js`](/home/varl/dev/d
 
 ## SvgStarFilled16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/StarFilled16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/StarFilled16.js)
+From [`src/react/StarFilled16.js`](icons/src/react/StarFilled16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3111,7 +3111,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/StarFilled16.js`](/home/varl
 
 ## SvgStarFilled24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/StarFilled24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/StarFilled24.js)
+From [`src/react/StarFilled24.js`](icons/src/react/StarFilled24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3119,7 +3119,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/StarFilled24.js`](/home/varl
 
 ## SvgSubscribe16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Subscribe16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Subscribe16.js)
+From [`src/react/Subscribe16.js`](icons/src/react/Subscribe16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3127,7 +3127,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Subscribe16.js`](/home/varl/
 
 ## SvgSubscribe24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Subscribe24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Subscribe24.js)
+From [`src/react/Subscribe24.js`](icons/src/react/Subscribe24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3135,7 +3135,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Subscribe24.js`](/home/varl/
 
 ## SvgSubscribeOff16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/SubscribeOff16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/SubscribeOff16.js)
+From [`src/react/SubscribeOff16.js`](icons/src/react/SubscribeOff16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3143,7 +3143,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/SubscribeOff16.js`](/home/va
 
 ## SvgSubscribeOff24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/SubscribeOff24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/SubscribeOff24.js)
+From [`src/react/SubscribeOff24.js`](icons/src/react/SubscribeOff24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3151,7 +3151,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/SubscribeOff24.js`](/home/va
 
 ## SvgSubtractCircle16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/SubtractCircle16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/SubtractCircle16.js)
+From [`src/react/SubtractCircle16.js`](icons/src/react/SubtractCircle16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3159,7 +3159,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/SubtractCircle16.js`](/home/
 
 ## SvgSubtractCircle24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/SubtractCircle24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/SubtractCircle24.js)
+From [`src/react/SubtractCircle24.js`](icons/src/react/SubtractCircle24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3167,7 +3167,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/SubtractCircle24.js`](/home/
 
 ## SvgSync16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Sync16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Sync16.js)
+From [`src/react/Sync16.js`](icons/src/react/Sync16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3175,7 +3175,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Sync16.js`](/home/varl/dev/d
 
 ## SvgSync24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Sync24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Sync24.js)
+From [`src/react/Sync24.js`](icons/src/react/Sync24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3183,7 +3183,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Sync24.js`](/home/varl/dev/d
 
 ## SvgTable16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Table16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Table16.js)
+From [`src/react/Table16.js`](icons/src/react/Table16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3191,7 +3191,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Table16.js`](/home/varl/dev/
 
 ## SvgTable24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Table24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Table24.js)
+From [`src/react/Table24.js`](icons/src/react/Table24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3199,7 +3199,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Table24.js`](/home/varl/dev/
 
 ## SvgTerminalWindow16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TerminalWindow16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/TerminalWindow16.js)
+From [`src/react/TerminalWindow16.js`](icons/src/react/TerminalWindow16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3207,7 +3207,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TerminalWindow16.js`](/home/
 
 ## SvgTerminalWindow24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TerminalWindow24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/TerminalWindow24.js)
+From [`src/react/TerminalWindow24.js`](icons/src/react/TerminalWindow24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3215,7 +3215,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TerminalWindow24.js`](/home/
 
 ## SvgTextBold16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TextBold16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/TextBold16.js)
+From [`src/react/TextBold16.js`](icons/src/react/TextBold16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3223,7 +3223,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TextBold16.js`](/home/varl/d
 
 ## SvgTextBold24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TextBold24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/TextBold24.js)
+From [`src/react/TextBold24.js`](icons/src/react/TextBold24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3231,7 +3231,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TextBold24.js`](/home/varl/d
 
 ## SvgTextBox16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TextBox16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/TextBox16.js)
+From [`src/react/TextBox16.js`](icons/src/react/TextBox16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3239,7 +3239,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TextBox16.js`](/home/varl/de
 
 ## SvgTextBox24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TextBox24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/TextBox24.js)
+From [`src/react/TextBox24.js`](icons/src/react/TextBox24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3247,7 +3247,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TextBox24.js`](/home/varl/de
 
 ## SvgTextHeading16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TextHeading16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/TextHeading16.js)
+From [`src/react/TextHeading16.js`](icons/src/react/TextHeading16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3255,7 +3255,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TextHeading16.js`](/home/var
 
 ## SvgTextHeading24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TextHeading24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/TextHeading24.js)
+From [`src/react/TextHeading24.js`](icons/src/react/TextHeading24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3263,7 +3263,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TextHeading24.js`](/home/var
 
 ## SvgTextItalic16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TextItalic16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/TextItalic16.js)
+From [`src/react/TextItalic16.js`](icons/src/react/TextItalic16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3271,7 +3271,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TextItalic16.js`](/home/varl
 
 ## SvgTextItalic24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TextItalic24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/TextItalic24.js)
+From [`src/react/TextItalic24.js`](icons/src/react/TextItalic24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3279,7 +3279,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TextItalic24.js`](/home/varl
 
 ## SvgTextListOrdered16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TextListOrdered16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/TextListOrdered16.js)
+From [`src/react/TextListOrdered16.js`](icons/src/react/TextListOrdered16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3287,7 +3287,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TextListOrdered16.js`](/home
 
 ## SvgTextListOrdered24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TextListOrdered24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/TextListOrdered24.js)
+From [`src/react/TextListOrdered24.js`](icons/src/react/TextListOrdered24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3295,7 +3295,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TextListOrdered24.js`](/home
 
 ## SvgTextListUnordered16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TextListUnordered16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/TextListUnordered16.js)
+From [`src/react/TextListUnordered16.js`](icons/src/react/TextListUnordered16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3303,7 +3303,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TextListUnordered16.js`](/ho
 
 ## SvgTextListUnordered24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TextListUnordered24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/TextListUnordered24.js)
+From [`src/react/TextListUnordered24.js`](icons/src/react/TextListUnordered24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3311,7 +3311,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/TextListUnordered24.js`](/ho
 
 ## SvgThumbDown16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ThumbDown16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ThumbDown16.js)
+From [`src/react/ThumbDown16.js`](icons/src/react/ThumbDown16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3319,7 +3319,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ThumbDown16.js`](/home/varl/
 
 ## SvgThumbDown24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ThumbDown24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ThumbDown24.js)
+From [`src/react/ThumbDown24.js`](icons/src/react/ThumbDown24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3327,7 +3327,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ThumbDown24.js`](/home/varl/
 
 ## SvgThumbUp16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ThumbUp16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ThumbUp16.js)
+From [`src/react/ThumbUp16.js`](icons/src/react/ThumbUp16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3335,7 +3335,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ThumbUp16.js`](/home/varl/de
 
 ## SvgThumbUp24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ThumbUp24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ThumbUp24.js)
+From [`src/react/ThumbUp24.js`](icons/src/react/ThumbUp24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3343,7 +3343,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ThumbUp24.js`](/home/varl/de
 
 ## SvgTranslate16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Translate16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Translate16.js)
+From [`src/react/Translate16.js`](icons/src/react/Translate16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3351,7 +3351,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Translate16.js`](/home/varl/
 
 ## SvgTranslate24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Translate24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Translate24.js)
+From [`src/react/Translate24.js`](icons/src/react/Translate24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3359,7 +3359,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Translate24.js`](/home/varl/
 
 ## SvgUndo16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Undo16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Undo16.js)
+From [`src/react/Undo16.js`](icons/src/react/Undo16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3367,7 +3367,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Undo16.js`](/home/varl/dev/d
 
 ## SvgUndo24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Undo24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Undo24.js)
+From [`src/react/Undo24.js`](icons/src/react/Undo24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3375,7 +3375,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Undo24.js`](/home/varl/dev/d
 
 ## SvgUpload16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Upload16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Upload16.js)
+From [`src/react/Upload16.js`](icons/src/react/Upload16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3383,7 +3383,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Upload16.js`](/home/varl/dev
 
 ## SvgUpload24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Upload24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Upload24.js)
+From [`src/react/Upload24.js`](icons/src/react/Upload24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3391,7 +3391,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Upload24.js`](/home/varl/dev
 
 ## SvgUser16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/User16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/User16.js)
+From [`src/react/User16.js`](icons/src/react/User16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3399,7 +3399,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/User16.js`](/home/varl/dev/d
 
 ## SvgUser24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/User24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/User24.js)
+From [`src/react/User24.js`](icons/src/react/User24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3407,7 +3407,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/User24.js`](/home/varl/dev/d
 
 ## SvgUserGroup16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/UserGroup16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/UserGroup16.js)
+From [`src/react/UserGroup16.js`](icons/src/react/UserGroup16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3415,7 +3415,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/UserGroup16.js`](/home/varl/
 
 ## SvgUserGroup24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/UserGroup24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/UserGroup24.js)
+From [`src/react/UserGroup24.js`](icons/src/react/UserGroup24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3423,7 +3423,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/UserGroup24.js`](/home/varl/
 
 ## SvgView16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/View16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/View16.js)
+From [`src/react/View16.js`](icons/src/react/View16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3431,7 +3431,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/View16.js`](/home/varl/dev/d
 
 ## SvgView24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/View24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/View24.js)
+From [`src/react/View24.js`](icons/src/react/View24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3439,7 +3439,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/View24.js`](/home/varl/dev/d
 
 ## SvgViewOff16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ViewOff16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ViewOff16.js)
+From [`src/react/ViewOff16.js`](icons/src/react/ViewOff16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3447,7 +3447,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ViewOff16.js`](/home/varl/de
 
 ## SvgViewOff24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ViewOff24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/ViewOff24.js)
+From [`src/react/ViewOff24.js`](icons/src/react/ViewOff24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3455,7 +3455,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/ViewOff24.js`](/home/varl/de
 
 ## SvgVisualizationArea16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationArea16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationArea16.js)
+From [`src/react/VisualizationArea16.js`](icons/src/react/VisualizationArea16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3463,7 +3463,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationArea16.js`](/ho
 
 ## SvgVisualizationArea24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationArea24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationArea24.js)
+From [`src/react/VisualizationArea24.js`](icons/src/react/VisualizationArea24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3471,7 +3471,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationArea24.js`](/ho
 
 ## SvgVisualizationAreaStacked16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationAreaStacked16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationAreaStacked16.js)
+From [`src/react/VisualizationAreaStacked16.js`](icons/src/react/VisualizationAreaStacked16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3479,7 +3479,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationAreaStacked16.j
 
 ## SvgVisualizationAreaStacked24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationAreaStacked24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationAreaStacked24.js)
+From [`src/react/VisualizationAreaStacked24.js`](icons/src/react/VisualizationAreaStacked24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3487,7 +3487,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationAreaStacked24.j
 
 ## SvgVisualizationBar16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationBar16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationBar16.js)
+From [`src/react/VisualizationBar16.js`](icons/src/react/VisualizationBar16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3495,7 +3495,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationBar16.js`](/hom
 
 ## SvgVisualizationBar24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationBar24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationBar24.js)
+From [`src/react/VisualizationBar24.js`](icons/src/react/VisualizationBar24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3503,7 +3503,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationBar24.js`](/hom
 
 ## SvgVisualizationBarStacked16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationBarStacked16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationBarStacked16.js)
+From [`src/react/VisualizationBarStacked16.js`](icons/src/react/VisualizationBarStacked16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3511,7 +3511,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationBarStacked16.js
 
 ## SvgVisualizationBarStacked24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationBarStacked24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationBarStacked24.js)
+From [`src/react/VisualizationBarStacked24.js`](icons/src/react/VisualizationBarStacked24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3519,7 +3519,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationBarStacked24.js
 
 ## SvgVisualizationColumn16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationColumn16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationColumn16.js)
+From [`src/react/VisualizationColumn16.js`](icons/src/react/VisualizationColumn16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3527,7 +3527,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationColumn16.js`](/
 
 ## SvgVisualizationColumn24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationColumn24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationColumn24.js)
+From [`src/react/VisualizationColumn24.js`](icons/src/react/VisualizationColumn24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3535,7 +3535,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationColumn24.js`](/
 
 ## SvgVisualizationColumnMulti16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationColumnMulti16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationColumnMulti16.js)
+From [`src/react/VisualizationColumnMulti16.js`](icons/src/react/VisualizationColumnMulti16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3543,7 +3543,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationColumnMulti16.j
 
 ## SvgVisualizationColumnMulti24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationColumnMulti24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationColumnMulti24.js)
+From [`src/react/VisualizationColumnMulti24.js`](icons/src/react/VisualizationColumnMulti24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3551,7 +3551,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationColumnMulti24.j
 
 ## SvgVisualizationColumnStacked16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationColumnStacked16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationColumnStacked16.js)
+From [`src/react/VisualizationColumnStacked16.js`](icons/src/react/VisualizationColumnStacked16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3559,7 +3559,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationColumnStacked16
 
 ## SvgVisualizationColumnStacked24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationColumnStacked24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationColumnStacked24.js)
+From [`src/react/VisualizationColumnStacked24.js`](icons/src/react/VisualizationColumnStacked24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3567,7 +3567,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationColumnStacked24
 
 ## SvgVisualizationGauge16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationGauge16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationGauge16.js)
+From [`src/react/VisualizationGauge16.js`](icons/src/react/VisualizationGauge16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3575,7 +3575,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationGauge16.js`](/h
 
 ## SvgVisualizationGauge24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationGauge24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationGauge24.js)
+From [`src/react/VisualizationGauge24.js`](icons/src/react/VisualizationGauge24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3583,7 +3583,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationGauge24.js`](/h
 
 ## SvgVisualizationLine16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationLine16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationLine16.js)
+From [`src/react/VisualizationLine16.js`](icons/src/react/VisualizationLine16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3591,7 +3591,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationLine16.js`](/ho
 
 ## SvgVisualizationLine24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationLine24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationLine24.js)
+From [`src/react/VisualizationLine24.js`](icons/src/react/VisualizationLine24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3599,7 +3599,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationLine24.js`](/ho
 
 ## SvgVisualizationLineMulti16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationLineMulti16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationLineMulti16.js)
+From [`src/react/VisualizationLineMulti16.js`](icons/src/react/VisualizationLineMulti16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3607,7 +3607,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationLineMulti16.js`
 
 ## SvgVisualizationLineMulti24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationLineMulti24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationLineMulti24.js)
+From [`src/react/VisualizationLineMulti24.js`](icons/src/react/VisualizationLineMulti24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3615,7 +3615,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationLineMulti24.js`
 
 ## SvgVisualizationPie16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationPie16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationPie16.js)
+From [`src/react/VisualizationPie16.js`](icons/src/react/VisualizationPie16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3623,7 +3623,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationPie16.js`](/hom
 
 ## SvgVisualizationPie24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationPie24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationPie24.js)
+From [`src/react/VisualizationPie24.js`](icons/src/react/VisualizationPie24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3631,7 +3631,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationPie24.js`](/hom
 
 ## SvgVisualizationRadar16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationRadar16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationRadar16.js)
+From [`src/react/VisualizationRadar16.js`](icons/src/react/VisualizationRadar16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3639,7 +3639,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationRadar16.js`](/h
 
 ## SvgVisualizationRadar24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationRadar24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationRadar24.js)
+From [`src/react/VisualizationRadar24.js`](icons/src/react/VisualizationRadar24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3647,7 +3647,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationRadar24.js`](/h
 
 ## SvgVisualizationScatter16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationScatter16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationScatter16.js)
+From [`src/react/VisualizationScatter16.js`](icons/src/react/VisualizationScatter16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3655,7 +3655,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationScatter16.js`](
 
 ## SvgVisualizationScatter24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationScatter24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationScatter24.js)
+From [`src/react/VisualizationScatter24.js`](icons/src/react/VisualizationScatter24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3663,7 +3663,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationScatter24.js`](
 
 ## SvgVisualizationSingleValue16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationSingleValue16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationSingleValue16.js)
+From [`src/react/VisualizationSingleValue16.js`](icons/src/react/VisualizationSingleValue16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3671,7 +3671,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationSingleValue16.j
 
 ## SvgVisualizationSingleValue24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationSingleValue24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationSingleValue24.js)
+From [`src/react/VisualizationSingleValue24.js`](icons/src/react/VisualizationSingleValue24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3679,7 +3679,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/VisualizationSingleValue24.j
 
 ## SvgWarning16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Warning16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Warning16.js)
+From [`src/react/Warning16.js`](icons/src/react/Warning16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3687,7 +3687,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Warning16.js`](/home/varl/de
 
 ## SvgWarning24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Warning24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Warning24.js)
+From [`src/react/Warning24.js`](icons/src/react/Warning24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3695,7 +3695,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Warning24.js`](/home/varl/de
 
 ## SvgWarningFilled16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/WarningFilled16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/WarningFilled16.js)
+From [`src/react/WarningFilled16.js`](icons/src/react/WarningFilled16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3703,7 +3703,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/WarningFilled16.js`](/home/v
 
 ## SvgWarningFilled24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/WarningFilled24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/WarningFilled24.js)
+From [`src/react/WarningFilled24.js`](icons/src/react/WarningFilled24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3711,7 +3711,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/WarningFilled24.js`](/home/v
 
 ## SvgWindow16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Window16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Window16.js)
+From [`src/react/Window16.js`](icons/src/react/Window16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3719,7 +3719,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Window16.js`](/home/varl/dev
 
 ## SvgWindow24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Window24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/Window24.js)
+From [`src/react/Window24.js`](icons/src/react/Window24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3727,7 +3727,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/Window24.js`](/home/varl/dev
 
 ## SvgWorld16
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/World16.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/World16.js)
+From [`src/react/World16.js`](icons/src/react/World16.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
@@ -3735,7 +3735,7 @@ From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/World16.js`](/home/varl/dev/
 
 ## SvgWorld24
 
-From [`/home/varl/dev/dhis2/libs/ui/icons/src/react/World24.js`](/home/varl/dev/dhis2/libs/ui/icons/src/react/World24.js)
+From [`src/react/World24.js`](icons/src/react/World24.js)
 
 | prop      |   type   | default | required | description |
 | --------- | :------: | :-----: | :------: | ----------- |
