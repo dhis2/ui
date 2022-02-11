@@ -1,0 +1,21 @@
+## OrganisationUnitTree
+
+From [`src/organisation-unit-tree/organisation-unit-tree.js`](./src/organisation-unit-tree/organisation-unit-tree.js)
+
+| prop                            |     type     |             default             | required | description                                                                 |
+| ------------------------------- | :----------: | :-----------------------------: | :------: | --------------------------------------------------------------------------- |
+| **autoExpandLoadingError**      |  `Boolean`   |                                 |   :x:    | When set, the error when loading children fails will be shown automatically |
+| **dataTest**                    |   `String`   | `'dhis2-uiwidgets-orgunittree'` |   :x:    |
+| **disableSelection**            |  `Boolean`   |                                 |   :x:    | When set to true, no unit can be selected                                   |
+| **expanded**                    | `requiredIf( |
+| (props) => !!props.handleExpand |              |     !!props.handleCollapse,     |
+
+    PropTypes.arrayOf(PropTypes.string)
+
+)`| | :x: | **filter** |`Array[]<orgUnitPathPropType>`|`[]`| :x: | All organisation units with a path that includes the provided paths will be shown. All others will not be rendered. When not provided, all org units will be shown. **forceReload** |`Boolean`| | :x: | When true, everything will be reloaded. In order to load it again after reloading,`forceReload`has to be set to`false`and then to`true`again **handleCollapse** |`requiredIf(
+(props) => !!props.expanded || !!props.handleExpand,
+PropTypes.func
+)`| | :x: | **handleExpand** |`requiredIf(
+(props) => !!props.expanded || !!props.handleCollapse,
+PropTypes.func
+)`| | :x: | **highlighted** |`Array[]<orgUnitPathPropType>`|`[]`| :x: | All units provided to "highlighted" as path will be visually highlighted. Note: The d2-ui component used two props for this: * searchResults * highlightSearchResults **initiallyExpanded** |`Array[]<orgUnitPathPropType>`|`[]`| :x: | An array of OU paths that will be expanded automatically as soon as they are encountered. The path of an OU is the UIDs of the OU and all its parent OUs separated by slashes (/) Note: This replaces "openFirstLevel" as that's redundant **isUserDataViewFallback** |`Boolean`| | :x: | When provided, the 'isUserDataViewFallback' option will be sent when requesting the org units **onChange** |`Function`| | :white_check_mark: | Will be called with the following object:`{ id: string, displayName: string, path: string, checked: boolean, selected: string[] }`**onChildrenLoaded** |`Function`| | :x: | Called with the children's data that was loaded **onCollapse** |`Function`| | :x: | Called with`{ path: string }`with the path of the parent of the level closed **onExpand** |`Function`| | :x: | Called with`{ path: string }`with the path of the parent of the level opened **renderNodeLabel** |`Function`|`defaultRenderNodeLabel` | :x: | Renders the actual node component for each leaf, can be used to customize the node. The default function just returns the node's displayName Shape of the object passed to the callback: ``` { label: string, node: { displayName: string, id: string, // Only provided once `loading`is false path?: string, // Only provided once`loading` is false children?: Array.<{ id: string, path: string, displayName: string }> }, loading: boolean, error: string, open: boolean, selected: string[], singleSelection: boolean, disableSelection: boolean, } ``` **roots** | `Union<String\|Array[]<String>>`| | :white_check_mark: | Root org unit ID(s) **roots<1>** |`String`| | :x: | **roots<2>** |`Array[]<String>`| | :x: | **selected** |`Array[]<orgUnitPathPropType>`|`[]` | :x: | An array of paths of selected OUs. The path of an OU is the UIDs of the OU and all its parent OUs separated by slashes (`/`) **singleSelection** | `Boolean`| | :x: | When set, no checkboxes will be displayed and only the first selected path in`selected`will be highlighted **suppressAlphabeticalSorting** |`Boolean` | | :x: | Turns off alphabetical sorting of units
