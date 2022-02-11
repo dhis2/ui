@@ -2,17 +2,17 @@
 
 From [`src/modal/modal.js`](./src/modal/modal.js)
 
-| prop          |                   type                    |        default         | required | description                         |
-| ------------- | :---------------------------------------: | :--------------------: | :------: | ----------------------------------- |
-| **children**  |                `ReactNode`                |                        |   :x:    |
-| **className** |                 `String`                  |                        |   :x:    |
-| **dataTest**  |                 `String`                  | `'dhis2-uicore-modal'` |   :x:    |
-| **fluid**     |                 `Boolean`                 |                        |   :x:    |
-| **hide**      |                 `Boolean`                 |                        |   :x:    |
-| **large**     |      `sharedPropTypes.sizePropType`       |                        |   :x:    |
-| **onClose**   |                `Function`                 |                        |   :x:    | Callback used when the Modal closes |
-| **position**  | `sharedPropTypes.insideAlignmentPropType` |        `'top'`         |   :x:    |
-| **small**     |      `sharedPropTypes.sizePropType`       |                        |   :x:    |
+| prop          |    type     |        default         | required | description                         |
+| ------------- | :---------: | :--------------------: | :------: | ----------------------------------- |
+| **children**  | `ReactNode` |                        |   :x:    |
+| **className** |  `String`   |                        |   :x:    |
+| **dataTest**  |  `String`   | `'dhis2-uicore-modal'` |   :x:    |
+| **fluid**     |  `Boolean`  |                        |   :x:    |
+| **hide**      |  `Boolean`  |                        |   :x:    |
+| **large**     |  `custom`   |                        |   :x:    |
+| **onClose**   | `Function`  |                        |   :x:    | Callback used when the Modal closes |
+| **position**  |  `custom`   |        `'top'`         |   :x:    |
+| **small**     |  `custom`   |                        |   :x:    |
 
 ## ModalActions
 

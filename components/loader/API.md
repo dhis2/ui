@@ -2,14 +2,14 @@
 
 From [`src/circular-loader/circular-loader.js`](./src/circular-loader/circular-loader.js)
 
-| prop           |              type              |             default             | required | description |
-| -------------- | :----------------------------: | :-----------------------------: | :------: | ----------- |
-| **className**  |            `String`            |                                 |   :x:    |
-| **dataTest**   |            `String`            | `'dhis2-uicore-circularloader'` |   :x:    |
-| **extrasmall** | `sharedPropTypes.sizePropType` |                                 |   :x:    |
-| **invert**     |           `Boolean`            |                                 |   :x:    |
-| **large**      | `sharedPropTypes.sizePropType` |                                 |   :x:    |
-| **small**      | `sharedPropTypes.sizePropType` |                                 |   :x:    |
+| prop           |   type    |             default             | required | description |
+| -------------- | :-------: | :-----------------------------: | :------: | ----------- |
+| **className**  | `String`  |                                 |   :x:    |
+| **dataTest**   | `String`  | `'dhis2-uicore-circularloader'` |   :x:    |
+| **extrasmall** | `custom`  |                                 |   :x:    |
+| **invert**     | `Boolean` |                                 |   :x:    |
+| **large**      | `custom`  |                                 |   :x:    |
+| **small**      | `custom`  |                                 |   :x:    |
 
 ## LinearLoader
 

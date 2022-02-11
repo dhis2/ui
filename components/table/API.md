@@ -11,19 +11,19 @@ From [`src/data-table/data-table-cell.js`](./src/data-table/data-table-cell.js)
 | **className**   |             `String`              |                                |   :x:    |
 | **colSpan**     |             `String`              |                                |   :x:    |
 | **dataTest**    |             `String`              | `'dhis2-uicore-datatablecell'` |   :x:    |
-| **error**       |          `stylePropType`          |                                |   :x:    | Mutually exclusive with muted and valid                              |
+| **error**       |             `custom`              |                                |   :x:    | Mutually exclusive with muted and valid                              |
 | **fixed**       |             `Boolean`             |                                |   :x:    | When true a TableHeaderCell with sticky positioning will be rendered |
 | **large**       |             `Boolean`             |                                |   :x:    |
-| **left**        |     `requiredIfFixedPropType`     |            `'auto'`            |   :x:    | Required when fixed                                                  |
-| **muted**       |          `stylePropType`          |                                |   :x:    | Mutually exclusive with error and valid                              |
+| **left**        |             `custom`              |            `'auto'`            |   :x:    | Required when fixed                                                  |
+| **muted**       |             `custom`              |                                |   :x:    | Mutually exclusive with error and valid                              |
 | **onClick**     |            `Function`             |                                |   :x:    |
 | **role**        |             `String`              |                                |   :x:    |
 | **rowSpan**     |             `String`              |                                |   :x:    |
 | **scope**       |             `String`              |                                |   :x:    |
 | **staticStyle** |             `Boolean`             |                                |   :x:    | Surpress hover and active event styles                               |
 | **tag**         |        `Enum('td', 'th')`         |                                |   :x:    | Render a TableDataCell or TableHeaderCell respectively               |
-| **valid**       |          `stylePropType`          |                                |   :x:    | Mutually exclusive with error and muted                              |
-| **width**       |     `requiredIfFixedPropType`     |            `'auto'`            |   :x:    | Required when fixed                                                  |
+| **valid**       |             `custom`              |                                |   :x:    | Mutually exclusive with error and muted                              |
+| **width**       |             `custom`              |            `'auto'`            |   :x:    | Required when fixed                                                  |
 
 ## DataTable
 
@@ -240,42 +240,44 @@ From [`src/table/table.js`](./src/table/table.js)
 
 From [`src/data-table/data-table-column-header/data-table-column-header.js`](./src/data-table/data-table-column-header/data-table-column-header.js)
 
-| prop                               |               type                |              default               | required | description |
-| ---------------------------------- | :-------------------------------: | :--------------------------------: | :------: | ----------- |
-| **align**                          | `Enum('left', 'center', 'right')` |                                    |   :x:    |
-| **children**                       |            `ReactNode`            |                                    |   :x:    |
-| **className**                      |             `String`              |                                    |   :x:    |
-| **colSpan**                        |             `String`              |                                    |   :x:    |
-| **dataTest**                       |             `String`              | `'dhis2-uicore-datatablecellhead'` |   :x:    |
-| **filter**                         |           `requiredIf(            |
-| (props) => props.onFilterIconClick |                                   |         props.showFilter,          |
-
-    PropTypes.node
-
-)`| | :x: | The filter element (JSX), required when onFilterIconClick or showFilter are present **fixed** |`Boolean`| | :x: | **large** |`Boolean`| | :x: | **left** |`requiredIf((props) => props.fixed && !props.top, PropTypes.string)`| | :x: | Left or top required when fixed **name** |`String`| | :x: | Can be used to match a column with a property name **onFilterIconClick** |`requiredIf((props) => props.filter, PropTypes.func)`| | :x: | **onSortIconClick** |`requiredIf((props) => props.sortDirection, PropTypes.func)`| | :x: | Sort icon click callback with`nextSortDirection`and`name`in payload **role** |`String`| | :x: | **rowSpan** |`String`| | :x: | **scope** |`String`| | :x: | **showFilter** |`requiredIf((props) => props.filter, PropTypes.bool)`| | :x: | **sortDirection** |`requiredIf(
-(props) => props.onSortIconClick,
-PropTypes.oneOf(SORT_DIRECTIONS)
-)`| | :x: | **sortIconTitle** |`String`| | :x: | **top** |`requiredIf((props) => props.fixed && !props.left, PropTypes.string)`| | :x: | Left or top required when fixed **width** |`String` | | :x: |
+| prop                  |               type                |              default               | required | description                                                                         |
+| --------------------- | :-------------------------------: | :--------------------------------: | :------: | ----------------------------------------------------------------------------------- |
+| **align**             | `Enum('left', 'center', 'right')` |                                    |   :x:    |
+| **children**          |            `ReactNode`            |                                    |   :x:    |
+| **className**         |             `String`              |                                    |   :x:    |
+| **colSpan**           |             `String`              |                                    |   :x:    |
+| **dataTest**          |             `String`              | `'dhis2-uicore-datatablecellhead'` |   :x:    |
+| **filter**            |             `custom`              |                                    |   :x:    | The filter element (JSX), required when onFilterIconClick or showFilter are present |
+| **fixed**             |             `Boolean`             |                                    |   :x:    |
+| **large**             |             `Boolean`             |                                    |   :x:    |
+| **left**              |             `custom`              |                                    |   :x:    | Left or top required when fixed                                                     |
+| **name**              |             `String`              |                                    |   :x:    | Can be used to match a column with a property name                                  |
+| **onFilterIconClick** |             `custom`              |                                    |   :x:    |
+| **onSortIconClick**   |             `custom`              |                                    |   :x:    | Sort icon click callback with `nextSortDirection` and `name` in payload             |
+| **role**              |             `String`              |                                    |   :x:    |
+| **rowSpan**           |             `String`              |                                    |   :x:    |
+| **scope**             |             `String`              |                                    |   :x:    |
+| **showFilter**        |             `custom`              |                                    |   :x:    |
+| **sortDirection**     |             `custom`              |                                    |   :x:    |
+| **sortIconTitle**     |             `String`              |                                    |   :x:    |
+| **top**               |             `custom`              |                                    |   :x:    | Left or top required when fixed                                                     |
+| **width**             |             `String`              |                                    |   :x:    |
 
 ## DataTableRow
 
 From [`src/data-table/data-table-row/data-table-row.js`](./src/data-table/data-table-row/data-table-row.js)
 
-| prop                  |     type     |            default            | required | description                                                                   |
-| --------------------- | :----------: | :---------------------------: | :------: | ----------------------------------------------------------------------------- |
-| **children**          | `ReactNode`  |                               |   :x:    | Should be `<DataTableCell>` or `<DataTableCellHead>` components               |
-| **className**         |   `String`   |                               |   :x:    |
-| **dataTest**          |   `String`   | `'dhis2-uicore-datatablerow'` |   :x:    |
-| **draggable**         |  `Boolean`   |                               |   :x:    | Renders and additional table cell with drag icon and applies draggable styles |
-| **expandableContent** | `requiredIf( |
-
-    (props) => props.onExpandToggle,
-    PropTypes.node
-
-)`| | :x: | This content will be rendered into an additional row with fullwidth cell and the presence of this prop will display an additional table cell with expand icon **expanded** |`Boolean`| | :x: | Toggles expand icon (up/down) and expandable content visibility **onExpandToggle** |`requiredIf(
-(props) => props.expandableContent,
-PropTypes.func
-)`| | :x: | Callback for expand icon cell clicks **role** |`String`| | :x: | **selected** |`Boolean` | | :x: | Adds a green background color
+| prop                  |    type     |            default            | required | description                                                                                                                                                   |
+| --------------------- | :---------: | :---------------------------: | :------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **children**          | `ReactNode` |                               |   :x:    | Should be `<DataTableCell>` or `<DataTableCellHead>` components                                                                                               |
+| **className**         |  `String`   |                               |   :x:    |
+| **dataTest**          |  `String`   | `'dhis2-uicore-datatablerow'` |   :x:    |
+| **draggable**         |  `Boolean`  |                               |   :x:    | Renders and additional table cell with drag icon and applies draggable styles                                                                                 |
+| **expandableContent** |  `custom`   |                               |   :x:    | This content will be rendered into an additional row with fullwidth cell and the presence of this prop will display an additional table cell with expand icon |
+| **expanded**          |  `Boolean`  |                               |   :x:    | Toggles expand icon (up/down) and expandable content visibility                                                                                               |
+| **onExpandToggle**    |  `custom`   |                               |   :x:    | Callback for expand icon cell clicks                                                                                                                          |
+| **role**              |  `String`   |                               |   :x:    |
+| **selected**          |  `Boolean`  |                               |   :x:    | Adds a green background color                                                                                                                                 |
 
 ## TableBody
 

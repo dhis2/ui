@@ -44,3 +44,7 @@
 -   [@dhis2-ui/tooltip](components/tooltip/API.md)
 -   [@dhis2-ui/transfer](components/transfer/API.md)
 -   [@dhis2-ui/user-avatar](components/user-avatar/API.md)
+
+# Icons
+
+-   [@dhis2/ui-icons](icons/API.md)

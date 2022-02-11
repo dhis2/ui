@@ -12,14 +12,14 @@ See specification: [Design System](https://github.com/dhis2/design-system/blob/m
 import { UserAvatar } from '@dhis2/ui'
 ```
 
-| prop           |              type              |           default           |      required      | description |
-| -------------- | :----------------------------: | :-------------------------: | :----------------: | ----------- |
-| **avatarId**   |            `String`            |                             |        :x:         |
-| **className**  |            `String`            |                             |        :x:         |
-| **dataTest**   |            `String`            | `'dhis2-uicore-useravatar'` |        :x:         |
-| **extralarge** | `sharedPropTypes.sizePropType` |                             |        :x:         |
-| **extrasmall** | `sharedPropTypes.sizePropType` |                             |        :x:         |
-| **large**      | `sharedPropTypes.sizePropType` |                             |        :x:         |
-| **medium**     | `sharedPropTypes.sizePropType` |                             |        :x:         |
-| **name**       |            `String`            |                             | :white_check_mark: |
-| **small**      | `sharedPropTypes.sizePropType` |                             |        :x:         |
+| prop           |   type   |           default           |      required      | description |
+| -------------- | :------: | :-------------------------: | :----------------: | ----------- |
+| **avatarId**   | `String` |                             |        :x:         |
+| **className**  | `String` |                             |        :x:         |
+| **dataTest**   | `String` | `'dhis2-uicore-useravatar'` |        :x:         |
+| **extralarge** | `custom` |                             |        :x:         |
+| **extrasmall** | `custom` |                             |        :x:         |
+| **large**      | `custom` |                             |        :x:         |
+| **medium**     | `custom` |                             |        :x:         |
+| **name**       | `String` |                             | :white_check_mark: |
+| **small**      | `custom` |                             |        :x:         |
