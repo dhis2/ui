@@ -27,8 +27,10 @@
     },
     "scripts": {
         "setup": "./scripts/setup.js",
-        "build": "./scripts/build.js",
+        "build": "./scripts/build-world.sh",
+        "build:lib": "./scripts/build.js",
         "build:docs": "./scripts/build-docs.js",
+        "build:api": "./scripts/generate-api-docs.js",
         "cy:start": "yarn build && STORYBOOK_TESTING=1 yarn start",
         "cy:open": "wait-on 'http://localhost:5000' && cypress open",
         "cy:run": "wait-on 'http://localhost:5000' && cypress run",

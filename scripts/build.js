@@ -40,7 +40,7 @@ const commands = packages.map((p) => {
 
 const threads = os.cpus().length
 
-concurrently([...commands, 'node scripts/generate-api-docs.js'], {
+concurrently(commands, {
     prefix: 'name',
     killOthers: ['failure'],
     restartTries: 1,
