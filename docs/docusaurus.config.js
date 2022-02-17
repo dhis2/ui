@@ -1,10 +1,9 @@
+const darkCodeTheme = require('prism-react-renderer/themes/dracula')
+const lightCodeTheme = require('prism-react-renderer/themes/github')
 const { webpackConfig } = require('../storybook/src/webpack-config.js')
 
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
-
-const lightCodeTheme = require('prism-react-renderer/themes/github')
-const darkCodeTheme = require('prism-react-renderer/themes/dracula')
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -37,9 +36,11 @@ const config = {
     ],
 
     plugins: [
+        // eslint-disable-next-line no-unused-vars
         function customWebpack(context, options) {
             return {
                 name: 'custom-webpack',
+                // eslint-disable-next-line no-unused-vars
                 configureWebpack(config, isServer, utils) {
                     return webpackConfig(config)
                 },

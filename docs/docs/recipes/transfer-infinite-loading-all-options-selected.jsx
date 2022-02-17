@@ -1,5 +1,5 @@
-import react, { useState, useEffect } from 'react'
 import { Transfer } from '@dhis2/ui'
+import React, { useState, useEffect } from 'react'
 
 const optionsPool = [
     { value: '0', label: 'Option 0' },
@@ -39,7 +39,9 @@ export const InfiniteLoading = () => {
 
     const onEndReached = () => {
         // do nothing when loading already
-        if (loading) return
+        if (loading) {
+            return
+        }
         setPage(page + 1)
     }
 
@@ -92,4 +94,3 @@ export const InfiniteLoading = () => {
         />
     )
 }
-
