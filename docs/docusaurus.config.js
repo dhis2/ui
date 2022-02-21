@@ -89,38 +89,54 @@ const config = {
                 style: 'dark',
                 links: [
                     {
-                        title: 'Docs',
+                        title: 'Getting started',
                         items: [
                             {
-                                label: 'Getting started',
-                                to: '/docs/getting-started',
+                                label: 'About DHIS2 UI',
+                                to: '/',
+                            },
+                            {
+                                label: 'Installation',
+                                to: '/getting-started/installation',
                             },
                         ],
                     },
                     {
-                        title: 'Community',
+                        title: 'DHIS2 UI Resources',
                         items: [
                             {
-                                label: 'DHIS2 Community of Practice',
+                                label: 'GitHub',
+                                href: 'https://github.com/dhis2/ui',
+                            },
+                            {
+                                label: 'Storybook',
+                                href: 'https://ui.dhis2.nu/demo',
+                            },
+                            {
+                                label: 'Figma',
+                                href: 'https://www.figma.com/community/file/999207206720939258/DHIS2-Design-System',
+                            },
+                        ],
+                    },
+                    {
+                        title: 'More DHIS2 sites',
+                        items: [
+                            {
+                                label: 'DHIS2.org',
+                                href: 'https://dhis2.org',
+                            },
+                            {
+                                label: 'Developer Portal',
+                                href: 'https://developers.dhis2.org',
+                            },
+                            {
+                                label: 'Community of Practice',
                                 href: 'https://community.dhis2.org/tag/ui',
                             },
                         ],
                     },
-                    {
-                        title: 'More',
-                        items: [
-                            {
-                                label: 'Blog',
-                                to: '/blog',
-                            },
-                            {
-                                label: 'GitHub',
-                                href: 'https://github.com/facebook/docusaurus',
-                            },
-                        ],
-                    },
                 ],
-                copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+                copyright: `Copyright © ${new Date().getFullYear()} DHIS2. Built with Docusaurus.`,
             },
             prism: {
                 theme: lightCodeTheme,
