@@ -1,5 +1,5 @@
 .demo {
-    border: 1px solid #e5e5e5;
+    border: 1px solid var(--ifm-color-emphasis-200);
     margin-bottom: 16px;
     position: relative;
 }
@@ -16,7 +16,7 @@
 }
 .demoTitle {
     width: 100%;
-    background-color: #e5e5e5;
+    background-color: var(--ifm-color-emphasis-200);
     font-size: 0.8rem;
     padding: 2px 4px;
     font-family: monospace;
