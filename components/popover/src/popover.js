@@ -1,4 +1,3 @@
-import { Layer } from '@dhis2-ui/layer'
 import { getReferenceElement, usePopper } from '@dhis2-ui/popper'
 import { colors, elevations, sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
@@ -17,7 +16,6 @@ const Popover = ({
     observePopperResize,
     observeReferenceResize,
     placement,
-    onClickOutside,
 }) => {
     const referenceElement = getReferenceElement(reference)
     const [popperElement, setPopperElement] = useState(null)
@@ -36,39 +34,37 @@ const Popover = ({
     })
 
     return (
-        <Layer onClick={onClickOutside}>
-            <div
-                data-test={dataTest}
-                className={className}
-                ref={setPopperElement}
-                style={styles.popper}
-                {...attributes.popper}
-            >
-                {children}
-                {arrow && (
-                    <Arrow
-                        hidden={
-                            attributes.arrow &&
-                            attributes.arrow['data-arrow-hidden']
-                        }
-                        popperPlacement={
-                            attributes.popper &&
-                            attributes.popper['data-popper-placement']
-                        }
-                        ref={setArrowElement}
-                        styles={styles.arrow}
-                    />
-                )}
-                <style jsx>{`
-                    div {
-                        max-width: ${maxWidth}px;
-                        box-shadow: ${elevation};
-                        background-color: ${colors.white};
-                        border-radius: 4px;
+        <div
+            data-test={dataTest}
+            className={className}
+            ref={setPopperElement}
+            style={styles.popper}
+            {...attributes.popper}
+        >
+            {children}
+            {arrow && (
+                <Arrow
+                    hidden={
+                        attributes.arrow &&
+                        attributes.arrow['data-arrow-hidden']
                     }
-                `}</style>
-            </div>
-        </Layer>
+                    popperPlacement={
+                        attributes.popper &&
+                        attributes.popper['data-popper-placement']
+                    }
+                    ref={setArrowElement}
+                    styles={styles.arrow}
+                />
+            )}
+            <style jsx>{`
+                div {
+                    max-width: ${maxWidth}px;
+                    box-shadow: ${elevation};
+                    background-color: ${colors.white};
+                    border-radius: 4px;
+                }
+            `}</style>
+        </div>
     )
 }
 
@@ -93,7 +89,6 @@ Popover.propTypes = {
     placement: sharedPropTypes.popperPlacementPropType,
     /** A React ref that refers to the element the Popover should position against */
     reference: sharedPropTypes.popperReferencePropType,
-    onClickOutside: PropTypes.func,
 }
 
 export { Popover }

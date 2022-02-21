@@ -1,3 +1,7 @@
+// composed components
+export { ComposedPopover as Popover } from './composed-popover.js'
+
+// collections
 export * from '@dhis2/ui-constants'
 export * from '@dhis2/ui-icons'
 
@@ -53,7 +57,6 @@ export {
     OrganisationUnitTreeRootLoading,
     getAllExpandedOrgUnitPaths,
 } from '@dhis2-ui/organisation-unit-tree'
-export { Popover } from '@dhis2-ui/popover'
 export { Popper } from '@dhis2-ui/popper'
 export { Portal } from '@dhis2-ui/portal'
 export { Radio } from '@dhis2-ui/radio'
