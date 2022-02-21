@@ -10,27 +10,7 @@ import { Popover } from '@dhis2/ui'
 A popover is used to show more information when a user interacts with a trigger element.
 
 <Demo>
-    <div
-        ref={{
-            current: '[reference]'
-        }}
-        style={{
-            height: 0,
-            width: 0,
-        }}
-    >
-        
-    </div>
-    <Popover
-        reference
-={{
-            current: '[reference]'
-        }}
-    >
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur purus ut faucibus pulvinar elementum. Dignissim diam quis enim lobortis scelerisque fermentum dui faucibus. Rhoncus aenean vel elit scelerisque mauris pellentesque. Non sodales neque sodales ut etiam sit amet. Volutpat sed cras ornare arcu dui. Quis imperdiet massa tincidunt nunc pulvinar sapien et ligula. Convallis posuere morbi leo urna molestie at. Mauris cursus mattis molestie a iaculis at.
-        </p>
-    </Popover>
+    <p><a href="https://ui.dhis2.nu/demo/?path=/story/data-display-popover--default" target="_blank">Storybook demo: Popover</a>.</p> 
 </Demo>
 
 ## Usage
