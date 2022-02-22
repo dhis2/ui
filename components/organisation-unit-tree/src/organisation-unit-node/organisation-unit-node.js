@@ -1,36 +1,16 @@
-import { CircularLoader } from '@dhis2-ui/loader'
 import { Node } from '@dhis2-ui/node'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { resolve } from 'styled-jsx/css'
 import { leftTrimToRootId } from '../helpers/index.js'
 import i18n from '../locales/index.js'
 import { orgUnitPathPropType } from '../prop-types.js'
-import { computeChildNodes } from './compute-child-nodes.js'
 import { ErrorMessage } from './error-message.js'
 import { hasDescendantSelectedPaths } from './has-descendant-selected-paths.js'
 import { Label } from './label/index.js'
+import { LoadingSpinner } from './loading-spinner.js'
+import { OrganisationUnitNodeChildren } from './organisation-unit-node-children.js'
 import { useOpenState } from './use-open-state.js'
 import { useOrgData } from './use-org-data/index.js'
-
-const loadingSpinnerStyles = resolve`
-    .extrasmall {
-        display: block;
-        margin: 3px 0;
-    }
-`
-
-const LoadingSpinner = () => (
-    <div>
-        <CircularLoader extrasmall className={loadingSpinnerStyles.className} />
-        <style>{loadingSpinnerStyles.styles}</style>
-        <style jsx>{`
-            div {
-                width: 24px;
-            }
-        `}</style>
-    </div>
-)
 
 export const OrganisationUnitNode = ({
     autoExpandLoadingError,
@@ -53,18 +33,22 @@ export const OrganisationUnitNode = ({
     onCollapse,
     onExpand,
 }) => {
-    const { loading, error, data } = useOrgData(id, {
+    const orgData = useOrgData(id, {
         isUserDataViewFallback,
-        suppressAlphabeticalSorting,
         displayName,
-        onComplete: onChildrenLoaded,
     })
 
     const strippedPath = leftTrimToRootId(path, rootId)
-    const node = { ...data, path: strippedPath }
+    const node = {
+        // guarantee that displayName and id are avaiable before data loaded
+        displayName,
+        id,
+        ...orgData.data?.orgUnit,
+        // do not override strippedPath with path from loaded data
+        path: strippedPath,
+    }
+    const hasChildren = !!node.children && node.children > 0
 
-    const childNodes = !loading && !error ? computeChildNodes(node, filter) : []
-    const hasChildren = !!childNodes.length
     const hasSelectedDescendants = hasDescendantSelectedPaths(
         strippedPath,
         selected,
@@ -73,7 +57,7 @@ export const OrganisationUnitNode = ({
     const isHighlighted = highlighted.includes(path)
     const { open, onToggleOpen } = useOpenState({
         autoExpandLoadingError,
-        errorMessage: error && error.toString(),
+        errorMessage: orgData.error && orgData.error.toString(),
         path: strippedPath,
         expanded,
         onExpand,
@@ -88,14 +72,14 @@ export const OrganisationUnitNode = ({
         disableSelection,
         hasChildren,
         hasSelectedDescendants,
-        loading,
-        error,
+        loading: orgData.loading,
+        error: orgData.error,
         selected,
         open,
         path,
         singleSelection,
         node,
-        label: node.displayName,
+        label: displayName,
         checked: isSelected,
         highlighted: isHighlighted,
     })
@@ -105,7 +89,7 @@ export const OrganisationUnitNode = ({
             node={node}
             fullPath={path}
             open={open}
-            loading={loading}
+            loading={orgData.loading}
             checked={isSelected}
             rootId={rootId}
             onChange={onChange}
@@ -132,8 +116,8 @@ export const OrganisationUnitNode = ({
      * 3. Error: There are children and loading information somehow failed
      * 4. Child nodes: There are children and the node is open
      */
-    const showPlaceholder = hasChildren && !open && !error
-    const showChildNodes = hasChildren && open && !error
+    const showPlaceholder = hasChildren && !open && !orgData.error
+    const showChildNodes = hasChildren && open && !orgData.error
 
     return (
         <Node
@@ -142,47 +126,38 @@ export const OrganisationUnitNode = ({
             onOpen={onToggleOpen}
             onClose={onToggleOpen}
             component={label}
-            icon={loading && <LoadingSpinner />}
+            icon={orgData.loading && <LoadingSpinner />}
         >
-            {error && (
+            {orgData.error && (
                 <ErrorMessage dataTest={dataTest}>
                     {i18n.t('Could not load children')}
                 </ErrorMessage>
             )}
             {showPlaceholder && <span data-test={`${dataTest}-placeholder`} />}
-            {showChildNodes &&
-                childNodes.map((child) => {
-                    const childPath = `${path}/${child.id}`
-                    const grandChildNodes = computeChildNodes(child, filter)
-
-                    return (
-                        <OrganisationUnitNode
-                            autoExpandLoadingError={autoExpandLoadingError}
-                            childNodes={grandChildNodes}
-                            dataTest={dataTest}
-                            disableSelection={disableSelection}
-                            displayName={child.displayName}
-                            expanded={expanded}
-                            filter={filter}
-                            highlighted={highlighted}
-                            id={child.id}
-                            isUserDataViewFallback={isUserDataViewFallback}
-                            key={childPath}
-                            onChange={onChange}
-                            onChildrenLoaded={onChildrenLoaded}
-                            onCollapse={onCollapse}
-                            onExpand={onExpand}
-                            path={childPath}
-                            renderNodeLabel={renderNodeLabel}
-                            rootId={rootId}
-                            selected={selected}
-                            singleSelection={singleSelection}
-                            suppressAlphabeticalSorting={
-                                suppressAlphabeticalSorting
-                            }
-                        />
-                    )
-                })}
+            {showChildNodes && (
+                <OrganisationUnitNodeChildren
+                    // Prevent cirular imports
+                    OrganisationUnitNode={OrganisationUnitNode}
+                    node={node}
+                    autoExpandLoadingError={autoExpandLoadingError}
+                    dataTest={dataTest}
+                    disableSelection={disableSelection}
+                    expanded={expanded}
+                    filter={filter}
+                    highlighted={highlighted}
+                    isUserDataViewFallback={isUserDataViewFallback}
+                    onChange={onChange}
+                    onChildrenLoaded={onChildrenLoaded}
+                    onCollapse={onCollapse}
+                    onExpand={onExpand}
+                    parentPath={path}
+                    renderNodeLabel={renderNodeLabel}
+                    rootId={rootId}
+                    selected={selected}
+                    singleSelection={singleSelection}
+                    suppressAlphabeticalSorting={suppressAlphabeticalSorting}
+                />
+            )}
         </Node>
     )
 }
