@@ -78,11 +78,7 @@ export const DxWithRealBackend = () => (
             </a>
         </div>
         <DataProvider baseUrl="https://debug.dhis2.org/dev" apiVersion="">
-            <Wrapper
-                //initiallyExpanded={['/ImspTQPwCqd/eIQbndfxQMb']}
-                suppressAlphabeticalSorting
-                roots={['ImspTQPwCqd', 'O6uvpzGd5pu', 'fdc6uOvgoji']}
-            />
+            <Wrapper roots={['ImspTQPwCqd', 'O6uvpzGd5pu', 'fdc6uOvgoji']} />
         </DataProvider>
     </div>
 )
