@@ -33,6 +33,7 @@ export const DataTableColumnHeader = forwardRef(
             rowSpan,
             scope,
             showFilter,
+            small,
             sortDirection,
             sortIconTitle,
             top,
@@ -58,11 +59,12 @@ export const DataTableColumnHeader = forwardRef(
             rowSpan={rowSpan}
             role={role}
             scope={scope}
+            small={small}
             top={top}
             width={width}
         >
             <span className="container">
-                <span className={cx('top', { large })}>
+                <span className={cx('top', { large, small })}>
                     <span className="content">{children}</span>
                     {sortDirection && (
                         <Sorter
@@ -98,6 +100,7 @@ DataTableColumnHeader.displayName = 'DataTableColumnHeader'
 DataTableColumnHeader.defaultProps = {
     dataTest: 'dhis2-uicore-datatablecellhead',
 }
+const sizePropType = mutuallyExclusive(['small', 'large'], PropTypes.bool)
 
 DataTableColumnHeader.propTypes = {
     align: PropTypes.oneOf(['left', 'center', 'right']),
@@ -111,7 +114,7 @@ DataTableColumnHeader.propTypes = {
         PropTypes.node
     ),
     fixed: PropTypes.bool,
-    large: PropTypes.bool,
+    large: sizePropType,
     /** Left or top required when fixed */
     left: requiredIf((props) => props.fixed && !props.top, PropTypes.string),
     /** Can be used to match a column with a property name */
@@ -119,6 +122,7 @@ DataTableColumnHeader.propTypes = {
     role: PropTypes.string,
     rowSpan: PropTypes.string,
     scope: PropTypes.string,
+    small: sizePropType,
     showFilter: requiredIf((props) => props.filter, PropTypes.bool),
     sortDirection: requiredIf(
         (props) => props.onSortIconClick,

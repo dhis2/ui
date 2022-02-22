@@ -21,6 +21,7 @@ export const TableDataCell = forwardRef(
             role,
             rowSpan,
             scope,
+            small,
             staticStyle,
             valid,
             width,
@@ -41,6 +42,7 @@ export const TableDataCell = forwardRef(
                 error,
                 large,
                 muted,
+                small,
                 staticStyle,
                 valid,
             })}
@@ -74,6 +76,7 @@ const stylePropType = mutuallyExclusive(
     ['valid', 'error', 'muted'],
     PropTypes.bool
 )
+const sizePropType = mutuallyExclusive(['small', 'large'], PropTypes.bool)
 
 TableDataCell.propTypes = {
     /** To toggle background color, for example for editing */
@@ -86,7 +89,7 @@ TableDataCell.propTypes = {
     dataTest: PropTypes.string,
     /** Mutually exclusive with muted and valid */
     error: stylePropType,
-    large: PropTypes.bool,
+    large: sizePropType,
     /** Required when fixed */
     left: requiredIf((props) => props.fixed, PropTypes.string),
     /** Mutually exclusive with error and valid */
@@ -94,6 +97,7 @@ TableDataCell.propTypes = {
     role: PropTypes.string,
     rowSpan: PropTypes.string,
     scope: PropTypes.string,
+    small: sizePropType,
     /** Surpress hover and active event styles */
     staticStyle: PropTypes.bool,
     /** Mutually exclusive with error and muted */

@@ -24,6 +24,7 @@ export const TableHeaderCell = forwardRef(
             rowSpan,
             role,
             scope,
+            small,
             staticStyle,
             top,
             valid,
@@ -47,6 +48,7 @@ export const TableHeaderCell = forwardRef(
                 fixedHorizontally: fixed && left !== AUTO,
                 large,
                 muted,
+                small,
                 staticStyle,
                 valid,
             })}
@@ -82,6 +84,7 @@ const stylePropType = mutuallyExclusive(
     ['valid', 'error', 'muted'],
     PropTypes.bool
 )
+const sizePropType = mutuallyExclusive(['small', 'large'], PropTypes.bool)
 
 TableHeaderCell.propTypes = {
     /** To toggle background color, for example for editing */
@@ -95,7 +98,7 @@ TableHeaderCell.propTypes = {
     /** Mutually exclusive with muted and valid */
     error: stylePropType,
     fixed: PropTypes.bool,
-    large: PropTypes.bool,
+    large: sizePropType,
     /** Left or top required when fixed */
     left: requiredIf((props) => props.fixed && !props.top, PropTypes.string),
     /** Mutually exclusive with error and valid */
@@ -103,6 +106,7 @@ TableHeaderCell.propTypes = {
     role: PropTypes.string,
     rowSpan: PropTypes.string,
     scope: PropTypes.string,
+    small: sizePropType,
     /** Surpress hover and active event styles */
     staticStyle: PropTypes.bool,
     /** Left or top required when fixed */

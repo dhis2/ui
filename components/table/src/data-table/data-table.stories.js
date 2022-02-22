@@ -57,65 +57,74 @@ export default {
     },
 }
 
-const BasicTemplate = ({ bordered, large, draggable, bodyProps, ...args }) => (
+const BasicTemplate = ({
+    bordered,
+    large,
+    small,
+    draggable,
+    bodyProps,
+    ...args
+}) => (
     <DataTable {...args}>
         <DataTableHead>
             <DataTableRow>
-                {draggable && <DataTableColumnHeader large={large} />}
-                <DataTableColumnHeader large={large}>
+                {draggable && (
+                    <DataTableColumnHeader large={large} small={small} />
+                )}
+                <DataTableColumnHeader large={large} small={small}>
                     First name
                 </DataTableColumnHeader>
-                <DataTableColumnHeader large={large}>
+                <DataTableColumnHeader large={large} small={small}>
                     Last name
                 </DataTableColumnHeader>
-                <DataTableColumnHeader large={large}>
+                <DataTableColumnHeader large={large} small={small}>
                     Incident date
                 </DataTableColumnHeader>
-                <DataTableColumnHeader large={large}>
+                <DataTableColumnHeader large={large} small={small}>
                     Last updated
                 </DataTableColumnHeader>
             </DataTableRow>
         </DataTableHead>
         <DataTableBody {...bodyProps}>
             <DataTableRow draggable={draggable}>
-                <DataTableCell large={large} bordered={bordered}>
+                <DataTableCell large={large} small={small} bordered={bordered}>
                     Onyekachukwu
                 </DataTableCell>
-                <DataTableCell large={large} bordered={bordered}>
+                <DataTableCell large={large} small={small} bordered={bordered}>
                     Kariuki
                 </DataTableCell>
-                <DataTableCell large={large} bordered={bordered}>
+                <DataTableCell large={large} small={small} bordered={bordered}>
                     02/06/2007
                 </DataTableCell>
-                <DataTableCell large={large} bordered={bordered}>
+                <DataTableCell large={large} small={small} bordered={bordered}>
                     05/25/1972
                 </DataTableCell>
             </DataTableRow>
             <DataTableRow draggable={draggable}>
-                <DataTableCell large={large} bordered={bordered}>
+                <DataTableCell large={large} small={small} bordered={bordered}>
                     Kwasi
                 </DataTableCell>
-                <DataTableCell large={large} bordered={bordered}>
+                <DataTableCell large={large} small={small} bordered={bordered}>
                     Okafor
                 </DataTableCell>
-                <DataTableCell large={large} bordered={bordered}>
+                <DataTableCell large={large} small={small} bordered={bordered}>
                     08/11/2010
                 </DataTableCell>
-                <DataTableCell large={large} bordered={bordered}>
+                <DataTableCell large={large} small={small} bordered={bordered}>
                     02/26/1991
                 </DataTableCell>
             </DataTableRow>
             <DataTableRow draggable={draggable}>
-                <DataTableCell large={large} bordered={bordered}>
+                <DataTableCell large={large} small={small} bordered={bordered}>
                     Siyabonga
                 </DataTableCell>
-                <DataTableCell large={large} bordered={bordered}>
+                <DataTableCell large={large} small={small} bordered={bordered}>
                     Abiodun
                 </DataTableCell>
-                <DataTableCell large={large} bordered={bordered}>
+                <DataTableCell large={large} small={small} bordered={bordered}>
                     07/21/1981
                 </DataTableCell>
-                <DataTableCell large={large} bordered={bordered}>
+                <DataTableCell large={large} small={small} bordered={bordered}>
                     02/06/2007
                 </DataTableCell>
             </DataTableRow>
@@ -143,6 +152,10 @@ BorderedCells.args = {
 export const LargeCells = BasicTemplate.bind({})
 LargeCells.args = {
     large: true,
+}
+export const SmallCells = BasicTemplate.bind({})
+SmallCells.args = {
+    small: true,
 }
 export const DraggableRows = BasicTemplate.bind({})
 DraggableRows.args = {
@@ -1036,8 +1049,9 @@ const ScrollingDataTableWithToolbarsTemplate = (args) => (
     </Box>
 )
 
-export const ScrollingDataTableWithToolbars =
-    ScrollingDataTableWithToolbarsTemplate.bind({})
+export const ScrollingDataTableWithToolbars = ScrollingDataTableWithToolbarsTemplate.bind(
+    {}
+)
 ScrollingDataTableWithToolbars.args = {
     layout: 'fixed',
     width: '1000px',
@@ -1223,12 +1237,13 @@ InlineFiltering.args = {
     layout: 'fixed',
 }
 
-const LongCellContentTemplate = ({ large }) => (
+const LongCellContentTemplate = ({ large, small }) => (
     <DataTable>
         <DataTableHead>
             <DataTableRow>
                 <DataTableColumnHeader
                     large={large}
+                    small={small}
                     onSortIconClick={() => {}}
                     sortDirection="asc"
                     name="first"
@@ -1241,6 +1256,7 @@ const LongCellContentTemplate = ({ large }) => (
                 </DataTableColumnHeader>
                 <DataTableColumnHeader
                     large={large}
+                    small={small}
                     onFilterIconClick={() => {}}
                     name="firstName"
                     showFilter={true}
@@ -1261,6 +1277,7 @@ const LongCellContentTemplate = ({ large }) => (
                 </DataTableColumnHeader>
                 <DataTableColumnHeader
                     large={large}
+                    small={small}
                     onSortIconClick={() => {}}
                     sortDirection="asc"
                     name="third"
@@ -1269,6 +1286,7 @@ const LongCellContentTemplate = ({ large }) => (
                 </DataTableColumnHeader>
                 <DataTableColumnHeader
                     large={large}
+                    small={small}
                     onSortIconClick={() => {}}
                     sortDirection="asc"
                     name="fourth"
@@ -1283,22 +1301,24 @@ const LongCellContentTemplate = ({ large }) => (
         </DataTableHead>
         <DataTableBody>
             <DataTableRow>
-                <DataTableCell large={large}>
+                <DataTableCell large={large} small={small}>
                     FIRST - Lorem ipsum dolor sit amet, consectetur adipisicing
                     elit. Eligendi non quis exercitationem culpa nesciunt nihil
                     aut nostrum explicabo reprehenderit optio amet ab temporibus
                     asperiores quasi cupiditate. Voluptatum ducimus voluptates
                     voluptas?
                 </DataTableCell>
-                <DataTableCell large={large}>
+                <DataTableCell large={large} small={small}>
                     SECOND - Lorem ipsum dolor sit amet, consectetur adipisicing
                     elit. Eligendi non quis exercitationem culpa nesciunt nihil
                     aut nostrum explicabo reprehenderit optio amet ab temporibus
                     asperiores quasi cupiditate. Voluptatum ducimus voluptates
                     voluptas?
                 </DataTableCell>
-                <DataTableCell large={large}>Third (short)</DataTableCell>
-                <DataTableCell large={large}>
+                <DataTableCell large={large} small={small}>
+                    Third (short)
+                </DataTableCell>
+                <DataTableCell large={large} small={small}>
                     Fourth - Lorem ipsum dolor sit amet, consectetur adipisicing
                     elit. Eligendi non quis exercitationem culpa nesciunt nihil
                     aut nostrum explicabo reprehenderit optio amet ab temporibus
@@ -1313,6 +1333,10 @@ const LongCellContentTemplate = ({ large }) => (
 export const LongCellContent = LongCellContentTemplate.bind({})
 
 export const LongCellContentLargeCells = LongCellContentTemplate.bind({})
+LongCellContentLargeCells.args = {
+    large: 'true',
+}
+export const LongCellContentSmallCells = LongCellContentTemplate.bind({})
 LongCellContentLargeCells.args = {
     large: 'true',
 }

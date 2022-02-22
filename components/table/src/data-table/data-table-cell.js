@@ -21,6 +21,7 @@ export const DataTableCell = forwardRef(
             rowSpan,
             role,
             scope,
+            small,
             staticStyle,
             tag,
             valid,
@@ -51,6 +52,7 @@ export const DataTableCell = forwardRef(
                 role={role}
                 staticStyle={staticStyle}
                 scope={scope}
+                small={small}
                 valid={valid}
                 width={width}
                 onClick={onClick}
@@ -74,6 +76,7 @@ const stylePropType = mutuallyExclusive(
     ['valid', 'error', 'muted'],
     PropTypes.bool
 )
+const sizePropType = mutuallyExclusive(['small', 'large'], PropTypes.bool)
 const requiredIfFixedPropType = requiredIf(
     (props) => props.fixed,
     PropTypes.string
@@ -91,7 +94,7 @@ DataTableCell.propTypes = {
     error: stylePropType,
     /** When true a TableHeaderCell with sticky positioning will be rendered */
     fixed: PropTypes.bool,
-    large: PropTypes.bool,
+    large: sizePropType,
     /** Required when fixed */
     left: requiredIfFixedPropType,
     /** Mutually exclusive with error and valid */
@@ -99,6 +102,7 @@ DataTableCell.propTypes = {
     role: PropTypes.string,
     rowSpan: PropTypes.string,
     scope: PropTypes.string,
+    small: sizePropType,
     /** Surpress hover and active event styles */
     staticStyle: PropTypes.bool,
     /** Render a TableDataCell or TableHeaderCell respectively */

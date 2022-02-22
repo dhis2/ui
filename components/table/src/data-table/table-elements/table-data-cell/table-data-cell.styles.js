@@ -31,6 +31,10 @@ export default css`
     td.valid {
         color: ${colors.green700};
     }
+    td.small {
+        padding: 8px 8px;
+        font-size: 12px;
+    }
     td.large {
         padding: 20px 12px;
         font-size: 16px;

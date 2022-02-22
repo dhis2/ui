@@ -40,6 +40,14 @@ export default css`
     th.valid {
         color: ${colors.green700};
     }
+    th.small {
+        padding: 2px 8px;
+        font-size: 12px;
+    }
+    :global(thead) th.small {
+        padding: 13px 8px;
+        font-size: 12px;
+    }
     th.large {
         padding: 14px 12px;
         font-size: 16px;
