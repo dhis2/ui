@@ -53,6 +53,7 @@ export default {
         // hide child component controls completely to avoid confusion
         bordered: { datatable: { disable: true } },
         large: { datatable: { disable: true } },
+        small: { datatable: { disable: true } },
         draggable: { datatable: { disable: true } },
     },
 }
@@ -1334,9 +1335,9 @@ export const LongCellContent = LongCellContentTemplate.bind({})
 
 export const LongCellContentLargeCells = LongCellContentTemplate.bind({})
 LongCellContentLargeCells.args = {
-    large: 'true',
+    large: true,
 }
 export const LongCellContentSmallCells = LongCellContentTemplate.bind({})
-LongCellContentLargeCells.args = {
-    large: 'true',
+LongCellContentSmallCells.args = {
+    small: true,
 }

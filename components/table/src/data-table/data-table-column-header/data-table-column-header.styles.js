@@ -24,8 +24,8 @@ export const resolvedTableHeaderCss = css.resolve`
         padding-bottom: 6px;
     }
     :global(thead) > :global(tr) > th.DataTableColumnHeader.small {
-        padding-top: 2px;
-        padding-bottom: 2px;
+        padding-top: 4px;
+        padding-bottom: 4px;
     }
     :global(thead) > :global(tr) > th.DataTableColumnHeader.large {
         padding-top: 12px;
