@@ -43,7 +43,7 @@ export const OrganisationUnitNode = ({
         // guarantee that displayName and id are avaiable before data loaded
         displayName,
         id,
-        ...orgData.data?.orgUnit,
+        ...(orgData.data || {}),
         // do not override strippedPath with path from loaded data
         path: strippedPath,
     }
