@@ -12,7 +12,6 @@ export default css`
         letter-spacing: 0.5px;
         text-decoration: none;
         cursor: pointer;
-        transition: all 0.15s cubic-bezier(0.4, 0, 0.6, 1);
         user-select: none;
         color: ${colors.grey900};
 
@@ -34,7 +33,6 @@ export default css`
     button:focus {
         outline: 3px solid ${theme.focus};
         outline-offset: -3px;
-        transition: none;
         text-decoration: underline;
     }
 
