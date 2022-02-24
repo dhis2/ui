@@ -1,6 +1,6 @@
 {
     "name": "ui-storybook",
-    "version": "7.16.2",
+    "version": "7.16.3",
     "description": "UI Storybook",
     "repository": {
         "type": "git",
@@ -23,8 +23,8 @@
         "@babel/plugin-proposal-class-properties": "^7.13.0",
         "@babel/plugin-proposal-private-methods": "^7.13.0",
         "@babel/plugin-proposal-private-property-in-object": "^7.14.0",
-        "@dhis2-ui/css": "7.16.2",
-        "@dhis2/ui-constants": "7.16.2",
+        "@dhis2-ui/css": "7.16.3",
+        "@dhis2/ui-constants": "7.16.3",
         "@fontsource/roboto": "^4.5.0",
         "@storybook/addon-a11y": "^6.3.7",
         "@storybook/addon-console": "^1.2.3",

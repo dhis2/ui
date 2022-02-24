@@ -1,3 +1,10 @@
+## [7.16.3](https://github.com/dhis2/ui/compare/v7.16.2...v7.16.3) (2022-02-24)
+
+
+### Bug Fixes
+
+* **button:** remove transitions ([#992](https://github.com/dhis2/ui/issues/992)) ([04b124e](https://github.com/dhis2/ui/commit/04b124e8db4c45b90c86932ebf196a96471de743))
+
 ## [7.16.2](https://github.com/dhis2/ui/compare/v7.16.1...v7.16.2) (2022-02-15)
 
 
