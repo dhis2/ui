@@ -10,7 +10,7 @@ import { HeaderBar } from '@dhis2-ui/header-bar'
 
 #### Props
 
-| Name      | Type     | Default | Required | Description |
-| --------- | -------- | ------- | -------- | ----------- |
-| appName   | `string` |         |          |             |
-| className | `string` |         |          |             |
+| Name      | Type   | Default | Required | Description |
+| --------- | ------ | ------- | -------- | ----------- |
+| appName   | string |         |          |             |
+| className | string |         |          |             |

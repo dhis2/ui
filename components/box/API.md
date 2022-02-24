@@ -10,16 +10,16 @@ import { Box } from '@dhis2-ui/box'
 
 #### Props
 
-| Name      | Type     | Default              | Required | Description |
-| --------- | -------- | -------------------- | -------- | ----------- |
-| children  | `node`   |                      |          |             |
-| className | `string` |                      |          |             |
-| dataTest  | `string` | `'dhis2-uicore-box'` |          |             |
-| height    | `string` |                      |          |             |
-| marginTop | `string` |                      |          |             |
-| maxHeight | `string` |                      |          |             |
-| maxWidth  | `string` |                      |          |             |
-| minHeight | `string` |                      |          |             |
-| minWidth  | `string` |                      |          |             |
-| overflow  | `string` |                      |          |             |
-| width     | `string` |                      |          |             |
+| Name      | Type   | Default              | Required | Description |
+| --------- | ------ | -------------------- | -------- | ----------- |
+| children  | node   |                      |          |             |
+| className | string |                      |          |             |
+| dataTest  | string | `'dhis2-uicore-box'` |          |             |
+| height    | string |                      |          |             |
+| marginTop | string |                      |          |             |
+| maxHeight | string |                      |          |             |
+| maxWidth  | string |                      |          |             |
+| minHeight | string |                      |          |             |
+| minWidth  | string |                      |          |             |
+| overflow  | string |                      |          |             |
+| width     | string |                      |          |             |

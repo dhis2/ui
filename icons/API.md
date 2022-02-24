@@ -10,9 +10,9 @@ import { SvgAdd16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgAdd24
 
@@ -26,9 +26,9 @@ import { SvgAdd24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgAddCircle16
 
@@ -42,9 +42,9 @@ import { SvgAddCircle16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgAddCircle24
 
@@ -58,9 +58,9 @@ import { SvgAddCircle24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgApps16
 
@@ -74,9 +74,9 @@ import { SvgApps16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgApps24
 
@@ -90,9 +90,9 @@ import { SvgApps24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgArchive16
 
@@ -106,9 +106,9 @@ import { SvgArchive16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgArchive24
 
@@ -122,9 +122,9 @@ import { SvgArchive24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgArrowDown16
 
@@ -138,9 +138,9 @@ import { SvgArrowDown16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgArrowDown24
 
@@ -154,9 +154,9 @@ import { SvgArrowDown24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgArrowLeft16
 
@@ -170,9 +170,9 @@ import { SvgArrowLeft16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgArrowLeft24
 
@@ -186,9 +186,9 @@ import { SvgArrowLeft24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgArrowLeftMulti16
 
@@ -202,9 +202,9 @@ import { SvgArrowLeftMulti16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgArrowLeftMulti24
 
@@ -218,9 +218,9 @@ import { SvgArrowLeftMulti24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgArrowRight16
 
@@ -234,9 +234,9 @@ import { SvgArrowRight16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgArrowRight24
 
@@ -250,9 +250,9 @@ import { SvgArrowRight24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgArrowRightMulti16
 
@@ -266,9 +266,9 @@ import { SvgArrowRightMulti16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgArrowRightMulti24
 
@@ -282,9 +282,9 @@ import { SvgArrowRightMulti24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgArrowUp16
 
@@ -298,9 +298,9 @@ import { SvgArrowUp16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgArrowUp24
 
@@ -314,9 +314,9 @@ import { SvgArrowUp24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgAt16
 
@@ -330,9 +330,9 @@ import { SvgAt16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgAt24
 
@@ -346,9 +346,9 @@ import { SvgAt24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgAttachment16
 
@@ -362,9 +362,9 @@ import { SvgAttachment16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgAttachment24
 
@@ -378,9 +378,9 @@ import { SvgAttachment24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgBlock16
 
@@ -394,9 +394,9 @@ import { SvgBlock16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgBlock24
 
@@ -410,9 +410,9 @@ import { SvgBlock24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgCalendar16
 
@@ -426,9 +426,9 @@ import { SvgCalendar16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgCalendar24
 
@@ -442,9 +442,9 @@ import { SvgCalendar24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgCheckmark12
 
@@ -458,9 +458,9 @@ import { SvgCheckmark12 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgCheckmark16
 
@@ -474,9 +474,9 @@ import { SvgCheckmark16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgCheckmark24
 
@@ -490,9 +490,9 @@ import { SvgCheckmark24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgCheckmarkCircle16
 
@@ -506,9 +506,9 @@ import { SvgCheckmarkCircle16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgCheckmarkCircle24
 
@@ -522,9 +522,9 @@ import { SvgCheckmarkCircle24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgChevronDown16
 
@@ -538,9 +538,9 @@ import { SvgChevronDown16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgChevronDown24
 
@@ -554,9 +554,9 @@ import { SvgChevronDown24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgChevronLeft16
 
@@ -570,9 +570,9 @@ import { SvgChevronLeft16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgChevronLeft24
 
@@ -586,9 +586,9 @@ import { SvgChevronLeft24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgChevronRight16
 
@@ -602,9 +602,9 @@ import { SvgChevronRight16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgChevronRight24
 
@@ -618,9 +618,9 @@ import { SvgChevronRight24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgChevronUp16
 
@@ -634,9 +634,9 @@ import { SvgChevronUp16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgChevronUp24
 
@@ -650,9 +650,9 @@ import { SvgChevronUp24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgClock16
 
@@ -666,9 +666,9 @@ import { SvgClock16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgClock24
 
@@ -682,9 +682,9 @@ import { SvgClock24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgClockHistory16
 
@@ -698,9 +698,9 @@ import { SvgClockHistory16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgClockHistory24
 
@@ -714,9 +714,9 @@ import { SvgClockHistory24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgColor16
 
@@ -730,9 +730,9 @@ import { SvgColor16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgColor24
 
@@ -746,9 +746,9 @@ import { SvgColor24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgCopy16
 
@@ -762,9 +762,9 @@ import { SvgCopy16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgCopy24
 
@@ -778,9 +778,9 @@ import { SvgCopy24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgCross16
 
@@ -794,9 +794,9 @@ import { SvgCross16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgCross24
 
@@ -810,9 +810,9 @@ import { SvgCross24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgDashboardWindow16
 
@@ -826,9 +826,9 @@ import { SvgDashboardWindow16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgDashboardWindow24
 
@@ -842,9 +842,9 @@ import { SvgDashboardWindow24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgDataInteger16
 
@@ -858,9 +858,9 @@ import { SvgDataInteger16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgDataInteger24
 
@@ -874,9 +874,9 @@ import { SvgDataInteger24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgDataString16
 
@@ -890,9 +890,9 @@ import { SvgDataString16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgDataString24
 
@@ -906,9 +906,9 @@ import { SvgDataString24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgDelete16
 
@@ -922,9 +922,9 @@ import { SvgDelete16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgDelete24
 
@@ -938,9 +938,9 @@ import { SvgDelete24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgDimensionCategoryOptionGroupset16
 
@@ -954,9 +954,9 @@ import { SvgDimensionCategoryOptionGroupset16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgDimensionData16
 
@@ -970,9 +970,9 @@ import { SvgDimensionData16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgDimensionDataElementGroupset16
 
@@ -986,9 +986,9 @@ import { SvgDimensionDataElementGroupset16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgDimensionDataSet16
 
@@ -1002,9 +1002,9 @@ import { SvgDimensionDataSet16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgDimensionEventDataItem16
 
@@ -1018,9 +1018,9 @@ import { SvgDimensionEventDataItem16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgDimensionIndicator16
 
@@ -1034,9 +1034,9 @@ import { SvgDimensionIndicator16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgDimensionOrgUnit16
 
@@ -1050,9 +1050,9 @@ import { SvgDimensionOrgUnit16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgDimensionOrgUnitGroupset16
 
@@ -1066,9 +1066,9 @@ import { SvgDimensionOrgUnitGroupset16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgDimensionProgramIndicator16
 
@@ -1082,9 +1082,9 @@ import { SvgDimensionProgramIndicator16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgDimensionValidationRule16
 
@@ -1098,9 +1098,9 @@ import { SvgDimensionValidationRule16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgDirectionNorth16
 
@@ -1114,9 +1114,9 @@ import { SvgDirectionNorth16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgDirectionNorth24
 
@@ -1130,9 +1130,9 @@ import { SvgDirectionNorth24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgDownload16
 
@@ -1146,9 +1146,9 @@ import { SvgDownload16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgDownload24
 
@@ -1162,9 +1162,9 @@ import { SvgDownload24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgDragHandle16
 
@@ -1178,9 +1178,9 @@ import { SvgDragHandle16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgDragHandle24
 
@@ -1194,9 +1194,9 @@ import { SvgDragHandle24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgDuplicate16
 
@@ -1210,9 +1210,9 @@ import { SvgDuplicate16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgDuplicate24
 
@@ -1226,9 +1226,9 @@ import { SvgDuplicate24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgEdit16
 
@@ -1242,9 +1242,9 @@ import { SvgEdit16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgEdit24
 
@@ -1258,9 +1258,9 @@ import { SvgEdit24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgEditItems16
 
@@ -1274,9 +1274,9 @@ import { SvgEditItems16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgEditItems24
 
@@ -1290,9 +1290,9 @@ import { SvgEditItems24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgEmptyFrame16
 
@@ -1306,9 +1306,9 @@ import { SvgEmptyFrame16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgEmptyFrame24
 
@@ -1322,9 +1322,9 @@ import { SvgEmptyFrame24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgError16
 
@@ -1338,9 +1338,9 @@ import { SvgError16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgError24
 
@@ -1354,9 +1354,9 @@ import { SvgError24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgErrorFilled16
 
@@ -1370,9 +1370,9 @@ import { SvgErrorFilled16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgErrorFilled24
 
@@ -1386,9 +1386,9 @@ import { SvgErrorFilled24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgExportItems24
 
@@ -1402,9 +1402,9 @@ import { SvgExportItems24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgFaceAdd16
 
@@ -1418,9 +1418,9 @@ import { SvgFaceAdd16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgFaceAdd24
 
@@ -1434,9 +1434,9 @@ import { SvgFaceAdd24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgFile16
 
@@ -1450,9 +1450,9 @@ import { SvgFile16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgFile24
 
@@ -1466,9 +1466,9 @@ import { SvgFile24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgFileDocument16
 
@@ -1482,9 +1482,9 @@ import { SvgFileDocument16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgFileDocument24
 
@@ -1498,9 +1498,9 @@ import { SvgFileDocument24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgFilter16
 
@@ -1514,9 +1514,9 @@ import { SvgFilter16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgFilter24
 
@@ -1530,9 +1530,9 @@ import { SvgFilter24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgFlag16
 
@@ -1546,9 +1546,9 @@ import { SvgFlag16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgFlag24
 
@@ -1562,9 +1562,9 @@ import { SvgFlag24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgFolder16
 
@@ -1578,9 +1578,9 @@ import { SvgFolder16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgFolder24
 
@@ -1594,9 +1594,9 @@ import { SvgFolder24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgFolderOpen16
 
@@ -1610,9 +1610,9 @@ import { SvgFolderOpen16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgFolderOpen24
 
@@ -1626,9 +1626,9 @@ import { SvgFolderOpen24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgFullscreen16
 
@@ -1642,9 +1642,9 @@ import { SvgFullscreen16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgFullscreen24
 
@@ -1658,9 +1658,9 @@ import { SvgFullscreen24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgFullscreenExit16
 
@@ -1674,9 +1674,9 @@ import { SvgFullscreenExit16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgFullscreenExit24
 
@@ -1690,9 +1690,9 @@ import { SvgFullscreenExit24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgHome16
 
@@ -1706,9 +1706,9 @@ import { SvgHome16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgHome24
 
@@ -1722,9 +1722,9 @@ import { SvgHome24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgImage16
 
@@ -1738,9 +1738,9 @@ import { SvgImage16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgImage24
 
@@ -1754,9 +1754,9 @@ import { SvgImage24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgImportItems24
 
@@ -1770,9 +1770,9 @@ import { SvgImportItems24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgInfo16
 
@@ -1786,9 +1786,9 @@ import { SvgInfo16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgInfo24
 
@@ -1802,9 +1802,9 @@ import { SvgInfo24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgInfoFilled16
 
@@ -1818,9 +1818,9 @@ import { SvgInfoFilled16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgInfoFilled24
 
@@ -1834,9 +1834,9 @@ import { SvgInfoFilled24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgLaunch16
 
@@ -1850,9 +1850,9 @@ import { SvgLaunch16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgLaunch24
 
@@ -1866,9 +1866,9 @@ import { SvgLaunch24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgLayoutColumns16
 
@@ -1882,9 +1882,9 @@ import { SvgLayoutColumns16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgLayoutColumns24
 
@@ -1898,9 +1898,9 @@ import { SvgLayoutColumns24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgLayoutRows16
 
@@ -1914,9 +1914,9 @@ import { SvgLayoutRows16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgLayoutRows24
 
@@ -1930,9 +1930,9 @@ import { SvgLayoutRows24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgLegend16
 
@@ -1946,9 +1946,9 @@ import { SvgLegend16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgLegend24
 
@@ -1962,9 +1962,9 @@ import { SvgLegend24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgLink16
 
@@ -1978,9 +1978,9 @@ import { SvgLink16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgLink24
 
@@ -1994,9 +1994,9 @@ import { SvgLink24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgList16
 
@@ -2010,9 +2010,9 @@ import { SvgList16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgList24
 
@@ -2026,9 +2026,9 @@ import { SvgList24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgLocation16
 
@@ -2042,9 +2042,9 @@ import { SvgLocation16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgLocation24
 
@@ -2058,9 +2058,9 @@ import { SvgLocation24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgLock16
 
@@ -2074,9 +2074,9 @@ import { SvgLock16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgLock24
 
@@ -2090,9 +2090,9 @@ import { SvgLock24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgLockOpen16
 
@@ -2106,9 +2106,9 @@ import { SvgLockOpen16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgLockOpen24
 
@@ -2122,9 +2122,9 @@ import { SvgLockOpen24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgLogOut16
 
@@ -2138,9 +2138,9 @@ import { SvgLogOut16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgLogOut24
 
@@ -2154,9 +2154,9 @@ import { SvgLogOut24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgMail16
 
@@ -2170,9 +2170,9 @@ import { SvgMail16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgMail24
 
@@ -2186,9 +2186,9 @@ import { SvgMail24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgMailOpen16
 
@@ -2202,9 +2202,9 @@ import { SvgMailOpen16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgMailOpen24
 
@@ -2218,9 +2218,9 @@ import { SvgMailOpen24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgMessages16
 
@@ -2234,9 +2234,9 @@ import { SvgMessages16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgMessages24
 
@@ -2250,9 +2250,9 @@ import { SvgMessages24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgMore16
 
@@ -2266,9 +2266,9 @@ import { SvgMore16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgMore24
 
@@ -2282,9 +2282,9 @@ import { SvgMore24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgMove16
 
@@ -2298,9 +2298,9 @@ import { SvgMove16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgMove24
 
@@ -2314,9 +2314,9 @@ import { SvgMove24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgPushLeft16
 
@@ -2330,9 +2330,9 @@ import { SvgPushLeft16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgPushLeft24
 
@@ -2346,9 +2346,9 @@ import { SvgPushLeft24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgPushRight16
 
@@ -2362,9 +2362,9 @@ import { SvgPushRight16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgPushRight24
 
@@ -2378,9 +2378,9 @@ import { SvgPushRight24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgQuestion16
 
@@ -2394,9 +2394,9 @@ import { SvgQuestion16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgQuestion24
 
@@ -2410,9 +2410,9 @@ import { SvgQuestion24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgQuestionFilled16
 
@@ -2426,9 +2426,9 @@ import { SvgQuestionFilled16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgQuestionFilled24
 
@@ -2442,9 +2442,9 @@ import { SvgQuestionFilled24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgQueue16
 
@@ -2458,9 +2458,9 @@ import { SvgQueue16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgQueue24
 
@@ -2474,9 +2474,9 @@ import { SvgQueue24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgRedo16
 
@@ -2490,9 +2490,9 @@ import { SvgRedo16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgRedo24
 
@@ -2506,9 +2506,9 @@ import { SvgRedo24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgReorder16
 
@@ -2522,9 +2522,9 @@ import { SvgReorder16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgReorder24
 
@@ -2538,9 +2538,9 @@ import { SvgReorder24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgReply16
 
@@ -2554,9 +2554,9 @@ import { SvgReply16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgReply24
 
@@ -2570,9 +2570,9 @@ import { SvgReply24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgRuler16
 
@@ -2586,9 +2586,9 @@ import { SvgRuler16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgRuler24
 
@@ -2602,9 +2602,9 @@ import { SvgRuler24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgSave16
 
@@ -2618,9 +2618,9 @@ import { SvgSave16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgSave24
 
@@ -2634,9 +2634,9 @@ import { SvgSave24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgSearch16
 
@@ -2650,9 +2650,9 @@ import { SvgSearch16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgSearch24
 
@@ -2666,9 +2666,9 @@ import { SvgSearch24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgSettings16
 
@@ -2682,9 +2682,9 @@ import { SvgSettings16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgSettings24
 
@@ -2698,9 +2698,9 @@ import { SvgSettings24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgShare16
 
@@ -2714,9 +2714,9 @@ import { SvgShare16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgShare24
 
@@ -2730,9 +2730,9 @@ import { SvgShare24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgStar16
 
@@ -2746,9 +2746,9 @@ import { SvgStar16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgStar24
 
@@ -2762,9 +2762,9 @@ import { SvgStar24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgStarFilled16
 
@@ -2778,9 +2778,9 @@ import { SvgStarFilled16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgStarFilled24
 
@@ -2794,9 +2794,9 @@ import { SvgStarFilled24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgSubscribe16
 
@@ -2810,9 +2810,9 @@ import { SvgSubscribe16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgSubscribe24
 
@@ -2826,9 +2826,9 @@ import { SvgSubscribe24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgSubscribeOff16
 
@@ -2842,9 +2842,9 @@ import { SvgSubscribeOff16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgSubscribeOff24
 
@@ -2858,9 +2858,9 @@ import { SvgSubscribeOff24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgSubtractCircle16
 
@@ -2874,9 +2874,9 @@ import { SvgSubtractCircle16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgSubtractCircle24
 
@@ -2890,9 +2890,9 @@ import { SvgSubtractCircle24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgSync16
 
@@ -2906,9 +2906,9 @@ import { SvgSync16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgSync24
 
@@ -2922,9 +2922,9 @@ import { SvgSync24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgTable16
 
@@ -2938,9 +2938,9 @@ import { SvgTable16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgTable24
 
@@ -2954,9 +2954,9 @@ import { SvgTable24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgTerminalWindow16
 
@@ -2970,9 +2970,9 @@ import { SvgTerminalWindow16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgTerminalWindow24
 
@@ -2986,9 +2986,9 @@ import { SvgTerminalWindow24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgTextBold16
 
@@ -3002,9 +3002,9 @@ import { SvgTextBold16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgTextBold24
 
@@ -3018,9 +3018,9 @@ import { SvgTextBold24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgTextBox16
 
@@ -3034,9 +3034,9 @@ import { SvgTextBox16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgTextBox24
 
@@ -3050,9 +3050,9 @@ import { SvgTextBox24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgTextHeading16
 
@@ -3066,9 +3066,9 @@ import { SvgTextHeading16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgTextHeading24
 
@@ -3082,9 +3082,9 @@ import { SvgTextHeading24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgTextItalic16
 
@@ -3098,9 +3098,9 @@ import { SvgTextItalic16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgTextItalic24
 
@@ -3114,9 +3114,9 @@ import { SvgTextItalic24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgTextListOrdered16
 
@@ -3130,9 +3130,9 @@ import { SvgTextListOrdered16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgTextListOrdered24
 
@@ -3146,9 +3146,9 @@ import { SvgTextListOrdered24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgTextListUnordered16
 
@@ -3162,9 +3162,9 @@ import { SvgTextListUnordered16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgTextListUnordered24
 
@@ -3178,9 +3178,9 @@ import { SvgTextListUnordered24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgThumbDown16
 
@@ -3194,9 +3194,9 @@ import { SvgThumbDown16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgThumbDown24
 
@@ -3210,9 +3210,9 @@ import { SvgThumbDown24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgThumbUp16
 
@@ -3226,9 +3226,9 @@ import { SvgThumbUp16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgThumbUp24
 
@@ -3242,9 +3242,9 @@ import { SvgThumbUp24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgTranslate16
 
@@ -3258,9 +3258,9 @@ import { SvgTranslate16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgTranslate24
 
@@ -3274,9 +3274,9 @@ import { SvgTranslate24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgUndo16
 
@@ -3290,9 +3290,9 @@ import { SvgUndo16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgUndo24
 
@@ -3306,9 +3306,9 @@ import { SvgUndo24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgUpload16
 
@@ -3322,9 +3322,9 @@ import { SvgUpload16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgUpload24
 
@@ -3338,9 +3338,9 @@ import { SvgUpload24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgUser16
 
@@ -3354,9 +3354,9 @@ import { SvgUser16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgUser24
 
@@ -3370,9 +3370,9 @@ import { SvgUser24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgUserGroup16
 
@@ -3386,9 +3386,9 @@ import { SvgUserGroup16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgUserGroup24
 
@@ -3402,9 +3402,9 @@ import { SvgUserGroup24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgView16
 
@@ -3418,9 +3418,9 @@ import { SvgView16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgView24
 
@@ -3434,9 +3434,9 @@ import { SvgView24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgViewOff16
 
@@ -3450,9 +3450,9 @@ import { SvgViewOff16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgViewOff24
 
@@ -3466,9 +3466,9 @@ import { SvgViewOff24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationArea16
 
@@ -3482,9 +3482,9 @@ import { SvgVisualizationArea16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationArea24
 
@@ -3498,9 +3498,9 @@ import { SvgVisualizationArea24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationAreaStacked16
 
@@ -3514,9 +3514,9 @@ import { SvgVisualizationAreaStacked16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationAreaStacked24
 
@@ -3530,9 +3530,9 @@ import { SvgVisualizationAreaStacked24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationBar16
 
@@ -3546,9 +3546,9 @@ import { SvgVisualizationBar16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationBar24
 
@@ -3562,9 +3562,9 @@ import { SvgVisualizationBar24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationBarStacked16
 
@@ -3578,9 +3578,9 @@ import { SvgVisualizationBarStacked16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationBarStacked24
 
@@ -3594,9 +3594,9 @@ import { SvgVisualizationBarStacked24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationColumn16
 
@@ -3610,9 +3610,9 @@ import { SvgVisualizationColumn16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationColumn24
 
@@ -3626,9 +3626,9 @@ import { SvgVisualizationColumn24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationColumnMulti16
 
@@ -3642,9 +3642,9 @@ import { SvgVisualizationColumnMulti16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationColumnMulti24
 
@@ -3658,9 +3658,9 @@ import { SvgVisualizationColumnMulti24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationColumnStacked16
 
@@ -3674,9 +3674,9 @@ import { SvgVisualizationColumnStacked16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationColumnStacked24
 
@@ -3690,9 +3690,9 @@ import { SvgVisualizationColumnStacked24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationGauge16
 
@@ -3706,9 +3706,9 @@ import { SvgVisualizationGauge16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationGauge24
 
@@ -3722,9 +3722,9 @@ import { SvgVisualizationGauge24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationLine16
 
@@ -3738,9 +3738,9 @@ import { SvgVisualizationLine16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationLine24
 
@@ -3754,9 +3754,9 @@ import { SvgVisualizationLine24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationLineMulti16
 
@@ -3770,9 +3770,9 @@ import { SvgVisualizationLineMulti16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationLineMulti24
 
@@ -3786,9 +3786,9 @@ import { SvgVisualizationLineMulti24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationPie16
 
@@ -3802,9 +3802,9 @@ import { SvgVisualizationPie16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationPie24
 
@@ -3818,9 +3818,9 @@ import { SvgVisualizationPie24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationRadar16
 
@@ -3834,9 +3834,9 @@ import { SvgVisualizationRadar16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationRadar24
 
@@ -3850,9 +3850,9 @@ import { SvgVisualizationRadar24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationScatter16
 
@@ -3866,9 +3866,9 @@ import { SvgVisualizationScatter16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationScatter24
 
@@ -3882,9 +3882,9 @@ import { SvgVisualizationScatter24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationSingleValue16
 
@@ -3898,9 +3898,9 @@ import { SvgVisualizationSingleValue16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgVisualizationSingleValue24
 
@@ -3914,9 +3914,9 @@ import { SvgVisualizationSingleValue24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgWarning16
 
@@ -3930,9 +3930,9 @@ import { SvgWarning16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgWarning24
 
@@ -3946,9 +3946,9 @@ import { SvgWarning24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgWarningFilled16
 
@@ -3962,9 +3962,9 @@ import { SvgWarningFilled16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgWarningFilled24
 
@@ -3978,9 +3978,9 @@ import { SvgWarningFilled24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgWindow16
 
@@ -3994,9 +3994,9 @@ import { SvgWindow16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgWindow24
 
@@ -4010,9 +4010,9 @@ import { SvgWindow24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgWorld16
 
@@ -4026,9 +4026,9 @@ import { SvgWorld16 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |
 
 ### SvgWorld24
 
@@ -4042,6 +4042,6 @@ import { SvgWorld24 } from '@dhis2/ui-icons'
 
 #### Props
 
-| Name  | Type     | Default | Required | Description |
-| ----- | -------- | ------- | -------- | ----------- |
-| color | `string` |         |          |             |
+| Name  | Type   | Default | Required | Description |
+| ----- | ------ | ------- | -------- | ----------- |
+| color | string |         |          |             |

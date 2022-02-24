@@ -63,7 +63,7 @@ const format_type = (type) => {
                 rst[key] = format_type(shape[key])
             })
 
-            return JSON.stringify(rst, null, 2)
+            return JSON.stringify(rst, null, 2).replaceAll('\n', '<br/>')
         }
         default: {
             return `${type.name}`
@@ -96,8 +96,8 @@ import { ${ast.displayName} } from '${pkg.name}'
                     defaultValue ? `\`${defaultValue.value}\`` : ''
                 }`,
                 required: `${required ? '*' : ''}`,
-                description,
-                type: `\`${format_type(type)}\``,
+                description: description.replaceAll('\n', '<br/>'),
+                type: `${format_type(type)}`,
             })
         )
 

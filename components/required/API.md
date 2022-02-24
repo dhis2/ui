@@ -10,6 +10,6 @@ import { Required } from '@dhis2-ui/required'
 
 #### Props
 
-| Name     | Type     | Default | Required | Description |
-| -------- | -------- | ------- | -------- | ----------- |
-| dataTest | `string` |         | \*       |             |
+| Name     | Type   | Default | Required | Description |
+| -------- | ------ | ------- | -------- | ----------- |
+| dataTest | string |         | \*       |             |

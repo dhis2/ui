@@ -10,14 +10,14 @@ import { SelectorBar } from '@dhis2-ui/selector-bar'
 
 #### Props
 
-| Name                   | Type       | Default                  | Required | Description |
-| ---------------------- | ---------- | ------------------------ | -------- | ----------- |
-| children               | `any`      |                          | \*       |             |
-| additionalContent      | `any`      |                          |          |             |
-| className              | `string`   |                          |          |             |
-| dataTest               | `string`   | `'dhis2-ui-selectorbar'` |          |             |
-| disableClearSelections | `boolean`  |                          |          |             |
-| onClearSelectionClick  | `function` |                          |          |             |
+| Name                   | Type     | Default                  | Required | Description |
+| ---------------------- | -------- | ------------------------ | -------- | ----------- |
+| children               | any      |                          | \*       |             |
+| additionalContent      | any      |                          |          |             |
+| className              | string   |                          |          |             |
+| dataTest               | string   | `'dhis2-ui-selectorbar'` |          |             |
+| disableClearSelections | boolean  |                          |          |             |
+| onClearSelectionClick  | function |                          |          |             |
 
 ### SelectorBarItem
 
@@ -31,14 +31,14 @@ import { SelectorBarItem } from '@dhis2-ui/selector-bar'
 
 #### Props
 
-| Name           | Type       | Default                      | Required | Description |
-| -------------- | ---------- | ---------------------------- | -------- | ----------- |
-| children       | `any`      |                              | \*       |             |
-| label          | `string`   |                              | \*       |             |
-| noValueMessage | `string`   |                              | \*       |             |
-| open           | `boolean`  |                              | \*       |             |
-| setOpen        | `function` |                              | \*       |             |
-| className      | `string`   |                              |          |             |
-| dataTest       | `string`   | `'dhis2-ui-selectorbaritem'` |          |             |
-| disabled       | `boolean`  |                              |          |             |
-| value          | `string`   |                              |          |             |
+| Name           | Type     | Default                      | Required | Description |
+| -------------- | -------- | ---------------------------- | -------- | ----------- |
+| children       | any      |                              | \*       |             |
+| label          | string   |                              | \*       |             |
+| noValueMessage | string   |                              | \*       |             |
+| open           | boolean  |                              | \*       |             |
+| setOpen        | function |                              | \*       |             |
+| className      | string   |                              |          |             |
+| dataTest       | string   | `'dhis2-ui-selectorbaritem'` |          |             |
+| disabled       | boolean  |                              |          |             |
+| value          | string   |                              |          |             |

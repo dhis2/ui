@@ -10,17 +10,17 @@ import { Modal } from '@dhis2-ui/modal'
 
 #### Props
 
-| Name      | Type       | Default                | Required | Description                         |
-| --------- | ---------- | ---------------------- | -------- | ----------------------------------- |
-| children  | `node`     |                        |          |                                     |
-| className | `string`   |                        |          |                                     |
-| dataTest  | `string`   | `'dhis2-uicore-modal'` |          |                                     |
-| fluid     | `boolean`  |                        |          |                                     |
-| hide      | `boolean`  |                        |          |                                     |
-| large     | `custom`   |                        |          |                                     |
-| position  | `custom`   | `'top'`                |          |                                     |
-| small     | `custom`   |                        |          |                                     |
-| onClose   | `function` |                        |          | Callback used when the Modal closes |
+| Name      | Type     | Default                | Required | Description                         |
+| --------- | -------- | ---------------------- | -------- | ----------------------------------- |
+| children  | node     |                        |          |                                     |
+| className | string   |                        |          |                                     |
+| dataTest  | string   | `'dhis2-uicore-modal'` |          |                                     |
+| fluid     | boolean  |                        |          |                                     |
+| hide      | boolean  |                        |          |                                     |
+| large     | custom   |                        |          |                                     |
+| position  | custom   | `'top'`                |          |                                     |
+| small     | custom   |                        |          |                                     |
+| onClose   | function |                        |          | Callback used when the Modal closes |
 
 ### ModalActions
 
@@ -34,10 +34,10 @@ import { ModalActions } from '@dhis2-ui/modal'
 
 #### Props
 
-| Name     | Type     | Default                       | Required | Description |
-| -------- | -------- | ----------------------------- | -------- | ----------- |
-| children | `node`   |                               |          |             |
-| dataTest | `string` | `'dhis2-uicore-modalactions'` |          |             |
+| Name     | Type   | Default                       | Required | Description |
+| -------- | ------ | ----------------------------- | -------- | ----------- |
+| children | node   |                               |          |             |
+| dataTest | string | `'dhis2-uicore-modalactions'` |          |             |
 
 ### ModalContent
 
@@ -51,11 +51,11 @@ import { ModalContent } from '@dhis2-ui/modal'
 
 #### Props
 
-| Name      | Type     | Default                       | Required | Description |
-| --------- | -------- | ----------------------------- | -------- | ----------- |
-| children  | `node`   |                               |          |             |
-| className | `string` |                               |          |             |
-| dataTest  | `string` | `'dhis2-uicore-modalcontent'` |          |             |
+| Name      | Type   | Default                       | Required | Description |
+| --------- | ------ | ----------------------------- | -------- | ----------- |
+| children  | node   |                               |          |             |
+| className | string |                               |          |             |
+| dataTest  | string | `'dhis2-uicore-modalcontent'` |          |             |
 
 ### ModalTitle
 
@@ -69,7 +69,7 @@ import { ModalTitle } from '@dhis2-ui/modal'
 
 #### Props
 
-| Name     | Type     | Default                     | Required | Description |
-| -------- | -------- | --------------------------- | -------- | ----------- |
-| children | `string` |                             |          |             |
-| dataTest | `string` | `'dhis2-uicore-modaltitle'` |          |             |
+| Name     | Type   | Default                     | Required | Description |
+| -------- | ------ | --------------------------- | -------- | ----------- |
+| children | string |                             |          |             |
+| dataTest | string | `'dhis2-uicore-modaltitle'` |          |             |

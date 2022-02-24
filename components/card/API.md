@@ -10,8 +10,8 @@ import { Card } from '@dhis2-ui/card'
 
 #### Props
 
-| Name      | Type     | Default               | Required | Description |
-| --------- | -------- | --------------------- | -------- | ----------- |
-| children  | `node`   |                       |          |             |
-| className | `string` |                       |          |             |
-| dataTest  | `string` | `'dhis2-uicore-card'` |          |             |
+| Name      | Type   | Default               | Required | Description |
+| --------- | ------ | --------------------- | -------- | ----------- |
+| children  | node   |                       |          |             |
+| className | string |                       |          |             |
+| dataTest  | string | `'dhis2-uicore-card'` |          |             |

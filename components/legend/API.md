@@ -10,9 +10,9 @@ import { Legend } from '@dhis2-ui/legend'
 
 #### Props
 
-| Name      | Type      | Default                 | Required | Description                                    |
-| --------- | --------- | ----------------------- | -------- | ---------------------------------------------- |
-| children  | `node`    |                         |          |                                                |
-| className | `string`  |                         |          |                                                |
-| dataTest  | `string`  | `'dhis2-uicore-legend'` |          |                                                |
-| required  | `boolean` |                         |          | Indicates the associated field set is required |
+| Name      | Type    | Default                 | Required | Description                                    |
+| --------- | ------- | ----------------------- | -------- | ---------------------------------------------- |
+| children  | node    |                         |          |                                                |
+| className | string  |                         |          |                                                |
+| dataTest  | string  | `'dhis2-uicore-legend'` |          |                                                |
+| required  | boolean |                         |          | Indicates the associated field set is required |

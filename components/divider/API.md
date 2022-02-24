@@ -10,9 +10,9 @@ import { Divider } from '@dhis2-ui/divider'
 
 #### Props
 
-| Name      | Type      | Default                  | Required | Description |
-| --------- | --------- | ------------------------ | -------- | ----------- |
-| className | `string`  |                          |          |             |
-| dataTest  | `string`  | `'dhis2-uicore-divider'` |          |             |
-| dense     | `boolean` |                          |          |             |
-| margin    | `string`  | `${spacers.dp8} 0`       |          |             |
+| Name      | Type    | Default                  | Required | Description |
+| --------- | ------- | ------------------------ | -------- | ----------- |
+| className | string  |                          |          |             |
+| dataTest  | string  | `'dhis2-uicore-divider'` |          |             |
+| dense     | boolean |                          |          |             |
+| margin    | string  | `${spacers.dp8} 0`       |          |             |

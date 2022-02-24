@@ -20,10 +20,10 @@ import { CssVariables } from '@dhis2-ui/css'
 
 #### Props
 
-| Name       | Type      | Default | Required | Description |
-| ---------- | --------- | ------- | -------- | ----------- |
-| colors     | `boolean` | `false` |          |             |
-| elevations | `boolean` | `false` |          |             |
-| layers     | `boolean` | `false` |          |             |
-| spacers    | `boolean` | `false` |          |             |
-| theme      | `boolean` | `false` |          |             |
+| Name       | Type    | Default | Required | Description |
+| ---------- | ------- | ------- | -------- | ----------- |
+| colors     | boolean | `false` |          |             |
+| elevations | boolean | `false` |          |             |
+| layers     | boolean | `false` |          |             |
+| spacers    | boolean | `false` |          |             |
+| theme      | boolean | `false` |          |             |

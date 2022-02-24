@@ -10,11 +10,11 @@ import { Label } from '@dhis2-ui/label'
 
 #### Props
 
-| Name      | Type      | Default                | Required | Description |
-| --------- | --------- | ---------------------- | -------- | ----------- |
-| children  | `string`  |                        |          |             |
-| className | `string`  |                        |          |             |
-| dataTest  | `string`  | `'dhis2-uicore-label'` |          |             |
-| disabled  | `boolean` |                        |          |             |
-| htmlFor   | `string`  |                        |          |             |
-| required  | `boolean` |                        |          |             |
+| Name      | Type    | Default                | Required | Description |
+| --------- | ------- | ---------------------- | -------- | ----------- |
+| children  | string  |                        |          |             |
+| className | string  |                        |          |             |
+| dataTest  | string  | `'dhis2-uicore-label'` |          |             |
+| disabled  | boolean |                        |          |             |
+| htmlFor   | string  |                        |          |             |
+| required  | boolean |                        |          |             |

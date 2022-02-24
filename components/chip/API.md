@@ -10,16 +10,16 @@ import { Chip } from '@dhis2-ui/chip'
 
 #### Props
 
-| Name      | Type       | Default               | Required | Description |
-| --------- | ---------- | --------------------- | -------- | ----------- |
-| children  | `any`      |                       |          |             |
-| className | `string`   |                       |          |             |
-| dataTest  | `string`   | `'dhis2-uicore-chip'` |          |             |
-| dense     | `boolean`  |                       |          |             |
-| disabled  | `boolean`  |                       |          |             |
-| dragging  | `boolean`  |                       |          |             |
-| icon      | `element`  |                       |          |             |
-| overflow  | `boolean`  |                       |          |             |
-| selected  | `boolean`  |                       |          |             |
-| onClick   | `function` |                       |          |             |
-| onRemove  | `function` |                       |          |             |
+| Name      | Type     | Default               | Required | Description |
+| --------- | -------- | --------------------- | -------- | ----------- |
+| children  | any      |                       |          |             |
+| className | string   |                       |          |             |
+| dataTest  | string   | `'dhis2-uicore-chip'` |          |             |
+| dense     | boolean  |                       |          |             |
+| disabled  | boolean  |                       |          |             |
+| dragging  | boolean  |                       |          |             |
+| icon      | element  |                       |          |             |
+| overflow  | boolean  |                       |          |             |
+| selected  | boolean  |                       |          |             |
+| onClick   | function |                       |          |             |
+| onRemove  | function |                       |          |             |
