@@ -2,8 +2,10 @@
 title: Tooltip
 ---
 
-import { Demo } from '../../src/components/DemoComponent.jsx'
+import { Demo } from '@site/src/components/DemoComponent.jsx'
 import { Tooltip } from '@dhis2/ui'
+
+import API from '../../../components/tooltip/API.md'
 
 # Tooltip
 
@@ -59,7 +61,10 @@ A tooltip is used to show contextual information when triggered by clicking, foc
 -   Use the default delay durations unless there's a specific use case to change them.
 -   Longer `open` delays and shorter `close` delays can help prevent too many tooltips showing in a complex layout.
 
+## API Reference
+
+<API />
+
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/data-display-tooltip--default-placement-top)
--   API reference ==TODO: link==

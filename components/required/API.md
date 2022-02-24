@@ -1,7 +1,15 @@
-## Required
+### Required
 
-From [`src/required.js`](./src/required.js)
+#### Usage
 
-| prop         |   type   | default |      required      | description |
-| ------------ | :------: | :-----: | :----------------: | ----------- |
-| **dataTest** | `String` |         | :white_check_mark: |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Required } from '@dhis2-ui/required'
+```
+
+#### Props
+
+| Name     | Type     | Default | Required | Description |
+| -------- | -------- | ------- | -------- | ----------- |
+| dataTest | `string` |         | \*       |             |

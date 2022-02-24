@@ -1,10 +1,18 @@
-## Legend
+### Legend
 
-From [`src/legend.js`](./src/legend.js)
+#### Usage
 
-| prop          |    type     |         default         | required | description                                    |
-| ------------- | :---------: | :---------------------: | :------: | ---------------------------------------------- |
-| **children**  | `ReactNode` |                         |   :x:    |
-| **className** |  `String`   |                         |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-legend'` |   :x:    |
-| **required**  |  `Boolean`  |                         |   :x:    | Indicates the associated field set is required |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Legend } from '@dhis2-ui/legend'
+```
+
+#### Props
+
+| Name      | Type      | Default                 | Required | Description                                    |
+| --------- | --------- | ----------------------- | -------- | ---------------------------------------------- |
+| children  | `node`    |                         |          |                                                |
+| className | `string`  |                         |          |                                                |
+| dataTest  | `string`  | `'dhis2-uicore-legend'` |          |                                                |
+| required  | `boolean` |                         |          | Indicates the associated field set is required |

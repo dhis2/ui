@@ -2,8 +2,10 @@
 title: Chip
 ---
 
-import { Demo } from '../../src/components/DemoComponent.jsx'
+import { Demo } from '@site/src/components/DemoComponent.jsx'
 import { Chip, IconStar24 } from '@dhis2/ui'
+
+import API from '../../../components/chip/API.md'
 
 # Chip
 
@@ -76,7 +78,10 @@ Chips are used to select from a set of defined options. Chips can also represent
 -   Icons are useful to highlight special chips, like starred items.
 -   Don't use the same icon for all the chips in a group. Use a title or heading for that group of chips instead.
 
+## API Reference
+
+<API />
+
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/actions-chip--default)
--   API reference ==TODO: link==

@@ -2,8 +2,10 @@
 title: Switch
 ---
 
-import { Demo } from '../../src/components/DemoComponent.jsx'
+import { Demo } from '@site/src/components/DemoComponent.jsx'
 import { Switch } from '@dhis2/ui'
+
+import API from '../../../components/switch/API.md'
 
 # Switch
 
@@ -39,7 +41,10 @@ Switches are used to toggle something between an on and off state.
 </Demo>
 - Switches are available in two sizes, regular and `dense`. Regular sized switches are useful when there's space available. Use `dense` sized switches in compact, information-dense interfaces.
 
+## API Reference
+
+<API />
+
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-switch-switch-field--default)
--   API reference ==TODO: link==

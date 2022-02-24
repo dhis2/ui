@@ -2,7 +2,7 @@
 title: Icons
 ---
 
-import { Demo } from '../../src/components/DemoComponent.jsx'
+import { Demo } from '@site/src/components/DemoComponent.jsx'
 import {Box } from '@dhis2/ui'
 
 # Icons

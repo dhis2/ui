@@ -2,8 +2,10 @@
 title: Loader
 ---
 
-import { Demo } from '../../src/components/DemoComponent.jsx'
+import { Demo } from '@site/src/components/DemoComponent.jsx'
 import { CircularLoader, LinearLoader } from '@dhis2/ui'
+
+import API from '../../../components/loader/API.md'
 
 # Loader
 
@@ -81,8 +83,10 @@ Loaders are used to show that something is in progress. They keep users informed
 
 -   Inverted loaders can be used on dark backgrounds, like a blocking backdrop layer.
 
+## API Reference
+
+<API />
+
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/feedback-loading-indicators-circular-loader--default)
--   `CircularLoader` API reference ==TODO: link==
--   `LinearLoader` API reference ==TODO: link==

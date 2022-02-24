@@ -2,8 +2,10 @@
 title: Checkbox
 ---
 
-import { Demo } from '../../src/components/DemoComponent.jsx'
+import { Demo } from '@site/src/components/DemoComponent.jsx'
 import { Checkbox } from '@dhis2/ui'
+
+import API from '../../../components/checkbox/API.md'
 
 # Checkbox
 
@@ -42,7 +44,10 @@ Checkboxes are used to choose one or more items from a list. A checkbox can also
 
 -   Checkboxes are available in two sizes, regular and `dense`. Regular sized checkboxes are useful when there's space available. Use `dense` sized checkboxes in compact, information-dense interfaces.
 
+## API Reference
+
+<API />
+
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-checkbox-checkbox--default)
--   API reference ==TODO: link==

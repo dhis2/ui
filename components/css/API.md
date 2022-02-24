@@ -1,17 +1,29 @@
-## CssReset
+### CssReset
 
-From [`src/css-reset/css-reset.js`](./src/css-reset/css-reset.js)
+#### Usage
 
-This component does not have any props.
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## CssVariables
+```js
+import { CssReset } from '@dhis2-ui/css'
+```
 
-From [`src/css-variables/css-variables.js`](./src/css-variables/css-variables.js)
+### CssVariables
 
-| prop           |   type    | default | required | description |
-| -------------- | :-------: | :-----: | :------: | ----------- |
-| **colors**     | `Boolean` | `false` |   :x:    |
-| **elevations** | `Boolean` | `false` |   :x:    |
-| **layers**     | `Boolean` | `false` |   :x:    |
-| **spacers**    | `Boolean` | `false` |   :x:    |
-| **theme**      | `Boolean` | `false` |   :x:    |
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { CssVariables } from '@dhis2-ui/css'
+```
+
+#### Props
+
+| Name       | Type      | Default | Required | Description |
+| ---------- | --------- | ------- | -------- | ----------- |
+| colors     | `boolean` | `false` |          |             |
+| elevations | `boolean` | `false` |          |             |
+| layers     | `boolean` | `false` |          |             |
+| spacers    | `boolean` | `false` |          |             |
+| theme      | `boolean` | `false` |          |             |

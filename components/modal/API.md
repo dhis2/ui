@@ -1,43 +1,75 @@
-## Modal
+### Modal
 
-From [`src/modal/modal.js`](./src/modal/modal.js)
+#### Usage
 
-| prop          |    type     |        default         | required | description                         |
-| ------------- | :---------: | :--------------------: | :------: | ----------------------------------- |
-| **children**  | `ReactNode` |                        |   :x:    |
-| **className** |  `String`   |                        |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-modal'` |   :x:    |
-| **fluid**     |  `Boolean`  |                        |   :x:    |
-| **hide**      |  `Boolean`  |                        |   :x:    |
-| **large**     |  `custom`   |                        |   :x:    |
-| **onClose**   | `Function`  |                        |   :x:    | Callback used when the Modal closes |
-| **position**  |  `custom`   |        `'top'`         |   :x:    |
-| **small**     |  `custom`   |                        |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## ModalActions
+```js
+import { Modal } from '@dhis2-ui/modal'
+```
 
-From [`src/modal-actions/modal-actions.js`](./src/modal-actions/modal-actions.js)
+#### Props
 
-| prop         |    type     |            default            | required | description |
-| ------------ | :---------: | :---------------------------: | :------: | ----------- |
-| **children** | `ReactNode` |                               |   :x:    |
-| **dataTest** |  `String`   | `'dhis2-uicore-modalactions'` |   :x:    |
+| Name      | Type       | Default                | Required | Description                         |
+| --------- | ---------- | ---------------------- | -------- | ----------------------------------- |
+| children  | `node`     |                        |          |                                     |
+| className | `string`   |                        |          |                                     |
+| dataTest  | `string`   | `'dhis2-uicore-modal'` |          |                                     |
+| fluid     | `boolean`  |                        |          |                                     |
+| hide      | `boolean`  |                        |          |                                     |
+| large     | `custom`   |                        |          |                                     |
+| position  | `custom`   | `'top'`                |          |                                     |
+| small     | `custom`   |                        |          |                                     |
+| onClose   | `function` |                        |          | Callback used when the Modal closes |
 
-## ModalContent
+### ModalActions
 
-From [`src/modal-content/modal-content.js`](./src/modal-content/modal-content.js)
+#### Usage
 
-| prop          |    type     |            default            | required | description |
-| ------------- | :---------: | :---------------------------: | :------: | ----------- |
-| **children**  | `ReactNode` |                               |   :x:    |
-| **className** |  `String`   |                               |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-modalcontent'` |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## ModalTitle
+```js
+import { ModalActions } from '@dhis2-ui/modal'
+```
 
-From [`src/modal-title/modal-title.js`](./src/modal-title/modal-title.js)
+#### Props
 
-| prop         |   type   |           default           | required | description |
-| ------------ | :------: | :-------------------------: | :------: | ----------- |
-| **children** | `String` |                             |   :x:    |
-| **dataTest** | `String` | `'dhis2-uicore-modaltitle'` |   :x:    |
+| Name     | Type     | Default                       | Required | Description |
+| -------- | -------- | ----------------------------- | -------- | ----------- |
+| children | `node`   |                               |          |             |
+| dataTest | `string` | `'dhis2-uicore-modalactions'` |          |             |
+
+### ModalContent
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { ModalContent } from '@dhis2-ui/modal'
+```
+
+#### Props
+
+| Name      | Type     | Default                       | Required | Description |
+| --------- | -------- | ----------------------------- | -------- | ----------- |
+| children  | `node`   |                               |          |             |
+| className | `string` |                               |          |             |
+| dataTest  | `string` | `'dhis2-uicore-modalcontent'` |          |             |
+
+### ModalTitle
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { ModalTitle } from '@dhis2-ui/modal'
+```
+
+#### Props
+
+| Name     | Type     | Default                     | Required | Description |
+| -------- | -------- | --------------------------- | -------- | ----------- |
+| children | `string` |                             |          |             |
+| dataTest | `string` | `'dhis2-uicore-modaltitle'` |          |             |

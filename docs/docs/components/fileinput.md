@@ -2,8 +2,10 @@
 title: File input
 ---
 
-import { Demo } from '../../src/components/DemoComponent.jsx'
+import { Demo } from '@site/src/components/DemoComponent.jsx'
 import { FileInputField, FileListItem } from '@dhis2/ui'
+
+import API from '../../../components/file-input/API.md'
 
 # File input
 
@@ -76,7 +78,10 @@ A file input is used to choose and upload files.
 -   Allow multiple file upload if that fits the use case.
 -   Don't use several file inputs for the same kind of file, use one with multiple files allowed.
 
+## API Reference
+
+<API />
+
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-file-input-file-input--default)
--   API reference ==TODO: link==

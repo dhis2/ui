@@ -2,8 +2,10 @@
 title: Select
 ---
 
-import { Demo } from '../../src/components/DemoComponent.jsx'
+import { Demo } from '@site/src/components/DemoComponent.jsx'
 import { SingleSelectField, MultiSelectField, SingleSelectOption, MultiSelectOption } from '@dhis2/ui'
+
+import API from '../../../components/select/API.md'
 
 # Select
 
@@ -244,8 +246,10 @@ Selects are used to choose one or more items from a list of options.
 -   Use a disabled state if the select temporarily can't be used.
 -   Show a [`Tooltip`](tooltip.md) on hover or focus to explain why the select is disabled.
 
+## API Reference
+
+<API />
+
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-single-select-single-select-field--default)
--   `Singleselect` API reference ==TODO: link==
--   `Multiselect` API reference ==TODO: link==

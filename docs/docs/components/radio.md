@@ -2,8 +2,10 @@
 title: Radio
 ---
 
-import { Demo } from '../../src/components/DemoComponent.jsx'
+import { Demo } from '@site/src/components/DemoComponent.jsx'
 import { Radio } from '@dhis2/ui'
+
+import API from '../../../components/radio/API.md'
 
 # Radio
 
@@ -48,7 +50,10 @@ Radio inputs are used to choose one item from a list.
 
 -   Radio inputs are available in two sizes, regular and `dense`. Regular sized radio inputs are useful when there's space available. Use `dense` sized radio inputs in compact, information dense interfaces.
 
+## API Reference
+
+<API />
+
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-radio-radio--default)
--   API reference ==TODO: link==

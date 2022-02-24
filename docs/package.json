@@ -28,6 +28,7 @@
         "file-loader": "^6.2.0",
         "prism-react-renderer": "^1.2.1",
         "prop-types": "^15.7.2",
+        "react-docgen-props-table": "^1.0.3",
         "url-loader": "^4.1.1"
     },
     "peerDependencies": {

@@ -2,8 +2,10 @@
 title: Menu
 ---
 
-import { Demo } from '../../src/components/DemoComponent.jsx'
+import { Demo } from '@site/src/components/DemoComponent.jsx'
 import { FlyoutMenu, MenuItem, MenuDivider, MenuSectionHeader, IconSave24, IconDelete24, IconShare24, IconEdit24 } from '@dhis2/ui'
+
+import API from '../../../components/menu/API.md'
 
 # Menu
 
@@ -148,7 +150,10 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
 -   Use disabled menu items when a menu item is temporarily unavailable.
 -   Don't use the disabled state if the menu item will never be available in this context. Remove it instead.
 
+## API Reference
+
+<API />
+
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/actions-menu-flyout-menu--default)
--   API reference ==TODO: link==

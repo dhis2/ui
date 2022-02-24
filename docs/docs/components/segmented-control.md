@@ -2,8 +2,10 @@
 title: Segmented control
 ---
 
-import { Demo } from '../../src/components/DemoComponent.jsx'
+import { Demo } from '@site/src/components/DemoComponent.jsx'
 import { SegmentedControl } from '@dhis2/ui'
+
+import API from '../../../components/segmented-control/API.md'
 
 # Segmented control
 
@@ -51,7 +53,10 @@ A segmented control is used to choose between related options that have an effec
 -   Option labels should state clearly what each option is.
 -   A separate label above the component can offer extra context for the options, if needed.
 
+## API Reference
+
+<API />
+
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/actions-segmented-control--default)
--   API reference ==TODO: link==

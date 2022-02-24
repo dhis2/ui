@@ -1,148 +1,208 @@
-## CheckboxFieldFF
+### CheckboxFieldFF
 
-From [`/home/varl/dev/dhis2/libs/ui/collections/forms/src/CheckboxFieldFF/CheckboxFieldFF.js`](/home/varl/dev/dhis2/libs/ui/collections/forms/src/CheckboxFieldFF/CheckboxFieldFF.js)
+#### Usage
 
-| prop                |    type    | default | required | description                    |
-| ------------------- | :--------: | :-----: | :------: | ------------------------------ |
-| **error**           | `Boolean`  |         |   :x:    |
-| **input**           |  `custom`  |         |   :x:    | Provided by Final Form `Field` |
-| **meta**            |  `custom`  |         |   :x:    | Provided by Final Form `Field` |
-| **onBlur**          | `Function` |         |   :x:    |
-| **onFocus**         | `Function` |         |   :x:    |
-| **showValidStatus** | `Boolean`  |         |   :x:    |
-| **valid**           | `Boolean`  |         |   :x:    |
-| **validationText**  |  `String`  |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## FieldGroupFF
+```js
+import { CheckboxFieldFF } from '@dhis2/ui-forms'
+```
 
-From [`/home/varl/dev/dhis2/libs/ui/collections/forms/src/FieldGroupFF/FieldGroupFF.js`](/home/varl/dev/dhis2/libs/ui/collections/forms/src/FieldGroupFF/FieldGroupFF.js)
+#### Props
 
-| prop         |    type     | default | required | description |
-| ------------ | :---------: | :-----: | :------: | ----------- |
-| **children** | `ReactNode` |         |   :x:    |
-| **label**    |  `String`   |         |   :x:    |
-| **name**     |  `String`   |         |   :x:    |
-| **required** |  `Boolean`  |         |   :x:    |
+| Name            | Type       | Default | Required | Description                    |
+| --------------- | ---------- | ------- | -------- | ------------------------------ |
+| input           | `custom`   |         |          | Provided by Final Form `Field` |
+| meta            | `custom`   |         |          | Provided by Final Form `Field` |
+| error           | `boolean`  |         |          |                                |
+| showValidStatus | `boolean`  |         |          |                                |
+| valid           | `boolean`  |         |          |                                |
+| validationText  | `string`   |         |          |                                |
+| onBlur          | `function` |         |          |                                |
+| onFocus         | `function` |         |          |                                |
 
-## FileInputFieldFF
+### FieldGroupFF
 
-From [`/home/varl/dev/dhis2/libs/ui/collections/forms/src/FileInputFieldFF/FileInputFieldFF.js`](/home/varl/dev/dhis2/libs/ui/collections/forms/src/FileInputFieldFF/FileInputFieldFF.js)
+#### Usage
 
-| prop                |               type               | default | required | description                                  |
-| ------------------- | :------------------------------: | :-----: | :------: | -------------------------------------------- |
-| **buttonLabel**     |             `String`             |         |   :x:    |
-| **disabled**        |            `Boolean`             |         |   :x:    |
-| **error**           |            `Boolean`             |         |   :x:    |
-| **input**           |             `custom`             |         |   :x:    | `input` props provided by Final Form `Field` |
-| **meta**            |             `custom`             |         |   :x:    | `meta` props provided by Final Form `Field`  |
-| **multifile**       |            `Boolean`             |         |   :x:    |
-| **showValidStatus** |            `Boolean`             |         |   :x:    |
-| **valid**           |            `Boolean`             |         |   :x:    |
-| **validationText**  |             `String`             |         |   :x:    |
-| **value**           | `Union<Array[]<File>\|Enum('')>` |         |   :x:    |
-| **value<1>**        |         `Array[]<File>`          |         |   :x:    |
-| **value<2>**        |            `Enum('')`            |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## InputFieldFF
+```js
+import { FieldGroupFF } from '@dhis2/ui-forms'
+```
 
-From [`/home/varl/dev/dhis2/libs/ui/collections/forms/src/InputFieldFF/InputFieldFF.js`](/home/varl/dev/dhis2/libs/ui/collections/forms/src/InputFieldFF/InputFieldFF.js)
+#### Props
 
-| prop                  |    type    | default | required | description                                    |
-| --------------------- | :--------: | :-----: | :------: | ---------------------------------------------- |
-| **error**             | `Boolean`  |         |   :x:    |
-| **input**             |  `custom`  |         |   :x:    | `input` props received from Final Form `Field` |
-| **loading**           | `Boolean`  |         |   :x:    |
-| **meta**              |  `custom`  |         |   :x:    | `meta` props received from Final Form `Field`  |
-| **onBlur**            | `Function` |         |   :x:    |
-| **onFocus**           | `Function` |         |   :x:    |
-| **showLoadingStatus** | `Boolean`  |         |   :x:    |
-| **showValidStatus**   | `Boolean`  |         |   :x:    |
-| **valid**             | `Boolean`  |         |   :x:    |
-| **validationText**    |  `String`  |         |   :x:    |
+| Name     | Type      | Default | Required | Description |
+| -------- | --------- | ------- | -------- | ----------- |
+| children | `node`    |         |          |             |
+| label    | `string`  |         |          |             |
+| name     | `string`  |         |          |             |
+| required | `boolean` |         |          |             |
 
-## MultiSelectFieldFF
+### FileInputFieldFF
 
-From [`/home/varl/dev/dhis2/libs/ui/collections/forms/src/MultiSelectFieldFF/MultiSelectFieldFF.js`](/home/varl/dev/dhis2/libs/ui/collections/forms/src/MultiSelectFieldFF/MultiSelectFieldFF.js)
+#### Usage
 
-| prop                  |       type       | default | required | description                                  |
-| --------------------- | :--------------: | :-----: | :------: | -------------------------------------------- |
-| **error**             |    `Boolean`     |         |   :x:    |
-| **input**             |     `custom`     |         |   :x:    | `input` props provided by Final Form `Field` |
-| **loading**           |    `Boolean`     |         |   :x:    |
-| **meta**              |     `custom`     |         |   :x:    | `meta` props provided by Final Form `Field`  |
-| **onBlur**            |    `Function`    |         |   :x:    |
-| **onFocus**           |    `Function`    |         |   :x:    |
-| **options**           | `Array[]<Shape>` |  `[]`   |   :x:    |
-| **options[].label**   |     `String`     |         |   :x:    |
-| **options[].value**   |     `String`     |         |   :x:    |
-| **showLoadingStatus** |    `Boolean`     |         |   :x:    |
-| **showValidStatus**   |    `Boolean`     |         |   :x:    |
-| **valid**             |    `Boolean`     |         |   :x:    |
-| **validationText**    |     `String`     |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## RadioFieldFF
+```js
+import { FileInputFieldFF } from '@dhis2/ui-forms'
+```
 
-From [`/home/varl/dev/dhis2/libs/ui/collections/forms/src/RadioFieldFF/RadioFieldFF.js`](/home/varl/dev/dhis2/libs/ui/collections/forms/src/RadioFieldFF/RadioFieldFF.js)
+#### Props
 
-| prop                |    type    | default | required | description                                    |
-| ------------------- | :--------: | :-----: | :------: | ---------------------------------------------- |
-| **error**           | `Boolean`  |         |   :x:    |
-| **input**           |  `custom`  |         |   :x:    | `input` props received from Final Form `Field` |
-| **meta**            |  `custom`  |         |   :x:    | `meta` props received from Final Form `Field`  |
-| **onBlur**          | `Function` |         |   :x:    |
-| **onFocus**         | `Function` |         |   :x:    |
-| **showValidStatus** | `Boolean`  |         |   :x:    |
-| **valid**           | `Boolean`  |         |   :x:    |
-| **validationText**  |  `String`  |         |   :x:    |
+| Name            | Type                             | Default | Required | Description                                  |
+| --------------- | -------------------------------- | ------- | -------- | -------------------------------------------- |
+| input           | `custom`                         |         |          | `input` props provided by Final Form `Field` |
+| meta            | `custom`                         |         |          | `meta` props provided by Final Form `Field`  |
+| buttonLabel     | `string`                         |         |          |                                              |
+| disabled        | `boolean`                        |         |          |                                              |
+| error           | `boolean`                        |         |          |                                              |
+| multifile       | `boolean`                        |         |          |                                              |
+| showValidStatus | `boolean`                        |         |          |                                              |
+| valid           | `boolean`                        |         |          |                                              |
+| validationText  | `string`                         |         |          |                                              |
+| value           | `arrayOf(instanceOf(File)) │ ''` |         |          |                                              |
 
-## SingleSelectFieldFF
+### InputFieldFF
 
-From [`/home/varl/dev/dhis2/libs/ui/collections/forms/src/SingleSelectFieldFF/SingleSelectFieldFF.js`](/home/varl/dev/dhis2/libs/ui/collections/forms/src/SingleSelectFieldFF/SingleSelectFieldFF.js)
+#### Usage
 
-| prop                  |       type       | default |      required      | description                                    |
-| --------------------- | :--------------: | :-----: | :----------------: | ---------------------------------------------- |
-| **error**             |    `Boolean`     |         |        :x:         |
-| **input**             |     `custom`     |         |        :x:         | `input` props received from Final Form `Field` |
-| **loading**           |    `Boolean`     |         |        :x:         |
-| **meta**              |     `custom`     |         |        :x:         | `meta` props received from Final Form `Field`  |
-| **onBlur**            |    `Function`    |         |        :x:         |
-| **onFocus**           |    `Function`    |         |        :x:         |
-| **options**           | `Array[]<Shape>` |         | :white_check_mark: |
-| **options[].label**   |     `String`     |         |        :x:         |
-| **options[].value**   |     `String`     |         |        :x:         |
-| **showLoadingStatus** |    `Boolean`     |         |        :x:         |
-| **showValidStatus**   |    `Boolean`     |         |        :x:         |
-| **valid**             |    `Boolean`     |         |        :x:         |
-| **validationText**    |     `String`     |         |        :x:         |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SwitchFieldFF
+```js
+import { InputFieldFF } from '@dhis2/ui-forms'
+```
 
-From [`/home/varl/dev/dhis2/libs/ui/collections/forms/src/SwitchFieldFF/SwitchFieldFF.js`](/home/varl/dev/dhis2/libs/ui/collections/forms/src/SwitchFieldFF/SwitchFieldFF.js)
+#### Props
 
-| prop                |    type    | default | required | description                                    |
-| ------------------- | :--------: | :-----: | :------: | ---------------------------------------------- |
-| **error**           | `Boolean`  |         |   :x:    |
-| **input**           |  `custom`  |         |   :x:    | `input` props received from Final Form `Field` |
-| **meta**            |  `custom`  |         |   :x:    | `meta` props received from Final Form `Field`  |
-| **onBlur**          | `Function` |         |   :x:    |
-| **onFocus**         | `Function` |         |   :x:    |
-| **showValidStatus** | `Boolean`  |         |   :x:    |
-| **valid**           | `Boolean`  |         |   :x:    |
-| **validationText**  |  `String`  |         |   :x:    |
+| Name              | Type       | Default | Required | Description                                    |
+| ----------------- | ---------- | ------- | -------- | ---------------------------------------------- |
+| input             | `custom`   |         |          | `input` props received from Final Form `Field` |
+| meta              | `custom`   |         |          | `meta` props received from Final Form `Field`  |
+| error             | `boolean`  |         |          |                                                |
+| loading           | `boolean`  |         |          |                                                |
+| showLoadingStatus | `boolean`  |         |          |                                                |
+| showValidStatus   | `boolean`  |         |          |                                                |
+| valid             | `boolean`  |         |          |                                                |
+| validationText    | `string`   |         |          |                                                |
+| onBlur            | `function` |         |          |                                                |
+| onFocus           | `function` |         |          |                                                |
 
-## TextAreaFieldFF
+### MultiSelectFieldFF
 
-From [`/home/varl/dev/dhis2/libs/ui/collections/forms/src/TextAreaFieldFF/TextAreaFieldFF.js`](/home/varl/dev/dhis2/libs/ui/collections/forms/src/TextAreaFieldFF/TextAreaFieldFF.js)
+#### Usage
 
-| prop                  |    type    | default | required | description                                    |
-| --------------------- | :--------: | :-----: | :------: | ---------------------------------------------- |
-| **error**             | `Boolean`  |         |   :x:    |
-| **input**             |  `custom`  |         |   :x:    | `input` props received from Final Form `Field` |
-| **loading**           | `Boolean`  |         |   :x:    |
-| **meta**              |  `custom`  |         |   :x:    | `meta` props received from Final Form `Field`  |
-| **onBlur**            | `Function` |         |   :x:    |
-| **onFocus**           | `Function` |         |   :x:    |
-| **showLoadingStatus** | `Boolean`  |         |   :x:    |
-| **showValidStatus**   | `Boolean`  |         |   :x:    |
-| **valid**             | `Boolean`  |         |   :x:    |
-| **validationText**    |  `String`  |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { MultiSelectFieldFF } from '@dhis2/ui-forms'
+```
+
+#### Props
+
+| Name    | Type       | Default | Required | Description                                  |
+| ------- | ---------- | ------- | -------- | -------------------------------------------- |
+| input   | `custom`   |         |          | `input` props provided by Final Form `Field` |
+| meta    | `custom`   |         |          | `meta` props provided by Final Form `Field`  |
+| error   | `boolean`  |         |          |                                              |
+| loading | `boolean`  |         |          |                                              |
+| options | `arrayOf({ |
+
+"label": "string",
+"value": "string"
+})`|`[]`||| |showLoadingStatus|`boolean`|||| |showValidStatus|`boolean`|||| |valid|`boolean`|||| |validationText|`string`|||| |onBlur|`function`|||| |onFocus|`function`||||
+
+### RadioFieldFF
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { RadioFieldFF } from '@dhis2/ui-forms'
+```
+
+#### Props
+
+| Name            | Type       | Default | Required | Description                                    |
+| --------------- | ---------- | ------- | -------- | ---------------------------------------------- |
+| input           | `custom`   |         |          | `input` props received from Final Form `Field` |
+| meta            | `custom`   |         |          | `meta` props received from Final Form `Field`  |
+| error           | `boolean`  |         |          |                                                |
+| showValidStatus | `boolean`  |         |          |                                                |
+| valid           | `boolean`  |         |          |                                                |
+| validationText  | `string`   |         |          |                                                |
+| onBlur          | `function` |         |          |                                                |
+| onFocus         | `function` |         |          |                                                |
+
+### SingleSelectFieldFF
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SingleSelectFieldFF } from '@dhis2/ui-forms'
+```
+
+#### Props
+
+| Name    | Type       | Default | Required | Description                                    |
+| ------- | ---------- | ------- | -------- | ---------------------------------------------- |
+| input   | `custom`   |         |          | `input` props received from Final Form `Field` |
+| meta    | `custom`   |         |          | `meta` props received from Final Form `Field`  |
+| options | `arrayOf({ |
+
+"label": "string",
+"value": "string"
+})`||*|| |error|`boolean`|||| |loading|`boolean`|||| |showLoadingStatus|`boolean`|||| |showValidStatus|`boolean`|||| |valid|`boolean`|||| |validationText|`string`|||| |onBlur|`function`|||| |onFocus|`function`||||
+
+### SwitchFieldFF
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SwitchFieldFF } from '@dhis2/ui-forms'
+```
+
+#### Props
+
+| Name            | Type       | Default | Required | Description                                    |
+| --------------- | ---------- | ------- | -------- | ---------------------------------------------- |
+| input           | `custom`   |         |          | `input` props received from Final Form `Field` |
+| meta            | `custom`   |         |          | `meta` props received from Final Form `Field`  |
+| error           | `boolean`  |         |          |                                                |
+| showValidStatus | `boolean`  |         |          |                                                |
+| valid           | `boolean`  |         |          |                                                |
+| validationText  | `string`   |         |          |                                                |
+| onBlur          | `function` |         |          |                                                |
+| onFocus         | `function` |         |          |                                                |
+
+### TextAreaFieldFF
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { TextAreaFieldFF } from '@dhis2/ui-forms'
+```
+
+#### Props
+
+| Name              | Type       | Default | Required | Description                                    |
+| ----------------- | ---------- | ------- | -------- | ---------------------------------------------- |
+| input             | `custom`   |         |          | `input` props received from Final Form `Field` |
+| meta              | `custom`   |         |          | `meta` props received from Final Form `Field`  |
+| error             | `boolean`  |         |          |                                                |
+| loading           | `boolean`  |         |          |                                                |
+| showLoadingStatus | `boolean`  |         |          |                                                |
+| showValidStatus   | `boolean`  |         |          |                                                |
+| valid             | `boolean`  |         |          |                                                |
+| validationText    | `string`   |         |          |                                                |
+| onBlur            | `function` |         |          |                                                |
+| onFocus           | `function` |         |          |                                                |

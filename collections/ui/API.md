@@ -1,1249 +1,1785 @@
-## AlertBar
-
-From [`alert/src/alert-bar/alert-bar.js`](../components/alert/src/alert-bar/alert-bar.js)
-
-| prop          |    type    |          default          | required | description                                                                                             |
-| ------------- | :--------: | :-----------------------: | :------: | ------------------------------------------------------------------------------------------------------- |
-| **actions**   |  `custom`  |                           |   :x:    | An array of 0-2 action objects                                                                          |
-| **children**  |  `String`  |                           |   :x:    | The message string for the alert                                                                        |
-| **className** |  `String`  |                           |   :x:    |
-| **critical**  |  `custom`  |                           |   :x:    | Alert bars with `critical` will not autohide                                                            |
-| **dataTest**  |  `String`  | `'dhis2-uicore-alertbar'` |   :x:    |
-| **duration**  |  `Number`  |          `8000`           |   :x:    |
-| **hidden**    | `Boolean`  |                           |   :x:    |
-| **icon**      |  `custom`  |          `true`           |   :x:    | A specific icon to override the default icon in the bar. If `false` is provided, no icon will be shown. |
-| **onHidden**  | `Function` |                           |   :x:    |
-| **permanent** | `Boolean`  |                           |   :x:    |
-| **success**   |  `custom`  |                           |   :x:    |
-| **warning**   |  `custom`  |                           |   :x:    | Alert bars with `warning` will not autohide                                                             |
-
-## AlertStack
-
-From [`alert/src/alert-stack/alert-stack.js`](../components/alert/src/alert-stack/alert-stack.js)
-
-| prop          |    type     |           default           | required | description |
-| ------------- | :---------: | :-------------------------: | :------: | ----------- |
-| **children**  | `ReactNode` |                             |   :x:    |
-| **className** |  `String`   |                             |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-alertstack'` |   :x:    |
-
-## Box
-
-From [`box/src/box.js`](../components/box/src/box.js)
-
-| prop          |    type     |       default        | required | description |
-| ------------- | :---------: | :------------------: | :------: | ----------- |
-| **children**  | `ReactNode` |                      |   :x:    |
-| **className** |  `String`   |                      |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-box'` |   :x:    |
-| **height**    |  `String`   |                      |   :x:    |
-| **marginTop** |  `String`   |                      |   :x:    |
-| **maxHeight** |  `String`   |                      |   :x:    |
-| **maxWidth**  |  `String`   |                      |   :x:    |
-| **minHeight** |  `String`   |                      |   :x:    |
-| **minWidth**  |  `String`   |                      |   :x:    |
-| **overflow**  |  `String`   |                      |   :x:    |
-| **width**     |  `String`   |                      |   :x:    |
-
-## Button
-
-From [`button/src/button/button.js`](../components/button/src/button/button.js)
-
-| prop             |                type                 |         default         | required | description                                                                                                                              |
-| ---------------- | :---------------------------------: | :---------------------: | :------: | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| **children**     |             `ReactNode`             |                         |   :x:    | Component to render inside the button                                                                                                    |
-| **className**    |              `String`               |                         |   :x:    | A className that will be passed to the `<button>` element                                                                                |
-| **dataTest**     |              `String`               | `'dhis2-uicore-button'` |   :x:    | A string that will be applied as a `data-test` attribute on the button element for identification during testing                         |
-| **destructive**  |              `custom`               |                         |   :x:    | Indicates that the button makes potentially dangerous deletions or data changes. Mutually exclusive with `primary` and `secondary` props |
-| **disabled**     |              `Boolean`              |                         |   :x:    | Applies a greyed-out appearance and makes the button non-interactive                                                                     |
-| **icon**         |           `ReactElement`            |                         |   :x:    | An icon element to display inside the button                                                                                             |
-| **initialFocus** |              `Boolean`              |                         |   :x:    | Use this variant to capture the initial focus on the page.                                                                               |
-| **large**        |              `custom`               |                         |   :x:    | Makes the button large. Mutually exclusive with `small`                                                                                  |
-| **loading**      |              `Boolean`              |                         |   :x:    | Sets the button into a loading state                                                                                                     |
-| **name**         |              `String`               |                         |   :x:    | Sets `name` attribute on button element. Gets passed as part of the first argument to callbacks (see `onClick`).                         |
-| **onBlur**       |             `Function`              |                         |   :x:    | Callback to trigger on de-focus (blur). Called with same args as `onClick`                                                               |
-| **onClick**      |             `Function`              |                         |   :x:    | Callback to trigger on click. Called with args `({ value, name }, event)`                                                                |
-| **onFocus**      |             `Function`              |                         |   :x:    | Callback to trigger on focus. Called with same args as `onClick`                                                                         |
-| **primary**      |              `custom`               |                         |   :x:    | Applies 'primary' button appearance. Mutually exclusive with `destructive` and `secondary` props                                         |
-| **secondary**    |              `custom`               |                         |   :x:    | Applies 'secondary' button appearance. Mutually exclusive with `primary` and `destructive` props                                         |
-| **small**        |              `custom`               |                         |   :x:    | Makes the button small. Mutually exclusive with `large` prop                                                                             |
-| **tabIndex**     |              `String`               |                         |   :x:    | Tab index for focusing the button with a keyboard                                                                                        |
-| **toggled**      |              `Boolean`              |                         |   :x:    | Changes appearance of button to an on/off state                                                                                          |
-| **type**         | `Enum('submit', 'reset', 'button')` |       `'button'`        |   :x:    | Sets `type` attribute on `<button>` element                                                                                              |
-| **value**        |              `String`               |                         |   :x:    | Value associated with the button. Gets passed as part of the first argument to callbacks (see `onClick`).                                |
-
-## ButtonStrip
-
-From [`button/src/button-strip/button-strip.js`](../components/button/src/button-strip/button-strip.js)
-
-| prop          |    type     |           default            | required | description                                                             |
-| ------------- | :---------: | :--------------------------: | :------: | ----------------------------------------------------------------------- |
-| **children**  | `ReactNode` |                              |   :x:    |
-| **className** |  `String`   |                              |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-buttonstrip'` |   :x:    |
-| **end**       |  `custom`   |                              |   :x:    | Horizontal alignment for buttons. Mutually exclusive with `middle` prop |
-| **middle**    |  `custom`   |                              |   :x:    | Horizontal alignment. Mutually exclusive with `end` prop                |
-
-## DropdownButton
-
-From [`button/src/dropdown-button/dropdown-button.js`](../components/button/src/dropdown-button/dropdown-button.js)
-
-| prop             |                type                 |             default             | required | description                                                                                                                                                                      |
-| ---------------- | :---------------------------------: | :-----------------------------: | :------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **children**     |             `ReactNode`             |                                 |   :x:    | Children to render inside the buton                                                                                                                                              |
-| **className**    |              `String`               |                                 |   :x:    |
-| **component**    |           `ReactElement`            |                                 |   :x:    | Component to show/hide when button is clicked                                                                                                                                    |
-| **dataTest**     |              `String`               | `'dhis2-uicore-dropdownbutton'` |   :x:    |
-| **destructive**  |              `custom`               |                                 |   :x:    | Button variant. Mutually exclusive with `primary` and `secondary` props                                                                                                          |
-| **disabled**     |              `Boolean`              |                                 |   :x:    | Make the button non-interactive                                                                                                                                                  |
-| **icon**         |           `ReactElement`            |                                 |   :x:    |
-| **initialFocus** |              `Boolean`              |                                 |   :x:    | Grants button initial focus on the page                                                                                                                                          |
-| **large**        |              `custom`               |                                 |   :x:    | Button size. Mutually exclusive with `small` prop                                                                                                                                |
-| **name**         |              `String`               |                                 |   :x:    |
-| **onClick**      |              `custom`               |                                 |   :x:    | Callback triggered on click. Called with signature `({ name: string, value: string, open: bool }, event)` Is required when using the `open` prop to override the internal state. |
-| **open**         |              `Boolean`              |                                 |   :x:    | Controls popper visibility. When implementing this prop the component becomes a controlled component                                                                             |
-| **primary**      |              `custom`               |                                 |   :x:    | Button variant. Mutually exclusive with `destructive` and `secondary` props                                                                                                      |
-| **secondary**    |              `custom`               |                                 |   :x:    | Button variant. Mutually exclusive with `primary` and `destructive` props                                                                                                        |
-| **small**        |              `custom`               |                                 |   :x:    | Button size. Mutually exclusive with `large` prop                                                                                                                                |
-| **tabIndex**     |              `String`               |                                 |   :x:    |
-| **type**         | `Enum('submit', 'reset', 'button')` |                                 |   :x:    | Type of button. Can take advantage of different default behavior                                                                                                                 |
-| **value**        |              `String`               |                                 |   :x:    |
-
-## SplitButton
-
-From [`button/src/split-button/split-button.js`](../components/button/src/split-button/split-button.js)
-
-| prop             |                type                 |           default            | required | description                                                                                                   |
-| ---------------- | :---------------------------------: | :--------------------------: | :------: | ------------------------------------------------------------------------------------------------------------- |
-| **children**     |              `String`               |                              |   :x:    |
-| **className**    |              `String`               |                              |   :x:    |
-| **component**    |           `ReactElement`            |                              |   :x:    | Component to render when the dropdown is opened                                                               |
-| **dataTest**     |              `String`               | `'dhis2-uicore-splitbutton'` |   :x:    |
-| **destructive**  |              `custom`               |                              |   :x:    | Applies 'destructive' appearance to indicate purpose. Mutually exclusive with `primary` and `secondary` props |
-| **disabled**     |              `Boolean`              |                              |   :x:    | Disables the button and makes it uninteractive                                                                |
-| **icon**         |           `ReactElement`            |                              |   :x:    | An icon to add inside the button                                                                              |
-| **initialFocus** |              `Boolean`              |                              |   :x:    | Grants the button the initial focus                                                                           |
-| **large**        |              `custom`               |                              |   :x:    | Changes button size. Mutually exclusive with `small` prop                                                     |
-| **name**         |              `String`               |                              |   :x:    |
-| **onClick**      |             `Function`              |                              |   :x:    |
-| **primary**      |              `custom`               |                              |   :x:    | Applies 'primary' appearance to indicate purpose. Mutually exclusive with `destructive` and `secondary` props |
-| **secondary**    |              `custom`               |                              |   :x:    | Applies 'secondary' appearance to indicate purpose. Mutually exclusive with `primary` and `destructive` props |
-| **small**        |              `custom`               |                              |   :x:    | Changes button size. Mutually exclusive with `large` prop                                                     |
-| **tabIndex**     |              `String`               |                              |   :x:    |
-| **type**         | `Enum('submit', 'reset', 'button')` |                              |   :x:    | Type of button. Applied to html `button` element                                                              |
-| **value**        |              `String`               |                              |   :x:    | Value associated with the button. Passed in object to onClick handler                                         |
-
-## Card
-
-From [`card/src/card.js`](../components/card/src/card.js)
-
-| prop          |    type     |        default        | required | description |
-| ------------- | :---------: | :-------------------: | :------: | ----------- |
-| **children**  | `ReactNode` |                       |   :x:    |
-| **className** |  `String`   |                       |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-card'` |   :x:    |
-
-## Center
-
-From [`center/src/center.js`](../components/center/src/center.js)
-
-| prop          |               type                |             default              | required | description        |
-| ------------- | :-------------------------------: | :------------------------------: | :------: | ------------------ |
-| **children**  |            `ReactNode`            |                                  |   :x:    |
-| **className** |             `String`              |                                  |   :x:    |
-| **dataTest**  |             `String`              | `'dhis2-uicore-centeredcontent'` |   :x:    |
-| **position**  | `Enum('top', 'middle', 'bottom')` |            `'middle'`            |   :x:    | Vertical alignment |
-
-## Checkbox
-
-From [`checkbox/src/checkbox/checkbox.js`](../components/checkbox/src/checkbox/checkbox.js)
-
-| prop              |    type     |          default          | required | description                             |
-| ----------------- | :---------: | :-----------------------: | :------: | --------------------------------------- |
-| **checked**       |  `custom`   |          `false`          |   :x:    |
-| **className**     |  `String`   |                           |   :x:    |
-| **dataTest**      |  `String`   | `'dhis2-uicore-checkbox'` |   :x:    |
-| **dense**         |  `Boolean`  |                           |   :x:    |
-| **disabled**      |  `Boolean`  |                           |   :x:    |
-| **error**         |  `custom`   |                           |   :x:    |
-| **indeterminate** |  `custom`   |          `false`          |   :x:    |
-| **initialFocus**  |  `Boolean`  |                           |   :x:    |
-| **label**         | `ReactNode` |                           |   :x:    |
-| **name**          |  `String`   |                           |   :x:    |
-| **onBlur**        | `Function`  |                           |   :x:    |
-| **onChange**      | `Function`  |                           |   :x:    | Called with signature `(object, event)` |
-| **onFocus**       | `Function`  |                           |   :x:    |
-| **tabIndex**      |  `String`   |                           |   :x:    |
-| **valid**         |  `custom`   |                           |   :x:    |
-| **value**         |  `String`   |                           |   :x:    |
-| **warning**       |  `custom`   |                           |   :x:    |
-
-## CheckboxField
-
-From [`checkbox/src/checkbox-field/checkbox-field.js`](../components/checkbox/src/checkbox-field/checkbox-field.js)
-
-| prop               |    type     |              default              | required | description                                                                                                               |
-| ------------------ | :---------: | :-------------------------------: | :------: | ------------------------------------------------------------------------------------------------------------------------- |
-| **checked**        |  `Boolean`  |                                   |   :x:    |
-| **className**      |  `String`   |                                   |   :x:    |
-| **dataTest**       |  `String`   | `'dhis2-uiwidgets-checkboxfield'` |   :x:    |
-| **dense**          |  `Boolean`  |                                   |   :x:    | Smaller dimensions for information-dense layouts                                                                          |
-| **disabled**       |  `Boolean`  |                                   |   :x:    | Disables the checkbox                                                                                                     |
-| **error**          |  `custom`   |                                   |   :x:    | Applies 'error' styling to checkbox and validation text for feedback. Mutually exclusive with `warning` and `valid` props |
-| **helpText**       |  `String`   |                                   |   :x:    | Useful instructions for the user                                                                                          |
-| **initialFocus**   |  `Boolean`  |                                   |   :x:    |
-| **label**          | `ReactNode` |                                   |   :x:    | Labels the checkbox                                                                                                       |
-| **name**           |  `String`   |                                   |   :x:    | Name associate with the checkbox. Passed in object as argument to event handlers                                          |
-| **onBlur**         | `Function`  |                                   |   :x:    | Called with signature `({ name: string, value: string, checked: bool }, event)`                                           |
-| **onChange**       | `Function`  |                                   |   :x:    | Called with signature `({ name: string, value: string, checked: bool }, event)`                                           |
-| **onFocus**        | `Function`  |                                   |   :x:    | Called with signature `({ name: string, value: string, checked: bool }, event)`                                           |
-| **required**       |  `Boolean`  |                                   |   :x:    | Adds an asterisk to indicate this field is required                                                                       |
-| **tabIndex**       |  `String`   |                                   |   :x:    |
-| **valid**          |  `custom`   |                                   |   :x:    | Applies 'valid' styling to checkbox and validation text for feedback. Mutually exclusive with `warning` and `error` props |
-| **validationText** |  `String`   |                                   |   :x:    | Adds text below the checkbox to provide validation feedback. Acquires styles from `valid`, `warning` and `error` statuses |
-| **value**          |  `String`   |                                   |   :x:    | Value associated with the checkbox. Passed in object as argument to event handlers                                        |
-| **warning**        |  `custom`   |                                   |   :x:    | Applies 'warning' styling to checkbox and validation text for feedback. Mutually exclusive with `valid` and `error` props |
-
-## Chip
-
-From [`chip/src/chip.js`](../components/chip/src/chip.js)
-
-| prop          |      type      |        default        | required | description |
-| ------------- | :------------: | :-------------------: | :------: | ----------- |
-| **children**  |      `*`       |                       |   :x:    |
-| **className** |    `String`    |                       |   :x:    |
-| **dataTest**  |    `String`    | `'dhis2-uicore-chip'` |   :x:    |
-| **dense**     |   `Boolean`    |                       |   :x:    |
-| **disabled**  |   `Boolean`    |                       |   :x:    |
-| **dragging**  |   `Boolean`    |                       |   :x:    |
-| **icon**      | `ReactElement` |                       |   :x:    |
-| **onClick**   |   `Function`   |                       |   :x:    |
-| **onRemove**  |   `Function`   |                       |   :x:    |
-| **overflow**  |   `Boolean`    |                       |   :x:    |
-| **selected**  |   `Boolean`    |                       |   :x:    |
-
-## Cover
-
-From [`cover/src/cover.js`](../components/cover/src/cover.js)
-
-| prop            |    type     |             default             | required | description                                     |
-| --------------- | :---------: | :-----------------------------: | :------: | ----------------------------------------------- |
-| **children**    | `ReactNode` |                                 |   :x:    |
-| **className**   |  `String`   |                                 |   :x:    |
-| **dataTest**    |  `String`   | `'dhis2-uicore-componentcover'` |   :x:    |
-| **onClick**     | `Function`  |                                 |   :x:    |
-| **translucent** |  `Boolean`  |                                 |   :x:    | Adds a semi-transparent background to the cover |
-
-## CssReset
-
-From [`css/src/css-reset/css-reset.js`](../components/css/src/css-reset/css-reset.js)
-
-This component does not have any props.
-
-## CssVariables
-
-From [`css/src/css-variables/css-variables.js`](../components/css/src/css-variables/css-variables.js)
-
-| prop           |   type    | default | required | description |
-| -------------- | :-------: | :-----: | :------: | ----------- |
-| **colors**     | `Boolean` | `false` |   :x:    |
-| **elevations** | `Boolean` | `false` |   :x:    |
-| **layers**     | `Boolean` | `false` |   :x:    |
-| **spacers**    | `Boolean` | `false` |   :x:    |
-| **theme**      | `Boolean` | `false` |   :x:    |
-
-## Divider
-
-From [`divider/src/divider.js`](../components/divider/src/divider.js)
-
-| prop          |   type    |         default          | required | description |
-| ------------- | :-------: | :----------------------: | :------: | ----------- |
-| **className** | `String`  |                          |   :x:    |
-| **dataTest**  | `String`  | `'dhis2-uicore-divider'` |   :x:    |
-| **dense**     | `Boolean` |                          |   :x:    |
-| **margin**    | `String`  |    `${spacers.dp8} 0`    |   :x:    |
-
-## Field
-
-From [`field/src/field/field.js`](../components/field/src/field/field.js)
-
-| prop               |    type     |        default         | required | description                                                                             |
-| ------------------ | :---------: | :--------------------: | :------: | --------------------------------------------------------------------------------------- |
-| **children**       | `ReactNode` |                        |   :x:    |
-| **className**      |  `String`   |                        |   :x:    |
-| **dataTest**       |  `String`   | `'dhis2-uicore-field'` |   :x:    |
-| **disabled**       |  `Boolean`  |                        |   :x:    | Disabled status, shown when mouse is over label                                         |
-| **error**          |  `custom`   |                        |   :x:    | Field status. Mutually exclusive with `valid` and `warning` props                       |
-| **helpText**       |  `String`   |                        |   :x:    | Useful text within the field                                                            |
-| **label**          |  `String`   |                        |   :x:    | Label at the top of the field                                                           |
-| **name**           |  `String`   |                        |   :x:    | `name` will become the target of the `for`/`htmlFor` attribute on the `<label>` element |
-| **required**       |  `Boolean`  |                        |   :x:    | Inidcates this field is required                                                        |
-| **valid**          |  `custom`   |                        |   :x:    | Field status. Mutually exclusive with `error` and `warning` props                       |
-| **validationText** |  `String`   |                        |   :x:    | Feedback given related to validation status of field                                    |
-| **warning**        |  `custom`   |                        |   :x:    | Field status. Mutually exclusive with `valid` and `error` props                         |
-
-## FieldGroup
-
-From [`field/src/field-group/field-group.js`](../components/field/src/field-group/field-group.js)
-
-| prop               |    type     |              default              | required | description                                                                                                                       |
-| ------------------ | :---------: | :-------------------------------: | :------: | --------------------------------------------------------------------------------------------------------------------------------- |
-| **children**       | `ReactNode` |                                   |   :x:    |
-| **className**      |  `String`   |                                   |   :x:    |
-| **dataTest**       |  `String`   | `'dhis2-uiwidgets-fieldsetfield'` |   :x:    |
-| **disabled**       |  `Boolean`  |                                   |   :x:    | Disables the form controls within                                                                                                 |
-| **error**          |  `custom`   |                                   |   :x:    | Applies 'error' styling to validation text for feedback. Mutually exclusive with `warning` and `valid` props                      |
-| **helpText**       |  `String`   |                                   |   :x:    | Useful instructions for the user                                                                                                  |
-| **label**          |  `String`   |                                   |   :x:    | Labels the Field Group                                                                                                            |
-| **name**           |  `String`   |                                   |   :x:    | Name associate with the Field Group. Passed in object as argument to event handlers                                               |
-| **required**       |  `Boolean`  |                                   |   :x:    | Adds an asterisk to indicate this field is required                                                                               |
-| **valid**          |  `custom`   |                                   |   :x:    | Applies 'valid' styling to validation text for feedback. Mutually exclusive with `warning` and `error` props                      |
-| **validationText** |  `String`   |                                   |   :x:    | Adds text at the bottom of the field to provide validation feedback. Acquires styles from `valid`, `warning` and `error` statuses |
-| **warning**        |  `custom`   |                                   |   :x:    | Applies 'warning' styling to validation text for feedback. Mutually exclusive with `valid` and `error` props                      |
-
-## FieldSet
-
-From [`field/src/field-set/field-set.js`](../components/field/src/field-set/field-set.js)
-
-| prop          |    type     |          default          | required | description |
-| ------------- | :---------: | :-----------------------: | :------: | ----------- |
-| **children**  | `ReactNode` |                           |   :x:    |
-| **className** |  `String`   |                           |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-fieldset'` |   :x:    |
-
-## FileInput
-
-From [`file-input/src/file-input/file-input.js`](../components/file-input/src/file-input/file-input.js)
-
-| prop             |    type    |          default           | required | description                                                                                                                        |
-| ---------------- | :--------: | :------------------------: | :------: | ---------------------------------------------------------------------------------------------------------------------------------- |
-| **accept**       |  `String`  |           `'*'`            |   :x:    | The `accept` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept)     |
-| **buttonLabel**  |  `String`  |                            |   :x:    |
-| **className**    |  `String`  |                            |   :x:    |
-| **dataTest**     |  `String`  | `'dhis2-uicore-fileinput'` |   :x:    |
-| **disabled**     | `Boolean`  |                            |   :x:    |
-| **error**        |  `custom`  |                            |   :x:    | Input status. Mutually exclusive with `warning` and `valid`                                                                        |
-| **initialFocus** | `Boolean`  |                            |   :x:    |
-| **large**        |  `custom`  |                            |   :x:    | Button size. Mutually exclusive with `small`                                                                                       |
-| **multiple**     | `Boolean`  |                            |   :x:    | The `multiple` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple) |
-| **name**         |  `String`  |                            |   :x:    |
-| **onBlur**       | `Function` |                            |   :x:    | Called with signature `(object, event)`                                                                                            |
-| **onChange**     | `Function` |                            |   :x:    | Called with signature `(object, event)`                                                                                            |
-| **onFocus**      | `Function` |                            |   :x:    | Called with signature `(object, event)`                                                                                            |
-| **small**        |  `custom`  |                            |   :x:    | Button size. Mutually exclusive with `large`                                                                                       |
-| **tabIndex**     |  `String`  |                            |   :x:    |
-| **valid**        |  `custom`  |                            |   :x:    | Input status. Mutually exclusive with `warning` and `error`                                                                        |
-| **warning**      |  `custom`  |                            |   :x:    | Input status. Mutually exclusive with `valid` and `error`                                                                          |
-
-## FileInputField
-
-From [`file-input/src/file-input-field/file-input-field.js`](../components/file-input/src/file-input-field/file-input-field.js)
-
-| prop               |           type            |                default                 | required | description                                                                                                                        |
-| ------------------ | :-----------------------: | :------------------------------------: | :------: | ---------------------------------------------------------------------------------------------------------------------------------- |
-| **accept**         |         `String`          |                 `'*'`                  |   :x:    | The `accept` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept)     |
-| **buttonLabel**    | `Union<String\|Function>` |    `() => i18n.t('Upload a file')`     |   :x:    | Text on the button                                                                                                                 |
-| **buttonLabel<1>** |         `String`          |                                        |   :x:    |
-| **buttonLabel<2>** |        `Function`         |                                        |   :x:    |
-| **children**       |        `ReactNode`        |                                        |   :x:    |
-| **className**      |         `String`          |                                        |   :x:    |
-| **dataTest**       |         `String`          |   `'dhis2-uiwidgets-fileinputfield'`   |   :x:    |
-| **disabled**       |         `Boolean`         |                                        |   :x:    | Disables the button                                                                                                                |
-| **error**          |         `custom`          |                                        |   :x:    | Applies 'error' styling to the validation text. Mutually exclusive with `warning` and `valid` props                                |
-| **helpText**       |         `String`          |                                        |   :x:    | Useful guiding text for the user                                                                                                   |
-| **initialFocus**   |         `Boolean`         |                                        |   :x:    |
-| **label**          |         `String`          |                                        |   :x:    | A descriptive label above the button                                                                                               |
-| **large**          |         `custom`          |                                        |   :x:    | Size of the button. Mutually exclusive with the `small` prop                                                                       |
-| **multiple**       |         `Boolean`         |                                        |   :x:    | The `multiple` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple) |
-| **name**           |         `String`          |                                        |   :x:    | Name associated with input. Passed to event handler callbacks                                                                      |
-| **onBlur**         |        `Function`         |                                        |   :x:    |
-| **onChange**       |        `Function`         |                                        |   :x:    | Called with signature `({ name: string, files: [] }, event)`                                                                       |
-| **onFocus**        |        `Function`         |                                        |   :x:    |
-| **placeholder**    | `Union<String\|Function>` | `() => i18n.t('No file uploaded yet')` |   :x:    | Placeholder below the button                                                                                                       |
-| **placeholder<1>** |         `String`          |                                        |   :x:    |
-| **placeholder<2>** |        `Function`         |                                        |   :x:    |
-| **required**       |         `Boolean`         |                                        |   :x:    | Adds an asterisk to indicate this field is required                                                                                |
-| **small**          |         `custom`          |                                        |   :x:    | Size of the button. Mutually exclusive with the `large` prop                                                                       |
-| **tabIndex**       |         `String`          |                                        |   :x:    |
-| **valid**          |         `custom`          |                                        |   :x:    | Applies 'valid' styling to the validation text. Mutually exclusive with `warning` and `error` props                                |
-| **validationText** |         `String`          |                                        |   :x:    | Text below the button that provides validation feedback                                                                            |
-| **warning**        |         `custom`          |                                        |   :x:    | Applies 'warning' styling to the validation text. Mutually exclusive with `valid` and `error` props                                |
-
-## FileListItem
-
-From [`file-input/src/file-list/file-list-item.js`](../components/file-input/src/file-list/file-list-item.js)
-
-| prop           |    type    |            default            |      required      | description |
-| -------------- | :--------: | :---------------------------: | :----------------: | ----------- |
-| **cancelText** |  `String`  |                               |        :x:         |
-| **className**  |  `String`  |                               |        :x:         |
-| **dataTest**   |  `String`  | `'dhis2-uicore-filelistitem'` |        :x:         |
-| **label**      |  `String`  |                               |        :x:         |
-| **loading**    | `Boolean`  |                               |        :x:         |
-| **onCancel**   | `Function` |                               |        :x:         |
-| **onRemove**   | `Function` |                               | :white_check_mark: |
-| **removeText** |  `String`  |                               |        :x:         |
-
-## FileListPlaceholder
-
-From [`file-input/src/file-list/file-list-placeholder.js`](../components/file-input/src/file-list/file-list-placeholder.js)
-
-| prop         |   type   |               default                | required | description |
-| ------------ | :------: | :----------------------------------: | :------: | ----------- |
-| **children** | `String` |                                      |   :x:    |
-| **dataTest** | `String` | `'dhis2-uicore-filelistplaceholder'` |   :x:    |
-
-## FileList
-
-From [`file-input/src/file-list/file-list.js`](../components/file-input/src/file-list/file-list.js)
-
-| prop          |    type     |          default          | required | description |
-| ------------- | :---------: | :-----------------------: | :------: | ----------- |
-| **children**  | `ReactNode` |                           |   :x:    |
-| **className** |  `String`   |                           |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-filelist'` |   :x:    |
-
-## HeaderBar
-
-From [`header-bar/src/header-bar.js`](../components/header-bar/src/header-bar.js)
-
-| prop          |   type   | default | required | description |
-| ------------- | :------: | :-----: | :------: | ----------- |
-| **appName**   | `String` |         |   :x:    |
-| **className** | `String` |         |   :x:    |
-
-## Logo
-
-From [`header-bar/src/logo.js`](../components/header-bar/src/logo.js)
-
-This component does not have any props.
-
-## Help
-
-From [`help/src/help.js`](../components/help/src/help.js)
-
-| prop          |   type   |        default        | required | description |
-| ------------- | :------: | :-------------------: | :------: | ----------- |
-| **children**  | `String` |                       |   :x:    |
-| **className** | `String` |                       |   :x:    |
-| **dataTest**  | `String` | `'dhis2-uicore-help'` |   :x:    |
-| **error**     | `custom` |                       |   :x:    |
-| **valid**     | `custom` |                       |   :x:    |
-| **warning**   | `custom` |                       |   :x:    |
-
-## Input
-
-From [`input/src/input/input.js`](../components/input/src/input/input.js)
-
-| prop             |                                                                 type                                                                 |        default         | required | description                                                                                                                                 |
-| ---------------- | :----------------------------------------------------------------------------------------------------------------------------------: | :--------------------: | :------: | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| **autoComplete** |                                                               `String`                                                               |                        |   :x:    | The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete)                    |
-| **className**    |                                                               `String`                                                               |                        |   :x:    |
-| **dataTest**     |                                                               `String`                                                               | `'dhis2-uicore-input'` |   :x:    |
-| **dense**        |                                                              `Boolean`                                                               |                        |   :x:    | Makes the input smaller                                                                                                                     |
-| **disabled**     |                                                              `Boolean`                                                               |                        |   :x:    | Disables the input                                                                                                                          |
-| **error**        |                                                               `custom`                                                               |                        |   :x:    | Applies 'error' appearance for validation feedback. Mutually exclusive with `valid` and `warning` props                                     |
-| **initialFocus** |                                                              `Boolean`                                                               |                        |   :x:    | The input grabs initial focus on the page                                                                                                   |
-| **loading**      |                                                              `Boolean`                                                               |                        |   :x:    | Adds a loading indicator beside the input                                                                                                   |
-| **max**          |                                                               `String`                                                               |                        |   :x:    | The [native `max` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-max), for use when `type` is `'number'`   |
-| **min**          |                                                               `String`                                                               |                        |   :x:    | The [native `min` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-min), for use when `type` is `'number'`   |
-| **name**         |                                                               `String`                                                               |                        |   :x:    | Name associated with the input. Passed to event handler callbacks in object                                                                 |
-| **onBlur**       |                                                              `Function`                                                              |                        |   :x:    | Called with signature `({ name: string, value: string }, event)`                                                                            |
-| **onChange**     |                                                              `Function`                                                              |                        |   :x:    | Called with signature `({ name: string, value: string }, event)`                                                                            |
-| **onFocus**      |                                                              `Function`                                                              |                        |   :x:    | Called with signature `({ name: string, value: string }, event)`                                                                            |
-| **placeholder**  |                                                               `String`                                                               |                        |   :x:    | Placeholder text for the input                                                                                                              |
-| **readOnly**     |                                                              `Boolean`                                                               |                        |   :x:    | Makes the input read-only                                                                                                                   |
-| **role**         |                                                               `String`                                                               |                        |   :x:    | Sets a role attribute on the input                                                                                                          |
-| **step**         |                                                               `String`                                                               |                        |   :x:    | The [native `step` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-step), for use when `type` is `'number'` |
-| **tabIndex**     |                                                               `String`                                                               |                        |   :x:    |
-| **type**         | `Enum('text', 'number', 'password', 'email', 'url', 'tel', 'date', 'datetime', 'datetime-local', 'month', 'week', 'time', 'search')` |        `'text'`        |   :x:    | The native input `type` attribute                                                                                                           |
-| **valid**        |                                                               `custom`                                                               |                        |   :x:    | Applies 'valid' appearance for validation feedback. Mutually exclusive with `error` and `warning` props                                     |
-| **value**        |                                                               `String`                                                               |                        |   :x:    | Value in the input. Can be used to control the component (recommended). Passed to event handler callbacks in object                         |
-| **warning**      |                                                               `custom`                                                               |                        |   :x:    | Applies 'warning' appearance for validation feedback. Mutually exclusive with `valid` and `error` props                                     |
-
-## InputField
-
-From [`input/src/input-field/input-field.js`](../components/input/src/input-field/input-field.js)
-
-| prop               |    type    |            default             | required | description                                                                                                                                 |
-| ------------------ | :--------: | :----------------------------: | :------: | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| **autoComplete**   |  `String`  |                                |   :x:    | The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete)                    |
-| **className**      |  `String`  |                                |   :x:    |
-| **dataTest**       |  `String`  | `'dhis2-uiwidgets-inputfield'` |   :x:    |
-| **dense**          | `Boolean`  |                                |   :x:    | Makes the input smaller                                                                                                                     |
-| **disabled**       | `Boolean`  |                                |   :x:    | Disables the input                                                                                                                          |
-| **error**          |  `custom`  |                                |   :x:    | Applies 'error' appearance for validation feedback. Mutually exclusive with `valid` and `warning` props                                     |
-| **helpText**       |  `String`  |                                |   :x:    | Guiding text for how to use this input                                                                                                      |
-| **initialFocus**   | `Boolean`  |                                |   :x:    | The input grabs initial focus on the page                                                                                                   |
-| **inputWidth**     |  `String`  |                                |   :x:    | Defines the width of the input. Can be any valid CSS measurement                                                                            |
-| **label**          |  `String`  |                                |   :x:    | Label text for the input                                                                                                                    |
-| **loading**        | `Boolean`  |                                |   :x:    | Adds a loading indicator beside the input                                                                                                   |
-| **max**            |  `String`  |                                |   :x:    | The [native `max` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-max), for use when `type` is `'number'`   |
-| **min**            |  `String`  |                                |   :x:    | The [native `min` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-min), for use when `type` is `'number'`   |
-| **name**           |  `String`  |                                |   :x:    | Name associated with the input. Passed to event handler callbacks in object                                                                 |
-| **onBlur**         | `Function` |                                |   :x:    | Called with signature `({ name: string, value: string }, event)`                                                                            |
-| **onChange**       | `Function` |                                |   :x:    | Called with signature `({ name: string, value: string }, event)`                                                                            |
-| **onFocus**        | `Function` |                                |   :x:    | Called with signature `({ name: string, value: string }, event)`                                                                            |
-| **placeholder**    |  `String`  |                                |   :x:    | Placeholder text for the input                                                                                                              |
-| **readOnly**       | `Boolean`  |                                |   :x:    | Makes the input read-only                                                                                                                   |
-| **required**       | `Boolean`  |                                |   :x:    | Indicates this input is required                                                                                                            |
-| **step**           |  `String`  |                                |   :x:    | The [native `step` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-step), for use when `type` is `'number'` |
-| **tabIndex**       |  `String`  |                                |   :x:    |
-| **type**           |  `custom`  |                                |   :x:    | Type of input                                                                                                                               |
-| **valid**          |  `custom`  |                                |   :x:    | Applies 'valid' appearance for validation feedback. Mutually exclusive with `error` and `warning` props                                     |
-| **validationText** |  `String`  |                                |   :x:    | Text below input for validation feedback. Receives styles depending on validation status                                                    |
-| **value**          |  `String`  |                                |   :x:    | Value in the input. Can be used to control the component (recommended). Passed to event handler callbacks in object                         |
-| **warning**        |  `custom`  |                                |   :x:    | Applies 'warning' appearance for validation feedback. Mutually exclusive with `valid` and `error` props                                     |
-
-## IntersectionDetector
-
-From [`intersection-detector/src/intersection-detector.js`](../components/intersection-detector/src/intersection-detector.js)
-
-| prop                |     type      |                default                |      required      | description                                                                                                                                                                                                                                                                                     |
-| ------------------- | :-----------: | :-----------------------------------: | :----------------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **children**        |      `*`      |                                       |        :x:         |
-| **className**       |   `String`    |                                       |        :x:         |
-| **dataTest**        |   `String`    | `'dhis2-uicore-intersectiondetector'` |        :x:         |
-| **onChange**        |  `Function`   |                                       | :white_check_mark: | Called with signature `({ isIntersecting: bool })`                                                                                                                                                                                                                                              |
-| **rootRef**         |    `Shape`    |                                       | :white_check_mark: | React ref on other component to detect intersections with                                                                                                                                                                                                                                       |
-| **rootRef.current** | `HTMLElement` |                                       |        :x:         |
-| **threshold**       |   `Number`    |                  `0`                  |        :x:         | The [threshold](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options) value: a value from 0.0 to 1.0 that controls the point at which an intersecting component is considered 'intersected' or 'visible' and the onChange callback triggers |
-
-## Label
-
-From [`label/src/label.js`](../components/label/src/label.js)
-
-| prop          |   type    |        default         | required | description |
-| ------------- | :-------: | :--------------------: | :------: | ----------- |
-| **children**  | `String`  |                        |   :x:    |
-| **className** | `String`  |                        |   :x:    |
-| **dataTest**  | `String`  | `'dhis2-uicore-label'` |   :x:    |
-| **disabled**  | `Boolean` |                        |   :x:    |
-| **htmlFor**   | `String`  |                        |   :x:    |
-| **required**  | `Boolean` |                        |   :x:    |
-
-## Layer
-
-From [`layer/src/layer.js`](../components/layer/src/layer.js)
-
-| prop              |            type             |        default         | required | description                                   |
-| ----------------- | :-------------------------: | :--------------------: | :------: | --------------------------------------------- |
-| **children**      |         `ReactNode`         |                        |   :x:    |
-| **className**     |          `String`           |                        |   :x:    |
-| **dataTest**      |          `String`           | `'dhis2-uicore-layer'` |   :x:    |
-| **disablePortal** |          `Boolean`          |                        |   :x:    | Disable the Portal, useful for nesting layers |
-| **level**         |   `Union<Number\|String>`   |        `'auto'`        |   :x:    | Z-index level                                 |
-| **level<1>**      |          `Number`           |                        |   :x:    |
-| **level<2>**      |          `String`           |                        |   :x:    |
-| **onClick**       |         `Function`          |                        |   :x:    | Click handler                                 |
-| **position**      | `Enum('absolute', 'fixed')` |       `'fixed'`        |   :x:    |
-| **translucent**   |          `Boolean`          |                        |   :x:    | Adds a semi-transparent background            |
-
-## Legend
-
-From [`legend/src/legend.js`](../components/legend/src/legend.js)
-
-| prop          |    type     |         default         | required | description                                    |
-| ------------- | :---------: | :---------------------: | :------: | ---------------------------------------------- |
-| **children**  | `ReactNode` |                         |   :x:    |
-| **className** |  `String`   |                         |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-legend'` |   :x:    |
-| **required**  |  `Boolean`  |                         |   :x:    | Indicates the associated field set is required |
-
-## CircularLoader
-
-From [`loader/src/circular-loader/circular-loader.js`](../components/loader/src/circular-loader/circular-loader.js)
-
-| prop           |   type    |             default             | required | description |
-| -------------- | :-------: | :-----------------------------: | :------: | ----------- |
-| **className**  | `String`  |                                 |   :x:    |
-| **dataTest**   | `String`  | `'dhis2-uicore-circularloader'` |   :x:    |
-| **extrasmall** | `custom`  |                                 |   :x:    |
-| **invert**     | `Boolean` |                                 |   :x:    |
-| **large**      | `custom`  |                                 |   :x:    |
-| **small**      | `custom`  |                                 |   :x:    |
-
-## LinearLoader
-
-From [`loader/src/linear-loader/linear-loader.js`](../components/loader/src/linear-loader/linear-loader.js)
-
-| prop          |   type    |            default            |      required      | description                                           |
-| ------------- | :-------: | :---------------------------: | :----------------: | ----------------------------------------------------- |
-| **amount**    | `Number`  |                               | :white_check_mark: | The progression in percent without the '%' sign       |
-| **className** | `String`  |                               |        :x:         |
-| **dataTest**  | `String`  | `'dhis2-uicore-linearloader'` |        :x:         |
-| **invert**    | `Boolean` |                               |        :x:         | Use inverted color scheme                             |
-| **margin**    | `String`  |        `spacers.dp12`         |        :x:         | The margin around the loader, can be a full shorthand |
-| **width**     | `String`  |           `'300px'`           |        :x:         | The width of the entire indicator                     |
-
-## LogoIcon
-
-From [`logo/src/logo.js`](../components/logo/src/logo.js)
-
-| prop          |   type   |          default          | required | description |
-| ------------- | :------: | :-----------------------: | :------: | ----------- |
-| **className** | `String` |                           |   :x:    |
-| **dataTest**  | `String` | `'dhis2-uicore-logoicon'` |   :x:    |
-
-## LogoIconWhite
-
-From [`logo/src/logo.js`](../components/logo/src/logo.js)
-
-| prop          |   type   |            default             | required | description |
-| ------------- | :------: | :----------------------------: | :------: | ----------- |
-| **className** | `String` |                                |   :x:    |
-| **dataTest**  | `String` | `'dhis2-uicore-logoiconwhite'` |   :x:    |
-
-## Logo
-
-From [`logo/src/logo.js`](../components/logo/src/logo.js)
-
-| prop          |   type   |        default        | required | description |
-| ------------- | :------: | :-------------------: | :------: | ----------- |
-| **className** | `String` |                       |   :x:    |
-| **dataTest**  | `String` | `'dhis2-uicore-logo'` |   :x:    |
-
-## LogoWhite
-
-From [`logo/src/logo.js`](../components/logo/src/logo.js)
-
-| prop          |   type   |          default           | required | description |
-| ------------- | :------: | :------------------------: | :------: | ----------- |
-| **className** | `String` |                            |   :x:    |
-| **dataTest**  | `String` | `'dhis2-uicore-logowhite'` |   :x:    |
-
-## FlyoutMenu
-
-From [`menu/src/flyout-menu/flyout-menu.js`](../components/menu/src/flyout-menu/flyout-menu.js)
-
-| prop          |    type     |        default        | required | description                                          |
-| ------------- | :---------: | :-------------------: | :------: | ---------------------------------------------------- |
-| **children**  | `ReactNode` |                       |   :x:    | Typically, but not limited to, `MenuItem` components |
-| **className** |  `String`   |                       |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-menu'` |   :x:    |
-| **dense**     |  `Boolean`  |                       |   :x:    | Menu uses smaller dimensions                         |
-| **maxHeight** |  `String`   |       `'auto'`        |   :x:    |
-| **maxWidth**  |  `String`   |       `'380px'`       |   :x:    |
-
-## Menu
-
-From [`menu/src/menu/menu.js`](../components/menu/src/menu/menu.js)
-
-| prop          |    type     |          default          | required | description                                                               |
-| ------------- | :---------: | :-----------------------: | :------: | ------------------------------------------------------------------------- |
-| **children**  | `ReactNode` |                           |   :x:    | Typically `MenuItem`, `MenuDivider`, and `MenuSectionHeader`              |
-| **className** |  `String`   |                           |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-menulist'` |   :x:    |
-| **dense**     |  `Boolean`  |                           |   :x:    | Applies `dense` property to all child components unless already specified |
-
-## MenuDivider
-
-From [`menu/src/menu-divider/menu-divider.js`](../components/menu/src/menu-divider/menu-divider.js)
-
-| prop          |   type    |           default            | required | description |
-| ------------- | :-------: | :--------------------------: | :------: | ----------- |
-| **className** | `String`  |                              |   :x:    |
-| **dataTest**  | `String`  | `'dhis2-uicore-menudivider'` |   :x:    |
-| **dense**     | `Boolean` |                              |   :x:    |
-
-## MenuItem
-
-From [`menu/src/menu-item/menu-item.js`](../components/menu/src/menu-item/menu-item.js)
-
-| prop              |    type     |          default          | required | description                                                                                             |
-| ----------------- | :---------: | :-----------------------: | :------: | ------------------------------------------------------------------------------------------------------- |
-| **active**        |  `Boolean`  |                           |   :x:    |
-| **chevron**       |  `Boolean`  |                           |   :x:    |
-| **children**      | `ReactNode` |                           |   :x:    | Nested menu items can become submenus. See `showSubMenu` and `toggleSubMenu` props, and 'Children' demo |
-| **className**     |  `String`   |                           |   :x:    |
-| **dataTest**      |  `String`   | `'dhis2-uicore-menuitem'` |   :x:    |
-| **dense**         |  `Boolean`  |                           |   :x:    |
-| **destructive**   |  `Boolean`  |                           |   :x:    |
-| **disabled**      |  `Boolean`  |                           |   :x:    |
-| **href**          |  `String`   |                           |   :x:    | For using menu item as a link                                                                           |
-| **icon**          | `ReactNode` |                           |   :x:    | An icon for the left side of the menu item                                                              |
-| **label**         | `ReactNode` |                           |   :x:    | Text in the menu item                                                                                   |
-| **onClick**       | `Function`  |                           |   :x:    | Click handler called with signature `({ value: string }, event)`                                        |
-| **showSubMenu**   |  `Boolean`  |                           |   :x:    | When true, nested menu items are shown in a Popper                                                      |
-| **target**        |  `String`   |                           |   :x:    | For using menu item as a link                                                                           |
-| **toggleSubMenu** | `Function`  |                           |   :x:    | On click, this function is called (without args)                                                        |
-| **value**         |  `String`   |                           |   :x:    | Value associated with item. Passed as an argument to onClick handler.                                   |
-
-## MenuSectionHeader
-
-From [`menu/src/menu-section-header/menu-section-header.js`](../components/menu/src/menu-section-header/menu-section-header.js)
-
-| prop            |    type     |              default               | required | description |
-| --------------- | :---------: | :--------------------------------: | :------: | ----------- |
-| **className**   |  `String`   |                                    |   :x:    |
-| **dataTest**    |  `String`   | `'dhis2-uicore-menusectionheader'` |   :x:    |
-| **dense**       |  `Boolean`  |                                    |   :x:    |
-| **hideDivider** |  `Boolean`  |                                    |   :x:    |
-| **label**       | `ReactNode` |                                    |   :x:    |
-
-## Modal
-
-From [`modal/src/modal/modal.js`](../components/modal/src/modal/modal.js)
-
-| prop          |    type     |        default         | required | description                         |
-| ------------- | :---------: | :--------------------: | :------: | ----------------------------------- |
-| **children**  | `ReactNode` |                        |   :x:    |
-| **className** |  `String`   |                        |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-modal'` |   :x:    |
-| **fluid**     |  `Boolean`  |                        |   :x:    |
-| **hide**      |  `Boolean`  |                        |   :x:    |
-| **large**     |  `custom`   |                        |   :x:    |
-| **onClose**   | `Function`  |                        |   :x:    | Callback used when the Modal closes |
-| **position**  |  `custom`   |        `'top'`         |   :x:    |
-| **small**     |  `custom`   |                        |   :x:    |
-
-## ModalActions
-
-From [`modal/src/modal-actions/modal-actions.js`](../components/modal/src/modal-actions/modal-actions.js)
-
-| prop         |    type     |            default            | required | description |
-| ------------ | :---------: | :---------------------------: | :------: | ----------- |
-| **children** | `ReactNode` |                               |   :x:    |
-| **dataTest** |  `String`   | `'dhis2-uicore-modalactions'` |   :x:    |
-
-## ModalContent
-
-From [`modal/src/modal-content/modal-content.js`](../components/modal/src/modal-content/modal-content.js)
-
-| prop          |    type     |            default            | required | description |
-| ------------- | :---------: | :---------------------------: | :------: | ----------- |
-| **children**  | `ReactNode` |                               |   :x:    |
-| **className** |  `String`   |                               |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-modalcontent'` |   :x:    |
-
-## ModalTitle
-
-From [`modal/src/modal-title/modal-title.js`](../components/modal/src/modal-title/modal-title.js)
-
-| prop         |   type   |           default           | required | description |
-| ------------ | :------: | :-------------------------: | :------: | ----------- |
-| **children** | `String` |                             |   :x:    |
-| **dataTest** | `String` | `'dhis2-uicore-modaltitle'` |   :x:    |
-
-## Node
-
-From [`node/src/node.js`](../components/node/src/node.js)
-
-| prop          |      type      |        default        | required | description                                                                               |
-| ------------- | :------------: | :-------------------: | :------: | ----------------------------------------------------------------------------------------- |
-| **children**  |  `ReactNode`   |                       |   :x:    | Content below this level of the hierarchy; children are revealed when this leaf is 'open' |
-| **className** |    `String`    |                       |   :x:    |
-| **component** | `ReactElement` |                       |   :x:    | Content/label for this leaf, for example a checkbox                                       |
-| **dataTest**  |    `String`    | `'dhis2-uicore-node'` |   :x:    |
-| **icon**      |  `ReactNode`   |                       |   :x:    | A custom icon to use instead of a toggle arrow                                            |
-| **onClose**   |   `Function`   |                       |   :x:    |
-| **onOpen**    |   `Function`   |                       |   :x:    |
-| **open**      |   `Boolean`    |                       |   :x:    |
-
-## NoticeBox
-
-From [`notice-box/src/notice-box.js`](../components/notice-box/src/notice-box.js)
-
-| prop          |    type     |          default           | required | description                                                                |
-| ------------- | :---------: | :------------------------: | :------: | -------------------------------------------------------------------------- |
-| **children**  | `ReactNode` |                            |   :x:    |
-| **className** |  `String`   |                            |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-noticebox'` |   :x:    |
-| **error**     |  `custom`   |                            |   :x:    | Applies 'error' message styles. Mutually exclusive with the `warning` prop |
-| **title**     |  `String`   |                            |   :x:    |
-| **warning**   |  `custom`   |                            |   :x:    | Applies 'warning' message styles. Mutually exclusive with the `error` prop |
-
-## OrganisationUnitTree
-
-From [`organisation-unit-tree/src/organisation-unit-tree/organisation-unit-tree.js`](../components/organisation-unit-tree/src/organisation-unit-tree/organisation-unit-tree.js)
-
-| prop                            |               type               |             default             |      required      | description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ------------------------------- | :------------------------------: | :-----------------------------: | :----------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **autoExpandLoadingError**      |            `Boolean`             |                                 |        :x:         | When set, the error when loading children fails will be shown automatically                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| **dataTest**                    |             `String`             | `'dhis2-uiwidgets-orgunittree'` |        :x:         |
-| **disableSelection**            |            `Boolean`             |                                 |        :x:         | When set to true, no unit can be selected                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| **expanded**                    |             `custom`             |                                 |        :x:         |
-| **filter**                      |  `Array[]<orgUnitPathPropType>`  |              `[]`               |        :x:         | All organisation units with a path that includes the provided paths will be shown. All others will not be rendered. When not provided, all org units will be shown.                                                                                                                                                                                                                                                                                                                                                                                          |
-| **forceReload**                 |            `Boolean`             |                                 |        :x:         | When true, everything will be reloaded. In order to load it again after reloading, `forceReload` has to be set to `false` and then to `true` again                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **handleCollapse**              |             `custom`             |                                 |        :x:         |
-| **handleExpand**                |             `custom`             |                                 |        :x:         |
-| **highlighted**                 |  `Array[]<orgUnitPathPropType>`  |              `[]`               |        :x:         | All units provided to "highlighted" as path will be visually highlighted. Note: The d2-ui component used two props for this: _ searchResults _ highlightSearchResults                                                                                                                                                                                                                                                                                                                                                                                        |
-| **initiallyExpanded**           |  `Array[]<orgUnitPathPropType>`  |              `[]`               |        :x:         | An array of OU paths that will be expanded automatically as soon as they are encountered. The path of an OU is the UIDs of the OU and all its parent OUs separated by slashes (/) Note: This replaces "openFirstLevel" as that's redundant                                                                                                                                                                                                                                                                                                                   |
-| **isUserDataViewFallback**      |            `Boolean`             |                                 |        :x:         | When provided, the 'isUserDataViewFallback' option will be sent when requesting the org units                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| **onChange**                    |            `Function`            |                                 | :white_check_mark: | Will be called with the following object: `{ id: string, displayName: string, path: string, checked: boolean, selected: string[] }`                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| **onChildrenLoaded**            |            `Function`            |                                 |        :x:         | Called with the children's data that was loaded                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| **onCollapse**                  |            `Function`            |                                 |        :x:         | Called with `{ path: string }` with the path of the parent of the level closed                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| **onExpand**                    |            `Function`            |                                 |        :x:         | Called with `{ path: string }` with the path of the parent of the level opened                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| **renderNodeLabel**             |            `Function`            |    `defaultRenderNodeLabel`     |        :x:         | Renders the actual node component for each leaf, can be used to customize the node. The default function just returns the node's displayName Shape of the object passed to the callback: `` { label: string, node: { displayName: string, id: string, // Only provided once `loading` is false path?: string, // Only provided once `loading` is false children?: Array.<{ id: string, path: string, displayName: string }> }, loading: boolean, error: string, open: boolean, selected: string[], singleSelection: boolean, disableSelection: boolean, } `` |
-| **roots**                       | `Union<String\|Array[]<String>>` |                                 | :white_check_mark: | Root org unit ID(s)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| **roots<1>**                    |             `String`             |                                 |        :x:         |
-| **roots<2>**                    |        `Array[]<String>`         |                                 |        :x:         |
-| **selected**                    |  `Array[]<orgUnitPathPropType>`  |              `[]`               |        :x:         | An array of paths of selected OUs. The path of an OU is the UIDs of the OU and all its parent OUs separated by slashes (`/`)                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| **singleSelection**             |            `Boolean`             |                                 |        :x:         | When set, no checkboxes will be displayed and only the first selected path in `selected` will be highlighted                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| **suppressAlphabeticalSorting** |            `Boolean`             |                                 |        :x:         | Turns off alphabetical sorting of units                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-
-## Label
-
-From [`organisation-unit-tree/src/organisation-unit-node/label/label.js`](../components/organisation-unit-tree/src/organisation-unit-node/label/label.js)
-
-| prop                            |              type              | default |      required      | description |
-| ------------------------------- | :----------------------------: | :-----: | :----------------: | ----------- |
-| **checked**                     |           `Boolean`            |         |        :x:         |
-| **children**                    |              `*`               |         | :white_check_mark: |
-| **dataTest**                    |            `String`            |         | :white_check_mark: |
-| **disableSelection**            |           `Boolean`            |         |        :x:         |
-| **fullPath**                    |            `String`            |         | :white_check_mark: |
-| **hasChildren**                 |           `Boolean`            |         | :white_check_mark: |
-| **hasSelectedDescendants**      |           `Boolean`            |         |        :x:         |
-| **highlighted**                 |           `Boolean`            |         |        :x:         |
-| **loading**                     |           `Boolean`            |         | :white_check_mark: |
-| **node**                        |            `Shape`             |         | :white_check_mark: |
-| **node.children**               |        `Array[]<Shape>`        |         |        :x:         |
-| **node.children[].displayName** |            `String`            |         | :white_check_mark: |
-| **node.children[].id**          |            `String`            |         | :white_check_mark: |
-| **node.displayName**            |            `String`            |         | :white_check_mark: |
-| **node.id**                     |            `String`            |         | :white_check_mark: |
-| **node.path**                   |            `String`            |         |        :x:         |
-| **onChange**                    |           `Function`           |         | :white_check_mark: |
-| **onToggleOpen**                |           `Function`           |         | :white_check_mark: |
-| **open**                        |           `Boolean`            |         | :white_check_mark: |
-| **rootId**                      |            `String`            |         | :white_check_mark: |
-| **selected**                    | `Array[]<orgUnitPathPropType>` |         |        :x:         |
-| **singleSelection**             |           `Boolean`            |         |        :x:         |
-
-## Pagination
-
-From [`pagination/src/pagination.js`](../components/pagination/src/pagination.js)
-
-| prop                      |           type            |                                                                  default                                                                  |      required      | description |
-| ------------------------- | :-----------------------: | :---------------------------------------------------------------------------------------------------------------------------------------: | :----------------: | ----------- |
-| **className**             |         `String`          |                                                                                                                                           |        :x:         |
-| **dataTest**              |         `String`          |                                                      `'dhis2-uiwidgets-pagination'`                                                       |        :x:         |
-| **hidePageSelect**        |         `Boolean`         |                                                                                                                                           |        :x:         |
-| **hidePageSizeSelect**    |         `Boolean`         |                                                                                                                                           |        :x:         |
-| **hidePageSummary**       |         `Boolean`         |                                                                                                                                           |        :x:         |
-| **nextPageText**          | `Union<String\|Function>` |                                                          `() => i18n.t('Next')`                                                           |        :x:         |
-| **nextPageText<1>**       |         `String`          |                                                                                                                                           |        :x:         |
-| **nextPageText<2>**       |        `Function`         |                                                                                                                                           |        :x:         |
-| **onPageChange**          |        `Function`         |                                                                                                                                           |        :x:         |
-| **onPageSizeChange**      |        `Function`         |                                                                                                                                           |        :x:         |
-| **page**                  |         `Number`          |                                                                                                                                           | :white_check_mark: |
-| **pageCount**             |         `Number`          |                                                                                                                                           | :white_check_mark: |
-| **pageSelectText**        | `Union<String\|Function>` |                                                          `() => i18n.t('Page')`                                                           |        :x:         |
-| **pageSelectText<1>**     |         `String`          |                                                                                                                                           |        :x:         |
-| **pageSelectText<2>**     |        `Function`         |                                                                                                                                           |        :x:         |
-| **pageSize**              |         `Number`          |                                                                                                                                           | :white_check_mark: |
-| **pageSizeSelectText**    | `Union<String\|Function>` |                                                     `() => i18n.t('Items per page')`                                                      |        :x:         |
-| **pageSizeSelectText<1>** |         `String`          |                                                                                                                                           |        :x:         |
-| **pageSizeSelectText<2>** |        `Function`         |                                                                                                                                           |        :x:         |
-| **pageSizes**             |     `Array[]<String>`     |                                            `['5', '10', '20', '30', '40', '50', '75', '100']`                                             |        :x:         |
-| **pageSummaryText**       | `Union<String\|Function>` | `(interpolationObject) => i18n.t( 'Page {{page}} of {{pageCount}}, items {{firstItem}}-{{lastItem}} of {{total}}', interpolationObject )` |        :x:         |
-| **pageSummaryText<1>**    |         `String`          |                                                                                                                                           |        :x:         |
-| **pageSummaryText<2>**    |        `Function`         |                                                                                                                                           |        :x:         |
-| **previousPageText**      | `Union<String\|Function>` |                                                        `() => i18n.t('Previous')`                                                         |        :x:         |
-| **previousPageText<1>**   |         `String`          |                                                                                                                                           |        :x:         |
-| **previousPageText<2>**   |        `Function`         |                                                                                                                                           |        :x:         |
-| **total**                 |         `Number`          |                                                                                                                                           | :white_check_mark: |
-
-## Popover
-
-From [`popover/src/popover.js`](../components/popover/src/popover.js)
-
-| prop                       |    type     |         default          |      required      | description                                                                                   |
-| -------------------------- | :---------: | :----------------------: | :----------------: | --------------------------------------------------------------------------------------------- |
-| **arrow**                  |  `Boolean`  |          `true`          |        :x:         | Show or hide the arrow                                                                        |
-| **children**               | `ReactNode` |                          | :white_check_mark: |
-| **className**              |  `String`   |                          |        :x:         |
-| **dataTest**               |  `String`   | `'dhis2-uicore-popover'` |        :x:         |
-| **elevation**              |  `String`   |    `elevations.e200`     |        :x:         | Box-shadow to create appearance of elevation. Use `elevations` constants from the UI library. |
-| **maxWidth**               |  `Number`   |          `360`           |        :x:         |
-| **observePopperResize**    |  `Boolean`  |                          |        :x:         |
-| **observeReferenceResize** |  `Boolean`  |                          |        :x:         |
-| **onClickOutside**         | `Function`  |                          |        :x:         |
-| **placement**              |  `custom`   |         `'top'`          |        :x:         |
-| **reference**              |  `custom`   |                          |        :x:         | A React ref that refers to the element the Popover should position against                    |
-
-## Popper
-
-From [`popper/src/popper.js`](../components/popper/src/popper.js)
-
-| prop                       |            type             |         default         |      required      | description                                                                                                                            |
-| -------------------------- | :-------------------------: | :---------------------: | :----------------: | -------------------------------------------------------------------------------------------------------------------------------------- |
-| **children**               |         `ReactNode`         |                         | :white_check_mark: | Content inside the Popper                                                                                                              |
-| **className**              |          `String`           |                         |        :x:         |
-| **dataTest**               |          `String`           | `'dhis2-uicore-popper'` |        :x:         |
-| **modifiers**              |      `Array[]<Shape>`       |          `[]`           |        :x:         | A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)                               |
-| **modifiers[].name**       |          `String`           |                         |        :x:         |
-| **modifiers[].options**    |          `Object`           |                         |        :x:         |
-| **observePopperResize**    |          `Boolean`          |                         |        :x:         | Makes the Popper update position when the **Popper content** changes size                                                              |
-| **observeReferenceResize** |          `Boolean`          |                         |        :x:         | Makes the Popper update position when the **reference element** changes size                                                           |
-| **onFirstUpdate**          |         `Function`          |                         |        :x:         | A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)                               |
-| **placement**              |          `custom`           |        `'auto'`         |        :x:         | A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)                               |
-| **reference**              |          `custom`           |                         |        :x:         | A React ref, DOM node, or [virtual element](https://popper.js.org/docs/v2/virtual-elements/) for the popper to position itself against |
-| **strategy**               | `Enum('absolute', 'fixed')` |                         |        :x:         | A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)                               |
-
-## Radio
-
-From [`radio/src/radio.js`](../components/radio/src/radio.js)
-
-| prop             |    type     |        default         | required | description                                                                            |
-| ---------------- | :---------: | :--------------------: | :------: | -------------------------------------------------------------------------------------- |
-| **checked**      |  `Boolean`  |                        |   :x:    |
-| **className**    |  `String`   |                        |   :x:    |
-| **dataTest**     |  `String`   | `'dhis2-uicore-radio'` |   :x:    |
-| **dense**        |  `Boolean`  |                        |   :x:    |
-| **disabled**     |  `Boolean`  |                        |   :x:    |
-| **error**        |  `custom`   |                        |   :x:    | Adds 'error' styling for feedback. Mutually exclusive with `valid` and `warning` props |
-| **initialFocus** |  `Boolean`  |                        |   :x:    |
-| **label**        | `ReactNode` |                        |   :x:    |
-| **name**         |  `String`   |                        |   :x:    | Name associated with this element. Passed in object to event handler functions         |
-| **onBlur**       | `Function`  |                        |   :x:    | Called with the signature `({ name: string, value: string, checked: bool }, event)`    |
-| **onChange**     | `Function`  |                        |   :x:    | Called with the signature `({ name: string, value: string, checked: bool }, event)`    |
-| **onFocus**      | `Function`  |                        |   :x:    | Called with the signature `({ name: string, value: string, checked: bool }, event)`    |
-| **tabIndex**     |  `String`   |                        |   :x:    |
-| **valid**        |  `custom`   |                        |   :x:    | Adds 'valid' styling for feedback. Mutually exclusive with `error` and `warning` props |
-| **value**        |  `String`   |                        |   :x:    | Value associated with this element. Passed in object to event handler functions        |
-| **warning**      |  `custom`   |                        |   :x:    | Adds 'warning' styling for feedback. Mutually exclusive with `valid` and `error` props |
-
-## Required
-
-From [`required/src/required.js`](../components/required/src/required.js)
-
-| prop         |   type   | default |      required      | description |
-| ------------ | :------: | :-----: | :----------------: | ----------- |
-| **dataTest** | `String` |         | :white_check_mark: |
-
-## SegmentedControl
-
-From [`segmented-control/src/segmented-control.js`](../components/segmented-control/src/segmented-control.js)
-
-A segmented control is used to select between options that relate to another
-area of content. All of the options in a segmented control should be closely related.
-
-Do not use a segmented control as a standalone selection, it should always be
-used as a selector for other content. For example, do not use a segmented
-control in place of radio buttons when making a single, standalone choice.
-
-See specification: [Design System](https://github.com/dhis2/design-system/blob/master/molecules/segmented-control.md)
+### AlertBar
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { AlertBar } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name                                           | Type       | Default                   | Required | Description                                              |
+| ---------------------------------------------- | ---------- | ------------------------- | -------- | -------------------------------------------------------- |
+| actions                                        | `custom`   |                           |          | An array of 0-2 action objects                           |
+| children                                       | `string`   |                           |          | The message string for the alert                         |
+| className                                      | `string`   |                           |          |                                                          |
+| critical                                       | `custom`   |                           |          | Alert bars with `critical` will not autohide             |
+| dataTest                                       | `string`   | `'dhis2-uicore-alertbar'` |          |                                                          |
+| duration                                       | `number`   | `8000`                    |          |                                                          |
+| hidden                                         | `boolean`  |                           |          |                                                          |
+| icon                                           | `custom`   | `true`                    |          | A specific icon to override the default icon in the bar. |
+| If `false` is provided, no icon will be shown. |
+| permanent                                      | `boolean`  |                           |          |                                                          |
+| success                                        | `custom`   |                           |          |                                                          |
+| warning                                        | `custom`   |                           |          | Alert bars with `warning` will not autohide              |
+| onHidden                                       | `function` |                           |          |                                                          |
+
+### AlertStack
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { AlertStack } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type     | Default                     | Required | Description |
+| --------- | -------- | --------------------------- | -------- | ----------- |
+| children  | `node`   |                             |          |             |
+| className | `string` |                             |          |             |
+| dataTest  | `string` | `'dhis2-uicore-alertstack'` |          |             |
+
+### Box
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Box } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type     | Default              | Required | Description |
+| --------- | -------- | -------------------- | -------- | ----------- |
+| children  | `node`   |                      |          |             |
+| className | `string` |                      |          |             |
+| dataTest  | `string` | `'dhis2-uicore-box'` |          |             |
+| height    | `string` |                      |          |             |
+| marginTop | `string` |                      |          |             |
+| maxHeight | `string` |                      |          |             |
+| maxWidth  | `string` |                      |          |             |
+| minHeight | `string` |                      |          |             |
+| minWidth  | `string` |                      |          |             |
+| overflow  | `string` |                      |          |             |
+| width     | `string` |                      |          |             |
+
+### Button
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Button } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name                              | Type     | Default                 | Required | Description                                                                    |
+| --------------------------------- | -------- | ----------------------- | -------- | ------------------------------------------------------------------------------ |
+| children                          | `node`   |                         |          | Component to render inside the button                                          |
+| className                         | `string` |                         |          | A className that will be passed to the `<button>` element                      |
+| dataTest                          | `string` | `'dhis2-uicore-button'` |          | A string that will be applied as a `data-test` attribute on the button element |
+| for identification during testing |
+| destructive                       | `custom` |                         |          | Indicates that the button makes potentially dangerous                          |
+
+deletions or data changes.
+Mutually exclusive with `primary` and `secondary` props|
+|disabled|`boolean`|||Applies a greyed-out appearance and makes the button non-interactive|
+|icon|`element`|||An icon element to display inside the button|
+|initialFocus|`boolean`|||Use this variant to capture the initial focus on the page.|
+|large|`custom`|||Makes the button large. Mutually exclusive with `small`|
+|loading|`boolean`|||Sets the button into a loading state|
+|name|`string`|||Sets `name` attribute on button element.
+Gets passed as part of the first argument to callbacks (see `onClick`).|
+|primary|`custom`|||Applies 'primary' button appearance.
+Mutually exclusive with `destructive` and `secondary` props|
+|secondary|`custom`|||Applies 'secondary' button appearance.
+Mutually exclusive with `primary` and `destructive` props|
+|small|`custom`|||Makes the button small. Mutually exclusive with `large` prop|
+|tabIndex|`string`|||Tab index for focusing the button with a keyboard|
+|toggled|`boolean`|||Changes appearance of button to an on/off state|
+|type|`'submit' │ 'reset' │ 'button'`|`'button'`||Sets `type` attribute on `<button>` element|
+|value|`string`|||Value associated with the button.
+Gets passed as part of the first argument to callbacks (see `onClick`).|
+|onBlur|`function`|||Callback to trigger on de-focus (blur).
+Called with same args as `onClick`|
+|onClick|`function`|||Callback to trigger on click.
+Called with args `({ value, name }, event)`|
+|onFocus|`function`|||Callback to trigger on focus. Called with same args as `onClick`|
+
+### ButtonStrip
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { ButtonStrip } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type     | Default                      | Required | Description                                                             |
+| --------- | -------- | ---------------------------- | -------- | ----------------------------------------------------------------------- |
+| children  | `node`   |                              |          |                                                                         |
+| className | `string` |                              |          |                                                                         |
+| dataTest  | `string` | `'dhis2-uicore-buttonstrip'` |          |                                                                         |
+| end       | `custom` |                              |          | Horizontal alignment for buttons. Mutually exclusive with `middle` prop |
+| middle    | `custom` |                              |          | Horizontal alignment. Mutually exclusive with `end` prop                |
+
+### DropdownButton
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { DropdownButton } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name         | Type                            | Default                         | Required | Description                                                                                          |
+| ------------ | ------------------------------- | ------------------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| children     | `node`                          |                                 |          | Children to render inside the buton                                                                  |
+| className    | `string`                        |                                 |          |                                                                                                      |
+| component    | `element`                       |                                 |          | Component to show/hide when button is clicked                                                        |
+| dataTest     | `string`                        | `'dhis2-uicore-dropdownbutton'` |          |                                                                                                      |
+| destructive  | `custom`                        |                                 |          | Button variant. Mutually exclusive with `primary` and `secondary` props                              |
+| disabled     | `boolean`                       |                                 |          | Make the button non-interactive                                                                      |
+| icon         | `element`                       |                                 |          |                                                                                                      |
+| initialFocus | `boolean`                       |                                 |          | Grants button initial focus on the page                                                              |
+| large        | `custom`                        |                                 |          | Button size. Mutually exclusive with `small` prop                                                    |
+| name         | `string`                        |                                 |          |                                                                                                      |
+| open         | `boolean`                       |                                 |          | Controls popper visibility. When implementing this prop the component becomes a controlled component |
+| primary      | `custom`                        |                                 |          | Button variant. Mutually exclusive with `destructive` and `secondary` props                          |
+| secondary    | `custom`                        |                                 |          | Button variant. Mutually exclusive with `primary` and `destructive` props                            |
+| small        | `custom`                        |                                 |          | Button size. Mutually exclusive with `large` prop                                                    |
+| tabIndex     | `string`                        |                                 |          |                                                                                                      |
+| type         | `'submit' │ 'reset' │ 'button'` |                                 |          | Type of button. Can take advantage of different default behavior                                     |
+| value        | `string`                        |                                 |          |                                                                                                      |
+| onClick      | `custom`                        |                                 |          | Callback triggered on click.                                                                         |
+
+Called with signature `({ name: string, value: string, open: bool }, event)`
+Is required when using the `open` prop to override the internal
+state.|
+
+### SplitButton
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SplitButton } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name         | Type                            | Default                      | Required | Description                                                                                                   |
+| ------------ | ------------------------------- | ---------------------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
+| children     | `string`                        |                              |          |                                                                                                               |
+| className    | `string`                        |                              |          |                                                                                                               |
+| component    | `element`                       |                              |          | Component to render when the dropdown is opened                                                               |
+| dataTest     | `string`                        | `'dhis2-uicore-splitbutton'` |          |                                                                                                               |
+| destructive  | `custom`                        |                              |          | Applies 'destructive' appearance to indicate purpose. Mutually exclusive with `primary` and `secondary` props |
+| disabled     | `boolean`                       |                              |          | Disables the button and makes it uninteractive                                                                |
+| icon         | `element`                       |                              |          | An icon to add inside the button                                                                              |
+| initialFocus | `boolean`                       |                              |          | Grants the button the initial focus                                                                           |
+| large        | `custom`                        |                              |          | Changes button size. Mutually exclusive with `small` prop                                                     |
+| name         | `string`                        |                              |          |                                                                                                               |
+| primary      | `custom`                        |                              |          | Applies 'primary' appearance to indicate purpose. Mutually exclusive with `destructive` and `secondary` props |
+| secondary    | `custom`                        |                              |          | Applies 'secondary' appearance to indicate purpose. Mutually exclusive with `primary` and `destructive` props |
+| small        | `custom`                        |                              |          | Changes button size. Mutually exclusive with `large` prop                                                     |
+| tabIndex     | `string`                        |                              |          |                                                                                                               |
+| type         | `'submit' │ 'reset' │ 'button'` |                              |          | Type of button. Applied to html `button` element                                                              |
+| value        | `string`                        |                              |          | Value associated with the button. Passed in object to onClick handler                                         |
+| onClick      | `function`                      |                              |          |                                                                                                               |
+
+### Card
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Card } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type     | Default               | Required | Description |
+| --------- | -------- | --------------------- | -------- | ----------- |
+| children  | `node`   |                       |          |             |
+| className | `string` |                       |          |             |
+| dataTest  | `string` | `'dhis2-uicore-card'` |          |             |
+
+### Center
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Center } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type                          | Default                          | Required | Description        |
+| --------- | ----------------------------- | -------------------------------- | -------- | ------------------ |
+| children  | `node`                        |                                  |          |                    |
+| className | `string`                      |                                  |          |                    |
+| dataTest  | `string`                      | `'dhis2-uicore-centeredcontent'` |          |                    |
+| position  | `'top' │ 'middle' │ 'bottom'` | `'middle'`                       |          | Vertical alignment |
+
+### Checkbox
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Checkbox } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name          | Type       | Default                   | Required | Description                             |
+| ------------- | ---------- | ------------------------- | -------- | --------------------------------------- |
+| checked       | `custom`   | `false`                   |          |                                         |
+| className     | `string`   |                           |          |                                         |
+| dataTest      | `string`   | `'dhis2-uicore-checkbox'` |          |                                         |
+| dense         | `boolean`  |                           |          |                                         |
+| disabled      | `boolean`  |                           |          |                                         |
+| error         | `custom`   |                           |          |                                         |
+| indeterminate | `custom`   | `false`                   |          |                                         |
+| initialFocus  | `boolean`  |                           |          |                                         |
+| label         | `node`     |                           |          |                                         |
+| name          | `string`   |                           |          |                                         |
+| tabIndex      | `string`   |                           |          |                                         |
+| valid         | `custom`   |                           |          |                                         |
+| value         | `string`   |                           |          |                                         |
+| warning       | `custom`   |                           |          |                                         |
+| onBlur        | `function` |                           |          |                                         |
+| onChange      | `function` |                           |          | Called with signature `(object, event)` |
+| onFocus       | `function` |                           |          |                                         |
+
+### CheckboxField
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { CheckboxField } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name           | Type       | Default                           | Required | Description                                                                                                               |
+| -------------- | ---------- | --------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------- |
+| checked        | `boolean`  |                                   |          |                                                                                                                           |
+| className      | `string`   |                                   |          |                                                                                                                           |
+| dataTest       | `string`   | `'dhis2-uiwidgets-checkboxfield'` |          |                                                                                                                           |
+| dense          | `boolean`  |                                   |          | Smaller dimensions for information-dense layouts                                                                          |
+| disabled       | `boolean`  |                                   |          | Disables the checkbox                                                                                                     |
+| error          | `custom`   |                                   |          | Applies 'error' styling to checkbox and validation text for feedback. Mutually exclusive with `warning` and `valid` props |
+| helpText       | `string`   |                                   |          | Useful instructions for the user                                                                                          |
+| initialFocus   | `boolean`  |                                   |          |                                                                                                                           |
+| label          | `node`     |                                   |          | Labels the checkbox                                                                                                       |
+| name           | `string`   |                                   |          | Name associate with the checkbox. Passed in object as argument to event handlers                                          |
+| required       | `boolean`  |                                   |          | Adds an asterisk to indicate this field is required                                                                       |
+| tabIndex       | `string`   |                                   |          |                                                                                                                           |
+| valid          | `custom`   |                                   |          | Applies 'valid' styling to checkbox and validation text for feedback. Mutually exclusive with `warning` and `error` props |
+| validationText | `string`   |                                   |          | Adds text below the checkbox to provide validation feedback. Acquires styles from `valid`, `warning` and `error` statuses |
+| value          | `string`   |                                   |          | Value associated with the checkbox. Passed in object as argument to event handlers                                        |
+| warning        | `custom`   |                                   |          | Applies 'warning' styling to checkbox and validation text for feedback. Mutually exclusive with `valid` and `error` props |
+| onBlur         | `function` |                                   |          | Called with signature `({ name: string, value: string, checked: bool }, event)`                                           |
+| onChange       | `function` |                                   |          | Called with signature `({ name: string, value: string, checked: bool }, event)`                                           |
+| onFocus        | `function` |                                   |          | Called with signature `({ name: string, value: string, checked: bool }, event)`                                           |
+
+### Chip
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Chip } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type       | Default               | Required | Description |
+| --------- | ---------- | --------------------- | -------- | ----------- |
+| children  | `any`      |                       |          |             |
+| className | `string`   |                       |          |             |
+| dataTest  | `string`   | `'dhis2-uicore-chip'` |          |             |
+| dense     | `boolean`  |                       |          |             |
+| disabled  | `boolean`  |                       |          |             |
+| dragging  | `boolean`  |                       |          |             |
+| icon      | `element`  |                       |          |             |
+| overflow  | `boolean`  |                       |          |             |
+| selected  | `boolean`  |                       |          |             |
+| onClick   | `function` |                       |          |             |
+| onRemove  | `function` |                       |          |             |
+
+### Cover
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Cover } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name        | Type       | Default                         | Required | Description                                     |
+| ----------- | ---------- | ------------------------------- | -------- | ----------------------------------------------- |
+| children    | `node`     |                                 |          |                                                 |
+| className   | `string`   |                                 |          |                                                 |
+| dataTest    | `string`   | `'dhis2-uicore-componentcover'` |          |                                                 |
+| translucent | `boolean`  |                                 |          | Adds a semi-transparent background to the cover |
+| onClick     | `function` |                                 |          |                                                 |
+
+### CssReset
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { CssReset } from '@dhis2/ui'
+```
+
+### CssVariables
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { CssVariables } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name       | Type      | Default | Required | Description |
+| ---------- | --------- | ------- | -------- | ----------- |
+| colors     | `boolean` | `false` |          |             |
+| elevations | `boolean` | `false` |          |             |
+| layers     | `boolean` | `false` |          |             |
+| spacers    | `boolean` | `false` |          |             |
+| theme      | `boolean` | `false` |          |             |
+
+### Divider
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Divider } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type      | Default                  | Required | Description |
+| --------- | --------- | ------------------------ | -------- | ----------- |
+| className | `string`  |                          |          |             |
+| dataTest  | `string`  | `'dhis2-uicore-divider'` |          |             |
+| dense     | `boolean` |                          |          |             |
+| margin    | `string`  | `${spacers.dp8} 0`       |          |             |
+
+### Field
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Field } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name           | Type      | Default                | Required | Description                                                                             |
+| -------------- | --------- | ---------------------- | -------- | --------------------------------------------------------------------------------------- |
+| children       | `node`    |                        |          |                                                                                         |
+| className      | `string`  |                        |          |                                                                                         |
+| dataTest       | `string`  | `'dhis2-uicore-field'` |          |                                                                                         |
+| disabled       | `boolean` |                        |          | Disabled status, shown when mouse is over label                                         |
+| error          | `custom`  |                        |          | Field status. Mutually exclusive with `valid` and `warning` props                       |
+| helpText       | `string`  |                        |          | Useful text within the field                                                            |
+| label          | `string`  |                        |          | Label at the top of the field                                                           |
+| name           | `string`  |                        |          | `name` will become the target of the `for`/`htmlFor` attribute on the `<label>` element |
+| required       | `boolean` |                        |          | Inidcates this field is required                                                        |
+| valid          | `custom`  |                        |          | Field status. Mutually exclusive with `error` and `warning` props                       |
+| validationText | `string`  |                        |          | Feedback given related to validation status of field                                    |
+| warning        | `custom`  |                        |          | Field status. Mutually exclusive with `valid` and `error` props                         |
+
+### FieldGroup
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { FieldGroup } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name           | Type      | Default                           | Required | Description                                                                                                                       |
+| -------------- | --------- | --------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| children       | `node`    |                                   |          |                                                                                                                                   |
+| className      | `string`  |                                   |          |                                                                                                                                   |
+| dataTest       | `string`  | `'dhis2-uiwidgets-fieldsetfield'` |          |                                                                                                                                   |
+| disabled       | `boolean` |                                   |          | Disables the form controls within                                                                                                 |
+| error          | `custom`  |                                   |          | Applies 'error' styling to validation text for feedback. Mutually exclusive with `warning` and `valid` props                      |
+| helpText       | `string`  |                                   |          | Useful instructions for the user                                                                                                  |
+| label          | `string`  |                                   |          | Labels the Field Group                                                                                                            |
+| name           | `string`  |                                   |          | Name associate with the Field Group. Passed in object as argument to event handlers                                               |
+| required       | `boolean` |                                   |          | Adds an asterisk to indicate this field is required                                                                               |
+| valid          | `custom`  |                                   |          | Applies 'valid' styling to validation text for feedback. Mutually exclusive with `warning` and `error` props                      |
+| validationText | `string`  |                                   |          | Adds text at the bottom of the field to provide validation feedback. Acquires styles from `valid`, `warning` and `error` statuses |
+| warning        | `custom`  |                                   |          | Applies 'warning' styling to validation text for feedback. Mutually exclusive with `valid` and `error` props                      |
+
+### FieldSet
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { FieldSet } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type     | Default                   | Required | Description |
+| --------- | -------- | ------------------------- | -------- | ----------- |
+| children  | `node`   |                           |          |             |
+| className | `string` |                           |          |             |
+| dataTest  | `string` | `'dhis2-uicore-fieldset'` |          |             |
+
+### FileInput
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { FileInput } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name         | Type       | Default                    | Required | Description                                                                                                                        |
+| ------------ | ---------- | -------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| accept       | `string`   | `'*'`                      |          | The `accept` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept)     |
+| buttonLabel  | `string`   |                            |          |                                                                                                                                    |
+| className    | `string`   |                            |          |                                                                                                                                    |
+| dataTest     | `string`   | `'dhis2-uicore-fileinput'` |          |                                                                                                                                    |
+| disabled     | `boolean`  |                            |          |                                                                                                                                    |
+| error        | `custom`   |                            |          | Input status. Mutually exclusive with `warning` and `valid`                                                                        |
+| initialFocus | `boolean`  |                            |          |                                                                                                                                    |
+| large        | `custom`   |                            |          | Button size. Mutually exclusive with `small`                                                                                       |
+| multiple     | `boolean`  |                            |          | The `multiple` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple) |
+| name         | `string`   |                            |          |                                                                                                                                    |
+| small        | `custom`   |                            |          | Button size. Mutually exclusive with `large`                                                                                       |
+| tabIndex     | `string`   |                            |          |                                                                                                                                    |
+| valid        | `custom`   |                            |          | Input status. Mutually exclusive with `warning` and `error`                                                                        |
+| warning      | `custom`   |                            |          | Input status. Mutually exclusive with `valid` and `error`                                                                          |
+| onBlur       | `function` |                            |          | Called with signature `(object, event)`                                                                                            |
+| onChange     | `function` |                            |          | Called with signature `(object, event)`                                                                                            |
+| onFocus      | `function` |                            |          | Called with signature `(object, event)`                                                                                            |
+
+### FileInputField
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { FileInputField } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name           | Type                | Default                                | Required | Description                                                                                                                        |
+| -------------- | ------------------- | -------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| accept         | `string`            | `'*'`                                  |          | The `accept` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept)     |
+| buttonLabel    | `string │ function` | `() => i18n.t('Upload a file')`        |          | Text on the button                                                                                                                 |
+| children       | `node`              |                                        |          |                                                                                                                                    |
+| className      | `string`            |                                        |          |                                                                                                                                    |
+| dataTest       | `string`            | `'dhis2-uiwidgets-fileinputfield'`     |          |                                                                                                                                    |
+| disabled       | `boolean`           |                                        |          | Disables the button                                                                                                                |
+| error          | `custom`            |                                        |          | Applies 'error' styling to the validation text. Mutually exclusive with `warning` and `valid` props                                |
+| helpText       | `string`            |                                        |          | Useful guiding text for the user                                                                                                   |
+| initialFocus   | `boolean`           |                                        |          |                                                                                                                                    |
+| label          | `string`            |                                        |          | A descriptive label above the button                                                                                               |
+| large          | `custom`            |                                        |          | Size of the button. Mutually exclusive with the `small` prop                                                                       |
+| multiple       | `boolean`           |                                        |          | The `multiple` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple) |
+| name           | `string`            |                                        |          | Name associated with input. Passed to event handler callbacks                                                                      |
+| placeholder    | `string │ function` | `() => i18n.t('No file uploaded yet')` |          | Placeholder below the button                                                                                                       |
+| required       | `boolean`           |                                        |          | Adds an asterisk to indicate this field is required                                                                                |
+| small          | `custom`            |                                        |          | Size of the button. Mutually exclusive with the `large` prop                                                                       |
+| tabIndex       | `string`            |                                        |          |                                                                                                                                    |
+| valid          | `custom`            |                                        |          | Applies 'valid' styling to the validation text. Mutually exclusive with `warning` and `error` props                                |
+| validationText | `string`            |                                        |          | Text below the button that provides validation feedback                                                                            |
+| warning        | `custom`            |                                        |          | Applies 'warning' styling to the validation text. Mutually exclusive with `valid` and `error` props                                |
+| onBlur         | `function`          |                                        |          |                                                                                                                                    |
+| onChange       | `function`          |                                        |          | Called with signature `({ name: string, files: [] }, event)`                                                                       |
+| onFocus        | `function`          |                                        |          |                                                                                                                                    |
+
+### FileListItem
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { FileListItem } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name       | Type       | Default                       | Required | Description |
+| ---------- | ---------- | ----------------------------- | -------- | ----------- |
+| onRemove   | `function` |                               | \*       |             |
+| cancelText | `string`   |                               |          |             |
+| className  | `string`   |                               |          |             |
+| dataTest   | `string`   | `'dhis2-uicore-filelistitem'` |          |             |
+| label      | `string`   |                               |          |             |
+| loading    | `boolean`  |                               |          |             |
+| removeText | `string`   |                               |          |             |
+| onCancel   | `function` |                               |          |             |
+
+### FileListPlaceholder
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { FileListPlaceholder } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name     | Type     | Default                              | Required | Description |
+| -------- | -------- | ------------------------------------ | -------- | ----------- |
+| children | `string` |                                      |          |             |
+| dataTest | `string` | `'dhis2-uicore-filelistplaceholder'` |          |             |
+
+### FileList
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { FileList } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type     | Default                   | Required | Description |
+| --------- | -------- | ------------------------- | -------- | ----------- |
+| children  | `node`   |                           |          |             |
+| className | `string` |                           |          |             |
+| dataTest  | `string` | `'dhis2-uicore-filelist'` |          |             |
+
+### HeaderBar
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { HeaderBar } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type     | Default | Required | Description |
+| --------- | -------- | ------- | -------- | ----------- |
+| appName   | `string` |         |          |             |
+| className | `string` |         |          |             |
+
+### Logo
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Logo } from '@dhis2/ui'
+```
+
+### Help
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Help } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type     | Default               | Required | Description |
+| --------- | -------- | --------------------- | -------- | ----------- |
+| children  | `string` |                       |          |             |
+| className | `string` |                       |          |             |
+| dataTest  | `string` | `'dhis2-uicore-help'` |          |             |
+| error     | `custom` |                       |          |             |
+| valid     | `custom` |                       |          |             |
+| warning   | `custom` |                       |          |             |
+
+### Input
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Input } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name         | Type                                                                                                                                       | Default                | Required | Description                                                                                                                                 |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| autoComplete | `string`                                                                                                                                   |                        |          | The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete)                    |
+| className    | `string`                                                                                                                                   |                        |          |                                                                                                                                             |
+| dataTest     | `string`                                                                                                                                   | `'dhis2-uicore-input'` |          |                                                                                                                                             |
+| dense        | `boolean`                                                                                                                                  |                        |          | Makes the input smaller                                                                                                                     |
+| disabled     | `boolean`                                                                                                                                  |                        |          | Disables the input                                                                                                                          |
+| error        | `custom`                                                                                                                                   |                        |          | Applies 'error' appearance for validation feedback. Mutually exclusive with `valid` and `warning` props                                     |
+| initialFocus | `boolean`                                                                                                                                  |                        |          | The input grabs initial focus on the page                                                                                                   |
+| loading      | `boolean`                                                                                                                                  |                        |          | Adds a loading indicator beside the input                                                                                                   |
+| max          | `string`                                                                                                                                   |                        |          | The [native `max` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-max), for use when `type` is `'number'`   |
+| min          | `string`                                                                                                                                   |                        |          | The [native `min` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-min), for use when `type` is `'number'`   |
+| name         | `string`                                                                                                                                   |                        |          | Name associated with the input. Passed to event handler callbacks in object                                                                 |
+| placeholder  | `string`                                                                                                                                   |                        |          | Placeholder text for the input                                                                                                              |
+| readOnly     | `boolean`                                                                                                                                  |                        |          | Makes the input read-only                                                                                                                   |
+| role         | `string`                                                                                                                                   |                        |          | Sets a role attribute on the input                                                                                                          |
+| step         | `string`                                                                                                                                   |                        |          | The [native `step` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-step), for use when `type` is `'number'` |
+| tabIndex     | `string`                                                                                                                                   |                        |          |                                                                                                                                             |
+| type         | `'text' │ 'number' │ 'password' │ 'email' │ 'url' │ 'tel' │ 'date' │ 'datetime' │ 'datetime-local' │ 'month' │ 'week' │ 'time' │ 'search'` | `'text'`               |          | The native input `type` attribute                                                                                                           |
+| valid        | `custom`                                                                                                                                   |                        |          | Applies 'valid' appearance for validation feedback. Mutually exclusive with `error` and `warning` props                                     |
+| value        | `string`                                                                                                                                   |                        |          | Value in the input. Can be used to control the component (recommended). Passed to event handler callbacks in object                         |
+| warning      | `custom`                                                                                                                                   |                        |          | Applies 'warning' appearance for validation feedback. Mutually exclusive with `valid` and `error` props                                     |
+| onBlur       | `function`                                                                                                                                 |                        |          | Called with signature `({ name: string, value: string }, event)`                                                                            |
+| onChange     | `function`                                                                                                                                 |                        |          | Called with signature `({ name: string, value: string }, event)`                                                                            |
+| onFocus      | `function`                                                                                                                                 |                        |          | Called with signature `({ name: string, value: string }, event)`                                                                            |
+
+### InputField
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { InputField } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name           | Type       | Default                        | Required | Description                                                                                                                                 |
+| -------------- | ---------- | ------------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| autoComplete   | `string`   |                                |          | The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete)                    |
+| className      | `string`   |                                |          |                                                                                                                                             |
+| dataTest       | `string`   | `'dhis2-uiwidgets-inputfield'` |          |                                                                                                                                             |
+| dense          | `boolean`  |                                |          | Makes the input smaller                                                                                                                     |
+| disabled       | `boolean`  |                                |          | Disables the input                                                                                                                          |
+| error          | `custom`   |                                |          | Applies 'error' appearance for validation feedback. Mutually exclusive with `valid` and `warning` props                                     |
+| helpText       | `string`   |                                |          | Guiding text for how to use this input                                                                                                      |
+| initialFocus   | `boolean`  |                                |          | The input grabs initial focus on the page                                                                                                   |
+| inputWidth     | `string`   |                                |          | Defines the width of the input. Can be any valid CSS measurement                                                                            |
+| label          | `string`   |                                |          | Label text for the input                                                                                                                    |
+| loading        | `boolean`  |                                |          | Adds a loading indicator beside the input                                                                                                   |
+| max            | `string`   |                                |          | The [native `max` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-max), for use when `type` is `'number'`   |
+| min            | `string`   |                                |          | The [native `min` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-min), for use when `type` is `'number'`   |
+| name           | `string`   |                                |          | Name associated with the input. Passed to event handler callbacks in object                                                                 |
+| placeholder    | `string`   |                                |          | Placeholder text for the input                                                                                                              |
+| readOnly       | `boolean`  |                                |          | Makes the input read-only                                                                                                                   |
+| required       | `boolean`  |                                |          | Indicates this input is required                                                                                                            |
+| step           | `string`   |                                |          | The [native `step` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-step), for use when `type` is `'number'` |
+| tabIndex       | `string`   |                                |          |                                                                                                                                             |
+| type           | `custom`   |                                |          | Type of input                                                                                                                               |
+| valid          | `custom`   |                                |          | Applies 'valid' appearance for validation feedback. Mutually exclusive with `error` and `warning` props                                     |
+| validationText | `string`   |                                |          | Text below input for validation feedback. Receives styles depending on validation status                                                    |
+| value          | `string`   |                                |          | Value in the input. Can be used to control the component (recommended). Passed to event handler callbacks in object                         |
+| warning        | `custom`   |                                |          | Applies 'warning' appearance for validation feedback. Mutually exclusive with `valid` and `error` props                                     |
+| onBlur         | `function` |                                |          | Called with signature `({ name: string, value: string }, event)`                                                                            |
+| onChange       | `function` |                                |          | Called with signature `({ name: string, value: string }, event)`                                                                            |
+| onFocus        | `function` |                                |          | Called with signature `({ name: string, value: string }, event)`                                                                            |
+
+### IntersectionDetector
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { IntersectionDetector } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name    | Type | Default | Required | Description |
+| ------- | ---- | ------- | -------- | ----------- |
+| rootRef | `{   |
+
+"current": "instanceOf(HTMLElement)"
+}`||*|React ref on other component to detect intersections with| |onChange|`function`||*|Called with signature `({ isIntersecting: bool })`| |children|`any`|||| |className|`string`|||| |dataTest|`string`|`'dhis2-uicore-intersectiondetector'`||| |threshold|`number`|`0`||The [threshold](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options) value: a value from 0.0 to 1.0 that controls the point at which an intersecting component is considered 'intersected' or 'visible' and the onChange callback triggers|
+
+### Label
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Label } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type      | Default                | Required | Description |
+| --------- | --------- | ---------------------- | -------- | ----------- |
+| children  | `string`  |                        |          |             |
+| className | `string`  |                        |          |             |
+| dataTest  | `string`  | `'dhis2-uicore-label'` |          |             |
+| disabled  | `boolean` |                        |          |             |
+| htmlFor   | `string`  |                        |          |             |
+| required  | `boolean` |                        |          |             |
+
+### Layer
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Layer } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name          | Type                   | Default                | Required | Description                                   |
+| ------------- | ---------------------- | ---------------------- | -------- | --------------------------------------------- |
+| children      | `node`                 |                        |          |                                               |
+| className     | `string`               |                        |          |                                               |
+| dataTest      | `string`               | `'dhis2-uicore-layer'` |          |                                               |
+| disablePortal | `boolean`              |                        |          | Disable the Portal, useful for nesting layers |
+| level         | `number │ string`      | `'auto'`               |          | Z-index level                                 |
+| position      | `'absolute' │ 'fixed'` | `'fixed'`              |          |                                               |
+| translucent   | `boolean`              |                        |          | Adds a semi-transparent background            |
+| onClick       | `function`             |                        |          | Click handler                                 |
+
+### Legend
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Legend } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type      | Default                 | Required | Description                                    |
+| --------- | --------- | ----------------------- | -------- | ---------------------------------------------- |
+| children  | `node`    |                         |          |                                                |
+| className | `string`  |                         |          |                                                |
+| dataTest  | `string`  | `'dhis2-uicore-legend'` |          |                                                |
+| required  | `boolean` |                         |          | Indicates the associated field set is required |
+
+### CircularLoader
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { CircularLoader } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name       | Type      | Default                         | Required | Description |
+| ---------- | --------- | ------------------------------- | -------- | ----------- |
+| className  | `string`  |                                 |          |             |
+| dataTest   | `string`  | `'dhis2-uicore-circularloader'` |          |             |
+| extrasmall | `custom`  |                                 |          |             |
+| invert     | `boolean` |                                 |          |             |
+| large      | `custom`  |                                 |          |             |
+| small      | `custom`  |                                 |          |             |
+
+### LinearLoader
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { LinearLoader } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type      | Default                       | Required | Description                                           |
+| --------- | --------- | ----------------------------- | -------- | ----------------------------------------------------- |
+| amount    | `number`  |                               | \*       | The progression in percent without the '%' sign       |
+| className | `string`  |                               |          |                                                       |
+| dataTest  | `string`  | `'dhis2-uicore-linearloader'` |          |                                                       |
+| invert    | `boolean` |                               |          | Use inverted color scheme                             |
+| margin    | `string`  | `spacers.dp12`                |          | The margin around the loader, can be a full shorthand |
+| width     | `string`  | `'300px'`                     |          | The width of the entire indicator                     |
+
+### LogoIcon
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { LogoIcon } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type     | Default                   | Required | Description |
+| --------- | -------- | ------------------------- | -------- | ----------- |
+| className | `string` |                           |          |             |
+| dataTest  | `string` | `'dhis2-uicore-logoicon'` |          |             |
+
+### LogoIconWhite
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { LogoIconWhite } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type     | Default                        | Required | Description |
+| --------- | -------- | ------------------------------ | -------- | ----------- |
+| className | `string` |                                |          |             |
+| dataTest  | `string` | `'dhis2-uicore-logoiconwhite'` |          |             |
+
+### Logo
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Logo } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type     | Default               | Required | Description |
+| --------- | -------- | --------------------- | -------- | ----------- |
+| className | `string` |                       |          |             |
+| dataTest  | `string` | `'dhis2-uicore-logo'` |          |             |
+
+### LogoWhite
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { LogoWhite } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type     | Default                    | Required | Description |
+| --------- | -------- | -------------------------- | -------- | ----------- |
+| className | `string` |                            |          |             |
+| dataTest  | `string` | `'dhis2-uicore-logowhite'` |          |             |
+
+### FlyoutMenu
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { FlyoutMenu } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type      | Default               | Required | Description                                          |
+| --------- | --------- | --------------------- | -------- | ---------------------------------------------------- |
+| children  | `node`    |                       |          | Typically, but not limited to, `MenuItem` components |
+| className | `string`  |                       |          |                                                      |
+| dataTest  | `string`  | `'dhis2-uicore-menu'` |          |                                                      |
+| dense     | `boolean` |                       |          | Menu uses smaller dimensions                         |
+| maxHeight | `string`  | `'auto'`              |          |                                                      |
+| maxWidth  | `string`  | `'380px'`             |          |                                                      |
+
+### Menu
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Menu } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type      | Default                   | Required | Description                                                               |
+| --------- | --------- | ------------------------- | -------- | ------------------------------------------------------------------------- |
+| children  | `node`    |                           |          | Typically `MenuItem`, `MenuDivider`, and `MenuSectionHeader`              |
+| className | `string`  |                           |          |                                                                           |
+| dataTest  | `string`  | `'dhis2-uicore-menulist'` |          |                                                                           |
+| dense     | `boolean` |                           |          | Applies `dense` property to all child components unless already specified |
+
+### MenuDivider
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { MenuDivider } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type      | Default                      | Required | Description |
+| --------- | --------- | ---------------------------- | -------- | ----------- |
+| className | `string`  |                              |          |             |
+| dataTest  | `string`  | `'dhis2-uicore-menudivider'` |          |             |
+| dense     | `boolean` |                              |          |             |
+
+### MenuItem
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { MenuItem } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name                                                             | Type       | Default                   | Required | Description                                                           |
+| ---------------------------------------------------------------- | ---------- | ------------------------- | -------- | --------------------------------------------------------------------- |
+| active                                                           | `boolean`  |                           |          |                                                                       |
+| chevron                                                          | `boolean`  |                           |          |                                                                       |
+| children                                                         | `node`     |                           |          | Nested menu items can become submenus.                                |
+| See `showSubMenu` and `toggleSubMenu` props, and 'Children' demo |
+| className                                                        | `string`   |                           |          |                                                                       |
+| dataTest                                                         | `string`   | `'dhis2-uicore-menuitem'` |          |                                                                       |
+| dense                                                            | `boolean`  |                           |          |                                                                       |
+| destructive                                                      | `boolean`  |                           |          |                                                                       |
+| disabled                                                         | `boolean`  |                           |          |                                                                       |
+| href                                                             | `string`   |                           |          | For using menu item as a link                                         |
+| icon                                                             | `node`     |                           |          | An icon for the left side of the menu item                            |
+| label                                                            | `node`     |                           |          | Text in the menu item                                                 |
+| showSubMenu                                                      | `boolean`  |                           |          | When true, nested menu items are shown in a Popper                    |
+| target                                                           | `string`   |                           |          | For using menu item as a link                                         |
+| toggleSubMenu                                                    | `function` |                           |          | On click, this function is called (without args)                      |
+| value                                                            | `string`   |                           |          | Value associated with item. Passed as an argument to onClick handler. |
+| onClick                                                          | `function` |                           |          | Click handler called with signature `({ value: string }, event)`      |
+
+### MenuSectionHeader
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { MenuSectionHeader } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name        | Type      | Default                            | Required | Description |
+| ----------- | --------- | ---------------------------------- | -------- | ----------- |
+| className   | `string`  |                                    |          |             |
+| dataTest    | `string`  | `'dhis2-uicore-menusectionheader'` |          |             |
+| dense       | `boolean` |                                    |          |             |
+| hideDivider | `boolean` |                                    |          |             |
+| label       | `node`    |                                    |          |             |
+
+### Modal
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Modal } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type       | Default                | Required | Description                         |
+| --------- | ---------- | ---------------------- | -------- | ----------------------------------- |
+| children  | `node`     |                        |          |                                     |
+| className | `string`   |                        |          |                                     |
+| dataTest  | `string`   | `'dhis2-uicore-modal'` |          |                                     |
+| fluid     | `boolean`  |                        |          |                                     |
+| hide      | `boolean`  |                        |          |                                     |
+| large     | `custom`   |                        |          |                                     |
+| position  | `custom`   | `'top'`                |          |                                     |
+| small     | `custom`   |                        |          |                                     |
+| onClose   | `function` |                        |          | Callback used when the Modal closes |
+
+### ModalActions
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { ModalActions } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name     | Type     | Default                       | Required | Description |
+| -------- | -------- | ----------------------------- | -------- | ----------- |
+| children | `node`   |                               |          |             |
+| dataTest | `string` | `'dhis2-uicore-modalactions'` |          |             |
+
+### ModalContent
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { ModalContent } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type     | Default                       | Required | Description |
+| --------- | -------- | ----------------------------- | -------- | ----------- |
+| children  | `node`   |                               |          |             |
+| className | `string` |                               |          |             |
+| dataTest  | `string` | `'dhis2-uicore-modalcontent'` |          |             |
+
+### ModalTitle
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { ModalTitle } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name     | Type     | Default                     | Required | Description |
+| -------- | -------- | --------------------------- | -------- | ----------- |
+| children | `string` |                             |          |             |
+| dataTest | `string` | `'dhis2-uicore-modaltitle'` |          |             |
+
+### Node
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Node } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type       | Default               | Required | Description                                                                               |
+| --------- | ---------- | --------------------- | -------- | ----------------------------------------------------------------------------------------- |
+| children  | `node`     |                       |          | Content below this level of the hierarchy; children are revealed when this leaf is 'open' |
+| className | `string`   |                       |          |                                                                                           |
+| component | `element`  |                       |          | Content/label for this leaf, for example a checkbox                                       |
+| dataTest  | `string`   | `'dhis2-uicore-node'` |          |                                                                                           |
+| icon      | `node`     |                       |          | A custom icon to use instead of a toggle arrow                                            |
+| open      | `boolean`  |                       |          |                                                                                           |
+| onClose   | `function` |                       |          |                                                                                           |
+| onOpen    | `function` |                       |          |                                                                                           |
+
+### NoticeBox
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { NoticeBox } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type     | Default                    | Required | Description                                                                |
+| --------- | -------- | -------------------------- | -------- | -------------------------------------------------------------------------- |
+| children  | `node`   |                            |          |                                                                            |
+| className | `string` |                            |          |                                                                            |
+| dataTest  | `string` | `'dhis2-uicore-noticebox'` |          |                                                                            |
+| error     | `custom` |                            |          | Applies 'error' message styles. Mutually exclusive with the `warning` prop |
+| title     | `string` |                            |          |                                                                            |
+| warning   | `custom` |                            |          | Applies 'warning' message styles. Mutually exclusive with the `error` prop |
+
+### OrganisationUnitTree
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { OrganisationUnitTree } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name                                                                                      | Type                       | Default                         | Required | Description                                                                                                                                        |
+| ----------------------------------------------------------------------------------------- | -------------------------- | ------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| roots                                                                                     | `string │ arrayOf(string)` |                                 | \*       | Root org unit ID(s)                                                                                                                                |
+| onChange                                                                                  | `function`                 |                                 | \*       | Will be called with the following object:                                                                                                          |
+| `{ id: string, displayName: string, path: string, checked: boolean, selected: string[] }` |
+| autoExpandLoadingError                                                                    | `boolean`                  |                                 |          | When set, the error when loading children fails will be shown automatically                                                                        |
+| dataTest                                                                                  | `string`                   | `'dhis2-uiwidgets-orgunittree'` |          |                                                                                                                                                    |
+| disableSelection                                                                          | `boolean`                  |                                 |          | When set to true, no unit can be selected                                                                                                          |
+| expanded                                                                                  | `custom`                   |                                 |          |                                                                                                                                                    |
+| filter                                                                                    | `arrayOf(custom)`          | `[]`                            |          | All organisation units with a path that includes the provided paths will be shown.                                                                 |
+| All others will not be rendered. When not provided, all org units will be shown.          |
+| forceReload                                                                               | `boolean`                  |                                 |          | When true, everything will be reloaded. In order to load it again after reloading, `forceReload` has to be set to `false` and then to `true` again |
+| handleCollapse                                                                            | `custom`                   |                                 |          |                                                                                                                                                    |
+| handleExpand                                                                              | `custom`                   |                                 |          |                                                                                                                                                    |
+| highlighted                                                                               | `arrayOf(custom)`          | `[]`                            |          | All units provided to "highlighted" as path will be visually                                                                                       |
+
+highlighted.
+Note:
+The d2-ui component used two props for this:
+
+-   searchResults
+-   highlightSearchResults|
+    |initiallyExpanded|`arrayOf(custom)`|`[]`||An array of OU paths that will be expanded automatically
+    as soon as they are encountered.
+    The path of an OU is the UIDs of the OU
+    and all its parent OUs separated by slashes (/)
+    Note: This replaces "openFirstLevel" as that's redundant|
+    |isUserDataViewFallback|`boolean`|||When provided, the 'isUserDataViewFallback' option will be sent when requesting the org units|
+    |renderNodeLabel|`function`|`defaultRenderNodeLabel`||Renders the actual node component for each leaf, can be used to
+    customize the node. The default function just returns the node's
+    displayName
+
+Shape of the object passed to the callback:
+
+````
+{
+   label: string,
+   node: {
+     displayName: string,
+     id: string,
+     // Only provided once `loading` is false
+     path?: string,
+     // Only provided once `loading` is false
+     children?: Array.<{
+       id: string,
+       path: string,
+       displayName: string
+     }>
+   },
+   loading: boolean,
+   error: string,
+   open: boolean,
+   selected: string[],
+   singleSelection: boolean,
+   disableSelection: boolean,
+}
+```|
+|selected|`arrayOf(custom)`|`[]`||An array of paths of selected OUs. The path of an OU is the UIDs of the OU and all its parent OUs separated by slashes (`/`)|
+|singleSelection|`boolean`|||When set, no checkboxes will be displayed and only the first selected path in `selected` will be highlighted|
+|suppressAlphabeticalSorting|`boolean`|||Turns off alphabetical sorting of units|
+|onChildrenLoaded|`function`|||Called with the children's data that was loaded|
+|onCollapse|`function`|||Called with `{ path: string }` with the path of the parent of the level closed|
+|onExpand|`function`|||Called with `{ path: string }` with the path of the parent of the level opened|
+
+### Label
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+
+```js
+import { Label } from '@dhis2/ui'
+````
+
+#### Props
+
+| Name        | Type      | Default | Required | Description |
+| ----------- | --------- | ------- | -------- | ----------- |
+| children    | `any`     |         | \*       |             |
+| dataTest    | `string`  |         | \*       |             |
+| fullPath    | `string`  |         | \*       |             |
+| hasChildren | `boolean` |         | \*       |             |
+| loading     | `boolean` |         | \*       |             |
+| node        | `{        |
+
+"displayName": "string",
+"id": "string",
+"children": "arrayOf({\n \"displayName\": \"string\",\n \"id\": \"string\"\n})",
+"path": "string"
+}`||*|| |open|`boolean`||*|| |rootId|`string`||*|| |onChange|`function`||*|| |onToggleOpen|`function`||*|| |checked|`boolean`|||| |disableSelection|`boolean`|||| |hasSelectedDescendants|`boolean`|||| |highlighted|`boolean`|||| |selected|`arrayOf(custom)`|||| |singleSelection|`boolean`||||
+
+### Pagination
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Pagination } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name               | Type                | Default                                            | Required | Description |
+| ------------------ | ------------------- | -------------------------------------------------- | -------- | ----------- |
+| page               | `number`            |                                                    | \*       |             |
+| pageCount          | `number`            |                                                    | \*       |             |
+| pageSize           | `number`            |                                                    | \*       |             |
+| total              | `number`            |                                                    | \*       |             |
+| className          | `string`            |                                                    |          |             |
+| dataTest           | `string`            | `'dhis2-uiwidgets-pagination'`                     |          |             |
+| hidePageSelect     | `boolean`           |                                                    |          |             |
+| hidePageSizeSelect | `boolean`           |                                                    |          |             |
+| hidePageSummary    | `boolean`           |                                                    |          |             |
+| nextPageText       | `string │ function` | `() => i18n.t('Next')`                             |          |             |
+| pageSelectText     | `string │ function` | `() => i18n.t('Page')`                             |          |             |
+| pageSizeSelectText | `string │ function` | `() => i18n.t('Items per page')`                   |          |             |
+| pageSizes          | `arrayOf(string)`   | `['5', '10', '20', '30', '40', '50', '75', '100']` |          |             |
+| pageSummaryText    | `string │ function` | `(interpolationObject) =>                          |
+
+i18n.t(
+'Page {{page}} of {{pageCount}}, items {{firstItem}}-{{lastItem}} of {{total}}',
+interpolationObject
+)`||| |previousPageText|`string │ function`|`() => i18n.t('Previous')`||| |onPageChange|`function`|||| |onPageSizeChange|`function`||||
+
+### Popover
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Popover } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name                   | Type       | Default                  | Required | Description                                                                                   |
+| ---------------------- | ---------- | ------------------------ | -------- | --------------------------------------------------------------------------------------------- |
+| children               | `node`     |                          | \*       |                                                                                               |
+| arrow                  | `boolean`  | `true`                   |          | Show or hide the arrow                                                                        |
+| className              | `string`   |                          |          |                                                                                               |
+| dataTest               | `string`   | `'dhis2-uicore-popover'` |          |                                                                                               |
+| elevation              | `string`   | `elevations.e200`        |          | Box-shadow to create appearance of elevation. Use `elevations` constants from the UI library. |
+| maxWidth               | `number`   | `360`                    |          |                                                                                               |
+| observePopperResize    | `boolean`  |                          |          |                                                                                               |
+| observeReferenceResize | `boolean`  |                          |          |                                                                                               |
+| placement              | `custom`   | `'top'`                  |          |                                                                                               |
+| reference              | `custom`   |                          |          | A React ref that refers to the element the Popover should position against                    |
+| onClickOutside         | `function` |                          |          |                                                                                               |
+
+### Popper
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Popper } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type       | Default                 | Required | Description               |
+| --------- | ---------- | ----------------------- | -------- | ------------------------- |
+| children  | `node`     |                         | \*       | Content inside the Popper |
+| className | `string`   |                         |          |                           |
+| dataTest  | `string`   | `'dhis2-uicore-popper'` |          |                           |
+| modifiers | `arrayOf({ |
+
+"name": "string",
+"options": "object"
+})`|`[]`||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)| |observePopperResize|`boolean`|||Makes the Popper update position when the **Popper content** changes size| |observeReferenceResize|`boolean`|||Makes the Popper update position when the **reference element** changes size| |placement|`custom`|`'auto'`||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)| |reference|`custom`|||A React ref, DOM node, or [virtual element](https://popper.js.org/docs/v2/virtual-elements/) for the popper to position itself against| |strategy|`'absolute' │ 'fixed'`|||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)| |onFirstUpdate|`function`|||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
+
+### Radio
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Radio } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name         | Type       | Default                | Required | Description                                                                            |
+| ------------ | ---------- | ---------------------- | -------- | -------------------------------------------------------------------------------------- |
+| checked      | `boolean`  |                        |          |                                                                                        |
+| className    | `string`   |                        |          |                                                                                        |
+| dataTest     | `string`   | `'dhis2-uicore-radio'` |          |                                                                                        |
+| dense        | `boolean`  |                        |          |                                                                                        |
+| disabled     | `boolean`  |                        |          |                                                                                        |
+| error        | `custom`   |                        |          | Adds 'error' styling for feedback. Mutually exclusive with `valid` and `warning` props |
+| initialFocus | `boolean`  |                        |          |                                                                                        |
+| label        | `node`     |                        |          |                                                                                        |
+| name         | `string`   |                        |          | Name associated with this element. Passed in object to event handler functions         |
+| tabIndex     | `string`   |                        |          |                                                                                        |
+| valid        | `custom`   |                        |          | Adds 'valid' styling for feedback. Mutually exclusive with `error` and `warning` props |
+| value        | `string`   |                        |          | Value associated with this element. Passed in object to event handler functions        |
+| warning      | `custom`   |                        |          | Adds 'warning' styling for feedback. Mutually exclusive with `valid` and `error` props |
+| onBlur       | `function` |                        |          | Called with the signature `({ name: string, value: string, checked: bool }, event)`    |
+| onChange     | `function` |                        |          | Called with the signature `({ name: string, value: string, checked: bool }, event)`    |
+| onFocus      | `function` |                        |          | Called with the signature `({ name: string, value: string, checked: bool }, event)`    |
+
+### Required
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Required } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name     | Type     | Default | Required | Description |
+| -------- | -------- | ------- | -------- | ----------- |
+| dataTest | `string` |         | \*       |             |
+
+### SegmentedControl
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
 ```js
 import { SegmentedControl } from '@dhis2/ui'
 ```
 
-| prop                   |       type       | default |      required      | description                                                                         |
-| ---------------------- | :--------------: | :-----: | :----------------: | ----------------------------------------------------------------------------------- |
-| **onChange**           |    `Function`    |         | :white_check_mark: | Called with the signature `({ value: string }, event)`                              |
-| **options**            | `Array[]<Shape>` |         | :white_check_mark: | Options to populate the segmented control                                           |
-| **options[].disabled** |    `Boolean`     |         |        :x:         |
-| **options[].label**    |     `String`     |         | :white_check_mark: |
-| **options[].value**    |     `String`     |         | :white_check_mark: |
-| **selected**           |     `String`     |         | :white_check_mark: | An option to select; should match the `value` property of the option to be selected |
+#### Props
 
-## Input
+| Name    | Type       | Default | Required | Description |
+| ------- | ---------- | ------- | -------- | ----------- |
+| options | `arrayOf({ |
 
-From [`select/src/multi-select/input.js`](../components/select/src/multi-select/input.js)
+"label": "string",
+"value": "string",
+"disabled": "boolean"
+})`||*|Options to populate the segmented control| |selected|`string`||*|An option to select; should match the `value` property of the option to be selected| |onChange|`function`||*|Called with the signature `({ value: string }, event)`|
 
-| prop               |       type        |  default  |      required      | description |
-| ------------------ | :---------------: | :-------: | :----------------: | ----------- |
-| **className**      |     `String`      |           |        :x:         |
-| **clearText**      |     `custom`      |           |        :x:         |
-| **clearable**      |     `Boolean`     |           |        :x:         |
-| **dataTest**       |     `String`      |           | :white_check_mark: |
-| **disabled**       |     `Boolean`     |           |        :x:         |
-| **inputMaxHeight** |     `String`      | `'100px'` |        :x:         |
-| **onChange**       |    `Function`     |           |        :x:         |
-| **options**        |    `ReactNode`    |           |        :x:         |
-| **placeholder**    |     `String`      |           |        :x:         |
-| **prefix**         |     `String`      |           |        :x:         |
-| **selected**       | `Array[]<String>` |           |        :x:         |
+### Input
 
-## Menu
+#### Usage
 
-From [`select/src/multi-select/menu.js`](../components/select/src/multi-select/menu.js)
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-| prop         |       type        | default |      required      | description |
-| ------------ | :---------------: | :-----: | :----------------: | ----------- |
-| **dataTest** |     `String`      |         | :white_check_mark: |
-| **empty**    |    `ReactNode`    |  `''`   |        :x:         |
-| **onChange** |    `Function`     |         |        :x:         |
-| **options**  |    `ReactNode`    |         |        :x:         |
-| **selected** | `Array[]<String>` |         |        :x:         |
+```js
+import { Input } from '@dhis2/ui'
+```
 
-## MultiSelect
+#### Props
 
-From [`select/src/multi-select/multi-select.js`](../components/select/src/multi-select/multi-select.js)
+| Name           | Type              | Default   | Required | Description |
+| -------------- | ----------------- | --------- | -------- | ----------- |
+| dataTest       | `string`          |           | \*       |             |
+| className      | `string`          |           |          |             |
+| clearText      | `custom`          |           |          |             |
+| clearable      | `boolean`         |           |          |             |
+| disabled       | `boolean`         |           |          |             |
+| inputMaxHeight | `string`          | `'100px'` |          |             |
+| options        | `node`            |           |          |             |
+| placeholder    | `string`          |           |          |             |
+| prefix         | `string`          |           |          |             |
+| selected       | `arrayOf(string)` |           |          |             |
+| onChange       | `function`        |           |          |             |
 
-| prop                  |       type        |           default            | required | description                             |
-| --------------------- | :---------------: | :--------------------------: | :------: | --------------------------------------- |
-| **children**          |    `ReactNode`    |                              |   :x:    |
-| **className**         |     `String`      |                              |   :x:    |
-| **clearText**         |     `custom`      |                              |   :x:    | Required if `clearable` prop is `true`  |
-| **clearable**         |     `Boolean`     |                              |   :x:    | Adds a 'clear' option to the menu       |
-| **dataTest**          |     `String`      | `'dhis2-uicore-multiselect'` |   :x:    |
-| **dense**             |     `Boolean`     |                              |   :x:    |
-| **disabled**          |     `Boolean`     |                              |   :x:    |
-| **empty**             |    `ReactNode`    |                              |   :x:    |
-| **error**             |     `custom`      |                              |   :x:    |
-| **filterPlaceholder** |     `String`      |                              |   :x:    |
-| **filterable**        |     `Boolean`     |                              |   :x:    | Adds a 'filter' field to the menu       |
-| **initialFocus**      |     `Boolean`     |                              |   :x:    |
-| **inputMaxHeight**    |     `String`      |                              |   :x:    |
-| **loading**           |     `Boolean`     |                              |   :x:    |
-| **loadingText**       |     `String`      |                              |   :x:    |
-| **maxHeight**         |     `String`      |                              |   :x:    |
-| **noMatchText**       |     `custom`      |                              |   :x:    | Required if `filterable` prop is `true` |
-| **onBlur**            |    `Function`     |                              |   :x:    |
-| **onChange**          |    `Function`     |                              |   :x:    |
-| **onFocus**           |    `Function`     |                              |   :x:    |
-| **placeholder**       |     `String`      |                              |   :x:    |
-| **prefix**            |     `String`      |                              |   :x:    |
-| **selected**          | `Array[]<String>` |             `[]`             |   :x:    |
-| **tabIndex**          |     `String`      |                              |   :x:    |
-| **valid**             |     `custom`      |                              |   :x:    |
-| **warning**           |     `custom`      |                              |   :x:    |
+### Menu
 
-## MultiSelectField
+#### Usage
 
-From [`select/src/multi-select-field/multi-select-field.js`](../components/select/src/multi-select-field/multi-select-field.js)
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-| prop                     |             type             |                 default                  | required | description                                                                                          |
-| ------------------------ | :--------------------------: | :--------------------------------------: | :------: | ---------------------------------------------------------------------------------------------------- |
-| **children**             |         `ReactNode`          |                                          |   :x:    | Should be `MultiSelectOption` components                                                             |
-| **className**            |           `String`           |                                          |   :x:    |
-| **clearText**            |  `Union<String\|Function>`   |         `() => i18n.t('Clear')`          |   :x:    | Label for the button that clears selections                                                          |
-| **clearText<1>**         |           `String`           |                                          |   :x:    |
-| **clearText<2>**         |          `Function`          |                                          |   :x:    |
-| **clearable**            |          `Boolean`           |                                          |   :x:    | Adds a button to the MultiSelect that clears selections when pressed                                 |
-| **dataTest**             |           `String`           |   `'dhis2-uiwidgets-multiselectfield'`   |   :x:    |
-| **dense**                |          `Boolean`           |                                          |   :x:    | Makes the MultiSelect smaller                                                                        |
-| **disabled**             |          `Boolean`           |                                          |   :x:    | Disables the MultiSelect                                                                             |
-| **empty**                | `Union<ReactNode\|Function>` |     `() => i18n.t('No data found')`      |   :x:    | Text to display when there are no options                                                            |
-| **empty<1>**             |         `ReactNode`          |                                          |   :x:    |
-| **empty<2>**             |          `Function`          |                                          |   :x:    |
-| **error**                |           `custom`           |                                          |   :x:    | Adds 'error' appearance for validation feedback. Mutually exclusive with 'valid' and 'warning' props |
-| **filterPlaceholder**    | `Union<ReactNode\|Function>` | `() => i18n.t('Type to filter options')` |   :x:    | Placeholder text to show in the filter field when it is empty                                        |
-| **filterPlaceholder<1>** |         `ReactNode`          |                                          |   :x:    |
-| **filterPlaceholder<2>** |          `Function`          |                                          |   :x:    |
-| **filterable**           |          `Boolean`           |                                          |   :x:    | Adds a field to filter options                                                                       |
-| **helpText**             |           `String`           |                                          |   :x:    | Useful guiding text to display below the MultiSelect                                                 |
-| **initialFocus**         |          `Boolean`           |                                          |   :x:    | Grabs initial focus on the page                                                                      |
-| **inputMaxHeight**       |           `String`           |                                          |   :x:    | Constrains the height of the input                                                                   |
-| **inputWidth**           |           `String`           |                                          |   :x:    | Sets the width of the input. Can be any valid CSS measurement                                        |
-| **label**                |           `String`           |                                          |   :x:    | Text for the label above the MultiSelect                                                             |
-| **loading**              |          `Boolean`           |                                          |   :x:    | Applies a loading appearance to the dropdown options                                                 |
-| **loadingText**          |  `Union<String\|Function>`   |    `() => i18n.t('Loading options')`     |   :x:    | Text to display when `loading` is true                                                               |
-| **loadingText<1>**       |           `String`           |                                          |   :x:    |
-| **loadingText<2>**       |          `Function`          |                                          |   :x:    |
-| **maxHeight**            |           `String`           |                                          |   :x:    | Constrains height of the MultiSelect                                                                 |
-| **noMatchText**          |  `Union<String\|Function>`   |    `() => i18n.t('No options found')`    |   :x:    | Text to display when there are no filter results                                                     |
-| **noMatchText<1>**       |           `String`           |                                          |   :x:    |
-| **noMatchText<2>**       |          `Function`          |                                          |   :x:    |
-| **onBlur**               |          `Function`          |                                          |   :x:    | Called with signature `({ selected: [String] }, event)`                                              |
-| **onChange**             |          `Function`          |                                          |   :x:    | Called with signature `({ selected: [String] }, event)`                                              |
-| **onFocus**              |          `Function`          |                                          |   :x:    | Called with signature `({ selected: [String] }, event)`                                              |
-| **placeholder**          |           `String`           |                                          |   :x:    | Placeholder text when the MultiSelect is empty                                                       |
-| **prefix**               |           `String`           |                                          |   :x:    | Leading text to prefix selections                                                                    |
-| **required**             |          `Boolean`           |                                          |   :x:    | Indicates that a selection is required                                                               |
-| **selected**             |      `Array[]<String>`       |                   `[]`                   |   :x:    | Selected items in the MultiSelect (each string should refer to the item's `value` attribute)         |
-| **tabIndex**             |           `String`           |                                          |   :x:    |
-| **valid**                |           `custom`           |                                          |   :x:    | Adds 'valid' appearance for validation feedback. Mutually exclusive with 'error' and 'warning' props |
-| **validationText**       |           `String`           |                                          |   :x:    | Text to provide form validation feedback. Receives styles according to validation status             |
-| **warning**              |           `custom`           |                                          |   :x:    | Adds 'warning' appearance for validation feedback. Mutually exclusive with 'valid' and 'error' props |
+```js
+import { Menu } from '@dhis2/ui'
+```
 
-## MultiSelectOption
+#### Props
 
-From [`select/src/multi-select-option/multi-select-option.js`](../components/select/src/multi-select-option/multi-select-option.js)
+| Name     | Type              | Default | Required | Description |
+| -------- | ----------------- | ------- | -------- | ----------- |
+| dataTest | `string`          |         | \*       |             |
+| empty    | `node`            | `''`    |          |             |
+| options  | `node`            |         |          |             |
+| selected | `arrayOf(string)` |         |          |             |
+| onChange | `function`        |         |          |             |
 
-| prop          |    type    |              default               |      required      | description |
-| ------------- | :--------: | :--------------------------------: | :----------------: | ----------- |
-| **active**    | `Boolean`  |                                    |        :x:         |
-| **className** |  `String`  |                                    |        :x:         |
-| **dataTest**  |  `String`  | `'dhis2-uicore-multiselectoption'` |        :x:         |
-| **disabled**  | `Boolean`  |                                    |        :x:         |
-| **label**     |  `String`  |                                    | :white_check_mark: |
-| **onClick**   | `Function` |                                    |        :x:         |
-| **value**     |  `String`  |                                    | :white_check_mark: |
+### MultiSelect
 
-## Input
+#### Usage
 
-From [`select/src/single-select/input.js`](../components/select/src/single-select/input.js)
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-| prop               |    type     |  default  |      required      | description |
-| ------------------ | :---------: | :-------: | :----------------: | ----------- |
-| **className**      |  `String`   |           |        :x:         |
-| **clearText**      |  `custom`   |           |        :x:         |
-| **clearable**      |  `Boolean`  |           |        :x:         |
-| **dataTest**       |  `String`   |           | :white_check_mark: |
-| **disabled**       |  `Boolean`  |           |        :x:         |
-| **inputMaxHeight** |  `String`   | `'100px'` |        :x:         |
-| **onChange**       | `Function`  |           |        :x:         |
-| **options**        | `ReactNode` |           |        :x:         |
-| **placeholder**    |  `String`   |           |        :x:         |
-| **prefix**         |  `String`   |           |        :x:         |
-| **selected**       |  `String`   |           |        :x:         |
+```js
+import { MultiSelect } from '@dhis2/ui'
+```
 
-## Menu
+#### Props
 
-From [`select/src/single-select/menu.js`](../components/select/src/single-select/menu.js)
+| Name              | Type              | Default                      | Required | Description                             |
+| ----------------- | ----------------- | ---------------------------- | -------- | --------------------------------------- |
+| children          | `node`            |                              |          |                                         |
+| className         | `string`          |                              |          |                                         |
+| clearText         | `custom`          |                              |          | Required if `clearable` prop is `true`  |
+| clearable         | `boolean`         |                              |          | Adds a 'clear' option to the menu       |
+| dataTest          | `string`          | `'dhis2-uicore-multiselect'` |          |                                         |
+| dense             | `boolean`         |                              |          |                                         |
+| disabled          | `boolean`         |                              |          |                                         |
+| empty             | `node`            |                              |          |                                         |
+| error             | `custom`          |                              |          |                                         |
+| filterPlaceholder | `string`          |                              |          |                                         |
+| filterable        | `boolean`         |                              |          | Adds a 'filter' field to the menu       |
+| initialFocus      | `boolean`         |                              |          |                                         |
+| inputMaxHeight    | `string`          |                              |          |                                         |
+| loading           | `boolean`         |                              |          |                                         |
+| loadingText       | `string`          |                              |          |                                         |
+| maxHeight         | `string`          |                              |          |                                         |
+| noMatchText       | `custom`          |                              |          | Required if `filterable` prop is `true` |
+| placeholder       | `string`          |                              |          |                                         |
+| prefix            | `string`          |                              |          |                                         |
+| selected          | `arrayOf(string)` | `[]`                         |          |                                         |
+| tabIndex          | `string`          |                              |          |                                         |
+| valid             | `custom`          |                              |          |                                         |
+| warning           | `custom`          |                              |          |                                         |
+| onBlur            | `function`        |                              |          |                                         |
+| onChange          | `function`        |                              |          |                                         |
+| onFocus           | `function`        |                              |          |                                         |
 
-| prop                 |    type     | default |      required      | description |
-| -------------------- | :---------: | :-----: | :----------------: | ----------- |
-| **dataTest**         |  `String`   |         | :white_check_mark: |
-| **empty**            | `ReactNode` |  `''`   |        :x:         |
-| **handleClose**      | `Function`  |         |        :x:         |
-| **handleFocusInput** | `Function`  |         |        :x:         |
-| **onChange**         | `Function`  |         |        :x:         |
-| **options**          | `ReactNode` |         |        :x:         |
-| **selected**         |  `String`   |         |        :x:         |
+### MultiSelectField
 
-## SingleSelect
+#### Usage
 
-From [`select/src/single-select/single-select.js`](../components/select/src/single-select/single-select.js)
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-| prop                  |    type     |            default            | required | description                                                                                             |
-| --------------------- | :---------: | :---------------------------: | :------: | ------------------------------------------------------------------------------------------------------- |
-| **children**          | `ReactNode` |                               |   :x:    |
-| **className**         |  `String`   |                               |   :x:    |
-| **clearText**         |  `custom`   |                               |   :x:    | Text on button that clears selection. Required if `clearable` prop is true                              |
-| **clearable**         |  `Boolean`  |                               |   :x:    | Adds a button to clear selection                                                                        |
-| **dataTest**          |  `String`   | `'dhis2-uicore-singleselect'` |   :x:    |
-| **dense**             |  `Boolean`  |                               |   :x:    |
-| **disabled**          |  `Boolean`  |                               |   :x:    |
-| **empty**             | `ReactNode` |                               |   :x:    | Text or component to display when there are no options                                                  |
-| **error**             |  `custom`   |                               |   :x:    | Applies 'error' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props |
-| **filterPlaceholder** |  `String`   |                               |   :x:    |
-| **filterable**        |  `Boolean`  |                               |   :x:    | Adds a filter field to add text to filter options                                                       |
-| **initialFocus**      |  `Boolean`  |                               |   :x:    |
-| **inputMaxHeight**    |  `String`   |                               |   :x:    |
-| **loading**           |  `Boolean`  |                               |   :x:    |
-| **loadingText**       |  `String`   |                               |   :x:    |
-| **maxHeight**         |  `String`   |                               |   :x:    |
-| **noMatchText**       |  `custom`   |                               |   :x:    | Text to show when filter returns no results. Required if `filterable` prop is true                      |
-| **onBlur**            | `Function`  |                               |   :x:    |
-| **onChange**          | `Function`  |                               |   :x:    |
-| **onFocus**           | `Function`  |                               |   :x:    |
-| **placeholder**       |  `String`   |                               |   :x:    |
-| **prefix**            |  `String`   |                               |   :x:    |
-| **selected**          |  `String`   |             `''`              |   :x:    |
-| **tabIndex**          |  `String`   |                               |   :x:    |
-| **valid**             |  `custom`   |                               |   :x:    | Applies 'valid' appearance for validation feedback. Mutually exclusive with `warning` and `error` props |
-| **warning**           |  `custom`   |                               |   :x:    | Applies 'warning' appearance for validation feedback. Mutually exclusive with `valid` and `error` props |
+```js
+import { MultiSelectField } from '@dhis2/ui'
+```
 
-## SingleSelectField
+#### Props
 
-From [`select/src/single-select-field/single-select-field.js`](../components/select/src/single-select-field/single-select-field.js)
+| Name              | Type                | Default                                  | Required | Description                                                                                          |
+| ----------------- | ------------------- | ---------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| children          | `node`              |                                          |          | Should be `MultiSelectOption` components                                                             |
+| className         | `string`            |                                          |          |                                                                                                      |
+| clearText         | `string │ function` | `() => i18n.t('Clear')`                  |          | Label for the button that clears selections                                                          |
+| clearable         | `boolean`           |                                          |          | Adds a button to the MultiSelect that clears selections when pressed                                 |
+| dataTest          | `string`            | `'dhis2-uiwidgets-multiselectfield'`     |          |                                                                                                      |
+| dense             | `boolean`           |                                          |          | Makes the MultiSelect smaller                                                                        |
+| disabled          | `boolean`           |                                          |          | Disables the MultiSelect                                                                             |
+| empty             | `node │ function`   | `() => i18n.t('No data found')`          |          | Text to display when there are no options                                                            |
+| error             | `custom`            |                                          |          | Adds 'error' appearance for validation feedback. Mutually exclusive with 'valid' and 'warning' props |
+| filterPlaceholder | `node │ function`   | `() => i18n.t('Type to filter options')` |          | Placeholder text to show in the filter field when it is empty                                        |
+| filterable        | `boolean`           |                                          |          | Adds a field to filter options                                                                       |
+| helpText          | `string`            |                                          |          | Useful guiding text to display below the MultiSelect                                                 |
+| initialFocus      | `boolean`           |                                          |          | Grabs initial focus on the page                                                                      |
+| inputMaxHeight    | `string`            |                                          |          | Constrains the height of the input                                                                   |
+| inputWidth        | `string`            |                                          |          | Sets the width of the input. Can be any valid CSS measurement                                        |
+| label             | `string`            |                                          |          | Text for the label above the MultiSelect                                                             |
+| loading           | `boolean`           |                                          |          | Applies a loading appearance to the dropdown options                                                 |
+| loadingText       | `string │ function` | `() => i18n.t('Loading options')`        |          | Text to display when `loading` is true                                                               |
+| maxHeight         | `string`            |                                          |          | Constrains height of the MultiSelect                                                                 |
+| noMatchText       | `string │ function` | `() => i18n.t('No options found')`       |          | Text to display when there are no filter results                                                     |
+| placeholder       | `string`            |                                          |          | Placeholder text when the MultiSelect is empty                                                       |
+| prefix            | `string`            |                                          |          | Leading text to prefix selections                                                                    |
+| required          | `boolean`           |                                          |          | Indicates that a selection is required                                                               |
+| selected          | `arrayOf(string)`   | `[]`                                     |          | Selected items in the MultiSelect (each string should refer to the item's `value` attribute)         |
+| tabIndex          | `string`            |                                          |          |                                                                                                      |
+| valid             | `custom`            |                                          |          | Adds 'valid' appearance for validation feedback. Mutually exclusive with 'error' and 'warning' props |
+| validationText    | `string`            |                                          |          | Text to provide form validation feedback. Receives styles according to validation status             |
+| warning           | `custom`            |                                          |          | Adds 'warning' appearance for validation feedback. Mutually exclusive with 'valid' and 'error' props |
+| onBlur            | `function`          |                                          |          | Called with signature `({ selected: [String] }, event)`                                              |
+| onChange          | `function`          |                                          |          | Called with signature `({ selected: [String] }, event)`                                              |
+| onFocus           | `function`          |                                          |          | Called with signature `({ selected: [String] }, event)`                                              |
 
-| prop                     |             type             |                 default                  | required | description                                                                                          |
-| ------------------------ | :--------------------------: | :--------------------------------------: | :------: | ---------------------------------------------------------------------------------------------------- |
-| **children**             |         `ReactNode`          |                                          |   :x:    | Should be `SingleSelectOption` components                                                            |
-| **className**            |           `String`           |                                          |   :x:    |
-| **clearText**            |  `Union<String\|Function>`   |         `() => i18n.t('Clear')`          |   :x:    | Label for the button that clears selections                                                          |
-| **clearText<1>**         |           `String`           |                                          |   :x:    |
-| **clearText<2>**         |          `Function`          |                                          |   :x:    |
-| **clearable**            |          `Boolean`           |                                          |   :x:    | Adds a button to the SingleSelect that clears selections when pressed                                |
-| **dataTest**             |           `String`           |  `'dhis2-uiwidgets-singleselectfield'`   |   :x:    |
-| **dense**                |          `Boolean`           |                                          |   :x:    | Makes the SingleSelect smaller                                                                       |
-| **disabled**             |          `Boolean`           |                                          |   :x:    | Disables the SingleSelect                                                                            |
-| **empty**                | `Union<ReactNode\|Function>` |     `() => i18n.t('No data found')`      |   :x:    | Text to display when there are no options                                                            |
-| **empty<1>**             |         `ReactNode`          |                                          |   :x:    |
-| **empty<2>**             |          `Function`          |                                          |   :x:    |
-| **error**                |           `custom`           |                                          |   :x:    | Adds 'error' appearance for validation feedback. Mutually exclusive with 'valid' and 'warning' props |
-| **filterPlaceholder**    | `Union<ReactNode\|Function>` | `() => i18n.t('Type to filter options')` |   :x:    | Placeholder text to show in the filter field when it is empty                                        |
-| **filterPlaceholder<1>** |         `ReactNode`          |                                          |   :x:    |
-| **filterPlaceholder<2>** |          `Function`          |                                          |   :x:    |
-| **filterable**           |          `Boolean`           |                                          |   :x:    | Adds a field to filter options                                                                       |
-| **helpText**             |           `String`           |                                          |   :x:    | Useful guiding text to display below the SingleSelect                                                |
-| **initialFocus**         |          `Boolean`           |                                          |   :x:    | Grabs initial focus on the page                                                                      |
-| **inputMaxHeight**       |           `String`           |                                          |   :x:    | Constrains the height of the input                                                                   |
-| **inputWidth**           |           `String`           |                                          |   :x:    | Sets the width of the input. Can be any valid CSS measurement                                        |
-| **label**                |           `String`           |                                          |   :x:    | Text for the label above the SingleSelect                                                            |
-| **loading**              |          `Boolean`           |                                          |   :x:    | Applies a loading appearance to the dropdown options                                                 |
-| **loadingText**          |  `Union<String\|Function>`   |    `() => i18n.t('Loading options')`     |   :x:    | Text to display when `loading` is true                                                               |
-| **loadingText<1>**       |           `String`           |                                          |   :x:    |
-| **loadingText<2>**       |          `Function`          |                                          |   :x:    |
-| **maxHeight**            |           `String`           |                                          |   :x:    | Constrains height of the SingleSelect                                                                |
-| **noMatchText**          |  `Union<String\|Function>`   |    `() => i18n.t('No options found')`    |   :x:    | Text to display when there are no filter results                                                     |
-| **noMatchText<1>**       |           `String`           |                                          |   :x:    |
-| **noMatchText<2>**       |          `Function`          |                                          |   :x:    |
-| **onBlur**               |          `Function`          |                                          |   :x:    | Called with signature `({ selected: string }, event)`                                                |
-| **onChange**             |          `Function`          |                                          |   :x:    | Called with signature `({ selected: string }, event)`                                                |
-| **onFocus**              |          `Function`          |                                          |   :x:    | Called with signature `({ selected: string }, event)`                                                |
-| **placeholder**          |           `String`           |                                          |   :x:    | Placeholder text when the SingleSelect is empty                                                      |
-| **prefix**               |           `String`           |                                          |   :x:    | Leading text to prefix selections                                                                    |
-| **required**             |          `Boolean`           |                                          |   :x:    | Indicates that a selection is required                                                               |
-| **selected**             |           `String`           |                   `''`                   |   :x:    | Selected item in the SingleSelect (the string should refer to the item's `value` attribute)          |
-| **tabIndex**             |           `String`           |                                          |   :x:    |
-| **valid**                |           `custom`           |                                          |   :x:    | Adds 'valid' appearance for validation feedback. Mutually exclusive with 'error' and 'warning' props |
-| **validationText**       |           `String`           |                                          |   :x:    | Text to provide form validation feedback. Receives styles according to validation status             |
-| **warning**              |           `custom`           |                                          |   :x:    | Adds 'warning' appearance for validation feedback. Mutually exclusive with 'valid' and 'error' props |
+### MultiSelectOption
 
-## SingleSelectOption
+#### Usage
 
-From [`select/src/single-select-option/single-select-option.js`](../components/select/src/single-select-option/single-select-option.js)
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-| prop          |    type    |               default               |      required      | description |
-| ------------- | :--------: | :---------------------------------: | :----------------: | ----------- |
-| **active**    | `Boolean`  |                                     |        :x:         |
-| **className** |  `String`  |                                     |        :x:         |
-| **dataTest**  |  `String`  | `'dhis2-uicore-singleselectoption'` |        :x:         |
-| **disabled**  | `Boolean`  |                                     |        :x:         |
-| **label**     |  `String`  |                                     | :white_check_mark: |
-| **onClick**   | `Function` |                                     |        :x:         |
-| **value**     |  `String`  |                                     | :white_check_mark: |
+```js
+import { MultiSelectOption } from '@dhis2/ui'
+```
 
-## SelectorBar
+#### Props
 
-From [`selector-bar/src/selector-bar/selector-bar.js`](../components/selector-bar/src/selector-bar/selector-bar.js)
+| Name      | Type       | Default                            | Required | Description |
+| --------- | ---------- | ---------------------------------- | -------- | ----------- |
+| label     | `string`   |                                    | \*       |             |
+| value     | `string`   |                                    | \*       |             |
+| active    | `boolean`  |                                    |          |             |
+| className | `string`   |                                    |          |             |
+| dataTest  | `string`   | `'dhis2-uicore-multiselectoption'` |          |             |
+| disabled  | `boolean`  |                                    |          |             |
+| onClick   | `function` |                                    |          |             |
 
-| prop                       |    type    |         default          |      required      | description |
-| -------------------------- | :--------: | :----------------------: | :----------------: | ----------- |
-| **additionalContent**      |    `*`     |                          |        :x:         |
-| **children**               |    `*`     |                          | :white_check_mark: |
-| **className**              |  `String`  |                          |        :x:         |
-| **dataTest**               |  `String`  | `'dhis2-ui-selectorbar'` |        :x:         |
-| **disableClearSelections** | `Boolean`  |                          |        :x:         |
-| **onClearSelectionClick**  | `Function` |                          |        :x:         |
+### Input
 
-## SelectorBarItem
+#### Usage
 
-From [`selector-bar/src/selector-bar-item/selector-bar-item.js`](../components/selector-bar/src/selector-bar-item/selector-bar-item.js)
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-The reason this component expects the "open" state and "setOpen" function is
-because certain actions inside the props.children might have to set "open"
-to false as well.
-A good example is selecting a value (which is not a click outside) and this
-component neither has any control over that component nor does it have a way
-to "observe" that behavior. Especially for selection bar items that allow
-"multiple" selections, this would be more or less impossible to predict
-inside this component
+```js
+import { Input } from '@dhis2/ui'
+```
 
-| prop               |    type    |           default            |      required      | description |
-| ------------------ | :--------: | :--------------------------: | :----------------: | ----------- |
-| **children**       |    `*`     |                              | :white_check_mark: |
-| **className**      |  `String`  |                              |        :x:         |
-| **dataTest**       |  `String`  | `'dhis2-ui-selectorbaritem'` |        :x:         |
-| **disabled**       | `Boolean`  |                              |        :x:         |
-| **label**          |  `String`  |                              | :white_check_mark: |
-| **noValueMessage** |  `String`  |                              | :white_check_mark: |
-| **open**           | `Boolean`  |                              | :white_check_mark: |
-| **setOpen**        | `Function` |                              | :white_check_mark: |
-| **value**          |  `String`  |                              |        :x:         |
+#### Props
 
-## SharingDialog
+| Name           | Type       | Default   | Required | Description |
+| -------------- | ---------- | --------- | -------- | ----------- |
+| dataTest       | `string`   |           | \*       |             |
+| className      | `string`   |           |          |             |
+| clearText      | `custom`   |           |          |             |
+| clearable      | `boolean`  |           |          |             |
+| disabled       | `boolean`  |           |          |             |
+| inputMaxHeight | `string`   | `'100px'` |          |             |
+| options        | `node`     |           |          |             |
+| placeholder    | `string`   |           |          |             |
+| prefix         | `string`   |           |          |             |
+| selected       | `string`   |           |          |             |
+| onChange       | `function` |           |          |             |
 
-From [`sharing-dialog/src/sharing-dialog.js`](../components/sharing-dialog/src/sharing-dialog.js)
+### Menu
 
-| prop                                        |        type        |                                    default                                     |      required      | description                                                 |
-| ------------------------------------------- | :----------------: | :----------------------------------------------------------------------------: | :----------------: | ----------------------------------------------------------- |
-| **id**                                      |      `String`      |                                                                                | :white_check_mark: | The id of the object to share                               |
-| **initialSharingSettings**                  |      `Shape`       | `{ name: '', allowPublic: true, public: ACCESS_NONE, groups: {}, users: {}, }` |        :x:         | Used to seed the component with data to show whilst loading |
-| **initialSharingSettings.allowPublic**      |     `Boolean`      |                                                                                | :white_check_mark: |
-| **initialSharingSettings.groups**           | `Object[#]<Shape>` |                                                                                |        :x:         |
-| **initialSharingSettings.groups[#].access** |      `String`      |                                                                                | :white_check_mark: |
-| **initialSharingSettings.groups[#].id**     |      `String`      |                                                                                | :white_check_mark: |
-| **initialSharingSettings.groups[#].name**   |      `String`      |                                                                                | :white_check_mark: |
-| **initialSharingSettings.name**             |      `String`      |                                                                                |        :x:         |
-| **initialSharingSettings.public**           |   `Enum(import {   |
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Menu } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name             | Type       | Default | Required | Description |
+| ---------------- | ---------- | ------- | -------- | ----------- |
+| dataTest         | `string`   |         | \*       |             |
+| empty            | `node`     | `''`    |          |             |
+| handleClose      | `function` |         |          |             |
+| handleFocusInput | `function` |         |          |             |
+| options          | `node`     |         |          |             |
+| selected         | `string`   |         |          |             |
+| onChange         | `function` |         |          |             |
+
+### SingleSelect
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SingleSelect } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name              | Type       | Default                       | Required | Description                                                                                             |
+| ----------------- | ---------- | ----------------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
+| children          | `node`     |                               |          |                                                                                                         |
+| className         | `string`   |                               |          |                                                                                                         |
+| clearText         | `custom`   |                               |          | Text on button that clears selection. Required if `clearable` prop is true                              |
+| clearable         | `boolean`  |                               |          | Adds a button to clear selection                                                                        |
+| dataTest          | `string`   | `'dhis2-uicore-singleselect'` |          |                                                                                                         |
+| dense             | `boolean`  |                               |          |                                                                                                         |
+| disabled          | `boolean`  |                               |          |                                                                                                         |
+| empty             | `node`     |                               |          | Text or component to display when there are no options                                                  |
+| error             | `custom`   |                               |          | Applies 'error' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props |
+| filterPlaceholder | `string`   |                               |          |                                                                                                         |
+| filterable        | `boolean`  |                               |          | Adds a filter field to add text to filter options                                                       |
+| initialFocus      | `boolean`  |                               |          |                                                                                                         |
+| inputMaxHeight    | `string`   |                               |          |                                                                                                         |
+| loading           | `boolean`  |                               |          |                                                                                                         |
+| loadingText       | `string`   |                               |          |                                                                                                         |
+| maxHeight         | `string`   |                               |          |                                                                                                         |
+| noMatchText       | `custom`   |                               |          | Text to show when filter returns no results. Required if `filterable` prop is true                      |
+| placeholder       | `string`   |                               |          |                                                                                                         |
+| prefix            | `string`   |                               |          |                                                                                                         |
+| selected          | `string`   | `''`                          |          |                                                                                                         |
+| tabIndex          | `string`   |                               |          |                                                                                                         |
+| valid             | `custom`   |                               |          | Applies 'valid' appearance for validation feedback. Mutually exclusive with `warning` and `error` props |
+| warning           | `custom`   |                               |          | Applies 'warning' appearance for validation feedback. Mutually exclusive with `valid` and `error` props |
+| onBlur            | `function` |                               |          |                                                                                                         |
+| onChange          | `function` |                               |          |                                                                                                         |
+| onFocus           | `function` |                               |          |                                                                                                         |
+
+### SingleSelectField
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SingleSelectField } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name              | Type                | Default                                  | Required | Description                                                                                          |
+| ----------------- | ------------------- | ---------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| children          | `node`              |                                          |          | Should be `SingleSelectOption` components                                                            |
+| className         | `string`            |                                          |          |                                                                                                      |
+| clearText         | `string │ function` | `() => i18n.t('Clear')`                  |          | Label for the button that clears selections                                                          |
+| clearable         | `boolean`           |                                          |          | Adds a button to the SingleSelect that clears selections when pressed                                |
+| dataTest          | `string`            | `'dhis2-uiwidgets-singleselectfield'`    |          |                                                                                                      |
+| dense             | `boolean`           |                                          |          | Makes the SingleSelect smaller                                                                       |
+| disabled          | `boolean`           |                                          |          | Disables the SingleSelect                                                                            |
+| empty             | `node │ function`   | `() => i18n.t('No data found')`          |          | Text to display when there are no options                                                            |
+| error             | `custom`            |                                          |          | Adds 'error' appearance for validation feedback. Mutually exclusive with 'valid' and 'warning' props |
+| filterPlaceholder | `node │ function`   | `() => i18n.t('Type to filter options')` |          | Placeholder text to show in the filter field when it is empty                                        |
+| filterable        | `boolean`           |                                          |          | Adds a field to filter options                                                                       |
+| helpText          | `string`            |                                          |          | Useful guiding text to display below the SingleSelect                                                |
+| initialFocus      | `boolean`           |                                          |          | Grabs initial focus on the page                                                                      |
+| inputMaxHeight    | `string`            |                                          |          | Constrains the height of the input                                                                   |
+| inputWidth        | `string`            |                                          |          | Sets the width of the input. Can be any valid CSS measurement                                        |
+| label             | `string`            |                                          |          | Text for the label above the SingleSelect                                                            |
+| loading           | `boolean`           |                                          |          | Applies a loading appearance to the dropdown options                                                 |
+| loadingText       | `string │ function` | `() => i18n.t('Loading options')`        |          | Text to display when `loading` is true                                                               |
+| maxHeight         | `string`            |                                          |          | Constrains height of the SingleSelect                                                                |
+| noMatchText       | `string │ function` | `() => i18n.t('No options found')`       |          | Text to display when there are no filter results                                                     |
+| placeholder       | `string`            |                                          |          | Placeholder text when the SingleSelect is empty                                                      |
+| prefix            | `string`            |                                          |          | Leading text to prefix selections                                                                    |
+| required          | `boolean`           |                                          |          | Indicates that a selection is required                                                               |
+| selected          | `string`            | `''`                                     |          | Selected item in the SingleSelect (the string should refer to the item's `value` attribute)          |
+| tabIndex          | `string`            |                                          |          |                                                                                                      |
+| valid             | `custom`            |                                          |          | Adds 'valid' appearance for validation feedback. Mutually exclusive with 'error' and 'warning' props |
+| validationText    | `string`            |                                          |          | Text to provide form validation feedback. Receives styles according to validation status             |
+| warning           | `custom`            |                                          |          | Adds 'warning' appearance for validation feedback. Mutually exclusive with 'valid' and 'error' props |
+| onBlur            | `function`          |                                          |          | Called with signature `({ selected: string }, event)`                                                |
+| onChange          | `function`          |                                          |          | Called with signature `({ selected: string }, event)`                                                |
+| onFocus           | `function`          |                                          |          | Called with signature `({ selected: string }, event)`                                                |
+
+### SingleSelectOption
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SingleSelectOption } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type       | Default                             | Required | Description |
+| --------- | ---------- | ----------------------------------- | -------- | ----------- |
+| label     | `string`   |                                     | \*       |             |
+| value     | `string`   |                                     | \*       |             |
+| active    | `boolean`  |                                     |          |             |
+| className | `string`   |                                     |          |             |
+| dataTest  | `string`   | `'dhis2-uicore-singleselectoption'` |          |             |
+| disabled  | `boolean`  |                                     |          |             |
+| onClick   | `function` |                                     |          |             |
+
+### SelectorBar
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SelectorBar } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name                   | Type       | Default                  | Required | Description |
+| ---------------------- | ---------- | ------------------------ | -------- | ----------- |
+| children               | `any`      |                          | \*       |             |
+| additionalContent      | `any`      |                          |          |             |
+| className              | `string`   |                          |          |             |
+| dataTest               | `string`   | `'dhis2-ui-selectorbar'` |          |             |
+| disableClearSelections | `boolean`  |                          |          |             |
+| onClearSelectionClick  | `function` |                          |          |             |
+
+### SelectorBarItem
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SelectorBarItem } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name           | Type       | Default                      | Required | Description |
+| -------------- | ---------- | ---------------------------- | -------- | ----------- |
+| children       | `any`      |                              | \*       |             |
+| label          | `string`   |                              | \*       |             |
+| noValueMessage | `string`   |                              | \*       |             |
+| open           | `boolean`  |                              | \*       |             |
+| setOpen        | `function` |                              | \*       |             |
+| className      | `string`   |                              |          |             |
+| dataTest       | `string`   | `'dhis2-ui-selectorbaritem'` |          |             |
+| disabled       | `boolean`  |                              |          |             |
+| value          | `string`   |                              |          |             |
+
+### SharingDialog
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SharingDialog } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name | Type      | Default | Required | Description                   |
+| ---- | --------- | ------- | -------- | ----------------------------- |
+| id   | `string`  |         | \*       | The id of the object to share |
+| type | `import { |
 
     ACCESS_NONE,
     ACCESS_VIEW_ONLY,
@@ -1251,643 +1787,898 @@ From [`sharing-dialog/src/sharing-dialog.js`](../components/sharing-dialog/src/s
     VISUALIZATION,
     DASHBOARD,
 
-} from './constants.js', import {
+} from './constants.js' │ import {
 ACCESS_NONE,
 ACCESS_VIEW_ONLY,
 ACCESS_VIEW_AND_EDIT,
 VISUALIZATION,
 DASHBOARD,
-} from './constants.js', import {
-ACCESS_NONE,
-ACCESS_VIEW_ONLY,
-ACCESS_VIEW_AND_EDIT,
-VISUALIZATION,
-DASHBOARD,
-} from './constants.js')`| | :x: | **initialSharingSettings.users** |`Object[#]<Shape>`| | :x: | **initialSharingSettings.users[#].access** |`String`| | :white_check_mark: | **initialSharingSettings.users[#].id** |`String`| | :white_check_mark: | **initialSharingSettings.users[#].name** |`String`| | :white_check_mark: | **onClose** |`Function`|`() => {}`| :x: | **onError** |`Function`|`() => {}`| :x: | **onSave** |`Function`|`() => {}`| :x: | **type** |`Enum(import {
-ACCESS_NONE,
-ACCESS_VIEW_ONLY,
-ACCESS_VIEW_AND_EDIT,
-VISUALIZATION,
-DASHBOARD,
-} from './constants.js', import {
-ACCESS_NONE,
-ACCESS_VIEW_ONLY,
-ACCESS_VIEW_AND_EDIT,
-VISUALIZATION,
-DASHBOARD,
-} from './constants.js')` | | :white_check_mark: | The type of object to share
-
-## Modal
-
-From [`sharing-dialog/src/modal/modal.js`](../components/sharing-dialog/src/modal/modal.js)
-
-| prop         |    type     | default |      required      | description |
-| ------------ | :---------: | :-----: | :----------------: | ----------- |
-| **children** | `ReactNode` |         | :white_check_mark: |
-| **name**     |  `String`   |         |        :x:         |
-| **onClose**  | `Function`  |         |        :x:         |
-
-## Switch
-
-From [`switch/src/switch/switch.js`](../components/switch/src/switch/switch.js)
-
-| prop             |    type     |         default         | required | description                                                                                              |
-| ---------------- | :---------: | :---------------------: | :------: | -------------------------------------------------------------------------------------------------------- |
-| **ariaLabel**    |  `String`   |                         |   :x:    | Sets an aria-label attribute on the input                                                                |
-| **checked**      |  `Boolean`  |         `false`         |   :x:    |
-| **className**    |  `String`   |                         |   :x:    |
-| **dataTest**     |  `String`   | `'dhis2-uicore-switch'` |   :x:    |
-| **dense**        |  `Boolean`  |                         |   :x:    | Makes the switch smaller for information-dense layouts                                                   |
-| **disabled**     |  `Boolean`  |                         |   :x:    | Disables the switch                                                                                      |
-| **error**        |  `custom`   |                         |   :x:    | Applies 'error' styles for validation feedback. Mutually exclusive with `valid` and `warning` prop types |
-| **initialFocus** |  `Boolean`  |                         |   :x:    | Grab initial focus on the page                                                                           |
-| **label**        | `ReactNode` |                         |   :x:    | Label for the switch. Can be a string or an element, for example an image                                |
-| **name**         |  `String`   |                         |   :x:    | Name associated with the switch. Passed to event handlers in object                                      |
-| **onBlur**       | `Function`  |                         |   :x:    | Called with signature `({ name: string, value: string, checked: bool }, event)`                          |
-| **onChange**     | `Function`  |                         |   :x:    | Called with signature `({ name: string, value: string, checked: bool }, event)`                          |
-| **onFocus**      | `Function`  |                         |   :x:    | Called with signature `({ name: string, value: string, checked: bool }, event)`                          |
-| **role**         |  `String`   |       `'switch'`        |   :x:    | Sets a role attribute on the input                                                                       |
-| **tabIndex**     |  `String`   |                         |   :x:    |
-| **valid**        |  `custom`   |                         |   :x:    | Applies 'valid' styles for validation feedback. Mutually exclusive with `error` and `warning` prop types |
-| **value**        |  `String`   |                         |   :x:    | Value associated with the switch. Passed to event handlers in object                                     |
-| **warning**      |  `custom`   |                         |   :x:    | Applies 'warning' styles for validation feedback. Mutually exclusive with `valid` and `error` prop types |
-
-## SwitchField
-
-From [`switch/src/switch-field/switch-field.js`](../components/switch/src/switch-field/switch-field.js)
-
-| prop               |    type     |             default             | required | description                                                                                                             |
-| ------------------ | :---------: | :-----------------------------: | :------: | ----------------------------------------------------------------------------------------------------------------------- |
-| **checked**        |  `Boolean`  |                                 |   :x:    |
-| **className**      |  `String`   |                                 |   :x:    |
-| **dataTest**       |  `String`   | `'dhis2-uiwidgets-switchfield'` |   :x:    |
-| **dense**          |  `Boolean`  |                                 |   :x:    | Smaller dimensions for information-dense layouts                                                                        |
-| **disabled**       |  `Boolean`  |                                 |   :x:    | Disables the switch                                                                                                     |
-| **error**          |  `custom`   |                                 |   :x:    | Applies 'error' styling to switch and validation text for feedback. Mutually exclusive with `warning` and `valid` props |
-| **helpText**       |  `String`   |                                 |   :x:    | Useful instructions for the user                                                                                        |
-| **initialFocus**   |  `Boolean`  |                                 |   :x:    |
-| **label**          | `ReactNode` |                                 |   :x:    | Labels the switch                                                                                                       |
-| **name**           |  `String`   |                                 |   :x:    | Name associate with the switch. Passed in object as argument to event handlers                                          |
-| **onBlur**         | `Function`  |                                 |   :x:    | Called with signature ({ name: string, value: string, checked: bool }, event)                                           |
-| **onChange**       | `Function`  |                                 |   :x:    | Called with signature ({ name: string, value: string, checked: bool }, event)                                           |
-| **onFocus**        | `Function`  |                                 |   :x:    | Called with signature ({ name: string, value: string, checked: bool }, event)                                           |
-| **required**       |  `Boolean`  |                                 |   :x:    | Adds an asterisk to indicate this field is required                                                                     |
-| **tabIndex**       |  `String`   |                                 |   :x:    |
-| **valid**          |  `custom`   |                                 |   :x:    | Applies 'valid' styling to switch and validation text for feedback. Mutually exclusive with `warning` and `error` props |
-| **validationText** |  `String`   |                                 |   :x:    | Adds text below the switch to provide validation feedback. Acquires styles from `valid`, `warning` and `error` statuses |
-| **value**          |  `String`   |                                 |   :x:    | Value associated with the switch. Passed in object as argument to event handlers                                        |
-| **warning**        |  `custom`   |                                 |   :x:    | Applies 'warning' styling to switch and validation text for feedback. Mutually exclusive with `valid` and `error` props |
-
-## Tab
-
-From [`tab/src/tab/tab.js`](../components/tab/src/tab/tab.js)
-
-| prop          |      type      |       default        | required | description                             |
-| ------------- | :------------: | :------------------: | :------: | --------------------------------------- |
-| **children**  |  `ReactNode`   |                      |   :x:    |
-| **className** |    `String`    |                      |   :x:    |
-| **dataTest**  |    `String`    | `'dhis2-uicore-tab'` |   :x:    |
-| **disabled**  |   `Boolean`    |                      |   :x:    |
-| **icon**      | `ReactElement` |                      |   :x:    |
-| **onClick**   |   `Function`   |                      |   :x:    | Called with the signature `({}, event)` |
-| **selected**  |   `Boolean`    |                      |   :x:    | Indicates this tab is selected          |
-
-## TabBar
-
-From [`tab/src/tab-bar/tab-bar.js`](../components/tab/src/tab-bar/tab-bar.js)
-
-| prop           |    type     |         default         | required | description                                                                                                                                                               |
-| -------------- | :---------: | :---------------------: | :------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **children**   | `ReactNode` |                         |   :x:    |
-| **className**  |  `String`   |                         |   :x:    |
-| **dataTest**   |  `String`   | `'dhis2-uicore-tabbar'` |   :x:    |
-| **fixed**      |  `Boolean`  |                         |   :x:    | Fixed tabs fill the width of their container. If false (i.e. fluid), tabs take up an amount of space defined by the tab name. Fluid tabs should be used most of the time. |
-| **scrollable** |  `Boolean`  |                         |   :x:    | Enables horizontal scrolling for many tabs that don't fit the width of the container                                                                                      |
-
-## DataTableCell
-
-From [`table/src/data-table/data-table-cell.js`](../components/table/src/data-table/data-table-cell.js)
-
-| prop            |               type                |            default             | required | description                                                          |
-| --------------- | :-------------------------------: | :----------------------------: | :------: | -------------------------------------------------------------------- |
-| **active**      |             `Boolean`             |                                |   :x:    | To toggle background color, for example for editing                  |
-| **align**       | `Enum('left', 'center', 'right')` |            `'left'`            |   :x:    |
-| **bordered**    |             `Boolean`             |                                |   :x:    |
-| **children**    |            `ReactNode`            |                                |   :x:    |
-| **className**   |             `String`              |                                |   :x:    |
-| **colSpan**     |             `String`              |                                |   :x:    |
-| **dataTest**    |             `String`              | `'dhis2-uicore-datatablecell'` |   :x:    |
-| **error**       |             `custom`              |                                |   :x:    | Mutually exclusive with muted and valid                              |
-| **fixed**       |             `Boolean`             |                                |   :x:    | When true a TableHeaderCell with sticky positioning will be rendered |
-| **large**       |             `Boolean`             |                                |   :x:    |
-| **left**        |             `custom`              |            `'auto'`            |   :x:    | Required when fixed                                                  |
-| **muted**       |             `custom`              |                                |   :x:    | Mutually exclusive with error and valid                              |
-| **onClick**     |            `Function`             |                                |   :x:    |
-| **role**        |             `String`              |                                |   :x:    |
-| **rowSpan**     |             `String`              |                                |   :x:    |
-| **scope**       |             `String`              |                                |   :x:    |
-| **staticStyle** |             `Boolean`             |                                |   :x:    | Surpress hover and active event styles                               |
-| **tag**         |        `Enum('td', 'th')`         |                                |   :x:    | Render a TableDataCell or TableHeaderCell respectively               |
-| **valid**       |             `custom`              |                                |   :x:    | Mutually exclusive with error and muted                              |
-| **width**       |             `custom`              |            `'auto'`            |   :x:    | Required when fixed                                                  |
-
-## DataTable
-
-From [`table/src/data-table/data-table.js`](../components/table/src/data-table/data-table.js)
-
-| prop             |                     type                      |          default           | required | description                                                                                                                                                                                                   |
-| ---------------- | :-------------------------------------------: | :------------------------: | :------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **children**     |                  `ReactNode`                  |                            |   :x:    | Should be `<DataTableHead>`, `<DataTableBody>`, and `<DataTableFoot>` components                                                                                                                              |
-| **className**    |                   `String`                    |                            |   :x:    |
-| **dataTest**     |                   `String`                    | `'dhis2-uicore-datatable'` |   :x:    |
-| **layout**       | `Enum('auto', 'fixed', 'initial', 'inherit')` |          `'auto'`          |   :x:    | Sets the `datatable-layout` property. Switching to `fixed` can prevent style issues when dealing with a datatable with multiple frozen columns or when dealing with filter elements in the datatable headers. |
-| **role**         |                   `String`                    |                            |   :x:    |
-| **scrollHeight** |                   `String`                    |                            |   :x:    | Sets max-height of scrollbox                                                                                                                                                                                  |
-| **scrollWidth**  |                   `String`                    |                            |   :x:    | Sets max-width of scrollbox                                                                                                                                                                                   |
-| **width**        |                   `String`                    |          `'100%'`          |   :x:    | Sets the `width` property. Providing an explicit width can prevent style issues when dealing with horizontally scrolling datatables with a fixed layout.                                                      |
-
-## StackedTableBody
-
-From [`table/src/stacked-table/stacked-table-body.js`](../components/table/src/stacked-table/stacked-table-body.js)
-
-| prop          |    type     |              default              | required | description |
-| ------------- | :---------: | :-------------------------------: | :------: | ----------- |
-| **children**  | `ReactNode` |                                   |   :x:    |
-| **className** |  `String`   |                                   |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-stackedtablebody'` |   :x:    |
-
-## StackedTableCellHead
-
-From [`table/src/stacked-table/stacked-table-cell-head.js`](../components/table/src/stacked-table/stacked-table-cell-head.js)
-
-| prop          |   type   |                default                | required | description |
-| ------------- | :------: | :-----------------------------------: | :------: | ----------- |
-| **children**  | `String` |                 `''`                  |   :x:    |
-| **className** | `String` |                                       |   :x:    |
-| **colSpan**   | `String` |                                       |   :x:    |
-| **dataTest**  | `String` | `'dhis2-uicore-stackedtablecellhead'` |   :x:    |
-| **rowSpan**   | `String` |                                       |   :x:    |
-
-## StackedTableCell
-
-From [`table/src/stacked-table/stacked-table-cell.js`](../components/table/src/stacked-table/stacked-table-cell.js)
-
-| prop             |       type        |              default              | required | description |
-| ---------------- | :---------------: | :-------------------------------: | :------: | ----------- |
-| **children**     |    `ReactNode`    |                                   |   :x:    |
-| **className**    |     `String`      |                                   |   :x:    |
-| **colSpan**      |     `String`      |                                   |   :x:    |
-| **column**       |     `Number`      |                                   |   :x:    |
-| **dataTest**     |     `String`      | `'dhis2-uicore-stackedtablecell'` |   :x:    |
-| **headerLabels** | `Array[]<String>` |               `[]`                |   :x:    |
-| **hideTitle**    |     `Boolean`     |                                   |   :x:    |
-| **rowSpan**      |     `String`      |                                   |   :x:    |
-| **title**        |     `String`      |                                   |   :x:    |
-
-## StackedTableFoot
-
-From [`table/src/stacked-table/stacked-table-foot.js`](../components/table/src/stacked-table/stacked-table-foot.js)
-
-| prop          |    type     |              default              | required | description |
-| ------------- | :---------: | :-------------------------------: | :------: | ----------- |
-| **children**  | `ReactNode` |                                   |   :x:    |
-| **className** |  `String`   |                                   |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-stackedtablefoot'` |   :x:    |
-
-## StackedTableHead
-
-From [`table/src/stacked-table/stacked-table-head.js`](../components/table/src/stacked-table/stacked-table-head.js)
-
-| prop          |    type     |              default              | required | description |
-| ------------- | :---------: | :-------------------------------: | :------: | ----------- |
-| **children**  | `ReactNode` |                                   |   :x:    |
-| **className** |  `String`   |                                   |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-stackedtablehead'` |   :x:    |
-
-## StackedTableRowHead
-
-From [`table/src/stacked-table/stacked-table-row-head.js`](../components/table/src/stacked-table/stacked-table-row-head.js)
-
-| prop          |    type     |               default                | required | description |
-| ------------- | :---------: | :----------------------------------: | :------: | ----------- |
-| **children**  | `ReactNode` |                                      |   :x:    |
-| **className** |  `String`   |                                      |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-stackedtablerowhead'` |   :x:    |
-
-## StackedTableRow
-
-From [`table/src/stacked-table/stacked-table-row.js`](../components/table/src/stacked-table/stacked-table-row.js)
-
-| prop          |    type     |             default              | required | description |
-| ------------- | :---------: | :------------------------------: | :------: | ----------- |
-| **children**  | `ReactNode` |                                  |   :x:    |
-| **className** |  `String`   |                                  |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-stackedtablerow'` |   :x:    |
-
-## StackedTable
-
-From [`table/src/stacked-table/stacked-table.js`](../components/table/src/stacked-table/stacked-table.js)
-
-| prop             |       type        |            default            | required | description                                                            |
-| ---------------- | :---------------: | :---------------------------: | :------: | ---------------------------------------------------------------------- |
-| **children**     |    `ReactNode`    |                               |   :x:    |
-| **className**    |     `String`      |                               |   :x:    |
-| **dataTest**     |     `String`      | `'dhis2-uicore-stackedtable'` |   :x:    |
-| **headerLabels** | `Array[]<String>` |                               |   :x:    | Labels for columns. Use an empty string for a column without a header. |
-
-## Table
-
-From [`table/src/stacked-table/table.js`](../components/table/src/stacked-table/table.js)
-
-| prop          |    type     | default |      required      | description |
-| ------------- | :---------: | :-----: | :----------------: | ----------- |
-| **children**  | `ReactNode` |         | :white_check_mark: |
-| **className** |  `String`   |         |        :x:         |
-| **dataTest**  |  `String`   |         |        :x:         |
-
-## TableBody
-
-From [`table/src/table/table-body.js`](../components/table/src/table/table-body.js)
-
-| prop          |    type     |          default           | required | description                       |
-| ------------- | :---------: | :------------------------: | :------: | --------------------------------- |
-| **children**  | `ReactNode` |                            |   :x:    | Should be `<TableRow>` components |
-| **className** |  `String`   |                            |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-tablebody'` |   :x:    |
-| **role**      |  `String`   |                            |   :x:    |
-
-## TableCellHead
-
-From [`table/src/table/table-cell-head.js`](../components/table/src/table/table-cell-head.js)
-
-| prop          |    type     |            default             | required | description                                                |
-| ------------- | :---------: | :----------------------------: | :------: | ---------------------------------------------------------- |
-| **children**  | `ReactNode` |                                |   :x:    |
-| **className** |  `String`   |                                |   :x:    |
-| **colSpan**   |  `String`   |                                |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-tablecellhead'` |   :x:    |
-| **dense**     |  `Boolean`  |                                |   :x:    | Uses less padding and height for information-dense layouts |
-| **role**      |  `String`   |                                |   :x:    |
-| **rowSpan**   |  `String`   |                                |   :x:    |
-
-## TableCell
-
-From [`table/src/table/table-cell.js`](../components/table/src/table/table-cell.js)
-
-| prop          |    type     |          default           | required | description                                                 |
-| ------------- | :---------: | :------------------------: | :------: | ----------------------------------------------------------- |
-| **children**  | `ReactNode` |                            |   :x:    |
-| **className** |  `String`   |                            |   :x:    |
-| **colSpan**   |  `String`   |                            |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-tablecell'` |   :x:    |
-| **dense**     |  `Boolean`  |                            |   :x:    | Usees less padding and height for information-dense layouts |
-| **role**      |  `String`   |                            |   :x:    |
-| **rowSpan**   |  `String`   |                            |   :x:    |
-
-## TableFoot
-
-From [`table/src/table/table-foot.js`](../components/table/src/table/table-foot.js)
-
-| prop          |    type     |          default           | required | description                       |
-| ------------- | :---------: | :------------------------: | :------: | --------------------------------- |
-| **children**  | `ReactNode` |                            |   :x:    | Should be `<TableRow>` components |
-| **className** |  `String`   |                            |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-tablefoot'` |   :x:    |
-| **role**      |  `String`   |                            |   :x:    |
-
-## TableHead
-
-From [`table/src/table/table-head.js`](../components/table/src/table/table-head.js)
-
-| prop          |    type     |          default           | required | description                           |
-| ------------- | :---------: | :------------------------: | :------: | ------------------------------------- |
-| **children**  | `ReactNode` |                            |   :x:    | Should be `<TableRowHead>` components |
-| **className** |  `String`   |                            |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-tablehead'` |   :x:    |
-| **role**      |  `String`   |                            |   :x:    |
-
-## TableRowHead
-
-From [`table/src/table/table-row-head.js`](../components/table/src/table/table-row-head.js)
-
-| prop                      |    type     |            default            | required | description                                    |
-| ------------------------- | :---------: | :---------------------------: | :------: | ---------------------------------------------- |
-| **children**              | `ReactNode` |                               |   :x:    | Should be `<TableCellHead>` components         |
-| **className**             |  `String`   |                               |   :x:    |
-| **dataTest**              |  `String`   | `'dhis2-uicore-tablerowhead'` |   :x:    |
-| **role**                  |  `String`   |                               |   :x:    |
-| **suppressZebraStriping** |  `Boolean`  |                               |   :x:    | Disables the default row striping for this row |
-
-## TableRow
-
-From [`table/src/table/table-row.js`](../components/table/src/table/table-row.js)
-
-| prop                      |    type     |          default          | required | description                                             |
-| ------------------------- | :---------: | :-----------------------: | :------: | ------------------------------------------------------- |
-| **children**              | `ReactNode` |                           |   :x:    | Should be `<TableCell>` or `<TableCellHead>` components |
-| **className**             |  `String`   |                           |   :x:    |
-| **dataTest**              |  `String`   | `'dhis2-uicore-tablerow'` |   :x:    |
-| **role**                  |  `String`   |                           |   :x:    |
-| **suppressZebraStriping** |  `Boolean`  |                           |   :x:    | Disables the default row striping for this row          |
-
-## Table
-
-From [`table/src/table/table.js`](../components/table/src/table/table.js)
-
-| prop                      |    type     |        default         | required | description                                                          |
-| ------------------------- | :---------: | :--------------------: | :------: | -------------------------------------------------------------------- |
-| **children**              | `ReactNode` |                        |   :x:    | Should be `<TableHead>`, `<TableBody>`, and `<TableFoot>` components |
-| **className**             |  `String`   |                        |   :x:    |
-| **dataTest**              |  `String`   | `'dhis2-uicore-table'` |   :x:    |
-| **role**                  |  `String`   |                        |   :x:    |
-| **suppressZebraStriping** |  `Boolean`  |                        |   :x:    | Remove the default striping on alternating rows                      |
-
-## DataTableColumnHeader
-
-From [`table/src/data-table/data-table-column-header/data-table-column-header.js`](../components/table/src/data-table/data-table-column-header/data-table-column-header.js)
-
-| prop                  |               type                |              default               | required | description                                                                         |
-| --------------------- | :-------------------------------: | :--------------------------------: | :------: | ----------------------------------------------------------------------------------- |
-| **align**             | `Enum('left', 'center', 'right')` |                                    |   :x:    |
-| **children**          |            `ReactNode`            |                                    |   :x:    |
-| **className**         |             `String`              |                                    |   :x:    |
-| **colSpan**           |             `String`              |                                    |   :x:    |
-| **dataTest**          |             `String`              | `'dhis2-uicore-datatablecellhead'` |   :x:    |
-| **filter**            |             `custom`              |                                    |   :x:    | The filter element (JSX), required when onFilterIconClick or showFilter are present |
-| **fixed**             |             `Boolean`             |                                    |   :x:    |
-| **large**             |             `Boolean`             |                                    |   :x:    |
-| **left**              |             `custom`              |                                    |   :x:    | Left or top required when fixed                                                     |
-| **name**              |             `String`              |                                    |   :x:    | Can be used to match a column with a property name                                  |
-| **onFilterIconClick** |             `custom`              |                                    |   :x:    |
-| **onSortIconClick**   |             `custom`              |                                    |   :x:    | Sort icon click callback with `nextSortDirection` and `name` in payload             |
-| **role**              |             `String`              |                                    |   :x:    |
-| **rowSpan**           |             `String`              |                                    |   :x:    |
-| **scope**             |             `String`              |                                    |   :x:    |
-| **showFilter**        |             `custom`              |                                    |   :x:    |
-| **sortDirection**     |             `custom`              |                                    |   :x:    |
-| **sortIconTitle**     |             `String`              |                                    |   :x:    |
-| **top**               |             `custom`              |                                    |   :x:    | Left or top required when fixed                                                     |
-| **width**             |             `String`              |                                    |   :x:    |
-
-## DataTableRow
-
-From [`table/src/data-table/data-table-row/data-table-row.js`](../components/table/src/data-table/data-table-row/data-table-row.js)
-
-| prop                  |    type     |            default            | required | description                                                                                                                                                   |
-| --------------------- | :---------: | :---------------------------: | :------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **children**          | `ReactNode` |                               |   :x:    | Should be `<DataTableCell>` or `<DataTableCellHead>` components                                                                                               |
-| **className**         |  `String`   |                               |   :x:    |
-| **dataTest**          |  `String`   | `'dhis2-uicore-datatablerow'` |   :x:    |
-| **draggable**         |  `Boolean`  |                               |   :x:    | Renders and additional table cell with drag icon and applies draggable styles                                                                                 |
-| **expandableContent** |  `custom`   |                               |   :x:    | This content will be rendered into an additional row with fullwidth cell and the presence of this prop will display an additional table cell with expand icon |
-| **expanded**          |  `Boolean`  |                               |   :x:    | Toggles expand icon (up/down) and expandable content visibility                                                                                               |
-| **onExpandToggle**    |  `custom`   |                               |   :x:    | Callback for expand icon cell clicks                                                                                                                          |
-| **role**              |  `String`   |                               |   :x:    |
-| **selected**          |  `Boolean`  |                               |   :x:    | Adds a green background color                                                                                                                                 |
-
-## TableBody
-
-From [`table/src/data-table/table-elements/table-body.js`](../components/table/src/data-table/table-elements/table-body.js)
-
-| prop          |    type     |          default           | required | description                       |
-| ------------- | :---------: | :------------------------: | :------: | --------------------------------- |
-| **children**  | `ReactNode` |                            |   :x:    | Should be `<TableRow>` components |
-| **className** |  `String`   |                            |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-tablebody'` |   :x:    |
-| **loading**   |  `Boolean`  |                            |   :x:    |
-| **role**      |  `String`   |                            |   :x:    |
-
-## TableFoot
-
-From [`table/src/data-table/table-elements/table-foot.js`](../components/table/src/data-table/table-elements/table-foot.js)
-
-| prop          |    type     |          default           | required | description                       |
-| ------------- | :---------: | :------------------------: | :------: | --------------------------------- |
-| **children**  | `ReactNode` |                            |   :x:    | Should be `<TableRow>` components |
-| **className** |  `String`   |                            |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-tablefoot'` |   :x:    |
-| **role**      |  `String`   |                            |   :x:    |
-
-## TableHead
-
-From [`table/src/data-table/table-elements/table-head.js`](../components/table/src/data-table/table-elements/table-head.js)
-
-| prop          |    type     |          default           | required | description                           |
-| ------------- | :---------: | :------------------------: | :------: | ------------------------------------- |
-| **children**  | `ReactNode` |                            |   :x:    | Should be `<TableRowHead>` components |
-| **className** |  `String`   |                            |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-tablehead'` |   :x:    |
-| **role**      |  `String`   |                            |   :x:    |
-
-## TableRow
-
-From [`table/src/data-table/table-elements/table-row.js`](../components/table/src/data-table/table-elements/table-row.js)
-
-| prop          |    type     |          default          | required | description                                                     |
-| ------------- | :---------: | :-----------------------: | :------: | --------------------------------------------------------------- |
-| **children**  | `ReactNode` |                           |   :x:    | Should be `<TableDataCell>` or `<TableDataCellHead>` components |
-| **className** |  `String`   |                           |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-tablerow'` |   :x:    |
-| **draggable** |  `Boolean`  |                           |   :x:    | Applies draggable cursor styles                                 |
-| **role**      |  `String`   |                           |   :x:    |
-| **selected**  |  `Boolean`  |                           |   :x:    | Sets a selected (teal) background color                         |
-
-## Table
-
-From [`table/src/data-table/table-elements/table.js`](../components/table/src/data-table/table-elements/table.js)
-
-| prop           |                     type                      |        default         | required | description                                                                                                                                                                                       |
-| -------------- | :-------------------------------------------: | :--------------------: | :------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **borderless** |                   `Boolean`                   |                        |   :x:    | Removes border from the table                                                                                                                                                                     |
-| **children**   |                  `ReactNode`                  |                        |   :x:    | Should be `<TableHead>`, `<TableBody>`, and `<TableFoot>` components                                                                                                                              |
-| **className**  |                   `String`                    |                        |   :x:    |
-| **dataTest**   |                   `String`                    | `'dhis2-uicore-table'` |   :x:    |
-| **layout**     | `Enum('auto', 'fixed', 'initial', 'inherit')` |        `'auto'`        |   :x:    | Sets the `table-layout` property. Switching to `fixed` can prevent style issues when dealing with a table with multiple frozen columns or when dealing with filter elements in the table headers. |
-| **role**       |                   `String`                    |                        |   :x:    |
-| **width**      |                   `String`                    |        `'100%'`        |   :x:    | Sets the `width` property. Providing an explicit width can prevent style issues when dealing with horizontally scrolling tables with a fixed layout.                                              |
-
-## Tag
-
-From [`tag/src/tag.js`](../components/tag/src/tag.js)
-
-| prop          |    type     |       default        | required | description                                                                                                                                                             |
-| ------------- | :---------: | :------------------: | :------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **bold**      |  `Boolean`  |                      |   :x:    | Use bold tags where it is important that the tag is seen by the user in an information dense interface. Bold tags should be reserved for edge cases and not overused.   |
-| **children**  |  `String`   |                      |   :x:    |
-| **className** |  `String`   |                      |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-tag'` |   :x:    |
-| **icon**      | `ReactNode` |                      |   :x:    | Tags can contain icons. Use icons where they will help users easily identify the content of the tag. Tags must have a text label and cannot display only an icon.       |
-| **maxWidth**  |  `String`   |      `'240px'`       |   :x:    |
-| **negative**  |  `custom`   |                      |   :x:    | Red 'negative' tags imply an error or a problem. `neutral`, `positive`, and `negative` are mutually exclusive props                                                     |
-| **neutral**   |  `custom`   |                      |   :x:    | Blue 'neutral' tags are used when a tag _could_ have valid or error status but is currently neutral. `neutral`, `positive`, and `negative` are mutually exclusive props |
-| **positive**  |  `custom`   |                      |   :x:    | Green 'valid' tags should be used to indicate validity or success. `neutral`, `positive`, and `negative` are mutually exclusive props                                   |
-
-## TextArea
-
-From [`text-area/src/text-area/text-area.js`](../components/text-area/src/text-area/text-area.js)
-
-| prop             |                       type                       |          default          | required | description                                                                                                         |
-| ---------------- | :----------------------------------------------: | :-----------------------: | :------: | ------------------------------------------------------------------------------------------------------------------- |
-| **autoGrow**     |                    `Boolean`                     |                           |   :x:    | Grow the text area in response to overflow instead of adding a scroll bar                                           |
-| **className**    |                     `String`                     |                           |   :x:    |
-| **dataTest**     |                     `String`                     | `'dhis2-uicore-textarea'` |   :x:    |
-| **dense**        |                    `Boolean`                     |                           |   :x:    | Compact mode                                                                                                        |
-| **disabled**     |                    `Boolean`                     |                           |   :x:    | Disables the textarea and makes in non-interactive                                                                  |
-| **error**        |                     `custom`                     |                           |   :x:    | Applies 'error' styles for validation feedback. Mutually exclusive with `valid` and `warning` props                 |
-| **initialFocus** |                    `Boolean`                     |                           |   :x:    | Grabs initial focus on the page                                                                                     |
-| **loading**      |                    `Boolean`                     |                           |   :x:    | Adds a loading spinner                                                                                              |
-| **name**         |                     `String`                     |                           |   :x:    | Name associated with the text area. Passed in object argument to event handlers.                                    |
-| **onBlur**       |                    `Function`                    |                           |   :x:    | Called with signature ({ name: string, value: string }, event)                                                      |
-| **onChange**     |                    `Function`                    |                           |   :x:    | Called with signature ({ name: string, value: string }, event)                                                      |
-| **onFocus**      |                    `Function`                    |                           |   :x:    | Called with signature ({ name: string, value: string }, event)                                                      |
-| **placeholder**  |                     `String`                     |                           |   :x:    | Placeholder text for an empty textarea                                                                              |
-| **readOnly**     |                    `Boolean`                     |                           |   :x:    | Makes the textarea read-only                                                                                        |
-| **resize**       | `Enum('none', 'both', 'horizontal', 'vertical')` |       `'vertical'`        |   :x:    | [Resize property](https://developer.mozilla.org/en-US/docs/Web/CSS/resize) for the textarea element                 |
-| **rows**         |                     `Number`                     |            `4`            |   :x:    | Initial height of the textarea, in lines of text                                                                    |
-| **tabIndex**     |                     `String`                     |                           |   :x:    |
-| **valid**        |                     `custom`                     |                           |   :x:    | Applies 'valid' styles for validation feedback. Mutually exclusive with `warning` and `error` props                 |
-| **value**        |                     `String`                     |                           |   :x:    | Value in the textarea. Can be used to control component (recommended). Passed in object argument to event handlers. |
-| **warning**      |                     `custom`                     |                           |   :x:    | Applies 'warning' styles for validation feedback. Mutually exclusive with `valid` and `error` props                 |
-| **width**        |                     `String`                     |         `'100%'`          |   :x:    | Width of the text area. Can be any valid CSS measurement                                                            |
-
-## TextAreaField
-
-From [`text-area/src/text-area-field/text-area-field.js`](../components/text-area/src/text-area-field/text-area-field.js)
-
-| prop               |                       type                       |              default              | required | description                                                                                                          |
-| ------------------ | :----------------------------------------------: | :-------------------------------: | :------: | -------------------------------------------------------------------------------------------------------------------- |
-| **autoGrow**       |                    `Boolean`                     |                                   |   :x:    | Grow the text area in response to overflow instead of adding a scroll bar                                            |
-| **className**      |                     `String`                     |                                   |   :x:    |
-| **dataTest**       |                     `String`                     | `'dhis2-uiwidgets-textareafield'` |   :x:    |
-| **dense**          |                    `Boolean`                     |                                   |   :x:    | Compact mode                                                                                                         |
-| **disabled**       |                    `Boolean`                     |                                   |   :x:    | Disables the textarea and makes in non-interactive                                                                   |
-| **error**          |                     `custom`                     |                                   |   :x:    | Applies 'error' styles for validation feedback. Mutually exclusive with `valid` and `warning` props                  |
-| **helpText**       |                     `String`                     |                                   |   :x:    | Adds useful help text below the textarea                                                                             |
-| **initialFocus**   |                    `Boolean`                     |                                   |   :x:    | Grabs initial focus on the page                                                                                      |
-| **inputWidth**     |                     `String`                     |                                   |   :x:    | Sets the width of the textarea. Minimum 220px. Any valid CSS measurement can be used                                 |
-| **label**          |                     `String`                     |                                   |   :x:    | Labels the textarea                                                                                                  |
-| **loading**        |                    `Boolean`                     |                                   |   :x:    | Adds a loading spinner                                                                                               |
-| **name**           |                     `String`                     |                                   |   :x:    | Name associated with the text area. Passed in object argument to event handlers.                                     |
-| **onBlur**         |                    `Function`                    |                                   |   :x:    | Called with signature ({ name: string, value: string }, event)                                                       |
-| **onChange**       |                    `Function`                    |                                   |   :x:    | Called with signature ({ name: string, value: string }, event)                                                       |
-| **onFocus**        |                    `Function`                    |                                   |   :x:    | Called with signature ({ name: string, value: string }, event)                                                       |
-| **placeholder**    |                     `String`                     |                                   |   :x:    | Placeholder text for an empty textarea                                                                               |
-| **readOnly**       |                    `Boolean`                     |                                   |   :x:    | Makes the textarea read-only                                                                                         |
-| **required**       |                    `Boolean`                     |                                   |   :x:    | Adds an asterisk to the label to indicate this field is required                                                     |
-| **resize**         | `Enum('none', 'both', 'horizontal', 'vertical')` |           `'vertical'`            |   :x:    | [Resize property](https://developer.mozilla.org/en-US/docs/Web/CSS/resize) for the textarea element                  |
-| **rows**           |                     `Number`                     |                `4`                |   :x:    | Initial height of the textarea, in lines of text                                                                     |
-| **tabIndex**       |                     `String`                     |                                   |   :x:    |
-| **valid**          |                     `custom`                     |                                   |   :x:    | Applies 'valid' styles for validation feedback. Mutually exclusive with `warning` and `error` props                  |
-| **validationText** |                     `String`                     |                                   |   :x:    | Validation text below the textarea to provide validation feedback. Changes appearance depending on validation status |
-| **value**          |                     `String`                     |                                   |   :x:    | Value in the textarea. Can be used to control component (recommended). Passed in object argument to event handlers.  |
-| **warning**        |                     `custom`                     |                                   |   :x:    | Applies 'warning' styles for validation feedback. Mutually exclusive with `valid` and `error` props                  |
-
-## Tooltip
-
-From [`tooltip/src/tooltip.js`](../components/tooltip/src/tooltip.js)
-
-| prop            |                   type                   |         default          | required | description                                                                                                                                                                                                   |
-| --------------- | :--------------------------------------: | :----------------------: | :------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **children**    |       `Union<ReactNode\|Function>`       |                          |   :x:    | If child is a function, it's called with `{ onMouseOver, onMouseOut, ref }` args to apply to a reference element. If child is a node, it is wrapped in a `span` with the appropriate attributes and handlers. |
-| **children<1>** |               `ReactNode`                |                          |   :x:    |
-| **children<2>** |                `Function`                |                          |   :x:    |
-| **className**   |                 `String`                 |                          |   :x:    |
-| **closeDelay**  |                 `Number`                 |          `200`           |   :x:    | Time (in ms) until tooltip closes after mouse out                                                                                                                                                             |
-| **content**     |               `ReactNode`                |                          |   :x:    | Content to display when the tooltip is open                                                                                                                                                                   |
-| **dataTest**    |                 `String`                 | `'dhis2-uicore-tooltip'` |   :x:    |
-| **maxWidth**    |                 `Number`                 |          `300`           |   :x:    | Max width of the tooltip in px                                                                                                                                                                                |
-| **openDelay**   |                 `Number`                 |          `200`           |   :x:    | Time (in ms) until tooltip open after mouse over                                                                                                                                                              |
-| **placement**   | `Enum('top', 'right', 'bottom', 'left')` |         `'top'`          |   :x:    | Where to place the tooltip relative to its reference                                                                                                                                                          |
-
-## TransferOption
-
-From [`transfer/src/transfer-option.js`](../components/transfer/src/transfer-option.js)
-
-| prop              |    type    |             default             |      required      | description |
-| ----------------- | :--------: | :-----------------------------: | :----------------: | ----------- |
-| **className**     |  `String`  |                                 |        :x:         |
-| **dataTest**      |  `String`  | `'dhis2-uicore-transferoption'` |        :x:         |
-| **disabled**      | `Boolean`  |                                 |        :x:         |
-| **highlighted**   | `Boolean`  |                                 |        :x:         |
-| **label**         |  `String`  |                                 | :white_check_mark: |
-| **onClick**       | `Function` |                                 |        :x:         |
-| **onDoubleClick** | `Function` |                                 |        :x:         |
-| **value**         |  `String`  |                                 | :white_check_mark: |
-
-## Transfer
-
-From [`transfer/src/transfer.js`](../components/transfer/src/transfer.js)
-
-| prop                        |        type         |                   default                    |      required      | description |
-| --------------------------- | :-----------------: | :------------------------------------------: | :----------------: | ----------- |
-| **addAllText**              |      `String`       |                                              |        :x:         |
-| **addIndividualText**       |      `String`       |                                              |        :x:         |
-| **className**               |      `String`       |                                              |        :x:         |
-| **dataTest**                |      `String`       |          `'dhis2-uicore-transfer'`           |        :x:         |
-| **disabled**                |      `Boolean`      |                                              |        :x:         |
-| **enableOrderChange**       |      `Boolean`      |                                              |        :x:         |
-| **filterCallback**          |     `Function`      |           `defaultFilterCallback`            |        :x:         |
-| **filterCallbackPicked**    |     `Function`      |           `defaultFilterCallback`            |        :x:         |
-| **filterLabel**             |      `String`       |                                              |        :x:         |
-| **filterLabelPicked**       |      `String`       |                                              |        :x:         |
-| **filterPlaceholder**       |      `String`       |                                              |        :x:         |
-| **filterPlaceholderPicked** |      `String`       |                                              |        :x:         |
-| **filterable**              |      `Boolean`      |                                              |        :x:         |
-| **filterablePicked**        |      `Boolean`      |                                              |        :x:         |
-| **height**                  |      `String`       |                  `'240px'`                   |        :x:         |
-| **hideFilterInput**         |      `Boolean`      |                                              |        :x:         |
-| **hideFilterInputPicked**   |      `Boolean`      |                                              |        :x:         |
-| **initialSearchTerm**       |      `String`       |                     `''`                     |        :x:         |
-| **initialSearchTermPicked** |      `String`       |                     `''`                     |        :x:         |
-| **leftFooter**              |     `ReactNode`     |                                              |        :x:         |
-| **leftHeader**              |     `ReactNode`     |                                              |        :x:         |
-| **loading**                 |      `Boolean`      |                                              |        :x:         |
-| **loadingPicked**           |      `Boolean`      |                                              |        :x:         |
-| **maxSelections**           | `Enum(1, Infinity)` |                  `Infinity`                  |        :x:         |
-| **onChange**                |     `Function`      |                                              | :white_check_mark: |
-| **onEndReached**            |     `Function`      |                                              |        :x:         |
-| **onEndReachedPicked**      |     `Function`      |                                              |        :x:         |
-| **onFilterChange**          |     `Function`      |                                              |        :x:         |
-| **onFilterChangePicked**    |     `Function`      |                                              |        :x:         |
-| **options**                 |  `Array[]<Shape>`   |                                              | :white_check_mark: |
-| **optionsWidth**            |      `String`       |                  `'320px'`                   |        :x:         |
-| **options[].disabled**      |      `Boolean`      |                                              |        :x:         |
-| **options[].label**         |      `String`       |                                              | :white_check_mark: |
-| **options[].value**         |      `String`       |                                              | :white_check_mark: |
-| **removeAllText**           |      `String`       |                                              |        :x:         |
-| **removeIndividualText**    |      `String`       |                                              |        :x:         |
-| **renderOption**            |     `Function`      | `(option) => <TransferOption {...option} />` |        :x:         |
-| **rightFooter**             |     `ReactNode`     |                                              |        :x:         |
-| **rightHeader**             |     `ReactNode`     |                                              |        :x:         |
-| **searchTerm**              |      `String`       |                                              |        :x:         |
-| **searchTermPicked**        |      `String`       |                                              |        :x:         |
-| **selected**                |  `Array[]<String>`  |                     `[]`                     |        :x:         |
-| **selectedEmptyComponent**  |     `ReactNode`     |                                              |        :x:         |
-| **selectedWidth**           |      `String`       |                  `'320px'`                   |        :x:         |
-| **sourceEmptyPlaceholder**  |     `ReactNode`     |                                              |        :x:         |
-
-## UserAvatar
-
-From [`user-avatar/src/user-avatar.js`](../components/user-avatar/src/user-avatar.js)
-
-An avatar is a visual icon that represents a user.
-
-Use an avatar to give extra information when a user is mentioned or displayed in DHIS2. The avatar shows a user uploaded photograph or initials. The avatar is intended to give context and help to identify different users. An avatar is usually shown alongside the user name, but can be used alone to show a visual hint of a user.
-
-See specification: [Design System](https://github.com/dhis2/design-system/blob/master/atoms/avatar.md)
+} from './constants.js'`||*|The type of object to share| |initialSharingSettings|`{
+"allowPublic": "boolean",
+"groups": "objectOf",
+"name": "string",
+"public": "import {\n ACCESS_NONE,\n ACCESS_VIEW_ONLY,\n ACCESS_VIEW_AND_EDIT,\n VISUALIZATION,\n DASHBOARD,\n} from './constants.js' │ import {\n ACCESS_NONE,\n ACCESS_VIEW_ONLY,\n ACCESS_VIEW_AND_EDIT,\n VISUALIZATION,\n DASHBOARD,\n} from './constants.js' │ import {\n ACCESS_NONE,\n ACCESS_VIEW_ONLY,\n ACCESS_VIEW_AND_EDIT,\n VISUALIZATION,\n DASHBOARD,\n} from './constants.js'",
+"users": "objectOf"
+}`|`{
+name: '',
+allowPublic: true,
+public: ACCESS_NONE,
+groups: {},
+users: {},
+}`||Used to seed the component with data to show whilst loading| |onClose|`function`|`() => {}`||| |onError|`function`|`() => {}`||| |onSave|`function`|`() => {}`|||
+
+### Modal
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Modal } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name     | Type       | Default | Required | Description |
+| -------- | ---------- | ------- | -------- | ----------- |
+| children | `node`     |         | \*       |             |
+| name     | `string`   |         |          |             |
+| onClose  | `function` |         |          |             |
+
+### Switch
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Switch } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name         | Type       | Default                 | Required | Description                                                                                              |
+| ------------ | ---------- | ----------------------- | -------- | -------------------------------------------------------------------------------------------------------- |
+| ariaLabel    | `string`   |                         |          | Sets an aria-label attribute on the input                                                                |
+| checked      | `boolean`  | `false`                 |          |                                                                                                          |
+| className    | `string`   |                         |          |                                                                                                          |
+| dataTest     | `string`   | `'dhis2-uicore-switch'` |          |                                                                                                          |
+| dense        | `boolean`  |                         |          | Makes the switch smaller for information-dense layouts                                                   |
+| disabled     | `boolean`  |                         |          | Disables the switch                                                                                      |
+| error        | `custom`   |                         |          | Applies 'error' styles for validation feedback. Mutually exclusive with `valid` and `warning` prop types |
+| initialFocus | `boolean`  |                         |          | Grab initial focus on the page                                                                           |
+| label        | `node`     |                         |          | Label for the switch. Can be a string or an element, for example an image                                |
+| name         | `string`   |                         |          | Name associated with the switch. Passed to event handlers in object                                      |
+| role         | `string`   | `'switch'`              |          | Sets a role attribute on the input                                                                       |
+| tabIndex     | `string`   |                         |          |                                                                                                          |
+| valid        | `custom`   |                         |          | Applies 'valid' styles for validation feedback. Mutually exclusive with `error` and `warning` prop types |
+| value        | `string`   |                         |          | Value associated with the switch. Passed to event handlers in object                                     |
+| warning      | `custom`   |                         |          | Applies 'warning' styles for validation feedback. Mutually exclusive with `valid` and `error` prop types |
+| onBlur       | `function` |                         |          | Called with signature `({ name: string, value: string, checked: bool }, event)`                          |
+| onChange     | `function` |                         |          | Called with signature `({ name: string, value: string, checked: bool }, event)`                          |
+| onFocus      | `function` |                         |          | Called with signature `({ name: string, value: string, checked: bool }, event)`                          |
+
+### SwitchField
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SwitchField } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name           | Type       | Default                         | Required | Description                                                                                                             |
+| -------------- | ---------- | ------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------- |
+| checked        | `boolean`  |                                 |          |                                                                                                                         |
+| className      | `string`   |                                 |          |                                                                                                                         |
+| dataTest       | `string`   | `'dhis2-uiwidgets-switchfield'` |          |                                                                                                                         |
+| dense          | `boolean`  |                                 |          | Smaller dimensions for information-dense layouts                                                                        |
+| disabled       | `boolean`  |                                 |          | Disables the switch                                                                                                     |
+| error          | `custom`   |                                 |          | Applies 'error' styling to switch and validation text for feedback. Mutually exclusive with `warning` and `valid` props |
+| helpText       | `string`   |                                 |          | Useful instructions for the user                                                                                        |
+| initialFocus   | `boolean`  |                                 |          |                                                                                                                         |
+| label          | `node`     |                                 |          | Labels the switch                                                                                                       |
+| name           | `string`   |                                 |          | Name associate with the switch. Passed in object as argument to event handlers                                          |
+| required       | `boolean`  |                                 |          | Adds an asterisk to indicate this field is required                                                                     |
+| tabIndex       | `string`   |                                 |          |                                                                                                                         |
+| valid          | `custom`   |                                 |          | Applies 'valid' styling to switch and validation text for feedback. Mutually exclusive with `warning` and `error` props |
+| validationText | `string`   |                                 |          | Adds text below the switch to provide validation feedback. Acquires styles from `valid`, `warning` and `error` statuses |
+| value          | `string`   |                                 |          | Value associated with the switch. Passed in object as argument to event handlers                                        |
+| warning        | `custom`   |                                 |          | Applies 'warning' styling to switch and validation text for feedback. Mutually exclusive with `valid` and `error` props |
+| onBlur         | `function` |                                 |          | Called with signature ({ name: string, value: string, checked: bool }, event)                                           |
+| onChange       | `function` |                                 |          | Called with signature ({ name: string, value: string, checked: bool }, event)                                           |
+| onFocus        | `function` |                                 |          | Called with signature ({ name: string, value: string, checked: bool }, event)                                           |
+
+### Tab
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Tab } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type       | Default              | Required | Description                             |
+| --------- | ---------- | -------------------- | -------- | --------------------------------------- |
+| children  | `node`     |                      |          |                                         |
+| className | `string`   |                      |          |                                         |
+| dataTest  | `string`   | `'dhis2-uicore-tab'` |          |                                         |
+| disabled  | `boolean`  |                      |          |                                         |
+| icon      | `element`  |                      |          |                                         |
+| selected  | `boolean`  |                      |          | Indicates this tab is selected          |
+| onClick   | `function` |                      |          | Called with the signature `({}, event)` |
+
+### TabBar
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { TabBar } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name       | Type      | Default                 | Required | Description                                                                                                                                                               |
+| ---------- | --------- | ----------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| children   | `node`    |                         |          |                                                                                                                                                                           |
+| className  | `string`  |                         |          |                                                                                                                                                                           |
+| dataTest   | `string`  | `'dhis2-uicore-tabbar'` |          |                                                                                                                                                                           |
+| fixed      | `boolean` |                         |          | Fixed tabs fill the width of their container. If false (i.e. fluid), tabs take up an amount of space defined by the tab name. Fluid tabs should be used most of the time. |
+| scrollable | `boolean` |                         |          | Enables horizontal scrolling for many tabs that don't fit the width of the container                                                                                      |
+
+### DataTableCell
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { DataTableCell } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name        | Type                          | Default                        | Required | Description                                                          |
+| ----------- | ----------------------------- | ------------------------------ | -------- | -------------------------------------------------------------------- |
+| active      | `boolean`                     |                                |          | To toggle background color, for example for editing                  |
+| align       | `'left' │ 'center' │ 'right'` | `'left'`                       |          |                                                                      |
+| bordered    | `boolean`                     |                                |          |                                                                      |
+| children    | `node`                        |                                |          |                                                                      |
+| className   | `string`                      |                                |          |                                                                      |
+| colSpan     | `string`                      |                                |          |                                                                      |
+| dataTest    | `string`                      | `'dhis2-uicore-datatablecell'` |          |                                                                      |
+| error       | `custom`                      |                                |          | Mutually exclusive with muted and valid                              |
+| fixed       | `boolean`                     |                                |          | When true a TableHeaderCell with sticky positioning will be rendered |
+| large       | `boolean`                     |                                |          |                                                                      |
+| left        | `custom`                      | `'auto'`                       |          | Required when fixed                                                  |
+| muted       | `custom`                      |                                |          | Mutually exclusive with error and valid                              |
+| role        | `string`                      |                                |          |                                                                      |
+| rowSpan     | `string`                      |                                |          |                                                                      |
+| scope       | `string`                      |                                |          |                                                                      |
+| staticStyle | `boolean`                     |                                |          | Surpress hover and active event styles                               |
+| tag         | `'td' │ 'th'`                 |                                |          | Render a TableDataCell or TableHeaderCell respectively               |
+| valid       | `custom`                      |                                |          | Mutually exclusive with error and muted                              |
+| width       | `custom`                      | `'auto'`                       |          | Required when fixed                                                  |
+| onClick     | `function`                    |                                |          |                                                                      |
+
+### DataTable
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { DataTable } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type                                       | Default                    | Required | Description                                                                      |
+| --------- | ------------------------------------------ | -------------------------- | -------- | -------------------------------------------------------------------------------- |
+| children  | `node`                                     |                            |          | Should be `<DataTableHead>`, `<DataTableBody>`, and `<DataTableFoot>` components |
+| className | `string`                                   |                            |          |                                                                                  |
+| dataTest  | `string`                                   | `'dhis2-uicore-datatable'` |          |                                                                                  |
+| layout    | `'auto' │ 'fixed' │ 'initial' │ 'inherit'` | `'auto'`                   |          | Sets the `datatable-layout` property. Switching to `fixed` can prevent style     |
+
+issues when dealing with a datatable with multiple frozen columns or when dealing
+with filter elements in the datatable headers.|
+|role|`string`||||
+|scrollHeight|`string`|||Sets max-height of scrollbox|
+|scrollWidth|`string`|||Sets max-width of scrollbox|
+|width|`string`|`'100%'`||Sets the `width` property. Providing an explicit width can prevent style
+issues when dealing with horizontally scrolling datatables with a fixed layout.|
+
+### StackedTableBody
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { StackedTableBody } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type     | Default                           | Required | Description |
+| --------- | -------- | --------------------------------- | -------- | ----------- |
+| children  | `node`   |                                   |          |             |
+| className | `string` |                                   |          |             |
+| dataTest  | `string` | `'dhis2-uicore-stackedtablebody'` |          |             |
+
+### StackedTableCellHead
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { StackedTableCellHead } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type     | Default                               | Required | Description |
+| --------- | -------- | ------------------------------------- | -------- | ----------- |
+| children  | `string` | `''`                                  |          |             |
+| className | `string` |                                       |          |             |
+| colSpan   | `string` |                                       |          |             |
+| dataTest  | `string` | `'dhis2-uicore-stackedtablecellhead'` |          |             |
+| rowSpan   | `string` |                                       |          |             |
+
+### StackedTableCell
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { StackedTableCell } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name         | Type              | Default                           | Required | Description |
+| ------------ | ----------------- | --------------------------------- | -------- | ----------- |
+| children     | `node`            |                                   |          |             |
+| className    | `string`          |                                   |          |             |
+| colSpan      | `string`          |                                   |          |             |
+| column       | `number`          |                                   |          |             |
+| dataTest     | `string`          | `'dhis2-uicore-stackedtablecell'` |          |             |
+| headerLabels | `arrayOf(string)` | `[]`                              |          |             |
+| hideTitle    | `boolean`         |                                   |          |             |
+| rowSpan      | `string`          |                                   |          |             |
+| title        | `string`          |                                   |          |             |
+
+### StackedTableFoot
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { StackedTableFoot } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type     | Default                           | Required | Description |
+| --------- | -------- | --------------------------------- | -------- | ----------- |
+| children  | `node`   |                                   |          |             |
+| className | `string` |                                   |          |             |
+| dataTest  | `string` | `'dhis2-uicore-stackedtablefoot'` |          |             |
+
+### StackedTableHead
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { StackedTableHead } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type     | Default                           | Required | Description |
+| --------- | -------- | --------------------------------- | -------- | ----------- |
+| children  | `node`   |                                   |          |             |
+| className | `string` |                                   |          |             |
+| dataTest  | `string` | `'dhis2-uicore-stackedtablehead'` |          |             |
+
+### StackedTableRowHead
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { StackedTableRowHead } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type     | Default                              | Required | Description |
+| --------- | -------- | ------------------------------------ | -------- | ----------- |
+| children  | `node`   |                                      |          |             |
+| className | `string` |                                      |          |             |
+| dataTest  | `string` | `'dhis2-uicore-stackedtablerowhead'` |          |             |
+
+### StackedTableRow
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { StackedTableRow } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type     | Default                          | Required | Description |
+| --------- | -------- | -------------------------------- | -------- | ----------- |
+| children  | `node`   |                                  |          |             |
+| className | `string` |                                  |          |             |
+| dataTest  | `string` | `'dhis2-uicore-stackedtablerow'` |          |             |
+
+### StackedTable
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { StackedTable } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name         | Type              | Default                       | Required | Description                                                            |
+| ------------ | ----------------- | ----------------------------- | -------- | ---------------------------------------------------------------------- |
+| children     | `node`            |                               |          |                                                                        |
+| className    | `string`          |                               |          |                                                                        |
+| dataTest     | `string`          | `'dhis2-uicore-stackedtable'` |          |                                                                        |
+| headerLabels | `arrayOf(string)` |                               |          | Labels for columns. Use an empty string for a column without a header. |
+
+### Table
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Table } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type     | Default | Required | Description |
+| --------- | -------- | ------- | -------- | ----------- |
+| children  | `node`   |         | \*       |             |
+| className | `string` |         |          |             |
+| dataTest  | `string` |         |          |             |
+
+### TableBody
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { TableBody } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type     | Default                    | Required | Description                       |
+| --------- | -------- | -------------------------- | -------- | --------------------------------- |
+| children  | `node`   |                            |          | Should be `<TableRow>` components |
+| className | `string` |                            |          |                                   |
+| dataTest  | `string` | `'dhis2-uicore-tablebody'` |          |                                   |
+| role      | `string` |                            |          |                                   |
+
+### TableCellHead
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { TableCellHead } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type      | Default                        | Required | Description                                                |
+| --------- | --------- | ------------------------------ | -------- | ---------------------------------------------------------- |
+| children  | `node`    |                                |          |                                                            |
+| className | `string`  |                                |          |                                                            |
+| colSpan   | `string`  |                                |          |                                                            |
+| dataTest  | `string`  | `'dhis2-uicore-tablecellhead'` |          |                                                            |
+| dense     | `boolean` |                                |          | Uses less padding and height for information-dense layouts |
+| role      | `string`  |                                |          |                                                            |
+| rowSpan   | `string`  |                                |          |                                                            |
+
+### TableCell
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { TableCell } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type      | Default                    | Required | Description                                                 |
+| --------- | --------- | -------------------------- | -------- | ----------------------------------------------------------- |
+| children  | `node`    |                            |          |                                                             |
+| className | `string`  |                            |          |                                                             |
+| colSpan   | `string`  |                            |          |                                                             |
+| dataTest  | `string`  | `'dhis2-uicore-tablecell'` |          |                                                             |
+| dense     | `boolean` |                            |          | Usees less padding and height for information-dense layouts |
+| role      | `string`  |                            |          |                                                             |
+| rowSpan   | `string`  |                            |          |                                                             |
+
+### TableFoot
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { TableFoot } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type     | Default                    | Required | Description                       |
+| --------- | -------- | -------------------------- | -------- | --------------------------------- |
+| children  | `node`   |                            |          | Should be `<TableRow>` components |
+| className | `string` |                            |          |                                   |
+| dataTest  | `string` | `'dhis2-uicore-tablefoot'` |          |                                   |
+| role      | `string` |                            |          |                                   |
+
+### TableHead
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { TableHead } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type     | Default                    | Required | Description                           |
+| --------- | -------- | -------------------------- | -------- | ------------------------------------- |
+| children  | `node`   |                            |          | Should be `<TableRowHead>` components |
+| className | `string` |                            |          |                                       |
+| dataTest  | `string` | `'dhis2-uicore-tablehead'` |          |                                       |
+| role      | `string` |                            |          |                                       |
+
+### TableRowHead
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { TableRowHead } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name                  | Type      | Default                       | Required | Description                                    |
+| --------------------- | --------- | ----------------------------- | -------- | ---------------------------------------------- |
+| children              | `node`    |                               |          | Should be `<TableCellHead>` components         |
+| className             | `string`  |                               |          |                                                |
+| dataTest              | `string`  | `'dhis2-uicore-tablerowhead'` |          |                                                |
+| role                  | `string`  |                               |          |                                                |
+| suppressZebraStriping | `boolean` |                               |          | Disables the default row striping for this row |
+
+### TableRow
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { TableRow } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name                  | Type      | Default                   | Required | Description                                             |
+| --------------------- | --------- | ------------------------- | -------- | ------------------------------------------------------- |
+| children              | `node`    |                           |          | Should be `<TableCell>` or `<TableCellHead>` components |
+| className             | `string`  |                           |          |                                                         |
+| dataTest              | `string`  | `'dhis2-uicore-tablerow'` |          |                                                         |
+| role                  | `string`  |                           |          |                                                         |
+| suppressZebraStriping | `boolean` |                           |          | Disables the default row striping for this row          |
+
+### Table
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Table } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name                  | Type      | Default                | Required | Description                                                          |
+| --------------------- | --------- | ---------------------- | -------- | -------------------------------------------------------------------- |
+| children              | `node`    |                        |          | Should be `<TableHead>`, `<TableBody>`, and `<TableFoot>` components |
+| className             | `string`  |                        |          |                                                                      |
+| dataTest              | `string`  | `'dhis2-uicore-table'` |          |                                                                      |
+| role                  | `string`  |                        |          |                                                                      |
+| suppressZebraStriping | `boolean` |                        |          | Remove the default striping on alternating rows                      |
+
+### DataTableColumnHeader
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { DataTableColumnHeader } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name              | Type                          | Default                            | Required | Description                                                                         |
+| ----------------- | ----------------------------- | ---------------------------------- | -------- | ----------------------------------------------------------------------------------- |
+| align             | `'left' │ 'center' │ 'right'` |                                    |          |                                                                                     |
+| children          | `node`                        |                                    |          |                                                                                     |
+| className         | `string`                      |                                    |          |                                                                                     |
+| colSpan           | `string`                      |                                    |          |                                                                                     |
+| dataTest          | `string`                      | `'dhis2-uicore-datatablecellhead'` |          |                                                                                     |
+| filter            | `custom`                      |                                    |          | The filter element (JSX), required when onFilterIconClick or showFilter are present |
+| fixed             | `boolean`                     |                                    |          |                                                                                     |
+| large             | `boolean`                     |                                    |          |                                                                                     |
+| left              | `custom`                      |                                    |          | Left or top required when fixed                                                     |
+| name              | `string`                      |                                    |          | Can be used to match a column with a property name                                  |
+| role              | `string`                      |                                    |          |                                                                                     |
+| rowSpan           | `string`                      |                                    |          |                                                                                     |
+| scope             | `string`                      |                                    |          |                                                                                     |
+| showFilter        | `custom`                      |                                    |          |                                                                                     |
+| sortDirection     | `custom`                      |                                    |          |                                                                                     |
+| sortIconTitle     | `string`                      |                                    |          |                                                                                     |
+| top               | `custom`                      |                                    |          | Left or top required when fixed                                                     |
+| width             | `string`                      |                                    |          |                                                                                     |
+| onFilterIconClick | `custom`                      |                                    |          |                                                                                     |
+| onSortIconClick   | `custom`                      |                                    |          | Sort icon click callback with `nextSortDirection` and `name` in payload             |
+
+### DataTableRow
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { DataTableRow } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name              | Type      | Default                       | Required | Description                                                                                                                                                   |
+| ----------------- | --------- | ----------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| children          | `node`    |                               |          | Should be `<DataTableCell>` or `<DataTableCellHead>` components                                                                                               |
+| className         | `string`  |                               |          |                                                                                                                                                               |
+| dataTest          | `string`  | `'dhis2-uicore-datatablerow'` |          |                                                                                                                                                               |
+| draggable         | `boolean` |                               |          | Renders and additional table cell with drag icon and applies draggable styles                                                                                 |
+| expandableContent | `custom`  |                               |          | This content will be rendered into an additional row with fullwidth cell and the presence of this prop will display an additional table cell with expand icon |
+| expanded          | `boolean` |                               |          | Toggles expand icon (up/down) and expandable content visibility                                                                                               |
+| role              | `string`  |                               |          |                                                                                                                                                               |
+| selected          | `boolean` |                               |          | Adds a green background color                                                                                                                                 |
+| onExpandToggle    | `custom`  |                               |          | Callback for expand icon cell clicks                                                                                                                          |
+
+### TableBody
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { TableBody } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type      | Default                    | Required | Description                       |
+| --------- | --------- | -------------------------- | -------- | --------------------------------- |
+| children  | `node`    |                            |          | Should be `<TableRow>` components |
+| className | `string`  |                            |          |                                   |
+| dataTest  | `string`  | `'dhis2-uicore-tablebody'` |          |                                   |
+| loading   | `boolean` |                            |          |                                   |
+| role      | `string`  |                            |          |                                   |
+
+### TableFoot
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { TableFoot } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type     | Default                    | Required | Description                       |
+| --------- | -------- | -------------------------- | -------- | --------------------------------- |
+| children  | `node`   |                            |          | Should be `<TableRow>` components |
+| className | `string` |                            |          |                                   |
+| dataTest  | `string` | `'dhis2-uicore-tablefoot'` |          |                                   |
+| role      | `string` |                            |          |                                   |
+
+### TableHead
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { TableHead } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type     | Default                    | Required | Description                           |
+| --------- | -------- | -------------------------- | -------- | ------------------------------------- |
+| children  | `node`   |                            |          | Should be `<TableRowHead>` components |
+| className | `string` |                            |          |                                       |
+| dataTest  | `string` | `'dhis2-uicore-tablehead'` |          |                                       |
+| role      | `string` |                            |          |                                       |
+
+### TableRow
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { TableRow } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type      | Default                   | Required | Description                                                     |
+| --------- | --------- | ------------------------- | -------- | --------------------------------------------------------------- |
+| children  | `node`    |                           |          | Should be `<TableDataCell>` or `<TableDataCellHead>` components |
+| className | `string`  |                           |          |                                                                 |
+| dataTest  | `string`  | `'dhis2-uicore-tablerow'` |          |                                                                 |
+| draggable | `boolean` |                           |          | Applies draggable cursor styles                                 |
+| role      | `string`  |                           |          |                                                                 |
+| selected  | `boolean` |                           |          | Sets a selected (teal) background color                         |
+
+### Table
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Table } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name       | Type                                       | Default                | Required | Description                                                              |
+| ---------- | ------------------------------------------ | ---------------------- | -------- | ------------------------------------------------------------------------ |
+| borderless | `boolean`                                  |                        |          | Removes border from the table                                            |
+| children   | `node`                                     |                        |          | Should be `<TableHead>`, `<TableBody>`, and `<TableFoot>` components     |
+| className  | `string`                                   |                        |          |                                                                          |
+| dataTest   | `string`                                   | `'dhis2-uicore-table'` |          |                                                                          |
+| layout     | `'auto' │ 'fixed' │ 'initial' │ 'inherit'` | `'auto'`               |          | Sets the `table-layout` property. Switching to `fixed` can prevent style |
+
+issues when dealing with a table with multiple frozen columns or when dealing
+with filter elements in the table headers.|
+|role|`string`||||
+|width|`string`|`'100%'`||Sets the `width` property. Providing an explicit width can prevent style
+issues when dealing with horizontally scrolling tables with a fixed layout.|
+
+### Tag
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Tag } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name      | Type      | Default              | Required | Description                                                                                                                                                             |
+| --------- | --------- | -------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| bold      | `boolean` |                      |          | Use bold tags where it is important that the tag is seen by the user in an information dense interface. Bold tags should be reserved for edge cases and not overused.   |
+| children  | `string`  |                      |          |                                                                                                                                                                         |
+| className | `string`  |                      |          |                                                                                                                                                                         |
+| dataTest  | `string`  | `'dhis2-uicore-tag'` |          |                                                                                                                                                                         |
+| icon      | `node`    |                      |          | Tags can contain icons. Use icons where they will help users easily identify the content of the tag. Tags must have a text label and cannot display only an icon.       |
+| maxWidth  | `string`  | `'240px'`            |          |                                                                                                                                                                         |
+| negative  | `custom`  |                      |          | Red 'negative' tags imply an error or a problem. `neutral`, `positive`, and `negative` are mutually exclusive props                                                     |
+| neutral   | `custom`  |                      |          | Blue 'neutral' tags are used when a tag _could_ have valid or error status but is currently neutral. `neutral`, `positive`, and `negative` are mutually exclusive props |
+| positive  | `custom`  |                      |          | Green 'valid' tags should be used to indicate validity or success. `neutral`, `positive`, and `negative` are mutually exclusive props                                   |
+
+### TextArea
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { TextArea } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name         | Type                                          | Default                   | Required | Description                                                                                                         |
+| ------------ | --------------------------------------------- | ------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------- |
+| autoGrow     | `boolean`                                     |                           |          | Grow the text area in response to overflow instead of adding a scroll bar                                           |
+| className    | `string`                                      |                           |          |                                                                                                                     |
+| dataTest     | `string`                                      | `'dhis2-uicore-textarea'` |          |                                                                                                                     |
+| dense        | `boolean`                                     |                           |          | Compact mode                                                                                                        |
+| disabled     | `boolean`                                     |                           |          | Disables the textarea and makes in non-interactive                                                                  |
+| error        | `custom`                                      |                           |          | Applies 'error' styles for validation feedback. Mutually exclusive with `valid` and `warning` props                 |
+| initialFocus | `boolean`                                     |                           |          | Grabs initial focus on the page                                                                                     |
+| loading      | `boolean`                                     |                           |          | Adds a loading spinner                                                                                              |
+| name         | `string`                                      |                           |          | Name associated with the text area. Passed in object argument to event handlers.                                    |
+| placeholder  | `string`                                      |                           |          | Placeholder text for an empty textarea                                                                              |
+| readOnly     | `boolean`                                     |                           |          | Makes the textarea read-only                                                                                        |
+| resize       | `'none' │ 'both' │ 'horizontal' │ 'vertical'` | `'vertical'`              |          | [Resize property](https://developer.mozilla.org/en-US/docs/Web/CSS/resize) for the textarea element                 |
+| rows         | `number`                                      | `4`                       |          | Initial height of the textarea, in lines of text                                                                    |
+| tabIndex     | `string`                                      |                           |          |                                                                                                                     |
+| valid        | `custom`                                      |                           |          | Applies 'valid' styles for validation feedback. Mutually exclusive with `warning` and `error` props                 |
+| value        | `string`                                      |                           |          | Value in the textarea. Can be used to control component (recommended). Passed in object argument to event handlers. |
+| warning      | `custom`                                      |                           |          | Applies 'warning' styles for validation feedback. Mutually exclusive with `valid` and `error` props                 |
+| width        | `string`                                      | `'100%'`                  |          | Width of the text area. Can be any valid CSS measurement                                                            |
+| onBlur       | `function`                                    |                           |          | Called with signature ({ name: string, value: string }, event)                                                      |
+| onChange     | `function`                                    |                           |          | Called with signature ({ name: string, value: string }, event)                                                      |
+| onFocus      | `function`                                    |                           |          | Called with signature ({ name: string, value: string }, event)                                                      |
+
+### TextAreaField
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { TextAreaField } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name           | Type                                          | Default                           | Required | Description                                                                                                          |
+| -------------- | --------------------------------------------- | --------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------- |
+| autoGrow       | `boolean`                                     |                                   |          | Grow the text area in response to overflow instead of adding a scroll bar                                            |
+| className      | `string`                                      |                                   |          |                                                                                                                      |
+| dataTest       | `string`                                      | `'dhis2-uiwidgets-textareafield'` |          |                                                                                                                      |
+| dense          | `boolean`                                     |                                   |          | Compact mode                                                                                                         |
+| disabled       | `boolean`                                     |                                   |          | Disables the textarea and makes in non-interactive                                                                   |
+| error          | `custom`                                      |                                   |          | Applies 'error' styles for validation feedback. Mutually exclusive with `valid` and `warning` props                  |
+| helpText       | `string`                                      |                                   |          | Adds useful help text below the textarea                                                                             |
+| initialFocus   | `boolean`                                     |                                   |          | Grabs initial focus on the page                                                                                      |
+| inputWidth     | `string`                                      |                                   |          | Sets the width of the textarea. Minimum 220px. Any valid CSS measurement can be used                                 |
+| label          | `string`                                      |                                   |          | Labels the textarea                                                                                                  |
+| loading        | `boolean`                                     |                                   |          | Adds a loading spinner                                                                                               |
+| name           | `string`                                      |                                   |          | Name associated with the text area. Passed in object argument to event handlers.                                     |
+| placeholder    | `string`                                      |                                   |          | Placeholder text for an empty textarea                                                                               |
+| readOnly       | `boolean`                                     |                                   |          | Makes the textarea read-only                                                                                         |
+| required       | `boolean`                                     |                                   |          | Adds an asterisk to the label to indicate this field is required                                                     |
+| resize         | `'none' │ 'both' │ 'horizontal' │ 'vertical'` | `'vertical'`                      |          | [Resize property](https://developer.mozilla.org/en-US/docs/Web/CSS/resize) for the textarea element                  |
+| rows           | `number`                                      | `4`                               |          | Initial height of the textarea, in lines of text                                                                     |
+| tabIndex       | `string`                                      |                                   |          |                                                                                                                      |
+| valid          | `custom`                                      |                                   |          | Applies 'valid' styles for validation feedback. Mutually exclusive with `warning` and `error` props                  |
+| validationText | `string`                                      |                                   |          | Validation text below the textarea to provide validation feedback. Changes appearance depending on validation status |
+| value          | `string`                                      |                                   |          | Value in the textarea. Can be used to control component (recommended). Passed in object argument to event handlers.  |
+| warning        | `custom`                                      |                                   |          | Applies 'warning' styles for validation feedback. Mutually exclusive with `valid` and `error` props                  |
+| onBlur         | `function`                                    |                                   |          | Called with signature ({ name: string, value: string }, event)                                                       |
+| onChange       | `function`                                    |                                   |          | Called with signature ({ name: string, value: string }, event)                                                       |
+| onFocus        | `function`                                    |                                   |          | Called with signature ({ name: string, value: string }, event)                                                       |
+
+### Tooltip
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Tooltip } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name       | Type                                  | Default                  | Required | Description                                                                                                                                                                                                   |
+| ---------- | ------------------------------------- | ------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| children   | `node │ function`                     |                          |          | If child is a function, it's called with `{ onMouseOver, onMouseOut, ref }` args to apply to a reference element. If child is a node, it is wrapped in a `span` with the appropriate attributes and handlers. |
+| className  | `string`                              |                          |          |                                                                                                                                                                                                               |
+| closeDelay | `number`                              | `200`                    |          | Time (in ms) until tooltip closes after mouse out                                                                                                                                                             |
+| content    | `node`                                |                          |          | Content to display when the tooltip is open                                                                                                                                                                   |
+| dataTest   | `string`                              | `'dhis2-uicore-tooltip'` |          |                                                                                                                                                                                                               |
+| maxWidth   | `number`                              | `300`                    |          | Max width of the tooltip in px                                                                                                                                                                                |
+| openDelay  | `number`                              | `200`                    |          | Time (in ms) until tooltip open after mouse over                                                                                                                                                              |
+| placement  | `'top' │ 'right' │ 'bottom' │ 'left'` | `'top'`                  |          | Where to place the tooltip relative to its reference                                                                                                                                                          |
+
+### TransferOption
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { TransferOption } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name          | Type       | Default                         | Required | Description |
+| ------------- | ---------- | ------------------------------- | -------- | ----------- |
+| label         | `string`   |                                 | \*       |             |
+| value         | `string`   |                                 | \*       |             |
+| className     | `string`   |                                 |          |             |
+| dataTest      | `string`   | `'dhis2-uicore-transferoption'` |          |             |
+| disabled      | `boolean`  |                                 |          |             |
+| highlighted   | `boolean`  |                                 |          |             |
+| onClick       | `function` |                                 |          |             |
+| onDoubleClick | `function` |                                 |          |             |
+
+### Transfer
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Transfer } from '@dhis2/ui'
+```
+
+#### Props
+
+| Name    | Type       | Default | Required | Description |
+| ------- | ---------- | ------- | -------- | ----------- |
+| options | `arrayOf({ |
+
+"label": "string",
+"value": "string",
+"disabled": "boolean"
+})`||*|| |onChange|`function`||*|| |addAllText|`string`|||| |addIndividualText|`string`|||| |className|`string`|||| |dataTest|`string`|`'dhis2-uicore-transfer'`||| |disabled|`boolean`|||| |enableOrderChange|`boolean`|||| |filterCallback|`function`|`defaultFilterCallback`||| |filterCallbackPicked|`function`|`defaultFilterCallback`||| |filterLabel|`string`|||| |filterLabelPicked|`string`|||| |filterPlaceholder|`string`|||| |filterPlaceholderPicked|`string`|||| |filterable|`boolean`|||| |filterablePicked|`boolean`|||| |height|`string`|`'240px'`||| |hideFilterInput|`boolean`|||| |hideFilterInputPicked|`boolean`|||| |initialSearchTerm|`string`|`''`||| |initialSearchTermPicked|`string`|`''`||| |leftFooter|`node`|||| |leftHeader|`node`|||| |loading|`boolean`|||| |loadingPicked|`boolean`|||| |maxSelections|`1 │ Infinity`|`Infinity`||| |optionsWidth|`string`|`'320px'`||| |removeAllText|`string`|||| |removeIndividualText|`string`|||| |renderOption|`function`|`(option) => <TransferOption {...option} />`||| |rightFooter|`node`|||| |rightHeader|`node`|||| |searchTerm|`string`|||| |searchTermPicked|`string`|||| |selected|`arrayOf(string)`|`[]`||| |selectedEmptyComponent|`node`|||| |selectedWidth|`string`|`'320px'`||| |sourceEmptyPlaceholder|`node`|||| |onEndReached|`function`|||| |onEndReachedPicked|`function`|||| |onFilterChange|`function`|||| |onFilterChangePicked|`function`||||
+
+### UserAvatar
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
 ```js
 import { UserAvatar } from '@dhis2/ui'
 ```
 
-| prop           |   type   |           default           |      required      | description |
-| -------------- | :------: | :-------------------------: | :----------------: | ----------- |
-| **avatarId**   | `String` |                             |        :x:         |
-| **className**  | `String` |                             |        :x:         |
-| **dataTest**   | `String` | `'dhis2-uicore-useravatar'` |        :x:         |
-| **extralarge** | `custom` |                             |        :x:         |
-| **extrasmall** | `custom` |                             |        :x:         |
-| **large**      | `custom` |                             |        :x:         |
-| **medium**     | `custom` |                             |        :x:         |
-| **name**       | `String` |                             | :white_check_mark: |
-| **small**      | `custom` |                             |        :x:         |
+#### Props
+
+| Name       | Type     | Default                     | Required | Description |
+| ---------- | -------- | --------------------------- | -------- | ----------- |
+| name       | `string` |                             | \*       |             |
+| avatarId   | `string` |                             |          |             |
+| className  | `string` |                             |          |             |
+| dataTest   | `string` | `'dhis2-uicore-useravatar'` |          |             |
+| extralarge | `custom` |                             |          |             |
+| extrasmall | `custom` |                             |          |             |
+| large      | `custom` |                             |          |             |
+| medium     | `custom` |                             |          |             |
+| small      | `custom` |                             |          |             |

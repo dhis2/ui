@@ -2,9 +2,11 @@
 title: Transfer
 ---
 
-import { Demo } from '../../src/components/DemoComponent.jsx'
-import { TransferDemoMain, TransferDemoHeader, TransferDemoFooter, TransferDemoReorder, TransferDemoFilter } from '../../src/components/TransferDemos.jsx'
+import { Demo } from '@site/src/components/DemoComponent.jsx'
+import { TransferDemoMain, TransferDemoHeader, TransferDemoFooter, TransferDemoReorder, TransferDemoFilter } from '@site/src/components/TransferDemos.jsx'
 import { Transfer, Button } from '@dhis2/ui'
+
+import API from '../../../components/transfer/API.md'
 
 # Transfer
 
@@ -69,7 +71,10 @@ A transfer is made up of two lists. The _source list_ that shows the available o
 -   Use a [`Loader`](loading.md) to block interaction if using the transfer while loading is taking place can cause problems.
 -   A common pattern is loading more options as a user scrolls. See the [Transfer: Infinite Loading recipe](../recipes/transfer-infinite-loading-all-options-selected.md) for more information.
 
+## API Reference
+
+<API />
+
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-transfer--multiple)
--   API reference ==TODO: link==

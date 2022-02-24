@@ -1,35 +1,67 @@
-## LogoIcon
+### LogoIcon
 
-From [`src/logo.js`](./src/logo.js)
+#### Usage
 
-| prop          |   type   |          default          | required | description |
-| ------------- | :------: | :-----------------------: | :------: | ----------- |
-| **className** | `String` |                           |   :x:    |
-| **dataTest**  | `String` | `'dhis2-uicore-logoicon'` |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## LogoIconWhite
+```js
+import { LogoIcon } from '@dhis2-ui/logo'
+```
 
-From [`src/logo.js`](./src/logo.js)
+#### Props
 
-| prop          |   type   |            default             | required | description |
-| ------------- | :------: | :----------------------------: | :------: | ----------- |
-| **className** | `String` |                                |   :x:    |
-| **dataTest**  | `String` | `'dhis2-uicore-logoiconwhite'` |   :x:    |
+| Name      | Type     | Default                   | Required | Description |
+| --------- | -------- | ------------------------- | -------- | ----------- |
+| className | `string` |                           |          |             |
+| dataTest  | `string` | `'dhis2-uicore-logoicon'` |          |             |
 
-## Logo
+### LogoIconWhite
 
-From [`src/logo.js`](./src/logo.js)
+#### Usage
 
-| prop          |   type   |        default        | required | description |
-| ------------- | :------: | :-------------------: | :------: | ----------- |
-| **className** | `String` |                       |   :x:    |
-| **dataTest**  | `String` | `'dhis2-uicore-logo'` |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## LogoWhite
+```js
+import { LogoIconWhite } from '@dhis2-ui/logo'
+```
 
-From [`src/logo.js`](./src/logo.js)
+#### Props
 
-| prop          |   type   |          default           | required | description |
-| ------------- | :------: | :------------------------: | :------: | ----------- |
-| **className** | `String` |                            |   :x:    |
-| **dataTest**  | `String` | `'dhis2-uicore-logowhite'` |   :x:    |
+| Name      | Type     | Default                        | Required | Description |
+| --------- | -------- | ------------------------------ | -------- | ----------- |
+| className | `string` |                                |          |             |
+| dataTest  | `string` | `'dhis2-uicore-logoiconwhite'` |          |             |
+
+### Logo
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Logo } from '@dhis2-ui/logo'
+```
+
+#### Props
+
+| Name      | Type     | Default               | Required | Description |
+| --------- | -------- | --------------------- | -------- | ----------- |
+| className | `string` |                       |          |             |
+| dataTest  | `string` | `'dhis2-uicore-logo'` |          |             |
+
+### LogoWhite
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { LogoWhite } from '@dhis2-ui/logo'
+```
+
+#### Props
+
+| Name      | Type     | Default                    | Required | Description |
+| --------- | -------- | -------------------------- | -------- | ----------- |
+| className | `string` |                            |          |             |
+| dataTest  | `string` | `'dhis2-uicore-logowhite'` |          |             |

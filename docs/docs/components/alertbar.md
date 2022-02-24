@@ -2,9 +2,11 @@
 title: Alert bar
 ---
 
-import { Demo } from '../../src/components/DemoComponent.jsx'
-import { DocFigure } from '../../src/components/DocFigure.jsx'
+import { Demo } from '@site/src/components/DemoComponent.jsx'
+import { DocFigure } from '@site/src/components/DocFigure.jsx'
 import { AlertBar } from '@dhis2/ui'
+
+import API from '../../../components/alert/API.md'
 
 # Alert bar
 
@@ -121,7 +123,10 @@ An alert bar communicates something to the user by showing a prominent, floating
 -   Each variant shows a default icon to support the content being communicated.
 -   A custom icon can be used. Only use icons that are relevant to the content and that help the user understand the context. Use the default icon unless there's a good reason not to.
 
+## API Reference
+
+<API />
+
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/feedback-alerts-alert-bar--default)
--   API reference ==TODO: link==

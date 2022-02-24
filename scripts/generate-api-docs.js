@@ -6,7 +6,118 @@ const parser = require('@babel/parser')
 const { visit } = require('ast-types')
 const fg = require('fast-glob')
 const reactDocs = require('react-docgen')
-const ReactDocGenMarkdownRenderer = require('react-docgen-markdown-renderer')
+
+const RE_OBJECTOF =
+    /(?:React\.)?(?:PropTypes\.)?objectOf\((?:React\.)?(?:PropTypes\.)?(\w+)\)/
+
+const format_type = (type) => {
+    switch (type.name.toLowerCase()) {
+        case 'instanceof': {
+            return `instanceOf(${type.value})`
+        }
+        case 'enum': {
+            if (type.computed) {
+                return type.value
+            }
+            return type.value
+                ? type.value.map((v) => `${v.value}`).join(' │ ')
+                : type.raw
+        }
+        case 'union': {
+            return type.value
+                ? type.value.map((t) => `${format_type(t)}`).join(' │ ')
+                : type.raw
+        }
+        case 'array': {
+            return type.raw
+        }
+        case 'arrayof': {
+            return `arrayOf(${format_type(type.value)})`
+        }
+        case 'custom': {
+            if (
+                type.raw.indexOf('function') !== -1 ||
+                type.raw.indexOf('=>') !== -1
+            ) {
+                return 'custom(function)'
+            } else if (type.raw.toLowerCase().indexOf('objectof') !== -1) {
+                const m = type.raw.match(RE_OBJECTOF)
+                if (m && m[1]) {
+                    return `objectOf(${m[1]})`
+                }
+                return 'objectOf'
+            }
+            return 'custom'
+        }
+        case 'bool': {
+            return 'boolean'
+        }
+        case 'func': {
+            return 'function'
+        }
+        case 'shape': {
+            const shape = type.value
+            const rst = {}
+
+            Object.keys(shape).forEach((key) => {
+                rst[key] = format_type(shape[key])
+            })
+
+            return JSON.stringify(rst, null, 2)
+        }
+        default: {
+            return `${type.name}`
+        }
+    }
+}
+
+const format = ({ ast, pkg }) => {
+    let table = ''
+    table += `### ${ast.displayName}\n\n`
+
+    if (pkg?.name) {
+        table += '#### Usage\n\n'
+        table +=
+            '**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.\n\n'
+        table += `
+\`\`\`js
+import { ${ast.displayName} } from '${pkg.name}'
+\`\`\`\n\n
+`
+    }
+
+    if (ast?.props) {
+        table += '#### Props\n\n'
+
+        const props = Object.entries(ast.props).map(
+            ([name, { type, required, description, defaultValue }]) => ({
+                name,
+                defaultValue: `${
+                    defaultValue ? `\`${defaultValue.value}\`` : ''
+                }`,
+                required: `${required ? '*' : ''}`,
+                description,
+                type: `\`${format_type(type)}\``,
+            })
+        )
+
+        const headers = ['Name', 'Type', 'Default', 'Required', 'Description']
+        table += `|${[...headers].join('|')}|\n`
+        table += `|${headers.map(() => '---').join('|')}|\n`
+
+        for (const {
+            name,
+            defaultValue,
+            required,
+            description,
+            type,
+        } of props) {
+            table += `|${name}|${type}|${defaultValue}|${required}|${description}|\n`
+        }
+    }
+
+    return table
+}
 
 const cwd = path.resolve(__dirname, '..')
 
@@ -106,29 +217,23 @@ components.map((component) => {
         },
     })
 
-    const renderer = new ReactDocGenMarkdownRenderer({
-        componentsBasePath: path.resolve(cwd, 'components', component),
-        remoteComponentsBasePath: '.',
-    })
+    const pkg = require(path.join(component, 'package.json'))
 
     const markdown = asts
         .filter((c) => c.exported)
         .map((c) => {
             try {
-                for (const prop in c.ast.props) {
-                    const type = c.ast.props[prop].type
-                    if (type) {
-                        type.raw = type.name === 'custom' ? 'custom' : type.name
-                    }
-                }
-
-                return renderer.render(c.file, c.ast, [])
+                return format({
+                    file: c.file,
+                    ast: c.ast,
+                    pkg,
+                })
             } catch (err) {
                 /**
                  * There's not much to do to recover from an error here, so no
                  * point in crashing the build.
                  */
-                //console.error('[ERR] ReactDocGenMarkdownRenderer', err)
+                console.error('[ERR]', err)
             }
         })
         .filter((c) => !!c)
@@ -138,7 +243,6 @@ components.map((component) => {
     )
     fs.writeFileSync(path.resolve(component, 'API.md'), markdown.join('\n'))
 
-    const pkg = require(path.join(component, 'package.json'))
     main_api_markdown.push(
         `- [${pkg.name}](${path.relative(cwd, component)}/API.md)`
     )
@@ -227,22 +331,22 @@ icons.map((icon) => {
         },
     })
 
-    const renderer = new ReactDocGenMarkdownRenderer({
-        componentsBasePath: path.resolve(cwd, icon),
-        remoteComponentsBasePath: '.',
-    })
-
+    const pkg = require(path.join(icon, 'package.json'))
     const markdown = asts
         .filter((c) => c.exported)
         .map((c) => {
             try {
-                return renderer.render(c.file, c.ast, [])
+                return format({
+                    file: c.file,
+                    ast: c.ast,
+                    pkg,
+                })
             } catch (err) {
                 /**
                  * There's not much to do to recover from an error here, so no
                  * point in crashing the build.
                  */
-                //console.error('[ERR] ReactDocGenMarkdownRenderer', err)
+                console.error('[ERR]', err)
             }
         })
         .filter((c) => !!c)
@@ -252,7 +356,6 @@ icons.map((icon) => {
     )
     fs.writeFileSync(path.resolve(icon, 'API.md'), markdown.join('\n'))
 
-    const pkg = require(path.join(icon, 'package.json'))
     main_api_markdown.push(
         `- [${pkg.name}](${path.relative(cwd, icon)}/API.md)`
     )
@@ -338,11 +441,7 @@ collections.map((collection) => {
         },
     })
 
-    const renderer = new ReactDocGenMarkdownRenderer({
-        componentsBasePath: path.resolve(cwd, 'components'),
-        remoteComponentsBasePath: '../components',
-    })
-
+    const pkg = require(path.join(collection, 'package.json'))
     const markdown = asts
         .filter((c) => c.exported)
         .map((c) => {
@@ -354,13 +453,17 @@ collections.map((collection) => {
                     }
                 }
 
-                return renderer.render(c.file, c.ast, [])
+                return format({
+                    file: c.file,
+                    ast: c.ast,
+                    pkg,
+                })
             } catch (err) {
                 /**
                  * There's not much to do to recover from an error here, so no
                  * point in crashing the build.
                  */
-                //console.error('[ERR] ReactDocGenMarkdownRenderer', err)
+                console.error('[ERR]', err)
             }
         })
         .filter((c) => !!c)
@@ -370,7 +473,6 @@ collections.map((collection) => {
     )
     fs.writeFileSync(path.resolve(collection, 'API.md'), markdown.join('\n'))
 
-    const pkg = require(path.join(collection, 'package.json'))
     main_api_markdown.push(
         `- [${pkg.name}](${path.relative(cwd, collection)}/API.md)`
     )

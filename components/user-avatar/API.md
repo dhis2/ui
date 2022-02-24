@@ -1,25 +1,23 @@
-## UserAvatar
+### UserAvatar
 
-From [`src/user-avatar.js`](./src/user-avatar.js)
+#### Usage
 
-An avatar is a visual icon that represents a user.
-
-Use an avatar to give extra information when a user is mentioned or displayed in DHIS2. The avatar shows a user uploaded photograph or initials. The avatar is intended to give context and help to identify different users. An avatar is usually shown alongside the user name, but can be used alone to show a visual hint of a user.
-
-See specification: [Design System](https://github.com/dhis2/design-system/blob/master/atoms/avatar.md)
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
 ```js
-import { UserAvatar } from '@dhis2/ui'
+import { UserAvatar } from '@dhis2-ui/user-avatar'
 ```
 
-| prop           |   type   |           default           |      required      | description |
-| -------------- | :------: | :-------------------------: | :----------------: | ----------- |
-| **avatarId**   | `String` |                             |        :x:         |
-| **className**  | `String` |                             |        :x:         |
-| **dataTest**   | `String` | `'dhis2-uicore-useravatar'` |        :x:         |
-| **extralarge** | `custom` |                             |        :x:         |
-| **extrasmall** | `custom` |                             |        :x:         |
-| **large**      | `custom` |                             |        :x:         |
-| **medium**     | `custom` |                             |        :x:         |
-| **name**       | `String` |                             | :white_check_mark: |
-| **small**      | `custom` |                             |        :x:         |
+#### Props
+
+| Name       | Type     | Default                     | Required | Description |
+| ---------- | -------- | --------------------------- | -------- | ----------- |
+| name       | `string` |                             | \*       |             |
+| avatarId   | `string` |                             |          |             |
+| className  | `string` |                             |          |             |
+| dataTest   | `string` | `'dhis2-uicore-useravatar'` |          |             |
+| extralarge | `custom` |                             |          |             |
+| extrasmall | `custom` |                             |          |             |
+| large      | `custom` |                             |          |             |
+| medium     | `custom` |                             |          |             |
+| small      | `custom` |                             |          |             |

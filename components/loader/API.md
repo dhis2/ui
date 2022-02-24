@@ -1,25 +1,41 @@
-## CircularLoader
+### CircularLoader
 
-From [`src/circular-loader/circular-loader.js`](./src/circular-loader/circular-loader.js)
+#### Usage
 
-| prop           |   type    |             default             | required | description |
-| -------------- | :-------: | :-----------------------------: | :------: | ----------- |
-| **className**  | `String`  |                                 |   :x:    |
-| **dataTest**   | `String`  | `'dhis2-uicore-circularloader'` |   :x:    |
-| **extrasmall** | `custom`  |                                 |   :x:    |
-| **invert**     | `Boolean` |                                 |   :x:    |
-| **large**      | `custom`  |                                 |   :x:    |
-| **small**      | `custom`  |                                 |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## LinearLoader
+```js
+import { CircularLoader } from '@dhis2-ui/loader'
+```
 
-From [`src/linear-loader/linear-loader.js`](./src/linear-loader/linear-loader.js)
+#### Props
 
-| prop          |   type    |            default            |      required      | description                                           |
-| ------------- | :-------: | :---------------------------: | :----------------: | ----------------------------------------------------- |
-| **amount**    | `Number`  |                               | :white_check_mark: | The progression in percent without the '%' sign       |
-| **className** | `String`  |                               |        :x:         |
-| **dataTest**  | `String`  | `'dhis2-uicore-linearloader'` |        :x:         |
-| **invert**    | `Boolean` |                               |        :x:         | Use inverted color scheme                             |
-| **margin**    | `String`  |        `spacers.dp12`         |        :x:         | The margin around the loader, can be a full shorthand |
-| **width**     | `String`  |           `'300px'`           |        :x:         | The width of the entire indicator                     |
+| Name       | Type      | Default                         | Required | Description |
+| ---------- | --------- | ------------------------------- | -------- | ----------- |
+| className  | `string`  |                                 |          |             |
+| dataTest   | `string`  | `'dhis2-uicore-circularloader'` |          |             |
+| extrasmall | `custom`  |                                 |          |             |
+| invert     | `boolean` |                                 |          |             |
+| large      | `custom`  |                                 |          |             |
+| small      | `custom`  |                                 |          |             |
+
+### LinearLoader
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { LinearLoader } from '@dhis2-ui/loader'
+```
+
+#### Props
+
+| Name      | Type      | Default                       | Required | Description                                           |
+| --------- | --------- | ----------------------------- | -------- | ----------------------------------------------------- |
+| amount    | `number`  |                               | \*       | The progression in percent without the '%' sign       |
+| className | `string`  |                               |          |                                                       |
+| dataTest  | `string`  | `'dhis2-uicore-linearloader'` |          |                                                       |
+| invert    | `boolean` |                               |          | Use inverted color scheme                             |
+| margin    | `string`  | `spacers.dp12`                |          | The margin around the loader, can be a full shorthand |
+| width     | `string`  | `'300px'`                     |          | The width of the entire indicator                     |

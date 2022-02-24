@@ -2,7 +2,7 @@
 title: Color
 ---
 
-import { DocFigure } from '../../src/components/DocFigure.jsx'
+import { DocFigure } from '@site/src/components/DocFigure.jsx'
 
 # Color
 

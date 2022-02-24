@@ -1,341 +1,557 @@
-## DataTableCell
-
-From [`src/data-table/data-table-cell.js`](./src/data-table/data-table-cell.js)
-
-| prop            |               type                |            default             | required | description                                                          |
-| --------------- | :-------------------------------: | :----------------------------: | :------: | -------------------------------------------------------------------- |
-| **active**      |             `Boolean`             |                                |   :x:    | To toggle background color, for example for editing                  |
-| **align**       | `Enum('left', 'center', 'right')` |            `'left'`            |   :x:    |
-| **bordered**    |             `Boolean`             |                                |   :x:    |
-| **children**    |            `ReactNode`            |                                |   :x:    |
-| **className**   |             `String`              |                                |   :x:    |
-| **colSpan**     |             `String`              |                                |   :x:    |
-| **dataTest**    |             `String`              | `'dhis2-uicore-datatablecell'` |   :x:    |
-| **error**       |             `custom`              |                                |   :x:    | Mutually exclusive with muted and valid                              |
-| **fixed**       |             `Boolean`             |                                |   :x:    | When true a TableHeaderCell with sticky positioning will be rendered |
-| **large**       |             `Boolean`             |                                |   :x:    |
-| **left**        |             `custom`              |            `'auto'`            |   :x:    | Required when fixed                                                  |
-| **muted**       |             `custom`              |                                |   :x:    | Mutually exclusive with error and valid                              |
-| **onClick**     |            `Function`             |                                |   :x:    |
-| **role**        |             `String`              |                                |   :x:    |
-| **rowSpan**     |             `String`              |                                |   :x:    |
-| **scope**       |             `String`              |                                |   :x:    |
-| **staticStyle** |             `Boolean`             |                                |   :x:    | Surpress hover and active event styles                               |
-| **tag**         |        `Enum('td', 'th')`         |                                |   :x:    | Render a TableDataCell or TableHeaderCell respectively               |
-| **valid**       |             `custom`              |                                |   :x:    | Mutually exclusive with error and muted                              |
-| **width**       |             `custom`              |            `'auto'`            |   :x:    | Required when fixed                                                  |
-
-## DataTable
-
-From [`src/data-table/data-table.js`](./src/data-table/data-table.js)
-
-| prop             |                     type                      |          default           | required | description                                                                                                                                                                                                   |
-| ---------------- | :-------------------------------------------: | :------------------------: | :------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **children**     |                  `ReactNode`                  |                            |   :x:    | Should be `<DataTableHead>`, `<DataTableBody>`, and `<DataTableFoot>` components                                                                                                                              |
-| **className**    |                   `String`                    |                            |   :x:    |
-| **dataTest**     |                   `String`                    | `'dhis2-uicore-datatable'` |   :x:    |
-| **layout**       | `Enum('auto', 'fixed', 'initial', 'inherit')` |          `'auto'`          |   :x:    | Sets the `datatable-layout` property. Switching to `fixed` can prevent style issues when dealing with a datatable with multiple frozen columns or when dealing with filter elements in the datatable headers. |
-| **role**         |                   `String`                    |                            |   :x:    |
-| **scrollHeight** |                   `String`                    |                            |   :x:    | Sets max-height of scrollbox                                                                                                                                                                                  |
-| **scrollWidth**  |                   `String`                    |                            |   :x:    | Sets max-width of scrollbox                                                                                                                                                                                   |
-| **width**        |                   `String`                    |          `'100%'`          |   :x:    | Sets the `width` property. Providing an explicit width can prevent style issues when dealing with horizontally scrolling datatables with a fixed layout.                                                      |
-
-## StackedTableBody
-
-From [`src/stacked-table/stacked-table-body.js`](./src/stacked-table/stacked-table-body.js)
-
-| prop          |    type     |              default              | required | description |
-| ------------- | :---------: | :-------------------------------: | :------: | ----------- |
-| **children**  | `ReactNode` |                                   |   :x:    |
-| **className** |  `String`   |                                   |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-stackedtablebody'` |   :x:    |
-
-## StackedTableCellHead
-
-From [`src/stacked-table/stacked-table-cell-head.js`](./src/stacked-table/stacked-table-cell-head.js)
-
-| prop          |   type   |                default                | required | description |
-| ------------- | :------: | :-----------------------------------: | :------: | ----------- |
-| **children**  | `String` |                 `''`                  |   :x:    |
-| **className** | `String` |                                       |   :x:    |
-| **colSpan**   | `String` |                                       |   :x:    |
-| **dataTest**  | `String` | `'dhis2-uicore-stackedtablecellhead'` |   :x:    |
-| **rowSpan**   | `String` |                                       |   :x:    |
-
-## StackedTableCell
-
-From [`src/stacked-table/stacked-table-cell.js`](./src/stacked-table/stacked-table-cell.js)
-
-| prop             |       type        |              default              | required | description |
-| ---------------- | :---------------: | :-------------------------------: | :------: | ----------- |
-| **children**     |    `ReactNode`    |                                   |   :x:    |
-| **className**    |     `String`      |                                   |   :x:    |
-| **colSpan**      |     `String`      |                                   |   :x:    |
-| **column**       |     `Number`      |                                   |   :x:    |
-| **dataTest**     |     `String`      | `'dhis2-uicore-stackedtablecell'` |   :x:    |
-| **headerLabels** | `Array[]<String>` |               `[]`                |   :x:    |
-| **hideTitle**    |     `Boolean`     |                                   |   :x:    |
-| **rowSpan**      |     `String`      |                                   |   :x:    |
-| **title**        |     `String`      |                                   |   :x:    |
-
-## StackedTableFoot
-
-From [`src/stacked-table/stacked-table-foot.js`](./src/stacked-table/stacked-table-foot.js)
-
-| prop          |    type     |              default              | required | description |
-| ------------- | :---------: | :-------------------------------: | :------: | ----------- |
-| **children**  | `ReactNode` |                                   |   :x:    |
-| **className** |  `String`   |                                   |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-stackedtablefoot'` |   :x:    |
-
-## StackedTableHead
-
-From [`src/stacked-table/stacked-table-head.js`](./src/stacked-table/stacked-table-head.js)
-
-| prop          |    type     |              default              | required | description |
-| ------------- | :---------: | :-------------------------------: | :------: | ----------- |
-| **children**  | `ReactNode` |                                   |   :x:    |
-| **className** |  `String`   |                                   |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-stackedtablehead'` |   :x:    |
-
-## StackedTableRowHead
+### DataTableCell
+
+#### Usage
 
-From [`src/stacked-table/stacked-table-row-head.js`](./src/stacked-table/stacked-table-row-head.js)
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-| prop          |    type     |               default                | required | description |
-| ------------- | :---------: | :----------------------------------: | :------: | ----------- |
-| **children**  | `ReactNode` |                                      |   :x:    |
-| **className** |  `String`   |                                      |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-stackedtablerowhead'` |   :x:    |
+```js
+import { DataTableCell } from '@dhis2-ui/table'
+```
 
-## StackedTableRow
+#### Props
 
-From [`src/stacked-table/stacked-table-row.js`](./src/stacked-table/stacked-table-row.js)
+| Name        | Type                          | Default                        | Required | Description                                                          |
+| ----------- | ----------------------------- | ------------------------------ | -------- | -------------------------------------------------------------------- |
+| active      | `boolean`                     |                                |          | To toggle background color, for example for editing                  |
+| align       | `'left' │ 'center' │ 'right'` | `'left'`                       |          |                                                                      |
+| bordered    | `boolean`                     |                                |          |                                                                      |
+| children    | `node`                        |                                |          |                                                                      |
+| className   | `string`                      |                                |          |                                                                      |
+| colSpan     | `string`                      |                                |          |                                                                      |
+| dataTest    | `string`                      | `'dhis2-uicore-datatablecell'` |          |                                                                      |
+| error       | `custom`                      |                                |          | Mutually exclusive with muted and valid                              |
+| fixed       | `boolean`                     |                                |          | When true a TableHeaderCell with sticky positioning will be rendered |
+| large       | `boolean`                     |                                |          |                                                                      |
+| left        | `custom`                      | `'auto'`                       |          | Required when fixed                                                  |
+| muted       | `custom`                      |                                |          | Mutually exclusive with error and valid                              |
+| role        | `string`                      |                                |          |                                                                      |
+| rowSpan     | `string`                      |                                |          |                                                                      |
+| scope       | `string`                      |                                |          |                                                                      |
+| staticStyle | `boolean`                     |                                |          | Surpress hover and active event styles                               |
+| tag         | `'td' │ 'th'`                 |                                |          | Render a TableDataCell or TableHeaderCell respectively               |
+| valid       | `custom`                      |                                |          | Mutually exclusive with error and muted                              |
+| width       | `custom`                      | `'auto'`                       |          | Required when fixed                                                  |
+| onClick     | `function`                    |                                |          |                                                                      |
 
-| prop          |    type     |             default              | required | description |
-| ------------- | :---------: | :------------------------------: | :------: | ----------- |
-| **children**  | `ReactNode` |                                  |   :x:    |
-| **className** |  `String`   |                                  |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-stackedtablerow'` |   :x:    |
+### DataTable
 
-## StackedTable
+#### Usage
 
-From [`src/stacked-table/stacked-table.js`](./src/stacked-table/stacked-table.js)
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-| prop             |       type        |            default            | required | description                                                            |
-| ---------------- | :---------------: | :---------------------------: | :------: | ---------------------------------------------------------------------- |
-| **children**     |    `ReactNode`    |                               |   :x:    |
-| **className**    |     `String`      |                               |   :x:    |
-| **dataTest**     |     `String`      | `'dhis2-uicore-stackedtable'` |   :x:    |
-| **headerLabels** | `Array[]<String>` |                               |   :x:    | Labels for columns. Use an empty string for a column without a header. |
+```js
+import { DataTable } from '@dhis2-ui/table'
+```
 
-## Table
+#### Props
 
-From [`src/stacked-table/table.js`](./src/stacked-table/table.js)
+| Name      | Type                                       | Default                    | Required | Description                                                                      |
+| --------- | ------------------------------------------ | -------------------------- | -------- | -------------------------------------------------------------------------------- |
+| children  | `node`                                     |                            |          | Should be `<DataTableHead>`, `<DataTableBody>`, and `<DataTableFoot>` components |
+| className | `string`                                   |                            |          |                                                                                  |
+| dataTest  | `string`                                   | `'dhis2-uicore-datatable'` |          |                                                                                  |
+| layout    | `'auto' │ 'fixed' │ 'initial' │ 'inherit'` | `'auto'`                   |          | Sets the `datatable-layout` property. Switching to `fixed` can prevent style     |
 
-| prop          |    type     | default |      required      | description |
-| ------------- | :---------: | :-----: | :----------------: | ----------- |
-| **children**  | `ReactNode` |         | :white_check_mark: |
-| **className** |  `String`   |         |        :x:         |
-| **dataTest**  |  `String`   |         |        :x:         |
+issues when dealing with a datatable with multiple frozen columns or when dealing
+with filter elements in the datatable headers.|
+|role|`string`||||
+|scrollHeight|`string`|||Sets max-height of scrollbox|
+|scrollWidth|`string`|||Sets max-width of scrollbox|
+|width|`string`|`'100%'`||Sets the `width` property. Providing an explicit width can prevent style
+issues when dealing with horizontally scrolling datatables with a fixed layout.|
 
-## TableBody
+### StackedTableBody
 
-From [`src/table/table-body.js`](./src/table/table-body.js)
+#### Usage
 
-| prop          |    type     |          default           | required | description                       |
-| ------------- | :---------: | :------------------------: | :------: | --------------------------------- |
-| **children**  | `ReactNode` |                            |   :x:    | Should be `<TableRow>` components |
-| **className** |  `String`   |                            |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-tablebody'` |   :x:    |
-| **role**      |  `String`   |                            |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## TableCellHead
-
-From [`src/table/table-cell-head.js`](./src/table/table-cell-head.js)
-
-| prop          |    type     |            default             | required | description                                                |
-| ------------- | :---------: | :----------------------------: | :------: | ---------------------------------------------------------- |
-| **children**  | `ReactNode` |                                |   :x:    |
-| **className** |  `String`   |                                |   :x:    |
-| **colSpan**   |  `String`   |                                |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-tablecellhead'` |   :x:    |
-| **dense**     |  `Boolean`  |                                |   :x:    | Uses less padding and height for information-dense layouts |
-| **role**      |  `String`   |                                |   :x:    |
-| **rowSpan**   |  `String`   |                                |   :x:    |
-
-## TableCell
-
-From [`src/table/table-cell.js`](./src/table/table-cell.js)
-
-| prop          |    type     |          default           | required | description                                                 |
-| ------------- | :---------: | :------------------------: | :------: | ----------------------------------------------------------- |
-| **children**  | `ReactNode` |                            |   :x:    |
-| **className** |  `String`   |                            |   :x:    |
-| **colSpan**   |  `String`   |                            |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-tablecell'` |   :x:    |
-| **dense**     |  `Boolean`  |                            |   :x:    | Usees less padding and height for information-dense layouts |
-| **role**      |  `String`   |                            |   :x:    |
-| **rowSpan**   |  `String`   |                            |   :x:    |
-
-## TableFoot
-
-From [`src/table/table-foot.js`](./src/table/table-foot.js)
-
-| prop          |    type     |          default           | required | description                       |
-| ------------- | :---------: | :------------------------: | :------: | --------------------------------- |
-| **children**  | `ReactNode` |                            |   :x:    | Should be `<TableRow>` components |
-| **className** |  `String`   |                            |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-tablefoot'` |   :x:    |
-| **role**      |  `String`   |                            |   :x:    |
-
-## TableHead
-
-From [`src/table/table-head.js`](./src/table/table-head.js)
-
-| prop          |    type     |          default           | required | description                           |
-| ------------- | :---------: | :------------------------: | :------: | ------------------------------------- |
-| **children**  | `ReactNode` |                            |   :x:    | Should be `<TableRowHead>` components |
-| **className** |  `String`   |                            |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-tablehead'` |   :x:    |
-| **role**      |  `String`   |                            |   :x:    |
-
-## TableRowHead
-
-From [`src/table/table-row-head.js`](./src/table/table-row-head.js)
-
-| prop                      |    type     |            default            | required | description                                    |
-| ------------------------- | :---------: | :---------------------------: | :------: | ---------------------------------------------- |
-| **children**              | `ReactNode` |                               |   :x:    | Should be `<TableCellHead>` components         |
-| **className**             |  `String`   |                               |   :x:    |
-| **dataTest**              |  `String`   | `'dhis2-uicore-tablerowhead'` |   :x:    |
-| **role**                  |  `String`   |                               |   :x:    |
-| **suppressZebraStriping** |  `Boolean`  |                               |   :x:    | Disables the default row striping for this row |
-
-## TableRow
-
-From [`src/table/table-row.js`](./src/table/table-row.js)
-
-| prop                      |    type     |          default          | required | description                                             |
-| ------------------------- | :---------: | :-----------------------: | :------: | ------------------------------------------------------- |
-| **children**              | `ReactNode` |                           |   :x:    | Should be `<TableCell>` or `<TableCellHead>` components |
-| **className**             |  `String`   |                           |   :x:    |
-| **dataTest**              |  `String`   | `'dhis2-uicore-tablerow'` |   :x:    |
-| **role**                  |  `String`   |                           |   :x:    |
-| **suppressZebraStriping** |  `Boolean`  |                           |   :x:    | Disables the default row striping for this row          |
-
-## Table
-
-From [`src/table/table.js`](./src/table/table.js)
-
-| prop                      |    type     |        default         | required | description                                                          |
-| ------------------------- | :---------: | :--------------------: | :------: | -------------------------------------------------------------------- |
-| **children**              | `ReactNode` |                        |   :x:    | Should be `<TableHead>`, `<TableBody>`, and `<TableFoot>` components |
-| **className**             |  `String`   |                        |   :x:    |
-| **dataTest**              |  `String`   | `'dhis2-uicore-table'` |   :x:    |
-| **role**                  |  `String`   |                        |   :x:    |
-| **suppressZebraStriping** |  `Boolean`  |                        |   :x:    | Remove the default striping on alternating rows                      |
-
-## DataTableColumnHeader
-
-From [`src/data-table/data-table-column-header/data-table-column-header.js`](./src/data-table/data-table-column-header/data-table-column-header.js)
-
-| prop                  |               type                |              default               | required | description                                                                         |
-| --------------------- | :-------------------------------: | :--------------------------------: | :------: | ----------------------------------------------------------------------------------- |
-| **align**             | `Enum('left', 'center', 'right')` |                                    |   :x:    |
-| **children**          |            `ReactNode`            |                                    |   :x:    |
-| **className**         |             `String`              |                                    |   :x:    |
-| **colSpan**           |             `String`              |                                    |   :x:    |
-| **dataTest**          |             `String`              | `'dhis2-uicore-datatablecellhead'` |   :x:    |
-| **filter**            |             `custom`              |                                    |   :x:    | The filter element (JSX), required when onFilterIconClick or showFilter are present |
-| **fixed**             |             `Boolean`             |                                    |   :x:    |
-| **large**             |             `Boolean`             |                                    |   :x:    |
-| **left**              |             `custom`              |                                    |   :x:    | Left or top required when fixed                                                     |
-| **name**              |             `String`              |                                    |   :x:    | Can be used to match a column with a property name                                  |
-| **onFilterIconClick** |             `custom`              |                                    |   :x:    |
-| **onSortIconClick**   |             `custom`              |                                    |   :x:    | Sort icon click callback with `nextSortDirection` and `name` in payload             |
-| **role**              |             `String`              |                                    |   :x:    |
-| **rowSpan**           |             `String`              |                                    |   :x:    |
-| **scope**             |             `String`              |                                    |   :x:    |
-| **showFilter**        |             `custom`              |                                    |   :x:    |
-| **sortDirection**     |             `custom`              |                                    |   :x:    |
-| **sortIconTitle**     |             `String`              |                                    |   :x:    |
-| **top**               |             `custom`              |                                    |   :x:    | Left or top required when fixed                                                     |
-| **width**             |             `String`              |                                    |   :x:    |
-
-## DataTableRow
-
-From [`src/data-table/data-table-row/data-table-row.js`](./src/data-table/data-table-row/data-table-row.js)
-
-| prop                  |    type     |            default            | required | description                                                                                                                                                   |
-| --------------------- | :---------: | :---------------------------: | :------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **children**          | `ReactNode` |                               |   :x:    | Should be `<DataTableCell>` or `<DataTableCellHead>` components                                                                                               |
-| **className**         |  `String`   |                               |   :x:    |
-| **dataTest**          |  `String`   | `'dhis2-uicore-datatablerow'` |   :x:    |
-| **draggable**         |  `Boolean`  |                               |   :x:    | Renders and additional table cell with drag icon and applies draggable styles                                                                                 |
-| **expandableContent** |  `custom`   |                               |   :x:    | This content will be rendered into an additional row with fullwidth cell and the presence of this prop will display an additional table cell with expand icon |
-| **expanded**          |  `Boolean`  |                               |   :x:    | Toggles expand icon (up/down) and expandable content visibility                                                                                               |
-| **onExpandToggle**    |  `custom`   |                               |   :x:    | Callback for expand icon cell clicks                                                                                                                          |
-| **role**              |  `String`   |                               |   :x:    |
-| **selected**          |  `Boolean`  |                               |   :x:    | Adds a green background color                                                                                                                                 |
-
-## TableBody
-
-From [`src/data-table/table-elements/table-body.js`](./src/data-table/table-elements/table-body.js)
-
-| prop          |    type     |          default           | required | description                       |
-| ------------- | :---------: | :------------------------: | :------: | --------------------------------- |
-| **children**  | `ReactNode` |                            |   :x:    | Should be `<TableRow>` components |
-| **className** |  `String`   |                            |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-tablebody'` |   :x:    |
-| **loading**   |  `Boolean`  |                            |   :x:    |
-| **role**      |  `String`   |                            |   :x:    |
-
-## TableFoot
-
-From [`src/data-table/table-elements/table-foot.js`](./src/data-table/table-elements/table-foot.js)
-
-| prop          |    type     |          default           | required | description                       |
-| ------------- | :---------: | :------------------------: | :------: | --------------------------------- |
-| **children**  | `ReactNode` |                            |   :x:    | Should be `<TableRow>` components |
-| **className** |  `String`   |                            |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-tablefoot'` |   :x:    |
-| **role**      |  `String`   |                            |   :x:    |
-
-## TableHead
-
-From [`src/data-table/table-elements/table-head.js`](./src/data-table/table-elements/table-head.js)
-
-| prop          |    type     |          default           | required | description                           |
-| ------------- | :---------: | :------------------------: | :------: | ------------------------------------- |
-| **children**  | `ReactNode` |                            |   :x:    | Should be `<TableRowHead>` components |
-| **className** |  `String`   |                            |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-tablehead'` |   :x:    |
-| **role**      |  `String`   |                            |   :x:    |
-
-## TableRow
-
-From [`src/data-table/table-elements/table-row.js`](./src/data-table/table-elements/table-row.js)
-
-| prop          |    type     |          default          | required | description                                                     |
-| ------------- | :---------: | :-----------------------: | :------: | --------------------------------------------------------------- |
-| **children**  | `ReactNode` |                           |   :x:    | Should be `<TableDataCell>` or `<TableDataCellHead>` components |
-| **className** |  `String`   |                           |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-tablerow'` |   :x:    |
-| **draggable** |  `Boolean`  |                           |   :x:    | Applies draggable cursor styles                                 |
-| **role**      |  `String`   |                           |   :x:    |
-| **selected**  |  `Boolean`  |                           |   :x:    | Sets a selected (teal) background color                         |
-
-## Table
-
-From [`src/data-table/table-elements/table.js`](./src/data-table/table-elements/table.js)
-
-| prop           |                     type                      |        default         | required | description                                                                                                                                                                                       |
-| -------------- | :-------------------------------------------: | :--------------------: | :------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **borderless** |                   `Boolean`                   |                        |   :x:    | Removes border from the table                                                                                                                                                                     |
-| **children**   |                  `ReactNode`                  |                        |   :x:    | Should be `<TableHead>`, `<TableBody>`, and `<TableFoot>` components                                                                                                                              |
-| **className**  |                   `String`                    |                        |   :x:    |
-| **dataTest**   |                   `String`                    | `'dhis2-uicore-table'` |   :x:    |
-| **layout**     | `Enum('auto', 'fixed', 'initial', 'inherit')` |        `'auto'`        |   :x:    | Sets the `table-layout` property. Switching to `fixed` can prevent style issues when dealing with a table with multiple frozen columns or when dealing with filter elements in the table headers. |
-| **role**       |                   `String`                    |                        |   :x:    |
-| **width**      |                   `String`                    |        `'100%'`        |   :x:    | Sets the `width` property. Providing an explicit width can prevent style issues when dealing with horizontally scrolling tables with a fixed layout.                                              |
+```js
+import { StackedTableBody } from '@dhis2-ui/table'
+```
+
+#### Props
+
+| Name      | Type     | Default                           | Required | Description |
+| --------- | -------- | --------------------------------- | -------- | ----------- |
+| children  | `node`   |                                   |          |             |
+| className | `string` |                                   |          |             |
+| dataTest  | `string` | `'dhis2-uicore-stackedtablebody'` |          |             |
+
+### StackedTableCellHead
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { StackedTableCellHead } from '@dhis2-ui/table'
+```
+
+#### Props
+
+| Name      | Type     | Default                               | Required | Description |
+| --------- | -------- | ------------------------------------- | -------- | ----------- |
+| children  | `string` | `''`                                  |          |             |
+| className | `string` |                                       |          |             |
+| colSpan   | `string` |                                       |          |             |
+| dataTest  | `string` | `'dhis2-uicore-stackedtablecellhead'` |          |             |
+| rowSpan   | `string` |                                       |          |             |
+
+### StackedTableCell
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { StackedTableCell } from '@dhis2-ui/table'
+```
+
+#### Props
+
+| Name         | Type              | Default                           | Required | Description |
+| ------------ | ----------------- | --------------------------------- | -------- | ----------- |
+| children     | `node`            |                                   |          |             |
+| className    | `string`          |                                   |          |             |
+| colSpan      | `string`          |                                   |          |             |
+| column       | `number`          |                                   |          |             |
+| dataTest     | `string`          | `'dhis2-uicore-stackedtablecell'` |          |             |
+| headerLabels | `arrayOf(string)` | `[]`                              |          |             |
+| hideTitle    | `boolean`         |                                   |          |             |
+| rowSpan      | `string`          |                                   |          |             |
+| title        | `string`          |                                   |          |             |
+
+### StackedTableFoot
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { StackedTableFoot } from '@dhis2-ui/table'
+```
+
+#### Props
+
+| Name      | Type     | Default                           | Required | Description |
+| --------- | -------- | --------------------------------- | -------- | ----------- |
+| children  | `node`   |                                   |          |             |
+| className | `string` |                                   |          |             |
+| dataTest  | `string` | `'dhis2-uicore-stackedtablefoot'` |          |             |
+
+### StackedTableHead
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { StackedTableHead } from '@dhis2-ui/table'
+```
+
+#### Props
+
+| Name      | Type     | Default                           | Required | Description |
+| --------- | -------- | --------------------------------- | -------- | ----------- |
+| children  | `node`   |                                   |          |             |
+| className | `string` |                                   |          |             |
+| dataTest  | `string` | `'dhis2-uicore-stackedtablehead'` |          |             |
+
+### StackedTableRowHead
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { StackedTableRowHead } from '@dhis2-ui/table'
+```
+
+#### Props
+
+| Name      | Type     | Default                              | Required | Description |
+| --------- | -------- | ------------------------------------ | -------- | ----------- |
+| children  | `node`   |                                      |          |             |
+| className | `string` |                                      |          |             |
+| dataTest  | `string` | `'dhis2-uicore-stackedtablerowhead'` |          |             |
+
+### StackedTableRow
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { StackedTableRow } from '@dhis2-ui/table'
+```
+
+#### Props
+
+| Name      | Type     | Default                          | Required | Description |
+| --------- | -------- | -------------------------------- | -------- | ----------- |
+| children  | `node`   |                                  |          |             |
+| className | `string` |                                  |          |             |
+| dataTest  | `string` | `'dhis2-uicore-stackedtablerow'` |          |             |
+
+### StackedTable
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { StackedTable } from '@dhis2-ui/table'
+```
+
+#### Props
+
+| Name         | Type              | Default                       | Required | Description                                                            |
+| ------------ | ----------------- | ----------------------------- | -------- | ---------------------------------------------------------------------- |
+| children     | `node`            |                               |          |                                                                        |
+| className    | `string`          |                               |          |                                                                        |
+| dataTest     | `string`          | `'dhis2-uicore-stackedtable'` |          |                                                                        |
+| headerLabels | `arrayOf(string)` |                               |          | Labels for columns. Use an empty string for a column without a header. |
+
+### Table
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Table } from '@dhis2-ui/table'
+```
+
+#### Props
+
+| Name      | Type     | Default | Required | Description |
+| --------- | -------- | ------- | -------- | ----------- |
+| children  | `node`   |         | \*       |             |
+| className | `string` |         |          |             |
+| dataTest  | `string` |         |          |             |
+
+### TableBody
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { TableBody } from '@dhis2-ui/table'
+```
+
+#### Props
+
+| Name      | Type     | Default                    | Required | Description                       |
+| --------- | -------- | -------------------------- | -------- | --------------------------------- |
+| children  | `node`   |                            |          | Should be `<TableRow>` components |
+| className | `string` |                            |          |                                   |
+| dataTest  | `string` | `'dhis2-uicore-tablebody'` |          |                                   |
+| role      | `string` |                            |          |                                   |
+
+### TableCellHead
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { TableCellHead } from '@dhis2-ui/table'
+```
+
+#### Props
+
+| Name      | Type      | Default                        | Required | Description                                                |
+| --------- | --------- | ------------------------------ | -------- | ---------------------------------------------------------- |
+| children  | `node`    |                                |          |                                                            |
+| className | `string`  |                                |          |                                                            |
+| colSpan   | `string`  |                                |          |                                                            |
+| dataTest  | `string`  | `'dhis2-uicore-tablecellhead'` |          |                                                            |
+| dense     | `boolean` |                                |          | Uses less padding and height for information-dense layouts |
+| role      | `string`  |                                |          |                                                            |
+| rowSpan   | `string`  |                                |          |                                                            |
+
+### TableCell
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { TableCell } from '@dhis2-ui/table'
+```
+
+#### Props
+
+| Name      | Type      | Default                    | Required | Description                                                 |
+| --------- | --------- | -------------------------- | -------- | ----------------------------------------------------------- |
+| children  | `node`    |                            |          |                                                             |
+| className | `string`  |                            |          |                                                             |
+| colSpan   | `string`  |                            |          |                                                             |
+| dataTest  | `string`  | `'dhis2-uicore-tablecell'` |          |                                                             |
+| dense     | `boolean` |                            |          | Usees less padding and height for information-dense layouts |
+| role      | `string`  |                            |          |                                                             |
+| rowSpan   | `string`  |                            |          |                                                             |
+
+### TableFoot
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { TableFoot } from '@dhis2-ui/table'
+```
+
+#### Props
+
+| Name      | Type     | Default                    | Required | Description                       |
+| --------- | -------- | -------------------------- | -------- | --------------------------------- |
+| children  | `node`   |                            |          | Should be `<TableRow>` components |
+| className | `string` |                            |          |                                   |
+| dataTest  | `string` | `'dhis2-uicore-tablefoot'` |          |                                   |
+| role      | `string` |                            |          |                                   |
+
+### TableHead
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { TableHead } from '@dhis2-ui/table'
+```
+
+#### Props
+
+| Name      | Type     | Default                    | Required | Description                           |
+| --------- | -------- | -------------------------- | -------- | ------------------------------------- |
+| children  | `node`   |                            |          | Should be `<TableRowHead>` components |
+| className | `string` |                            |          |                                       |
+| dataTest  | `string` | `'dhis2-uicore-tablehead'` |          |                                       |
+| role      | `string` |                            |          |                                       |
+
+### TableRowHead
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { TableRowHead } from '@dhis2-ui/table'
+```
+
+#### Props
+
+| Name                  | Type      | Default                       | Required | Description                                    |
+| --------------------- | --------- | ----------------------------- | -------- | ---------------------------------------------- |
+| children              | `node`    |                               |          | Should be `<TableCellHead>` components         |
+| className             | `string`  |                               |          |                                                |
+| dataTest              | `string`  | `'dhis2-uicore-tablerowhead'` |          |                                                |
+| role                  | `string`  |                               |          |                                                |
+| suppressZebraStriping | `boolean` |                               |          | Disables the default row striping for this row |
+
+### TableRow
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { TableRow } from '@dhis2-ui/table'
+```
+
+#### Props
+
+| Name                  | Type      | Default                   | Required | Description                                             |
+| --------------------- | --------- | ------------------------- | -------- | ------------------------------------------------------- |
+| children              | `node`    |                           |          | Should be `<TableCell>` or `<TableCellHead>` components |
+| className             | `string`  |                           |          |                                                         |
+| dataTest              | `string`  | `'dhis2-uicore-tablerow'` |          |                                                         |
+| role                  | `string`  |                           |          |                                                         |
+| suppressZebraStriping | `boolean` |                           |          | Disables the default row striping for this row          |
+
+### Table
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Table } from '@dhis2-ui/table'
+```
+
+#### Props
+
+| Name                  | Type      | Default                | Required | Description                                                          |
+| --------------------- | --------- | ---------------------- | -------- | -------------------------------------------------------------------- |
+| children              | `node`    |                        |          | Should be `<TableHead>`, `<TableBody>`, and `<TableFoot>` components |
+| className             | `string`  |                        |          |                                                                      |
+| dataTest              | `string`  | `'dhis2-uicore-table'` |          |                                                                      |
+| role                  | `string`  |                        |          |                                                                      |
+| suppressZebraStriping | `boolean` |                        |          | Remove the default striping on alternating rows                      |
+
+### DataTableColumnHeader
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { DataTableColumnHeader } from '@dhis2-ui/table'
+```
+
+#### Props
+
+| Name              | Type                          | Default                            | Required | Description                                                                         |
+| ----------------- | ----------------------------- | ---------------------------------- | -------- | ----------------------------------------------------------------------------------- |
+| align             | `'left' │ 'center' │ 'right'` |                                    |          |                                                                                     |
+| children          | `node`                        |                                    |          |                                                                                     |
+| className         | `string`                      |                                    |          |                                                                                     |
+| colSpan           | `string`                      |                                    |          |                                                                                     |
+| dataTest          | `string`                      | `'dhis2-uicore-datatablecellhead'` |          |                                                                                     |
+| filter            | `custom(function)`            |                                    |          | The filter element (JSX), required when onFilterIconClick or showFilter are present |
+| fixed             | `boolean`                     |                                    |          |                                                                                     |
+| large             | `boolean`                     |                                    |          |                                                                                     |
+| left              | `custom(function)`            |                                    |          | Left or top required when fixed                                                     |
+| name              | `string`                      |                                    |          | Can be used to match a column with a property name                                  |
+| role              | `string`                      |                                    |          |                                                                                     |
+| rowSpan           | `string`                      |                                    |          |                                                                                     |
+| scope             | `string`                      |                                    |          |                                                                                     |
+| showFilter        | `custom(function)`            |                                    |          |                                                                                     |
+| sortDirection     | `custom(function)`            |                                    |          |                                                                                     |
+| sortIconTitle     | `string`                      |                                    |          |                                                                                     |
+| top               | `custom(function)`            |                                    |          | Left or top required when fixed                                                     |
+| width             | `string`                      |                                    |          |                                                                                     |
+| onFilterIconClick | `custom(function)`            |                                    |          |                                                                                     |
+| onSortIconClick   | `custom(function)`            |                                    |          | Sort icon click callback with `nextSortDirection` and `name` in payload             |
+
+### DataTableRow
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { DataTableRow } from '@dhis2-ui/table'
+```
+
+#### Props
+
+| Name              | Type               | Default                       | Required | Description                                                                                                                                                   |
+| ----------------- | ------------------ | ----------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| children          | `node`             |                               |          | Should be `<DataTableCell>` or `<DataTableCellHead>` components                                                                                               |
+| className         | `string`           |                               |          |                                                                                                                                                               |
+| dataTest          | `string`           | `'dhis2-uicore-datatablerow'` |          |                                                                                                                                                               |
+| draggable         | `boolean`          |                               |          | Renders and additional table cell with drag icon and applies draggable styles                                                                                 |
+| expandableContent | `custom(function)` |                               |          | This content will be rendered into an additional row with fullwidth cell and the presence of this prop will display an additional table cell with expand icon |
+| expanded          | `boolean`          |                               |          | Toggles expand icon (up/down) and expandable content visibility                                                                                               |
+| role              | `string`           |                               |          |                                                                                                                                                               |
+| selected          | `boolean`          |                               |          | Adds a green background color                                                                                                                                 |
+| onExpandToggle    | `custom(function)` |                               |          | Callback for expand icon cell clicks                                                                                                                          |
+
+### TableBody
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { TableBody } from '@dhis2-ui/table'
+```
+
+#### Props
+
+| Name      | Type      | Default                    | Required | Description                       |
+| --------- | --------- | -------------------------- | -------- | --------------------------------- |
+| children  | `node`    |                            |          | Should be `<TableRow>` components |
+| className | `string`  |                            |          |                                   |
+| dataTest  | `string`  | `'dhis2-uicore-tablebody'` |          |                                   |
+| loading   | `boolean` |                            |          |                                   |
+| role      | `string`  |                            |          |                                   |
+
+### TableFoot
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { TableFoot } from '@dhis2-ui/table'
+```
+
+#### Props
+
+| Name      | Type     | Default                    | Required | Description                       |
+| --------- | -------- | -------------------------- | -------- | --------------------------------- |
+| children  | `node`   |                            |          | Should be `<TableRow>` components |
+| className | `string` |                            |          |                                   |
+| dataTest  | `string` | `'dhis2-uicore-tablefoot'` |          |                                   |
+| role      | `string` |                            |          |                                   |
+
+### TableHead
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { TableHead } from '@dhis2-ui/table'
+```
+
+#### Props
+
+| Name      | Type     | Default                    | Required | Description                           |
+| --------- | -------- | -------------------------- | -------- | ------------------------------------- |
+| children  | `node`   |                            |          | Should be `<TableRowHead>` components |
+| className | `string` |                            |          |                                       |
+| dataTest  | `string` | `'dhis2-uicore-tablehead'` |          |                                       |
+| role      | `string` |                            |          |                                       |
+
+### TableRow
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { TableRow } from '@dhis2-ui/table'
+```
+
+#### Props
+
+| Name      | Type      | Default                   | Required | Description                                                     |
+| --------- | --------- | ------------------------- | -------- | --------------------------------------------------------------- |
+| children  | `node`    |                           |          | Should be `<TableDataCell>` or `<TableDataCellHead>` components |
+| className | `string`  |                           |          |                                                                 |
+| dataTest  | `string`  | `'dhis2-uicore-tablerow'` |          |                                                                 |
+| draggable | `boolean` |                           |          | Applies draggable cursor styles                                 |
+| role      | `string`  |                           |          |                                                                 |
+| selected  | `boolean` |                           |          | Sets a selected (teal) background color                         |
+
+### Table
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Table } from '@dhis2-ui/table'
+```
+
+#### Props
+
+| Name       | Type                                       | Default                | Required | Description                                                              |
+| ---------- | ------------------------------------------ | ---------------------- | -------- | ------------------------------------------------------------------------ |
+| borderless | `boolean`                                  |                        |          | Removes border from the table                                            |
+| children   | `node`                                     |                        |          | Should be `<TableHead>`, `<TableBody>`, and `<TableFoot>` components     |
+| className  | `string`                                   |                        |          |                                                                          |
+| dataTest   | `string`                                   | `'dhis2-uicore-table'` |          |                                                                          |
+| layout     | `'auto' │ 'fixed' │ 'initial' │ 'inherit'` | `'auto'`               |          | Sets the `table-layout` property. Switching to `fixed` can prevent style |
+
+issues when dealing with a table with multiple frozen columns or when dealing
+with filter elements in the table headers.|
+|role|`string`||||
+|width|`string`|`'100%'`||Sets the `width` property. Providing an explicit width can prevent style
+issues when dealing with horizontally scrolling tables with a fixed layout.|

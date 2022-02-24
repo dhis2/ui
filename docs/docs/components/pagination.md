@@ -2,8 +2,10 @@
 title: Pagination
 ---
 
-import { Demo } from '../../src/components/DemoComponent.jsx'
+import { Demo } from '@site/src/components/DemoComponent.jsx'
 import { Pagination } from '@dhis2/ui'
+
+import API from '../../../components/pagination/API.md'
 
 # Pagination
 
@@ -63,7 +65,10 @@ Different elements of the pagination component can be included, depending on the
 -   Changes the number of items included in a page.
 -   Use when a user might want to customize the view.
 
+## API Reference
+
+<API />
+
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/navigation-pagination--default)
--   API reference ==TODO: link==

@@ -2,8 +2,10 @@
 title: Elevation
 ---
 
-import { Demo } from '../../src/components/DemoComponent.jsx'
+import { Demo } from '@site/src/components/DemoComponent.jsx'
 import { CssVariables } from '@dhis2/ui'
+
+import API from '../../../components/css/API.md'
 
 # Elevation
 
@@ -43,6 +45,6 @@ Elevation is used to create and communicate depth in an interface.
 -   Use different elevation levels to communicate different depths or stacks of elements.
 -   Don't skip an elevation level. If there are two layered or stacked elements, use two levels next to one another, like `e100` and `e200`.
 
-## Links
+## API Reference
 
--   API reference ==TODO: link==
+<API />

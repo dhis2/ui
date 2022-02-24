@@ -2,8 +2,10 @@
 title: Notice box
 ---
 
-import { Demo } from '../../src/components/DemoComponent.jsx'
+import { Demo } from '@site/src/components/DemoComponent.jsx'
 import { NoticeBox, Button } from '@dhis2/ui'
+
+import API from '../../../components/notice-box/API.md'
 
 # Notice box
 
@@ -88,7 +90,10 @@ A notice box shows important information about a situation.
 -   Actions should always relate to the content of the notice box. Don't use notice box actions for unrelated, generic actions.
 -   Use simple action verbs as action links.
 
+## API Reference
+
+<API />
+
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/data-display-notice-box--default)
--   API reference ==TODO: link==

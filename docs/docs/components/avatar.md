@@ -2,9 +2,11 @@
 title: Avatar
 ---
 
-import { Demo } from '../../src/components/DemoComponent.jsx'
-import { DocFigure } from '../../src/components/DocFigure.jsx'
+import { Demo } from '@site/src/components/DemoComponent.jsx'
+import { DocFigure } from '@site/src/components/DocFigure.jsx'
 import { UserAvatar } from '@dhis2/ui'
+
+import API from '../../../components/user-avatar/API.md'
 
 # Avatar
 
@@ -46,7 +48,10 @@ An avatar is a visual icon that represents a user.
 
 Avatars are available in different sizes. Use the size that works best for the space available and the context.
 
+## API Reference
+
+<API />
+
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/utils-user-avatar--default)
--   API reference ==TODO: link==

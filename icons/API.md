@@ -1,2023 +1,4047 @@
-## SvgAdd16
+### SvgAdd16
 
-From [`src/react/Add16.js`](./src/react/Add16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgAdd24
+```js
+import { SvgAdd16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Add24.js`](./src/react/Add24.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgAddCircle16
+### SvgAdd24
 
-From [`src/react/AddCircle16.js`](./src/react/AddCircle16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgAddCircle24
+```js
+import { SvgAdd24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/AddCircle24.js`](./src/react/AddCircle24.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgApps16
+### SvgAddCircle16
 
-From [`src/react/Apps16.js`](./src/react/Apps16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgApps24
+```js
+import { SvgAddCircle16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Apps24.js`](./src/react/Apps24.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgArchive16
+### SvgAddCircle24
 
-From [`src/react/Archive16.js`](./src/react/Archive16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgArchive24
+```js
+import { SvgAddCircle24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Archive24.js`](./src/react/Archive24.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgArrowDown16
+### SvgApps16
 
-From [`src/react/ArrowDown16.js`](./src/react/ArrowDown16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgArrowDown24
+```js
+import { SvgApps16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/ArrowDown24.js`](./src/react/ArrowDown24.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgArrowLeft16
+### SvgApps24
 
-From [`src/react/ArrowLeft16.js`](./src/react/ArrowLeft16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgArrowLeft24
+```js
+import { SvgApps24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/ArrowLeft24.js`](./src/react/ArrowLeft24.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgArrowLeftMulti16
+### SvgArchive16
 
-From [`src/react/ArrowLeftMulti16.js`](./src/react/ArrowLeftMulti16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgArrowLeftMulti24
+```js
+import { SvgArchive16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/ArrowLeftMulti24.js`](./src/react/ArrowLeftMulti24.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgArrowRight16
+### SvgArchive24
 
-From [`src/react/ArrowRight16.js`](./src/react/ArrowRight16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgArrowRight24
+```js
+import { SvgArchive24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/ArrowRight24.js`](./src/react/ArrowRight24.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgArrowRightMulti16
+### SvgArrowDown16
 
-From [`src/react/ArrowRightMulti16.js`](./src/react/ArrowRightMulti16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgArrowRightMulti24
+```js
+import { SvgArrowDown16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/ArrowRightMulti24.js`](./src/react/ArrowRightMulti24.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgArrowUp16
+### SvgArrowDown24
 
-From [`src/react/ArrowUp16.js`](./src/react/ArrowUp16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgArrowUp24
+```js
+import { SvgArrowDown24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/ArrowUp24.js`](./src/react/ArrowUp24.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgAt16
+### SvgArrowLeft16
 
-From [`src/react/At16.js`](./src/react/At16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgAt24
+```js
+import { SvgArrowLeft16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/At24.js`](./src/react/At24.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgAttachment16
+### SvgArrowLeft24
 
-From [`src/react/Attachment16.js`](./src/react/Attachment16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgAttachment24
+```js
+import { SvgArrowLeft24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Attachment24.js`](./src/react/Attachment24.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgBlock16
+### SvgArrowLeftMulti16
 
-From [`src/react/Block16.js`](./src/react/Block16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgBlock24
+```js
+import { SvgArrowLeftMulti16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Block24.js`](./src/react/Block24.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgCalendar16
+### SvgArrowLeftMulti24
 
-From [`src/react/Calendar16.js`](./src/react/Calendar16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgCalendar24
+```js
+import { SvgArrowLeftMulti24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Calendar24.js`](./src/react/Calendar24.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgCheckmark12
+### SvgArrowRight16
 
-From [`src/react/Checkmark12.js`](./src/react/Checkmark12.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgCheckmark16
+```js
+import { SvgArrowRight16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Checkmark16.js`](./src/react/Checkmark16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgCheckmark24
+### SvgArrowRight24
 
-From [`src/react/Checkmark24.js`](./src/react/Checkmark24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgCheckmarkCircle16
+```js
+import { SvgArrowRight24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/CheckmarkCircle16.js`](./src/react/CheckmarkCircle16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgCheckmarkCircle24
+### SvgArrowRightMulti16
 
-From [`src/react/CheckmarkCircle24.js`](./src/react/CheckmarkCircle24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgChevronDown16
+```js
+import { SvgArrowRightMulti16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/ChevronDown16.js`](./src/react/ChevronDown16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgChevronDown24
+### SvgArrowRightMulti24
 
-From [`src/react/ChevronDown24.js`](./src/react/ChevronDown24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgChevronLeft16
+```js
+import { SvgArrowRightMulti24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/ChevronLeft16.js`](./src/react/ChevronLeft16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgChevronLeft24
+### SvgArrowUp16
 
-From [`src/react/ChevronLeft24.js`](./src/react/ChevronLeft24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgChevronRight16
+```js
+import { SvgArrowUp16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/ChevronRight16.js`](./src/react/ChevronRight16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgChevronRight24
+### SvgArrowUp24
 
-From [`src/react/ChevronRight24.js`](./src/react/ChevronRight24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgChevronUp16
+```js
+import { SvgArrowUp24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/ChevronUp16.js`](./src/react/ChevronUp16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgChevronUp24
+### SvgAt16
 
-From [`src/react/ChevronUp24.js`](./src/react/ChevronUp24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgClock16
+```js
+import { SvgAt16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Clock16.js`](./src/react/Clock16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgClock24
+### SvgAt24
 
-From [`src/react/Clock24.js`](./src/react/Clock24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgClockHistory16
+```js
+import { SvgAt24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/ClockHistory16.js`](./src/react/ClockHistory16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgClockHistory24
+### SvgAttachment16
 
-From [`src/react/ClockHistory24.js`](./src/react/ClockHistory24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgColor16
+```js
+import { SvgAttachment16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Color16.js`](./src/react/Color16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgColor24
+### SvgAttachment24
 
-From [`src/react/Color24.js`](./src/react/Color24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgCopy16
+```js
+import { SvgAttachment24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Copy16.js`](./src/react/Copy16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgCopy24
+### SvgBlock16
 
-From [`src/react/Copy24.js`](./src/react/Copy24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgCross16
+```js
+import { SvgBlock16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Cross16.js`](./src/react/Cross16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgCross24
+### SvgBlock24
 
-From [`src/react/Cross24.js`](./src/react/Cross24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgDashboardWindow16
+```js
+import { SvgBlock24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/DashboardWindow16.js`](./src/react/DashboardWindow16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgDashboardWindow24
+### SvgCalendar16
 
-From [`src/react/DashboardWindow24.js`](./src/react/DashboardWindow24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgDataInteger16
+```js
+import { SvgCalendar16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/DataInteger16.js`](./src/react/DataInteger16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgDataInteger24
+### SvgCalendar24
 
-From [`src/react/DataInteger24.js`](./src/react/DataInteger24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgDataString16
+```js
+import { SvgCalendar24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/DataString16.js`](./src/react/DataString16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgDataString24
+### SvgCheckmark12
 
-From [`src/react/DataString24.js`](./src/react/DataString24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgDelete16
+```js
+import { SvgCheckmark12 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Delete16.js`](./src/react/Delete16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgDelete24
+### SvgCheckmark16
 
-From [`src/react/Delete24.js`](./src/react/Delete24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgDimensionCategoryOptionGroupset16
+```js
+import { SvgCheckmark16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/DimensionCategoryOptionGroupset16.js`](./src/react/DimensionCategoryOptionGroupset16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgDimensionData16
+### SvgCheckmark24
 
-From [`src/react/DimensionData16.js`](./src/react/DimensionData16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgDimensionDataElementGroupset16
+```js
+import { SvgCheckmark24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/DimensionDataElementGroupset16.js`](./src/react/DimensionDataElementGroupset16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgDimensionDataSet16
+### SvgCheckmarkCircle16
 
-From [`src/react/DimensionDataSet16.js`](./src/react/DimensionDataSet16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgDimensionEventDataItem16
+```js
+import { SvgCheckmarkCircle16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/DimensionEventDataItem16.js`](./src/react/DimensionEventDataItem16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgDimensionIndicator16
+### SvgCheckmarkCircle24
 
-From [`src/react/DimensionIndicator16.js`](./src/react/DimensionIndicator16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgDimensionOrgUnit16
+```js
+import { SvgCheckmarkCircle24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/DimensionOrgUnit16.js`](./src/react/DimensionOrgUnit16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgDimensionOrgUnitGroupset16
+### SvgChevronDown16
 
-From [`src/react/DimensionOrgUnitGroupset16.js`](./src/react/DimensionOrgUnitGroupset16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgDimensionProgramIndicator16
+```js
+import { SvgChevronDown16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/DimensionProgramIndicator16.js`](./src/react/DimensionProgramIndicator16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgDimensionValidationRule16
+### SvgChevronDown24
 
-From [`src/react/DimensionValidationRule16.js`](./src/react/DimensionValidationRule16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgDirectionNorth16
+```js
+import { SvgChevronDown24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/DirectionNorth16.js`](./src/react/DirectionNorth16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgDirectionNorth24
+### SvgChevronLeft16
 
-From [`src/react/DirectionNorth24.js`](./src/react/DirectionNorth24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgDownload16
+```js
+import { SvgChevronLeft16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Download16.js`](./src/react/Download16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgDownload24
+### SvgChevronLeft24
 
-From [`src/react/Download24.js`](./src/react/Download24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgDragHandle16
+```js
+import { SvgChevronLeft24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/DragHandle16.js`](./src/react/DragHandle16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgDragHandle24
+### SvgChevronRight16
 
-From [`src/react/DragHandle24.js`](./src/react/DragHandle24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgDuplicate16
+```js
+import { SvgChevronRight16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Duplicate16.js`](./src/react/Duplicate16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgDuplicate24
+### SvgChevronRight24
 
-From [`src/react/Duplicate24.js`](./src/react/Duplicate24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgEdit16
+```js
+import { SvgChevronRight24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Edit16.js`](./src/react/Edit16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgEdit24
+### SvgChevronUp16
 
-From [`src/react/Edit24.js`](./src/react/Edit24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgEditItems16
+```js
+import { SvgChevronUp16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/EditItems16.js`](./src/react/EditItems16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgEditItems24
+### SvgChevronUp24
 
-From [`src/react/EditItems24.js`](./src/react/EditItems24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgEmptyFrame16
+```js
+import { SvgChevronUp24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/EmptyFrame16.js`](./src/react/EmptyFrame16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgEmptyFrame24
+### SvgClock16
 
-From [`src/react/EmptyFrame24.js`](./src/react/EmptyFrame24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgError16
+```js
+import { SvgClock16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Error16.js`](./src/react/Error16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgError24
+### SvgClock24
 
-From [`src/react/Error24.js`](./src/react/Error24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgErrorFilled16
+```js
+import { SvgClock24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/ErrorFilled16.js`](./src/react/ErrorFilled16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgErrorFilled24
+### SvgClockHistory16
 
-From [`src/react/ErrorFilled24.js`](./src/react/ErrorFilled24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgExportItems24
+```js
+import { SvgClockHistory16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/ExportItems24.js`](./src/react/ExportItems24.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgFaceAdd16
+### SvgClockHistory24
 
-From [`src/react/FaceAdd16.js`](./src/react/FaceAdd16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgFaceAdd24
+```js
+import { SvgClockHistory24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/FaceAdd24.js`](./src/react/FaceAdd24.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgFile16
+### SvgColor16
 
-From [`src/react/File16.js`](./src/react/File16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgFile24
+```js
+import { SvgColor16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/File24.js`](./src/react/File24.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgFileDocument16
+### SvgColor24
 
-From [`src/react/FileDocument16.js`](./src/react/FileDocument16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgFileDocument24
+```js
+import { SvgColor24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/FileDocument24.js`](./src/react/FileDocument24.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgFilter16
+### SvgCopy16
 
-From [`src/react/Filter16.js`](./src/react/Filter16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgFilter24
+```js
+import { SvgCopy16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Filter24.js`](./src/react/Filter24.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgFlag16
+### SvgCopy24
 
-From [`src/react/Flag16.js`](./src/react/Flag16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgFlag24
+```js
+import { SvgCopy24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Flag24.js`](./src/react/Flag24.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgFolder16
+### SvgCross16
 
-From [`src/react/Folder16.js`](./src/react/Folder16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgFolder24
+```js
+import { SvgCross16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Folder24.js`](./src/react/Folder24.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgFolderOpen16
+### SvgCross24
 
-From [`src/react/FolderOpen16.js`](./src/react/FolderOpen16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgFolderOpen24
+```js
+import { SvgCross24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/FolderOpen24.js`](./src/react/FolderOpen24.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgFullscreen16
+### SvgDashboardWindow16
 
-From [`src/react/Fullscreen16.js`](./src/react/Fullscreen16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgFullscreen24
+```js
+import { SvgDashboardWindow16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Fullscreen24.js`](./src/react/Fullscreen24.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgFullscreenExit16
+### SvgDashboardWindow24
 
-From [`src/react/FullscreenExit16.js`](./src/react/FullscreenExit16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgFullscreenExit24
+```js
+import { SvgDashboardWindow24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/FullscreenExit24.js`](./src/react/FullscreenExit24.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgHome16
+### SvgDataInteger16
 
-From [`src/react/Home16.js`](./src/react/Home16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgHome24
+```js
+import { SvgDataInteger16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Home24.js`](./src/react/Home24.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgImage16
+### SvgDataInteger24
 
-From [`src/react/Image16.js`](./src/react/Image16.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgImage24
+```js
+import { SvgDataInteger24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Image24.js`](./src/react/Image24.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgImportItems24
+### SvgDataString16
 
-From [`src/react/ImportItems24.js`](./src/react/ImportItems24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgInfo16
+```js
+import { SvgDataString16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Info16.js`](./src/react/Info16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgInfo24
+### SvgDataString24
 
-From [`src/react/Info24.js`](./src/react/Info24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgInfoFilled16
+```js
+import { SvgDataString24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/InfoFilled16.js`](./src/react/InfoFilled16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgInfoFilled24
+### SvgDelete16
 
-From [`src/react/InfoFilled24.js`](./src/react/InfoFilled24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgLaunch16
+```js
+import { SvgDelete16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Launch16.js`](./src/react/Launch16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgLaunch24
+### SvgDelete24
 
-From [`src/react/Launch24.js`](./src/react/Launch24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgLayoutColumns16
+```js
+import { SvgDelete24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/LayoutColumns16.js`](./src/react/LayoutColumns16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgLayoutColumns24
+### SvgDimensionCategoryOptionGroupset16
 
-From [`src/react/LayoutColumns24.js`](./src/react/LayoutColumns24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgLayoutRows16
+```js
+import { SvgDimensionCategoryOptionGroupset16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/LayoutRows16.js`](./src/react/LayoutRows16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgLayoutRows24
+### SvgDimensionData16
 
-From [`src/react/LayoutRows24.js`](./src/react/LayoutRows24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgLegend16
+```js
+import { SvgDimensionData16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Legend16.js`](./src/react/Legend16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgLegend24
+### SvgDimensionDataElementGroupset16
 
-From [`src/react/Legend24.js`](./src/react/Legend24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgLink16
+```js
+import { SvgDimensionDataElementGroupset16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Link16.js`](./src/react/Link16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgLink24
+### SvgDimensionDataSet16
 
-From [`src/react/Link24.js`](./src/react/Link24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgList16
+```js
+import { SvgDimensionDataSet16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/List16.js`](./src/react/List16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgList24
+### SvgDimensionEventDataItem16
 
-From [`src/react/List24.js`](./src/react/List24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgLocation16
+```js
+import { SvgDimensionEventDataItem16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Location16.js`](./src/react/Location16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgLocation24
+### SvgDimensionIndicator16
 
-From [`src/react/Location24.js`](./src/react/Location24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgLock16
+```js
+import { SvgDimensionIndicator16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Lock16.js`](./src/react/Lock16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgLock24
+### SvgDimensionOrgUnit16
 
-From [`src/react/Lock24.js`](./src/react/Lock24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgLockOpen16
+```js
+import { SvgDimensionOrgUnit16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/LockOpen16.js`](./src/react/LockOpen16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgLockOpen24
+### SvgDimensionOrgUnitGroupset16
 
-From [`src/react/LockOpen24.js`](./src/react/LockOpen24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgLogOut16
+```js
+import { SvgDimensionOrgUnitGroupset16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/LogOut16.js`](./src/react/LogOut16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgLogOut24
+### SvgDimensionProgramIndicator16
 
-From [`src/react/LogOut24.js`](./src/react/LogOut24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgMail16
+```js
+import { SvgDimensionProgramIndicator16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Mail16.js`](./src/react/Mail16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgMail24
+### SvgDimensionValidationRule16
 
-From [`src/react/Mail24.js`](./src/react/Mail24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgMailOpen16
+```js
+import { SvgDimensionValidationRule16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/MailOpen16.js`](./src/react/MailOpen16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgMailOpen24
+### SvgDirectionNorth16
 
-From [`src/react/MailOpen24.js`](./src/react/MailOpen24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgMessages16
+```js
+import { SvgDirectionNorth16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Messages16.js`](./src/react/Messages16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgMessages24
+### SvgDirectionNorth24
 
-From [`src/react/Messages24.js`](./src/react/Messages24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgMore16
+```js
+import { SvgDirectionNorth24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/More16.js`](./src/react/More16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgMore24
+### SvgDownload16
 
-From [`src/react/More24.js`](./src/react/More24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgMove16
+```js
+import { SvgDownload16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Move16.js`](./src/react/Move16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgMove24
+### SvgDownload24
 
-From [`src/react/Move24.js`](./src/react/Move24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgPushLeft16
+```js
+import { SvgDownload24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/PushLeft16.js`](./src/react/PushLeft16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgPushLeft24
+### SvgDragHandle16
 
-From [`src/react/PushLeft24.js`](./src/react/PushLeft24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgPushRight16
+```js
+import { SvgDragHandle16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/PushRight16.js`](./src/react/PushRight16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgPushRight24
+### SvgDragHandle24
 
-From [`src/react/PushRight24.js`](./src/react/PushRight24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgQuestion16
+```js
+import { SvgDragHandle24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Question16.js`](./src/react/Question16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgQuestion24
+### SvgDuplicate16
 
-From [`src/react/Question24.js`](./src/react/Question24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgQuestionFilled16
+```js
+import { SvgDuplicate16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/QuestionFilled16.js`](./src/react/QuestionFilled16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgQuestionFilled24
+### SvgDuplicate24
 
-From [`src/react/QuestionFilled24.js`](./src/react/QuestionFilled24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgQueue16
+```js
+import { SvgDuplicate24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Queue16.js`](./src/react/Queue16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgQueue24
+### SvgEdit16
 
-From [`src/react/Queue24.js`](./src/react/Queue24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgRedo16
+```js
+import { SvgEdit16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Redo16.js`](./src/react/Redo16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgRedo24
+### SvgEdit24
 
-From [`src/react/Redo24.js`](./src/react/Redo24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgReorder16
+```js
+import { SvgEdit24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Reorder16.js`](./src/react/Reorder16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgReorder24
+### SvgEditItems16
 
-From [`src/react/Reorder24.js`](./src/react/Reorder24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgReply16
+```js
+import { SvgEditItems16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Reply16.js`](./src/react/Reply16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgReply24
+### SvgEditItems24
 
-From [`src/react/Reply24.js`](./src/react/Reply24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgRuler16
+```js
+import { SvgEditItems24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Ruler16.js`](./src/react/Ruler16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgRuler24
+### SvgEmptyFrame16
 
-From [`src/react/Ruler24.js`](./src/react/Ruler24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgSave16
+```js
+import { SvgEmptyFrame16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Save16.js`](./src/react/Save16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgSave24
+### SvgEmptyFrame24
 
-From [`src/react/Save24.js`](./src/react/Save24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgSearch16
+```js
+import { SvgEmptyFrame24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Search16.js`](./src/react/Search16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgSearch24
+### SvgError16
 
-From [`src/react/Search24.js`](./src/react/Search24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgSettings16
+```js
+import { SvgError16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Settings16.js`](./src/react/Settings16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgSettings24
+### SvgError24
 
-From [`src/react/Settings24.js`](./src/react/Settings24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgShare16
+```js
+import { SvgError24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Share16.js`](./src/react/Share16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgShare24
+### SvgErrorFilled16
 
-From [`src/react/Share24.js`](./src/react/Share24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgStar16
+```js
+import { SvgErrorFilled16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Star16.js`](./src/react/Star16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgStar24
+### SvgErrorFilled24
 
-From [`src/react/Star24.js`](./src/react/Star24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgStarFilled16
+```js
+import { SvgErrorFilled24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/StarFilled16.js`](./src/react/StarFilled16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgStarFilled24
+### SvgExportItems24
 
-From [`src/react/StarFilled24.js`](./src/react/StarFilled24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgSubscribe16
+```js
+import { SvgExportItems24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Subscribe16.js`](./src/react/Subscribe16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgSubscribe24
+### SvgFaceAdd16
 
-From [`src/react/Subscribe24.js`](./src/react/Subscribe24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgSubscribeOff16
+```js
+import { SvgFaceAdd16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/SubscribeOff16.js`](./src/react/SubscribeOff16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgSubscribeOff24
+### SvgFaceAdd24
 
-From [`src/react/SubscribeOff24.js`](./src/react/SubscribeOff24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgSubtractCircle16
+```js
+import { SvgFaceAdd24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/SubtractCircle16.js`](./src/react/SubtractCircle16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgSubtractCircle24
+### SvgFile16
 
-From [`src/react/SubtractCircle24.js`](./src/react/SubtractCircle24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgSync16
+```js
+import { SvgFile16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Sync16.js`](./src/react/Sync16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgSync24
+### SvgFile24
 
-From [`src/react/Sync24.js`](./src/react/Sync24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgTable16
+```js
+import { SvgFile24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Table16.js`](./src/react/Table16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgTable24
+### SvgFileDocument16
 
-From [`src/react/Table24.js`](./src/react/Table24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgTerminalWindow16
+```js
+import { SvgFileDocument16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/TerminalWindow16.js`](./src/react/TerminalWindow16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgTerminalWindow24
+### SvgFileDocument24
 
-From [`src/react/TerminalWindow24.js`](./src/react/TerminalWindow24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgTextBold16
+```js
+import { SvgFileDocument24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/TextBold16.js`](./src/react/TextBold16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgTextBold24
+### SvgFilter16
 
-From [`src/react/TextBold24.js`](./src/react/TextBold24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgTextBox16
+```js
+import { SvgFilter16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/TextBox16.js`](./src/react/TextBox16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgTextBox24
+### SvgFilter24
 
-From [`src/react/TextBox24.js`](./src/react/TextBox24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgTextHeading16
+```js
+import { SvgFilter24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/TextHeading16.js`](./src/react/TextHeading16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgTextHeading24
+### SvgFlag16
 
-From [`src/react/TextHeading24.js`](./src/react/TextHeading24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgTextItalic16
+```js
+import { SvgFlag16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/TextItalic16.js`](./src/react/TextItalic16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgTextItalic24
+### SvgFlag24
 
-From [`src/react/TextItalic24.js`](./src/react/TextItalic24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgTextListOrdered16
+```js
+import { SvgFlag24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/TextListOrdered16.js`](./src/react/TextListOrdered16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgTextListOrdered24
+### SvgFolder16
 
-From [`src/react/TextListOrdered24.js`](./src/react/TextListOrdered24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgTextListUnordered16
+```js
+import { SvgFolder16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/TextListUnordered16.js`](./src/react/TextListUnordered16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgTextListUnordered24
+### SvgFolder24
 
-From [`src/react/TextListUnordered24.js`](./src/react/TextListUnordered24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgThumbDown16
+```js
+import { SvgFolder24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/ThumbDown16.js`](./src/react/ThumbDown16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgThumbDown24
+### SvgFolderOpen16
 
-From [`src/react/ThumbDown24.js`](./src/react/ThumbDown24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgThumbUp16
+```js
+import { SvgFolderOpen16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/ThumbUp16.js`](./src/react/ThumbUp16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgThumbUp24
+### SvgFolderOpen24
 
-From [`src/react/ThumbUp24.js`](./src/react/ThumbUp24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgTranslate16
+```js
+import { SvgFolderOpen24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Translate16.js`](./src/react/Translate16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgTranslate24
+### SvgFullscreen16
 
-From [`src/react/Translate24.js`](./src/react/Translate24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgUndo16
+```js
+import { SvgFullscreen16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Undo16.js`](./src/react/Undo16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgUndo24
+### SvgFullscreen24
 
-From [`src/react/Undo24.js`](./src/react/Undo24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgUpload16
+```js
+import { SvgFullscreen24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Upload16.js`](./src/react/Upload16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgUpload24
+### SvgFullscreenExit16
 
-From [`src/react/Upload24.js`](./src/react/Upload24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgUser16
+```js
+import { SvgFullscreenExit16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/User16.js`](./src/react/User16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgUser24
+### SvgFullscreenExit24
 
-From [`src/react/User24.js`](./src/react/User24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgUserGroup16
+```js
+import { SvgFullscreenExit24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/UserGroup16.js`](./src/react/UserGroup16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgUserGroup24
+### SvgHome16
 
-From [`src/react/UserGroup24.js`](./src/react/UserGroup24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgView16
+```js
+import { SvgHome16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/View16.js`](./src/react/View16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgView24
+### SvgHome24
 
-From [`src/react/View24.js`](./src/react/View24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgViewOff16
+```js
+import { SvgHome24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/ViewOff16.js`](./src/react/ViewOff16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgViewOff24
+### SvgImage16
 
-From [`src/react/ViewOff24.js`](./src/react/ViewOff24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgVisualizationArea16
+```js
+import { SvgImage16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/VisualizationArea16.js`](./src/react/VisualizationArea16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgVisualizationArea24
+### SvgImage24
 
-From [`src/react/VisualizationArea24.js`](./src/react/VisualizationArea24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgVisualizationAreaStacked16
+```js
+import { SvgImage24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/VisualizationAreaStacked16.js`](./src/react/VisualizationAreaStacked16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgVisualizationAreaStacked24
+### SvgImportItems24
 
-From [`src/react/VisualizationAreaStacked24.js`](./src/react/VisualizationAreaStacked24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgVisualizationBar16
+```js
+import { SvgImportItems24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/VisualizationBar16.js`](./src/react/VisualizationBar16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgVisualizationBar24
+### SvgInfo16
 
-From [`src/react/VisualizationBar24.js`](./src/react/VisualizationBar24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgVisualizationBarStacked16
+```js
+import { SvgInfo16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/VisualizationBarStacked16.js`](./src/react/VisualizationBarStacked16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgVisualizationBarStacked24
+### SvgInfo24
 
-From [`src/react/VisualizationBarStacked24.js`](./src/react/VisualizationBarStacked24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgVisualizationColumn16
+```js
+import { SvgInfo24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/VisualizationColumn16.js`](./src/react/VisualizationColumn16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgVisualizationColumn24
+### SvgInfoFilled16
 
-From [`src/react/VisualizationColumn24.js`](./src/react/VisualizationColumn24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgVisualizationColumnMulti16
+```js
+import { SvgInfoFilled16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/VisualizationColumnMulti16.js`](./src/react/VisualizationColumnMulti16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgVisualizationColumnMulti24
+### SvgInfoFilled24
 
-From [`src/react/VisualizationColumnMulti24.js`](./src/react/VisualizationColumnMulti24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgVisualizationColumnStacked16
+```js
+import { SvgInfoFilled24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/VisualizationColumnStacked16.js`](./src/react/VisualizationColumnStacked16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgVisualizationColumnStacked24
+### SvgLaunch16
 
-From [`src/react/VisualizationColumnStacked24.js`](./src/react/VisualizationColumnStacked24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgVisualizationGauge16
+```js
+import { SvgLaunch16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/VisualizationGauge16.js`](./src/react/VisualizationGauge16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgVisualizationGauge24
+### SvgLaunch24
 
-From [`src/react/VisualizationGauge24.js`](./src/react/VisualizationGauge24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgVisualizationLine16
+```js
+import { SvgLaunch24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/VisualizationLine16.js`](./src/react/VisualizationLine16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgVisualizationLine24
+### SvgLayoutColumns16
 
-From [`src/react/VisualizationLine24.js`](./src/react/VisualizationLine24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgVisualizationLineMulti16
+```js
+import { SvgLayoutColumns16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/VisualizationLineMulti16.js`](./src/react/VisualizationLineMulti16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgVisualizationLineMulti24
+### SvgLayoutColumns24
 
-From [`src/react/VisualizationLineMulti24.js`](./src/react/VisualizationLineMulti24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgVisualizationPie16
+```js
+import { SvgLayoutColumns24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/VisualizationPie16.js`](./src/react/VisualizationPie16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgVisualizationPie24
+### SvgLayoutRows16
 
-From [`src/react/VisualizationPie24.js`](./src/react/VisualizationPie24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgVisualizationRadar16
+```js
+import { SvgLayoutRows16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/VisualizationRadar16.js`](./src/react/VisualizationRadar16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgVisualizationRadar24
+### SvgLayoutRows24
 
-From [`src/react/VisualizationRadar24.js`](./src/react/VisualizationRadar24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgVisualizationScatter16
+```js
+import { SvgLayoutRows24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/VisualizationScatter16.js`](./src/react/VisualizationScatter16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgVisualizationScatter24
+### SvgLegend16
 
-From [`src/react/VisualizationScatter24.js`](./src/react/VisualizationScatter24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgVisualizationSingleValue16
+```js
+import { SvgLegend16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/VisualizationSingleValue16.js`](./src/react/VisualizationSingleValue16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgVisualizationSingleValue24
+### SvgLegend24
 
-From [`src/react/VisualizationSingleValue24.js`](./src/react/VisualizationSingleValue24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgWarning16
+```js
+import { SvgLegend24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Warning16.js`](./src/react/Warning16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgWarning24
+### SvgLink16
 
-From [`src/react/Warning24.js`](./src/react/Warning24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgWarningFilled16
+```js
+import { SvgLink16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/WarningFilled16.js`](./src/react/WarningFilled16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgWarningFilled24
+### SvgLink24
 
-From [`src/react/WarningFilled24.js`](./src/react/WarningFilled24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgWindow16
+```js
+import { SvgLink24 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/Window16.js`](./src/react/Window16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgWindow24
+### SvgList16
 
-From [`src/react/Window24.js`](./src/react/Window24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## SvgWorld16
+```js
+import { SvgList16 } from '@dhis2/ui-icons'
+```
 
-From [`src/react/World16.js`](./src/react/World16.js)
+#### Props
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
 
-## SvgWorld24
+### SvgList24
 
-From [`src/react/World24.js`](./src/react/World24.js)
+#### Usage
 
-| prop      |   type   | default | required | description |
-| --------- | :------: | :-----: | :------: | ----------- |
-| **color** | `String` |         |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgList24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgLocation16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgLocation16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgLocation24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgLocation24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgLock16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgLock16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgLock24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgLock24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgLockOpen16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgLockOpen16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgLockOpen24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgLockOpen24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgLogOut16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgLogOut16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgLogOut24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgLogOut24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgMail16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgMail16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgMail24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgMail24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgMailOpen16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgMailOpen16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgMailOpen24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgMailOpen24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgMessages16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgMessages16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgMessages24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgMessages24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgMore16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgMore16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgMore24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgMore24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgMove16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgMove16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgMove24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgMove24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgPushLeft16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgPushLeft16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgPushLeft24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgPushLeft24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgPushRight16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgPushRight16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgPushRight24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgPushRight24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgQuestion16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgQuestion16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgQuestion24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgQuestion24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgQuestionFilled16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgQuestionFilled16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgQuestionFilled24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgQuestionFilled24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgQueue16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgQueue16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgQueue24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgQueue24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgRedo16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgRedo16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgRedo24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgRedo24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgReorder16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgReorder16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgReorder24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgReorder24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgReply16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgReply16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgReply24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgReply24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgRuler16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgRuler16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgRuler24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgRuler24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgSave16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgSave16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgSave24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgSave24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgSearch16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgSearch16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgSearch24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgSearch24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgSettings16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgSettings16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgSettings24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgSettings24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgShare16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgShare16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgShare24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgShare24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgStar16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgStar16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgStar24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgStar24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgStarFilled16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgStarFilled16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgStarFilled24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgStarFilled24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgSubscribe16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgSubscribe16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgSubscribe24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgSubscribe24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgSubscribeOff16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgSubscribeOff16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgSubscribeOff24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgSubscribeOff24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgSubtractCircle16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgSubtractCircle16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgSubtractCircle24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgSubtractCircle24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgSync16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgSync16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgSync24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgSync24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgTable16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgTable16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgTable24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgTable24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgTerminalWindow16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgTerminalWindow16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgTerminalWindow24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgTerminalWindow24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgTextBold16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgTextBold16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgTextBold24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgTextBold24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgTextBox16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgTextBox16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgTextBox24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgTextBox24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgTextHeading16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgTextHeading16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgTextHeading24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgTextHeading24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgTextItalic16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgTextItalic16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgTextItalic24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgTextItalic24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgTextListOrdered16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgTextListOrdered16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgTextListOrdered24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgTextListOrdered24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgTextListUnordered16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgTextListUnordered16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgTextListUnordered24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgTextListUnordered24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgThumbDown16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgThumbDown16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgThumbDown24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgThumbDown24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgThumbUp16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgThumbUp16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgThumbUp24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgThumbUp24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgTranslate16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgTranslate16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgTranslate24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgTranslate24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgUndo16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgUndo16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgUndo24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgUndo24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgUpload16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgUpload16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgUpload24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgUpload24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgUser16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgUser16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgUser24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgUser24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgUserGroup16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgUserGroup16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgUserGroup24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgUserGroup24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgView16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgView16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgView24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgView24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgViewOff16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgViewOff16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgViewOff24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgViewOff24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationArea16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationArea16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationArea24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationArea24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationAreaStacked16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationAreaStacked16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationAreaStacked24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationAreaStacked24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationBar16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationBar16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationBar24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationBar24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationBarStacked16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationBarStacked16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationBarStacked24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationBarStacked24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationColumn16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationColumn16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationColumn24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationColumn24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationColumnMulti16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationColumnMulti16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationColumnMulti24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationColumnMulti24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationColumnStacked16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationColumnStacked16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationColumnStacked24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationColumnStacked24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationGauge16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationGauge16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationGauge24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationGauge24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationLine16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationLine16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationLine24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationLine24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationLineMulti16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationLineMulti16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationLineMulti24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationLineMulti24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationPie16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationPie16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationPie24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationPie24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationRadar16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationRadar16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationRadar24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationRadar24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationScatter16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationScatter16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationScatter24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationScatter24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationSingleValue16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationSingleValue16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgVisualizationSingleValue24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgVisualizationSingleValue24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgWarning16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgWarning16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgWarning24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgWarning24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgWarningFilled16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgWarningFilled16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgWarningFilled24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgWarningFilled24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgWindow16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgWindow16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgWindow24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgWindow24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgWorld16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgWorld16 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |
+
+### SvgWorld24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { SvgWorld24 } from '@dhis2/ui-icons'
+```
+
+#### Props
+
+| Name  | Type     | Default | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| color | `string` |         |          |             |

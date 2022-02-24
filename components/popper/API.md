@@ -1,18 +1,22 @@
-## Popper
+### Popper
 
-From [`src/popper.js`](./src/popper.js)
+#### Usage
 
-| prop                       |            type             |         default         |      required      | description                                                                                                                            |
-| -------------------------- | :-------------------------: | :---------------------: | :----------------: | -------------------------------------------------------------------------------------------------------------------------------------- |
-| **children**               |         `ReactNode`         |                         | :white_check_mark: | Content inside the Popper                                                                                                              |
-| **className**              |          `String`           |                         |        :x:         |
-| **dataTest**               |          `String`           | `'dhis2-uicore-popper'` |        :x:         |
-| **modifiers**              |      `Array[]<Shape>`       |          `[]`           |        :x:         | A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)                               |
-| **modifiers[].name**       |          `String`           |                         |        :x:         |
-| **modifiers[].options**    |          `Object`           |                         |        :x:         |
-| **observePopperResize**    |          `Boolean`          |                         |        :x:         | Makes the Popper update position when the **Popper content** changes size                                                              |
-| **observeReferenceResize** |          `Boolean`          |                         |        :x:         | Makes the Popper update position when the **reference element** changes size                                                           |
-| **onFirstUpdate**          |         `Function`          |                         |        :x:         | A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)                               |
-| **placement**              |          `custom`           |        `'auto'`         |        :x:         | A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)                               |
-| **reference**              |          `custom`           |                         |        :x:         | A React ref, DOM node, or [virtual element](https://popper.js.org/docs/v2/virtual-elements/) for the popper to position itself against |
-| **strategy**               | `Enum('absolute', 'fixed')` |                         |        :x:         | A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)                               |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Popper } from '@dhis2-ui/popper'
+```
+
+#### Props
+
+| Name      | Type       | Default                 | Required | Description               |
+| --------- | ---------- | ----------------------- | -------- | ------------------------- |
+| children  | `node`     |                         | \*       | Content inside the Popper |
+| className | `string`   |                         |          |                           |
+| dataTest  | `string`   | `'dhis2-uicore-popper'` |          |                           |
+| modifiers | `arrayOf({ |
+
+"name": "string",
+"options": "object"
+})`|`[]`||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)| |observePopperResize|`boolean`|||Makes the Popper update position when the **Popper content** changes size| |observeReferenceResize|`boolean`|||Makes the Popper update position when the **reference element** changes size| |placement|`custom`|`'auto'`||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)| |reference|`custom`|||A React ref, DOM node, or [virtual element](https://popper.js.org/docs/v2/virtual-elements/) for the popper to position itself against| |strategy|`'absolute' │ 'fixed'`|||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)| |onFirstUpdate|`function`|||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|

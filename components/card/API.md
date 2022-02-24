@@ -1,9 +1,17 @@
-## Card
+### Card
 
-From [`src/card.js`](./src/card.js)
+#### Usage
 
-| prop          |    type     |        default        | required | description |
-| ------------- | :---------: | :-------------------: | :------: | ----------- |
-| **children**  | `ReactNode` |                       |   :x:    |
-| **className** |  `String`   |                       |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-card'` |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Card } from '@dhis2-ui/card'
+```
+
+#### Props
+
+| Name      | Type     | Default               | Required | Description |
+| --------- | -------- | --------------------- | -------- | ----------- |
+| children  | `node`   |                       |          |             |
+| className | `string` |                       |          |             |
+| dataTest  | `string` | `'dhis2-uicore-card'` |          |             |

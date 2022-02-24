@@ -2,8 +2,10 @@
 title: Popover
 ---
 
-import { Demo } from '../../src/components/DemoComponent.jsx'
+import { Demo } from '@site/src/components/DemoComponent.jsx'
 import { Popover } from '@dhis2/ui'
+
+import API from '../../../components/popover/API.md'
 
 # Popover
 
@@ -29,7 +31,10 @@ A popover is used to show more information when a user interacts with a trigger 
 -   A popover doesn't offer any default content styling.
 -   Include padding between the popover frame and the content inside. The amount of padding depends on the content and density of the interface. Use a [spacer constant](../utilities/constants.md) for a consistent visual experience.
 
+## API Reference
+
+<API />
+
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/data-display-popover--default)
--   API reference ==TODO: link==

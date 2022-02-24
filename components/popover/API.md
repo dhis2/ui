@@ -1,17 +1,25 @@
-## Popover
+### Popover
 
-From [`src/popover.js`](./src/popover.js)
+#### Usage
 
-| prop                       |    type     |         default          |      required      | description                                                                                   |
-| -------------------------- | :---------: | :----------------------: | :----------------: | --------------------------------------------------------------------------------------------- |
-| **arrow**                  |  `Boolean`  |          `true`          |        :x:         | Show or hide the arrow                                                                        |
-| **children**               | `ReactNode` |                          | :white_check_mark: |
-| **className**              |  `String`   |                          |        :x:         |
-| **dataTest**               |  `String`   | `'dhis2-uicore-popover'` |        :x:         |
-| **elevation**              |  `String`   |    `elevations.e200`     |        :x:         | Box-shadow to create appearance of elevation. Use `elevations` constants from the UI library. |
-| **maxWidth**               |  `Number`   |          `360`           |        :x:         |
-| **observePopperResize**    |  `Boolean`  |                          |        :x:         |
-| **observeReferenceResize** |  `Boolean`  |                          |        :x:         |
-| **onClickOutside**         | `Function`  |                          |        :x:         |
-| **placement**              |  `custom`   |         `'top'`          |        :x:         |
-| **reference**              |  `custom`   |                          |        :x:         | A React ref that refers to the element the Popover should position against                    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Popover } from '@dhis2-ui/popover'
+```
+
+#### Props
+
+| Name                   | Type       | Default                  | Required | Description                                                                                   |
+| ---------------------- | ---------- | ------------------------ | -------- | --------------------------------------------------------------------------------------------- |
+| children               | `node`     |                          | \*       |                                                                                               |
+| arrow                  | `boolean`  | `true`                   |          | Show or hide the arrow                                                                        |
+| className              | `string`   |                          |          |                                                                                               |
+| dataTest               | `string`   | `'dhis2-uicore-popover'` |          |                                                                                               |
+| elevation              | `string`   | `elevations.e200`        |          | Box-shadow to create appearance of elevation. Use `elevations` constants from the UI library. |
+| maxWidth               | `number`   | `360`                    |          |                                                                                               |
+| observePopperResize    | `boolean`  |                          |          |                                                                                               |
+| observeReferenceResize | `boolean`  |                          |          |                                                                                               |
+| placement              | `custom`   | `'top'`                  |          |                                                                                               |
+| reference              | `custom`   |                          |          | A React ref that refers to the element the Popover should position against                    |
+| onClickOutside         | `function` |                          |          |                                                                                               |

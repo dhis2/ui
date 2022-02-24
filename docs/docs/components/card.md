@@ -2,8 +2,10 @@
 title: Card
 ---
 
-import { Demo } from '../../src/components/DemoComponent.jsx'
+import { Demo } from '@site/src/components/DemoComponent.jsx'
 import { Card } from '@dhis2/ui'
+
+import API from '../../../components/card/API.md'
 
 # Card
 
@@ -23,7 +25,10 @@ A card is a container element used to group together and separate blocks of cont
 
 -   **Few items**. A card probably isn't necessary to contain one or two items. Everything on a page doesn't need to be wrapped in a card.
 
+## API Reference
+
+<API />
+
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/layout-card--default)
--   API reference ==TODO: link==

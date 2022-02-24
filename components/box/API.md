@@ -1,17 +1,25 @@
-## Box
+### Box
 
-From [`src/box.js`](./src/box.js)
+#### Usage
 
-| prop          |    type     |       default        | required | description |
-| ------------- | :---------: | :------------------: | :------: | ----------- |
-| **children**  | `ReactNode` |                      |   :x:    |
-| **className** |  `String`   |                      |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-box'` |   :x:    |
-| **height**    |  `String`   |                      |   :x:    |
-| **marginTop** |  `String`   |                      |   :x:    |
-| **maxHeight** |  `String`   |                      |   :x:    |
-| **maxWidth**  |  `String`   |                      |   :x:    |
-| **minHeight** |  `String`   |                      |   :x:    |
-| **minWidth**  |  `String`   |                      |   :x:    |
-| **overflow**  |  `String`   |                      |   :x:    |
-| **width**     |  `String`   |                      |   :x:    |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Box } from '@dhis2-ui/box'
+```
+
+#### Props
+
+| Name      | Type     | Default              | Required | Description |
+| --------- | -------- | -------------------- | -------- | ----------- |
+| children  | `node`   |                      |          |             |
+| className | `string` |                      |          |             |
+| dataTest  | `string` | `'dhis2-uicore-box'` |          |             |
+| height    | `string` |                      |          |             |
+| marginTop | `string` |                      |          |             |
+| maxHeight | `string` |                      |          |             |
+| maxWidth  | `string` |                      |          |             |
+| minHeight | `string` |                      |          |             |
+| minWidth  | `string` |                      |          |             |
+| overflow  | `string` |                      |          |             |
+| width     | `string` |                      |          |             |

@@ -1,66 +1,43 @@
-## TransferOption
+### TransferOption
 
-From [`src/transfer-option.js`](./src/transfer-option.js)
+#### Usage
 
-| prop              |    type    |             default             |      required      | description |
-| ----------------- | :--------: | :-----------------------------: | :----------------: | ----------- |
-| **className**     |  `String`  |                                 |        :x:         |
-| **dataTest**      |  `String`  | `'dhis2-uicore-transferoption'` |        :x:         |
-| **disabled**      | `Boolean`  |                                 |        :x:         |
-| **highlighted**   | `Boolean`  |                                 |        :x:         |
-| **label**         |  `String`  |                                 | :white_check_mark: |
-| **onClick**       | `Function` |                                 |        :x:         |
-| **onDoubleClick** | `Function` |                                 |        :x:         |
-| **value**         |  `String`  |                                 | :white_check_mark: |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## Transfer
+```js
+import { TransferOption } from '@dhis2-ui/transfer'
+```
 
-From [`src/transfer.js`](./src/transfer.js)
+#### Props
 
-| prop                        |        type         |                   default                    |      required      | description |
-| --------------------------- | :-----------------: | :------------------------------------------: | :----------------: | ----------- |
-| **addAllText**              |      `String`       |                                              |        :x:         |
-| **addIndividualText**       |      `String`       |                                              |        :x:         |
-| **className**               |      `String`       |                                              |        :x:         |
-| **dataTest**                |      `String`       |          `'dhis2-uicore-transfer'`           |        :x:         |
-| **disabled**                |      `Boolean`      |                                              |        :x:         |
-| **enableOrderChange**       |      `Boolean`      |                                              |        :x:         |
-| **filterCallback**          |     `Function`      |           `defaultFilterCallback`            |        :x:         |
-| **filterCallbackPicked**    |     `Function`      |           `defaultFilterCallback`            |        :x:         |
-| **filterLabel**             |      `String`       |                                              |        :x:         |
-| **filterLabelPicked**       |      `String`       |                                              |        :x:         |
-| **filterPlaceholder**       |      `String`       |                                              |        :x:         |
-| **filterPlaceholderPicked** |      `String`       |                                              |        :x:         |
-| **filterable**              |      `Boolean`      |                                              |        :x:         |
-| **filterablePicked**        |      `Boolean`      |                                              |        :x:         |
-| **height**                  |      `String`       |                  `'240px'`                   |        :x:         |
-| **hideFilterInput**         |      `Boolean`      |                                              |        :x:         |
-| **hideFilterInputPicked**   |      `Boolean`      |                                              |        :x:         |
-| **initialSearchTerm**       |      `String`       |                     `''`                     |        :x:         |
-| **initialSearchTermPicked** |      `String`       |                     `''`                     |        :x:         |
-| **leftFooter**              |     `ReactNode`     |                                              |        :x:         |
-| **leftHeader**              |     `ReactNode`     |                                              |        :x:         |
-| **loading**                 |      `Boolean`      |                                              |        :x:         |
-| **loadingPicked**           |      `Boolean`      |                                              |        :x:         |
-| **maxSelections**           | `Enum(1, Infinity)` |                  `Infinity`                  |        :x:         |
-| **onChange**                |     `Function`      |                                              | :white_check_mark: |
-| **onEndReached**            |     `Function`      |                                              |        :x:         |
-| **onEndReachedPicked**      |     `Function`      |                                              |        :x:         |
-| **onFilterChange**          |     `Function`      |                                              |        :x:         |
-| **onFilterChangePicked**    |     `Function`      |                                              |        :x:         |
-| **options**                 |  `Array[]<Shape>`   |                                              | :white_check_mark: |
-| **optionsWidth**            |      `String`       |                  `'320px'`                   |        :x:         |
-| **options[].disabled**      |      `Boolean`      |                                              |        :x:         |
-| **options[].label**         |      `String`       |                                              | :white_check_mark: |
-| **options[].value**         |      `String`       |                                              | :white_check_mark: |
-| **removeAllText**           |      `String`       |                                              |        :x:         |
-| **removeIndividualText**    |      `String`       |                                              |        :x:         |
-| **renderOption**            |     `Function`      | `(option) => <TransferOption {...option} />` |        :x:         |
-| **rightFooter**             |     `ReactNode`     |                                              |        :x:         |
-| **rightHeader**             |     `ReactNode`     |                                              |        :x:         |
-| **searchTerm**              |      `String`       |                                              |        :x:         |
-| **searchTermPicked**        |      `String`       |                                              |        :x:         |
-| **selected**                |  `Array[]<String>`  |                     `[]`                     |        :x:         |
-| **selectedEmptyComponent**  |     `ReactNode`     |                                              |        :x:         |
-| **selectedWidth**           |      `String`       |                  `'320px'`                   |        :x:         |
-| **sourceEmptyPlaceholder**  |     `ReactNode`     |                                              |        :x:         |
+| Name          | Type       | Default                         | Required | Description |
+| ------------- | ---------- | ------------------------------- | -------- | ----------- |
+| label         | `string`   |                                 | \*       |             |
+| value         | `string`   |                                 | \*       |             |
+| className     | `string`   |                                 |          |             |
+| dataTest      | `string`   | `'dhis2-uicore-transferoption'` |          |             |
+| disabled      | `boolean`  |                                 |          |             |
+| highlighted   | `boolean`  |                                 |          |             |
+| onClick       | `function` |                                 |          |             |
+| onDoubleClick | `function` |                                 |          |             |
+
+### Transfer
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { Transfer } from '@dhis2-ui/transfer'
+```
+
+#### Props
+
+| Name    | Type       | Default | Required | Description |
+| ------- | ---------- | ------- | -------- | ----------- |
+| options | `arrayOf({ |
+
+"label": "string",
+"value": "string",
+"disabled": "boolean"
+})`||*|| |onChange|`function`||*|| |addAllText|`string`|||| |addIndividualText|`string`|||| |className|`string`|||| |dataTest|`string`|`'dhis2-uicore-transfer'`||| |disabled|`boolean`|||| |enableOrderChange|`boolean`|||| |filterCallback|`function`|`defaultFilterCallback`||| |filterCallbackPicked|`function`|`defaultFilterCallback`||| |filterLabel|`string`|||| |filterLabelPicked|`string`|||| |filterPlaceholder|`string`|||| |filterPlaceholderPicked|`string`|||| |filterable|`boolean`|||| |filterablePicked|`boolean`|||| |height|`string`|`'240px'`||| |hideFilterInput|`boolean`|||| |hideFilterInputPicked|`boolean`|||| |initialSearchTerm|`string`|`''`||| |initialSearchTermPicked|`string`|`''`||| |leftFooter|`node`|||| |leftHeader|`node`|||| |loading|`boolean`|||| |loadingPicked|`boolean`|||| |maxSelections|`1 │ Infinity`|`Infinity`||| |optionsWidth|`string`|`'320px'`||| |removeAllText|`string`|||| |removeIndividualText|`string`|||| |renderOption|`function`|`(option) => <TransferOption {...option} />`||| |rightFooter|`node`|||| |rightHeader|`node`|||| |searchTerm|`string`|||| |searchTermPicked|`string`|||| |selected|`arrayOf(string)`|`[]`||| |selectedEmptyComponent|`node`|||| |selectedWidth|`string`|`'320px'`||| |sourceEmptyPlaceholder|`node`|||| |onEndReached|`function`|||| |onEndReachedPicked|`function`|||| |onFilterChange|`function`|||| |onFilterChangePicked|`function`||||

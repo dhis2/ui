@@ -1,28 +1,45 @@
-## AlertBar
+### AlertBar
 
-From [`src/alert-bar/alert-bar.js`](./src/alert-bar/alert-bar.js)
+#### Usage
 
-| prop          |    type    |          default          | required | description                                                                                             |
-| ------------- | :--------: | :-----------------------: | :------: | ------------------------------------------------------------------------------------------------------- |
-| **actions**   |  `custom`  |                           |   :x:    | An array of 0-2 action objects                                                                          |
-| **children**  |  `String`  |                           |   :x:    | The message string for the alert                                                                        |
-| **className** |  `String`  |                           |   :x:    |
-| **critical**  |  `custom`  |                           |   :x:    | Alert bars with `critical` will not autohide                                                            |
-| **dataTest**  |  `String`  | `'dhis2-uicore-alertbar'` |   :x:    |
-| **duration**  |  `Number`  |          `8000`           |   :x:    |
-| **hidden**    | `Boolean`  |                           |   :x:    |
-| **icon**      |  `custom`  |          `true`           |   :x:    | A specific icon to override the default icon in the bar. If `false` is provided, no icon will be shown. |
-| **onHidden**  | `Function` |                           |   :x:    |
-| **permanent** | `Boolean`  |                           |   :x:    |
-| **success**   |  `custom`  |                           |   :x:    |
-| **warning**   |  `custom`  |                           |   :x:    | Alert bars with `warning` will not autohide                                                             |
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-## AlertStack
+```js
+import { AlertBar } from '@dhis2-ui/alert'
+```
 
-From [`src/alert-stack/alert-stack.js`](./src/alert-stack/alert-stack.js)
+#### Props
 
-| prop          |    type     |           default           | required | description |
-| ------------- | :---------: | :-------------------------: | :------: | ----------- |
-| **children**  | `ReactNode` |                             |   :x:    |
-| **className** |  `String`   |                             |   :x:    |
-| **dataTest**  |  `String`   | `'dhis2-uicore-alertstack'` |   :x:    |
+| Name                                           | Type       | Default                   | Required | Description                                              |
+| ---------------------------------------------- | ---------- | ------------------------- | -------- | -------------------------------------------------------- |
+| actions                                        | `custom`   |                           |          | An array of 0-2 action objects                           |
+| children                                       | `string`   |                           |          | The message string for the alert                         |
+| className                                      | `string`   |                           |          |                                                          |
+| critical                                       | `custom`   |                           |          | Alert bars with `critical` will not autohide             |
+| dataTest                                       | `string`   | `'dhis2-uicore-alertbar'` |          |                                                          |
+| duration                                       | `number`   | `8000`                    |          |                                                          |
+| hidden                                         | `boolean`  |                           |          |                                                          |
+| icon                                           | `custom`   | `true`                    |          | A specific icon to override the default icon in the bar. |
+| If `false` is provided, no icon will be shown. |
+| permanent                                      | `boolean`  |                           |          |                                                          |
+| success                                        | `custom`   |                           |          |                                                          |
+| warning                                        | `custom`   |                           |          | Alert bars with `warning` will not autohide              |
+| onHidden                                       | `function` |                           |          |                                                          |
+
+### AlertStack
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { AlertStack } from '@dhis2-ui/alert'
+```
+
+#### Props
+
+| Name      | Type     | Default                     | Required | Description |
+| --------- | -------- | --------------------------- | -------- | ----------- |
+| children  | `node`   |                             |          |             |
+| className | `string` |                             |          |             |
+| dataTest  | `string` | `'dhis2-uicore-alertstack'` |          |             |

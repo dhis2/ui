@@ -2,8 +2,10 @@
 title: Input
 ---
 
-import { Demo } from '../../src/components/DemoComponent.jsx'
+import { Demo } from '@site/src/components/DemoComponent.jsx'
 import { InputField, TextAreaField, Tooltip } from '@dhis2/ui'
+
+import API from '../../../components/input/API.md'
 
 # Input
 
@@ -175,9 +177,11 @@ The following data types don't change the interaction with the input, but should
 -   Week (`week`)
 -   Search (`search`)
 
+## API Reference
+
+<API />
+
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-input-input-field--default)
 -   [`TextArea` demo](https://ui.dhis2.nu/demo/?path=/story/forms-text-area-text-area-field--no-placeholder-no-value)
--   API reference ==TODO: link==
--   `Textarea` API reference

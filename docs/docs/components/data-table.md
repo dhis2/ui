@@ -2,7 +2,9 @@
 title: Data table
 ---
 
-import { Demo } from '../../src/components/DemoComponent.jsx'
+import { Demo } from '@site/src/components/DemoComponent.jsx'
+
+import API from '../../../components/table/API.md'
 
 # Data table
 
@@ -164,7 +166,10 @@ Patterns are common ways of achieving some functionality. Patterns aren't offere
 -   Avoid using `expandable` and `reorderable` rows together. Dragging and dropping doesn't work well when each row can have a different height.
 -   Avoid using `expandable` and `bordered` rows together. The cell borders make the relationship between the row and the expanded content unclear.
 
+## API Reference
+
+<API />
+
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/data-display-datatable--default)
--   API reference ==TODO: link==

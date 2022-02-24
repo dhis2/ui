@@ -2,8 +2,10 @@
 title: Button
 ---
 
-import { Demo } from '../../src/components/DemoComponent.jsx'
+import { Demo } from '@site/src/components/DemoComponent.jsx'
 import { Button, DropdownButton, SplitButton, IconCheckmark24 } from '@dhis2/ui'
+
+import API from '../../../components/button/API.md'
 
 # Button
 
@@ -167,7 +169,10 @@ Buttons are available in different sizes. Use the size that matches the usage gu
 -   Change the button label to tell the user what's happening. For example, after clicking a _Start job_ button, the loading state label could be _Starting job…_.
 -   If triggering other actions on the page should be prevented, consider showing a blocking loader ==link== instead.
 
+## API Reference
+
+<API />
+
 ## Links
 
 -   [Demo](https://ui.dhis2.nu/demo/?path=/story/actions-buttons-button--basic)
--   API reference ==TODO: link==
