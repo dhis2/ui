@@ -29,11 +29,9 @@ jobs:
                   node-version: 14.x
 
             - uses: c-hive/gha-yarn-cache@v1
-            - run: |
-                  yarn install --frozen-lockfile
-                  yarn setup
+            - run: yarn install --frozen-lockfile
 
-            - run: yarn build:docs
+            - run: yarn build
 
             - uses: nwtgck/actions-netlify@v1.1
               with:
