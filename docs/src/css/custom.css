@@ -51,6 +51,12 @@ body {
     --ifm-navbar-height: 2.5rem;
     --ifm-navbar-padding-vertical: 0;
 
+    /* table */
+    --ifm-table-cell-padding: 0.5rem;
+    --ifm-table-head-font-weight: var(--ifm-font-weight-semibold);
+    --ifm-table-head-background: var(--ifm-color-emphasis-100);
+    --ifm-table-stripe-background: var(--ifm-table-background);
+
     /* menu */
     --ifm-menu-color: var(--ifm-color-emphasis-900);
     --ifm-menu-background: var(--ifm-color-emphasis-100);
@@ -161,6 +167,11 @@ figure {
 }
 figure figcaption {
     font-style: oblique;
+}
+
+table thead tr {
+    border-bottom-width: 1px;
+    text-align: left;
 }
 
 /* component header */
