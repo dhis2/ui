@@ -12,7 +12,6 @@ export const createRootQuery = (ids) =>
                 params: ({ isUserDataViewFallback }) => ({
                     isUserDataViewFallback,
                     fields: ['displayName', 'path', 'id'],
-                    paging: false,
                 }),
             },
         }),
@@ -29,15 +28,17 @@ export const createRootQuery = (ids) =>
 export const useRootOrgData = (ids, { isUserDataViewFallback } = {}) => {
     const query = createRootQuery(ids)
     const variables = { isUserDataViewFallback }
-    const { loading, error, data, refetch } = useDataQuery(query, {
+    const rootOrgUnits = useDataQuery(query, {
         variables,
     })
+    const { called, loading, error, data, refetch } = rootOrgUnits
 
     const patchedData = useMemo(() => {
         return data ? patchMissingDisplayName(data) : data
     }, [data])
 
     return {
+        called,
         loading,
         error: error || null,
         data: patchedData || null,

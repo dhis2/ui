@@ -61,7 +61,7 @@ const Label = ({
         })
 
         // @TODO: It'd make more sense to pass the node as an object
-        // isntead of spread it. But that'd be a breaking change
+        // instead of spread it. But that'd be a breaking change
         const payload = {
             ...node,
             path: fullPath,
@@ -128,12 +128,7 @@ Label.propTypes = {
     node: PropTypes.shape({
         displayName: PropTypes.string.isRequired,
         id: PropTypes.string.isRequired,
-        children: PropTypes.arrayOf(
-            PropTypes.shape({
-                displayName: PropTypes.string.isRequired,
-                id: PropTypes.string.isRequired,
-            })
-        ),
+        children: PropTypes.number,
         path: PropTypes.string,
     }).isRequired,
     open: PropTypes.bool.isRequired,

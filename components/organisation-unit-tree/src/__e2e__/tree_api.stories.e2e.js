@@ -10,12 +10,15 @@ import {
 
 const customizedDataProviderData = {
     organisationUnits: (...args) => {
-        const [, { id }] = args
+        const [, { id, params }] = args
+        const { fields } = params
 
         if (id === 'A0000000000') {
             return dataProviderData.organisationUnits(...args).then((data) => ({
                 ...data,
-                children: data.children.slice(0, 1),
+                children: fields.includes('children::size')
+                    ? 1
+                    : data.children?.slice(0, 1),
             }))
         }
 
@@ -23,7 +26,7 @@ const customizedDataProviderData = {
             return dataProviderData.organisationUnits(...args).then((data) => ({
                 ...data,
                 path: '/A0000000001',
-                children: [],
+                children: fields.includes('children::size') ? 0 : [],
             }))
         }
 

@@ -42,7 +42,7 @@ const OrganisationUnitTree = ({
     )
     const reloadId = useForceReload(forceReload)
     const [prevReloadId, setPrevReloadId] = useState(reloadId)
-    const { loading, error, data, refetch } = useRootOrgData(rootIds, {
+    const { called, loading, error, data, refetch } = useRootOrgData(rootIds, {
         isUserDataViewFallback,
         suppressAlphabeticalSorting,
     })
@@ -69,12 +69,14 @@ const OrganisationUnitTree = ({
             )
     }, [reloadId, prevReloadId, refetch])
 
+    const isLoading = !called || loading
+
     return (
         <div data-test={dataTest}>
-            {loading && <RootLoading />}
+            {isLoading && <RootLoading />}
             {error && <RootError error={error} />}
             {!error &&
-                !loading &&
+                !isLoading &&
                 rootIds.map((rootId) => {
                     const rootNode = data[rootId]
 

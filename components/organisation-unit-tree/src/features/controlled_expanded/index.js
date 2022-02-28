@@ -3,7 +3,8 @@ import { getOrganisationUnitData, namespace } from '../../__e2e__/common.js'
 
 const expectOrgUnitsToBeDisplayed = (ids) => {
     const expandedLabels = ids.map(
-        (id) => getOrganisationUnitData(id).displayName
+        (id) =>
+            getOrganisationUnitData(id, { fields: ['displayName'] }).displayName
     )
 
     expandedLabels.forEach((label) => {
@@ -13,7 +14,7 @@ const expectOrgUnitsToBeDisplayed = (ids) => {
 
 const expectOrgUnitsToNotBeDisplayed = (ids) => {
     const expandedLabels = ids.map((id) => {
-        const data = getOrganisationUnitData(id)
+        const data = getOrganisationUnitData(id, { fields: ['displayName'] })
         return data.displayName
     })
 
@@ -67,7 +68,9 @@ Then('the path should close', () => {
     cy.get('@providedPaths').then((providedPaths) => {
         const providedIds = providedPaths.map((path) => path.match(/[^/]+$/)[0])
         const hiddenChildrenIds = providedIds.reduce((acc, cur) => {
-            const curData = getOrganisationUnitData(cur)
+            const curData = getOrganisationUnitData(cur, {
+                fields: ['children[id,path,displayName]'],
+            })
             const childrenIds = curData.children.map(({ id }) => id)
             return [...acc, ...childrenIds]
         }, [])

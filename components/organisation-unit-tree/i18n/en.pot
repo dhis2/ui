@@ -5,11 +5,14 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-05-10T12:04:00.030Z\n"
-"PO-Revision-Date: 2021-05-10T12:04:00.030Z\n"
+"POT-Creation-Date: 2022-02-22T12:46:32.977Z\n"
+"PO-Revision-Date: 2022-02-22T12:46:32.978Z\n"
+
+msgid "No children match filter"
+msgstr "No children match filter"
 
 msgid "Could not load children"
-msgstr ""
+msgstr "Could not load children"
 
 msgid "Error: {{ ERRORMESSAGE }}"
-msgstr ""
+msgstr "Error: {{ ERRORMESSAGE }}"
