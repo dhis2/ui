@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/ui-icons",
-    "version": "7.16.3",
+    "version": "8.0.0",
     "description": "Icons used in the UI libs",
     "main": "./build/cjs/react/index.js",
     "module": "./build/es/react/index.js",

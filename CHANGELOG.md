@@ -1,3 +1,24 @@
+# [8.0.0](https://github.com/dhis2/ui/compare/v7.16.3...v8.0.0) (2022-02-28)
+
+
+### Bug Fixes
+
+* **org unit node:** use correct value of useOrgData hook retVal ([b322c71](https://github.com/dhis2/ui/commit/b322c7142d2c66dcfe6858aa6a47790b60b04082))
+
+
+### Features
+
+* **org unit tree:** load children when expanding org unit to save bandwidth ([b5a9215](https://github.com/dhis2/ui/commit/b5a9215d6d8e35bf25edf10ddb9b748cda1cae37))
+
+
+### BREAKING CHANGES
+
+* **org unit tree:** The payload and behavior of the `onChildrenLoaded` prop
+have changed slightly! Previously the callback would be called for every
+child that's been loaded. Now the callback will be called once with the
+node that has the children, so fewer calls but with a payload with an
+org unit one level above of what would be that case before this change.
+
 ## [7.16.3](https://github.com/dhis2/ui/compare/v7.16.2...v7.16.3) (2022-02-24)
 
 
