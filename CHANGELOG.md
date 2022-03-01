@@ -1,3 +1,10 @@
+## [8.0.2](https://github.com/dhis2/ui/compare/v8.0.1...v8.0.2) (2022-03-01)
+
+
+### Bug Fixes
+
+* **transfer:** change TransferOption label-proptype to node ([85a5330](https://github.com/dhis2/ui/commit/85a5330f40c42da9de344214e7025aa09545e72f))
+
 ## [8.0.1](https://github.com/dhis2/ui/compare/v8.0.0...v8.0.1) (2022-03-01)
 
 
