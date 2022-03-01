@@ -19,7 +19,6 @@ const PageControls = ({
     onClick,
     nextPageText,
     page,
-    pageCount,
     previousPageText,
 }) => (
     <div data-test={`${dataTest}-pagecontrols`}>
@@ -38,7 +37,7 @@ const PageControls = ({
             secondary
             className="button-next"
             small
-            disabled={isLastPage || page === pageCount}
+            disabled={isLastPage}
             onClick={() => onClick(page + 1)}
             dataTest={`${dataTest}-page-next`}
         >
@@ -71,7 +70,6 @@ PageControls.propTypes = {
         .isRequired,
     onClick: PropTypes.func.isRequired,
     isLastPage: PropTypes.bool,
-    pageCount: PropTypes.number,
 }
 
 export { PageControls }

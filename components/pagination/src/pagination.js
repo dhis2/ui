@@ -65,10 +65,9 @@ const Pagination = ({
                 )}
                 <PageControls
                     dataTest={dataTest}
-                    isLastPage={isLastPage}
+                    isLastPage={isLastPage || page === pageCount}
                     nextPageText={nextPageText}
                     page={page}
-                    pageCount={pageCount}
                     previousPageText={previousPageText}
                     onClick={onPageChange}
                 />
