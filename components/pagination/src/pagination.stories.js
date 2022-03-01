@@ -34,7 +34,6 @@ export default {
     },
     // Default args for stories
     args: {
-        ...pagers.atTenthPage,
         onPageChange: logOnPageChange,
         onPageSizeChange: logOnPageSizeChange,
     },
@@ -43,6 +42,7 @@ export default {
 const Template = (args) => <Pagination {...args} />
 
 export const Default = Template.bind({})
+Default.args = { ...pagers.atTenthPage }
 
 export const PagerAtFirstPage = Template.bind({})
 PagerAtFirstPage.args = { ...pagers.atFirstPage }
@@ -57,25 +57,27 @@ export const NoTotalAtLastPage = Template.bind({})
 NoTotalAtLastPage.args = { ...pagers.noTotalAtLastPage, pageLength: 26 }
 
 export const WithoutPageSizeSelect = Template.bind({})
-WithoutPageSizeSelect.args = { hidePageSizeSelect: true }
+WithoutPageSizeSelect.args = { ...pagers.atTenthPage, hidePageSizeSelect: true }
 
 export const WithoutGoToPageSelect = Template.bind({})
-WithoutGoToPageSelect.args = { hidePageSelect: true }
+WithoutGoToPageSelect.args = { ...pagers.atTenthPage, hidePageSelect: true }
 
 export const WithoutPageSummary = Template.bind({})
-WithoutPageSummary.args = { hidePageSummary: true }
+WithoutPageSummary.args = { ...pagers.atTenthPage, hidePageSummary: true }
 
 export const WithCustomPageSummary = Template.bind({})
 WithCustomPageSummary.args = {
+    ...pagers.atTenthPage,
     pageSummaryText: (interpolationObject) =>
         i18n.t(
-            'Page nr {{page}} of {{pageCount}} pages, items {{firstItem}}-{{lastItem}}, NO TOTAL',
+            'You are at page {{page}} showing items {{firstItem}}-{{lastItem}}, but there are {{pageCount}} pages and {{total}} items',
             interpolationObject
         ),
 }
 
 export const WithoutAnySelect = Template.bind({})
 WithoutAnySelect.args = {
+    ...pagers.atTenthPage,
     ...WithoutGoToPageSelect.args,
     ...WithoutPageSizeSelect.args,
 }
