@@ -1,3 +1,4 @@
+import { requiredIf } from '@dhis2/prop-types'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -10,21 +11,23 @@ import { PageSummary } from './page-summary.js'
 const Pagination = ({
     className,
     dataTest,
-    hidePageSizeSelect,
     hidePageSelect,
+    hidePageSizeSelect,
     hidePageSummary,
-    page,
-    pageCount,
-    pageSize,
-    total,
-    pageSizes,
+    isLastPage,
+    nextPageText,
     onPageChange,
     onPageSizeChange,
-    nextPageText,
+    page,
+    pageCount,
+    pageLength,
     pageSelectText,
+    pageSize,
+    pageSizes,
     pageSizeSelectText,
     pageSummaryText,
     previousPageText,
+    total,
 }) => {
     return (
         <div className={cx('container', className)} data-test={dataTest}>
@@ -44,13 +47,14 @@ const Pagination = ({
                     dataTest={dataTest}
                     page={page}
                     pageCount={pageCount}
+                    pageLength={pageLength}
                     pageSize={pageSize}
                     total={total}
                     pageSummaryText={pageSummaryText}
                 />
             )}
             <div className="page-navigation">
-                {!hidePageSelect && (
+                {!hidePageSelect && total && (
                     <PageSelect
                         dataTest={dataTest}
                         pageSelectText={pageSelectText}
@@ -61,6 +65,7 @@ const Pagination = ({
                 )}
                 <PageControls
                     dataTest={dataTest}
+                    isLastPage={isLastPage}
                     nextPageText={nextPageText}
                     page={page}
                     pageCount={pageCount}
@@ -94,29 +99,36 @@ Pagination.defaultProps = {
     pageSelectText: () => i18n.t('Page'),
     pageSizeSelectText: () => i18n.t('Items per page'),
     pageSummaryText: (interpolationObject) =>
-        i18n.t(
-            'Page {{page}} of {{pageCount}}, items {{firstItem}}-{{lastItem}} of {{total}}',
-            interpolationObject
-        ),
+        interpolationObject.total
+            ? i18n.t(
+                  'Page {{page}} of {{pageCount}}, items {{firstItem}}-{{lastItem}} of {{total}}',
+                  interpolationObject
+              )
+            : i18n.t(
+                  'Page {{page}}, items {{firstItem}}-{{lastItem}}',
+                  interpolationObject
+              ),
     previousPageText: () => i18n.t('Previous'),
 }
 
 Pagination.propTypes = {
     page: PropTypes.number.isRequired,
-    pageCount: PropTypes.number.isRequired,
     pageSize: PropTypes.number.isRequired,
-    total: PropTypes.number.isRequired,
     className: PropTypes.string,
     dataTest: PropTypes.string,
     hidePageSelect: PropTypes.bool,
     hidePageSizeSelect: PropTypes.bool,
     hidePageSummary: PropTypes.bool,
+    isLastPage: PropTypes.bool,
     nextPageText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    pageCount: PropTypes.number,
+    pageLength: requiredIf((props) => props.isLastPage, PropTypes.number),
     pageSelectText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     pageSizeSelectText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     pageSizes: PropTypes.arrayOf(PropTypes.string),
     pageSummaryText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     previousPageText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    total: PropTypes.number,
     onPageChange: PropTypes.func,
     onPageSizeChange: PropTypes.func,
 }

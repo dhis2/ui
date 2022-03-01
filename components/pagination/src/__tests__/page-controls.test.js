@@ -47,9 +47,23 @@ describe('<PageControls />', () => {
         ).toEqual(false)
     })
 
-    it('disables the next page button on the last page', () => {
+    it('disables the next page button on the last page for pagers with total', () => {
         const wrapper = shallow(
             <PageControls {...props} {...mockPagers.atLastPage} />
+        )
+
+        expect(
+            wrapper.find('.button-previous').getElement().props.disabled
+        ).toEqual(false)
+
+        expect(
+            wrapper.find('.button-next').getElement().props.disabled
+        ).toEqual(true)
+    })
+
+    it('disables the next page button on the last page for pagers without total', () => {
+        const wrapper = shallow(
+            <PageControls {...props} {...mockPagers.noTotalAtLastPage} />
         )
 
         expect(

@@ -34,11 +34,9 @@ export default {
     },
     // Default args for stories
     args: {
-        // Fixes 'defaultProps' errors for storybook
-        ...Pagination.defaultProps,
+        ...pagers.atTenthPage,
         onPageChange: logOnPageChange,
         onPageSizeChange: logOnPageSizeChange,
-        ...pagers.atTenthPage,
     },
 }
 
@@ -51,6 +49,12 @@ PagerAtFirstPage.args = { ...pagers.atFirstPage }
 
 export const PagerAtLastPage = Template.bind({})
 PagerAtLastPage.args = { ...pagers.atLastPage }
+
+export const NoTotal = Template.bind({})
+NoTotal.args = { ...pagers.noTotal }
+
+export const NoTotalAtLastPage = Template.bind({})
+NoTotalAtLastPage.args = { ...pagers.noTotalAtLastPage, pageLength: 26 }
 
 export const WithoutPageSizeSelect = Template.bind({})
 WithoutPageSizeSelect.args = { hidePageSizeSelect: true }
