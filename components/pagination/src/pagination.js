@@ -25,9 +25,11 @@ const Pagination = ({
     pageSizeSelectText,
     pageSummaryText,
     previousPageText,
+    small,
 }) => {
+    console.log('small', small)
     return (
-        <div className={cx('container', className)} data-test={dataTest}>
+        <div className={cx('pagination', className)} data-test={dataTest}>
             {hidePageSizeSelect ? (
                 <div className="spacer" />
             ) : (
@@ -37,6 +39,7 @@ const Pagination = ({
                     pageSizes={pageSizes}
                     onChange={onPageSizeChange}
                     pageSizeSelectText={pageSizeSelectText}
+                    small={small}
                 />
             )}
             {!hidePageSummary && (
@@ -47,6 +50,7 @@ const Pagination = ({
                     pageSize={pageSize}
                     total={total}
                     pageSummaryText={pageSummaryText}
+                    small={small}
                 />
             )}
             <div className="page-navigation">
@@ -57,6 +61,7 @@ const Pagination = ({
                         page={page}
                         pageCount={pageCount}
                         onChange={onPageChange}
+                        small={small}
                     />
                 )}
                 <PageControls
@@ -66,10 +71,11 @@ const Pagination = ({
                     pageCount={pageCount}
                     previousPageText={previousPageText}
                     onClick={onPageChange}
+                    small={small}
                 />
             </div>
             <style jsx>{`
-                .container {
+                .pagination {
                     display: flex;
                     flex-wrap: wrap;
                 }
@@ -117,6 +123,7 @@ Pagination.propTypes = {
     pageSizes: PropTypes.arrayOf(PropTypes.string),
     pageSummaryText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     previousPageText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    small: PropTypes.bool,
     onPageChange: PropTypes.func,
     onPageSizeChange: PropTypes.func,
 }

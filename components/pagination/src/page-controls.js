@@ -1,6 +1,7 @@
 import { Button } from '@dhis2-ui/button'
 import { spacers } from '@dhis2/ui-constants'
 import { IconChevronLeft16, IconChevronRight16 } from '@dhis2/ui-icons'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -20,8 +21,12 @@ const PageControls = ({
     page,
     pageCount,
     previousPageText,
+    small,
 }) => (
-    <div data-test={`${dataTest}-pagecontrols`}>
+    <div
+        data-test={`${dataTest}-pagecontrols`}
+        className={cx('page-controls', { small })}
+    >
         <Button
             secondary
             className="button-previous"
@@ -45,17 +50,23 @@ const PageControls = ({
             <IconChevronRight16 />
         </Button>
         <style jsx>{`
-            div {
+            .page-controls {
                 display: flex;
             }
-            div :global(.button-previous) {
+            .page-controls :global(.button-previous) {
                 height: 32px;
                 padding-left: 0;
             }
-            div :global(.button-next) {
+            .page-controls :global(.button-next) {
                 height: 32px;
                 padding-right: 0;
                 margin-left: ${spacers.dp4};
+            }
+            .page-controls.small :global(.button-previous) {
+                height: 24px;
+            }
+            .page-controls.small :global(.button-next) {
+                height: 24px;
             }
         `}</style>
     </div>
@@ -70,6 +81,7 @@ PageControls.propTypes = {
     previousPageText: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
         .isRequired,
     onClick: PropTypes.func.isRequired,
+    small: PropTypes.bool,
 }
 
 export { PageControls }

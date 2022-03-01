@@ -1,4 +1,5 @@
 import { colors, spacers } from '@dhis2/ui-constants'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -39,6 +40,7 @@ const PageSummary = ({
     pageSize,
     pageSummaryText,
     total,
+    small,
 }) => {
     const { firstItem, lastItem } = getItemRange(page, pageSize, total)
     const summary = translate(pageSummaryText, {
@@ -50,19 +52,28 @@ const PageSummary = ({
     })
 
     return (
-        <div data-test={`${dataTest}-summary`}>
+        <div
+            data-test={`${dataTest}-summary`}
+            className={cx('page-summary', { small })}
+        >
             <span>{summary}</span>
             <style jsx>{`
-                div {
+                .page-summary {
                     display: flex;
                     align-items: center;
                     flex-shrink: 0;
                     min-height: 32px;
                     margin-right: ${spacers.dp12};
                 }
-                span {
+                .page-summary span {
                     color: ${colors.grey700};
                     font-size: 14px;
+                }
+                .page-summary.small {
+                    min-height: 24px;
+                }
+                .page-summary.small span {
+                    font-size: 12px;
                 }
             `}</style>
         </div>
@@ -77,6 +88,7 @@ PageSummary.propTypes = {
     pageSummaryText: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
         .isRequired,
     total: PropTypes.number.isRequired,
+    small: PropTypes.bool,
 }
 
 export { PageSummary, getItemRange }

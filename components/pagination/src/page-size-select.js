@@ -1,5 +1,6 @@
 import { SingleSelect, SingleSelectOption } from '@dhis2-ui/select'
 import { spacers } from '@dhis2/ui-constants'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -18,8 +19,12 @@ const PageSizeSelect = ({
     pageSize,
     pageSizes,
     onChange,
+    small,
 }) => (
-    <div data-test={`${dataTest}-pagesize`}>
+    <div
+        data-test={`${dataTest}-pagesize`}
+        className={cx('page-size-select', { small })}
+    >
         <SingleSelect
             dense
             selected={pageSize.toString()}
@@ -37,13 +42,17 @@ const PageSizeSelect = ({
             ))}
         </SingleSelect>
         <style jsx>{`
-            div {
+            .page-size-select {
                 display: flex;
                 align-items: center;
                 flex-shrink: 0;
                 min-height: 32px;
                 margin-right: ${spacers.dp12};
                 flex-grow: 1;
+            }
+            .page-size-select.small,
+            .page-size-select.small :global(.select) :global(.root) {
+                min-height: 24px;
             }
         `}</style>
     </div>
@@ -56,6 +65,7 @@ PageSizeSelect.propTypes = {
         .isRequired,
     pageSizes: PropTypes.arrayOf(PropTypes.string).isRequired,
     onChange: PropTypes.func.isRequired,
+    small: PropTypes.bool,
 }
 
 export { PageSizeSelect }

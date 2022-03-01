@@ -46,6 +46,9 @@ const Template = (args) => <Pagination {...args} />
 
 export const Default = Template.bind({})
 
+export const Small = Template.bind({})
+Small.args = { small: true }
+
 export const PagerAtFirstPage = Template.bind({})
 PagerAtFirstPage.args = { ...pagers.atFirstPage }
 
