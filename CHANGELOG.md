@@ -1,3 +1,10 @@
+# [8.1.0](https://github.com/dhis2/ui/compare/v8.0.2...v8.1.0) (2022-03-02)
+
+
+### Features
+
+* **pagination:** add support for pagers without a total ([#999](https://github.com/dhis2/ui/issues/999)) ([3af2e1d](https://github.com/dhis2/ui/commit/3af2e1dc462e74bb6cd9146b80cb2d72f775ef8b))
+
 ## [8.0.2](https://github.com/dhis2/ui/compare/v8.0.1...v8.0.2) (2022-03-01)
 
 

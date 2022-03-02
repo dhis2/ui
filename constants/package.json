@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/ui-constants",
-    "version": "8.0.2",
+    "version": "8.1.0",
     "description": "Constants used in the UI libs",
     "main": "./build/cjs/index.js",
     "module": "./build/es/index.js",
