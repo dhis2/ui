@@ -15,10 +15,10 @@ const translate = (prop, interpolationObject) => {
 
 const PageControls = ({
     dataTest,
+    isLastPage,
     onClick,
     nextPageText,
     page,
-    pageCount,
     previousPageText,
 }) => (
     <div data-test={`${dataTest}-pagecontrols`}>
@@ -37,7 +37,7 @@ const PageControls = ({
             secondary
             className="button-next"
             small
-            disabled={page === pageCount}
+            disabled={!!isLastPage}
             onClick={() => onClick(page + 1)}
             dataTest={`${dataTest}-page-next`}
         >
@@ -66,10 +66,10 @@ PageControls.propTypes = {
     nextPageText: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
         .isRequired,
     page: PropTypes.number.isRequired,
-    pageCount: PropTypes.number.isRequired,
     previousPageText: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
         .isRequired,
     onClick: PropTypes.func.isRequired,
+    isLastPage: PropTypes.bool,
 }
 
 export { PageControls }
