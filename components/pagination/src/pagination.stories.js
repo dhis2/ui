@@ -56,6 +56,9 @@ NoTotal.args = { ...pagers.noTotal }
 export const NoTotalAtLastPage = Template.bind({})
 NoTotalAtLastPage.args = { ...pagers.noTotalAtLastPage, pageLength: 26 }
 
+export const NoTotalAtLastPageWithoutPageLength = Template.bind({})
+NoTotalAtLastPageWithoutPageLength.args = { ...pagers.noTotalAtLastPage }
+
 export const WithoutPageSizeSelect = Template.bind({})
 WithoutPageSizeSelect.args = { ...pagers.atTenthPage, hidePageSizeSelect: true }
 

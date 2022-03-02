@@ -2,6 +2,8 @@ import { requiredIf } from '@dhis2/prop-types'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { getDefaultPageSummaryText } from './get-default-page-summary-text.js'
+import { getItemRange } from './get-item-range.js'
 import i18n from './locales/index.js'
 import { PageControls } from './page-controls.js'
 import { PageSelect } from './page-select.js'
@@ -29,6 +31,14 @@ const Pagination = ({
     previousPageText,
     total,
 }) => {
+    const { firstItem, lastItem } = getItemRange({
+        isLastPage,
+        page,
+        pageLength,
+        pageSize,
+        total,
+    })
+
     return (
         <div className={cx('container', className)} data-test={dataTest}>
             {hidePageSizeSelect ? (
@@ -45,12 +55,12 @@ const Pagination = ({
             {!hidePageSummary && (
                 <PageSummary
                     dataTest={dataTest}
+                    firstItem={firstItem}
+                    lastItem={lastItem}
                     page={page}
                     pageCount={pageCount}
-                    pageLength={pageLength}
-                    pageSize={pageSize}
-                    total={total}
                     pageSummaryText={pageSummaryText}
+                    total={total}
                 />
             )}
             <div className="page-navigation">
@@ -97,16 +107,7 @@ Pagination.defaultProps = {
     nextPageText: () => i18n.t('Next'),
     pageSelectText: () => i18n.t('Page'),
     pageSizeSelectText: () => i18n.t('Items per page'),
-    pageSummaryText: (interpolationObject) =>
-        interpolationObject.total
-            ? i18n.t(
-                  'Page {{page}} of {{pageCount}}, items {{firstItem}}-{{lastItem}} of {{total}}',
-                  interpolationObject
-              )
-            : i18n.t(
-                  'Page {{page}}, items {{firstItem}}-{{lastItem}}',
-                  interpolationObject
-              ),
+    pageSummaryText: getDefaultPageSummaryText,
     previousPageText: () => i18n.t('Previous'),
 }
 
