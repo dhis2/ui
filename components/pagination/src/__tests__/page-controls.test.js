@@ -1,6 +1,5 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import * as mockPagers from '../__fixtures__/index.js'
 import { PageControls } from '../page-controls.js'
 
 describe('<PageControls />', () => {
@@ -10,7 +9,7 @@ describe('<PageControls />', () => {
         onClick: mockOnClick,
         nextPageText: 'Next',
         previousPageText: 'Previous',
-        ...mockPagers.atTenthPage,
+        page: 10,
     }
 
     beforeEach(() => {
@@ -34,9 +33,7 @@ describe('<PageControls />', () => {
     })
 
     it('disables the previous page button on the first page', () => {
-        const wrapper = shallow(
-            <PageControls {...props} {...mockPagers.atFirstPage} />
-        )
+        const wrapper = shallow(<PageControls {...props} page={1} />)
 
         expect(
             wrapper.find('.button-previous').getElement().props.disabled
@@ -47,24 +44,8 @@ describe('<PageControls />', () => {
         ).toEqual(false)
     })
 
-    it('disables the next page button on the last page for pagers with total', () => {
-        const wrapper = shallow(
-            <PageControls {...props} {...mockPagers.atLastPage} />
-        )
-
-        expect(
-            wrapper.find('.button-previous').getElement().props.disabled
-        ).toEqual(false)
-
-        expect(
-            wrapper.find('.button-next').getElement().props.disabled
-        ).toEqual(true)
-    })
-
-    it('disables the next page button on the last page for pagers without total', () => {
-        const wrapper = shallow(
-            <PageControls {...props} {...mockPagers.noTotalAtLastPage} />
-        )
+    it('disables the next page button on the last page', () => {
+        const wrapper = shallow(<PageControls {...props} isLastPage={true} />)
 
         expect(
             wrapper.find('.button-previous').getElement().props.disabled

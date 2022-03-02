@@ -37,7 +37,7 @@ const PageControls = ({
             secondary
             className="button-next"
             small
-            disabled={isLastPage}
+            disabled={!!isLastPage}
             onClick={() => onClick(page + 1)}
             dataTest={`${dataTest}-page-next`}
         >
