@@ -27,11 +27,7 @@ export const SharingAutocomplete = ({ selected, onSelection }) => {
      * this syncs the displayName of the parent selection to the local input state.
      */
 
-    useEffect(() => {
-        if (selected) {
-            setSearch(selected)
-        }
-    }, [selected])
+    useEffect(() => setSearch(selected), [selected])
 
     /**
      * If the search string changes and is truthy, send out a request, otherwise
