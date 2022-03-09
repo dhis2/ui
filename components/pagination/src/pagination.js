@@ -38,6 +38,11 @@ const Pagination = ({
         pageSize,
         total,
     })
+    const showPageSelect =
+        !hidePageSelect &&
+        typeof pageCount === 'number' &&
+        pageCount > 1 &&
+        pageCount <= 2000
 
     return (
         <div className={cx('container', className)} data-test={dataTest}>
@@ -64,7 +69,7 @@ const Pagination = ({
                 />
             )}
             <div className="page-navigation">
-                {!hidePageSelect && total && (
+                {showPageSelect && (
                     <PageSelect
                         dataTest={dataTest}
                         pageSelectText={pageSelectText}
