@@ -1,3 +1,10 @@
+## [8.1.3](https://github.com/dhis2/ui/compare/v8.1.2...v8.1.3) (2022-03-09)
+
+
+### Bug Fixes
+
+* **SharingDialog:** clear search field once access is granted, fix style ([#1002](https://github.com/dhis2/ui/issues/1002)) ([6d1ef66](https://github.com/dhis2/ui/commit/6d1ef66d0312b1ca59dcd5b4ae04113572406b34))
+
 ## [8.1.2](https://github.com/dhis2/ui/compare/v8.1.1...v8.1.2) (2022-03-08)
 
 
