@@ -186,3 +186,7 @@ Then(
         cy.get('@group-item').contains('View and edit').should('be.visible')
     }
 )
+
+Then('the autocomplete input should be cleared', () => {
+    cy.get('form input').invoke('val').should('be.empty')
+})
