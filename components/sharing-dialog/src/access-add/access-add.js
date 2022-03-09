@@ -1,7 +1,7 @@
 import { Button } from '@dhis2-ui/button'
 import { SingleSelectField, SingleSelectOption } from '@dhis2-ui/select'
 import { useOnlineStatus } from '@dhis2/app-runtime'
-import { colors } from '@dhis2/ui-constants'
+import { colors, spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useState, useContext } from 'react'
 import { SharingAutocomplete } from '../autocomplete/index.js'
@@ -86,6 +86,7 @@ export const AccessAdd = ({ onAdd }) => {
                     border-radius: 5px;
                     display: flex;
                     align-items: flex-end;
+                    gap: ${spacers.dp8};
                 }
 
                 .select-wrapper {
