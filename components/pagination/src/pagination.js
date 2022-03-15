@@ -10,6 +10,8 @@ import { PageSelect } from './page-select.js'
 import { PageSizeSelect } from './page-size-select.js'
 import { PageSummary } from './page-summary.js'
 
+const MAX_PAGE_COUNT = 2000
+
 const Pagination = ({
     className,
     dataTest,
@@ -42,7 +44,7 @@ const Pagination = ({
         !hidePageSelect &&
         typeof pageCount === 'number' &&
         pageCount > 1 &&
-        pageCount <= 2000
+        pageCount <= MAX_PAGE_COUNT
 
     return (
         <div className={cx('container', className)} data-test={dataTest}>
