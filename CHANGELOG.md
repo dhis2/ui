@@ -1,3 +1,10 @@
+## [8.1.4](https://github.com/dhis2/ui/compare/v8.1.3...v8.1.4) (2022-03-15)
+
+
+### Bug Fixes
+
+* **sharing-dialog:** prevent extra request and render of autocompletion list after selection ([#1004](https://github.com/dhis2/ui/issues/1004)) ([d3cc684](https://github.com/dhis2/ui/commit/d3cc68402ec102647a819be9a4af8405ac69a4ca))
+
 ## [8.1.3](https://github.com/dhis2/ui/compare/v8.1.2...v8.1.3) (2022-03-09)
 
 
