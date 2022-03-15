@@ -37,6 +37,10 @@ export const SharingAutocomplete = ({ selected, onSelection }) => {
     const debouncedRefetch = useCallback(debounce(refetch, 250), [refetch])
 
     useEffect(() => {
+        if (search && search === selected) {
+            return
+        }
+
         if (search) {
             debouncedRefetch({ search })
         } else {
