@@ -1,3 +1,10 @@
+## [8.1.5](https://github.com/dhis2/ui/compare/v8.1.4...v8.1.5) (2022-03-15)
+
+
+### Bug Fixes
+
+* **pagination:** hide page select when only 1 page or too many pages ([#1003](https://github.com/dhis2/ui/issues/1003)) ([22054c4](https://github.com/dhis2/ui/commit/22054c4d9c2f329196c792e2e219b540e4532ea7))
+
 ## [8.1.4](https://github.com/dhis2/ui/compare/v8.1.3...v8.1.4) (2022-03-15)
 
 
