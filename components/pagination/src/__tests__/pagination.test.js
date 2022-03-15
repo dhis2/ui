@@ -28,6 +28,26 @@ describe('<Pagination />', () => {
             expect(wrapper.find(PageSelect).length).toEqual(0)
             expect(wrapper.find(PageSizeSelect).length).toEqual(1)
         })
+        it('renders without a PageSelect when pageCount is not provided', () => {
+            const wrapper = shallow(
+                <Pagination {...props} pageCount={undefined} />
+            )
+
+            expect(wrapper.find(PageSelect).length).toEqual(0)
+            expect(wrapper.find(PageSizeSelect).length).toEqual(1)
+        })
+        it('renders without a PageSelect when pageCount is 1', () => {
+            const wrapper = shallow(<Pagination {...props} pageCount={1} />)
+
+            expect(wrapper.find(PageSelect).length).toEqual(0)
+            expect(wrapper.find(PageSizeSelect).length).toEqual(1)
+        })
+        it('renders without a PageSelect when pageCount is over 2000', () => {
+            const wrapper = shallow(<Pagination {...props} pageCount={2001} />)
+
+            expect(wrapper.find(PageSelect).length).toEqual(0)
+            expect(wrapper.find(PageSizeSelect).length).toEqual(1)
+        })
         it('renders without a PageSizeSelect when hidePageSizeSelect is true', () => {
             const wrapper = shallow(
                 <Pagination {...props} hidePageSizeSelect />

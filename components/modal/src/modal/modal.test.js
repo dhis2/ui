@@ -17,7 +17,6 @@ describe('Modal', () => {
         it('has the correct dimension styles when the "small" prop is provided', () => {
             render(<Modal small />)
             const modalEl = screen.getByRole('dialog')
-            console.log('modalEl.outerWidth', modalEl.offsetWidth)
             const style = window.getComputedStyle(modalEl)
 
             expect(style.height).toBe('auto')
