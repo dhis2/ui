@@ -21,3 +21,5 @@ export const SHARE_TARGET_GROUP = 'SHARE_TARGET_GROUP'
 
 export const VISUALIZATION = 'visualization'
 export const DASHBOARD = 'dashboard'
+export const EVENT_VISUALIZATION = 'eventVisualization'
+export const INTERPRETATION = 'interpretation'

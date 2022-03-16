@@ -7,6 +7,8 @@ import {
     ACCESS_VIEW_AND_EDIT,
     VISUALIZATION,
     DASHBOARD,
+    EVENT_VISUALIZATION,
+    INTERPRETATION,
 } from './constants.js'
 import { FetchingContext } from './fetching-context/index.js'
 import {
@@ -191,7 +193,12 @@ SharingDialog.propTypes = {
     /** The id of the object to share */
     id: PropTypes.string.isRequired,
     /** The type of object to share */
-    type: PropTypes.oneOf([VISUALIZATION, DASHBOARD]).isRequired,
+    type: PropTypes.oneOf([
+        VISUALIZATION,
+        DASHBOARD,
+        EVENT_VISUALIZATION,
+        INTERPRETATION,
+    ]).isRequired,
     /** Used to seed the component with data to show whilst loading */
     initialSharingSettings: PropTypes.shape({
         allowPublic: PropTypes.bool.isRequired,
