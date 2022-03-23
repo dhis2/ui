@@ -11,7 +11,6 @@ export const Filter = ({ dataTest, filter, onChange, label, placeholder }) => (
                 dataTest={`${dataTest}-input`}
                 type="search"
                 placeholder={placeholder}
-                name={dataTest}
                 value={filter}
                 onChange={onChange}
             />
