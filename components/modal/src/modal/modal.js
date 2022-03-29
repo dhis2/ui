@@ -50,14 +50,6 @@ export const Modal = ({
             </Center>
 
             <style jsx>{`
-                div {
-                    padding: 24px;
-                    display: flex;
-                    flex-flow: column;
-                    max-width: calc(100vw - ${2 * spacersNum.dp64}px);
-                    max-height: calc(100vh - ${2 * spacersNum.dp64}px);
-                }
-
                 aside {
                     height: auto;
                     width: 600px;
@@ -75,6 +67,13 @@ export const Modal = ({
 
                 aside.fluid {
                     width: auto;
+                }
+                div {
+                    padding: 24px;
+                    display: flex;
+                    flex-flow: column;
+                    max-width: 100%;
+                    max-height: 100%;
                 }
             `}</style>
         </Layer>
