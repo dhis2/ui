@@ -1,3 +1,10 @@
+## [8.1.9](https://github.com/dhis2/ui/compare/v8.1.8...v8.1.9) (2022-03-29)
+
+
+### Bug Fixes
+
+* **modal:** avoid double scrollbar by setting child max-w/h to 100% ([#1013](https://github.com/dhis2/ui/issues/1013)) ([69ae137](https://github.com/dhis2/ui/commit/69ae1372176558d106b91740963288e618c96f25))
+
 ## [8.1.8](https://github.com/dhis2/ui/compare/v8.1.7...v8.1.8) (2022-03-26)
 
 
