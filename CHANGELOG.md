@@ -1,3 +1,10 @@
+## [8.1.10](https://github.com/dhis2/ui/compare/v8.1.9...v8.1.10) (2022-04-06)
+
+
+### Bug Fixes
+
+* support eventVisualization and interpretation types TECH-1037 ([#1007](https://github.com/dhis2/ui/issues/1007)) ([e06fac3](https://github.com/dhis2/ui/commit/e06fac375e1d84fa93852cd0c0eb83b486b9fc26))
+
 ## [8.1.9](https://github.com/dhis2/ui/compare/v8.1.8...v8.1.9) (2022-03-29)
 
 
