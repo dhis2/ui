@@ -10,6 +10,8 @@ import {
     ACCESS_VIEW_AND_EDIT,
     VISUALIZATION,
     DASHBOARD,
+    EVENT_VISUALIZATION,
+    INTERPRETATION,
 } from '../constants.js'
 import i18n from '../locales/index.js'
 
@@ -102,7 +104,12 @@ TabbedContent.propTypes = {
         ACCESS_VIEW_ONLY,
         ACCESS_VIEW_AND_EDIT,
     ]).isRequired,
-    type: PropTypes.oneOf([VISUALIZATION, DASHBOARD]).isRequired,
+    type: PropTypes.oneOf([
+        VISUALIZATION,
+        DASHBOARD,
+        EVENT_VISUALIZATION,
+        INTERPRETATION,
+    ]).isRequired,
     users: PropTypes.arrayOf(
         PropTypes.shape({
             access: PropTypes.oneOf([
