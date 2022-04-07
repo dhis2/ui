@@ -1,3 +1,10 @@
+## [8.1.11](https://github.com/dhis2/ui/compare/v8.1.10...v8.1.11) (2022-04-07)
+
+
+### Bug Fixes
+
+* do not pass name to input so we don't get duplicate ids on the page ([#1010](https://github.com/dhis2/ui/issues/1010)) ([7c74b5b](https://github.com/dhis2/ui/commit/7c74b5bd8c2081c76c306c495258fdbaad941537))
+
 ## [8.1.10](https://github.com/dhis2/ui/compare/v8.1.9...v8.1.10) (2022-04-06)
 
 
