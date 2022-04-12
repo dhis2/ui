@@ -9,8 +9,6 @@ import { PageControls } from './page-controls.js'
 import { PageSelect } from './page-select.js'
 import { PageSizeSelect } from './page-size-select.js'
 import { PageSummary } from './page-summary.js'
-import { shouldDisableNextPage } from './should-disable-next-page.js'
-import { shouldDisablePreviousPage } from './should-disable-previous-page.js'
 
 const MAX_PAGE_COUNT = 2000
 
@@ -36,7 +34,7 @@ const Pagination = ({
     previousPageText,
     total,
 }) => {
-    const [isNavigatingToPage, setIsNavigatingToPage] = useState(null)
+    const [isNavigatingToPage, setIsNavigatingToPage] = useState(false)
     const [isChangingPageSize, setIsChangingPageSize] = useState(false)
     const { firstItem, lastItem } = getItemRange({
         isLastPage,
@@ -52,7 +50,7 @@ const Pagination = ({
         pageCount <= MAX_PAGE_COUNT
 
     useEffect(() => {
-        setIsNavigatingToPage(null)
+        setIsNavigatingToPage(false)
     }, [page])
 
     useEffect(() => {
@@ -80,7 +78,7 @@ const Pagination = ({
                 <PageSummary
                     dataTest={dataTest}
                     inactive={
-                        disabled || !!isNavigatingToPage || isChangingPageSize
+                        disabled || isNavigatingToPage || isChangingPageSize
                     }
                     firstItem={firstItem}
                     lastItem={lastItem}
@@ -94,12 +92,12 @@ const Pagination = ({
                 {showPageSelect && (
                     <PageSelect
                         dataTest={dataTest}
-                        disabled={disabled}
+                        disabled={disabled || isChangingPageSize}
                         pageSelectText={pageSelectText}
                         page={page}
                         pageCount={pageCount}
                         onChange={(newPage) => {
-                            setIsNavigatingToPage(newPage)
+                            setIsNavigatingToPage(true)
                             onPageChange(newPage)
                         }}
                     />
@@ -110,26 +108,21 @@ const Pagination = ({
                     page={page}
                     previousPageText={previousPageText}
                     onClick={(newPage) => {
-                        setIsNavigatingToPage(newPage)
+                        setIsNavigatingToPage(true)
                         onPageChange(newPage)
                     }}
                     isNextDisabled={
                         disabled ||
-                        shouldDisableNextPage({
-                            page,
-                            pageCount,
-                            isLastPage,
-                            isNavigatingToPage,
-                            isChangingPageSize,
-                        })
+                        isNavigatingToPage ||
+                        isChangingPageSize ||
+                        isLastPage ||
+                        page === pageCount
                     }
                     isPreviousDisabled={
                         disabled ||
-                        shouldDisablePreviousPage({
-                            page,
-                            isNavigatingToPage,
-                            isChangingPageSize,
-                        })
+                        isNavigatingToPage ||
+                        isChangingPageSize ||
+                        page === 1
                     }
                 />
             </div>

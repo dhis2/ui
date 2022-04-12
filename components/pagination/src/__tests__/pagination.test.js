@@ -129,17 +129,9 @@ describe('<Pagination />', () => {
                 ).querySelector('.root.disabled')
             ).toBeInTheDocument()
 
-            expect(
-                getByRole('button', {
-                    name: 'Previous',
-                })
-            ).toBeDisabled()
+            expect(getByRole('button', { name: 'Previous' })).toBeDisabled()
 
-            expect(
-                getByRole('button', {
-                    name: 'Next',
-                })
-            ).toBeDisabled()
+            expect(getByRole('button', { name: 'Next' })).toBeDisabled()
         })
 
         it('prevents back navigation when on the first page', () => {
@@ -150,115 +142,11 @@ describe('<Pagination />', () => {
                     onPageSizeChange={() => {}}
                 />
             )
-            expect(
-                getByRole('button', {
-                    name: 'Previous',
-                })
-            ).toBeDisabled()
-
-            expect(
-                getByRole('button', {
-                    name: 'Next',
-                })
-            ).not.toBeDisabled()
-        })
-
-        it('prevents back navigation when navigating to the first page', () => {
-            const { getByRole } = render(
-                <Pagination
-                    {...mockPagers.atSecondPage}
-                    onPageChange={() => {}}
-                    onPageSizeChange={() => {}}
-                />
-            )
-
-            const previousButton = getByRole('button', {
-                name: 'Previous',
-            })
-
-            userEvent.click(previousButton)
-
-            expect(previousButton).toBeDisabled()
-
-            expect(
-                getByRole('button', {
-                    name: 'Next',
-                })
-            ).not.toBeDisabled()
-        })
-
-        it('prevents forward navigation when on the last page', () => {
-            const { getByRole } = render(
-                <Pagination
-                    {...mockPagers.atLastPage}
-                    onPageChange={() => {}}
-                    onPageSizeChange={() => {}}
-                />
-            )
-            expect(
-                getByRole('button', {
-                    name: 'Previous',
-                })
-            ).not.toBeDisabled()
-
-            expect(
-                getByRole('button', {
-                    name: 'Next',
-                })
-            ).toBeDisabled()
-        })
-
-        it('prevents forward navigation when navigating to the last page', () => {
-            const { getByRole } = render(
-                <Pagination
-                    {...mockPagers.atPageBeforeLast}
-                    onPageChange={() => {}}
-                    onPageSizeChange={() => {}}
-                />
-            )
-
-            const nextButton = getByRole('button', {
-                name: 'Next',
-            })
-
-            userEvent.click(nextButton)
-
-            expect(
-                getByRole('button', {
-                    name: 'Previous',
-                })
-            ).not.toBeDisabled()
-
-            expect(nextButton).toBeDisabled()
-        })
-
-        it('re-enables buttons after page change', () => {
-            const props = {
-                ...mockPagers.atSecondPage,
-                onPageChange: () => {},
-                onPageSizeChange: () => {},
-            }
-            const { rerender, getByRole } = render(<Pagination {...props} />)
-
-            const previousButton = getByRole('button', {
-                name: 'Previous',
-            })
-            const nextButton = getByRole('button', {
-                name: 'Next',
-            })
-
-            userEvent.click(previousButton)
-
-            expect(previousButton).toBeDisabled()
-            expect(nextButton).not.toBeDisabled()
-
-            // re-render with a different value for page
-            rerender(<Pagination {...props} page={4} />)
-
-            expect(previousButton).not.toBeDisabled()
-            expect(nextButton).not.toBeDisabled()
+            expect(getByRole('button', { name: 'Previous' })).toBeDisabled()
+            expect(getByRole('button', { name: 'Next' })).not.toBeDisabled()
         })
     })
+
     describe('Pagination without total and totalPages', () => {
         const props = {
             ...mockPagers.noTotal,
@@ -288,53 +176,141 @@ describe('<Pagination />', () => {
             const { getByRole } = render(
                 <Pagination {...props} {...mockPagers.noTotalAtLastPage} />
             )
-            expect(
-                getByRole('button', {
-                    name: 'Previous',
-                })
-            ).not.toBeDisabled()
-
-            expect(
-                getByRole('button', {
-                    name: 'Next',
-                })
-            ).toBeDisabled()
+            expect(getByRole('button', { name: 'Previous' })).not.toBeDisabled()
+            expect(getByRole('button', { name: 'Next' })).toBeDisabled()
         })
+    })
 
-        it('prevents forward navigation during pending forward navigation', () => {
-            const { getByRole } = render(<Pagination {...props} />)
+    describe('a page transition', () => {
+        const props = {
+            ...mockPagers.atTenthPage,
+            onPageChange: () => {},
+            onPageSizeChange: () => {},
+        }
+        const setup = () => {
+            const { getByRole, getByTestId, getByText, rerender } = render(
+                <Pagination {...props} />
+            )
+            const pageSizeSelect = getByTestId(
+                'dhis2-uiwidgets-pagination-pagesize'
+            ).querySelector('.select .root')
+            const summarySpan = getByTestId(
+                'dhis2-uiwidgets-pagination-summary'
+            ).querySelector('span')
+            const pageSelect = getByTestId(
+                'dhis2-uiwidgets-pagination-page-select'
+            ).querySelector('.select .root')
+            const previousButton = getByRole('button', { name: 'Previous' })
+            const nextButton = getByRole('button', { name: 'Next' })
 
-            const previousButton = getByRole('button', {
-                name: 'Previous',
-            })
-            const nextButton = getByRole('button', {
-                name: 'Next',
-            })
+            return {
+                rerender,
+                getByText,
+                pageSizeSelect,
+                summarySpan,
+                pageSelect,
+                previousButton,
+                nextButton,
+            }
+        }
 
+        it('it allows back and forward navigation when the component renders', () => {
+            const { previousButton, nextButton, summarySpan, pageSelect } =
+                setup()
+
+            expect(summarySpan).not.toHaveClass('inactive')
+            expect(pageSelect).not.toHaveClass('disabled')
             expect(previousButton).not.toBeDisabled()
             expect(nextButton).not.toBeDisabled()
-
-            userEvent.click(nextButton)
-
-            expect(previousButton).not.toBeDisabled()
-            expect(nextButton).toBeDisabled()
         })
 
-        it('allows forward navigation during pending backward navigation', () => {
-            const { getByRole } = render(<Pagination {...props} />)
-
-            const previousButton = getByRole('button', {
-                name: 'Previous',
-            })
-            const nextButton = getByRole('button', {
-                name: 'Next',
-            })
-
-            expect(previousButton).not.toBeDisabled()
-            expect(nextButton).not.toBeDisabled()
+        it('prevents back and forwards navigation when previous button was clicked', () => {
+            const { previousButton, nextButton, summarySpan, pageSelect } =
+                setup()
 
             userEvent.click(previousButton)
 
+            expect(pageSelect).not.toHaveClass('disabled')
+
+            expect(summarySpan).toHaveClass('inactive')
+            expect(previousButton).toBeDisabled()
+            expect(nextButton).toBeDisabled()
+        })
+
+        it('prevents back and forwards navigation when next button was clicked', () => {
+            const { previousButton, nextButton, summarySpan, pageSelect } =
+                setup()
+
+            userEvent.click(nextButton)
+
+            expect(pageSelect).not.toHaveClass('disabled')
+
+            expect(summarySpan).toHaveClass('inactive')
+            expect(previousButton).toBeDisabled()
+            expect(nextButton).toBeDisabled()
+        })
+
+        it('prevents back and forwards navigation when a new page was selected', () => {
+            const {
+                previousButton,
+                nextButton,
+                summarySpan,
+                pageSelect,
+                getByText,
+            } = setup()
+
+            userEvent.click(pageSelect)
+            userEvent.click(getByText('3'))
+
+            expect(pageSelect).not.toHaveClass('disabled')
+
+            expect(summarySpan).toHaveClass('inactive')
+            expect(previousButton).toBeDisabled()
+            expect(nextButton).toBeDisabled()
+        })
+
+        it('prevents back and forwards navigation and page selection when a new page size was selected', () => {
+            const {
+                previousButton,
+                nextButton,
+                summarySpan,
+                pageSelect,
+                pageSizeSelect,
+                getByText,
+            } = setup()
+
+            userEvent.click(pageSizeSelect)
+            userEvent.click(getByText('75'))
+
+            expect(pageSelect).toHaveClass('disabled')
+            expect(summarySpan).toHaveClass('inactive')
+            expect(previousButton).toBeDisabled()
+            expect(nextButton).toBeDisabled()
+        })
+
+        it('re-enables back and forwards navigation after page change', () => {
+            const {
+                previousButton,
+                nextButton,
+                summarySpan,
+                pageSelect,
+                rerender,
+            } = setup()
+
+            userEvent.click(nextButton)
+
+            // After click navigation is disabled
+            expect(pageSelect).not.toHaveClass('disabled')
+            expect(summarySpan).toHaveClass('inactive')
+            expect(previousButton).toBeDisabled()
+            expect(nextButton).toBeDisabled()
+
+            // re-render with a different value for page to simulate a
+            // new pager object being returned from a request
+            rerender(<Pagination {...props} page={4} />)
+
+            expect(summarySpan).not.toHaveClass('inactive')
+            expect(pageSelect).not.toHaveClass('disabled')
             expect(previousButton).not.toBeDisabled()
             expect(nextButton).not.toBeDisabled()
         })
