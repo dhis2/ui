@@ -35,7 +35,7 @@ describe('<PageSummary />', () => {
         )
         const expectedString = 'Page 2 of 5, items 51-100 of 224'
 
-        expect(wrapper.find('span').text()).toEqual(expectedString)
+        expect(wrapper.find('span').text()).toBe(expectedString)
     })
 
     it('renders the correct message when only lastItem is provided', () => {
@@ -50,7 +50,7 @@ describe('<PageSummary />', () => {
         )
         const expectedString = 'Page 2, items 51-100'
 
-        expect(wrapper.find('span').text()).toEqual(expectedString)
+        expect(wrapper.find('span').text()).toBe(expectedString)
     })
 
     it('renders the correct message when total is missing and lastItem is not a number', () => {
@@ -65,6 +65,6 @@ describe('<PageSummary />', () => {
         )
         const expectedString = 'Page 2'
 
-        expect(wrapper.find('span').text()).toEqual(expectedString)
+        expect(wrapper.find('span').text()).toBe(expectedString)
     })
 })

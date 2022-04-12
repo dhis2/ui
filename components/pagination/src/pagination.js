@@ -1,7 +1,7 @@
 import { requiredIf } from '@dhis2/prop-types'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { getDefaultPageSummaryText } from './get-default-page-summary-text.js'
 import { getItemRange } from './get-item-range.js'
 import i18n from './locales/index.js'
@@ -9,12 +9,15 @@ import { PageControls } from './page-controls.js'
 import { PageSelect } from './page-select.js'
 import { PageSizeSelect } from './page-size-select.js'
 import { PageSummary } from './page-summary.js'
+import { shouldDisableNextPage } from './should-disable-next-page.js'
+import { shouldDisablePreviousPage } from './should-disable-previous-page.js'
 
 const MAX_PAGE_COUNT = 2000
 
 const Pagination = ({
     className,
     dataTest,
+    disabled,
     hidePageSelect,
     hidePageSizeSelect,
     hidePageSummary,
@@ -33,6 +36,8 @@ const Pagination = ({
     previousPageText,
     total,
 }) => {
+    const [isNavigatingToPage, setIsNavigatingToPage] = useState(null)
+    const [isChangingPageSize, setIsChangingPageSize] = useState(false)
     const { firstItem, lastItem } = getItemRange({
         isLastPage,
         page,
@@ -46,6 +51,14 @@ const Pagination = ({
         pageCount > 1 &&
         pageCount <= MAX_PAGE_COUNT
 
+    useEffect(() => {
+        setIsNavigatingToPage(null)
+    }, [page])
+
+    useEffect(() => {
+        setIsChangingPageSize(false)
+    }, [pageSize])
+
     return (
         <div className={cx('container', className)} data-test={dataTest}>
             {hidePageSizeSelect ? (
@@ -53,15 +66,22 @@ const Pagination = ({
             ) : (
                 <PageSizeSelect
                     dataTest={dataTest}
+                    disabled={disabled}
                     pageSize={pageSize}
                     pageSizes={pageSizes}
-                    onChange={onPageSizeChange}
+                    onChange={(newPageSize) => {
+                        setIsChangingPageSize(true)
+                        onPageSizeChange(newPageSize)
+                    }}
                     pageSizeSelectText={pageSizeSelectText}
                 />
             )}
             {!hidePageSummary && (
                 <PageSummary
                     dataTest={dataTest}
+                    inactive={
+                        disabled || !!isNavigatingToPage || isChangingPageSize
+                    }
                     firstItem={firstItem}
                     lastItem={lastItem}
                     page={page}
@@ -74,19 +94,43 @@ const Pagination = ({
                 {showPageSelect && (
                     <PageSelect
                         dataTest={dataTest}
+                        disabled={disabled}
                         pageSelectText={pageSelectText}
                         page={page}
                         pageCount={pageCount}
-                        onChange={onPageChange}
+                        onChange={(newPage) => {
+                            setIsNavigatingToPage(newPage)
+                            onPageChange(newPage)
+                        }}
                     />
                 )}
                 <PageControls
                     dataTest={dataTest}
-                    isLastPage={isLastPage || page === pageCount}
                     nextPageText={nextPageText}
                     page={page}
                     previousPageText={previousPageText}
-                    onClick={onPageChange}
+                    onClick={(newPage) => {
+                        setIsNavigatingToPage(newPage)
+                        onPageChange(newPage)
+                    }}
+                    isNextDisabled={
+                        disabled ||
+                        shouldDisableNextPage({
+                            page,
+                            pageCount,
+                            isLastPage,
+                            isNavigatingToPage,
+                            isChangingPageSize,
+                        })
+                    }
+                    isPreviousDisabled={
+                        disabled ||
+                        shouldDisablePreviousPage({
+                            page,
+                            isNavigatingToPage,
+                            isChangingPageSize,
+                        })
+                    }
                 />
             </div>
             <style jsx>{`
@@ -123,6 +167,7 @@ Pagination.propTypes = {
     pageSize: PropTypes.number.isRequired,
     className: PropTypes.string,
     dataTest: PropTypes.string,
+    disabled: PropTypes.bool,
     hidePageSelect: PropTypes.bool,
     hidePageSizeSelect: PropTypes.bool,
     hidePageSummary: PropTypes.bool,

@@ -1,4 +1,5 @@
 import { colors, spacers } from '@dhis2/ui-constants'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -13,6 +14,7 @@ const translate = (prop, interpolationObject) => {
 const PageSummary = ({
     dataTest,
     firstItem,
+    inactive,
     lastItem,
     page,
     pageCount,
@@ -29,7 +31,7 @@ const PageSummary = ({
 
     return (
         <div data-test={`${dataTest}-summary`}>
-            <span>{summary}</span>
+            <span className={cx({ inactive })}>{summary}</span>
             <style jsx>{`
                 div {
                     display: flex;
@@ -42,6 +44,9 @@ const PageSummary = ({
                     color: ${colors.grey700};
                     font-size: 14px;
                 }
+                span.inactive {
+                    color: ${colors.grey500};
+                }
             `}</style>
         </div>
     )
@@ -53,6 +58,7 @@ PageSummary.propTypes = {
     pageSummaryText: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
         .isRequired,
     firstItem: PropTypes.number,
+    inactive: PropTypes.bool,
     lastItem: PropTypes.number,
     pageCount: PropTypes.number,
     total: PropTypes.number,

@@ -10,8 +10,8 @@ describe('getItemRange', () => {
             total,
         })
 
-        expect(firstItem).toEqual(451)
-        expect(lastItem).toEqual(500)
+        expect(firstItem).toBe(451)
+        expect(lastItem).toBe(500)
     })
 
     it('returns 0 for firstItem and lastItem if the total is 0', () => {
@@ -21,15 +21,15 @@ describe('getItemRange', () => {
             total: 0,
         })
 
-        expect(firstItem).toEqual(0)
-        expect(lastItem).toEqual(0)
+        expect(firstItem).toBe(0)
+        expect(lastItem).toBe(0)
     })
 
     it('uses the total count as lastItem when the last page is reached', () => {
         const { page, pageSize, total } = mockPagers.atLastPage
         const { lastItem } = getItemRange({ page, pageSize, total })
 
-        expect(lastItem).toEqual(total)
+        expect(lastItem).toBe(total)
     })
 
     it('handles pagers without totals', () => {
@@ -38,8 +38,8 @@ describe('getItemRange', () => {
             pageSize: 50,
         })
 
-        expect(firstItem).toEqual(101)
-        expect(lastItem).toEqual(150)
+        expect(firstItem).toBe(101)
+        expect(lastItem).toBe(150)
     })
 
     it('bases the lastItem on the pageLength for pagers without total when the last page is reached', () => {
@@ -50,7 +50,7 @@ describe('getItemRange', () => {
             isLastPage: true,
         })
 
-        expect(lastItem).toEqual(121)
+        expect(lastItem).toBe(121)
     })
 
     it('sets lastItem to NaN when on the last page and there is no total or pageLength', () => {
@@ -60,6 +60,6 @@ describe('getItemRange', () => {
             isLastPage: true,
         })
 
-        expect(lastItem).toEqual(NaN)
+        expect(lastItem).toBe(NaN)
     })
 })

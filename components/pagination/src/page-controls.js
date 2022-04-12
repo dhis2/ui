@@ -4,7 +4,6 @@ import { IconChevronLeft16, IconChevronRight16 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-// TODO: i18n translate
 const translate = (prop, interpolationObject) => {
     if (typeof prop === 'function') {
         return prop(interpolationObject)
@@ -15,18 +14,19 @@ const translate = (prop, interpolationObject) => {
 
 const PageControls = ({
     dataTest,
-    isLastPage,
-    onClick,
+    isNextDisabled,
+    isPreviousDisabled,
     nextPageText,
     page,
     previousPageText,
+    onClick,
 }) => (
     <div data-test={`${dataTest}-pagecontrols`}>
         <Button
             secondary
             className="button-previous"
             small
-            disabled={page === 1}
+            disabled={isPreviousDisabled}
             onClick={() => onClick(page - 1)}
             dataTest={`${dataTest}-page-previous`}
         >
@@ -37,7 +37,7 @@ const PageControls = ({
             secondary
             className="button-next"
             small
-            disabled={!!isLastPage}
+            disabled={isNextDisabled}
             onClick={() => onClick(page + 1)}
             dataTest={`${dataTest}-page-next`}
         >
@@ -69,7 +69,8 @@ PageControls.propTypes = {
     previousPageText: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
         .isRequired,
     onClick: PropTypes.func.isRequired,
-    isLastPage: PropTypes.bool,
+    isNextDisabled: PropTypes.bool,
+    isPreviousDisabled: PropTypes.bool,
 }
 
 export { PageControls }

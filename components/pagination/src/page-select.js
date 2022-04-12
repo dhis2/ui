@@ -17,6 +17,7 @@ const createAvailablePages = (length) =>
 
 const PageSelect = ({
     dataTest,
+    disabled,
     pageSelectText,
     onChange,
     page,
@@ -25,6 +26,7 @@ const PageSelect = ({
     <div data-test={`${dataTest}-gotopage`}>
         <SingleSelect
             dense
+            disabled={disabled}
             selected={page.toString()}
             onChange={({ selected }) => onChange(parseInt(selected, 10))}
             className="select"
@@ -54,6 +56,7 @@ PageSelect.propTypes = {
     pageSelectText: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
         .isRequired,
     onChange: PropTypes.func.isRequired,
+    disabled: PropTypes.bool,
 }
 
 export { PageSelect, createAvailablePages }

@@ -44,8 +44,17 @@ const Template = (args) => <Pagination {...args} />
 export const Default = Template.bind({})
 Default.args = { ...pagers.atTenthPage }
 
+export const Disabled = Template.bind({})
+Disabled.args = { ...pagers.atTenthPage, disabled: true }
+
 export const PagerAtFirstPage = Template.bind({})
 PagerAtFirstPage.args = { ...pagers.atFirstPage }
+
+export const PagerAtSecondPage = Template.bind({})
+PagerAtSecondPage.args = { ...pagers.atSecondPage }
+
+export const PagerAtPageBeforeLast = Template.bind({})
+PagerAtPageBeforeLast.args = { ...pagers.atPageBeforeLast }
 
 export const PagerAtLastPage = Template.bind({})
 PagerAtLastPage.args = { ...pagers.atLastPage }
