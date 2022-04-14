@@ -15,6 +15,7 @@ const MAX_PAGE_COUNT = 2000
 const Pagination = ({
     className,
     dataTest,
+    disabled,
     hidePageSelect,
     hidePageSizeSelect,
     hidePageSummary,
@@ -53,6 +54,7 @@ const Pagination = ({
             ) : (
                 <PageSizeSelect
                     dataTest={dataTest}
+                    disabled={disabled}
                     pageSize={pageSize}
                     pageSizes={pageSizes}
                     onChange={onPageSizeChange}
@@ -62,6 +64,7 @@ const Pagination = ({
             {!hidePageSummary && (
                 <PageSummary
                     dataTest={dataTest}
+                    inactive={disabled}
                     firstItem={firstItem}
                     lastItem={lastItem}
                     page={page}
@@ -74,6 +77,7 @@ const Pagination = ({
                 {showPageSelect && (
                     <PageSelect
                         dataTest={dataTest}
+                        disabled={disabled}
                         pageSelectText={pageSelectText}
                         page={page}
                         pageCount={pageCount}
@@ -82,11 +86,14 @@ const Pagination = ({
                 )}
                 <PageControls
                     dataTest={dataTest}
-                    isLastPage={isLastPage || page === pageCount}
                     nextPageText={nextPageText}
                     page={page}
                     previousPageText={previousPageText}
                     onClick={onPageChange}
+                    isNextDisabled={
+                        disabled || isLastPage || page === pageCount
+                    }
+                    isPreviousDisabled={disabled || page === 1}
                 />
             </div>
             <style jsx>{`
@@ -123,6 +130,7 @@ Pagination.propTypes = {
     pageSize: PropTypes.number.isRequired,
     className: PropTypes.string,
     dataTest: PropTypes.string,
+    disabled: PropTypes.bool,
     hidePageSelect: PropTypes.bool,
     hidePageSizeSelect: PropTypes.bool,
     hidePageSummary: PropTypes.bool,
