@@ -1,3 +1,10 @@
+# [8.2.0](https://github.com/dhis2/ui/compare/v8.1.11...v8.2.0) (2022-04-14)
+
+
+### Features
+
+* **pagination:** disable navigation elements ([#1027](https://github.com/dhis2/ui/issues/1027)) ([09472fd](https://github.com/dhis2/ui/commit/09472fd64761d29500393dc6ee542d0aa2cbb33c))
+
 ## [8.1.11](https://github.com/dhis2/ui/compare/v8.1.10...v8.1.11) (2022-04-07)
 
 
