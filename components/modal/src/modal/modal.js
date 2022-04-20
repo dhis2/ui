@@ -72,8 +72,8 @@ export const Modal = ({
                     padding: 24px;
                     display: flex;
                     flex-flow: column;
-                    max-width: 100%;
-                    max-height: 100%;
+                    max-width: calc(100vw - ${2 * spacersNum.dp64}px);
+                    max-height: calc(100vh - ${2 * spacersNum.dp64}px);
                 }
             `}</style>
         </Layer>
