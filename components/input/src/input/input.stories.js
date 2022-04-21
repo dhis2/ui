@@ -42,7 +42,7 @@ const logger = ({ name, value }) =>
     console.log(`Name: ${name}, value: ${value}`)
 
 export default {
-    title: 'Forms/Input/Input',
+    title: 'Input',
     component: Input,
     parameters: {
         docs: { description: { component: description } },

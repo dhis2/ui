@@ -42,7 +42,7 @@ const inputTypeArgType = {
 }
 
 export default {
-    title: 'Forms/Input/Input Field',
+    title: 'Input Field',
     component: InputField,
     parameters: {
         componentSubtitle: subtitle,

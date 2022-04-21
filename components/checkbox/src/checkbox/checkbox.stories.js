@@ -49,7 +49,7 @@ const uniqueOnStateArgType = {
 }
 
 export default {
-    title: 'Forms/Checkbox/Checkbox',
+    title: 'Checkbox',
     component: Checkbox,
     parameters: {
         componentSubtitle: subtitle,

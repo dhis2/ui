@@ -69,7 +69,7 @@ const actionsArgType = {
 }
 
 export default {
-    title: 'Feedback/Alerts/Alert Bar',
+    title: 'Alert Bar',
     component: AlertBar,
     decorators: [Wrapper],
     parameters: {

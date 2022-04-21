@@ -16,7 +16,7 @@ const logger = ({ name, value, checked }) =>
     console.log(`name: ${name}, value: ${value}, checked: ${checked}`)
 
 export default {
-    title: 'Forms/Switch/Switch Field',
+    title: 'Switch Field',
     component: SwitchField,
     parameters: { docs: { description: { component: description } } },
     // Default args for stories

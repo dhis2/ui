@@ -72,7 +72,6 @@ const TextAreaField = ({
 
 TextAreaField.defaultProps = {
     rows: 4,
-    width: '100%',
     resize: 'vertical',
     dataTest: 'dhis2-uiwidgets-textareafield',
 }

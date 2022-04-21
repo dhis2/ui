@@ -12,7 +12,7 @@ import { Cover } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Helpers/Component Cover',
+    title: 'Component Cover',
     component: Cover,
     parameters: { docs: { description: { component: description } } },
 }

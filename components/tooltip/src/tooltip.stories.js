@@ -22,7 +22,7 @@ _**Note**: The tooltips may not be placed correctly on this page. View the demos
 `
 
 export default {
-    title: 'Data Display/Tooltip',
+    title: 'Tooltip',
     component: Tooltip,
     parameters: {
         componentSubtitle: subtitle,

@@ -34,7 +34,7 @@ const orgUnitTree = (
 `
 
 export default {
-    title: 'Forms/Organisation Unit Tree',
+    title: 'Organisation Unit Tree',
     component: OrganisationUnitTree,
     decorators: [
         (fn) => (

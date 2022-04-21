@@ -15,7 +15,7 @@ _**Note**: Some of the stories may not look right on this page. View those examp
 `
 
 export default {
-    title: 'Helpers/Popper',
+    title: 'Popper',
     component: Popper,
     parameters: { docs: { description: { component: description } } },
     argTypes: {

@@ -32,7 +32,7 @@ Press **Submit** to see the form values logged to the console.
 `
 
 export default {
-    title: 'Forms/Radio/Radio Field (Final Form)',
+    title: 'Radio Field (Final Form)',
     component: RadioFieldFF,
     decorators: [formDecorator],
     parameters: { docs: { description: { component: description } } },

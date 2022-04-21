@@ -19,7 +19,7 @@ import { HeaderBar } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Utils/Header Bar',
+    title: 'Header Bar',
     component: HeaderBar,
     parameters: {
         componentSubtitle: subtitle,

@@ -16,7 +16,7 @@ const onRemove = () => console.log('onRemove')
 const onCancel = () => console.log('onCancel')
 
 export default {
-    title: 'Forms/File Input/File Input Field',
+    title: 'File Input Field',
     component: FileInputField,
     parameters: { docs: { description: { component: description } } },
     // Default args:

@@ -21,33 +21,30 @@
             "components/*",
             "constants",
             "icons",
-            "storybook"
+            "storybook",
+            "docs"
         ]
     },
     "scripts": {
-        "build": "./scripts/build.js",
         "setup": "./scripts/setup.js",
-        "cy:start": "yarn build && STORYBOOK_TESTING=1 yarn start",
+        "build": "./scripts/build-world.sh",
+        "build:lib": "./scripts/build.js",
+        "build:docs": "./scripts/build-docs.js",
+        "build:api": "./scripts/generate-api-docs.js",
+        "cy:start": "yarn build:lib && STORYBOOK_TESTING=1 yarn start",
         "cy:open": "wait-on 'http://localhost:5000' && cypress open",
         "cy:run": "wait-on 'http://localhost:5000' && cypress run",
         "cy:test": "./scripts/cypress.js",
-        "docs": "d2-utils-docsite build ./docs -o ./dist --reactDocs ./components/**/src/index.js --reactDocsOutputFile api.md --reactDocsLinkSource",
-        "docs:serve": "d2-utils-docsite serve ./docs -o ./dist --reactDocs ./components/**/src/index.js --reactDocsOutputFile api.md --reactDocsLinkSource",
         "format": "d2-style apply",
         "format:staged": "d2-style apply --staged",
         "lint": "d2-style check",
         "lint:staged": "d2-style check --staged",
         "test": "d2-app-scripts test",
         "start": "yarn workspace ui-storybook start",
-        "demo": "yarn workspace ui-storybook build"
-    },
-    "d2": {
-        "docsite": {
-            "name": "DHIS2 UI Components",
-            "description": "Components and related resources for the DHIS2 design system"
-        }
+        "start:docs": "yarn workspace ui-docusaurus start"
     },
     "dependencies": {
+        "@babel/parser": "^7.17.0",
         "@dhis2/app-runtime": "^3.2.5",
         "@dhis2/cli-app-scripts": "^8.0.0",
         "@dhis2/cli-style": "^10.1.1",
@@ -62,6 +59,7 @@
         "@testing-library/react-hooks": "^7.0.1",
         "@testing-library/user-event": "^13.5.0",
         "@testing-library/jest-dom": "^5.16.1",
+        "ast-types": "^0.14.2",
         "concurrently": "^6.2.1",
         "cypress": "^9.5.0",
         "enzyme": "^3.11.0",
@@ -71,6 +69,7 @@
         "find-up": "^5.0.0",
         "react": "16.13",
         "react-dev-utils": "^10.2.1",
+        "react-docgen": "^5.4.0",
         "react-dom": "16.13",
         "react-scripts": "^4.0.3",
         "rimraf": "^3.0.2",

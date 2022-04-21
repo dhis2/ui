@@ -32,7 +32,7 @@ Press **Submit** to see the form values logged to the console.
 `
 
 export default {
-    title: 'Forms/Text Area/Text Area Field (Final Form)',
+    title: 'Text Area Field (Final Form)',
     component: TextAreaFieldFF,
     decorators: [formDecorator],
     parameters: { docs: { description: { component: description } } },

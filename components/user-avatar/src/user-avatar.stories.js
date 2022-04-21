@@ -2,7 +2,7 @@ import React from 'react'
 import { UserAvatar } from './user-avatar.js'
 
 export default {
-    title: 'Utils/User Avatar',
+    title: 'User Avatar',
     component: UserAvatar,
 }
 

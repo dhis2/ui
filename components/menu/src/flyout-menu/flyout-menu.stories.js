@@ -25,7 +25,7 @@ import { FlyoutMenu } from 'dhis2/ui'
 `
 
 export default {
-    title: 'Actions/Menu/Flyout Menu',
+    title: 'Flyout Menu',
     component: FlyoutMenu,
     parameters: { docs: { description: { component: description } } },
 }

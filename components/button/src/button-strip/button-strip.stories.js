@@ -33,7 +33,7 @@ const alignmentArgType = {
 }
 
 export default {
-    title: 'Actions/Buttons/Button Strip',
+    title: 'Button Strip',
     component: ButtonStrip,
     decorators: [Wrapper],
     parameters: { docs: { description: { component: description } } },

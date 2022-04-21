@@ -14,7 +14,7 @@ import { FieldGroup } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Forms/Field Group/Field Group',
+    title: 'Field Group',
     component: FieldGroup,
     parameters: { docs: { description: { component: description } } },
     argTypes: {
