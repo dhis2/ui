@@ -36,7 +36,7 @@ const onClick = (...args) => window.onClick(...args)
 const onRemove = (...args) => window.onRemove(...args)
 
 export default {
-    title: 'Actions/Chip',
+    title: 'Chip',
     component: Chip,
     parameters: {
         componentSubtitle: subtitle,

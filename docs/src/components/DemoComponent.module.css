@@ -1,0 +1,23 @@
+.demo {
+    border: 1px solid var(--ifm-color-emphasis-200);
+    margin-bottom: 16px;
+    position: relative;
+}
+.demoFrame {
+    position: relative;
+    width: 100%;
+    overflow: clip;
+    padding: 24px 16px;
+}
+.demoFrame * {
+    font-family: 'Roboto', sans-serif;
+    padding: unset;
+    margin: unset;
+}
+.demoTitle {
+    width: 100%;
+    background-color: var(--ifm-color-emphasis-200);
+    font-size: 0.8rem;
+    padding: 2px 4px;
+    font-family: monospace;
+}

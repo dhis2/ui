@@ -139,7 +139,7 @@ const options = [
  * https://github.com/storybookjs/storybook/issues/12455#issuecomment-702763930
  */
 export default {
-    title: 'Forms/Transfer',
+    title: 'Transfer',
     component: Transfer,
     parameters: {
         componentSubtitle: subtitle,

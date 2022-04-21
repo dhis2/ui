@@ -18,7 +18,7 @@ Press **Submit** to see the form values logged to the console.
 `
 
 export default {
-    title: 'Forms/Field Group/Field Group (Final Form)',
+    title: 'Field Group (Final Form)',
     component: FieldGroupFF,
     decorators: [formDecorator],
     parameters: { docs: { description: { component: description } } },

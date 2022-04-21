@@ -22,7 +22,7 @@ import { Menu } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Actions/Menu/Menu',
+    title: 'Menu',
     component: Menu,
     parameters: { docs: { description: { component: description } } },
 }

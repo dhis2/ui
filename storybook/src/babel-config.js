@@ -1,6 +1,6 @@
 const makeBabelConfig = require('@dhis2/cli-app-scripts/config/makeBabelConfig.js')
 
-exports.babelConfig = async (config) => {
+exports.babelConfig = (config) => {
     // currently styled-jsx is configured the same way for prod and
     // dev so it doesn't matter what the mode is here.
     const mode = 'production'

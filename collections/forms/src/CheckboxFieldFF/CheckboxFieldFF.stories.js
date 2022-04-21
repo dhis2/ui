@@ -32,7 +32,7 @@ Press **Submit** to see the form values logged to the console.
 `
 
 export default {
-    title: 'Forms/Checkbox/Checkbox Field (Final Form)',
+    title: 'Checkbox Field (Final Form)',
     component: CheckboxFieldFF,
     decorators: [formDecorator],
     parameters: { docs: { description: { component: description } } },

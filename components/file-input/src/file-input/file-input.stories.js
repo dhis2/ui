@@ -31,7 +31,7 @@ const onChange = (payload, event) => {
 const { sizeArgType, statusArgType } = sharedPropTypes
 
 export default {
-    title: 'Forms/File Input/File Input',
+    title: 'File Input',
     component: FileInput,
     // Default args for each story unless overridden
     args: { buttonLabel: 'Upload file', name: 'upload', onChange },

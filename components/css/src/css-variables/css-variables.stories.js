@@ -12,7 +12,7 @@ import { CssVariables } from '@dhis2/ui'
 const App = ({ children }) => <div>{children}</div>
 
 export default {
-    title: 'Helpers/CSS Variables',
+    title: 'CSS Variables',
     component: CssVariables,
     parameters: { docs: { description: { component: description } } },
 }

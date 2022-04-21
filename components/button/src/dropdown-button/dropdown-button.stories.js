@@ -16,7 +16,7 @@ const Simple = <span>Simplest thing</span>
 const { sizeArgType, buttonVariantArgType } = sharedPropTypes
 
 export default {
-    title: 'Actions/Buttons/Dropdown Button',
+    title: 'Dropdown Button',
     component: DropdownButton,
     parameters: { docs: { description: { component: description } } },
     argTypes: {

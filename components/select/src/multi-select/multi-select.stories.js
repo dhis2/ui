@@ -41,7 +41,7 @@ const requiredIfArgType = {
 }
 
 export default {
-    title: 'Forms/Multi Select/Multi Select',
+    title: 'Multi Select',
     component: MultiSelect,
     parameters: {
         docs: {

@@ -26,7 +26,7 @@ const logOnPageSizeChange = (pageSize) => {
 }
 
 export default {
-    title: 'Navigation/Pagination',
+    title: 'Pagination',
     component: Pagination,
     parameters: {
         componentSubtitle: subtitle,
