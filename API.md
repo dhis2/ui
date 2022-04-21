@@ -36,6 +36,7 @@
 -   [@dhis2-ui/select](components/select/API.md)
 -   [@dhis2-ui/selector-bar](components/selector-bar/API.md)
 -   [@dhis2-ui/sharing-dialog](components/sharing-dialog/API.md)
+-   [@dhis2-ui/status-icon](components/status-icon/API.md)
 -   [@dhis2-ui/switch](components/switch/API.md)
 -   [@dhis2-ui/tab](components/tab/API.md)
 -   [@dhis2-ui/table](components/table/API.md)

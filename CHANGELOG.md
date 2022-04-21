@@ -1,3 +1,10 @@
+## [8.2.1](https://github.com/dhis2/ui/compare/v8.2.0...v8.2.1) (2022-04-21)
+
+
+### Bug Fixes
+
+* **modal:** restore scroll styles ([#1041](https://github.com/dhis2/ui/issues/1041)) ([a4bfbd0](https://github.com/dhis2/ui/commit/a4bfbd09163796a9fd76101fe3a4c5544ed7e494))
+
 # [8.2.0](https://github.com/dhis2/ui/compare/v8.1.11...v8.2.0) (2022-04-14)
 
 
