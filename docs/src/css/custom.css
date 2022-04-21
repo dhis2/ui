@@ -4,6 +4,11 @@
  * work well for content-centric websites.
  */
 
+/* error box hack */
+div[style="text-align:center;color:#fff;background-color:#fa383e;border-color:#fa383e;border-style:solid;border-radius:0.25rem;border-width:1px;box-sizing:border-box;display:block;padding:1rem;flex:0 0 50%;margin-left:25%;margin-right:25%;margin-top:5rem;max-width:50%;width:100%"] {
+    display: none !important;
+}
+
 /* unbreakages */
 body {
     height: unset !important;
