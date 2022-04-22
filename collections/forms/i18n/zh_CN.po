@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-10T18:10:56.819Z\n"
+"POT-Creation-Date: 2022-02-11T13:37:19.312Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
 "Last-Translator: 晓东 林 <13981924470@126.com>, 2021\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
@@ -24,9 +24,6 @@ msgstr ""
 
 msgid "Remove"
 msgstr "移除"
-
-msgid "No file(s) selected yet"
-msgstr ""
 
 msgid "Please provide an alpha-numeric value"
 msgstr ""
