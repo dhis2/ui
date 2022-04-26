@@ -1,3 +1,10 @@
+## [8.2.3](https://github.com/dhis2/ui/compare/v8.2.2...v8.2.3) (2022-04-26)
+
+
+### Bug Fixes
+
+* always reserve a 16 x 16 area for selected option icons ([779b423](https://github.com/dhis2/ui/commit/779b423971acf49a592912bc835bf599942a1d4b))
+
 ## [8.2.2](https://github.com/dhis2/ui/compare/v8.2.1...v8.2.2) (2022-04-22)
 
 
