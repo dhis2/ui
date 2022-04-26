@@ -35,6 +35,7 @@ const Selection = ({ options, selected, className }) => {
                     width: ${spacers.dp16};
                     height: ${spacers.dp16};
                     overflow: hidden;
+                    flex-shrink: 0;
                 }
             `}</style>
         </div>
