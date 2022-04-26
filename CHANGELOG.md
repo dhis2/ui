@@ -1,3 +1,10 @@
+## [8.2.4](https://github.com/dhis2/ui/compare/v8.2.3...v8.2.4) (2022-04-26)
+
+
+### Bug Fixes
+
+* increase prefix spacing so icon is closer to the option text ([d500e11](https://github.com/dhis2/ui/commit/d500e11c56cd6bf0d89df180245d20442f50d5ff))
+
 ## [8.2.3](https://github.com/dhis2/ui/compare/v8.2.2...v8.2.3) (2022-04-26)
 
 
