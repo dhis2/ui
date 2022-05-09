@@ -1,3 +1,7 @@
-# Changelog
+---
+title: Changelog
+---
 
-Placeholder document for changelog.
+import Changelog from '../../../CHANGELOG.md'
+
+<Changelog />
