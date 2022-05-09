@@ -228,7 +228,7 @@ org unit one level above of what would be that case before this change.
 
 ### Features
 
-* **org unit tree:** expose <RootError /> & <RootLoading /> ([5198c96](https://github.com/dhis2/ui/commit/5198c96e9ae75b505e8904854b93b794d138b507))
+* **org unit tree:** expose &lt;RootError /&gt; & &lt;RootLoading /&gt; ([5198c96](https://github.com/dhis2/ui/commit/5198c96e9ae75b505e8904854b93b794d138b507))
 
 ## [7.12.2](https://github.com/dhis2/ui/compare/v7.12.1...v7.12.2) (2022-01-13)
 
@@ -1252,7 +1252,7 @@ Please use @dhis2/ui as your main entry-point in apps.
 
 ### Bug Fixes
 
-* **headerbar:** use <div> instead of <p> for user avatar initials ([#460](https://github.com/dhis2/ui/issues/460)) ([a8f25d9](https://github.com/dhis2/ui/commit/a8f25d95fb31441497f98b635b780964069b03bb))
+* **headerbar:** use &lt;div&gt; instead of &lt;p&gt; for user avatar initials ([#460](https://github.com/dhis2/ui/issues/460)) ([a8f25d9](https://github.com/dhis2/ui/commit/a8f25d95fb31441497f98b635b780964069b03bb))
 
 ## [6.1.2](https://github.com/dhis2/ui/compare/v6.1.1...v6.1.2) (2021-01-11)
 
@@ -1415,7 +1415,7 @@ ensure that you are not depending on these components before upgrading.
 
 ### Bug Fixes
 
-* use > as ns separator for translation with : ([f52499d](https://github.com/dhis2/ui/commit/f52499dc0fbca8d612be72251087e2b2ae4639ac))
+* use &gt; as ns separator for translation with : ([f52499d](https://github.com/dhis2/ui/commit/f52499dc0fbca8d612be72251087e2b2ae4639ac))
 
 ## [5.5.10](https://github.com/dhis2/ui/compare/v5.5.9...v5.5.10) (2020-09-17)
 
@@ -1721,7 +1721,7 @@ ensure that you are not depending on these components before upgrading.
 * **singleselect:** SingleSelect selection is now a string instead of an object with a value and label property
 * **multiselect:** MultiSelect selection is now an array of strings instead of an array of objects with a value and label property
 * **core:** base components can hold a ref.
-* **forms:** Postfix all the `@dhis2/ui-forms` components with 'FieldFF' to avoid conflicts with the base components in `@dhis2/ui-core` and `@dhis2/ui-widgets`, since all components are now exported in `@dhis2/ui`. The FF stands for final-form, clarifying that the component is tied to final-form and making the relation with our regular Field components more clear. So, for example, instead of the regular `<Input />` we used to export from `ui-forms` we now have `<InputFieldFF />`
+* **forms:** Postfix all the `@dhis2/ui-forms` components with 'FieldFF' to avoid conflicts with the base components in `@dhis2/ui-core` and `@dhis2/ui-widgets`, since all components are now exported in `@dhis2/ui`. The FF stands for final-form, clarifying that the component is tied to final-form and making the relation with our regular Field components more clear. So, for example, instead of the regular `<Input /&>` we used to export from `ui-forms` we now have `<InputFieldFF />`
 * **widgets:** The `<FieldSetField />` component has been renamed to `<FieldGroup />`
 * **forms:** The `<GroupControl />` component has been renamed to `<FieldGroupFF />`
 * **textareafield:** Import path changes from @dhis2/ui-core to @dhis2/ui or @dhis2/ui-widgets.

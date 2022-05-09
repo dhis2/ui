@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 yarn build:lib
-yarn build:docs
 yarn build:api
+yarn build:docs
 
 # If there are changes to files after we built, we need to run them
 # through d2-style to avoid style-based diffs.

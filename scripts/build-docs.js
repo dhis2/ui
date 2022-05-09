@@ -5,6 +5,7 @@ const path = require('path')
 const concurrently = require('concurrently')
 
 const threads = Math.max(os.cpus().length - 1, 1)
+const cwd = path.resolve(__dirname, '..')
 
 concurrently(
     ['yarn workspace ui-docusaurus build', 'yarn workspace ui-storybook build'],
@@ -12,7 +13,7 @@ concurrently(
         prefix: 'name',
         killOthers: ['failure'],
         restartTries: 1,
-        cwd: path.resolve(__dirname, '..'),
+        cwd: cwd,
         maxProcesses: Math.max(threads - 1, 1),
     }
 ).then(
