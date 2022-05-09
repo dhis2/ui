@@ -1721,7 +1721,7 @@ ensure that you are not depending on these components before upgrading.
 * **singleselect:** SingleSelect selection is now a string instead of an object with a value and label property
 * **multiselect:** MultiSelect selection is now an array of strings instead of an array of objects with a value and label property
 * **core:** base components can hold a ref.
-* **forms:** Postfix all the `@dhis2/ui-forms` components with 'FieldFF' to avoid conflicts with the base components in `@dhis2/ui-core` and `@dhis2/ui-widgets`, since all components are now exported in `@dhis2/ui`. The FF stands for final-form, clarifying that the component is tied to final-form and making the relation with our regular Field components more clear. So, for example, instead of the regular `<Input /&>` we used to export from `ui-forms` we now have `<InputFieldFF />`
+* **forms:** Postfix all the `@dhis2/ui-forms` components with 'FieldFF' to avoid conflicts with the base components in `@dhis2/ui-core` and `@dhis2/ui-widgets`, since all components are now exported in `@dhis2/ui`. The FF stands for final-form, clarifying that the component is tied to final-form and making the relation with our regular Field components more clear. So, for example, instead of the regular `<Input />` we used to export from `ui-forms` we now have `<InputFieldFF />`
 * **widgets:** The `<FieldSetField />` component has been renamed to `<FieldGroup />`
 * **forms:** The `<GroupControl />` component has been renamed to `<FieldGroupFF />`
 * **textareafield:** Import path changes from @dhis2/ui-core to @dhis2/ui or @dhis2/ui-widgets.
