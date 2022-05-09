@@ -1,3 +1,10 @@
+## [8.2.5](https://github.com/dhis2/ui/compare/v8.2.4...v8.2.5) (2022-05-09)
+
+
+### Bug Fixes
+
+* correct api reference, show changelog ([#1055](https://github.com/dhis2/ui/issues/1055)) ([00d1a2b](https://github.com/dhis2/ui/commit/00d1a2b0e08a418403cf7640bd879d6826b88b95))
+
 ## [8.2.4](https://github.com/dhis2/ui/compare/v8.2.3...v8.2.4) (2022-04-26)
 
 
