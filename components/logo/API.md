@@ -4,18 +4,16 @@
 
 **Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-
 ```js
 import { LogoIcon } from '@dhis2-ui/logo'
 ```
 
-
 #### Props
 
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|className|string||||
-|dataTest|string|`'dhis2-uicore-logoicon'`|||
+| Name      | Type   | Default                   | Required | Description |
+| --------- | ------ | ------------------------- | -------- | ----------- |
+| className | string |                           |          |             |
+| dataTest  | string | `'dhis2-uicore-logoicon'` |          |             |
 
 ### LogoIconWhite
 
@@ -23,18 +21,16 @@ import { LogoIcon } from '@dhis2-ui/logo'
 
 **Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-
 ```js
 import { LogoIconWhite } from '@dhis2-ui/logo'
 ```
 
-
 #### Props
 
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|className|string||||
-|dataTest|string|`'dhis2-uicore-logoiconwhite'`|||
+| Name      | Type   | Default                        | Required | Description |
+| --------- | ------ | ------------------------------ | -------- | ----------- |
+| className | string |                                |          |             |
+| dataTest  | string | `'dhis2-uicore-logoiconwhite'` |          |             |
 
 ### Logo
 
@@ -42,18 +38,16 @@ import { LogoIconWhite } from '@dhis2-ui/logo'
 
 **Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-
 ```js
 import { Logo } from '@dhis2-ui/logo'
 ```
 
-
 #### Props
 
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|className|string||||
-|dataTest|string|`'dhis2-uicore-logo'`|||
+| Name      | Type   | Default               | Required | Description |
+| --------- | ------ | --------------------- | -------- | ----------- |
+| className | string |                       |          |             |
+| dataTest  | string | `'dhis2-uicore-logo'` |          |             |
 
 ### LogoWhite
 
@@ -61,15 +55,13 @@ import { Logo } from '@dhis2-ui/logo'
 
 **Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
 
-
 ```js
 import { LogoWhite } from '@dhis2-ui/logo'
 ```
 
-
 #### Props
 
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|className|string||||
-|dataTest|string|`'dhis2-uicore-logowhite'`|||
+| Name      | Type   | Default                    | Required | Description |
+| --------- | ------ | -------------------------- | -------- | ----------- |
+| className | string |                            |          |             |
+| dataTest  | string | `'dhis2-uicore-logowhite'` |          |             |

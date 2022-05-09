@@ -77,7 +77,7 @@ const sidebars = {
                         'utilities/forms/transformers',
                         'utilities/forms/validators',
                     ],
-                }
+                },
             ],
         },
         {
@@ -93,7 +93,7 @@ const sidebars = {
                 'help/advanced-usage',
             ],
         },
-        'package/changelog'
+        'package/changelog',
     ],
 }
 
