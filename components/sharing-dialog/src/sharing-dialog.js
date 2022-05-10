@@ -159,7 +159,13 @@ export const SharingDialog = ({
 
     return (
         <FetchingContext.Provider value={mutating || fetching}>
-            <Modal onClose={onClose} name={object.displayName || object.name}>
+            <Modal
+                onClose={onClose}
+                name={
+                    (object.displayName !== object.id && object.displayName) ||
+                    (object.name !== object.id && object.name)
+                }
+            >
                 <TabbedContent
                     id={id}
                     users={users}
