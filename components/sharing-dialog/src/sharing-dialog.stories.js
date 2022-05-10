@@ -108,6 +108,18 @@ const customData = {
     },
 }
 
+const customDataIdAsName = {
+    ...customDefaultData,
+    sharing: {
+        ...customDefaultData.sharing,
+        object: {
+            ...customDefaultData.sharing.object,
+            name: customDefaultData.sharing.object.id,
+            displayName: customDefaultData.sharing.object.id,
+        },
+    },
+}
+
 const customDataDisabledAccess = {
     ...customData,
     sharing: {
@@ -185,6 +197,13 @@ export const WithName = (args) => (
     </CustomDataProvider>
 )
 WithName.storyName = 'With name'
+
+export const WithIdAsName = (args) => (
+    <CustomDataProvider data={customDataIdAsName}>
+        <SharingDialog {...args} />
+    </CustomDataProvider>
+)
+WithIdAsName.storyName = 'With id as name'
 
 export const WithDisabledAccess = (args) => (
     <CustomDataProvider data={customDataDisabledAccess}>
