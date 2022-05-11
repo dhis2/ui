@@ -3647,15 +3647,15 @@
     handlebars "^4.7.3"
     isbinaryfile "^4.0.4"
 
-"@dhis2/cli-style@^10.1.1":
-  version "10.1.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-style/-/cli-style-10.1.1.tgz#45d340d09073262246d6683aab2eb9d69ddfe669"
-  integrity sha512-VSoXXrdUYy9hM8BllwJlVnO7XX4nhHs3c6h6tBDkvRL8vc1GYdR1oIrLFPmOfSLdSjByGmjrHoa5D+RM2MnrNg==
+"@dhis2/cli-style@^10.4.1":
+  version "10.4.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-style/-/cli-style-10.4.1.tgz#1186d79f4b4ef2802832a116562041ae50c596dc"
+  integrity sha512-4INZ2T67kZXkykUuNr9TqL0B88HYRYvtc2ctDV0IemK5bSNiwoQrgM6lqMIFHE5T48DEaFTQ3rvrd0nLjsW6Ng==
   dependencies:
     "@commitlint/cli" "^12.1.4"
     "@commitlint/config-conventional" "^13.1.0"
     "@dhis2/cli-helpers-engine" "^3.0.0"
-    "@ls-lint/ls-lint" "^1.9.2"
+    "@ls-lint/ls-lint" "^1.10.0"
     babel-eslint "^10.1.0"
     eslint "^7.32.0"
     eslint-config-prettier "^8.3.0"
@@ -4786,10 +4786,10 @@
   resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.3.1.tgz#b50a781709c81e10701004214340f25475a171a0"
   integrity sha512-zMM9Ds+SawiUkakS7y94Ymqx+S0ORzpG3frZirN3l+UlXUmSUR7hF4wxCVqW+ei94JzV5kt0uXBcoOEAuiydrw==
 
-"@ls-lint/ls-lint@^1.9.2":
-  version "1.9.2"
-  resolved "https://registry.yarnpkg.com/@ls-lint/ls-lint/-/ls-lint-1.9.2.tgz#689f1f4c06072823a726802ba167340efcefe19c"
-  integrity sha512-sugEjWjSSy9OHF6t1ZBLZCAROj52cZthB9dIePmzZzzMwmWwy3qAEMSdJheHeS1FOwDZI7Ipm1H/bWgzJNnSAw==
+"@ls-lint/ls-lint@^1.10.0":
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/@ls-lint/ls-lint/-/ls-lint-1.11.0.tgz#fff074121e72bbbf6f1e5da05b916196039479df"
+  integrity sha512-YwVzEaGDM5LvRN7fn+8hYLTgcXsyksAr3V1x76/V3mWyaqKUAo4llcCd8lYoBCo4bxVgFq2pzPDQpeunZejLQg==
 
 "@manypkg/cli@^0.18.0":
   version "0.18.0"
@@ -25058,10 +25058,8 @@ watchpack@^1.7.4:
   resolved "https://registry.yarnpkg.com/watchpack/-/watchpack-1.7.5.tgz#1267e6c55e0b9b5be44c2023aed5437a2c26c453"
   integrity sha512-9P3MWk6SrKjHsGkLT2KHXdQ/9SNkyoJbabxnKOoJepsvJjJG8uYTR3yTPxPQvNDI3w4Nz1xnE0TLHK4RIVe/MQ==
   dependencies:
-    chokidar "^3.4.1"
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
-    watchpack-chokidar2 "^2.0.1"
   optionalDependencies:
     chokidar "^3.4.1"
     watchpack-chokidar2 "^2.0.1"
