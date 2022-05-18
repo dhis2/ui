@@ -5,7 +5,7 @@ Given('a top-aligned Modal with onClose handler is rendered', () => {
 })
 
 When('the Screencover is clicked above the modal', () => {
-    cy.get('[data-test="dhis2-uicore-layer"]').click('top')
+    cy.get('[data-test="dhis2-uicore-layer"] > .backdrop').click('top')
 })
 
 Then('the onClose handler is called', () => {
@@ -19,7 +19,7 @@ Given('a bottom-aligned Modal with onClose handler is rendered', () => {
 })
 
 When('the Screencover is clicked below the modal', () => {
-    cy.get('[data-test="dhis2-uicore-layer"]').click('bottom')
+    cy.get('[data-test="dhis2-uicore-layer"] > .backdrop').click('bottom')
 })
 
 Given('a Modal with onClose handler is rendered', () => {
