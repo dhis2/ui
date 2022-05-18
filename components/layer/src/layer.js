@@ -3,13 +3,6 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const createClickHandler = (onClick) => (event) => {
-    // don't respond to clicks that originated in the children
-    if (onClick && event.target === event.currentTarget) {
-        onClick({}, event)
-    }
-}
-
 const Layer = ({
     children,
     className,
@@ -26,8 +19,13 @@ const Layer = ({
                 translucent,
             })}
             data-test={dataTest}
-            onClick={createClickHandler(onClick)}
         >
+            {onClick && (
+                <div
+                    className="backdrop"
+                    onClick={(event) => onClick({}, event)}
+                />
+            )}
             {children}
 
             <style jsx>{`
@@ -55,6 +53,11 @@ const Layer = ({
                 }
                 div.translucent {
                     background-color: rgba(33, 43, 54, 0.4);
+                }
+                div.backdrop {
+                    position: absolute;
+                    inset: 0;
+                    z-index: -1;
                 }
             `}</style>
         </div>
