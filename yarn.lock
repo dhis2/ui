@@ -3729,10 +3729,10 @@
   dependencies:
     prop-types "^15"
 
-"@dhis2/prop-types@^3.0.0", "@dhis2/prop-types@^3.0.0-beta.1":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-3.0.0.tgz#a17dd1b8475ab7e4e66c736624ac83fd372876af"
-  integrity sha512-Crqimyk6XTJWWqmVZ+Asnle3OgOXsnUYVM2ozC+Z6Ad0O0M3I4lE2QS6V20nGEmUDl3K1Vri9lzmL8vAMpUBsw==
+"@dhis2/prop-types@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-3.1.0.tgz#d9bc1276ed8f8ffd3fe68c606ad66bda51922ab8"
+  integrity sha512-QmTdhnlxV+WawF/Ny0MyanKBP/lqqlWKRK+LwnSUf1s4kW74DRJU/hItQ5fBVoCO91JGCpDOZpb3YC+nMhl4kw==
 
 "@dhis2/pwa@8.0.0":
   version "8.0.0"
