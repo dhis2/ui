@@ -11,6 +11,7 @@ export const TableHeaderCell = forwardRef(
         {
             active,
             align,
+            backgroundColor,
             bordered,
             children,
             className,
@@ -42,12 +43,13 @@ export const TableHeaderCell = forwardRef(
             className={cx(className, {
                 active,
                 bordered,
+                customBackgroundColor: !!backgroundColor,
                 error,
                 fixed,
                 fixedHorizontally: fixed && left !== AUTO,
                 large,
                 muted,
-                staticStyle,
+                staticStyle: staticStyle || !!backgroundColor,
                 valid,
             })}
             data-test={dataTest}
@@ -62,6 +64,10 @@ export const TableHeaderCell = forwardRef(
                     top: ${top};
                     text-align: ${align};
                     width: ${width};
+                }
+                :global(tr) > td.staticStyle.customBackgroundColor,
+                :global(tr) > th.staticStyle.customBackgroundColor {
+                    background-color: ${backgroundColor};
                 }
             `}</style>
         </th>
@@ -84,9 +90,10 @@ const stylePropType = mutuallyExclusive(
 )
 
 TableHeaderCell.propTypes = {
-    /** To toggle background color, for example for editing */
+    /** To toggle border color, for example for editing */
     active: PropTypes.bool,
     align: PropTypes.oneOf(['left', 'center', 'right']),
+    backgroundColor: PropTypes.string,
     bordered: PropTypes.bool,
     children: PropTypes.node,
     className: PropTypes.string,

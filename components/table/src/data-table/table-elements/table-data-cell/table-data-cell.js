@@ -9,6 +9,7 @@ export const TableDataCell = forwardRef(
         {
             active,
             align,
+            backgroundColor,
             bordered,
             children,
             className,
@@ -38,10 +39,11 @@ export const TableDataCell = forwardRef(
             className={cx(className, {
                 active,
                 bordered,
+                customBackgroundColor: !!backgroundColor,
                 error,
                 large,
                 muted,
-                staticStyle,
+                staticStyle: staticStyle || !!backgroundColor,
                 valid,
             })}
             data-test={dataTest}
@@ -55,6 +57,9 @@ export const TableDataCell = forwardRef(
                     left: ${left};
                     text-align: ${align};
                     width: ${width};
+                }
+                :global(tr) > td.staticStyle.customBackgroundColor {
+                    background-color: ${backgroundColor};
                 }
             `}</style>
         </td>
@@ -79,6 +84,7 @@ TableDataCell.propTypes = {
     /** To toggle background color, for example for editing */
     active: PropTypes.bool,
     align: PropTypes.oneOf(['left', 'center', 'right']),
+    backgroundColor: PropTypes.string,
     bordered: PropTypes.bool,
     children: PropTypes.node,
     className: PropTypes.string,
