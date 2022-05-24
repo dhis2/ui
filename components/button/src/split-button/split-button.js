@@ -99,7 +99,7 @@ class SplitButton extends Component {
                 </Button>
 
                 {open && (
-                    <Layer onClick={this.onToggle} transparent>
+                    <Layer onBackdropClick={this.onToggle} transparent>
                         <Popper
                             dataTest={`${dataTest}-menu`}
                             placement="bottom-end"

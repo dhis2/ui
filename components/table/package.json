@@ -32,7 +32,7 @@
         "styled-jsx": "^4"
     },
     "dependencies": {
-        "@dhis2/prop-types": "^3.1.0",
+        "@dhis2/prop-types": "^3.1.2",
         "@dhis2/ui-constants": "8.2.5",
         "@dhis2/ui-icons": "8.2.5",
         "classnames": "^2.3.1",

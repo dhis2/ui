@@ -33,7 +33,7 @@
         "styled-jsx": "^4"
     },
     "dependencies": {
-        "@dhis2/prop-types": "^3.1.0",
+        "@dhis2/prop-types": "^3.1.2",
         "@dhis2-ui/checkbox": "8.2.5",
         "@dhis2-ui/loader": "8.2.5",
         "@dhis2-ui/node": "8.2.5",

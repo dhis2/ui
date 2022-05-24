@@ -114,7 +114,8 @@ export const WithSubMenus = (args) => (
 WithSubMenus.parameters = {
     docs: {
         description: {
-            story: 'See this demo in the Canvas tab for proper alignment of sub menus.',
+            story:
+                'See this demo in the Canvas tab for proper alignment of sub menus.',
         },
     },
 }
@@ -152,7 +153,8 @@ export const WithVariousChildren = (args) => (
 WithVariousChildren.parameters = {
     docs: {
         description: {
-            story: 'See this demo in the Canvas tab for proper alignment of sub menus.',
+            story:
+                'See this demo in the Canvas tab for proper alignment of sub menus.',
         },
     },
 }
@@ -168,7 +170,7 @@ export const DropDownMenu = (args) => {
                 Open menu &nbsp;&nbsp; <IconChevronDown16 />
             </button>
             {open && (
-                <Layer onClick={toggle}>
+                <Layer onBackdropClick={toggle}>
                     <Popper reference={ref} placement="bottom-start">
                         <FlyoutMenu {...args}>
                             <MenuItem label="Item 1" />

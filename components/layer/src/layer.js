@@ -28,7 +28,7 @@ const Layer = ({
                 {resolvedOnClick && (
                     <div
                         className="backdrop"
-                        resolvedOnClick={(event) => resolvedOnClick({}, event)}
+                        onClick={(event) => resolvedOnClick({}, event)}
                     />
                 )}
                 {children}
