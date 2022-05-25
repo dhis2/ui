@@ -43,7 +43,6 @@ export const TableHeaderCell = forwardRef(
             className={cx(className, {
                 active,
                 bordered,
-                customBackgroundColor: !!backgroundColor,
                 error,
                 fixed,
                 fixedHorizontally: fixed && left !== AUTO,
@@ -52,6 +51,7 @@ export const TableHeaderCell = forwardRef(
                 staticStyle: staticStyle || !!backgroundColor,
                 valid,
             })}
+            style={{ backgroundColor }}
             data-test={dataTest}
             role={role}
             scope={scope}
@@ -64,10 +64,6 @@ export const TableHeaderCell = forwardRef(
                     top: ${top};
                     text-align: ${align};
                     width: ${width};
-                }
-                :global(tr) > td.staticStyle.customBackgroundColor,
-                :global(tr) > th.staticStyle.customBackgroundColor {
-                    background-color: ${backgroundColor};
                 }
             `}</style>
         </th>

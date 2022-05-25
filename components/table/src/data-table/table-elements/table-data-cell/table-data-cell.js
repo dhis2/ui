@@ -39,13 +39,13 @@ export const TableDataCell = forwardRef(
             className={cx(className, {
                 active,
                 bordered,
-                customBackgroundColor: !!backgroundColor,
                 error,
                 large,
                 muted,
                 staticStyle: staticStyle || !!backgroundColor,
                 valid,
             })}
+            style={{ backgroundColor }}
             data-test={dataTest}
             role={role}
             scope={scope}
@@ -57,9 +57,6 @@ export const TableDataCell = forwardRef(
                     left: ${left};
                     text-align: ${align};
                     width: ${width};
-                }
-                :global(tr) > td.staticStyle.customBackgroundColor {
-                    background-color: ${backgroundColor};
                 }
             `}</style>
         </td>
