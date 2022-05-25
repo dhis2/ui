@@ -100,6 +100,7 @@ TableHeaderCell.propTypes = {
     /** To toggle border color, for example for editing */
     active: PropTypes.bool,
     align: PropTypes.oneOf(['left', 'center', 'right']),
+    /** Sets background color of the cell. Disables dynamic background colors from active, hover, and selected states */
     backgroundColor: PropTypes.string,
     bordered: PropTypes.bool,
     children: PropTypes.node,

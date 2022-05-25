@@ -2072,8 +2072,9 @@ import { DataTableCell } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|active|boolean|||To toggle background color, for example for editing|
+|active|boolean|||To toggle border color, for example for editing|
 |align|'left' │ 'center' │ 'right'|`'left'`|||
+|backgroundColor|string||||
 |bordered|boolean||||
 |children|node||||
 |className|string||||
