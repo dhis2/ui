@@ -848,7 +848,8 @@ import { Layer } from '@dhis2/ui'
 |level|number │ string|`'auto'`||Z-index level|
 |position|'absolute' │ 'fixed'|`'fixed'`|||
 |translucent|boolean|||Adds a semi-transparent background|
-|onClick|function|||Click handler|
+|onBackdropClick|function|||Backdrop click handler|
+|onClick|custom|||Click handler - DEPRECATED|
 
 ### Legend
 
