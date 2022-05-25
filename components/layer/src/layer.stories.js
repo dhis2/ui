@@ -50,8 +50,8 @@ export const Default = Template.bind({})
 export const Translucent = Template.bind({})
 Translucent.args = { translucent: true }
 
-export const WithClickHandler = Template.bind({})
-WithClickHandler.args = {
+export const WithOnBackdropClick = Template.bind({})
+WithOnBackdropClick.args = {
     onBackdropClick: () => alert('layer backdrop was clicked'),
 }
 

@@ -89,7 +89,7 @@ Layer.propTypes = {
     translucent: PropTypes.bool,
     /** Backdrop click handler */
     onBackdropClick: PropTypes.func,
-    /** Click handler */
+    /** Click handler - DEPRECATED */
     onClick: deprecated(PropTypes.func, 'Please use "onBackdropClick" instead'),
 }
 
