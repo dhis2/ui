@@ -31,6 +31,12 @@ class Radio extends Component {
         }
     }
 
+    handleKeyDown = (e) => {
+        if (this.props.onKeyDown) {
+            this.props.onKeyDown(this.createHandlerPayload(), e)
+        }
+    }
+
     createHandlerPayload() {
         return {
             value: this.props.value,
@@ -81,6 +87,7 @@ class Radio extends Component {
                     tabIndex={tabIndex}
                     onChange={this.handleChange}
                     onFocus={this.handleFocus}
+                    onKeyDown={this.handleKeyDown}
                     onBlur={this.handleBlur}
                 />
 
@@ -185,6 +192,8 @@ Radio.propTypes = {
     onChange: PropTypes.func,
     /** Called with the signature `({ name: string, value: string, checked: bool }, event)` */
     onFocus: PropTypes.func,
+    /** Called with the signature `({ name: string, value: string, checked: bool }, event)` */
+    onKeyDown: PropTypes.func,
 }
 
 export { Radio }
