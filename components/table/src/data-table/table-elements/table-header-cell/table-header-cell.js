@@ -1,4 +1,5 @@
 import { mutuallyExclusive, requiredIf } from '@dhis2/prop-types'
+import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
@@ -48,10 +49,9 @@ export const TableHeaderCell = forwardRef(
                 fixedHorizontally: fixed && left !== AUTO,
                 large,
                 muted,
-                staticStyle: staticStyle || !!backgroundColor,
+                staticStyle,
                 valid,
             })}
-            style={{ backgroundColor }}
             data-test={dataTest}
             role={role}
             scope={scope}
@@ -64,6 +64,17 @@ export const TableHeaderCell = forwardRef(
                     top: ${top};
                     text-align: ${align};
                     width: ${width};
+                    background-color: ${backgroundColor || colors.grey200};
+                }
+                :global(thead) th.fixedHorizontally {
+                    background-color: ${backgroundColor || colors.grey300};
+                }
+                :global(tbody) > :global(tr:hover) > th:not(.staticStyle),
+                :global(tfoot) > :global(tr:hover) > th:not(.staticStyle) {
+                    background-color: ${backgroundColor || colors.grey300};
+                }
+                :global(tbody) > :global(tr:active) > th:not(.staticStyle) {
+                    background-color: ${backgroundColor || colors.grey200};
                 }
             `}</style>
         </th>
