@@ -185,6 +185,24 @@ const IndividualCellTemplate = (args) => (
                 <DataTableCell valid>Valid</DataTableCell>
                 <DataTableCell muted>Muted</DataTableCell>
             </DataTableRow>
+            <DataTableRow>
+                <DataTableCell tag="th" backgroundColor="lightgreen">
+                    Custom background (lightgreen)
+                </DataTableCell>
+                <DataTableCell backgroundColor="#eff">#eff</DataTableCell>
+                <DataTableCell active backgroundColor="yellow">
+                    yellow
+                </DataTableCell>
+                <DataTableCell>None</DataTableCell>
+            </DataTableRow>
+            <DataTableRow selected>
+                <DataTableCell tag="th">
+                    Custom background (on selected row )
+                </DataTableCell>
+                <DataTableCell backgroundColor="#eff">#eff</DataTableCell>
+                <DataTableCell backgroundColor="yellow">yellow</DataTableCell>
+                <DataTableCell>None</DataTableCell>
+            </DataTableRow>
         </DataTableBody>
     </DataTable>
 )

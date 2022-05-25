@@ -8,6 +8,7 @@ export const DataTableCell = forwardRef(
         {
             active,
             align,
+            backgroundColor,
             bordered,
             children,
             className,
@@ -37,6 +38,7 @@ export const DataTableCell = forwardRef(
             <TableCell
                 active={active}
                 align={align}
+                backgroundColor={backgroundColor}
                 bordered={bordered}
                 className={className}
                 colSpan={colSpan}
@@ -79,9 +81,11 @@ const requiredIfFixedPropType = requiredIf(
     PropTypes.string
 )
 DataTableCell.propTypes = {
-    /** To toggle background color, for example for editing */
+    /** To toggle border color, for example for editing */
     active: PropTypes.bool,
     align: PropTypes.oneOf(['left', 'center', 'right']),
+    /** Sets background color of the cell. Disables dynamic background colors from active, hover, and selected states */
+    backgroundColor: PropTypes.string,
     bordered: PropTypes.bool,
     children: PropTypes.node,
     className: PropTypes.string,

@@ -7,7 +7,6 @@ export default css`
         border: 1px solid transparant;
         border-bottom: 1px solid ${colors.grey300};
         color: ${colors.grey800};
-        background-color: ${colors.grey200};
         font-weight: normal;
         font-size: 14px;
         vertical-align: top;
@@ -20,7 +19,6 @@ export default css`
         border-right: 1px solid ${colors.grey300};
     }
     th.active {
-        background-color: ${colors.white};
         outline: 2px solid ${colors.grey600};
         outline-offset: -2px;
     }
@@ -60,20 +58,12 @@ export default css`
     :global(thead) th.fixedHorizontally {
         /* ensure on top of all scrolling cells */
         z-index: 3;
-        background-color: ${colors.grey300};
     }
     :global(tr:last-child) th {
         border-bottom: 1px solid transparent;
     }
     :global(thead) :global(tr:last-child) th {
         border-bottom: 1px solid ${colors.grey300};
-    }
-    :global(tbody) > :global(tr:hover) > th:not(.staticStyle),
-    :global(tfoot) > :global(tr:hover) > th:not(.staticStyle) {
-        background-color: ${colors.grey300};
-    }
-    :global(tbody) > :global(tr:active) > th:not(.staticStyle) {
-        background-color: ${colors.grey200};
     }
     :global(tfoot) > :global(tr:first-child) th {
         border-top: 1px solid ${colors.grey300};
