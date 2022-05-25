@@ -15,13 +15,7 @@ describe('<Input>', () => {
     it('should call the onKeyDown callback when provided', () => {
         const onKeyDown = jest.fn()
 
-        render(
-            <Input
-                name="foo"
-                value="bar"
-                onKeyDown={onKeyDown}
-            />
-        )
+        render(<Input name="foo" value="bar" onKeyDown={onKeyDown} />)
 
         fireEvent.keyDown(screen.getByRole('textbox'), {})
 

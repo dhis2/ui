@@ -15,10 +15,11 @@ describe('<Select />', () => {
             />
         )
 
-        fireEvent.keyDown(
-            screen.getByRole('textbox'),
-            { key: 'Enter', code: 'Enter', charCode: 13 }
-        )
+        fireEvent.keyDown(screen.getByRole('textbox'), {
+            key: 'Enter',
+            code: 'Enter',
+            charCode: 13,
+        })
 
         expect(onKeyDown).toHaveBeenCalledWith(
             { selected: '' },

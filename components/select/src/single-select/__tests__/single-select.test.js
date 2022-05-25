@@ -6,12 +6,7 @@ describe('<SingleSelect />', () => {
     it('should call the onKeyDown callback when provided', () => {
         const onKeyDown = jest.fn()
 
-        render(
-            <SingleSelect
-                placeholder="placeholder"
-                onKeyDown={onKeyDown}
-            />
-        )
+        render(<SingleSelect placeholder="placeholder" onKeyDown={onKeyDown} />)
 
         fireEvent.keyDown(
             screen.getByTestId('dhis2-uicore-singleselect-placeholder'),

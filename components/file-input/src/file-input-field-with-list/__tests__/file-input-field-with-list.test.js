@@ -3,7 +3,6 @@ import React from 'react'
 import { FileInputFieldWithList } from '../file-input-field-with-list.js'
 
 describe('<FileInputFieldWithList />', () => {
-
     it('should call the onKeyDown callback when provided', () => {
         const onKeyDown = jest.fn()
 

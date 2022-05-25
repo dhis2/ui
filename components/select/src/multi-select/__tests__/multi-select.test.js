@@ -6,12 +6,7 @@ describe('<MultiSelect />', () => {
     it('should call the onKeyDown callback when provided', () => {
         const onKeyDown = jest.fn()
 
-        render(
-            <MultiSelect
-                placeholder="placeholder"
-                onKeyDown={onKeyDown}
-            />
-        )
+        render(<MultiSelect placeholder="placeholder" onKeyDown={onKeyDown} />)
 
         fireEvent.keyDown(
             screen.getByTestId('dhis2-uicore-multiselect-placeholder'),

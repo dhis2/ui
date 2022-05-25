@@ -50,10 +50,11 @@ describe('<Button>', () => {
             </Button>
         )
 
-        fireEvent.keyDown(
-            screen.getByRole('button'),
-            { key: 'Enter', code: 'Enter', charCode: 13 }
-        )
+        fireEvent.keyDown(screen.getByRole('button'), {
+            key: 'Enter',
+            code: 'Enter',
+            charCode: 13,
+        })
 
         expect(onKeyDown).toHaveBeenCalledWith(
             { name: 'button-name', value: 'button-value' },

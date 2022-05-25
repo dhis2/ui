@@ -15,10 +15,11 @@ describe('<Radio />', () => {
             />
         )
 
-        fireEvent.keyDown(
-            screen.getByRole('radio'),
-            { key: 'Enter', code: 'Enter', charCode: 13 }
-        )
+        fireEvent.keyDown(screen.getByRole('radio'), {
+            key: 'Enter',
+            code: 'Enter',
+            charCode: 13,
+        })
 
         expect(onKeyDown).toHaveBeenCalledWith(
             { name: 'foo', value: 'bar', checked: true },

@@ -6,13 +6,7 @@ describe('<TextArea>', () => {
     it('should call the onKeyDown callback when provided', () => {
         const onKeyDown = jest.fn()
 
-        render(
-            <TextAreaField
-                name="foo"
-                value="bar"
-                onKeyDown={onKeyDown}
-            />
-        )
+        render(<TextAreaField name="foo" value="bar" onKeyDown={onKeyDown} />)
 
         fireEvent.keyDown(screen.getByRole('textbox'), {})
 

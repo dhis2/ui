@@ -16,10 +16,11 @@ describe('<CheckboxField />', () => {
             />
         )
 
-        fireEvent.keyDown(
-            screen.getByRole('checkbox'),
-            { key: 'Enter', code: 'Enter', charCode: 13 }
-        )
+        fireEvent.keyDown(screen.getByRole('checkbox'), {
+            key: 'Enter',
+            code: 'Enter',
+            charCode: 13,
+        })
 
         expect(onKeyDown).toHaveBeenCalledWith(
             { name: 'foo', value: 'bar', checked: true },

@@ -3,7 +3,6 @@ import React from 'react'
 import { FileInput } from '../file-input.js'
 
 describe('<FileInput />', () => {
-
     it('should call the onKeyDown callback when provided', () => {
         const onKeyDown = jest.fn()
 
