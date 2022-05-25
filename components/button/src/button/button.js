@@ -155,6 +155,6 @@ Button.propTypes = {
     onClick: PropTypes.func,
     /** Callback to trigger on focus. Called with same args as `onClick` */
     onFocus: PropTypes.func,
-    /** Callback to trigger on focus. Called with same args as `onClick` */
+    /** Callback to trigger on key-down. Called with same args as `onClick` */
     onKeyDown: PropTypes.func,
 }
