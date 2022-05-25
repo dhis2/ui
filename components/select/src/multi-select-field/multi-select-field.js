@@ -171,6 +171,7 @@ MultiSelectField.propTypes = {
     onChange: PropTypes.func,
     /** Called with signature `({ selected: [String] }, event)` */
     onFocus: PropTypes.func,
+    /** Called with signature `({ selected: [String] }, event)` */
     onKeyDown: PropTypes.func,
 }
 
