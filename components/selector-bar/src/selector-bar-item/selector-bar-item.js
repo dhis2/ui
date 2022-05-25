@@ -58,7 +58,7 @@ export const SelectorBarItem = ({
 
             {open && (
                 <Layer
-                    onClick={(_, evt) => {
+                    onBackdropClick={(_, evt) => {
                         evt.stopPropagation()
                         setOpen(false)
                     }}

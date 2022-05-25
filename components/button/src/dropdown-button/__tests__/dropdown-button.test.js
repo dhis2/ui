@@ -31,7 +31,7 @@ describe('<DropdownButton>', () => {
                 const wrapper = mount(Component)
                 await act(async () => await null)
 
-                wrapper.find(Layer).simulate('click')
+                wrapper.find(Layer).find('.backdrop').simulate('click')
                 expect(onClick).toHaveBeenCalledTimes(1)
 
                 const args = onClick.mock.calls[0]

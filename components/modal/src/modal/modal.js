@@ -30,7 +30,7 @@ export const Modal = ({
     const layerStyles = resolveLayerStyles(hide)
     return (
         <Layer
-            onClick={onClose}
+            onBackdropClick={onClose}
             className={layerStyles.className}
             translucent={!hide}
         >

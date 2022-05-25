@@ -139,7 +139,7 @@ class DropdownButton extends Component {
                 </Button>
 
                 {open && (
-                    <Layer onClick={this.onClickHandler} transparent>
+                    <Layer onBackdropClick={this.onClickHandler} transparent>
                         <Popper
                             dataTest={`${dataTest}-popper`}
                             placement="bottom-start"

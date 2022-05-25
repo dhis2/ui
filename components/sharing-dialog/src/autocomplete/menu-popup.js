@@ -13,7 +13,7 @@ export const MenuPopup = ({
     menuRef,
 }) => {
     return (
-        <Layer onClick={onClick} transparent>
+        <Layer onBackdropClick={onClick} transparent>
             <Popper
                 reference={menuRef}
                 placement="bottom"
