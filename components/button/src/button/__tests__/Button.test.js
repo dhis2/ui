@@ -1,3 +1,4 @@
+import { render, fireEvent, screen } from '@testing-library/react'
 import { mount } from 'enzyme'
 import React from 'react'
 import { Button } from '../button.js'
@@ -34,5 +35,31 @@ describe('<Button>', () => {
             const actual = wrapper.find('button')
             expect(actual.hasClass('toggled')).toBe(false)
         })
+    })
+
+    it('should call the onKeyDown callback when provided', () => {
+        const onKeyDown = jest.fn()
+
+        render(
+            <Button
+                name="button-name"
+                value="button-value"
+                onKeyDown={onKeyDown}
+            >
+                btn
+            </Button>
+        )
+
+        fireEvent.keyDown(
+            screen.getByRole('button'),
+            { key: 'Enter', code: 'Enter', charCode: 13 }
+        )
+
+        expect(onKeyDown).toHaveBeenCalledWith(
+            { name: 'button-name', value: 'button-value' },
+            expect.objectContaining({})
+        )
+
+        expect(onKeyDown).toHaveBeenCalledTimes(1)
     })
 })
