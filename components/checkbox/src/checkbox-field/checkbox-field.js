@@ -25,6 +25,7 @@ const CheckboxField = ({
     tabIndex,
     onChange,
     onFocus,
+    onKeyDown,
     onBlur,
     checked,
     disabled,
@@ -61,6 +62,7 @@ const CheckboxField = ({
             tabIndex={tabIndex}
             onChange={onChange}
             onFocus={onFocus}
+            onKeyDown={onKeyDown}
             onBlur={onBlur}
             checked={checked}
             disabled={disabled}
@@ -111,6 +113,8 @@ CheckboxField.propTypes = {
     onChange: PropTypes.func,
     /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
     onFocus: PropTypes.func,
+    /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
+    onKeyDown: PropTypes.func,
 }
 
 export { CheckboxField }
