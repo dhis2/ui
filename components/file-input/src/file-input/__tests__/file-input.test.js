@@ -1,0 +1,29 @@
+import { render, fireEvent, screen } from '@testing-library/react'
+import React from 'react'
+import { FileInput } from '../file-input.js'
+
+describe('<FileInput />', () => {
+
+    it('should call the onKeyDown callback when provided', () => {
+        const onKeyDown = jest.fn()
+
+        render(
+            <FileInput
+                name="foo"
+                value="bar"
+                checked={false}
+                onKeyDown={onKeyDown}
+            />
+        )
+
+        fireEvent.keyDown(screen.getByRole('button'), {})
+
+        expect(onKeyDown).toHaveBeenCalledTimes(1)
+
+        const input = screen.getByTestId('dhis2-uicore-fileinput-input')
+        expect(onKeyDown).toHaveBeenCalledWith(
+            { name: 'foo', files: input.files },
+            expect.objectContaining({})
+        )
+    })
+})
