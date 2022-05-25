@@ -108,6 +108,12 @@ export class Input extends Component {
         }
     }
 
+    handleKeyDown = (e) => {
+        if (this.props.onKeyDown) {
+            this.props.onKeyDown(this.createHandlerPayload(e), e)
+        }
+    }
+
     createHandlerPayload(e) {
         return {
             value: e.target.value,
@@ -158,6 +164,7 @@ export class Input extends Component {
                     onFocus={this.handleFocus}
                     onBlur={this.handleBlur}
                     onChange={this.handleChange}
+                    onKeyDown={this.handleKeyDown}
                     className={cx({
                         dense,
                         disabled,
@@ -248,4 +255,6 @@ Input.propTypes = {
     onChange: PropTypes.func,
     /** Called with signature `({ name: string, value: string }, event)` */
     onFocus: PropTypes.func,
+    /** Called with signature `({ name: string, value: string }, event)` */
+    onKeyDown: PropTypes.func,
 }
