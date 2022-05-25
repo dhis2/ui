@@ -1054,9 +1054,8 @@ const ScrollingDataTableWithToolbarsTemplate = (args) => (
     </Box>
 )
 
-export const ScrollingDataTableWithToolbars = ScrollingDataTableWithToolbarsTemplate.bind(
-    {}
-)
+export const ScrollingDataTableWithToolbars =
+    ScrollingDataTableWithToolbarsTemplate.bind({})
 ScrollingDataTableWithToolbars.args = {
     layout: 'fixed',
     width: '1000px',
