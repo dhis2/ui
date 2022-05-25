@@ -170,6 +170,7 @@ SingleSelectField.propTypes = {
     onChange: PropTypes.func,
     /** Called with signature `({ selected: string }, event)` */
     onFocus: PropTypes.func,
+    /** Called with signature `({ selected: string }, event)` */
     onKeyDown: PropTypes.func,
 }
 
