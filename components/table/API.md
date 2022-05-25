@@ -16,7 +16,7 @@ import { DataTableCell } from '@dhis2-ui/table'
 |---|---|---|---|---|
 |active|boolean|||To toggle border color, for example for editing|
 |align|'left' │ 'center' │ 'right'|`'left'`|||
-|backgroundColor|string||||
+|backgroundColor|string|||Sets background color of the cell. Disables dynamic background colors from active, hover, and selected states|
 |bordered|boolean||||
 |children|node||||
 |className|string||||

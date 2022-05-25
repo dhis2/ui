@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/legend",
-    "version": "8.2.6",
+    "version": "8.3.0",
     "description": "UI Legend",
     "repository": {
         "type": "git",
@@ -32,8 +32,8 @@
     },
     "dependencies": {
         "@dhis2/prop-types": "^3.1.2",
-        "@dhis2-ui/required": "8.2.6",
-        "@dhis2/ui-constants": "8.2.6",
+        "@dhis2-ui/required": "8.3.0",
+        "@dhis2/ui-constants": "8.3.0",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },

@@ -1,3 +1,11 @@
+# [8.3.0](https://github.com/dhis2/ui/compare/v8.2.6...v8.3.0) (2022-05-25)
+
+
+### Features
+
+* **data-table-cell:** add background-color prop ([#1069](https://github.com/dhis2/ui/issues/1069)) ([e3fba97](https://github.com/dhis2/ui/commit/e3fba974c59f5a3426082755754ee41907bca2ce))
+* **layer:** add `onBackdropClick` prop ([#1060](https://github.com/dhis2/ui/issues/1060)) ([4c2bc69](https://github.com/dhis2/ui/commit/4c2bc69b39cd097d22353dd666bb72c2c8eba265))
+
 ## [8.2.6](https://github.com/dhis2/ui/compare/v8.2.5...v8.2.6) (2022-05-24)
 
 
