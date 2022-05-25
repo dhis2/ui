@@ -21,6 +21,7 @@ class MultiSelectField extends React.Component {
             className,
             onChange,
             onFocus,
+            onKeyDown,
             onBlur,
             required,
             label,
@@ -72,6 +73,7 @@ class MultiSelectField extends React.Component {
                         inputMaxHeight={inputMaxHeight}
                         onChange={onChange}
                         onFocus={onFocus}
+                        onKeyDown={onKeyDown}
                         onBlur={onBlur}
                         loading={loading}
                         error={error}
@@ -169,6 +171,7 @@ MultiSelectField.propTypes = {
     onChange: PropTypes.func,
     /** Called with signature `({ selected: [String] }, event)` */
     onFocus: PropTypes.func,
+    onKeyDown: PropTypes.func,
 }
 
 export { MultiSelectField }
