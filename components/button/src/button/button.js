@@ -25,6 +25,7 @@ export const Button = ({
     onBlur,
     onClick,
     onFocus,
+    onKeyDown,
     loading,
 }) => {
     const ref = useRef()
@@ -38,6 +39,7 @@ export const Button = ({
     const handleClick = (event) => onClick && onClick({ value, name }, event)
     const handleBlur = (event) => onBlur && onBlur({ value, name }, event)
     const handleFocus = (event) => onFocus && onFocus({ value, name }, event)
+    const handleKeyDown = (event) => onKeyDown && onKeyDown({ value, name }, event)
 
     const iconOnly = icon && !children
     const buttonClassName = cx(className, {
@@ -63,6 +65,7 @@ export const Button = ({
             onBlur={handleBlur}
             onClick={handleClick}
             onFocus={handleFocus}
+            onKeyDown={handleKeyDown}
         >
             {loading && (
                 <span className="loader">
@@ -151,4 +154,6 @@ Button.propTypes = {
     onClick: PropTypes.func,
     /** Callback to trigger on focus. Called with same args as `onClick` */
     onFocus: PropTypes.func,
+    /** Callback to trigger on focus. Called with same args as `onClick` */
+    onKeyDown: PropTypes.func,
 }
