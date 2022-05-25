@@ -16,6 +16,7 @@ const SingleSelect = ({
     inputMaxHeight,
     onChange,
     onFocus,
+    onKeyDown,
     onBlur,
     loading,
     error,
@@ -69,6 +70,7 @@ const SingleSelect = ({
                     maxHeight={maxHeight}
                     onChange={onChange}
                     onFocus={onFocus}
+                    onKeyDown={onKeyDown}
                     onBlur={onBlur}
                     error={error}
                     warning={warning}
@@ -143,6 +145,7 @@ SingleSelect.propTypes = {
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
+    onKeyDown: PropTypes.func,
 }
 
 export { SingleSelect }
