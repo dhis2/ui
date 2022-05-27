@@ -94,6 +94,12 @@ export class TextArea extends Component {
         }
     }
 
+    handleKeyDown = (e) => {
+        if (this.props.onKeyDown) {
+            this.props.onKeyDown(this.createHandlerPayload(e), e)
+        }
+    }
+
     createHandlerPayload(e) {
         return {
             value: e.target.value,
@@ -134,6 +140,7 @@ export class TextArea extends Component {
                     readOnly={readOnly}
                     tabIndex={tabIndex}
                     onFocus={this.handleFocus}
+                    onKeyDown={this.handleKeyDown}
                     onBlur={this.handleBlur}
                     onChange={this.handleChange}
                     rows={rows}
@@ -213,4 +220,6 @@ TextArea.propTypes = {
     onChange: PropTypes.func,
     /** Called with signature ({ name: string, value: string }, event) */
     onFocus: PropTypes.func,
+    /** Called with signature ({ name: string, value: string }, event) */
+    onKeyDown: PropTypes.func,
 }

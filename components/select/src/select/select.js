@@ -110,7 +110,17 @@ export class Select extends Component {
     }
 
     onKeyDown = (e) => {
-        if (this.props.disabled) {
+        const { onKeyDown, disabled, selected } = this.props
+
+        if (disabled) {
+            return
+        }
+
+        if (onKeyDown) {
+            onKeyDown({ selected }, e)
+        }
+
+        if (e.defaultPrevented) {
             return
         }
 
@@ -232,4 +242,5 @@ Select.propTypes = {
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
+    onKeyDown: PropTypes.func,
 }

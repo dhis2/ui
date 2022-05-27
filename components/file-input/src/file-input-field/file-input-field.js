@@ -32,6 +32,7 @@ const FileInputField = ({
     onBlur,
     onChange,
     onFocus,
+    onKeyDown,
     placeholder,
     required,
     small,
@@ -68,6 +69,7 @@ const FileInputField = ({
             onBlur={onBlur}
             onChange={onChange}
             onFocus={onFocus}
+            onKeyDown={onKeyDown}
             small={small}
             tabIndex={tabIndex}
             valid={valid}
@@ -133,7 +135,10 @@ FileInputField.propTypes = {
     onBlur: PropTypes.func,
     /** Called with signature `({ name: string, files: [] }, event)` */
     onChange: PropTypes.func,
+    /** Called with signature `({ name: string, files: [] }, event)` */
     onFocus: PropTypes.func,
+    /** Called with signature `({ name: string, files: [] }, event)` */
+    onKeyDown: PropTypes.func,
 }
 
 export { FileInputField }

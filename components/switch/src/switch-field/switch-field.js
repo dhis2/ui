@@ -25,6 +25,7 @@ const SwitchField = ({
     tabIndex,
     onChange,
     onFocus,
+    onKeyDown,
     onBlur,
     checked,
     disabled,
@@ -63,6 +64,7 @@ const SwitchField = ({
             tabIndex={tabIndex}
             onChange={onChange}
             onFocus={onFocus}
+            onKeyDown={onKeyDown}
             onBlur={onBlur}
             checked={checked}
             disabled={disabled}
@@ -113,6 +115,8 @@ SwitchField.propTypes = {
     onChange: PropTypes.func,
     /** Called with signature ({ name: string, value: string, checked: bool }, event) */
     onFocus: PropTypes.func,
+    /** Called with signature ({ name: string, value: string, checked: bool }, event) */
+    onKeyDown: PropTypes.func,
 }
 
 export { SwitchField }

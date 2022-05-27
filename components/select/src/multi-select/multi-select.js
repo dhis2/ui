@@ -16,6 +16,7 @@ const MultiSelect = ({
     inputMaxHeight,
     onChange,
     onFocus,
+    onKeyDown,
     onBlur,
     loading,
     error,
@@ -69,6 +70,7 @@ const MultiSelect = ({
                     maxHeight={maxHeight}
                     onChange={onChange}
                     onFocus={onFocus}
+                    onKeyDown={onKeyDown}
                     onBlur={onBlur}
                     error={error}
                     warning={warning}
@@ -139,6 +141,7 @@ MultiSelect.propTypes = {
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
+    onKeyDown: PropTypes.func,
 }
 
 export { MultiSelect }

@@ -11,6 +11,7 @@ class InputField extends React.Component {
             className,
             onChange,
             onFocus,
+            onKeyDown,
             onBlur,
             initialFocus,
             type,
@@ -54,6 +55,7 @@ class InputField extends React.Component {
                 <Box width={inputWidth} minWidth="72px">
                     <Input
                         onFocus={onFocus}
+                        onKeyDown={onKeyDown}
                         onBlur={onBlur}
                         onChange={onChange}
                         name={name}
@@ -136,6 +138,8 @@ InputField.propTypes = {
     onChange: PropTypes.func,
     /** Called with signature `({ name: string, value: string }, event)` */
     onFocus: PropTypes.func,
+    /** Called with signature `({ name: string, value: string }, event)` */
+    onKeyDown: PropTypes.func,
 }
 
 export { InputField }

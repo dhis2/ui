@@ -35,6 +35,12 @@ class FileInput extends Component {
         }
     }
 
+    handleKeyDown = (e) => {
+        if (this.props.onKeyDown) {
+            this.props.onKeyDown(this.createHandlerPayload(), e)
+        }
+    }
+
     createHandlerPayload() {
         return {
             files: this.ref.current.files,
@@ -72,6 +78,7 @@ class FileInput extends Component {
                         accept={accept}
                         multiple={multiple}
                         disabled={disabled}
+                        data-test={`${dataTest}-input`}
                     />
                     <Button
                         disabled={disabled}
@@ -81,6 +88,7 @@ class FileInput extends Component {
                         onBlur={this.handleBlur}
                         onClick={this.handleClick}
                         onFocus={this.handleFocus}
+                        onKeyDown={this.handleKeyDown}
                         small={small}
                         tabIndex={tabIndex}
                         type="button"
@@ -144,6 +152,8 @@ FileInput.propTypes = {
     onChange: PropTypes.func,
     /** Called with signature `(object, event)` */
     onFocus: PropTypes.func,
+    /** Called with signature `(object, event)` */
+    onKeyDown: PropTypes.func,
 }
 
 export { FileInput }

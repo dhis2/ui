@@ -44,6 +44,12 @@ class Checkbox extends Component {
         }
     }
 
+    handleKeyDown = (e) => {
+        if (this.props.onKeyDown) {
+            this.props.onKeyDown(this.createHandlerPayload(), e)
+        }
+    }
+
     createHandlerPayload() {
         return {
             value: this.props.value,
@@ -96,6 +102,7 @@ class Checkbox extends Component {
                     tabIndex={tabIndex}
                     onChange={this.handleChange}
                     onFocus={this.handleFocus}
+                    onKeyDown={this.handleKeyDown}
                     onBlur={this.handleBlur}
                 />
 
@@ -201,6 +208,7 @@ Checkbox.propTypes = {
     /** Called with signature `(object, event)` */
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
+    onKeyDown: PropTypes.func,
 }
 
 export { Checkbox }
