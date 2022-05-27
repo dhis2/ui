@@ -40,6 +40,7 @@ import { MultiSelect } from '@dhis2-ui/select'
 |onBlur|function||||
 |onChange|function||||
 |onFocus|function||||
+|onKeyDown|function||||
 
 ### MultiSelectField
 
@@ -88,6 +89,7 @@ import { MultiSelectField } from '@dhis2-ui/select'
 |onBlur|function|||Called with signature `({ selected: [String] }, event)`|
 |onChange|function|||Called with signature `({ selected: [String] }, event)`|
 |onFocus|function|||Called with signature `({ selected: [String] }, event)`|
+|onKeyDown|function|||Called with signature `({ selected: [String] }, event)`|
 
 ### MultiSelectOption
 
@@ -155,6 +157,7 @@ import { SingleSelect } from '@dhis2-ui/select'
 |onBlur|function||||
 |onChange|function||||
 |onFocus|function||||
+|onKeyDown|function||||
 
 ### SingleSelectField
 
@@ -203,6 +206,7 @@ import { SingleSelectField } from '@dhis2-ui/select'
 |onBlur|function|||Called with signature `({ selected: string }, event)`|
 |onChange|function|||Called with signature `({ selected: string }, event)`|
 |onFocus|function|||Called with signature `({ selected: string }, event)`|
+|onKeyDown|function|||Called with signature `({ selected: string }, event)`|
 
 ### SingleSelectOption
 

@@ -35,6 +35,7 @@ import { TextArea } from '@dhis2-ui/text-area'
 |onBlur|function|||Called with signature ({ name: string, value: string }, event)|
 |onChange|function|||Called with signature ({ name: string, value: string }, event)|
 |onFocus|function|||Called with signature ({ name: string, value: string }, event)|
+|onKeyDown|function|||Called with signature ({ name: string, value: string }, event)|
 
 ### TextAreaField
 
@@ -77,3 +78,4 @@ import { TextAreaField } from '@dhis2-ui/text-area'
 |onBlur|function|||Called with signature ({ name: string, value: string }, event)|
 |onChange|function|||Called with signature ({ name: string, value: string }, event)|
 |onFocus|function|||Called with signature ({ name: string, value: string }, event)|
+|onKeyDown|function|||Called with signature ({ name: string, value: string }, event)|

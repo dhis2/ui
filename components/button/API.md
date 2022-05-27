@@ -34,6 +34,7 @@ import { Button } from '@dhis2-ui/button'
 |onBlur|function|||Callback to trigger on de-focus (blur).<br/>Called with same args as `onClick`|
 |onClick|function|||Callback to trigger on click.<br/>Called with args `({ value, name }, event)`|
 |onFocus|function|||Callback to trigger on focus. Called with same args as `onClick`|
+|onKeyDown|function|||Callback to trigger on key-down. Called with same args as `onClick`|
 
 ### ButtonStrip
 

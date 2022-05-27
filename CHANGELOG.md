@@ -1,3 +1,27 @@
+# [8.4.0](https://github.com/dhis2/ui/compare/v8.3.1...v8.4.0) (2022-05-27)
+
+
+### Features
+
+* **button:** add onKeyDown prop ([b41b1de](https://github.com/dhis2/ui/commit/b41b1de6bfc0e359f670d00fee5bc0d11c815aa3))
+* **checkbox:** add onKeyDown prop ([34f2278](https://github.com/dhis2/ui/commit/34f22782c8a2c0a4fc3cd7e7dd3f53632c3094a8))
+* **checkbox field:** add onKeyDown prop ([bb8ad04](https://github.com/dhis2/ui/commit/bb8ad04543af43e37dda3c0792e4b278afb81b42))
+* **file input:** add onKeyDown prop ([07ddfef](https://github.com/dhis2/ui/commit/07ddfef2ec1de1e0d5dd1e6231b54b2ec4e25d96))
+* **file input field:** add onKeyDown prop ([ef6c89b](https://github.com/dhis2/ui/commit/ef6c89bfddf8e89941a6e5fb51089052da8fd309))
+* **file input field with list:** add onKeyDown prop ([e0629ec](https://github.com/dhis2/ui/commit/e0629ecfc72a59e14f187b06e576113fd562af71))
+* **input:** add onKeyDown prop ([c132535](https://github.com/dhis2/ui/commit/c132535a031f25c4d6937e2dd853d2bd68a2d3a3))
+* **input field:** add onKeyDown prop ([d5fdfb2](https://github.com/dhis2/ui/commit/d5fdfb2b46766a71d9e23d84f685a7d8a308abe0))
+* **multi select:** add onKeyDown prop ([187a168](https://github.com/dhis2/ui/commit/187a168277388e88ba30fc7c2807fc3032240020))
+* **multi select field:** add onKeyDown prop ([cdbf3dc](https://github.com/dhis2/ui/commit/cdbf3dcace70ffe5d0cdba5b05b5cb75a4a768e5))
+* **radio:** add onKeyDown prop ([40f133e](https://github.com/dhis2/ui/commit/40f133efcc10d70a8399f6bd92353fd53b14e0a5))
+* **select:** add onKeyDown prop ([8fb7a82](https://github.com/dhis2/ui/commit/8fb7a82650ad3a7d89be1a4cf12771e13c188471))
+* **single select:** add onKeyDown prop ([1fb1bf8](https://github.com/dhis2/ui/commit/1fb1bf824ea918c6a1f6409487016334e30e1b7c))
+* **single select field:** add onKeyDown prop ([420e2e2](https://github.com/dhis2/ui/commit/420e2e2b809735feb5343b533c3f98f2d619cfd1))
+* **switch:** add onKeyDown prop ([3b3ad3a](https://github.com/dhis2/ui/commit/3b3ad3a867358303c7aef499f4b4f4ed4df04702))
+* **switch field:** add onKeyDown prop ([d065a11](https://github.com/dhis2/ui/commit/d065a112bc7a1433b0250b7f8129022e8f8dc0af))
+* **text area:** add onKeyDown prop ([5c510d7](https://github.com/dhis2/ui/commit/5c510d79b7014d3ad6632e3eb26505861aebb91e))
+* **text area field:** add onKeyDown prop ([678769c](https://github.com/dhis2/ui/commit/678769ce4aa0cb253c08a4200a54294981898c4a))
+
 ## [8.3.1](https://github.com/dhis2/ui/compare/v8.3.0...v8.3.1) (2022-05-27)
 
 

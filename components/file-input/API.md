@@ -31,6 +31,7 @@ import { FileInput } from '@dhis2-ui/file-input'
 |onBlur|function|||Called with signature `(object, event)`|
 |onChange|function|||Called with signature `(object, event)`|
 |onFocus|function|||Called with signature `(object, event)`|
+|onKeyDown|function|||Called with signature `(object, event)`|
 
 ### FileInputField
 
@@ -70,7 +71,8 @@ import { FileInputField } from '@dhis2-ui/file-input'
 |warning|custom|||Applies 'warning' styling to the validation text. Mutually exclusive with `valid` and `error` props|
 |onBlur|function||||
 |onChange|function|||Called with signature `({ name: string, files: [] }, event)`|
-|onFocus|function||||
+|onFocus|function|||Called with signature `({ name: string, files: [] }, event)`|
+|onKeyDown|function|||Called with signature `({ name: string, files: [] }, event)`|
 
 ### FileInputFieldWithList
 
@@ -110,8 +112,9 @@ import { FileInputFieldWithList } from '@dhis2-ui/file-input'
 |valid|custom|||Applies 'valid' styling to the button and validation text. Mutually exclusive with `warning` and `error` props|
 |validationText|string|||Text below the button that provides validation feedback|
 |warning|custom|||Applies 'warning' styling to the button and validation text. Mutually exclusive with `valid` and `error` props|
-|onBlur|function||||
-|onFocus|function||||
+|onBlur|function|||Called with signature `({ name: string, files: [] }, event)`|
+|onFocus|function|||Called with signature `({ name: string, files: [] }, event)`|
+|onKeyDown|function|||Called with signature `({ name: string, files: [] }, event)`|
 
 ### FileListItem
 

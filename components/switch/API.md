@@ -32,6 +32,7 @@ import { Switch } from '@dhis2-ui/switch'
 |onBlur|function|||Called with signature `({ name: string, value: string, checked: bool }, event)`|
 |onChange|function|||Called with signature `({ name: string, value: string, checked: bool }, event)`|
 |onFocus|function|||Called with signature `({ name: string, value: string, checked: bool }, event)`|
+|onKeyDown|function|||Called with signature `({ name: string, value: string, checked: bool }, event)`|
 
 ### SwitchField
 
@@ -68,3 +69,4 @@ import { SwitchField } from '@dhis2-ui/switch'
 |onBlur|function|||Called with signature ({ name: string, value: string, checked: bool }, event)|
 |onChange|function|||Called with signature ({ name: string, value: string, checked: bool }, event)|
 |onFocus|function|||Called with signature ({ name: string, value: string, checked: bool }, event)|
+|onKeyDown|function|||Called with signature ({ name: string, value: string, checked: bool }, event)|

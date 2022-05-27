@@ -31,6 +31,7 @@ import { Checkbox } from '@dhis2-ui/checkbox'
 |onBlur|function||||
 |onChange|function|||Called with signature `(object, event)`|
 |onFocus|function||||
+|onKeyDown|function||||
 
 ### CheckboxField
 
@@ -67,3 +68,4 @@ import { CheckboxField } from '@dhis2-ui/checkbox'
 |onBlur|function|||Called with signature `({ name: string, value: string, checked: bool }, event)`|
 |onChange|function|||Called with signature `({ name: string, value: string, checked: bool }, event)`|
 |onFocus|function|||Called with signature `({ name: string, value: string, checked: bool }, event)`|
+|onKeyDown|function|||Called with signature `({ name: string, value: string, checked: bool }, event)`|

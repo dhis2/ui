@@ -37,6 +37,7 @@ import { Input } from '@dhis2-ui/input'
 |onBlur|function|||Called with signature `({ name: string, value: string }, event)`|
 |onChange|function|||Called with signature `({ name: string, value: string }, event)`|
 |onFocus|function|||Called with signature `({ name: string, value: string }, event)`|
+|onKeyDown|function|||Called with signature `({ name: string, value: string }, event)`|
 
 ### InputField
 
@@ -81,3 +82,4 @@ import { InputField } from '@dhis2-ui/input'
 |onBlur|function|||Called with signature `({ name: string, value: string }, event)`|
 |onChange|function|||Called with signature `({ name: string, value: string }, event)`|
 |onFocus|function|||Called with signature `({ name: string, value: string }, event)`|
+|onKeyDown|function|||Called with signature `({ name: string, value: string }, event)`|

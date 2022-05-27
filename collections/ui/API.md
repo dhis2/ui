@@ -111,6 +111,7 @@ import { Button } from '@dhis2/ui'
 |onBlur|function|||Callback to trigger on de-focus (blur).<br/>Called with same args as `onClick`|
 |onClick|function|||Callback to trigger on click.<br/>Called with args `({ value, name }, event)`|
 |onFocus|function|||Callback to trigger on focus. Called with same args as `onClick`|
+|onKeyDown|function|||Callback to trigger on key-down. Called with same args as `onClick`|
 
 ### ButtonStrip
 
@@ -277,6 +278,7 @@ import { Checkbox } from '@dhis2/ui'
 |onBlur|function||||
 |onChange|function|||Called with signature `(object, event)`|
 |onFocus|function||||
+|onKeyDown|function||||
 
 ### CheckboxField
 
@@ -313,6 +315,7 @@ import { CheckboxField } from '@dhis2/ui'
 |onBlur|function|||Called with signature `({ name: string, value: string, checked: bool }, event)`|
 |onChange|function|||Called with signature `({ name: string, value: string, checked: bool }, event)`|
 |onFocus|function|||Called with signature `({ name: string, value: string, checked: bool }, event)`|
+|onKeyDown|function|||Called with signature `({ name: string, value: string, checked: bool }, event)`|
 
 ### Chip
 
@@ -535,6 +538,7 @@ import { FileInput } from '@dhis2/ui'
 |onBlur|function|||Called with signature `(object, event)`|
 |onChange|function|||Called with signature `(object, event)`|
 |onFocus|function|||Called with signature `(object, event)`|
+|onKeyDown|function|||Called with signature `(object, event)`|
 
 ### FileInputField
 
@@ -574,7 +578,8 @@ import { FileInputField } from '@dhis2/ui'
 |warning|custom|||Applies 'warning' styling to the validation text. Mutually exclusive with `valid` and `error` props|
 |onBlur|function||||
 |onChange|function|||Called with signature `({ name: string, files: [] }, event)`|
-|onFocus|function||||
+|onFocus|function|||Called with signature `({ name: string, files: [] }, event)`|
+|onKeyDown|function|||Called with signature `({ name: string, files: [] }, event)`|
 
 ### FileListItem
 
@@ -734,6 +739,7 @@ import { Input } from '@dhis2/ui'
 |onBlur|function|||Called with signature `({ name: string, value: string }, event)`|
 |onChange|function|||Called with signature `({ name: string, value: string }, event)`|
 |onFocus|function|||Called with signature `({ name: string, value: string }, event)`|
+|onKeyDown|function|||Called with signature `({ name: string, value: string }, event)`|
 
 ### InputField
 
@@ -778,6 +784,7 @@ import { InputField } from '@dhis2/ui'
 |onBlur|function|||Called with signature `({ name: string, value: string }, event)`|
 |onChange|function|||Called with signature `({ name: string, value: string }, event)`|
 |onFocus|function|||Called with signature `({ name: string, value: string }, event)`|
+|onKeyDown|function|||Called with signature `({ name: string, value: string }, event)`|
 
 ### IntersectionDetector
 
@@ -1439,6 +1446,7 @@ import { Radio } from '@dhis2/ui'
 |onBlur|function|||Called with the signature `({ name: string, value: string, checked: bool }, event)`|
 |onChange|function|||Called with the signature `({ name: string, value: string, checked: bool }, event)`|
 |onFocus|function|||Called with the signature `({ name: string, value: string, checked: bool }, event)`|
+|onKeyDown|function|||Called with the signature `({ name: string, value: string, checked: bool }, event)`|
 
 ### Required
 
@@ -1570,6 +1578,7 @@ import { MultiSelect } from '@dhis2/ui'
 |onBlur|function||||
 |onChange|function||||
 |onFocus|function||||
+|onKeyDown|function||||
 
 ### MultiSelectField
 
@@ -1618,6 +1627,7 @@ import { MultiSelectField } from '@dhis2/ui'
 |onBlur|function|||Called with signature `({ selected: [String] }, event)`|
 |onChange|function|||Called with signature `({ selected: [String] }, event)`|
 |onFocus|function|||Called with signature `({ selected: [String] }, event)`|
+|onKeyDown|function|||Called with signature `({ selected: [String] }, event)`|
 
 ### MultiSelectOption
 
@@ -1737,6 +1747,7 @@ import { SingleSelect } from '@dhis2/ui'
 |onBlur|function||||
 |onChange|function||||
 |onFocus|function||||
+|onKeyDown|function||||
 
 ### SingleSelectField
 
@@ -1785,6 +1796,7 @@ import { SingleSelectField } from '@dhis2/ui'
 |onBlur|function|||Called with signature `({ selected: string }, event)`|
 |onChange|function|||Called with signature `({ selected: string }, event)`|
 |onFocus|function|||Called with signature `({ selected: string }, event)`|
+|onKeyDown|function|||Called with signature `({ selected: string }, event)`|
 
 ### SingleSelectOption
 
@@ -1974,6 +1986,7 @@ import { Switch } from '@dhis2/ui'
 |onBlur|function|||Called with signature `({ name: string, value: string, checked: bool }, event)`|
 |onChange|function|||Called with signature `({ name: string, value: string, checked: bool }, event)`|
 |onFocus|function|||Called with signature `({ name: string, value: string, checked: bool }, event)`|
+|onKeyDown|function|||Called with signature `({ name: string, value: string, checked: bool }, event)`|
 
 ### SwitchField
 
@@ -2010,6 +2023,7 @@ import { SwitchField } from '@dhis2/ui'
 |onBlur|function|||Called with signature ({ name: string, value: string, checked: bool }, event)|
 |onChange|function|||Called with signature ({ name: string, value: string, checked: bool }, event)|
 |onFocus|function|||Called with signature ({ name: string, value: string, checked: bool }, event)|
+|onKeyDown|function|||Called with signature ({ name: string, value: string, checked: bool }, event)|
 
 ### Tab
 
@@ -2723,6 +2737,7 @@ import { TextArea } from '@dhis2/ui'
 |onBlur|function|||Called with signature ({ name: string, value: string }, event)|
 |onChange|function|||Called with signature ({ name: string, value: string }, event)|
 |onFocus|function|||Called with signature ({ name: string, value: string }, event)|
+|onKeyDown|function|||Called with signature ({ name: string, value: string }, event)|
 
 ### TextAreaField
 
@@ -2765,6 +2780,7 @@ import { TextAreaField } from '@dhis2/ui'
 |onBlur|function|||Called with signature ({ name: string, value: string }, event)|
 |onChange|function|||Called with signature ({ name: string, value: string }, event)|
 |onFocus|function|||Called with signature ({ name: string, value: string }, event)|
+|onKeyDown|function|||Called with signature ({ name: string, value: string }, event)|
 
 ### Tooltip
 

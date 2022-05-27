@@ -30,3 +30,4 @@ import { Radio } from '@dhis2-ui/radio'
 |onBlur|function|||Called with the signature `({ name: string, value: string, checked: bool }, event)`|
 |onChange|function|||Called with the signature `({ name: string, value: string, checked: bool }, event)`|
 |onFocus|function|||Called with the signature `({ name: string, value: string, checked: bool }, event)`|
+|onKeyDown|function|||Called with the signature `({ name: string, value: string, checked: bool }, event)`|
