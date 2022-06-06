@@ -5427,10 +5427,19 @@
     qs "^6.10.0"
     telejson "^5.3.2"
 
-"@storybook/channels@6.3.7", "@storybook/channels@^6.3.7":
+"@storybook/channels@6.3.7":
   version "6.3.7"
   resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-6.3.7.tgz#85ed5925522b802d959810f78d37aacde7fea66e"
   integrity sha512-aErXO+SRO8MPp2wOkT2n9d0fby+8yM35tq1tI633B4eQsM74EykbXPv7EamrYPqp1AI4BdiloyEpr0hmr2zlvg==
+  dependencies:
+    core-js "^3.8.2"
+    ts-dedent "^2.0.0"
+    util-deprecate "^1.0.2"
+
+"@storybook/channels@^6.5.7":
+  version "6.5.7"
+  resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-6.5.7.tgz#765b02e949f58c4181998c676b155f5c1914bec1"
+  integrity sha512-v880fWBpWgiWrDmZesTIstNfMZhrPfgXAtLNcL5Z89NAPahsHskOSszc0BDxKN3gb+ZeTKUqHxY57dQdp+1rhg==
   dependencies:
     core-js "^3.8.2"
     ts-dedent "^2.0.0"
@@ -10278,12 +10287,7 @@ core-js@^2.4.0:
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"
   integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
 
-core-js@^3.0.4, core-js@^3.6.5, core-js@^3.8.2:
-  version "3.19.2"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.19.2.tgz#ae216d7f4f7e924d9a2e3ff1e4b1940220f9157b"
-  integrity sha512-ciYCResnLIATSsXuXnIOH4CbdfgV+H1Ltg16hJFN7/v6OxqnFr/IFGeLacaZ+fHLAm0TBbXwNK9/DNBzBUrO/g==
-
-core-js@^3.21.1:
+core-js@^3.0.4, core-js@^3.21.1, core-js@^3.6.5, core-js@^3.8.2:
   version "3.21.1"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.21.1.tgz#f2e0ddc1fc43da6f904706e8e955bc19d06a0d94"
   integrity sha512-FRq5b/VMrWlrmCzwRrpDYNxyHP9BcAZC+xHJaqTgIE5091ZV1NTmyh0sGOg5XqpnHvR0svdy0sv1gWA1zmhxig==
