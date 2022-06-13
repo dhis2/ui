@@ -1,3 +1,10 @@
+## [8.4.2](https://github.com/dhis2/ui/compare/v8.4.1...v8.4.2) (2022-06-13)
+
+
+### Bug Fixes
+
+* **forms:** provide a clearer error message if username is invalid ([#1102](https://github.com/dhis2/ui/issues/1102)) ([586d825](https://github.com/dhis2/ui/commit/586d825c3e96949e40176d3e32c6402cf9ce1f06))
+
 ## [8.4.1](https://github.com/dhis2/ui/compare/v8.4.0...v8.4.1) (2022-05-31)
 
 
