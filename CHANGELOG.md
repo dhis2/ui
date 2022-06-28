@@ -1,3 +1,10 @@
+## [8.4.4](https://github.com/dhis2/ui/compare/v8.4.3...v8.4.4) (2022-06-28)
+
+
+### Bug Fixes
+
+* **forms:** allow upper case characters in dhis2 user name ([#1115](https://github.com/dhis2/ui/issues/1115)) ([7471697](https://github.com/dhis2/ui/commit/7471697769774dfb143ef6268b5ec68eca54153d))
+
 ## [8.4.3](https://github.com/dhis2/ui/compare/v8.4.2...v8.4.3) (2022-06-24)
 
 

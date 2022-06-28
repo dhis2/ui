@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/tooltip",
-    "version": "8.4.3",
+    "version": "8.4.4",
     "description": "UI Tooltip",
     "repository": {
         "type": "git",
@@ -32,9 +32,9 @@
     },
     "dependencies": {
         "@dhis2/prop-types": "^3.1.2",
-        "@dhis2-ui/popper": "8.4.3",
-        "@dhis2-ui/portal": "8.4.3",
-        "@dhis2/ui-constants": "8.4.3",
+        "@dhis2-ui/popper": "8.4.4",
+        "@dhis2-ui/portal": "8.4.4",
+        "@dhis2/ui-constants": "8.4.4",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },
