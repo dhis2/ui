@@ -49,6 +49,8 @@ describe('validator: dhis2Username', () => {
         testValidatorValues(dhis2Username, undefined, [
             'v@lid_user.name',
             '123another_v@lid_usern@me',
+            'UPPER_CASE',
+            'lower@ca.se',
         ])
 
         testValidatorValues(dhis2Username, invalidUsernameMessage, [
