@@ -26,6 +26,7 @@ const config = {
                     sidebarPath: require.resolve('./sidebars.js'),
                     editUrl: 'https://github.com/dhis2/ui',
                     routeBasePath: '/',
+                    breadcrumbs: false,
                 },
                 blog: false,
                 theme: {
