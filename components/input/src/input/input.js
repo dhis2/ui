@@ -41,6 +41,11 @@ const styles = css`
         border-color: ${theme.focus};
     }
 
+    input::placeholder {
+        color: ${colors.grey600};
+        opacity: 1;
+    }
+
     input[type='date']::-webkit-inner-spin-button,
     input[type='date']::-webkit-calendar-picker-indicator,
     input[type='time']::-webkit-inner-spin-button,
