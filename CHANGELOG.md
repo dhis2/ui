@@ -1,3 +1,10 @@
+## [8.4.5](https://github.com/dhis2/ui/compare/v8.4.4...v8.4.5) (2022-07-12)
+
+
+### Bug Fixes
+
+* **validators:** ensure integer validator rejects any decimal separator ([060705b](https://github.com/dhis2/ui/commit/060705b362eb93b41fbc516044906fe945795b6a))
+
 ## [8.4.4](https://github.com/dhis2/ui/compare/v8.4.3...v8.4.4) (2022-06-28)
 
 
