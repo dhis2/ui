@@ -77,7 +77,7 @@ When selecting theme colors, make sure they do not clash with the colors establi
 | ![grey300](/images/color/color-grey-300.png) | `grey300` | `#E8EDF2` |
 | ![grey400](/images/color/color-grey-400.png) | `grey400` | `#D5DDE5` |
 | ![grey500](/images/color/color-grey-500.png) | `grey500` | `#A0ADBA` |
-| ![grey600](/images/color/color-grey-600.png) | `grey600` | `#6E7A8A` |
+| ![grey600](/images/color/color-grey-600.png) | `grey600` | `#6C7787` |
 | ![grey700](/images/color/color-grey-700.png) | `grey700` | `#4A5768` |
 | ![grey800](/images/color/color-grey-800.png) | `grey800` | `#404B5A` |
 | ![grey900](/images/color/color-grey-900.png) | `grey900` | `#212934` |

@@ -46,7 +46,7 @@ const primaryButtonColor = theme.primary600 // = '#147cd7' = colors.blue600
 | `error`        | `'#d32f2f'`            | `colors.red500`     |
 | `valid`        | `'#147cd7'`            | `colors.blue600`    |
 | `warning`      | `'#ff9302'`            | `colors.yellow500`  |
-| `disabled`     | `'#6e7a8a'`            | `colors.grey600`    |
+| `disabled`     | `'#6C7787'`            | `colors.grey600`    |
 | `primary900`   | `'#093371'`            | `colors.blue900`    |
 | `primary800`   | `'#0d47a1'`            | `colors.blue800`    |
 | `primary700`   | `'#1565c0'`            | `colors.blue700`    |
