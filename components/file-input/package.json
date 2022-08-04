@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/file-input",
-    "version": "8.4.5",
+    "version": "8.4.6",
     "description": "UI FileInput",
     "repository": {
         "type": "git",
@@ -33,13 +33,13 @@
     },
     "dependencies": {
         "@dhis2/prop-types": "^3.1.2",
-        "@dhis2-ui/button": "8.4.5",
-        "@dhis2-ui/field": "8.4.5",
-        "@dhis2-ui/label": "8.4.5",
-        "@dhis2-ui/loader": "8.4.5",
-        "@dhis2-ui/status-icon": "8.4.5",
-        "@dhis2/ui-constants": "8.4.5",
-        "@dhis2/ui-icons": "8.4.5",
+        "@dhis2-ui/button": "8.4.6",
+        "@dhis2-ui/field": "8.4.6",
+        "@dhis2-ui/label": "8.4.6",
+        "@dhis2-ui/loader": "8.4.6",
+        "@dhis2-ui/status-icon": "8.4.6",
+        "@dhis2/ui-constants": "8.4.6",
+        "@dhis2/ui-icons": "8.4.6",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },

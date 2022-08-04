@@ -1,3 +1,12 @@
+## [8.4.6](https://github.com/dhis2/ui/compare/v8.4.5...v8.4.6) (2022-08-04)
+
+
+### Bug Fixes
+
+* update usages of grey600 in docs and icons ([ad7eca2](https://github.com/dhis2/ui/commit/ad7eca2ecdab42cf4d3d5c90fd8f97e325454a71))
+* **constants:** adjust grey600 color for AA contrast compliance at small sizes ([7e31ffa](https://github.com/dhis2/ui/commit/7e31ffa8139ac433ccdcc09f773847e00fd7a707))
+* **input:** use ui color for placeholder text ([b35d8f9](https://github.com/dhis2/ui/commit/b35d8f92d186b0a2e5256443639c1735623ab0eb))
+
 ## [8.4.5](https://github.com/dhis2/ui/compare/v8.4.4...v8.4.5) (2022-07-12)
 
 
