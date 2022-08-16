@@ -1,59 +1,60 @@
 [main]
-host = https://www.transifex.com
+host     = https://www.transifex.com
 lang_map = fa_AF: prs, uz@Cyrl: uz, uz@Latn: uz_Latn
 
-[app-component-ui.ui-forms]
-file_filter = collections/forms/i18n/<lang>.po
+[o:hisp-uio:p:app-component-ui:r:file-input]
+file_filter  = components/file-input/i18n/<lang>.po
+source_file  = components/file-input/i18n/en.pot
+source_lang  = en
+type         = PO
 minimum_perc = 0
-source_file = collections/forms/i18n/en.pot
-source_lang = en
-type = PO
 
-[app-component-ui.file-input]
-file_filter = components/file-input/i18n/<lang>.po
+[o:hisp-uio:p:app-component-ui:r:header-bar]
+file_filter  = components/header-bar/i18n/<lang>.po
+source_file  = components/header-bar/i18n/en.pot
+source_lang  = en
+type         = PO
 minimum_perc = 0
-source_file = components/file-input/i18n/en.pot
-source_lang = en
-type = PO
 
-[app-component-ui.select]
-file_filter = components/select/i18n/<lang>.po
+[o:hisp-uio:p:app-component-ui:r:organisation-unit-tree]
+file_filter  = components/organisation-unit-tree/i18n/<lang>.po
+source_file  = components/organisation-unit-tree/i18n/en.pot
+source_lang  = en
+type         = PO
 minimum_perc = 0
-source_file = components/select/i18n/en.pot
-source_lang = en
-type = PO
 
-[app-component-ui.table]
-file_filter = components/table/i18n/<lang>.po
+[o:hisp-uio:p:app-component-ui:r:pagination]
+file_filter  = components/pagination/i18n/<lang>.po
+source_file  = components/pagination/i18n/en.pot
+source_lang  = en
+type         = PO
 minimum_perc = 0
-source_file = components/table/i18n/en.pot
-source_lang = en
-type = PO
 
-[app-component-ui.organisation-unit-tree]
-file_filter = components/organisation-unit-tree/i18n/<lang>.po
+[o:hisp-uio:p:app-component-ui:r:select]
+file_filter  = components/select/i18n/<lang>.po
+source_file  = components/select/i18n/en.pot
+source_lang  = en
+type         = PO
 minimum_perc = 0
-source_file = components/organisation-unit-tree/i18n/en.pot
-source_lang = en
-type = PO
 
-[app-component-ui.pagination]
-file_filter = components/pagination/i18n/<lang>.po
+[o:hisp-uio:p:app-component-ui:r:sharing-dialog]
+file_filter  = components/sharing-dialog/i18n/<lang>.po
+source_file  = components/sharing-dialog/i18n/en.pot
+source_lang  = en
+type         = PO
 minimum_perc = 0
-source_file = components/pagination/i18n/en.pot
-source_lang = en
-type = PO
 
-[app-component-ui.header-bar]
-file_filter = components/header-bar/i18n/<lang>.po
+[o:hisp-uio:p:app-component-ui:r:table]
+file_filter  = components/table/i18n/<lang>.po
+source_file  = components/table/i18n/en.pot
+source_lang  = en
+type         = PO
 minimum_perc = 0
-source_file = components/header-bar/i18n/en.pot
-source_lang = en
-type = PO
 
-[app-component-ui.sharing-dialog]
-file_filter = components/sharing-dialog/i18n/<lang>.po
+[o:hisp-uio:p:app-component-ui:r:ui-forms]
+file_filter  = collections/forms/i18n/<lang>.po
+source_file  = collections/forms/i18n/en.pot
+source_lang  = en
+type         = PO
 minimum_perc = 0
-source_file = components/sharing-dialog/i18n/en.pot
-source_lang = en
-type = PO
+
