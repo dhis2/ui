@@ -1,13 +1,11 @@
 # 
 # Translators:
-# Wanda <wanda@frontlineaids.org>, 2021
-# phil_dhis2, 2021
 # Éva Tamási, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-02T19:24:35.672Z\n"
+"POT-Creation-Date: 2021-06-15T13:35:03.608Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
 "Last-Translator: Éva Tamási, 2022\n"
 "Language-Team: Ukrainian (https://www.transifex.com/hisp-uio/teams/100509/uk/)\n"
@@ -17,32 +15,8 @@ msgstr ""
 "Language: uk\n"
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-msgid "Search apps"
-msgstr "Пошук додатків"
+msgid "Toggle filter"
+msgstr "Переключити фільтр"
 
-msgid "Last online {{relativeTime}}"
-msgstr "Останній раз онлайн {{relativeTime}}"
-
-msgid "Online"
-msgstr "Онлайн"
-
-msgid "Offline"
-msgstr "Офлайн"
-
-msgid "Edit profile"
-msgstr "Редагувати профіль"
-
-msgid "Settings"
-msgstr "Налаштування"
-
-msgid "Account"
-msgstr "Обліковий запис"
-
-msgid "Help"
-msgstr "Довідка"
-
-msgid "About DHIS2"
-msgstr "Про DHIS2"
-
-msgid "Logout"
-msgstr "Вийти"
+msgid "Sort items"
+msgstr "Сортувати об'єкти"
