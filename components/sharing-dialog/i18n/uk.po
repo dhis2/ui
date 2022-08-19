@@ -30,10 +30,10 @@ msgid "Access level"
 msgstr ""
 
 msgid "Select a level"
-msgstr ""
+msgstr "Вибрати рівень"
 
 msgid "Not available offline"
-msgstr ""
+msgstr "Недоступно в автономному режимі"
 
 msgid "Give access"
 msgstr ""
