@@ -2,13 +2,14 @@
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Nadiia <semchuk@aph.org.ua>, 2021
+# Éva Tamási, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-03-10T20:20:19.392Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
-"Last-Translator: Nadiia <semchuk@aph.org.ua>, 2021\n"
+"Last-Translator: Éva Tamási, 2022\n"
 "Language-Team: Ukrainian (https://www.transifex.com/hisp-uio/teams/100509/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,21 +21,23 @@ msgid ""
 "Page {{page}} of {{pageCount}}, items {{firstItem}}-{{lastItem}} of "
 "{{total}}"
 msgstr ""
+"Сторінка {{page}} з {{pageCount}}, об'єкти {{firstItem}}-{{lastItem}} з "
+"{{total}}"
 
 msgid "Page {{page}}, items {{firstItem}}-{{lastItem}}"
-msgstr ""
+msgstr "Сторінка {{page}}, об'єкти {{firstItem}}-{{lastItem}}"
 
 msgid "Page {{page}}"
-msgstr ""
+msgstr "Сторінка {{page}}"
 
 msgid "Next"
-msgstr "Наступна"
+msgstr "Наступний"
 
 msgid "Page"
 msgstr "Сторінка"
 
 msgid "Items per page"
-msgstr ""
+msgstr "Об'єктів на сторінці"
 
 msgid "Previous"
 msgstr "Попередня"
@@ -43,3 +46,6 @@ msgid ""
 "You are at page {{page}} showing items {{firstItem}}-{{lastItem}}, but there"
 " are {{pageCount}} pages and {{total}} items"
 msgstr ""
+"Ви знаходитесь на сторінці {{page}}, де відображаються об'єкти "
+"{{firstItem}}-{{lastItem}}, але є {{pageCount}} сторінок і {{total}} "
+"об'єктів"
