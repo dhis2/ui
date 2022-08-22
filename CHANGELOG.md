@@ -1,3 +1,10 @@
+## [8.4.10](https://github.com/dhis2/ui/compare/v8.4.9...v8.4.10) (2022-08-22)
+
+
+### Bug Fixes
+
+* **tab:** update hover style ([0a0653c](https://github.com/dhis2/ui/commit/0a0653c6e976b8c1fd8ccbaef3409fd918ae7b20))
+
 ## [8.4.9](https://github.com/dhis2/ui/compare/v8.4.8...v8.4.9) (2022-08-20)
 
 
