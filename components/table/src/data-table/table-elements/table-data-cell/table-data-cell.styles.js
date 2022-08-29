@@ -9,6 +9,9 @@ export default css`
         border-bottom: 1px solid ${colors.grey300};
         color: ${colors.grey900};
     }
+    td:empty::after {
+        content: "\00a0";
+    }
     td.active {
         outline: 2px solid ${colors.grey600};
         outline-offset: -2px;

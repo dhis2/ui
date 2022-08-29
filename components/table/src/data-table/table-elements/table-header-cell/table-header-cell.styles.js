@@ -11,6 +11,9 @@ export default css`
         font-size: 14px;
         vertical-align: top;
     }
+    th:empty::after {
+        content: "\00a0";
+    }
     :global(thead) th {
         padding: 8px 12px;
         font-size: 13px;
