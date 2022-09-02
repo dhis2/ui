@@ -65,7 +65,7 @@ export const SelectorBarItem = ({
                 >
                     <Popper
                         reference={buttonRef}
-                        placement="bottom-end"
+                        placement="bottom-start"
                         modifiers={[offsetModifier]}
                     >
                         <Card>{children}</Card>
