@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/switch",
-    "version": "8.4.12",
+    "version": "8.4.13",
     "description": "UI Switch",
     "repository": {
         "type": "git",
@@ -32,9 +32,9 @@
     },
     "dependencies": {
         "@dhis2/prop-types": "^3.1.2",
-        "@dhis2-ui/field": "8.4.12",
-        "@dhis2-ui/required": "8.4.12",
-        "@dhis2/ui-constants": "8.4.12",
+        "@dhis2-ui/field": "8.4.13",
+        "@dhis2-ui/required": "8.4.13",
+        "@dhis2/ui-constants": "8.4.13",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },
