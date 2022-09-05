@@ -4,8 +4,11 @@
  * work well for content-centric websites.
  */
 
+/* imports */
+@import url('https://fonts.xz.style/serve/inter.css');
+
 /* error box hack */
-div[style="text-align:center;color:#fff;background-color:#fa383e;border-color:#fa383e;border-style:solid;border-radius:0.25rem;border-width:1px;box-sizing:border-box;display:block;padding:1rem;flex:0 0 50%;margin-left:25%;margin-right:25%;margin-top:5rem;max-width:50%;width:100%"] {
+div[style='text-align:center;color:#fff;background-color:#fa383e;border-color:#fa383e;border-style:solid;border-radius:0.25rem;border-width:1px;box-sizing:border-box;display:block;padding:1rem;flex:0 0 50%;margin-left:25%;margin-right:25%;margin-top:5rem;max-width:50%;width:100%'] {
     display: none !important;
 }
 
@@ -17,7 +20,6 @@ body {
 #__docusaurus {
     min-height: 100vh !important;
 }
-
 
 /* You can override the default Infima variables here. */
 :root {
