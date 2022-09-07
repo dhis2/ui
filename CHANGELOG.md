@@ -1,3 +1,10 @@
+## [8.4.14](https://github.com/dhis2/ui/compare/v8.4.13...v8.4.14) (2022-09-07)
+
+
+### Bug Fixes
+
+* **selection-bar:** change menu alignment ([76da1a7](https://github.com/dhis2/ui/commit/76da1a70302318434ce6b1f7b57d0110ccbb8816))
+
 ## [8.4.13](https://github.com/dhis2/ui/compare/v8.4.12...v8.4.13) (2022-09-05)
 
 
