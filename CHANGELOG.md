@@ -1,3 +1,10 @@
+## [8.4.15](https://github.com/dhis2/ui/compare/v8.4.14...v8.4.15) (2022-09-08)
+
+
+### Bug Fixes
+
+* **release:** publish new version to fix broken release ([c05adeb](https://github.com/dhis2/ui/commit/c05adeb2d1c87070eb0f28f50d4f23b72fbea8f5))
+
 ## [8.4.14](https://github.com/dhis2/ui/compare/v8.4.13...v8.4.14) (2022-09-07)
 
 
