@@ -1,3 +1,10 @@
+## [8.4.16](https://github.com/dhis2/ui/compare/v8.4.15...v8.4.16) (2022-09-20)
+
+
+### Bug Fixes
+
+* **flyout-menu:** ensure div scrolls when setting a max height or width ([#1152](https://github.com/dhis2/ui/issues/1152)) ([fab0cd3](https://github.com/dhis2/ui/commit/fab0cd39fe3c390becfe48c678526283707b7456))
+
 ## [8.4.15](https://github.com/dhis2/ui/compare/v8.4.14...v8.4.15) (2022-09-08)
 
 
