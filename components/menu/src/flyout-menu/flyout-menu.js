@@ -41,6 +41,7 @@ const FlyoutMenu = ({
                     max-width: ${maxWidth};
                     max-height: ${maxHeight};
                     padding: ${spacers.dp4} 0;
+                    overflow: auto;
                 }
             `}</style>
         </div>
