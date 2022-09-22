@@ -9,6 +9,5 @@ export const Default = () => <HeaderBar appName="Example!" />
 
 Default.decorators = [
     createDecoratorCustomDataProviderHeaderBar(),
-    createDecoratorAlertStack(),
     createDecoratorProvider(),
 ]

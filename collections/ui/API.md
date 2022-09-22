@@ -663,6 +663,8 @@ import { HeaderBar } from '@dhis2/ui'
 |---|---|---|---|---|
 |appName|string||||
 |className|string||||
+|updateAvailable|boolean||||
+|onApplyAvailableUpdate|function||||
 
 ### Logo
 

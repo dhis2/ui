@@ -215,7 +215,7 @@ const Apps = ({ apps }) => {
     useEffect(() => {
         document.addEventListener('click', onDocClick)
         return () => document.removeEventListener('click', onDocClick)
-    }, [])
+    }, [onDocClick])
 
     return (
         <div ref={containerEl} data-test="headerbar-apps">

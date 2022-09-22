@@ -2,7 +2,7 @@ import { MenuItem } from '@dhis2-ui/menu'
 import { useAlert, useConfig } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
-import React, { useCallback } from 'react'
+import React from 'react'
 import { resolve } from 'styled-jsx/css'
 
 const menuItemWithBorderTopStyles = resolve`
@@ -35,7 +35,7 @@ MenuItemWithBorderTop.propTypes = {
 
 const useDebugInfo = () => {
     const { appName, appVersion, systemInfo } = useConfig()
-    
+
     return {
         dhis2_version: systemInfo?.version || 'unknown',
         dhis2_revision: systemInfo?.revision || 'unknown',
@@ -44,20 +44,23 @@ const useDebugInfo = () => {
     }
 }
 
-const formatDebugInfo = debugInfo => 
-    Object.keys(debugInfo).map(key => `${key}: ${debugInfo[key]}`).join('\n')
-
+const formatDebugInfo = (debugInfo) =>
+    Object.keys(debugInfo)
+        .map((key) => `${key}: ${debugInfo[key]}`)
+        .join('\n')
 
 export const InstanceAndAppInfo = ({ hideProfileMenu }) => {
-    const { show: showClipboardAlert } = useAlert('Debug information copied to clipboard', { duration: 3000 })
+    const { show: showClipboardAlert } = useAlert(
+        'Debug information copied to clipboard',
+        { duration: 3000 }
+    )
     const debugInfo = useDebugInfo()
 
-    const showDebugInfo = useCallback(() => {
-        navigator.clipboard.writeText(formatDebugInfo(debugInfo));
+    const showDebugInfo = () => {
+        navigator.clipboard.writeText(formatDebugInfo(debugInfo))
         hideProfileMenu()
         showClipboardAlert()
-
-    })
+    }
 
     return (
         <MenuItemWithBorderTop onClick={showDebugInfo}>
@@ -69,10 +72,7 @@ export const InstanceAndAppInfo = ({ hideProfileMenu }) => {
             </div>
 
             {debugInfo.app_name && debugInfo.app_version && (
-                <div
-                    className="version"
-                    data-test="dhis2-ui-headerbar-appinfo"
-                >
+                <div className="version" data-test="dhis2-ui-headerbar-appinfo">
                     {`${debugInfo.app_name} ${debugInfo.app_version}`}
                 </div>
             )}

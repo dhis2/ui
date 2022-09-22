@@ -1,19 +1,18 @@
 import { UserAvatar } from '@dhis2-ui/user-avatar'
 import PropTypes from 'prop-types'
-import React, { useRef, useState } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 import { ProfileMenu } from './profile-menu/index.js'
 import { useOnDocClick } from './profile/use-on-doc-click.js'
 
-const Profile = ({
-    name,
-    email,
-    avatarId,
-    helpUrl,
-}) => {
+const Profile = ({ name, email, avatarId, helpUrl }) => {
     const [show, setShow] = useState(false)
-    const hideProfileMenu = () => setShow(false)
-    const toggleProfileMenu = () => setShow(!show)
+    const hideProfileMenu = useCallback(() => setShow(false), [setShow])
+    const toggleProfileMenu = useCallback(
+        () => setShow((show) => !show),
+        [setShow]
+    )
     const containerRef = useRef(null)
+
     useOnDocClick(containerRef, hideProfileMenu)
 
     return (
@@ -22,7 +21,10 @@ const Profile = ({
             data-test="headerbar-profile"
             className="headerbar-profile"
         >
-            <button className="headerbar-profile-btn" onClick={toggleProfileMenu}>
+            <button
+                className="headerbar-profile-btn"
+                onClick={toggleProfileMenu}
+            >
                 <UserAvatar
                     avatarUrl={avatarId}
                     name={name}

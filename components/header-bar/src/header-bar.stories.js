@@ -1,7 +1,10 @@
-import { CustomDataProvider, Provider } from '@dhis2/app-runtime'
+import { CustomDataProvider } from '@dhis2/app-runtime'
 import React from 'react'
+import {
+    createDecoratorProvider,
+    providerConfig,
+} from './__e2e__/stories/common.js'
 import { HeaderBar } from './header-bar.js'
-import { createDecoratorProvider, providerConfig } from './__e2e__/stories/common.js'
 
 const subtitle = 'The common navigation bar used in all DHIS2 apps'
 
@@ -169,9 +172,7 @@ export default {
         componentSubtitle: subtitle,
         docs: { description: { component: description } },
     },
-    decorators: [
-        createDecoratorProvider()
-    ],
+    decorators: [createDecoratorProvider()],
 }
 
 export const Default = () => (

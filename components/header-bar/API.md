@@ -16,3 +16,5 @@ import { HeaderBar } from '@dhis2-ui/header-bar'
 |---|---|---|---|---|
 |appName|string||||
 |className|string||||
+|updateAvailable|boolean||||
+|onApplyAvailableUpdate|function||||

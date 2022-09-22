@@ -1,13 +1,12 @@
-import PropTypes from 'prop-types'
+import { MenuItem } from '@dhis2-ui/menu'
 import { useConfig } from '@dhis2/app-runtime'
-import { MenuItem } from '@dhis2/ui'
 import { colors } from '@dhis2/ui-constants'
-import i18n from '../locales'
-import { useHeaderBarContext } from '../header-bar-context'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { useHeaderBarContext } from '../header-bar-context.js'
+import i18n from '../locales/index.js'
 
-export function UpdateNotification({
-    hideProfileMenu,
-}) {
+export function UpdateNotification({ hideProfileMenu }) {
     const { appName } = useConfig()
     const { updateAvailable, onApplyAvailableUpdate } = useHeaderBarContext()
     console.log(updateAvailable)
@@ -48,5 +47,5 @@ export function UpdateNotification({
 }
 
 UpdateNotification.propTypes = {
-    hideProfileMenu: PropTypes.func.isRequired
+    hideProfileMenu: PropTypes.func.isRequired,
 }

@@ -11,7 +11,7 @@ export const useOnDocClick = (containerRef, hide) => {
                 hide()
             }
         }
-    }, [])
+    }, [containerRef, hide])
 
     useEffect(() => {
         document.addEventListener('click', onDocClick)

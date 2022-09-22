@@ -1,6 +1,7 @@
 /* eslint-disable react/display-name */
 import { CustomDataProvider, Provider, useAlerts } from '@dhis2/app-runtime'
-import React, { useEffect, useRef } from 'react'
+import PropTypes from 'prop-types'
+import React, { useEffect } from 'react'
 
 export const defaultModules = [
     {
@@ -362,7 +363,7 @@ export const providerConfig = {
         minor: 39,
         patch: 2,
         hotfix: 1,
-        tag: 'SNAPSHOT'
+        tag: 'SNAPSHOT',
     },
     systemInfo: {
         contextPath: 'https://debug.dhis2.org/dev',
@@ -405,21 +406,36 @@ const MockAlert = ({ alert }) => {
             setTimeout(() => alert.remove(), alert.options?.duration)
         }
     }, [alert])
-    return <div style={{ backgroundColor: '#CCC', padding: 8 }}>{alert.message}</div>
+    return (
+        <div style={{ backgroundColor: '#CCC', padding: 8 }}>
+            {alert.message}
+        </div>
+    )
+}
+MockAlert.propTypes = {
+    alert: PropTypes.shape({
+        message: PropTypes.string,
+        options: PropTypes.shape({ duration: PropTypes.number }),
+        remove: PropTypes.func,
+    }),
 }
 const MocklAlertStack = () => {
     const alerts = useAlerts()
 
-    return <div style={{ position: 'absolute', bottom: 16, right: 16 }}>
-        {alerts.map((alert) => 
-            <MockAlert key={alert.id} alert={alert} />
-        )}
-    </div>
+    return (
+        <div style={{ position: 'absolute', bottom: 16, right: 16 }}>
+            {alerts.map((alert) => (
+                <MockAlert key={alert.id} alert={alert} />
+            ))}
+        </div>
+    )
 }
 
 export const createDecoratorProvider = (config) => {
-    return (fn) => <Provider config={config || providerConfig}>
-        {fn()}
-        <MocklAlertStack />
-    </Provider>
+    return (fn) => (
+        <Provider config={config || providerConfig}>
+            {fn()}
+            <MocklAlertStack />
+        </Provider>
+    )
 }

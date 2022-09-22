@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-10-22T07:38:39.321Z\n"
-"PO-Revision-Date: 2021-10-22T07:38:39.321Z\n"
+"POT-Creation-Date: 2022-09-22T19:11:07.852Z\n"
+"PO-Revision-Date: 2022-09-22T19:11:07.852Z\n"
 
 msgid "Search apps"
 msgstr "Search apps"
@@ -19,18 +19,6 @@ msgstr "Online"
 
 msgid "Offline"
 msgstr "Offline"
-
-msgid "DHIS2 {{version}}"
-msgstr "DHIS2 {{version}}"
-
-msgid "Build"
-msgstr "Build"
-
-msgid "Checking DHIS2 version..."
-msgstr "Checking DHIS2 version..."
-
-msgid "There was a problem getting DHIS2 version."
-msgstr "There was a problem getting DHIS2 version."
 
 msgid "Edit profile"
 msgstr "Edit profile"
@@ -49,3 +37,6 @@ msgstr "About DHIS2"
 
 msgid "Logout"
 msgstr "Logout"
+
+msgid "Click to reload"
+msgstr "Click to reload"

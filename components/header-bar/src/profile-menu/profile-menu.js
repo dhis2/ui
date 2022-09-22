@@ -107,9 +107,7 @@ const ProfileContents = ({
                         value="logout"
                         icon={<IconLogOut24 color={colors.grey700} />}
                     />
-                    <InstanceAndAppInfo
-                        hideProfileMenu={hideProfileMenu}
-                    />
+                    <InstanceAndAppInfo hideProfileMenu={hideProfileMenu} />
                     <UpdateNotification hideProfileMenu={hideProfileMenu} />
                 </ul>
             </div>

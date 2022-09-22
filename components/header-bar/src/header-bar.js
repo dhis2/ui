@@ -33,7 +33,12 @@ const query = {
     },
 }
 
-export const HeaderBar = ({ appName, className, updateAvailable, onApplyAvailableUpdate }) => {
+export const HeaderBar = ({
+    appName,
+    className,
+    updateAvailable,
+    onApplyAvailableUpdate,
+}) => {
     const {
         appName: configAppName,
         baseUrl,
@@ -53,7 +58,7 @@ export const HeaderBar = ({ appName, className, updateAvailable, onApplyAvailabl
             icon: getPath(app.icon),
             defaultAction: getPath(app.defaultAction),
         }))
-    }, [data])
+    }, [data, baseUrl])
 
     // See https://jira.dhis2.org/browse/LIBS-180
     if (!loading && !error) {
@@ -65,7 +70,10 @@ export const HeaderBar = ({ appName, className, updateAvailable, onApplyAvailabl
     }
 
     return (
-        <HeaderBarContextProvider updateAvailable={updateAvailable} onApplyAvailableUpdate={onApplyAvailableUpdate}>
+        <HeaderBarContextProvider
+            updateAvailable={updateAvailable}
+            onApplyAvailableUpdate={onApplyAvailableUpdate}
+        >
             <header className={className}>
                 <div className="main">
                     {!loading && !error && (
@@ -79,14 +87,17 @@ export const HeaderBar = ({ appName, className, updateAvailable, onApplyAvailabl
 
                             <div className="right-control-spacer" />
 
-                            {(pwaEnabled || showOnlineStatus) && <OnlineStatus />}
+                            {(pwaEnabled || showOnlineStatus) && (
+                                <OnlineStatus />
+                            )}
 
                             <Notifications
                                 interpretations={
                                     data.notifications.unreadInterpretations
                                 }
                                 messages={
-                                    data.notifications.unreadMessageConversations
+                                    data.notifications
+                                        .unreadMessageConversations
                                 }
                                 userAuthorities={data.user.authorities}
                             />
