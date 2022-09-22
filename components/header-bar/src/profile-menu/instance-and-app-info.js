@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { resolve } from 'styled-jsx/css'
 
-const menuItemWithBorderTopStyles = resolve`
+const debugInfoMenuItemStyles = resolve`
     li {
         color: ${colors.grey700};
         font-style: italic;
@@ -69,12 +69,13 @@ export const InstanceAndAppInfo = ({ hideProfileMenu }) => {
 
     return <>
         <MenuItem
-            className={menuItemWithBorderTopStyles.className}
+            dense
+            className={debugInfoMenuItemStyles.className}
             onClick={copyDebugInfo}
             label={debugInfoLabel}
             dataTest="dhis2-ui-headerbar-instanceandappinfo"
         />
-        {menuItemWithBorderTopStyles.styles}
+        {debugInfoMenuItemStyles.styles}
     </>
 }
 

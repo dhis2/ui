@@ -42,7 +42,7 @@ export function UpdateNotification({ hideProfileMenu }) {
     )
 
     return updateAvailable ? (
-        <MenuItem onClick={onClick} label={updateNotificationLabel} />
+        <MenuItem dense onClick={onClick} label={updateNotificationLabel} />
     ) : null
 }
 
