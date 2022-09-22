@@ -26,9 +26,10 @@ const Profile = ({ name, email, avatarId, helpUrl }) => {
                 onClick={toggleProfileMenu}
             >
                 <UserAvatar
-                    avatarUrl={avatarId}
+                    avatarId={avatarId}
                     name={name}
                     dataTest="headerbar-profile-icon"
+                    medium
                 />
             </button>
 
