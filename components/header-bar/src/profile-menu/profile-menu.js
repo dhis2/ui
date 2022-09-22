@@ -3,7 +3,7 @@ import { Center } from '@dhis2-ui/center'
 import { Divider } from '@dhis2-ui/divider'
 import { Layer } from '@dhis2-ui/layer'
 import { CircularLoader } from '@dhis2-ui/loader'
-import { MenuItem } from '@dhis2-ui/menu'
+import { MenuDivider, MenuItem } from '@dhis2-ui/menu'
 import { clearSensitiveCaches, useConfig } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import {
@@ -107,6 +107,7 @@ const ProfileContents = ({
                         value="logout"
                         icon={<IconLogOut24 color={colors.grey700} />}
                     />
+                    <MenuDivider dense />
                     <InstanceAndAppInfo hideProfileMenu={hideProfileMenu} />
                     <UpdateNotification hideProfileMenu={hideProfileMenu} />
                 </ul>

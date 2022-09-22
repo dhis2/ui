@@ -7,7 +7,6 @@ import { resolve } from 'styled-jsx/css'
 
 const menuItemWithBorderTopStyles = resolve`
     li {
-        border-top: 1px solid ${colors.grey300};
         color: ${colors.grey700};
         font-style: italic;
         font-size: 14px;
@@ -15,23 +14,6 @@ const menuItemWithBorderTopStyles = resolve`
         user-select: auto;
     }
 `
-
-const MenuItemWithBorderTop = ({ children, ...props }) => (
-    <>
-        <MenuItem
-            {...props}
-            className={menuItemWithBorderTopStyles.className}
-            label={children}
-            dataTest="dhis2-ui-headerbar-instanceandappinfo"
-        />
-
-        {menuItemWithBorderTopStyles.styles}
-    </>
-)
-
-MenuItemWithBorderTop.propTypes = {
-    children: PropTypes.any.isRequired,
-}
 
 const useDebugInfo = () => {
     const { appName, appVersion, systemInfo } = useConfig()
@@ -50,33 +32,30 @@ const formatDebugInfo = (debugInfo) =>
         .join('\n')
 
 export const InstanceAndAppInfo = ({ hideProfileMenu }) => {
-    const { show: showClipboardAlert } = useAlert(
-        'Debug information copied to clipboard',
-        { duration: 3000 }
-    )
+    const {
+        show: showClipboardAlert,
+    } = useAlert('Debug information copied to clipboard', { duration: 3000 })
     const debugInfo = useDebugInfo()
 
-    const showDebugInfo = () => {
+    const copyDebugInfo = () => {
         navigator.clipboard.writeText(formatDebugInfo(debugInfo))
         hideProfileMenu()
         showClipboardAlert()
     }
 
-    return (
-        <MenuItemWithBorderTop onClick={showDebugInfo}>
+    const debugInfoLabel = (
+        <>
             <div
                 className="instance-info version"
                 data-test="dhis2-ui-headerbar-instanceinfo"
             >
                 {`DHIS2 ${debugInfo.dhis2_version}`}
             </div>
-
             {debugInfo.app_name && debugInfo.app_version && (
                 <div className="version" data-test="dhis2-ui-headerbar-appinfo">
                     {`${debugInfo.app_name} ${debugInfo.app_version}`}
                 </div>
             )}
-
             <style jsx>{`
                 .instance-info {
                     margin-bottom: 4px;
@@ -85,8 +64,18 @@ export const InstanceAndAppInfo = ({ hideProfileMenu }) => {
                     white-space: no-wrap;
                 }
             `}</style>
-        </MenuItemWithBorderTop>
+        </>
     )
+
+    return <>
+        <MenuItem
+            className={menuItemWithBorderTopStyles.className}
+            onClick={copyDebugInfo}
+            label={debugInfoLabel}
+            dataTest="dhis2-ui-headerbar-instanceandappinfo"
+        />
+        {menuItemWithBorderTopStyles.styles}
+    </>
 }
 
 InstanceAndAppInfo.propTypes = {
