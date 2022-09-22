@@ -19,6 +19,7 @@ import { joinPath } from '../join-path.js'
 import i18n from '../locales/index.js'
 import { InstanceAndAppInfo } from './instance-and-app-info.js'
 import { ProfileHeader } from './profile-header.js'
+import { UpdateNotification } from './update-notification.js'
 
 const LoadingMask = () => (
     <Layer
@@ -37,7 +38,7 @@ const ProfileContents = ({
     email,
     avatarId,
     helpUrl,
-    hide,
+    hideProfileMenu,
 }) => {
     const { baseUrl } = useConfig()
     const [loading, setLoading] = useState(false)
@@ -107,8 +108,9 @@ const ProfileContents = ({
                         icon={<IconLogOut24 color={colors.grey700} />}
                     />
                     <InstanceAndAppInfo
-                        hide={hide}
+                        hideProfileMenu={hideProfileMenu}
                     />
+                    <UpdateNotification hideProfileMenu={hideProfileMenu} />
                 </ul>
             </div>
 
@@ -139,11 +141,11 @@ const ProfileContents = ({
 }
 
 ProfileContents.propTypes = {
+    hideProfileMenu: PropTypes.func.isRequired,
     avatarId: PropTypes.string,
     email: PropTypes.string,
     helpUrl: PropTypes.string,
     name: PropTypes.string,
-    hide: PropTypes.func,
 }
 
 export const ProfileMenu = ({
@@ -151,7 +153,7 @@ export const ProfileMenu = ({
     name,
     email,
     helpUrl,
-    hide,
+    hideProfileMenu,
 }) => (
     <div data-test="headerbar-profile-menu">
         <ProfileContents
@@ -159,7 +161,7 @@ export const ProfileMenu = ({
             email={email}
             avatarId={avatarId}
             helpUrl={helpUrl}
-            hide={hide}
+            hideProfileMenu={hideProfileMenu}
         />
         <style jsx>{`
             div {
@@ -175,9 +177,9 @@ export const ProfileMenu = ({
 )
 
 ProfileMenu.propTypes = {
+    hideProfileMenu: PropTypes.func.isRequired,
     avatarId: PropTypes.string,
     email: PropTypes.string,
     helpUrl: PropTypes.string,
     name: PropTypes.string,
-    hide: PropTypes.func,
 }

@@ -4,12 +4,17 @@ import React, { useRef, useState } from 'react'
 import { ProfileMenu } from './profile-menu/index.js'
 import { useOnDocClick } from './profile/use-on-doc-click.js'
 
-const Profile = ({ name, email, avatarId, helpUrl }) => {
+const Profile = ({
+    name,
+    email,
+    avatarId,
+    helpUrl,
+}) => {
     const [show, setShow] = useState(false)
-    const hide = () => setShow(false)
-    const toggle = () => setShow(!show)
+    const hideProfileMenu = () => setShow(false)
+    const toggleProfileMenu = () => setShow(!show)
     const containerRef = useRef(null)
-    useOnDocClick(containerRef, hide)
+    useOnDocClick(containerRef, hideProfileMenu)
 
     return (
         <div
@@ -17,7 +22,7 @@ const Profile = ({ name, email, avatarId, helpUrl }) => {
             data-test="headerbar-profile"
             className="headerbar-profile"
         >
-            <button className="headerbar-profile-btn" onClick={toggle}>
+            <button className="headerbar-profile-btn" onClick={toggleProfileMenu}>
                 <UserAvatar
                     avatarUrl={avatarId}
                     name={name}
@@ -31,7 +36,7 @@ const Profile = ({ name, email, avatarId, helpUrl }) => {
                     name={name}
                     email={email}
                     helpUrl={helpUrl}
-                    hide={hide}
+                    hideProfileMenu={hideProfileMenu}
                 />
             )}
 

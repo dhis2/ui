@@ -3,6 +3,7 @@ import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
 import Apps from './apps.js'
+import { HeaderBarContextProvider } from './header-bar-context.js'
 import { joinPath } from './join-path.js'
 import i18n from './locales/index.js'
 import { Logo } from './logo.js'
@@ -32,7 +33,7 @@ const query = {
     },
 }
 
-export const HeaderBar = ({ appName, className }) => {
+export const HeaderBar = ({ appName, className, updateAvailable, onApplyAvailableUpdate }) => {
     const {
         appName: configAppName,
         baseUrl,
@@ -64,66 +65,70 @@ export const HeaderBar = ({ appName, className }) => {
     }
 
     return (
-        <header className={className}>
-            <div className="main">
-                {!loading && !error && (
-                    <>
-                        <Logo />
+        <HeaderBarContextProvider updateAvailable={updateAvailable} onApplyAvailableUpdate={onApplyAvailableUpdate}>
+            <header className={className}>
+                <div className="main">
+                    {!loading && !error && (
+                        <>
+                            <Logo />
 
-                        <Title
-                            app={appName || configAppName}
-                            instance={data.title.applicationTitle}
-                        />
+                            <Title
+                                app={appName || configAppName}
+                                instance={data.title.applicationTitle}
+                            />
 
-                        <div className="right-control-spacer" />
+                            <div className="right-control-spacer" />
 
-                        {(pwaEnabled || showOnlineStatus) && <OnlineStatus />}
+                            {(pwaEnabled || showOnlineStatus) && <OnlineStatus />}
 
-                        <Notifications
-                            interpretations={
-                                data.notifications.unreadInterpretations
-                            }
-                            messages={
-                                data.notifications.unreadMessageConversations
-                            }
-                            userAuthorities={data.user.authorities}
-                        />
-                        <Apps apps={apps} />
+                            <Notifications
+                                interpretations={
+                                    data.notifications.unreadInterpretations
+                                }
+                                messages={
+                                    data.notifications.unreadMessageConversations
+                                }
+                                userAuthorities={data.user.authorities}
+                            />
+                            <Apps apps={apps} />
 
-                        <Profile
-                            name={data.user.name}
-                            email={data.user.email}
-                            avatarId={data.user.avatar?.id}
-                            helpUrl={data.help.helpPageLink}
-                        />
-                    </>
+                            <Profile
+                                name={data.user.name}
+                                email={data.user.email}
+                                avatarId={data.user.avatar?.id}
+                                helpUrl={data.help.helpPageLink}
+                            />
+                        </>
+                    )}
+                </div>
+
+                {(pwaEnabled || showOnlineStatus) && !loading && !error && (
+                    <OnlineStatus dense />
                 )}
-            </div>
 
-            {(pwaEnabled || showOnlineStatus) && !loading && !error && (
-                <OnlineStatus dense />
-            )}
-
-            <style jsx>{`
-                .main {
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    justify-content: space-between;
-                    background-color: #2c6693;
-                    border-bottom: 1px solid rgba(32, 32, 32, 0.15);
-                    color: ${colors.white};
-                    height: 48px;
-                }
-                .right-control-spacer {
-                    margin-left: auto;
-                }
-            `}</style>
-        </header>
+                <style jsx>{`
+                    .main {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-between;
+                        background-color: #2c6693;
+                        border-bottom: 1px solid rgba(32, 32, 32, 0.15);
+                        color: ${colors.white};
+                        height: 48px;
+                    }
+                    .right-control-spacer {
+                        margin-left: auto;
+                    }
+                `}</style>
+            </header>
+        </HeaderBarContextProvider>
     )
 }
 
 HeaderBar.propTypes = {
     appName: PropTypes.string,
     className: PropTypes.string,
+    updateAvailable: PropTypes.bool,
+    onApplyAvailableUpdate: PropTypes.func,
 }

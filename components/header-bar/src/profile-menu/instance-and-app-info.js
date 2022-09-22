@@ -48,13 +48,13 @@ const formatDebugInfo = debugInfo =>
     Object.keys(debugInfo).map(key => `${key}: ${debugInfo[key]}`).join('\n')
 
 
-export const InstanceAndAppInfo = ({ hide }) => {
+export const InstanceAndAppInfo = ({ hideProfileMenu }) => {
     const { show: showClipboardAlert } = useAlert('Debug information copied to clipboard', { duration: 3000 })
     const debugInfo = useDebugInfo()
 
     const showDebugInfo = useCallback(() => {
         navigator.clipboard.writeText(formatDebugInfo(debugInfo));
-        hide()
+        hideProfileMenu()
         showClipboardAlert()
 
     })
@@ -90,6 +90,5 @@ export const InstanceAndAppInfo = ({ hide }) => {
 }
 
 InstanceAndAppInfo.propTypes = {
-    appName: PropTypes.string,
-    appVersion: PropTypes.string,
+    hideProfileMenu: PropTypes.func.isRequired,
 }

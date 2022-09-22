@@ -202,12 +202,6 @@ export const NoAuthorityForInterpretationsApp = () => (
 NoAuthorityForInterpretationsApp.storyName =
     'No authority for interpretations app'
 
-export const WithAppInfoInProfileMenu = () => (
-    <CustomDataProvider data={customData}>
-        <HeaderBar appName="Data Visualizer" appVersion="100.3.2" />
-    </CustomDataProvider>
-)
-
 export const Loading = () => (
     <CustomDataProvider options={{ loadForever: true }}>
         <HeaderBar appName="Example!" />
@@ -265,3 +259,9 @@ WithLastOnlineInfo.parameters = {
         },
     },
 }
+
+export const WithUpdateNotification = () => (
+    <CustomDataProvider data={customData}>
+        <HeaderBar appName="Data Visualizer" updateAvailable={true} />
+    </CustomDataProvider>
+)
