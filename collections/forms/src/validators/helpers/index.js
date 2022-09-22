@@ -3,8 +3,6 @@ export const isEmpty = (value) =>
 
 export const isString = (value) => typeof value === 'string'
 
-export const isInteger = (value) => Number.isSafeInteger(value)
-
 export const isNumber = (value) => typeof value === 'number'
 
 export const isNumeric = (value) =>

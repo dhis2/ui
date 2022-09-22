@@ -44,7 +44,7 @@ const TableFooterButton = () => (
 const TableButton = () => <Button primary>Table button</Button>
 
 export default {
-    title: 'Data Display/Table',
+    title: 'Table',
     component: Table,
     // Add subcomponents to the args table
     subcomponents: {

@@ -12,7 +12,7 @@ import { Field } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Forms/Field',
+    title: 'Field',
     component: Field,
     argTypes: {
         valid: { ...sharedPropTypes.statusArgType },

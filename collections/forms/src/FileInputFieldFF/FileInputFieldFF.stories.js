@@ -34,7 +34,7 @@ Press **Submit** to see the form values logged to the console.
 const files = [new File([], 'file1.txt'), new File([], 'file2.txt')]
 
 export default {
-    title: 'Forms/File Input/File Input Field (Final Form)',
+    title: 'File Input Field (Final Form)',
     component: FileInputFieldFF,
     decorators: [formDecorator],
     parameters: { docs: { description: { component: description } } },

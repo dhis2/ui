@@ -21,9 +21,10 @@ describe('validator: integer', () => {
         ])
     })
 
-    describe('rejects other data types', () => {
+    describe('rejects other data types and leading zeros', () => {
         testValidatorValues(integer, invalidIntegerMessage, [
             'text',
+            '014',
             true,
             {},
             [],
@@ -36,6 +37,9 @@ describe('validator: integer', () => {
             0.23456,
             5.987,
             1e-12,
+            '4.0',
+            '4.000',
+            '4,0',
             '0.23456',
             '5.987',
             '1e-12',

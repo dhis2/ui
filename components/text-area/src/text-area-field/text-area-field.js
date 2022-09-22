@@ -9,6 +9,7 @@ const TextAreaField = ({
     className,
     onChange,
     onFocus,
+    onKeyDown,
     onBlur,
     initialFocus,
     dense,
@@ -48,6 +49,7 @@ const TextAreaField = ({
         <Box width={inputWidth} minWidth="220px">
             <TextArea
                 onFocus={onFocus}
+                onKeyDown={onKeyDown}
                 onBlur={onBlur}
                 onChange={onChange}
                 name={name}
@@ -72,7 +74,6 @@ const TextAreaField = ({
 
 TextAreaField.defaultProps = {
     rows: 4,
-    width: '100%',
     resize: 'vertical',
     dataTest: 'dhis2-uiwidgets-textareafield',
 }
@@ -125,6 +126,8 @@ TextAreaField.propTypes = {
     onChange: PropTypes.func,
     /** Called with signature ({ name: string, value: string }, event) */
     onFocus: PropTypes.func,
+    /** Called with signature ({ name: string, value: string }, event) */
+    onKeyDown: PropTypes.func,
 }
 
 export { TextAreaField }

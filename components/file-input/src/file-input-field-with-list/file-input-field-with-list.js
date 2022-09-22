@@ -76,6 +76,7 @@ class FileInputFieldWithList extends Component {
             name,
             onBlur,
             onFocus,
+            onKeyDown,
             placeholder,
             removeText,
             required,
@@ -103,6 +104,7 @@ class FileInputFieldWithList extends Component {
                 onBlur={onBlur}
                 onChange={this.handleChange}
                 onFocus={onFocus}
+                onKeyDown={onKeyDown}
                 placeholder={translate(placeholder)}
                 required={required}
                 small={small}
@@ -175,8 +177,12 @@ FileInputFieldWithList.propTypes = {
     validationText: PropTypes.string,
     /** Applies 'warning' styling to the button and validation text. Mutually exclusive with `valid` and `error` props */
     warning: sharedPropTypes.statusPropType,
+    /** Called with signature `({ name: string, files: [] }, event)` */
     onBlur: PropTypes.func,
+    /** Called with signature `({ name: string, files: [] }, event)` */
     onFocus: PropTypes.func,
+    /** Called with signature `({ name: string, files: [] }, event)` */
+    onKeyDown: PropTypes.func,
 }
 
 export { FileInputFieldWithList }

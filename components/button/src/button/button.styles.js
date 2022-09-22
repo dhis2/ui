@@ -12,7 +12,6 @@ export default css`
         letter-spacing: 0.5px;
         text-decoration: none;
         cursor: pointer;
-        transition: all 0.15s cubic-bezier(0.4, 0, 0.6, 1);
         user-select: none;
         color: ${colors.grey900};
 
@@ -33,14 +32,21 @@ export default css`
 
     button:focus {
         outline: 3px solid ${theme.focus};
-        outline-offset: 2px;
-        transition: none;
+        outline-offset: -3px;
+        text-decoration: underline;
+    }
+
+    /* Prevent focus styles when mouse clicking */
+    button:focus:not(:focus-visible) {
+        outline: none;
+        text-decoration: none;
     }
 
     /* Prevent focus styles on active and disabled buttons */
     button:active:focus,
     button:disabled:focus {
         outline: none;
+        text-decoration: none;
     }
 
     button:hover {
@@ -105,8 +111,9 @@ export default css`
     }
 
     .primary:focus {
-        background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
-        background-color: #285dac;
+        background: ${colors.blue800};
+        border-color: ${colors.blue900};
+        outline-offset: -5px;
     }
 
     .primary:disabled {
@@ -118,13 +125,13 @@ export default css`
     }
 
     .secondary {
-        border-color: ${colors.grey400};
+        border-color: rgba(74, 87, 104, 0.25);
         background-color: transparent;
     }
 
     .secondary:hover {
-        border-color: ${colors.grey400};
-        background-color: rgba(160, 173, 186, 0.08);
+        border-color: rgba(74, 87, 104, 0.5);
+        background-color: rgba(160, 173, 186, 0.05);
     }
 
     .secondary:active,
@@ -138,7 +145,7 @@ export default css`
     }
 
     .secondary:disabled {
-        border-color: ${colors.grey400};
+        border-color: rgba(74, 87, 104, 0.25);
         background-color: transparent;
         box-shadow: none;
         color: ${theme.disabled};

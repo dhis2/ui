@@ -72,7 +72,7 @@ window.onClick = (payload, event) => {
 const onClick = (...args) => window.onClick(...args)
 
 export default {
-    title: 'Navigation/Tab Bar',
+    title: 'Tab Bar',
     component: TabBar,
     subcomponents: { Tab },
     parameters: {

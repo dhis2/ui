@@ -113,7 +113,9 @@ Then('the onChildrenLoaded callback gets called', () => {
 Then("the payload contains the loaded children's data", () => {
     cy.window().should((win) => {
         const calls = win.onChildrenLoaded.getCalls()
-        const { args } = calls[calls.length - 1]
-        expect(args[0].id).to.equal('A0000000001')
+        expect(calls).to.have.length(1)
+
+        const [{ args }] = calls
+        expect(args[0].id).to.equal('A0000000000')
     })
 })

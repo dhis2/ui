@@ -1,106 +1,11 @@
 import { Button } from '@dhis2-ui/button'
-import { CircularLoader } from '@dhis2-ui/loader'
-import { colors, theme, spacers, sharedPropTypes } from '@dhis2/ui-constants'
-import {
-    IconErrorFilled24,
-    IconCheckmark24,
-    IconInfo24,
-    IconUpload24,
-    IconWarningFilled24,
-} from '@dhis2/ui-icons'
+import { StatusIcon } from '@dhis2-ui/status-icon'
+import { colors, spacers, sharedPropTypes } from '@dhis2/ui-constants'
+import { IconUpload24 } from '@dhis2/ui-icons'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { createRef, Component } from 'react'
 
-function Valid({ className }) {
-    return <IconCheckmark24 color={theme.valid} className={className} />
-}
-
-Valid.propTypes = {
-    className: PropTypes.string,
-}
-
-function Warning({ className }) {
-    return <IconWarningFilled24 color={theme.warning} className={className} />
-}
-
-Warning.propTypes = {
-    className: PropTypes.string,
-}
-
-function Error({ className }) {
-    return <IconErrorFilled24 color={theme.error} className={className} />
-}
-
-Error.propTypes = {
-    className: PropTypes.string,
-}
-
-function Info({ className }) {
-    return <IconInfo24 color={theme.info} className={className} />
-}
-
-Info.propTypes = {
-    className: PropTypes.string,
-}
-
-function Loading({ className }) {
-    return <CircularLoader small className={className} />
-}
-
-Loading.propTypes = {
-    className: PropTypes.string,
-}
-
-const StatusIcon = ({
-    error,
-    warning,
-    valid,
-    loading,
-    info,
-    className,
-    defaultTo,
-}) => {
-    if (error) {
-        return <Error className={className} />
-    }
-    if (warning) {
-        return <Warning className={className} />
-    }
-    if (valid) {
-        return <Valid className={className} />
-    }
-    if (loading) {
-        return <Loading className={className} />
-    }
-    if (info) {
-        return <Info className={className} />
-    }
-
-    return defaultTo
-}
-
-StatusIcon.defaultProps = {
-    defaultTo: null,
-}
-
-StatusIcon.propTypes = {
-    className: PropTypes.string,
-    defaultTo: PropTypes.element,
-    error: PropTypes.bool,
-    info: PropTypes.bool,
-    loading: PropTypes.bool,
-    valid: PropTypes.bool,
-    warning: PropTypes.bool,
-}
-
-function Upload({ className }) {
-    return <IconUpload24 color={colors.grey700} className={className} />
-}
-
-Upload.propTypes = {
-    className: PropTypes.string,
-}
 class FileInput extends Component {
     ref = createRef()
 
@@ -127,6 +32,12 @@ class FileInput extends Component {
     handleFocus = (e) => {
         if (this.props.onFocus) {
             this.props.onFocus(this.createHandlerPayload(), e)
+        }
+    }
+
+    handleKeyDown = (e) => {
+        if (this.props.onKeyDown) {
+            this.props.onKeyDown(this.createHandlerPayload(), e)
         }
     }
 
@@ -157,30 +68,34 @@ class FileInput extends Component {
 
         return (
             <div className={cx('file-input', className)} data-test={dataTest}>
-                <input
-                    id={name}
-                    name={name}
-                    type="file"
-                    ref={this.ref}
-                    onChange={this.handleChange}
-                    accept={accept}
-                    multiple={multiple}
-                    disabled={disabled}
-                />
-                <Button
-                    disabled={disabled}
-                    icon={<Upload />}
-                    initialFocus={initialFocus}
-                    large={large}
-                    onBlur={this.handleBlur}
-                    onClick={this.handleClick}
-                    onFocus={this.handleFocus}
-                    small={small}
-                    tabIndex={tabIndex}
-                    type="button"
-                >
-                    {buttonLabel}
-                </Button>
+                <div>
+                    <input
+                        id={name}
+                        name={name}
+                        type="file"
+                        ref={this.ref}
+                        onChange={this.handleChange}
+                        accept={accept}
+                        multiple={multiple}
+                        disabled={disabled}
+                        data-test={`${dataTest}-input`}
+                    />
+                    <Button
+                        disabled={disabled}
+                        icon={<IconUpload24 color={colors.grey700} />}
+                        initialFocus={initialFocus}
+                        large={large}
+                        onBlur={this.handleBlur}
+                        onClick={this.handleClick}
+                        onFocus={this.handleFocus}
+                        onKeyDown={this.handleKeyDown}
+                        small={small}
+                        tabIndex={tabIndex}
+                        type="button"
+                    >
+                        {buttonLabel}
+                    </Button>
+                </div>
                 <StatusIcon error={error} valid={valid} warning={warning} />
 
                 <style jsx>{`
@@ -191,11 +106,8 @@ class FileInput extends Component {
                     .file-input {
                         display: flex;
                         align-items: center;
+                        gap: ${spacers.dp8};
                         padding-bottom: ${spacers.dp4};
-                    }
-
-                    .file-input > :global(svg) {
-                        margin-left: ${spacers.dp8};
                     }
                 `}</style>
             </div>
@@ -240,6 +152,8 @@ FileInput.propTypes = {
     onChange: PropTypes.func,
     /** Called with signature `(object, event)` */
     onFocus: PropTypes.func,
+    /** Called with signature `(object, event)` */
+    onKeyDown: PropTypes.func,
 }
 
 export { FileInput }

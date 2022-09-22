@@ -44,8 +44,6 @@ const Tab = ({
                 font-size: 14px;
                 line-height: 20px;
 
-                transition: all 150ms ease-in-out;
-                transition-property: color, background-color;
                 cursor: pointer;
             }
 
@@ -61,7 +59,6 @@ const Tab = ({
                 left: 0;
                 height: 4px;
                 width: 100%;
-                transition: background-color 150ms ease-in-out;
                 background-color: transparent;
             }
 
@@ -89,20 +86,30 @@ const Tab = ({
             }
 
             button:hover {
-                background-color: ${colors.grey100};
+                color: ${colors.grey900};
             }
 
-            button:active {
-                /* Briefly highlight clicked tab */
-                background-color: ${colors.grey200};
+            button:hover::after {
+                background-color: ${colors.grey600};
+                height: 2px;
+            }
+
+            button:active::after {
+                background-color: ${colors.grey800};
             }
 
             button.selected {
-                color: ${theme.primary700};
+                color: ${theme.primary800};
             }
 
             button.selected::after {
                 background-color: ${theme.primary700};
+                transition: background-color 150ms ease-in-out;
+            }
+
+            button.selected:hover::after {
+                background-color: ${theme.primary700};
+                height: 4px;
             }
 
             button.selected > :global(svg) {

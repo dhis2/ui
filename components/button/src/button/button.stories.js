@@ -16,7 +16,7 @@ const { buttonVariantArgType, sizeArgType } = sharedPropTypes
 const logger = ({ name, value }) => console.log(`${name}: ${value}`)
 
 export default {
-    title: 'Actions/Buttons/Button',
+    title: 'Button',
     component: Button,
     parameters: {
         componentSubtitle: 'Initiates an action',

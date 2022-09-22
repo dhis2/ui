@@ -5,128 +5,17 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-09-29T09:08:15.255Z\n"
-"PO-Revision-Date: 2021-09-29T09:08:15.255Z\n"
+"POT-Creation-Date: 2021-11-25T09:59:40.995Z\n"
+"PO-Revision-Date: 2021-11-25T09:59:40.995Z\n"
 
-msgid "Remove access"
-msgstr "Remove access"
+msgid "View only"
+msgstr "View only"
 
-msgid "Not available offline"
-msgstr "Not available offline"
+msgid "View and edit"
+msgstr "View and edit"
 
-msgid "Apply sharing to dashboard visualizations"
-msgstr "Apply sharing to dashboard visualizations"
-
-msgid ""
-"{{count}} visualization on this dashboard will potentially get updated "
-"sharing settings."
-msgid_plural ""
-"{{count}} visualization on this dashboard will potentially get updated "
-"sharing settings."
-msgstr[0] ""
-"{{count}} visualization on this dashboard will potentially get updated "
-"sharing settings."
-msgstr[1] ""
-"All {{count}} visualizations on this dashboard will potentially get updated "
-"sharing settings."
-
-msgid "These updated sharing settings will apply to {{count}} user or group."
-msgid_plural "These updated sharing settings will apply to {{count}} user or group."
-msgstr[0] "These updated sharing settings will apply to {{count}} user or group."
-msgstr[1] "These updated sharing settings will apply to {{count}} users or groups."
-
-msgid "There are no users, groups or roles to apply sharing settings for."
-msgstr "There are no users, groups or roles to apply sharing settings for."
-
-msgid ""
-"No visualizations were updated because sharing settings are already "
-"sufficient."
-msgstr ""
-"No visualizations were updated because sharing settings are already "
-"sufficient."
-
-msgid "Successfully updated sharing for {{count}} visualization."
-msgid_plural "Successfully updated sharing for {{count}} visualization."
-msgstr[0] "Successfully updated sharing for {{count}} visualization."
-msgstr[1] "Successfully updated sharing for {{count}} visualizations."
-
-msgid "{{count}} visualization was updated."
-msgid_plural "{{count}} visualization was updated."
-msgstr[0] "{{count}} visualization was updated."
-msgstr[1] "{{count}} visualizations were updated."
-
-msgid "{{count}} visualization already has sufficient sharing settings."
-msgid_plural "{{count}} visualization already has sufficient sharing settings."
-msgstr[0] "{{count}} visualization already has sufficient sharing settings."
-msgstr[1] "{{count}} visualizations already have sufficient sharing settings."
-
-msgid "Check that you have permission to change sharing for all visualizations."
-msgstr "Check that you have permission to change sharing for all visualizations."
-
-msgid "No visualizations were updated."
-msgstr "No visualizations were updated."
-
-msgid "{{count}} visualization was updated"
-msgid_plural "{{count}} visualization was updated"
-msgstr[0] "{{count}} visualization was updated"
-msgstr[1] "{{count}} visualizations were updated."
-
-msgid "{{count}} visualization could not be updated."
-msgid_plural "{{count}} visualization could not be updated."
-msgstr[0] "{{count}} visualization could not be updated."
-msgstr[1] "{{count}} visualizations could not be updated."
-
-msgid "Apply dashboard sharing settings to visualizations"
-msgstr "Apply dashboard sharing settings to visualizations"
-
-msgid ""
-"Applying the same sharing settings makes sure that users, groups and roles "
-"that have access to the dashboard also have at least \"View only\" access "
-"to its visualizations (charts, tables, maps, event charts, event reports)."
-msgstr ""
-"Applying the same sharing settings makes sure that users, groups and roles "
-"that have access to the dashboard also have at least \"View only\" access "
-"to its visualizations (charts, tables, maps, event charts, event reports)."
-
-msgid ""
-"If a user, group, or role already has \"View and edit\" access to a "
-"visualization, this won't be reduced to \"View only\". \"All users\" access "
-"level won't be updated or changed."
-msgstr ""
-"If a user, group, or role already has \"View and edit\" access to a "
-"visualization, this won't be reduced to \"View only\". \"All users\" access "
-"level won't be updated or changed."
-
-msgid ""
-"Applying sharing can't be undone, and needs to done again if new "
-"visualizations are added to the dashboard or its sharing settings are "
-"changed."
-msgstr ""
-"Applying sharing can't be undone, and needs to done again if new "
-"visualizations are added to the dashboard or its sharing settings are "
-"changed."
-
-msgid "Updating sharing settings..."
-msgstr "Updating sharing settings..."
-
-msgid ""
-"There was a problem updating dashboard visualizations. No visualizations "
-"were updated. Try again, or contact a system administrator."
-msgstr ""
-"There was a problem updating dashboard visualizations. No visualizations "
-"were updated. Try again, or contact a system administrator."
-
-msgid "Dashboard sharing"
-msgstr "Dashboard sharing"
-
-msgid "Give access to a user, group or role"
-msgstr "Give access to a user, group or role"
-
-msgid "Search"
-msgstr "Search"
-
-msgid "User, group or role"
-msgstr "User, group or role"
+msgid "Give access to a user or group"
+msgstr "Give access to a user or group"
 
 msgid "Access level"
 msgstr "Access level"
@@ -134,29 +23,122 @@ msgstr "Access level"
 msgid "Select a level"
 msgstr "Select a level"
 
+msgid "Not available offline"
+msgstr "Not available offline"
+
 msgid "Give access"
 msgstr "Give access"
+
+msgid "Users and groups that currently have access"
+msgstr "Users and groups that currently have access"
+
+msgid "User / Group"
+msgstr "User / Group"
+
+msgid "All users"
+msgstr "All users"
 
 msgid "No access"
 msgstr "No access"
 
-msgid "Anyone logged in can view"
-msgstr "Anyone logged in can view"
-
 msgid "Can view"
 msgstr "Can view"
-
-msgid "View only"
-msgstr "View only"
-
-msgid "Anyone logged in can view and edit"
-msgstr "Anyone logged in can view and edit"
 
 msgid "Can view and edit"
 msgstr "Can view and edit"
 
-msgid "View and edit"
-msgstr "View and edit"
+msgid "Metadata"
+msgstr "Metadata"
+
+msgid "Remove access"
+msgstr "Remove access"
+
+msgid "User or group"
+msgstr "User or group"
+
+msgid "Search"
+msgstr "Search"
+
+msgid "Apply dashboard sharing settings to visualizations"
+msgstr "Apply dashboard sharing settings to visualizations"
+
+msgid "Something went wrong"
+msgstr "Something went wrong"
+
+msgid "Apply sharing to dashboard visualizations"
+msgstr "Apply sharing to dashboard visualizations"
+
+msgid ""
+"No visualizations were updated. Check that you have permission to change "
+"sharing for all visualizations."
+msgstr ""
+"No visualizations were updated. Check that you have permission to change "
+"sharing for all visualizations."
+
+msgid ""
+"Not all visualizations could be updated successfully. {{ success }} updated "
+"successfully, {{ failed }} failed to update. Check that you have permission "
+"to change sharing for all visualizations."
+msgstr ""
+"Not all visualizations could be updated successfully. {{ success }} updated "
+"successfully, {{ failed }} failed to update. Check that you have permission "
+"to change sharing for all visualizations."
+
+msgid ""
+"No visualizations were updated because sharing settings are already "
+"sufficient."
+msgstr ""
+"No visualizations were updated because sharing settings are already "
+"sufficient."
+
+msgid "Successfully updated sharing for all visualizations."
+msgstr "Successfully updated sharing for all visualizations."
+
+msgid ""
+"Not all visualization sharing settings needed to be updated. {{ updated }} "
+"updated, {{ skipped }} already had sufficient sharing settings."
+msgstr ""
+"Not all visualization sharing settings needed to be updated. {{ updated }} "
+"updated, {{ skipped }} already had sufficient sharing settings."
+
+msgid "There are no users or groups to apply sharing settings for."
+msgstr "There are no users or groups to apply sharing settings for."
+
+msgid ""
+"Number of visualizations on this dashboard that will potentially get "
+"updated sharing settings: {{ visualizationsCount }}. The number of users or "
+"groups that these updated settings will apply to: {{ entityAmount }}."
+msgstr ""
+"Number of visualizations on this dashboard that will potentially get "
+"updated sharing settings: {{ visualizationsCount }}. The number of users or "
+"groups that these updated settings will apply to: {{ entityAmount }}."
+
+msgid ""
+"Applying the same sharing settings makes sure that users and groups that "
+"have access to the dashboard also have at least \"View only\" access to its "
+"visualizations (charts, tables, maps, event charts and event reports)."
+msgstr ""
+"Applying the same sharing settings makes sure that users and groups that "
+"have access to the dashboard also have at least \"View only\" access to its "
+"visualizations (charts, tables, maps, event charts and event reports)."
+
+msgid ""
+"If a user or group already has \"View and edit\" access to a visualization, "
+"this won't be reduced to \"View only\". The \"All users\" access level "
+"won't be updated or changed."
+msgstr ""
+"If a user or group already has \"View and edit\" access to a visualization, "
+"this won't be reduced to \"View only\". The \"All users\" access level "
+"won't be updated or changed."
+
+msgid ""
+"Applying sharing can't be undone, and needs to be done again if new "
+"visualizations are added to the dashboard or its sharing settings are "
+"changed."
+msgstr ""
+"Applying sharing can't be undone, and needs to be done again if new "
+"visualizations are added to the dashboard or its sharing settings are "
+"changed."
 
 msgid "Sharing and access: {{- objectName}}"
 msgstr "Sharing and access: {{- objectName}}"
@@ -167,14 +149,5 @@ msgstr "Sharing and access"
 msgid "Close"
 msgstr "Close"
 
-msgid "Metadata"
-msgstr "Metadata"
-
-msgid "Users, groups and roles that currently have access"
-msgstr "Users, groups and roles that currently have access"
-
-msgid "User / Group / Role"
-msgstr "User / Group / Role"
-
-msgid "All users"
-msgstr "All users"
+msgid "Dashboard sharing"
+msgstr "Dashboard sharing"

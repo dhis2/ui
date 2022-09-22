@@ -110,7 +110,17 @@ export class Select extends Component {
     }
 
     onKeyDown = (e) => {
-        if (this.props.disabled) {
+        const { onKeyDown, disabled, selected } = this.props
+
+        if (disabled) {
+            return
+        }
+
+        if (onKeyDown) {
+            onKeyDown({ selected }, e)
+        }
+
+        if (e.defaultPrevented) {
             return
         }
 
@@ -181,7 +191,7 @@ export class Select extends Component {
                 <InputWrapper
                     onToggle={this.onToggle}
                     inputRef={this.inputRef}
-                    tabIndex={tabIndex}
+                    tabIndex={disabled ? '-1' : tabIndex}
                     error={error}
                     warning={warning}
                     valid={valid}
@@ -232,4 +242,5 @@ Select.propTypes = {
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
+    onKeyDown: PropTypes.func,
 }

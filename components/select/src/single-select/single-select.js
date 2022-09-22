@@ -1,44 +1,12 @@
+import { StatusIcon } from '@dhis2-ui/status-icon'
 import { requiredIf } from '@dhis2/prop-types'
-import { theme, spacers, sharedPropTypes } from '@dhis2/ui-constants'
-import {
-    IconErrorFilled24,
-    IconWarningFilled24,
-    IconCheckmark24,
-} from '@dhis2/ui-icons'
+import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Loading as CommonLoading, Select } from '../select/index.js'
 import { FilterableMenu } from './filterable-menu.js'
 import { Input } from './input.js'
 import { Menu } from './menu.js'
-
-const StatusIcon = ({ error, warning, valid, defaultTo }) => {
-    if (error) {
-        return <IconErrorFilled24 color={theme.error} />
-    }
-    if (warning) {
-        return <IconWarningFilled24 color={theme.warning} />
-    }
-    if (valid) {
-        return <IconCheckmark24 color={theme.valid} />
-    }
-
-    return defaultTo
-}
-
-StatusIcon.defaultProps = {
-    defaultTo: null,
-}
-
-StatusIcon.propTypes = {
-    className: PropTypes.string,
-    defaultTo: PropTypes.element,
-    error: PropTypes.bool,
-    info: PropTypes.bool,
-    loading: PropTypes.bool,
-    valid: PropTypes.bool,
-    warning: PropTypes.bool,
-}
 
 const SingleSelect = ({
     className,
@@ -48,6 +16,7 @@ const SingleSelect = ({
     inputMaxHeight,
     onChange,
     onFocus,
+    onKeyDown,
     onBlur,
     loading,
     error,
@@ -101,6 +70,7 @@ const SingleSelect = ({
                     maxHeight={maxHeight}
                     onChange={onChange}
                     onFocus={onFocus}
+                    onKeyDown={onKeyDown}
                     onBlur={onBlur}
                     error={error}
                     warning={warning}
@@ -124,10 +94,10 @@ const SingleSelect = ({
                 .root {
                     align-items: center;
                     display: flex;
+                    gap: ${spacers.dp8};
                 }
 
                 .root-input {
-                    margin-right: ${spacers.dp8};
                     flex: 1;
                 }
             `}</style>
@@ -175,6 +145,7 @@ SingleSelect.propTypes = {
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
+    onKeyDown: PropTypes.func,
 }
 
 export { SingleSelect }

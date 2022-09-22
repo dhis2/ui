@@ -155,39 +155,62 @@ describe('<DataTableColumnHeader>', () => {
 
         expect(wrapper.find(TableHeaderCell).prop('scope')).toBe(scope)
     })
-    it('accepts sortDirection and onSortIconClick props', () => {
-        //
-        const name = 'test'
-        const fakeEvent = {
-            target: 'test',
-            value: 'test',
-        }
-        const onClick = jest.fn()
-        const wrapper = shallow(
-            <DataTableColumnHeader
-                name={name}
-                onSortIconClick={onClick}
-                sortDirection={'asc'}
-            />
-        )
+    describe('column header sorting', () => {
+        it('accepts sortDirection, sortIconTitle, and onSortIconClick props', () => {
+            const name = 'test'
+            const title = 'Custom title'
+            const fakeEvent = {
+                target: 'test',
+                value: 'test',
+            }
+            const onClick = jest.fn()
+            const wrapper = shallow(
+                <DataTableColumnHeader
+                    name={name}
+                    onSortIconClick={onClick}
+                    sortDirection={'asc'}
+                    sortIconTitle={title}
+                />
+            )
 
-        wrapper
-            .find(Sorter)
-            .dive()
-            .find(TableHeaderCellAction)
-            .dive()
-            .find('button')
-            .simulate('click', fakeEvent)
+            const button = wrapper
+                .find(Sorter)
+                .dive()
+                .find(TableHeaderCellAction)
+                .dive()
+                .find('button')
 
-        expect(onClick).toHaveBeenCalledTimes(1)
-        expect(onClick).toHaveBeenCalledWith(
-            {
-                name,
-                // next sort direction
-                direction: 'desc',
-            },
-            fakeEvent
-        )
+            button.simulate('click', fakeEvent)
+
+            expect(onClick).toHaveBeenCalledTimes(1)
+            expect(onClick).toHaveBeenCalledWith(
+                {
+                    name,
+                    // next sort direction
+                    direction: 'desc',
+                },
+                fakeEvent
+            )
+            expect(button.prop('title')).toBe(title)
+        })
+        it('has a default sort icon title', () => {
+            const wrapper = shallow(
+                <DataTableColumnHeader
+                    name={'test'}
+                    onSortIconClick={() => {}}
+                    sortDirection={'asc'}
+                />
+            )
+
+            const button = wrapper
+                .find(Sorter)
+                .dive()
+                .find(TableHeaderCellAction)
+                .dive()
+                .find('button')
+
+            expect(button.prop('title')).toBe('Sort items')
+        })
     })
     it('accepts a top prop', () => {
         const top = '200px'

@@ -31,7 +31,7 @@ import {
 `
 
 export default {
-    title: 'Data Display/DataTable',
+    title: 'DataTable',
     component: DataTable,
     // Add subcomponents to the args datatable
     subcomponents: {
@@ -184,6 +184,24 @@ const IndividualCellTemplate = (args) => (
                 <DataTableCell error>Error</DataTableCell>
                 <DataTableCell valid>Valid</DataTableCell>
                 <DataTableCell muted>Muted</DataTableCell>
+            </DataTableRow>
+            <DataTableRow>
+                <DataTableCell tag="th" backgroundColor="lightgreen">
+                    Custom background (lightgreen)
+                </DataTableCell>
+                <DataTableCell backgroundColor="#eff">#eff</DataTableCell>
+                <DataTableCell active backgroundColor="yellow">
+                    yellow
+                </DataTableCell>
+                <DataTableCell>None</DataTableCell>
+            </DataTableRow>
+            <DataTableRow selected>
+                <DataTableCell tag="th">
+                    Custom background (on selected row )
+                </DataTableCell>
+                <DataTableCell backgroundColor="#eff">#eff</DataTableCell>
+                <DataTableCell backgroundColor="yellow">yellow</DataTableCell>
+                <DataTableCell>None</DataTableCell>
             </DataTableRow>
         </DataTableBody>
     </DataTable>
@@ -1080,6 +1098,7 @@ const ColumnHeaderSortingTemplate = (args) => {
                         onSortIconClick={onSortIconClick}
                         sortDirection={getSortDirection('firstName')}
                         name={'firstName'}
+                        sortIconTitle="Sort by first name"
                     >
                         First name
                     </DataTableColumnHeader>
@@ -1087,6 +1106,7 @@ const ColumnHeaderSortingTemplate = (args) => {
                         onSortIconClick={onSortIconClick}
                         sortDirection={getSortDirection('lastName')}
                         name={'lastName'}
+                        sortIconTitle="Sort by last name"
                     >
                         Last name
                     </DataTableColumnHeader>

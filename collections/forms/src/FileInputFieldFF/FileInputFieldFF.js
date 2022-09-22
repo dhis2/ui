@@ -80,10 +80,6 @@ export const FileInputFieldFF = ({
     )
 }
 
-FileInputFieldFF.defaultProps = {
-    placeholder: i18n.t('No file(s) selected yet'),
-}
-
 FileInputFieldFF.propTypes = {
     /** `input` props provided by Final Form `Field` */
     input: inputPropType.isRequired,

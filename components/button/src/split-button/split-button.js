@@ -99,7 +99,7 @@ class SplitButton extends Component {
                 </Button>
 
                 {open && (
-                    <Layer onClick={this.onToggle} transparent>
+                    <Layer onBackdropClick={this.onToggle} transparent>
                         <Popper
                             dataTest={`${dataTest}-menu`}
                             placement="bottom-end"
@@ -130,11 +130,6 @@ class SplitButton extends Component {
                     div > :global(button:last-child) {
                         border-top-left-radius: 0;
                         border-bottom-left-radius: 0;
-                    }
-
-                    /*bring the focused button to the front*/
-                    div > :global(button:focus) {
-                        z-index: 10;
                     }
                 `}</style>
             </div>

@@ -20,6 +20,7 @@ class SingleSelectField extends React.Component {
             className,
             onChange,
             onFocus,
+            onKeyDown,
             onBlur,
             required,
             label,
@@ -71,6 +72,7 @@ class SingleSelectField extends React.Component {
                         inputMaxHeight={inputMaxHeight}
                         onChange={onChange}
                         onFocus={onFocus}
+                        onKeyDown={onKeyDown}
                         onBlur={onBlur}
                         loading={loading}
                         error={error}
@@ -168,6 +170,8 @@ SingleSelectField.propTypes = {
     onChange: PropTypes.func,
     /** Called with signature `({ selected: string }, event)` */
     onFocus: PropTypes.func,
+    /** Called with signature `({ selected: string }, event)` */
+    onKeyDown: PropTypes.func,
 }
 
 export { SingleSelectField }

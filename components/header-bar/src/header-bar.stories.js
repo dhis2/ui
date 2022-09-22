@@ -198,7 +198,7 @@ const customAuthoritiesData = {
 }
 
 export default {
-    title: 'Utils/Header Bar',
+    title: 'Header Bar',
     component: HeaderBar,
     parameters: {
         componentSubtitle: subtitle,

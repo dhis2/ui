@@ -25,7 +25,7 @@ import { FlyoutMenu } from 'dhis2/ui'
 `
 
 export default {
-    title: 'Actions/Menu/Flyout Menu',
+    title: 'Flyout Menu',
     component: FlyoutMenu,
     parameters: { docs: { description: { component: description } } },
 }
@@ -168,7 +168,7 @@ export const DropDownMenu = (args) => {
                 Open menu &nbsp;&nbsp; <IconChevronDown16 />
             </button>
             {open && (
-                <Layer onClick={toggle}>
+                <Layer onBackdropClick={toggle}>
                     <Popper reference={ref} placement="bottom-start">
                         <FlyoutMenu {...args}>
                             <MenuItem label="Item 1" />

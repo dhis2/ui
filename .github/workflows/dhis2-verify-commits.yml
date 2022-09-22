@@ -1,0 +1,32 @@
+name: 'dhis2: verify (commits)'
+
+on:
+    pull_request:
+        types: ['opened', 'edited', 'reopened', 'synchronize']
+
+jobs:
+    lint-pr-title:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: c-hive/gha-yarn-cache@v1
+            - run: yarn install --frozen-lockfile
+            - id: commitlint
+              run: echo ::set-output name=config_path::$(node -e "process.stdout.write(require('@dhis2/cli-style').config.commitlint)")
+            - uses: JulienKode/pull-request-name-linter-action@v0.5.0
+              with:
+                  configuration-path: ${{ steps.commitlint.outputs.config_path }}
+
+    lint-commits:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+              with:
+                  fetch-depth: 0
+            - uses: c-hive/gha-yarn-cache@v1
+            - run: yarn install --frozen-lockfile
+            - id: commitlint
+              run: echo ::set-output name=config_path::$(node -e "process.stdout.write(require('@dhis2/cli-style').config.commitlint)")
+            - uses: wagoid/commitlint-github-action@v4
+              with:
+                  configFile: ${{ steps.commitlint.outputs.config_path }}

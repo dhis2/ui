@@ -11,7 +11,7 @@ import { MenuDivider } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Actions/Menu/Menu Divider',
+    title: 'Menu Divider',
     component: MenuDivider,
     parameters: { docs: { description: { component: description } } },
 }

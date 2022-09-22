@@ -14,6 +14,7 @@ const translate = (prop, interpolationObject) => {
 
 const PageSizeSelect = ({
     dataTest,
+    disabled,
     pageSizeSelectText,
     pageSize,
     pageSizes,
@@ -22,6 +23,7 @@ const PageSizeSelect = ({
     <div data-test={`${dataTest}-pagesize`}>
         <SingleSelect
             dense
+            disabled={disabled}
             selected={pageSize.toString()}
             onChange={({ selected }) => onChange(parseInt(selected, 10))}
             className="select"
@@ -56,6 +58,7 @@ PageSizeSelect.propTypes = {
         .isRequired,
     pageSizes: PropTypes.arrayOf(PropTypes.string).isRequired,
     onChange: PropTypes.func.isRequired,
+    disabled: PropTypes.bool,
 }
 
 export { PageSizeSelect }

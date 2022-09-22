@@ -38,7 +38,7 @@ const CustomCell = (props) => (
 )
 
 export default {
-    title: 'Data Display/Stacked Table',
+    title: 'Stacked Table',
     component: StackedTable,
     parameters: { docs: { description: { component: description } } },
 }

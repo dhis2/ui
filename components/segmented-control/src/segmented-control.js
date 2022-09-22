@@ -69,10 +69,8 @@ export const SegmentedControl = ({ options, selected, onChange }) => {
                 }
 
                 .segment:focus {
-                    /* z-index is required to ensure that outlines appear above sibling buttons */
-                    z-index: 1;
                     outline: 3px solid ${theme.focus};
-                    outline-offset: 2px;
+                    outline-offset: -3px;
                 }
                 /*focus-visible backwards compatibility for safari: https://css-tricks.com/platform-news-using-focus-visible-bbcs-new-typeface-declarative-shadow-doms-a11y-and-placeholders/*/
                 .segment:focus:not(:focus-visible) {
@@ -105,6 +103,10 @@ export const SegmentedControl = ({ options, selected, onChange }) => {
                 .segment.selected:not(:last-of-type) {
                     z-index: 1;
                     margin-right: -1px;
+                }
+
+                .segment.selected:focus {
+                    background: ${colors.teal700};
                 }
 
                 .segment.disabled {

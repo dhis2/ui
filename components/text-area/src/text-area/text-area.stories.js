@@ -36,7 +36,7 @@ const onFocus = (...args) => window.onFocus(...args)
 const onBlur = (...args) => window.onBlur(...args)
 
 export default {
-    title: 'Forms/Text Area/Text Area',
+    title: 'Text Area',
     component: TextArea,
     parameters: { docs: { description: { component: description } } },
     argTypes: {

@@ -6,7 +6,7 @@ A suite of icons is provided by the UI library; a list is shown below with the
 icon's component name and a demo of the icon. The number in the name refers to
 the size of the icon in px.
 
-Each icon accepts a \`color\` prop that will be applied to the underlying SVG 
+Each icon accepts a \`color\` prop that will be applied to the underlying SVG
 element.
 
 **Example usage:**
@@ -21,7 +21,7 @@ const IconDemo = () => {
 `
 
 export default {
-    title: 'Icons/List',
+    title: 'Icons',
     component: icons.IconAdd16,
     parameters: {
         docs: {

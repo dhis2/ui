@@ -17,7 +17,7 @@ _**Note:** These demos may take some time to load._
 `
 
 export default {
-    title: 'Helpers/Layer',
+    title: 'Layer',
     component: Layer,
     /**
      * `inlineStories: false` renders these layers in iframes instead of inline.
@@ -50,8 +50,10 @@ export const Default = Template.bind({})
 export const Translucent = Template.bind({})
 Translucent.args = { translucent: true }
 
-export const WithClickHandler = Template.bind({})
-WithClickHandler.args = { onClick: () => alert('layer was clicked') }
+export const WithOnBackdropClick = Template.bind({})
+WithOnBackdropClick.args = {
+    onBackdropClick: () => alert('layer backdrop was clicked'),
+}
 
 export const WithCenteredContentCircularLoader = Template.bind({})
 WithCenteredContentCircularLoader.args = {

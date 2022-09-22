@@ -1,16 +1,25 @@
-import { ButtonStrip, Button } from '@dhis2-ui/button'
-import { Modal, ModalTitle, ModalContent, ModalActions } from '@dhis2-ui/modal'
 import { useAlert, useDataQuery, useDataMutation } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
-import React, { useEffect, useState } from 'react'
-import { DashboardSharingContent } from './dashboard-sharing-content.js'
-import { DefaultSharingContent } from './default-sharing-content.js'
-import i18n from './locales/index.js'
+import React, { useEffect } from 'react'
 import {
-    defaultSharingSettings,
+    ACCESS_NONE,
+    ACCESS_VIEW_ONLY,
+    ACCESS_VIEW_AND_EDIT,
+    VISUALIZATION,
+    DASHBOARD,
+    EVENT_VISUALIZATION,
+    INTERPRETATION,
+} from './constants.js'
+import { FetchingContext } from './fetching-context/index.js'
+import {
     convertAccessToConstant,
-    convertConstantToAccess,
-} from './sharing-constants.js'
+    replaceAccessWithConstant,
+    createOnChangePayload,
+    createOnAddPayload,
+    createOnRemovePayload,
+} from './helpers/index.js'
+import { Modal } from './modal/index.js'
+import { TabbedContent } from './tabs/index.js'
 
 const query = {
     sharing: {
@@ -29,278 +38,192 @@ const mutation = {
         id,
     }),
     type: 'update',
-    data: ({ sharing }) => ({
-        object: sharing.object,
-    }),
+    data: ({ data }) => data,
 }
 
 export const SharingDialog = ({
-    initialSharingSettings,
     id,
     type,
     onClose,
     onError,
     onSave,
+    initialSharingSettings,
 }) => {
-    const [sharingSettings, updateSharingSettings] = useState(
-        initialSharingSettings
-    )
-    const [isDirty, setIsDirty] = useState(false)
-    const { show } = useAlert((error) => error, { critical: true })
+    const { show: showError } = useAlert((error) => error, { critical: true })
 
-    const onDataEngineError = (error) => {
-        show(error)
+    /**
+     * Data fetching
+     */
 
-        onError(error)
-    }
-
-    const onMutateError = (error) => {
-        onDataEngineError(error)
-        // after a mutate error the state won't reflect the stored sharing settings
-        // a refetch is needed
-        fetchSharingSettings(type, id)
-    }
-
-    const { data, refetch } = useDataQuery(query, {
-        lazy: true,
-        onError: onDataEngineError,
+    const { data, refetch, loading, fetching } = useDataQuery(query, {
+        variables: { id, type },
+        onError: (error) => {
+            showError(error)
+            onError(error)
+        },
     })
-    const fetchSharingSettings = (type, id) => refetch({ type, id })
 
-    const [mutate] = useDataMutation(mutation, {
-        onError: onMutateError,
-        onComplete: onSave,
-    })
-    const mutateSharingSettings = (sharing) => {
-        mutate({
+    const [mutate, { loading: mutating }] = useDataMutation(mutation, {
+        variables: {
             type,
             id,
-            sharing,
-        })
-    }
+        },
+        onError: (error) => {
+            showError(error)
+            onError(error)
+            refetch()
+        },
+        onComplete: () => {
+            refetch()
+            onSave()
+        },
+    })
 
-    // refresh sharing settings if type/id changes
+    /**
+     * Refresh data when type or id props change
+     */
+
     useEffect(() => {
-        fetchSharingSettings(type, id)
+        refetch({ type, id })
     }, [type, id])
 
-    // update state after fetch
-    useEffect(() => {
-        if (data?.sharing) {
-            if (data.sharing.object.userAccesses.length) {
-                data.sharing.object.userAccesses.forEach((userAccess) =>
-                    addUserOrGroupAccess({
-                        type: 'user',
-                        id: userAccess.id,
-                        name: userAccess.name,
-                        access: convertAccessToConstant(userAccess.access),
-                    })
-                )
-            }
+    /**
+     * Block interaction during the initial load
+     */
 
-            if (data.sharing.object.userGroupAccesses.length) {
-                data.sharing.object.userGroupAccesses.forEach((groupAccess) =>
-                    addUserOrGroupAccess({
-                        type: 'group',
-                        id: groupAccess.id,
-                        name: groupAccess.name,
-                        access: convertAccessToConstant(groupAccess.access),
-                    })
-                )
-            }
+    if (loading) {
+        const users = Object.keys(initialSharingSettings.users).map(
+            replaceAccessWithConstant
+        )
+        const groups = Object.keys(initialSharingSettings.groups).map(
+            replaceAccessWithConstant
+        )
 
-            setIsDirty(false)
+        return (
+            <FetchingContext.Provider value={true}>
+                <Modal onClose={onClose}>
+                    <TabbedContent
+                        id={id}
+                        users={users}
+                        groups={groups}
+                        publicAccess={initialSharingSettings.public}
+                        allowPublicAccess={initialSharingSettings.allowPublic}
+                        type={type}
+                        onAdd={() => {}}
+                        onChange={() => {}}
+                        onRemove={() => {}}
+                    />
+                </Modal>
+            </FetchingContext.Provider>
+        )
+    }
 
-            updateSharingSettings((prevState) => ({
-                ...prevState,
-                allowExternal: data.sharing.meta.allowExternalAccess,
-                allowPublic: data.sharing.meta.allowPublicAccess,
-                external: convertAccessToConstant(
-                    data.sharing.object.externalAccess
-                ),
-                public: convertAccessToConstant(
-                    data.sharing.object.publicAccess
-                ),
-                name:
-                    data.sharing.object.displayName || data.sharing.object.name,
-                id: data.sharing.object.id,
-            }))
-        }
-    }, [data])
+    const { object, meta } = data.sharing
+    const publicAccess = convertAccessToConstant(object.publicAccess)
+    const users = object.userAccesses.map(replaceAccessWithConstant)
+    const groups = object.userGroupAccesses.map(replaceAccessWithConstant)
 
-    // PUT when state change (but not when setting state after fetch)
-    useEffect(() => {
-        if (isDirty) {
-            saveSharingSettings(sharingSettings)
-        }
-    }, [sharingSettings, isDirty])
+    /**
+     * Handlers
+     */
 
-    const addUserOrGroupAccess = ({ type, id, name, access }) =>
-        updateSharingSettings((prevState) => ({
-            ...prevState,
-            [`${type}s`]: {
-                ...prevState[`${type}s`],
-                [id]: {
-                    id,
-                    name,
-                    access,
-                },
-            },
-        }))
-
-    const removeUserOrGroupAccess = ({ type, id }) =>
-        updateSharingSettings((prevState) => {
-            const usersOrGroups = prevState[`${type}s`]
-
-            delete usersOrGroups[id]
-
-            return {
-                ...prevState,
-                [`${type}s`]: {
-                    ...usersOrGroups,
-                },
-            }
+    const onAdd = ({ type: newType, id: newId, access, name }) => {
+        const data = createOnAddPayload({
+            object,
+            type: newType,
+            access,
+            id: newId,
+            name,
         })
-
-    const changeAccess = ({ type, id, access }) => {
-        const updatedAccess = {}
-
-        switch (type) {
-            case 'external':
-                updatedAccess.external = access
-                break
-            case 'public':
-                updatedAccess.public = access
-                break
-            case 'group':
-            case 'user': {
-                const pluralType = `${type}s`
-
-                updatedAccess[pluralType] = {
-                    ...sharingSettings[pluralType],
-                    [id]: {
-                        ...sharingSettings[pluralType][id],
-                        access,
-                    },
-                }
-                break
-            }
-        }
-
-        updateSharingSettings((prevState) => ({
-            ...prevState,
-            ...updatedAccess,
-        }))
+        mutate({ data, type, id })
     }
 
-    const saveSharingSettings = (sharingSettings) => {
-        // prepare payload
-        const payload = {
-            object: {
-                publicAccess: convertConstantToAccess(sharingSettings.public),
-                externalAccess: convertConstantToAccess(
-                    sharingSettings.external,
-                    true
-                ),
-                userAccesses: Object.values(sharingSettings.users).map(
-                    (userSharingSettings) => ({
-                        ...userSharingSettings,
-                        access: convertConstantToAccess(
-                            userSharingSettings.access
-                        ),
-                    })
-                ),
-                userGroupAccesses: Object.values(sharingSettings.groups).map(
-                    (groupSharingSettings) => ({
-                        ...groupSharingSettings,
-                        access: convertConstantToAccess(
-                            groupSharingSettings.access
-                        ),
-                    })
-                ),
-            },
-        }
-
-        mutateSharingSettings(payload)
+    const onChange = ({ type: changedType, id: changedId, access }) => {
+        const data = createOnChangePayload({
+            object,
+            type: changedType,
+            access,
+            id: changedId,
+        })
+        mutate({ data, type, id })
     }
 
-    const onAdd = (data) => {
-        setIsDirty(true)
-
-        addUserOrGroupAccess(data)
-    }
-
-    const onChange = (data) => {
-        setIsDirty(true)
-
-        changeAccess(data)
-    }
-
-    const onRemove = (data) => {
-        setIsDirty(true)
-
-        removeUserOrGroupAccess(data)
+    const onRemove = ({ type: removedType, id: removedId }) => {
+        const data = createOnRemovePayload({
+            object,
+            type: removedType,
+            id: removedId,
+        })
+        mutate({ data, type, id })
     }
 
     return (
-        <Modal large position="top" onClose={onClose}>
-            <ModalTitle>
-                {sharingSettings.name
-                    ? i18n.t('Sharing and access: {{- objectName}}', {
-                          objectName: sharingSettings.name,
-                          nsSeparator: '|',
-                      })
-                    : i18n.t('Sharing and access')}
-            </ModalTitle>
-            <ModalContent>
-                {type === 'dashboard' ? (
-                    <DashboardSharingContent
-                        sharingSettings={sharingSettings}
-                        onAdd={onAdd}
-                        onChange={onChange}
-                        onRemove={onRemove}
-                    />
-                ) : (
-                    <DefaultSharingContent
-                        sharingSettings={sharingSettings}
-                        onAdd={onAdd}
-                        onChange={onChange}
-                        onRemove={onRemove}
-                    />
-                )}
-            </ModalContent>
-            <ModalActions>
-                <ButtonStrip end>
-                    <Button type="button" secondary onClick={onClose}>
-                        {i18n.t('Close')}
-                    </Button>
-                </ButtonStrip>
-            </ModalActions>
-        </Modal>
+        <FetchingContext.Provider value={mutating || fetching}>
+            <Modal onClose={onClose} name={object.displayName || object.name}>
+                <TabbedContent
+                    id={id}
+                    users={users}
+                    groups={groups}
+                    publicAccess={publicAccess}
+                    allowPublicAccess={meta.allowPublicAccess}
+                    type={type}
+                    onAdd={onAdd}
+                    onChange={onChange}
+                    onRemove={onRemove}
+                />
+            </Modal>
+        </FetchingContext.Provider>
     )
 }
 
 SharingDialog.defaultProps = {
-    initialSharingSettings: defaultSharingSettings,
-    onError: Function.prototype,
-    onSave: Function.prototype,
+    initialSharingSettings: {
+        name: '',
+        allowPublic: true,
+        public: ACCESS_NONE,
+        groups: {},
+        users: {},
+    },
+    onClose: () => {},
+    onError: () => {},
+    onSave: () => {},
 }
 
 SharingDialog.propTypes = {
     /** The id of the object to share */
     id: PropTypes.string.isRequired,
     /** The type of object to share */
-    type: PropTypes.string.isRequired,
-    onClose: PropTypes.func.isRequired,
+    type: PropTypes.oneOf([
+        VISUALIZATION,
+        DASHBOARD,
+        EVENT_VISUALIZATION,
+        INTERPRETATION,
+    ]).isRequired,
+    /** Used to seed the component with data to show whilst loading */
     initialSharingSettings: PropTypes.shape({
-        allowExternal: PropTypes.bool,
-        allowPublic: PropTypes.bool,
-        external: PropTypes.string,
-        groups: PropTypes.object,
+        allowPublic: PropTypes.bool.isRequired,
+        groups: PropTypes.objectOf(
+            PropTypes.shape({
+                access: PropTypes.string.isRequired,
+                id: PropTypes.string.isRequired,
+                name: PropTypes.string.isRequired,
+            })
+        ),
         name: PropTypes.string,
-        public: PropTypes.string,
-        users: PropTypes.object,
+        public: PropTypes.oneOf([
+            ACCESS_NONE,
+            ACCESS_VIEW_ONLY,
+            ACCESS_VIEW_AND_EDIT,
+        ]),
+        users: PropTypes.objectOf(
+            PropTypes.shape({
+                access: PropTypes.string.isRequired,
+                id: PropTypes.string.isRequired,
+                name: PropTypes.string.isRequired,
+            })
+        ),
     }),
+    onClose: PropTypes.func,
     onError: PropTypes.func,
     onSave: PropTypes.func,
 }

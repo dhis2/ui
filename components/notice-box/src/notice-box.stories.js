@@ -26,7 +26,7 @@ import { NoticeBox } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Data Display/Notice Box',
+    title: 'Notice Box',
     component: NoticeBox,
     parameters: {
         componentSubtitle: subtitle,

@@ -18,7 +18,7 @@ import { LinearLoader } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Feedback/Loading Indicators/Linear Loader',
+    title: 'Linear Loader',
     component: LinearLoader,
     parameters: {
         componentSubtitle: subtitle,

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-07T19:28:56.162Z\n"
+"POT-Creation-Date: 2022-02-11T13:37:19.312Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2021\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -20,13 +20,10 @@ msgid "Upload file"
 msgstr "تحميل الملف"
 
 msgid "Upload files"
-msgstr ""
+msgstr "تحميل الملفات"
 
 msgid "Remove"
 msgstr "إزلة"
-
-msgid "No file(s) selected yet"
-msgstr ""
 
 msgid "Please provide an alpha-numeric value"
 msgstr ""
@@ -85,7 +82,7 @@ msgstr "يجب أن تحتوي كلمة المرور على رقم واحد عل
 msgid "Password should have at least one special character"
 msgstr "يجب أن تحتوي كلمة المرور على رمز واحد على الأقل"
 
-msgid "Please provide a username between 1 and 255 characters"
+msgid "Please provide a username between 4 and 255 characters"
 msgstr ""
 
 msgid "Please provide a valid email address"
@@ -107,4 +104,4 @@ msgid "Please provide a string"
 msgstr ""
 
 msgid "Please provide a valid url"
-msgstr "يرجى ادخال صيغة ارتباط تشعبي سليمة"
+msgstr "يرجى ادخال صيغة ارتباط url سليمة"

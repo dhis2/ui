@@ -32,7 +32,7 @@ Press **Submit** to see the form values logged to the console.
 `
 
 export default {
-    title: 'Forms/Switch/Switch Field (Final Form)',
+    title: 'Switch Field (Final Form)',
     component: SwitchFieldFF,
     decorators: [formDecorator],
     parameters: { docs: { description: { component: description } } },

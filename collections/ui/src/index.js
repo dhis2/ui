@@ -14,10 +14,10 @@ export {
 } from '@dhis2-ui/button'
 export { Box } from '@dhis2-ui/box'
 export { Card } from '@dhis2-ui/card'
-export { Center as CenteredContent } from '@dhis2-ui/center'
+export { Center, Center as CenteredContent } from '@dhis2-ui/center'
 export { Checkbox, CheckboxField } from '@dhis2-ui/checkbox'
 export { Chip } from '@dhis2-ui/chip'
-export { Cover as ComponentCover } from '@dhis2-ui/cover'
+export { Cover, Cover as ComponentCover } from '@dhis2-ui/cover'
 export { CssReset, CssVariables } from '@dhis2-ui/css'
 export { Divider } from '@dhis2-ui/divider'
 export { Field, FieldSet, FieldGroup } from '@dhis2-ui/field'
@@ -49,6 +49,8 @@ export { Node } from '@dhis2-ui/node'
 export { NoticeBox } from '@dhis2-ui/notice-box'
 export {
     OrganisationUnitTree,
+    OrganisationUnitTreeRootError,
+    OrganisationUnitTreeRootLoading,
     getAllExpandedOrgUnitPaths,
 } from '@dhis2-ui/organisation-unit-tree'
 export { Popover } from '@dhis2-ui/popover'
@@ -66,6 +68,7 @@ export {
     SingleSelectField,
     SingleSelectOption,
 } from '@dhis2-ui/select'
+export { SelectorBar, SelectorBarItem } from '@dhis2-ui/selector-bar'
 export { Switch, SwitchField } from '@dhis2-ui/switch'
 export {
     DataTable,

@@ -1,4 +1,5 @@
 import { mutuallyExclusive, requiredIf } from '@dhis2/prop-types'
+import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
@@ -9,6 +10,7 @@ export const TableDataCell = forwardRef(
         {
             active,
             align,
+            backgroundColor,
             bordered,
             children,
             className,
@@ -55,6 +57,19 @@ export const TableDataCell = forwardRef(
                     left: ${left};
                     text-align: ${align};
                     width: ${width};
+                    background-color: ${backgroundColor || colors.white};
+                }
+                :global(tr.selected) > td {
+                    background-color: ${backgroundColor || colors.teal100};
+                }
+                :global(tr:hover) > td:not(.staticStyle) {
+                    background-color: ${backgroundColor || colors.grey100};
+                }
+                :global(tr:active) > td:not(.staticStyle) {
+                    background-color: ${backgroundColor || colors.grey200};
+                }
+                :global(tr.selected:hover) > td:not(.staticStyle) {
+                    background-color: ${backgroundColor || '#cdeae8'};
                 }
             `}</style>
         </td>
@@ -76,9 +91,11 @@ const stylePropType = mutuallyExclusive(
 )
 
 TableDataCell.propTypes = {
-    /** To toggle background color, for example for editing */
+    /** To toggle border color, for example for editing */
     active: PropTypes.bool,
     align: PropTypes.oneOf(['left', 'center', 'right']),
+    /** Sets background color of the cell. Disables dynamic background colors from active, hover, and selected states */
+    backgroundColor: PropTypes.string,
     bordered: PropTypes.bool,
     children: PropTypes.node,
     className: PropTypes.string,

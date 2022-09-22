@@ -11,7 +11,7 @@ import { Help } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Forms/Help',
+    title: 'Help',
     component: Help,
     parameters: { docs: { description: { component: description } } },
     argTypes: {

@@ -76,7 +76,7 @@ TransferOption.defaultProps = {
 }
 
 TransferOption.propTypes = {
-    label: PropTypes.string.isRequired,
+    label: PropTypes.node.isRequired,
     value: PropTypes.string.isRequired,
     className: PropTypes.string,
     dataTest: PropTypes.string,

@@ -1,19 +1,32 @@
 # 
 # Translators:
-# trendspotter <jirka.p@volny.cz>, 2021
+# trendspotter <jirka.p@volny.cz>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-24T08:48:34.481Z\n"
+"POT-Creation-Date: 2022-03-10T20:20:19.392Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
-"Last-Translator: trendspotter <jirka.p@volny.cz>, 2021\n"
+"Last-Translator: trendspotter <jirka.p@volny.cz>, 2022\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+
+msgid ""
+"Page {{page}} of {{pageCount}}, items {{firstItem}}-{{lastItem}} of "
+"{{total}}"
+msgstr ""
+"Stránka {{page}} z {{pageCount}}, položky {{firstItem}}-{{lastItem}} z "
+"{{total}}"
+
+msgid "Page {{page}}, items {{firstItem}}-{{lastItem}}"
+msgstr "Stránka {{page}}, položky {{firstItem}}-{{lastItem}}"
+
+msgid "Page {{page}}"
+msgstr "Stránka {{page}}"
 
 msgid "Next"
 msgstr "Další"
@@ -24,19 +37,13 @@ msgstr "Strana"
 msgid "Items per page"
 msgstr "Položek na stránce"
 
-msgid ""
-"Page {{page}} of {{pageCount}}, items {{firstItem}}-{{lastItem}} of "
-"{{total}}"
-msgstr ""
-"Stránka {{page}} z {{pageCount}}, položky {{firstItem}}-{{lastItem}} z "
-"{{total}}"
-
 msgid "Previous"
 msgstr "Předchozí"
 
 msgid ""
-"Page nr {{page}} of {{pageCount}} pages, items {{firstItem}}-{{lastItem}}, "
-"NO TOTAL"
+"You are at page {{page}} showing items {{firstItem}}-{{lastItem}}, but there"
+" are {{pageCount}} pages and {{total}} items"
 msgstr ""
-"Stránka číslo {{page}} z {{pageCount}} stránek, položky "
-"{{firstItem}}-{{lastItem}}, ŽÁDNÝ CELKEM"
+"Nacházíte se na stránce {{page}} zobrazující položky "
+"{{firstItem}}-{{lastItem}}, ale je zde {{pageCount}} stránek a {{total}} "
+"položek"

@@ -1,56 +1,15 @@
-import { CircularLoader } from '@dhis2-ui/loader'
+import { StatusIcon } from '@dhis2-ui/status-icon'
 import { theme, colors, spacers, sharedPropTypes } from '@dhis2/ui-constants'
-import {
-    IconErrorFilled24,
-    IconWarningFilled24,
-    IconCheckmark24,
-} from '@dhis2/ui-icons'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import css from 'styled-jsx/css'
 
-const StatusIcon = ({
-    error,
-    warning,
-    valid,
-    loading,
-    className,
-    defaultTo,
-}) => {
-    if (error) {
-        return <IconErrorFilled24 color={theme.error} />
-    }
-    if (warning) {
-        return <IconWarningFilled24 color={theme.warning} />
-    }
-    if (valid) {
-        return <IconCheckmark24 color={theme.valid} />
-    }
-    if (loading) {
-        return <CircularLoader small className={className} />
-    }
-
-    return defaultTo
-}
-
-StatusIcon.defaultProps = {
-    defaultTo: null,
-}
-
-StatusIcon.propTypes = {
-    className: PropTypes.string,
-    defaultTo: PropTypes.element,
-    error: PropTypes.bool,
-    loading: PropTypes.bool,
-    valid: PropTypes.bool,
-    warning: PropTypes.bool,
-}
-
 const styles = css`
     .input {
         display: flex;
         align-items: center;
+        gap: ${spacers.dp8};
     }
 
     input {
@@ -78,7 +37,30 @@ const styles = css`
 
     input:focus {
         outline: none;
-        box-shadow: 0 0 0 3px ${theme.focus};
+        box-shadow: inset 0 0 0 2px ${theme.focus};
+        border-color: ${theme.focus};
+    }
+
+    input::placeholder {
+        color: ${colors.grey600};
+        opacity: 1;
+    }
+
+    input[type='date']::-webkit-inner-spin-button,
+    input[type='date']::-webkit-calendar-picker-indicator,
+    input[type='time']::-webkit-inner-spin-button,
+    input[type='time']::-webkit-calendar-picker-indicator,
+    input[type='datetime-local']::-webkit-inner-spin-button,
+    input[type='datetime-local']::-webkit-calendar-picker-indicator {
+        height: 14px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+
+    input[type='date']::-webkit-datetime-edit-fields-wrapper,
+    input[type='datetime-local']::-webkit-datetime-edit-fields-wrapper,
+    input[type='time']::-webkit-datetime-edit-fields-wrapper {
+        padding: 0;
     }
 
     input.warning {
@@ -101,12 +83,6 @@ const styles = css`
         border-color: ${colors.grey500};
         color: ${theme.disabled};
         cursor: not-allowed;
-    }
-
-    .status-icon {
-        flex-shrink: 0;
-        flex-grow: 0;
-        margin-left: ${spacers.dp8};
     }
 `
 
@@ -134,6 +110,12 @@ export class Input extends Component {
     handleFocus = (e) => {
         if (this.props.onFocus) {
             this.props.onFocus(this.createHandlerPayload(e), e)
+        }
+    }
+
+    handleKeyDown = (e) => {
+        if (this.props.onKeyDown) {
+            this.props.onKeyDown(this.createHandlerPayload(e), e)
         }
     }
 
@@ -187,6 +169,7 @@ export class Input extends Component {
                     onFocus={this.handleFocus}
                     onBlur={this.handleBlur}
                     onChange={this.handleChange}
+                    onKeyDown={this.handleKeyDown}
                     className={cx({
                         dense,
                         disabled,
@@ -196,15 +179,12 @@ export class Input extends Component {
                         'read-only': readOnly,
                     })}
                 />
-
-                <div className="status-icon">
-                    <StatusIcon
-                        error={error}
-                        valid={valid}
-                        loading={loading}
-                        warning={warning}
-                    />
-                </div>
+                <StatusIcon
+                    error={error}
+                    valid={valid}
+                    loading={loading}
+                    warning={warning}
+                />
 
                 <style jsx>{styles}</style>
                 <style jsx>{`
@@ -280,4 +260,6 @@ Input.propTypes = {
     onChange: PropTypes.func,
     /** Called with signature `({ name: string, value: string }, event)` */
     onFocus: PropTypes.func,
+    /** Called with signature `({ name: string, value: string }, event)` */
+    onKeyDown: PropTypes.func,
 }

@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/modal",
-    "version": "7.7.5",
+    "version": "8.4.16",
     "description": "UI Modal",
     "repository": {
         "type": "git",
@@ -31,12 +31,13 @@
         "styled-jsx": "^4"
     },
     "dependencies": {
-        "@dhis2/prop-types": "^3.0.0-beta.1",
-        "@dhis2-ui/card": "7.7.5",
-        "@dhis2-ui/center": "7.7.5",
-        "@dhis2-ui/layer": "7.7.5",
-        "@dhis2-ui/portal": "7.7.5",
-        "@dhis2/ui-constants": "7.7.5",
+        "@dhis2/prop-types": "^3.1.2",
+        "@dhis2-ui/card": "8.4.16",
+        "@dhis2-ui/center": "8.4.16",
+        "@dhis2-ui/layer": "8.4.16",
+        "@dhis2-ui/portal": "8.4.16",
+        "@dhis2/ui-constants": "8.4.16",
+        "@dhis2/ui-icons": "8.4.16",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },

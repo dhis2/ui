@@ -48,7 +48,7 @@ export const buttonVariantArgType = {
  * small/large
  */
 export const sizePropType = mutuallyExclusive(
-    ['small', 'large', 'extrasmall'],
+    ['small', 'large', 'extrasmall', 'fluid'],
     PropTypes.bool
 )
 export const sizeArgType = {

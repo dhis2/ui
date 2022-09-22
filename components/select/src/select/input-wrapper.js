@@ -51,10 +51,11 @@ const InputWrapper = ({
                     box-shadow: inset 0 1px 2px 0 rgba(48, 54, 60, 0.1);
                 }
 
-                .root:focus,
-                .root:active {
+                .root:not(.disabled):focus,
+                .root:not(.disabled):active {
                     outline: none;
-                    box-shadow: 0 0 0 3px ${theme.focus};
+                    box-shadow: inset 0 0 0 2px ${theme.focus};
+                    border-color: ${theme.focus};
                 }
 
                 .root.valid {

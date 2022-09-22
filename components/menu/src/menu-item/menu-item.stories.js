@@ -18,7 +18,7 @@ import { MenuItem } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Actions/Menu/Menu Item',
+    title: 'Menu Item',
     component: MenuItem,
     args: { label: 'Menu item' },
     parameters: { docs: { description: { component: description } } },

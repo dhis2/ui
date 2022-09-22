@@ -1,6 +1,5 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import * as mockPagers from '../__fixtures__/index.js'
 import { PageControls } from '../page-controls.js'
 
 describe('<PageControls />', () => {
@@ -10,7 +9,7 @@ describe('<PageControls />', () => {
         onClick: mockOnClick,
         nextPageText: 'Next',
         previousPageText: 'Previous',
-        ...mockPagers.atTenthPage,
+        page: 10,
     }
 
     beforeEach(() => {
@@ -21,44 +20,44 @@ describe('<PageControls />', () => {
         shallow(<PageControls {...props} />)
     })
 
-    it('disables no buttons on a page between first and last', () => {
+    it('enables all buttons on by default', () => {
         const wrapper = shallow(<PageControls {...props} />)
 
         expect(
             wrapper.find('.button-previous').getElement().props.disabled
-        ).toEqual(false)
+        ).toBeFalsy()
 
         expect(
             wrapper.find('.button-next').getElement().props.disabled
-        ).toEqual(false)
+        ).toBeFalsy()
     })
 
-    it('disables the previous page button on the first page', () => {
+    it('disables the previous page button when isPreviousDisabled is true', () => {
         const wrapper = shallow(
-            <PageControls {...props} {...mockPagers.atFirstPage} />
+            <PageControls {...props} isPreviousDisabled={true} />
         )
 
         expect(
             wrapper.find('.button-previous').getElement().props.disabled
-        ).toEqual(true)
+        ).toBe(true)
 
         expect(
             wrapper.find('.button-next').getElement().props.disabled
-        ).toEqual(false)
+        ).toBeFalsy()
     })
 
-    it('disables the next page button on the last page', () => {
+    it('disables the next page button when isNextDisabled is true', () => {
         const wrapper = shallow(
-            <PageControls {...props} {...mockPagers.atLastPage} />
+            <PageControls {...props} isNextDisabled={true} />
         )
 
         expect(
             wrapper.find('.button-previous').getElement().props.disabled
-        ).toEqual(false)
+        ).toBeFalsy()
 
-        expect(
-            wrapper.find('.button-next').getElement().props.disabled
-        ).toEqual(true)
+        expect(wrapper.find('.button-next').getElement().props.disabled).toBe(
+            true
+        )
     })
 
     it('calls the onClick handler with the value for the next page when next is clicked', () => {

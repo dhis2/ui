@@ -4,6 +4,7 @@ import css from 'styled-jsx/css'
 export const styles = css`
     .textarea {
         display: flex;
+        gap: ${spacers.dp8};
     }
     textarea {
         box-sizing: border-box;
@@ -29,7 +30,8 @@ export const styles = css`
 
     textarea:focus {
         outline: none;
-        box-shadow: 0 0 0 3px ${theme.focus};
+        box-shadow: inset 0 0 0 2px ${theme.focus};
+        border-color: ${theme.focus};
     }
 
     textarea.valid {
@@ -55,11 +57,5 @@ export const styles = css`
         border-color: ${colors.grey500};
         color: ${theme.disabled};
         cursor: not-allowed;
-    }
-
-    .status-icon {
-        flex-grow: 0;
-        flex-shrink: 0;
-        margin-left: ${spacers.dp4};
     }
 `

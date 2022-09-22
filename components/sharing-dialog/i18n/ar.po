@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-29T09:08:15.255Z\n"
+"POT-Creation-Date: 2021-11-25T09:59:40.995Z\n"
 "PO-Revision-Date: 2021-10-01 23:39+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2021\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -16,139 +16,14 @@ msgstr ""
 "Language: ar\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-msgid "Remove access"
-msgstr ""
+msgid "View only"
+msgstr "العرض فقط"
 
-msgid "Not available offline"
-msgstr ""
+msgid "View and edit"
+msgstr "عرض وتعديل"
 
-msgid "Apply sharing to dashboard visualizations"
-msgstr ""
-
-msgid ""
-"{{count}} visualization on this dashboard will potentially get updated "
-"sharing settings."
-msgid_plural ""
-"{{count}} visualization on this dashboard will potentially get updated "
-"sharing settings."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-msgid "These updated sharing settings will apply to {{count}} user or group."
-msgid_plural ""
-"These updated sharing settings will apply to {{count}} user or group."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-msgid "There are no users, groups or roles to apply sharing settings for."
-msgstr ""
-
-msgid ""
-"No visualizations were updated because sharing settings are already "
-"sufficient."
-msgstr ""
-
-msgid "Successfully updated sharing for {{count}} visualization."
-msgid_plural "Successfully updated sharing for {{count}} visualization."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-msgid "{{count}} visualization was updated."
-msgid_plural "{{count}} visualization was updated."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-msgid "{{count}} visualization already has sufficient sharing settings."
-msgid_plural ""
-"{{count}} visualization already has sufficient sharing settings."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-msgid ""
-"Check that you have permission to change sharing for all visualizations."
-msgstr ""
-
-msgid "No visualizations were updated."
-msgstr ""
-
-msgid "{{count}} visualization was updated"
-msgid_plural "{{count}} visualization was updated"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-msgid "{{count}} visualization could not be updated."
-msgid_plural "{{count}} visualization could not be updated."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-msgid "Apply dashboard sharing settings to visualizations"
-msgstr ""
-
-msgid ""
-"Applying the same sharing settings makes sure that users, groups and roles "
-"that have access to the dashboard also have at least \"View only\" access to"
-" its visualizations (charts, tables, maps, event charts, event reports)."
-msgstr ""
-
-msgid ""
-"If a user, group, or role already has \"View and edit\" access to a "
-"visualization, this won't be reduced to \"View only\". \"All users\" access "
-"level won't be updated or changed."
-msgstr ""
-
-msgid ""
-"Applying sharing can't be undone, and needs to done again if new "
-"visualizations are added to the dashboard or its sharing settings are "
-"changed."
-msgstr ""
-
-msgid "Updating sharing settings..."
-msgstr ""
-
-msgid ""
-"There was a problem updating dashboard visualizations. No visualizations "
-"were updated. Try again, or contact a system administrator."
-msgstr ""
-
-msgid "Dashboard sharing"
-msgstr ""
-
-msgid "Give access to a user, group or role"
-msgstr ""
-
-msgid "Search"
-msgstr "بحث"
-
-msgid "User, group or role"
-msgstr ""
+msgid "Give access to a user or group"
+msgstr "منح حق الوصول إلى مستخدم أو مجموعة"
 
 msgid "Access level"
 msgstr "مستوى الوصول"
@@ -156,28 +31,100 @@ msgstr "مستوى الوصول"
 msgid "Select a level"
 msgstr "حدد مستوى"
 
+msgid "Not available offline"
+msgstr "غير متوفر في وضع عدم الإتصال"
+
 msgid "Give access"
+msgstr "السماح بالوصول"
+
+msgid "Users and groups that currently have access"
+msgstr "المستخدمون والمجموعات التي لديها حق الوصول حاليًا"
+
+msgid "User / Group"
 msgstr ""
+
+msgid "All users"
+msgstr "جميع المستخدمين"
 
 msgid "No access"
 msgstr "لا يمكن الوصول"
 
-msgid "Anyone logged in can view"
-msgstr ""
-
 msgid "Can view"
 msgstr "إمكانية الاستعراض"
 
-msgid "View only"
-msgstr ""
-
-msgid "Anyone logged in can view and edit"
-msgstr ""
-
 msgid "Can view and edit"
+msgstr "يمكن العرض والتعديل"
+
+msgid "Metadata"
+msgstr "البيانات الوصفية"
+
+msgid "Remove access"
+msgstr "إزالة الوصول"
+
+msgid "User or group"
+msgstr "مستخدم أو مجموعة"
+
+msgid "Search"
+msgstr "بحث"
+
+msgid "Apply dashboard sharing settings to visualizations"
 msgstr ""
 
-msgid "View and edit"
+msgid "Something went wrong"
+msgstr "حدث خطأ ما"
+
+msgid "Apply sharing to dashboard visualizations"
+msgstr ""
+
+msgid ""
+"No visualizations were updated. Check that you have permission to change "
+"sharing for all visualizations."
+msgstr ""
+
+msgid ""
+"Not all visualizations could be updated successfully. {{ success }} updated "
+"successfully, {{ failed }} failed to update. Check that you have permission "
+"to change sharing for all visualizations."
+msgstr ""
+
+msgid ""
+"No visualizations were updated because sharing settings are already "
+"sufficient."
+msgstr ""
+
+msgid "Successfully updated sharing for all visualizations."
+msgstr ""
+
+msgid ""
+"Not all visualization sharing settings needed to be updated. {{ updated }} "
+"updated, {{ skipped }} already had sufficient sharing settings."
+msgstr ""
+
+msgid "There are no users or groups to apply sharing settings for."
+msgstr ""
+
+msgid ""
+"Number of visualizations on this dashboard that will potentially get updated"
+" sharing settings: {{ visualizationsCount }}. The number of users or groups "
+"that these updated settings will apply to: {{ entityAmount }}."
+msgstr ""
+
+msgid ""
+"Applying the same sharing settings makes sure that users and groups that "
+"have access to the dashboard also have at least \"View only\" access to its "
+"visualizations (charts, tables, maps, event charts and event reports)."
+msgstr ""
+
+msgid ""
+"If a user or group already has \"View and edit\" access to a visualization, "
+"this won't be reduced to \"View only\". The \"All users\" access level won't"
+" be updated or changed."
+msgstr ""
+
+msgid ""
+"Applying sharing can't be undone, and needs to be done again if new "
+"visualizations are added to the dashboard or its sharing settings are "
+"changed."
 msgstr ""
 
 msgid "Sharing and access: {{- objectName}}"
@@ -189,14 +136,5 @@ msgstr ""
 msgid "Close"
 msgstr "إغلاق"
 
-msgid "Metadata"
-msgstr "البيانات الوصفية"
-
-msgid "Users, groups and roles that currently have access"
-msgstr ""
-
-msgid "User / Group / Role"
-msgstr ""
-
-msgid "All users"
+msgid "Dashboard sharing"
 msgstr ""

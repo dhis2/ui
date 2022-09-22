@@ -14,7 +14,7 @@ const InputPrefix = ({ prefix, className, dataTest }) => {
             <style jsx>{`
                 div {
                     color: ${colors.grey600};
-                    padding-right: ${spacers.dp4};
+                    padding-right: ${spacers.dp12};
                     font-size: 14px;
                     user-select: none;
                 }
