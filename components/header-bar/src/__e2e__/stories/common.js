@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
-import { CustomDataProvider, Provider } from '@dhis2/app-runtime'
-import React from 'react'
+import { CustomDataProvider, Provider, useAlerts } from '@dhis2/app-runtime'
+import React, { useEffect, useRef } from 'react'
 
 export const defaultModules = [
     {
@@ -312,37 +312,6 @@ export const modulesWithSpecialCharacters = [
 export const applicationTitle = 'Foobar'
 
 export const dataProviderData = {
-    'system/info': {
-        contextPath: 'https://debug.dhis2.org/dev',
-        userAgent:
-            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36',
-        calendar: 'iso8601',
-        dateFormat: 'yyyy-mm-dd',
-        serverDate: '2021-10-06T08:06:15.256',
-        serverTimeZoneId: 'Etc/UTC',
-        serverTimeZoneDisplayName: 'Coordinated Universal Time',
-        lastAnalyticsTableSuccess: '2021-09-18T10:24:03.536',
-        intervalSinceLastAnalyticsTableSuccess: '429 h, 42 m, 11 s',
-        lastAnalyticsTableRuntime: '520835',
-        lastSystemMonitoringSuccess: '2019-03-26T17:07:15.418',
-        version: '2.38-SNAPSHOT',
-        revision: '6607c3c',
-        buildTime: '2021-10-05T17:13:00.000',
-        jasperReportsVersion: '6.3.1',
-        environmentVariable: 'DHIS2_HOME',
-        databaseInfo: {
-            spatialSupport: true,
-        },
-        encryption: false,
-        emailConfigured: false,
-        redisEnabled: false,
-        systemId: 'eed3d451-4ff5-4193-b951-ffcc68954299',
-        systemName: 'DHIS 2 Demo - Sierra Leone',
-        instanceBaseUrl: 'https://debug.dhis2.org/dev',
-        clusterHostname: '',
-        isMetadataVersionEnabled: true,
-        metadataSyncEnabled: false,
-    },
     'systemSettings/applicationTitle': {
         applicationTitle,
     },
@@ -379,10 +348,78 @@ export const createDecoratorCustomDataProviderHeaderBar = (
 }
 
 export const providerConfig = {
+    appName: 'TestApp',
+    appVersion: {
+        full: '101.2.3-beta.4',
+        major: 101,
+        minor: 2,
+        patch: 3,
+        tag: 'beta.4',
+    },
+    serverVersion: {
+        full: '2.39.2.1-SNAPSHOT',
+        major: 2,
+        minor: 39,
+        patch: 2,
+        hotfix: 1,
+        tag: 'SNAPSHOT'
+    },
+    systemInfo: {
+        contextPath: 'https://debug.dhis2.org/dev',
+        userAgent:
+            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36',
+        calendar: 'iso8601',
+        dateFormat: 'yyyy-mm-dd',
+        serverDate: '2021-10-06T08:06:15.256',
+        serverTimeZoneId: 'Etc/UTC',
+        serverTimeZoneDisplayName: 'Coordinated Universal Time',
+        lastAnalyticsTableSuccess: '2021-09-18T10:24:03.536',
+        intervalSinceLastAnalyticsTableSuccess: '429 h, 42 m, 11 s',
+        lastAnalyticsTableRuntime: '520835',
+        lastSystemMonitoringSuccess: '2019-03-26T17:07:15.418',
+        version: '2.38-SNAPSHOT',
+        revision: '6607c3c',
+        buildTime: '2021-10-05T17:13:00.000',
+        jasperReportsVersion: '6.3.1',
+        environmentVariable: 'DHIS2_HOME',
+        databaseInfo: {
+            spatialSupport: true,
+        },
+        encryption: false,
+        emailConfigured: false,
+        redisEnabled: false,
+        systemId: 'eed3d451-4ff5-4193-b951-ffcc68954299',
+        systemName: 'DHIS 2 Demo - Sierra Leone',
+        instanceBaseUrl: 'https://debug.dhis2.org/dev',
+        clusterHostname: '',
+        isMetadataVersionEnabled: true,
+        metadataSyncEnabled: false,
+    },
     baseUrl: 'https://domain.tld/',
     apiVersion: '',
 }
 
+const MockAlert = ({ alert }) => {
+    useEffect(() => {
+        if (alert.options?.duration) {
+            setTimeout(() => alert.remove(), alert.options?.duration)
+        }
+    }, [alert])
+    return <div style={{ backgroundColor: '#CCC', padding: 8 }}>{alert.message}</div>
+}
+const MocklAlertStack = () => {
+    const alerts = useAlerts()
+
+    return <div style={{ position: 'absolute', bottom: 16, right: 16 }}>
+        {alerts.map((alert) => 
+            <MockAlert key={alert.id} alert={alert} />
+        )}
+    </div>
+}
+
 export const createDecoratorProvider = (config) => {
-    return (fn) => <Provider config={config || providerConfig}>{fn()}</Provider>
+    return (fn) => <Provider config={config || providerConfig}>
+        {fn()}
+        <MocklAlertStack />
+    </Provider>
 }

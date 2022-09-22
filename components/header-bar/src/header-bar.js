@@ -32,8 +32,9 @@ const query = {
     },
 }
 
-export const HeaderBar = ({ appName, appVersion, className }) => {
+export const HeaderBar = ({ appName, className }) => {
     const {
+        appName: configAppName,
         baseUrl,
         pwaEnabled,
         headerbar: { showOnlineStatus } = {},
@@ -70,7 +71,7 @@ export const HeaderBar = ({ appName, appVersion, className }) => {
                         <Logo />
 
                         <Title
-                            app={appName}
+                            app={appName || configAppName}
                             instance={data.title.applicationTitle}
                         />
 
@@ -94,8 +95,6 @@ export const HeaderBar = ({ appName, appVersion, className }) => {
                             email={data.user.email}
                             avatarId={data.user.avatar?.id}
                             helpUrl={data.help.helpPageLink}
-                            appName={appName}
-                            appVersion={appVersion}
                         />
                     </>
                 )}
@@ -126,6 +125,5 @@ export const HeaderBar = ({ appName, appVersion, className }) => {
 
 HeaderBar.propTypes = {
     appName: PropTypes.string,
-    appVersion: PropTypes.string,
     className: PropTypes.string,
 }

@@ -1,59 +1,25 @@
 import { MenuItem } from '@dhis2-ui/menu'
+import { useAlert, useConfig } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useCallback } from 'react'
 import { resolve } from 'styled-jsx/css'
-import i18n from '../locales/index.js'
-import { useInstanceInfo } from './use-instance-info.js'
-
-const InstanceInfo = ({ instanceData }) => {
-    const { version, revision } = instanceData
-
-    return (
-        <>
-            <span className="version">
-                {i18n.t('DHIS2 {{version}}', { version })}
-            </span>
-
-            {', '}
-
-            <span className="build">{`${i18n.t('Build')} ${revision}`}</span>
-
-            <style jsx>{`
-                .version,
-                .build {
-                    white-space: nowrap;
-                }
-            `}</style>
-        </>
-    )
-}
-
-InstanceInfo.propTypes = {
-    instanceData: PropTypes.shape({
-        revision: PropTypes.string.isRequired,
-        version: PropTypes.string.isRequired,
-    }).isRequired,
-}
 
 const menuItemWithBorderTopStyles = resolve`
     li {
-        border-top: 1px solid ${colors.grey400};
+        border-top: 1px solid ${colors.grey300};
         color: ${colors.grey700};
+        font-style: italic;
         font-size: 14px;
         line-height: 17px;
         user-select: auto;
     }
-
-    li:hover {
-        background-color: ${colors.white};
-        cursor: default;
-    }
 `
 
-const MenuItemWithBorderTop = ({ children }) => (
+const MenuItemWithBorderTop = ({ children, ...props }) => (
     <>
         <MenuItem
+            {...props}
             className={menuItemWithBorderTopStyles.className}
             label={children}
             dataTest="dhis2-ui-headerbar-instanceandappinfo"
@@ -67,42 +33,56 @@ MenuItemWithBorderTop.propTypes = {
     children: PropTypes.any.isRequired,
 }
 
-export const InstanceAndAppInfo = ({ appName, appVersion }) => {
-    const { loading, error, data } = useInstanceInfo()
+const useDebugInfo = () => {
+    const { appName, appVersion, systemInfo } = useConfig()
+    
+    return {
+        dhis2_version: systemInfo?.version || 'unknown',
+        dhis2_revision: systemInfo?.revision || 'unknown',
+        app_name: appName || 'App',
+        app_version: appVersion?.full || 'unknown',
+    }
+}
 
-    // Displays neither the error nor any
-    // other instance info when an error occurs
+const formatDebugInfo = debugInfo => 
+    Object.keys(debugInfo).map(key => `${key}: ${debugInfo[key]}`).join('\n')
+
+
+export const InstanceAndAppInfo = ({ hide }) => {
+    const { show: showClipboardAlert } = useAlert('Debug information copied to clipboard', { duration: 3000 })
+    const debugInfo = useDebugInfo()
+
+    const showDebugInfo = useCallback(() => {
+        navigator.clipboard.writeText(formatDebugInfo(debugInfo));
+        hide()
+        showClipboardAlert()
+
+    })
+
     return (
-        <MenuItemWithBorderTop>
+        <MenuItemWithBorderTop onClick={showDebugInfo}>
             <div
-                className="instance-infos"
+                className="instance-info version"
                 data-test="dhis2-ui-headerbar-instanceinfo"
             >
-                {loading && <div>{i18n.t('Checking DHIS2 version...')}</div>}
-
-                {error && (
-                    <div>
-                        {i18n.t('There was a problem getting DHIS2 version.')}
-                    </div>
-                )}
-
-                {!loading && !error && (
-                    <InstanceInfo instanceData={data.systemInfo} />
-                )}
+                {`DHIS2 ${debugInfo.dhis2_version}`}
             </div>
 
-            {appName && appVersion && (
+            {debugInfo.app_name && debugInfo.app_version && (
                 <div
-                    className="app-info"
+                    className="version"
                     data-test="dhis2-ui-headerbar-appinfo"
                 >
-                    {`${appName} ${appVersion}`}
+                    {`${debugInfo.app_name} ${debugInfo.app_version}`}
                 </div>
             )}
 
             <style jsx>{`
-                .instance-infos {
-                    margin-bottom: 6px;
+                .instance-info {
+                    margin-bottom: 4px;
+                }
+                .version {
+                    white-space: no-wrap;
                 }
             `}</style>
         </MenuItemWithBorderTop>

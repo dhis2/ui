@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react'
 import { ProfileMenu } from './profile-menu/index.js'
 import { useOnDocClick } from './profile/use-on-doc-click.js'
 
-const Profile = ({ name, email, avatarId, helpUrl, appName, appVersion }) => {
+const Profile = ({ name, email, avatarId, helpUrl }) => {
     const [show, setShow] = useState(false)
     const hide = () => setShow(false)
     const toggle = () => setShow(!show)
@@ -28,11 +28,10 @@ const Profile = ({ name, email, avatarId, helpUrl, appName, appVersion }) => {
             {show && (
                 <ProfileMenu
                     avatarId={avatarId}
-                    appName={appName}
-                    appVersion={appVersion}
                     name={name}
                     email={email}
                     helpUrl={helpUrl}
+                    hide={hide}
                 />
             )}
 
@@ -64,8 +63,6 @@ const Profile = ({ name, email, avatarId, helpUrl, appName, appVersion }) => {
 
 Profile.propTypes = {
     name: PropTypes.string.isRequired,
-    appName: PropTypes.string,
-    appVersion: PropTypes.string,
     avatarId: PropTypes.string,
     email: PropTypes.string,
     helpUrl: PropTypes.string,

@@ -33,12 +33,11 @@ const LoadingMask = () => (
 )
 
 const ProfileContents = ({
-    appName,
-    appVersion,
     name,
     email,
     avatarId,
     helpUrl,
+    hide,
 }) => {
     const { baseUrl } = useConfig()
     const [loading, setLoading] = useState(false)
@@ -108,8 +107,7 @@ const ProfileContents = ({
                         icon={<IconLogOut24 color={colors.grey700} />}
                     />
                     <InstanceAndAppInfo
-                        appName={appName}
-                        appVersion={appVersion}
+                        hide={hide}
                     />
                 </ul>
             </div>
@@ -141,30 +139,27 @@ const ProfileContents = ({
 }
 
 ProfileContents.propTypes = {
-    appName: PropTypes.string,
-    appVersion: PropTypes.string,
     avatarId: PropTypes.string,
     email: PropTypes.string,
     helpUrl: PropTypes.string,
     name: PropTypes.string,
+    hide: PropTypes.func,
 }
 
 export const ProfileMenu = ({
-    appName,
-    appVersion,
     avatarId,
     name,
     email,
     helpUrl,
+    hide,
 }) => (
     <div data-test="headerbar-profile-menu">
         <ProfileContents
-            appName={appName}
-            appVersion={appVersion}
             name={name}
             email={email}
             avatarId={avatarId}
             helpUrl={helpUrl}
+            hide={hide}
         />
         <style jsx>{`
             div {
@@ -180,10 +175,9 @@ export const ProfileMenu = ({
 )
 
 ProfileMenu.propTypes = {
-    appName: PropTypes.string,
-    appVersion: PropTypes.string,
     avatarId: PropTypes.string,
     email: PropTypes.string,
     helpUrl: PropTypes.string,
     name: PropTypes.string,
+    hide: PropTypes.func,
 }

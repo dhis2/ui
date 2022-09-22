@@ -1,6 +1,7 @@
 import { CustomDataProvider, Provider } from '@dhis2/app-runtime'
 import React from 'react'
 import { HeaderBar } from './header-bar.js'
+import { createDecoratorProvider, providerConfig } from './__e2e__/stories/common.js'
 
 const subtitle = 'The common navigation bar used in all DHIS2 apps'
 
@@ -18,43 +19,7 @@ import { HeaderBar } from '@dhis2/ui'
 \`\`\`
 `
 
-const mockConfig = {
-    baseUrl: 'https://debug.dhis2.org/dev/',
-    apiVersion: 33,
-}
-
 const customData = {
-    'system/info': {
-        contextPath: 'https://debug.dhis2.org/dev',
-        userAgent:
-            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36',
-        calendar: 'iso8601',
-        dateFormat: 'yyyy-mm-dd',
-        serverDate: '2021-10-06T08:06:15.256',
-        serverTimeZoneId: 'Etc/UTC',
-        serverTimeZoneDisplayName: 'Coordinated Universal Time',
-        lastAnalyticsTableSuccess: '2021-09-18T10:24:03.536',
-        intervalSinceLastAnalyticsTableSuccess: '429 h, 42 m, 11 s',
-        lastAnalyticsTableRuntime: '520835',
-        lastSystemMonitoringSuccess: '2019-03-26T17:07:15.418',
-        version: '2.38-SNAPSHOT',
-        revision: '6607c3c',
-        buildTime: '2021-10-05T17:13:00.000',
-        jasperReportsVersion: '6.3.1',
-        environmentVariable: 'DHIS2_HOME',
-        databaseInfo: {
-            spatialSupport: true,
-        },
-        encryption: false,
-        emailConfigured: false,
-        redisEnabled: false,
-        systemId: 'eed3d451-4ff5-4193-b951-ffcc68954299',
-        systemName: 'DHIS 2 Demo - Sierra Leone',
-        instanceBaseUrl: 'https://debug.dhis2.org/dev',
-        clusterHostname: '',
-        isMetadataVersionEnabled: true,
-        metadataSyncEnabled: false,
-    },
     'systemSettings/applicationTitle': {
         applicationTitle: 'Foobar',
     },
@@ -204,7 +169,9 @@ export default {
         componentSubtitle: subtitle,
         docs: { description: { component: description } },
     },
-    decorators: [(fn) => <Provider config={mockConfig}>{fn()}</Provider>],
+    decorators: [
+        createDecoratorProvider()
+    ],
 }
 
 export const Default = () => (
@@ -262,10 +229,7 @@ export const WithOnlineStatus = () => (
 )
 
 WithOnlineStatus.decorators = [
-    (fn) => {
-        const config = { ...mockConfig, pwaEnabled: true }
-        return <Provider config={config}>{fn()}</Provider>
-    },
+    createDecoratorProvider({ ...providerConfig, pwaEnabled: true }),
 ]
 
 WithOnlineStatus.parameters = {
@@ -286,14 +250,11 @@ export const WithLastOnlineInfo = () => (
 )
 
 WithLastOnlineInfo.decorators = [
-    (fn) => {
-        const config = {
-            ...mockConfig,
-            pwaEnabled: true,
-            headerbar: { onlineStatusInfo: 'LAST_ONLINE' },
-        }
-        return <Provider config={config}>{fn()}</Provider>
-    },
+    createDecoratorProvider({
+        ...providerConfig,
+        pwaEnabled: true,
+        headerbar: { onlineStatusInfo: 'LAST_ONLINE' },
+    }),
 ]
 
 WithLastOnlineInfo.parameters = {
