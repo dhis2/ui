@@ -378,7 +378,7 @@ export const providerConfig = {
         intervalSinceLastAnalyticsTableSuccess: '429 h, 42 m, 11 s',
         lastAnalyticsTableRuntime: '520835',
         lastSystemMonitoringSuccess: '2019-03-26T17:07:15.418',
-        version: '2.38-SNAPSHOT',
+        version: '2.39.2.1-SNAPSHOT',
         revision: '6607c3c',
         buildTime: '2021-10-05T17:13:00.000',
         jasperReportsVersion: '6.3.1',
