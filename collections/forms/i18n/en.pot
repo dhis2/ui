@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2022-09-22T21:15:51.388Z\n"
-"PO-Revision-Date: 2022-09-22T21:15:51.388Z\n"
+"POT-Creation-Date: 2022-02-11T13:37:19.312Z\n"
+"PO-Revision-Date: 2022-02-11T13:37:19.312Z\n"
 
 msgid "Upload file"
 msgstr "Upload file"
@@ -76,6 +76,9 @@ msgstr "Password should contain at least one number"
 msgid "Password should have at least one special character"
 msgstr "Password should have at least one special character"
 
+msgid "Please provide a username between 4 and 255 characters"
+msgstr "Please provide a username between 4 and 255 characters"
+
 msgid "Please provide a valid email address"
 msgstr "Please provide a valid email address"
 
@@ -96,11 +99,3 @@ msgstr "Please provide a string"
 
 msgid "Please provide a valid url"
 msgstr "Please provide a valid url"
-
-msgctxt " @ or #"
-msgid ""
-"Please provide a username between 4 and 255 characters long and possibly "
-"separated by . "
-msgstr ""
-"Please provide a username between 4 and 255 characters long and possibly "
-"separated by . _ @ or #"
