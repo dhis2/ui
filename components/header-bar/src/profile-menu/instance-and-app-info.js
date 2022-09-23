@@ -32,9 +32,10 @@ const formatDebugInfo = (debugInfo) =>
         .join('\n')
 
 export const InstanceAndAppInfo = ({ hideProfileMenu }) => {
-    const {
-        show: showClipboardAlert,
-    } = useAlert('Debug information copied to clipboard', { duration: 3000 })
+    const { show: showClipboardAlert } = useAlert(
+        'Debug information copied to clipboard',
+        { duration: 3000 }
+    )
     const debugInfo = useDebugInfo()
 
     const copyDebugInfo = () => {
@@ -67,16 +68,18 @@ export const InstanceAndAppInfo = ({ hideProfileMenu }) => {
         </>
     )
 
-    return <>
-        <MenuItem
-            dense
-            className={debugInfoMenuItemStyles.className}
-            onClick={copyDebugInfo}
-            label={debugInfoLabel}
-            dataTest="dhis2-ui-headerbar-instanceandappinfo"
-        />
-        {debugInfoMenuItemStyles.styles}
-    </>
+    return (
+        <>
+            <MenuItem
+                dense
+                className={debugInfoMenuItemStyles.className}
+                onClick={copyDebugInfo}
+                label={debugInfoLabel}
+                dataTest="dhis2-ui-headerbar-instanceandappinfo"
+            />
+            {debugInfoMenuItemStyles.styles}
+        </>
+    )
 }
 
 InstanceAndAppInfo.propTypes = {
