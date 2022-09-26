@@ -3501,7 +3501,7 @@
     "@dhis2/pwa" "8.0.0"
     moment "^2.24.0"
 
-"@dhis2/app-runtime@^3", "@dhis2/app-runtime@^3.0.0", "@dhis2/app-runtime@^3.2.0", "@dhis2/app-runtime@^3.2.5":
+"@dhis2/app-runtime@^3.2.0":
   version "3.2.5"
   resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-3.2.5.tgz#73ccd401f0559f563d5d82a666009ef7c1d451c2"
   integrity sha512-lzL2T3oO79Ju52rAPdBOYtjfnP1FEIqcAnywn4rtItRFROztrrMzONfAt3pqW6sRp+JOnEqljWPjwbF+OXuQcA==
@@ -3511,15 +3511,35 @@
     "@dhis2/app-service-data" "3.2.5"
     "@dhis2/app-service-offline" "3.2.5"
 
+"@dhis2/app-runtime@^3.4.4":
+  version "3.4.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-3.4.4.tgz#87202b82babe6e4b3f29f784e02a3b295960359c"
+  integrity sha512-GTj0H6TLVcw6zo0Vf9aDuPJbsjFfbNWN/SSC9/GF2a0foXdKVSCoc4H5+gW/RhBgYvaSZYwQBA6L+qBaQj7c0Q==
+  dependencies:
+    "@dhis2/app-service-alerts" "3.4.4"
+    "@dhis2/app-service-config" "3.4.4"
+    "@dhis2/app-service-data" "3.4.4"
+    "@dhis2/app-service-offline" "3.4.4"
+
 "@dhis2/app-service-alerts@3.2.5":
   version "3.2.5"
   resolved "https://registry.yarnpkg.com/@dhis2/app-service-alerts/-/app-service-alerts-3.2.5.tgz#008510fbe9dbccc1114ebbba0b880ad812f004e3"
   integrity sha512-oZuijTiko7+QF8xHWAqoJXqOxcd4FNpabmGNsWX1WD4kdMq22h7pHIXC9DLg7dYKbnlckihrzq4G9BvOHs/3Dg==
 
+"@dhis2/app-service-alerts@3.4.4":
+  version "3.4.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-alerts/-/app-service-alerts-3.4.4.tgz#ccd8848f416e976a01ea11bbbd6e1ae873136777"
+  integrity sha512-o2DHlZIHxJQ4XwJ9uIr0UpMTi3ZK0W6u+FkSnPGwrvF+MCFsxA0+pjN7PfBo4acCQHPBwTZzcyq0WYiEAJM7OA==
+
 "@dhis2/app-service-config@3.2.5":
   version "3.2.5"
   resolved "https://registry.yarnpkg.com/@dhis2/app-service-config/-/app-service-config-3.2.5.tgz#b2eb803a7d2585a2ecf193e9b196d988cbc286df"
   integrity sha512-/Bwig9iB9YctnG1dAhqsP3fip7QNFgkL5LW2HFTr73k/0KWknbG2ZtYfC4tzNn0cr+ay4x6aAmg3yI5km4OFxw==
+
+"@dhis2/app-service-config@3.4.4":
+  version "3.4.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-config/-/app-service-config-3.4.4.tgz#b5773138183bf339055957bdd1d24b54fecc404e"
+  integrity sha512-QCUfptfmwh3Xs16rr7DDTgMBuQIcJpt2CZEc6XROPYMgBBvN3sncA9Rzb7Jf+xblZwUWi0xuZ7PKs49FFS+5kQ==
 
 "@dhis2/app-service-data@3.2.5":
   version "3.2.5"
@@ -3528,10 +3548,24 @@
   dependencies:
     react-query "^3.13.11"
 
+"@dhis2/app-service-data@3.4.4":
+  version "3.4.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-data/-/app-service-data-3.4.4.tgz#028236463b82f998ff7bd44e811153f6c1408507"
+  integrity sha512-mJyaSRikY5noXHdpSm3pTPM/ga+6Jp7XgG62J0mSXsVbwYSOJSLQqcponXsTNwaX3IuQHLir83dXe06YjZq70Q==
+  dependencies:
+    react-query "^3.13.11"
+
 "@dhis2/app-service-offline@3.2.5":
   version "3.2.5"
   resolved "https://registry.yarnpkg.com/@dhis2/app-service-offline/-/app-service-offline-3.2.5.tgz#d19a152f078f4070aa18204acfd1cb160ce625b1"
   integrity sha512-iho9bXabT/VLEEHCT2bTRFk3Dyw8v0G9MMvUGl3tf2H7sXdH7CmDzmAvJR3s74sx+zNo1peVAcnPJS13DXRJ1g==
+  dependencies:
+    lodash "^4.17.21"
+
+"@dhis2/app-service-offline@3.4.4":
+  version "3.4.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-offline/-/app-service-offline-3.4.4.tgz#49d460b22c8eb8357aeef05aee8ed6f8a5c3a953"
+  integrity sha512-wBlaMh7rdlr9RQ02q5vADtk9ixFtfI5ywXmxCPiXPBRftahMqwUpGpD88KPIUpoSPRI0V2LYGv0XQm33+gmKnw==
   dependencies:
     lodash "^4.17.21"
 
