@@ -3,7 +3,6 @@ import { useAlert, useConfig } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { resolve } from 'styled-jsx/css'
 
 const useDebugInfo = () => {
     const { appName, appVersion, systemInfo } = useConfig()
@@ -22,9 +21,10 @@ const formatDebugInfo = (debugInfo) =>
         .join('\n')
 
 export const InstanceAndAppInfo = ({ hideProfileMenu }) => {
-    const {
-        show: showClipboardAlert,
-    } = useAlert('Debug information copied to clipboard', { duration: 3000 })
+    const { show: showClipboardAlert } = useAlert(
+        'Debug information copied to clipboard',
+        { duration: 3000 }
+    )
     const debugInfo = useDebugInfo()
 
     const copyDebugInfo = () => {
