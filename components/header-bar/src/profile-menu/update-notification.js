@@ -20,7 +20,7 @@ export function UpdateNotification({ hideProfileMenu }) {
             <div className="badge" />
             <div className="spacer" />
             <div className="message">
-                {i18n.t(`New ${appName} version available`)}
+                {i18n.t(`New {{appName}} version available`, { appName })}
                 <br />
                 {i18n.t('Click to reload')}
             </div>
