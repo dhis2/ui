@@ -16,28 +16,38 @@ export function UpdateNotification({ hideProfileMenu }) {
     }
 
     const updateNotificationLabel = (
-        <div
-            style={{
-                display: 'flex',
-                flexDirection: 'row',
-                alignItems: 'center',
-            }}
-        >
-            <div
-                style={{
-                    display: 'inline-block',
-                    width: 16,
-                    height: 16,
-                    borderRadius: 8,
-                    backgroundColor: colors.blue700,
-                    marginRight: 16,
-                }}
-            />
-            <div style={{ display: 'inline-block' }}>
+        <div className="root">
+            <div className="badge" />
+            <div className="spacer" />
+            <div className="message">
                 {i18n.t(`New ${appName} version available`)}
                 <br />
                 {i18n.t('Click to reload')}
             </div>
+            <style jsx>{`
+                .root {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    font-size: 14px;
+                    line-height: 17px;
+                }
+                .badge {
+                    display: inline-block;
+                    width: 12px;
+                    height: 12px;
+                    margin: 0 8px;
+                    border-radius: 6px;
+                    background-color: ${colors.blue600};
+                }
+                .spacer {
+                    display: inline-block;
+                    width: 8px;
+                }
+                .message {
+                    display: inline-block;
+                }
+            `}</style>
         </div>
     )
 

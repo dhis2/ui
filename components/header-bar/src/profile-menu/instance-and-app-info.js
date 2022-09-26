@@ -5,16 +5,6 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { resolve } from 'styled-jsx/css'
 
-const debugInfoMenuItemStyles = resolve`
-    li {
-        color: ${colors.grey700};
-        font-style: italic;
-        font-size: 14px;
-        line-height: 17px;
-        user-select: auto;
-    }
-`
-
 const useDebugInfo = () => {
     const { appName, appVersion, systemInfo } = useConfig()
 
@@ -32,10 +22,9 @@ const formatDebugInfo = (debugInfo) =>
         .join('\n')
 
 export const InstanceAndAppInfo = ({ hideProfileMenu }) => {
-    const { show: showClipboardAlert } = useAlert(
-        'Debug information copied to clipboard',
-        { duration: 3000 }
-    )
+    const {
+        show: showClipboardAlert,
+    } = useAlert('Debug information copied to clipboard', { duration: 3000 })
     const debugInfo = useDebugInfo()
 
     const copyDebugInfo = () => {
@@ -45,7 +34,7 @@ export const InstanceAndAppInfo = ({ hideProfileMenu }) => {
     }
 
     const debugInfoLabel = (
-        <>
+        <div className="root">
             <div
                 className="instance-info version"
                 data-test="dhis2-ui-headerbar-instanceinfo"
@@ -58,6 +47,12 @@ export const InstanceAndAppInfo = ({ hideProfileMenu }) => {
                 </div>
             )}
             <style jsx>{`
+                .root {
+                    color: ${colors.grey700};
+                    font-style: italic;
+                    font-size: 14px;
+                    line-height: 17px;
+                }
                 .instance-info {
                     margin-bottom: 4px;
                 }
@@ -65,20 +60,16 @@ export const InstanceAndAppInfo = ({ hideProfileMenu }) => {
                     white-space: no-wrap;
                 }
             `}</style>
-        </>
+        </div>
     )
 
     return (
-        <>
-            <MenuItem
-                dense
-                className={debugInfoMenuItemStyles.className}
-                onClick={copyDebugInfo}
-                label={debugInfoLabel}
-                dataTest="dhis2-ui-headerbar-instanceandappinfo"
-            />
-            {debugInfoMenuItemStyles.styles}
-        </>
+        <MenuItem
+            dense
+            onClick={copyDebugInfo}
+            label={debugInfoLabel}
+            dataTest="dhis2-ui-headerbar-instanceandappinfo"
+        />
     )
 }
 
