@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrganisationUnitNodeText getMatchingSegments handles a match at the end of a string 1`] = `
+Array [
+  "the quick brown fox jumps over the lazy ",
+  <span
+    className="highlight"
+  >
+    dog
+  </span>,
+]
+`;
+
+exports[`OrganisationUnitNodeText getMatchingSegments handles a match at the middle of a string 1`] = `
+Array [
+  "the quick brown ",
+  <span
+    className="highlight"
+  >
+    fox
+  </span>,
+  " jumps over the lazy dog",
+]
+`;
+
+exports[`OrganisationUnitNodeText getMatchingSegments handles a match at the start of a string 1`] = `
+Array [
+  <span
+    className="highlight"
+  >
+    the
+  </span>,
+  " quick brown fox jumps over ",
+  <span
+    className="highlight"
+  >
+    the
+  </span>,
+  " lazy dog",
+]
+`;
+
+exports[`OrganisationUnitNodeText getMatchingSegments handles multiple matches 1`] = `
+Array [
+  <span
+    className="highlight"
+  >
+    the
+  </span>,
+  " quick brown fox jumps over ",
+  <span
+    className="highlight"
+  >
+    the
+  </span>,
+  " lazy dog",
+]
+`;
+
+exports[`OrganisationUnitNodeText getMatchingSegments is case insensitive 1`] = `
+Array [
+  "the quick brown ",
+  <span
+    className="highlight"
+  >
+    FOX
+  </span>,
+  " jumps over the lazy dog",
+]
+`;
+
+exports[`OrganisationUnitNodeText getMatchingSegments treats spaces like regular characters 1`] = `
+Array [
+  "the ",
+  <span
+    className="highlight"
+  >
+    quick brown fox
+  </span>,
+  " jumps over the lazy dog",
+]
+`;
