@@ -1,3 +1,10 @@
+## [8.4.17](https://github.com/dhis2/ui/compare/v8.4.16...v8.4.17) (2022-09-28)
+
+
+### Bug Fixes
+
+* **forms:** allow usernames to contain single hyphens ([#1155](https://github.com/dhis2/ui/issues/1155)) ([907a916](https://github.com/dhis2/ui/commit/907a91697191654ca59c5333bc6150e483448853))
+
 ## [8.4.16](https://github.com/dhis2/ui/compare/v8.4.15...v8.4.16) (2022-09-20)
 
 
