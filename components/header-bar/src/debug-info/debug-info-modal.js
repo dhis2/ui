@@ -1,16 +1,11 @@
-import { useAlert, useConfig } from '@dhis2/app-runtime'
-import {
-    Button,
-    ButtonStrip,
-    Modal,
-    ModalActions,
-    ModalContent,
-    ModalTitle,
-} from '@dhis2/ui'
+import { Button, ButtonStrip } from '@dhis2-ui/button'
+import { Modal, ModalActions, ModalContent, ModalTitle } from '@dhis2-ui/modal'
+import { useAlert } from '@dhis2/app-runtime'
+import PropTypes from 'prop-types'
 import React from 'react'
-import i18n from '../locales'
-import { DebugInfoTable } from './debug-info-table'
-import { useFormattedDebugInfo } from './use-debug-info'
+import i18n from '../locales/index.js'
+import { DebugInfoTable } from './debug-info-table.js'
+import { useFormattedDebugInfo } from './use-debug-info.js'
 
 export function DebugInfoModal({ onClose }) {
     const debugInfo = useFormattedDebugInfo()
@@ -41,4 +36,8 @@ export function DebugInfoModal({ onClose }) {
             </ModalActions>
         </Modal>
     )
+}
+
+DebugInfoModal.propTypes = {
+    onClose: PropTypes.func.isRequired,
 }

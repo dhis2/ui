@@ -1,6 +1,6 @@
 import { colors } from '@dhis2/ui-constants'
 import React from 'react'
-import { useDebugInfo } from './use-debug-info'
+import { useDebugInfo } from './use-debug-info.js'
 
 const formatDebugInfoKey = (key) => {
     const tokens = key.split('_')

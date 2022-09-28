@@ -2,7 +2,7 @@ import { MenuItem } from '@dhis2-ui/menu'
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { useDebugInfo } from './use-debug-info'
+import { useDebugInfo } from './use-debug-info.js'
 
 export const DebugInfoMenuItem = ({ hideProfileMenu, showDebugInfoModal }) => {
     const debugInfo = useDebugInfo()

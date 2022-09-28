@@ -11,4 +11,5 @@ export const useDebugInfo = () => {
     }
 }
 
-export const useFormattedDebugInfo = () => JSON.stringify(useDebugInfo(), undefined, 2)
+export const useFormattedDebugInfo = () =>
+    JSON.stringify(useDebugInfo(), undefined, 2)
