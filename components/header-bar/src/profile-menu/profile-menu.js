@@ -15,9 +15,9 @@ import {
 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
+import { DebugInfoMenuItem } from '../debug-info/debug-info-menu-item.js'
 import { joinPath } from '../join-path.js'
 import i18n from '../locales/index.js'
-import { InstanceAndAppInfo } from './instance-and-app-info.js'
 import { ProfileHeader } from './profile-header.js'
 import { UpdateNotification } from './update-notification.js'
 
@@ -39,6 +39,7 @@ const ProfileContents = ({
     avatarId,
     helpUrl,
     hideProfileMenu,
+    showDebugInfoModal,
 }) => {
     const { baseUrl } = useConfig()
     const [loading, setLoading] = useState(false)
@@ -108,7 +109,10 @@ const ProfileContents = ({
                         icon={<IconLogOut24 color={colors.grey700} />}
                     />
                     <MenuDivider dense />
-                    <InstanceAndAppInfo hideProfileMenu={hideProfileMenu} />
+                    <DebugInfoMenuItem
+                        hideProfileMenu={hideProfileMenu}
+                        showDebugInfoModal={showDebugInfoModal}
+                    />
                     <UpdateNotification hideProfileMenu={hideProfileMenu} />
                 </ul>
             </div>
@@ -141,27 +145,16 @@ const ProfileContents = ({
 
 ProfileContents.propTypes = {
     hideProfileMenu: PropTypes.func.isRequired,
+    showDebugInfoModal: PropTypes.func.isRequired,
     avatarId: PropTypes.string,
     email: PropTypes.string,
     helpUrl: PropTypes.string,
     name: PropTypes.string,
 }
 
-export const ProfileMenu = ({
-    avatarId,
-    name,
-    email,
-    helpUrl,
-    hideProfileMenu,
-}) => (
+export const ProfileMenu = ({ ...props }) => (
     <div data-test="headerbar-profile-menu">
-        <ProfileContents
-            name={name}
-            email={email}
-            avatarId={avatarId}
-            helpUrl={helpUrl}
-            hideProfileMenu={hideProfileMenu}
-        />
+        <ProfileContents {...props} />
         <style jsx>{`
             div {
                 z-index: 10000;
@@ -177,6 +170,7 @@ export const ProfileMenu = ({
 
 ProfileMenu.propTypes = {
     hideProfileMenu: PropTypes.func.isRequired,
+    showDebugInfoModal: PropTypes.func.isRequired,
     avatarId: PropTypes.string,
     email: PropTypes.string,
     helpUrl: PropTypes.string,

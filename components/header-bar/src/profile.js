@@ -1,15 +1,20 @@
 import { UserAvatar } from '@dhis2-ui/user-avatar'
 import PropTypes from 'prop-types'
 import React, { useCallback, useRef, useState } from 'react'
+import { DebugInfoModal } from './debug-info/debug-info-modal.js'
 import { ProfileMenu } from './profile-menu/index.js'
 import { useOnDocClick } from './profile/use-on-doc-click.js'
 
 const Profile = ({ name, email, avatarId, helpUrl }) => {
-    const [show, setShow] = useState(false)
-    const hideProfileMenu = useCallback(() => setShow(false), [setShow])
+    const [showProfileMenu, setShowProfileMenu] = useState(false)
+    const [showDebugInfoModal, setShowDebugInfoModal] = useState(false)
+    const hideProfileMenu = useCallback(
+        () => setShowProfileMenu(false),
+        [setShowProfileMenu]
+    )
     const toggleProfileMenu = useCallback(
-        () => setShow((show) => !show),
-        [setShow]
+        () => setShowProfileMenu((show) => !show),
+        [setShowProfileMenu]
     )
     const containerRef = useRef(null)
 
@@ -33,13 +38,23 @@ const Profile = ({ name, email, avatarId, helpUrl }) => {
                 />
             </button>
 
-            {show && (
+            {showProfileMenu && (
                 <ProfileMenu
                     avatarId={avatarId}
                     name={name}
                     email={email}
                     helpUrl={helpUrl}
                     hideProfileMenu={hideProfileMenu}
+                    showDebugInfoModal={() => {
+                        setShowDebugInfoModal(true)
+                    }}
+                />
+            )}
+            {showDebugInfoModal && (
+                <DebugInfoModal
+                    onClose={() => {
+                        setShowDebugInfoModal(false)
+                    }}
                 />
             )}
 

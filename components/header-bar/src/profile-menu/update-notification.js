@@ -9,7 +9,6 @@ import i18n from '../locales/index.js'
 export function UpdateNotification({ hideProfileMenu }) {
     const { appName } = useConfig()
     const { updateAvailable, onApplyAvailableUpdate } = useHeaderBarContext()
-    console.log(updateAvailable)
     const onClick = () => {
         hideProfileMenu()
         onApplyAvailableUpdate?.()

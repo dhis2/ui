@@ -1,36 +1,15 @@
 import { MenuItem } from '@dhis2-ui/menu'
-import { useAlert, useConfig } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { useDebugInfo } from './use-debug-info'
 
-const useDebugInfo = () => {
-    const { appName, appVersion, systemInfo } = useConfig()
-
-    return {
-        dhis2_version: systemInfo?.version || 'unknown',
-        dhis2_revision: systemInfo?.revision || 'unknown',
-        app_name: appName || 'App',
-        app_version: appVersion?.full || 'unknown',
-    }
-}
-
-const formatDebugInfo = (debugInfo) =>
-    Object.keys(debugInfo)
-        .map((key) => `${key}: ${debugInfo[key]}`)
-        .join('\n')
-
-export const InstanceAndAppInfo = ({ hideProfileMenu }) => {
-    const { show: showClipboardAlert } = useAlert(
-        'Debug information copied to clipboard',
-        { duration: 3000 }
-    )
+export const DebugInfoMenuItem = ({ hideProfileMenu, showDebugInfoModal }) => {
     const debugInfo = useDebugInfo()
 
-    const copyDebugInfo = () => {
-        navigator.clipboard.writeText(formatDebugInfo(debugInfo))
+    const openDebugModal = () => {
         hideProfileMenu()
-        showClipboardAlert()
+        showDebugInfoModal()
     }
 
     const debugInfoLabel = (
@@ -66,13 +45,14 @@ export const InstanceAndAppInfo = ({ hideProfileMenu }) => {
     return (
         <MenuItem
             dense
-            onClick={copyDebugInfo}
+            onClick={openDebugModal}
             label={debugInfoLabel}
             dataTest="dhis2-ui-headerbar-instanceandappinfo"
         />
     )
 }
 
-InstanceAndAppInfo.propTypes = {
+DebugInfoMenuItem.propTypes = {
     hideProfileMenu: PropTypes.func.isRequired,
+    showDebugInfoModal: PropTypes.func.isRequired,
 }
