@@ -1,9 +1,7 @@
 import { UserAvatar } from '@dhis2-ui/user-avatar'
-import { useConfig } from '@dhis2/app-runtime'
+import { colors, spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { joinPath } from '../join-path.js'
-import i18n from '../locales/index.js'
 
 const ProfileName = ({ children }) => (
     <div data-test="headerbar-profile-username">
@@ -11,8 +9,7 @@ const ProfileName = ({ children }) => (
 
         <style jsx>{`
             div {
-                margin-bottom: 3px;
-                font-size: 16px;
+                font-size: 14px;
                 line-height: 19px;
             }
         `}</style>
@@ -28,9 +25,8 @@ const ProfileEmail = ({ children }) => (
 
         <style jsx>{`
             div {
-                margin-bottom: 6px;
                 font-size: 14px;
-                line-height: 16px;
+                line-height: 19px;
             }
         `}</style>
     </div>
@@ -39,47 +35,16 @@ ProfileEmail.propTypes = {
     children: PropTypes.string,
 }
 
-const ProfileEdit = ({ children }) => {
-    const { baseUrl } = useConfig()
-
-    return (
-        <a
-            href={joinPath(baseUrl, 'dhis-web-user-profile/#/profile')}
-            data-test="headerbar-profile-edit-profile-link"
-        >
-            {children}
-
-            <style jsx>{`
-                a {
-                    color: rgba(0, 0, 0, 0.87);
-                    font-size: 12px;
-                    line-height: 14px;
-                    text-decoration: underline;
-                    cursor: pointer;
-                }
-            `}</style>
-        </a>
-    )
-}
-
-ProfileEdit.propTypes = {
-    children: PropTypes.string,
-}
-
 const ProfileDetails = ({ name, email }) => (
     <div>
         <ProfileName>{name}</ProfileName>
         <ProfileEmail>{email}</ProfileEmail>
-        <ProfileEdit>{i18n.t('Edit profile')}</ProfileEdit>
 
         <style jsx>{`
             div {
                 display: flex;
                 flex-direction: column;
-                margin-left: 20px;
-                color: #000;
-                font-size: 14px;
-                font-weight: 400;
+                color: ${colors.grey900};
             }
         `}</style>
     </div>
@@ -90,22 +55,38 @@ ProfileDetails.propTypes = {
     name: PropTypes.string,
 }
 
-export const ProfileHeader = ({ name, email, avatarId }) => (
+const Avatar = ({ name, id }) => (
     <div>
         <UserAvatar
-            avatarId={avatarId}
+            avatarId={id}
             name={name}
             dataTest="headerbar-profile-menu-icon"
-            large
+            medium
         />
-        <ProfileDetails name={name} email={email} />
 
+        <style jsx>{`
+            flex-shrink: 0;
+        `}</style>
+    </div>
+)
+
+Avatar.propTypes = {
+    id: PropTypes.string,
+    name: PropTypes.string,
+}
+
+export const ProfileHeader = ({ name, email, avatarId }) => (
+    <div>
+        <Avatar name={name} avatarId={avatarId} />
+        <ProfileDetails name={name} email={email} />
         <style jsx>{`
             div {
                 display: flex;
                 flex-direction: row;
-                margin-left: 24px;
-                padding-top: 20px;
+                align-items: center;
+                gap: ${spacers.dp12};
+                margin-left: ${spacers.dp12};
+                padding: ${spacers.dp12} 0 ${spacers.dp16} 0;
             }
         `}</style>
     </div>

@@ -1,20 +1,22 @@
 import { Card } from '@dhis2-ui/card'
 import { Center } from '@dhis2-ui/center'
-import { Divider } from '@dhis2-ui/divider'
 import { Layer } from '@dhis2-ui/layer'
 import { CircularLoader } from '@dhis2-ui/loader'
-import { MenuItem } from '@dhis2-ui/menu'
+import { MenuItem, MenuSectionHeader } from '@dhis2-ui/menu'
 import { useConfig, clearSensitiveCaches } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import {
-    IconSettings24,
-    IconInfo24,
-    IconLogOut24,
-    IconUser24,
-    IconQuestion24,
+    IconSettings16,
+    IconMore16,
+    IconLock16,
+    IconLaunch16,
+    IconLogOut16,
+    IconUser16,
+    IconInfoFilled16,
 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
+import { resolve } from 'styled-jsx/css'
 import { joinPath } from '../join-path.js'
 import i18n from '../locales/index.js'
 import { ProfileHeader } from './profile-header.js'
@@ -31,6 +33,35 @@ const LoadingMask = () => (
     </Layer>
 )
 
+const infoItemStyles = resolve`
+    li {
+        color: ${colors.grey700};
+        font-size: 14px;
+        font-style: italic;
+        user-select: auto;
+    }
+    li:hover {
+        background-color: ${colors.white};
+        cursor: default;
+    }
+`
+
+const ProfileInfoItem = ({ children }) => (
+    <>
+        <MenuItem
+            dense
+            className={infoItemStyles.className}
+            label={children}
+            dataTest=""
+        />
+
+        {infoItemStyles.styles}
+    </>
+)
+ProfileInfoItem.propTypes = {
+    children: PropTypes.string,
+}
+
 const ProfileContents = ({ name, email, avatarId, helpUrl }) => {
     const { baseUrl } = useConfig()
     const [loading, setLoading] = useState(false)
@@ -39,44 +70,40 @@ const ProfileContents = ({ name, email, avatarId, helpUrl }) => {
         <Card>
             <div>
                 <ProfileHeader name={name} email={email} avatarId={avatarId} />
-                <Divider margin="13px 0 7px 0" />
+                {/* <Divider margin="13px 0 7px 0" /> */}
                 <ul data-test="headerbar-profile-menu">
                     <MenuItem
+                        dense
+                        href={joinPath(
+                            baseUrl,
+                            'dhis-web-user-profile/#/profile'
+                        )}
+                        label={i18n.t('Profile')}
+                        value="profile"
+                        icon={<IconUser16 color={colors.grey600} />}
+                    />
+                    <MenuItem
+                        dense
                         href={joinPath(
                             baseUrl,
                             'dhis-web-user-profile/#/settings'
                         )}
                         label={i18n.t('Settings')}
                         value="settings"
-                        icon={<IconSettings24 color={colors.grey700} />}
+                        icon={<IconSettings16 color={colors.grey600} />}
                     />
                     <MenuItem
+                        dense
                         href={joinPath(
                             baseUrl,
                             'dhis-web-user-profile/#/account'
                         )}
-                        label={i18n.t('Account')}
+                        label={i18n.t('Account security')}
                         value="account"
-                        icon={<IconUser24 color={colors.grey700} />}
-                    />
-                    {helpUrl && (
-                        <MenuItem
-                            href={helpUrl}
-                            label={i18n.t('Help')}
-                            value="help"
-                            icon={<IconQuestion24 color={colors.grey700} />}
-                        />
-                    )}
-                    <MenuItem
-                        href={joinPath(
-                            baseUrl,
-                            'dhis-web-user-profile/#/aboutPage'
-                        )}
-                        label={i18n.t('About DHIS2')}
-                        value="about"
-                        icon={<IconInfo24 color={colors.grey700} />}
+                        icon={<IconLock16 color={colors.grey600} />}
                     />
                     <MenuItem
+                        dense
                         href={joinPath(
                             baseUrl,
                             'dhis-web-commons-security/logout.action'
@@ -95,9 +122,49 @@ const ProfileContents = ({ name, email, avatarId, helpUrl }) => {
                                 )
                             )
                         }}
-                        label={i18n.t('Logout')}
+                        label={i18n.t('Log out')}
                         value="logout"
-                        icon={<IconLogOut24 color={colors.grey700} />}
+                        icon={<IconLogOut16 color={colors.grey600} />}
+                    />
+                    <MenuSectionHeader label="About" dense />
+                    {helpUrl && (
+                        <MenuItem
+                            dense
+                            href={helpUrl}
+                            label={i18n.t('DHIS2 documentation')}
+                            value="help"
+                            icon={<IconLaunch16 color={colors.grey600} />}
+                        />
+                    )}
+                    <MenuItem
+                        dense
+                        href={joinPath(
+                            baseUrl,
+                            'dhis-web-user-profile/#/aboutPage'
+                        )}
+                        label={i18n.t('About DHIS2')}
+                        value="about"
+                        icon={<IconMore16 color={colors.grey600} />}
+                    />
+                    <ProfileInfoItem>
+                        DHIS2 2.38, Build AAA00011
+                    </ProfileInfoItem>
+                    <MenuSectionHeader label="App" dense />
+                    <MenuItem
+                        dense
+                        href={helpUrl}
+                        label={i18n.t('App documentation')}
+                        value="app-help"
+                        icon={<IconLaunch16 color={colors.grey600} />}
+                    />
+                    <ProfileInfoItem>
+                        Data Visualizer 001.10101.AA
+                    </ProfileInfoItem>
+                    <MenuItem
+                        dense
+                        label="New app version available – Reload"
+                        value="new-version"
+                        icon={<IconInfoFilled16 color={colors.blue600} />}
                     />
                 </ul>
             </div>
@@ -113,15 +180,6 @@ const ProfileContents = ({ name, email, avatarId, helpUrl }) => {
                 ul {
                     padding: 0;
                     margin: 0;
-                }
-
-                a,
-                a:hover,
-                a:focus,
-                a:active,
-                a:visited {
-                    text-decoration: none;
-                    display: block;
                 }
             `}</style>
         </Card>
