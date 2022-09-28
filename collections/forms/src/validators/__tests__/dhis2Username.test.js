@@ -21,33 +21,37 @@ describe('validator: dhis2Username', () => {
         ])
     })
 
-    describe('does not allow usernames to start with _, . or @', () => {
+    describe('does not allow usernames to start with _, -, . or @', () => {
         testValidatorValues(dhis2Username, invalidUsernameMessage, [
             '_xxx',
+            '-xxx',
             '.xxx',
             '@xxx',
         ])
     })
 
-    describe('does not allow usernames to end with _, . or @', () => {
+    describe('does not allow usernames to end with _, -, . or @', () => {
         testValidatorValues(dhis2Username, invalidUsernameMessage, [
             'xxx_',
+            'xxx-',
             'xxx.',
             'xxx@',
         ])
     })
 
-    describe('does not allow usernames to contain __, .. or @@', () => {
+    describe('does not allow usernames to contain __, --, .. or @@', () => {
         testValidatorValues(dhis2Username, invalidUsernameMessage, [
-            '__xx',
-            '..xx',
-            '@@xx',
+            'xx__xx',
+            'xx--xx',
+            'xx..xx',
+            'xx@@xx',
         ])
     })
 
     describe('constrains characters in usernames to [a-z0-9._@]', () => {
         testValidatorValues(dhis2Username, undefined, [
             'v@lid_user.name',
+            'v@lid-user.name',
             '123another_v@lid_usern@me',
             'UPPER_CASE',
             'lower@ca.se',
