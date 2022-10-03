@@ -5,11 +5,35 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-09-02T19:24:35.672Z\n"
-"PO-Revision-Date: 2021-09-02T19:24:35.672Z\n"
+"POT-Creation-Date: 2022-10-03T12:12:05.437Z\n"
+"PO-Revision-Date: 2022-10-03T12:12:05.437Z\n"
 
 msgid "Search apps"
 msgstr "Search apps"
+
+msgid "DHIS2 {{dhis2Version}}"
+msgstr "DHIS2 {{dhis2Version}}"
+
+msgid "DHIS2 version unknown"
+msgstr "DHIS2 version unknown"
+
+msgid "{{appName}} version unknown"
+msgstr "{{appName}} version unknown"
+
+msgid "App {{appVersion}}"
+msgstr "App {{appVersion}}"
+
+msgid "App version unknown"
+msgstr "App version unknown"
+
+msgid "Debug info"
+msgstr "Debug info"
+
+msgid "Close"
+msgstr "Close"
+
+msgid "Copy debug info"
+msgstr "Copy debug info"
 
 msgid "Last online {{relativeTime}}"
 msgstr "Last online {{relativeTime}}"
@@ -37,3 +61,12 @@ msgstr "About DHIS2"
 
 msgid "Logout"
 msgstr "Logout"
+
+msgid "New {{appName}} version available"
+msgstr "New {{appName}} version available"
+
+msgid "New app version available"
+msgstr "New app version available"
+
+msgid "Click to reload"
+msgstr "Click to reload"

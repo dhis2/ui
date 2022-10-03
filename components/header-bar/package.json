@@ -33,8 +33,8 @@
         "styled-jsx": "^4"
     },
     "dependencies": {
-        "@dhis2/prop-types": "^3.1.2",
         "@dhis2-ui/box": "8.4.16",
+        "@dhis2-ui/button": "^8.4.16",
         "@dhis2-ui/card": "8.4.16",
         "@dhis2-ui/center": "8.4.16",
         "@dhis2-ui/divider": "8.4.16",
@@ -43,7 +43,9 @@
         "@dhis2-ui/loader": "8.4.16",
         "@dhis2-ui/logo": "8.4.16",
         "@dhis2-ui/menu": "8.4.16",
+        "@dhis2-ui/modal": "^8.4.16",
         "@dhis2-ui/user-avatar": "8.4.16",
+        "@dhis2/prop-types": "^3.1.2",
         "@dhis2/ui-constants": "8.4.16",
         "@dhis2/ui-icons": "8.4.16",
         "classnames": "^2.3.1",
