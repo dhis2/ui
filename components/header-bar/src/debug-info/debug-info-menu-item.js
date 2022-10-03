@@ -2,6 +2,7 @@ import { MenuItem } from '@dhis2-ui/menu'
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
+import i18n from '../locales/index.js'
 import { useDebugInfo } from './use-debug-info.js'
 
 export const DebugInfoMenuItem = ({ hideProfileMenu, showDebugInfoModal }) => {
@@ -18,13 +19,22 @@ export const DebugInfoMenuItem = ({ hideProfileMenu, showDebugInfoModal }) => {
                 className="instance-info version"
                 data-test="dhis2-ui-headerbar-instanceinfo"
             >
-                {`DHIS2 ${debugInfo.dhis2_version}`}
+                {debugInfo.dhis2_version
+                    ? i18n.t('DHIS2 {{dhis2Version}}', {
+                          dhis2Version: debugInfo.dhis2_version,
+                      })
+                    : i18n.t('DHIS2 version unknown')}
             </div>
-            {debugInfo.app_name && debugInfo.app_version && (
-                <div className="version" data-test="dhis2-ui-headerbar-appinfo">
-                    {`${debugInfo.app_name} ${debugInfo.app_version}`}
-                </div>
-            )}
+            <div className="version" data-test="dhis2-ui-headerbar-appinfo">
+                {debugInfo.app_name
+                    ? debugInfo.app_version
+                        ? `${debugInfo.app_name} ${debugInfo.app_version}`
+                        : i18n.t('{{appName}} version unknown', {
+                              appName: debugInfo.app_name,
+                          })
+                    : i18n.t('App version unknown')}
+                {}
+            </div>
             <style jsx>{`
                 .root {
                     color: ${colors.grey700};
@@ -47,7 +57,7 @@ export const DebugInfoMenuItem = ({ hideProfileMenu, showDebugInfoModal }) => {
             dense
             onClick={openDebugModal}
             label={debugInfoLabel}
-            dataTest="dhis2-ui-headerbar-instanceandappinfo"
+            dataTest="dhis2-ui-headerbar-debuginfo"
         />
     )
 }

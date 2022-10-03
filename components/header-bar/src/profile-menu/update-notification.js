@@ -19,7 +19,9 @@ export function UpdateNotification({ hideProfileMenu }) {
             <div className="badge" />
             <div className="spacer" />
             <div className="message">
-                {i18n.t(`New {{appName}} version available`, { appName })}
+                {appName
+                    ? i18n.t('New {{appName}} version available', { appName })
+                    : i18n.t('New app version available')}
                 <br />
                 {i18n.t('Click to reload')}
             </div>
@@ -51,7 +53,12 @@ export function UpdateNotification({ hideProfileMenu }) {
     )
 
     return updateAvailable ? (
-        <MenuItem dense onClick={onClick} label={updateNotificationLabel} />
+        <MenuItem
+            dense
+            onClick={onClick}
+            label={updateNotificationLabel}
+            dataTest="dhis2-ui-headerbar-updatenotification"
+        />
     ) : null
 }
 

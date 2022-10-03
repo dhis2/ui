@@ -4,10 +4,10 @@ export const useDebugInfo = () => {
     const { appName, appVersion, systemInfo } = useConfig()
 
     return {
-        app_name: appName || 'App',
-        app_version: appVersion?.full || 'unknown',
-        dhis2_version: systemInfo?.version || 'unknown',
-        dhis2_revision: systemInfo?.revision || 'unknown',
+        app_name: appName || null,
+        app_version: appVersion?.full || null,
+        dhis2_version: systemInfo?.version || null,
+        dhis2_revision: systemInfo?.revision || null,
     }
 }
 

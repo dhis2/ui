@@ -18,7 +18,7 @@ const formatDebugInfoKey = (key) => {
 export function DebugInfoTable() {
     const debugInfo = useDebugInfo()
     return (
-        <table>
+        <table {...{ 'data-test': 'dhis2-ui-headerbar-debuginfotable' }}>
             <tbody>
                 {Object.keys(debugInfo).map((key) => (
                     <tr key={key}>

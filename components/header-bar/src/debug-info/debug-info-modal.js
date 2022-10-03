@@ -21,7 +21,7 @@ export function DebugInfoModal({ onClose }) {
     }
 
     return (
-        <Modal position="middle">
+        <Modal position="middle" dataTest="dhis2-ui-headerbar-debuginfomodal">
             <ModalTitle>{i18n.t('Debug info')}</ModalTitle>
             <ModalContent>
                 <DebugInfoTable />
@@ -29,7 +29,11 @@ export function DebugInfoModal({ onClose }) {
             <ModalActions>
                 <ButtonStrip end>
                     <Button onClick={() => onClose()}>{i18n.t('Close')}</Button>
-                    <Button primary onClick={copyDebugInfo}>
+                    <Button
+                        primary
+                        onClick={copyDebugInfo}
+                        dataTest="dhis2-ui-headerbar-debuginfomodal-copybutton"
+                    >
                         {i18n.t('Copy debug info')}
                     </Button>
                 </ButtonStrip>

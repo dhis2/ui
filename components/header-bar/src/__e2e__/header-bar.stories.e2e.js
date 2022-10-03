@@ -15,3 +15,12 @@ export { UserHasWebMessagingAuthority } from './stories/user-has-web-messaging-a
 export { UserHasNoAuthorities } from './stories/user-has-no-authorities.js'
 export { ZeroUnreadInterpretations } from './stories/zero-unread-interpretations.js'
 export { ZeroUnreadMessages } from './stories/zero-unread-messages.js'
+export {
+    WithUpdateAvailableNotification,
+    WithUpdateAvailableNotificationNoAppName,
+} from './stories/with-update-available-notification.js'
+export {
+    WithUnknownInstanceVersion,
+    WithUnknownAppNameAndVersion,
+    WithUnknownAppVersion,
+} from './stories/with-debug-info-edge-cases.js'
