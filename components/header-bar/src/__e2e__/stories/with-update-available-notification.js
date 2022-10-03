@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import { HeaderBar } from '../../header-bar'
+import React, { useState } from 'react'
+import { HeaderBar } from '../../header-bar.js'
 import {
     createDecoratorCustomDataProviderHeaderBar,
     createDecoratorProvider,
     providerConfig,
-} from './common'
+} from './common.js'
 
 export const WithUpdateAvailableNotification = () => {
     const [modalOpen, setModalOpen] = useState(false)
