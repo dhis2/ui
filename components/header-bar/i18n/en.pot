@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2022-10-03T11:53:25.341Z\n"
-"PO-Revision-Date: 2022-10-03T11:53:25.341Z\n"
+"POT-Creation-Date: 2022-10-03T12:12:05.437Z\n"
+"PO-Revision-Date: 2022-10-03T12:12:05.437Z\n"
 
 msgid "Search apps"
 msgstr "Search apps"
@@ -19,6 +19,9 @@ msgstr "DHIS2 version unknown"
 
 msgid "{{appName}} version unknown"
 msgstr "{{appName}} version unknown"
+
+msgid "App {{appVersion}}"
+msgstr "App {{appVersion}}"
 
 msgid "App version unknown"
 msgstr "App version unknown"

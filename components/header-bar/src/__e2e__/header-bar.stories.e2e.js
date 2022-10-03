@@ -22,5 +22,6 @@ export {
 export {
     WithUnknownInstanceVersion,
     WithUnknownAppNameAndVersion,
+    WithUnknownAppName,
     WithUnknownAppVersion,
 } from './stories/with-debug-info-edge-cases.js'

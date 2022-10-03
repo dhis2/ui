@@ -32,6 +32,10 @@ export const DebugInfoMenuItem = ({ hideProfileMenu, showDebugInfoModal }) => {
                         : i18n.t('{{appName}} version unknown', {
                               appName: debugInfo.app_name,
                           })
+                    : debugInfo.app_version
+                    ? i18n.t('App {{appVersion}}', {
+                          appVersion: debugInfo.app_version,
+                      })
                     : i18n.t('App version unknown')}
                 {}
             </div>

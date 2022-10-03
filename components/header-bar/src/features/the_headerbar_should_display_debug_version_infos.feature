@@ -39,6 +39,12 @@ Feature: The HeaderBar should display debug version infos
         Then the instance version should be displayed
         And the unknown app with unknown version should be displayed
 
+    Scenario: The debug version infos are displayed with unknown app name in the profile menu
+        Given the HeaderBar is rendered without app name in runtime context
+        When the user opens the profile menu
+        Then the instance version should be displayed
+        And the unknown app with app's version should be displayed
+
     Scenario: The debug version infos are displayed with unknown app version in the profile menu
         Given the HeaderBar is rendered with an app name but without app version in runtime context
         When the user opens the profile menu

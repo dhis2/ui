@@ -14,6 +14,10 @@ Given(
     }
 )
 
+Given('the HeaderBar is rendered without app name in runtime context', () => {
+    cy.visitStory('HeaderBarTesting', 'With Unknown App Name')
+})
+
 Given(
     'the HeaderBar is rendered with an app name but without app version in runtime context',
     () => {
@@ -43,6 +47,13 @@ Then("the app's name with unknown version should be displayed", () => {
     cy.get('[data-test="dhis2-ui-headerbar-appinfo"]').should(
         'contain',
         'TestApp version unknown'
+    )
+})
+
+Then("the unknown app with app's version should be displayed", () => {
+    cy.get('[data-test="dhis2-ui-headerbar-appinfo"]').should(
+        'contain',
+        'App 101.2.3-beta.4'
     )
 })
 
