@@ -1,4 +1,8 @@
-import { useConfig, useOnlineStatus } from '@dhis2/app-runtime'
+import {
+    useConfig,
+    useOnlineStatus,
+    useOnlineStatusMessage,
+} from '@dhis2/app-runtime'
 import cx from 'classnames'
 import moment from 'moment'
 import PropTypes from 'prop-types'
@@ -6,7 +10,7 @@ import React from 'react'
 import i18n from './locales/index.js'
 import styles from './online-status.styles.js'
 
-const useOnlineStatusInfo = ({ online, lastOnline }) => {
+const useOnlineStatusInfo = ({ online, lastOnline, onlineStatusMessage }) => {
     const { headerbar } = useConfig()
 
     if (
@@ -18,7 +22,10 @@ const useOnlineStatusInfo = ({ online, lastOnline }) => {
             relativeTime: moment(lastOnline).fromNow(),
         })
     }
-    // todo: in the future, support 'CUSTOM' option
+
+    if (onlineStatusMessage) {
+        return onlineStatusMessage
+    }
 
     return null
 }
@@ -26,7 +33,13 @@ const useOnlineStatusInfo = ({ online, lastOnline }) => {
 /** A badge to display online/offline status in the header bar */
 export function OnlineStatus({ dense }) {
     const { online, lastOnline } = useOnlineStatus()
-    const info = useOnlineStatusInfo({ online, lastOnline })
+    const { onlineStatusMessage } = useOnlineStatusMessage()
+
+    const info = useOnlineStatusInfo({
+        online,
+        lastOnline,
+        onlineStatusMessage,
+    })
 
     const displayStatus = online ? i18n.t('Online') : i18n.t('Offline')
 

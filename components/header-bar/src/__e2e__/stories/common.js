@@ -66,7 +66,8 @@ export const defaultModules = [
         defaultAction:
             'https://debug.dhis2.org/dev/api/apps/WHO-Metadata-browser/index.html',
         displayName: '',
-        icon: 'https://debug.dhis2.org/dev/api/apps/WHO-Metadata-browser/icons/medicine-48.png',
+        icon:
+            'https://debug.dhis2.org/dev/api/apps/WHO-Metadata-browser/icons/medicine-48.png',
         description: '',
     },
     {
@@ -296,7 +297,8 @@ export const modulesWithSpecialCharacters = [
         defaultAction:
             'https://debug.dhis2.org/dev/api/apps/WHO-Metadata-browser/index.html',
         displayName: '',
-        icon: 'https://debug.dhis2.org/dev/api/apps/WHO-Metadata-browser/icons/medicine-48.png',
+        icon:
+            'https://debug.dhis2.org/dev/api/apps/WHO-Metadata-browser/icons/medicine-48.png',
         description: '',
     },
     {
@@ -431,9 +433,12 @@ const MocklAlertStack = () => {
     )
 }
 
-export const createDecoratorProvider = (config) => {
+export const createDecoratorProvider = (config, offlineInterface) => {
     return (fn) => (
-        <Provider config={config || providerConfig}>
+        <Provider
+            config={config || providerConfig}
+            offlineInterface={offlineInterface}
+        >
             {fn()}
             <MocklAlertStack />
         </Provider>
