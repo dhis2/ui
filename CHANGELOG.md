@@ -1,3 +1,10 @@
+# [8.5.0](https://github.com/dhis2/ui/compare/v8.4.17...v8.5.0) (2022-10-06)
+
+
+### Features
+
+* show version debug info and update notification in profile menu [LIBS-176] [LIBS-344] ([#1153](https://github.com/dhis2/ui/issues/1153)) ([9e23f18](https://github.com/dhis2/ui/commit/9e23f18d479497aec8c46d272d2754cefae5e147))
+
 ## [8.4.17](https://github.com/dhis2/ui/compare/v8.4.16...v8.4.17) (2022-09-28)
 
 
