@@ -1,16 +1,3 @@
-# [8.5.0-beta.2](https://github.com/dhis2/ui/compare/v8.5.0-beta.1...v8.5.0-beta.2) (2022-10-06)
-
-
-### Bug Fixes
-
-* **forms:** allow usernames to contain single hyphens ([#1155](https://github.com/dhis2/ui/issues/1155)) ([907a916](https://github.com/dhis2/ui/commit/907a91697191654ca59c5333bc6150e483448853))
-
-# [8.5.0-beta.1](https://github.com/dhis2/ui/compare/v8.4.16...v8.5.0-beta.1) (2022-10-03)
-
-
-### Features
-
-* show version debug info and update notification in profile menu [LIBS-176] [LIBS-344] ([#1153](https://github.com/dhis2/ui/issues/1153)) ([9e23f18](https://github.com/dhis2/ui/commit/9e23f18d479497aec8c46d272d2754cefae5e147))
 ## [8.4.17](https://github.com/dhis2/ui/compare/v8.4.16...v8.4.17) (2022-09-28)
 
 
