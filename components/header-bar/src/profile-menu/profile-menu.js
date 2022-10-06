@@ -3,8 +3,8 @@ import { Center } from '@dhis2-ui/center'
 import { Divider } from '@dhis2-ui/divider'
 import { Layer } from '@dhis2-ui/layer'
 import { CircularLoader } from '@dhis2-ui/loader'
-import { MenuItem } from '@dhis2-ui/menu'
-import { useConfig, clearSensitiveCaches } from '@dhis2/app-runtime'
+import { MenuDivider, MenuItem } from '@dhis2-ui/menu'
+import { clearSensitiveCaches, useConfig } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import {
     IconSettings24,
@@ -15,9 +15,11 @@ import {
 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
+import { DebugInfoMenuItem } from '../debug-info/debug-info-menu-item.js'
 import { joinPath } from '../join-path.js'
 import i18n from '../locales/index.js'
 import { ProfileHeader } from './profile-header.js'
+import { UpdateNotification } from './update-notification.js'
 
 const LoadingMask = () => (
     <Layer
@@ -31,7 +33,14 @@ const LoadingMask = () => (
     </Layer>
 )
 
-const ProfileContents = ({ name, email, avatarId, helpUrl }) => {
+const ProfileContents = ({
+    name,
+    email,
+    avatarId,
+    helpUrl,
+    hideProfileMenu,
+    showDebugInfoModal,
+}) => {
     const { baseUrl } = useConfig()
     const [loading, setLoading] = useState(false)
 
@@ -99,6 +108,12 @@ const ProfileContents = ({ name, email, avatarId, helpUrl }) => {
                         value="logout"
                         icon={<IconLogOut24 color={colors.grey700} />}
                     />
+                    <MenuDivider dense />
+                    <DebugInfoMenuItem
+                        hideProfileMenu={hideProfileMenu}
+                        showDebugInfoModal={showDebugInfoModal}
+                    />
+                    <UpdateNotification hideProfileMenu={hideProfileMenu} />
                 </ul>
             </div>
 
@@ -129,27 +144,24 @@ const ProfileContents = ({ name, email, avatarId, helpUrl }) => {
 }
 
 ProfileContents.propTypes = {
+    hideProfileMenu: PropTypes.func.isRequired,
+    showDebugInfoModal: PropTypes.func.isRequired,
     avatarId: PropTypes.string,
     email: PropTypes.string,
     helpUrl: PropTypes.string,
     name: PropTypes.string,
 }
 
-export const ProfileMenu = ({ avatarId, name, email, helpUrl }) => (
+export const ProfileMenu = ({ ...props }) => (
     <div data-test="headerbar-profile-menu">
-        <ProfileContents
-            name={name}
-            email={email}
-            avatarId={avatarId}
-            helpUrl={helpUrl}
-        />
+        <ProfileContents {...props} />
         <style jsx>{`
             div {
                 z-index: 10000;
                 position: absolute;
                 top: 34px;
                 right: -6px;
-                width: 310px;
+                width: 320px;
                 border-top: 4px solid transparent;
             }
         `}</style>
@@ -157,6 +169,8 @@ export const ProfileMenu = ({ avatarId, name, email, helpUrl }) => (
 )
 
 ProfileMenu.propTypes = {
+    hideProfileMenu: PropTypes.func.isRequired,
+    showDebugInfoModal: PropTypes.func.isRequired,
     avatarId: PropTypes.string,
     email: PropTypes.string,
     helpUrl: PropTypes.string,

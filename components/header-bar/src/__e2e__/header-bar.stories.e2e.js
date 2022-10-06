@@ -1,10 +1,6 @@
-import { HeaderBar } from '../index.js'
+import { HeaderBar as component } from '../index.js'
 
-export default {
-    title: 'HeaderBarTesting',
-    component: HeaderBar,
-}
-
+export default { title: 'HeaderBarTesting', component }
 export { Default } from './stories/default.js'
 export { ShowOnlineStatus } from './stories/show-online-status.js'
 export { PWAEnabled } from './stories/pwa-enabled.js'
@@ -19,3 +15,13 @@ export { UserHasWebMessagingAuthority } from './stories/user-has-web-messaging-a
 export { UserHasNoAuthorities } from './stories/user-has-no-authorities.js'
 export { ZeroUnreadInterpretations } from './stories/zero-unread-interpretations.js'
 export { ZeroUnreadMessages } from './stories/zero-unread-messages.js'
+export {
+    WithUpdateAvailableNotification,
+    WithUpdateAvailableNotificationNoAppName,
+} from './stories/with-update-available-notification.js'
+export {
+    WithUnknownInstanceVersion,
+    WithUnknownAppNameAndVersion,
+    WithUnknownAppName,
+    WithUnknownAppVersion,
+} from './stories/with-debug-info-edge-cases.js'
