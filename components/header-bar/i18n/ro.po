@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-02T19:24:35.672Z\n"
+"POT-Creation-Date: 2022-10-03T12:12:05.437Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
 "Last-Translator: Valeriu Plesca <vplesca@gmail.com>, 2022\n"
 "Language-Team: Romanian (https://www.transifex.com/hisp-uio/teams/100509/ro/)\n"
@@ -16,6 +16,30 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
 msgid "Search apps"
+msgstr ""
+
+msgid "DHIS2 {{dhis2Version}}"
+msgstr ""
+
+msgid "DHIS2 version unknown"
+msgstr ""
+
+msgid "{{appName}} version unknown"
+msgstr ""
+
+msgid "App {{appVersion}}"
+msgstr ""
+
+msgid "App version unknown"
+msgstr ""
+
+msgid "Debug info"
+msgstr ""
+
+msgid "Close"
+msgstr "Închidere"
+
+msgid "Copy debug info"
 msgstr ""
 
 msgid "Last online {{relativeTime}}"
@@ -43,4 +67,13 @@ msgid "About DHIS2"
 msgstr ""
 
 msgid "Logout"
+msgstr ""
+
+msgid "New {{appName}} version available"
+msgstr ""
+
+msgid "New app version available"
+msgstr ""
+
+msgid "Click to reload"
 msgstr ""
