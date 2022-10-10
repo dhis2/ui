@@ -19,7 +19,7 @@ msgid "Search apps"
 msgstr "Hledat aplikace"
 
 msgid "DHIS2 {{dhis2Version}}"
-msgstr ""
+msgstr "DHIS2 {{dhis2Version}}"
 
 msgid "DHIS2 version unknown"
 msgstr ""
