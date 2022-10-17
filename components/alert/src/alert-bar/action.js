@@ -5,7 +5,9 @@ import React, { Component } from 'react'
 class Action extends Component {
     onClick = (event) => {
         this.props.onClick(event)
-        this.props.hide(event)
+        if (this.props.hideOnClick) {
+            this.props.hide(event)
+        }
     }
 
     render() {
@@ -26,9 +28,14 @@ class Action extends Component {
     }
 }
 
+Action.defaultProps = {
+    hideOnClick: true
+}
+
 Action.propTypes = {
     dataTest: PropTypes.string.isRequired,
     hide: PropTypes.func.isRequired,
+    hideOnClick: PropTypes.boolean.isRequired,
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
 }
