@@ -31,33 +31,50 @@ Feature: The HeaderBar can display online status
         And the browser goes offline
         Then the status badge shows offline
 
-    # Additional text
+    # Online status message
 
-    Scenario: No additional status text is displayed by default
-        Given the HeaderBar loads without error when PWA is enabled
-        Then no info text is displayed
-        And the browser goes offline
-        Then no info text is displayed
+    Scenario: In the HeaderBar no online status message text is displayed if OfflineInterface does NOT have PWA enabled
+        Given the HeaderBar loads with OfflineInterface PWA NOT enabled
+        When an online status message is sent
+        Then no online status message text is displayed
 
-    Scenario: No additional status text is displayed by default on small screens
-        Given the HeaderBar loads without error when PWA is enabled
+    Scenario: In the HeaderBar no online status message text is displayed by default
+        Given the HeaderBar loads and is PWA enabled so online status messages will be visible
+        Then no online status message text is displayed
+
+    Scenario: In the HeaderBar the online status message text is displayed
+        Given the HeaderBar loads and is PWA enabled so online status messages will be visible
+        When an online status message is sent
+        Then an online status message is displayed
+
+    Scenario: In the HeaderBar the online status message text can be removed
+        Given the HeaderBar loads and is PWA enabled so online status messages will be visible
+        When an online status message is sent
+        Then an online status message is displayed
+        When an online status message is removed
+        Then no online status message text is displayed
+
+    # Online status message - small screens
+
+    Scenario: In the HeaderBar the online status message text can be set on small screens
+        Given the HeaderBar loads and is PWA enabled so online status messages will be visible
         And the viewport is narrower than 480px
-        Then no info text is displayed
-        And the browser goes offline
-        Then no info text is displayed
+        Then no online status message text is displayed
+        When an online status message is sent
+        Then an online status message is displayed with formatting for small screens
 
     # These tests can individually fail intermittently, disrupting CI.
     # Disabled for the time being:
 
     # Scenario: Last online text is displayed in status badge when configured and offline
     #     Given the HeaderBar loads without error with 'LAST_ONLINE' configured
-    #     Then no info text is displayed
+    #     Then no online status message text is displayed
     #     And the browser goes offline
     #     Then last online text is displayed in the status badge
 
     # Scenario: Last online text is displayed in status bar when configured and offline
     #     Given the HeaderBar loads without error with 'LAST_ONLINE' configured
     #     And the viewport is narrower than 480px
-    #     Then no info text is displayed
+    #     Then no online status message text is displayed
     #     And the browser goes offline
     #     Then last online text is displayed in the mobile status bar

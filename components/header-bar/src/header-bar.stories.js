@@ -1,10 +1,10 @@
-import { Button } from '@dhis2-ui/button'
-import { CustomDataProvider, useOnlineStatusMessage } from '@dhis2/app-runtime'
+import { CustomDataProvider } from '@dhis2/app-runtime'
 import React from 'react'
 import {
     createDecoratorProvider,
     providerConfig,
 } from './__e2e__/stories/common.js'
+import { OnlineStatusMessageUpdate } from './__e2e__/stories/online-status-message.js'
 import { HeaderBar } from './header-bar.js'
 
 const subtitle = 'The common navigation bar used in all DHIS2 apps'
@@ -271,29 +271,6 @@ export const WithUpdateNotification = () => (
         <HeaderBar appName="Data Visualizer" updateAvailable={true} />
     </CustomDataProvider>
 )
-
-const OnlineStatusMessageUpdate = () => {
-    const {
-        onlineStatusMessage,
-        setOnlineStatusMessage,
-    } = useOnlineStatusMessage()
-
-    const buttonLabel = !onlineStatusMessage
-        ? 'display online status message'
-        : 'remove online status message'
-
-    return (
-        <Button
-            onClick={() => {
-                setOnlineStatusMessage(
-                    !onlineStatusMessage ? '8 offline events' : ''
-                )
-            }}
-        >
-            {buttonLabel}
-        </Button>
-    )
-}
 
 export const WithOnlineStatusInfo = () => (
     <CustomDataProvider data={customData}>

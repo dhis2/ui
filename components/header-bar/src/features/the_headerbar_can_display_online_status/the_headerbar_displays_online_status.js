@@ -3,6 +3,7 @@ import {
     After,
     Given,
     Then,
+    When,
     And,
 } from 'cypress-cucumber-preprocessor/steps'
 import '../common/index.js'
@@ -49,7 +50,9 @@ const goOnline = () => {
         })
 }
 
-Before(() => goOnline())
+Before(() => {
+    goOnline()
+})
 After(() => goOnline())
 
 Given(
@@ -61,6 +64,24 @@ Given(
 
 Given('the HeaderBar loads without error when PWA is enabled', () => {
     cy.visitStory('HeaderBarTesting', 'PWA Enabled')
+})
+
+Given(
+    'the HeaderBar loads and is PWA enabled so online status messages will be visible',
+    () => {
+        cy.visitStory(
+            'HeaderBarTesting',
+            'Online Status Messaging With PWA Enabled'
+        )
+    }
+)
+
+Given('the HeaderBar loads with OfflineInterface PWA NOT enabled', () => {
+    cy.viewport(1000, 660)
+    cy.visitStory(
+        'HeaderBarTesting',
+        'Online Status Messaging With Offline Interface Pwa Disabled'
+    )
 })
 
 Given("the HeaderBar loads without error with 'LAST_ONLINE' configured", () => {
@@ -122,12 +143,37 @@ Then('the status badge shows offline', () => {
     )
 })
 
-Then('no info text is displayed', () => {
+Then('no online status message text is displayed', () => {
     cy.get('[data-test="headerbar-online-status"] .info').should('not.exist')
     cy.get('[data-test="headerbar-online-status"] .info-dense').should(
         'not.exist'
     )
 })
+
+When('an online status message is sent', () => {
+    cy.get('button').contains('display online status message').click()
+})
+
+When('an online status message is removed', () => {
+    cy.get('button').contains('remove online status message').click()
+})
+
+Then('an online status message is displayed', () => {
+    cy.get('[data-test="headerbar-online-status"] .info').should(
+        'include.text',
+        '8 offline events'
+    )
+})
+
+Then(
+    'an online status message is displayed with formatting for small screens',
+    () => {
+        cy.get('[data-test="headerbar-online-status"] .info-dense').should(
+            'include.text',
+            '8 offline events'
+        )
+    }
+)
 
 Then('last online text is displayed in the status badge', () => {
     cy.get('[data-test="headerbar-online-status"].badge .info').should(
