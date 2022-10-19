@@ -33,11 +33,6 @@ Feature: The HeaderBar can display online status
 
     # Online status message
 
-    Scenario: In the HeaderBar no online status message text is displayed if OfflineInterface does NOT have PWA enabled
-        Given the HeaderBar loads with OfflineInterface PWA NOT enabled
-        When an online status message is sent
-        Then no online status message text is displayed
-
     Scenario: In the HeaderBar no online status message text is displayed by default
         Given the HeaderBar loads and is PWA enabled so online status messages will be visible
         Then no online status message text is displayed

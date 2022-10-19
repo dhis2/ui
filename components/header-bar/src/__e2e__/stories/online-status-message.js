@@ -55,23 +55,3 @@ OnlineStatusMessagingWithPwaEnabled.decorators = [
         }
     ),
 ]
-
-export const OnlineStatusMessagingWithOfflineInterfacePwaDisabled = () => (
-    <OnlineStatusMessaging />
-)
-
-OnlineStatusMessagingWithOfflineInterfacePwaDisabled.decorators = [
-    createDecoratorCustomDataProviderHeaderBar(),
-    createDecoratorProvider(
-        {
-            ...providerConfig,
-            pwaEnabled: true,
-        },
-        {
-            pwaEnabled: false,
-            startRecording: async () => undefined,
-            getCachedSections: async () => [],
-            removeSection: async () => false,
-        }
-    ),
-]

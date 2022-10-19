@@ -4,10 +4,7 @@ export default { title: 'HeaderBarTesting', component }
 export { Default } from './stories/default.js'
 export { ShowOnlineStatus } from './stories/show-online-status.js'
 export { PWAEnabled } from './stories/pwa-enabled.js'
-export {
-    OnlineStatusMessagingWithPwaEnabled,
-    OnlineStatusMessagingWithOfflineInterfacePwaDisabled,
-} from './stories/online-status-message.js'
+export { OnlineStatusMessagingWithPwaEnabled } from './stories/online-status-message.js'
 export { WithLastOnline } from './stories/with-last-online.js'
 export { MeWithAvatar } from './stories/me-with-avatar.js'
 export { WithSpecialAppNameCharacters } from './stories/with-special-app-name-character.js'

@@ -76,14 +76,6 @@ Given(
     }
 )
 
-Given('the HeaderBar loads with OfflineInterface PWA NOT enabled', () => {
-    cy.viewport(1000, 660)
-    cy.visitStory(
-        'HeaderBarTesting',
-        'Online Status Messaging With Offline Interface Pwa Disabled'
-    )
-})
-
 Given("the HeaderBar loads without error with 'LAST_ONLINE' configured", () => {
     cy.visitStory('HeaderBarTesting', 'With Last Online')
 })
