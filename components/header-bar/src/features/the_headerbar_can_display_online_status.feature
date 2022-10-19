@@ -57,19 +57,3 @@ Feature: The HeaderBar can display online status
         Then no online status message text is displayed
         When an online status message is sent
         Then an online status message is displayed with formatting for small screens
-
-    # These tests can individually fail intermittently, disrupting CI.
-    # Disabled for the time being:
-
-    # Scenario: Last online text is displayed in status badge when configured and offline
-    #     Given the HeaderBar loads without error with 'LAST_ONLINE' configured
-    #     Then no online status message text is displayed
-    #     And the browser goes offline
-    #     Then last online text is displayed in the status badge
-
-    # Scenario: Last online text is displayed in status bar when configured and offline
-    #     Given the HeaderBar loads without error with 'LAST_ONLINE' configured
-    #     And the viewport is narrower than 480px
-    #     Then no online status message text is displayed
-    #     And the browser goes offline
-    #     Then last online text is displayed in the mobile status bar

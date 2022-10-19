@@ -76,10 +76,6 @@ Given(
     }
 )
 
-Given("the HeaderBar loads without error with 'LAST_ONLINE' configured", () => {
-    cy.visitStory('HeaderBarTesting', 'With Last Online')
-})
-
 And('the viewport is narrower than 480px', () => {
     cy.viewport(460, 660)
 })
