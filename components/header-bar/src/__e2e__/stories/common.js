@@ -66,8 +66,7 @@ export const defaultModules = [
         defaultAction:
             'https://debug.dhis2.org/dev/api/apps/WHO-Metadata-browser/index.html',
         displayName: '',
-        icon:
-            'https://debug.dhis2.org/dev/api/apps/WHO-Metadata-browser/icons/medicine-48.png',
+        icon: 'https://debug.dhis2.org/dev/api/apps/WHO-Metadata-browser/icons/medicine-48.png',
         description: '',
     },
     {
@@ -297,8 +296,7 @@ export const modulesWithSpecialCharacters = [
         defaultAction:
             'https://debug.dhis2.org/dev/api/apps/WHO-Metadata-browser/index.html',
         displayName: '',
-        icon:
-            'https://debug.dhis2.org/dev/api/apps/WHO-Metadata-browser/icons/medicine-48.png',
+        icon: 'https://debug.dhis2.org/dev/api/apps/WHO-Metadata-browser/icons/medicine-48.png',
         description: '',
     },
     {

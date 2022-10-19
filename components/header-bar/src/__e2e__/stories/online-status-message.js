@@ -9,10 +9,8 @@ import {
 } from './common.js'
 
 export const OnlineStatusMessageUpdate = () => {
-    const {
-        onlineStatusMessage,
-        setOnlineStatusMessage,
-    } = useOnlineStatusMessage()
+    const { onlineStatusMessage, setOnlineStatusMessage } =
+        useOnlineStatusMessage()
 
     const buttonLabel = !onlineStatusMessage
         ? 'display online status message'
