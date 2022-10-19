@@ -51,6 +51,7 @@ export default css`
 
     .icon {
         width: 8px;
+        min-width: 8px;
         height: 8px;
         border-radius: 8px;
         margin-right: ${spacers.dp4};
