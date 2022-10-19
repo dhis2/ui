@@ -75,6 +75,5 @@
         "rimraf": "^3.0.2",
         "styled-jsx": "^4.0.1",
         "wait-on": "^6.0.0"
-    },
-    "packageManager": "yarn@2.4.2"
+    }
 }
