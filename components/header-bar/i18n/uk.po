@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-02T19:24:35.672Z\n"
+"POT-Creation-Date: 2022-10-03T12:12:05.437Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
 "Last-Translator: Éva Tamási, 2022\n"
 "Language-Team: Ukrainian (https://www.transifex.com/hisp-uio/teams/100509/uk/)\n"
@@ -19,6 +19,30 @@ msgstr ""
 
 msgid "Search apps"
 msgstr "Пошук додатків"
+
+msgid "DHIS2 {{dhis2Version}}"
+msgstr ""
+
+msgid "DHIS2 version unknown"
+msgstr ""
+
+msgid "{{appName}} version unknown"
+msgstr ""
+
+msgid "App {{appVersion}}"
+msgstr ""
+
+msgid "App version unknown"
+msgstr ""
+
+msgid "Debug info"
+msgstr ""
+
+msgid "Close"
+msgstr "Закрити"
+
+msgid "Copy debug info"
+msgstr ""
 
 msgid "Last online {{relativeTime}}"
 msgstr "Останній раз онлайн {{relativeTime}}"
@@ -46,3 +70,12 @@ msgstr "Про DHIS2"
 
 msgid "Logout"
 msgstr "Вийти"
+
+msgid "New {{appName}} version available"
+msgstr ""
+
+msgid "New app version available"
+msgstr ""
+
+msgid "Click to reload"
+msgstr ""

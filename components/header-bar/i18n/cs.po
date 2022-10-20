@@ -22,25 +22,25 @@ msgid "DHIS2 {{dhis2Version}}"
 msgstr "DHIS2 {{dhis2Version}}"
 
 msgid "DHIS2 version unknown"
-msgstr ""
+msgstr "Verze DHIS2 neznámá"
 
 msgid "{{appName}} version unknown"
-msgstr ""
+msgstr "Neznámá verze aplikace {{appName}}"
 
 msgid "App {{appVersion}}"
-msgstr ""
+msgstr "Aplikace {{appVersion}}"
 
 msgid "App version unknown"
-msgstr ""
+msgstr "Verze aplikace neznámá"
 
 msgid "Debug info"
-msgstr ""
+msgstr "Informace o ladění"
 
 msgid "Close"
 msgstr "Zavřít"
 
 msgid "Copy debug info"
-msgstr ""
+msgstr "Zkopírovat informace o ladění"
 
 msgid "Last online {{relativeTime}}"
 msgstr "Poslední online {{relativeTime}}"
@@ -70,10 +70,10 @@ msgid "Logout"
 msgstr "Odhlásit"
 
 msgid "New {{appName}} version available"
-msgstr ""
+msgstr "K dispozici je nová verze aplikace {{appName}}"
 
 msgid "New app version available"
-msgstr ""
+msgstr "K dispozici nová verze aplikace"
 
 msgid "Click to reload"
-msgstr ""
+msgstr "Kliknutím znovu načtete"
