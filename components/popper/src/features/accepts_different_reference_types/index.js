@@ -41,7 +41,9 @@ Then(
             const referenceRect = $reference.get(0).getBoundingClientRect()
             const popperRect = $popper.get(0).getBoundingClientRect()
 
-            expect(referenceRect.bottom).to.equal(popperRect.top)
+            expect(Math.round(referenceRect.bottom)).to.equal(
+                Math.round(popperRect.top)
+            )
         })
     }
 )
