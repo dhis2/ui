@@ -26,6 +26,9 @@ Feature: The HeaderBar can display online status
         And the viewport is narrower than 480px
         Then the HeaderBar displays only the mobile status bar
 
+    # the following test has been know to fail when run locally and appears to be a know cypress issue
+    # https://github.com/cypress-io/cypress/issues/17723
+    # at time of writing the problem doesn't appear to happen on CI
     Scenario: The HeaderBar displays an offline status when offline
         Given the HeaderBar loads without error when PWA is enabled
         And the browser goes offline
