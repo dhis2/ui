@@ -1,3 +1,10 @@
+# [8.6.0](https://github.com/dhis2/ui/compare/v8.5.4...v8.6.0) (2022-10-21)
+
+
+### Features
+
+* **headerbar:** online/offline status messaging ([#1163](https://github.com/dhis2/ui/issues/1163)) ([ecde1e2](https://github.com/dhis2/ui/commit/ecde1e28feac498f48996f9c7a31bb1454a7d33d))
+
 ## [8.5.4](https://github.com/dhis2/ui/compare/v8.5.3...v8.5.4) (2022-10-20)
 
 

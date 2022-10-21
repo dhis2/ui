@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/selector-bar",
-    "version": "8.5.4",
+    "version": "8.6.0",
     "description": "UI Select",
     "repository": {
         "type": "git",
@@ -32,21 +32,21 @@
         "styled-jsx": "^4"
     },
     "dependencies": {
-        "@dhis2-ui/button": "8.5.4",
-        "@dhis2-ui/card": "8.5.4",
-        "@dhis2-ui/popper": "8.5.4",
-        "@dhis2-ui/layer": "8.5.4",
-        "@dhis2/ui-constants": "8.5.4",
-        "@dhis2/ui-icons": "8.5.4",
+        "@dhis2-ui/button": "8.6.0",
+        "@dhis2-ui/card": "8.6.0",
+        "@dhis2-ui/popper": "8.6.0",
+        "@dhis2-ui/layer": "8.6.0",
+        "@dhis2/ui-constants": "8.6.0",
+        "@dhis2/ui-icons": "8.6.0",
         "@testing-library/react": "^12.1.2",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },
     "devDependencies": {
-        "@dhis2-ui/css": "8.5.4",
-        "@dhis2-ui/menu": "8.5.4",
-        "@dhis2-ui/organisation-unit-tree": "8.5.4",
-        "@dhis2-ui/select": "8.5.4",
+        "@dhis2-ui/css": "8.6.0",
+        "@dhis2-ui/menu": "8.6.0",
+        "@dhis2-ui/organisation-unit-tree": "8.6.0",
+        "@dhis2-ui/select": "8.6.0",
         "@dhis2/d2-i18n": "^1.1.0",
         "@testing-library/jest-dom": "^5.16.1",
         "react": "16.13",
