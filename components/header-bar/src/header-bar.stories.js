@@ -4,6 +4,7 @@ import {
     createDecoratorProvider,
     providerConfig,
 } from './__e2e__/stories/common.js'
+import { OnlineStatusMessageUpdate } from './__e2e__/stories/online-status-message.js'
 import { HeaderBar } from './header-bar.js'
 
 const subtitle = 'The common navigation bar used in all DHIS2 apps'
@@ -238,31 +239,38 @@ WithOnlineStatus.parameters = {
     },
 }
 
-export const WithLastOnlineInfo = () => (
-    <CustomDataProvider data={customData}>
-        <HeaderBar appName="Exemple!" />
-    </CustomDataProvider>
-)
-
-WithLastOnlineInfo.decorators = [
-    createDecoratorProvider({
-        ...providerConfig,
-        pwaEnabled: true,
-        headerbar: { onlineStatusInfo: 'LAST_ONLINE' },
-    }),
-]
-
-WithLastOnlineInfo.parameters = {
-    docs: {
-        description: {
-            story: 'When offline, the status indicator will show text describing \
-                time since last online.',
-        },
-    },
-}
-
 export const WithUpdateNotification = () => (
     <CustomDataProvider data={customData}>
         <HeaderBar appName="Data Visualizer" updateAvailable={true} />
     </CustomDataProvider>
 )
+
+export const WithOnlineStatusMessage = () => (
+    <CustomDataProvider data={customData}>
+        <HeaderBar appName="Exemple!" />
+        <OnlineStatusMessageUpdate />
+    </CustomDataProvider>
+)
+
+WithOnlineStatusMessage.decorators = [
+    createDecoratorProvider(
+        {
+            ...providerConfig,
+            pwaEnabled: true,
+        },
+        {
+            pwaEnabled: true,
+            startRecording: async () => undefined,
+            getCachedSections: async () => [],
+            removeSection: async () => false,
+        }
+    ),
+]
+
+WithOnlineStatusMessage.parameters = {
+    docs: {
+        description: {
+            story: 'When online status is updated, the status indicator will show react node sent as the message',
+        },
+    },
+}

@@ -1,32 +1,14 @@
-import { useConfig, useOnlineStatus } from '@dhis2/app-runtime'
+import { useOnlineStatus, useOnlineStatusMessage } from '@dhis2/app-runtime'
 import cx from 'classnames'
-import moment from 'moment'
 import PropTypes from 'prop-types'
 import React from 'react'
 import i18n from './locales/index.js'
 import styles from './online-status.styles.js'
 
-const useOnlineStatusInfo = ({ online, lastOnline }) => {
-    const { headerbar } = useConfig()
-
-    if (
-        headerbar?.onlineStatusInfo === 'LAST_ONLINE' &&
-        !online &&
-        lastOnline
-    ) {
-        return i18n.t('Last online {{relativeTime}}', {
-            relativeTime: moment(lastOnline).fromNow(),
-        })
-    }
-    // todo: in the future, support 'CUSTOM' option
-
-    return null
-}
-
 /** A badge to display online/offline status in the header bar */
 export function OnlineStatus({ dense }) {
-    const { online, lastOnline } = useOnlineStatus()
-    const info = useOnlineStatusInfo({ online, lastOnline })
+    const { online } = useOnlineStatus()
+    const { onlineStatusMessage } = useOnlineStatusMessage()
 
     const displayStatus = online ? i18n.t('Online') : i18n.t('Offline')
 
@@ -35,13 +17,15 @@ export function OnlineStatus({ dense }) {
             className={cx('container', dense ? 'bar' : 'badge')}
             data-test="headerbar-online-status"
         >
-            {info && !dense && (
-                <span className="info unselectable">{info}</span>
+            {onlineStatusMessage && !dense && (
+                <span className="info unselectable">{onlineStatusMessage}</span>
             )}
             <div className={cx('icon', online ? 'online' : 'offline')}></div>
             <span className="label unselectable">{displayStatus}</span>
-            {info && dense && (
-                <span className="info-dense unselectable">{info}</span>
+            {onlineStatusMessage && dense && (
+                <span className="info-dense unselectable">
+                    {onlineStatusMessage}
+                </span>
             )}
             <style jsx>{styles}</style>
         </div>
