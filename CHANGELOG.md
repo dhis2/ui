@@ -1,3 +1,10 @@
+## [8.6.2](https://github.com/dhis2/ui/compare/v8.6.1...v8.6.2) (2022-11-08)
+
+
+### Bug Fixes
+
+* **sharing-dialog:** variable initialization error [LIBS-375] ([#1177](https://github.com/dhis2/ui/issues/1177)) ([38c4a8d](https://github.com/dhis2/ui/commit/38c4a8dfacbaf2631ba9738901034355a7522a66))
+
 ## [8.6.1](https://github.com/dhis2/ui/compare/v8.6.0...v8.6.1) (2022-10-26)
 
 
