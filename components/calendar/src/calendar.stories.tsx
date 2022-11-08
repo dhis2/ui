@@ -1,7 +1,7 @@
 import { Box } from '@dhis2-ui/box'
 import { calendars, customCalendars } from 'multi-calendar-dates'
 import React, { useRef, useState } from 'react'
-import { Calendar } from './calendar.js'
+import { Calendar } from './calendar'
 
 const subtitle = `[Experimental] Calendar component is useful for creating a variety of calendars including Ethiopic, Islamic etc..`
 const description = `
@@ -23,7 +23,14 @@ export default {
     },
 }
 
-const CalendarWrapper = ({ calendar, locale, timeZone, dir = 'ltr' }) => {
+const CalendarWrapper = ({
+    calendar,
+    locale,
+    numberingSystem,
+    timeZone,
+    dir = 'ltr',
+    children,
+}) => {
     const [selectedCalendar, setSelectedCalendar] = useState(calendar)
     const [selectedDirection, setSelectedDirection] = useState(dir)
     const ref = useRef(null)
@@ -111,7 +118,6 @@ export const Ethiopian = (args) => {
             locale="am-et"
             numberingSystem="ethi"
             timeZone="Europe/London"
-            {...args}
         />
     )
 }
@@ -122,7 +128,6 @@ export const CalendarInEnglish = (args) => {
             locale="en-GB"
             numberingSystem="ethi"
             timeZone="Europe/London"
-            {...args}
         />
     )
 }
@@ -135,7 +140,6 @@ export const IslamicCivil = (args) => {
             locale="ar-TN"
             numberingSystem="geor"
             timeZone="Africa/Khartoum"
-            {...args}
         />
     )
 }
@@ -145,7 +149,6 @@ export const Nepali = (args) => {
             calendar={customCalendars.nepali?.calendar}
             locale="ne-NP"
             timeZone="Africa/Khartoum"
-            {...args}
         />
     )
 }
@@ -156,7 +159,6 @@ export const NepaliEnglish = (args) => {
             calendar={customCalendars.nepali?.calendar}
             locale="ne-EN"
             timeZone="Africa/Khartoum"
-            {...args}
         />
     )
 }

@@ -20,19 +20,15 @@ exports.loadStories = () => {
 
     console.log(curcomp)
     console.log(constants)
+    const matchedStories = '*.stories.@(js|jsx|ts|tsx|mdx)'
+
     // if we run storybook in one component, we only want to serve a single one
     // and if we run storybook from the project root, we want to load the full shebang.
     switch (true) {
         case components.includes(curcomp): {
             console.info(`custom => Loading stories for '${curcomp}'`)
             return [
-                path.join(
-                    COMPONENTS_DIR,
-                    curcomp,
-                    'src',
-                    '**',
-                    '*.stories.@(js|jsx|mdx)'
-                ),
+                path.join(COMPONENTS_DIR, curcomp, 'src', '**', matchedStories),
             ]
         }
 
@@ -44,27 +40,18 @@ exports.loadStories = () => {
                     curcomp,
                     'src',
                     '**',
-                    '*.stories.@(js|jsx|mdx)'
+                    matchedStories
                 ),
             ]
         }
 
         case icons.includes(curcomp): {
             console.info(`custom => Loading stories for '${curcomp}'`)
-            return [
-                path.join(ICONS_DIR, 'src', '**', '*.stories.@(js|jsx|mdx)'),
-            ]
+            return [path.join(ICONS_DIR, 'src', '**', matchedStories)]
         }
         case constants.includes(curcomp): {
             console.info(`custom => Loading stories for '${curcomp}'`)
-            return [
-                path.join(
-                    CONSTANTS_DIR,
-                    'src',
-                    '**',
-                    '*.stories.@(js|jsx|mdx)'
-                ),
-            ]
+            return [path.join(CONSTANTS_DIR, 'src', '**', matchedStories)]
         }
 
         default: {
@@ -79,10 +66,10 @@ exports.loadStories = () => {
                       `${CONSTANTS_DIR}/src/**/*.stories.e2e.@(js|jsx)`,
                   ]
                 : [
-                      `${COLLECTIONS_DIR}/*/src/**/*.stories.@(js|jsx|mdx)`,
-                      `${COMPONENTS_DIR}/*/src/**/*.stories.@(js|jsx|mdx)`,
-                      `${ICONS_DIR}/src/**/*.stories.@(js|jsx|mdx)`,
-                      `${CONSTANTS_DIR}/src/**/*.stories.@(js|jsx|mdx)`,
+                      `${COLLECTIONS_DIR}/*/src/**/*.stories.@(js|jsx|ts|tsx|mdx)`,
+                      `${COMPONENTS_DIR}/*/src/**/*.stories.@(js|jsx|ts|tsx|mdx)`,
+                      `${ICONS_DIR}/src/**/*.stories.@(js|jsx|ts|tsx|mdx)`,
+                      `${CONSTANTS_DIR}/src/**/*.stories.@(js|jsx|ts|tsx|mdx)`,
                   ]
         }
     }

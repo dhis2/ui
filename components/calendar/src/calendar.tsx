@@ -1,9 +1,36 @@
-import cx from 'classnames'
-import { useDatePicker, useResolvedLocaleOptions } from 'multi-calendar-dates'
-import propTypes from 'prop-types'
 import React from 'react'
+import cx from 'classnames'
+import {
+    useDatePicker,
+    useResolvedLocaleOptions,
+    Temporal,
+    SupportedCalendar,
+    SupportedNumberingSystem,
+    SupportedTimeZone,
+} from 'multi-calendar-dates'
 
-export const Calendar = ({
+type SelectedDate = {
+    calendarDate: Temporal.ZonedDateTime
+    isoDate: Temporal.ZonedDateTime
+}
+type DatePickerProps = {
+    onDateSelect: (options: SelectedDate) => void
+    calendar: SupportedCalendar
+    locale: string
+    timeZone: SupportedTimeZone
+    numberingSystem?: SupportedNumberingSystem
+    initialDate?: string
+    showIsoDate?: boolean
+    dir?: 'rtl' | 'ltr'
+    styleOptions?: {
+        backgroundColor?: string
+        selectedDayBackgroundColor?: string
+        dayHoverBackgroundColor?: string
+        cellSize?: string
+    }
+}
+
+export const Calendar: React.FC<DatePickerProps> = ({
     onDateSelect,
     calendar,
     initialDate,
@@ -45,7 +72,7 @@ export const Calendar = ({
         prevMonth,
         prevYear,
         selectedDate,
-        // today,
+        today,
         weekDayLabels,
     } = useDatePicker({
         onDateSelect: ({ calendarDate, isoDate }) => {
@@ -58,7 +85,9 @@ export const Calendar = ({
             locale: resolvedLocale,
             calendar: resolvedOptions.calendar,
             timeZone: resolvedOptions.timeZone,
-            numberingSystem: numberingSystem || resolvedOptions.numberingSystem,
+            numberingSystem:
+                numberingSystem ||
+                (resolvedOptions.numberingSystem as SupportedNumberingSystem),
         },
     })
 
@@ -287,34 +316,4 @@ export const Calendar = ({
             `}</style>
         </div>
     )
-}
-
-Calendar.defaultProps = {
-    dir: 'ltr',
-    locale: 'en',
-    numberingSystem: 'geor',
-    showIsoDate: false,
-    styleOptions: {
-        backgroundColor: 'none',
-        selectedDayBackgroundColor: '#3003e1',
-        dayHoverBackgroundColor: '#e7edff',
-        cellSize: '40px',
-    },
-}
-
-Calendar.propTypes = {
-    calendar: propTypes.any.isRequired,
-    locale: propTypes.string.isRequired,
-    onDateSelect: propTypes.func.isRequired,
-    dir: propTypes.oneOf(['ltr', 'rtl']),
-    initialDate: propTypes.string,
-    numberingSystem: propTypes.string,
-    showIsoDate: propTypes.bool,
-    styleOptions: propTypes.shape({
-        backgroundColor: propTypes.string,
-        cellSize: propTypes.string,
-        dayHoverBackgroundColor: propTypes.string,
-        selectedDayBackgroundColor: propTypes.string,
-    }),
-    timeZone: propTypes.string,
 }

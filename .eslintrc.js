@@ -20,6 +20,13 @@ const config = {
             },
         },
         {
+            files: ['*.tsx', '*.ts'],
+            rules: {
+                'import/extensions': 'off',
+                'import/no-unresolved': 'off',
+            },
+        },
+        {
             files: [
                 'components/*/src/**/*.js',
                 'collections/*/src/**/*.js',
