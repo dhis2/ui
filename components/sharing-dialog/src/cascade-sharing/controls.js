@@ -38,7 +38,7 @@ export const Controls = ({ id, entityAmount }) => {
      * so we're using the engine directly as a workaround.
      */
 
-    const engine = useDataEngine(mutation)
+    const engine = useDataEngine()
     const [called, setCalled] = useState(false)
     const [mutating, setMutating] = useState(false)
     const [error, setError] = useState(null)
