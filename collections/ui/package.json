@@ -23,6 +23,7 @@
         "@dhis2-ui/alert": "8.7.7",
         "@dhis2-ui/box": "8.7.7",
         "@dhis2-ui/button": "8.7.7",
+        "@dhis2-ui/calendar": "8.7.7",
         "@dhis2-ui/card": "8.7.7",
         "@dhis2-ui/center": "8.7.7",
         "@dhis2-ui/checkbox": "8.7.7",

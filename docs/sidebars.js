@@ -45,6 +45,7 @@ const sidebars = {
                 'components/avatar',
                 'components/button',
                 'components/card',
+                'components/calendar',
                 'components/checkbox',
                 'components/chip',
                 'components/data-table',
