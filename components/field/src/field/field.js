@@ -1,7 +1,7 @@
 import { Box } from '@dhis2-ui/box'
 import { Help } from '@dhis2-ui/help'
 import { Label } from '@dhis2-ui/label'
-import { sharedPropTypes, spacers } from '@dhis2/ui-constants'
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -31,10 +31,7 @@ const Field = ({
             </Label>
         )}
 
-        <Box
-            dataTest={`${dataTest}-content`}
-            marginTop={label ? spacers.dp4 : '0'}
-        >
+        <Box dataTest={`${dataTest}-content`} marginTop={label ? '2px' : '0'}>
             {children}
         </Box>
 
