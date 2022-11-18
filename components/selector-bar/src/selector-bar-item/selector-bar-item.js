@@ -2,7 +2,11 @@ import { Card } from '@dhis2-ui/card'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
 import { colors, spacers } from '@dhis2/ui-constants'
-import { IconChevronUp24, IconChevronDown24 } from '@dhis2/ui-icons'
+import {
+    IconChevronUp24,
+    IconChevronDown24,
+    IconCross16,
+} from '@dhis2/ui-icons'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useRef } from 'react'
@@ -29,11 +33,13 @@ export const SelectorBarItem = ({
     className,
     dataTest,
     disabled,
+    displayOnly,
     label,
     noValueMessage,
     open,
     setOpen,
     value,
+    onClearSelectionClick,
 }) => {
     const buttonRef = useRef()
     const Icon = open ? IconChevronUp24 : IconChevronDown24
@@ -43,18 +49,30 @@ export const SelectorBarItem = ({
             ref={buttonRef}
             className={cx('selector-bar-item', className)}
             disabled={disabled}
-            onClick={() => setOpen(true)}
             data-test={dataTest}
         >
             <span className="label">{label}</span>
 
             {!disabled && (
-                <span className="value">{value || noValueMessage}</span>
+                <>
+                    <span className="value">{value || noValueMessage}</span>
+                    {value && onClearSelectionClick && (
+                        <span
+                            className="clear-icon"
+                            onClick={onClearSelectionClick}
+                            data-test={`${dataTest}-clear-icon`}
+                        >
+                            <IconCross16 />
+                        </span>
+                    )}
+                </>
             )}
 
-            <span className="toggle-icon">
-                <Icon />
-            </span>
+            {!displayOnly && (
+                <span className="toggle-icon" onClick={() => setOpen(true)}>
+                    <Icon />
+                </span>
+            )}
 
             {open && (
                 <Layer
@@ -76,7 +94,6 @@ export const SelectorBarItem = ({
             <style jsx>{`
                 .selector-bar-item {
                     display: flex;
-                    cursor: pointer;
                     background: none;
                     height: 40px;
                     align-items: center;
@@ -105,11 +122,26 @@ export const SelectorBarItem = ({
                     padding-left: ${spacers.dp8};
                 }
 
+                .clear-icon {
+                    display: flex;
+                    margin-left: ${spacers.dp4};
+                    align-items: center;
+                    background: ${colors.grey400};
+                    color: ${colors.white};
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+
+                .clear-icon:hover {
+                    background: ${colors.grey500};
+                }
+
                 .toggle-icon {
                     display: flex;
                     margin-left: ${spacers.dp4};
                     height: 100%;
                     align-items: center;
+                    cursor: pointer;
                 }
             `}</style>
         </button>
@@ -121,13 +153,15 @@ SelectorBarItem.defaultProps = {
 }
 
 SelectorBarItem.propTypes = {
-    children: PropTypes.any.isRequired,
     label: PropTypes.string.isRequired,
-    noValueMessage: PropTypes.string.isRequired,
-    open: PropTypes.bool.isRequired,
-    setOpen: PropTypes.func.isRequired,
+    children: PropTypes.any,
     className: PropTypes.string,
     dataTest: PropTypes.string,
     disabled: PropTypes.bool,
+    displayOnly: PropTypes.bool,
+    noValueMessage: PropTypes.string,
+    open: PropTypes.bool,
+    setOpen: PropTypes.func,
     value: PropTypes.string,
+    onClearSelectionClick: PropTypes.func,
 }
