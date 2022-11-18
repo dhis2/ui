@@ -69,7 +69,11 @@ export const SelectorBarItem = ({
             )}
 
             {!displayOnly && (
-                <span className="toggle-icon" onClick={() => setOpen(true)}>
+                <span
+                    className="toggle-icon"
+                    onClick={() => setOpen(true)}
+                    data-test={`${dataTest}-toggle-icon`}
+                >
                     <Icon />
                 </span>
             )}
