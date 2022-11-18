@@ -1,4 +1,4 @@
-import { colors, theme, sharedPropTypes } from '@dhis2/ui-constants'
+import { colors, spacers, theme, sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component, createRef } from 'react'
@@ -109,8 +109,8 @@ class Radio extends Component {
                         align-items: center;
                         justify-content: flex-start;
                         color: ${colors.grey900};
-                        font-size: 16px;
-                        line-height: 20px;
+                        font-size: 14px;
+                        line-height: 19px;
                     }
 
                     label.dense {
@@ -143,7 +143,7 @@ class Radio extends Component {
 
                     .icon {
                         user-select: none;
-                        margin-right: ${label ? '5px' : 0};
+                        margin-right: ${label ? spacers.dp4 : 0};
                         border: 2px solid transparent;
                         padding: 1px;
                         border-radius: 50%;
