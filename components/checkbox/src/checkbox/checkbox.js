@@ -1,5 +1,5 @@
 import { mutuallyExclusive } from '@dhis2/prop-types'
-import { colors, theme, sharedPropTypes } from '@dhis2/ui-constants'
+import { colors, spacers, theme, sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component, createRef } from 'react'
@@ -125,8 +125,8 @@ class Checkbox extends Component {
                         justify-content: flex-start;
                         cursor: pointer;
                         color: ${colors.grey900};
-                        font-size: 16px;
-                        line-height: 20px;
+                        font-size: 14px;
+                        line-height: 19px;
                     }
 
                     label.dense {
@@ -157,7 +157,7 @@ class Checkbox extends Component {
 
                     .icon {
                         user-select: none;
-                        margin-right: 5px;
+                        margin-right: ${spacers.dp4};
                         border: 2px solid transparent;
                         padding: 1px;
                         border-radius: 5px;

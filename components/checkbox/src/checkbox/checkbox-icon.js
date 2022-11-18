@@ -9,7 +9,7 @@ const commonStyles = css`
         pointer-events: none;
     }
     svg .border {
-        fill: ${colors.grey600};
+        fill: ${colors.grey800};
     }
     svg .background,
     svg .indeterminate,
@@ -19,7 +19,7 @@ const commonStyles = css`
 
     svg.checked .background,
     svg.indeterminate .background {
-        fill: ${colors.teal400};
+        fill: ${colors.teal500};
     }
     svg.valid .background {
         fill: ${colors.blue600};
@@ -29,6 +29,11 @@ const commonStyles = css`
     }
     svg.error .background {
         fill: ${colors.red500};
+    }
+
+    svg.checked .border,
+    svg.indeterminate .border {
+        fill: ${colors.teal900};
     }
 
     svg:not(.checked) .checkmark,
@@ -56,7 +61,7 @@ export function CheckboxRegular({ className }) {
                 rx="3"
             ></rect>
             <path
-                d="M3,0 L15,0 C16.6568542,0 18,1.34314575 18,3 L18,15 C18,16.6568542 16.6568542,18 15,18 L3,18 C1.34314575,18 0,16.6568542 0,15 L0,3 C0,1.34314575 1.34314575,0 3,0 Z M3,2 C2.44771525,2 2,2.44771525 2,3 L2,15 C2,15.5522847 2.44771525,16 3,16 L15,16 C15.5522847,16 16,15.5522847 16,15 L16,3 C16,2.44771525 15.5522847,2 15,2 L3,2 Z"
+                d="M15,0 C16.6568542,0 18,1.34314575 18,3 L18,15 C18,16.6568542 16.6568542,18 15,18 L3,18 C1.34314575,18 0,16.6568542 0,15 L0,3 C0,1.34314575 1.34314575,0 3,0 L15,0 Z M15,1 L3,1 C1.9456382,1 1.08183488,1.81587779 1.00548574,2.85073766 L1,3 L1,15 C1,16.0543618 1.81587779,16.9181651 2.85073766,16.9945143 L3,17 L15,17 C16.0543618,17 16.9181651,16.1841222 16.9945143,15.1492623 L17,15 L17,3 C17,1.9456382 16.1841222,1.08183488 15.1492623,1.00548574 L15,1 Z"
                 className="border"
             ></path>
             <path
@@ -76,10 +81,6 @@ export function CheckboxRegular({ className }) {
                 svg {
                     width: 18px;
                     height: 18px;
-                }
-                svg.checked .border,
-                svg.indeterminate .border {
-                    fill: ${colors.teal700};
                 }
 
                 svg.disabled .background {
@@ -129,7 +130,6 @@ export function CheckboxDense({ className }) {
         >
             <rect
                 className="background"
-                fill="#009688"
                 x="0"
                 y="0"
                 width="14"
@@ -139,16 +139,13 @@ export function CheckboxDense({ className }) {
             <path
                 d="M2,0 L12,0 C13.1045695,0 14,0.8954305 14,2 L14,12 C14,13.1045695 13.1045695,14 12,14 L2,14 C0.8954305,14 0,13.1045695 0,12 L0,2 C0,0.8954305 0.8954305,0 2,0 Z M2,1 C1.44771525,1 1,1.44771525 1,2 L1,12 C1,12.5522847 1.44771525,13 2,13 L12,13 C12.5522847,13 13,12.5522847 13,12 L13,2 C13,1.44771525 12.5522847,1 12,1 L2,1 Z"
                 className="border"
-                fill="#004D40"
             ></path>
             <path
                 d="M10.3520005,3.30015877 L5.54268293,8.03252726 L3.64634146,6.16652726 L2.28668615,7.5044281 L5.54310367,10.7010587 L11.7145993,4.628307 L10.3520005,3.30015877 Z M5.54268293,9.43547274 L5.61193184,9.36733181 L5.54226219,9.29894127 L5.47309681,9.367 L5.54268293,9.43547274 Z M10.6496329,4.41023392 L10.6495057,4.35652297 L10.5648412,4.35672356 L10.2854007,4.631693 L10.3553166,4.69984123 L10.6496329,4.41023392 Z M3.42891348,7.22439304 L3.35030905,7.22439304 L3.35034135,7.27820863 L3.64634146,7.56947274 L3.71331385,7.5035719 L3.42891348,7.22439304 Z"
                 className="checkmark"
-                fill="#FFFFFF"
             ></path>
             <rect
                 className="indeterminate"
-                fill="#FFFFFF"
                 x="3"
                 y="6"
                 width="8"
@@ -159,11 +156,6 @@ export function CheckboxDense({ className }) {
                 svg {
                     width: 14px;
                     height: 14px;
-                }
-
-                svg.checked .border,
-                svg.indeterminate .border {
-                    fill: ${colors.teal800};
                 }
 
                 svg.disabled .background {
