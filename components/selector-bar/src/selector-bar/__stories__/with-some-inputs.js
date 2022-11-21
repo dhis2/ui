@@ -80,6 +80,9 @@ export const WithSomeInputs = (
                 displayOnly={true}
                 label="Person"
                 value="John doe"
+                onClearSelectionClick={() => {
+                    alert('This selection would be cleared')
+                }}
             />
         </SelectorBar>
     )
