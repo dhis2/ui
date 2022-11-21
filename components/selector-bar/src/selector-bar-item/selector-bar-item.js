@@ -2,11 +2,7 @@ import { Card } from '@dhis2-ui/card'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
 import { colors, spacers } from '@dhis2/ui-constants'
-import {
-    IconChevronUp24,
-    IconChevronDown24,
-    IconCross16,
-} from '@dhis2/ui-icons'
+import { IconChevronUp24, IconChevronDown24 } from '@dhis2/ui-icons'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useRef } from 'react'
@@ -70,7 +66,15 @@ export const SelectorBarItem = ({
                             }}
                             data-test={`${dataTest}-clear-icon`}
                         >
-                            <IconCross16 />
+                            <svg
+                                width="14"
+                                height="14"
+                                viewBox="0 0 14 14"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path d="M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14ZM4.29289 4.29289C4.68342 3.90237 5.31658 3.90237 5.70711 4.29289L7 5.58579L8.29289 4.29289C8.68342 3.90237 9.31658 3.90237 9.70711 4.29289C10.0976 4.68342 10.0976 5.31658 9.70711 5.70711L8.41421 7L9.70711 8.29289C10.0976 8.68342 10.0976 9.31658 9.70711 9.70711C9.31658 10.0976 8.68342 10.0976 8.29289 9.70711L7 8.41421L5.70711 9.70711C5.31658 10.0976 4.68342 10.0976 4.29289 9.70711C3.90237 9.31658 3.90237 8.68342 4.29289 8.29289L5.58579 7L4.29289 5.70711C3.90237 5.31658 3.90237 4.68342 4.29289 4.29289Z" />
+                            </svg>
                         </span>
                     )}
                 </>
@@ -136,16 +140,17 @@ export const SelectorBarItem = ({
 
                 .clear-icon {
                     display: flex;
-                    margin-left: ${spacers.dp4};
                     align-items: center;
-                    background: ${colors.grey400};
-                    color: ${colors.white};
-                    border-radius: 50%;
+                    margin-left: ${spacers.dp4};
+                    padding: ${spacers.dp4};
                     cursor: pointer;
                 }
+                .clear-icon svg path {
+                    fill: ${colors.grey500};
+                }
 
-                .clear-icon:hover {
-                    background: ${colors.grey500};
+                .clear-icon:hover svg path {
+                    fill: ${colors.grey700};
                 }
 
                 .toggle-icon {
