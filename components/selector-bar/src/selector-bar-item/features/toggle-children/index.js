@@ -9,7 +9,7 @@ Given('the selector bar item is open', () => {
 })
 
 When('the user opens the selector bar item', () => {
-    cy.get('[data-test="dhis2-ui-selectorbaritem-toggle-icon"]').click()
+    cy.contains('Selection bar item', { selector: 'button' }).click()
 })
 
 When('the user closes the selector bar item', () => {

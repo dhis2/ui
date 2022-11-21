@@ -47,8 +47,13 @@ export const SelectorBarItem = ({
     return (
         <button
             ref={buttonRef}
-            className={cx('selector-bar-item', className)}
+            className={cx(
+                'selector-bar-item',
+                className,
+                !displayOnly ? 'pointer' : ''
+            )}
             disabled={disabled}
+            onClick={() => setOpen && setOpen(true)}
             data-test={dataTest}
         >
             <span className="label">{label}</span>
@@ -59,7 +64,10 @@ export const SelectorBarItem = ({
                     {value && onClearSelectionClick && (
                         <span
                             className="clear-icon"
-                            onClick={onClearSelectionClick}
+                            onClick={(evt) => {
+                                evt.stopPropagation()
+                                onClearSelectionClick()
+                            }}
                             data-test={`${dataTest}-clear-icon`}
                         >
                             <IconCross16 />
@@ -69,11 +77,7 @@ export const SelectorBarItem = ({
             )}
 
             {!displayOnly && (
-                <span
-                    className="toggle-icon"
-                    onClick={() => setOpen(true)}
-                    data-test={`${dataTest}-toggle-icon`}
-                >
+                <span className="toggle-icon">
                     <Icon />
                 </span>
             )}
@@ -114,6 +118,10 @@ export const SelectorBarItem = ({
                     box-shadow: 0px 0px 0px 1px ${colors.grey400};
                 }
 
+                .selector-bar-item.pointer {
+                    cursor: pointer;
+                }
+
                 .selector-bar-item:disabled {
                     cursor: not-allowed;
                 }
@@ -145,7 +153,6 @@ export const SelectorBarItem = ({
                     margin-left: ${spacers.dp4};
                     height: 100%;
                     align-items: center;
-                    cursor: pointer;
                 }
             `}</style>
         </button>
