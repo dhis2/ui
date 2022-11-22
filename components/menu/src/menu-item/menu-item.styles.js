@@ -8,18 +8,12 @@ export default css`
         padding: 0;
         cursor: pointer;
         list-style: none;
-        transition: background-color 150ms ease-in-out;
         background-color: ${colors.white};
         color: ${colors.grey900};
         fill: ${colors.grey900};
-        font-size: 15px;
-        line-height: 18px;
-        user-select: none;
-    }
-
-    li.dense {
         font-size: 14px;
         line-height: 16px;
+        user-select: none;
     }
 
     li:hover {
@@ -28,7 +22,7 @@ export default css`
 
     li:active,
     li.active {
-        background-color: ${colors.grey400};
+        background-color: ${colors.grey300};
     }
 
     li.destructive {
@@ -59,8 +53,8 @@ export default css`
         display: inline-flex;
         flex-grow: 1;
         align-items: center;
-        padding: 0 ${spacers.dp24};
-        min-height: 48px;
+        padding: 0 ${spacers.dp16};
+        min-height: 40px;
         text-decoration: none;
         color: inherit;
     }
@@ -88,23 +82,26 @@ export default css`
 
     .label {
         flex-grow: 1;
-        padding: 15px 0;
+        padding: ${spacers.dp12} 0;
     }
 
     li.dense .label {
-        padding: 8px 0;
+        padding: ${spacers.dp8} 0;
     }
 
     .icon {
         flex-grow: 0;
-        margin-right: ${spacers.dp16};
+        margin-right: ${spacers.dp12};
         width: 24px;
         height: 24px;
     }
 
     .chevron {
+        display: flex;
+        align-items: center;
         flex-grow: 0;
-        margin-left: ${spacers.dp48};
+        margin-left: ${spacers.dp24};
+        margin-right: -${spacers.dp12};
     }
 
     li.dense .icon {
