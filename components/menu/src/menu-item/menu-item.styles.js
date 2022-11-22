@@ -101,7 +101,6 @@ export default css`
         align-items: center;
         flex-grow: 0;
         margin-left: ${spacers.dp24};
-        margin-right: -${spacers.dp12};
     }
 
     li.dense .icon {

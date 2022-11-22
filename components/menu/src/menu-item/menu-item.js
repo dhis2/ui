@@ -50,7 +50,7 @@ const MenuItem = ({
                     disabled,
                     dense,
                     active: active || showSubMenu,
-                    'with-chevron': chevron,
+                    'with-chevron': children || chevron,
                 })}
                 ref={menuItemRef}
                 data-test={dataTest}
