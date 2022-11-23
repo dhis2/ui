@@ -37,12 +37,14 @@ import { SelectorBarItem } from '@dhis2-ui/selector-bar'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|children|any||*||
 |label|string||*||
-|noValueMessage|string||*||
-|open|boolean||*||
-|setOpen|function||*||
+|children|any||||
 |className|string||||
 |dataTest|string|`'dhis2-ui-selectorbaritem'`|||
 |disabled|boolean||||
+|displayOnly|boolean||||
+|noValueMessage|string||||
+|open|boolean||||
+|setOpen|function||||
 |value|string||||
+|onClearSelectionClick|function||||

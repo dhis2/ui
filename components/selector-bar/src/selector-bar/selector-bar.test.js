@@ -89,4 +89,36 @@ describe('SelectorBar', () => {
         const extraContent = screen.getByText('Foobar')
         expect(extraContent).not.toBeNull()
     })
+
+    it('should render the displayOnly value', () => {
+        render(
+            <SelectorBar>
+                <SelectorBarItem
+                    displayOnly={true}
+                    label="Person"
+                    value="John doe"
+                />
+            </SelectorBar>
+        )
+
+        const value = screen.getByText('John doe')
+        expect(value).not.toBeNull()
+    })
+
+    it('should render the cross icon', () => {
+        render(
+            <SelectorBar>
+                <SelectorBarItem
+                    label="label"
+                    value="selected value"
+                    onClearSelectionClick={noop}
+                />
+            </SelectorBar>
+        )
+
+        const clearIcon = screen.getByTestId(
+            'dhis2-ui-selectorbaritem-clear-icon'
+        )
+        expect(clearIcon).not.toBeNull()
+    })
 })

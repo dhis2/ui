@@ -53,6 +53,9 @@ export const WithAdditionalContent = (
                 noValueMessage="Choose a workflow"
                 open={workflowOpen}
                 setOpen={setWorkflowOpen}
+                onClearSelectionClick={() => {
+                    setWorkflow(null)
+                }}
             >
                 <MenuSelect
                     values={workflows}
@@ -76,6 +79,9 @@ export const WithAdditionalContent = (
                 noValueMessage="Choose an organisation unit"
                 open={orgUnitOpen}
                 setOpen={setOrgUnitOpen}
+                onClearSelectionClick={() => {
+                    setOrgUnit(null)
+                }}
             >
                 <OrgUnitSelect
                     selected={orgUnit ? [orgUnit.path] : []}

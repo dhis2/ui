@@ -29,11 +29,13 @@ export const SelectorBarItem = ({
     className,
     dataTest,
     disabled,
+    displayOnly,
     label,
     noValueMessage,
     open,
     setOpen,
     value,
+    onClearSelectionClick,
 }) => {
     const buttonRef = useRef()
     const Icon = open ? IconChevronUp24 : IconChevronDown24
@@ -41,20 +43,48 @@ export const SelectorBarItem = ({
     return (
         <button
             ref={buttonRef}
-            className={cx('selector-bar-item', className)}
+            className={cx(
+                'selector-bar-item',
+                className,
+                !displayOnly ? 'openable' : ''
+            )}
             disabled={disabled}
-            onClick={() => setOpen(true)}
+            onClick={() => setOpen && setOpen(true)}
             data-test={dataTest}
         >
             <span className="label">{label}</span>
 
             {!disabled && (
-                <span className="value">{value || noValueMessage}</span>
+                <>
+                    <span className="value">{value || noValueMessage}</span>
+                    {value && onClearSelectionClick && (
+                        <span
+                            className="clear-icon"
+                            onClick={(evt) => {
+                                evt.stopPropagation()
+                                onClearSelectionClick()
+                            }}
+                            data-test={`${dataTest}-clear-icon`}
+                        >
+                            <svg
+                                width="14"
+                                height="14"
+                                viewBox="0 0 14 14"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path d="M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14ZM4.29289 4.29289C4.68342 3.90237 5.31658 3.90237 5.70711 4.29289L7 5.58579L8.29289 4.29289C8.68342 3.90237 9.31658 3.90237 9.70711 4.29289C10.0976 4.68342 10.0976 5.31658 9.70711 5.70711L8.41421 7L9.70711 8.29289C10.0976 8.68342 10.0976 9.31658 9.70711 9.70711C9.31658 10.0976 8.68342 10.0976 8.29289 9.70711L7 8.41421L5.70711 9.70711C5.31658 10.0976 4.68342 10.0976 4.29289 9.70711C3.90237 9.31658 3.90237 8.68342 4.29289 8.29289L5.58579 7L4.29289 5.70711C3.90237 5.31658 3.90237 4.68342 4.29289 4.29289Z" />
+                            </svg>
+                        </span>
+                    )}
+                </>
             )}
 
-            <span className="toggle-icon">
-                <Icon />
-            </span>
+            {!displayOnly && (
+                <span className="toggle-icon">
+                    <Icon />
+                </span>
+            )}
 
             {open && (
                 <Layer
@@ -76,7 +106,6 @@ export const SelectorBarItem = ({
             <style jsx>{`
                 .selector-bar-item {
                     display: flex;
-                    cursor: pointer;
                     background: none;
                     height: 40px;
                     align-items: center;
@@ -93,6 +122,10 @@ export const SelectorBarItem = ({
                     box-shadow: 0px 0px 0px 1px ${colors.grey400};
                 }
 
+                .selector-bar-item.openable {
+                    cursor: pointer;
+                }
+
                 .selector-bar-item:disabled {
                     cursor: not-allowed;
                 }
@@ -103,6 +136,21 @@ export const SelectorBarItem = ({
 
                 .value {
                     padding-left: ${spacers.dp8};
+                }
+
+                .clear-icon {
+                    display: flex;
+                    align-items: center;
+                    margin-left: ${spacers.dp4};
+                    padding: ${spacers.dp4};
+                    cursor: pointer;
+                }
+                .clear-icon svg path {
+                    fill: ${colors.grey500};
+                }
+
+                .clear-icon:hover svg path {
+                    fill: ${colors.grey700};
                 }
 
                 .toggle-icon {
@@ -121,13 +169,15 @@ SelectorBarItem.defaultProps = {
 }
 
 SelectorBarItem.propTypes = {
-    children: PropTypes.any.isRequired,
     label: PropTypes.string.isRequired,
-    noValueMessage: PropTypes.string.isRequired,
-    open: PropTypes.bool.isRequired,
-    setOpen: PropTypes.func.isRequired,
+    children: PropTypes.any,
     className: PropTypes.string,
     dataTest: PropTypes.string,
     disabled: PropTypes.bool,
+    displayOnly: PropTypes.bool,
+    noValueMessage: PropTypes.string,
+    open: PropTypes.bool,
+    setOpen: PropTypes.func,
     value: PropTypes.string,
+    onClearSelectionClick: PropTypes.func,
 }

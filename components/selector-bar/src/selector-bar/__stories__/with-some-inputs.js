@@ -37,6 +37,9 @@ export const WithSomeInputs = (
                 noValueMessage="Choose a workflow"
                 open={workflowOpen}
                 setOpen={setWorkflowOpen}
+                onClearSelectionClick={() => {
+                    setWorkflow(null)
+                }}
             >
                 <MenuSelect
                     values={workflows}
@@ -60,6 +63,9 @@ export const WithSomeInputs = (
                 noValueMessage="Choose an organisation unit"
                 open={orgUnitOpen}
                 setOpen={setOrgUnitOpen}
+                onClearSelectionClick={() => {
+                    setOrgUnit(null)
+                }}
             >
                 <OrgUnitSelect
                     selected={orgUnit ? [orgUnit.path] : []}
@@ -70,6 +76,14 @@ export const WithSomeInputs = (
                     }}
                 />
             </SelectorBarItem>
+            <SelectorBarItem
+                displayOnly={true}
+                label="Person"
+                value="John doe"
+                onClearSelectionClick={() => {
+                    alert('This selection would be cleared')
+                }}
+            />
         </SelectorBar>
     )
 }

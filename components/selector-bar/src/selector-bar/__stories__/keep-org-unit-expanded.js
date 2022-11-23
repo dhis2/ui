@@ -28,6 +28,9 @@ export const KeepOrgUnitExpanded = (
                     noValueMessage="Choose an organisation unit"
                     open={orgUnitOpen}
                     setOpen={setOrgUnitOpen}
+                    onClearSelectionClick={() => {
+                        setOrgUnit(null)
+                    }}
                 >
                     <div
                         style={{
