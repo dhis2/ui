@@ -1,3 +1,10 @@
+# [8.7.0](https://github.com/dhis2/ui/compare/v8.6.4...v8.7.0) (2022-11-23)
+
+
+### Features
+
+* **selection-bar-item:** [LIBS-371] display only and clear selection callback  ([#1187](https://github.com/dhis2/ui/issues/1187)) ([d741959](https://github.com/dhis2/ui/commit/d741959d337f627837b9504e406065b9d6c94906))
+
 ## [8.6.4](https://github.com/dhis2/ui/compare/v8.6.3...v8.6.4) (2022-11-17)
 
 
