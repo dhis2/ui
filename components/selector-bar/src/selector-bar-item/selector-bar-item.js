@@ -46,7 +46,7 @@ export const SelectorBarItem = ({
             className={cx(
                 'selector-bar-item',
                 className,
-                !displayOnly ? 'pointer' : ''
+                !displayOnly ? 'openable' : ''
             )}
             disabled={disabled}
             onClick={() => setOpen && setOpen(true)}
@@ -122,7 +122,7 @@ export const SelectorBarItem = ({
                     box-shadow: 0px 0px 0px 1px ${colors.grey400};
                 }
 
-                .selector-bar-item.pointer {
+                .selector-bar-item.openable {
                     cursor: pointer;
                 }
 
