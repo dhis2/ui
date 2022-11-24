@@ -1,3 +1,13 @@
+## [8.7.2](https://github.com/dhis2/ui/compare/v8.7.1...v8.7.2) (2022-11-24)
+
+
+### Bug Fixes
+
+* **field:** reduce padding between label and content ([f5397d7](https://github.com/dhis2/ui/commit/f5397d71375b7ad75ae61b21b74973705933b763))
+* **help:** remove help cursor on hover ([0f0b331](https://github.com/dhis2/ui/commit/0f0b331c1467a8972d36b010b73abbe8f1b13206))
+* **input:** adjust inner shadow style ([5315626](https://github.com/dhis2/ui/commit/5315626c9a6805351252c92743f6e07ee0be9335))
+* **label:** apply default color ([0d81e7b](https://github.com/dhis2/ui/commit/0d81e7bbe5ca73cfb55d3d54c55a3c703b20e234))
+
 ## [8.7.1](https://github.com/dhis2/ui/compare/v8.7.0...v8.7.1) (2022-11-24)
 
 
