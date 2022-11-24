@@ -109,8 +109,8 @@ class Switch extends Component {
                         align-items: center;
                         justify-content: flex-start;
                         color: ${colors.grey900};
-                        font-size: 16px;
-                        line-height: 20px;
+                        font-size: 14px;
+                        line-height: 19px;
                     }
 
                     label.dense {
