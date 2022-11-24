@@ -1,4 +1,5 @@
 import { Required } from '@dhis2-ui/required'
+import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -9,7 +10,8 @@ const styles = css`
         display: block;
         box-sizing: border-box;
         font-size: 14px;
-        line-height: 24px;
+        line-height: 19px;
+        color: ${colors.grey900};
         padding: 0;
     }
 

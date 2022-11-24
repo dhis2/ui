@@ -23,7 +23,6 @@ const Help = ({ children, valid, error, warning, className, dataTest }) => (
                 font-size: 12px;
                 line-height: 14px;
                 color: ${theme.default};
-                cursor: help;
             }
 
             .valid {

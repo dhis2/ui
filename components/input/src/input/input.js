@@ -27,7 +27,7 @@ const styles = css`
         outline: 0;
         border: 1px solid ${colors.grey500};
         border-radius: 3px;
-        box-shadow: inset 0 1px 2px 0 rgba(48, 54, 60, 0.1);
+        box-shadow: inset 0 0 1px 0 rgba(48, 54, 60, 0.1);
         text-overflow: ellipsis;
     }
 
