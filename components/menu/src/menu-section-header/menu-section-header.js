@@ -26,17 +26,16 @@ const MenuSectionHeader = ({
             }
             h6 {
                 margin: 0;
-                padding: ${spacers.dp8} ${spacers.dp24} ${spacers.dp12}
-                    ${spacers.dp24};
-                font-size: 15px;
+                padding: ${spacers.dp8} ${spacers.dp16} ${spacers.dp8}
+                    ${spacers.dp16};
+                font-size: 13px;
                 line-height: 16px;
                 font-weight: 500;
-                color: ${colors.grey600};
+                color: ${colors.grey700};
             }
             li.dense h6 {
-                font-size: 14px;
-                line-height: 16px;
-                padding: ${spacers.dp8} ${spacers.dp12} 6px ${spacers.dp12};
+                padding: ${spacers.dp8} ${spacers.dp12} ${spacers.dp4}
+                    ${spacers.dp12};
             }
         `}</style>
     </li>
