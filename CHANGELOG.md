@@ -1,3 +1,14 @@
+## [8.7.1](https://github.com/dhis2/ui/compare/v8.7.0...v8.7.1) (2022-11-24)
+
+
+### Bug Fixes
+
+* **checkbox:** adjust visual style, label size ([efb762c](https://github.com/dhis2/ui/commit/efb762cde6a04a106eb3eac6f9cda4f9445f5630))
+* **menu:** adjust visual styles ([5cd52ef](https://github.com/dhis2/ui/commit/5cd52efd58424a6bbeb5efe8838fd65814814f9b))
+* **menu-item:** apply correct styles to parent menu items ([7a40054](https://github.com/dhis2/ui/commit/7a400547421385f8d83bb224f84a6e75132b9b21))
+* **radio:** adjust visual style, label size ([a411e55](https://github.com/dhis2/ui/commit/a411e550763a7b23bfb4b1b3a5b966f1a1942e8c))
+* **switch:** adjust label font size ([6848f09](https://github.com/dhis2/ui/commit/6848f094e74f649bbada73b182c3586fcd6a1b30))
+
 # [8.7.0](https://github.com/dhis2/ui/compare/v8.6.4...v8.7.0) (2022-11-23)
 
 

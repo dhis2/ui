@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/transfer",
-    "version": "8.7.0",
+    "version": "8.7.1",
     "description": "UI Transfer",
     "repository": {
         "type": "git",
@@ -32,12 +32,12 @@
     },
     "dependencies": {
         "@dhis2/prop-types": "^3.1.2",
-        "@dhis2-ui/button": "8.7.0",
-        "@dhis2-ui/field": "8.7.0",
-        "@dhis2-ui/input": "8.7.0",
-        "@dhis2-ui/intersection-detector": "8.7.0",
-        "@dhis2-ui/loader": "8.7.0",
-        "@dhis2/ui-constants": "8.7.0",
+        "@dhis2-ui/button": "8.7.1",
+        "@dhis2-ui/field": "8.7.1",
+        "@dhis2-ui/input": "8.7.1",
+        "@dhis2-ui/intersection-detector": "8.7.1",
+        "@dhis2-ui/loader": "8.7.1",
+        "@dhis2/ui-constants": "8.7.1",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },
