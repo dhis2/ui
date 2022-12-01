@@ -1,3 +1,10 @@
+## [8.7.4](https://github.com/dhis2/ui/compare/v8.7.3...v8.7.4) (2022-12-01)
+
+
+### Bug Fixes
+
+* wrap app names ([#1191](https://github.com/dhis2/ui/issues/1191)) ([bce7377](https://github.com/dhis2/ui/commit/bce7377a2e01b2dbf97330e70d70904744ed2923))
+
 ## [8.7.3](https://github.com/dhis2/ui/compare/v8.7.2...v8.7.3) (2022-11-29)
 
 
