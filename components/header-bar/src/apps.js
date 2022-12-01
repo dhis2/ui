@@ -80,7 +80,6 @@ function Item({ name, path, img }) {
                     justify-content: center;
                     width: 96px;
                     margin: 8px;
-                    padding: 8px;
                     border-radius: 12px;
                     text-decoration: none;
                     cursor: pointer;
@@ -100,10 +99,12 @@ function Item({ name, path, img }) {
                 img {
                     width: 48px;
                     height: 48px;
+                    margin: 8px;
                     cursor: pointer;
                 }
 
                 div {
+                    overflow-wrap: anywhere;
                     margin-top: 14px;
                     color: rgba(0, 0, 0, 0.87);
                     font-size: 12px;
