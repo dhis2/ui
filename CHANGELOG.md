@@ -1,3 +1,10 @@
+## [8.7.6](https://github.com/dhis2/ui/compare/v8.7.5...v8.7.6) (2022-12-08)
+
+
+### Bug Fixes
+
+* import locales [LIBS-372] ([#1179](https://github.com/dhis2/ui/issues/1179)) ([e1f595d](https://github.com/dhis2/ui/commit/e1f595dfb703b156f1b051ff35053f9244890a2f))
+
 ## [8.7.5](https://github.com/dhis2/ui/compare/v8.7.4...v8.7.5) (2022-12-03)
 
 
