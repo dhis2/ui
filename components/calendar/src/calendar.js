@@ -37,6 +37,14 @@ export const Calendar = ({
         cellSize,
     }
 
+    const options = {
+        locale,
+        calendar,
+        timeZone,
+        numberingSystem,
+        weekDayFormat,
+    }
+
     const {
         calendarWeekDays,
         currMonth,
@@ -47,18 +55,13 @@ export const Calendar = ({
         prevYear,
         weekDayLabels,
     } = useDatePicker({
-        onDateSelect: ({ calendarDate, isoDate }) => {
-            setSelectedDateString(isoDate.toString())
-            onDateSelect({ calendarDate, isoDate })
+        onDateSelect: (result) => {
+            const { calendarDateString /*, calendarDate*/ } = result
+            setSelectedDateString(calendarDateString)
+            onDateSelect(result)
         },
         date: selectedDateString,
-        options: {
-            locale,
-            calendar,
-            timeZone,
-            numberingSystem,
-            weekDayFormat,
-        },
+        options,
     })
 
     const PreviousIcon =
@@ -79,6 +82,7 @@ export const Calendar = ({
                             <button
                                 onClick={prevMonth.navigateTo}
                                 name="previous-month"
+                                data-test="calendar-previous-month"
                                 aria-label={`${i18n.t('Go to')} ${
                                     prevMonth.label
                                 }`}
@@ -95,7 +99,8 @@ export const Calendar = ({
                         <div className="next">
                             <button
                                 onClick={nextMonth.navigateTo}
-                                name="previous-month"
+                                data-test="calendar-next-month"
+                                name="next-month"
                                 aria-label={`Go to ${nextMonth.label}`}
                                 type="button"
                             >
@@ -147,7 +152,8 @@ export const Calendar = ({
                                 <tr key={`week-${weekIndex + 1}`}>
                                     {week.map((day) => (
                                         <td
-                                            key={`${day.zdt.monthCode}-${day.zdt.day}`}
+                                            data-test={day?.calendarDate}
+                                            key={day?.calendarDate}
                                             onClick={day.onClick}
                                         >
                                             <button
@@ -338,7 +344,7 @@ Calendar.defaultProps = {
     weekDayFormat: 'narrow',
 }
 
-Calendar.propTypes = {
+export const CalendarProps = {
     calendar: PropTypes.any.isRequired,
     locale: PropTypes.string.isRequired,
     cellSize: PropTypes.string,
@@ -350,3 +356,5 @@ Calendar.propTypes = {
     width: PropTypes.string,
     onDateSelect: PropTypes.func,
 }
+
+Calendar.propTypes = CalendarProps

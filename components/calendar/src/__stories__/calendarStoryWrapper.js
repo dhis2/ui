@@ -1,44 +1,36 @@
 import { Box } from '@dhis2-ui/box'
 import { constants } from '@dhis2/multi-calendar-dates'
 import React, { useRef, useState } from 'react'
-import { Calendar } from './calendar.js'
-
+import { Calendar } from '../calendar.js'
+import { CalendarInput } from '../calendarInput.js'
 const { calendars, numberingSystems } = constants
 
-const subtitle = `[Experimental] Calendar component is useful for creating a variety of calendars including Ethiopic, Islamic etc..`
-const description = `
-Use a Calendar where there is a need to let the user select a date.
-
-Note that it requires a parent, like [Box](../?path=/docs/layout-box--default), to define its size.
-
-\`\`\`js
-import { Calendar } from '@dhis2/ui'
-\`\`\`
-`
-
-export default {
-    title: 'Calendar',
-    component: Calendar,
-    parameters: {
-        componentSubtitle: subtitle,
-        docs: { description: { component: description } },
-    },
-}
-
-export const CalendarWrapper = ({ calendar, locale, timeZone, dir }) => {
+export const CalendarStoryWrapper = ({
+    calendar,
+    locale,
+    timeZone,
+    dir,
+    calendarInput,
+}) => {
     const [selectedCalendar, setSelectedCalendar] = useState(calendar)
     const [selectedNumberingSystem, setSelectedNumberingSystem] = useState()
     const [selectedDirection, setSelectedDirection] = useState(dir)
     const [selectedWeekFormat, setWeekDayFormat] = useState('narrow')
+
     const ref = useRef(null)
 
     const [selectedLocale, setLocale] = useState(locale)
     const [selectedDate, setSelectedDate] = useState()
+
     const changeCalendar = ({ target: { value } }) => {
         setSelectedCalendar(value)
     }
     const changeNumberingSystem = ({ target: { value } }) => {
-        setSelectedNumberingSystem(value)
+        if (value === '-1') {
+            setSelectedNumberingSystem(null)
+        } else {
+            setSelectedNumberingSystem(value)
+        }
     }
     const changeDirection = ({ target: { value } }) => {
         setSelectedDirection(value)
@@ -52,7 +44,7 @@ export const CalendarWrapper = ({ calendar, locale, timeZone, dir }) => {
         setLocale(value)
     }
 
-    const isoDate = selectedDate?.withCalendar('iso8601')
+    const Component = calendarInput ? CalendarInput : Calendar
     return (
         <Box>
             <div
@@ -110,12 +102,12 @@ export const CalendarWrapper = ({ calendar, locale, timeZone, dir }) => {
                     <option value="long">long</option>
                 </select>
             </div>
-            <Calendar
+            <Component
                 calendar={selectedCalendar}
                 dir={selectedDirection}
                 locale={selectedLocale}
                 onDateSelect={(date) => {
-                    setSelectedDate(date.calendarDate)
+                    setSelectedDate(date)
                 }}
                 timeZone={timeZone}
                 weekDayFormat={selectedWeekFormat}
@@ -133,74 +125,12 @@ export const CalendarWrapper = ({ calendar, locale, timeZone, dir }) => {
                 <div>
                     {selectedDate && (
                         <>
-                            <div>custom callback</div>
-                            <div>
-                                Gregorian date: {isoDate.year} - {isoDate.month}{' '}
-                                - {isoDate.day}
-                            </div>
-                            <div>
-                                Calendar date:{' '}
-                                {selectedDate.eraYear || selectedDate.year} -{' '}
-                                {selectedDate.month} - {selectedDate.day}
-                            </div>
+                            <div>result</div>
+                            {JSON.stringify(selectedDate, null, 2)}
                         </>
                     )}
                 </div>
             </div>
         </Box>
-    )
-}
-export const WithEthiopic = (args) => {
-    return (
-        <CalendarWrapper
-            calendar="ethiopic"
-            locale="am-et"
-            numberingSystem="ethi"
-            timeZone="Europe/London"
-            {...args}
-        />
-    )
-}
-export const WithCalendarInEnglish = (args) => {
-    return (
-        <CalendarWrapper
-            calendar="islamic-civil"
-            locale="en-GB"
-            numberingSystem="ethi"
-            {...args}
-        />
-    )
-}
-
-export const WithIslamicCivil = (args) => {
-    return (
-        <CalendarWrapper
-            calendar="islamic-civil"
-            locale="ar-TN"
-            numberingSystem="geor"
-            timeZone="Africa/Khartoum"
-            {...args}
-        />
-    )
-}
-export const WithNepali = (args) => {
-    return (
-        <CalendarWrapper
-            calendar="nepali"
-            locale="ne-NP"
-            timeZone="Africa/Khartoum"
-            {...args}
-        />
-    )
-}
-
-export const WithNepaliEnglish = (args) => {
-    return (
-        <CalendarWrapper
-            calendar="nepali"
-            locale="en-NP"
-            timeZone="Africa/Khartoum"
-            {...args}
-        />
     )
 }

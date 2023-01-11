@@ -3,7 +3,7 @@ title: Calendar
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { CalendarWrapper as Calendar } from '@site/src/components/CalendarWrapper.jsx'
+import { CalendarDemo as Calendar } from '@site/src/components/CalendarDemo.jsx'
 import { Box } from '@dhis2/ui'
 
 import API from '../../../components/calendar/API.md'
@@ -112,7 +112,7 @@ Some other calendars: Islamic in Arabic, Indian in English, Persian in Farsi, Ja
 <Demo>
     <div className="wrapper">
         <Calendar
-                calendar="islamicc"
+                calendar="islamic-civil"
                 locale="ar"
                 timeZone="Europe/London"
         />

@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { Calendar } from './calendar.js'
+import { Calendar } from '../calendar.js'
 
 storiesOf('A calendar', module).add('for the Nepali calendar', () => (
     <Calendar
@@ -30,7 +30,7 @@ storiesOf('A Calendar', module).add('for the Ethiopic calendar', () => (
 
 storiesOf('A Calendar', module).add('for the Islamic calendar', () => (
     <Calendar
-        calendar="islamicc"
+        calendar="islamic-civil"
         dir="rtl"
         locale="ar-EG"
         onDateSelect={(date) => {

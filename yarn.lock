@@ -2586,6 +2586,14 @@
     i18next "^10.3"
     moment "^2.24.0"
 
+"@dhis2/multi-calendar-dates@1.0.0-alpha.17":
+  version "1.0.0-alpha.17"
+  resolved "https://registry.yarnpkg.com/@dhis2/multi-calendar-dates/-/multi-calendar-dates-1.0.0-alpha.17.tgz#d3fa19ef38ed85040d4798edc96911a15321b90a"
+  integrity sha512-fwjQo3PEAZbEP6NDWUSQjAQlFxGPc1NWW9Hu13QGhTv1MvMu7EazbsH57n26qZVp2AROdxVPpXUKWv5AEuKWng==
+  dependencies:
+    "@js-temporal/polyfill" "^0.4.2"
+    classnames "^2.3.2"
+
 "@dhis2/prop-types@^1.6.4":
   version "1.6.4"
   resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-1.6.4.tgz#ec4d256c9440d4d00071524422a727c61ddaa6f6"
@@ -2617,13 +2625,6 @@
     "@dhis2/prop-types" "^1.6.4"
     prop-types "^15.7.2"
 
-"@dhis2/ui-constants@8.6.3":
-  version "8.6.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-constants/-/ui-constants-8.6.3.tgz#77a5badd8407fc71127cab25e0d1e2cdacd0b6d1"
-  integrity sha512-seQQfe6mRK+PR8h/883+5WsGWa03Peti+h6jdyZU4PnqAZk3w1Ezep9iL4T3HQb5IqxHWJvXDaMQtZTLO6tCtg==
-  dependencies:
-    prop-types "^15.7.2"
-
 "@dhis2/ui-forms@7.1.0":
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-forms/-/ui-forms-7.1.0.tgz#004e6293445159074a924c89e0f743f80bd85d86"
@@ -2650,11 +2651,6 @@
   integrity sha512-BRe+n4Atgqo7WmrVB2RyMDeAkFLE5oZmTJo39BdwgUEKcV5Xcr6yODe7hTR3ZkCzThbsJpcdtM5AO0fm7BtDTg==
   dependencies:
     "@dhis2/prop-types" "^1.6.4"
-
-"@dhis2/ui-icons@8.6.3":
-  version "8.6.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-icons/-/ui-icons-8.6.3.tgz#229405a855be9e9a53ec150116624d8e4ab42a5d"
-  integrity sha512-QAE8dnOlHM4W5eT7h/wdAcVp0ZGC2VZJZtRWXYy7eCvopQemx+ys4juFngJqmBgqRfGvIygbxvbiUQgaHB/ASg==
 
 "@dhis2/ui@7.1.0":
   version "7.1.0"
@@ -16632,14 +16628,6 @@ ms@2.1.2, ms@^2.1.1:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
-
-multi-calendar-dates@1.0.0-alpha.12:
-  version "1.0.0-alpha.12"
-  resolved "https://registry.yarnpkg.com/multi-calendar-dates/-/multi-calendar-dates-1.0.0-alpha.12.tgz#7887a120f192cca29889010004bb37202239df09"
-  integrity sha512-f/iKmElb/gXk7jOq6gHMUniz0FuTbFEcLkm7uLY9y/G3R5b43ejpVvWVQA1W3JBtC/MiOsOFrtS/GGBhuYwE3A==
-  dependencies:
-    "@js-temporal/polyfill" "^0.4.2"
-    classnames "^2.3.2"
 
 multicast-dns-service-types@^1.1.0:
   version "1.1.0"

@@ -3,7 +3,7 @@ import { Calendar } from '@dhis2-ui/calendar'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 
-const CalendarWrapper = (props) => {
+const CalendarDemo = (props) => {
     const [selectedDate, setSelectedDate] = useState()
     const isoDate = selectedDate?.withCalendar('iso8601')
     return (
@@ -45,16 +45,16 @@ const CalendarWrapper = (props) => {
     )
 }
 
-CalendarWrapper.defaultProps = {
+CalendarDemo.defaultProps = {
     dir: 'ltr',
     timeZone: 'UTC',
     weekDayFormat: 'narrow',
 }
-CalendarWrapper.propTypes = {
+CalendarDemo.propTypes = {
     calendar: PropTypes.any.isRequired,
     locale: PropTypes.string.isRequired,
     dir: PropTypes.oneOf(['ltr', 'rtl']),
     timeZone: PropTypes.string,
     weekDayFormat: PropTypes.string,
 }
-export { CalendarWrapper }
+export { CalendarDemo }
