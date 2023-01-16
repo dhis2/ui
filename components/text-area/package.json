@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/text-area",
-    "version": "8.7.6",
+    "version": "8.7.7",
     "description": "UI TextArea",
     "repository": {
         "type": "git",
@@ -32,12 +32,12 @@
     },
     "dependencies": {
         "@dhis2/prop-types": "^3.1.2",
-        "@dhis2-ui/box": "8.7.6",
-        "@dhis2-ui/field": "8.7.6",
-        "@dhis2-ui/loader": "8.7.6",
-        "@dhis2-ui/status-icon": "8.7.6",
-        "@dhis2/ui-constants": "8.7.6",
-        "@dhis2/ui-icons": "8.7.6",
+        "@dhis2-ui/box": "8.7.7",
+        "@dhis2-ui/field": "8.7.7",
+        "@dhis2-ui/loader": "8.7.7",
+        "@dhis2-ui/status-icon": "8.7.7",
+        "@dhis2/ui-constants": "8.7.7",
+        "@dhis2/ui-icons": "8.7.7",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },

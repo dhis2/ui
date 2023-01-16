@@ -1,3 +1,10 @@
+## [8.7.7](https://github.com/dhis2/ui/compare/v8.7.6...v8.7.7) (2023-01-16)
+
+
+### Bug Fixes
+
+* **node:** adjust toggle style and interaction ([d34f307](https://github.com/dhis2/ui/commit/d34f3076e6bb51f98989918c574a11a19c3ebf29))
+
 ## [8.7.6](https://github.com/dhis2/ui/compare/v8.7.5...v8.7.6) (2022-12-08)
 
 
