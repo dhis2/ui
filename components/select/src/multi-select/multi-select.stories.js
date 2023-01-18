@@ -239,7 +239,7 @@ WithOptionsAndMultipleSelections.args = { selected: ['1', '2'] }
 export const WithMultipleSelectionsWrapped = () => {
     const [selected, setSelected] = React.useState(['1', '2', '4', '6'])
     return (
-        <div style={{ maxWidth: 350 }}>
+        <div style={{ maxWidth: 300 }}>
             <MultiSelect
                 className="select"
                 selected={selected}

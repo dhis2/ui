@@ -108,11 +108,6 @@ const MultiSelect = ({
                     align-items: center;
                     display: flex;
                     gap: ${spacers.dp8};
-                    padding: 2px 12px 4px;
-                }
-
-                .root.dense {
-                    padding: 0px 8px 4px;
                 }
 
                 .root-input {
