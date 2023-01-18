@@ -1,4 +1,5 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { debounce } from './debounce/debounce.js'
@@ -189,6 +190,7 @@ export class Select extends Component {
                 data-test={dataTest}
             >
                 <InputWrapper
+                    className={cx(className, 'input-wrapper')}
                     onToggle={this.onToggle}
                     inputRef={this.inputRef}
                     tabIndex={disabled ? '-1' : tabIndex}
