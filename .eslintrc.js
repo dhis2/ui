@@ -9,6 +9,7 @@ const config = {
     rules: {
         'import/no-webpack-loader-syntax': 'error',
         'import/no-useless-path-segments': 'error',
+        'react/no-unknown-property': ['error', { ignore: ['jsx', 'global'] }],
     },
     overrides: [
         {
