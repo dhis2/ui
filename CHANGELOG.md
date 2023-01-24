@@ -1,3 +1,931 @@
+## [8.7.7](https://github.com/dhis2/ui/compare/v8.7.6...v8.7.7) (2023-01-16)
+
+
+### Bug Fixes
+
+* **node:** adjust toggle style and interaction ([d34f307](https://github.com/dhis2/ui/commit/d34f3076e6bb51f98989918c574a11a19c3ebf29))
+
+## [8.7.6](https://github.com/dhis2/ui/compare/v8.7.5...v8.7.6) (2022-12-08)
+
+
+### Bug Fixes
+
+* import locales [LIBS-372] ([#1179](https://github.com/dhis2/ui/issues/1179)) ([e1f595d](https://github.com/dhis2/ui/commit/e1f595dfb703b156f1b051ff35053f9244890a2f))
+
+## [8.7.5](https://github.com/dhis2/ui/compare/v8.7.4...v8.7.5) (2022-12-03)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([a1d7fb2](https://github.com/dhis2/ui/commit/a1d7fb214a5ed7ac61028416790bfc4b615f0d53))
+
+## [8.7.4](https://github.com/dhis2/ui/compare/v8.7.3...v8.7.4) (2022-12-01)
+
+
+### Bug Fixes
+
+* wrap app names ([#1191](https://github.com/dhis2/ui/issues/1191)) ([bce7377](https://github.com/dhis2/ui/commit/bce7377a2e01b2dbf97330e70d70904744ed2923))
+
+## [8.7.3](https://github.com/dhis2/ui/compare/v8.7.2...v8.7.3) (2022-11-29)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([ec25e9b](https://github.com/dhis2/ui/commit/ec25e9b7a2f0fce98d4b15615a8fa70f8ee822d6))
+
+## [8.7.2](https://github.com/dhis2/ui/compare/v8.7.1...v8.7.2) (2022-11-24)
+
+
+### Bug Fixes
+
+* **field:** reduce padding between label and content ([f5397d7](https://github.com/dhis2/ui/commit/f5397d71375b7ad75ae61b21b74973705933b763))
+* **help:** remove help cursor on hover ([0f0b331](https://github.com/dhis2/ui/commit/0f0b331c1467a8972d36b010b73abbe8f1b13206))
+* **input:** adjust inner shadow style ([5315626](https://github.com/dhis2/ui/commit/5315626c9a6805351252c92743f6e07ee0be9335))
+* **label:** apply default color ([0d81e7b](https://github.com/dhis2/ui/commit/0d81e7bbe5ca73cfb55d3d54c55a3c703b20e234))
+
+## [8.7.1](https://github.com/dhis2/ui/compare/v8.7.0...v8.7.1) (2022-11-24)
+
+
+### Bug Fixes
+
+* **checkbox:** adjust visual style, label size ([efb762c](https://github.com/dhis2/ui/commit/efb762cde6a04a106eb3eac6f9cda4f9445f5630))
+* **menu:** adjust visual styles ([5cd52ef](https://github.com/dhis2/ui/commit/5cd52efd58424a6bbeb5efe8838fd65814814f9b))
+* **menu-item:** apply correct styles to parent menu items ([7a40054](https://github.com/dhis2/ui/commit/7a400547421385f8d83bb224f84a6e75132b9b21))
+* **radio:** adjust visual style, label size ([a411e55](https://github.com/dhis2/ui/commit/a411e550763a7b23bfb4b1b3a5b966f1a1942e8c))
+* **switch:** adjust label font size ([6848f09](https://github.com/dhis2/ui/commit/6848f094e74f649bbada73b182c3586fcd6a1b30))
+
+# [8.7.0](https://github.com/dhis2/ui/compare/v8.6.4...v8.7.0) (2022-11-23)
+
+
+### Features
+
+* **selection-bar-item:** [LIBS-371] display only and clear selection callback  ([#1187](https://github.com/dhis2/ui/issues/1187)) ([d741959](https://github.com/dhis2/ui/commit/d741959d337f627837b9504e406065b9d6c94906))
+
+## [8.6.4](https://github.com/dhis2/ui/compare/v8.6.3...v8.6.4) (2022-11-17)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([fb28912](https://github.com/dhis2/ui/commit/fb2891274ac5d7c1c1bb13c46906ee5085b76315))
+
+## [8.6.3](https://github.com/dhis2/ui/compare/v8.6.2...v8.6.3) (2022-11-16)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([86207ae](https://github.com/dhis2/ui/commit/86207ae6dc7de3069f8ec2a825f84c6304331160))
+
+## [8.6.2](https://github.com/dhis2/ui/compare/v8.6.1...v8.6.2) (2022-11-08)
+
+
+### Bug Fixes
+
+* **sharing-dialog:** variable initialization error [LIBS-375] ([#1177](https://github.com/dhis2/ui/issues/1177)) ([38c4a8d](https://github.com/dhis2/ui/commit/38c4a8dfacbaf2631ba9738901034355a7522a66))
+
+## [8.6.1](https://github.com/dhis2/ui/compare/v8.6.0...v8.6.1) (2022-10-26)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([e87f2fc](https://github.com/dhis2/ui/commit/e87f2fccfdf85a0b0d2e5b209fedab9cdefdb6da))
+
+# [8.6.0](https://github.com/dhis2/ui/compare/v8.5.4...v8.6.0) (2022-10-21)
+
+
+### Features
+
+* **headerbar:** online/offline status messaging ([#1163](https://github.com/dhis2/ui/issues/1163)) ([ecde1e2](https://github.com/dhis2/ui/commit/ecde1e28feac498f48996f9c7a31bb1454a7d33d))
+
+## [8.5.4](https://github.com/dhis2/ui/compare/v8.5.3...v8.5.4) (2022-10-20)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([af399cc](https://github.com/dhis2/ui/commit/af399cce51555e9e875c3c3ef65687732f63682a))
+
+## [8.5.3](https://github.com/dhis2/ui/compare/v8.5.2...v8.5.3) (2022-10-10)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([82898ff](https://github.com/dhis2/ui/commit/82898ff3bf14d130efdffe9033719e91385d38c4))
+
+## [8.5.2](https://github.com/dhis2/ui/compare/v8.5.1...v8.5.2) (2022-10-08)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([e5893e0](https://github.com/dhis2/ui/commit/e5893e0f4b62b92239b01ec30e4505b50b62b892))
+
+## [8.5.1](https://github.com/dhis2/ui/compare/v8.5.0...v8.5.1) (2022-10-07)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([f47e357](https://github.com/dhis2/ui/commit/f47e3579be514fe77e8af46af1023973cf251b8f))
+
+# [8.5.0](https://github.com/dhis2/ui/compare/v8.4.17...v8.5.0) (2022-10-06)
+
+
+### Features
+
+* show version debug info and update notification in profile menu [LIBS-176] [LIBS-344] ([#1153](https://github.com/dhis2/ui/issues/1153)) ([9e23f18](https://github.com/dhis2/ui/commit/9e23f18d479497aec8c46d272d2754cefae5e147))
+
+## [8.4.17](https://github.com/dhis2/ui/compare/v8.4.16...v8.4.17) (2022-09-28)
+
+
+### Bug Fixes
+
+* **forms:** allow usernames to contain single hyphens ([#1155](https://github.com/dhis2/ui/issues/1155)) ([907a916](https://github.com/dhis2/ui/commit/907a91697191654ca59c5333bc6150e483448853))
+
+## [8.4.16](https://github.com/dhis2/ui/compare/v8.4.15...v8.4.16) (2022-09-20)
+
+
+### Bug Fixes
+
+* **flyout-menu:** ensure div scrolls when setting a max height or width ([#1152](https://github.com/dhis2/ui/issues/1152)) ([fab0cd3](https://github.com/dhis2/ui/commit/fab0cd39fe3c390becfe48c678526283707b7456))
+
+## [8.4.15](https://github.com/dhis2/ui/compare/v8.4.14...v8.4.15) (2022-09-08)
+
+
+### Bug Fixes
+
+* **release:** publish new version to fix broken release ([c05adeb](https://github.com/dhis2/ui/commit/c05adeb2d1c87070eb0f28f50d4f23b72fbea8f5))
+
+## [8.4.14](https://github.com/dhis2/ui/compare/v8.4.13...v8.4.14) (2022-09-07)
+
+
+### Bug Fixes
+
+* **selection-bar:** change menu alignment ([76da1a7](https://github.com/dhis2/ui/commit/76da1a70302318434ce6b1f7b57d0110ccbb8816))
+
+## [8.4.13](https://github.com/dhis2/ui/compare/v8.4.12...v8.4.13) (2022-09-05)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([9e8d539](https://github.com/dhis2/ui/commit/9e8d539de2badee17a3fbb9fdf5f348787463010))
+
+## [8.4.12](https://github.com/dhis2/ui/compare/v8.4.11...v8.4.12) (2022-08-26)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([2c6ac00](https://github.com/dhis2/ui/commit/2c6ac00d0728ca7cd60170f3733470cbdf3d53e6))
+
+## [8.4.11](https://github.com/dhis2/ui/compare/v8.4.10...v8.4.11) (2022-08-24)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([bb67bec](https://github.com/dhis2/ui/commit/bb67bec4c37ead5bc506c08941bd07b61015c669))
+
+## [8.4.10](https://github.com/dhis2/ui/compare/v8.4.9...v8.4.10) (2022-08-22)
+
+
+### Bug Fixes
+
+* **tab:** update hover style ([0a0653c](https://github.com/dhis2/ui/commit/0a0653c6e976b8c1fd8ccbaef3409fd918ae7b20))
+
+## [8.4.9](https://github.com/dhis2/ui/compare/v8.4.8...v8.4.9) (2022-08-20)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([2aff81d](https://github.com/dhis2/ui/commit/2aff81d0bdaf0c3a7937674ce6451f415c415b8a))
+
+## [8.4.8](https://github.com/dhis2/ui/compare/v8.4.7...v8.4.8) (2022-08-19)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([dc24bbd](https://github.com/dhis2/ui/commit/dc24bbdc73e831d873fb812628a27090b482b5db))
+
+## [8.4.7](https://github.com/dhis2/ui/compare/v8.4.6...v8.4.7) (2022-08-17)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([65eb8dc](https://github.com/dhis2/ui/commit/65eb8dc7890a7677ee67829bafb84c34e6c1eb4b))
+
+## [8.4.6](https://github.com/dhis2/ui/compare/v8.4.5...v8.4.6) (2022-08-04)
+
+
+### Bug Fixes
+
+* update usages of grey600 in docs and icons ([ad7eca2](https://github.com/dhis2/ui/commit/ad7eca2ecdab42cf4d3d5c90fd8f97e325454a71))
+* **constants:** adjust grey600 color for AA contrast compliance at small sizes ([7e31ffa](https://github.com/dhis2/ui/commit/7e31ffa8139ac433ccdcc09f773847e00fd7a707))
+* **input:** use ui color for placeholder text ([b35d8f9](https://github.com/dhis2/ui/commit/b35d8f92d186b0a2e5256443639c1735623ab0eb))
+
+## [8.4.5](https://github.com/dhis2/ui/compare/v8.4.4...v8.4.5) (2022-07-12)
+
+
+### Bug Fixes
+
+* **validators:** ensure integer validator rejects any decimal separator ([060705b](https://github.com/dhis2/ui/commit/060705b362eb93b41fbc516044906fe945795b6a))
+
+## [8.4.4](https://github.com/dhis2/ui/compare/v8.4.3...v8.4.4) (2022-06-28)
+
+
+### Bug Fixes
+
+* **forms:** allow upper case characters in dhis2 user name ([#1115](https://github.com/dhis2/ui/issues/1115)) ([7471697](https://github.com/dhis2/ui/commit/7471697769774dfb143ef6268b5ec68eca54153d))
+
+## [8.4.3](https://github.com/dhis2/ui/compare/v8.4.2...v8.4.3) (2022-06-24)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([9cd0ebd](https://github.com/dhis2/ui/commit/9cd0ebd3552974157b7ab4747dbfac91bc73fb8a))
+
+## [8.4.2](https://github.com/dhis2/ui/compare/v8.4.1...v8.4.2) (2022-06-13)
+
+
+### Bug Fixes
+
+* **forms:** provide a clearer error message if username is invalid ([#1102](https://github.com/dhis2/ui/issues/1102)) ([586d825](https://github.com/dhis2/ui/commit/586d825c3e96949e40176d3e32c6402cf9ce1f06))
+
+## [8.4.1](https://github.com/dhis2/ui/compare/v8.4.0...v8.4.1) (2022-05-31)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([6a10328](https://github.com/dhis2/ui/commit/6a103286c38fa25ff05b477f003d88f624caeeef))
+
+# [8.4.0](https://github.com/dhis2/ui/compare/v8.3.1...v8.4.0) (2022-05-27)
+
+
+### Features
+
+* **button:** add onKeyDown prop ([b41b1de](https://github.com/dhis2/ui/commit/b41b1de6bfc0e359f670d00fee5bc0d11c815aa3))
+* **checkbox:** add onKeyDown prop ([34f2278](https://github.com/dhis2/ui/commit/34f22782c8a2c0a4fc3cd7e7dd3f53632c3094a8))
+* **checkbox field:** add onKeyDown prop ([bb8ad04](https://github.com/dhis2/ui/commit/bb8ad04543af43e37dda3c0792e4b278afb81b42))
+* **file input:** add onKeyDown prop ([07ddfef](https://github.com/dhis2/ui/commit/07ddfef2ec1de1e0d5dd1e6231b54b2ec4e25d96))
+* **file input field:** add onKeyDown prop ([ef6c89b](https://github.com/dhis2/ui/commit/ef6c89bfddf8e89941a6e5fb51089052da8fd309))
+* **file input field with list:** add onKeyDown prop ([e0629ec](https://github.com/dhis2/ui/commit/e0629ecfc72a59e14f187b06e576113fd562af71))
+* **input:** add onKeyDown prop ([c132535](https://github.com/dhis2/ui/commit/c132535a031f25c4d6937e2dd853d2bd68a2d3a3))
+* **input field:** add onKeyDown prop ([d5fdfb2](https://github.com/dhis2/ui/commit/d5fdfb2b46766a71d9e23d84f685a7d8a308abe0))
+* **multi select:** add onKeyDown prop ([187a168](https://github.com/dhis2/ui/commit/187a168277388e88ba30fc7c2807fc3032240020))
+* **multi select field:** add onKeyDown prop ([cdbf3dc](https://github.com/dhis2/ui/commit/cdbf3dcace70ffe5d0cdba5b05b5cb75a4a768e5))
+* **radio:** add onKeyDown prop ([40f133e](https://github.com/dhis2/ui/commit/40f133efcc10d70a8399f6bd92353fd53b14e0a5))
+* **select:** add onKeyDown prop ([8fb7a82](https://github.com/dhis2/ui/commit/8fb7a82650ad3a7d89be1a4cf12771e13c188471))
+* **single select:** add onKeyDown prop ([1fb1bf8](https://github.com/dhis2/ui/commit/1fb1bf824ea918c6a1f6409487016334e30e1b7c))
+* **single select field:** add onKeyDown prop ([420e2e2](https://github.com/dhis2/ui/commit/420e2e2b809735feb5343b533c3f98f2d619cfd1))
+* **switch:** add onKeyDown prop ([3b3ad3a](https://github.com/dhis2/ui/commit/3b3ad3a867358303c7aef499f4b4f4ed4df04702))
+* **switch field:** add onKeyDown prop ([d065a11](https://github.com/dhis2/ui/commit/d065a112bc7a1433b0250b7f8129022e8f8dc0af))
+* **text area:** add onKeyDown prop ([5c510d7](https://github.com/dhis2/ui/commit/5c510d79b7014d3ad6632e3eb26505861aebb91e))
+* **text area field:** add onKeyDown prop ([678769c](https://github.com/dhis2/ui/commit/678769ce4aa0cb253c08a4200a54294981898c4a))
+
+## [8.3.1](https://github.com/dhis2/ui/compare/v8.3.0...v8.3.1) (2022-05-27)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([764625f](https://github.com/dhis2/ui/commit/764625f0b22493d571295fd55112860d5ea55744))
+
+# [8.3.0](https://github.com/dhis2/ui/compare/v8.2.6...v8.3.0) (2022-05-25)
+
+
+### Features
+
+* **data-table-cell:** add background-color prop ([#1069](https://github.com/dhis2/ui/issues/1069)) ([e3fba97](https://github.com/dhis2/ui/commit/e3fba974c59f5a3426082755754ee41907bca2ce))
+* **layer:** add `onBackdropClick` prop ([#1060](https://github.com/dhis2/ui/issues/1060)) ([4c2bc69](https://github.com/dhis2/ui/commit/4c2bc69b39cd097d22353dd666bb72c2c8eba265))
+
+## [8.2.6](https://github.com/dhis2/ui/compare/v8.2.5...v8.2.6) (2022-05-24)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([731be44](https://github.com/dhis2/ui/commit/731be44b95208d84974369f18c6fb0e762476c63))
+
+## [8.2.5](https://github.com/dhis2/ui/compare/v8.2.4...v8.2.5) (2022-05-09)
+
+
+### Bug Fixes
+
+* correct api reference, show changelog ([#1055](https://github.com/dhis2/ui/issues/1055)) ([00d1a2b](https://github.com/dhis2/ui/commit/00d1a2b0e08a418403cf7640bd879d6826b88b95))
+
+## [8.2.4](https://github.com/dhis2/ui/compare/v8.2.3...v8.2.4) (2022-04-26)
+
+
+### Bug Fixes
+
+* increase prefix spacing so icon is closer to the option text ([d500e11](https://github.com/dhis2/ui/commit/d500e11c56cd6bf0d89df180245d20442f50d5ff))
+
+## [8.2.3](https://github.com/dhis2/ui/compare/v8.2.2...v8.2.3) (2022-04-26)
+
+
+### Bug Fixes
+
+* always reserve a 16 x 16 area for selected option icons ([779b423](https://github.com/dhis2/ui/commit/779b423971acf49a592912bc835bf599942a1d4b))
+
+## [8.2.2](https://github.com/dhis2/ui/compare/v8.2.1...v8.2.2) (2022-04-22)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([409ccdb](https://github.com/dhis2/ui/commit/409ccdb3cd0abdefa5da197b9da2fea469eaa23c))
+
+## [8.2.1](https://github.com/dhis2/ui/compare/v8.2.0...v8.2.1) (2022-04-21)
+
+
+### Bug Fixes
+
+* **modal:** restore scroll styles ([#1041](https://github.com/dhis2/ui/issues/1041)) ([a4bfbd0](https://github.com/dhis2/ui/commit/a4bfbd09163796a9fd76101fe3a4c5544ed7e494))
+
+# [8.2.0](https://github.com/dhis2/ui/compare/v8.1.11...v8.2.0) (2022-04-14)
+
+
+### Features
+
+* **pagination:** disable navigation elements ([#1027](https://github.com/dhis2/ui/issues/1027)) ([09472fd](https://github.com/dhis2/ui/commit/09472fd64761d29500393dc6ee542d0aa2cbb33c))
+
+## [8.1.11](https://github.com/dhis2/ui/compare/v8.1.10...v8.1.11) (2022-04-07)
+
+
+### Bug Fixes
+
+* do not pass name to input so we don't get duplicate ids on the page ([#1010](https://github.com/dhis2/ui/issues/1010)) ([7c74b5b](https://github.com/dhis2/ui/commit/7c74b5bd8c2081c76c306c495258fdbaad941537))
+
+## [8.1.10](https://github.com/dhis2/ui/compare/v8.1.9...v8.1.10) (2022-04-06)
+
+
+### Bug Fixes
+
+* support eventVisualization and interpretation types TECH-1037 ([#1007](https://github.com/dhis2/ui/issues/1007)) ([e06fac3](https://github.com/dhis2/ui/commit/e06fac375e1d84fa93852cd0c0eb83b486b9fc26))
+
+## [8.1.9](https://github.com/dhis2/ui/compare/v8.1.8...v8.1.9) (2022-03-29)
+
+
+### Bug Fixes
+
+* **modal:** avoid double scrollbar by setting child max-w/h to 100% ([#1013](https://github.com/dhis2/ui/issues/1013)) ([69ae137](https://github.com/dhis2/ui/commit/69ae1372176558d106b91740963288e618c96f25))
+
+## [8.1.8](https://github.com/dhis2/ui/compare/v8.1.7...v8.1.8) (2022-03-26)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([e47549f](https://github.com/dhis2/ui/commit/e47549fd12584f3313f717ffcf84b0a4b1ca58c6))
+
+## [8.1.7](https://github.com/dhis2/ui/compare/v8.1.6...v8.1.7) (2022-03-19)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([a07d5af](https://github.com/dhis2/ui/commit/a07d5afd50405771b4afee0d4c4af24a723f7ddb))
+
+## [8.1.6](https://github.com/dhis2/ui/compare/v8.1.5...v8.1.6) (2022-03-16)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([7302b61](https://github.com/dhis2/ui/commit/7302b6132a04f7f958ab2825c0993438cc64f77c))
+
+## [8.1.5](https://github.com/dhis2/ui/compare/v8.1.4...v8.1.5) (2022-03-15)
+
+
+### Bug Fixes
+
+* **pagination:** hide page select when only 1 page or too many pages ([#1003](https://github.com/dhis2/ui/issues/1003)) ([22054c4](https://github.com/dhis2/ui/commit/22054c4d9c2f329196c792e2e219b540e4532ea7))
+
+## [8.1.4](https://github.com/dhis2/ui/compare/v8.1.3...v8.1.4) (2022-03-15)
+
+
+### Bug Fixes
+
+* **sharing-dialog:** prevent extra request and render of autocompletion list after selection ([#1004](https://github.com/dhis2/ui/issues/1004)) ([d3cc684](https://github.com/dhis2/ui/commit/d3cc68402ec102647a819be9a4af8405ac69a4ca))
+
+## [8.1.3](https://github.com/dhis2/ui/compare/v8.1.2...v8.1.3) (2022-03-09)
+
+
+### Bug Fixes
+
+* **SharingDialog:** clear search field once access is granted, fix style ([#1002](https://github.com/dhis2/ui/issues/1002)) ([6d1ef66](https://github.com/dhis2/ui/commit/6d1ef66d0312b1ca59dcd5b4ae04113572406b34))
+
+## [8.1.2](https://github.com/dhis2/ui/compare/v8.1.1...v8.1.2) (2022-03-08)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([5fa2f5f](https://github.com/dhis2/ui/commit/5fa2f5fc51be1b1e0ff2772135f7a58c8b0591c8))
+
+## [8.1.1](https://github.com/dhis2/ui/compare/v8.1.0...v8.1.1) (2022-03-06)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([8ee6d2a](https://github.com/dhis2/ui/commit/8ee6d2af567b9cf4ead0339383fcca168d96aa66))
+
+# [8.1.0](https://github.com/dhis2/ui/compare/v8.0.2...v8.1.0) (2022-03-02)
+
+
+### Features
+
+* **pagination:** add support for pagers without a total ([#999](https://github.com/dhis2/ui/issues/999)) ([3af2e1d](https://github.com/dhis2/ui/commit/3af2e1dc462e74bb6cd9146b80cb2d72f775ef8b))
+
+## [8.0.2](https://github.com/dhis2/ui/compare/v8.0.1...v8.0.2) (2022-03-01)
+
+
+### Bug Fixes
+
+* **transfer:** change TransferOption label-proptype to node ([85a5330](https://github.com/dhis2/ui/commit/85a5330f40c42da9de344214e7025aa09545e72f))
+
+## [8.0.1](https://github.com/dhis2/ui/compare/v8.0.0...v8.0.1) (2022-03-01)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([7c0bf71](https://github.com/dhis2/ui/commit/7c0bf71c465f44cc9f6bdcc46724884e962cdb1b))
+
+# [8.0.0](https://github.com/dhis2/ui/compare/v7.16.3...v8.0.0) (2022-02-28)
+
+
+### Bug Fixes
+
+* **org unit node:** use correct value of useOrgData hook retVal ([b322c71](https://github.com/dhis2/ui/commit/b322c7142d2c66dcfe6858aa6a47790b60b04082))
+
+
+### Features
+
+* **org unit tree:** load children when expanding org unit to save bandwidth ([b5a9215](https://github.com/dhis2/ui/commit/b5a9215d6d8e35bf25edf10ddb9b748cda1cae37))
+
+
+### BREAKING CHANGES
+
+* **org unit tree:** The payload and behavior of the `onChildrenLoaded` prop
+have changed slightly! Previously the callback would be called for every
+child that's been loaded. Now the callback will be called once with the
+node that has the children, so fewer calls but with a payload with an
+org unit one level above of what would be that case before this change.
+
+## [7.16.3](https://github.com/dhis2/ui/compare/v7.16.2...v7.16.3) (2022-02-24)
+
+
+### Bug Fixes
+
+* **button:** remove transitions ([#992](https://github.com/dhis2/ui/issues/992)) ([04b124e](https://github.com/dhis2/ui/commit/04b124e8db4c45b90c86932ebf196a96471de743))
+
+## [7.16.2](https://github.com/dhis2/ui/compare/v7.16.1...v7.16.2) (2022-02-15)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([b96f448](https://github.com/dhis2/ui/commit/b96f4485004c0a8bba9e828ae2d07a0a8f27b577))
+
+## [7.16.1](https://github.com/dhis2/ui/compare/v7.16.0...v7.16.1) (2022-02-08)
+
+
+### Bug Fixes
+
+* **select:** don't render circular loader as flex item in order to preserve dimensions ([#977](https://github.com/dhis2/ui/issues/977)) ([1b5288a](https://github.com/dhis2/ui/commit/1b5288a80ab7f3b6fa0f7c2eca2603d6b7619de6))
+
+# [7.16.0](https://github.com/dhis2/ui/compare/v7.15.1...v7.16.0) (2022-02-07)
+
+
+### Features
+
+* **icons:** add pivot table, linelist icons ([c179000](https://github.com/dhis2/ui/commit/c179000f01e5340db0532c3fcfb0f267f78c814a))
+
+## [7.15.1](https://github.com/dhis2/ui/compare/v7.15.0...v7.15.1) (2022-02-01)
+
+
+### Bug Fixes
+
+* **select:** reduce selected option chip margins ([0141235](https://github.com/dhis2/ui/commit/014123572bc4ffa3e60b1ad2bb6dddf32488eb3b))
+
+# [7.15.0](https://github.com/dhis2/ui/compare/v7.14.3...v7.15.0) (2022-01-31)
+
+
+### Features
+
+* **chip:** allow custom margins ([713f65c](https://github.com/dhis2/ui/commit/713f65c529bf67b915cfe0e4b6de056b2b722588))
+
+## [7.14.3](https://github.com/dhis2/ui/compare/v7.14.2...v7.14.3) (2022-01-27)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([e612cbe](https://github.com/dhis2/ui/commit/e612cbe2296f444f38d6d28cafed738f709b7fbe))
+
+## [7.14.2](https://github.com/dhis2/ui/compare/v7.14.1...v7.14.2) (2022-01-20)
+
+
+### Bug Fixes
+
+* **status-icon:** only apply margin between input and status icon if icon rendered ([#941](https://github.com/dhis2/ui/issues/941)) ([3f23cc5](https://github.com/dhis2/ui/commit/3f23cc541e52ed02e4846dadb7a8e54baa92aef6))
+
+## [7.14.1](https://github.com/dhis2/ui/compare/v7.14.0...v7.14.1) (2022-01-20)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([2e3a406](https://github.com/dhis2/ui/commit/2e3a406b2c71a0489d84b0e23f33a46730936d8e))
+
+# [7.14.0](https://github.com/dhis2/ui/compare/v7.13.0...v7.14.0) (2022-01-17)
+
+
+### Features
+
+* **selector bar:** add missing className props ([b5a24f1](https://github.com/dhis2/ui/commit/b5a24f10e06b23ec1d30c284838efeccab04ea2f))
+* **selector bar:** add missing data test props ([6479c7b](https://github.com/dhis2/ui/commit/6479c7b8fa6c052e46b578a9a1474d814bdedd88))
+
+# [7.13.0](https://github.com/dhis2/ui/compare/v7.12.2...v7.13.0) (2022-01-13)
+
+
+### Features
+
+* **org unit tree:** expose &lt;RootError /&gt; & &lt;RootLoading /&gt; ([5198c96](https://github.com/dhis2/ui/commit/5198c96e9ae75b505e8904854b93b794d138b507))
+
+## [7.12.2](https://github.com/dhis2/ui/compare/v7.12.1...v7.12.2) (2022-01-13)
+
+
+### Bug Fixes
+
+* further reduce size ([14df26b](https://github.com/dhis2/ui/commit/14df26b70e8515624860bb862c3c641653522fd3))
+* reduce size of date/time icon in Chrome ([f1e8985](https://github.com/dhis2/ui/commit/f1e8985e15080651bdc05f6f9332f13b8050109e))
+* reduce size of date/time icon in Chrome (LIBS-212) [#921](https://github.com/dhis2/ui/issues/921) ([54de53c](https://github.com/dhis2/ui/commit/54de53cf77b6ebe73b87780e4f47d53c46977185))
+
+## [7.12.1](https://github.com/dhis2/ui/compare/v7.12.0...v7.12.1) (2022-01-13)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([14e9037](https://github.com/dhis2/ui/commit/14e9037de9c74d9b933584f0c1a5bf031a5c7312))
+
+# [7.12.0](https://github.com/dhis2/ui/compare/v7.11.4...v7.12.0) (2022-01-12)
+
+
+### Features
+
+* **data-table:** configurable sort icon button title ([#922](https://github.com/dhis2/ui/issues/922)) ([806a7ca](https://github.com/dhis2/ui/commit/806a7ca53ff57ead17ce3455020b4251e007a34c))
+
+## [7.11.4](https://github.com/dhis2/ui/compare/v7.11.3...v7.11.4) (2022-01-11)
+
+
+### Bug Fixes
+
+* remove focus outline from disabled select components ([#916](https://github.com/dhis2/ui/issues/916)) ([b85bdae](https://github.com/dhis2/ui/commit/b85bdae1facad06c04c0ca1efc0c57a936fceabe))
+
+## [7.11.3](https://github.com/dhis2/ui/compare/v7.11.2...v7.11.3) (2022-01-11)
+
+
+### Bug Fixes
+
+* **forms:** update username regex to match 2.38 backend ([#914](https://github.com/dhis2/ui/issues/914)) ([f497bb0](https://github.com/dhis2/ui/commit/f497bb0c290e71725d66a5db9cd8f93bec46622a))
+
+## [7.11.2](https://github.com/dhis2/ui/compare/v7.11.1...v7.11.2) (2022-01-07)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([c9091e9](https://github.com/dhis2/ui/commit/c9091e981fa0e2d61cee4e2cf05cb68eb84392c4))
+
+## [7.11.1](https://github.com/dhis2/ui/compare/v7.11.0...v7.11.1) (2021-12-21)
+
+
+### Bug Fixes
+
+* **alert-bar:** prevent cutoff on small screens ([490a6fa](https://github.com/dhis2/ui/commit/490a6fa70c90da49aaa8df15ab35de56c00c29c9))
+
+# [7.11.0](https://github.com/dhis2/ui/compare/v7.10.5...v7.11.0) (2021-12-21)
+
+
+### Bug Fixes
+
+* change close button position, add focus style ([d1147bf](https://github.com/dhis2/ui/commit/d1147bf620119f38ef6e6bf403d630ce043ee7fa))
+
+
+### Features
+
+* **modal:** add close button to nonblocking modals ([885182b](https://github.com/dhis2/ui/commit/885182b9f41e0acb5a16ea3f949f6902f578cce3))
+
+## [7.10.5](https://github.com/dhis2/ui/compare/v7.10.4...v7.10.5) (2021-12-20)
+
+
+### Bug Fixes
+
+* **button:** focus style ([b6594d1](https://github.com/dhis2/ui/commit/b6594d1cdb22fbdf120b5b95d5cd225384773f61))
+* **checkbox:** focus style ([bb56aaa](https://github.com/dhis2/ui/commit/bb56aaa1c796fcb9e46610e03883f1ddb86c4504))
+* **input:** focus style ([70651f8](https://github.com/dhis2/ui/commit/70651f8383780f1f9476761937efbfad07116065))
+* **radio:** focus style ([91a18fa](https://github.com/dhis2/ui/commit/91a18fa262a99535986bf0406162128be733da29))
+* **segmented-control:** focus style ([dcd5e7d](https://github.com/dhis2/ui/commit/dcd5e7dc1e111020ccf10253a7b7a512bdcc178a))
+* **select:** focus style ([3568d6c](https://github.com/dhis2/ui/commit/3568d6cefa9c2af70d23145442e6eb4681a67644))
+* **switch:** focus style ([1c4e782](https://github.com/dhis2/ui/commit/1c4e7828a1c7d8d70388d146d4932d1634a2e3aa))
+* **textarea:** focus style ([0e2f414](https://github.com/dhis2/ui/commit/0e2f414baaf5bb5c74e957fead3104fb0be85d57))
+
+## [7.10.4](https://github.com/dhis2/ui/compare/v7.10.3...v7.10.4) (2021-12-11)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([4a9ca44](https://github.com/dhis2/ui/commit/4a9ca44d2b719a93e6f544aba52dfa1b7645baed))
+
+## [7.10.3](https://github.com/dhis2/ui/compare/v7.10.2...v7.10.3) (2021-12-10)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([ba2fcee](https://github.com/dhis2/ui/commit/ba2fcee7cb34ec9eb5dabbc278dd4aedbcecd8d1))
+
+## [7.10.2](https://github.com/dhis2/ui/compare/v7.10.1...v7.10.2) (2021-12-09)
+
+
+### Bug Fixes
+
+* **selector bar:** add to ui collection ([6093f7a](https://github.com/dhis2/ui/commit/6093f7a3497e3441eea45dc19cbb2ccf1ba023c5))
+
+## [7.10.1](https://github.com/dhis2/ui/compare/v7.10.0...v7.10.1) (2021-12-09)
+
+
+### Bug Fixes
+
+* **button:** secondary button contrast ([4ce00ac](https://github.com/dhis2/ui/commit/4ce00ac46e0195d89cfbd5acc00c445ebfd15ecf))
+
+# [7.10.0](https://github.com/dhis2/ui/compare/v7.9.1...v7.10.0) (2021-12-08)
+
+
+### Bug Fixes
+
+* **selection-bar-item:** wrap children in card ([c15415b](https://github.com/dhis2/ui/commit/c15415bf8df6ef7337de918a24171adba019729b))
+* use popper and custom offset ([f493bb5](https://github.com/dhis2/ui/commit/f493bb53f89d4697370fa4ee7f4ae537e7330450))
+* **selection-bar:** address double border issue ([4cf8f75](https://github.com/dhis2/ui/commit/4cf8f75d9cfe329984057dc5da6e927bae87c93f))
+* **selector bar item:** ensure that component always has a right-side border ([de2325d](https://github.com/dhis2/ui/commit/de2325d9ddefa37b8b0f8fdfcf7958d1d60ee2ec))
+
+
+### Features
+
+* **context selection:** add components & stories ([80f34d3](https://github.com/dhis2/ui/commit/80f34d38f540677c955b4c4aac06e0e1b2f9d40f))
+
+## [7.9.1](https://github.com/dhis2/ui/compare/v7.9.0...v7.9.1) (2021-12-06)
+
+
+### Bug Fixes
+
+* **modal:** reduce spacing between elements ([7390a9c](https://github.com/dhis2/ui/commit/7390a9cf2bf536a5edce3cf4772f9fd21a2d437e))
+
+# [7.9.0](https://github.com/dhis2/ui/compare/v7.8.1...v7.9.0) (2021-12-06)
+
+
+### Features
+
+* **dropdown-button:** add controlled mode ([#865](https://github.com/dhis2/ui/issues/865)) ([41a3671](https://github.com/dhis2/ui/commit/41a36716f8c2b347ef787c2baaf63dca295e346f))
+
+## [7.8.1](https://github.com/dhis2/ui/compare/v7.8.0...v7.8.1) (2021-11-28)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([c3f343b](https://github.com/dhis2/ui/commit/c3f343b6b4031dc1775510e593291fbd9b123f61))
+
+# [7.8.0](https://github.com/dhis2/ui/compare/v7.7.10...v7.8.0) (2021-11-26)
+
+
+### Bug Fixes
+
+* **button:** adjust button-strip margin between buttons ([a1fbf65](https://github.com/dhis2/ui/commit/a1fbf6503d508305c70e9c1c92362fa684c95518))
+
+
+### Features
+
+* **modal:** constrain fluidity to viewport ([f68dc08](https://github.com/dhis2/ui/commit/f68dc08e92e33048aabe58714079c2703097f1bd))
+* **modal:** implement dynamic dimension via fluid prop ([1bbaf09](https://github.com/dhis2/ui/commit/1bbaf09b020ad14c0e242f5a63237ce1284125de))
+
+## [7.7.10](https://github.com/dhis2/ui/compare/v7.7.9...v7.7.10) (2021-11-26)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([81d3966](https://github.com/dhis2/ui/commit/81d39667fb61ebaf92af2da028ce093107da2336))
+
+## [7.7.9](https://github.com/dhis2/ui/compare/v7.7.8...v7.7.9) (2021-11-25)
+
+
+### Bug Fixes
+
+* **sharing-dialog:** use number for countable entities ([6185f5f](https://github.com/dhis2/ui/commit/6185f5f691ae924b69f493e64f36775771ce52ea))
+
+## [7.7.8](https://github.com/dhis2/ui/compare/v7.7.7...v7.7.8) (2021-11-25)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([48f6cb2](https://github.com/dhis2/ui/commit/48f6cb2240f2da1594076b5220ba5ff3ebdcdc2f))
+
+## [7.7.7](https://github.com/dhis2/ui/compare/v7.7.6...v7.7.7) (2021-11-24)
+
+
+### Bug Fixes
+
+* **sharing-dialog:** fall back to visualization for undefined type ([59c02d8](https://github.com/dhis2/ui/commit/59c02d85ab6ad93886510a634948b34709e09ec9))
+
+## [7.7.6](https://github.com/dhis2/ui/compare/v7.7.5...v7.7.6) (2021-11-24)
+
+
+### Bug Fixes
+
+* **noop:** trigger patch release ([ed46049](https://github.com/dhis2/ui/commit/ed46049e6911f0c6d2dd81a400296aa1c49f1744))
+* **sharing-dialog:** update sharing dialog to match new app-runtime conventions ([#770](https://github.com/dhis2/ui/issues/770)) ([09b335b](https://github.com/dhis2/ui/commit/09b335b7ab6c74113ef40e02055052ab74e5b119))
+
+## [7.7.5](https://github.com/dhis2/ui/compare/v7.7.4...v7.7.5) (2021-11-19)
+
+
+### Bug Fixes
+
+* **tooltip:** increase readability ([1fa6a49](https://github.com/dhis2/ui/commit/1fa6a49173131118e528351e8c765af95d4aeb89))
+* **tooltip:** reduce default close delay ([122f045](https://github.com/dhis2/ui/commit/122f04586c34668b5504da5e7096fc6b992d1e84))
+
+## [7.7.4](https://github.com/dhis2/ui/compare/v7.7.3...v7.7.4) (2021-11-17)
+
+
+### Bug Fixes
+
+* **tooltip:** clear timeouts when unmounting ([#847](https://github.com/dhis2/ui/issues/847)) ([8762fa8](https://github.com/dhis2/ui/commit/8762fa8059f7f26ea51ee480a5d9587653408ace))
+
+## [7.7.3](https://github.com/dhis2/ui/compare/v7.7.2...v7.7.3) (2021-11-16)
+
+
+### Bug Fixes
+
+* handle sub-unit as root unit handling ([c8be3e7](https://github.com/dhis2/ui/commit/c8be3e7413b854bd1637489e9a6857ffce6a1564))
+
+## [7.7.2](https://github.com/dhis2/ui/compare/v7.7.1...v7.7.2) (2021-11-15)
+
+
+### Bug Fixes
+
+* **card:** use elevation constant ([0ad7fa1](https://github.com/dhis2/ui/commit/0ad7fa1b5cf2a1c4ab7db622b98ba7c98825654e))
+* **select:** adjust menu style ([44bb18a](https://github.com/dhis2/ui/commit/44bb18a137506fa066be52420e7d16c133384973))
+
+## [7.7.1](https://github.com/dhis2/ui/compare/v7.7.0...v7.7.1) (2021-11-10)
+
+
+### Bug Fixes
+
+* **segmented-control:** export SegmentedControl from ui collection ([#840](https://github.com/dhis2/ui/issues/840)) ([21322d7](https://github.com/dhis2/ui/commit/21322d72b9fd8a66b07b80ecdb37ab94cadec451))
+
+# [7.7.0](https://github.com/dhis2/ui/compare/v7.6.2...v7.7.0) (2021-11-10)
+
+
+### Features
+
+* **segmented-control:** add SegmentedControl component ([#831](https://github.com/dhis2/ui/issues/831)) ([f6a42c2](https://github.com/dhis2/ui/commit/f6a42c23025543546d3506b5d6932bc52a9af7c4))
+
+## [7.6.2](https://github.com/dhis2/ui/compare/v7.6.1...v7.6.2) (2021-11-10)
+
+
+### Bug Fixes
+
+* **menu:** adjust flyout background elevation and style ([6e68dc5](https://github.com/dhis2/ui/commit/6e68dc544b95007cc019c44f0cfcd3feb4e1f347))
+
+## [7.6.1](https://github.com/dhis2/ui/compare/v7.6.0...v7.6.1) (2021-11-10)
+
+
+### Bug Fixes
+
+* **user-avatar:** use correct hex value for 0.8 background opacity ([#837](https://github.com/dhis2/ui/issues/837)) ([b72f449](https://github.com/dhis2/ui/commit/b72f44975c71a5ada28009ff4c98f1e0525d8baf))
+
+# [7.6.0](https://github.com/dhis2/ui/compare/v7.5.0...v7.6.0) (2021-11-09)
+
+
+### Features
+
+* user-avatar component ([#830](https://github.com/dhis2/ui/issues/830)) ([222e21f](https://github.com/dhis2/ui/commit/222e21f93a8b0482f94ff6e499ce8b7cdd380824))
+
+# [7.5.0](https://github.com/dhis2/ui/compare/v7.4.6...v7.5.0) (2021-11-08)
+
+
+### Features
+
+* **icons:** text formatting icons ([3d7826f](https://github.com/dhis2/ui/commit/3d7826fbf5bb43d3112dd8f37debed4ba6c26306))
+
+## [7.4.6](https://github.com/dhis2/ui/compare/v7.4.5...v7.4.6) (2021-11-03)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([9a5c0b0](https://github.com/dhis2/ui/commit/9a5c0b09d3dbac7bebf8bbd86af296330c6ea200))
+
+## [7.4.5](https://github.com/dhis2/ui/compare/v7.4.4...v7.4.5) (2021-10-29)
+
+
+### Bug Fixes
+
+* **input:** adjust read-only style ([a22fe52](https://github.com/dhis2/ui/commit/a22fe52327b7fa64ab303e502a166c6a88f62407))
+
+## [7.4.4](https://github.com/dhis2/ui/compare/v7.4.3...v7.4.4) (2021-10-29)
+
+
+### Bug Fixes
+
+* **modal:** use correct title color ([bc1da82](https://github.com/dhis2/ui/commit/bc1da82b23b494f83d756e2cc6af2aaaad3db0ee))
+
+## [7.4.3](https://github.com/dhis2/ui/compare/v7.4.2...v7.4.3) (2021-10-28)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([d57612f](https://github.com/dhis2/ui/commit/d57612f94d395e56aec86f9c93b0b1d63a4dcd76))
+
+## [7.4.2](https://github.com/dhis2/ui/compare/v7.4.1...v7.4.2) (2021-10-27)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([db10c35](https://github.com/dhis2/ui/commit/db10c3549db17fe10f853a3577666b26360c5eca))
+
+## [7.4.1](https://github.com/dhis2/ui/compare/v7.4.0...v7.4.1) (2021-10-13)
+
+
+### Bug Fixes
+
+* **input:** add autoComplete prop to Input and InputField ([#810](https://github.com/dhis2/ui/issues/810)) ([fe80e88](https://github.com/dhis2/ui/commit/fe80e88ddafc1748a1e45f4072a375fdf4255e02))
+
+# [7.4.0](https://github.com/dhis2/ui/compare/v7.3.0...v7.4.0) (2021-10-13)
+
+
+### Features
+
+* **org unit tree:** add option to control expanded paths ([#798](https://github.com/dhis2/ui/issues/798)) ([cbb2314](https://github.com/dhis2/ui/commit/cbb23146ab23a292dcf71b2796bb583d808f7174))
+
+# [7.3.0](https://github.com/dhis2/ui/compare/v7.2.8...v7.3.0) (2021-10-13)
+
+
+### Features
+
+* **table:** loading state for DataTableBody ([#800](https://github.com/dhis2/ui/issues/800)) ([dbae161](https://github.com/dhis2/ui/commit/dbae161fe8e4a3554f9851fc6fd51b7778c9db22))
+
+## [7.2.8](https://github.com/dhis2/ui/compare/v7.2.7...v7.2.8) (2021-10-07)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([4cc50ab](https://github.com/dhis2/ui/commit/4cc50ab451fd2613753873bd4ef6c8f09caa9419))
+
+## [7.2.7](https://github.com/dhis2/ui/compare/v7.2.6...v7.2.7) (2021-10-06)
+
+
+### Bug Fixes
+
+* **data-table:** use padding instead of fixed cell heights ([#771](https://github.com/dhis2/ui/issues/771)) ([01e9d2f](https://github.com/dhis2/ui/commit/01e9d2fc59abfee2035635e07c9ad85b0baf1c80))
+
+## [7.2.6](https://github.com/dhis2/ui/compare/v7.2.5...v7.2.6) (2021-10-06)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([f3deca1](https://github.com/dhis2/ui/commit/f3deca1de287becbd7608a2118f32fd18941b75a))
+
+## [7.2.5](https://github.com/dhis2/ui/compare/v7.2.4...v7.2.5) (2021-10-03)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([cdf17b4](https://github.com/dhis2/ui/commit/cdf17b4f40c024de6caa1400b4b53c918c5b1bbe))
+
+## [7.2.4](https://github.com/dhis2/ui/compare/v7.2.3...v7.2.4) (2021-10-02)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([197bb3a](https://github.com/dhis2/ui/commit/197bb3a29e567f896dcf597594db3e315ca1d80d))
+
+## [7.2.3](https://github.com/dhis2/ui/compare/v7.2.2...v7.2.3) (2021-10-01)
+
+
+### Bug Fixes
+
+* sharing dialog text improvements ([#772](https://github.com/dhis2/ui/issues/772)) ([ef16df2](https://github.com/dhis2/ui/commit/ef16df246b2eed1363dcc63d650b4218344971d9))
+
+## [7.2.2](https://github.com/dhis2/ui/compare/v7.2.1...v7.2.2) (2021-10-01)
+
+
+### Bug Fixes
+
+* sharing-dialog - enable internationalization and improve text for cascade sharing ([#768](https://github.com/dhis2/ui/issues/768)) ([2775a4e](https://github.com/dhis2/ui/commit/2775a4e6a8785632e872bf59363e18926fb34f4b))
+
+## [7.2.1](https://github.com/dhis2/ui/compare/v7.2.0...v7.2.1) (2021-09-22)
+
+
+### Bug Fixes
+
+* remove External users from sharing dialog ([129b71e](https://github.com/dhis2/ui/commit/129b71e5aa140a2202b6d658a2dfbb64c7c4d6cf))
+
+# [7.2.0](https://github.com/dhis2/ui/compare/v7.1.1...v7.2.0) (2021-09-21)
+
+Note: this release has updated this library's version of @dhis2/prop-types to version 3. We've seen apps that implicitly rely on the version of @dhis2/prop-types shipped with this library. Since our internal upgrade to @dhis2/prop-types@3 is a major version upgrade your app could break if you update to this version and haven't explicitly installed a version of @dhis2/prop-types for your app. Make sure that if your app is using @dhis2/prop-types it's listed in your app's package.json before updating to this version of @dhis2/ui.
+
+### Features
+
+* **pagination:** add hidePageSummary prop and story for custom summary ([#753](https://github.com/dhis2/ui/issues/753)) ([23c14e7](https://github.com/dhis2/ui/commit/23c14e7a8761167d583caaf54d2e81c2ae8bf23c))
+
+## [7.1.1](https://github.com/dhis2/ui/compare/v7.1.0...v7.1.1) (2021-09-20)
+
+
+### Bug Fixes
+
+* **deps:** update cli-app-scripts ([32afc2c](https://github.com/dhis2/ui/commit/32afc2ce4efe087d3b8713031e838768356790ee))
+
 # [7.1.0](https://github.com/dhis2/ui/compare/v7.0.1...v7.1.0) (2021-09-17)
 
 
@@ -631,7 +1559,7 @@ Please use @dhis2/ui as your main entry-point in apps.
 
 ### Bug Fixes
 
-* **headerbar:** use <div> instead of <p> for user avatar initials ([#460](https://github.com/dhis2/ui/issues/460)) ([a8f25d9](https://github.com/dhis2/ui/commit/a8f25d95fb31441497f98b635b780964069b03bb))
+* **headerbar:** use &lt;div&gt; instead of &lt;p&gt; for user avatar initials ([#460](https://github.com/dhis2/ui/issues/460)) ([a8f25d9](https://github.com/dhis2/ui/commit/a8f25d95fb31441497f98b635b780964069b03bb))
 
 ## [6.1.2](https://github.com/dhis2/ui/compare/v6.1.1...v6.1.2) (2021-01-11)
 
@@ -794,7 +1722,7 @@ ensure that you are not depending on these components before upgrading.
 
 ### Bug Fixes
 
-* use > as ns separator for translation with : ([f52499d](https://github.com/dhis2/ui/commit/f52499dc0fbca8d612be72251087e2b2ae4639ac))
+* use &gt; as ns separator for translation with : ([f52499d](https://github.com/dhis2/ui/commit/f52499dc0fbca8d612be72251087e2b2ae4639ac))
 
 ## [5.5.10](https://github.com/dhis2/ui/compare/v5.5.9...v5.5.10) (2020-09-17)
 

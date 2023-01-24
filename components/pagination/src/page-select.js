@@ -1,6 +1,6 @@
 import { SingleSelect, SingleSelectOption } from '@dhis2-ui/select'
-import propTypes from '@dhis2/prop-types'
 import { spacers } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 // TODO: i18n translate
@@ -12,11 +12,12 @@ const translate = (prop, interpolationObject) => {
     return prop
 }
 
-const createAvailablePages = length =>
+const createAvailablePages = (length) =>
     Array.from({ length }, (_x, i) => (i + 1).toString())
 
 const PageSelect = ({
     dataTest,
+    disabled,
     pageSelectText,
     onChange,
     page,
@@ -25,13 +26,14 @@ const PageSelect = ({
     <div data-test={`${dataTest}-gotopage`}>
         <SingleSelect
             dense
+            disabled={disabled}
             selected={page.toString()}
             onChange={({ selected }) => onChange(parseInt(selected, 10))}
             className="select"
             dataTest={`${dataTest}-page-select`}
             prefix={translate(pageSelectText)}
         >
-            {createAvailablePages(pageCount).map(availablePage => (
+            {createAvailablePages(pageCount).map((availablePage) => (
                 <SingleSelectOption
                     key={availablePage}
                     value={availablePage}
@@ -48,12 +50,13 @@ const PageSelect = ({
 )
 
 PageSelect.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    page: propTypes.number.isRequired,
-    pageCount: propTypes.number.isRequired,
-    pageSelectText: propTypes.oneOfType([propTypes.string, propTypes.func])
+    dataTest: PropTypes.string.isRequired,
+    page: PropTypes.number.isRequired,
+    pageCount: PropTypes.number.isRequired,
+    pageSelectText: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
         .isRequired,
-    onChange: propTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
+    disabled: PropTypes.bool,
 }
 
 export { PageSelect, createAvailablePages }

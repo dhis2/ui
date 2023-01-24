@@ -12,7 +12,7 @@ import { Field } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Forms/Field',
+    title: 'Field',
     component: Field,
     argTypes: {
         valid: { ...sharedPropTypes.statusArgType },
@@ -22,7 +22,7 @@ export default {
     parameters: { docs: { description: { component: description } } },
 }
 
-export const Default = args => (
+export const Default = (args) => (
     <>
         <Field {...args}>
             <Input

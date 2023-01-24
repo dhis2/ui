@@ -23,10 +23,8 @@ export const DataTableRow = forwardRef(
         },
         ref
     ) => {
-        const [
-            isHoveringExpandedContent,
-            setIsHoveringExpandedContent,
-        ] = useState(false)
+        const [isHoveringExpandedContent, setIsHoveringExpandedContent] =
+            useState(false)
         const classes = cx(className, resolvedCss.className, {
             expanded,
             selected,
@@ -91,7 +89,7 @@ DataTableRow.propTypes = {
     draggable: PropTypes.bool,
     /** This content will be rendered into an additional row with fullwidth cell and the presence of this prop will display an additional table cell with expand icon */
     expandableContent: requiredIf(
-        props => props.onExpandToggle,
+        (props) => props.onExpandToggle,
         PropTypes.node
     ),
     /** Toggles expand icon (up/down) and expandable content visibility */
@@ -101,7 +99,7 @@ DataTableRow.propTypes = {
     selected: PropTypes.bool,
     /** Callback for expand icon cell clicks */
     onExpandToggle: requiredIf(
-        props => props.expandableContent,
+        (props) => props.expandableContent,
         PropTypes.func
     ),
 }

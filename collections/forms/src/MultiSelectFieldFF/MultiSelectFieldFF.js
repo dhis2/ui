@@ -41,7 +41,7 @@ export const MultiSelectFieldFF = ({
                 input.value || []
             } /* input.value is an empty string initially, so we're providing an empty array if falsey */
         >
-            {options.map(option => (
+            {options.map((option) => (
                 <MultiSelectOption key={option.value} {...option} />
             ))}
         </MultiSelectField>

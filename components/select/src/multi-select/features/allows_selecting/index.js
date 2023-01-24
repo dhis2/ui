@@ -1,4 +1,4 @@
-import '../common'
+import '../common/index.js'
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given(
@@ -42,7 +42,7 @@ When('the selected option is clicked again', () => {
 })
 
 Then('the clicked option is selected', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onChange).to.be.calledOnce
         expect(win.onChange).to.be.calledWith({
             selected: ['1'],
@@ -51,7 +51,7 @@ Then('the clicked option is selected', () => {
 })
 
 Then('the clicked option is selected as well', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onChange).to.be.calledOnce
         expect(win.onChange).to.be.calledWith({
             selected: ['1', '2'],
@@ -60,20 +60,20 @@ Then('the clicked option is selected as well', () => {
 })
 
 Then('the selected option is deselected', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onChange).to.be.calledOnce
         expect(win.onChange).to.be.calledWith({ selected: [] })
     })
 })
 
 Then('the onchange handler is not called', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onChange).to.not.be.called
     })
 })
 
 Then('the previously selected option is deselected', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onChange).to.be.calledTwice
         expect(win.onChange).to.be.calledWith({ selected: [] })
     })

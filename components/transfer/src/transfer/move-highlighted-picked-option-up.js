@@ -11,11 +11,13 @@ export const moveHighlightedPickedOptionUp = ({
     onChange,
 }) => {
     const optionIndex = selected.findIndex(
-        selectedOption => selectedOption === highlightedPickedOptions[0]
+        (selectedOption) => selectedOption === highlightedPickedOptions[0]
     )
 
     // Can't move up option at index 0 or non-existing option
-    if (optionIndex < 1) return
+    if (optionIndex < 1) {
+        return
+    }
 
     // swap with previous item
     const reordered = [

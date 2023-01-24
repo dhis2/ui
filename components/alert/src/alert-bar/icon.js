@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import { mutuallyExclusive } from '@dhis2/prop-types'
 import { spacers, colors } from '@dhis2/ui-constants'
 import {
     IconErrorFilled24,
@@ -6,6 +6,7 @@ import {
     IconWarningFilled24,
     IconCheckmark24,
 } from '@dhis2/ui-icons'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 const StatusIcon = ({ error, warning, valid, info, defaultTo }) => {
@@ -30,12 +31,11 @@ StatusIcon.defaultProps = {
 }
 
 StatusIcon.propTypes = {
-    className: propTypes.string,
-    defaultTo: propTypes.element,
-    error: propTypes.bool,
-    info: propTypes.bool,
-    valid: propTypes.bool,
-    warning: propTypes.bool,
+    defaultTo: PropTypes.element,
+    error: PropTypes.bool,
+    info: PropTypes.bool,
+    valid: PropTypes.bool,
+    warning: PropTypes.bool,
 }
 
 const Icon = ({ icon, success, warning, critical, info, dataTest }) => {
@@ -64,14 +64,14 @@ const Icon = ({ icon, success, warning, critical, info, dataTest }) => {
     )
 }
 
-const iconPropType = propTypes.oneOfType([propTypes.bool, propTypes.element])
-const alertStatePropType = propTypes.mutuallyExclusive(
+const iconPropType = PropTypes.oneOfType([PropTypes.bool, PropTypes.element])
+const alertStatePropType = mutuallyExclusive(
     ['success', 'warning', 'critical', 'info'],
-    propTypes.bool
+    PropTypes.bool
 )
 
 Icon.propTypes = {
-    dataTest: propTypes.string.isRequired,
+    dataTest: PropTypes.string.isRequired,
     critical: alertStatePropType,
     icon: iconPropType,
     info: alertStatePropType,

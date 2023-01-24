@@ -1,8 +1,8 @@
 import { CircularLoader } from '@dhis2-ui/loader'
-import propTypes from '@dhis2/prop-types'
 import { theme, colors, spacers } from '@dhis2/ui-constants'
 import { IconAttachment16 } from '@dhis2/ui-icons'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 const FileListItem = ({
@@ -30,7 +30,7 @@ const FileListItem = ({
             {loading && onCancel && cancelText && (
                 <span
                     className="action"
-                    onClick={event => onCancel({}, event)}
+                    onClick={(event) => onCancel({}, event)}
                     data-test={`${dataTest}-cancel`}
                 >
                     {cancelText}
@@ -40,7 +40,7 @@ const FileListItem = ({
             {!loading && (
                 <span
                     className="action"
-                    onClick={event => onRemove({}, event)}
+                    onClick={(event) => onRemove({}, event)}
                     data-test={`${dataTest}-remove`}
                 >
                     {removeText}
@@ -102,14 +102,14 @@ FileListItem.defaultProps = {
 }
 
 FileListItem.propTypes = {
-    onRemove: propTypes.func.isRequired,
-    cancelText: propTypes.string,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    label: propTypes.string,
-    loading: propTypes.bool,
-    removeText: propTypes.string,
-    onCancel: propTypes.func,
+    onRemove: PropTypes.func.isRequired,
+    cancelText: PropTypes.string,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    label: PropTypes.string,
+    loading: PropTypes.bool,
+    removeText: PropTypes.string,
+    onCancel: PropTypes.func,
 }
 
 export { FileListItem }

@@ -1,5 +1,10 @@
-import { CustomDataProvider, Provider } from '@dhis2/app-runtime'
+import { CustomDataProvider } from '@dhis2/app-runtime'
 import React from 'react'
+import {
+    createDecoratorProvider,
+    providerConfig,
+} from './__e2e__/stories/common.js'
+import { OnlineStatusMessageUpdate } from './__e2e__/stories/online-status-message.js'
 import { HeaderBar } from './header-bar.js'
 
 const subtitle = 'The common navigation bar used in all DHIS2 apps'
@@ -17,21 +22,6 @@ The header bar can be themeed to suit the brand/color of your DHIS2 instance. Th
 import { HeaderBar } from '@dhis2/ui'
 \`\`\`
 `
-
-export default {
-    title: 'Utils/Header Bar',
-    component: HeaderBar,
-    parameters: {
-        componentSubtitle: subtitle,
-        docs: { description: { component: description } },
-    },
-    args: { appName: 'Example!' },
-}
-
-const mockConfig = {
-    baseUrl: 'https://debug.dhis2.org/dev/',
-    apiVersion: 33,
-}
 
 const customData = {
     'systemSettings/applicationTitle': {
@@ -120,8 +110,7 @@ const customData = {
                 defaultAction:
                     'https://debug.dhis2.org/dev/api/apps/WHO-Metadata-browser/index.html',
                 displayName: '',
-                icon:
-                    'https://debug.dhis2.org/dev/api/apps/WHO-Metadata-browser/icons/medicine-48.png',
+                icon: 'https://debug.dhis2.org/dev/api/apps/WHO-Metadata-browser/icons/medicine-48.png',
                 description: '',
             },
             {
@@ -130,8 +119,7 @@ const customData = {
                 defaultAction:
                     'https://debug.dhis2.org/dev/api/apps/Dashboard-Classic/index.html',
                 displayName: 'Dashboard Classic',
-                icon:
-                    'https://debug.dhis2.org/dev/api/apps/Dashboard-Classic/icon.png',
+                icon: 'https://debug.dhis2.org/dev/api/apps/Dashboard-Classic/icon.png',
                 description: 'DHIS2 Legacy Dashboard App',
             },
         ],
@@ -163,7 +151,7 @@ const customLocaleData = {
         },
     },
     'action::menu/getModules': {
-        modules: customData['action::menu/getModules'].modules.map(mod => ({
+        modules: customData['action::menu/getModules'].modules.map((mod) => ({
             ...mod,
             displayName: `Le ${mod.displayName}`,
         })),
@@ -178,76 +166,72 @@ const customAuthoritiesData = {
     },
 }
 
-export const Default = args => (
-    <Provider config={mockConfig}>
-        <CustomDataProvider data={customData}>
-            <HeaderBar {...args} />
-        </CustomDataProvider>
-    </Provider>
+export default {
+    title: 'Header Bar',
+    component: HeaderBar,
+    parameters: {
+        componentSubtitle: subtitle,
+        docs: { description: { component: description } },
+    },
+    decorators: [createDecoratorProvider()],
+}
+
+export const Default = () => (
+    <CustomDataProvider data={customData}>
+        <HeaderBar appName="Example!" />
+    </CustomDataProvider>
 )
 
-export const CustomLogoWideDimension = args => (
-    <Provider config={mockConfig}>
-        <CustomDataProvider data={customLogoData}>
-            <HeaderBar {...args} />
-        </CustomDataProvider>
-    </Provider>
+export const CustomLogoWideDimension = () => (
+    <CustomDataProvider data={customLogoData}>
+        <HeaderBar appName="Example!" />
+    </CustomDataProvider>
 )
 CustomLogoWideDimension.storyName = 'Custom Logo (wide dimension)'
 
-export const NonEnglishUserLocale = args => (
-    <Provider config={mockConfig}>
-        <CustomDataProvider data={customLocaleData}>
-            <HeaderBar {...args} />
-        </CustomDataProvider>
-    </Provider>
+export const NonEnglishUserLocale = () => (
+    <CustomDataProvider data={customLocaleData}>
+        <HeaderBar appName="Exemple!" />
+    </CustomDataProvider>
 )
-NonEnglishUserLocale.args = { appName: 'Exemple!' }
 NonEnglishUserLocale.storyName = 'Non-english user locale'
 
-export const NoAuthorityForInterpretationsApp = args => (
-    <Provider config={mockConfig}>
-        <CustomDataProvider data={customAuthoritiesData}>
-            <HeaderBar {...args} />
-        </CustomDataProvider>
-    </Provider>
+export const NoAuthorityForInterpretationsApp = () => (
+    <CustomDataProvider data={customAuthoritiesData}>
+        <HeaderBar appName="Example!" />
+    </CustomDataProvider>
 )
 NoAuthorityForInterpretationsApp.storyName =
     'No authority for interpretations app'
 
-export const Loading = args => (
-    <Provider config={mockConfig}>
-        <CustomDataProvider options={{ loadForever: true }}>
-            <HeaderBar {...args} />
-        </CustomDataProvider>
-    </Provider>
+export const Loading = () => (
+    <CustomDataProvider options={{ loadForever: true }}>
+        <HeaderBar appName="Example!" />
+    </CustomDataProvider>
 )
 Loading.storyName = 'Loading...'
 
-export const Error = args => (
-    <Provider config={mockConfig}>
-        <CustomDataProvider data={{}}>
-            <HeaderBar {...args} />
-        </CustomDataProvider>
-    </Provider>
+export const Error = () => (
+    <CustomDataProvider data={{}}>
+        <HeaderBar appName="Exemple!" />
+    </CustomDataProvider>
 )
 Error.storyName = 'Error!'
 
-export const WithOnlineStatus = args => {
-    const config = { ...mockConfig, pwaEnabled: true }
-    return (
-        <Provider config={config}>
-            <CustomDataProvider data={customData}>
-                <HeaderBar {...args} />
-            </CustomDataProvider>
-        </Provider>
-    )
-}
+export const WithOnlineStatus = () => (
+    <CustomDataProvider data={customData}>
+        <HeaderBar appName="Exemple!" />
+    </CustomDataProvider>
+)
+
+WithOnlineStatus.decorators = [
+    createDecoratorProvider({ ...providerConfig, pwaEnabled: true }),
+]
+
 WithOnlineStatus.parameters = {
     docs: {
         description: {
-            story:
-                'An online status badge will be shown in apps that set \
+            story: 'An online status badge will be shown in apps that set \
                 `pwa: { enabled: true }` in `d2.config.js`. The status \
                 indicator uses a different layout on viewports smaller \
                 than 480px.',
@@ -255,26 +239,38 @@ WithOnlineStatus.parameters = {
     },
 }
 
-export const WithLastOnlineInfo = args => {
-    const config = {
-        ...mockConfig,
-        pwaEnabled: true,
-        headerbar: { onlineStatusInfo: 'LAST_ONLINE' },
-    }
-    return (
-        <Provider config={config}>
-            <CustomDataProvider data={customData}>
-                <HeaderBar {...args} />
-            </CustomDataProvider>
-        </Provider>
-    )
-}
-WithLastOnlineInfo.parameters = {
+export const WithUpdateNotification = () => (
+    <CustomDataProvider data={customData}>
+        <HeaderBar appName="Data Visualizer" updateAvailable={true} />
+    </CustomDataProvider>
+)
+
+export const WithOnlineStatusMessage = () => (
+    <CustomDataProvider data={customData}>
+        <HeaderBar appName="Exemple!" />
+        <OnlineStatusMessageUpdate />
+    </CustomDataProvider>
+)
+
+WithOnlineStatusMessage.decorators = [
+    createDecoratorProvider(
+        {
+            ...providerConfig,
+            pwaEnabled: true,
+        },
+        {
+            pwaEnabled: true,
+            startRecording: async () => undefined,
+            getCachedSections: async () => [],
+            removeSection: async () => false,
+        }
+    ),
+]
+
+WithOnlineStatusMessage.parameters = {
     docs: {
         description: {
-            story:
-                'When offline, the status indicator will show text describing \
-                time since last online.',
+            story: 'When online status is updated, the status indicator will show react node sent as the message',
         },
     },
 }

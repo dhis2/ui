@@ -9,10 +9,11 @@ const config = {
     rules: {
         'import/no-webpack-loader-syntax': 'error',
         'import/no-useless-path-segments': 'error',
+        'react/no-unknown-property': ['error', { ignore: ['jsx', 'global'] }],
     },
     overrides: [
         {
-            files: ['*.stories.js', '*.stories.e2e.js'],
+            files: ['*.stories.js', '*.stories.e2e.js', '**/__stories__/*.js'],
             rules: {
                 'import/no-extraneous-dependencies': 'off',
                 'react/display-name': 'off',
@@ -30,6 +31,8 @@ const config = {
                 '**/__tests__/**/*.js',
                 '*.test.js',
                 '*.stories*.js',
+                '**/__stories__/*.js',
+                '**/__stories__/**/*.js',
             ],
             rules: {
                 'import/no-extraneous-dependencies': 'error',

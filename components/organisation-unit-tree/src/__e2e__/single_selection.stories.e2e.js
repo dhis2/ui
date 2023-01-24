@@ -13,18 +13,22 @@ const data = {
         const [, { id }] = args
 
         if (id === 'A0000000000') {
-            return {
-                ...dataProviderData.organisationUnits(...args),
-                children: [],
-            }
+            return dataProviderData
+                .organisationUnits(...args)
+                .then((response) => ({
+                    ...response,
+                    children: [],
+                }))
         }
 
         if (id === 'A0000000001') {
-            return {
-                ...dataProviderData.organisationUnits(...args),
-                path: '/A0000000001',
-                children: [],
-            }
+            return dataProviderData
+                .organisationUnits(...args)
+                .then((response) => ({
+                    ...response,
+                    path: '/A0000000001',
+                    children: [],
+                }))
         }
 
         return Promise.resolve({})

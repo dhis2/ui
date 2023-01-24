@@ -1,5 +1,8 @@
 import { string, invalidStringMessage } from '../string.js'
-import { testValidatorValues, allowsEmptyValues } from '../test-helpers'
+import {
+    testValidatorValues,
+    allowsEmptyValues,
+} from '../test-helpers/index.js'
 
 describe('validator: string', () => {
     allowsEmptyValues(string)

@@ -22,19 +22,19 @@ import { Menu } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Actions/Menu/Menu',
+    title: 'Menu',
     component: Menu,
     parameters: { docs: { description: { component: description } } },
 }
 
-export const Default = args => (
+export const Default = (args) => (
     <Menu {...args}>
         <MenuItem label="Menu item" />
         <MenuItem label="Menu item" />
     </Menu>
 )
 
-export const Dense = args => (
+export const Dense = (args) => (
     <Menu {...args}>
         <MenuItem label="Menu item" />
         <MenuItem label="Menu item" />
@@ -44,20 +44,19 @@ Dense.args = { dense: true }
 Dense.parameters = {
     docs: {
         description: {
-            story:
-                'Menus are available in regular or dense sizes. Use dense menus in data-heavy applications used by users comfortable with technology. Use regular menus in apps that are less complex or have few controls.',
+            story: 'Menus are available in regular or dense sizes. Use dense menus in data-heavy applications used by users comfortable with technology. Use regular menus in apps that are less complex or have few controls.',
         },
     },
 }
 
-export const AutoHideFirstSectionHeaderDivider = args => (
+export const AutoHideFirstSectionHeaderDivider = (args) => (
     <Menu {...args}>
         <MenuSectionHeader label="First - no divider above" />
         <MenuSectionHeader label="Second - with divider above" />
     </Menu>
 )
 
-export const SideBarMenu = args => (
+export const SideBarMenu = (args) => (
     <main
         style={{
             display: 'flex',

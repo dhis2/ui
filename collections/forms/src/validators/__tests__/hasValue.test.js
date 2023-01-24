@@ -1,5 +1,5 @@
 import { hasValue, hasValueMessage } from '../hasValue.js'
-import { testValidatorValues } from '../test-helpers'
+import { testValidatorValues } from '../test-helpers/index.js'
 
 describe('validator: hasValue', () => {
     describe('should return undefined for allowed values', () => {

@@ -1,5 +1,5 @@
 import { Button } from '@dhis2-ui/button'
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { IconRemoveAll } from './icons.js'
 
@@ -20,8 +20,8 @@ export const RemoveAll = ({ label, dataTest, disabled, onClick }) => (
 )
 
 RemoveAll.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    onClick: propTypes.func.isRequired,
-    disabled: propTypes.bool,
-    label: propTypes.string,
+    dataTest: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
+    disabled: PropTypes.bool,
+    label: PropTypes.string,
 }

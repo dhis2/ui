@@ -11,12 +11,12 @@ import { FileInputField, FileListItem } from '@dhis2/ui'
 \`\`\`
 `
 
-const onChange = obj => console.log('onChange', obj)
+const onChange = (obj) => console.log('onChange', obj)
 const onRemove = () => console.log('onRemove')
 const onCancel = () => console.log('onCancel')
 
 export default {
-    title: 'Forms/File Input/File Input Field',
+    title: 'File Input Field',
     component: FileInputField,
     parameters: { docs: { description: { component: description } } },
     // Default args:
@@ -36,7 +36,7 @@ export default {
     },
 }
 
-const Template = args => <FileInputField {...args} />
+const Template = (args) => <FileInputField {...args} />
 
 export const Default = Template.bind({})
 Default.args = { label: null }
@@ -56,7 +56,7 @@ Multiple.args = {
 export const Disabled = Template.bind({})
 Disabled.args = { disabled: true }
 
-export const Sizes = args => (
+export const Sizes = (args) => (
     <>
         <FileInputField
             {...args}
@@ -68,7 +68,7 @@ export const Sizes = args => (
     </>
 )
 
-export const Statuses = args => (
+export const Statuses = (args) => (
     <>
         <FileInputField {...args} buttonLabel="Default" name="defaultName" />
         <FileInputField {...args} buttonLabel="Valid" name="validName" valid />
@@ -88,7 +88,7 @@ export const Statuses = args => (
     </>
 )
 
-export const FileList = args => (
+export const FileList = (args) => (
     <div style={{ width: 250 }}>
         <FileInputField {...args}>
             <FileListItem
@@ -127,7 +127,7 @@ PlaceholderText.args = { placeholder: 'No file(s) selected yet' }
 export const HelpText = Template.bind({})
 HelpText.args = { helpText: 'Please select any file type' }
 
-export const DesignSystemStackingOrder = args => (
+export const DesignSystemStackingOrder = (args) => (
     <FileInputField {...args}>
         <FileListItem
             label="TestFile.txt"

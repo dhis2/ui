@@ -27,7 +27,9 @@ Given('the selected list has items', () => {
 Given('no option items are highlighted', () => {
     cy.get(
         '[data-test="dhis2-uicore-transfer-sourceoptions"] [data-test="dhis2-uicore-transferoption"]'
-    ).each($option => cy.wrap($option).should('not.have.class', 'highlighted'))
+    ).each(($option) =>
+        cy.wrap($option).should('not.have.class', 'highlighted')
+    )
 })
 
 Given('some option items are highlighted', () => {
@@ -41,7 +43,9 @@ Given('some option items are highlighted', () => {
 Given('no selected items are highlighted', () => {
     cy.get(
         '[data-test="dhis2-uicore-transfer-pickedoptions"] [data-test="dhis2-uicore-transferoption"]'
-    ).each($option => cy.wrap($option).should('not.have.class', 'highlighted'))
+    ).each(($option) =>
+        cy.wrap($option).should('not.have.class', 'highlighted')
+    )
 })
 
 Given('some selected items are highlighted', () => {

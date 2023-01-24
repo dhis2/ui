@@ -1,72 +1,29 @@
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
-import { baseUrl } from '../common/index'
-
-const meUrl = `${baseUrl}/api/me?fields=authorities,avatar,email,name,settings`
 
 Given('the user has the ALL authority', () => {
-    cy.fixture('HeaderBar/me').then(fx => {
-        cy.route({
-            url: meUrl,
-            response: {
-                ...fx,
-                authorities: ['ALL'],
-            },
-        })
-    })
+    cy.visitStory('HeaderBarTesting', 'User Has All Authority')
 })
 
 Given(
     'the user has the M_dhis-web-interpretation and M_dhis-web-messaging authority',
     () => {
-        cy.fixture('HeaderBar/me').then(fx => {
-            cy.route({
-                url: meUrl,
-                response: {
-                    ...fx,
-                    authorities: [
-                        'M_dhis-web-interpretation',
-                        'M_dhis-web-messaging',
-                    ],
-                },
-            })
-        })
+        cy.visitStory(
+            'HeaderBarTesting',
+            'User Has Web Interpretation And Messaging Authority'
+        )
     }
 )
 
 Given('the user has the M_dhis-web-interpretation authority', () => {
-    cy.fixture('HeaderBar/me').then(fx => {
-        cy.route({
-            url: meUrl,
-            response: {
-                ...fx,
-                authorities: ['M_dhis-web-interpretation'],
-            },
-        })
-    })
+    cy.visitStory('HeaderBarTesting', 'User Has Web Interpretation Authority')
 })
 
 Given('the user has the M_dhis-web-messaging authority', () => {
-    cy.fixture('HeaderBar/me').then(fx => {
-        cy.route({
-            url: meUrl,
-            response: {
-                ...fx,
-                authorities: ['M_dhis-web-messaging'],
-            },
-        })
-    })
+    cy.visitStory('HeaderBarTesting', 'User Has Web Messaging Authority')
 })
 
 Given('the user has authority for none of the apps', () => {
-    cy.fixture('HeaderBar/me').then(fx => {
-        cy.route({
-            url: meUrl,
-            response: {
-                ...fx,
-                authorities: [],
-            },
-        })
-    })
+    cy.visitStory('HeaderBarTesting', 'User Has No Authorities')
 })
 
 Then('the messaging app icon is not rendered', () => {

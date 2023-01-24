@@ -9,9 +9,9 @@ When('the FileInput is focused', () => {
 })
 
 Then('the onFocus handler is called', () => {
-    cy.window().then(win => {
+    cy.window().then((win) => {
         cy.get('[data-test="dhis2-uicore-fileinput"] input').should(
-            fileInput => {
+            (fileInput) => {
                 expect(win.onFocus).to.be.calledWith({
                     name: 'upload',
                     files: fileInput[0].files,

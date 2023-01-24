@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { FilterInput } from './filter-input.js'
 import { NoMatch } from './no-match.js'
@@ -53,7 +53,7 @@ export class FilterableMenu extends Component {
             )
         }
 
-        const filtered = React.Children.map(options, child => {
+        const filtered = React.Children.map(options, (child) => {
             const isValidOption = checkIfValidOption(child)
 
             // Filter it out if it's an invalid option
@@ -90,17 +90,17 @@ export class FilterableMenu extends Component {
 }
 
 FilterableMenu.propTypes = {
-    Menu: propTypes.elementType.isRequired,
-    dataTest: propTypes.string.isRequired,
-    noMatchText: propTypes.string.isRequired,
-    selected: propTypes.oneOfType([
-        propTypes.string,
-        propTypes.arrayOf(propTypes.string),
+    Menu: PropTypes.elementType.isRequired,
+    dataTest: PropTypes.string.isRequired,
+    noMatchText: PropTypes.string.isRequired,
+    selected: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
     ]).isRequired,
-    empty: propTypes.node,
-    handleClose: propTypes.func,
-    handleFocusInput: propTypes.func,
-    options: propTypes.node,
-    placeholder: propTypes.string,
-    onChange: propTypes.func,
+    empty: PropTypes.node,
+    handleClose: PropTypes.func,
+    handleFocusInput: PropTypes.func,
+    options: PropTypes.node,
+    placeholder: PropTypes.string,
+    onChange: PropTypes.func,
 }

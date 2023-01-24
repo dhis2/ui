@@ -1,4 +1,4 @@
-import '../common/index'
+import '../common/index.js'
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a DropdownButton with onClick handler is rendered', () => {
@@ -6,7 +6,7 @@ Given('a DropdownButton with onClick handler is rendered', () => {
 })
 
 Then('the onClick handler is called', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onClick).to.be.calledWith({
             name: 'Button',
             value: 'default',

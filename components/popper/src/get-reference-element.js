@@ -1,4 +1,4 @@
-export const getReferenceElement = reference => {
+export const getReferenceElement = (reference) => {
     // Elements or virtualElements
     if (
         reference instanceof Element ||

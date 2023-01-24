@@ -1,6 +1,6 @@
 import { SingleSelect, SingleSelectOption } from '@dhis2-ui/select'
-import propTypes from '@dhis2/prop-types'
 import { spacers } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 // TODO: i18n translate
@@ -14,6 +14,7 @@ const translate = (prop, interpolationObject) => {
 
 const PageSizeSelect = ({
     dataTest,
+    disabled,
     pageSizeSelectText,
     pageSize,
     pageSizes,
@@ -22,13 +23,14 @@ const PageSizeSelect = ({
     <div data-test={`${dataTest}-pagesize`}>
         <SingleSelect
             dense
+            disabled={disabled}
             selected={pageSize.toString()}
             onChange={({ selected }) => onChange(parseInt(selected, 10))}
             className="select"
             dataTest={`${dataTest}-pagesize-select`}
             prefix={translate(pageSizeSelectText)}
         >
-            {pageSizes.map(length => (
+            {pageSizes.map((length) => (
                 <SingleSelectOption
                     key={length}
                     value={length}
@@ -50,12 +52,13 @@ const PageSizeSelect = ({
 )
 
 PageSizeSelect.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    pageSize: propTypes.number.isRequired,
-    pageSizeSelectText: propTypes.oneOfType([propTypes.string, propTypes.func])
+    dataTest: PropTypes.string.isRequired,
+    pageSize: PropTypes.number.isRequired,
+    pageSizeSelectText: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
         .isRequired,
-    pageSizes: propTypes.arrayOf(propTypes.string).isRequired,
-    onChange: propTypes.func.isRequired,
+    pageSizes: PropTypes.arrayOf(PropTypes.string).isRequired,
+    onChange: PropTypes.func.isRequired,
+    disabled: PropTypes.bool,
 }
 
 export { PageSizeSelect }

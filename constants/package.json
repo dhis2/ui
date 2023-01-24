@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/ui-constants",
-    "version": "7.1.0",
+    "version": "8.7.7",
     "description": "Constants used in the UI libs",
     "main": "./build/cjs/index.js",
     "module": "./build/es/index.js",
@@ -26,7 +26,6 @@
         "build": "d2-app-scripts build"
     },
     "dependencies": {
-        "@dhis2/prop-types": "^1.6.4",
         "prop-types": "^15.7.2"
     },
     "files": [

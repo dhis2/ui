@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { IconChevronRight16, IconChevronLeft16 } from '@dhis2/ui-icons'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React, { Component, createRef } from 'react'
 import { animatedSideScroll } from './animated-side-scroll.js'
 import { detectHorizontalScrollbarHeight } from './detect-horizontal-scrollbar-height.js'
@@ -211,9 +211,9 @@ class ScrollBar extends Component {
 }
 
 ScrollBar.propTypes = {
-    children: propTypes.node.isRequired,
-    dataTest: propTypes.string.isRequired,
-    className: propTypes.string,
+    children: PropTypes.node.isRequired,
+    dataTest: PropTypes.string.isRequired,
+    className: PropTypes.string,
 }
 
 export { ScrollBar }

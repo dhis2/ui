@@ -1,8 +1,8 @@
-import propTypes from '@dhis2/prop-types'
 import { colors, spacers } from '@dhis2/ui-constants'
+import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 
-// TODO: i18n translate
 const translate = (prop, interpolationObject) => {
     if (typeof prop === 'function') {
         return prop(interpolationObject)
@@ -11,47 +11,27 @@ const translate = (prop, interpolationObject) => {
     return prop
 }
 
-const getItemRange = (page, pageSize, total) => {
-    let firstItem, lastItem
-
-    if (total === 0) {
-        // if no items are found, the pager total is 0
-        // and we want to force the first and last item to be 0 too
-        firstItem = 0
-        lastItem = 0
-    } else {
-        // page is 1-based
-        firstItem = (page - 1) * pageSize + 1
-        lastItem = firstItem + pageSize - 1
-    }
-
-    if (lastItem > total) {
-        lastItem = total
-    }
-
-    return { firstItem, lastItem }
-}
-
 const PageSummary = ({
     dataTest,
+    firstItem,
+    inactive,
+    lastItem,
     page,
     pageCount,
-    pageSize,
     pageSummaryText,
     total,
 }) => {
-    const { firstItem, lastItem } = getItemRange(page, pageSize, total)
     const summary = translate(pageSummaryText, {
-        page,
-        pageCount,
         firstItem,
         lastItem,
+        page,
+        pageCount,
         total,
     })
 
     return (
         <div data-test={`${dataTest}-summary`}>
-            <span>{summary}</span>
+            <span className={cx({ inactive })}>{summary}</span>
             <style jsx>{`
                 div {
                     display: flex;
@@ -64,19 +44,24 @@ const PageSummary = ({
                     color: ${colors.grey700};
                     font-size: 14px;
                 }
+                span.inactive {
+                    color: ${colors.grey500};
+                }
             `}</style>
         </div>
     )
 }
 
 PageSummary.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    page: propTypes.number.isRequired,
-    pageCount: propTypes.number.isRequired,
-    pageSize: propTypes.number.isRequired,
-    pageSummaryText: propTypes.oneOfType([propTypes.string, propTypes.func])
+    dataTest: PropTypes.string.isRequired,
+    page: PropTypes.number.isRequired,
+    pageSummaryText: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
         .isRequired,
-    total: propTypes.number.isRequired,
+    firstItem: PropTypes.number,
+    inactive: PropTypes.bool,
+    lastItem: PropTypes.number,
+    pageCount: PropTypes.number,
+    total: PropTypes.number,
 }
 
-export { PageSummary, getItemRange }
+export { PageSummary }

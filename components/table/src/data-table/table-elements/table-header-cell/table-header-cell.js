@@ -1,4 +1,5 @@
 import { mutuallyExclusive, requiredIf } from '@dhis2/prop-types'
+import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
@@ -11,6 +12,7 @@ export const TableHeaderCell = forwardRef(
         {
             active,
             align,
+            backgroundColor,
             bordered,
             children,
             className,
@@ -62,6 +64,17 @@ export const TableHeaderCell = forwardRef(
                     top: ${top};
                     text-align: ${align};
                     width: ${width};
+                    background-color: ${backgroundColor || colors.grey200};
+                }
+                :global(thead) th.fixedHorizontally {
+                    background-color: ${backgroundColor || colors.grey300};
+                }
+                :global(tbody) > :global(tr:hover) > th:not(.staticStyle),
+                :global(tfoot) > :global(tr:hover) > th:not(.staticStyle) {
+                    background-color: ${backgroundColor || colors.grey300};
+                }
+                :global(tbody) > :global(tr:active) > th:not(.staticStyle) {
+                    background-color: ${backgroundColor || colors.grey200};
                 }
             `}</style>
         </th>
@@ -84,9 +97,11 @@ const stylePropType = mutuallyExclusive(
 )
 
 TableHeaderCell.propTypes = {
-    /** To toggle background color, for example for editing */
+    /** To toggle border color, for example for editing */
     active: PropTypes.bool,
     align: PropTypes.oneOf(['left', 'center', 'right']),
+    /** Sets background color of the cell. Disables dynamic background colors from active, hover, and selected states */
+    backgroundColor: PropTypes.string,
     bordered: PropTypes.bool,
     children: PropTypes.node,
     className: PropTypes.string,
@@ -97,7 +112,7 @@ TableHeaderCell.propTypes = {
     fixed: PropTypes.bool,
     large: PropTypes.bool,
     /** Left or top required when fixed */
-    left: requiredIf(props => props.fixed && !props.top, PropTypes.string),
+    left: requiredIf((props) => props.fixed && !props.top, PropTypes.string),
     /** Mutually exclusive with error and valid */
     muted: stylePropType,
     role: PropTypes.string,
@@ -106,7 +121,7 @@ TableHeaderCell.propTypes = {
     /** Surpress hover and active event styles */
     staticStyle: PropTypes.bool,
     /** Left or top required when fixed */
-    top: requiredIf(props => props.fixed && !props.left, PropTypes.string),
+    top: requiredIf((props) => props.fixed && !props.left, PropTypes.string),
     /** Mutually exclusive with error and muted */
     valid: stylePropType,
     width: PropTypes.string,

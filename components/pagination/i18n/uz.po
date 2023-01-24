@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-05-10T12:25:58.130Z\n"
+"POT-Creation-Date: 2022-03-10T20:20:19.392Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
@@ -14,6 +14,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uz@Cyrl\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid ""
+"Page {{page}} of {{pageCount}}, items {{firstItem}}-{{lastItem}} of "
+"{{total}}"
+msgstr ""
+
+msgid "Page {{page}}, items {{firstItem}}-{{lastItem}}"
+msgstr ""
+
+msgid "Page {{page}}"
+msgstr ""
 
 msgid "Next"
 msgstr "Кейинги"
@@ -24,10 +35,10 @@ msgstr "Саҳифа"
 msgid "Items per page"
 msgstr ""
 
-msgid ""
-"Page {{page}} of {{pageCount}}, items {{firstItem}}-{{lastItem}} of "
-"{{total}}"
-msgstr ""
-
 msgid "Previous"
 msgstr "Олдинги"
+
+msgid ""
+"You are at page {{page}} showing items {{firstItem}}-{{lastItem}}, but there"
+" are {{pageCount}} pages and {{total}} items"
+msgstr ""

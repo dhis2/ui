@@ -16,7 +16,7 @@ Given('a checked Switch with a value is rendered', () => {
 })
 
 Then('the form value that corresponds to the switch will be correct', () => {
-    cy.window().then(win => {
+    cy.window().then((win) => {
         expect(win.formValues.switch).to.deep.equal([])
     })
 })

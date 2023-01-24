@@ -2,7 +2,7 @@ import { Popper } from '@dhis2-ui/popper'
 import { Portal } from '@dhis2-ui/portal'
 import { colors, layers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { resolve } from 'styled-jsx/css'
 
 const TOOLTIP_OFFSET = 4
@@ -66,6 +66,14 @@ const Tooltip = ({
         }, closeDelay)
     }
 
+    useEffect(
+        () => () => {
+            clearTimeout(openTimerRef.current)
+            clearTimeout(closeTimerRef.current)
+        },
+        []
+    )
+
     return (
         <>
             {typeof children === 'function' ? (
@@ -108,12 +116,12 @@ const Tooltip = ({
                     max-width: ${maxWidth}px;
                 }
                 div {
-                    padding: 6px 8px;
-                    background-color: ${colors.grey800};
+                    padding: 4px 6px;
+                    background-color: ${colors.grey900};
                     border-radius: 3px;
                     color: ${colors.white};
-                    font-size: 12px;
-                    line-height: 16px;
+                    font-size: 13px;
+                    line-height: 17px;
                 }
             `}</style>
         </>
@@ -121,7 +129,7 @@ const Tooltip = ({
 }
 
 Tooltip.defaultProps = {
-    closeDelay: 400,
+    closeDelay: 200,
     dataTest: 'dhis2-uicore-tooltip',
     maxWidth: 300,
     openDelay: 200,

@@ -15,7 +15,7 @@ import { MultiSelectField, MultiSelectOption } from '@dhis2/ui'
 _**Note**: The dropdowns in some of the following stories won't appear correctly on this page. View these demos in the 'Canvas' tab._
 `
 
-const onChange = selected =>
+const onChange = (selected) =>
     alert(`Selected changed to: ${JSON.stringify(selected, null, 2)}`)
 
 const options = [
@@ -32,7 +32,7 @@ const options = [
 ]
 
 export default {
-    title: 'Forms/Multi Select/Multi Select Field',
+    title: 'Multi Select Field',
     component: MultiSelectField,
     subcomponents: { MultiSelectOption },
     parameters: { docs: { description: { component: description } } },
@@ -52,7 +52,7 @@ export default {
     },
 }
 
-const Template = args => <MultiSelectField {...args} />
+const Template = (args) => <MultiSelectField {...args} />
 
 export const Default = Template.bind({})
 
@@ -96,8 +96,7 @@ Required.args = { required: true }
 export const InputWidth = Template.bind({})
 InputWidth.args = {
     inputWidth: '200px',
-    label:
-        'A very long label indeed, well at least longer than the input field to show how it looks and works and stuff',
+    label: 'A very long label indeed, well at least longer than the input field to show how it looks and works and stuff',
     required: true,
 }
 

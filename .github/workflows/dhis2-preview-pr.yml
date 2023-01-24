@@ -24,27 +24,28 @@ jobs:
             - uses: actions/checkout@v2
             - uses: actions/setup-node@v1
               with:
-                  node-version: 12.x
+                  node-version: 14.x
 
             - uses: c-hive/gha-yarn-cache@v1
-            - run: |
-                  yarn install --frozen-lockfile
-                  yarn setup
+            - run: yarn install --frozen-lockfile
 
-            - name: Build
-              run: yarn demo
+            - run: yarn build
 
             - name: Deploy
               id: netlify-deploy
-              uses: nwtgck/actions-netlify@v1.1
+              uses: nwtgck/actions-netlify@v1.2.2
               timeout-minutes: 1
               with:
                   github-token: ${{ secrets.DHIS2_BOT_GITHUB_TOKEN }}
+                  github-deployment-environment: 'netlify'
+                  github-deployment-description: 'PR Preview on Netlify'
                   deploy-message: ${{ github.event.pull_request.title }}
                   enable-pull-request-comment: true
-                  enable-commit-comment: false
+                  enable-commit-comment: true
+                  enable-commit-status: true
                   alias: pr-${{ github.event.number }}
-                  publish-dir: 'dist/demo'
+                  # customize according to project needs
+                  publish-dir: 'dist'
               env:
                   # org secret
                   NETLIFY_AUTH_TOKEN: ${{ secrets.DHIS2_BOT_NETLIFY_TOKEN }}

@@ -1,14 +1,5 @@
 import '@fontsource/roboto/latin.css'
 import { CssReset } from '@dhis2-ui/css'
-import {
-    Title,
-    Subtitle,
-    Description,
-    Primary,
-    ArgsTable,
-    Stories,
-    PRIMARY_STORY,
-} from '@storybook/addon-docs'
 import React, { Fragment } from 'react'
 import { jsxDecorator } from 'storybook-addon-jsx'
 import '@storybook/addon-console'
@@ -20,7 +11,7 @@ export const decorators = [
      * Basic wrapper for all our components, styles the root elements and applies
      * our css reset for consistency/
      */
-    Component => (
+    (Component) => (
         <Fragment>
             <CssReset />
             <Component />
@@ -45,41 +36,13 @@ export const decorators = [
 export const parameters = {
     options: {
         storySort: {
-            // Manually sort top content
-            order: [
-                'About This Documentation',
-                ['For readers', 'For maintainers'],
-                'Using UI',
-                [
-                    'Getting Started',
-                    'Troubleshooting',
-                    'Advanced Usage',
-                    'Useful Constants',
-                    'Recipes',
-                ],
-            ],
-            // Then sort the rest alphabetically
             method: 'alphabetical',
         },
     },
-    docs: {
-        // Customize docs page layout (in order to rename 'Stories' section)
-        /* eslint-disable-next-line react/display-name */
-        page: () => (
-            <>
-                <Title />
-                <Subtitle />
-                <Description />
-                <Primary />
-                <ArgsTable story={PRIMARY_STORY} />
-                <Stories title="Examples" />
-            </>
-        ),
-    },
     jsx: {
-        filterProps: val => val !== undefined,
+        filterProps: (val) => val !== undefined,
         showDefaultProps: false,
-        functionValue: fn => fn.name,
+        functionValue: (fn) => fn.name,
         tabStop: 4,
         maxInlineAttributesLineLength: 80,
     },

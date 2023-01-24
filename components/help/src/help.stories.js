@@ -11,7 +11,7 @@ import { Help } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Forms/Help',
+    title: 'Help',
     component: Help,
     parameters: { docs: { description: { component: description } } },
     argTypes: {
@@ -22,7 +22,7 @@ export default {
     args: { children: 'Allow me to be of assistance' },
 }
 
-const Template = args => <Help {...args} />
+const Template = (args) => <Help {...args} />
 
 export const Default = Template.bind({})
 
@@ -38,7 +38,7 @@ export const StatusError = Template.bind({})
 StatusError.args = { error: true }
 StatusError.storyName = 'Status: Error'
 
-export const TextOverflow = args => (
+export const TextOverflow = (args) => (
     <div style={{ width: 200 }}>
         <Help {...args}>I take up more space than my container</Help>
     </div>

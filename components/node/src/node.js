@@ -15,7 +15,7 @@ export const Node = ({
     onClose,
     dataTest,
 }) => {
-    const hasLeaves = !!React.Children.toArray(children).filter(i => i).length
+    const hasLeaves = !!React.Children.toArray(children).filter((i) => i).length
     const showArrow = !icon && hasLeaves
     const showSpacer = !icon && !hasLeaves
 

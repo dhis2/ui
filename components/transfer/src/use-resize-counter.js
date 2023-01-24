@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react'
  * @param {Element} element
  * @returns {number}
  */
-export const useResizeCounter = element => {
+export const useResizeCounter = (element) => {
     const [counter, setCounter] = useState(-1)
 
     useEffect(() => {

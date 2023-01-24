@@ -31,7 +31,7 @@ import {
 `
 
 export default {
-    title: 'Data Display/DataTable',
+    title: 'DataTable',
     component: DataTable,
     // Add subcomponents to the args datatable
     subcomponents: {
@@ -57,7 +57,7 @@ export default {
     },
 }
 
-const BasicTemplate = ({ bordered, large, draggable, ...args }) => (
+const BasicTemplate = ({ bordered, large, draggable, bodyProps, ...args }) => (
     <DataTable {...args}>
         <DataTableHead>
             <DataTableRow>
@@ -76,7 +76,7 @@ const BasicTemplate = ({ bordered, large, draggable, ...args }) => (
                 </DataTableColumnHeader>
             </DataTableRow>
         </DataTableHead>
-        <DataTableBody>
+        <DataTableBody {...bodyProps}>
             <DataTableRow draggable={draggable}>
                 <DataTableCell large={large} bordered={bordered}>
                     Onyekachukwu
@@ -133,6 +133,9 @@ const BasicTemplate = ({ bordered, large, draggable, ...args }) => (
 export const Default = BasicTemplate.bind({})
 Default.args = {}
 
+export const Loading = BasicTemplate.bind({})
+Loading.args = { bodyProps: { loading: true } }
+
 export const BorderedCells = BasicTemplate.bind({})
 BorderedCells.args = {
     bordered: true,
@@ -146,7 +149,7 @@ DraggableRows.args = {
     draggable: true,
 }
 
-const IndividualCellTemplate = args => (
+const IndividualCellTemplate = (args) => (
     <DataTable {...args}>
         <DataTableHead>
             <DataTableRow>
@@ -182,6 +185,24 @@ const IndividualCellTemplate = args => (
                 <DataTableCell valid>Valid</DataTableCell>
                 <DataTableCell muted>Muted</DataTableCell>
             </DataTableRow>
+            <DataTableRow>
+                <DataTableCell tag="th" backgroundColor="lightgreen">
+                    Custom background (lightgreen)
+                </DataTableCell>
+                <DataTableCell backgroundColor="#eff">#eff</DataTableCell>
+                <DataTableCell active backgroundColor="yellow">
+                    yellow
+                </DataTableCell>
+                <DataTableCell>None</DataTableCell>
+            </DataTableRow>
+            <DataTableRow selected>
+                <DataTableCell tag="th">
+                    Custom background (on selected row )
+                </DataTableCell>
+                <DataTableCell backgroundColor="#eff">#eff</DataTableCell>
+                <DataTableCell backgroundColor="yellow">yellow</DataTableCell>
+                <DataTableCell>None</DataTableCell>
+            </DataTableRow>
         </DataTableBody>
     </DataTable>
 )
@@ -189,7 +210,7 @@ const IndividualCellTemplate = args => (
 export const CellStyling = IndividualCellTemplate.bind({})
 CellStyling.args = {}
 
-const ToolbarsTemplate = args => (
+const ToolbarsTemplate = (args) => (
     <>
         <DataTableToolbar>
             <p>Content</p>
@@ -232,9 +253,9 @@ const ToolbarsTemplate = args => (
 export const Toolbars = ToolbarsTemplate.bind({})
 Toolbars.args = {}
 
-const ExpandableContentTemplate = args => {
+const ExpandableContentTemplate = (args) => {
     const [openRowIndex, setOpenRowIndex] = useState(null)
-    const toggleOpenRow = index =>
+    const toggleOpenRow = (index) =>
         setOpenRowIndex(openRowIndex === index ? null : index)
     const style = {
         margin: 8,
@@ -256,7 +277,7 @@ const ExpandableContentTemplate = args => {
             <DataTableBody>
                 <DataTableRow
                     expanded={openRowIndex === 0}
-                    onExpandToggle={payload => {
+                    onExpandToggle={(payload) => {
                         console.log(payload)
                         toggleOpenRow(0)
                     }}
@@ -294,7 +315,7 @@ const ExpandableContentTemplate = args => {
 export const ExpandableContent = ExpandableContentTemplate.bind({})
 ExpandableContent.args = {}
 
-const SelectableRowsTemplate = args => {
+const SelectableRowsTemplate = (args) => {
     const [selected, setSelected] = useState({ id_2: true })
     const toggleSelected = ({ value, checked }) => {
         setSelected({
@@ -310,7 +331,7 @@ const SelectableRowsTemplate = args => {
         })
     }
     const allSelected = () =>
-        Object.values(selected).filter(value => value).length === 3
+        Object.values(selected).filter((value) => value).length === 3
 
     return (
         <DataTable {...args}>
@@ -375,7 +396,7 @@ const SelectableRowsTemplate = args => {
 export const SelectableRows = SelectableRowsTemplate.bind({})
 SelectableRows.args = {}
 
-const FixedHeaderTemplate = args => (
+const FixedHeaderTemplate = (args) => (
     <DataTable {...args}>
         <DataTableHead>
             <DataTableRow>
@@ -514,7 +535,7 @@ FixedHeader.args = {
     scrollHeight: '350px',
 }
 
-const FixedFirstColumnTemplate = args => (
+const FixedFirstColumnTemplate = (args) => (
     <DataTable {...args}>
         <DataTableHead>
             <DataTableRow>
@@ -659,7 +680,7 @@ FixedFirstColumn.args = {
     scrollWidth: '500px',
 }
 
-const FixedHeaderAndTwoColumnsTemplate = args => (
+const FixedHeaderAndTwoColumnsTemplate = (args) => (
     <DataTable {...args}>
         <DataTableHead>
             <DataTableRow>
@@ -844,7 +865,7 @@ FixedHeaderAndTwoColumns.args = {
     scrollHeight: '400px',
 }
 
-const ScrollingDataTableWithToolbarsTemplate = args => (
+const ScrollingDataTableWithToolbarsTemplate = (args) => (
     <Box width="500px">
         <DataTableToolbar>
             <p>Content</p>
@@ -1033,9 +1054,8 @@ const ScrollingDataTableWithToolbarsTemplate = args => (
     </Box>
 )
 
-export const ScrollingDataTableWithToolbars = ScrollingDataTableWithToolbarsTemplate.bind(
-    {}
-)
+export const ScrollingDataTableWithToolbars =
+    ScrollingDataTableWithToolbarsTemplate.bind({})
 ScrollingDataTableWithToolbars.args = {
     layout: 'fixed',
     width: '1000px',
@@ -1043,7 +1063,7 @@ ScrollingDataTableWithToolbars.args = {
     scrollHeight: '400px',
 }
 
-const ColumnHeaderSortingTemplate = args => {
+const ColumnHeaderSortingTemplate = (args) => {
     const rows = [
         {
             firstName: 'Onyekachukwu',
@@ -1062,7 +1082,7 @@ const ColumnHeaderSortingTemplate = args => {
         column: 'firstName',
         direction: 'default',
     })
-    const getSortDirection = columnName =>
+    const getSortDirection = (columnName) =>
         columnName === column ? direction : 'default'
     const onSortIconClick = ({ name, direction }) => {
         setSortInstructions({
@@ -1078,6 +1098,7 @@ const ColumnHeaderSortingTemplate = args => {
                         onSortIconClick={onSortIconClick}
                         sortDirection={getSortDirection('firstName')}
                         name={'firstName'}
+                        sortIconTitle="Sort by first name"
                     >
                         First name
                     </DataTableColumnHeader>
@@ -1085,6 +1106,7 @@ const ColumnHeaderSortingTemplate = args => {
                         onSortIconClick={onSortIconClick}
                         sortDirection={getSortDirection('lastName')}
                         name={'lastName'}
+                        sortIconTitle="Sort by last name"
                     >
                         Last name
                     </DataTableColumnHeader>
@@ -1125,7 +1147,7 @@ const ColumnHeaderSortingTemplate = args => {
 export const ColumnHeaderSorting = ColumnHeaderSortingTemplate.bind({})
 ColumnHeaderSorting.args = {}
 
-const InlineFilteringTemplate = args => {
+const InlineFilteringTemplate = (args) => {
     const rows = [
         {
             firstName: 'Onyekachukwu',
@@ -1195,7 +1217,7 @@ const InlineFilteringTemplate = args => {
             </DataTableHead>
             <DataTableBody>
                 {rows
-                    .filter(row => {
+                    .filter((row) => {
                         if (!column || !value) {
                             return true
                         }
@@ -1217,4 +1239,98 @@ const InlineFilteringTemplate = args => {
 export const InlineFiltering = InlineFilteringTemplate.bind({})
 InlineFiltering.args = {
     layout: 'fixed',
+}
+
+const LongCellContentTemplate = ({ large }) => (
+    <DataTable>
+        <DataTableHead>
+            <DataTableRow>
+                <DataTableColumnHeader
+                    large={large}
+                    onSortIconClick={() => {}}
+                    sortDirection="asc"
+                    name="first"
+                >
+                    FIRST - Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit. Eligendi non quis exercitationem culpa nesciunt nihil
+                    aut nostrum explicabo reprehenderit optio amet ab temporibus
+                    asperiores quasi cupiditate. Voluptatum ducimus voluptates
+                    voluptas?
+                </DataTableColumnHeader>
+                <DataTableColumnHeader
+                    large={large}
+                    onFilterIconClick={() => {}}
+                    name="firstName"
+                    showFilter={true}
+                    filter={
+                        <Input
+                            dense
+                            onChange={() => {}}
+                            name="firstName"
+                            value="Filter value"
+                        />
+                    }
+                >
+                    SECOND - Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit. Eligendi non quis exercitationem culpa nesciunt nihil
+                    aut nostrum explicabo reprehenderit optio amet ab temporibus
+                    asperiores quasi cupiditate. Voluptatum ducimus voluptates
+                    voluptas?
+                </DataTableColumnHeader>
+                <DataTableColumnHeader
+                    large={large}
+                    onSortIconClick={() => {}}
+                    sortDirection="asc"
+                    name="third"
+                >
+                    Third (short)
+                </DataTableColumnHeader>
+                <DataTableColumnHeader
+                    large={large}
+                    onSortIconClick={() => {}}
+                    sortDirection="asc"
+                    name="fourth"
+                >
+                    Fourth - Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit. Eligendi non quis exercitationem culpa nesciunt nihil
+                    aut nostrum explicabo reprehenderit optio amet ab temporibus
+                    asperiores quasi cupiditate. Voluptatum ducimus voluptates
+                    voluptas?
+                </DataTableColumnHeader>
+            </DataTableRow>
+        </DataTableHead>
+        <DataTableBody>
+            <DataTableRow>
+                <DataTableCell large={large}>
+                    FIRST - Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit. Eligendi non quis exercitationem culpa nesciunt nihil
+                    aut nostrum explicabo reprehenderit optio amet ab temporibus
+                    asperiores quasi cupiditate. Voluptatum ducimus voluptates
+                    voluptas?
+                </DataTableCell>
+                <DataTableCell large={large}>
+                    SECOND - Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit. Eligendi non quis exercitationem culpa nesciunt nihil
+                    aut nostrum explicabo reprehenderit optio amet ab temporibus
+                    asperiores quasi cupiditate. Voluptatum ducimus voluptates
+                    voluptas?
+                </DataTableCell>
+                <DataTableCell large={large}>Third (short)</DataTableCell>
+                <DataTableCell large={large}>
+                    Fourth - Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit. Eligendi non quis exercitationem culpa nesciunt nihil
+                    aut nostrum explicabo reprehenderit optio amet ab temporibus
+                    asperiores quasi cupiditate. Voluptatum ducimus voluptates
+                    voluptas?
+                </DataTableCell>
+            </DataTableRow>
+        </DataTableBody>
+    </DataTable>
+)
+
+export const LongCellContent = LongCellContentTemplate.bind({})
+
+export const LongCellContentLargeCells = LongCellContentTemplate.bind({})
+LongCellContentLargeCells.args = {
+    large: 'true',
 }

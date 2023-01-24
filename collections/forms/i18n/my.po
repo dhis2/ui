@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-07T19:28:56.162Z\n"
+"POT-Creation-Date: 2022-02-11T13:37:19.312Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
 "Last-Translator: phil_dhis2, 2021\n"
 "Language-Team: Burmese (https://www.transifex.com/hisp-uio/teams/100509/my/)\n"
@@ -23,9 +23,6 @@ msgstr ""
 
 msgid "Remove"
 msgstr "ဖယ်ရှားခြင်း"
-
-msgid "No file(s) selected yet"
-msgstr ""
 
 msgid "Please provide an alpha-numeric value"
 msgstr ""
@@ -82,7 +79,7 @@ msgstr ""
 msgid "Password should have at least one special character"
 msgstr ""
 
-msgid "Please provide a username between 1 and 255 characters"
+msgid "Please provide a username between 4 and 255 characters"
 msgstr ""
 
 msgid "Please provide a valid email address"

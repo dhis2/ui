@@ -1,9 +1,9 @@
 import { Card } from '@dhis2-ui/card'
 import { InputField } from '@dhis2-ui/input'
 import { useConfig } from '@dhis2/app-runtime'
-import propTypes from '@dhis2/prop-types'
 import { colors, theme } from '@dhis2/ui-constants'
 import { IconApps24, IconSettings24 } from '@dhis2/ui-icons'
+import PropTypes from 'prop-types'
 import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { joinPath } from './join-path.js'
 import i18n from './locales/index.js'
@@ -60,8 +60,8 @@ function Search({ value, onChange }) {
 }
 
 Search.propTypes = {
-    value: propTypes.string.isRequired,
-    onChange: propTypes.func.isRequired,
+    value: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
 }
 
 function Item({ name, path, img }) {
@@ -80,7 +80,6 @@ function Item({ name, path, img }) {
                     justify-content: center;
                     width: 96px;
                     margin: 8px;
-                    padding: 8px;
                     border-radius: 12px;
                     text-decoration: none;
                     cursor: pointer;
@@ -100,10 +99,12 @@ function Item({ name, path, img }) {
                 img {
                     width: 48px;
                     height: 48px;
+                    margin: 8px;
                     cursor: pointer;
                 }
 
                 div {
+                    overflow-wrap: anywhere;
                     margin-top: 14px;
                     color: rgba(0, 0, 0, 0.87);
                     font-size: 12px;
@@ -118,9 +119,9 @@ function Item({ name, path, img }) {
 }
 
 Item.propTypes = {
-    img: propTypes.string,
-    name: propTypes.string,
-    path: propTypes.string,
+    img: PropTypes.string,
+    name: PropTypes.string,
+    path: PropTypes.string,
 }
 
 function List({ apps, filter }) {
@@ -130,9 +131,8 @@ function List({ apps, filter }) {
                 .filter(({ displayName, name }) => {
                     const appName = displayName || name
                     const formattedAppName = appName.toLowerCase()
-                    const formattedFilter = escapeRegExpCharacters(
-                        filter
-                    ).toLowerCase()
+                    const formattedFilter =
+                        escapeRegExpCharacters(filter).toLowerCase()
 
                     return filter.length > 0
                         ? formattedAppName.match(formattedFilter)
@@ -171,8 +171,8 @@ function List({ apps, filter }) {
     )
 }
 List.propTypes = {
-    apps: propTypes.array,
-    filter: propTypes.string,
+    apps: PropTypes.array,
+    filter: PropTypes.string,
 }
 
 const AppMenu = ({ apps, filter, onFilterChange }) => (
@@ -195,9 +195,9 @@ const AppMenu = ({ apps, filter, onFilterChange }) => (
 )
 
 AppMenu.propTypes = {
-    apps: propTypes.array.isRequired,
-    onFilterChange: propTypes.func.isRequired,
-    filter: propTypes.string,
+    apps: PropTypes.array.isRequired,
+    onFilterChange: PropTypes.func.isRequired,
+    filter: PropTypes.string,
 }
 
 const Apps = ({ apps }) => {
@@ -208,7 +208,7 @@ const Apps = ({ apps }) => {
     const handleFilterChange = useCallback(({ value }) => setFilter(value), [])
 
     const containerEl = useRef(null)
-    const onDocClick = useCallback(evt => {
+    const onDocClick = useCallback((evt) => {
         if (containerEl.current && !containerEl.current.contains(evt.target)) {
             setShow(false)
         }
@@ -216,7 +216,7 @@ const Apps = ({ apps }) => {
     useEffect(() => {
         document.addEventListener('click', onDocClick)
         return () => document.removeEventListener('click', onDocClick)
-    }, [])
+    }, [onDocClick])
 
     return (
         <div ref={containerEl} data-test="headerbar-apps">
@@ -259,7 +259,7 @@ const Apps = ({ apps }) => {
 }
 
 Apps.propTypes = {
-    apps: propTypes.array.isRequired,
+    apps: PropTypes.array.isRequired,
 }
 
 export default Apps

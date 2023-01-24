@@ -7,24 +7,21 @@ import React, { useRef } from 'react'
 import { FlyoutMenu } from '../index.js'
 import styles from './menu-item.styles.js'
 
-const isModifiedEvent = evt =>
+const isModifiedEvent = (evt) =>
     evt.metaKey || evt.altKey || evt.ctrlKey || evt.shiftKey
 
-const createOnClickHandler = ({
-    onClick,
-    toggleSubMenu,
-    isLink,
-    value,
-}) => evt => {
-    if ((isLink && isModifiedEvent(evt)) || !(onClick || toggleSubMenu)) {
-        return
-    }
-    evt.preventDefault()
-    evt.stopPropagation()
+const createOnClickHandler =
+    ({ onClick, toggleSubMenu, isLink, value }) =>
+    (evt) => {
+        if ((isLink && isModifiedEvent(evt)) || !(onClick || toggleSubMenu)) {
+            return
+        }
+        evt.preventDefault()
+        evt.stopPropagation()
 
-    onClick && onClick({ value }, evt)
-    toggleSubMenu && toggleSubMenu()
-}
+        onClick && onClick({ value }, evt)
+        toggleSubMenu && toggleSubMenu()
+    }
 const MenuItem = ({
     href,
     onClick,
@@ -53,7 +50,7 @@ const MenuItem = ({
                     disabled,
                     dense,
                     active: active || showSubMenu,
-                    'with-chevron': chevron,
+                    'with-chevron': children || chevron,
                 })}
                 ref={menuItemRef}
                 data-test={dataTest}

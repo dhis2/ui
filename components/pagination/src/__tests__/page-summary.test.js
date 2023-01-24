@@ -1,7 +1,6 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import * as mockPagers from '../__fixtures__/index.js'
-import { PageSummary, getItemRange } from '../page-summary.js'
+import { PageSummary } from '../page-summary.js'
 import { Pagination } from '../pagination.js'
 
 describe('<PageSummary />', () => {
@@ -9,58 +8,63 @@ describe('<PageSummary />', () => {
         dataTest: 'test',
         pageSummaryText: Pagination.defaultProps.pageSummaryText,
     }
+
     it('renders without errors', () => {
-        shallow(<PageSummary {...props} {...mockPagers.atTenthPage} />)
-    })
-
-    it('displays the correct information for a first page', () => {
-        const wrapper = shallow(
-            <PageSummary {...props} {...mockPagers.atFirstPage} />
+        shallow(
+            <PageSummary
+                {...props}
+                firstItem={51}
+                lastItem={100}
+                page={2}
+                pageCount={5}
+                total={224}
+            />
         )
-        const expectedString = 'Page 1 of 21, items 1-50 of 1035'
-
-        expect(wrapper.find('span').text()).toEqual(expectedString)
     })
 
-    it('displays the correct information for a last page', () => {
+    it('renders the correct message when both total and lastItem are provided', () => {
         const wrapper = shallow(
-            <PageSummary {...props} {...mockPagers.atLastPage} />
+            <PageSummary
+                {...props}
+                firstItem={51}
+                lastItem={100}
+                page={2}
+                pageCount={5}
+                total={224}
+            />
         )
-        const expectedString = 'Page 21 of 21, items 1001-1035 of 1035'
+        const expectedString = 'Page 2 of 5, items 51-100 of 224'
 
-        expect(wrapper.find('span').text()).toEqual(expectedString)
+        expect(wrapper.find('span').text()).toBe(expectedString)
     })
 
-    it('displays the correct information for a page between first and last', () => {
+    it('renders the correct message when only lastItem is provided', () => {
         const wrapper = shallow(
-            <PageSummary {...props} {...mockPagers.atTenthPage} />
+            <PageSummary
+                {...props}
+                firstItem={51}
+                lastItem={100}
+                page={2}
+                pageCount={5}
+            />
         )
-        const expectedString = 'Page 10 of 21, items 451-500 of 1035'
+        const expectedString = 'Page 2, items 51-100'
 
-        expect(wrapper.find('span').text()).toEqual(expectedString)
+        expect(wrapper.find('span').text()).toBe(expectedString)
     })
 
-    describe('getItemRange', () => {
-        it('calculates the firstItem and lastItem correctly', () => {
-            const { page, pageSize, total } = mockPagers.atTenthPage
-            const { firstItem, lastItem } = getItemRange(page, pageSize, total)
+    it('renders the correct message when total is missing and lastItem is not a number', () => {
+        const wrapper = shallow(
+            <PageSummary
+                {...props}
+                firstItem={51}
+                lastItem={NaN}
+                page={2}
+                pageCount={5}
+            />
+        )
+        const expectedString = 'Page 2'
 
-            expect(firstItem).toEqual(451)
-            expect(lastItem).toEqual(500)
-        })
-
-        it('returns 0 for firstItem and lastItem if the total is 0', () => {
-            const { firstItem, lastItem } = getItemRange(1, 50, 0)
-
-            expect(firstItem).toEqual(0)
-            expect(lastItem).toEqual(0)
-        })
-
-        it('uses the total count as lastItem when the last page is reached', () => {
-            const { page, pageSize, total } = mockPagers.atLastPage
-            const { lastItem } = getItemRange(page, pageSize, total)
-
-            expect(lastItem).toEqual(total)
-        })
+        expect(wrapper.find('span').text()).toBe(expectedString)
     })
 })

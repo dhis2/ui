@@ -35,9 +35,9 @@ class FileInputFieldWithList extends Component {
 
         return files
             .filter(
-                file =>
+                (file) =>
                     !newFiles.some(
-                        x =>
+                        (x) =>
                             x.name === file.name &&
                             x.lastModified === file.lastModified &&
                             x.size === file.size &&
@@ -52,7 +52,7 @@ class FileInputFieldWithList extends Component {
 
         onChange(
             {
-                files: files.filter(file => file !== fileToRemove),
+                files: files.filter((file) => file !== fileToRemove),
                 name,
             },
             event
@@ -76,6 +76,7 @@ class FileInputFieldWithList extends Component {
             name,
             onBlur,
             onFocus,
+            onKeyDown,
             placeholder,
             removeText,
             required,
@@ -103,6 +104,7 @@ class FileInputFieldWithList extends Component {
                 onBlur={onBlur}
                 onChange={this.handleChange}
                 onFocus={onFocus}
+                onKeyDown={onKeyDown}
                 placeholder={translate(placeholder)}
                 required={required}
                 small={small}
@@ -112,7 +114,7 @@ class FileInputFieldWithList extends Component {
                 warning={warning}
             >
                 {files.length > 0 &&
-                    files.map(file => (
+                    files.map((file) => (
                         <FileListItemWithRemove
                             key={file.name}
                             label={file.name}
@@ -175,8 +177,12 @@ FileInputFieldWithList.propTypes = {
     validationText: PropTypes.string,
     /** Applies 'warning' styling to the button and validation text. Mutually exclusive with `valid` and `error` props */
     warning: sharedPropTypes.statusPropType,
+    /** Called with signature `({ name: string, files: [] }, event)` */
     onBlur: PropTypes.func,
+    /** Called with signature `({ name: string, files: [] }, event)` */
     onFocus: PropTypes.func,
+    /** Called with signature `({ name: string, files: [] }, event)` */
+    onKeyDown: PropTypes.func,
 }
 
 export { FileInputFieldWithList }

@@ -8,7 +8,7 @@ Given('the MultiSelect has two options', () => {
     ]
 
     cy.wrap(options).as('options')
-    cy.window().then(win => {
+    cy.window().then((win) => {
         win.updateCypressProps({ options })
     })
 })
@@ -23,15 +23,15 @@ When('the user selects the second option', () => {
 })
 
 Then("the form state's value equals the first option's value", () => {
-    cy.getFormValue('multiSelect').then(selected => {
+    cy.getFormValue('multiSelect').then((selected) => {
         expect(selected).to.have.lengthOf(1)
         expect(selected).to.deep.equal(['value1'])
     })
 })
 
 Then("the form state's value contains both options", () => {
-    cy.get('@options').then(options => {
-        cy.getFormValue('multiSelect').then(selected => {
+    cy.get('@options').then((options) => {
+        cy.getFormValue('multiSelect').then((selected) => {
             expect(selected).to.have.lengthOf(options.length)
             expect(selected).to.deep.equal(['value1', 'value2'])
         })

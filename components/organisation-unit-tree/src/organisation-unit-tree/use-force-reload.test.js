@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { useForceReload } from './use-force-reload.js'
 
 jest.mock('react', () => ({
-    useEffect: jest.fn(callback => callback()),
-    useState: jest.fn(iV => [iV, () => null]),
+    useEffect: jest.fn((callback) => callback()),
+    useState: jest.fn((iV) => [iV, () => null]),
 }))
 
 describe('OrganisationUnitTree - useForceReload', () => {
@@ -19,7 +19,7 @@ describe('OrganisationUnitTree - useForceReload', () => {
     })
 
     it('should increase the default reloadId when forceReload is true', () => {
-        useState.mockImplementationOnce(initialValue => [
+        useState.mockImplementationOnce((initialValue) => [
             initialValue,
             setReloadId,
         ])

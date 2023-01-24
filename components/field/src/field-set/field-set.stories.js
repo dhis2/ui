@@ -18,18 +18,18 @@ const onChange = () => {
 }
 
 export default {
-    title: 'Forms/Field Set/Field Set',
+    title: 'Field Set',
     component: FieldSet,
     parameters: { docs: { description: { component: description } } },
 }
 
-export const Default = args => (
+export const Default = (args) => (
     <FieldSet {...args}>
         It renders something in a fieldset element without the browser styles
     </FieldSet>
 )
 
-export const UsageExampleARadioButtonGroupWithErrorStatus = args => (
+export const UsageExampleARadioButtonGroupWithErrorStatus = (args) => (
     <FieldSet {...args}>
         <Legend required>Choose an option</Legend>
         <Field>

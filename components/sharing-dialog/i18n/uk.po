@@ -1,0 +1,169 @@
+# 
+# Translators:
+# phil_dhis2, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
+# Éva Tamási, 2022
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-11-25T09:59:40.995Z\n"
+"PO-Revision-Date: 2021-10-01 23:39+0000\n"
+"Last-Translator: Éva Tamási, 2022\n"
+"Language-Team: Ukrainian (https://www.transifex.com/hisp-uio/teams/100509/uk/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+msgid "View only"
+msgstr "Тільки перегляд"
+
+msgid "View and edit"
+msgstr "Перегляд і редагування"
+
+msgid "Give access to a user or group"
+msgstr "Надати доступ користувачеві або групі"
+
+msgid "Access level"
+msgstr "Рівень доступу"
+
+msgid "Select a level"
+msgstr "Вибрати рівень"
+
+msgid "Not available offline"
+msgstr "Недоступно в автономному режимі"
+
+msgid "Give access"
+msgstr "Надати доступ"
+
+msgid "Users and groups that currently have access"
+msgstr "Користувачі та групи, які наразі мають доступ"
+
+msgid "User / Group"
+msgstr "Користувач / Група"
+
+msgid "All users"
+msgstr "Всі користувачі"
+
+msgid "No access"
+msgstr "Немає доступу"
+
+msgid "Can view"
+msgstr "Може переглядати"
+
+msgid "Can view and edit"
+msgstr "Може переглядати й редагувати"
+
+msgid "Metadata"
+msgstr "Метадані"
+
+msgid "Remove access"
+msgstr "Видалити доступ"
+
+msgid "User or group"
+msgstr "Користувач або група"
+
+msgid "Search"
+msgstr "Пошук"
+
+msgid "Apply dashboard sharing settings to visualizations"
+msgstr ""
+"Застосувати налаштування спільного доступу до інформаційної панелі до "
+"візуалізації"
+
+msgid "Something went wrong"
+msgstr "Сталася помилка"
+
+msgid "Apply sharing to dashboard visualizations"
+msgstr "Застосувати спільний доступ до візуалізації інформаційної панелі"
+
+msgid ""
+"No visualizations were updated. Check that you have permission to change "
+"sharing for all visualizations."
+msgstr ""
+"Візуалізації не оновлено. Переконайтеся, що у вас є дозвіл на зміну "
+"спільного доступу для всіх візуалізацій."
+
+msgid ""
+"Not all visualizations could be updated successfully. {{ success }} updated "
+"successfully, {{ failed }} failed to update. Check that you have permission "
+"to change sharing for all visualizations."
+msgstr ""
+"Не всі візуалізації вдалося оновити. {{ success }} успішно оновлено, {{ "
+"failed }} не вдалося оновити. Переконайтеся, що у вас є дозвіл на зміну "
+"спільного доступу для всіх візуалізацій."
+
+msgid ""
+"No visualizations were updated because sharing settings are already "
+"sufficient."
+msgstr ""
+"Візуалізації не оновлено, оскільки налаштувань спільного доступу вже "
+"достатньо."
+
+msgid "Successfully updated sharing for all visualizations."
+msgstr "Успішно оновлено спільний доступ для всіх візуалізацій."
+
+msgid ""
+"Not all visualization sharing settings needed to be updated. {{ updated }} "
+"updated, {{ skipped }} already had sufficient sharing settings."
+msgstr ""
+"Не всі налаштування спільного доступу до візуалізації потрібно було оновити."
+" {{ updated }} оновлено, {{ skipped }} вже має достатньо налаштувань "
+"спільного доступу."
+
+msgid "There are no users or groups to apply sharing settings for."
+msgstr ""
+"Немає користувачів або груп, для яких можна застосувати налаштування "
+"спільного доступу."
+
+msgid ""
+"Number of visualizations on this dashboard that will potentially get updated"
+" sharing settings: {{ visualizationsCount }}. The number of users or groups "
+"that these updated settings will apply to: {{ entityAmount }}."
+msgstr ""
+"Кількість візуалізацій на цій інформаційній панелі, які потенційно отримають"
+" оновлені налаштування спільного доступу: {{ visualizationsCount }}. "
+"Кількість користувачів або груп, до яких застосовуватимуться ці оновлені "
+"налаштування: {{ entityAmount }}."
+
+msgid ""
+"Applying the same sharing settings makes sure that users and groups that "
+"have access to the dashboard also have at least \"View only\" access to its "
+"visualizations (charts, tables, maps, event charts and event reports)."
+msgstr ""
+"Застосування однакових налаштувань спільного доступу гарантує, що "
+"користувачі та групи, які мають доступ до інформаційної панелі, також мають "
+"принаймні доступ \"Тільки перегляд\" до її візуалізацій (діаграми, таблиці, "
+"мапи, діаграми подій та звіти про події)."
+
+msgid ""
+"If a user or group already has \"View and edit\" access to a visualization, "
+"this won't be reduced to \"View only\". The \"All users\" access level won't"
+" be updated or changed."
+msgstr ""
+"Якщо користувач або група вже мають доступ до візуалізації \"Перегляд і "
+"редагування\", це не буде зведено до рівня \"Тільки перегляд\". Рівень "
+"доступу \"Усі користувачі\" не буде оновлено або змінено."
+
+msgid ""
+"Applying sharing can't be undone, and needs to be done again if new "
+"visualizations are added to the dashboard or its sharing settings are "
+"changed."
+msgstr ""
+"Застосування спільного доступу неможливо скасувати, і його потрібно виконати"
+" знову, якщо на інформаційній панелі додано нові візуалізації або змінено "
+"налаштування спільного доступу."
+
+msgid "Sharing and access: {{- objectName}}"
+msgstr "Спільний доступ: {{- objectName}}"
+
+msgid "Sharing and access"
+msgstr "Спільний доступ"
+
+msgid "Close"
+msgstr "Закрити"
+
+msgid "Dashboard sharing"
+msgstr "Спільний доступ до інформаційної панелі"

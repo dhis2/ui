@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
 import { getArrowPosition } from './get-arrow-position.js'
 
@@ -74,13 +74,13 @@ const Arrow = forwardRef(({ hidden, popperPlacement, styles }, ref) => (
 Arrow.displayName = 'Arrow'
 
 Arrow.propTypes = {
-    hidden: propTypes.bool,
-    popperPlacement: propTypes.string,
-    styles: propTypes.shape({
-        left: propTypes.string,
-        position: propTypes.string,
-        top: propTypes.string,
-        transform: propTypes.string,
+    hidden: PropTypes.bool,
+    popperPlacement: PropTypes.string,
+    styles: PropTypes.shape({
+        left: PropTypes.string,
+        position: PropTypes.string,
+        top: PropTypes.string,
+        transform: PropTypes.string,
     }),
 }
 

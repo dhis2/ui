@@ -3,7 +3,10 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
 import { TableHeaderCell } from '../table-elements/index.js'
-import styles from './data-table-column-header.styles.js'
+import {
+    styles,
+    resolvedTableHeaderCss,
+} from './data-table-column-header.styles.js'
 import { FilterHandle } from './filter-handle.js'
 import { Sorter, SORT_DIRECTIONS } from './sorter.js'
 
@@ -31,6 +34,7 @@ export const DataTableColumnHeader = forwardRef(
             scope,
             showFilter,
             sortDirection,
+            sortIconTitle,
             top,
             width,
             onFilterIconClick,
@@ -40,7 +44,11 @@ export const DataTableColumnHeader = forwardRef(
     ) => (
         <TableHeaderCell
             align={align}
-            className={className}
+            className={cx(
+                className,
+                'DataTableColumnHeader',
+                resolvedTableHeaderCss.className
+            )}
             colSpan={colSpan}
             dataTest={dataTest}
             fixed={fixed}
@@ -53,14 +61,15 @@ export const DataTableColumnHeader = forwardRef(
             top={top}
             width={width}
         >
-            <span className={cx('container', { showFilter })}>
+            <span className="container">
                 <span className={cx('top', { large })}>
-                    {children}
+                    <span className="content">{children}</span>
                     {sortDirection && (
                         <Sorter
                             name={name}
                             sortDirection={sortDirection}
                             onClick={onSortIconClick}
+                            title={sortIconTitle}
                         />
                     )}
                     {filter && (
@@ -73,6 +82,7 @@ export const DataTableColumnHeader = forwardRef(
                 </span>
                 {showFilter && filter}
             </span>
+            {resolvedTableHeaderCss.styles}
             <style jsx>{styles}</style>
             <style jsx>{`
                 .label {
@@ -97,27 +107,28 @@ DataTableColumnHeader.propTypes = {
     dataTest: PropTypes.string,
     /** The filter element (JSX), required when onFilterIconClick or showFilter are present */
     filter: requiredIf(
-        props => props.onFilterIconClick || props.showFilter,
+        (props) => props.onFilterIconClick || props.showFilter,
         PropTypes.node
     ),
     fixed: PropTypes.bool,
     large: PropTypes.bool,
     /** Left or top required when fixed */
-    left: requiredIf(props => props.fixed && !props.top, PropTypes.string),
+    left: requiredIf((props) => props.fixed && !props.top, PropTypes.string),
     /** Can be used to match a column with a property name */
     name: PropTypes.string,
     role: PropTypes.string,
     rowSpan: PropTypes.string,
     scope: PropTypes.string,
-    showFilter: requiredIf(props => props.filter, PropTypes.bool),
+    showFilter: requiredIf((props) => props.filter, PropTypes.bool),
     sortDirection: requiredIf(
-        props => props.onSortIconClick,
+        (props) => props.onSortIconClick,
         PropTypes.oneOf(SORT_DIRECTIONS)
     ),
+    sortIconTitle: PropTypes.string,
     /** Left or top required when fixed */
-    top: requiredIf(props => props.fixed && !props.left, PropTypes.string),
+    top: requiredIf((props) => props.fixed && !props.left, PropTypes.string),
     width: PropTypes.string,
-    onFilterIconClick: requiredIf(props => props.filter, PropTypes.func),
+    onFilterIconClick: requiredIf((props) => props.filter, PropTypes.func),
     /** Sort icon click callback with `nextSortDirection` and `name` in payload */
-    onSortIconClick: requiredIf(props => props.sortDirection, PropTypes.func),
+    onSortIconClick: requiredIf((props) => props.sortDirection, PropTypes.func),
 }

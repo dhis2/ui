@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/organisation-unit-tree",
-    "version": "7.1.0",
+    "version": "8.7.7",
     "description": "UI OrganisationUnitTree",
     "repository": {
         "type": "git",
@@ -33,11 +33,11 @@
         "styled-jsx": "^4"
     },
     "dependencies": {
-        "@dhis2-ui/checkbox": "7.1.0",
-        "@dhis2-ui/loader": "7.1.0",
-        "@dhis2-ui/node": "7.1.0",
-        "@dhis2/prop-types": "^1.6.4",
-        "@dhis2/ui-constants": "7.1.0",
+        "@dhis2/prop-types": "^3.1.2",
+        "@dhis2-ui/checkbox": "8.7.7",
+        "@dhis2-ui/loader": "8.7.7",
+        "@dhis2-ui/node": "8.7.7",
+        "@dhis2/ui-constants": "8.7.7",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },
@@ -45,7 +45,7 @@
         "build"
     ],
     "devDependencies": {
-        "@dhis2/app-runtime": "^3.0.0",
+        "@dhis2/app-runtime": "^3.6.0",
         "@dhis2/d2-i18n": "^1.1.0",
         "react": "16.13",
         "react-dom": "16.13",

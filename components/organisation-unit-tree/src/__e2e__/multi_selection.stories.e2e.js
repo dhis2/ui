@@ -13,7 +13,7 @@ window.selection = []
 storiesOf(namespace, module).add('Multiple selection', () => (
     <CustomDataProvider data={dataProviderData}>
         <StatefulMultiSelectionWrapper
-            onSelectionChange={newSelection =>
+            onSelectionChange={(newSelection) =>
                 (window.selection = newSelection)
             }
         >

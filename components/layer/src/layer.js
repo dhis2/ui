@@ -1,14 +1,8 @@
 import { Portal } from '@dhis2-ui/portal'
+import { deprecated } from '@dhis2/prop-types'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-
-const createClickHandler = onClick => event => {
-    // don't respond to clicks that originated in the children
-    if (onClick && event.target === event.currentTarget) {
-        onClick({}, event)
-    }
-}
 
 const Layer = ({
     children,
@@ -16,50 +10,65 @@ const Layer = ({
     dataTest,
     disablePortal,
     level,
+    onBackdropClick,
     onClick,
     position,
     translucent,
-}) => (
-    <Portal disable={disablePortal}>
-        <div
-            className={cx('layer', className, position, {
-                translucent,
-            })}
-            data-test={dataTest}
-            onClick={createClickHandler(onClick)}
-        >
-            {children}
+}) => {
+    const resolvedOnClick = onBackdropClick || onClick
 
-            <style jsx>{`
-                div {
-                    z-index: ${level};
-                }
-            `}</style>
+    return (
+        <Portal disable={disablePortal}>
+            <div
+                className={cx('layer', className, position, {
+                    translucent,
+                })}
+                data-test={dataTest}
+            >
+                {resolvedOnClick && (
+                    <div
+                        className="backdrop"
+                        onClick={(event) => resolvedOnClick({}, event)}
+                    />
+                )}
+                {children}
 
-            <style jsx>{`
-                div {
-                    top: 0;
-                    left: 0;
-                    min-height: 100vh;
-                    min-width: 100vw;
-                }
-                div.fixed {
-                    position: fixed;
-                    height: 100vh;
-                    width: 100vw;
-                }
-                div.absolute {
-                    position: absolute;
-                    height: 100%;
-                    width: 100%;
-                }
-                div.translucent {
-                    background-color: rgba(33, 43, 54, 0.4);
-                }
-            `}</style>
-        </div>
-    </Portal>
-)
+                <style jsx>{`
+                    div {
+                        z-index: ${level};
+                    }
+                `}</style>
+
+                <style jsx>{`
+                    div {
+                        top: 0;
+                        left: 0;
+                        min-height: 100vh;
+                        min-width: 100vw;
+                    }
+                    div.fixed {
+                        position: fixed;
+                        height: 100vh;
+                        width: 100vw;
+                    }
+                    div.absolute {
+                        position: absolute;
+                        height: 100%;
+                        width: 100%;
+                    }
+                    div.translucent {
+                        background-color: rgba(33, 43, 54, 0.4);
+                    }
+                    div.backdrop {
+                        position: absolute;
+                        inset: 0;
+                        z-index: -1;
+                    }
+                `}</style>
+            </div>
+        </Portal>
+    )
+}
 
 Layer.defaultProps = {
     position: 'fixed',
@@ -78,8 +87,10 @@ Layer.propTypes = {
     position: PropTypes.oneOf(['absolute', 'fixed']),
     /** Adds a semi-transparent background */
     translucent: PropTypes.bool,
-    /** Click handler */
-    onClick: PropTypes.func,
+    /** Backdrop click handler */
+    onBackdropClick: PropTypes.func,
+    /** Click handler - DEPRECATED */
+    onClick: deprecated(PropTypes.func, 'Please use "onBackdropClick" instead'),
 }
 
 export { Layer }

@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { colors, spacers } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export const NoticeBoxTitle = ({ title, dataTest }) => {
@@ -24,6 +24,6 @@ export const NoticeBoxTitle = ({ title, dataTest }) => {
 }
 
 NoticeBoxTitle.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    title: propTypes.string,
+    dataTest: PropTypes.string.isRequired,
+    title: PropTypes.string,
 }

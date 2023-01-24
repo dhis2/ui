@@ -13,21 +13,27 @@ class Switch extends Component {
         }
     }
 
-    handleChange = e => {
+    handleChange = (e) => {
         if (this.props.onChange) {
             this.props.onChange(this.createHandlerPayload(), e)
         }
     }
 
-    handleBlur = e => {
+    handleBlur = (e) => {
         if (this.props.onBlur) {
             this.props.onBlur(this.createHandlerPayload(), e)
         }
     }
 
-    handleFocus = e => {
+    handleFocus = (e) => {
         if (this.props.onFocus) {
             this.props.onFocus(this.createHandlerPayload(), e)
+        }
+    }
+
+    handleKeyDown = (e) => {
+        if (this.props.onKeyDown) {
+            this.props.onKeyDown(this.createHandlerPayload(), e)
         }
     }
 
@@ -86,6 +92,7 @@ class Switch extends Component {
                     tabIndex={tabIndex}
                     onChange={this.handleChange}
                     onFocus={this.handleFocus}
+                    onKeyDown={this.handleKeyDown}
                     onBlur={this.handleBlur}
                 />
 
@@ -102,8 +109,8 @@ class Switch extends Component {
                         align-items: center;
                         justify-content: flex-start;
                         color: ${colors.grey900};
-                        font-size: 16px;
-                        line-height: 20px;
+                        font-size: 14px;
+                        line-height: 19px;
                     }
 
                     label.dense {
@@ -149,7 +156,7 @@ class Switch extends Component {
 
                     input:focus + .icon {
                         outline: 3px solid ${theme.focus};
-                        outline-offset: -1px;
+                        outline-offset: -3px;
                     }
                 `}</style>
             </label>
@@ -196,6 +203,8 @@ Switch.propTypes = {
     onChange: PropTypes.func,
     /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
     onFocus: PropTypes.func,
+    /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
+    onKeyDown: PropTypes.func,
 }
 
 export { Switch }

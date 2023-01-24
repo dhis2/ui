@@ -1,4 +1,4 @@
-import '../common'
+import '../common/index.js'
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('the list contains the file duplicate.md', () => {
@@ -10,9 +10,9 @@ Given('the list contains the file duplicate.md', () => {
 })
 
 When('the file duplicate.md is selected', () => {
-    cy.window().then(win => {
+    cy.window().then((win) => {
         cy.get('[data-test="dhis2-uicore-fileinput"] input')
-            .then($input => {
+            .then(($input) => {
                 // name, lastModified, size and type are equal to the file created in the story
                 const duplicate = new File(...win.duplicateFileConstructorArgs)
                 const dataTransfer = new DataTransfer()
@@ -27,7 +27,7 @@ When('the file duplicate.md is selected', () => {
 Then(
     "the onChange handler's payload contains a single entry for file.md",
     () => {
-        cy.window().should(win => {
+        cy.window().should((win) => {
             const calls = win.onChange.getCalls()
             const callArgs = calls[0].args
             const payload = callArgs[0]
@@ -36,7 +36,7 @@ Then(
             expect(files).to.have.lengthOf(3)
 
             const filesWithNameFileMd = files.filter(
-                f => f.name === 'duplicate.md'
+                (f) => f.name === 'duplicate.md'
             )
             expect(filesWithNameFileMd).to.have.lengthOf(1)
         })

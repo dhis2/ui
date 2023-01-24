@@ -32,7 +32,7 @@ Press **Submit** to see the form values logged to the console.
 `
 
 export default {
-    title: 'Forms/Switch/Switch Field (Final Form)',
+    title: 'Switch Field (Final Form)',
     component: SwitchFieldFF,
     decorators: [formDecorator],
     parameters: { docs: { description: { component: description } } },
@@ -142,8 +142,7 @@ export const ValueWhenChecked = () => (
 ValueWhenChecked.parameters = {
     docs: {
         description: {
-            story:
-                'See the details about using the `value` prop at the [Final Form docs](https://final-form.org/docs/react-final-form/types/FieldProps#value)',
+            story: 'See the details about using the `value` prop at the [Final Form docs](https://final-form.org/docs/react-final-form/types/FieldProps#value)',
         },
     },
 }

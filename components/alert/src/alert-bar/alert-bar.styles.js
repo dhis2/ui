@@ -16,6 +16,7 @@ export default css`
         padding-left: ${spacers.dp24};
         margin-bottom: ${spacers.dp16};
         max-width: 600px;
+        min-width: 300px;
         font-size: 14px;
         pointer-events: all;
     }

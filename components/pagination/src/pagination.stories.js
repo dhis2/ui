@@ -1,3 +1,4 @@
+import i18n from '@dhis2/d2-i18n'
 import React from 'react'
 import * as pagers from './__fixtures__/index.js'
 import { Pagination } from './pagination.js'
@@ -16,16 +17,16 @@ import { Pagination } from '@dhis2/ui'
 _**Note**: Dropdown menus may not display properly on this page. View these demos in the 'Canvas' tab._
 `
 
-const logOnPageChange = page => {
+const logOnPageChange = (page) => {
     console.log(`Now navigate to page ${page}...`)
 }
 
-const logOnPageSizeChange = pageSize => {
+const logOnPageSizeChange = (pageSize) => {
     console.log(`Now change page size to ${pageSize}...`)
 }
 
 export default {
-    title: 'Navigation/Pagination',
+    title: 'Pagination',
     component: Pagination,
     parameters: {
         componentSubtitle: subtitle,
@@ -33,17 +34,18 @@ export default {
     },
     // Default args for stories
     args: {
-        // Fixes 'defaultProps' errors for storybook
-        ...Pagination.defaultProps,
         onPageChange: logOnPageChange,
         onPageSizeChange: logOnPageSizeChange,
-        ...pagers.atTenthPage,
     },
 }
 
-const Template = args => <Pagination {...args} />
+const Template = (args) => <Pagination {...args} />
 
 export const Default = Template.bind({})
+Default.args = { ...pagers.atTenthPage }
+
+export const Disabled = Template.bind({})
+Disabled.args = { ...pagers.atTenthPage, disabled: true }
 
 export const PagerAtFirstPage = Template.bind({})
 PagerAtFirstPage.args = { ...pagers.atFirstPage }
@@ -51,14 +53,37 @@ PagerAtFirstPage.args = { ...pagers.atFirstPage }
 export const PagerAtLastPage = Template.bind({})
 PagerAtLastPage.args = { ...pagers.atLastPage }
 
+export const NoTotal = Template.bind({})
+NoTotal.args = { ...pagers.noTotal }
+
+export const NoTotalAtLastPage = Template.bind({})
+NoTotalAtLastPage.args = { ...pagers.noTotalAtLastPage, pageLength: 26 }
+
+export const NoTotalAtLastPageWithoutPageLength = Template.bind({})
+NoTotalAtLastPageWithoutPageLength.args = { ...pagers.noTotalAtLastPage }
+
 export const WithoutPageSizeSelect = Template.bind({})
-WithoutPageSizeSelect.args = { hidePageSizeSelect: true }
+WithoutPageSizeSelect.args = { ...pagers.atTenthPage, hidePageSizeSelect: true }
 
 export const WithoutGoToPageSelect = Template.bind({})
-WithoutGoToPageSelect.args = { hidePageSelect: true }
+WithoutGoToPageSelect.args = { ...pagers.atTenthPage, hidePageSelect: true }
+
+export const WithoutPageSummary = Template.bind({})
+WithoutPageSummary.args = { ...pagers.atTenthPage, hidePageSummary: true }
+
+export const WithCustomPageSummary = Template.bind({})
+WithCustomPageSummary.args = {
+    ...pagers.atTenthPage,
+    pageSummaryText: (interpolationObject) =>
+        i18n.t(
+            'You are at page {{page}} showing items {{firstItem}}-{{lastItem}}, but there are {{pageCount}} pages and {{total}} items',
+            interpolationObject
+        ),
+}
 
 export const WithoutAnySelect = Template.bind({})
 WithoutAnySelect.args = {
+    ...pagers.atTenthPage,
     ...WithoutGoToPageSelect.args,
     ...WithoutPageSizeSelect.args,
 }

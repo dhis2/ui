@@ -1,56 +1,15 @@
-import { CircularLoader } from '@dhis2-ui/loader'
+import { StatusIcon } from '@dhis2-ui/status-icon'
 import { theme, colors, spacers, sharedPropTypes } from '@dhis2/ui-constants'
-import {
-    IconErrorFilled24,
-    IconWarningFilled24,
-    IconCheckmark24,
-} from '@dhis2/ui-icons'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import css from 'styled-jsx/css'
 
-const StatusIcon = ({
-    error,
-    warning,
-    valid,
-    loading,
-    className,
-    defaultTo,
-}) => {
-    if (error) {
-        return <IconErrorFilled24 color={theme.error} />
-    }
-    if (warning) {
-        return <IconWarningFilled24 color={theme.warning} />
-    }
-    if (valid) {
-        return <IconCheckmark24 color={theme.valid} />
-    }
-    if (loading) {
-        return <CircularLoader small className={className} />
-    }
-
-    return defaultTo
-}
-
-StatusIcon.defaultProps = {
-    defaultTo: null,
-}
-
-StatusIcon.propTypes = {
-    className: PropTypes.string,
-    defaultTo: PropTypes.element,
-    error: PropTypes.bool,
-    loading: PropTypes.bool,
-    valid: PropTypes.bool,
-    warning: PropTypes.bool,
-}
-
 const styles = css`
     .input {
         display: flex;
         align-items: center;
+        gap: ${spacers.dp8};
     }
 
     input {
@@ -68,7 +27,7 @@ const styles = css`
         outline: 0;
         border: 1px solid ${colors.grey500};
         border-radius: 3px;
-        box-shadow: inset 0 1px 2px 0 rgba(48, 54, 60, 0.1);
+        box-shadow: inset 0 0 1px 0 rgba(48, 54, 60, 0.1);
         text-overflow: ellipsis;
     }
 
@@ -78,7 +37,30 @@ const styles = css`
 
     input:focus {
         outline: none;
-        box-shadow: 0 0 0 3px ${theme.focus};
+        box-shadow: inset 0 0 0 2px ${theme.focus};
+        border-color: ${theme.focus};
+    }
+
+    input::placeholder {
+        color: ${colors.grey600};
+        opacity: 1;
+    }
+
+    input[type='date']::-webkit-inner-spin-button,
+    input[type='date']::-webkit-calendar-picker-indicator,
+    input[type='time']::-webkit-inner-spin-button,
+    input[type='time']::-webkit-calendar-picker-indicator,
+    input[type='datetime-local']::-webkit-inner-spin-button,
+    input[type='datetime-local']::-webkit-calendar-picker-indicator {
+        height: 14px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+
+    input[type='date']::-webkit-datetime-edit-fields-wrapper,
+    input[type='datetime-local']::-webkit-datetime-edit-fields-wrapper,
+    input[type='time']::-webkit-datetime-edit-fields-wrapper {
+        padding: 0;
     }
 
     input.warning {
@@ -90,8 +72,9 @@ const styles = css`
     }
 
     input.read-only {
-        background-color: ${colors.grey100};
-        border-color: ${colors.grey500};
+        background-color: ${colors.grey050};
+        border-color: ${colors.grey300};
+        box-shadow: none;
         cursor: text;
     }
 
@@ -100,12 +83,6 @@ const styles = css`
         border-color: ${colors.grey500};
         color: ${theme.disabled};
         cursor: not-allowed;
-    }
-
-    .status-icon {
-        flex-shrink: 0;
-        flex-grow: 0;
-        margin-left: ${spacers.dp8};
     }
 `
 
@@ -118,21 +95,27 @@ export class Input extends Component {
         }
     }
 
-    handleChange = e => {
+    handleChange = (e) => {
         if (this.props.onChange) {
             this.props.onChange(this.createHandlerPayload(e), e)
         }
     }
 
-    handleBlur = e => {
+    handleBlur = (e) => {
         if (this.props.onBlur) {
             this.props.onBlur(this.createHandlerPayload(e), e)
         }
     }
 
-    handleFocus = e => {
+    handleFocus = (e) => {
         if (this.props.onFocus) {
             this.props.onFocus(this.createHandlerPayload(e), e)
+        }
+    }
+
+    handleKeyDown = (e) => {
+        if (this.props.onKeyDown) {
+            this.props.onKeyDown(this.createHandlerPayload(e), e)
         }
     }
 
@@ -162,6 +145,7 @@ export class Input extends Component {
             max,
             min,
             step,
+            autoComplete,
             dataTest,
         } = this.props
 
@@ -181,9 +165,11 @@ export class Input extends Component {
                     disabled={disabled}
                     readOnly={readOnly}
                     tabIndex={tabIndex}
+                    autoComplete={autoComplete}
                     onFocus={this.handleFocus}
                     onBlur={this.handleBlur}
                     onChange={this.handleChange}
+                    onKeyDown={this.handleKeyDown}
                     className={cx({
                         dense,
                         disabled,
@@ -193,15 +179,12 @@ export class Input extends Component {
                         'read-only': readOnly,
                     })}
                 />
-
-                <div className="status-icon">
-                    <StatusIcon
-                        error={error}
-                        valid={valid}
-                        loading={loading}
-                        warning={warning}
-                    />
-                </div>
+                <StatusIcon
+                    error={error}
+                    valid={valid}
+                    loading={loading}
+                    warning={warning}
+                />
 
                 <style jsx>{styles}</style>
                 <style jsx>{`
@@ -220,6 +203,8 @@ Input.defaultProps = {
 }
 
 Input.propTypes = {
+    /** The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete) */
+    autoComplete: PropTypes.string,
     className: PropTypes.string,
     dataTest: PropTypes.string,
     /** Makes the input smaller */
@@ -232,9 +217,9 @@ Input.propTypes = {
     initialFocus: PropTypes.bool,
     /** Adds a loading indicator beside the input */
     loading: PropTypes.bool,
-    /** The [native `max` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefmax), for use when `type` is `'number'` */
+    /** The [native `max` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-max), for use when `type` is `'number'` */
     max: PropTypes.string,
-    /** The [native `min` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefmin), for use when `type` is `'number'` */
+    /** The [native `min` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-min), for use when `type` is `'number'` */
     min: PropTypes.string,
     /** Name associated with the input. Passed to event handler callbacks in object */
     name: PropTypes.string,
@@ -244,7 +229,7 @@ Input.propTypes = {
     readOnly: PropTypes.bool,
     /** Sets a role attribute on the input */
     role: PropTypes.string,
-    /** The [native `step` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefstep), for use when `type` is `'number'` */
+    /** The [native `step` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-step), for use when `type` is `'number'` */
     step: PropTypes.string,
     tabIndex: PropTypes.string,
     /** The native input `type` attribute */
@@ -275,4 +260,6 @@ Input.propTypes = {
     onChange: PropTypes.func,
     /** Called with signature `({ name: string, value: string }, event)` */
     onFocus: PropTypes.func,
+    /** Called with signature `({ name: string, value: string }, event)` */
+    onKeyDown: PropTypes.func,
 }

@@ -1,10 +1,10 @@
 import { Button } from '@dhis2-ui/button'
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { FormSpy, Form } from 'react-final-form'
 
 const formProps = {
-    onSubmit: values => {
+    onSubmit: (values) => {
         console.log(
             '++++++++++++++++\n',
             'Form was submitted with values:\n',
@@ -31,7 +31,7 @@ class FormWithSpyAndSubmit extends React.Component {
         delete window.clearCypressProps
     }
 
-    updateCypressProps = updateObj => {
+    updateCypressProps = (updateObj) => {
         const cypressProps = {
             ...this.state.cypressProps,
             ...updateObj,
@@ -46,7 +46,7 @@ class FormWithSpyAndSubmit extends React.Component {
     render() {
         return (
             <Form {...formProps}>
-                {formRenderProps => (
+                {(formRenderProps) => (
                     <form onSubmit={formRenderProps.handleSubmit}>
                         {this.props.renderChildren({
                             formRenderProps,
@@ -72,7 +72,9 @@ class FormWithSpyAndSubmit extends React.Component {
 }
 
 FormWithSpyAndSubmit.propTypes = {
-    renderChildren: propTypes.func.isRequired,
+    renderChildren: PropTypes.func.isRequired,
 }
 
-export const formDecorator = fn => <FormWithSpyAndSubmit renderChildren={fn} />
+export const formDecorator = (fn) => (
+    <FormWithSpyAndSubmit renderChildren={fn} />
+)

@@ -1,125 +1,83 @@
 import { InputField } from '@dhis2-ui/input'
 import { Menu, MenuItem } from '@dhis2-ui/menu'
-import { Tooltip } from '@dhis2-ui/tooltip'
 import { useOnlineStatus } from '@dhis2/app-runtime'
-import i18n from '@dhis2/d2-i18n'
-import PropTypes from '@dhis2/prop-types'
-import React, { createRef, useState, useEffect } from 'react'
-import { MenuWrapper } from './menu-wrapper'
-
-// Keycodes for the keypress event handlers
-// XXX implement keyboard navigation in the Menu ?!
-/*const ESCAPE_KEY = 27
-const SPACE_KEY = 32
-const UP_KEY = 38
-const DOWN_KEY = 40
-*/
-
-// XXX pass this whole component or the one that renders the MenuItem
-// from the app/parent to make it as flexible as possible
-const SearchResults = ({ searchResults, onClick }) => (
-    <Menu>
-        {searchResults.map(searchResult => (
-            <MenuItem
-                key={searchResult.id}
-                label={searchResult.displayName}
-                value={searchResult.id}
-                onClick={onClick}
-            />
-        ))}
-    </Menu>
-)
-
-SearchResults.propTypes = {
-    searchResults: PropTypes.array.isRequired,
-    onClick: PropTypes.func.isRequired,
-}
+import useSize from '@react-hook/size'
+import PropTypes from 'prop-types'
+import React, { useRef } from 'react'
+import i18n from '../locales/index.js'
+import { MenuPopup } from './menu-popup.js'
 
 export const Autocomplete = ({
+    dataTest,
+    inputWidth,
     label,
-    placeholder,
-    onChange,
+    loading,
     onClose,
     onSearch,
-    dataTest,
-    maxHeight,
-    inputWidth,
-    value,
+    onSelect,
+    placeholder,
+    search,
     searchResults,
 }) => {
-    const inputRef = createRef()
-    const menuRef = createRef()
-
+    const wrapper = useRef(null)
+    const [menuWidth] = useSize(wrapper)
     const { offline } = useOnlineStatus()
-    const [menuWidth, setMenuWidth] = useState('auto')
-
-    useEffect(() => {
-        if (inputRef.current) {
-            setMenuWidth(`${inputRef.current.offsetWidth}px`)
-        }
-    }, [])
-
-    const onInputChange = ({ value }) => {
-        onSearch(value)
-    }
-
-    const onSelect = ({ value }) => {
-        onChange(value)
-    }
-
-    const renderInputField = () => (
-        <InputField
-            label={label}
-            placeholder={placeholder}
-            onChange={onInputChange}
-            value={value}
-            inputWidth={inputWidth}
-            disabled={offline}
-        />
-    )
 
     return (
-        <div className="autocomplete-block" ref={menuRef}>
-            <div ref={inputRef}>
-                {offline ? (
-                    <Tooltip content={i18n.t('Not available offline')}>
-                        {renderInputField()}
-                    </Tooltip>
-                ) : (
-                    renderInputField()
-                )}
+        <>
+            <div ref={wrapper}>
+                <InputField
+                    label={label}
+                    loading={loading}
+                    placeholder={placeholder}
+                    onChange={({ value }) => onSearch(value)}
+                    value={search}
+                    inputWidth={inputWidth}
+                    disabled={offline}
+                    helpText={offline ? i18n.t('Not available offline') : ''}
+                />
             </div>
-            {Boolean(searchResults.length) && (
-                <MenuWrapper
+            {searchResults.length > 0 && (
+                <MenuPopup
                     onClick={onClose}
-                    maxHeight={maxHeight}
-                    menuRef={menuRef}
-                    menuWidth={menuWidth}
+                    menuWidth={`${menuWidth}px`}
+                    menuRef={wrapper}
                     dataTest={`${dataTest}-menu`}
                 >
-                    <SearchResults
-                        searchResults={searchResults}
-                        onClick={onSelect}
-                    />
-                </MenuWrapper>
+                    <Menu>
+                        {searchResults.map((result) => (
+                            <MenuItem
+                                key={result.id}
+                                label={result.displayName}
+                                value={result.id}
+                                onClick={({ value }) => onSelect(value)}
+                            />
+                        ))}
+                    </Menu>
+                </MenuPopup>
             )}
-        </div>
+        </>
     )
 }
 
 Autocomplete.defaultProps = {
-    dataTest: 'dhis2-uicore-select',
+    dataTest: 'dhis2-sharingdialog-autocomplete',
 }
 
 Autocomplete.propTypes = {
-    searchResults: PropTypes.array.isRequired,
+    searchResults: PropTypes.arrayOf(
+        PropTypes.shape({
+            displayName: PropTypes.string,
+            id: PropTypes.string,
+        })
+    ).isRequired,
     dataTest: PropTypes.string,
     inputWidth: PropTypes.string,
     label: PropTypes.string,
-    maxHeight: PropTypes.string,
+    loading: PropTypes.bool,
     placeholder: PropTypes.string,
-    value: PropTypes.string,
-    onChange: PropTypes.func,
+    search: PropTypes.string,
     onClose: PropTypes.func,
     onSearch: PropTypes.func,
+    onSelect: PropTypes.func,
 }

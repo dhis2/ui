@@ -21,7 +21,7 @@ Given('the picked list is not loading', () => {
 })
 
 Then('the loading indicator should be shown', () => {
-    cy.get('@listType').then(listType => {
+    cy.get('@listType').then((listType) => {
         const listSelector =
             listType === 'source'
                 ? '{transfer-leftside}'
@@ -32,7 +32,7 @@ Then('the loading indicator should be shown', () => {
 })
 
 Then('the loading indicator should not be shown', () => {
-    cy.get('@listType').then(listType => {
+    cy.get('@listType').then((listType) => {
         const listSelector =
             listType === 'source'
                 ? '{transfer-leftside}'

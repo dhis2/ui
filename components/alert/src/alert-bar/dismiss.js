@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { spacers } from '@dhis2/ui-constants'
 import { IconCross24 } from '@dhis2/ui-icons'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 const Dismiss = ({ onClick, dataTest }) => (
@@ -32,8 +32,8 @@ const Dismiss = ({ onClick, dataTest }) => (
 )
 
 Dismiss.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    onClick: propTypes.func.isRequired,
+    dataTest: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
 }
 
 export { Dismiss }

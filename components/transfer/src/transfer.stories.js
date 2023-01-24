@@ -1,6 +1,6 @@
 import { SingleSelectField, SingleSelectOption } from '@dhis2-ui/select'
 import { Tab, TabBar } from '@dhis2-ui/tab'
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import { TransferOption } from './transfer-option.js'
 import { Transfer } from './transfer.js'
@@ -85,10 +85,8 @@ const options = [
         value: 'art_no_clients_who_stopped_trt_due_to_trt_failure',
     },
     {
-        label:
-            'ART No clients who stopped TRT due to adverse clinical status/event',
-        value:
-            'art_no_clients_who_stopped_trt_due_to_adverse_clinical_status/event',
+        label: 'ART No clients who stopped TRT due to adverse clinical status/event',
+        value: 'art_no_clients_who_stopped_trt_due_to_adverse_clinical_status/event',
     },
     {
         label: 'ART No clients with change of regimen due to drug toxicity',
@@ -141,7 +139,7 @@ const options = [
  * https://github.com/storybookjs/storybook/issues/12455#issuecomment-702763930
  */
 export default {
-    title: 'Forms/Transfer',
+    title: 'Transfer',
     component: Transfer,
     parameters: {
         componentSubtitle: subtitle,
@@ -159,12 +157,12 @@ export default {
 
 const StatefulTemplate = ({ initiallySelected, ...args }) => {
     const [selected, setSelected] = useState(initiallySelected)
-    const onChange = payload => setSelected(payload.selected)
+    const onChange = (payload) => setSelected(payload.selected)
 
     return <Transfer {...args} selected={selected} onChange={onChange} />
 }
 StatefulTemplate.defaultProps = { initiallySelected: [] }
-StatefulTemplate.propTypes = { initiallySelected: propTypes.array }
+StatefulTemplate.propTypes = { initiallySelected: PropTypes.array }
 
 export const SingleSelection = StatefulTemplate.bind({})
 SingleSelection.args = { maxSelections: 1 }
@@ -216,7 +214,7 @@ FilteredPlaceholder.args = {
 
 const renderOption = ({ label, value, onClick, highlighted, selected }) => (
     <p
-        onClick={event => onClick({ label, value }, event)}
+        onClick={(event) => onClick({ label, value }, event)}
         style={{
             background: highlighted ? 'green' : 'blue',
             color: selected ? 'orange' : 'white',
@@ -247,7 +245,7 @@ const RenderOptionCode = () => (
 
 const StatefulTemplateCustomRenderOption = ({ initiallySelected, ...args }) => {
     const [selected, setSelected] = useState(initiallySelected)
-    const onChange = payload => setSelected(payload.selected)
+    const onChange = (payload) => setSelected(payload.selected)
 
     return <Transfer {...args} selected={selected} onChange={onChange} />
 }
@@ -255,10 +253,10 @@ StatefulTemplateCustomRenderOption.defaultProps = {
     initiallySelected: [],
 }
 StatefulTemplateCustomRenderOption.propTypes = {
-    initiallySelected: propTypes.array,
+    initiallySelected: PropTypes.array,
 }
 
-export const CustomListOptions = args => (
+export const CustomListOptions = (args) => (
     <>
         <RenderOptionCode />
         <StatefulTemplateCustomRenderOption {...args} />
@@ -278,7 +276,7 @@ IndividualCustomOption.args = {
     addIndividualText: 'Add individual',
     removeAllText: 'Remove all',
     removeIndividualText: 'Remove individual',
-    renderOption: option => {
+    renderOption: (option) => {
         if (option.value === options[0].value) {
             return renderOption(option)
         }
@@ -339,7 +337,7 @@ DifferentWidths.args = {
     selectedWidth: '240px',
 }
 
-const createCustomFilteringInHeader = hideFilterInput => {
+const createCustomFilteringInHeader = (hideFilterInput) => {
     const relativePeriods = options.slice(0, 10).map((option, index) => ({
         ...option,
         relativePeriod: true,
@@ -391,20 +389,22 @@ const createCustomFilteringInHeader = hideFilterInput => {
     )
     /* eslint-enable react/prop-types */
 
-    const CustomTransfer = props => {
+    const CustomTransfer = (props) => {
         const [filter, setFilter] = useState('')
         const [relativePeriod, setRelativePeriod] = useState(true)
         const [year, setYear] = useState('2020')
         const filterCallback = (options, filter) => {
             const optionsWithYear = options.filter(
-                option => option.year === year
+                (option) => option.year === year
             )
 
             const optionsWithPeriod = optionsWithYear.filter(
-                option => option.relativePeriod === relativePeriod
+                (option) => option.relativePeriod === relativePeriod
             )
 
-            if (filter === '') return optionsWithPeriod
+            if (filter === '') {
+                return optionsWithPeriod
+            }
 
             return optionsWithPeriod.filter(
                 ({ label }) => label.indexOf(filter) !== -1
@@ -446,7 +446,7 @@ const createCustomFilteringInHeader = hideFilterInput => {
 
     return ({ initiallySelected, ...args }) => {
         const [selected, setSelected] = useState(initiallySelected)
-        const onChange = payload => setSelected(payload.selected)
+        const onChange = (payload) => setSelected(payload.selected)
 
         return (
             <CustomTransfer {...args} selected={selected} onChange={onChange} />
@@ -454,13 +454,11 @@ const createCustomFilteringInHeader = hideFilterInput => {
     }
 }
 
-export const CustomFilteringWithFilterInput = createCustomFilteringInHeader(
-    false
-)
+export const CustomFilteringWithFilterInput =
+    createCustomFilteringInHeader(false)
 
-export const CustomFilteringWithoutFilterInput = createCustomFilteringInHeader(
-    true
-)
+export const CustomFilteringWithoutFilterInput =
+    createCustomFilteringInHeader(true)
 
 const optionsPool = options
 const pageSize = 5
@@ -470,7 +468,7 @@ const pageSize = 5
  * To keep the code as small as possible, handling selecting items is not
    included
  */
-export const InfiniteLoading = args => {
+export const InfiniteLoading = (args) => {
     useEffect(() => {
         console.clear()
     }, [])
@@ -489,13 +487,15 @@ export const InfiniteLoading = args => {
 
     const onEndReached = () => {
         // do nothing when loading already
-        if (loading) return
+        if (loading) {
+            return
+        }
         setPage(page + 1)
     }
 
     // fake fetch request
-    const fetchOptions = nextPage =>
-        new Promise(resolve =>
+    const fetchOptions = (nextPage) =>
+        new Promise((resolve) =>
             setTimeout(() => {
                 const nextOptions = optionsPool.slice(
                     options.length,
@@ -515,7 +515,7 @@ export const InfiniteLoading = args => {
 
         const allAlreadySelected =
             nextOptions.length !== 0 &&
-            nextOptions.every(nextOption => {
+            nextOptions.every((nextOption) => {
                 const { value } = nextOption
                 return selected.includes(value)
             })

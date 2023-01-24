@@ -1,4 +1,4 @@
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { SingleSelectionLabel } from './single-selection-label.js'
 
@@ -20,7 +20,7 @@ export const DisabledSelectionLabel = ({ children, loading, onToggleOpen }) => (
 )
 
 DisabledSelectionLabel.propTypes = {
-    children: propTypes.any.isRequired,
-    onToggleOpen: propTypes.func.isRequired,
-    loading: propTypes.bool,
+    children: PropTypes.any.isRequired,
+    onToggleOpen: PropTypes.func.isRequired,
+    loading: PropTypes.bool,
 }

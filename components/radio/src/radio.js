@@ -1,4 +1,4 @@
-import { colors, theme, sharedPropTypes } from '@dhis2/ui-constants'
+import { colors, spacers, theme, sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component, createRef } from 'react'
@@ -13,21 +13,27 @@ class Radio extends Component {
         }
     }
 
-    handleChange = e => {
+    handleChange = (e) => {
         if (this.props.onChange) {
             this.props.onChange(this.createHandlerPayload(), e)
         }
     }
 
-    handleBlur = e => {
+    handleBlur = (e) => {
         if (this.props.onBlur) {
             this.props.onBlur(this.createHandlerPayload(), e)
         }
     }
 
-    handleFocus = e => {
+    handleFocus = (e) => {
         if (this.props.onFocus) {
             this.props.onFocus(this.createHandlerPayload(), e)
+        }
+    }
+
+    handleKeyDown = (e) => {
+        if (this.props.onKeyDown) {
+            this.props.onKeyDown(this.createHandlerPayload(), e)
         }
     }
 
@@ -81,6 +87,7 @@ class Radio extends Component {
                     tabIndex={tabIndex}
                     onChange={this.handleChange}
                     onFocus={this.handleFocus}
+                    onKeyDown={this.handleKeyDown}
                     onBlur={this.handleBlur}
                 />
 
@@ -102,8 +109,8 @@ class Radio extends Component {
                         align-items: center;
                         justify-content: flex-start;
                         color: ${colors.grey900};
-                        font-size: 16px;
-                        line-height: 20px;
+                        font-size: 14px;
+                        line-height: 19px;
                     }
 
                     label.dense {
@@ -136,7 +143,7 @@ class Radio extends Component {
 
                     .icon {
                         user-select: none;
-                        margin-right: ${label ? '5px' : 0};
+                        margin-right: ${label ? spacers.dp4 : 0};
                         border: 2px solid transparent;
                         padding: 1px;
                         border-radius: 50%;
@@ -148,7 +155,7 @@ class Radio extends Component {
 
                     input:focus + .icon {
                         outline: 3px solid ${theme.focus};
-                        outline-offset: -1px;
+                        outline-offset: -3px;
                     }
                 `}</style>
             </label>
@@ -185,6 +192,8 @@ Radio.propTypes = {
     onChange: PropTypes.func,
     /** Called with the signature `({ name: string, value: string, checked: bool }, event)` */
     onFocus: PropTypes.func,
+    /** Called with the signature `({ name: string, value: string, checked: bool }, event)` */
+    onKeyDown: PropTypes.func,
 }
 
 export { Radio }

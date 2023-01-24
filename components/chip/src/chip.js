@@ -1,4 +1,4 @@
-import { colors, theme, spacers } from '@dhis2/ui-constants'
+import { colors, theme } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -18,9 +18,13 @@ const Chip = ({
     onClick,
     icon,
     dataTest,
+    marginBottom,
+    marginLeft,
+    marginRight,
+    marginTop,
 }) => (
     <span
-        onClick={e => {
+        onClick={(e) => {
             if (!disabled && onClick) {
                 onClick({}, e)
             }
@@ -42,7 +46,6 @@ const Chip = ({
                 display: inline-flex;
                 align-items: center;
                 height: 32px;
-                margin: ${spacers.dp4};
                 border-radius: 16px;
                 background-color: ${colors.grey200};
                 font-size: 14px;
@@ -92,11 +95,23 @@ const Chip = ({
                     0 1px 5px 0 rgba(0, 0, 0, 0.12);
             }
         `}</style>
+        <style jsx>{`
+            span {
+                ${marginBottom && `margin-bottom: ${marginBottom}px;`}
+                ${marginLeft && `margin-left: ${marginLeft}px;`}
+                ${marginRight && `margin-right: ${marginRight}px;`}
+                ${marginTop && `margin-top: ${marginTop}px`}
+            }
+        `}</style>
     </span>
 )
 
 Chip.defaultProps = {
     dataTest: 'dhis2-uicore-chip',
+    marginBottom: 4,
+    marginLeft: 4,
+    marginRight: 4,
+    marginTop: 4,
 }
 
 Chip.propTypes = {
@@ -107,6 +122,14 @@ Chip.propTypes = {
     disabled: PropTypes.bool,
     dragging: PropTypes.bool,
     icon: PropTypes.element,
+    /** `margin-bottom` value, applied in `px`  */
+    marginBottom: PropTypes.number,
+    /** `margin-left` value, applied in `px`  */
+    marginLeft: PropTypes.number,
+    /** `margin-right` value, applied in `px`  */
+    marginRight: PropTypes.number,
+    /** `margin-top` value, applied in `px`  */
+    marginTop: PropTypes.number,
     overflow: PropTypes.bool,
     selected: PropTypes.bool,
     onClick: PropTypes.func,

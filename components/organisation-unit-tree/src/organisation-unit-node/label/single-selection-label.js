@@ -1,6 +1,6 @@
 import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 /**
@@ -18,7 +18,7 @@ export const SingleSelectionLabel = ({
     loading,
 }) => (
     <span
-        onClick={event => {
+        onClick={(event) => {
             const payload = { checked: !checked }
             onChange(payload, event)
         }}
@@ -53,8 +53,8 @@ export const SingleSelectionLabel = ({
 )
 
 SingleSelectionLabel.propTypes = {
-    children: propTypes.any.isRequired,
-    checked: propTypes.bool,
-    loading: propTypes.bool,
-    onChange: propTypes.func,
+    children: PropTypes.any.isRequired,
+    checked: PropTypes.bool,
+    loading: PropTypes.bool,
+    onChange: PropTypes.func,
 }

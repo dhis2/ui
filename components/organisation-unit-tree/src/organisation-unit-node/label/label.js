@@ -1,4 +1,4 @@
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { orgUnitPathPropType } from '../../prop-types.js'
 import { DisabledSelectionLabel } from './disabled-selection-label.js'
@@ -9,12 +9,24 @@ import { SingleSelectionLabel } from './single-selection-label.js'
 const createNewSelected = ({ selected, path, checked, singleSelection }) => {
     const pathIndex = selected.indexOf(path)
 
-    if (checked && pathIndex !== -1) return selected
-    if (singleSelection && checked) return [path]
-    if (checked) return [...selected, path]
-    if (pathIndex === -1) return selected
-    if (singleSelection) return []
-    if (selected.indexOf(path) === 0) return selected.slice(1)
+    if (checked && pathIndex !== -1) {
+        return selected
+    }
+    if (singleSelection && checked) {
+        return [path]
+    }
+    if (checked) {
+        return [...selected, path]
+    }
+    if (pathIndex === -1) {
+        return selected
+    }
+    if (singleSelection) {
+        return []
+    }
+    if (selected.indexOf(path) === 0) {
+        return selected.slice(1)
+    }
 
     const prevSlice = selected.slice(0, pathIndex)
     const nextSlice = selected.slice(pathIndex + 1)
@@ -22,39 +34,42 @@ const createNewSelected = ({ selected, path, checked, singleSelection }) => {
 }
 
 const Label = ({
-    children,
-    node,
-    open,
-    loading,
     checked,
-    onChange,
+    children,
     dataTest,
-    selected,
-    hasChildren,
-    highlighted,
-    onToggleOpen,
     disableSelection,
-    singleSelection,
+    fullPath,
+    hasChildren,
     hasSelectedDescendants,
+    highlighted,
+    loading,
+    node,
+    onChange,
+    onToggleOpen,
+    open,
+    rootId,
+    selected,
+    singleSelection,
 }) => {
     const onClick = ({ checked }, event) => {
         const newSelected = createNewSelected({
-            path: node.path,
+            path: fullPath,
             selected,
             checked,
             singleSelection,
+            rootId,
         })
 
-        onChange(
-            {
-                // @TODO: It'd make more sense to pass the node as an object
-                // isntead of spread it. But that'd be a breaking change
-                ...node,
-                checked,
-                selected: newSelected,
-            },
-            event
-        )
+        // @TODO: It'd make more sense to pass the node as an object
+        // instead of spread it. But that'd be a breaking change
+        const payload = {
+            ...node,
+            path: fullPath,
+            checked,
+            selected: newSelected,
+        }
+
+        onChange(payload, event)
     }
 
     if (disableSelection) {
@@ -105,30 +120,27 @@ const Label = ({
 
 Label.propTypes = {
     // This is `any` so it can be customized by the app
-    children: propTypes.any.isRequired,
-    dataTest: propTypes.string.isRequired,
-    hasChildren: propTypes.bool.isRequired,
-    loading: propTypes.bool.isRequired,
-    node: propTypes.shape({
-        displayName: propTypes.string.isRequired,
-        id: propTypes.string.isRequired,
-        children: propTypes.arrayOf(
-            propTypes.shape({
-                displayName: propTypes.string.isRequired,
-                id: propTypes.string.isRequired,
-            })
-        ),
-        path: propTypes.string,
+    children: PropTypes.any.isRequired,
+    dataTest: PropTypes.string.isRequired,
+    fullPath: PropTypes.string.isRequired,
+    hasChildren: PropTypes.bool.isRequired,
+    loading: PropTypes.bool.isRequired,
+    node: PropTypes.shape({
+        displayName: PropTypes.string.isRequired,
+        id: PropTypes.string.isRequired,
+        children: PropTypes.number,
+        path: PropTypes.string,
     }).isRequired,
-    open: propTypes.bool.isRequired,
-    onChange: propTypes.func.isRequired,
-    onToggleOpen: propTypes.func.isRequired,
-    checked: propTypes.bool,
-    disableSelection: propTypes.bool,
-    hasSelectedDescendants: propTypes.bool,
-    highlighted: propTypes.bool,
-    selected: propTypes.arrayOf(orgUnitPathPropType),
-    singleSelection: propTypes.bool,
+    open: PropTypes.bool.isRequired,
+    rootId: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+    onToggleOpen: PropTypes.func.isRequired,
+    checked: PropTypes.bool,
+    disableSelection: PropTypes.bool,
+    hasSelectedDescendants: PropTypes.bool,
+    highlighted: PropTypes.bool,
+    selected: PropTypes.arrayOf(orgUnitPathPropType),
+    singleSelection: PropTypes.bool,
 }
 
 export { Label }

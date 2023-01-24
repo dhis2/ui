@@ -36,7 +36,7 @@ const onFocus = (...args) => window.onFocus(...args)
 const onBlur = (...args) => window.onBlur(...args)
 
 export default {
-    title: 'Forms/Text Area/Text Area',
+    title: 'Text Area',
     component: TextArea,
     parameters: { docs: { description: { component: description } } },
     argTypes: {
@@ -52,7 +52,7 @@ export default {
     },
 }
 
-const Template = args => <TextArea {...args} />
+const Template = (args) => <TextArea {...args} />
 
 export const Default = Template.bind({})
 
@@ -62,12 +62,11 @@ PlaceholderNoValue.storyName = 'Placeholder, no value'
 
 export const WithValue = Template.bind({})
 WithValue.args = {
-    value:
-        'This is set through the value prop, which means the component is controlled.',
+    value: 'This is set through the value prop, which means the component is controlled.',
 }
 WithValue.storyName = 'With value'
 
-export const Focus = args => (
+export const Focus = (args) => (
     <>
         <TextArea {...args} initialFocus className="initially-focused" />
         <TextArea {...args} className="initially-unfocused" />
@@ -136,7 +135,7 @@ Rows.args = {
     label: 'You can set the height with the rows prop. I have 8',
 }
 
-export const Resize = args => (
+export const Resize = (args) => (
     <>
         <TextArea
             {...args}
@@ -164,7 +163,7 @@ export const Resize = args => (
     </>
 )
 
-export const Autogrow = args => (
+export const Autogrow = (args) => (
     <>
         <TextArea
             {...args}

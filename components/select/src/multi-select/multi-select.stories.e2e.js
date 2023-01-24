@@ -1,7 +1,7 @@
 import { Button } from '@dhis2-ui/button'
 import { Modal, ModalTitle, ModalContent } from '@dhis2-ui/modal'
-import propTypes from '@dhis2/prop-types'
 import { storiesOf } from '@storybook/react'
+import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { MultiSelectOption } from '../index.js'
 import { MultiSelect } from './multi-select.js'
@@ -11,12 +11,12 @@ window.onFocus = window.Cypress && window.Cypress.cy.stub()
 window.onBlur = window.Cypress && window.Cypress.cy.stub()
 
 const CustomMultiSelectOption = ({ label, onClick }) => (
-    <div onClick={e => onClick({}, e)}>{label}</div>
+    <div onClick={(e) => onClick({}, e)}>{label}</div>
 )
 
 CustomMultiSelectOption.propTypes = {
-    label: propTypes.string,
-    onClick: propTypes.func,
+    label: PropTypes.string,
+    onClick: PropTypes.func,
 }
 
 const options = [

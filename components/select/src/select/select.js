@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { sharedPropTypes } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { debounce } from './debounce/debounce.js'
 import { InputWrapper } from './input-wrapper.js'
@@ -64,7 +64,7 @@ export class Select extends Component {
         this.inputRef.current.focus()
     }
 
-    onFocus = e => {
+    onFocus = (e) => {
         const { onFocus, disabled, selected } = this.props
 
         if (disabled || !onFocus) {
@@ -85,7 +85,7 @@ export class Select extends Component {
         this.setState({ open: false })
     }
 
-    onToggle = e => {
+    onToggle = (e) => {
         if (this.props.disabled) {
             return
         }
@@ -95,7 +95,7 @@ export class Select extends Component {
         this.state.open ? this.handleClose() : this.handleOpen()
     }
 
-    onOutsideClick = e => {
+    onOutsideClick = (e) => {
         const { onBlur, disabled, selected } = this.props
 
         if (disabled) {
@@ -109,8 +109,18 @@ export class Select extends Component {
         }
     }
 
-    onKeyDown = e => {
-        if (this.props.disabled) {
+    onKeyDown = (e) => {
+        const { onKeyDown, disabled, selected } = this.props
+
+        if (disabled) {
+            return
+        }
+
+        if (onKeyDown) {
+            onKeyDown({ selected }, e)
+        }
+
+        if (e.defaultPrevented) {
             return
         }
 
@@ -181,7 +191,7 @@ export class Select extends Component {
                 <InputWrapper
                     onToggle={this.onToggle}
                     inputRef={this.inputRef}
-                    tabIndex={tabIndex}
+                    tabIndex={disabled ? '-1' : tabIndex}
                     error={error}
                     warning={warning}
                     valid={valid}
@@ -212,24 +222,25 @@ Select.defaultProps = {
 }
 
 Select.propTypes = {
-    input: propTypes.element.isRequired,
-    menu: propTypes.element.isRequired,
-    selected: propTypes.oneOfType([
-        propTypes.string,
-        propTypes.arrayOf(propTypes.string),
+    input: PropTypes.element.isRequired,
+    menu: PropTypes.element.isRequired,
+    selected: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
     ]).isRequired,
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    dense: propTypes.bool,
-    disabled: propTypes.bool,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    dense: PropTypes.bool,
+    disabled: PropTypes.bool,
     error: sharedPropTypes.statusPropType,
-    initialFocus: propTypes.bool,
-    maxHeight: propTypes.string,
-    tabIndex: propTypes.string,
+    initialFocus: PropTypes.bool,
+    maxHeight: PropTypes.string,
+    tabIndex: PropTypes.string,
     valid: sharedPropTypes.statusPropType,
     warning: sharedPropTypes.statusPropType,
-    onBlur: propTypes.func,
-    onChange: propTypes.func,
-    onFocus: propTypes.func,
+    onBlur: PropTypes.func,
+    onChange: PropTypes.func,
+    onFocus: PropTypes.func,
+    onKeyDown: PropTypes.func,
 }

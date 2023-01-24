@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { sharedPropTypes } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { SingleSelectOption } from '../index.js'
 import { SingleSelect } from './index.js'
@@ -16,7 +16,7 @@ import { SingleSelect, SingleSelectOption } from '@dhis2/ui'
 _**Note:** Due to demo limitations on this page, only one representative example is rendered here. For more (interactive) examples, see individual stories in the 'Canvas' tab._
 `
 
-const eventHandler = handlerName => (payload, event) => {
+const eventHandler = (handlerName) => (payload, event) => {
     console.log(`${handlerName} payload`, payload)
     console.log(`${handlerName} event`, event)
 }
@@ -26,12 +26,12 @@ const onFocus = eventHandler('onFocus')
 const onBlur = eventHandler('onBlur')
 
 const CustomSingleSelectOption = ({ label, onClick }) => (
-    <div onClick={e => onClick({}, e)}>{label}</div>
+    <div onClick={(e) => onClick({}, e)}>{label}</div>
 )
 
 CustomSingleSelectOption.propTypes = {
-    label: propTypes.string,
-    onClick: propTypes.func,
+    label: PropTypes.string,
+    onClick: PropTypes.func,
 }
 
 const requiredIfArgType = {
@@ -39,7 +39,7 @@ const requiredIfArgType = {
 }
 
 export default {
-    title: 'Forms/Single Select/Single Select',
+    title: 'Single Select',
     component: SingleSelect,
     parameters: {
         docs: {
@@ -63,7 +63,7 @@ export default {
     },
 }
 
-const WithOptionsTemplate = args => (
+const WithOptionsTemplate = (args) => (
     <SingleSelect {...args}>
         <SingleSelectOption value="1" label="option one" />
         <SingleSelectOption value="2" label="option two" />
@@ -71,7 +71,7 @@ const WithOptionsTemplate = args => (
     </SingleSelect>
 )
 
-const EmptyTemplate = args => <SingleSelect {...args} />
+const EmptyTemplate = (args) => <SingleSelect {...args} />
 
 export const WithOptionsAndOnChange = WithOptionsTemplate.bind({})
 WithOptionsAndOnChange.storyName = 'With options and onChange'
@@ -90,7 +90,7 @@ export const WithOnBlur = WithOptionsTemplate.bind({})
 WithOnBlur.args = { onBlur }
 WithOnBlur.storyName = 'With onBlur'
 
-export const WithCustomOptionsAndOnChange = args => (
+export const WithCustomOptionsAndOnChange = (args) => (
     <SingleSelect {...args}>
         <CustomSingleSelectOption value="1" label="option one" />
         <CustomSingleSelectOption value="2" label="option two" />
@@ -99,7 +99,7 @@ export const WithCustomOptionsAndOnChange = args => (
 )
 WithCustomOptionsAndOnChange.storyName = 'With custom options and onChange'
 
-export const WithInvalidOptions = args => (
+export const WithInvalidOptions = (args) => (
     <SingleSelect {...args}>
         <div>invalid one</div>
         <SingleSelectOption value="1" label="option one" />
@@ -113,7 +113,7 @@ export const WithInvalidOptions = args => (
     </SingleSelect>
 )
 
-export const WithInvalidFilterableOptions = args => (
+export const WithInvalidFilterableOptions = (args) => (
     <SingleSelect {...args}>
         <div>invalid one</div>
         <SingleSelectOption value="1" label="option one" />
@@ -154,7 +154,7 @@ WithOptionsLoadingAndLoadingText.args = {
 WithOptionsLoadingAndLoadingText.storyName =
     'With options, loading and loading text'
 
-export const WithMoreThanTenOptions = args => (
+export const WithMoreThanTenOptions = (args) => (
     <SingleSelect {...args}>
         <SingleSelectOption value="1" label="option one" />
         <SingleSelectOption value="2" label="option two" />
@@ -171,7 +171,7 @@ export const WithMoreThanTenOptions = args => (
     </SingleSelect>
 )
 
-export const WithMoreThanThreeOptionsAndA100PxMaxHeight = args => (
+export const WithMoreThanThreeOptionsAndA100PxMaxHeight = (args) => (
     <SingleSelect {...args}>
         <SingleSelectOption value="1" label="option one" />
         <SingleSelectOption value="2" label="option two" />
@@ -221,7 +221,7 @@ WithPlaceholderAndSelection.args = {
     ...WithOptionsAndASelection.args,
 }
 
-export const WithDisabledOptionAndOnChange = args => (
+export const WithDisabledOptionAndOnChange = (args) => (
     <SingleSelect {...args}>
         <SingleSelectOption value="1" label="option one" />
         <SingleSelectOption value="2" label="option two" />
@@ -243,7 +243,7 @@ WithClearButtonSelectionAndOnChange.storyName =
 export const WithFilterField = WithOptionsTemplate.bind({})
 WithFilterField.args = { ...WithInvalidFilterableOptions.args }
 
-export const DefaultPosition = args => (
+export const DefaultPosition = (args) => (
     <>
         <SingleSelect {...args}>
             <SingleSelectOption value="1" label="option one" />
@@ -267,7 +267,7 @@ export const DefaultPosition = args => (
     </>
 )
 
-export const FlippedPosition = args => (
+export const FlippedPosition = (args) => (
     <>
         <SingleSelect {...args}>
             <SingleSelectOption value="1" label="option one" />
@@ -298,7 +298,7 @@ export const FlippedPosition = args => (
     </>
 )
 
-export const ShiftedIntoView = args => (
+export const ShiftedIntoView = (args) => (
     <>
         <SingleSelect {...args}>
             <SingleSelectOption value="1" label="option one" />

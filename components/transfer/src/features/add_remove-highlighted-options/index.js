@@ -13,25 +13,25 @@ Given('the selected list has two or more items', () => {
 Given('some items are highlighted', () => {
     cy.get('@list')
         .find('{transferoption}')
-        .then($options => {
-            const multipleOptions = $options.filter(index => index < 3)
+        .then(($options) => {
+            const multipleOptions = $options.filter((index) => index < 3)
             return cy.wrap(multipleOptions)
         })
         .as('highlightedMultipleOptions')
-        .each($option => cy.wrap($option).clickWith('ctrl'))
+        .each(($option) => cy.wrap($option).clickWith('ctrl'))
 })
 
 When(
     'the user clicks multiple items with {string} which are not highlighted',
-    modifierKey => {
+    (modifierKey) => {
         cy.get('@list')
             .find('{transferoption}')
-            .then($options => {
-                const multipleOptions = $options.filter(index => index < 3)
+            .then(($options) => {
+                const multipleOptions = $options.filter((index) => index < 3)
                 return cy.wrap(multipleOptions)
             })
             .as('multipleOptions')
-            .each($option =>
+            .each(($option) =>
                 cy
                     .wrap($option)
                     .clickWith(modifierKey === 'cmd' ? 'meta' : modifierKey)
@@ -41,13 +41,13 @@ When(
 
 When(
     'the user clicks on one item with {string} which is highlighted',
-    modifierKey => {
+    (modifierKey) => {
         cy.get('@highlightedMultipleOptions')
             .first()
             .clickWith(modifierKey === 'cmd' ? 'meta' : modifierKey)
             .as('clickedOption')
         cy.get('@highlightedMultipleOptions')
-            .filter(index => index !== 0)
+            .filter((index) => index !== 0)
             .as('remainingHighlightedOptions')
     }
 )
@@ -60,13 +60,13 @@ When(
             .click()
             .as('clickedOption')
         cy.get('@highlightedMultipleOptions')
-            .filter(index => index !== 0)
+            .filter((index) => index !== 0)
             .as('remainingHighlightedOptions')
     }
 )
 
 Then('all of the clicked items should be highlighted', () => {
-    cy.get('@multipleOptions').each($option => {
+    cy.get('@multipleOptions').each(($option) => {
         expect($option).to.have.class('highlighted')
     })
 })
@@ -76,7 +76,7 @@ Then('the clicked item should not be highlighted', () => {
 })
 
 Then('the other previously highlighted items should remain highlighted', () => {
-    cy.get('@remainingHighlightedOptions').each($option => {
+    cy.get('@remainingHighlightedOptions').each(($option) => {
         expect($option).to.have.class('highlighted')
     })
 })
@@ -86,7 +86,7 @@ Then('the clicked option is highlighted', () => {
 })
 
 Then('the other previously highlighted items should not be highlighted', () => {
-    cy.get('@remainingHighlightedOptions').each($option => {
+    cy.get('@remainingHighlightedOptions').each(($option) => {
         expect($option).to.not.have.class('highlighted')
     })
 })

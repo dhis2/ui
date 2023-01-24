@@ -23,7 +23,7 @@ const tagArgType = {
 }
 
 export default {
-    title: 'Data Display/Tag',
+    title: 'Tag',
     component: Tag,
     parameters: {
         componentSubtitle: subtitle,
@@ -70,7 +70,7 @@ const ExampleLargeIcon = () => (
     </svg>
 )
 
-const Template = args => <Tag {...args} />
+const Template = (args) => <Tag {...args} />
 
 export const Default = Template.bind({})
 

@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export const StackedTableCellHead = ({
@@ -31,11 +31,11 @@ export const StackedTableCellHead = ({
 )
 
 StackedTableCellHead.propTypes = {
-    children: propTypes.string,
-    className: propTypes.string,
-    colSpan: propTypes.string,
-    dataTest: propTypes.string,
-    rowSpan: propTypes.string,
+    children: PropTypes.string,
+    className: PropTypes.string,
+    colSpan: PropTypes.string,
+    dataTest: PropTypes.string,
+    rowSpan: PropTypes.string,
 }
 
 StackedTableCellHead.defaultProps = {

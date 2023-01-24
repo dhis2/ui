@@ -1,5 +1,8 @@
 import { email, invalidEmailMessage } from '../email.js'
-import { testValidatorValues, allowsEmptyValues } from '../test-helpers'
+import {
+    testValidatorValues,
+    allowsEmptyValues,
+} from '../test-helpers/index.js'
 
 /*
  * A comprehensive list technically valid and invalid email addresses was

@@ -1,9 +1,9 @@
-import propTypes from '@dhis2/prop-types'
 import { spacers } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
 class Action extends Component {
-    onClick = event => {
+    onClick = (event) => {
         this.props.onClick(event)
         this.props.hide(event)
     }
@@ -27,10 +27,10 @@ class Action extends Component {
 }
 
 Action.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    hide: propTypes.func.isRequired,
-    label: propTypes.string.isRequired,
-    onClick: propTypes.func.isRequired,
+    dataTest: PropTypes.string.isRequired,
+    hide: PropTypes.func.isRequired,
+    label: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
 }
 
 export { Action }

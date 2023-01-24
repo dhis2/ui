@@ -22,7 +22,7 @@ const query = {
     },
 }
 
-const pathExists = data =>
+const pathExists = (data) =>
     data &&
     data.customLogo &&
     data.customLogo.images &&
@@ -31,7 +31,9 @@ const pathExists = data =>
 export const LogoImage = () => {
     const { loading, error, data } = useDataQuery(query)
 
-    if (loading) return null
+    if (loading) {
+        return null
+    }
 
     let Logo
     if (!error && pathExists(data)) {

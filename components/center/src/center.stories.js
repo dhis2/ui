@@ -10,16 +10,16 @@ import { CenteredContent } from '@dhis2/ui'
 \`\`\`
 `
 
-const Wrapper = story => <div style={{ height: '150px' }}>{story()}</div>
+const Wrapper = (story) => <div style={{ height: '150px' }}>{story()}</div>
 
 export default {
-    title: 'Layout/Center',
+    title: 'Center',
     component: Center,
     decorators: [Wrapper],
     parameters: { docs: { description: { component: description } } },
 }
 
-const Template = args => (
+const Template = (args) => (
     <Center {...args}>
         <span>Center me</span>
     </Center>

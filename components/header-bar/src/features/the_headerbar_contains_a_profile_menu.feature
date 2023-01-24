@@ -2,11 +2,10 @@ Feature: The HeaderBar contains a profile menu
 
     Scenario: The HeaderBar shows a text icon if the user does not have an avatar
         Given the HeaderBar loads without an error and the user does not have an avatar
-        Then the headerbar contains a text icon of size 36px with the user's initials
+        Then the headerbar contains a text icon of size 36px
         When the user clicks on the text icon
-        Then the profile menu contains a text icon of size 48px with the user's initials
+        Then the profile menu contains a text icon of size 48px
 
-    @avatar
     Scenario: The HeaderBar shows an image icon if the user has an avatar
         Given the HeaderBar loads without an error and the user has an avatar
         Then the headerbar contains an image icon of size 36px
@@ -59,13 +58,13 @@ Feature: The HeaderBar contains a profile menu
         Then contains a link to log out the user
         And there is no loading mask
 
-        # The following are omitted because of testing complications
-        # around navigation:
-        
-        # Then the user clicks the link to log out
-        # Then a loading mask covers the screen
-        # And clearSensitiveCaches is called
-        # Then the window navigates to the logout URL
+    # The following are omitted because of testing complications
+    # around navigation:
+
+    # Then the user clicks the link to log out
+    # Then a loading mask covers the screen
+    # And clearSensitiveCaches is called
+    # Then the window navigates to the logout URL
 
     Scenario: The profile menu closes when the user clicks outside
         Given the HeaderBar loads without an error

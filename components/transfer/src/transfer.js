@@ -32,7 +32,7 @@ import {
     useHighlightedOptions,
 } from './transfer/index.js'
 
-const identity = value => value
+const identity = (value) => value
 
 export const Transfer = ({
     options,
@@ -140,7 +140,7 @@ export const Transfer = ({
      */
     const pickedOptions = actualFilterPickedCallback(
         selected
-            .map(value => options.find(option => value === option.value))
+            .map((value) => options.find((option) => value === option.value))
             // filter -> in case a selected value has been provided
             // that does not exist as option
             .filter(identity),
@@ -165,16 +165,14 @@ export const Transfer = ({
      * Source & Picked options:
      * These are the double click handlers for (de-)selection
      */
-    const {
-        selectSingleOption,
-        deselectSingleOption,
-    } = createDoubleClickHandlers({
-        selected,
-        setHighlightedSourceOptions,
-        setHighlightedPickedOptions,
-        onChange,
-        maxSelections,
-    })
+    const { selectSingleOption, deselectSingleOption } =
+        createDoubleClickHandlers({
+            selected,
+            setHighlightedSourceOptions,
+            setHighlightedPickedOptions,
+            onChange,
+            maxSelections,
+        })
 
     /**
      * Disabled button states
@@ -370,7 +368,7 @@ export const Transfer = ({
     )
 }
 
-const defaultRenderOption = option => <TransferOption {...option} />
+const defaultRenderOption = (option) => <TransferOption {...option} />
 
 Transfer.defaultProps = {
     dataTest: 'dhis2-uicore-transfer',

@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import {
     Empty,
@@ -13,23 +13,25 @@ const onDisabledClick = (_, e) => {
     e.preventDefault()
 }
 
-const createHandler = ({ isActive, onChange, selected, value }) => (_, e) => {
-    e.stopPropagation()
+const createHandler =
+    ({ isActive, onChange, selected, value }) =>
+    (_, e) => {
+        e.stopPropagation()
 
-    // If the option is currently selected remove it from the array of selected options
-    if (isActive) {
-        const filtered = removeOption(value, selected)
-        const data = { selected: filtered }
+        // If the option is currently selected remove it from the array of selected options
+        if (isActive) {
+            const filtered = removeOption(value, selected)
+            const data = { selected: filtered }
 
+            return onChange(data, e)
+        }
+
+        // Otherwise, add it to selected
+        const data = {
+            selected: selected.concat([value]),
+        }
         return onChange(data, e)
     }
-
-    // Otherwise, add it to selected
-    const data = {
-        selected: selected.concat([value]),
-    }
-    return onChange(data, e)
-}
 
 const Menu = ({ options, onChange, selected, empty, dataTest }) => {
     const renderedOptions = filterIgnored(options)
@@ -44,7 +46,7 @@ const Menu = ({ options, onChange, selected, empty, dataTest }) => {
         return empty
     }
 
-    const children = React.Children.map(options, child => {
+    const children = React.Children.map(options, (child) => {
         const isValidOption = checkIfValidOption(child)
 
         // Return early if the child isn't an option, to prevent attaching handlers etc.
@@ -83,11 +85,11 @@ Menu.defaultProps = {
 }
 
 Menu.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    empty: propTypes.node,
-    options: propTypes.node,
-    selected: propTypes.arrayOf(propTypes.string),
-    onChange: propTypes.func,
+    dataTest: PropTypes.string.isRequired,
+    empty: PropTypes.node,
+    options: PropTypes.node,
+    selected: PropTypes.arrayOf(PropTypes.string),
+    onChange: PropTypes.func,
 }
 
 export { Menu }

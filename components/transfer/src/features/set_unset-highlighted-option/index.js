@@ -1,5 +1,5 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { extractOptionFromElement } from '../common'
+import { extractOptionFromElement } from '../common/index.js'
 
 Given('the option list has one or more items', () => {
     cy.visitStory('Transfer set & unset higlighted options', 'Has Options')
@@ -27,7 +27,7 @@ Given('one item is highlighted', () => {
 Given('the highlighted item is not visible due to a set filter', () => {
     // store hidden option because dom reference will be lost
     cy.get('@initiallyHighlighted')
-        .then($initiallyHighlighted =>
+        .then(($initiallyHighlighted) =>
             extractOptionFromElement($initiallyHighlighted)
         )
         .as('hiddenHighlighted')

@@ -21,7 +21,7 @@ export const computeChildNodes = (node, filter) => {
         return node.children
     }
 
-    return node.children.filter(child => {
+    return node.children.filter((child) => {
         return isPathIncluded(filter, `${node.path}/${child.id}`)
     })
 }

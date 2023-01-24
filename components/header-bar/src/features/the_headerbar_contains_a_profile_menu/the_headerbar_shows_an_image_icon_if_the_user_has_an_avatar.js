@@ -1,17 +1,7 @@
-import { Before, Given, Then, When } from 'cypress-cucumber-preprocessor/steps'
-import { baseUrl } from '../common/index.js'
-
-Before({ tags: '@avatar' }, () => {
-    cy.get('@meWithAvatarFixture').then(fx => {
-        cy.route({
-            url: `${baseUrl}/api/me?fields=authorities,avatar,email,name,settings`,
-            response: fx,
-        }).as('meWithAvatar')
-    })
-})
+import { Given, Then, When } from 'cypress-cucumber-preprocessor/steps'
 
 Given('the HeaderBar loads without an error and the user has an avatar', () => {
-    cy.visitStory('HeaderBarTesting', 'Default')
+    cy.visitStory('HeaderBarTesting', 'Me With Avatar')
 })
 
 Then('the headerbar contains an image icon of size 36px', () => {

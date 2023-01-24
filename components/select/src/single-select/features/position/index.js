@@ -27,7 +27,7 @@ When('the SingleSelect is clicked', () => {
 
 When('the window is scrolled down', () => {
     // Ensure the body can scroll first
-    cy.get('body').then($body => {
+    cy.get('body').then(($body) => {
         $body.height('5000px')
     })
     cy.scrollTo(0, 800)

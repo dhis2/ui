@@ -34,7 +34,7 @@ const onFocus = (...args) => window.onFocus(...args)
 const onBlur = (...args) => window.onBlur(...args)
 
 export default {
-    title: 'Forms/Switch/Switch',
+    title: 'Switch',
     component: Switch,
     parameters: {
         componentSubtitle: subtitle,
@@ -56,9 +56,9 @@ export default {
     },
 }
 
-const Template = args => <Switch {...args} />
+const Template = (args) => <Switch {...args} />
 
-const CheckedUncheckedTemplate = args => (
+const CheckedUncheckedTemplate = (args) => (
     <>
         <Switch {...args} />
         <Switch {...args} checked />
@@ -67,7 +67,7 @@ const CheckedUncheckedTemplate = args => (
 
 export const Default = Template.bind({})
 
-export const FocusedUnchecked = args => (
+export const FocusedUnchecked = (args) => (
     <>
         <Switch {...args} initialFocus className="initially-focused" />
         <Switch {...args} className="initially-unfocused" />

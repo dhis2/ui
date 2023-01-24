@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/chip",
-    "version": "7.1.0",
+    "version": "8.7.7",
     "description": "UI Chip",
     "repository": {
         "type": "git",
@@ -31,8 +31,8 @@
         "styled-jsx": "^4"
     },
     "dependencies": {
-        "@dhis2/prop-types": "^1.6.4",
-        "@dhis2/ui-constants": "7.1.0",
+        "@dhis2/prop-types": "^3.1.2",
+        "@dhis2/ui-constants": "8.7.7",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },

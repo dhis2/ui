@@ -9,7 +9,7 @@ When('the Chip is clicked', () => {
 })
 
 Then('the onClick handler is called', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onClick).to.be.calledWith({})
     })
 })

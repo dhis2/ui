@@ -1,7 +1,7 @@
-import propTypes from '@dhis2/prop-types'
 import { colors, theme, sharedPropTypes } from '@dhis2/ui-constants'
 import { IconChevronDown16 } from '@dhis2/ui-icons'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 const InputWrapper = ({
@@ -51,10 +51,11 @@ const InputWrapper = ({
                     box-shadow: inset 0 1px 2px 0 rgba(48, 54, 60, 0.1);
                 }
 
-                .root:focus,
-                .root:active {
+                .root:not(.disabled):focus,
+                .root:not(.disabled):active {
                     outline: none;
-                    box-shadow: 0 0 0 3px ${theme.focus};
+                    box-shadow: inset 0 0 0 2px ${theme.focus};
+                    border-color: ${theme.focus};
                 }
 
                 .root.valid {
@@ -98,14 +99,14 @@ InputWrapper.defaultProps = {
 }
 
 InputWrapper.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    inputRef: propTypes.object.isRequired,
-    tabIndex: propTypes.string.isRequired,
-    onToggle: propTypes.func.isRequired,
-    children: propTypes.element,
-    className: propTypes.string,
-    dense: propTypes.bool,
-    disabled: propTypes.bool,
+    dataTest: PropTypes.string.isRequired,
+    inputRef: PropTypes.object.isRequired,
+    tabIndex: PropTypes.string.isRequired,
+    onToggle: PropTypes.func.isRequired,
+    children: PropTypes.element,
+    className: PropTypes.string,
+    dense: PropTypes.bool,
+    disabled: PropTypes.bool,
     error: sharedPropTypes.statusPropType,
     valid: sharedPropTypes.statusPropType,
     warning: sharedPropTypes.statusPropType,

@@ -1,6 +1,6 @@
 import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 /**
@@ -31,6 +31,6 @@ export const LabelContainer = ({ highlighted, children }) => (
 )
 
 LabelContainer.propTypes = {
-    children: propTypes.node,
-    highlighted: propTypes.bool,
+    children: PropTypes.node,
+    highlighted: PropTypes.bool,
 }

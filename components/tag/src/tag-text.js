@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export const TagText = ({ children, dataTest }) => (
@@ -13,6 +13,6 @@ export const TagText = ({ children, dataTest }) => (
 )
 
 TagText.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    children: propTypes.node,
+    dataTest: PropTypes.string.isRequired,
+    children: PropTypes.node,
 }

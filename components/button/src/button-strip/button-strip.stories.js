@@ -10,7 +10,7 @@ import { ButtonStrip } from '@dhis2/ui'
 \`\`\`
 `
 
-const Wrapper = fn => (
+const Wrapper = (fn) => (
     <div
         style={{
             width: '100%',
@@ -33,7 +33,7 @@ const alignmentArgType = {
 }
 
 export default {
-    title: 'Actions/Buttons/Button Strip',
+    title: 'Button Strip',
     component: ButtonStrip,
     decorators: [Wrapper],
     parameters: { docs: { description: { component: description } } },
@@ -43,7 +43,7 @@ export default {
     },
 }
 
-export const Default = args => (
+export const Default = (args) => (
     <ButtonStrip {...args}>
         <Button>Save</Button>
         <Button>Save</Button>
@@ -53,7 +53,7 @@ export const Default = args => (
     </ButtonStrip>
 )
 
-export const DefaultAlignedMiddle = args => (
+export const DefaultAlignedMiddle = (args) => (
     <ButtonStrip {...args}>
         <Button>Save</Button>
         <Button>Save</Button>
@@ -64,7 +64,7 @@ export const DefaultAlignedMiddle = args => (
 DefaultAlignedMiddle.args = { middle: true }
 DefaultAlignedMiddle.storyName = 'Default - aligned middle'
 
-export const DefaultAlignedRight = args => (
+export const DefaultAlignedRight = (args) => (
     <ButtonStrip {...args}>
         <Button>Save</Button>
         <Button>Save</Button>

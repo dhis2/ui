@@ -1,6 +1,6 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Cypress.on('uncaught:exception', err => {
+Cypress.on('uncaught:exception', (err) => {
     // This prevents a benign error:
     //   This error means that ResizeObserver was not able to deliver all
     //   observations within a single animation frame. It is benign (your site
@@ -45,7 +45,7 @@ Given(
 )
 
 When('the user scroll to the end of the list', () => {
-    cy.get('@listType').then(listType => {
+    cy.get('@listType').then((listType) => {
         const listSelector =
             listType === 'source'
                 ? 'transfer-sourceoptions'

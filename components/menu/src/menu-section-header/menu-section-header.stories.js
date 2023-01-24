@@ -12,7 +12,7 @@ import { MenuSectionHeader } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Actions/Menu/Menu Section Header',
+    title: 'Menu Section Header',
     component: MenuSectionHeader,
     args: { label: 'Section header' },
     parameters: { docs: { description: { component: description } } },
@@ -35,7 +35,7 @@ Dense.args = { menuArgs: { dense: true }, dense: true }
 export const WithoutDivider = Template.bind({})
 WithoutDivider.args = { hideDivider: true }
 
-export const TopOfList = args => (
+export const TopOfList = (args) => (
     <Menu>
         <MenuSectionHeader {...args} />
         <MenuItem label="Item 1" />
@@ -46,8 +46,7 @@ TopOfList.args = { label: 'Top of list (so <Menu> hides divider)' }
 TopOfList.parameters = {
     docs: {
         description: {
-            story:
-                'When the Section Header is the first child of a `<Menu>`, the Menu parent automatically applies the `hideDivider` prop.',
+            story: 'When the Section Header is the first child of a `<Menu>`, the Menu parent automatically applies the `hideDivider` prop.',
         },
     },
 }

@@ -15,7 +15,7 @@ import { CircularLoader } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Feedback/Loading Indicators/Circular Loader',
+    title: 'Circular Loader',
     component: CircularLoader,
     parameters: {
         componentSubtitle: subtitle,
@@ -28,7 +28,7 @@ export default {
     },
 }
 
-const Template = args => <CircularLoader {...args} />
+const Template = (args) => <CircularLoader {...args} />
 
 export const Default = Template.bind({})
 

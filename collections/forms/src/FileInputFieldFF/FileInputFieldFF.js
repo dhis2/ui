@@ -21,18 +21,22 @@ const dedupeAndConcat = (currentFiles, newFileList) => {
     ).files
 }
 
-const createChangeHandler = (input, multifile) => ({ files }) => {
-    // A JavaScript FileList instance is read-only, so we cannot add files to it
-    // FileList also doesn't have a .map method so by destructuring the FileList
-    // instance into an array we can add, remove and map
-    const currentFiles = Array.isArray(input.value) ? input.value : []
-    const value = multifile ? dedupeAndConcat(currentFiles, files) : [...files]
+const createChangeHandler =
+    (input, multifile) =>
+    ({ files }) => {
+        // A JavaScript FileList instance is read-only, so we cannot add files to it
+        // FileList also doesn't have a .map method so by destructuring the FileList
+        // instance into an array we can add, remove and map
+        const currentFiles = Array.isArray(input.value) ? input.value : []
+        const value = multifile
+            ? dedupeAndConcat(currentFiles, files)
+            : [...files]
 
-    input.onChange(value)
-}
+        input.onChange(value)
+    }
 
 const createRemoveHandler = (input, fileToDelete) => () => {
-    const files = input.value.filter(file => file !== fileToDelete)
+    const files = input.value.filter((file) => file !== fileToDelete)
     const value = files.length > 0 ? files : ''
 
     input.onChange(value)
@@ -64,7 +68,7 @@ export const FileInputFieldFF = ({
             valid={isValid(meta, valid, showValidStatus)}
             validationText={getValidationText(meta, validationText, error)}
         >
-            {files.map(file => (
+            {files.map((file) => (
                 <FileListItem
                     key={file.name}
                     label={file.name}
@@ -74,10 +78,6 @@ export const FileInputFieldFF = ({
             ))}
         </FileInputField>
     )
-}
-
-FileInputFieldFF.defaultProps = {
-    placeholder: i18n.t('No file(s) selected yet'),
 }
 
 FileInputFieldFF.propTypes = {

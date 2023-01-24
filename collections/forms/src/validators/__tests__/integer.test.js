@@ -1,5 +1,8 @@
 import { integer, invalidIntegerMessage } from '../integer.js'
-import { testValidatorValues, allowsEmptyValues } from '../test-helpers'
+import {
+    testValidatorValues,
+    allowsEmptyValues,
+} from '../test-helpers/index.js'
 
 describe('validator: integer', () => {
     allowsEmptyValues(integer)
@@ -18,9 +21,10 @@ describe('validator: integer', () => {
         ])
     })
 
-    describe('rejects other data types', () => {
+    describe('rejects other data types and leading zeros', () => {
         testValidatorValues(integer, invalidIntegerMessage, [
             'text',
+            '014',
             true,
             {},
             [],
@@ -33,6 +37,9 @@ describe('validator: integer', () => {
             0.23456,
             5.987,
             1e-12,
+            '4.0',
+            '4.000',
+            '4,0',
             '0.23456',
             '5.987',
             '1e-12',

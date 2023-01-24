@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const identity = value => value
+const identity = (value) => value
 
 export const useFilter = ({
     initialSearchTerm,

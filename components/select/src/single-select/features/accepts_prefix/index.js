@@ -1,4 +1,4 @@
-import '../common'
+import '../common/index.js'
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a SingleSelect with a prefix and no selection is rendered', () => {

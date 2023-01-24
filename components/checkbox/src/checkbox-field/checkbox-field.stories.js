@@ -16,7 +16,7 @@ const logger = ({ name, value, checked }) =>
     console.log(`name: ${name}, value: ${value}, checked: ${checked}`)
 
 export default {
-    title: 'Forms/Checkbox/Checkbox Field',
+    title: 'Checkbox Field',
     component: CheckboxField,
     parameters: { docs: { description: { component: description } } },
     // Default args for stories
@@ -33,9 +33,9 @@ export default {
     },
 }
 
-const Template = args => <CheckboxField {...args} />
+const Template = (args) => <CheckboxField {...args} />
 
-const CheckedUncheckedTemplate = args => (
+const CheckedUncheckedTemplate = (args) => (
     <>
         <CheckboxField {...args} />
         <CheckboxField {...args} checked />
@@ -62,7 +62,7 @@ Required.args = { required: true }
 export const Disabled = CheckedUncheckedTemplate.bind({})
 Disabled.args = { disabled: true }
 
-export const HelpText = args => (
+export const HelpText = (args) => (
     <>
         <CheckboxField {...args} />
         <CheckboxField

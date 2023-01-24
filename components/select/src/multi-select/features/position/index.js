@@ -1,4 +1,4 @@
-import '../common'
+import '../common/index.js'
 import { Given, Then, When } from 'cypress-cucumber-preprocessor/steps'
 
 Given(
@@ -26,7 +26,7 @@ Given('the input is empty', () => {
     cy.get('[data-test="dhis2-uicore-select-input"]')
         .should('exist')
         .should('have.length', 1)
-        .then(inputs => {
+        .then((inputs) => {
             const $input = inputs[0]
             const inputRect = $input.getBoundingClientRect()
 
@@ -53,7 +53,7 @@ When('an option is clicked', () => {
     cy.contains('option one').click()
 })
 
-Then('the Input grows in height', () => {
+Then('the Input remains the same height', () => {
     const emptyInputHeight = '@emptyInputHeight'
     const inputDataTest = '[data-test="dhis2-uicore-select-input"]'
 
@@ -64,7 +64,7 @@ Then('the Input grows in height', () => {
             const $input = inputs[0]
             const inputRect = $input.getBoundingClientRect()
 
-            expect(inputRect.height).to.be.greaterThan(emptyInputHeight)
+            expect(inputRect.height).to.equal(emptyInputHeight)
         }
     )
 })

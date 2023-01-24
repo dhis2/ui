@@ -1,4 +1,4 @@
-import '../common'
+import '../common/index.js'
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a FileInput with multiple and onChange handler is rendered', () => {
@@ -16,7 +16,7 @@ When('the user selected multiple files', () => {
 })
 
 Then("the onChange handler's payload contains multiple files", () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         const calls = win.onChange.getCalls()
         const callArgs = calls[0].args
         const payload = callArgs[0]

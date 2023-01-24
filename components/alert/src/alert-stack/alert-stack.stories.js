@@ -13,7 +13,7 @@ import { AlertStack } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Feedback/Alerts/Alert Stack',
+    title: 'Alert Stack',
     component: AlertStack,
     // Use an iframe in docs to contain 'portal'
     parameters: {
@@ -25,7 +25,7 @@ export default {
     },
 }
 
-export const Default = args => (
+export const Default = (args) => (
     <AlertStack {...args}>
         <AlertBar permanent>First notification - I am at the bottom</AlertBar>
         <AlertBar permanent critical>

@@ -14,47 +14,51 @@ import { toggleReplace } from './toggle-replace.js'
  * @param {string} args.lastClicked
  * @returns {void}
  */
-export const createToggleHighlightedOption = ({
-    disabled,
-    highlightedOptions,
-    setHighlightedOptions,
-    maxSelections,
-    setLastClicked,
-    options,
-    lastClicked,
-}) => ({ option, mode }) => {
-    if (disabled) return
-
-    setHighlightedOptions([])
-
-    if (mode === ADD_MODE) {
-        setLastClicked(option.value)
-
-        return toggleAdd({
-            highlightedOptions,
-            maxSelections,
-            option,
-            setHighlightedOptions,
-        })
-    }
-
-    if (mode === RANGE_MODE) {
-        return toggleRange({
-            highlightedOptions,
-            options,
-            option,
-            setHighlightedOptions,
-            lastClicked,
-            maxSelections,
-        })
-    }
-
-    // REPLACE_MODE
-    setLastClicked(option.value)
-
-    return toggleReplace({
-        option,
+export const createToggleHighlightedOption =
+    ({
+        disabled,
         highlightedOptions,
         setHighlightedOptions,
-    })
-}
+        maxSelections,
+        setLastClicked,
+        options,
+        lastClicked,
+    }) =>
+    ({ option, mode }) => {
+        if (disabled) {
+            return
+        }
+
+        setHighlightedOptions([])
+
+        if (mode === ADD_MODE) {
+            setLastClicked(option.value)
+
+            return toggleAdd({
+                highlightedOptions,
+                maxSelections,
+                option,
+                setHighlightedOptions,
+            })
+        }
+
+        if (mode === RANGE_MODE) {
+            return toggleRange({
+                highlightedOptions,
+                options,
+                option,
+                setHighlightedOptions,
+                lastClicked,
+                maxSelections,
+            })
+        }
+
+        // REPLACE_MODE
+        setLastClicked(option.value)
+
+        return toggleReplace({
+            option,
+            highlightedOptions,
+            setHighlightedOptions,
+        })
+    }

@@ -1,4 +1,4 @@
-import '../common'
+import '../common/index.js'
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('an Alertbar with onHidden handler is rendered', () => {
@@ -11,7 +11,7 @@ When('the Alertbar is not rendered', () => {
 })
 
 Then('the onHidden handler is called', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onHidden).to.be.calledOnce
         expect(win.onHidden).to.be.calledWith({}, null)
     })

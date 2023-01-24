@@ -16,7 +16,7 @@ Given('a checked Checkbox with a value is rendered', () => {
 })
 
 Then('the form value that corresponds to the checkbox will be correct', () => {
-    cy.window().then(win => {
+    cy.window().then((win) => {
         expect(win.formValues.checkbox).to.deep.equal([])
     })
 })

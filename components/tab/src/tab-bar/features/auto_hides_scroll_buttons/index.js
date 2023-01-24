@@ -1,7 +1,7 @@
 /* global before,after */
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-const handler = err => {
+const handler = (err) => {
     // > This error means that ResizeObserver was not able to deliver all
     // > observations within a single animation frame. It is benign (your site
     // > will not break). – Aleksandar Totic Apr 15 at 3:14

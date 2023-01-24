@@ -1,0 +1,143 @@
+# 
+# Translators:
+# phil_dhis2, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
+# 晓东 林 <13981924470@126.com>, 2021
+# easylin <lin_xd@126.com>, 2021
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-11-25T09:59:40.995Z\n"
+"PO-Revision-Date: 2021-10-01 23:39+0000\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2021\n"
+"Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "View only"
+msgstr "只读"
+
+msgid "View and edit"
+msgstr "查看和编辑"
+
+msgid "Give access to a user or group"
+msgstr "授予用户或组访问权限"
+
+msgid "Access level"
+msgstr "访问等级"
+
+msgid "Select a level"
+msgstr "选择一个等级"
+
+msgid "Not available offline"
+msgstr "离线不可用"
+
+msgid "Give access"
+msgstr "授予访问权限"
+
+msgid "Users and groups that currently have access"
+msgstr "当前具有访问权限的用户和组"
+
+msgid "User / Group"
+msgstr "用户/组"
+
+msgid "All users"
+msgstr "全部用户"
+
+msgid "No access"
+msgstr "不能访问"
+
+msgid "Can view"
+msgstr "可查看"
+
+msgid "Can view and edit"
+msgstr "可以查看和编辑"
+
+msgid "Metadata"
+msgstr "元数据"
+
+msgid "Remove access"
+msgstr "删除访问权限"
+
+msgid "User or group"
+msgstr "用户或组"
+
+msgid "Search"
+msgstr "搜索"
+
+msgid "Apply dashboard sharing settings to visualizations"
+msgstr "将仪表板共享设置应用于可视化"
+
+msgid "Something went wrong"
+msgstr "出问题了"
+
+msgid "Apply sharing to dashboard visualizations"
+msgstr "将共享应用于仪表板可视化"
+
+msgid ""
+"No visualizations were updated. Check that you have permission to change "
+"sharing for all visualizations."
+msgstr "没有更新可视化。检查您是否有权更改所有可视化的共享。"
+
+msgid ""
+"Not all visualizations could be updated successfully. {{ success }} updated "
+"successfully, {{ failed }} failed to update. Check that you have permission "
+"to change sharing for all visualizations."
+msgstr "并非所有可视化都可以成功更新。 {{成功}}更新成功，{{失败}}更新失败。检查您是否有权更改所有可视化的共享。"
+
+msgid ""
+"No visualizations were updated because sharing settings are already "
+"sufficient."
+msgstr "没有更新可视化，因为共享设置已经足够了。"
+
+msgid "Successfully updated sharing for all visualizations."
+msgstr "已成功更新所有可视化的共享。"
+
+msgid ""
+"Not all visualization sharing settings needed to be updated. {{ updated }} "
+"updated, {{ skipped }} already had sufficient sharing settings."
+msgstr "并非所有可视化共享设置都需要更新。 {{更新}}更新，{{跳过}}已经有足够的分享设置。"
+
+msgid "There are no users or groups to apply sharing settings for."
+msgstr "没有要应用共享设置的用户或组。"
+
+msgid ""
+"Number of visualizations on this dashboard that will potentially get updated"
+" sharing settings: {{ visualizationsCount }}. The number of users or groups "
+"that these updated settings will apply to: {{ entityAmount }}."
+msgstr ""
+"此仪表板上可能会获得更新共享设置的可视化数量：{{可视化计数}}。这些更新的设置将应用于的用户或组的数量：{{ entityAmount }}。"
+
+msgid ""
+"Applying the same sharing settings makes sure that users and groups that "
+"have access to the dashboard also have at least \"View only\" access to its "
+"visualizations (charts, tables, maps, event charts and event reports)."
+msgstr "应用相同的共享设置可确保有权访问仪表板的用户和组也至少具有对其可视化（图表、表格、地图、事件图表和事件报告）的“仅查看”访问权限。"
+
+msgid ""
+"If a user or group already has \"View and edit\" access to a visualization, "
+"this won't be reduced to \"View only\". The \"All users\" access level won't"
+" be updated or changed."
+msgstr "如果用户或组已经具有对可视化的“查看和编辑”访问权限，则这不会减少为“仅查看”。 “所有用户”访问级别不会更新或更改。"
+
+msgid ""
+"Applying sharing can't be undone, and needs to be done again if new "
+"visualizations are added to the dashboard or its sharing settings are "
+"changed."
+msgstr "应用共享无法撤消，如果新的可视化添加到仪表板或更改其共享设置，则需要再次执行。"
+
+msgid "Sharing and access: {{- objectName}}"
+msgstr "共享和访问：{{- objectName}}"
+
+msgid "Sharing and access"
+msgstr "共享和访问"
+
+msgid "Close"
+msgstr "关闭"
+
+msgid "Dashboard sharing"
+msgstr "仪表板共享"

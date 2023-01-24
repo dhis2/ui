@@ -5,22 +5,37 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-05-10T12:25:58.130Z\n"
-"PO-Revision-Date: 2021-05-10T12:25:58.130Z\n"
-
-msgid "Next"
-msgstr ""
-
-msgid "Page"
-msgstr ""
-
-msgid "Items per page"
-msgstr ""
+"POT-Creation-Date: 2022-03-10T20:20:19.392Z\n"
+"PO-Revision-Date: 2022-03-10T20:20:19.392Z\n"
 
 msgid ""
 "Page {{page}} of {{pageCount}}, items {{firstItem}}-{{lastItem}} of "
 "{{total}}"
 msgstr ""
+"Page {{page}} of {{pageCount}}, items {{firstItem}}-{{lastItem}} of "
+"{{total}}"
+
+msgid "Page {{page}}, items {{firstItem}}-{{lastItem}}"
+msgstr "Page {{page}}, items {{firstItem}}-{{lastItem}}"
+
+msgid "Page {{page}}"
+msgstr "Page {{page}}"
+
+msgid "Next"
+msgstr "Next"
+
+msgid "Page"
+msgstr "Page"
+
+msgid "Items per page"
+msgstr "Items per page"
 
 msgid "Previous"
+msgstr "Previous"
+
+msgid ""
+"You are at page {{page}} showing items {{firstItem}}-{{lastItem}}, but "
+"there are {{pageCount}} pages and {{total}} items"
 msgstr ""
+"You are at page {{page}} showing items {{firstItem}}-{{lastItem}}, but "
+"there are {{pageCount}} pages and {{total}} items"

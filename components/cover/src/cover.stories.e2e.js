@@ -8,7 +8,7 @@ export default {
     title: 'Cover',
     component: Cover,
     decorators: [
-        story => (
+        (story) => (
             <div>
                 {story()}
                 <style jsx>{`

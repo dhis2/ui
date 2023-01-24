@@ -9,7 +9,7 @@ When('the Input is focused', () => {
 })
 
 Then('the onFocus handler is called', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onFocus).to.be.calledWith({
             value: '',
             name: 'Default',

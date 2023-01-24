@@ -1,17 +1,8 @@
-import '../common/index'
-import { Then, Given } from 'cypress-cucumber-preprocessor/steps'
+import '../common/index.js'
+import { Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('there are 5 unread messages', () => {
-    cy.fixture('HeaderBar/dashboard')
-        .then(response => ({
-            ...response,
-            unreadMessages: 5,
-        }))
-        .as('dashboardFixture')
-})
-
-Then('the messages link contains an icon with the number 5', () => {
-    cy.get('[data-test="headerbar-messages-count"]').should($count => {
-        expect($count.text()).to.equal('5')
+Then('the messages link contains an icon with a number greater than 0', () => {
+    cy.get('[data-test="headerbar-messages-count"]').should(($count) => {
+        expect(parseInt($count.text(), 10)).to.be.greaterThan(0)
     })
 })

@@ -28,7 +28,7 @@ export const IntersectionDetector = ({
         const intersectionEl = intersectionRef.current
 
         if (rootEl && intersectionEl) {
-            const onIntersection = entries => {
+            const onIntersection = (entries) => {
                 // Currently there's no way to supply multiple thresholds,
                 // so a single entry can be assumed safely
                 const [entry] = entries

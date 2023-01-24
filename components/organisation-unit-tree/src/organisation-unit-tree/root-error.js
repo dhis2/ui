@@ -1,9 +1,9 @@
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import i18n from '../locales/index.js'
 
 export const RootError = ({ dataTest, error }) => (
-    <div data-test={`${dataTest}-loading`}>
+    <div data-test={dataTest}>
         {i18n.t('Error: {{ ERRORMESSAGE }}', {
             ERRORMESSAGE: error,
             nsSeparator: '>',
@@ -11,7 +11,11 @@ export const RootError = ({ dataTest, error }) => (
     </div>
 )
 
+RootError.defaultProps = {
+    dataTest: 'dhis2-uiwidgets-orgunittree-error',
+}
+
 RootError.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    error: propTypes.string.isRequired,
+    error: PropTypes.string.isRequired,
+    dataTest: PropTypes.string,
 }

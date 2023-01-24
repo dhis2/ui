@@ -1,6 +1,7 @@
 import { Required } from '@dhis2-ui/required'
-import propTypes from '@dhis2/prop-types'
+import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 import css from 'styled-jsx/css'
 
@@ -9,7 +10,8 @@ const styles = css`
         display: block;
         box-sizing: border-box;
         font-size: 14px;
-        line-height: 24px;
+        line-height: 19px;
+        color: ${colors.grey900};
         padding: 0;
     }
 
@@ -49,10 +51,10 @@ Label.defaultProps = {
 }
 
 Label.propTypes = {
-    children: propTypes.string,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    disabled: propTypes.bool,
-    htmlFor: propTypes.string,
-    required: propTypes.bool,
+    children: PropTypes.string,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    disabled: PropTypes.bool,
+    htmlFor: PropTypes.string,
+    required: PropTypes.bool,
 }

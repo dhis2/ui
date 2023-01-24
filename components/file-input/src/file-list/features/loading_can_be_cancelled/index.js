@@ -9,7 +9,7 @@ When('the user clicks on the cancel text', () => {
 })
 
 Then('the onCancel handler is called', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onCancel).to.be.calledWith({})
     })
 })

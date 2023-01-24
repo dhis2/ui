@@ -1,4 +1,7 @@
-import { testValidatorValues, allowsEmptyValues } from '../test-helpers'
+import {
+    testValidatorValues,
+    allowsEmptyValues,
+} from '../test-helpers/index.js'
 import { url, invalidUrlMessage } from '../url.js'
 
 /**

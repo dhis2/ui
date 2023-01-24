@@ -1,13 +1,8 @@
-import '../common/index'
+import '../common/index.js'
 import { Then, Given } from 'cypress-cucumber-preprocessor/steps'
 
 Given('there are 0 unread messages', () => {
-    cy.fixture('HeaderBar/dashboard')
-        .then(response => ({
-            ...response,
-            unreadMessages: 0,
-        }))
-        .as('dashboardFixture')
+    cy.visitStory('HeaderBarTesting', 'Zero Unread Messages')
 })
 
 Then('the messages link does not contain a count', () => {

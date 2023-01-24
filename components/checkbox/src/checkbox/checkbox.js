@@ -1,5 +1,5 @@
 import { mutuallyExclusive } from '@dhis2/prop-types'
-import { colors, theme, sharedPropTypes } from '@dhis2/ui-constants'
+import { colors, spacers, theme, sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component, createRef } from 'react'
@@ -26,21 +26,27 @@ class Checkbox extends Component {
         this.ref.current.indeterminate = indeterminate
     }
 
-    handleChange = e => {
+    handleChange = (e) => {
         if (this.props.onChange) {
             this.props.onChange(this.createHandlerPayload(), e)
         }
     }
 
-    handleBlur = e => {
+    handleBlur = (e) => {
         if (this.props.onBlur) {
             this.props.onBlur(this.createHandlerPayload(), e)
         }
     }
 
-    handleFocus = e => {
+    handleFocus = (e) => {
         if (this.props.onFocus) {
             this.props.onFocus(this.createHandlerPayload(), e)
+        }
+    }
+
+    handleKeyDown = (e) => {
+        if (this.props.onKeyDown) {
+            this.props.onKeyDown(this.createHandlerPayload(), e)
         }
     }
 
@@ -96,6 +102,7 @@ class Checkbox extends Component {
                     tabIndex={tabIndex}
                     onChange={this.handleChange}
                     onFocus={this.handleFocus}
+                    onKeyDown={this.handleKeyDown}
                     onBlur={this.handleBlur}
                 />
 
@@ -118,8 +125,8 @@ class Checkbox extends Component {
                         justify-content: flex-start;
                         cursor: pointer;
                         color: ${colors.grey900};
-                        font-size: 16px;
-                        line-height: 20px;
+                        font-size: 14px;
+                        line-height: 19px;
                     }
 
                     label.dense {
@@ -150,7 +157,7 @@ class Checkbox extends Component {
 
                     .icon {
                         user-select: none;
-                        margin-right: 5px;
+                        margin-right: ${spacers.dp4};
                         border: 2px solid transparent;
                         padding: 1px;
                         border-radius: 5px;
@@ -163,7 +170,7 @@ class Checkbox extends Component {
 
                     input:focus + .icon {
                         outline: 3px solid ${theme.focus};
-                        outline-offset: -1px;
+                        outline-offset: -3px;
                     }
                 `}</style>
             </label>
@@ -201,6 +208,7 @@ Checkbox.propTypes = {
     /** Called with signature `(object, event)` */
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
+    onKeyDown: PropTypes.func,
 }
 
 export { Checkbox }

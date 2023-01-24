@@ -1,5 +1,6 @@
-import propTypes from '@dhis2/prop-types'
+import { arrayWithLength } from '@dhis2/prop-types'
 import { spacers } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { Action } from './action.js'
 
@@ -10,7 +11,7 @@ const Actions = ({ actions, hide, dataTest }) => {
 
     return (
         <div>
-            {actions.map(action => (
+            {actions.map((action) => (
                 <Action
                     key={action.label}
                     {...action}
@@ -28,18 +29,18 @@ const Actions = ({ actions, hide, dataTest }) => {
     )
 }
 
-const actionsPropType = propTypes.arrayWithLength(
+const actionsPropType = arrayWithLength(
     0,
     2,
-    propTypes.shape({
-        label: propTypes.string.isRequired,
-        onClick: propTypes.func.isRequired,
+    PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        onClick: PropTypes.func.isRequired,
     })
 )
 
 Actions.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    hide: propTypes.func.isRequired,
+    dataTest: PropTypes.string.isRequired,
+    hide: PropTypes.func.isRequired,
     actions: actionsPropType,
 }
 

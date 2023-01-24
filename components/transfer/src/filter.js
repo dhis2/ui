@@ -1,7 +1,7 @@
 import { Field } from '@dhis2-ui/field'
 import { Input } from '@dhis2-ui/input'
-import propTypes from '@dhis2/prop-types'
 import { spacers } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export const Filter = ({ dataTest, filter, onChange, label, placeholder }) => (
@@ -11,7 +11,6 @@ export const Filter = ({ dataTest, filter, onChange, label, placeholder }) => (
                 dataTest={`${dataTest}-input`}
                 type="search"
                 placeholder={placeholder}
-                name={dataTest}
                 value={filter}
                 onChange={onChange}
             />
@@ -30,9 +29,9 @@ export const Filter = ({ dataTest, filter, onChange, label, placeholder }) => (
 )
 
 Filter.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    filter: propTypes.string.isRequired,
-    onChange: propTypes.func.isRequired,
-    label: propTypes.string,
-    placeholder: propTypes.string,
+    dataTest: PropTypes.string.isRequired,
+    filter: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+    label: PropTypes.string,
+    placeholder: PropTypes.string,
 }

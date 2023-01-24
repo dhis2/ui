@@ -31,6 +31,10 @@ export const FlippedVertically = () => (
         contains a tooltip.
         <style jsx>{noPaddingStyles}</style>
         <style jsx>{`
+            :global(div#root) {
+                padding-top: 0;
+            }
+
             p {
                 margin-top: 0;
             }
@@ -96,5 +100,5 @@ export const ModalWithTooltip = () => (
 export const ScrollingContainers = HidesWhenOutOfFrame.bind({})
 ScrollingContainers.args = { content: 'Tooltip content' }
 ScrollingContainers.decorators = [
-    story => <div style={{ marginTop: '150px' }}>{story()}</div>,
+    (story) => <div style={{ marginTop: '150px' }}>{story()}</div>,
 ]

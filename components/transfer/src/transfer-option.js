@@ -1,6 +1,6 @@
-import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React, { useRef } from 'react'
 
 const DOUBLE_CLICK_MAX_DELAY = 500
@@ -20,8 +20,10 @@ export const TransferOption = ({
     return (
         <div
             data-test={dataTest}
-            onClick={event => {
-                if (disabled) return
+            onClick={(event) => {
+                if (disabled) {
+                    return
+                }
 
                 if (doubleClickTimeout.current) {
                     clearTimeout(doubleClickTimeout.current)
@@ -74,12 +76,12 @@ TransferOption.defaultProps = {
 }
 
 TransferOption.propTypes = {
-    label: propTypes.string.isRequired,
-    value: propTypes.string.isRequired,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-    disabled: propTypes.bool,
-    highlighted: propTypes.bool,
-    onClick: propTypes.func,
-    onDoubleClick: propTypes.func,
+    label: PropTypes.node.isRequired,
+    value: PropTypes.string.isRequired,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
+    disabled: PropTypes.bool,
+    highlighted: PropTypes.bool,
+    onClick: PropTypes.func,
+    onDoubleClick: PropTypes.func,
 }

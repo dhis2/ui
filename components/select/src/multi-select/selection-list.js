@@ -1,18 +1,20 @@
 import { Chip } from '@dhis2-ui/chip'
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { removeOption, findOptionChild } from '../select/index.js'
 
-const createRemoveHandler = ({ selected, onChange, value }) => (_, e) => {
-    const filtered = removeOption(value, selected)
-    const data = { selected: filtered }
+const createRemoveHandler =
+    ({ selected, onChange, value }) =>
+    (_, e) => {
+        const filtered = removeOption(value, selected)
+        const data = { selected: filtered }
 
-    onChange(data, e)
-}
+        onChange(data, e)
+    }
 
 const SelectionList = ({ selected, onChange, disabled, options }) => (
     <React.Fragment>
-        {selected.map(value => {
+        {selected.map((value) => {
             const selectedOption = findOptionChild(value, options)
 
             if (!selectedOption) {
@@ -40,6 +42,9 @@ const SelectionList = ({ selected, onChange, disabled, options }) => (
                     key={value}
                     onRemove={onRemove}
                     disabled={isDisabled}
+                    marginBottom="0"
+                    marginLeft="0"
+                    marginTop="0"
                     overflow
                     dense
                 >
@@ -51,10 +56,10 @@ const SelectionList = ({ selected, onChange, disabled, options }) => (
 )
 
 SelectionList.propTypes = {
-    disabled: propTypes.bool,
-    options: propTypes.node,
-    selected: propTypes.arrayOf(propTypes.string),
-    onChange: propTypes.func,
+    disabled: PropTypes.bool,
+    options: PropTypes.node,
+    selected: PropTypes.arrayOf(PropTypes.string),
+    onChange: PropTypes.func,
 }
 
 export { SelectionList }

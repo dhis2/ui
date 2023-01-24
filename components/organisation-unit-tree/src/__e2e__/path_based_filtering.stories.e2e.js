@@ -8,7 +8,6 @@ import {
     namespace,
 } from './common.js'
 
-window.dataProviderData = dataProviderData
 window.allUnits = []
 for (let i = 0; i < 7; ++i) {
     window.allUnits.push(`A000000000${i}`)

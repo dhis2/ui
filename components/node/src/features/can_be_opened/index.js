@@ -9,7 +9,7 @@ When('the arrow is clicked', () => {
 })
 
 Then('the onOpen handler is called', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onOpen).to.be.calledWith({ open: true })
     })
 })

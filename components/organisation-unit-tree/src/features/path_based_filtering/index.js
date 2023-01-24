@@ -4,8 +4,8 @@ Before(() => {
     cy.wrap([]).as('displayedUnits')
 })
 
-const addDisplayedUnit = id => {
-    cy.get('@displayedUnits').then(displayedUnits => {
+const addDisplayedUnit = (id) => {
+    cy.get('@displayedUnits').then((displayedUnits) => {
         cy.wrap([...displayedUnits, id]).as('displayedUnits')
     })
 }
@@ -80,13 +80,13 @@ Then('the second node on the first level is visible', () => {
 })
 
 Then('all other nodes are not rendered', async () => {
-    cy.get('@displayedUnits').then(displayedUnits => {
-        cy.window().then(win => {
+    cy.get('@displayedUnits').then((displayedUnits) => {
+        cy.window().then((win) => {
             const excludedUnitNumbers = win.allUnits
-                .filter(unit => !displayedUnits.includes(unit))
-                .map(id => parseInt(id.replace(/^.*(\d)$/, '$1'), 10) + 1)
+                .filter((unit) => !displayedUnits.includes(unit))
+                .map((id) => parseInt(id.replace(/^.*(\d)$/, '$1'), 10) + 1)
 
-            excludedUnitNumbers.forEach(number => {
+            excludedUnitNumbers.forEach((number) => {
                 const label = `Org Unit ${number}`
                 cy.get(
                     `[data-test="dhis2-uiwidgets-orgunittree-node-label"]:contains("${label}")`

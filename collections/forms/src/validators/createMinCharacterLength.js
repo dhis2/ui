@@ -1,7 +1,7 @@
 import i18n from '../locales/index.js'
 import { createCharacterLengthRange } from './createCharacterLengthRange.js'
 
-const createMinCharacterLength = lowerBound =>
+const createMinCharacterLength = (lowerBound) =>
     createCharacterLengthRange(
         lowerBound,
         Infinity,

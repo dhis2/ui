@@ -25,7 +25,7 @@ import { AlertBar } from '@dhis2/ui'
 \`\`\`
 `
 
-const Wrapper = fn => (
+const Wrapper = (fn) => (
     <div style={{ height: '260px' }}>
         <div
             className="alert-bars"
@@ -46,8 +46,7 @@ const alertTypeArgType = {
     table: {
         type: {
             summary: 'bool',
-            detail:
-                "'success', 'warning', and 'critical' are mutually exclusive props",
+            detail: "'success', 'warning', and 'critical' are mutually exclusive props",
         },
     },
     control: {
@@ -70,7 +69,7 @@ const actionsArgType = {
 }
 
 export default {
-    title: 'Feedback/Alerts/Alert Bar',
+    title: 'Alert Bar',
     component: AlertBar,
     decorators: [Wrapper],
     parameters: {
@@ -90,7 +89,7 @@ export default {
     },
 }
 
-export const Default = args => (
+export const Default = (args) => (
     <AlertBar {...args}>Default - I will autohide</AlertBar>
 )
 
@@ -175,7 +174,7 @@ TextOverflow.storyName = 'Text overflow'
 
 export const HiddenProp = () => {
     const [hidden, setHidden] = useState(true)
-    const toggleVisibility = () => setHidden(prevHidden => !prevHidden)
+    const toggleVisibility = () => setHidden((prevHidden) => !prevHidden)
     return (
         <React.Fragment>
             <button

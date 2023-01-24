@@ -42,7 +42,7 @@ const inputTypeArgType = {
 }
 
 export default {
-    title: 'Forms/Input/Input Field',
+    title: 'Input Field',
     component: InputField,
     parameters: {
         componentSubtitle: subtitle,
@@ -62,7 +62,7 @@ export default {
     },
 }
 
-const Template = args => <InputField {...args} />
+const Template = (args) => <InputField {...args} />
 
 export const Default = Template.bind({})
 
@@ -81,8 +81,7 @@ WithHelpText.args = {
 
 export const WithValue = Template.bind({})
 WithValue.args = {
-    value:
-        'This is set through the value prop, which means the component is controlled.',
+    value: 'This is set through the value prop, which means the component is controlled.',
 }
 
 export const Focus = Template.bind({})
@@ -124,7 +123,7 @@ ReadOnly.args = { readOnly: true, value: 'This field is read-only' }
 export const Dense = Template.bind({})
 Dense.args = { dense: true, value: 'This field is dense' }
 
-export const InputWidth = args => (
+export const InputWidth = (args) => (
     <>
         <InputField
             {...args}
@@ -145,14 +144,12 @@ export const LabelTextOverflow = Template.bind({})
 LabelTextOverflow.args = {
     dense: true,
     warning: true,
-    label:
-        "This label is too long to show on a single line of the input field's label. We just let it flow to the next line so the user can still read it. However, we should always aim to keep it shorter than this!",
+    label: "This label is too long to show on a single line of the input field's label. We just let it flow to the next line so the user can still read it. However, we should always aim to keep it shorter than this!",
 }
 
 export const ValueTextOverflow = Template.bind({})
 ValueTextOverflow.args = {
-    value:
-        "This value is too long in order to show on a single line of the input field. It should stay on one line, not in an extra line and which wouldn't look like a standard input",
+    value: "This value is too long in order to show on a single line of the input field. It should stay on one line, not in an extra line and which wouldn't look like a standard input",
     dense: true,
     warning: true,
 }

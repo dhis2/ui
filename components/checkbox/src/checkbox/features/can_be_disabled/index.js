@@ -9,7 +9,7 @@ When('the Checkbox is clicked', () => {
 })
 
 Then('the onClick handler is not called', () => {
-    cy.window().should(win => {
+    cy.window().should((win) => {
         expect(win.onClick).not.to.be.called
     })
 })

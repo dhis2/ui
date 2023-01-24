@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React, { useRef, useState } from 'react'
 import { Popper } from './popper.js'
 
@@ -45,7 +45,7 @@ const PopperPlacement = ({ placement }) => {
 }
 
 PopperPlacement.propTypes = {
-    placement: propTypes.string,
+    placement: PropTypes.string,
 }
 
 export default {

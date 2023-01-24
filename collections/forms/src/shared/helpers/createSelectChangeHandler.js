@@ -1,4 +1,6 @@
-const createSelectChangeHandler = ({ onChange }) => ({ selected }) => {
-    onChange(selected)
-}
+const createSelectChangeHandler =
+    ({ onChange }) =>
+    ({ selected }) => {
+        onChange(selected)
+    }
 export { createSelectChangeHandler }

@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export const Title = ({ app, instance }) => (
@@ -18,6 +18,6 @@ export const Title = ({ app, instance }) => (
     </div>
 )
 Title.propTypes = {
-    app: propTypes.string,
-    instance: propTypes.string,
+    app: PropTypes.string,
+    instance: PropTypes.string,
 }

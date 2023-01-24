@@ -10,13 +10,13 @@ import { Divider } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Layout/Divider',
+    title: 'Divider',
     component: Divider,
     argTypes: { margin: { table: { defaultValue: { summary: '8px 0' } } } },
     parameters: { docs: { description: { component: description } } },
 }
 
-const Template = args => (
+const Template = (args) => (
     <>
         <div>Content above</div>
         <Divider {...args} />

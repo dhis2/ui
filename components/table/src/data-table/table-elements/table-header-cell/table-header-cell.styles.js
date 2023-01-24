@@ -3,24 +3,22 @@ import css from 'styled-jsx/css'
 
 export default css`
     th {
-        padding: 0 12px;
+        padding: 12px;
         border: 1px solid transparant;
         border-bottom: 1px solid ${colors.grey300};
         color: ${colors.grey800};
-        background-color: ${colors.grey200};
         font-weight: normal;
         font-size: 14px;
-        height: 45px;
+        vertical-align: top;
     }
     :global(thead) th {
+        padding: 8px 12px;
         font-size: 13px;
-        height: 36px;
     }
     th:last-of-type {
         border-right: 1px solid ${colors.grey300};
     }
     th.active {
-        background-color: ${colors.white};
         outline: 2px solid ${colors.grey600};
         outline-offset: -2px;
     }
@@ -41,12 +39,12 @@ export default css`
         color: ${colors.green700};
     }
     th.large {
+        padding: 14px 12px;
         font-size: 16px;
-        height: 60px;
     }
     :global(thead) th.large {
+        padding: 13px 12px;
         font-size: 15px;
-        height: 48px;
     }
     th.fixed {
         position: sticky;
@@ -60,20 +58,12 @@ export default css`
     :global(thead) th.fixedHorizontally {
         /* ensure on top of all scrolling cells */
         z-index: 3;
-        background-color: ${colors.grey300};
     }
     :global(tr:last-child) th {
         border-bottom: 1px solid transparent;
     }
     :global(thead) :global(tr:last-child) th {
         border-bottom: 1px solid ${colors.grey300};
-    }
-    :global(tbody) > :global(tr:hover) > th:not(.staticStyle),
-    :global(tfoot) > :global(tr:hover) > th:not(.staticStyle) {
-        background-color: ${colors.grey300};
-    }
-    :global(tbody) > :global(tr:active) > th:not(.staticStyle) {
-        background-color: ${colors.grey200};
     }
     :global(tfoot) > :global(tr:first-child) th {
         border-top: 1px solid ${colors.grey300};

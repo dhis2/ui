@@ -1,5 +1,8 @@
 import { alphaNumeric, invalidAlphaNumericMessage } from '../alphaNumeric.js'
-import { testValidatorValues, allowsEmptyValues } from '../test-helpers'
+import {
+    testValidatorValues,
+    allowsEmptyValues,
+} from '../test-helpers/index.js'
 
 describe('validator: alphaNumeric', () => {
     allowsEmptyValues(alphaNumeric)

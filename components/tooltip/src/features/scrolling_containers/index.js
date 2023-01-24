@@ -1,6 +1,6 @@
-import '../common'
-import '../positions'
-import '../visibility_toggling'
+import '../common/index.js'
+import '../positions/index.js'
+import '../visibility_toggling/index.js'
 import { Given, When, Then, And } from 'cypress-cucumber-preprocessor/steps'
 
 /**
@@ -39,9 +39,11 @@ When(
 When(
     'the mouse cursor enters the bottom of the anchor without scrolling',
     () => {
-        cy.get(
-            '[data-test="dhis2-uicore-tooltip-reference"]'
-        ).trigger('mouseover', 'bottom', { scrollBehavior: false })
+        cy.get('[data-test="dhis2-uicore-tooltip-reference"]').trigger(
+            'mouseover',
+            'bottom',
+            { scrollBehavior: false }
+        )
     }
 )
 

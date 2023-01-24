@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { spacers } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export const ModalActions = ({ children, dataTest }) => (
@@ -8,9 +8,11 @@ export const ModalActions = ({ children, dataTest }) => (
 
         <style jsx>{`
             div {
-                padding: 0 ${spacers.dp24} ${spacers.dp24} ${spacers.dp24};
+                order: 3;
                 display: flex;
                 justify-content: flex-end;
+                align-self: flex-end;
+                margin: ${spacers.dp16} 0 0;
             }
         `}</style>
     </div>
@@ -21,6 +23,6 @@ ModalActions.defaultProps = {
 }
 
 ModalActions.propTypes = {
-    children: propTypes.node,
-    dataTest: propTypes.string,
+    children: PropTypes.node,
+    dataTest: PropTypes.string,
 }

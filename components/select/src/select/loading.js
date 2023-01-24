@@ -1,15 +1,19 @@
 import { CircularLoader } from '@dhis2-ui/loader'
-import propTypes from '@dhis2/prop-types'
 import { colors, spacers, theme } from '@dhis2/ui-constants'
+import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export const Loading = ({ message, className, dataTest }) => (
-    <div className={className} data-test={dataTest}>
-        <CircularLoader small />
+    <div className={cx(className, 'container')} data-test={dataTest}>
+        <div>
+            <CircularLoader small />
+        </div>
         {message}
         <style jsx>{`
-            div {
+            .container {
                 display: flex;
+                gap: ${spacers.dp16};
                 align-items: center;
                 justify-content: center;
                 color: ${colors.grey700};
@@ -22,7 +26,7 @@ export const Loading = ({ message, className, dataTest }) => (
 )
 
 Loading.propTypes = {
-    dataTest: propTypes.string.isRequired,
-    className: propTypes.string,
-    message: propTypes.string,
+    dataTest: PropTypes.string.isRequired,
+    className: PropTypes.string,
+    message: PropTypes.string,
 }

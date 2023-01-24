@@ -1,8 +1,6 @@
-import { Card } from '@dhis2-ui/card'
-import { spacers } from '@dhis2/ui-constants'
+import { colors, elevations, spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { Children, cloneElement, isValidElement, useState } from 'react'
-import { resolve } from 'styled-jsx/css'
 import { Menu } from '../index.js'
 
 const FlyoutMenu = ({
@@ -14,44 +12,38 @@ const FlyoutMenu = ({
     maxWidth,
 }) => {
     const [openedSubMenu, setOpenedSubMenu] = useState(null)
-    const toggleSubMenu = index => {
+    const toggleSubMenu = (index) => {
         const toggleValue = index === openedSubMenu ? null : index
         setOpenedSubMenu(toggleValue)
     }
 
-    const cardCSS = resolve`
-        padding: ${spacers.dp4} 0;
-        max-height: ${maxHeight};
-        overflow-y: auto;
-    `
-
     return (
         <div className={className} data-test={dataTest}>
-            <Card className={cardCSS.className}>
-                <Menu dense={dense}>
-                    {Children.map(children, (child, index) =>
-                        isValidElement(child)
-                            ? cloneElement(child, {
-                                  showSubMenu: openedSubMenu === index,
-                                  toggleSubMenu: toggleSubMenu.bind(
-                                      this,
-                                      index
-                                  ),
-                              })
-                            : child
-                    )}
-                </Menu>
-            </Card>
+            <Menu dense={dense}>
+                {Children.map(children, (child, index) =>
+                    isValidElement(child)
+                        ? cloneElement(child, {
+                              showSubMenu: openedSubMenu === index,
+                              toggleSubMenu: toggleSubMenu.bind(this, index),
+                          })
+                        : child
+                )}
+            </Menu>
 
             <style jsx>{`
                 div {
+                    background: ${colors.white};
+                    border: 1px solid ${colors.grey200};
+                    border-radius: 3px;
+                    box-shadow: ${elevations.e300};
                     display: inline-block;
                     min-width: ${dense ? '128' : '180'}px;
                     max-width: ${maxWidth};
                     max-height: ${maxHeight};
+                    padding: ${spacers.dp4} 0;
+                    overflow: auto;
                 }
             `}</style>
-            {cardCSS.styles}
         </div>
     )
 }

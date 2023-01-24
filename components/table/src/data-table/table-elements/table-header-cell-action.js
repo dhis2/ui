@@ -19,12 +19,14 @@ export const TableHeaderCellAction = forwardRef(
                     padding: 0;
                     background: transparent;
                     width: 24px;
-                    height: 100%;
+                    height: 24px;
                     display: inline-flex;
                     align-items: center;
                     justify-content: center;
                     flex-shrink: 0;
                     cursor: pointer;
+                    border-radius: 4px;
+                    margin-left: 2px;
                 }
                 button:hover,
                 button:focus-visible {

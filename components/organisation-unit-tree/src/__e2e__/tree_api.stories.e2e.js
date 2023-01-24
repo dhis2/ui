@@ -8,24 +8,26 @@ import {
     namespace,
 } from './common.js'
 
-window.dataProviderData = {
+const customizedDataProviderData = {
     organisationUnits: (...args) => {
-        const [, { id }] = args
+        const [, { id, params }] = args
+        const { fields } = params
 
         if (id === 'A0000000000') {
-            const data = dataProviderData.organisationUnits(...args)
-            return {
+            return dataProviderData.organisationUnits(...args).then((data) => ({
                 ...data,
-                children: data.children.slice(0, 1),
-            }
+                children: fields.includes('children::size')
+                    ? 1
+                    : data.children?.slice(0, 1),
+            }))
         }
 
         if (id === 'A0000000001') {
-            return {
-                ...dataProviderData.organisationUnits(...args),
+            return dataProviderData.organisationUnits(...args).then((data) => ({
+                ...data,
                 path: '/A0000000001',
-                children: [],
-            }
+                children: fields.includes('children::size') ? 0 : [],
+            }))
         }
 
         return Promise.resolve({})
@@ -38,7 +40,7 @@ window.onExpand = window.Cypress && window.Cypress.cy.stub()
 window.onChildrenLoaded = window.Cypress && window.Cypress.cy.stub()
 
 storiesOf(namespace, module).add('Events', () => (
-    <CustomDataProvider data={window.dataProviderData}>
+    <CustomDataProvider data={customizedDataProviderData}>
         <StatefulMultiSelectionWrapper>
             {({ selected, onChange }) => (
                 <OrganisationUnitTree

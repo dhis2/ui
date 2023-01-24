@@ -13,7 +13,7 @@ import { TextAreaField } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Forms/Text Area/Text Area Field',
+    title: 'Text Area Field',
     component: TextAreaField,
     parameters: { docs: { description: { component: description } } },
     // Default args:
@@ -28,7 +28,7 @@ export default {
     },
 }
 
-const Template = args => <TextAreaField {...args} />
+const Template = (args) => <TextAreaField {...args} />
 
 export const NoPlaceholderNoValue = Template.bind({})
 NoPlaceholderNoValue.storyName = 'No placeholder, no value'
@@ -45,8 +45,7 @@ WithHelpText.args = {
 
 export const WithValue = Template.bind({})
 WithValue.args = {
-    value:
-        'This is set through the value prop, which means the component is controlled.',
+    value: 'This is set through the value prop, which means the component is controlled.',
 }
 
 export const Focus = Template.bind({})
@@ -89,8 +88,7 @@ Dense.args = { dense: true, value: 'This field is dense' }
 
 export const LabelTextOverflow = Template.bind({})
 LabelTextOverflow.args = {
-    label:
-        "This label is too long to show on a single line of the input field's label. We just let it flow to the next line so the user can still read it. However, we should always aim to keep it shorter than this!",
+    label: "This label is too long to show on a single line of the input field's label. We just let it flow to the next line so the user can still read it. However, we should always aim to keep it shorter than this!",
 }
 LabelTextOverflow.storyName = 'Label text overflow'
 
@@ -132,7 +130,7 @@ Rows.args = {
     label: 'You can set the height with the rows prop. I have 8',
 }
 
-export const InputWidth = args => (
+export const InputWidth = (args) => (
     <>
         <TextAreaField
             {...args}
@@ -147,7 +145,7 @@ export const InputWidth = args => (
     </>
 )
 
-export const Resize = args => (
+export const Resize = (args) => (
     <>
         <TextAreaField
             {...args}
@@ -175,7 +173,7 @@ export const Resize = args => (
     </>
 )
 
-export const Autogrow = args => (
+export const Autogrow = (args) => (
     <>
         <TextAreaField
             {...args}

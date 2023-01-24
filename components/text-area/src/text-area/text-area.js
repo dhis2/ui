@@ -1,51 +1,9 @@
-import { CircularLoader } from '@dhis2-ui/loader'
-import { theme, sharedPropTypes } from '@dhis2/ui-constants'
-import {
-    IconErrorFilled24,
-    IconWarningFilled24,
-    IconCheckmark24,
-} from '@dhis2/ui-icons'
+import { StatusIcon } from '@dhis2-ui/status-icon'
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { styles } from './text-area.styles.js'
-
-const StatusIcon = ({
-    error,
-    warning,
-    valid,
-    loading,
-    className,
-    defaultTo,
-}) => {
-    if (error) {
-        return <IconErrorFilled24 color={theme.error} />
-    }
-    if (warning) {
-        return <IconWarningFilled24 color={theme.warning} />
-    }
-    if (valid) {
-        return <IconCheckmark24 color={theme.valid} />
-    }
-    if (loading) {
-        return <CircularLoader small className={className} />
-    }
-
-    return defaultTo
-}
-
-StatusIcon.defaultProps = {
-    defaultTo: null,
-}
-
-StatusIcon.propTypes = {
-    className: PropTypes.string,
-    defaultTo: PropTypes.element,
-    error: PropTypes.bool,
-    loading: PropTypes.bool,
-    valid: PropTypes.bool,
-    warning: PropTypes.bool,
-}
 
 export class TextArea extends Component {
     textareaRef = React.createRef()
@@ -118,21 +76,27 @@ export class TextArea extends Component {
         }
     }
 
-    handleChange = e => {
+    handleChange = (e) => {
         if (this.props.onChange) {
             this.props.onChange(this.createHandlerPayload(e), e)
         }
     }
 
-    handleBlur = e => {
+    handleBlur = (e) => {
         if (this.props.onBlur) {
             this.props.onBlur(this.createHandlerPayload(e), e)
         }
     }
 
-    handleFocus = e => {
+    handleFocus = (e) => {
         if (this.props.onFocus) {
             this.props.onFocus(this.createHandlerPayload(e), e)
+        }
+    }
+
+    handleKeyDown = (e) => {
+        if (this.props.onKeyDown) {
+            this.props.onKeyDown(this.createHandlerPayload(e), e)
         }
     }
 
@@ -176,6 +140,7 @@ export class TextArea extends Component {
                     readOnly={readOnly}
                     tabIndex={tabIndex}
                     onFocus={this.handleFocus}
+                    onKeyDown={this.handleKeyDown}
                     onBlur={this.handleBlur}
                     onChange={this.handleChange}
                     rows={rows}
@@ -188,15 +153,12 @@ export class TextArea extends Component {
                         'read-only': readOnly,
                     })}
                 />
-
-                <div className="status-icon">
-                    <StatusIcon
-                        error={error}
-                        valid={valid}
-                        loading={loading}
-                        warning={warning}
-                    />
-                </div>
+                <StatusIcon
+                    error={error}
+                    valid={valid}
+                    loading={loading}
+                    warning={warning}
+                />
 
                 <style jsx>{styles}</style>
                 <style jsx>{`
@@ -258,4 +220,6 @@ TextArea.propTypes = {
     onChange: PropTypes.func,
     /** Called with signature ({ name: string, value: string }, event) */
     onFocus: PropTypes.func,
+    /** Called with signature ({ name: string, value: string }, event) */
+    onKeyDown: PropTypes.func,
 }

@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React, { Component, createRef } from 'react'
 import { Popover } from './popover.js'
 
@@ -21,12 +21,8 @@ class PopperInBoxWithCenteredReferenceElement extends Component {
     ref = createRef()
 
     render() {
-        const {
-            paddingTop,
-            popoverHeight,
-            popoverWidth,
-            ...popoverProps
-        } = this.props
+        const { paddingTop, popoverHeight, popoverWidth, ...popoverProps } =
+            this.props
         return (
             <div style={{ ...boxStyle, paddingTop, height: paddingTop + 100 }}>
                 <div
@@ -55,9 +51,9 @@ PopperInBoxWithCenteredReferenceElement.defaultProps = {
     popoverWidth: 336,
 }
 PopperInBoxWithCenteredReferenceElement.propTypes = {
-    paddingTop: propTypes.number,
-    popoverHeight: propTypes.number,
-    popoverWidth: propTypes.number,
+    paddingTop: PropTypes.number,
+    popoverHeight: PropTypes.number,
+    popoverWidth: PropTypes.number,
 }
 
 window.onClickOutside = window.Cypress && window.Cypress.cy.stub()

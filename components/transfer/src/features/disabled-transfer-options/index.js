@@ -1,5 +1,5 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { extractOptionFromElement } from '../common'
+import { extractOptionFromElement } from '../common/index.js'
 
 const enabledSourceOptionSelector =
     '{transfer-sourceoptions} {transferoption}:not(.disabled)'
@@ -40,7 +40,7 @@ Given(
         cy.get(enabledSourceOptionSelector)
             .invoke('slice', 0, 2)
             .as('enabledHighlightedSourceOptions')
-            .each($option => cy.wrap($option).click())
+            .each(($option) => cy.wrap($option).click())
             .should('have.class', 'highlighted')
     }
 )
@@ -73,7 +73,7 @@ When("the user clicks the 'move all to picked list' button", () => {
     cy.get('{transfer-actions-addall}').click()
 })
 
-When('the user clicks the disabled item with {string}', type => {
+When('the user clicks the disabled item with {string}', (type) => {
     cy.get(disabledSourceOptionSelector)
         .clickWith(type)
         .as('clickedWithModifierDisabledOption')
@@ -153,7 +153,7 @@ Then('only the previously highlighted items are highlighted', () => {
                 const label = sourceOptionEl.innerText
                 const value = sourceOptionEl.dataset.value
                 !previouslyHighlightedOptions.find(
-                    option => value === option.value && label === option.label
+                    (option) => value === option.value && label === option.label
                 )
             }
         )

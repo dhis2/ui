@@ -14,7 +14,7 @@ import { SharingDialog } from '@dhis2/ui'
 \`\`\`
 `
 export default {
-    title: 'Utils/Sharing Dialog',
+    title: 'Sharing Dialog',
     component: SharingDialog,
     parameters: {
         componentSubtitle: subtitle,
@@ -146,7 +146,15 @@ const customDataWithUserGroupAccesses = {
 const dashboardData = {
     ...customDataWithUserGroupAccesses,
     dashboards: {
-        itemCount: 24,
+        dashboardItems: [
+            { type: 'TEXT' },
+            { type: 'VISUALIZATION' },
+            { type: 'MAP' },
+            { type: 'EVENT_CHART' },
+            { type: 'EVENT_REPORT' },
+            { type: 'APP' },
+            { type: 'MESSAGES' },
+        ],
     },
 }
 
@@ -161,7 +169,7 @@ const dashboardDataWithPublicAccess = {
     },
 }
 
-export const Simple = args => (
+export const Simple = (args) => (
     <CustomDataProvider data={customDefaultData}>
         <SharingDialog {...args} />
     </CustomDataProvider>
@@ -171,28 +179,28 @@ Simple.parameters = {
     docs: { disable: false, source: { type: 'dynamic' } },
 }
 
-export const WithName = args => (
+export const WithName = (args) => (
     <CustomDataProvider data={customData}>
         <SharingDialog {...args} />
     </CustomDataProvider>
 )
 WithName.storyName = 'With name'
 
-export const WithDisabledAccess = args => (
+export const WithDisabledAccess = (args) => (
     <CustomDataProvider data={customDataDisabledAccess}>
         <SharingDialog {...args} />
     </CustomDataProvider>
 )
 WithDisabledAccess.storyName = 'With disabled access'
 
-export const WithUserAndGroupAccesses = args => (
+export const WithUserAndGroupAccesses = (args) => (
     <CustomDataProvider data={customDataWithUserGroupAccesses}>
         <SharingDialog {...args} />
     </CustomDataProvider>
 )
 WithUserAndGroupAccesses.storyName = 'With user and group accesses'
 
-export const ForDashboard = args => (
+export const ForDashboard = (args) => (
     <CustomDataProvider data={dashboardData}>
         <SharingDialog {...args} />
     </CustomDataProvider>
@@ -200,7 +208,7 @@ export const ForDashboard = args => (
 ForDashboard.storyName = 'For dashboard'
 ForDashboard.args = { type: 'dashboard' }
 
-export const ForDashboardWithPublicAccess = args => (
+export const ForDashboardWithPublicAccess = (args) => (
     <CustomDataProvider data={dashboardDataWithPublicAccess}>
         <SharingDialog {...args} />
     </CustomDataProvider>
@@ -210,11 +218,12 @@ ForDashboardWithPublicAccess.args = { type: 'dashboard' }
 
 const cascadingSharingSuccess = {
     'dashboards/cascadeSharing/sharing-test': {
-        countUpdatedDashboardItems: 24,
+        countUpdatedDashboardItems: 4,
+        errorReports: [],
     },
 }
 
-export const ForDashboardWithCascadeSharingSuccess = args => (
+export const ForDashboardWithCascadeSharingSuccess = (args) => (
     <CustomDataProvider data={{ ...dashboardData, ...cascadingSharingSuccess }}>
         <SharingDialog {...args} />
     </CustomDataProvider>
@@ -225,11 +234,12 @@ ForDashboardWithCascadeSharingSuccess.args = { type: 'dashboard' }
 
 const cascadingSharingPartialSuccess = {
     'dashboards/cascadeSharing/sharing-test': {
-        countUpdatedDashboardItems: 17,
+        countUpdatedDashboardItems: 3,
+        errorReports: [],
     },
 }
 
-export const ForDashboardWithCascadeSharingPartialSuccess = args => (
+export const ForDashboardWithCascadeSharingPartialSuccess = (args) => (
     <CustomDataProvider
         data={{ ...dashboardData, ...cascadingSharingPartialSuccess }}
     >

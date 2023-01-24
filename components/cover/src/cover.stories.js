@@ -12,12 +12,12 @@ import { Cover } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Helpers/Component Cover',
+    title: 'Component Cover',
     component: Cover,
     parameters: { docs: { description: { component: description } } },
 }
 
-const Template = args => (
+const Template = (args) => (
     <div
         style={{
             width: '400px',

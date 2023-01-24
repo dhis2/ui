@@ -1,5 +1,5 @@
-import propTypes from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { addColNumToChildren } from './add-col-num-to-children.js'
 import { supplyHeaderLabelsToChildren } from './supply-header-labels-to-children.js'
@@ -40,9 +40,9 @@ export const StackedTableRow = ({ children, className, dataTest }) => (
 )
 
 StackedTableRow.propTypes = {
-    children: propTypes.node,
-    className: propTypes.string,
-    dataTest: propTypes.string,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    dataTest: PropTypes.string,
 }
 
 StackedTableRow.defaultProps = {

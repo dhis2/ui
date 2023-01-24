@@ -18,20 +18,20 @@ const { uiPackages } = require('./ui-packages.js')
  */
 function modify_internal_package_loaders(cfg) {
     // Find the rules that configure the webpack loaders
-    const loaderRules = cfg.module.rules.find(rule => 'oneOf' in rule).oneOf
+    const loaderRules = cfg.module.rules.find((rule) => 'oneOf' in rule).oneOf
 
     // Filter only the rules that have a regex under the test property
     const regexLoaders = loaderRules.filter(
-        loader => 'test' in loader && typeof loader.test.test === 'function'
+        (loader) => 'test' in loader && typeof loader.test.test === 'function'
     )
 
     // Find the rules that deal with .js
-    const jsLoaders = regexLoaders.filter(loader => loader.test.test('.js'))
+    const jsLoaders = regexLoaders.filter((loader) => loader.test.test('.js'))
 
     const [components, collections, icons, constants] = uiPackages()
 
     console.info('custom => Webpack module loaders')
-    jsLoaders.forEach(loader => {
+    jsLoaders.forEach((loader) => {
         for (const collection of collections) {
             loader.include.push(new RegExp(`collections/${collection}/src`))
         }
@@ -129,7 +129,7 @@ function modify_webpack_plugins(cfg) {
     console.info('custom => Removed plugin:')
     for (const removal of removals) {
         const index = cfg.plugins.findIndex(
-            plugin => plugin.constructor.name === removal
+            (plugin) => plugin.constructor.name === removal
         )
 
         if (index === -1) {
@@ -143,7 +143,7 @@ function modify_webpack_plugins(cfg) {
     return cfg
 }
 
-exports.webpackConfig = async config => {
+exports.webpackConfig = async (config) => {
     // note: mutates config object
     modify_internal_package_loaders(config)
     modify_internal_package_resolutions(config)

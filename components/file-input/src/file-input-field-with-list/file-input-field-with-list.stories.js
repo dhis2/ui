@@ -19,7 +19,7 @@ const onChange = ({ files }) => {
 }
 
 export default {
-    title: 'Forms/File Input/File Input Field With List',
+    title: 'File Input Field With List',
     component: FileInputFieldWithList,
     parameters: { docs: { description: { component: description } } },
     args: {
@@ -38,7 +38,7 @@ export default {
     },
 }
 
-const Template = args => <FileInputFieldWithList {...args} />
+const Template = (args) => <FileInputFieldWithList {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

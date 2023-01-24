@@ -10,12 +10,12 @@ import { Box } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Layout/Box',
+    title: 'Box',
     component: Box,
     parameters: { docs: { description: { component: description } } },
 }
 
-const Template = args => <Box {...args} />
+const Template = (args) => <Box {...args} />
 
 export const Default = Template.bind({})
 Default.args = { children: 'I am a child in a Box.' }

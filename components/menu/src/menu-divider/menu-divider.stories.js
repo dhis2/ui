@@ -11,12 +11,12 @@ import { MenuDivider } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Actions/Menu/Menu Divider',
+    title: 'Menu Divider',
     component: MenuDivider,
     parameters: { docs: { description: { component: description } } },
 }
 
-const Template = args => (
+const Template = (args) => (
     <Menu>
         <MenuItem label="Item above divider" />
         <MenuDivider {...args} />

@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 const Message = ({ children }) => (
@@ -7,14 +7,13 @@ const Message = ({ children }) => (
         <style jsx>{`
             div {
                 flex-grow: 1;
-                min-width: 240px;
             }
         `}</style>
     </div>
 )
 
 Message.propTypes = {
-    children: propTypes.string.isRequired,
+    children: PropTypes.string.isRequired,
 }
 
 export { Message }

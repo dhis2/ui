@@ -26,7 +26,7 @@ import { NoticeBox } from '@dhis2/ui'
 `
 
 export default {
-    title: 'Data Display/Notice Box',
+    title: 'Notice Box',
     component: NoticeBox,
     parameters: {
         componentSubtitle: subtitle,
@@ -38,7 +38,7 @@ export default {
     },
 }
 
-export const Default = args => (
+export const Default = (args) => (
     <NoticeBox {...args}>
         Data shown in this dashboard may take a few hours to update. Scheduled
         dashboard updates can be managed in the scheduler app.
@@ -46,7 +46,7 @@ export const Default = args => (
 )
 Default.args = { title: 'Your database was updated in the last 24 hours' }
 
-export const Warning = args => (
+export const Warning = (args) => (
     <NoticeBox {...args}>
         No one will be able to access this program. Add some Organisation Units
         to the access list.
@@ -74,7 +74,7 @@ const text =
     'lacus pretium convallis vitae sit amet purus. Nam ut' +
     'libero rhoncus, consectetur sem a, sollicitudin lectus.'
 
-export const WithALongTitle = args => (
+export const WithALongTitle = (args) => (
     <NoticeBox {...args}>The title text will wrap</NoticeBox>
 )
 WithALongTitle.args = { error: true, title: text }

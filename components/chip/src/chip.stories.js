@@ -36,7 +36,7 @@ const onClick = (...args) => window.onClick(...args)
 const onRemove = (...args) => window.onRemove(...args)
 
 export default {
-    title: 'Actions/Chip',
+    title: 'Chip',
     component: Chip,
     parameters: {
         componentSubtitle: subtitle,
@@ -45,7 +45,7 @@ export default {
     args: { onClick },
 }
 
-const Template = args => <Chip {...args} />
+const Template = (args) => <Chip {...args} />
 
 export const Default = Template.bind({})
 Default.args = { children: 'Chippy' }

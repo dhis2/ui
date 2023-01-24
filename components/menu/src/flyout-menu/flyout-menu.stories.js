@@ -25,12 +25,12 @@ import { FlyoutMenu } from 'dhis2/ui'
 `
 
 export default {
-    title: 'Actions/Menu/Flyout Menu',
+    title: 'Flyout Menu',
     component: FlyoutMenu,
     parameters: { docs: { description: { component: description } } },
 }
 
-export const Default = args => (
+export const Default = (args) => (
     <FlyoutMenu {...args}>
         <MenuItem label="Item 1" />
         <MenuItem label="Item 2" />
@@ -40,7 +40,7 @@ export const Default = args => (
 export const Dense = Default.bind({})
 Dense.args = { dense: true }
 
-export const MaxHeight = args => (
+export const MaxHeight = (args) => (
     <FlyoutMenu {...args}>
         <MenuItem label="Item 1" />
         <MenuItem label="Item 2" />
@@ -56,7 +56,7 @@ export const MaxHeight = args => (
 )
 MaxHeight.args = { maxHeight: '250px' }
 
-export const MaxWidth = args => (
+export const MaxWidth = (args) => (
     <>
         <FlyoutMenu>
             <MenuItem label="Short item 1" />
@@ -88,7 +88,7 @@ export const MaxWidth = args => (
 )
 MaxWidth.args = { maxWidth: '300px' }
 
-export const WithSubMenus = args => (
+export const WithSubMenus = (args) => (
     <FlyoutMenu {...args}>
         <MenuItem label="Item 1" />
         <MenuItem label="Item 2">
@@ -114,13 +114,12 @@ export const WithSubMenus = args => (
 WithSubMenus.parameters = {
     docs: {
         description: {
-            story:
-                'See this demo in the Canvas tab for proper alignment of sub menus.',
+            story: 'See this demo in the Canvas tab for proper alignment of sub menus.',
         },
     },
 }
 
-export const WithVariousChildren = args => (
+export const WithVariousChildren = (args) => (
     <FlyoutMenu {...args}>
         <MenuSectionHeader label="Section with sub-menus" />
         <MenuItem label="Item 1" />
@@ -153,13 +152,12 @@ export const WithVariousChildren = args => (
 WithVariousChildren.parameters = {
     docs: {
         description: {
-            story:
-                'See this demo in the Canvas tab for proper alignment of sub menus.',
+            story: 'See this demo in the Canvas tab for proper alignment of sub menus.',
         },
     },
 }
 
-export const DropDownMenu = args => {
+export const DropDownMenu = (args) => {
     const ref = useRef()
     const [open, setOpen] = useState(false)
     const toggle = () => setOpen(!open)
@@ -170,7 +168,7 @@ export const DropDownMenu = args => {
                 Open menu &nbsp;&nbsp; <IconChevronDown16 />
             </button>
             {open && (
-                <Layer onClick={toggle}>
+                <Layer onBackdropClick={toggle}>
                     <Popper reference={ref} placement="bottom-start">
                         <FlyoutMenu {...args}>
                             <MenuItem label="Item 1" />
@@ -191,7 +189,7 @@ DropDownMenu.parameters = {
     },
 }
 
-export const WithCustomMenuItem = args => {
+export const WithCustomMenuItem = (args) => {
     // You should not create custom components in the render cycle
     // this is just for demo purposes
     const PopupWindowMenuItem = ({ to, children, ...rest }) => {
