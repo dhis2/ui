@@ -4273,10 +4273,19 @@
     qs "^6.10.0"
     telejson "^5.3.2"
 
-"@storybook/channels@6.3.7", "@storybook/channels@^6.3.7":
+"@storybook/channels@6.3.7":
   version "6.3.7"
   resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-6.3.7.tgz#85ed5925522b802d959810f78d37aacde7fea66e"
   integrity sha512-aErXO+SRO8MPp2wOkT2n9d0fby+8yM35tq1tI633B4eQsM74EykbXPv7EamrYPqp1AI4BdiloyEpr0hmr2zlvg==
+  dependencies:
+    core-js "^3.8.2"
+    ts-dedent "^2.0.0"
+    util-deprecate "^1.0.2"
+
+"@storybook/channels@^6.5.16":
+  version "6.5.16"
+  resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-6.5.16.tgz#3fb9a3b5666ecb951a2d0cf8b0699b084ef2d3c6"
+  integrity sha512-VylzaWQZaMozEwZPJdyJoz+0jpDa8GRyaqu9TGG6QGv+KU5POoZaGLDkRE7TzWkyyP0KQLo80K99MssZCpgSeg==
   dependencies:
     core-js "^3.8.2"
     ts-dedent "^2.0.0"
