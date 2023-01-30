@@ -1,7 +1,6 @@
 import { StatusIcon } from '@dhis2-ui/status-icon'
 import { requiredIf } from '@dhis2/prop-types'
 import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
-import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Loading as CommonLoading, Select } from '../select/index.js'
@@ -54,7 +53,7 @@ const MultiSelect = ({
         <div className="root" data-test={dataTest}>
             <div className="root-input">
                 <Select
-                    className={cx('multi-select', className)}
+                    className={className}
                     selected={selected}
                     input={
                         <Input
