@@ -30,6 +30,7 @@ export const Ethiopic = (args) => {
             locale="am-et"
             numberingSystem="ethi"
             timeZone="Africa/Khartoum"
+            date="2014-04-05" // 13th of October 2022
             {...args}
         />
     )
@@ -41,6 +42,7 @@ export const Nepali = (args) => {
             calendar="nepali"
             locale="en-NP"
             timeZone="Africa/Khartoum"
+            date="2079-06-29" // 13th of October 2022
             {...args}
         />
     )
@@ -50,7 +52,7 @@ export const WithAnyCalendar = (args) => {
     return (
         <CalendarStoryWrapper
             calendarInput
-            calendar="gregory"
+            calendar="islamic-civil"
             locale="en"
             timeZone="Africa/Khartoum"
             {...args}

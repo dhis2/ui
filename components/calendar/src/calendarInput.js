@@ -19,11 +19,8 @@ export const CalendarInput = ({
     cellSize,
     ...rest
 } = {}) => {
-    const {
-        ref,
-        isComponentVisible,
-        setIsComponentVisible,
-    } = useComponentVisible(false)
+    const { ref, isComponentVisible, setIsComponentVisible } =
+        useComponentVisible(false)
     const currentDate = getNowInCalendar(calendar, timeZone)
     const initialDate =
         date ||
@@ -107,9 +104,8 @@ export const CalendarInput = ({
 }
 
 const useComponentVisible = (initialIsVisible) => {
-    const [isComponentVisible, setIsComponentVisible] = useState(
-        initialIsVisible
-    )
+    const [isComponentVisible, setIsComponentVisible] =
+        useState(initialIsVisible)
     const ref = useRef(null)
 
     const handleClickOutside = (event) => {

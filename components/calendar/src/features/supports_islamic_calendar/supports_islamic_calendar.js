@@ -2,6 +2,8 @@ import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('an Islamic calendar is rendered with Arabic locale', () => {
     cy.visitStory('A Calendar', 'for the Islamic calendar')
+
+    cy.get('[data-test="dhis2-uiwidgets-calendar-inputfield"]').click()
     cy.get('[data-test=calendar]').should('be.visible')
 })
 

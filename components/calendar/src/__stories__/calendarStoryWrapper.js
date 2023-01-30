@@ -5,17 +5,14 @@ import { Calendar } from '../calendar.js'
 import { CalendarInput } from '../calendarInput.js'
 const { calendars, numberingSystems } = constants
 
-export const CalendarStoryWrapper = ({
-    calendar,
-    locale,
-    timeZone,
-    dir,
-    calendarInput,
-}) => {
+export const CalendarStoryWrapper = (props) => {
+    const { calendar, locale, timeZone, dir, calendarInput, date } = props
     const [selectedCalendar, setSelectedCalendar] = useState(calendar)
     const [selectedNumberingSystem, setSelectedNumberingSystem] = useState()
     const [selectedDirection, setSelectedDirection] = useState(dir)
-    const [selectedWeekFormat, setWeekDayFormat] = useState('narrow')
+    const [selectedWeekFormat, setWeekDayFormat] = useState(
+        props.weekDayFormat || 'narrow'
+    )
 
     const ref = useRef(null)
 
@@ -103,9 +100,11 @@ export const CalendarStoryWrapper = ({
                 </select>
             </div>
             <Component
+                {...props}
                 calendar={selectedCalendar}
                 dir={selectedDirection}
                 locale={selectedLocale}
+                date={date}
                 onDateSelect={(date) => {
                     setSelectedDate(date)
                 }}
@@ -125,8 +124,26 @@ export const CalendarStoryWrapper = ({
                 <div>
                     {selectedDate && (
                         <>
-                            <div>result</div>
-                            {JSON.stringify(selectedDate, null, 2)}
+                            <div>
+                                <label>calendar date: </label>
+                                <span data-test="storybook-calendar-result">
+                                    {selectedDate.calendarDateString}
+                                </span>
+                            </div>
+                            <div>
+                                <label>iso date: </label>
+                                <span data-test="storybook-calendar-result-iso">
+                                    {selectedDate.calendarDate
+                                        .withCalendar('iso8601')
+                                        .toLocaleString('en-GB', {
+                                            dateStyle: 'long',
+                                        })}
+                                </span>
+                            </div>
+                            <div>
+                                <label>callback:</label>
+                                {JSON.stringify(selectedDate, null, 2)}
+                            </div>
                         </>
                     )}
                 </div>
