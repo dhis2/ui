@@ -4,7 +4,6 @@ import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import css from 'styled-jsx/css'
 import { Loading as CommonLoading, Select } from '../select/index.js'
 import { FilterableMenu } from './filterable-menu.js'
 import { Input } from './input.js'
@@ -51,22 +50,11 @@ const MultiSelect = ({
         <Menu empty={empty} dataTest={dataTest} />
     )
 
-    // used to override the padding of the input-wrapper, since in case of multi-select,
-    // margin is used on the "chips" to have margin when options are wrapped
-    const { className: selectClassName, styles: selectStyles } = css.resolve`
-        .root {
-            padding-top: 2px;
-        }
-        .root.dense {
-            padding-top: 0px;
-        }
-    `
-
     return (
         <div className="root" data-test={dataTest}>
             <div className="root-input">
                 <Select
-                    className={cx(className, selectClassName)}
+                    className={cx('multi-select', className)}
                     selected={selected}
                     input={
                         <Input
@@ -114,7 +102,6 @@ const MultiSelect = ({
                     flex: 1;
                 }
             `}</style>
-            {selectStyles}
         </div>
     )
 }

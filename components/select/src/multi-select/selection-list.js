@@ -57,7 +57,7 @@ const SelectionList = ({ selected, onChange, disabled, options }) => (
                     disabled={isDisabled}
                     marginBottom="0"
                     marginLeft="0"
-                    marginTop="4"
+                    marginTop="0"
                     overflow
                     dense
                 >

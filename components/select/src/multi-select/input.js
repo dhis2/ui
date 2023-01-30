@@ -73,6 +73,9 @@ const Input = ({
                 .root-input {
                     overflow-y: auto;
                     flex: 1;
+                    display: flex;
+                    flex-flow: wrap;
+                    row-gap: 4px;
                 }
 
                 .root-right {
