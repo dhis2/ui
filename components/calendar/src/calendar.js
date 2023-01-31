@@ -161,8 +161,7 @@ export const Calendar = ({
                                                 className={cx('day', {
                                                     isSelected: day.isSelected,
                                                     isToday: day.isToday,
-                                                    otherMonth:
-                                                        !day.isInCurrentMonth,
+                                                    otherMonth: !day.isInCurrentMonth,
                                                 })}
                                             >
                                                 {day.label}
@@ -337,9 +336,6 @@ export const Calendar = ({
 }
 
 Calendar.defaultProps = {
-    locale: 'en-GB',
-    numberingSystem: 'latn',
-    timeZone: Intl?.DateTimeFormat?.().resolvedOptions?.()?.timeZone || 'UTC',
     cellSize: '32px',
     width: '240px',
     weekDayFormat: 'narrow',
@@ -347,10 +343,10 @@ Calendar.defaultProps = {
 
 export const CalendarProps = {
     calendar: PropTypes.any.isRequired,
-    locale: PropTypes.string.isRequired,
     cellSize: PropTypes.string,
     date: PropTypes.string,
     dir: PropTypes.oneOf(['ltr', 'rtl']),
+    locale: PropTypes.string,
     numberingSystem: PropTypes.string,
     timeZone: PropTypes.string,
     weekDayFormat: PropTypes.string,
