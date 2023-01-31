@@ -13,6 +13,7 @@ export {
     SplitButton,
 } from '@dhis2-ui/button'
 export { Box } from '@dhis2-ui/box'
+export { Calendar, CalendarInput } from '@dhis2-ui/calendar'
 export { Card } from '@dhis2-ui/card'
 export { Center, Center as CenteredContent } from '@dhis2-ui/center'
 export { Checkbox, CheckboxField } from '@dhis2-ui/checkbox'
