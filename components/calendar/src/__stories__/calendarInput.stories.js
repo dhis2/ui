@@ -22,40 +22,65 @@ export default {
     },
 }
 
-export const Ethiopic = (args) => {
-    return (
-        <CalendarStoryWrapper
-            calendarInput
-            calendar="ethiopic"
-            locale="am-et"
-            numberingSystem="ethi"
-            timeZone="Africa/Khartoum"
-            date="2014-04-05" // 13th of October 2022
-            {...args}
-        />
-    )
-}
-export const Nepali = (args) => {
-    return (
-        <CalendarStoryWrapper
-            calendarInput
-            calendar="nepali"
-            locale="en-NP"
-            timeZone="Africa/Khartoum"
-            date="2079-06-29" // 13th of October 2022
-            {...args}
-        />
-    )
-}
+const buildCalendar =
+    ({ date, locale, calendar }) =>
+    () =>
+        (
+            <CalendarStoryWrapper
+                component={CalendarInput}
+                dir="ltr"
+                timeZone="Africa/Khartoum"
+                weekDayFormat="short"
+                date={date}
+                locale={locale}
+                calendar={calendar}
+            />
+        )
 
-export const WithAnyCalendar = (args) => {
-    return (
-        <CalendarStoryWrapper
-            calendarInput
-            calendar="islamic-civil"
-            locale="en"
-            timeZone="Africa/Khartoum"
-            {...args}
-        />
-    )
-}
+export const EthiopicWithAmharic = buildCalendar({
+    calendar: 'ethiopic',
+    locale: 'am-ET',
+    date: '2014-02-03', // 13 Oct 2021
+})
+
+export const EthiopicWithEnglish = buildCalendar({
+    calendar: 'ethiopic',
+    locale: 'en-ET',
+    date: '2014-02-03', // 13 Oct 2021
+})
+
+export const NepaliWithNepali = buildCalendar({
+    calendar: 'nepali',
+    locale: 'ne-NP',
+    date: '2078-06-27', // 13 Oct 2021
+})
+
+export const NepaliWithEnglish = buildCalendar({
+    calendar: 'nepali',
+    locale: 'en-NP',
+    date: '2078-06-27', // 13 Oct 2021
+})
+
+export const GregorianWithEnglish = buildCalendar({
+    calendar: 'gregorian',
+    locale: 'en-CA',
+    date: '2021-10-13',
+})
+
+export const GregorianWithArabic = buildCalendar({
+    calendar: 'gregorian',
+    locale: 'ar-SD',
+    date: '2021-10-13',
+})
+
+export const IslamicWithArabic = buildCalendar({
+    calendar: 'islamic-civil',
+    locale: 'ar-SD',
+    date: '2015-01-13',
+})
+
+export const WithAnyCalendar = buildCalendar({
+    calendar: 'gregorian',
+    locale: 'en',
+    date: '2015-01-13',
+})

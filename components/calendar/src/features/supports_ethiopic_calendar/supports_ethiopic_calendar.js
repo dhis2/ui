@@ -1,7 +1,7 @@
 import { Given, Then, And } from 'cypress-cucumber-preprocessor/steps'
 
 Given('an Ethiopic calendar is rendered in {word}', (language) => {
-    cy.visitStory('A Calendar', `for the Ethiopic calendar in ${language}`)
+    cy.visitStory('CalendarInputTesting', `Ethiopic With ${language}`)
 
     cy.get('[data-test="dhis2-uiwidgets-calendar-inputfield"]').click()
     cy.get('[data-test=calendar]').should('be.visible')

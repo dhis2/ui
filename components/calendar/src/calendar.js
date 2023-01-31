@@ -161,7 +161,8 @@ export const Calendar = ({
                                                 className={cx('day', {
                                                     isSelected: day.isSelected,
                                                     isToday: day.isToday,
-                                                    otherMonth: !day.isInCurrentMonth,
+                                                    otherMonth:
+                                                        !day.isInCurrentMonth,
                                                 })}
                                             >
                                                 {day.label}

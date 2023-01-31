@@ -22,31 +22,34 @@ export default {
     },
 }
 
-export const Ethiopic = (args) => {
-    return (
-        <CalendarStoryWrapper
-            calendar="ethiopic"
-            locale="am-et"
-            numberingSystem="ethi"
-            date="2014-04-05" // 13th of October 2022
-            timeZone="Africa/Khartoum"
-            {...args}
-        />
-    )
-}
+export const Ethiopic = (args) => (
+    <CalendarStoryWrapper
+        component={Calendar}
+        calendar="ethiopic"
+        locale="am-et"
+        numberingSystem="ethi"
+        date="2014-04-05" // 13th of October 2022
+        timeZone="Africa/Khartoum"
+        {...args}
+    />
+)
 
-export const Nepali = (args) => {
-    return (
-        <CalendarStoryWrapper
-            calendar="nepali"
-            locale="ne-NP"
-            date="2079-06-29" // 13th of October 2022
-            timeZone="Africa/Khartoum"
-            {...args}
-        />
-    )
-}
+export const Nepali = (args) => (
+    <CalendarStoryWrapper
+        component={Calendar}
+        calendar="nepali"
+        locale="ne-NP"
+        date="2079-06-29" // 13th of October 2022
+        timeZone="Africa/Khartoum"
+        {...args}
+    />
+)
 
-export const WithAnyCalendar = (args) => {
-    return <CalendarStoryWrapper calendar="gregory" locale="en-GB" {...args} />
-}
+export const WithAnyCalendar = (args) => (
+    <CalendarStoryWrapper
+        component={Calendar}
+        calendar="gregory"
+        locale="en-GB"
+        {...args}
+    />
+)

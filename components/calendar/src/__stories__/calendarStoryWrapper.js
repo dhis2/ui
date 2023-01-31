@@ -1,12 +1,19 @@
 import { Box } from '@dhis2-ui/box'
 import { constants } from '@dhis2/multi-calendar-dates'
+import PropTypes from 'prop-types'
 import React, { useRef, useState } from 'react'
 import { Calendar } from '../calendar.js'
-import { CalendarInput } from '../calendarInput.js'
-const { calendars, numberingSystems } = constants
 
+const { calendars, numberingSystems } = constants
 export const CalendarStoryWrapper = (props) => {
-    const { calendar, locale, timeZone, dir, calendarInput, date } = props
+    const {
+        calendar,
+        locale,
+        timeZone,
+        dir,
+        component: Component,
+        date,
+    } = props
     const [selectedCalendar, setSelectedCalendar] = useState(calendar)
     const [selectedNumberingSystem, setSelectedNumberingSystem] = useState()
     const [selectedDirection, setSelectedDirection] = useState(dir)
@@ -41,7 +48,6 @@ export const CalendarStoryWrapper = (props) => {
         setLocale(value)
     }
 
-    const Component = calendarInput ? CalendarInput : Calendar
     return (
         <Box>
             <div
@@ -150,4 +156,18 @@ export const CalendarStoryWrapper = (props) => {
             </div>
         </Box>
     )
+}
+
+CalendarStoryWrapper.defaultProps = {
+    calendar: 'gregorian',
+    component: Calendar,
+}
+
+CalendarStoryWrapper.propTypes = {
+    calendar: PropTypes.string.isRequired,
+    component: PropTypes.elementType.isRequired,
+    date: PropTypes.string,
+    dir: PropTypes.oneOf(['ltr', 'rtl']),
+    locale: PropTypes.string,
+    timeZone: PropTypes.string,
 }
