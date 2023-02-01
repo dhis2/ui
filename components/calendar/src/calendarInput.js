@@ -1,10 +1,18 @@
+import { Card } from '@dhis2-ui/card'
 import { InputField, InputFieldProps } from '@dhis2-ui/input'
+import { Layer } from '@dhis2-ui/layer'
+import { Popper } from '@dhis2-ui/popper'
 import { getNowInCalendar } from '@dhis2/multi-calendar-dates'
-import cx from 'classnames'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Calendar, CalendarProps } from './calendar.js'
 
 const padWithZeroes = (number, count = 2) => String(number).padStart(count, '0')
+const offsetModifier = {
+    name: 'offset',
+    options: {
+        offset: [0, 2],
+    },
+}
 
 export const CalendarInput = ({
     onDateSelect,
@@ -19,8 +27,8 @@ export const CalendarInput = ({
     cellSize,
     ...rest
 } = {}) => {
-    const { ref, isComponentVisible, setIsComponentVisible } =
-        useComponentVisible(false)
+    const ref = useRef()
+    const [open, setOpen] = useState(false)
     const currentDate = getNowInCalendar(calendar, timeZone)
     const initialDate =
         date ||
@@ -33,7 +41,7 @@ export const CalendarInput = ({
         const onDateSelectWrapper = (selectedDate) => {
             const { calendarDateString } = selectedDate
             setValue(calendarDateString)
-            setIsComponentVisible(false)
+            setOpen(false)
             onDateSelect?.(selectedDate)
         }
         return {
@@ -56,72 +64,46 @@ export const CalendarInput = ({
         locale,
         numberingSystem,
         onDateSelect,
-        setIsComponentVisible,
         timeZone,
         weekDayFormat,
         width,
     ])
 
     const onFocus = () => {
-        setIsComponentVisible(true)
+        setOpen(true)
     }
 
     return (
-        <div ref={ref}>
-            <InputField
-                label="Pick a date"
-                {...rest}
-                type="text"
-                onFocus={onFocus}
-                value={value}
-            />
-            <div
-                className={cx('calendarWrapper', {
-                    hidden: !isComponentVisible,
-                })}
-            >
-                <Calendar {...calendarProps} date={initialDate} />
+        <>
+            <div ref={ref}>
+                <InputField
+                    label="Pick a date"
+                    {...rest}
+                    type="text"
+                    onFocus={onFocus}
+                    value={value}
+                />
             </div>
-            <style jsx>
-                {`
-                    .calendarWrapper {
-                        position: absolute;
-                        display: inline-block;
-                        margin-top: 5px;
-                        z-index: 100;
-                        background-color: white;
-                    }
-                    .hidden {
-                        display: none;
-                    }
-                    .visible {
-                        display: flex;
-                    }
-                `}
-            </style>
-        </div>
+            {open && (
+                <Layer
+                    onBackdropClick={(_, evt) => {
+                        evt.stopPropagation()
+                        setOpen(false)
+                    }}
+                >
+                    <Popper
+                        reference={ref}
+                        placement="bottom-start"
+                        modifiers={[offsetModifier]}
+                    >
+                        <Card>
+                            <Calendar {...calendarProps} date={value} />
+                        </Card>
+                    </Popper>
+                </Layer>
+            )}
+        </>
     )
-}
-
-const useComponentVisible = (initialIsVisible) => {
-    const [isComponentVisible, setIsComponentVisible] =
-        useState(initialIsVisible)
-    const ref = useRef(null)
-
-    const handleClickOutside = (event) => {
-        if (ref.current && !ref.current.contains(event.target)) {
-            setIsComponentVisible(false)
-        }
-    }
-
-    useEffect(() => {
-        document.addEventListener('click', handleClickOutside, true)
-        return () => {
-            document.removeEventListener('click', handleClickOutside, true)
-        }
-    }, [])
-
-    return { ref, isComponentVisible, setIsComponentVisible }
 }
 
 CalendarInput.defaultProps = {
