@@ -1,5 +1,5 @@
 import React from 'react'
-import { CalendarInput } from '../calendarInput.js'
+import { CalendarInput } from '../calendar-input/index.js'
 import { CalendarStoryWrapper } from './calendarStoryWrapper.js'
 
 const subtitle = `[Experimental] Calendar Input is a wrapper around Calendar displaying an input that triggers the calendar`
@@ -79,8 +79,14 @@ export const IslamicWithArabic = buildCalendar({
     date: '2015-01-13',
 })
 
-export const WithAnyCalendar = buildCalendar({
-    calendar: 'gregorian',
-    locale: 'en',
-    date: '2015-01-13',
-})
+export const WithAnyCalendar = (args) => {
+    return (
+        <CalendarStoryWrapper
+            calendarInput
+            calendar="islamic-civil"
+            locale="en"
+            timeZone="Africa/Khartoum"
+            {...args}
+        />
+    )
+}

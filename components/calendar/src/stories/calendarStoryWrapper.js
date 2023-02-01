@@ -1,8 +1,7 @@
-import { Box } from '@dhis2-ui/box'
 import { constants } from '@dhis2/multi-calendar-dates'
 import PropTypes from 'prop-types'
 import React, { useRef, useState } from 'react'
-import { Calendar } from '../calendar.js'
+import { Calendar } from '../calendar/index.js'
 
 const { calendars, numberingSystems } = constants
 export const CalendarStoryWrapper = (props) => {
@@ -13,13 +12,12 @@ export const CalendarStoryWrapper = (props) => {
         dir,
         component: Component,
         date,
+        weekDayFormat,
     } = props
     const [selectedCalendar, setSelectedCalendar] = useState(calendar)
     const [selectedNumberingSystem, setSelectedNumberingSystem] = useState()
     const [selectedDirection, setSelectedDirection] = useState(dir)
-    const [selectedWeekFormat, setWeekDayFormat] = useState(
-        props.weekDayFormat || 'narrow'
-    )
+    const [selectedWeekFormat, setWeekDayFormat] = useState(weekDayFormat)
 
     const ref = useRef(null)
 
@@ -49,7 +47,7 @@ export const CalendarStoryWrapper = (props) => {
     }
 
     return (
-        <Box>
+        <div>
             <div
                 style={{
                     fontSize: '0.8em',
@@ -154,13 +152,14 @@ export const CalendarStoryWrapper = (props) => {
                     )}
                 </div>
             </div>
-        </Box>
+        </div>
     )
 }
 
 CalendarStoryWrapper.defaultProps = {
     calendar: 'gregorian',
     component: Calendar,
+    weekDayFormat: 'narrow',
 }
 
 CalendarStoryWrapper.propTypes = {
@@ -170,4 +169,5 @@ CalendarStoryWrapper.propTypes = {
     dir: PropTypes.oneOf(['ltr', 'rtl']),
     locale: PropTypes.string,
     timeZone: PropTypes.string,
+    weekDayFormat: PropTypes.string,
 }

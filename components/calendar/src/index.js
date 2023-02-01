@@ -1,2 +1,2 @@
-export { Calendar } from './calendar.js'
-export { CalendarInput } from './calendarInput.js'
+export { Calendar } from './calendar/index.js'
+export { CalendarInput } from './calendar-input/index.js'

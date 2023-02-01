@@ -9,4 +9,4 @@ export {
     GregorianWithArabic,
     GregorianWithEnglish,
     IslamicWithArabic,
-} from '../__stories__/calendarInput.stories.js'
+} from '../stories/calendarInput.stories.js'
