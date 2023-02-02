@@ -2,56 +2,40 @@ import { colors, spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { StyleOptionsProps } from './calendar-prop-types.js'
 
-export const CalendarTableCell = ({ day, cellSize, width, styleOptions }) => {
+export const CalendarTableCell = ({ day, cellSize }) => {
+    const dayHoverBackgroundColor = colors.grey200
+    const selectedDayBackgroundColor = colors.teal700
+
     return (
-        <>
-            <td data-test={day?.calendarDate} onClick={day.onClick}>
-                <button
-                    name="day"
-                    className={cx('day', {
-                        isSelected: day.isSelected,
-                        isToday: day.isToday,
-                        otherMonth: !day.isInCurrentMonth,
-                    })}
-                >
-                    {day.label}
-                </button>
-            </td>
+        <td data-test={day?.calendarDate} onClick={day.onClick}>
+            <button
+                name="day"
+                className={cx('day', {
+                    isSelected: day.isSelected,
+                    isToday: day.isToday,
+                    otherMonth: !day.isInCurrentMonth,
+                })}
+            >
+                {day.label}
+            </button>
             <style jsx>{`
-                .calendarTable td {
+                td {
                     width: ${cellSize};
                     height: 100%;
                     height: ${cellSize};
                     text-align: center;
+                    border: 2px solid transparent;
                 }
-                .calendarTable th,
-                .calendarTable td,
-                .calendarTable tr {
-                    border: 0;
-                }
-                .calendarTable td span {
+                td span {
                     display: inline-flex;
                     padding: 2px 2px;
                     justify-content: center;
                     border: 2px solid transparent;
                     min-width: 16px;
                 }
-                .selectedDate {
-                    width: ${width};
-                    padding: 4px 8px;
-                }
-                .selectedDate span {
-                    justify-content: center;
-                    font-size: 0.8em;
-                }
                 button {
-                    background: none;
                     border: 0;
-                }
-
-                button[name='day'] {
                     overflow: hidden;
                     width: ${cellSize};
                     height: ${cellSize};
@@ -61,13 +45,13 @@ export const CalendarTableCell = ({ day, cellSize, width, styleOptions }) => {
                     margin: ${spacers.dp2};
                     color: ${colors.grey900};
                 }
-
-                button[name='day']:hover {
-                    background-color: ${styleOptions.dayHoverBackgroundColor};
+                button:hover {
+                    background-color: ${dayHoverBackgroundColor};
                     text-decoration: underline;
                 }
-                button[name='day'].isSelected {
-                    background-color: ${styleOptions.selectedDayBackgroundColor};
+                button.isSelected,
+                button.otherMonth.isSelected {
+                    background-color: ${selectedDayBackgroundColor};
                     color: white;
                 }
                 button.isToday {
@@ -77,7 +61,7 @@ export const CalendarTableCell = ({ day, cellSize, width, styleOptions }) => {
                     color: ${colors.grey600};
                 }
             `}</style>
-        </>
+        </td>
     )
 }
 
@@ -91,6 +75,4 @@ CalendarTableCell.propTypes = {
         label: PropTypes.string,
         onClick: PropTypes.func,
     }),
-    styleOptions: StyleOptionsProps,
-    width: PropTypes.string,
 }

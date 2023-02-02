@@ -1,8 +1,10 @@
+import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { StyleOptionsProps } from './calendar-prop-types.js'
 
-export const CalendarTableDaysHeader = ({ weekDayLabels, styleOptions }) => {
+export const CalendarTableDaysHeader = ({ weekDayLabels }) => {
+    const dayNamesColor = colors.grey700
+
     return (
         <>
             <thead>
@@ -16,14 +18,16 @@ export const CalendarTableDaysHeader = ({ weekDayLabels, styleOptions }) => {
             </thead>
             <style jsx>{`
                 th {
-                    color: ${styleOptions.dayNamesColor};
+                    color: ${dayNamesColor};
                     font-weight: 300;
                     font-style: normal;
-
                     padding: 8px 8px;
                     background: none;
                     font-size: 0.85em;
-                    border: 0;
+                    border: none;
+                }
+                tr {
+                    border: none;
                 }
             `}</style>
         </>
@@ -31,6 +35,5 @@ export const CalendarTableDaysHeader = ({ weekDayLabels, styleOptions }) => {
 }
 
 CalendarTableDaysHeader.propTypes = {
-    styleOptions: StyleOptionsProps,
     weekDayLabels: PropTypes.arrayOf(PropTypes.string),
 }

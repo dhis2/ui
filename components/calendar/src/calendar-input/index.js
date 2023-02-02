@@ -87,8 +87,7 @@ export const CalendarInput = ({
             </div>
             {open && (
                 <Layer
-                    onBackdropClick={(_, evt) => {
-                        evt.stopPropagation()
+                    onBackdropClick={() => {
                         setOpen(false)
                     }}
                 >

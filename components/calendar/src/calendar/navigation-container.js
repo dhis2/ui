@@ -3,13 +3,12 @@ import { IconChevronLeft16, IconChevronRight16 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React from 'react'
 import i18n from '../locales/index.js'
-import { StyleOptionsProps } from './calendar-prop-types.js'
 
-export const NavigationContainer = ({
-    languageDirection,
-    pickerOptions,
-    styleOptions,
-}) => {
+const chevronColor = colors.grey600
+const wrapperBorderColor = colors.grey300
+const headerBackground = colors.grey050
+
+export const NavigationContainer = ({ languageDirection, pickerOptions }) => {
     const PreviousIcon =
         languageDirection === 'ltr' ? IconChevronLeft16 : IconChevronRight16
     const NextIcon =
@@ -20,17 +19,17 @@ export const NavigationContainer = ({
 
     return (
         <>
-            <div className="navigationContainer">
+            <div className="navigation-container">
                 <div className="month">
                     <div className="prev">
                         <button
                             onClick={prevMonth.navigateTo}
                             name="previous-month"
                             data-test="calendar-previous-month"
-                            aria-label={`${i18n.t('Go to')} ${prevMonth.label}`}
+                            aria-label={`${i18n.t(`Go to ${prevMonth.label}`)}`}
                             type="button"
                         >
-                            <PreviousIcon color={styleOptions.chevronColor} />
+                            <PreviousIcon color={chevronColor} />
                         </button>
                     </div>
                     <div className="curr">
@@ -41,10 +40,10 @@ export const NavigationContainer = ({
                             onClick={nextMonth.navigateTo}
                             data-test="calendar-next-month"
                             name="next-month"
-                            aria-label={`Go to ${nextMonth.label}`}
+                            aria-label={`${i18n.t(`Go to ${nextMonth.label}`)}`}
                             type="button"
                         >
-                            <NextIcon color={styleOptions.chevronColor} />
+                            <NextIcon color={chevronColor} />
                         </button>
                     </div>
                 </div>
@@ -53,10 +52,10 @@ export const NavigationContainer = ({
                         <button
                             onClick={prevYear.navigateTo}
                             name="previous-year"
-                            aria-label="Go to previous year"
+                            aria-label={`${i18n.t('Go to previous year')}`}
                             type="button"
                         >
-                            <PreviousIcon color={styleOptions.chevronColor} />
+                            <PreviousIcon color={chevronColor} />
                         </button>
                     </div>
                     <div className="curr">
@@ -66,10 +65,10 @@ export const NavigationContainer = ({
                         <button
                             onClick={nextYear.navigateTo}
                             name="next-year"
-                            aria-label="Go to next year"
+                            aria-label={`${i18n.t('Go to next year')}`}
                             type="button"
                         >
-                            <NextIcon color={styleOptions.chevronColor} />
+                            <NextIcon color={chevronColor} />
                         </button>
                     </div>
                 </div>
@@ -117,34 +116,15 @@ export const NavigationContainer = ({
                     min-height: 16px;
                 }
 
-                .navigationContainer {
+                .navigation-container {
                     height: ${spacers.dp36};
                     gap: ${spacers.dp8};
                     padding: ${spacers.dp4};
                     display: flex;
                     flex-direction: row;
-                    border-bottom: 1px solid ${styleOptions.wrapperBorderColor};
-                    background-color: ${styleOptions.headerBackground};
+                    border-bottom: 1px solid ${wrapperBorderColor};
+                    background-color: ${headerBackground};
                     font-size: 1.08em; /*15px*/
-                }
-                .navigationContainer > div {
-                    display: flex;
-                    align-items: flex-start;
-                }
-                .navigationContainer > .prev {
-                    justify-content: flex-start;
-                }
-                .navigationContainer > .curr {
-                    justify-content: center;
-                }
-                .navigationContainer > .next {
-                    justify-content: flex-end;
-                }
-                .navigationContainer > .today {
-                    grid-area: today;
-                }
-                .today > button {
-                    width: 100%;
                 }
             `}</style>
         </>
@@ -173,5 +153,4 @@ NavigationContainer.propTypes = {
             navigateTo: PropTypes.func,
         }),
     }),
-    styleOptions: StyleOptionsProps,
 }

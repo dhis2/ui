@@ -20,21 +20,11 @@ export const Calendar = ({
     width,
     cellSize,
 }) => {
+    const wrapperBorderColor = colors.grey300
+    const backgroundColor = 'none'
+
     const [selectedDateString, setSelectedDateString] = useState(date)
-
     const languageDirection = useResolvedDirection(dir, locale)
-
-    const styleOptions = {
-        backgroundColor: 'none',
-        chevronColor: colors.grey600,
-        dayHoverBackgroundColor: colors.grey200,
-        dayNamesColor: colors.grey700,
-        headerBackground: colors.grey050,
-        selectedDayBackgroundColor: colors.teal700,
-        wrapperBorderColor: colors.grey300,
-        width,
-        cellSize,
-    }
 
     const options = {
         locale,
@@ -46,7 +36,7 @@ export const Calendar = ({
 
     const pickerOptions = useDatePicker({
         onDateSelect: (result) => {
-            const { calendarDateString /*, calendarDate*/ } = result
+            const { calendarDateString } = result
             setSelectedDateString(calendarDateString)
             onDateSelect(result)
         },
@@ -59,32 +49,30 @@ export const Calendar = ({
     return (
         <div>
             <div
-                className="wrapper"
+                className="calendar-wrapper"
                 dir={languageDirection}
                 data-test="calendar"
             >
                 <NavigationContainer
                     pickerOptions={pickerOptions}
                     languageDirection={languageDirection}
-                    styleOptions={styleOptions}
                 />
                 <CalendarTable
                     calendarWeekDays={calendarWeekDays}
                     weekDayLabels={weekDayLabels}
-                    styleOptions={styleOptions}
                     cellSize={cellSize}
                     width={width}
                 />
             </div>
             <style jsx>{`
-                .wrapper {
+                .calendar-wrapper {
                     font-family: Roboto, sans-serif;
                     font-weight: 400;
                     font-size: 14px;
-                    background-color: ${styleOptions.backgroundColor};
+                    background-color: ${backgroundColor};
                     display: flex;
                     flex-direction: column;
-                    border: 1px solid ${styleOptions.wrapperBorderColor};
+                    border: 1px solid ${wrapperBorderColor};
                     border-radius: 3px;
                     min-width: ${width};
                     width: max-content;

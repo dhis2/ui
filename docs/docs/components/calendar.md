@@ -107,7 +107,7 @@ Gregorian calendar localised in English, Arabic (Tunisia), Arabic (Sudan), Arabi
 
 ## Other calendars
 
-Some other calendars: Islamic in Arabic, Indian in English, Persian in Farsi, Japanese in Japanese
+Some other calendars: Islamic in Arabic, Indian in English and Persian in Farsi
 
 <Demo>
     <div className="wrapper">
@@ -127,13 +127,6 @@ Some other calendars: Islamic in Arabic, Indian in English, Persian in Farsi, Ja
                 locale="fa"
                 timeZone="Europe/London"
                 weekDayFormat="short"
-        />
-        <Calendar
-                calendar="japanese"
-                locale="ja"
-                timeZone="Europe/London"
-                weekDayFormat="short"
-                styleOptions={{ cellSize: "40px" }}
         />
     </div>
     <style jsx>{`

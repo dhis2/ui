@@ -1,6 +1,6 @@
 import { constants } from '@dhis2/multi-calendar-dates'
 import PropTypes from 'prop-types'
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { Calendar } from '../calendar/index.js'
 
 const { calendars, numberingSystems } = constants
@@ -18,8 +18,6 @@ export const CalendarStoryWrapper = (props) => {
     const [selectedNumberingSystem, setSelectedNumberingSystem] = useState()
     const [selectedDirection, setSelectedDirection] = useState(dir)
     const [selectedWeekFormat, setWeekDayFormat] = useState(weekDayFormat)
-
-    const ref = useRef(null)
 
     const [selectedLocale, setLocale] = useState(locale)
     const [selectedDate, setSelectedDate] = useState()
@@ -59,13 +57,12 @@ export const CalendarStoryWrapper = (props) => {
             >
                 <div>Options</div>
                 <input
-                    ref={ref}
                     defaultValue={locale}
                     placeholder="locale"
                     onBlur={onLocaleChanged}
                 />
                 <select onChange={changeCalendar} value={selectedCalendar}>
-                    <option key={calendar} value="-1">
+                    <option disabled key={calendar} value="-1">
                         Select calendar
                     </option>
                     {calendars.map((calendar) => {
@@ -80,7 +77,7 @@ export const CalendarStoryWrapper = (props) => {
                     onChange={changeNumberingSystem}
                     value={selectedNumberingSystem}
                 >
-                    <option key={calendar} value="-1">
+                    <option disabled key={calendar} value="-1">
                         Select numbering system
                     </option>
                     {numberingSystems.map((system) => {
@@ -92,12 +89,16 @@ export const CalendarStoryWrapper = (props) => {
                     })}
                 </select>
                 <select onChange={changeDirection} value={selectedDirection}>
-                    <option value="-1">Select direction</option>
+                    <option disabled value="-1">
+                        Select direction
+                    </option>
                     <option value="ltr">Left-To-Right</option>
                     <option value="rtl">Right-To-Left</option>
                 </select>
                 <select onChange={changeWeekFormat} value={selectedWeekFormat}>
-                    <option value="-1">Select format</option>
+                    <option disabled value="-1">
+                        Select format
+                    </option>
                     <option value="narrow">narrow</option>
                     <option value="short">short</option>
                     <option value="long">long</option>
