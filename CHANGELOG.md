@@ -1,3 +1,10 @@
+# [8.8.0](https://github.com/dhis2/ui/compare/v8.7.7...v8.8.0) (2023-02-02)
+
+
+### Features
+
+* add multi-calendar component ([#1162](https://github.com/dhis2/ui/issues/1162)) ([9ce851e](https://github.com/dhis2/ui/commit/9ce851e773735dd644a3a5ecf8e3de7b96f331ca))
+
 ## [8.7.7](https://github.com/dhis2/ui/compare/v8.7.6...v8.7.7) (2023-01-16)
 
 
