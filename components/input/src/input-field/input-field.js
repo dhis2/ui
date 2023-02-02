@@ -86,7 +86,7 @@ InputField.defaultProps = {
     dataTest: 'dhis2-uiwidgets-inputfield',
 }
 
-InputField.propTypes = {
+const InputFieldProps = {
     /** The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete) */
     autoComplete: PropTypes.string,
     className: PropTypes.string,
@@ -142,4 +142,6 @@ InputField.propTypes = {
     onKeyDown: PropTypes.func,
 }
 
-export { InputField }
+InputField.propTypes = InputFieldProps
+
+export { InputField, InputFieldProps }
