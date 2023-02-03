@@ -62,10 +62,10 @@ A notice box shows important information about a situation.
 -   Use to alert the user to a problem that isn't blocking the current workflow.
 -   If possible, offer an [action](#actions) to help the user fix the problem.
 
-#### Critical
+#### Error
 
 <Demo>
-    <NoticeBox critical title="Analytics tables failed">
+    <NoticeBox error title="Analytics tables failed">
         There isn't any data because there was a problem generating analytics tables.
         <br/><Button small secondary>Go to analytics tables</Button>
     </NoticeBox>
