@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/status-icon",
-    "version": "8.8.0",
+    "version": "8.9.0",
     "description": "UI StatusIcon",
     "repository": {
         "type": "git",
@@ -32,9 +32,9 @@
     },
     "dependencies": {
         "@dhis2/prop-types": "^3.1.2",
-        "@dhis2-ui/loader": "8.8.0",
-        "@dhis2/ui-constants": "8.8.0",
-        "@dhis2/ui-icons": "8.8.0",
+        "@dhis2-ui/loader": "8.9.0",
+        "@dhis2/ui-constants": "8.9.0",
+        "@dhis2/ui-icons": "8.9.0",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },

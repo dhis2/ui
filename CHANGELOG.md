@@ -1,3 +1,10 @@
+# [8.9.0](https://github.com/dhis2/ui/compare/v8.8.0...v8.9.0) (2023-02-06)
+
+
+### Features
+
+* **icons:** subtract icon ([703d6e3](https://github.com/dhis2/ui/commit/703d6e3e2a4df75007805efedd5021cca6343693))
+
 # [8.8.0](https://github.com/dhis2/ui/compare/v8.7.7...v8.8.0) (2023-02-02)
 
 

@@ -3220,6 +3220,42 @@ import { SvgSubscribeOff24 } from '@dhis2/ui-icons'
 |---|---|---|---|---|
 |color|string||||
 
+### SvgSubtract16
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+
+```js
+import { SvgSubtract16 } from '@dhis2/ui-icons'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|color|string||||
+
+### SvgSubtract24
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+
+```js
+import { SvgSubtract24 } from '@dhis2/ui-icons'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|color|string||||
+
 ### SvgSubtractCircle16
 
 #### Usage
