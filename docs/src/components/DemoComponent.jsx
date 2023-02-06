@@ -6,11 +6,10 @@ export const Demo = (props) => {
     return (
         <div className={styles.demo}>
             <div className={styles.demoTitle}>Demo</div>
-            {/* eslint-disable-next-line react/prop-types */}
             <div className={styles.demoFrame}>{props.children}</div>
         </div>
     )
 }
-Demo.PropTypes = {
+Demo.propTypes = {
     children: PropTypes.node,
 }

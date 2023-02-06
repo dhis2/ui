@@ -1,1 +1,1 @@
-export { InputField } from './input-field.js'
+export { InputField, InputFieldProps } from './input-field.js'

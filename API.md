@@ -3,6 +3,7 @@
 - [@dhis2-ui/alert](components/alert/API.md)
 - [@dhis2-ui/box](components/box/API.md)
 - [@dhis2-ui/button](components/button/API.md)
+- [@dhis2-ui/calendar](components/calendar/API.md)
 - [@dhis2-ui/card](components/card/API.md)
 - [@dhis2-ui/center](components/center/API.md)
 - [@dhis2-ui/checkbox](components/checkbox/API.md)
