@@ -15,6 +15,7 @@ const createRemoveHandler =
 const SelectionList = ({ selected, onChange, disabled, options }) => (
     <React.Fragment>
         {selected.map((value) => {
+            const isProduction = process.env.NODE_ENV === 'production'
             const selectedOption = findOptionChild(value, options)
 
             if (!selectedOption) {
@@ -22,11 +23,23 @@ const SelectionList = ({ selected, onChange, disabled, options }) => (
                     `There is no option with the value: "${value}". ` +
                     'Make sure that all the values passed to the selected ' +
                     'prop match the value of an existing option.'
-                throw new Error(message)
+
+                if (isProduction) {
+                    // Don't crash the app if in production
+                    console.error(message)
+                } else {
+                    // Throw error if not in production for maximum visibility
+                    throw new Error(message)
+                }
             }
 
-            // The chip should be disabled if the option or the select are disabled
-            const isDisabled = selectedOption.props.disabled || disabled
+            const isDisabled = selectedOption
+                ? // The chip should be disabled if the option or the select are disabled
+                  selectedOption.props.disabled || disabled
+                : // If there is no selected option, just look at the select
+                  disabled
+            // Use the selected value if we do not have a label
+            const label = selectedOption ? selectedOption.props.label : value
 
             // Create an onRemove handler, but only if it's not disabled
             const onRemove = isDisabled
@@ -48,7 +61,7 @@ const SelectionList = ({ selected, onChange, disabled, options }) => (
                     overflow
                     dense
                 >
-                    {selectedOption.props.label}
+                    {label}
                 </Chip>
             )
         })}
