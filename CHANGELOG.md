@@ -1,3 +1,10 @@
+# [8.10.0](https://github.com/dhis2/ui/compare/v8.9.0...v8.10.0) (2023-02-08)
+
+
+### Features
+
+* **select:** use selection value as a label as fallback in production ([#1231](https://github.com/dhis2/ui/issues/1231)) ([6495112](https://github.com/dhis2/ui/commit/6495112d6508911dbaf2596bc9e1612346e78db7))
+
 # [8.9.0](https://github.com/dhis2/ui/compare/v8.8.0...v8.9.0) (2023-02-06)
 
 

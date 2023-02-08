@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/calendar",
-    "version": "8.9.0",
+    "version": "8.10.0",
     "description": "UI Calendar",
     "repository": {
         "type": "git",
@@ -31,14 +31,14 @@
         "styled-jsx": "^4"
     },
     "dependencies": {
-        "@dhis2-ui/card": "8.9.0",
-        "@dhis2-ui/input": "8.9.0",
-        "@dhis2-ui/layer": "8.9.0",
-        "@dhis2-ui/popper": "8.9.0",
+        "@dhis2-ui/card": "8.10.0",
+        "@dhis2-ui/input": "8.10.0",
+        "@dhis2-ui/layer": "8.10.0",
+        "@dhis2-ui/popper": "8.10.0",
         "@dhis2/multi-calendar-dates": "1.0.0-alpha.17",
         "@dhis2/prop-types": "^3.1.2",
-        "@dhis2/ui-constants": "8.9.0",
-        "@dhis2/ui-icons": "8.9.0",
+        "@dhis2/ui-constants": "8.10.0",
+        "@dhis2/ui-icons": "8.10.0",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },
