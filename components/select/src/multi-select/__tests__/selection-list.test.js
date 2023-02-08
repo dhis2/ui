@@ -8,13 +8,20 @@ describe('<SelectionList />', () => {
     const env = process.env
 
     beforeEach(() => {
+        // Ensure process.env is also reset for cached modules
         jest.resetModules()
-        jest.spyOn(console, 'error').mockImplementation(() => {})
         process.env = { ...env }
+
+        // Allow spying on console.error and silence rendering errors
+        jest.spyOn(console, 'error').mockImplementation(() => {})
     })
 
     afterEach(() => {
+        // Restore process.env to original state
         process.env = env
+
+        // Restore all mocks back to original values
+        jest.restoreAllMocks()
     })
 
     describe('production', () => {
@@ -54,7 +61,6 @@ describe('<SelectionList />', () => {
 
         it('log an error for a selection that is not in the options', () => {
             process.env.NODE_ENV = 'production'
-            const spy = jest.spyOn(console, 'error')
             const options = <MultiSelectOption key="1" label="one" value="1" />
             const selected = ['value']
 
@@ -67,11 +73,9 @@ describe('<SelectionList />', () => {
                 />
             )
 
-            expect(spy).toHaveBeenCalledWith(
+            expect(console.error).toHaveBeenCalledWith(
                 'There is no option with the value: "value". Make sure that all the values passed to the selected prop match the value of an existing option.'
             )
-
-            spy.mockRestore()
         })
     })
 
