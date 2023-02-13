@@ -3,9 +3,8 @@ import { spacers, colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { NoticeBoxContent } from './notice-box-content.js'
 import { NoticeBoxIcon } from './notice-box-icon.js'
-import { NoticeBoxMessage } from './notice-box-message.js'
-import { NoticeBoxTitle } from './notice-box-title.js'
 
 export const NoticeBox = ({
     className,
@@ -27,10 +26,12 @@ export const NoticeBox = ({
                 dataTest={`${dataTest}-icon`}
             />
             <div>
-                <NoticeBoxTitle title={title} dataTest={`${dataTest}-title`} />
-                <NoticeBoxMessage dataTest={`${dataTest}-message`}>
+                <NoticeBoxContent
+                    title={title}
+                    dataTest={`${dataTest}-content`}
+                >
                     {children}
-                </NoticeBoxMessage>
+                </NoticeBoxContent>
             </div>
 
             <style jsx>{`

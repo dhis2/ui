@@ -89,3 +89,11 @@ export const WithALongTitle = (args) => (
     <NoticeBox {...args}>The title text will wrap</NoticeBox>
 )
 WithALongTitle.args = { error: true, title: text }
+
+export const WithoutTitle = () => (
+    <NoticeBox>This noticebox does not have a title.</NoticeBox>
+)
+
+export const TitleOnly = () => (
+    <NoticeBox title="This noticebox has only a title"></NoticeBox>
+)

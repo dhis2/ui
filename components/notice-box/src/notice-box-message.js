@@ -15,7 +15,7 @@ export const NoticeBoxMessage = ({ children, dataTest }) => {
                 div {
                     color: ${colors.grey900};
                     font-size: 14px;
-                    line-height: 20px;
+                    line-height: 19px;
                 }
             `}</style>
         </div>
