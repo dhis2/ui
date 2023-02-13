@@ -14,14 +14,16 @@ export const NoticeBox = ({
     title,
     warning,
     error,
+    valid,
 }) => {
-    const classnames = cx(className, 'root', { warning, error })
+    const classnames = cx(className, 'root', { warning, error, valid })
 
     return (
         <div className={classnames} data-test={dataTest}>
             <NoticeBoxIcon
                 error={error}
                 warning={warning}
+                valid={valid}
                 dataTest={`${dataTest}-icon`}
             />
             <div>
@@ -49,6 +51,11 @@ export const NoticeBox = ({
                     background: ${colors.red050};
                     border: 2px solid ${colors.red500};
                 }
+
+                .root.valid {
+                    background: ${colors.green050};
+                    border: 1px solid ${colors.green200};
+                }
             `}</style>
         </div>
     )
@@ -62,9 +69,11 @@ NoticeBox.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     dataTest: PropTypes.string,
-    /** Applies 'error' message styles. Mutually exclusive with the `warning` prop */
-    error: mutuallyExclusive(['error', 'warning'], PropTypes.bool),
+    /** Applies 'error' message styles. Mutually exclusive with the `error` and `warning` prop */
+    error: mutuallyExclusive(['error', 'valid', 'warning'], PropTypes.bool),
+    /** Applies 'error' message styles. Mutually exclusive with the `error` and `warning` prop */
     title: PropTypes.string,
-    /** Applies 'warning' message styles. Mutually exclusive with the `error` prop */
-    warning: mutuallyExclusive(['error', 'warning'], PropTypes.bool),
+    valid: mutuallyExclusive(['error', 'valid', 'warning'], PropTypes.bool),
+    /** Applies 'error' message styles. Mutually exclusive with the `error` and `warning` prop */
+    warning: mutuallyExclusive(['error', 'valid', 'warning'], PropTypes.bool),
 }
