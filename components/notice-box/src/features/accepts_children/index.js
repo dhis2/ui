@@ -6,7 +6,7 @@ Given('a NoticeBox receives a message as children', () => {
 })
 
 Then('the message is visible', () => {
-    cy.get('[data-test="dhis2-uicore-noticebox-message"]')
+    cy.get('[data-test="dhis2-uicore-noticebox-content-message"]')
         .contains('The noticebox content')
         .should('be.visible')
 })
