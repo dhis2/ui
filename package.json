@@ -46,7 +46,7 @@
     "dependencies": {
         "@babel/parser": "^7.17.0",
         "@dhis2/app-runtime": "^3.6.0",
-        "@dhis2/cli-app-scripts": "^8.0.0",
+        "@dhis2/cli-app-scripts": "^10.2.1",
         "@dhis2/cli-style": "10.4.2",
         "@dhis2/cli-utils-cypress": "^8.0.3",
         "@dhis2/cli-utils-docsite": "^3.1.2",
