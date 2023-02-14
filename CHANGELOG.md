@@ -1,3 +1,10 @@
+## [8.10.1](https://github.com/dhis2/ui/compare/v8.10.0...v8.10.1) (2023-02-14)
+
+
+### Bug Fixes
+
+* bump multi-calendar-dates to avoid jest error ([9cdd320](https://github.com/dhis2/ui/commit/9cdd32015eae9f361860ada2637d1a38af50ed30))
+
 # [8.10.0](https://github.com/dhis2/ui/compare/v8.9.0...v8.10.0) (2023-02-08)
 
 
