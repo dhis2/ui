@@ -1,3 +1,15 @@
+# [8.11.0](https://github.com/dhis2/ui/compare/v8.10.1...v8.11.0) (2023-02-15)
+
+
+### Bug Fixes
+
+* **noticebox:** adjust spacing for components with only a title or message ([5f8be90](https://github.com/dhis2/ui/commit/5f8be9069089281b7b2e9a26df65ff586dca452a))
+
+
+### Features
+
+* **noticebox:** add valid component style ([6546241](https://github.com/dhis2/ui/commit/65462413e6e757fd46822833f86d5ba2d039eee2))
+
 ## [8.10.1](https://github.com/dhis2/ui/compare/v8.10.0...v8.10.1) (2023-02-14)
 
 
