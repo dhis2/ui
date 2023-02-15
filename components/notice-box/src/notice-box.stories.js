@@ -35,6 +35,7 @@ export default {
     argTypes: {
         error: { ...sharedPropTypes.statusArgType },
         warning: { ...sharedPropTypes.statusArgType },
+        valid: { ...sharedPropTypes.statusArgType },
     },
 }
 
@@ -45,6 +46,16 @@ export const Default = (args) => (
     </NoticeBox>
 )
 Default.args = { title: 'Your database was updated in the last 24 hours' }
+
+export const Valid = (args) => (
+    <NoticeBox {...args}>
+        Programs using these rules are updated automatically.
+    </NoticeBox>
+)
+Valid.args = {
+    valid: true,
+    title: 'Program rules exported successfully',
+}
 
 export const Warning = (args) => (
     <NoticeBox {...args}>
@@ -78,3 +89,11 @@ export const WithALongTitle = (args) => (
     <NoticeBox {...args}>The title text will wrap</NoticeBox>
 )
 WithALongTitle.args = { error: true, title: text }
+
+export const WithoutTitle = () => (
+    <NoticeBox>This noticebox does not have a title.</NoticeBox>
+)
+
+export const TitleOnly = () => (
+    <NoticeBox title="This noticebox has only a title"></NoticeBox>
+)

@@ -39,6 +39,7 @@ A notice box shows important information about a situation.
 | `info`    | Default. Use for important, but not problematic or critical information. |
 | `warning` | Use for problems that require user attention, but are non-critical       |
 | `error`   | Use for critical problems or errors that relate to the current context.  |
+| `valid`   | Use for positive information, like successful or completed processes.    |
 
 #### Information
 
@@ -73,6 +74,17 @@ A notice box shows important information about a situation.
 
 -   Use to alert the user to a problem or error that's blocking the current workflow.
 -   If possible, offer an [action](#actions) to help the user fix the problem.
+
+#### Valid
+
+<Demo>
+    <NoticeBox valid title="Password reset successfully">
+        Your password has been reset. You can log in with your username and password.
+    </NoticeBox>
+</Demo>
+
+-   Use to inform the user that an important action is complete, or the process was successful.
+-   Only use when the information needs to stay on screen. In most `valid` cases, using an [alert bar](./alertbar.md) is a better choice.
 
 ### Format
 

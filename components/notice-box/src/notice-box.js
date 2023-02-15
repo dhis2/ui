@@ -3,9 +3,8 @@ import { spacers, colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { NoticeBoxContent } from './notice-box-content.js'
 import { NoticeBoxIcon } from './notice-box-icon.js'
-import { NoticeBoxMessage } from './notice-box-message.js'
-import { NoticeBoxTitle } from './notice-box-title.js'
 
 export const NoticeBox = ({
     className,
@@ -14,21 +13,25 @@ export const NoticeBox = ({
     title,
     warning,
     error,
+    valid,
 }) => {
-    const classnames = cx(className, 'root', { warning, error })
+    const classnames = cx(className, 'root', { warning, error, valid })
 
     return (
         <div className={classnames} data-test={dataTest}>
             <NoticeBoxIcon
                 error={error}
                 warning={warning}
+                valid={valid}
                 dataTest={`${dataTest}-icon`}
             />
             <div>
-                <NoticeBoxTitle title={title} dataTest={`${dataTest}-title`} />
-                <NoticeBoxMessage dataTest={`${dataTest}-message`}>
+                <NoticeBoxContent
+                    title={title}
+                    dataTest={`${dataTest}-content`}
+                >
                     {children}
-                </NoticeBoxMessage>
+                </NoticeBoxContent>
             </div>
 
             <style jsx>{`
@@ -49,6 +52,11 @@ export const NoticeBox = ({
                     background: ${colors.red050};
                     border: 2px solid ${colors.red500};
                 }
+
+                .root.valid {
+                    background: ${colors.green050};
+                    border: 1px solid ${colors.green200};
+                }
             `}</style>
         </div>
     )
@@ -62,9 +70,11 @@ NoticeBox.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     dataTest: PropTypes.string,
-    /** Applies 'error' message styles. Mutually exclusive with the `warning` prop */
-    error: mutuallyExclusive(['error', 'warning'], PropTypes.bool),
+    /** Applies 'error' message styles. Mutually exclusive with the `valid` and `warning` props */
+    error: mutuallyExclusive(['error', 'valid', 'warning'], PropTypes.bool),
     title: PropTypes.string,
-    /** Applies 'warning' message styles. Mutually exclusive with the `error` prop */
-    warning: mutuallyExclusive(['error', 'warning'], PropTypes.bool),
+    /** Applies 'valid' message styles. Mutually exclusive with the `error` and `warning` props */
+    valid: mutuallyExclusive(['error', 'valid', 'warning'], PropTypes.bool),
+    /** Applies 'warning' message styles. Mutually exclusive with the `error` and `valid` props */
+    warning: mutuallyExclusive(['error', 'valid', 'warning'], PropTypes.bool),
 }

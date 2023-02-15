@@ -1,4 +1,4 @@
-import { colors, spacers } from '@dhis2/ui-constants'
+import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -15,8 +15,8 @@ export const NoticeBoxTitle = ({ title, dataTest }) => {
                     color: ${colors.grey900};
                     font-size: 14px;
                     font-weight: 500;
-                    line-height: 20px;
-                    margin: 0 0 ${spacers.dp12} 0;
+                    line-height: 19px;
+                    margin: 0;
                 }
             `}</style>
         </h6>
