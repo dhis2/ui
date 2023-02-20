@@ -47,7 +47,19 @@ export const CalendarTable = ({
 )
 
 CalendarTable.propTypes = {
-    calendarWeekDays: PropTypes.arrayOf(PropTypes.string),
+    calendarWeekDays: PropTypes.arrayOf(
+        PropTypes.arrayOf(
+            PropTypes.shape({
+                calendarDate: PropTypes.string,
+                isInCurrentMonth: PropTypes.bool,
+                isSelected: PropTypes.bool,
+                isToday: PropTypes.bool,
+                label: PropTypes.string,
+                zdt: PropTypes.object,
+                onClick: PropTypes.func,
+            }).isRequired
+        ).isRequired
+    ).isRequired,
     cellSize: PropTypes.string,
     weekDayLabels: PropTypes.arrayOf(PropTypes.string),
     width: PropTypes.string,
