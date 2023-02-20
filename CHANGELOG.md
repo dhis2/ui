@@ -1,3 +1,10 @@
+## [8.11.1](https://github.com/dhis2/ui/compare/v8.11.0...v8.11.1) (2023-02-20)
+
+
+### Bug Fixes
+
+* update wrong propTypes ([#1239](https://github.com/dhis2/ui/issues/1239)) ([3840523](https://github.com/dhis2/ui/commit/38405230a75e9cb8c1cc11a661e999a16fe88084))
+
 # [8.11.0](https://github.com/dhis2/ui/compare/v8.10.1...v8.11.0) (2023-02-15)
 
 
