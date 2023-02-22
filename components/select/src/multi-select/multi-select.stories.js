@@ -236,6 +236,31 @@ WithDisabledOptionAndOnChange.storyName = 'With disabled option and onChange'
 export const WithOptionsAndMultipleSelections = WithOptionsTemplate.bind({})
 WithOptionsAndMultipleSelections.args = { selected: ['1', '2'] }
 
+export const WithMultipleSelectionsWrapped = () => {
+    const [selected, setSelected] = React.useState(['1', '2', '4', '6'])
+    return (
+        <div style={{ maxWidth: 300 }}>
+            <MultiSelect
+                className="select"
+                selected={selected}
+                onChange={({ selected }) => {
+                    console.log({ selected })
+                    setSelected(selected)
+                }}
+                inputMaxHeight={'auto'}
+            >
+                <MultiSelectOption value="1" label="option one" />
+                <MultiSelectOption value="2" label="option two" />
+                <MultiSelectOption value="3" label="option three" />
+                <MultiSelectOption value="4" label="option four" />
+                <MultiSelectOption value="5" label="option five" />
+                <MultiSelectOption value="6" label="option six" />
+                <MultiSelectOption value="7" label="option seven" />
+            </MultiSelect>
+        </div>
+    )
+}
+
 export const WithClearButtonSelectionAndOnChange = WithOptionsTemplate.bind({})
 WithClearButtonSelectionAndOnChange.args = {
     ...WithOptionsAndASelection.args,
