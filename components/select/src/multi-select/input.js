@@ -75,7 +75,7 @@ const Input = ({
                     flex: 1;
                     display: flex;
                     flex-flow: wrap;
-                    row-gap: 4px;
+                    gap: 4px;
                 }
 
                 .root-right {
