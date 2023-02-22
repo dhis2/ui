@@ -1,3 +1,10 @@
+## [8.11.2](https://github.com/dhis2/ui/compare/v8.11.1...v8.11.2) (2023-02-22)
+
+
+### Bug Fixes
+
+* **multi-select:** add gap to chips ([#1215](https://github.com/dhis2/ui/issues/1215)) ([61a392b](https://github.com/dhis2/ui/commit/61a392b6195d463d7d59d0354757a3de1cd545ca))
+
 ## [8.11.1](https://github.com/dhis2/ui/compare/v8.11.0...v8.11.1) (2023-02-20)
 
 
