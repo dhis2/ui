@@ -1,5 +1,5 @@
 import React from 'react'
-import { CalendarInput } from '../calendar-input/index.js'
+import { CalendarInput } from '../calendar-input/calendar-input.js'
 import { CalendarStoryWrapper } from './calendarStoryWrapper.js'
 
 const subtitle = `[Experimental] Calendar Input is a wrapper around Calendar displaying an input that triggers the calendar`
@@ -22,20 +22,17 @@ export default {
     },
 }
 
-const buildCalendar =
-    ({ date, locale, calendar }) =>
-    () =>
-        (
-            <CalendarStoryWrapper
-                component={CalendarInput}
-                dir="ltr"
-                timeZone="Africa/Khartoum"
-                weekDayFormat="short"
-                date={date}
-                locale={locale}
-                calendar={calendar}
-            />
-        )
+const buildCalendar = ({ date, locale, calendar }) => () => (
+    <CalendarStoryWrapper
+        component={CalendarInput}
+        dir="ltr"
+        timeZone="Africa/Khartoum"
+        weekDayFormat="short"
+        date={date}
+        locale={locale}
+        calendar={calendar}
+    />
+)
 
 export const EthiopicWithAmharic = buildCalendar({
     calendar: 'ethiopic',

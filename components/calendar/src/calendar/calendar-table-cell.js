@@ -3,7 +3,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export const CalendarTableCell = ({ day, cellSize }) => {
+export const CalendarTableCell = ({ day, cellSize, selectedDate }) => {
     const dayHoverBackgroundColor = colors.grey200
     const selectedDayBackgroundColor = colors.teal700
 
@@ -12,7 +12,7 @@ export const CalendarTableCell = ({ day, cellSize }) => {
             <button
                 name="day"
                 className={cx('day', {
-                    isSelected: day.isSelected,
+                    isSelected: selectedDate === day?.calendarDate,
                     isToday: day.isToday,
                     otherMonth: !day.isInCurrentMonth,
                 })}
@@ -26,6 +26,7 @@ export const CalendarTableCell = ({ day, cellSize }) => {
                     height: ${cellSize};
                     text-align: center;
                     border: 2px solid transparent;
+                    padding: 0;
                 }
                 td span {
                     display: inline-flex;
@@ -72,7 +73,8 @@ CalendarTableCell.propTypes = {
         isInCurrentMonth: PropTypes.bool,
         isSelected: PropTypes.bool,
         isToday: PropTypes.bool,
-        label: PropTypes.string,
+        label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
         onClick: PropTypes.func,
     }),
+    selectedDate: PropTypes.string,
 }

@@ -1,7 +1,7 @@
 import { constants } from '@dhis2/multi-calendar-dates'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import { Calendar } from '../calendar/index.js'
+import { Calendar } from '../calendar/calendar.js'
 
 const { calendars, numberingSystems } = constants
 export const CalendarStoryWrapper = (props) => {

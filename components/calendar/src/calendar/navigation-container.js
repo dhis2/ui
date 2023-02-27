@@ -134,22 +134,26 @@ export const NavigationContainer = ({ languageDirection, pickerOptions }) => {
 NavigationContainer.propTypes = {
     languageDirection: PropTypes.oneOf(['ltr', 'rtl']),
     pickerOptions: PropTypes.shape({
-        currMonth: PropTypes.shape({ label: PropTypes.string }),
-        currYear: PropTypes.shape({ label: PropTypes.string }),
+        currMonth: PropTypes.shape({
+            label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        }),
+        currYear: PropTypes.shape({
+            label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        }),
         nextMonth: PropTypes.shape({
-            label: PropTypes.string,
+            label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
             navigateTo: PropTypes.func,
         }),
         nextYear: PropTypes.shape({
-            label: PropTypes.string,
+            label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
             navigateTo: PropTypes.func,
         }),
         prevMonth: PropTypes.shape({
-            label: PropTypes.string,
+            label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
             navigateTo: PropTypes.func,
         }),
         prevYear: PropTypes.shape({
-            label: PropTypes.string,
+            label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
             navigateTo: PropTypes.func,
         }),
     }),

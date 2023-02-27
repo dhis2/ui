@@ -4,8 +4,7 @@ import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
 import { getNowInCalendar } from '@dhis2/multi-calendar-dates'
 import React, { useRef, useState } from 'react'
-import { CalendarProps } from '../calendar/calendar-prop-types.js'
-import { Calendar } from '../calendar/index.js'
+import { Calendar, CalendarProps } from '../calendar/calendar.js'
 
 const padWithZeroes = (number, count = 2) => String(number).padStart(count, '0')
 const offsetModifier = {
