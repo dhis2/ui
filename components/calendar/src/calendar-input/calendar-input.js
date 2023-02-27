@@ -1,12 +1,12 @@
+import { Button } from '@dhis2-ui/button'
 import { Card } from '@dhis2-ui/card'
 import { InputField, InputFieldProps } from '@dhis2-ui/input'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
-import { getNowInCalendar } from '@dhis2/multi-calendar-dates'
 import React, { useRef, useState } from 'react'
 import { Calendar, CalendarProps } from '../calendar/calendar.js'
+import i18n from '../locales/index.js'
 
-const padWithZeroes = (number, count = 2) => String(number).padStart(count, '0')
 const offsetModifier = {
     name: 'offset',
     options: {
@@ -25,21 +25,16 @@ export const CalendarInput = ({
     timeZone,
     width,
     cellSize,
+    clearable,
     ...rest
 } = {}) => {
     const ref = useRef()
     const [open, setOpen] = useState(false)
-    const currentDate = getNowInCalendar(calendar, timeZone)
-    const initialDate =
-        date ||
-        `${currentDate.eraYear || currentDate.year}-${padWithZeroes(
-            currentDate.month
-        )}-${padWithZeroes(currentDate.day)}`
-    const [value, setValue] = useState(initialDate)
+    const [value, setValue] = useState(date)
 
     const calendarProps = React.useMemo(() => {
         const onDateSelectWrapper = (selectedDate) => {
-            const { calendarDateString } = selectedDate
+            const calendarDateString = selectedDate?.calendarDateString
             setValue(calendarDateString)
             setOpen(false)
             onDateSelect?.(selectedDate)
@@ -75,7 +70,7 @@ export const CalendarInput = ({
 
     return (
         <>
-            <div ref={ref}>
+            <div className="calendar-input-wrapper" ref={ref}>
                 <InputField
                     label="Pick a date"
                     {...rest}
@@ -83,6 +78,18 @@ export const CalendarInput = ({
                     onFocus={onFocus}
                     value={value}
                 />
+                {clearable && (
+                    <div className="calendar-clear-button">
+                        <Button
+                            dataTest="storybook-clear-button"
+                            secondary
+                            onClick={() => calendarProps.onDateSelect(null)}
+                            type="button"
+                        >
+                            {i18n.t('Clear')}
+                        </Button>
+                    </div>
+                )}
             </div>
             {open && (
                 <Layer
@@ -101,6 +108,19 @@ export const CalendarInput = ({
                     </Popper>
                 </Layer>
             )}
+
+            <style jsx>
+                {`
+                    .calendar-input-wrapper {
+                        position: relative;
+                    }
+                    .calendar-clear-button {
+                        position: absolute;
+                        right: 2px;
+                        bottom: 2px;
+                    }
+                `}
+            </style>
         </>
     )
 }

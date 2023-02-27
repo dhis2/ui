@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { CalendarInput } from '../calendar-input/calendar-input.js'
 import { CalendarStoryWrapper } from './calendarStoryWrapper.js'
 
@@ -22,17 +22,20 @@ export default {
     },
 }
 
-const buildCalendar = ({ date, locale, calendar }) => () => (
-    <CalendarStoryWrapper
-        component={CalendarInput}
-        dir="ltr"
-        timeZone="Africa/Khartoum"
-        weekDayFormat="short"
-        date={date}
-        locale={locale}
-        calendar={calendar}
-    />
-)
+const buildCalendar =
+    ({ date, locale, calendar }) =>
+    () =>
+        (
+            <CalendarStoryWrapper
+                component={CalendarInput}
+                dir="ltr"
+                timeZone="Africa/Khartoum"
+                weekDayFormat="short"
+                date={date}
+                locale={locale}
+                calendar={calendar}
+            />
+        )
 
 export const EthiopicWithAmharic = buildCalendar({
     calendar: 'ethiopic',
@@ -76,14 +79,27 @@ export const IslamicWithArabic = buildCalendar({
     date: '2015-01-13',
 })
 
-export const WithAnyCalendar = (args) => {
+export const CalendarWithClearButton = ({
+    calendar = 'gregory',
+    date: initialDate = null,
+}) => {
+    const [date, setDate] = useState(initialDate)
     return (
-        <CalendarStoryWrapper
-            calendarInput
-            calendar="islamic-civil"
-            locale="en"
-            timeZone="Africa/Khartoum"
-            {...args}
-        />
+        <>
+            <CalendarInput
+                calendar={calendar}
+                date={date}
+                onDateSelect={(date) => {
+                    setDate(date?.calendarDateString)
+                }}
+                clearable
+            />
+            <div>
+                value:
+                <span data-test="storybook-calendar-date-value">
+                    {date ?? 'undefined'}
+                </span>
+            </div>
+        </>
     )
 }

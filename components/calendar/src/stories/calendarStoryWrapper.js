@@ -139,7 +139,7 @@ export const CalendarStoryWrapper = (props) => {
                                 <label>iso date: </label>
                                 <span data-test="storybook-calendar-result-iso">
                                     {selectedDate.calendarDate
-                                        .withCalendar('iso8601')
+                                        ?.withCalendar('iso8601')
                                         .toLocaleString('en-GB', {
                                             dateStyle: 'long',
                                         })}
