@@ -1,6 +1,6 @@
 import React from 'react'
 import { CalendarInput as component } from '../index.js'
-import { CalendarWithClearButton } from '../stories/calendarInput.stories.js'
+import { CalendarWithClearButton } from '../stories/calendar-input.stories.js'
 export default { title: 'CalendarInputTesting', component }
 
 export {
@@ -11,7 +11,7 @@ export {
     GregorianWithArabic,
     GregorianWithEnglish,
     IslamicWithArabic,
-} from '../stories/calendarInput.stories.js'
+} from '../stories/calendar-input.stories.js'
 
 export const TestCalendarWithClearButton = () => {
     const params = new URLSearchParams(location.search)

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { CalendarInput } from '../calendar-input/calendar-input.js'
-import { CalendarStoryWrapper } from './calendarStoryWrapper.js'
+import { CalendarStoryWrapper } from './calendar-story-wrapper.js'
 
 const subtitle = `[Experimental] Calendar Input is a wrapper around Calendar displaying an input that triggers the calendar`
 const description = `

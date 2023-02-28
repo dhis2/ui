@@ -20,7 +20,9 @@ export const CalendarStoryWrapper = (props) => {
     const [selectedWeekFormat, setWeekDayFormat] = useState(weekDayFormat)
 
     const [selectedLocale, setLocale] = useState(locale)
-    const [selectedDate, setSelectedDate] = useState()
+    const [selectedDate, setSelectedDate] = useState({
+        calendarDateString: date,
+    })
 
     const changeCalendar = ({ target: { value } }) => {
         setSelectedCalendar(value)
@@ -109,7 +111,7 @@ export const CalendarStoryWrapper = (props) => {
                 calendar={selectedCalendar}
                 dir={selectedDirection}
                 locale={selectedLocale}
-                date={date}
+                date={selectedDate.calendarDateString}
                 onDateSelect={(date) => {
                     setSelectedDate(date)
                 }}
