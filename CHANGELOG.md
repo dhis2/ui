@@ -1,3 +1,10 @@
+# [8.12.0](https://github.com/dhis2/ui/compare/v8.11.2...v8.12.0) (2023-02-28)
+
+
+### Features
+
+* allow clearing a calendar input ([#1241](https://github.com/dhis2/ui/issues/1241)) ([c6d13db](https://github.com/dhis2/ui/commit/c6d13db08c9bb0ae2413a5e78a9b5d688f7b9e46))
+
 ## [8.11.2](https://github.com/dhis2/ui/compare/v8.11.1...v8.11.2) (2023-02-22)
 
 
