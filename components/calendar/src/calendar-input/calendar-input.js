@@ -3,6 +3,7 @@ import { Card } from '@dhis2-ui/card'
 import { InputField, InputFieldProps } from '@dhis2-ui/input'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
+import cx from 'classnames'
 import React, { useRef, useState } from 'react'
 import { Calendar, CalendarProps } from '../calendar/calendar.js'
 import i18n from '../locales/index.js'
@@ -30,12 +31,9 @@ export const CalendarInput = ({
 } = {}) => {
     const ref = useRef()
     const [open, setOpen] = useState(false)
-    const [value, setValue] = useState(date)
 
     const calendarProps = React.useMemo(() => {
         const onDateSelectWrapper = (selectedDate) => {
-            const calendarDateString = selectedDate?.calendarDateString
-            setValue(calendarDateString)
             setOpen(false)
             onDateSelect?.(selectedDate)
         }
@@ -76,7 +74,7 @@ export const CalendarInput = ({
                     {...rest}
                     type="text"
                     onFocus={onFocus}
-                    value={value}
+                    value={date}
                 />
                 {clearable && (
                     <div className="calendar-clear-button">

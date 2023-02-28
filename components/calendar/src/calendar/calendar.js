@@ -94,6 +94,8 @@ Calendar.defaultProps = {
 export const CalendarProps = {
     /** the calendar to use such gregory, ethiopic, nepali - full supported list here: https://github.com/dhis2/multi-calendar-dates/blob/main/src/constants/calendars.ts  */
     calendar: PropTypes.any.isRequired,
+    /** Called with signature `(null)` \|\| `({ dateCalendarString: string, dateCalendar: Temporal.ZonedDateTime })` with `dateCalendarString` being the stringified date in the specified calendar in the format `yyyy-MM-dd` */
+    onDateSelect: PropTypes.func.isRequired,
     /** the size of a single cell in the table forming the calendar */
     cellSize: PropTypes.string,
     /** the currently selected date using an iso-like format YYYY-MM-DD, in the calendar system provided (not iso8601) */
@@ -110,8 +112,6 @@ export const CalendarProps = {
     weekDayFormat: PropTypes.oneOf(['narrow', 'short', 'long']),
     /** the width of the calendar component */
     width: PropTypes.string,
-    /** Called with signature `(null)` \|\| `({ dateCalendarString: string, dateCalendar: Temporal.ZonedDateTime })` with `dateCalendarString` being the stringified date in the specified calendar in the format `yyyy-MM-dd` */
-    onDateSelect: PropTypes.func,
 }
 
 Calendar.propTypes = CalendarProps
