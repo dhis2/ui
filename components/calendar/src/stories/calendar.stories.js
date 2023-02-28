@@ -1,6 +1,6 @@
 import React from 'react'
-import { Calendar } from '../calendar/index.js'
-import { CalendarStoryWrapper } from './calendarStoryWrapper.js'
+import { Calendar } from '../calendar/calendar.js'
+import { CalendarStoryWrapper } from './calendar-story-wrapper.js'
 
 const subtitle = `[Experimental] Calendar component is useful for creating a variety of calendars including Ethiopic, Islamic etc..`
 const description = `

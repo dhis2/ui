@@ -1,7 +1,7 @@
 import { constants } from '@dhis2/multi-calendar-dates'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import { Calendar } from '../calendar/index.js'
+import { Calendar } from '../calendar/calendar.js'
 
 const { calendars, numberingSystems } = constants
 export const CalendarStoryWrapper = (props) => {
@@ -20,7 +20,9 @@ export const CalendarStoryWrapper = (props) => {
     const [selectedWeekFormat, setWeekDayFormat] = useState(weekDayFormat)
 
     const [selectedLocale, setLocale] = useState(locale)
-    const [selectedDate, setSelectedDate] = useState()
+    const [selectedDate, setSelectedDate] = useState({
+        calendarDateString: date,
+    })
 
     const changeCalendar = ({ target: { value } }) => {
         setSelectedCalendar(value)
@@ -109,7 +111,7 @@ export const CalendarStoryWrapper = (props) => {
                 calendar={selectedCalendar}
                 dir={selectedDirection}
                 locale={selectedLocale}
-                date={date}
+                date={selectedDate.calendarDateString}
                 onDateSelect={(date) => {
                     setSelectedDate(date)
                 }}
@@ -139,7 +141,7 @@ export const CalendarStoryWrapper = (props) => {
                                 <label>iso date: </label>
                                 <span data-test="storybook-calendar-result-iso">
                                     {selectedDate.calendarDate
-                                        .withCalendar('iso8601')
+                                        ?.withCalendar('iso8601')
                                         .toLocaleString('en-GB', {
                                             dateStyle: 'long',
                                         })}

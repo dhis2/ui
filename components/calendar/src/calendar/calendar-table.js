@@ -9,6 +9,7 @@ export const CalendarTable = ({
     calendarWeekDays,
     width,
     cellSize,
+    selectedDate,
 }) => (
     <div className="calendar-table-wrapper">
         <table className="calendar-table">
@@ -18,6 +19,7 @@ export const CalendarTable = ({
                     <tr key={`week-${weekIndex + 1}`}>
                         {week.map((day) => (
                             <CalendarTableCell
+                                selectedDate={selectedDate}
                                 day={day}
                                 key={day?.calendarDate}
                                 cellSize={cellSize}
@@ -54,13 +56,17 @@ CalendarTable.propTypes = {
                 isInCurrentMonth: PropTypes.bool,
                 isSelected: PropTypes.bool,
                 isToday: PropTypes.bool,
-                label: PropTypes.string,
+                label: PropTypes.oneOfType([
+                    PropTypes.string,
+                    PropTypes.number,
+                ]),
                 zdt: PropTypes.object,
                 onClick: PropTypes.func,
             }).isRequired
         ).isRequired
     ).isRequired,
     cellSize: PropTypes.string,
+    selectedDate: PropTypes.string,
     weekDayLabels: PropTypes.arrayOf(PropTypes.string),
     width: PropTypes.string,
 }

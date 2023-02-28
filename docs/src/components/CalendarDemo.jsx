@@ -6,11 +6,14 @@ import React, { useState } from 'react'
 const CalendarDemo = (props) => {
     const [selectedDate, setSelectedDate] = useState()
     const isoDate = selectedDate?.withCalendar('iso8601')
+
+    const Component = props.component
+
     return (
         <Box>
-            <Calendar
+            <Component
                 onDateSelect={(date) => {
-                    setSelectedDate(date.calendarDate)
+                    setSelectedDate(date?.calendarDate ?? null)
                 }}
                 {...props}
             />
@@ -39,6 +42,7 @@ const CalendarDemo = (props) => {
                             </div>
                         </>
                     )}
+                    {selectedDate === null && <>null</>}
                 </div>
             </div>
         </Box>
@@ -46,14 +50,16 @@ const CalendarDemo = (props) => {
 }
 
 CalendarDemo.defaultProps = {
+    component: Calendar,
     dir: 'ltr',
     timeZone: 'UTC',
     weekDayFormat: 'narrow',
 }
 CalendarDemo.propTypes = {
     calendar: PropTypes.any.isRequired,
-    locale: PropTypes.string.isRequired,
+    component: PropTypes.elementType,
     dir: PropTypes.oneOf(['ltr', 'rtl']),
+    locale: PropTypes.string,
     timeZone: PropTypes.string,
     weekDayFormat: PropTypes.string,
 }

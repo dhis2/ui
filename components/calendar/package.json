@@ -31,6 +31,7 @@
         "styled-jsx": "^4"
     },
     "dependencies": {
+        "@dhis2-ui/button": "8.11.2",
         "@dhis2-ui/card": "8.11.2",
         "@dhis2-ui/input": "8.11.2",
         "@dhis2-ui/layer": "8.11.2",
