@@ -77,10 +77,23 @@ export const CalendarInput = ({
                     value={date}
                 />
                 {clearable && (
-                    <div className="calendar-clear-button">
+                    <div
+                        className={cx('calendar-clear-button', {
+                            // ToDo: this is a workaround to show the clear button in the correct place when an icon is shown.
+                            // Long-term, we should abstract and share the logic multi-select uses for the input-wrapper
+                            // https://dhis2.atlassian.net/browse/DHIS2-14848
+                            'with-icon':
+                                rest.valid ||
+                                rest.error ||
+                                rest.warning ||
+                                rest.loading,
+                            'with-dense-wrapper': rest.dense,
+                        })}
+                    >
                         <Button
                             dataTest="calendar-clear-button"
                             secondary
+                            small
                             onClick={() => calendarProps.onDateSelect(null)}
                             type="button"
                         >
@@ -101,7 +114,7 @@ export const CalendarInput = ({
                         modifiers={[offsetModifier]}
                     >
                         <Card>
-                            <Calendar {...calendarProps} date={value} />
+                            <Calendar {...calendarProps} date={date} />
                         </Card>
                     </Popper>
                 </Layer>
@@ -114,8 +127,15 @@ export const CalendarInput = ({
                     }
                     .calendar-clear-button {
                         position: absolute;
-                        inset-inline-end: 2px;
-                        inset-block-end: 2px;
+                        inset-inline-end: 6px;
+                        inset-block-start: 27px;
+                    }
+
+                    .calendar-clear-button.with-icon {
+                        inset-inline-end: 36px;
+                    }
+                    .calendar-clear-button.with-dense-wrapper {
+                        inset-block-start: 23px;
                     }
                 `}
             </style>
