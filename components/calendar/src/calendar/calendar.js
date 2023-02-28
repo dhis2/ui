@@ -96,7 +96,7 @@ export const CalendarProps = {
     calendar: PropTypes.any.isRequired,
     /** the size of a single cell in the table forming the calendar */
     cellSize: PropTypes.string,
-    /** the current selected date in the format YYYY-MM-DD - if nothing provided, it will default to today */
+    /** the currently selected date using an iso-like format YYYY-MM-DD, in the calendar system provided (not iso8601) */
     date: PropTypes.string,
     /** the direction of the library - internally the library will use rtl for rtl-languages but this can be overridden here for more control */
     dir: PropTypes.oneOf(['ltr', 'rtl']),

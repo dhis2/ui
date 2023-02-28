@@ -22,7 +22,7 @@ Given(
 )
 
 Then('we should be able to clear it', () => {
-    cy.get(`[data-test="storybook-clear-button"]`).click()
+    cy.get(`[data-test="calendar-clear-button"]`).click()
     cy.get('[data-test="storybook-calendar-date-value"]').should(
         'have.text',
         'undefined'

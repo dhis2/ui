@@ -81,7 +81,7 @@ export const CalendarInput = ({
                 {clearable && (
                     <div className="calendar-clear-button">
                         <Button
-                            dataTest="storybook-clear-button"
+                            dataTest="calendar-clear-button"
                             secondary
                             onClick={() => calendarProps.onDateSelect(null)}
                             type="button"
@@ -116,8 +116,8 @@ export const CalendarInput = ({
                     }
                     .calendar-clear-button {
                         position: absolute;
-                        right: 2px;
-                        bottom: 2px;
+                        inset-inline-end: 2px;
+                        inset-block-end: 2px;
                     }
                 `}
             </style>

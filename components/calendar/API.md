@@ -16,8 +16,7 @@ import { Calendar } from '@dhis2-ui/calendar'
 |---|---|---|---|---|
 |calendar|any||*|the calendar to use such gregory, ethiopic, nepali - full supported list here: https://github.com/dhis2/multi-calendar-dates/blob/main/src/constants/calendars.ts|
 |cellSize|string|`'32px'`||the size of a single cell in the table forming the calendar|
-|date|string|||the current selected date in the format YYYY-MM-DD - if nothing provided, it will default to today|
-|defaultToToday|boolean|||whether to default to today's date or not|
+|date|string|||the currently selected date using an iso-like format YYYY-MM-DD, in the calendar system provided (not iso8601)|
 |dir|'ltr' │ 'rtl'|||the direction of the library - internally the library will use rtl for rtl-languages but this can be overridden here for more control|
 |locale|string|||any valid locale -  if none provided, the internal library will fallback to the user locale (more info here: https://github.com/dhis2/multi-calendar-dates/blob/main/src/hooks/internal/useResolvedLocaleOptions.ts#L15)|
 |numberingSystem|string|||numbering system to use - full list here https://github.com/dhis2/multi-calendar-dates/blob/main/src/constants/numberingSystems.ts|

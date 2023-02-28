@@ -73,11 +73,22 @@ export const GregorianWithArabic = buildCalendar({
     date: '2021-10-13',
 })
 
-export const IslamicWithArabic = buildCalendar({
-    calendar: 'islamic-civil',
-    locale: 'ar-SD',
-    date: '2015-01-13',
-})
+export const IslamicWithArabic = () => {
+    return (
+        <div style={{ direction: 'rtl' }}>
+            <CalendarStoryWrapper
+                component={CalendarInput}
+                dir="rtl"
+                timeZone="Africa/Khartoum"
+                weekDayFormat="short"
+                date="1477-01-13"
+                locale="ar-SD"
+                calendar="islamic-civil"
+                clearable={true}
+            />
+        </div>
+    )
+}
 
 export const CalendarWithClearButton = ({
     calendar = 'gregory',

@@ -5,11 +5,14 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-02-22T14:17:49.045Z\n"
-"PO-Revision-Date: 2023-02-22T14:17:49.045Z\n"
+"POT-Creation-Date: 2023-02-28T09:43:48.470Z\n"
+"PO-Revision-Date: 2023-02-28T09:43:48.470Z\n"
 
 msgid "Go to previous year"
 msgstr "Go to previous year"
 
 msgid "Go to next year"
 msgstr "Go to next year"
+
+msgid "Clear"
+msgstr "Clear"
