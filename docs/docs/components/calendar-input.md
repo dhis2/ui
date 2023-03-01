@@ -117,7 +117,7 @@ Ethiopic calendar (with narrow day names, short day names and localised to Engli
 
 ## API Reference
 
-The component takes the same props as [the calendar](./calendar) component, as well as the props for [InputField](./inputfield) that are relevant to an input of type `text`.
+The component takes the same props as [the calendar](./calendar.md) component, as well as the props for [InputField](./inputfield.md) that are relevant to an input of type `text`.
 
 It adds one property `clearable` which is a boolean. If set to true, it adds a clear button to delete the selected date.
 
