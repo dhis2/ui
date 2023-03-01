@@ -10,7 +10,7 @@ import API from '../../../components/calendar/API.md'
 
 # Calendar Input
 
-This is an Input wrapper around [calendar](./calendar) to display an input that shows the calendar when in focus.
+This is an Input wrapper around [calendar](./calendar.md) to display an input that shows the calendar when in focus.
 
 ## Demo
 
