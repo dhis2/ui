@@ -48,6 +48,7 @@ export const CalendarTableCell = ({ day, cellSize, selectedDate }) => {
                 button:hover {
                     background-color: ${dayHoverBackgroundColor};
                     text-decoration: underline;
+                    cursor: pointer;
                 }
                 button:active {
                     background-color: ${colors.grey300};
