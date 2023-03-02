@@ -13,14 +13,8 @@ export const NavigationContainer = ({ languageDirection, pickerOptions }) => {
     const NextIcon =
         languageDirection === 'ltr' ? IconChevronRight16 : IconChevronLeft16
 
-    const {
-        currMonth,
-        currYear,
-        nextMonth,
-        nextYear,
-        prevMonth,
-        prevYear,
-    } = pickerOptions
+    const { currMonth, currYear, nextMonth, nextYear, prevMonth, prevYear } =
+        pickerOptions
 
     return (
         <>
@@ -139,7 +133,6 @@ export const NavigationContainer = ({ languageDirection, pickerOptions }) => {
                 }
 
                 .navigation-container {
-                    height: ${spacers.dp36};
                     gap: ${spacers.dp8};
                     padding: ${spacers.dp4};
                     display: flex;
