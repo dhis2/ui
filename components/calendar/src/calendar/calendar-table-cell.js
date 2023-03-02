@@ -56,7 +56,21 @@ export const CalendarTableCell = ({ day, cellSize, selectedDate }) => {
                     color: white;
                 }
                 button.isToday {
-                    text-decoration: underline;
+                    position: relative;
+                }
+                button.isToday::after {
+                    content: '';
+                    position: absolute;
+                    transform: translateX(-50%);
+                    height: 4px;
+                    width: 4px;
+                    bottom: 2px;
+                    left: 50%;
+                    border-radius: 100%;
+                    background-color: ${colors.teal600};
+                }
+                button.isSelected.isToday::after {
+                    background-color: ${colors.teal200};
                 }
                 button.otherMonth {
                     color: ${colors.grey600};
