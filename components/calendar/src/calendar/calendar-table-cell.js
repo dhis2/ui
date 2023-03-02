@@ -49,6 +49,9 @@ export const CalendarTableCell = ({ day, cellSize, selectedDate }) => {
                     background-color: ${dayHoverBackgroundColor};
                     text-decoration: underline;
                 }
+                button:active {
+                    background-color: ${colors.grey300};
+                }
                 button.isSelected,
                 button.otherMonth.isSelected {
                     background-color: ${selectedDayBackgroundColor};
