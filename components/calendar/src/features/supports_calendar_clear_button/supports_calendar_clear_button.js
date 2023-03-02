@@ -56,6 +56,9 @@ And('highlight today as the selected date', () => {
         .parent()
         .invoke('attr', 'data-test')
         .then((todayDate) => {
-            cy.get('.isSelected').should('have.text', todayDate.split('-')[2])
+            cy.get('.isSelected').should(
+                'have.text',
+                Number(todayDate.split('-')[2]).toString()
+            )
         })
 })
