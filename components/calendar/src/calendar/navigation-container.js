@@ -84,6 +84,7 @@ export const NavigationContainer = ({ languageDirection, pickerOptions }) => {
                     width: 100%;
                     align-items: center;
                     justify-content: center;
+                    cursor: default;
                 }
 
                 .month .curr,

@@ -25,6 +25,7 @@ export const CalendarTableDaysHeader = ({ weekDayLabels }) => {
                     background: none;
                     font-size: 0.85em;
                     border: none;
+                    cursor: default;
                 }
                 tr {
                     border: none;
