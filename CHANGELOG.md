@@ -1,3 +1,15 @@
+## [8.12.1](https://github.com/dhis2/ui/compare/v8.12.0...v8.12.1) (2023-03-02)
+
+
+### Bug Fixes
+
+* **calendar:** adjust cursor on day cell hover ([cf0af31](https://github.com/dhis2/ui/commit/cf0af3126812a377af9e9e290a2171c3a93f51a3))
+* **calendar:** adjust month and year button styling ([27f7da2](https://github.com/dhis2/ui/commit/27f7da20c3a8f2a28d1c345c61bcbc29d3149b2b))
+* **calendar:** adjust styling of today date ([0d38ce7](https://github.com/dhis2/ui/commit/0d38ce7cba8760165737a1c4fbcf7d3c2e6e9acf))
+* **calendar:** day cell active style ([292edac](https://github.com/dhis2/ui/commit/292edac6ffcff66c29ffa14ac766a9e3c493f202))
+* **calendar:** use default cursor on month and year ([74bdf40](https://github.com/dhis2/ui/commit/74bdf4070aae8b5ace4054b3f6f3369bc48d69c1))
+* **multi-select:** fix margin types for chips ([2586abb](https://github.com/dhis2/ui/commit/2586abb3e48bb566eb1adad20bfbfdc21b8cf740))
+
 # [8.12.0](https://github.com/dhis2/ui/compare/v8.11.2...v8.12.0) (2023-02-28)
 
 
