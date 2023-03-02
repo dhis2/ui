@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import i18n from '../locales/index.js'
 
-const chevronColor = colors.grey600
 const wrapperBorderColor = colors.grey300
 const headerBackground = colors.grey050
 
@@ -29,7 +28,7 @@ export const NavigationContainer = ({ languageDirection, pickerOptions }) => {
                             aria-label={`${i18n.t(`Go to ${prevMonth.label}`)}`}
                             type="button"
                         >
-                            <PreviousIcon color={chevronColor} />
+                            <PreviousIcon />
                         </button>
                     </div>
                     <div className="curr">
@@ -43,7 +42,7 @@ export const NavigationContainer = ({ languageDirection, pickerOptions }) => {
                             aria-label={`${i18n.t(`Go to ${nextMonth.label}`)}`}
                             type="button"
                         >
-                            <NextIcon color={chevronColor} />
+                            <NextIcon />
                         </button>
                     </div>
                 </div>
@@ -55,7 +54,7 @@ export const NavigationContainer = ({ languageDirection, pickerOptions }) => {
                             aria-label={`${i18n.t('Go to previous year')}`}
                             type="button"
                         >
-                            <PreviousIcon color={chevronColor} />
+                            <PreviousIcon />
                         </button>
                     </div>
                     <div className="curr">
@@ -68,7 +67,7 @@ export const NavigationContainer = ({ languageDirection, pickerOptions }) => {
                             aria-label={`${i18n.t('Go to next year')}`}
                             type="button"
                         >
-                            <NextIcon color={chevronColor} />
+                            <NextIcon />
                         </button>
                     </div>
                 </div>
@@ -84,6 +83,7 @@ export const NavigationContainer = ({ languageDirection, pickerOptions }) => {
                     width: 100%;
                     align-items: center;
                     justify-content: center;
+                    cursor: default;
                 }
 
                 .month .curr,
@@ -101,12 +101,28 @@ export const NavigationContainer = ({ languageDirection, pickerOptions }) => {
                 .prev button,
                 .next button {
                     padding: ${spacers.dp4};
+                    height: 24px;
+                    width: 24px;
+                    color: ${colors.grey600};
+                    border-radius: 3px;
+                }
+
+                .prev button svg,
+                .next button svg {
+                    width: 16px;
+                    height: 16px;
                 }
 
                 .prev:hover button,
                 .next:hover button {
                     background-color: ${colors.grey200};
+                    color: ${colors.grey900};
                     cursor: pointer;
+                }
+
+                .prev button:active,
+                .next button:active {
+                    background-color: ${colors.grey300};
                 }
 
                 .label {
@@ -117,7 +133,6 @@ export const NavigationContainer = ({ languageDirection, pickerOptions }) => {
                 }
 
                 .navigation-container {
-                    height: ${spacers.dp36};
                     gap: ${spacers.dp8};
                     padding: ${spacers.dp4};
                     display: flex;

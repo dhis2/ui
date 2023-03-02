@@ -1,4 +1,4 @@
-import { colors, spacers } from '@dhis2/ui-constants'
+import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -43,12 +43,15 @@ export const CalendarTableCell = ({ day, cellSize, selectedDate }) => {
                     border: 2px solid transparent;
                     border-radius: 3px;
                     background: none;
-                    margin: ${spacers.dp2};
                     color: ${colors.grey900};
                 }
                 button:hover {
                     background-color: ${dayHoverBackgroundColor};
                     text-decoration: underline;
+                    cursor: pointer;
+                }
+                button:active {
+                    background-color: ${colors.grey300};
                 }
                 button.isSelected,
                 button.otherMonth.isSelected {
@@ -56,7 +59,21 @@ export const CalendarTableCell = ({ day, cellSize, selectedDate }) => {
                     color: white;
                 }
                 button.isToday {
-                    text-decoration: underline;
+                    position: relative;
+                }
+                button.isToday::after {
+                    content: '';
+                    position: absolute;
+                    transform: translateX(-50%);
+                    height: 4px;
+                    width: 4px;
+                    bottom: 2px;
+                    left: 50%;
+                    border-radius: 100%;
+                    background-color: ${colors.teal600};
+                }
+                button.isSelected.isToday::after {
+                    background-color: ${colors.teal200};
                 }
                 button.otherMonth {
                     color: ${colors.grey600};
