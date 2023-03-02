@@ -1,4 +1,4 @@
-import { colors, spacers } from '@dhis2/ui-constants'
+import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -43,7 +43,6 @@ export const CalendarTableCell = ({ day, cellSize, selectedDate }) => {
                     border: 2px solid transparent;
                     border-radius: 3px;
                     background: none;
-                    margin: ${spacers.dp2};
                     color: ${colors.grey900};
                 }
                 button:hover {
