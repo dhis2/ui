@@ -1,4 +1,7 @@
-import { useOnlineStatus, useOnlineStatusMessage } from '@dhis2/app-runtime'
+import {
+    useDhis2ConnectionStatus,
+    useOnlineStatusMessage,
+} from '@dhis2/app-runtime'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -7,7 +10,7 @@ import styles from './online-status.styles.js'
 
 /** A badge to display online/offline status in the header bar */
 export function OnlineStatus({ dense }) {
-    const { online } = useOnlineStatus()
+    const { isConnected: online } = useDhis2ConnectionStatus()
     const { onlineStatusMessage } = useOnlineStatusMessage()
 
     const displayStatus = online ? i18n.t('Online') : i18n.t('Offline')

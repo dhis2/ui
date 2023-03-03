@@ -1,6 +1,6 @@
 import { Button } from '@dhis2-ui/button'
 import { SingleSelectField, SingleSelectOption } from '@dhis2-ui/select'
-import { useOnlineStatus } from '@dhis2/app-runtime'
+import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import { colors, spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useState, useContext } from 'react'
@@ -14,7 +14,7 @@ export const AccessAdd = ({ onAdd }) => {
     const isFetching = useContext(FetchingContext)
     const [entity, setEntity] = useState(null)
     const [access, setAccess] = useState('')
-    const { offline } = useOnlineStatus()
+    const { isDisconnected: offline } = useDhis2ConnectionStatus()
 
     const onSubmit = (e) => {
         e.preventDefault()

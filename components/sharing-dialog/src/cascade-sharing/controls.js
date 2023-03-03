@@ -4,7 +4,7 @@ import { NoticeBox } from '@dhis2-ui/notice-box'
 import {
     useDataQuery,
     useDataEngine,
-    useOnlineStatus,
+    useDhis2ConnectionStatus,
 } from '@dhis2/app-runtime'
 import { spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
@@ -24,7 +24,7 @@ const query = {
 }
 
 export const Controls = ({ id, entityAmount }) => {
-    const { offline } = useOnlineStatus()
+    const { isDisconnected: offline } = useDhis2ConnectionStatus()
     const queryResult = useDataQuery(query, {
         variables: { id },
     })

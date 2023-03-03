@@ -1,6 +1,6 @@
 import { InputField } from '@dhis2-ui/input'
 import { Menu, MenuItem } from '@dhis2-ui/menu'
-import { useOnlineStatus } from '@dhis2/app-runtime'
+import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import useSize from '@react-hook/size'
 import PropTypes from 'prop-types'
 import React, { useRef } from 'react'
@@ -21,7 +21,7 @@ export const Autocomplete = ({
 }) => {
     const wrapper = useRef(null)
     const [menuWidth] = useSize(wrapper)
-    const { offline } = useOnlineStatus()
+    const { isDisconnected: offline } = useDhis2ConnectionStatus()
 
     return (
         <>

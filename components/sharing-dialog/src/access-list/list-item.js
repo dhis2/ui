@@ -1,6 +1,6 @@
 import { Divider } from '@dhis2-ui/divider'
 import { SingleSelectField, SingleSelectOption } from '@dhis2-ui/select'
-import { useOnlineStatus } from '@dhis2/app-runtime'
+import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useContext } from 'react'
@@ -29,7 +29,7 @@ export const ListItem = ({
     onRemove,
 }) => {
     const isFetching = useContext(FetchingContext)
-    const { offline } = useOnlineStatus()
+    const { isDisconnected: offline } = useDhis2ConnectionStatus()
     const valueToLabel = {
         ACCESS_NONE: i18n.t('No access'),
         ACCESS_VIEW_ONLY: i18n.t('View only'),
