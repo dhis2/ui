@@ -13,6 +13,7 @@ Feature: The Calendar renders in the Ethiopic calendar system
         Given an Ethiopic calendar is rendered in "english"
         Then days should be rendered in "english"
         And months should be rendered in "english" with navigation
+        And the era should not be displayed in the year
 
     Scenario: Select a day in the Ethiopic calendar in English
         Given an Ethiopic calendar is rendered in English

@@ -44,7 +44,7 @@ export const EthiopicWithAmharic = buildCalendar({
 })
 
 export const EthiopicWithEnglish = buildCalendar({
-    calendar: 'ethiopic',
+    calendar: 'ethiopian', // using "ethiopian" rather than the correct "ethiopic" to immitate DHIS2 calendar types
     locale: 'en-ET',
     date: '2014-02-03', // 13 Oct 2021
 })
