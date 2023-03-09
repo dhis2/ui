@@ -22,20 +22,17 @@ export default {
     },
 }
 
-const buildCalendar =
-    ({ date, locale, calendar }) =>
-    () =>
-        (
-            <CalendarStoryWrapper
-                component={CalendarInput}
-                dir="ltr"
-                timeZone="Africa/Khartoum"
-                weekDayFormat="short"
-                date={date}
-                locale={locale}
-                calendar={calendar}
-            />
-        )
+const buildCalendar = ({ date, locale, calendar }) => () => (
+    <CalendarStoryWrapper
+        component={CalendarInput}
+        dir="ltr"
+        timeZone="Africa/Khartoum"
+        weekDayFormat="short"
+        date={date}
+        locale={locale}
+        calendar={calendar}
+    />
+)
 
 export const EthiopicWithAmharic = buildCalendar({
     calendar: 'ethiopic',
@@ -44,7 +41,7 @@ export const EthiopicWithAmharic = buildCalendar({
 })
 
 export const EthiopicWithEnglish = buildCalendar({
-    calendar: 'ethiopic',
+    calendar: 'ethiopian', // using "ethiopian" rather than the correct "ethiopic" to immitate DHIS2 calendar types
     locale: 'en-ET',
     date: '2014-02-03', // 13 Oct 2021
 })
