@@ -32,6 +32,13 @@ And('months should be rendered in "{word}" with navigation', (language) => {
     cy.contains(months.previous).should('be.visible')
 })
 
+And('the era should not be displayed in the year', () => {
+    cy.get('[data-test="calendar-current-year"]').should(
+        'not.contain.text',
+        'ERA1'
+    )
+})
+
 Then('we should be able to select a day', () => {
     const date = '2014-02-03'
     cy.get(`[data-test="${date}"]`).click()

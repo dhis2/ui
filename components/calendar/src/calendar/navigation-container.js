@@ -16,6 +16,10 @@ export const NavigationContainer = ({ languageDirection, pickerOptions }) => {
     const { currMonth, currYear, nextMonth, nextYear, prevMonth, prevYear } =
         pickerOptions
 
+    // Ethiopic years - when localised to English - add the era (i.e. 2015 ERA1), which is redundant in practice (like writing AD for gregorian years)
+    // there is an ongoing discussion in JS-Temporal polyfill whether the era should be included or not, but for our case, it's safer to remove it
+    const currentYearLabel = currYear.label?.toString().replace(/ERA1/, '')
+
     return (
         <>
             <div className="navigation-container">
@@ -58,7 +62,12 @@ export const NavigationContainer = ({ languageDirection, pickerOptions }) => {
                         </button>
                     </div>
                     <div className="curr">
-                        <span className="label">{currYear.label}</span>
+                        <span
+                            data-test="calendar-current-year"
+                            className="label"
+                        >
+                            {currentYearLabel}
+                        </span>
                     </div>
                     <div className="next">
                         <button
