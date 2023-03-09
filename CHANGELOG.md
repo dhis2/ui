@@ -1,3 +1,11 @@
+## [8.12.2](https://github.com/dhis2/ui/compare/v8.12.1...v8.12.2) (2023-03-09)
+
+
+### Bug Fixes
+
+* bump multi-calendar library to fix bug with Ethiopian calendar ([08e3ed5](https://github.com/dhis2/ui/commit/08e3ed5c8d5ffa76550355debb754ba618df55ee))
+* remove ERA1 from ethiopic dates ([be79660](https://github.com/dhis2/ui/commit/be79660b50a73e0f37f1460f1196645cbd1d2880))
+
 ## [8.12.1](https://github.com/dhis2/ui/compare/v8.12.0...v8.12.1) (2023-03-02)
 
 
