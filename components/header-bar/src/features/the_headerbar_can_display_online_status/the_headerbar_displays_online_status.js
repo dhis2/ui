@@ -8,46 +8,23 @@ import {
 } from 'cypress-cucumber-preprocessor/steps'
 import '../common/index.js'
 
-// https://www.cypress.io/blog/2020/11/12/testing-application-in-offline-network-mode/
+// see https://github.com/cypress-io/cypress/issues/17723#issuecomment-1457064322
 const goOffline = () => {
     cy.log('**go offline**')
-        .then(() => {
-            return Cypress.automation('remote:debugger:protocol', {
-                command: 'Network.enable',
-            })
-        })
-        .then(() => {
-            return Cypress.automation('remote:debugger:protocol', {
-                command: 'Network.emulateNetworkConditions',
-                params: {
-                    offline: true,
-                    latency: -1,
-                    downloadThroughput: -1,
-                    uploadThroughput: -1,
-                },
-            })
-        })
+        // stub every request with a StaticResponse to simulate network error
+        .then(() => cy.intercept('*', { forceNetworkError: true }))
+        .then(() =>
+            cy.window().then((win) => win.dispatchEvent(new Event('offline')))
+        )
 }
 const goOnline = () => {
     // disable offline mode, otherwise we will break our tests :)
     cy.log('**go online**')
-        .then(() => {
-            // https://chromedevtools.github.io/devtools-protocol/1-3/Network/#method-emulateNetworkConditions
-            return Cypress.automation('remote:debugger:protocol', {
-                command: 'Network.emulateNetworkConditions',
-                params: {
-                    offline: false,
-                    latency: -1,
-                    downloadThroughput: -1,
-                    uploadThroughput: -1,
-                },
-            })
-        })
-        .then(() => {
-            return Cypress.automation('remote:debugger:protocol', {
-                command: 'Network.disable',
-            })
-        })
+        // go back to normal network behavior
+        .then(() => cy.intercept('*'))
+        .then(() =>
+            cy.window().then((win) => win.dispatchEvent(new Event('online')))
+        )
 }
 
 Before(() => {
