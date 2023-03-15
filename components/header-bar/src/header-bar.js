@@ -39,12 +39,7 @@ export const HeaderBar = ({
     updateAvailable,
     onApplyAvailableUpdate,
 }) => {
-    const {
-        appName: configAppName,
-        baseUrl,
-        pwaEnabled,
-        headerbar: { showOnlineStatus } = {},
-    } = useConfig()
+    const { appName: configAppName, baseUrl, pwaEnabled } = useConfig()
     const { loading, error, data } = useDataQuery(query)
 
     const apps = useMemo(() => {
@@ -87,9 +82,7 @@ export const HeaderBar = ({
 
                             <div className="right-control-spacer" />
 
-                            {(pwaEnabled || showOnlineStatus) && (
-                                <OnlineStatus />
-                            )}
+                            {pwaEnabled && <OnlineStatus />}
 
                             <Notifications
                                 interpretations={
@@ -113,9 +106,7 @@ export const HeaderBar = ({
                     )}
                 </div>
 
-                {(pwaEnabled || showOnlineStatus) && !loading && !error && (
-                    <OnlineStatus dense />
-                )}
+                {pwaEnabled && !loading && !error && <OnlineStatus dense />}
 
                 <style jsx>{`
                     .main {

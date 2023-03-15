@@ -6,10 +6,6 @@ Feature: The HeaderBar can display online status
         Given the HeaderBar loads without an error
         Then the HeaderBar does not render online status
 
-    Scenario: The HeaderBar displays online status when configured to
-        Given the HeaderBar loads without error with showOnlineStatus configured
-        Then the HeaderBar renders online status
-
     Scenario: The HeaderBar displays online status when PWA is enabled
         Given the HeaderBar loads without error when PWA is enabled
         Then the HeaderBar renders online status

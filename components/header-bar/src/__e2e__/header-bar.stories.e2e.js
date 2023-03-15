@@ -2,7 +2,6 @@ import { HeaderBar as component } from '../index.js'
 
 export default { title: 'HeaderBarTesting', component }
 export { Default } from './stories/default.js'
-export { ShowOnlineStatus } from './stories/show-online-status.js'
 export { PWAEnabled } from './stories/pwa-enabled.js'
 export { OnlineStatusMessagingWithPwaEnabled } from './stories/online-status-message.js'
 export { MeWithAvatar } from './stories/me-with-avatar.js'
