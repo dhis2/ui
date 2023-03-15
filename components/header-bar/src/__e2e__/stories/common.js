@@ -396,7 +396,7 @@ export const providerConfig = {
         isMetadataVersionEnabled: true,
         metadataSyncEnabled: false,
     },
-    baseUrl: 'https://domain.tld/',
+    baseUrl: 'https://domain.tld',
     apiVersion: '',
 }
 
@@ -419,7 +419,7 @@ MockAlert.propTypes = {
         remove: PropTypes.func,
     }),
 }
-const MocklAlertStack = () => {
+const MockAlertStack = () => {
     const alerts = useAlerts()
 
     return (
@@ -431,14 +431,23 @@ const MocklAlertStack = () => {
     )
 }
 
-export const createDecoratorProvider = (config, offlineInterface) => {
+export const mockOfflineInterface = {
+    pwaEnabled: true,
+    startRecording: async () => undefined,
+    getCachedSections: async () => [],
+    removeSection: async () => false,
+    subscribeToDhis2ConnectionStatus: () => () => undefined,
+    latestIsConnected: true,
+}
+
+export const createDecoratorProvider = (
+    config = providerConfig,
+    offlineInterface = mockOfflineInterface
+) => {
     return (fn) => (
-        <Provider
-            config={config || providerConfig}
-            offlineInterface={offlineInterface}
-        >
+        <Provider config={config} offlineInterface={offlineInterface}>
             {fn()}
-            <MocklAlertStack />
+            <MockAlertStack />
         </Provider>
     )
 }
