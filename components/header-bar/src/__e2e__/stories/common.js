@@ -396,7 +396,8 @@ export const providerConfig = {
         isMetadataVersionEnabled: true,
         metadataSyncEnabled: false,
     },
-    baseUrl: 'https://domain.tld',
+    // same as in ../../features/common/index.js
+    baseUrl: 'https://domain.tld/',
     apiVersion: '',
 }
 
