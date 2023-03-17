@@ -2,6 +2,7 @@ import { CustomDataProvider } from '@dhis2/app-runtime'
 import React from 'react'
 import {
     createDecoratorProvider,
+    mockOfflineInterface,
     providerConfig,
 } from './__e2e__/stories/common.js'
 import { OnlineStatusMessageUpdate } from './__e2e__/stories/online-status-message.js'
@@ -259,10 +260,8 @@ WithOnlineStatusMessage.decorators = [
             pwaEnabled: true,
         },
         {
-            pwaEnabled: true,
-            startRecording: async () => undefined,
-            getCachedSections: async () => [],
-            removeSection: async () => false,
+            ...mockOfflineInterface,
+            latestIsConnected: false,
         }
     ),
 ]

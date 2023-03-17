@@ -6,10 +6,6 @@ Feature: The HeaderBar can display online status
         Given the HeaderBar loads without an error
         Then the HeaderBar does not render online status
 
-    Scenario: The HeaderBar displays online status when configured to
-        Given the HeaderBar loads without error with showOnlineStatus configured
-        Then the HeaderBar renders online status
-
     Scenario: The HeaderBar displays online status when PWA is enabled
         Given the HeaderBar loads without error when PWA is enabled
         Then the HeaderBar renders online status
@@ -26,9 +22,8 @@ Feature: The HeaderBar can display online status
         And the viewport is narrower than 480px
         Then the HeaderBar displays only the mobile status bar
 
-    # the following test has been know to fail when run locally and appears to be a know cypress issue
-    # https://github.com/cypress-io/cypress/issues/17723
-    # at time of writing the problem doesn't appear to happen on CI
+    # This is not a complete test of the connection status functionality --
+    # see the app-runtime for detailed tests
     Scenario: The HeaderBar displays an offline status when offline
         Given the HeaderBar loads without error when PWA is enabled
         And the browser goes offline

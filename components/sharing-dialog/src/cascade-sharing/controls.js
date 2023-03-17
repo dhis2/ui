@@ -4,7 +4,7 @@ import { NoticeBox } from '@dhis2-ui/notice-box'
 import {
     useDataQuery,
     useDataEngine,
-    useOnlineStatus,
+    useDhis2ConnectionStatus,
 } from '@dhis2/app-runtime'
 import { spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
@@ -24,14 +24,14 @@ const query = {
 }
 
 export const Controls = ({ id, entityAmount }) => {
-    const { offline } = useOnlineStatus()
-    const queryResult = useDataQuery(query, {
+    const { isDisconnected: offline } = useDhis2ConnectionStatus()
+    const { data, refetch } = useDataQuery(query, {
         variables: { id },
     })
 
     useEffect(() => {
-        queryResult.refetch({ id })
-    }, [id])
+        refetch({ id })
+    }, [refetch, id])
 
     /**
      * The useDataMutation hook does not allow for a variable id,
@@ -76,15 +76,13 @@ export const Controls = ({ id, entityAmount }) => {
                     <NoticeBox error>{error}</NoticeBox>
                 </Box>
             )}
-            {queryResult.data && mutationResult && (
+            {data && mutationResult && (
                 <Box marginTop={spacers.dp12}>
                     <ResultInfo
                         hasErrors={hasErrors}
                         updatedItems={updatedItems}
-                        dashboardItems={
-                            queryResult.data.dashboard.dashboardItems
-                        }
-                        itemsCount={queryResult.data.dashboard.itemsCount}
+                        dashboardItems={data.dashboard.dashboardItems}
+                        itemsCount={data.dashboard.itemsCount}
                     />
                 </Box>
             )}
