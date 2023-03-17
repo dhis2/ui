@@ -25,13 +25,13 @@ const query = {
 
 export const Controls = ({ id, entityAmount }) => {
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
-    const queryResult = useDataQuery(query, {
+    const { data, refetch } = useDataQuery(query, {
         variables: { id },
     })
 
     useEffect(() => {
-        queryResult.refetch({ id })
-    }, [id])
+        refetch({ id })
+    }, [refetch, id])
 
     /**
      * The useDataMutation hook does not allow for a variable id,
@@ -76,15 +76,13 @@ export const Controls = ({ id, entityAmount }) => {
                     <NoticeBox error>{error}</NoticeBox>
                 </Box>
             )}
-            {queryResult.data && mutationResult && (
+            {data && mutationResult && (
                 <Box marginTop={spacers.dp12}>
                     <ResultInfo
                         hasErrors={hasErrors}
                         updatedItems={updatedItems}
-                        dashboardItems={
-                            queryResult.data.dashboard.dashboardItems
-                        }
-                        itemsCount={queryResult.data.dashboard.itemsCount}
+                        dashboardItems={data.dashboard.dashboardItems}
+                        itemsCount={data.dashboard.itemsCount}
                     />
                 </Box>
             )}
