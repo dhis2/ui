@@ -1,3 +1,10 @@
+## [8.12.3](https://github.com/dhis2/ui/compare/v8.12.2...v8.12.3) (2023-03-17)
+
+
+### Bug Fixes
+
+* use connection status in headerbar [LIBS-315] ([#1246](https://github.com/dhis2/ui/issues/1246)) ([d5e4db7](https://github.com/dhis2/ui/commit/d5e4db7112485021353e3f0423bca1c0531be5f8))
+
 ## [8.12.2](https://github.com/dhis2/ui/compare/v8.12.1...v8.12.2) (2023-03-09)
 
 
