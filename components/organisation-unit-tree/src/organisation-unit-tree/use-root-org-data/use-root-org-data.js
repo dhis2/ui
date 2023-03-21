@@ -26,7 +26,7 @@ export const createRootQuery = (ids) =>
  * @returns {Object}
  */
 export const useRootOrgData = (ids, { isUserDataViewFallback } = {}) => {
-    const query = createRootQuery(ids)
+    const query = useMemo(() => createRootQuery(ids), [ids])
     const variables = { isUserDataViewFallback }
     const rootOrgUnits = useDataQuery(query, {
         variables,
