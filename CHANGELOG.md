@@ -1,3 +1,10 @@
+## [8.12.4](https://github.com/dhis2/ui/compare/v8.12.3...v8.12.4) (2023-03-21)
+
+
+### Bug Fixes
+
+* **organisation-unit-tree:** silence static query warning ([#1249](https://github.com/dhis2/ui/issues/1249)) ([22343b3](https://github.com/dhis2/ui/commit/22343b3d1b908567010c014065bcfae20f0ab018))
+
 ## [8.12.3](https://github.com/dhis2/ui/compare/v8.12.2...v8.12.3) (2023-03-17)
 
 
