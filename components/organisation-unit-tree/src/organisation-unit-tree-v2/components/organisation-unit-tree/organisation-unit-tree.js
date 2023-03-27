@@ -5,7 +5,6 @@ import {
     useOrganisationUnitTree,
     useOrganisationUnitTreeComponents,
 } from '../../hooks/index.js'
-import { OrganisationUnitTreeProvider } from '../organisation-unit-tree-provider.js'
 
 const OrganisationUnitTree = ({
     disabledIds,
@@ -59,12 +58,6 @@ const OrganisationUnitTree = ({
     )
 }
 
-const ManagedOrganisationUnitTree = (props) => (
-    <OrganisationUnitTreeProvider>
-        <OrganisationUnitTree {...props} />
-    </OrganisationUnitTreeProvider>
-)
-
 OrganisationUnitTree.propTypes = {
     rootIds: PropTypes.arrayOf(orgUnitIdPropType).isRequired,
     onChange: PropTypes.func.isRequired,
@@ -76,4 +69,4 @@ OrganisationUnitTree.propTypes = {
     singleSelection: PropTypes.bool,
 }
 
-export { ManagedOrganisationUnitTree as OrganisationUnitTree }
+export { OrganisationUnitTree }
