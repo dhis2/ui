@@ -27,7 +27,7 @@ export class OrganisationUnitNode {
             error: null,
         }
 
-        this.loadAllChildren = this.loadAllChildren.bind(this)
+        this.loadAllSiblings = this.loadAllSiblings.bind(this)
         this.toggleOpen = this.toggleOpen.bind(this)
         this.toggleSelected = this.toggleSelected.bind(this)
     }
@@ -205,31 +205,36 @@ export class OrganisationUnitNode {
     }
 
     getChildrenState() {
-        const visibleChildrenIds = this.getVisibleChildrenIds()
-        const hasHiddenChildren =
-            visibleChildrenIds.length < this.getChildrenCount()
-        const hasMoreChildren =
-            this.isOpen() &&
-            !this.isLeafNode() &&
-            (!this.hasAllChildren() || hasHiddenChildren) &&
-            !this.isLoading()
+        const visibleChildrenIds = []
+        let hasChildWithFilterMatch = false
+        const childrenCount = this.getChildrenCount()
+        const hiddenSiblingsCount = childrenCount - visibleChildrenIds.length
 
+        this.forEachChild((child) => {
+            if (child.isVisible()) {
+                visibleChildrenIds.push(child.getId())
+            }
+            if (child.isFilterMatch()) {
+                hasChildWithFilterMatch = true
+            }
+        })
+
+        const shouldShowLoadAllSiblings =
+            this.isOpen() &&
+            !this.isLoading() &&
+            !this.isLeafNode() &&
+            this.manager.isInFilterMode() &&
+            hasChildWithFilterMatch &&
+            hiddenSiblingsCount > 0
         return {
             visibleChildrenIds,
             error: this._state.error,
-            hasMoreChildren,
-            loadAllChildren: hasMoreChildren ? this.loadAllChildren : undefined,
+            shouldShowLoadAllSiblings,
+            hiddenSiblingsCount,
+            loadAllSiblings: shouldShowLoadAllSiblings
+                ? this.loadAllSiblings
+                : undefined,
         }
-    }
-
-    getVisibleChildrenIds() {
-        const ids = []
-        this.forEachChild((child) => {
-            if (child.isVisible()) {
-                ids.push(child.getId())
-            }
-        })
-        return ids
     }
 
     isDisabled() {
@@ -281,8 +286,8 @@ export class OrganisationUnitNode {
         }
     }
 
-    loadAllChildren() {
-        this.manager.loadAllChildren(this.getId())
+    loadAllSiblings() {
+        this.manager.loadAllSiblings(this.getId())
     }
 
     toggleOpen() {

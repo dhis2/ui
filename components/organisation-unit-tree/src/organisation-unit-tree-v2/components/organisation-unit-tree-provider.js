@@ -6,7 +6,7 @@ import {
     useOrganisationUnitTreeManager,
 } from '../hooks/use-organisation-unit-tree-manager.js'
 import { createOrganisationUnitTreeManager } from '../manager/index.js'
-import { OrganisationUnitNodeChildren } from './organisation-unit-node-children.js'
+import { OrganisationUnitNodeChildren } from './organisation-unit-node-children/index.js'
 import {
     OrganisationUnitNodeIcon,
     OrganisationUnitNodeLabel,

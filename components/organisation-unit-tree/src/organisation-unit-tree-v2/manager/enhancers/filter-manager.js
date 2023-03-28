@@ -33,7 +33,7 @@ export function filterManager(manager) {
         state.filteredString = filteredString
     }
 
-    async function loadAllChildren(id) {
+    async function loadAllSiblings(id) {
         getParentsWithAllChildrenLoadedIds().add(id)
         await manager.loadNodeChildren(id)
     }
@@ -110,8 +110,10 @@ export function filterManager(manager) {
         const nextPaths = new EnhancedPrimitiveSet(filteredPaths)
         const nextIds = currentIds.clone()
         const nextParentsMap = currentParentsMap.clone()
-        const { additions: addedPaths, deletions: deletedPaths } =
-            currentPaths.diff(nextPaths)
+        const {
+            additions: addedPaths,
+            deletions: deletedPaths,
+        } = currentPaths.diff(nextPaths)
         const idsToFetch = new EnhancedPrimitiveSet()
 
         currentPaths.reset(nextPaths)
@@ -302,7 +304,7 @@ export function filterManager(manager) {
         isNodeFilterMatch,
         isNodeInFilteredAncestors,
         isParentWithAllChildrenLoaded,
-        loadAllChildren,
+        loadAllSiblings,
         retreiveFilteredOrganisationUnits,
         setFilteredString,
         setFilterProperties,
