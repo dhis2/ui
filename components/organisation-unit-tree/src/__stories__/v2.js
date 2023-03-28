@@ -7,6 +7,19 @@ import {
     OrganisationUnitNodeText,
 } from '../organisation-unit-tree-v2/index.js'
 
+const DataProviderWithDynamicBaseUrl = ({ children }) => {
+    const baseUrl =
+        window.location.hostname === 'localhost'
+            ? 'http://localhost:8080'
+            : 'https://debug.dhis2.org/dev'
+
+    return (
+        <DataProvider baseUrl={baseUrl} apiVersion="40">
+            {children}
+        </DataProvider>
+    )
+}
+
 const props = {
     rootIds: ['ImspTQPwCqd'], // Sierra Leone
     // rootIds: ['O6uvpzGd5pu', 'lc3eMKXaEfw'], // Bo, Bonthe
@@ -30,9 +43,9 @@ export const TextHighlighting = () => (
 
 export const V2 = () => {
     return (
-        <DataProvider baseUrl="http://localhost:8080" apiVersion="40">
+        <DataProviderWithDynamicBaseUrl>
             <OrganisationUnitTreeV2 {...props} />
-        </DataProvider>
+        </DataProviderWithDynamicBaseUrl>
     )
 }
 
@@ -105,7 +118,7 @@ const TreeFilters = () => {
 export const V2WithLocalTreeFilter = () => {
     const [selectedIds, setSelectedIds] = useState(['iUauWFeH8Qp'])
     return (
-        <DataProvider baseUrl="http://localhost:8080">
+        <DataProviderWithDynamicBaseUrl>
             <OrganisationUnitTreeProvider>
                 <TreeFilters />
                 <OrganisationUnitTreeV2
@@ -116,6 +129,6 @@ export const V2WithLocalTreeFilter = () => {
                     }}
                 />
             </OrganisationUnitTreeProvider>
-        </DataProvider>
+        </DataProviderWithDynamicBaseUrl>
     )
 }
