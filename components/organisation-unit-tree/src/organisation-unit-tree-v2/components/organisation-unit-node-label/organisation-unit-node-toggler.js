@@ -59,28 +59,35 @@ const OrganisationUnitNodeToggler = ({
     isOpen,
     isLoading,
     toggleOpen,
-}) => {
-    return (
-        <div onClick={toggleOpen}>
-            <ToggleIcon
-                isLeafNode={isLeafNode}
-                isOpen={isOpen}
-                isLoading={isLoading}
-            />
-            <style jsx>{`
-                div {
-                    background-color: transparent;
-                    display: flex;
-                    width: 24px;
-                    height: 24px;
-                    align-items: center;
-                    justify-content: center;
-                    position: relative;
-                }
-            `}</style>
-        </div>
-    )
-}
+}) => (
+    <div
+        onClick={toggleOpen}
+        className={cx('toggler', {
+            'with-hover-effect': !isLeafNode && !isLoading,
+        })}
+    >
+        <ToggleIcon
+            isLeafNode={isLeafNode}
+            isOpen={isOpen}
+            isLoading={isLoading}
+        />
+        <style jsx>{`
+            div {
+                background-color: transparent;
+                display: flex;
+                width: 24px;
+                height: 24px;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+            }
+            div.with-hover-effect:hover {
+                cursor: pointer;
+                background-color: ${colors.grey100};
+            }
+        `}</style>
+    </div>
+)
 
 OrganisationUnitNodeToggler.propTypes = {
     isLeafNode: PropTypes.bool.isRequired,

@@ -1,5 +1,6 @@
 import i18n from '@dhis2/d2-i18n'
 import { colors } from '@dhis2/ui-constants'
+import { IconErrorFilled16 } from '@dhis2/ui-icons'
 import React from 'react'
 import { orgUnitIdPropType } from '../../../prop-types.js'
 import {
@@ -22,40 +23,39 @@ export const OrganisationUnitNodeChildren = ({ id }) => {
         return null
     }
 
+    if (error || 1 === 1) {
+        return (
+            <li>
+                <IconErrorFilled16 />
+                {i18n.t('Could not load children')}
+                <style jsx>{`
+                    li {
+                        display: inline-flex;
+                        align-items: flex-end;
+                        justify-content: flex-start;
+                        list-style: none;
+                        color: ${colors.red700};
+                        font-size: 14px;
+                        line-height: 16px;
+                        padding-inline-start: 2px;
+                    }
+                `}</style>
+            </li>
+        )
+    }
+
     return (
-        <ul>
-            {error && (
-                <li>
-                    <span className="error">
-                        {i18n.t('Could not load children')}
-                    </span>
-                </li>
-            )}
-            {!error && shouldShowLoadAllSiblings && (
+        <>
+            {shouldShowLoadAllSiblings && (
                 <OrganisationUnitNodeSiblingsLoader
                     loadAllSiblings={loadAllSiblings}
                     hiddenSiblingsCount={hiddenSiblingsCount}
                 />
             )}
-            {!error &&
-                visibleChildrenIds.map((id) => (
-                    <OrganisationUnitNode key={id} id={id} />
-                ))}
-            <style jsx>{`
-                ul {
-                    margin: 0 0 0 11px;
-                    padding: 0 0 0 12px;
-                    background-image: linear-gradient(
-                            ${colors.grey400},
-                            ${colors.grey400}
-                        ),
-                        linear-gradient(transparent, transparent);
-                    background-repeat: no-repeat;
-                    background-size: 1px calc(100% - 12px), 12px 100%;
-                    background-position: left top, 1px 0;
-                }
-            `}</style>
-        </ul>
+            {visibleChildrenIds.map((id) => (
+                <OrganisationUnitNode key={id} id={id} />
+            ))}
+        </>
     )
 }
 
