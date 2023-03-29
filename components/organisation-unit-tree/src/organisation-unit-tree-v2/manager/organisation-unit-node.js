@@ -234,6 +234,9 @@ export class OrganisationUnitNode {
             visibleChildrenIds,
             error: this._state.error,
             shouldShowAllSiblingsToggler,
+            levelDisplayName: this.manager.getOrganisationUnitLevelDisplayName(
+                this.getLevel() + 1
+            ),
             hiddenSiblingsCount,
             toggleAllSiblings: shouldShowAllSiblingsToggler
                 ? this.toggleHiddenChildren

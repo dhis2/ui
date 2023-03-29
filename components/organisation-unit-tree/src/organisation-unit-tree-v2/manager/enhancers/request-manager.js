@@ -85,17 +85,11 @@ export function requestManager(_, dataEngine) {
             filledOrganisationUnitLevels: {
                 resource: '/filledOrganisationUnitLevels',
                 params: {
-                    fields: ['level', 'offlineLevels'],
+                    fields: ['level', 'displayName', 'offlineLevels'],
                 },
             },
         })
-        return filledOrganisationUnitLevels.map(
-            ({ id, level, offlineLevels }) => ({
-                id,
-                level,
-                offlineLevels,
-            })
-        )
+        return filledOrganisationUnitLevels
     }
 
     async function fetchConfigOfflineOrganisationUnitLevel() {
@@ -117,14 +111,18 @@ export function requestManager(_, dataEngine) {
             fetchOrganisationUnitLevels(),
             fetchConfigOfflineOrganisationUnitLevel(),
         ])
-        return rootUnits.map((rootUnit) => ({
-            ...rootUnit,
-            offlineLevels: computeOfflineLevels(
-                rootUnit,
-                filledOrganisationUnitLevels,
-                configOfflineOrgUnitLevel
-            ),
-        }))
+
+        return {
+            rootUnits: rootUnits.map((rootUnit) => ({
+                ...rootUnit,
+                offlineLevels: computeOfflineLevels(
+                    rootUnit,
+                    filledOrganisationUnitLevels,
+                    configOfflineOrgUnitLevel
+                ),
+            })),
+            organisationUnitLevels: filledOrganisationUnitLevels,
+        }
     }
 
     async function fetchOfflineUnits(rootUnits) {

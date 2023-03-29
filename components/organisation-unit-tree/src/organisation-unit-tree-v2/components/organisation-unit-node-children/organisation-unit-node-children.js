@@ -14,8 +14,9 @@ export const OrganisationUnitNodeChildren = ({ id }) => {
     const {
         error,
         hiddenSiblingsCount,
-        toggleAllSiblings,
+        levelDisplayName,
         shouldShowAllSiblingsToggler,
+        toggleAllSiblings,
         visibleChildrenIds,
     } = useOrganisationUnitNodeChildren(id)
 
@@ -50,6 +51,7 @@ export const OrganisationUnitNodeChildren = ({ id }) => {
                 <OrganisationUnitNodeSiblingsToggler
                     toggleAllSiblings={toggleAllSiblings}
                     hiddenSiblingsCount={hiddenSiblingsCount}
+                    levelDisplayName={levelDisplayName}
                 />
             )}
             {visibleChildrenIds.map((id) => (

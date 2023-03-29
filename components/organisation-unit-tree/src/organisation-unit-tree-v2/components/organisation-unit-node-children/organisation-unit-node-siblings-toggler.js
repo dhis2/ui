@@ -4,18 +4,22 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 export const OrganisationUnitNodeSiblingsToggler = ({
-    toggleAllSiblings,
     hiddenSiblingsCount,
+    levelDisplayName,
+    toggleAllSiblings,
 }) => (
     <li>
         {hiddenSiblingsCount === 0 ? (
             <button onClick={toggleAllSiblings}>
-                {i18n.t('Hide units not matching filter')}
+                {i18n.t('Hide {{level}} units not matching filter', {
+                    level: levelDisplayName.toLowerCase(),
+                })}
             </button>
         ) : (
             <>
-                {i18n.t('{{count}} units hidden by filter.', {
+                {i18n.t('{{count}} {{level}} units hidden by filter.', {
                     count: hiddenSiblingsCount,
+                    level: levelDisplayName.toLowerCase(),
                 })}{' '}
                 <button onClick={toggleAllSiblings}>{i18n.t('Show')}</button>
             </>
@@ -42,5 +46,6 @@ export const OrganisationUnitNodeSiblingsToggler = ({
 
 OrganisationUnitNodeSiblingsToggler.propTypes = {
     hiddenSiblingsCount: PropTypes.number.isRequired,
+    levelDisplayName: PropTypes.string.isRequired,
     toggleAllSiblings: PropTypes.func.isRequired,
 }
