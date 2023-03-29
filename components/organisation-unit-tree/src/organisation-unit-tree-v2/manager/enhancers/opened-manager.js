@@ -100,6 +100,9 @@ export function openedManager(manager) {
 
         if (isNodeInOpenedIds(id)) {
             await loadNodeChildren(id)
+        } else {
+            node.refreshLabel()
+            node.refreshChildren()
         }
     }
 
