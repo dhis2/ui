@@ -63,7 +63,7 @@ const OrganisationUnitNodeToggler = ({
     <div
         onClick={toggleOpen}
         className={cx('toggler', {
-            'with-hover-effect': !isLeafNode && !isLoading,
+            withHoverEffect: !isLeafNode && !isLoading,
         })}
     >
         <ToggleIcon
@@ -81,7 +81,7 @@ const OrganisationUnitNodeToggler = ({
                 justify-content: center;
                 position: relative;
             }
-            div.with-hover-effect:hover {
+            div.withHoverEffect:hover {
                 cursor: pointer;
                 background-color: ${colors.grey100};
             }

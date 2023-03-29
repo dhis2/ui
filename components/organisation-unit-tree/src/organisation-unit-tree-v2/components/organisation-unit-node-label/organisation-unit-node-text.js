@@ -10,12 +10,30 @@ const OrganisationUnitNodeText = ({
     filteredString,
     toggleOpen,
 }) => {
+    const lowerCasedDisplayName = displayName.toLowerCase()
+    const lowerCasedFilteredString = filteredString.toLowerCase()
+    const hasSearchHighlight =
+        isFilterMatch &&
+        lowerCasedFilteredString &&
+        lowerCasedDisplayName.includes(lowerCasedFilteredString)
+    const content = !hasSearchHighlight
+        ? displayName
+        : getMatchingSegments(
+              displayName,
+              lowerCasedDisplayName,
+              lowerCasedFilteredString
+          )
+
     return (
         <div
             onClick={toggleOpen}
-            className={cx('container', { isFilterMatch, isDisabled })}
+            className={cx('container', {
+                isGlobalMatch: isFilterMatch && !hasSearchHighlight,
+                isFilterMatch,
+                isDisabled,
+            })}
         >
-            {getMatchingSegments(displayName, filteredString, isFilterMatch)}
+            {content}
             <style jsx>{`
                 div.container {
                     display: inline-flex;
@@ -26,7 +44,7 @@ const OrganisationUnitNodeText = ({
                     line-height: 16px;
                     color: ${colors.grey900};
                 }
-                div.container.isFilterMatch {
+                div.container.isGlobalMatch {
                     background-color: ${colors.yellow050};
                     border-radius: 3px;
                 }
@@ -51,18 +69,11 @@ OrganisationUnitNodeText.propTypes = {
     toggleOpen: PropTypes.func,
 }
 
-function getMatchingSegments(fullString, filteredString, isFilterMatch) {
-    const lowerCasedFullString = fullString.toLowerCase()
-    const lowerCasedSubstring = filteredString.toLowerCase()
-    const hasSearchHighlights =
-        isFilterMatch &&
-        lowerCasedSubstring &&
-        lowerCasedFullString.includes(lowerCasedSubstring)
-
-    if (!hasSearchHighlights) {
-        return fullString
-    }
-
+function getMatchingSegments(
+    fullString,
+    lowerCasedFullString,
+    lowerCasedSubstring
+) {
     const segments = []
     let cursor = 0
     let matchIndex = lowerCasedFullString.indexOf(lowerCasedSubstring)
