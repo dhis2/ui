@@ -226,6 +226,7 @@ export class OrganisationUnitNode {
             this.manager.isInFilterMode() &&
             hasChildWithFilterMatch &&
             hiddenSiblingsCount > 0
+
         return {
             visibleChildrenIds,
             error: this._state.error,
