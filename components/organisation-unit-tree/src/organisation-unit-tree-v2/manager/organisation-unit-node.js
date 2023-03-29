@@ -27,7 +27,7 @@ export class OrganisationUnitNode {
             error: null,
         }
 
-        this.loadAllSiblings = this.loadAllSiblings.bind(this)
+        this.toggleHiddenChildren = this.toggleHiddenChildren.bind(this)
         this.toggleOpen = this.toggleOpen.bind(this)
         this.toggleSelected = this.toggleSelected.bind(this)
     }
@@ -207,8 +207,6 @@ export class OrganisationUnitNode {
     getChildrenState() {
         const visibleChildrenIds = []
         let hasChildWithFilterMatch = false
-        const childrenCount = this.getChildrenCount()
-        const hiddenSiblingsCount = childrenCount - visibleChildrenIds.length
 
         this.forEachChild((child) => {
             if (child.isVisible()) {
@@ -219,21 +217,26 @@ export class OrganisationUnitNode {
             }
         })
 
-        const shouldShowLoadAllSiblings =
+        const hiddenSiblingsCount =
+            this.getChildrenCount() - visibleChildrenIds.length
+        const isShowingHiddenSiblings = this.manager.isParentWithAllChildrenLoaded(
+            this.getId()
+        )
+        const shouldShowAllSiblingsToggler =
             this.isOpen() &&
             !this.isLoading() &&
             !this.isLeafNode() &&
             this.manager.isInFilterMode() &&
             hasChildWithFilterMatch &&
-            hiddenSiblingsCount > 0
+            (hiddenSiblingsCount > 0 || isShowingHiddenSiblings)
 
         return {
             visibleChildrenIds,
             error: this._state.error,
-            shouldShowLoadAllSiblings,
+            shouldShowAllSiblingsToggler,
             hiddenSiblingsCount,
-            loadAllSiblings: shouldShowLoadAllSiblings
-                ? this.loadAllSiblings
+            toggleAllSiblings: shouldShowAllSiblingsToggler
+                ? this.toggleHiddenChildren
                 : undefined,
         }
     }
@@ -287,8 +290,8 @@ export class OrganisationUnitNode {
         }
     }
 
-    loadAllSiblings() {
-        this.manager.loadAllSiblings(this.getId())
+    toggleHiddenChildren() {
+        this.manager.toggleHiddenChildren(this.getId())
     }
 
     toggleOpen() {

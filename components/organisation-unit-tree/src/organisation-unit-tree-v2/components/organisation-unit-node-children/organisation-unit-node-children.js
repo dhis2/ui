@@ -7,15 +7,15 @@ import {
     useOrganisationUnitNodeChildren,
     useOrganisationUnitTreeComponents,
 } from '../../hooks/index.js'
-import { OrganisationUnitNodeSiblingsLoader } from './organisation-unit-node-siblings-loader.js'
+import { OrganisationUnitNodeSiblingsToggler } from './organisation-unit-node-siblings-toggler.js'
 
 export const OrganisationUnitNodeChildren = ({ id }) => {
     const { OrganisationUnitNode } = useOrganisationUnitTreeComponents()
     const {
         error,
         hiddenSiblingsCount,
-        loadAllSiblings,
-        shouldShowLoadAllSiblings,
+        toggleAllSiblings,
+        shouldShowAllSiblingsToggler,
         visibleChildrenIds,
     } = useOrganisationUnitNodeChildren(id)
 
@@ -46,9 +46,9 @@ export const OrganisationUnitNodeChildren = ({ id }) => {
 
     return (
         <>
-            {shouldShowLoadAllSiblings && (
-                <OrganisationUnitNodeSiblingsLoader
-                    loadAllSiblings={loadAllSiblings}
+            {shouldShowAllSiblingsToggler && (
+                <OrganisationUnitNodeSiblingsToggler
+                    toggleAllSiblings={toggleAllSiblings}
                     hiddenSiblingsCount={hiddenSiblingsCount}
                 />
             )}

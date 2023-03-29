@@ -33,9 +33,16 @@ export function filterManager(manager) {
         state.filteredString = filteredString
     }
 
-    async function loadAllSiblings(id) {
-        getParentsWithAllChildrenLoadedIds().add(id)
-        await manager.loadNodeChildren(id)
+    async function toggleHiddenChildren(id) {
+        const parentsWithAllChildrenLoadedIds = getParentsWithAllChildrenLoadedIds()
+
+        if (parentsWithAllChildrenLoadedIds.has(id)) {
+            parentsWithAllChildrenLoadedIds.delete(id)
+            manager.getOrganisationUnitNodeById(id).refreshChildren()
+        } else {
+            parentsWithAllChildrenLoadedIds.add(id)
+            await manager.loadNodeChildren(id)
+        }
     }
 
     function clearParentsWithAllChildrenLoadedIds() {
@@ -304,7 +311,7 @@ export function filterManager(manager) {
         isNodeFilterMatch,
         isNodeInFilteredAncestors,
         isParentWithAllChildrenLoaded,
-        loadAllSiblings,
+        toggleHiddenChildren,
         retreiveFilteredOrganisationUnits,
         setFilteredString,
         setFilterProperties,

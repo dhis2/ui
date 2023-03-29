@@ -3,15 +3,23 @@ import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export const OrganisationUnitNodeSiblingsLoader = ({
-    loadAllSiblings,
+export const OrganisationUnitNodeSiblingsToggler = ({
+    toggleAllSiblings,
     hiddenSiblingsCount,
 }) => (
     <li>
-        {i18n.t('{{count}} units hidden by filter.', {
-            count: hiddenSiblingsCount,
-        })}{' '}
-        <button onClick={loadAllSiblings}>{i18n.t('Show')}</button>
+        {hiddenSiblingsCount === 0 ? (
+            <button onClick={toggleAllSiblings}>
+                {i18n.t('Hide units not matching filter')}
+            </button>
+        ) : (
+            <>
+                {i18n.t('{{count}} units hidden by filter.', {
+                    count: hiddenSiblingsCount,
+                })}{' '}
+                <button onClick={toggleAllSiblings}>{i18n.t('Show')}</button>
+            </>
+        )}
         <style jsx>{`
             li {
                 list-style: none;
@@ -32,7 +40,7 @@ export const OrganisationUnitNodeSiblingsLoader = ({
     </li>
 )
 
-OrganisationUnitNodeSiblingsLoader.propTypes = {
+OrganisationUnitNodeSiblingsToggler.propTypes = {
     hiddenSiblingsCount: PropTypes.number.isRequired,
-    loadAllSiblings: PropTypes.func.isRequired,
+    toggleAllSiblings: PropTypes.func.isRequired,
 }
