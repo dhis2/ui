@@ -23,7 +23,7 @@ export const OrganisationUnitNodeChildren = ({ id }) => {
         return null
     }
 
-    if (error || 1 === 1) {
+    if (error) {
         return (
             <li>
                 <IconErrorFilled16 />
