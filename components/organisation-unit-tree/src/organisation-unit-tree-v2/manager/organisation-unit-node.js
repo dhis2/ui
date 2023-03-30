@@ -228,10 +228,6 @@ export class OrganisationUnitNode {
             this.manager.isInFilterMode() &&
             hasChildWithFilterMatch &&
             (hiddenSiblingsCount > 0 || isShowingHiddenSiblings)
-        const toggleAllSiblings =
-            shouldShowAllSiblingsToggler && !this.isLoading()
-                ? this.toggleHiddenChildren
-                : undefined
 
         return {
             visibleChildrenIds,
@@ -241,7 +237,9 @@ export class OrganisationUnitNode {
                 this.getLevel() + 1
             ),
             hiddenSiblingsCount,
-            toggleAllSiblings,
+            toggleAllSiblings: shouldShowAllSiblingsToggler
+                ? this.toggleHiddenChildren
+                : undefined,
         }
     }
 
@@ -295,7 +293,9 @@ export class OrganisationUnitNode {
     }
 
     toggleHiddenChildren() {
-        this.manager.toggleHiddenChildren(this.getId())
+        if (!this.isLoading()) {
+            this.manager.toggleHiddenChildren(this.getId())
+        }
     }
 
     toggleOpen() {
