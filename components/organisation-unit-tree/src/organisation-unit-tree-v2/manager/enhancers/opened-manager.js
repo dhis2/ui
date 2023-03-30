@@ -43,24 +43,21 @@ export function openedManager(manager) {
     }
 
     async function setOpenedPaths(nextOpenedPaths = []) {
-        const openedPaths = getOpenedPaths()
-
         // Exit if filter is enabled or if current paths equal next
         if (
             manager.isInFilterMode() ||
-            openedPaths.hasEqualValues(nextOpenedPaths)
+            state.openedPaths.hasEqualValues(nextOpenedPaths)
         ) {
             return
         }
 
         manager.clearParentsWithAllChildrenLoadedIds()
-        openedPaths.reset(nextOpenedPaths)
+        state.openedPaths.reset(nextOpenedPaths)
 
-        const currentOpenedIds = getOpenedIds()
         const nextOpenedIds = new EnhancedPrimitiveSet()
         const idsToFetch = new EnhancedPrimitiveSet()
 
-        for (const path of openedPaths) {
+        for (const path of state.openedPaths) {
             const { allIds } = manager.parsePath(path)
             for (const id of allIds) {
                 nextOpenedIds.add(id)
@@ -73,9 +70,9 @@ export function openedManager(manager) {
 
         await manager.loadOrganisationUnitsByIds(idsToFetch, true)
 
-        const { changes } = currentOpenedIds.diff(nextOpenedIds)
+        const { changes } = state.openedIds.diff(nextOpenedIds)
 
-        currentOpenedIds.reset(nextOpenedIds)
+        state.openedIds.reset(nextOpenedIds)
 
         for (const changedId of changes) {
             const node = manager.getOrganisationUnitNodeById(changedId)
@@ -95,8 +92,8 @@ export function openedManager(manager) {
 
         const node = manager.getOrganisationUnitNodeById(id)
 
-        getOpenedIds().toggleValue(id)
-        getOpenedPaths().toggleValue(node.getPath())
+        state.openedIds.toggleValue(id)
+        state.openedPaths.toggleValue(node.getPath())
 
         if (isNodeInOpenedIds(id)) {
             await loadNodeChildren(id)
@@ -134,10 +131,10 @@ export function openedManager(manager) {
                 const childNode = existingNode ?? manager.addNode(unit)
                 node.addChild(childNode)
             }
-            getNodesWithChildrenFetchErrors().delete(id)
+            state.nodesWithChildrenFetchErrors.delete(id)
         } catch (error) {
             console.error(error)
-            getNodesWithChildrenFetchErrors().add(id)
+            state.nodesWithChildrenFetchErrors.add(id)
             node.setError(error)
         } finally {
             deleteNodeWithChildrenFetching(id)
@@ -147,19 +144,19 @@ export function openedManager(manager) {
     }
 
     function isNodeInOpenedIds(id) {
-        return getOpenedIds().has(id)
+        return state.openedIds.has(id)
     }
 
     function isFetchingChildren() {
-        return getNodesWithChildrenFetching().hasEntries()
+        return state.nodesWithChildrenFetching.hasEntries()
     }
 
     function hasChildrenWithErrors() {
-        return getNodesWithChildrenFetchErrors().hasEntries()
+        return state.nodesWithChildrenFetchErrors.hasEntries()
     }
 
     function isNodeFetchingChildren(id) {
-        return getNodesWithChildrenFetching().has(id)
+        return state.nodesWithChildrenFetching.has(id)
     }
 
     return {

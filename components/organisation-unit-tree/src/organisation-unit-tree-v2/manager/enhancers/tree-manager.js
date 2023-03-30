@@ -1,7 +1,9 @@
 import { OrganisationUnitNode } from '../organisation-unit-node.js'
 
 export const treeManager = (manager) => {
-    const nodes = new Map()
+    const state = {
+        nodes: new Map(),
+    }
 
     async function ensureOrganisationUnitsAreLoaded(ids, withChildren) {
         const idsToFetch = ids.filter((id) => {
@@ -21,7 +23,7 @@ export const treeManager = (manager) => {
     }
 
     function getAllNodes() {
-        return nodes
+        return state.nodes
     }
 
     function addNode(unit) {
@@ -43,7 +45,7 @@ export const treeManager = (manager) => {
             manager,
         })
 
-        nodes.set(node.getId(), node)
+        state.nodes.set(node.getId(), node)
 
         if (parent) {
             parent.addChild(node)
@@ -53,11 +55,11 @@ export const treeManager = (manager) => {
     }
 
     function isNodeAvailable(id) {
-        return nodes.has(id)
+        return state.nodes.has(id)
     }
 
     function getOrganisationUnitNodeById(id) {
-        return nodes.get(id)
+        return state.nodes.get(id)
     }
 
     function isNodeShowingChildren(id) {

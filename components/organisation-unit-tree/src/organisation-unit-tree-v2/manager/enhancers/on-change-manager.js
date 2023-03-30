@@ -1,12 +1,14 @@
 export const onChangeManager = (manager) => {
-    let onChange = null
+    const state = {
+        onChange: null,
+    }
 
     function setOnChange(newOnChange) {
-        if (onChange === newOnChange) {
+        if (state.onChange === newOnChange) {
             return
         }
 
-        onChange = newOnChange
+        state.onChange = newOnChange
 
         if (manager.getIsReady()) {
             manager.refreshRootNodes()
@@ -14,7 +16,7 @@ export const onChangeManager = (manager) => {
     }
 
     function getOnChange() {
-        return onChange
+        return state.onChange
     }
 
     return {

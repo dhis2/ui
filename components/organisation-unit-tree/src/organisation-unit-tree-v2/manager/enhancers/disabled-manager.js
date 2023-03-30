@@ -1,24 +1,26 @@
 import { EnhancedPrimitiveSet } from '../helpers/index.js'
 
 export const disabledManager = (manager) => {
-    const disabledIds = new EnhancedPrimitiveSet()
+    const state = {
+        disabledIds: new EnhancedPrimitiveSet(),
+    }
 
     function getDisabledIds() {
-        return disabledIds
+        return state.disabledIds
     }
 
     function isNodeDisabled(id) {
-        return disabledIds.has(id)
+        return state.disabledIds.has(id)
     }
 
     function setDisabledIds(newDisabledIds = []) {
-        if (disabledIds.hasEqualValues(newDisabledIds)) {
+        if (state.disabledIds.hasEqualValues(newDisabledIds)) {
             return
         }
 
         if (manager.getIsReady()) {
-            const { changes } = disabledIds.diff(newDisabledIds)
-            disabledIds.reset(newDisabledIds)
+            const { changes } = state.disabledIds.diff(newDisabledIds)
+            state.disabledIds.reset(newDisabledIds)
 
             for (const id of changes) {
                 const node = manager.getOrganisationUnitNodeById(id)
@@ -27,7 +29,7 @@ export const disabledManager = (manager) => {
                 }
             }
         } else {
-            disabledIds.reset(newDisabledIds)
+            state.disabledIds.reset(newDisabledIds)
         }
     }
 

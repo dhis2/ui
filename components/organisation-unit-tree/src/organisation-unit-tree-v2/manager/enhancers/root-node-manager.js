@@ -20,14 +20,14 @@ export const rootNodeManager = (manager) => {
     }
 
     function getOrganisationUnitLevelDisplayName(level) {
-        return getOrganisationUnitLevels().get(level)
+        return state.organisationUnitLevels.get(level)
     }
 
     async function loadDeduplicatedRootNodesWithOfflineLevels() {
         const {
             rootUnits,
             organisationUnitLevels,
-        } = await manager.fetchRootsWithOfflineLevels(getRootIds())
+        } = await manager.fetchRootsWithOfflineLevels(state.rootIds)
         const offlineUnits = await manager.fetchOfflineUnits(rootUnits)
 
         for (const { level, displayName } of organisationUnitLevels) {
@@ -48,17 +48,17 @@ export const rootNodeManager = (manager) => {
             )
             if (!isDescendantOfOtherRoot) {
                 const rootNode = manager.addNode(rootUnit)
-                getRootNodes().set(rootNode.getId(), rootNode)
+                state.rootNodes.set(rootNode.getId(), rootNode)
             }
         }
     }
 
     function setRootIds(newRootIds) {
-        const rootIds = getRootIds()
-        if (getRootIds().hasEqualValues(newRootIds)) {
+        if (state.rootIds.hasEqualValues(newRootIds)) {
             return
         }
-        rootIds.reset(newRootIds)
+
+        state.rootIds.reset(newRootIds)
 
         if (manager.getIsReady()) {
             resetRootNodes()
@@ -66,9 +66,9 @@ export const rootNodeManager = (manager) => {
     }
 
     async function resetRootNodes() {
-        getRootNodes().clear()
+        state.rootNodes.clear()
 
-        const idsToFetch = getRootIds().filter(
+        const idsToFetch = state.rootIds.filter(
             (id) => !manager.isNodeAvailable(id)
         )
 
@@ -87,7 +87,7 @@ export const rootNodeManager = (manager) => {
             }
         }
 
-        const rootUnits = getRootIds().map((id) =>
+        const rootUnits = state.rootIds.map((id) =>
             manager.getOrganisationUnitNodeById(id).toJSON()
         )
         addDeduplicatedRootNodes(rootUnits)
@@ -96,22 +96,22 @@ export const rootNodeManager = (manager) => {
     }
 
     function refreshRootNodes() {
-        getRootNodes().forEach((rootNode) => {
+        state.rootNodes.forEach((rootNode) => {
             rootNode.refreshLabel()
             rootNode.refreshChildren()
         })
     }
 
     function isNodeRoot(id) {
-        return getRootIds().has(id)
+        return state.rootIds.has(id)
     }
 
     return {
-        getRootIds,
         addDeduplicatedRootNodes,
-        getRootNodes,
-        getOrganisationUnitLevels,
         getOrganisationUnitLevelDisplayName,
+        getOrganisationUnitLevels,
+        getRootIds,
+        getRootNodes,
         isNodeRoot,
         loadDeduplicatedRootNodesWithOfflineLevels,
         refreshRootNodes,

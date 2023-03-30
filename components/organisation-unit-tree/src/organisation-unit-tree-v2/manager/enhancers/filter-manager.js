@@ -34,28 +34,27 @@ export function filterManager(manager) {
     }
 
     async function toggleHiddenChildren(id) {
-        const parentsWithAllChildrenLoadedIds = getParentsWithAllChildrenLoadedIds()
-
-        if (parentsWithAllChildrenLoadedIds.has(id)) {
-            parentsWithAllChildrenLoadedIds.delete(id)
+        if (state.parentsWithAllChildrenLoadedIds.has(id)) {
+            state.parentsWithAllChildrenLoadedIds.delete(id)
             manager.getOrganisationUnitNodeById(id).refreshChildren()
         } else {
-            parentsWithAllChildrenLoadedIds.add(id)
+            state.parentsWithAllChildrenLoadedIds.add(id)
             await manager.loadNodeChildren(id)
         }
     }
 
     function clearParentsWithAllChildrenLoadedIds() {
-        getParentsWithAllChildrenLoadedIds().clear()
+        state.parentsWithAllChildrenLoadedIds.clear()
     }
 
     async function setFilterProperties(
         filteredPaths = [],
         filteredString = ''
     ) {
-        const currentPaths = getFilteredPaths()
-        const havePathsChanged = !currentPaths.hasEqualValues(filteredPaths)
-        const hasStringChanged = getFilteredString() !== filteredString
+        const havePathsChanged = !state.filteredPaths.hasEqualValues(
+            filteredPaths
+        )
+        const hasStringChanged = state.filteredString !== filteredString
 
         if (!havePathsChanged && !hasStringChanged) {
             return
@@ -63,21 +62,16 @@ export function filterManager(manager) {
 
         clearParentsWithAllChildrenLoadedIds()
 
-        const currentIds = getFilteredIds()
-        const currentParentsMap = getFilteredParentsMap()
         const isSwitchToFilterMode =
-            currentPaths.isEmpty() && filteredPaths.length > 0
+            state.filteredPaths.isEmpty() && filteredPaths.length > 0
         const isSwitchToOpenedMode =
-            currentPaths.hasEntries() > 0 && filteredPaths.length === 0
+            state.filteredPaths.hasEntries() > 0 && filteredPaths.length === 0
         const parentsToRefresh = new EnhancedPrimitiveSet()
         const labelsToRefresh = new EnhancedPrimitiveSet()
 
         if (havePathsChanged) {
             await handelFilteredPathsChange({
                 filteredPaths,
-                currentPaths,
-                currentIds,
-                currentParentsMap,
                 parentsToRefresh,
                 labelsToRefresh,
                 isSwitchToFilterMode,
@@ -88,7 +82,6 @@ export function filterManager(manager) {
         if (hasStringChanged) {
             handleFilterStringChange({
                 filteredString,
-                currentIds,
                 parentsToRefresh,
                 labelsToRefresh,
                 isSwitchToOpenedMode,
@@ -106,24 +99,21 @@ export function filterManager(manager) {
 
     async function handelFilteredPathsChange({
         filteredPaths,
-        currentPaths,
-        currentIds,
-        currentParentsMap,
         parentsToRefresh,
         labelsToRefresh,
         isSwitchToFilterMode,
         isSwitchToOpenedMode,
     }) {
         const nextPaths = new EnhancedPrimitiveSet(filteredPaths)
-        const nextIds = currentIds.clone()
-        const nextParentsMap = currentParentsMap.clone()
+        const nextIds = state.filteredIds.clone()
+        const nextParentsMap = state.filteredParentsMap.clone()
         const {
             additions: addedPaths,
             deletions: deletedPaths,
-        } = currentPaths.diff(nextPaths)
+        } = state.filteredPaths.diff(nextPaths)
         const idsToFetch = new EnhancedPrimitiveSet()
 
-        currentPaths.reset(nextPaths)
+        state.filteredPaths.reset(nextPaths)
 
         updateNextIdsAndParentsMap({
             changedPaths: addedPaths,
@@ -143,19 +133,19 @@ export function filterManager(manager) {
 
         await manager.loadOrganisationUnitsByIds(idsToFetch)
 
-        const changedParents = currentParentsMap.compare(nextParentsMap)
+        const changedParents = state.filteredParentsMap.compare(nextParentsMap)
 
         parentsToRefresh.assign(changedParents)
 
-        currentIds.diff(nextIds).deletions.forEach((id) => {
+        state.filteredIds.diff(nextIds).deletions.forEach((id) => {
             if (!parentsToRefresh.has(getParentId(id))) {
                 labelsToRefresh.add(id)
             }
         })
 
-        currentPaths.reset(nextPaths)
-        currentIds.reset(nextIds)
-        currentParentsMap.reset(nextParentsMap)
+        state.filteredPaths.reset(nextPaths)
+        state.filteredIds.reset(nextIds)
+        state.filteredParentsMap.reset(nextParentsMap)
 
         if (isSwitchToFilterMode) {
             // All open items need to be refreshed, most will simply close
@@ -167,7 +157,7 @@ export function filterManager(manager) {
         if (isSwitchToOpenedMode) {
             /* All filtered items need to be refreshed, some will close,
              * some will show all children */
-            for (const filteredParentId of currentParentsMap.keys()) {
+            for (const filteredParentId of state.filteredParentsMap.keys()) {
                 parentsToRefresh.add(filteredParentId)
             }
         }
@@ -212,7 +202,6 @@ export function filterManager(manager) {
 
     function handleFilterStringChange({
         filteredString,
-        currentIds,
         parentsToRefresh,
         labelsToRefresh,
         isSwitchToOpenedMode,
@@ -223,7 +212,7 @@ export function filterManager(manager) {
             return
         }
 
-        currentIds.forEach((id) => {
+        state.filteredIds.forEach((id) => {
             if (!parentsToRefresh.has(getParentId(id))) {
                 labelsToRefresh.add(id)
             }

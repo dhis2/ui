@@ -36,7 +36,7 @@ export function selectionManager(manager) {
          * selected ID because that's easy. Changing selection mode
          * during usage can be considered an antipattern and there is no
          * "correct" behaviour. So no great effort needs to be taken to
-         * support  */
+         * support. */
         if (state.singleSelection) {
             const lastSelectedId = state.singleSelection.getFirstValue()
             setSelectedIds([lastSelectedId])
@@ -52,7 +52,7 @@ export function selectionManager(manager) {
 
         const nextSelectedIds = new EnhancedPrimitiveSet(selectedIdsArray)
         const { changes, additions } = currentSelectedIds.diff(nextSelectedIds)
-        const nextSelectedAncestorsMap = getSelectedAncestorsMap().clone()
+        const nextSelectedAncestorsMap = state.selectedAncestorsMap.clone()
 
         currentSelectedIds.reset(nextSelectedIds)
 
@@ -68,7 +68,7 @@ export function selectionManager(manager) {
     }
 
     function hasNodeSelectedDescendant(id) {
-        return getSelectedAncestorsMap().has(id)
+        return state.selectedAncestorsMap.has(id)
     }
 
     function isNodeSelected(id) {
@@ -95,9 +95,10 @@ export function selectionManager(manager) {
         }
 
         const currentSelectedId = selectedIds.getFirstValue()
-        const currentSelectedNode =
-            manager.getOrganisationUnitNodeById(currentSelectedId)
-        const nextSelectedAncestorsMap = getSelectedAncestorsMap().clone()
+        const currentSelectedNode = manager.getOrganisationUnitNodeById(
+            currentSelectedId
+        )
+        const nextSelectedAncestorsMap = state.selectedAncestorsMap.clone()
 
         selectedIds.delete(currentSelectedId)
         currentSelectedNode.refreshLabel()
@@ -113,17 +114,17 @@ export function selectionManager(manager) {
 
     function toggleNodeMultiSelection(toggledNode) {
         const selectedIds = getSelectedIds()
-        const selectedAncestorsMap = getSelectedAncestorsMap()
         const { unitId, ancestorIds } = manager.parsePath(toggledNode.getPath())
 
         selectedIds.toggleValue(toggledNode.getId())
         toggledNode.refreshLabel()
 
         for (const ancestorId of ancestorIds) {
-            const currentAncestorSelection =
-                hasNodeSelectedDescendant(ancestorId)
+            const currentAncestorSelection = hasNodeSelectedDescendant(
+                ancestorId
+            )
 
-            selectedAncestorsMap.toggleEntry(ancestorId, unitId)
+            state.selectedAncestorsMap.toggleEntry(ancestorId, unitId)
 
             const nextAncestorSelection = hasNodeSelectedDescendant(ancestorId)
 
@@ -134,7 +135,7 @@ export function selectionManager(manager) {
     }
 
     function updateAncestorSelectionFromMap(nextSelectedAncestorsMap) {
-        const changedAncestorIds = getSelectedAncestorsMap().compare(
+        const changedAncestorIds = state.selectedAncestorsMap.compare(
             nextSelectedAncestorsMap
         )
 
@@ -155,18 +156,18 @@ export function selectionManager(manager) {
     }
 
     return {
-        getSingleSelection,
-        getSelectedIds,
         getSelectedAncestorsMap,
-        setSelectedAncestorsMap,
-        setSingleSelection,
-        setSelectedIds,
+        getSelectedIds,
+        getSingleSelection,
         hasNodeSelectedDescendant,
         isNodeSelected,
+        refreshAncestorLabelById,
+        setSelectedAncestorsMap,
+        setSelectedIds,
+        setSingleSelection,
+        toggleNodeMultiSelection,
         toggleNodeSelection,
         toggleNodeSingleSelection,
-        toggleNodeMultiSelection,
         updateAncestorSelectionFromMap,
-        refreshAncestorLabelById,
     }
 }
