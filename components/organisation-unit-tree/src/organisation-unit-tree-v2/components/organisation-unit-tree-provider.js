@@ -6,7 +6,11 @@ import {
     useOrganisationUnitTreeManager,
 } from '../hooks/use-organisation-unit-tree-manager.js'
 import { createOrganisationUnitTreeManager } from '../manager/index.js'
-import { OrganisationUnitNodeChildren } from './organisation-unit-node-children/index.js'
+import {
+    OrganisationUnitNodeChildren,
+    OrganisationUnitNodeChildrenError,
+    OrganisationUnitNodeSiblingsToggler,
+} from './organisation-unit-node-children/index.js'
 import {
     OrganisationUnitNodeIcon,
     OrganisationUnitNodeLabel,
@@ -25,13 +29,15 @@ import {
 
 export const OrganisationUnitTreeProvider = ({
     children,
-    organisationUnitNodeComponent,
     organisationUnitNodeChildrenComponent,
+    organisationUnitNodeChildrenErrorComponent,
     organisationUnitNodeIconComponent,
     organisationUnitNodeLabelComponent,
     organisationUnitNodeSelectorComponent,
+    organisationUnitNodeSiblingsTogglerComponent,
     organisationUnitNodeTextComponent,
     organisationUnitNodeTogglerComponent,
+    organisationUnitNodeComponent,
     organisationUnitRootContainerComponent,
     organisationUnitRootErrorComponent,
     organisationUnitRootFetcherComponent,
@@ -46,13 +52,15 @@ export const OrganisationUnitTreeProvider = ({
             createOrganisationUnitTreeManager({
                 dataEngine,
                 components: {
-                    organisationUnitNodeComponent,
                     organisationUnitNodeChildrenComponent,
+                    organisationUnitNodeChildrenErrorComponent,
                     organisationUnitNodeIconComponent,
                     organisationUnitNodeLabelComponent,
                     organisationUnitNodeSelectorComponent,
+                    organisationUnitNodeSiblingsTogglerComponent,
                     organisationUnitNodeTextComponent,
                     organisationUnitNodeTogglerComponent,
+                    organisationUnitNodeComponent,
                     organisationUnitRootContainerComponent,
                     organisationUnitRootErrorComponent,
                     organisationUnitRootFetcherComponent,
@@ -80,13 +88,15 @@ export const OrganisationUnitTreeProvider = ({
  * probably be easier to simply write a custom version leveraging the
  * manager and the hooks */
 OrganisationUnitTreeProvider.defaultProps = {
-    organisationUnitNodeComponent: OrganisationUnitNode,
+    organisationUnitNodeChildrenErrorComponent: OrganisationUnitNodeChildrenError,
     organisationUnitNodeChildrenComponent: OrganisationUnitNodeChildren,
     organisationUnitNodeIconComponent: OrganisationUnitNodeIcon,
     organisationUnitNodeLabelComponent: OrganisationUnitNodeLabel,
     organisationUnitNodeSelectorComponent: OrganisationUnitNodeSelector,
+    organisationUnitNodeSiblingsTogglerComponent: OrganisationUnitNodeSiblingsToggler,
     organisationUnitNodeTextComponent: OrganisationUnitNodeText,
     organisationUnitNodeTogglerComponent: OrganisationUnitNodeToggler,
+    organisationUnitNodeComponent: OrganisationUnitNode,
     organisationUnitRootContainerComponent: OrganisationUnitRootContainer,
     organisationUnitRootErrorComponent: OrganisationUnitRootError,
     organisationUnitRootFetcherComponent: OrganisationUnitRootFetcher,
@@ -97,10 +107,12 @@ OrganisationUnitTreeProvider.defaultProps = {
 OrganisationUnitTreeProvider.propTypes = {
     children: PropTypes.node,
     organisationUnitNodeChildrenComponent: PropTypes.elementType,
+    organisationUnitNodeChildrenErrorComponent: PropTypes.elementType,
     organisationUnitNodeComponent: PropTypes.elementType,
     organisationUnitNodeIconComponent: PropTypes.elementType,
     organisationUnitNodeLabelComponent: PropTypes.elementType,
     organisationUnitNodeSelectorComponent: PropTypes.elementType,
+    organisationUnitNodeSiblingsTogglerComponent: PropTypes.elementType,
     organisationUnitNodeTextComponent: PropTypes.elementType,
     organisationUnitNodeTogglerComponent: PropTypes.elementType,
     organisationUnitRootContainerComponent: PropTypes.elementType,

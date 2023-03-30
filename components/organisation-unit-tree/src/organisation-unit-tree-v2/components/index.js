@@ -3,6 +3,7 @@ import { ManagedOrganisationUnitTree } from './managed-organisation-unit-tree.js
 export { OrganisationUnitTreeProvider } from './organisation-unit-tree-provider.js'
 export {
     OrganisationUnitNodeChildren,
+    OrganisationUnitNodeChildrenError,
     OrganisationUnitNodeSiblingsToggler,
 } from './organisation-unit-node-children/index.js'
 export * from './organisation-unit-node-label/index.js'
