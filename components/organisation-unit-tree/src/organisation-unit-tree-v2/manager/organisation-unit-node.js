@@ -224,11 +224,14 @@ export class OrganisationUnitNode {
         )
         const shouldShowAllSiblingsToggler =
             this.isOpen() &&
-            !this.isLoading() &&
             !this.isLeafNode() &&
             this.manager.isInFilterMode() &&
             hasChildWithFilterMatch &&
             (hiddenSiblingsCount > 0 || isShowingHiddenSiblings)
+        const toggleAllSiblings =
+            shouldShowAllSiblingsToggler && !this.isLoading()
+                ? this.toggleHiddenChildren
+                : undefined
 
         return {
             visibleChildrenIds,
@@ -238,9 +241,7 @@ export class OrganisationUnitNode {
                 this.getLevel() + 1
             ),
             hiddenSiblingsCount,
-            toggleAllSiblings: shouldShowAllSiblingsToggler
-                ? this.toggleHiddenChildren
-                : undefined,
+            toggleAllSiblings,
         }
     }
 
