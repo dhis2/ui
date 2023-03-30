@@ -43,6 +43,7 @@ const OrganisationUnitNodeText = ({
                     font-size: 14px;
                     line-height: 16px;
                     color: ${colors.grey900};
+                    white-space: break-spaces;
                 }
                 div.container.isGlobalMatch {
                     background-color: ${colors.yellow050};
