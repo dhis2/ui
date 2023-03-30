@@ -89,10 +89,14 @@ export function filterManager(manager) {
         }
 
         for (const id of parentsToRefresh) {
+            // Refresh toggler UI
+            manager.getOrganisationUnitNodeById(id)?.refreshLabel()
+            // Refresh children
             manager.getOrganisationUnitNodeById(id)?.refreshChildren()
         }
 
         for (const id of labelsToRefresh) {
+            // Refresh highlight
             manager.getOrganisationUnitNodeById(id)?.refreshLabel()
         }
     }
