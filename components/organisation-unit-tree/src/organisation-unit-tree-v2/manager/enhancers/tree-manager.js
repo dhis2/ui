@@ -64,7 +64,7 @@ export const treeManager = (manager) => {
 
     function isNodeShowingChildren(id) {
         return manager.isInFilterMode()
-            ? manager.isNodeInFilteredAncestors(id)
+            ? manager.isNodeShowingChildrenInFilteredMode(id)
             : manager.isNodeInOpenedIds(id)
     }
 

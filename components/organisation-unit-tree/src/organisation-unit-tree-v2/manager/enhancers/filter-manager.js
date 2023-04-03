@@ -7,6 +7,8 @@ export function filterManager(manager) {
         filteredIds: new EnhancedPrimitiveSet(),
         filteredParentsMap: new FilteredParentsMap(),
         parentsWithAllChildrenLoadedIds: new EnhancedPrimitiveSet(),
+        filteredNodeOpenedSiblingIds: new EnhancedPrimitiveSet(),
+        closedFilteredNodeIds: new EnhancedPrimitiveSet(),
     }
 
     function getFilteredString() {
@@ -25,10 +27,6 @@ export function filterManager(manager) {
         return state.filteredParentsMap
     }
 
-    function getParentsWithAllChildrenLoadedIds() {
-        return state.parentsWithAllChildrenLoadedIds
-    }
-
     function setFilteredString(filteredString = '') {
         state.filteredString = filteredString
     }
@@ -43,8 +41,54 @@ export function filterManager(manager) {
         }
     }
 
-    function clearParentsWithAllChildrenLoadedIds() {
+    function toggleFilteredNodeOpened(id) {
+        const node = manager.getOrganisationUnitNodeById(id)
+
+        if (node.isOpen()) {
+            if (isFilteredNodeOpenedSibling(id)) {
+                state.filteredNodeOpenedSiblingIds.delete(id)
+            } else {
+                state.closedFilteredNodeIds.add(id)
+            }
+        } else {
+            if (isClosedFilteredNode(id)) {
+                state.closedFilteredNodeIds.delete(id)
+            } else {
+                state.filteredNodeOpenedSiblingIds.add(id)
+            }
+        }
+
+        node.refreshLabel()
+        node.refreshChildren()
+    }
+
+    function clearNavigationWithinFilteredResults() {
+        const childrenToRefresh = new EnhancedPrimitiveSet()
+        const labelsToRefresh = new EnhancedPrimitiveSet()
+
+        state.parentsWithAllChildrenLoadedIds.forEach((id) => {
+            childrenToRefresh.add(id)
+        })
+        state.filteredNodeOpenedSiblingIds.forEach((id) => {
+            childrenToRefresh.add(id)
+            labelsToRefresh.add(id)
+        })
+        state.closedFilteredNodeIds.forEach((id) => {
+            childrenToRefresh.add(id)
+            labelsToRefresh.add(id)
+        })
+
         state.parentsWithAllChildrenLoadedIds.clear()
+        state.filteredNodeOpenedSiblingIds.clear()
+        state.closedFilteredNodeIds.clear()
+
+        labelsToRefresh.forEach((id) => {
+            manager.getOrganisationUnitNodeById(id)?.refreshLabel()
+        })
+
+        childrenToRefresh.forEach((id) => {
+            manager.getOrganisationUnitNodeById(id)?.refreshChildren()
+        })
     }
 
     async function setFilterProperties(
@@ -60,7 +104,7 @@ export function filterManager(manager) {
             return
         }
 
-        clearParentsWithAllChildrenLoadedIds()
+        clearNavigationWithinFilteredResults()
 
         const isSwitchToFilterMode =
             state.filteredPaths.isEmpty() && filteredPaths.length > 0
@@ -240,7 +284,36 @@ export function filterManager(manager) {
     }
 
     function isParentWithAllChildrenLoaded(id) {
-        return getParentsWithAllChildrenLoadedIds().has(id)
+        return state.parentsWithAllChildrenLoadedIds.has(id)
+    }
+
+    function isFilteredNodeOpenedSibling(id) {
+        return state.filteredNodeOpenedSiblingIds.has(id)
+    }
+
+    function isClosedFilteredNode(id) {
+        return state.closedFilteredNodeIds.has(id)
+    }
+
+    function isNodeVisibleInFilteredMode(id, parentId) {
+        if (isClosedFilteredNode(parentId)) {
+            return false
+        }
+
+        return (
+            isParentWithAllChildrenLoaded(parentId) ||
+            isFilteredNodeOpenedSibling(parentId) ||
+            isNodeFilterMatch(id) ||
+            isNodeInFilteredAncestors(id)
+        )
+    }
+
+    function isNodeShowingChildrenInFilteredMode(id) {
+        if (isClosedFilteredNode(id)) {
+            return false
+        }
+
+        return isNodeInFilteredAncestors(id) || isFilteredNodeOpenedSibling(id)
     }
 
     function filterLocalTree({ token, level }) {
@@ -293,20 +366,25 @@ export function filterManager(manager) {
     }
 
     return {
-        clearParentsWithAllChildrenLoadedIds,
+        clearNavigationWithinFilteredResults,
         filterLocalTree,
         getFilteredIds,
         getFilteredParentsMap,
         getFilteredPaths,
         getFilteredString,
         getParentId,
+        isClosedFilteredNode,
+        isFilteredNodeOpenedSibling,
         isInFilterMode,
         isNodeFilterMatch,
         isNodeInFilteredAncestors,
+        isNodeShowingChildrenInFilteredMode,
+        isNodeVisibleInFilteredMode,
         isParentWithAllChildrenLoaded,
-        toggleHiddenChildren,
         retreiveFilteredOrganisationUnits,
         setFilteredString,
         setFilterProperties,
+        toggleFilteredNodeOpened,
+        toggleHiddenChildren,
     }
 }

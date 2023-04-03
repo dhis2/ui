@@ -81,13 +81,8 @@ export function openedManager(manager) {
     }
 
     async function toggleNodeOpened(id) {
-        /* TODO: what should happen when a user clicks a chevron
-         * when the tree is in filter-mode? This could perhaps
-         * be a trigger to switch back to open mode, with all filtered
-         * units being transformed to open items? For now we just do
-         * nothing. */
         if (manager.isInFilterMode()) {
-            return
+            manager.toggleFilteredNodeOpened(id)
         }
 
         const node = manager.getOrganisationUnitNodeById(id)
@@ -159,6 +154,10 @@ export function openedManager(manager) {
         return state.nodesWithChildrenFetching.has(id)
     }
 
+    function isNodeVisibleInOpenedMode(id, parentId) {
+        return manager.isNodeRoot(id) || isNodeInOpenedIds(parentId)
+    }
+
     return {
         openedManager,
         getOpenedPaths,
@@ -169,6 +168,7 @@ export function openedManager(manager) {
         toggleNodeOpened,
         loadNodeChildren,
         isNodeInOpenedIds,
+        isNodeVisibleInOpenedMode,
         isFetchingChildren,
         hasChildrenWithErrors,
         isNodeFetchingChildren,

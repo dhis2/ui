@@ -223,9 +223,9 @@ export class OrganisationUnitNode {
             this.getId()
         )
         const shouldShowAllSiblingsToggler =
+            this.manager.isInFilterMode() &&
             this.isOpen() &&
             !this.isLeafNode() &&
-            this.manager.isInFilterMode() &&
             hasChildWithFilterMatch &&
             (hiddenSiblingsCount > 0 || isShowingHiddenSiblings)
 
@@ -276,19 +276,9 @@ export class OrganisationUnitNode {
         const parentId = this.getParent()?.getId()
 
         if (this.manager.isInFilterMode()) {
-            return (
-                this.manager.isNodeFilterMatch(id) ||
-                this.manager.isNodeShowingChildren(id) ||
-                (parentId &&
-                    this.manager.isParentWithAllChildrenLoaded(parentId))
-            )
+            return this.manager.isNodeVisibleInFilteredMode(id, parentId)
         } else {
-            const isOpenRootNode =
-                this.isRootNode() && this.manager.isNodeInOpenedIds(id)
-            const isOpenSubTreeNode =
-                parentId && this.manager.isNodeInOpenedIds(parentId)
-
-            return isOpenRootNode || isOpenSubTreeNode
+            return this.manager.isNodeVisibleInOpenedMode(id, parentId)
         }
     }
 
