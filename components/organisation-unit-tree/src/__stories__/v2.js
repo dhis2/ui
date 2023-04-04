@@ -70,11 +70,16 @@ const TreeFilters = () => {
     const showSearchResults = useCallback(async () => {
         setDisabled(true)
 
-        const nodes = await treeManager.retreiveFilteredOrganisationUnits({
-            query: token,
-            level,
-        })
-        const paths = nodes.map((node) => node.getPath())
+        const paths = []
+        if (token || level) {
+            const nodes = await treeManager.retreiveFilteredOrganisationUnits({
+                query: token,
+                level,
+            })
+            nodes?.forEach((node) => {
+                paths.push(node.getPath())
+            })
+        }
 
         await treeManager.setFilterProperties(paths, token)
 

@@ -354,14 +354,15 @@ export function filterManager(manager) {
                 nodes.push(node)
             }
             manager.setError(null)
+            manager.setIsFetching(false)
+            manager.refreshFetcher()
             return nodes
         } catch (error) {
             console.error(error)
             manager.setError(error)
-            return error
-        } finally {
             manager.setIsFetching(false)
             manager.refreshFetcher()
+            manager.refreshTree()
         }
     }
 

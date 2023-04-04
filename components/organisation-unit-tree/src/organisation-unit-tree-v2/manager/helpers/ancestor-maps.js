@@ -12,6 +12,10 @@ export class AncestorMap extends Map {
     deleteEntry(ancestorId, descendantId) {
         const ancestor = this.get(ancestorId)
 
+        if (!ancestor) {
+            return
+        }
+
         ancestor.delete(descendantId)
 
         if (ancestor.isEmpty()) {
