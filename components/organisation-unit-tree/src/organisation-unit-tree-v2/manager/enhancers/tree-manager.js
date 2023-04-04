@@ -19,6 +19,12 @@ export const treeManager = (manager) => {
 
         for (const unit of newUnits) {
             addNode(unit)
+
+            if (withChildren) {
+                for (const child of unit.children) {
+                    addNode(child)
+                }
+            }
         }
     }
 

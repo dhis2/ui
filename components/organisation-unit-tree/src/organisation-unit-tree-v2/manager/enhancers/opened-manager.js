@@ -51,7 +51,6 @@ export function openedManager(manager) {
             return
         }
 
-        manager.clearParentsWithAllChildrenLoadedIds()
         state.openedPaths.reset(nextOpenedPaths)
 
         const nextOpenedIds = new EnhancedPrimitiveSet()
