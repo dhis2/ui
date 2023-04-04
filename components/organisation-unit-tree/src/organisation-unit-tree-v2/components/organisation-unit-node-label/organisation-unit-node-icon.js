@@ -1,3 +1,4 @@
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { IconFolderClosed } from '../../../organisation-unit-node/label/icon-folder-closed.js'
@@ -24,22 +25,36 @@ Icon.propTypes = {
     isOpen: PropTypes.bool.isRequired,
 }
 
-const OrganisationUnitNodeIcon = ({ isLeafNode, isOpen }) => (
-    <div>
+const OrganisationUnitNodeIcon = ({
+    isDisabled,
+    isLeafNode,
+    isOpen,
+    toggleOpen,
+}) => (
+    <div className={cx({ isDisabled })} onClick={toggleOpen}>
         <Icon isLeafNode={isLeafNode} isOpen={isOpen} />
         <style jsx>{`
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            height: 24px;
-            width: 22px;
+            div {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                height: 24px;
+                width: 22px;
+                cursor: pointer;
+            }
+            div.isDisabled {
+                cursor: not-allowed;
+                opacity: 0.4;
+            }
         `}</style>
     </div>
 )
 
 OrganisationUnitNodeIcon.propTypes = {
+    isDisabled: PropTypes.bool.isRequired,
     isLeafNode: PropTypes.bool.isRequired,
     isOpen: PropTypes.bool.isRequired,
+    toggleOpen: PropTypes.func,
 }
 
 export { OrganisationUnitNodeIcon }

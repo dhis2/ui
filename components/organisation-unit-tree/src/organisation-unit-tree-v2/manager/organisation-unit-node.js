@@ -199,7 +199,10 @@ export class OrganisationUnitNode {
             isOpen: this.isOpen(),
             isSelected: this.isSelected(),
             singleSelection: this.manager.getSingleSelection(),
-            toggleOpen: isLoading || isLeafNode ? undefined : this.toggleOpen,
+            toggleOpen:
+                isLoading || isLeafNode || isDisabled
+                    ? undefined
+                    : this.toggleOpen,
             toggleSelected: isDisabled ? undefined : this.toggleSelected,
         }
     }

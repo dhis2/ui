@@ -30,6 +30,15 @@ const props = {
     visisbleIds: undefined,
     singleSelection: false,
     onChange: (payload) => console.log(payload),
+    openedPaths: [
+        '/ImspTQPwCqd',
+        '/ImspTQPwCqd/fdc6uOvgoji',
+        '/ImspTQPwCqd/fdc6uOvgoji/e1eIKM1GIF3',
+        '/ImspTQPwCqd/qhqAxPSTUXp',
+        '/ImspTQPwCqd/TEQlaapDQoK',
+        '/ImspTQPwCqd/TEQlaapDQoK/vn9KJsLyP5f',
+    ],
+    disabledIds: ['fdc6uOvgoji', 'e1eIKM1GIF3'],
 }
 export const TextHighlighting = () => (
     <OrganisationUnitNodeText

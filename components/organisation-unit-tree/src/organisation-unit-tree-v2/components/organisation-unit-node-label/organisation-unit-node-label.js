@@ -43,7 +43,12 @@ const OrganisationUnitNodeLabel = ({ id }) => {
                 toggleSelected={toggleSelected}
                 isDisabled={isDisabled}
             />
-            <OrganisationUnitNodeIcon isLeafNode={isLeafNode} isOpen={isOpen} />
+            <OrganisationUnitNodeIcon
+                isDisabled={isDisabled}
+                isLeafNode={isLeafNode}
+                isOpen={isOpen}
+                toggleOpen={toggleOpen}
+            />
             <OrganisationUnitNodeText
                 displayName={displayName}
                 isFilterMatch={isFilterMatch}

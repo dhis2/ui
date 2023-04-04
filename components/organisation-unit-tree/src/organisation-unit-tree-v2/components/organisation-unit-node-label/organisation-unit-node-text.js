@@ -1,4 +1,4 @@
-import { colors } from '@dhis2/ui-constants'
+import { colors, theme } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -44,6 +44,11 @@ const OrganisationUnitNodeText = ({
                     line-height: 16px;
                     color: ${colors.grey900};
                     white-space: pre-wrap;
+                    cursor: pointer;
+                }
+                div.container.isDisabled {
+                    color: ${theme.disabled};
+                    cursor: not-allowed;
                 }
                 div.container.isGlobalMatch {
                     background-color: ${colors.yellow050};

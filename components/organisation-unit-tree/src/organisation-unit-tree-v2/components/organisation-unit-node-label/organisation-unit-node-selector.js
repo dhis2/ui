@@ -36,6 +36,9 @@ const OrganisationUnitNodeSelector = ({
                 div :global(input) {
                     cursor: pointer;
                 }
+                div :global(input:disabled) {
+                    cursor: not-allowed;
+                }
                 div.indeterminateRadio :global(svg),
                 div.indeterminateRadio
                     :global(svg:not(.checked))
@@ -58,7 +61,7 @@ OrganisationUnitNodeSelector.propTypes = {
     isDisabled: PropTypes.bool.isRequired,
     isSelected: PropTypes.bool.isRequired,
     singleSelection: PropTypes.bool.isRequired,
-    toggleSelected: PropTypes.func.isRequired,
+    toggleSelected: PropTypes.func,
 }
 
 export { OrganisationUnitNodeSelector }
