@@ -1,6 +1,12 @@
 import { createPubSub } from './helpers/index.js'
 
 export class OrganisationUnitNode {
+    #subscribers
+    #state
+    #boundToggleHiddenChildren
+    #boundToggleOpen
+    #boundToggleSelected
+
     constructor({
         id,
         displayName,
@@ -11,12 +17,12 @@ export class OrganisationUnitNode {
         parent = null,
         manager,
     } = {}) {
-        this.subscribers = {
+        this.manager = manager
+        this.#subscribers = {
             label: createPubSub(this.getLabelState.bind(this)),
             children: createPubSub(this.getChildrenState.bind(this)),
         }
-        this.manager = manager
-        this._state = {
+        this.#state = {
             id: id,
             displayName: displayName,
             level: level,
@@ -27,9 +33,12 @@ export class OrganisationUnitNode {
             error: null,
         }
 
-        this.toggleHiddenChildren = this.toggleHiddenChildren.bind(this)
-        this.toggleOpen = this.toggleOpen.bind(this)
-        this.toggleSelected = this.toggleSelected.bind(this)
+        /* Using private fields to prevent these bound methods to be accesible
+         * on the class instance, while still exposing the (unbound) methods on
+         * the class prototype. */
+        this.#boundToggleHiddenChildren = this.toggleHiddenChildren.bind(this)
+        this.#boundToggleOpen = this.toggleOpen.bind(this)
+        this.#boundToggleSelected = this.toggleSelected.bind(this)
     }
 
     toJSON() {
@@ -46,31 +55,31 @@ export class OrganisationUnitNode {
     }
 
     getId() {
-        return this._state.id
+        return this.#state.id
     }
 
     getDisplayName() {
-        return this._state.displayName
+        return this.#state.displayName
     }
 
     getLevel() {
-        return this._state.level
+        return this.#state.level
     }
 
     getPath() {
-        return this._state.path
+        return this.#state.path
     }
 
     getChildrenCount() {
-        return this._state.childrenCount
+        return this.#state.childrenCount
     }
 
     getError() {
-        return this._state.error
+        return this.#state.error
     }
 
     setError(error) {
-        this._state.error = error
+        this.#state.error = error
     }
 
     isRootNode() {
@@ -78,11 +87,11 @@ export class OrganisationUnitNode {
     }
 
     hasAllChildren() {
-        return this._state.children.size === this._state.childrenCount
+        return this.#state.children.size === this.#state.childrenCount
     }
 
     addChild(node) {
-        this._state.children.set(node.getId(), node)
+        this.#state.children.set(node.getId(), node)
     }
 
     addChildren(nodes) {
@@ -92,17 +101,17 @@ export class OrganisationUnitNode {
     }
 
     setParent(node) {
-        this._state.parent = node
+        this.#state.parent = node
     }
 
     forEachChild(callback) {
-        for (const child of this._state.children.values()) {
+        for (const child of this.#state.children.values()) {
             callback(child)
         }
     }
 
     findChild(callback) {
-        for (const child of this._state.children.values()) {
+        for (const child of this.#state.children.values()) {
             if (callback(child)) {
                 return child
             }
@@ -141,7 +150,7 @@ export class OrganisationUnitNode {
     }
 
     getParent() {
-        return this._state.parent
+        return this.#state.parent
     }
 
     getDescendants() {
@@ -202,8 +211,8 @@ export class OrganisationUnitNode {
             toggleOpen:
                 isLoading || isLeafNode || isDisabled
                     ? undefined
-                    : this.toggleOpen,
-            toggleSelected: isDisabled ? undefined : this.toggleSelected,
+                    : this.#boundToggleOpen,
+            toggleSelected: isDisabled ? undefined : this.#boundToggleSelected,
         }
     }
 
@@ -234,14 +243,14 @@ export class OrganisationUnitNode {
 
         return {
             visibleChildrenIds,
-            error: this._state.error,
+            error: this.#state.error,
             shouldShowAllSiblingsToggler,
             levelDisplayName: this.manager.getOrganisationUnitLevelDisplayName(
                 this.getLevel() + 1
             ),
             hiddenSiblingsCount,
             toggleAllSiblings: shouldShowAllSiblingsToggler
-                ? this.toggleHiddenChildren
+                ? this.#boundToggleHiddenChildren
                 : undefined,
         }
     }
@@ -259,7 +268,7 @@ export class OrganisationUnitNode {
     }
 
     isLeafNode() {
-        return this._state.childrenCount === 0
+        return this.#state.childrenCount === 0
     }
 
     isLoading() {
@@ -299,11 +308,19 @@ export class OrganisationUnitNode {
         this.manager.toggleNodeSelection(this.getId())
     }
 
+    onLabelChange(callback) {
+        this.#subscribers.label.subscribe(callback)
+    }
+
+    onChildrenChange(callback) {
+        this.#subscribers.children.subscribe(callback)
+    }
+
     refreshLabel() {
-        this.subscribers.label.notify()
+        this.#subscribers.label.notify()
     }
 
     refreshChildren() {
-        this.subscribers.children.notify()
+        this.#subscribers.children.notify()
     }
 }

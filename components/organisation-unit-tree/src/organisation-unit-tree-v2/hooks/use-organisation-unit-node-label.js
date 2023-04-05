@@ -7,7 +7,7 @@ export const useOrganisationUnitNodeLabel = (id) => {
 
     useEffect(
         () =>
-            node.subscribers.label.subscribe((state) => {
+            node.onLabelChange((state) => {
                 setState(state)
             }),
         [node]

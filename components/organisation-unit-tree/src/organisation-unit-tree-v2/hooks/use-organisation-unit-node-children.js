@@ -7,7 +7,7 @@ export const useOrganisationUnitNodeChildren = (id) => {
 
     useEffect(
         () =>
-            node.subscribers.children.subscribe((state) => {
+            node.onChildrenChange((state) => {
                 setState(state)
             }),
         [node]
