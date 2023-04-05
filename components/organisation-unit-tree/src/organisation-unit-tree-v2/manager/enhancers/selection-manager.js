@@ -37,24 +37,22 @@ export function selectionManager(manager) {
          * during usage can be considered an antipattern and there is no
          * "correct" behaviour. So no great effort needs to be taken to
          * support. */
-        if (state.singleSelection) {
-            const lastSelectedId = state.singleSelection.getFirstValue()
+        if (manager.getIsReady() && state.singleSelection) {
+            const lastSelectedId = state.selectedIds.getFirstValue()
             setSelectedIds([lastSelectedId])
         }
     }
 
     async function setSelectedIds(selectedIdsArray = []) {
-        const currentSelectedIds = getSelectedIds()
-
-        if (currentSelectedIds.hasEqualValues(selectedIdsArray)) {
+        if (state.selectedIds.hasEqualValues(selectedIdsArray)) {
             return
         }
 
         const nextSelectedIds = new EnhancedPrimitiveSet(selectedIdsArray)
-        const { changes, additions } = currentSelectedIds.diff(nextSelectedIds)
+        const { changes, additions } = state.selectedIds.diff(nextSelectedIds)
         const nextSelectedAncestorsMap = state.selectedAncestorsMap.clone()
 
-        currentSelectedIds.reset(nextSelectedIds)
+        state.selectedIds.reset(nextSelectedIds)
 
         await manager.ensureOrganisationUnitsAreLoaded(additions)
 
@@ -72,40 +70,58 @@ export function selectionManager(manager) {
     }
 
     function isNodeSelected(id) {
-        return getSelectedIds().has(id)
+        return state.selectedIds.has(id)
     }
 
-    function toggleNodeSelection(id) {
+    function toggleNodeSelection(id, event) {
         const toggledNode = manager.getOrganisationUnitNodeById(id)
 
-        if (getSingleSelection()) {
+        if (state.singleSelection) {
             toggleNodeSingleSelection(toggledNode)
         } else {
             toggleNodeMultiSelection(toggledNode)
         }
+
+        const idsArray = state.selectedIds.toArray()
+        const onChange = manager.getOnChange()
+        const payload = state.singleSelection
+            ? {
+                  id: idsArray[0],
+                  ids: idsArray,
+                  node: manager.getOrganisationUnitNodeById(idsArray[0]),
+              }
+            : {
+                  ids: idsArray,
+                  node: idsArray.map((id) =>
+                      manager.getOrganisationUnitNodeById(id)
+                  ),
+              }
+
+        onChange(payload, event)
     }
 
     function toggleNodeSingleSelection(toggledNode) {
-        const selectedIds = getSelectedIds()
-
         /* Selecting a selected node in single selection mode is
          * a noop, similar to native radio inputs and selects */
-        if (toggledNode.isNodeSelected()) {
+        if (toggledNode.isSelected()) {
             return
         }
 
-        const currentSelectedId = selectedIds.getFirstValue()
-        const currentSelectedNode = manager.getOrganisationUnitNodeById(
-            currentSelectedId
-        )
         const nextSelectedAncestorsMap = state.selectedAncestorsMap.clone()
 
-        selectedIds.delete(currentSelectedId)
-        currentSelectedNode.refreshLabel()
-        nextSelectedAncestorsMap.togglePathEntries(
-            currentSelectedNode.getPath()
-        )
-        selectedIds.add(toggledNode.getId())
+        if (state.selectedIds.hasEntries()) {
+            const currentSelectedId = state.selectedIds.getFirstValue()
+            const currentSelectedNode = manager.getOrganisationUnitNodeById(
+                currentSelectedId
+            )
+            state.selectedIds.delete(currentSelectedId)
+            currentSelectedNode.refreshLabel()
+            nextSelectedAncestorsMap.togglePathEntries(
+                currentSelectedNode.getPath()
+            )
+        }
+
+        state.selectedIds.add(toggledNode.getId())
         toggledNode.refreshLabel()
         nextSelectedAncestorsMap.togglePathEntries(toggledNode.getPath())
 
@@ -113,10 +129,9 @@ export function selectionManager(manager) {
     }
 
     function toggleNodeMultiSelection(toggledNode) {
-        const selectedIds = getSelectedIds()
         const { unitId, ancestorIds } = manager.parsePath(toggledNode.getPath())
 
-        selectedIds.toggleValue(toggledNode.getId())
+        state.selectedIds.toggleValue(toggledNode.getId())
         toggledNode.refreshLabel()
 
         for (const ancestorId of ancestorIds) {
