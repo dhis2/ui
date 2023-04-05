@@ -307,11 +307,11 @@ export class OrganisationUnitNode {
     }
 
     onLabelChange(callback) {
-        this.#subscribers.label.subscribe(callback)
+        return this.#subscribers.label.subscribe(callback)
     }
 
     onChildrenChange(callback) {
-        this.#subscribers.children.subscribe(callback)
+        return this.#subscribers.children.subscribe(callback)
     }
 
     refreshLabel() {

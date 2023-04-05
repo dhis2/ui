@@ -28,15 +28,15 @@ export const loadingManager = () => {
     }
 
     function onIsReady(callback) {
-        subscribers.ready.subscribe(callback)
+        return subscribers.ready.subscribe(callback)
     }
 
     function onTreeStateChange(callback) {
-        subscribers.treeState.subscribe(callback)
+        return subscribers.treeState.subscribe(callback)
     }
 
     function onFetchStateChange(callback) {
-        subscribers.fetchState.subscribe(callback)
+        return subscribers.fetchState.subscribe(callback)
     }
 
     function notifyOnReadySubscribers() {
