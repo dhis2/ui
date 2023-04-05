@@ -3,30 +3,35 @@ import { useOrganisationUnitTreeManager } from './use-organisation-unit-tree-man
 
 export const useOrganisationUnitTreeComponents = () => {
     const manager = useOrganisationUnitTreeManager()
-    const [components] = useState({
-        OrganisationUnitNode: manager.components.organisationUnitNodeComponent,
-        OrganisationUnitNodeChildren:
-            manager.components.organisationUnitNodeChildrenComponent,
-        OrganisationUnitNodeIcon:
-            manager.components.organisationUnitNodeIconComponent,
-        OrganisationUnitNodeLabel:
-            manager.components.organisationUnitNodeLabelComponent,
-        OrganisationUnitNodeSelector:
-            manager.components.organisationUnitNodeSelectorComponent,
-        OrganisationUnitNodeText:
-            manager.components.organisationUnitNodeTextComponent,
-        OrganisationUnitNodeToggler:
-            manager.components.organisationUnitNodeTogglerComponent,
-        OrganisationUnitRootContainer:
-            manager.components.organisationUnitRootContainerComponent,
-        OrganisationUnitRootError:
-            manager.components.organisationUnitRootErrorComponent,
-        OrganisationUnitRootFetcher:
-            manager.components.organisationUnitRootFetcherComponent,
-        OrganisationUnitRootLoader:
-            manager.components.organisationUnitRootLoaderComponent,
-        OrganisationUnitRootNodes:
-            manager.components.organisationUnitRootNodesComponent,
+    const [components] = useState(() => {
+        const {
+            organisationUnitNodeComponent,
+            organisationUnitNodeChildrenComponent,
+            organisationUnitNodeIconComponent,
+            organisationUnitNodeLabelComponent,
+            organisationUnitNodeSelectorComponent,
+            organisationUnitNodeTextComponent,
+            organisationUnitNodeTogglerComponent,
+            organisationUnitRootContainerComponent,
+            organisationUnitRootErrorComponent,
+            organisationUnitRootFetcherComponent,
+            organisationUnitRootLoaderComponent,
+            organisationUnitRootNodesComponent,
+        } = manager.getComponents()
+        return {
+            OrganisationUnitNode: organisationUnitNodeComponent,
+            OrganisationUnitNodeChildren: organisationUnitNodeChildrenComponent,
+            OrganisationUnitNodeIcon: organisationUnitNodeIconComponent,
+            OrganisationUnitNodeLabel: organisationUnitNodeLabelComponent,
+            OrganisationUnitNodeSelector: organisationUnitNodeSelectorComponent,
+            OrganisationUnitNodeText: organisationUnitNodeTextComponent,
+            OrganisationUnitNodeToggler: organisationUnitNodeTogglerComponent,
+            OrganisationUnitRootContainer: organisationUnitRootContainerComponent,
+            OrganisationUnitRootError: organisationUnitRootErrorComponent,
+            OrganisationUnitRootFetcher: organisationUnitRootFetcherComponent,
+            OrganisationUnitRootLoader: organisationUnitRootLoaderComponent,
+            OrganisationUnitRootNodes: organisationUnitRootNodesComponent,
+        }
     })
 
     return components

@@ -20,10 +20,9 @@ const enhance = (obj) => ({
 export const createOrganisationUnitTreeManager = ({
     dataEngine,
     components,
-    hooks = {},
     enhancers = [],
 } = {}) => {
-    const manager = enhance({ components, hooks })
+    const manager = enhance({ getComponents: () => components })
         .with(requestManager, dataEngine)
         .with(loadingManager)
         .with(pathManager)

@@ -158,7 +158,6 @@ export function openedManager(manager) {
     }
 
     return {
-        openedManager,
         getOpenedPaths,
         getOpenedIds,
         getNodesWithChildrenFetching,
