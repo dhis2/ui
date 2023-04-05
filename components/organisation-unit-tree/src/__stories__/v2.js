@@ -28,7 +28,7 @@ const props = {
     // rootIds: ['O6uvpzGd5pu', 'fdc6uOvgoji', 'KKkLOTpMXGV'], // Bo, Bombali, Bombali Sebora
     filteredString: undefined,
     visisbleIds: undefined,
-    singleSelection: false,
+    singleSelection: true,
     onChange: (payload) => console.log(payload),
     openedPaths: [
         '/ImspTQPwCqd',
@@ -138,8 +138,9 @@ export const V2WithLocalTreeFilter = () => {
                 <OrganisationUnitTreeV2
                     {...props}
                     selectedIds={selectedIds}
-                    onChange={(ids) => {
-                        setSelectedIds(ids)
+                    onChange={(payload) => {
+                        console.log('payload', payload)
+                        setSelectedIds(payload.ids)
                     }}
                 />
             </OrganisationUnitTreeProvider>
