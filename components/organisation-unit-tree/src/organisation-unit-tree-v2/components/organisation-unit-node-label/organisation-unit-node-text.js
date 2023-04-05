@@ -7,6 +7,7 @@ const OrganisationUnitNodeText = ({
     isDisabled,
     displayName,
     isFilterMatch,
+    isLeafNode,
     filteredString,
     toggleOpen,
 }) => {
@@ -30,6 +31,7 @@ const OrganisationUnitNodeText = ({
             className={cx('container', {
                 isGlobalMatch: isFilterMatch && !hasSearchHighlight,
                 isFilterMatch,
+                isLeafNode,
                 isDisabled,
             })}
         >
@@ -45,6 +47,9 @@ const OrganisationUnitNodeText = ({
                     color: ${colors.grey900};
                     white-space: pre-wrap;
                     cursor: pointer;
+                }
+                div.container.isLeafNode {
+                    cursor: default;
                 }
                 div.container.isDisabled {
                     color: ${theme.disabled};
@@ -71,6 +76,7 @@ OrganisationUnitNodeText.propTypes = {
     displayName: PropTypes.string.isRequired,
     isDisabled: PropTypes.bool.isRequired,
     isFilterMatch: PropTypes.bool.isRequired,
+    isLeafNode: PropTypes.bool.isRequired,
     filteredString: PropTypes.string,
     toggleOpen: PropTypes.func,
 }
