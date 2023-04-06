@@ -81,8 +81,6 @@ export class FilteredParentsMap extends AncestorMap {
         return new FilteredParentsMap()
     }
 
-    add
-
     compare(next) {
         const deletions = new EnhancedPrimitiveSet(this.keys())
         const additions = new EnhancedPrimitiveSet(next.keys())
