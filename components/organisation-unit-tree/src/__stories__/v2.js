@@ -5,6 +5,7 @@ import {
     OrganisationUnitTreeV2,
     useOrganisationUnitTreeManager,
     OrganisationUnitNodeText,
+    OrganisationUnitNodeManager,
 } from '../organisation-unit-tree-v2/index.js'
 
 const DataProviderWithDynamicBaseUrl = ({ children }) => {
@@ -129,11 +130,22 @@ const TreeFilters = () => {
     )
 }
 
+class CustomOrganisationUnitNodeManager extends OrganisationUnitNodeManager {
+    getChildrenState() {
+        console.log('called getChildrenState in extended node manager class')
+        return super.getChildrenState()
+    }
+}
+
 export const V2WithLocalTreeFilter = () => {
     const [selectedIds, setSelectedIds] = useState(['iUauWFeH8Qp'])
     return (
         <DataProviderWithDynamicBaseUrl>
-            <OrganisationUnitTreeProvider>
+            <OrganisationUnitTreeProvider
+                organisationUnitNodeManagerClass={
+                    CustomOrganisationUnitNodeManager
+                }
+            >
                 <TreeFilters />
                 <OrganisationUnitTreeV2
                     {...props}

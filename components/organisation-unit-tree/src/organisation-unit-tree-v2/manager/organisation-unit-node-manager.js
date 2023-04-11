@@ -1,6 +1,6 @@
 import { createPubSub } from './helpers/index.js'
 
-export class OrganisationUnitNode {
+export class OrganisationUnitNodeManager {
     #subscribers
     #state
     #boundToggleHiddenChildren

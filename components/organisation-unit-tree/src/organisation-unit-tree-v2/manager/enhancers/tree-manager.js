@@ -1,6 +1,4 @@
-import { OrganisationUnitNode } from '../organisation-unit-node.js'
-
-export const treeManager = (manager) => {
+export const treeManager = (manager, OrganisationUnitNodeManager) => {
     const state = {
         nodes: new Map(),
     }
@@ -45,7 +43,7 @@ export const treeManager = (manager) => {
          * units are fetched to read their paths.
          */
         const parent = getOrganisationUnitNodeById(parentId)
-        const node = new OrganisationUnitNode({
+        const node = new OrganisationUnitNodeManager({
             ...unit,
             parent,
             manager,
