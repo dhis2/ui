@@ -11,6 +11,7 @@ import {
     pathManager,
     initializer,
 } from './enhancers/index.js'
+import { OrganisationUnitNodeManager } from './organisation-unit-node-manager.js'
 
 const enhance = (obj) => ({
     with: (cb, ...args) => enhance(Object.assign(obj, cb(obj, ...args))),
@@ -19,9 +20,9 @@ const enhance = (obj) => ({
 
 export const createOrganisationUnitTreeManager = ({
     dataEngine,
-    components,
-    enhancers,
-    organisationUnitNodeManagerClass,
+    components = {},
+    enhancers = [],
+    organisationUnitNodeManagerClass = OrganisationUnitNodeManager,
 } = {}) => {
     const manager = enhance({ getComponents: () => components })
         .with(requestManager, dataEngine)
