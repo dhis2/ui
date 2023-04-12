@@ -1,6 +1,7 @@
 export const onChangeManager = (manager) => {
     const state = {
         onChange: null,
+        stringifiedOnChange: '',
     }
 
     function setOnChange(newOnChange) {
@@ -8,7 +9,14 @@ export const onChangeManager = (manager) => {
             return
         }
 
+        const newStringifiedOnChange = newOnChange.toString()
+
+        if (state.stringifiedOnChange === newStringifiedOnChange) {
+            return
+        }
+
         state.onChange = newOnChange
+        state.stringifiedOnChange = newStringifiedOnChange
 
         if (manager.getIsReady()) {
             manager.refreshRootNodes()
