@@ -92,7 +92,7 @@ export function selectionManager(manager) {
               }
             : {
                   ids: idsArray,
-                  node: idsArray.map((id) =>
+                  nodes: idsArray.map((id) =>
                       manager.getOrganisationUnitNodeById(id)
                   ),
               }
