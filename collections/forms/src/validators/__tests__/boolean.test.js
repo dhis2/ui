@@ -1,8 +1,10 @@
-import { boolean, invalidBooleanMessage } from '../boolean.js'
+import { boolean } from '../boolean.js'
 import {
     testValidatorValues,
     allowsEmptyValues,
 } from '../test-helpers/index.js'
+
+const invalidBooleanMessage = 'Please provide a boolean value'
 
 describe('validator: boolean', () => {
     allowsEmptyValues(boolean)

@@ -8,20 +8,6 @@ const DIGIT_PATTERN = /^(?=.*[0-9]).+$/
 // https://github.com/dhis2/dhis2-core/blob/master/dhis-2/dhis-services/dhis-service-core/src/main/java/org/hisp/dhis/user/SpecialCharacterValidationRule.java#L39
 const SPECIAL_CHARACTER_PATTERN = /[^a-zA-Z0-9]/
 
-const notString = i18n.t('Password should be a string')
-const tooShort = i18n.t('Password should be at least 8 characters long')
-const tooLong = i18n.t('Password should be no longer than 34 characters')
-const noLowerCase = i18n.t(
-    'Password should contain at least one lowercase letter'
-)
-const noUpperCase = i18n.t(
-    'Password should contain at least one UPPERCASE letter'
-)
-const noNumber = i18n.t('Password should contain at least one number')
-const noSpecialCharacter = i18n.t(
-    'Password should have at least one special character'
-)
-
 /**
  * Tests if a given password is compliant with the password restrictions.
  * This function checks all restrictions below, but returns when the first violation was found:
@@ -33,6 +19,20 @@ const noSpecialCharacter = i18n.t(
  * - Contains at least 1 special character
  */
 const dhis2Password = (value) => {
+    const notString = i18n.t('Password should be a string')
+    const tooShort = i18n.t('Password should be at least 8 characters long')
+    const tooLong = i18n.t('Password should be no longer than 34 characters')
+    const noLowerCase = i18n.t(
+        'Password should contain at least one lowercase letter'
+    )
+    const noUpperCase = i18n.t(
+        'Password should contain at least one UPPERCASE letter'
+    )
+    const noNumber = i18n.t('Password should contain at least one number')
+    const noSpecialCharacter = i18n.t(
+        'Password should have at least one special character'
+    )
+
     if (isEmpty(value)) {
         return undefined
     }
@@ -68,14 +68,4 @@ const dhis2Password = (value) => {
     return undefined
 }
 
-const errorMessages = {
-    notString,
-    tooShort,
-    tooLong,
-    noLowerCase,
-    noUpperCase,
-    noNumber,
-    noSpecialCharacter,
-}
-
-export { dhis2Password, errorMessages }
+export { dhis2Password }

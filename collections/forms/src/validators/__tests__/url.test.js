@@ -2,12 +2,14 @@ import {
     testValidatorValues,
     allowsEmptyValues,
 } from '../test-helpers/index.js'
-import { url, invalidUrlMessage } from '../url.js'
+import { url } from '../url.js'
 
 /**
  * List of valid and invalid URIs was sourced from
  * https://formvalidation.io/guide/validators/uri
  */
+
+const invalidUrlMessage = 'Please provide a valid url'
 
 describe('validator: url', () => {
     allowsEmptyValues(url)

@@ -27,11 +27,11 @@ import { isEmpty, isString, isNumeric } from './helpers/index.js'
  * leading ‘+’ all characters should be numeric.
  */
 
-const invalidInternationalPhoneNumberMessage = i18n.t(
-    'Please provide a valid international phone number.'
-)
-
 const internationalPhoneNumber = (value) => {
+    const invalidInternationalPhoneNumberMessage = i18n.t(
+        'Please provide a valid international phone number.'
+    )
+
     // allow empty values
     if (isEmpty(value)) {
         return undefined
@@ -53,4 +53,4 @@ const internationalPhoneNumber = (value) => {
         : invalidInternationalPhoneNumberMessage
 }
 
-export { internationalPhoneNumber, invalidInternationalPhoneNumberMessage }
+export { internationalPhoneNumber }

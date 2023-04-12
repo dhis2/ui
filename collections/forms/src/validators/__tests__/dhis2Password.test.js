@@ -1,8 +1,18 @@
-import { dhis2Password, errorMessages } from '../dhis2Password.js'
+import { dhis2Password } from '../dhis2Password.js'
 import {
     testValidatorValues,
     allowsEmptyValues,
 } from '../test-helpers/index.js'
+
+const errorMessages = {
+    notString: 'Password should be a string',
+    tooShort: 'Password should be at least 8 characters long',
+    tooLong: 'Password should be no longer than 34 characters',
+    noLowerCase: 'Password should contain at least one lowercase letter',
+    noUpperCase: 'Password should contain at least one UPPERCASE letter',
+    noNumber: 'Password should contain at least one number',
+    noSpecialCharacter: 'Password should have at least one special character',
+}
 
 describe('validator: dhis2Password', () => {
     allowsEmptyValues(dhis2Password)
