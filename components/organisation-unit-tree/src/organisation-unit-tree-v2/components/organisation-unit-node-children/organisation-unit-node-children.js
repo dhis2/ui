@@ -18,12 +18,12 @@ export const OrganisationUnitNodeChildren = ({ id }) => {
         visibleChildrenIds,
     } = useOrganisationUnitNodeChildren(id)
 
-    if (visibleChildrenIds.length === 0) {
-        return null
-    }
-
     if (error) {
         return <OrganisationUnitNodeChildrenError />
+    }
+
+    if (visibleChildrenIds.length === 0) {
+        return null
     }
 
     return (
