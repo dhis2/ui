@@ -97,13 +97,15 @@ export const OrganisationUnitTreeProvider = ({
 OrganisationUnitTreeProvider.defaultProps = {
     enhancers: [],
     organisationUnitNodeChildrenComponent: OrganisationUnitNodeChildren,
-    organisationUnitNodeChildrenErrorComponent: OrganisationUnitNodeChildrenError,
+    organisationUnitNodeChildrenErrorComponent:
+        OrganisationUnitNodeChildrenError,
     organisationUnitNodeComponent: OrganisationUnitNode,
     organisationUnitNodeIconComponent: OrganisationUnitNodeIcon,
     organisationUnitNodeLabelComponent: OrganisationUnitNodeLabel,
     organisationUnitNodeManagerClass: OrganisationUnitNodeManager,
     organisationUnitNodeSelectorComponent: OrganisationUnitNodeSelector,
-    organisationUnitNodeSiblingsTogglerComponent: OrganisationUnitNodeSiblingsToggler,
+    organisationUnitNodeSiblingsTogglerComponent:
+        OrganisationUnitNodeSiblingsToggler,
     organisationUnitNodeTextComponent: OrganisationUnitNodeText,
     organisationUnitNodeTogglerComponent: OrganisationUnitNodeToggler,
     organisationUnitRootContainerComponent: OrganisationUnitRootContainer,

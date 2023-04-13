@@ -4,10 +4,8 @@ import { orgUnitIdPropType } from '../../prop-types.js'
 import { useOrganisationUnitTreeComponents } from '../hooks/index.js'
 
 export const OrganisationUnitNode = ({ id }) => {
-    const {
-        OrganisationUnitNodeChildren,
-        OrganisationUnitNodeLabel,
-    } = useOrganisationUnitTreeComponents()
+    const { OrganisationUnitNodeChildren, OrganisationUnitNodeLabel } =
+        useOrganisationUnitTreeComponents()
 
     return (
         <li>

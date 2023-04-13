@@ -26,7 +26,8 @@ export const useOrganisationUnitTreeComponents = () => {
             OrganisationUnitNodeSelector: organisationUnitNodeSelectorComponent,
             OrganisationUnitNodeText: organisationUnitNodeTextComponent,
             OrganisationUnitNodeToggler: organisationUnitNodeTogglerComponent,
-            OrganisationUnitRootContainer: organisationUnitRootContainerComponent,
+            OrganisationUnitRootContainer:
+                organisationUnitRootContainerComponent,
             OrganisationUnitRootError: organisationUnitRootErrorComponent,
             OrganisationUnitRootFetcher: organisationUnitRootFetcherComponent,
             OrganisationUnitRootLoader: organisationUnitRootLoaderComponent,

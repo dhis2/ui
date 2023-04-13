@@ -95,9 +95,8 @@ export function filterManager(manager) {
         filteredPaths = [],
         filteredString = ''
     ) {
-        const havePathsChanged = !state.filteredPaths.hasEqualValues(
-            filteredPaths
-        )
+        const havePathsChanged =
+            !state.filteredPaths.hasEqualValues(filteredPaths)
         const hasStringChanged = state.filteredString !== filteredString
 
         if (!havePathsChanged && !hasStringChanged) {
@@ -155,10 +154,8 @@ export function filterManager(manager) {
         const nextPaths = new EnhancedPrimitiveSet(filteredPaths)
         const nextIds = state.filteredIds.clone()
         const nextParentsMap = state.filteredParentsMap.clone()
-        const {
-            additions: addedPaths,
-            deletions: deletedPaths,
-        } = state.filteredPaths.diff(nextPaths)
+        const { additions: addedPaths, deletions: deletedPaths } =
+            state.filteredPaths.diff(nextPaths)
         const idsToFetch = new EnhancedPrimitiveSet()
 
         state.filteredPaths.reset(nextPaths)

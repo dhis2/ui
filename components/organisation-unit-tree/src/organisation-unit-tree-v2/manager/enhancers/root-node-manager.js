@@ -24,10 +24,8 @@ export const rootNodeManager = (manager) => {
     }
 
     async function loadDeduplicatedRootNodesWithOfflineLevels() {
-        const {
-            rootUnits,
-            organisationUnitLevels,
-        } = await manager.fetchRootsWithOfflineLevels(state.rootIds)
+        const { rootUnits, organisationUnitLevels } =
+            await manager.fetchRootsWithOfflineLevels(state.rootIds)
         const offlineUnits = await manager.fetchOfflineUnits(rootUnits)
 
         for (const { level, displayName } of organisationUnitLevels) {

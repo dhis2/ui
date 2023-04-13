@@ -115,9 +115,8 @@ export function selectionManager(manager) {
 
         if (state.selectedIds.hasEntries()) {
             const currentSelectedId = state.selectedIds.getFirstValue()
-            const currentSelectedNode = manager.getOrganisationUnitNodeById(
-                currentSelectedId
-            )
+            const currentSelectedNode =
+                manager.getOrganisationUnitNodeById(currentSelectedId)
             state.selectedIds.delete(currentSelectedId)
             currentSelectedNode.refreshLabel()
             nextSelectedAncestorsMap.togglePathEntries(
@@ -139,15 +138,13 @@ export function selectionManager(manager) {
         toggledNode.refreshLabel()
 
         for (const ancestorId of ancestorIds) {
-            const currentDescendantSelectionCount = getNodeSelectedDescendantsCount(
-                ancestorId
-            )
+            const currentDescendantSelectionCount =
+                getNodeSelectedDescendantsCount(ancestorId)
 
             state.selectedAncestorsMap.toggleEntry(ancestorId, unitId)
 
-            const nextDescendantSelectionCount = getNodeSelectedDescendantsCount(
-                ancestorId
-            )
+            const nextDescendantSelectionCount =
+                getNodeSelectedDescendantsCount(ancestorId)
 
             if (
                 currentDescendantSelectionCount !== nextDescendantSelectionCount

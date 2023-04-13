@@ -3,7 +3,7 @@ import {
     mockDataEngineForRootIds,
     pluckDisplayName,
 } from './helpers/test-utils.js'
-import { OrganisationUnitNode } from './organisation-unit-node.js'
+import { OrganisationUnitNodeManager } from './organisation-unit-node-manager.js'
 
 describe('createOrganisationUnitManager', () => {
     describe.each([
@@ -411,7 +411,9 @@ describe('createOrganisationUnitManager', () => {
             it('each root node has the correct type, name and descendants', () => {
                 Array.from(manager.getRootNodes().values()).forEach(
                     (rootNode, index) => {
-                        expect(rootNode).toBeInstanceOf(OrganisationUnitNode)
+                        expect(rootNode).toBeInstanceOf(
+                            OrganisationUnitNodeManager
+                        )
                         expect(rootNode.getDisplayName()).toBe(
                             expected.root.displayNames[index]
                         )
@@ -427,7 +429,7 @@ describe('createOrganisationUnitManager', () => {
             it('is an instance of `OrganisationUnitNode`', () => {
                 expect(
                     manager.getOrganisationUnitNodeById(subUnitId)
-                ).toBeInstanceOf(OrganisationUnitNode)
+                ).toBeInstanceOf(OrganisationUnitNodeManager)
             })
             it('has the correct displayName', () => {
                 expect(

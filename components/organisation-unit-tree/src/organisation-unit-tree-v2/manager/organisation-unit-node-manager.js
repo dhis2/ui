@@ -233,9 +233,8 @@ export class OrganisationUnitNodeManager {
 
         const hiddenSiblingsCount =
             this.getChildrenCount() - visibleChildrenIds.length
-        const isShowingHiddenSiblings = this.manager.isParentWithAllChildrenLoaded(
-            this.getId()
-        )
+        const isShowingHiddenSiblings =
+            this.manager.isParentWithAllChildrenLoaded(this.getId())
         const shouldShowAllSiblingsToggler =
             this.manager.isInFilterMode() &&
             this.isOpen() &&
