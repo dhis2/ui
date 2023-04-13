@@ -4,6 +4,7 @@ import {
     useOrganisationUnitNodeLabel,
     useOrganisationUnitTreeComponents,
 } from '../../hooks/index.js'
+import { OrganisationUnitNodeSelectedDescendantCount } from './organisation-unit-node-selected-descendant-count.js'
 
 const OrganisationUnitNodeLabel = ({ id }) => {
     const {
@@ -23,6 +24,7 @@ const OrganisationUnitNodeLabel = ({ id }) => {
         isLoading,
         isOpen,
         isSelected,
+        selectedDescendantsCount,
         singleSelection,
         toggleOpen,
         toggleSelected,
@@ -57,9 +59,16 @@ const OrganisationUnitNodeLabel = ({ id }) => {
                 toggleOpen={toggleOpen}
                 isDisabled={isDisabled}
             />
+            {hasSelectedDescendant && (
+                <OrganisationUnitNodeSelectedDescendantCount
+                    selectedDescendantsCount={selectedDescendantsCount}
+                />
+            )}
             <style jsx>{`
                 div {
                     display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
                 }
             `}</style>
         </div>

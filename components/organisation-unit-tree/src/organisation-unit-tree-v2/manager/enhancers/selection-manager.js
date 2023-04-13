@@ -69,6 +69,10 @@ export function selectionManager(manager) {
         return state.selectedAncestorsMap.has(id)
     }
 
+    function getNodeSelectedDescendantsCount(id) {
+        return state.selectedAncestorsMap.get(id)?.size
+    }
+
     function isNodeSelected(id) {
         return state.selectedIds.has(id)
     }
@@ -135,15 +139,19 @@ export function selectionManager(manager) {
         toggledNode.refreshLabel()
 
         for (const ancestorId of ancestorIds) {
-            const currentAncestorSelection = hasNodeSelectedDescendant(
+            const currentDescendantSelectionCount = getNodeSelectedDescendantsCount(
                 ancestorId
             )
 
             state.selectedAncestorsMap.toggleEntry(ancestorId, unitId)
 
-            const nextAncestorSelection = hasNodeSelectedDescendant(ancestorId)
+            const nextDescendantSelectionCount = getNodeSelectedDescendantsCount(
+                ancestorId
+            )
 
-            if (currentAncestorSelection !== nextAncestorSelection) {
+            if (
+                currentDescendantSelectionCount !== nextDescendantSelectionCount
+            ) {
                 refreshAncestorLabelById(ancestorId)
             }
         }
@@ -174,6 +182,7 @@ export function selectionManager(manager) {
         getSelectedAncestorsMap,
         getSelectedIds,
         getSingleSelection,
+        getNodeSelectedDescendantsCount,
         hasNodeSelectedDescendant,
         isNodeSelected,
         refreshAncestorLabelById,

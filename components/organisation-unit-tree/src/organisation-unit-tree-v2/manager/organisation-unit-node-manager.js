@@ -196,11 +196,15 @@ export class OrganisationUnitNodeManager {
         const isLeafNode = this.isLeafNode()
         const isDisabled = this.isDisabled()
         const isLoading = this.isLoading()
+        const hasSelectedDescendant = this.hasSelectedDescendant()
 
         return {
             displayName: this.getDisplayName(),
             filteredString: this.manager.getFilteredString(),
-            hasSelectedDescendant: this.hasSelectedDescendant(),
+            hasSelectedDescendant,
+            selectedDescendantsCount: hasSelectedDescendant
+                ? this.getSelectedDescendantsCount()
+                : 0,
             isDisabled,
             isFilterMatch: this.isFilterMatch(),
             isLeafNode,
@@ -259,6 +263,10 @@ export class OrganisationUnitNodeManager {
 
     hasSelectedDescendant() {
         return this.manager.hasNodeSelectedDescendant(this.getId())
+    }
+
+    getSelectedDescendantsCount() {
+        return this.manager.getNodeSelectedDescendantsCount(this.getId())
     }
 
     isFilterMatch() {
