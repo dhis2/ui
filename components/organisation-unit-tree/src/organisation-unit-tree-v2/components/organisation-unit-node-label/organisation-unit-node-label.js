@@ -4,11 +4,12 @@ import {
     useOrganisationUnitNodeLabel,
     useOrganisationUnitTreeComponents,
 } from '../../hooks/index.js'
-import { OrganisationUnitNodeSelectedDescendantCount } from './organisation-unit-node-selected-descendant-count.js'
 
 const OrganisationUnitNodeLabel = ({ id }) => {
     const {
+        OrganisationUnitNodeCheckbox,
         OrganisationUnitNodeIcon,
+        OrganisationUnitNodeSelectedDescendantCount,
         OrganisationUnitNodeSelector,
         OrganisationUnitNodeText,
         OrganisationUnitNodeToggler,
@@ -39,36 +40,42 @@ const OrganisationUnitNodeLabel = ({ id }) => {
                 toggleOpen={toggleOpen}
             />
             <OrganisationUnitNodeSelector
-                hasSelectedDescendant={hasSelectedDescendant}
                 isSelected={isSelected}
                 singleSelection={singleSelection}
                 toggleSelected={toggleSelected}
-                isDisabled={isDisabled}
-            />
-            <OrganisationUnitNodeIcon
-                isDisabled={isDisabled}
-                isLeafNode={isLeafNode}
-                isOpen={isOpen}
-                toggleOpen={toggleOpen}
-            />
-            <OrganisationUnitNodeText
-                displayName={displayName}
-                isFilterMatch={isFilterMatch}
-                isLeafNode={isLeafNode}
-                filteredString={filteredString}
-                toggleOpen={toggleOpen}
-                isDisabled={isDisabled}
-            />
-            {hasSelectedDescendant && (
-                <OrganisationUnitNodeSelectedDescendantCount
-                    selectedDescendantsCount={selectedDescendantsCount}
+            >
+                {!singleSelection && (
+                    <OrganisationUnitNodeCheckbox
+                        hasSelectedDescendant={hasSelectedDescendant}
+                        isSelected={isSelected}
+                        singleSelection={singleSelection}
+                        toggleSelected={toggleSelected}
+                        isDisabled={isDisabled}
+                    />
+                )}
+                <OrganisationUnitNodeIcon
+                    isDisabled={isDisabled}
+                    isLeafNode={isLeafNode}
+                    isOpen={isOpen}
                 />
-            )}
+                <OrganisationUnitNodeText
+                    displayName={displayName}
+                    filteredString={filteredString}
+                    isDisabled={isDisabled}
+                    isFilterMatch={isFilterMatch}
+                    isLeafNode={isLeafNode}
+                    isSelected={isSelected}
+                    singleSelection={singleSelection}
+                />
+                {hasSelectedDescendant && (
+                    <OrganisationUnitNodeSelectedDescendantCount
+                        selectedDescendantsCount={selectedDescendantsCount}
+                    />
+                )}
+            </OrganisationUnitNodeSelector>
             <style jsx>{`
                 div {
                     display: flex;
-                    align-items: center;
-                    justify-content: flex-start;
                 }
             `}</style>
         </div>

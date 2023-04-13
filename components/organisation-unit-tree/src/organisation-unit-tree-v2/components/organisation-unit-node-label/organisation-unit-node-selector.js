@@ -1,64 +1,39 @@
-import { Checkbox } from '@dhis2-ui/checkbox'
-import { Radio } from '@dhis2-ui/radio'
-import { colors } from '@dhis2/ui-constants'
+import { colors, spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 
 const OrganisationUnitNodeSelector = ({
-    isDisabled,
-    hasSelectedDescendant,
-    isSelected,
+    children,
     singleSelection,
+    isSelected,
     toggleSelected,
-}) => {
-    const indeterminate = !isSelected && hasSelectedDescendant
-    const indeterminateRadio = singleSelection && indeterminate
-    const SelectionComponent = singleSelection ? Radio : Checkbox
-
-    return (
-        <div className={cx({ indeterminateRadio, isDisabled })}>
-            <SelectionComponent
-                checked={isSelected}
-                disabled={isDisabled}
-                dense
-                indeterminate={indeterminate}
-                onChange={toggleSelected}
-            />
-            <style jsx>{`
-                div {
-                    display: flex;
-                    height: 24px;
-                    align-items: center;
-                    justify-content: center;
-                    cursor: pointer;
-                }
-                div :global(input) {
-                    cursor: pointer;
-                }
-                div :global(input:disabled) {
-                    cursor: not-allowed;
-                }
-                div.indeterminateRadio :global(svg),
-                div.indeterminateRadio
-                    :global(svg:not(.checked))
-                    > :global(path.outer.checked) {
-                    fill: ${colors.teal400};
-                }
-                div.indeterminateRadio.isDisabled :global(svg),
-                div.indeterminateRadio.isDisabled
-                    :global(svg:not(.checked))
-                    > :global(path.outer.checked) {
-                    fill: ${colors.grey400};
-                }
-            `}</style>
-        </div>
-    )
-}
+}) => (
+    <div
+        onClick={toggleSelected}
+        className={cx('container', { singleSelection, isSelected })}
+    >
+        {children}
+        <style jsx>{`
+            div.container {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            div.singleSelection {
+                padding: 0 ${spacers.dp4};
+            }
+            div.singleSelection.isSelected {
+                background-color: ${colors.teal600};
+            }
+        `}</style>
+    </div>
+)
 
 OrganisationUnitNodeSelector.propTypes = {
-    hasSelectedDescendant: PropTypes.bool.isRequired,
-    isDisabled: PropTypes.bool.isRequired,
+    children: PropTypes.node.isRequired,
     isSelected: PropTypes.bool.isRequired,
     singleSelection: PropTypes.bool.isRequired,
     toggleSelected: PropTypes.func,

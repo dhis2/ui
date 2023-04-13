@@ -25,13 +25,8 @@ Icon.propTypes = {
     isOpen: PropTypes.bool.isRequired,
 }
 
-const OrganisationUnitNodeIcon = ({
-    isDisabled,
-    isLeafNode,
-    isOpen,
-    toggleOpen,
-}) => (
-    <div className={cx({ isDisabled })} onClick={toggleOpen}>
+const OrganisationUnitNodeIcon = ({ isDisabled, isLeafNode, isOpen }) => (
+    <div className={cx({ isDisabled })}>
         <Icon isLeafNode={isLeafNode} isOpen={isOpen} />
         <style jsx>{`
             div {
@@ -40,7 +35,6 @@ const OrganisationUnitNodeIcon = ({
                 justify-content: flex-start;
                 height: 24px;
                 width: 22px;
-                cursor: pointer;
             }
             div.isDisabled {
                 cursor: not-allowed;
@@ -54,7 +48,6 @@ OrganisationUnitNodeIcon.propTypes = {
     isDisabled: PropTypes.bool.isRequired,
     isLeafNode: PropTypes.bool.isRequired,
     isOpen: PropTypes.bool.isRequired,
-    toggleOpen: PropTypes.func,
 }
 
 export { OrganisationUnitNodeIcon }

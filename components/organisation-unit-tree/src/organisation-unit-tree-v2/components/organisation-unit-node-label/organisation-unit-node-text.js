@@ -4,12 +4,13 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 const OrganisationUnitNodeText = ({
-    isDisabled,
     displayName,
+    filteredString,
+    isDisabled,
     isFilterMatch,
     isLeafNode,
-    filteredString,
-    toggleOpen,
+    isSelected,
+    singleSelection,
 }) => {
     const lowerCasedDisplayName = displayName.toLowerCase()
     const lowerCasedFilteredString = filteredString.toLowerCase()
@@ -27,12 +28,13 @@ const OrganisationUnitNodeText = ({
 
     return (
         <div
-            onClick={toggleOpen}
             className={cx('container', {
                 isGlobalMatch: isFilterMatch && !hasSearchHighlight,
                 isFilterMatch,
                 isLeafNode,
                 isDisabled,
+                isSelected,
+                singleSelection,
             })}
         >
             {content}
@@ -48,20 +50,21 @@ const OrganisationUnitNodeText = ({
                     white-space: pre-wrap;
                     cursor: pointer;
                 }
-                div.container.isLeafNode {
-                    cursor: default;
+                div.container.isSelected.singleSelection {
+                    color: ${colors.white};
                 }
                 div.container.isDisabled {
                     color: ${theme.disabled};
                     cursor: not-allowed;
                 }
-                div.container.isGlobalMatch {
-                    background-color: ${colors.yellow050};
-                    border-radius: 3px;
-                }
+                div.container.isGlobalMatch,
                 div.container.isFilterMatch > :global(span.highlight) {
-                    border-radius: 3px;
                     background-color: ${colors.yellow300};
+                }
+                div.container.isGlobalMatch.isSelected.singleSelection,
+                div.container.isFilterMatch.isSelected.singleSelection
+                    > :global(span.highlight) {
+                    background-color: #978800;
                 }
             `}</style>
         </div>
@@ -77,8 +80,9 @@ OrganisationUnitNodeText.propTypes = {
     isDisabled: PropTypes.bool.isRequired,
     isFilterMatch: PropTypes.bool.isRequired,
     isLeafNode: PropTypes.bool.isRequired,
+    isSelected: PropTypes.bool.isRequired,
+    singleSelection: PropTypes.bool.isRequired,
     filteredString: PropTypes.string,
-    toggleOpen: PropTypes.func,
 }
 
 function getMatchingSegments(

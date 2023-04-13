@@ -15,11 +15,13 @@ import {
     OrganisationUnitNodeSiblingsToggler,
 } from './organisation-unit-node-children/index.js'
 import {
+    OrganisationUnitNodeCheckbox,
     OrganisationUnitNodeIcon,
     OrganisationUnitNodeLabel,
     OrganisationUnitNodeSelector,
     OrganisationUnitNodeText,
     OrganisationUnitNodeToggler,
+    OrganisationUnitNodeSelectedDescendantCount,
 } from './organisation-unit-node-label/index.js'
 import { OrganisationUnitNode } from './organisation-unit-node.js'
 import {
@@ -36,12 +38,14 @@ export const OrganisationUnitTreeProvider = ({
     organisationUnitNodeManagerClass,
     organisationUnitNodeChildrenComponent,
     organisationUnitNodeChildrenErrorComponent,
+    organisationUnitNodeCheckboxComponent,
     organisationUnitNodeIconComponent,
     organisationUnitNodeLabelComponent,
     organisationUnitNodeSelectorComponent,
     organisationUnitNodeSiblingsTogglerComponent,
     organisationUnitNodeTextComponent,
     organisationUnitNodeTogglerComponent,
+    organisationUnitNodeSelectedDescendantCountComponent,
     organisationUnitNodeComponent,
     organisationUnitRootContainerComponent,
     organisationUnitRootErrorComponent,
@@ -59,12 +63,14 @@ export const OrganisationUnitTreeProvider = ({
                 components: {
                     organisationUnitNodeChildrenComponent,
                     organisationUnitNodeChildrenErrorComponent,
+                    organisationUnitNodeCheckboxComponent,
                     organisationUnitNodeIconComponent,
                     organisationUnitNodeLabelComponent,
                     organisationUnitNodeSelectorComponent,
                     organisationUnitNodeSiblingsTogglerComponent,
                     organisationUnitNodeTextComponent,
                     organisationUnitNodeTogglerComponent,
+                    organisationUnitNodeSelectedDescendantCountComponent,
                     organisationUnitNodeComponent,
                     organisationUnitRootContainerComponent,
                     organisationUnitRootErrorComponent,
@@ -96,6 +102,7 @@ export const OrganisationUnitTreeProvider = ({
  * manager and the hooks */
 OrganisationUnitTreeProvider.defaultProps = {
     enhancers: [],
+    organisationUnitNodeCheckboxComponent: OrganisationUnitNodeCheckbox,
     organisationUnitNodeChildrenComponent: OrganisationUnitNodeChildren,
     organisationUnitNodeChildrenErrorComponent:
         OrganisationUnitNodeChildrenError,
@@ -103,6 +110,8 @@ OrganisationUnitTreeProvider.defaultProps = {
     organisationUnitNodeIconComponent: OrganisationUnitNodeIcon,
     organisationUnitNodeLabelComponent: OrganisationUnitNodeLabel,
     organisationUnitNodeManagerClass: OrganisationUnitNodeManager,
+    organisationUnitNodeSelectedDescendantCountComponent:
+        OrganisationUnitNodeSelectedDescendantCount,
     organisationUnitNodeSelectorComponent: OrganisationUnitNodeSelector,
     organisationUnitNodeSiblingsTogglerComponent:
         OrganisationUnitNodeSiblingsToggler,
@@ -118,12 +127,14 @@ OrganisationUnitTreeProvider.defaultProps = {
 OrganisationUnitTreeProvider.propTypes = {
     children: PropTypes.node,
     enhancers: PropTypes.arrayOf(PropTypes.func),
+    organisationUnitNodeCheckboxComponent: PropTypes.elementType,
     organisationUnitNodeChildrenComponent: PropTypes.elementType,
     organisationUnitNodeChildrenErrorComponent: PropTypes.elementType,
     organisationUnitNodeComponent: PropTypes.elementType,
     organisationUnitNodeIconComponent: PropTypes.elementType,
     organisationUnitNodeLabelComponent: PropTypes.elementType,
     organisationUnitNodeManagerClass: PropTypes.func,
+    organisationUnitNodeSelectedDescendantCountComponent: PropTypes.elementType,
     organisationUnitNodeSelectorComponent: PropTypes.elementType,
     organisationUnitNodeSiblingsTogglerComponent: PropTypes.elementType,
     organisationUnitNodeTextComponent: PropTypes.elementType,

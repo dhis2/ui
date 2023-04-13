@@ -38,7 +38,6 @@
         "@dhis2-ui/loader": "^8.4.16",
         "@dhis2-ui/node": "^8.4.16",
         "@dhis2-ui/notice-box": "^8.4.16",
-        "@dhis2-ui/radio": "^8.4.16",
         "@dhis2/prop-types": "^3.1.2",
         "@dhis2/ui-constants": "^8.4.16",
         "@dhis2/ui-icons": "^8.4.16",

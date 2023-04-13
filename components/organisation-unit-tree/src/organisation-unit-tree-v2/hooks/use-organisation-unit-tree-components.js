@@ -5,13 +5,17 @@ export const useOrganisationUnitTreeComponents = () => {
     const manager = useOrganisationUnitTreeManager()
     const [components] = useState(() => {
         const {
-            organisationUnitNodeComponent,
             organisationUnitNodeChildrenComponent,
+            organisationUnitNodeChildrenErrorComponent,
+            organisationUnitNodeCheckboxComponent,
             organisationUnitNodeIconComponent,
             organisationUnitNodeLabelComponent,
             organisationUnitNodeSelectorComponent,
+            organisationUnitNodeSiblingsTogglerComponent,
             organisationUnitNodeTextComponent,
             organisationUnitNodeTogglerComponent,
+            organisationUnitNodeSelectedDescendantCountComponent,
+            organisationUnitNodeComponent,
             organisationUnitRootContainerComponent,
             organisationUnitRootErrorComponent,
             organisationUnitRootFetcherComponent,
@@ -19,15 +23,18 @@ export const useOrganisationUnitTreeComponents = () => {
             organisationUnitRootNodesComponent,
         } = manager.getComponents()
         return {
-            OrganisationUnitNode: organisationUnitNodeComponent,
             OrganisationUnitNodeChildren: organisationUnitNodeChildrenComponent,
+            OrganisationUnitNodeChildrenError: organisationUnitNodeChildrenErrorComponent,
+            OrganisationUnitNodeCheckbox: organisationUnitNodeCheckboxComponent,
             OrganisationUnitNodeIcon: organisationUnitNodeIconComponent,
             OrganisationUnitNodeLabel: organisationUnitNodeLabelComponent,
             OrganisationUnitNodeSelector: organisationUnitNodeSelectorComponent,
+            OrganisationUnitNodeSiblingsToggler: organisationUnitNodeSiblingsTogglerComponent,
             OrganisationUnitNodeText: organisationUnitNodeTextComponent,
             OrganisationUnitNodeToggler: organisationUnitNodeTogglerComponent,
-            OrganisationUnitRootContainer:
-                organisationUnitRootContainerComponent,
+            OrganisationUnitNodeSelectedDescendantCount: organisationUnitNodeSelectedDescendantCountComponent,
+            OrganisationUnitNode: organisationUnitNodeComponent,
+            OrganisationUnitRootContainer: organisationUnitRootContainerComponent,
             OrganisationUnitRootError: organisationUnitRootErrorComponent,
             OrganisationUnitRootFetcher: organisationUnitRootFetcherComponent,
             OrganisationUnitRootLoader: organisationUnitRootLoaderComponent,
