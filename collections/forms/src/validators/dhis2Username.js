@@ -6,8 +6,8 @@ const USERNAME_PATTERN =
 
 const dhis2Username = (value) => {
     const invalidUsernameMessage = i18n.t(
-        'Please provide a username between 4 and 255 characters long and possibly separated by . _ - or @',
-        { contextSeparator: '<|>' }
+        'Please provide a username between 4 and 255 characters long and possibly separated by {{period}} {{underscore}} {{dash}} or {{atSymbol}}',
+        { period: '.', dash: '-', atSymbol: '@', underscore: '_' }
     )
     return isEmpty(value) || (isString(value) && USERNAME_PATTERN.test(value))
         ? undefined
