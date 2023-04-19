@@ -1,7 +1,7 @@
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { css, resolve } from 'styled-jsx/css'
+import css from 'styled-jsx/css'
 
 function CancelOutline({ className }) {
     return (
@@ -44,11 +44,11 @@ const containerStyle = css`
     }
 `
 
-const removeIcon = resolve`
+const removeIcon = css.resolve`
     svg {
         fill: ${colors.grey600};
-		    height: 16px;
-		    width: 16px;
+        height: 16px;
+        width: 16px;
         cursor: pointer;
         opacity: 1;
         pointer-events: all;

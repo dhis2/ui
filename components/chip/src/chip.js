@@ -6,6 +6,9 @@ import { Content } from './content.js'
 import { Icon } from './icon.js'
 import { Remove } from './remove.js'
 
+const getMarginValue = (margin) =>
+    typeof margin === 'number' ? margin + 'px' : margin
+
 const Chip = ({
     selected,
     dense,
@@ -97,10 +100,10 @@ const Chip = ({
         `}</style>
         <style jsx>{`
             span {
-                ${marginBottom && `margin-bottom: ${marginBottom}px;`}
-                ${marginLeft && `margin-left: ${marginLeft}px;`}
-                ${marginRight && `margin-right: ${marginRight}px;`}
-                ${marginTop && `margin-top: ${marginTop}px`}
+                margin-bottom: ${getMarginValue(marginBottom)};
+                margin-left: ${getMarginValue(marginLeft)};
+                margin-right: ${getMarginValue(marginRight)};
+                margin-top: ${getMarginValue(marginTop)};
             }
         `}</style>
     </span>
@@ -122,14 +125,14 @@ Chip.propTypes = {
     disabled: PropTypes.bool,
     dragging: PropTypes.bool,
     icon: PropTypes.element,
-    /** `margin-bottom` value, applied in `px`  */
-    marginBottom: PropTypes.number,
-    /** `margin-left` value, applied in `px`  */
-    marginLeft: PropTypes.number,
-    /** `margin-right` value, applied in `px`  */
-    marginRight: PropTypes.number,
-    /** `margin-top` value, applied in `px`  */
-    marginTop: PropTypes.number,
+    /** `margin-bottom` value, applied in `px` when number is provided  */
+    marginBottom: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    /** `margin-left` value, applied in `px` when number is provided  */
+    marginLeft: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    /** `margin-right` value, applied in `px` when number is provided  */
+    marginRight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    /** `margin-top` value, applied in `px` when number is provided  */
+    marginTop: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     overflow: PropTypes.bool,
     selected: PropTypes.bool,
     onClick: PropTypes.func,
