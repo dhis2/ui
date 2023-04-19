@@ -12,15 +12,16 @@ function template(
     const tpl = template.smart({ plugins })
 
     return tpl.ast`
-        ${imports}
         import PropTypes from 'prop-types'
+        ${imports}
 
-        function ${componentName}({ color }) {
+        function ${componentName}({ color, dataTest }) {
             return ${jsx};
         }
 
         ${componentName}.propTypes = {
             color: PropTypes.string,
+            dataTest: PropTypes.string,
         }
 
         ${exports}

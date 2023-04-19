@@ -13,6 +13,7 @@ module.exports = {
     // Pass the color prop on to the root svg node
     svgProps: {
         color: '{color}',
+        ['data-test']: '{dataTest}',
     },
 
     // Compress svgs
