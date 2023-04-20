@@ -1,0 +1,51 @@
+export const rootOrganisationUnits = [
+    {
+        path: '/ImspTQPwCqd',
+        displayName: 'Sierra Leone',
+        id: 'ImspTQPwCqd',
+        level: 1,
+        childrenCount: 13,
+    },
+    {
+        path: '/ImspTQPwCqd/O6uvpzGd5pu',
+        displayName: 'Bo',
+        id: 'O6uvpzGd5pu',
+        level: 2,
+        childrenCount: 15,
+    },
+    {
+        path: '/ImspTQPwCqd/lc3eMKXaEfw',
+        displayName: 'Bonthe',
+        id: 'lc3eMKXaEfw',
+        level: 2,
+        childrenCount: 12,
+    },
+    {
+        path: '/ImspTQPwCqd/fdc6uOvgoji/fwH9ipvXde9',
+        displayName: 'Biriwa',
+        id: 'fwH9ipvXde9',
+        level: 3,
+        childrenCount: 10,
+    },
+    {
+        path: '/ImspTQPwCqd/O6uvpzGd5pu/YuQRtpLP10I',
+        displayName: 'Badjia',
+        id: 'YuQRtpLP10I',
+        level: 3,
+        childrenCount: 2,
+    },
+    {
+        path: '/ImspTQPwCqd/fdc6uOvgoji',
+        displayName: 'Bombali',
+        id: 'fdc6uOvgoji',
+        level: 2,
+        childrenCount: 13,
+    },
+    {
+        path: '/ImspTQPwCqd/fdc6uOvgoji/KKkLOTpMXGV',
+        displayName: 'Bombali Sebora',
+        id: 'KKkLOTpMXGV',
+        level: 3,
+        childrenCount: 15,
+    },
+]
