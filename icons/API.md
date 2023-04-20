@@ -15,6 +15,7 @@ import { SvgAdd16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgAdd24
 
@@ -33,6 +34,7 @@ import { SvgAdd24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgAddCircle16
 
@@ -51,6 +53,7 @@ import { SvgAddCircle16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgAddCircle24
 
@@ -69,6 +72,7 @@ import { SvgAddCircle24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgApps16
 
@@ -87,6 +91,7 @@ import { SvgApps16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgApps24
 
@@ -105,6 +110,7 @@ import { SvgApps24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgArchive16
 
@@ -123,6 +129,7 @@ import { SvgArchive16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgArchive24
 
@@ -141,6 +148,7 @@ import { SvgArchive24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgArrowDown16
 
@@ -159,6 +167,7 @@ import { SvgArrowDown16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgArrowDown24
 
@@ -177,6 +186,7 @@ import { SvgArrowDown24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgArrowLeft16
 
@@ -195,6 +205,7 @@ import { SvgArrowLeft16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgArrowLeft24
 
@@ -213,6 +224,7 @@ import { SvgArrowLeft24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgArrowLeftMulti16
 
@@ -231,6 +243,7 @@ import { SvgArrowLeftMulti16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgArrowLeftMulti24
 
@@ -249,6 +262,7 @@ import { SvgArrowLeftMulti24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgArrowRight16
 
@@ -267,6 +281,7 @@ import { SvgArrowRight16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgArrowRight24
 
@@ -285,6 +300,7 @@ import { SvgArrowRight24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgArrowRightMulti16
 
@@ -303,6 +319,7 @@ import { SvgArrowRightMulti16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgArrowRightMulti24
 
@@ -321,6 +338,7 @@ import { SvgArrowRightMulti24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgArrowUp16
 
@@ -339,6 +357,7 @@ import { SvgArrowUp16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgArrowUp24
 
@@ -357,6 +376,7 @@ import { SvgArrowUp24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgAt16
 
@@ -375,6 +395,7 @@ import { SvgAt16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgAt24
 
@@ -393,6 +414,7 @@ import { SvgAt24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgAttachment16
 
@@ -411,6 +433,7 @@ import { SvgAttachment16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgAttachment24
 
@@ -429,6 +452,7 @@ import { SvgAttachment24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgBlock16
 
@@ -447,6 +471,7 @@ import { SvgBlock16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgBlock24
 
@@ -465,6 +490,7 @@ import { SvgBlock24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgCalendar16
 
@@ -483,6 +509,7 @@ import { SvgCalendar16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgCalendar24
 
@@ -501,6 +528,7 @@ import { SvgCalendar24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgCheckmark12
 
@@ -519,6 +547,7 @@ import { SvgCheckmark12 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgCheckmark16
 
@@ -537,6 +566,7 @@ import { SvgCheckmark16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgCheckmark24
 
@@ -555,6 +585,7 @@ import { SvgCheckmark24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgCheckmarkCircle16
 
@@ -573,6 +604,7 @@ import { SvgCheckmarkCircle16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgCheckmarkCircle24
 
@@ -591,6 +623,7 @@ import { SvgCheckmarkCircle24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgChevronDown16
 
@@ -609,6 +642,7 @@ import { SvgChevronDown16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgChevronDown24
 
@@ -627,6 +661,7 @@ import { SvgChevronDown24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgChevronLeft16
 
@@ -645,6 +680,7 @@ import { SvgChevronLeft16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgChevronLeft24
 
@@ -663,6 +699,7 @@ import { SvgChevronLeft24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgChevronRight16
 
@@ -681,6 +718,7 @@ import { SvgChevronRight16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgChevronRight24
 
@@ -699,6 +737,7 @@ import { SvgChevronRight24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgChevronUp16
 
@@ -717,6 +756,7 @@ import { SvgChevronUp16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgChevronUp24
 
@@ -735,6 +775,7 @@ import { SvgChevronUp24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgClock16
 
@@ -753,6 +794,7 @@ import { SvgClock16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgClock24
 
@@ -771,6 +813,7 @@ import { SvgClock24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgClockHistory16
 
@@ -789,6 +832,7 @@ import { SvgClockHistory16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgClockHistory24
 
@@ -807,6 +851,7 @@ import { SvgClockHistory24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgColor16
 
@@ -825,6 +870,7 @@ import { SvgColor16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgColor24
 
@@ -843,6 +889,7 @@ import { SvgColor24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgCopy16
 
@@ -861,6 +908,7 @@ import { SvgCopy16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgCopy24
 
@@ -879,6 +927,7 @@ import { SvgCopy24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgCross16
 
@@ -897,6 +946,7 @@ import { SvgCross16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgCross24
 
@@ -915,6 +965,7 @@ import { SvgCross24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgDashboardWindow16
 
@@ -933,6 +984,7 @@ import { SvgDashboardWindow16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgDashboardWindow24
 
@@ -951,6 +1003,7 @@ import { SvgDashboardWindow24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgDataInteger16
 
@@ -969,6 +1022,7 @@ import { SvgDataInteger16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgDataInteger24
 
@@ -987,6 +1041,7 @@ import { SvgDataInteger24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgDataString16
 
@@ -1005,6 +1060,7 @@ import { SvgDataString16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgDataString24
 
@@ -1023,6 +1079,7 @@ import { SvgDataString24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgDelete16
 
@@ -1041,6 +1098,7 @@ import { SvgDelete16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgDelete24
 
@@ -1059,6 +1117,7 @@ import { SvgDelete24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgDimensionCategoryOptionGroupset16
 
@@ -1077,6 +1136,7 @@ import { SvgDimensionCategoryOptionGroupset16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgDimensionData16
 
@@ -1095,6 +1155,7 @@ import { SvgDimensionData16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgDimensionDataElementGroupset16
 
@@ -1113,6 +1174,7 @@ import { SvgDimensionDataElementGroupset16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgDimensionDataSet16
 
@@ -1131,6 +1193,7 @@ import { SvgDimensionDataSet16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgDimensionEventDataItem16
 
@@ -1149,6 +1212,7 @@ import { SvgDimensionEventDataItem16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgDimensionIndicator16
 
@@ -1167,6 +1231,7 @@ import { SvgDimensionIndicator16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgDimensionOrgUnit16
 
@@ -1185,6 +1250,7 @@ import { SvgDimensionOrgUnit16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgDimensionOrgUnitGroupset16
 
@@ -1203,6 +1269,7 @@ import { SvgDimensionOrgUnitGroupset16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgDimensionProgramIndicator16
 
@@ -1221,6 +1288,7 @@ import { SvgDimensionProgramIndicator16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgDimensionValidationRule16
 
@@ -1239,6 +1307,7 @@ import { SvgDimensionValidationRule16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgDirectionNorth16
 
@@ -1257,6 +1326,7 @@ import { SvgDirectionNorth16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgDirectionNorth24
 
@@ -1275,6 +1345,7 @@ import { SvgDirectionNorth24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgDownload16
 
@@ -1293,6 +1364,7 @@ import { SvgDownload16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgDownload24
 
@@ -1311,6 +1383,7 @@ import { SvgDownload24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgDragHandle16
 
@@ -1329,6 +1402,7 @@ import { SvgDragHandle16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgDragHandle24
 
@@ -1347,6 +1421,7 @@ import { SvgDragHandle24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgDuplicate16
 
@@ -1365,6 +1440,7 @@ import { SvgDuplicate16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgDuplicate24
 
@@ -1383,6 +1459,7 @@ import { SvgDuplicate24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgEdit16
 
@@ -1401,6 +1478,7 @@ import { SvgEdit16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgEdit24
 
@@ -1419,6 +1497,7 @@ import { SvgEdit24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgEditItems16
 
@@ -1437,6 +1516,7 @@ import { SvgEditItems16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgEditItems24
 
@@ -1455,6 +1535,7 @@ import { SvgEditItems24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgEmptyFrame16
 
@@ -1473,6 +1554,7 @@ import { SvgEmptyFrame16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgEmptyFrame24
 
@@ -1491,6 +1573,7 @@ import { SvgEmptyFrame24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgError16
 
@@ -1509,6 +1592,7 @@ import { SvgError16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgError24
 
@@ -1527,6 +1611,7 @@ import { SvgError24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgErrorFilled16
 
@@ -1545,6 +1630,7 @@ import { SvgErrorFilled16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgErrorFilled24
 
@@ -1563,6 +1649,7 @@ import { SvgErrorFilled24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgExportItems24
 
@@ -1581,6 +1668,7 @@ import { SvgExportItems24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgFaceAdd16
 
@@ -1599,6 +1687,7 @@ import { SvgFaceAdd16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgFaceAdd24
 
@@ -1617,6 +1706,7 @@ import { SvgFaceAdd24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgFile16
 
@@ -1635,6 +1725,7 @@ import { SvgFile16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgFile24
 
@@ -1653,6 +1744,7 @@ import { SvgFile24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgFileDocument16
 
@@ -1671,6 +1763,7 @@ import { SvgFileDocument16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgFileDocument24
 
@@ -1689,6 +1782,7 @@ import { SvgFileDocument24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgFilter16
 
@@ -1707,6 +1801,7 @@ import { SvgFilter16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgFilter24
 
@@ -1725,6 +1820,7 @@ import { SvgFilter24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgFlag16
 
@@ -1743,6 +1839,7 @@ import { SvgFlag16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgFlag24
 
@@ -1761,6 +1858,7 @@ import { SvgFlag24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgFolder16
 
@@ -1779,6 +1877,7 @@ import { SvgFolder16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgFolder24
 
@@ -1797,6 +1896,7 @@ import { SvgFolder24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgFolderOpen16
 
@@ -1815,6 +1915,7 @@ import { SvgFolderOpen16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgFolderOpen24
 
@@ -1833,6 +1934,7 @@ import { SvgFolderOpen24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgFullscreen16
 
@@ -1851,6 +1953,7 @@ import { SvgFullscreen16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgFullscreen24
 
@@ -1869,6 +1972,7 @@ import { SvgFullscreen24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgFullscreenExit16
 
@@ -1887,6 +1991,7 @@ import { SvgFullscreenExit16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgFullscreenExit24
 
@@ -1905,6 +2010,7 @@ import { SvgFullscreenExit24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgHome16
 
@@ -1923,6 +2029,7 @@ import { SvgHome16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgHome24
 
@@ -1941,6 +2048,7 @@ import { SvgHome24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgImage16
 
@@ -1959,6 +2067,7 @@ import { SvgImage16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgImage24
 
@@ -1977,6 +2086,7 @@ import { SvgImage24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgImportItems24
 
@@ -1995,6 +2105,7 @@ import { SvgImportItems24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgInfo16
 
@@ -2013,6 +2124,7 @@ import { SvgInfo16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgInfo24
 
@@ -2031,6 +2143,7 @@ import { SvgInfo24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgInfoFilled16
 
@@ -2049,6 +2162,7 @@ import { SvgInfoFilled16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgInfoFilled24
 
@@ -2067,6 +2181,7 @@ import { SvgInfoFilled24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgLaunch16
 
@@ -2085,6 +2200,7 @@ import { SvgLaunch16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgLaunch24
 
@@ -2103,6 +2219,7 @@ import { SvgLaunch24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgLayoutColumns16
 
@@ -2121,6 +2238,7 @@ import { SvgLayoutColumns16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgLayoutColumns24
 
@@ -2139,6 +2257,7 @@ import { SvgLayoutColumns24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgLayoutRows16
 
@@ -2157,6 +2276,7 @@ import { SvgLayoutRows16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgLayoutRows24
 
@@ -2175,6 +2295,7 @@ import { SvgLayoutRows24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgLegend16
 
@@ -2193,6 +2314,7 @@ import { SvgLegend16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgLegend24
 
@@ -2211,6 +2333,7 @@ import { SvgLegend24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgLink16
 
@@ -2229,6 +2352,7 @@ import { SvgLink16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgLink24
 
@@ -2247,6 +2371,7 @@ import { SvgLink24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgList16
 
@@ -2265,6 +2390,7 @@ import { SvgList16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgList24
 
@@ -2283,6 +2409,7 @@ import { SvgList24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgLocation16
 
@@ -2301,6 +2428,7 @@ import { SvgLocation16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgLocation24
 
@@ -2319,6 +2447,7 @@ import { SvgLocation24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgLock16
 
@@ -2337,6 +2466,7 @@ import { SvgLock16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgLock24
 
@@ -2355,6 +2485,7 @@ import { SvgLock24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgLockOpen16
 
@@ -2373,6 +2504,7 @@ import { SvgLockOpen16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgLockOpen24
 
@@ -2391,6 +2523,7 @@ import { SvgLockOpen24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgLogOut16
 
@@ -2409,6 +2542,7 @@ import { SvgLogOut16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgLogOut24
 
@@ -2427,6 +2561,7 @@ import { SvgLogOut24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgMail16
 
@@ -2445,6 +2580,7 @@ import { SvgMail16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgMail24
 
@@ -2463,6 +2599,7 @@ import { SvgMail24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgMailOpen16
 
@@ -2481,6 +2618,7 @@ import { SvgMailOpen16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgMailOpen24
 
@@ -2499,6 +2637,7 @@ import { SvgMailOpen24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgMessages16
 
@@ -2517,6 +2656,7 @@ import { SvgMessages16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgMessages24
 
@@ -2535,6 +2675,7 @@ import { SvgMessages24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgMore16
 
@@ -2553,6 +2694,7 @@ import { SvgMore16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgMore24
 
@@ -2571,6 +2713,7 @@ import { SvgMore24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgMove16
 
@@ -2589,6 +2732,7 @@ import { SvgMove16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgMove24
 
@@ -2607,6 +2751,7 @@ import { SvgMove24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgPushLeft16
 
@@ -2625,6 +2770,7 @@ import { SvgPushLeft16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgPushLeft24
 
@@ -2643,6 +2789,7 @@ import { SvgPushLeft24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgPushRight16
 
@@ -2661,6 +2808,7 @@ import { SvgPushRight16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgPushRight24
 
@@ -2679,6 +2827,7 @@ import { SvgPushRight24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgQuestion16
 
@@ -2697,6 +2846,7 @@ import { SvgQuestion16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgQuestion24
 
@@ -2715,6 +2865,7 @@ import { SvgQuestion24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgQuestionFilled16
 
@@ -2733,6 +2884,7 @@ import { SvgQuestionFilled16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgQuestionFilled24
 
@@ -2751,6 +2903,7 @@ import { SvgQuestionFilled24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgQueue16
 
@@ -2769,6 +2922,7 @@ import { SvgQueue16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgQueue24
 
@@ -2787,6 +2941,7 @@ import { SvgQueue24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgRedo16
 
@@ -2805,6 +2960,7 @@ import { SvgRedo16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgRedo24
 
@@ -2823,6 +2979,7 @@ import { SvgRedo24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgReorder16
 
@@ -2841,6 +2998,7 @@ import { SvgReorder16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgReorder24
 
@@ -2859,6 +3017,7 @@ import { SvgReorder24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgReply16
 
@@ -2877,6 +3036,7 @@ import { SvgReply16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgReply24
 
@@ -2895,6 +3055,7 @@ import { SvgReply24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgRuler16
 
@@ -2913,6 +3074,7 @@ import { SvgRuler16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgRuler24
 
@@ -2931,6 +3093,7 @@ import { SvgRuler24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgSave16
 
@@ -2949,6 +3112,7 @@ import { SvgSave16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgSave24
 
@@ -2967,6 +3131,7 @@ import { SvgSave24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgSearch16
 
@@ -2985,6 +3150,7 @@ import { SvgSearch16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgSearch24
 
@@ -3003,6 +3169,7 @@ import { SvgSearch24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgSettings16
 
@@ -3021,6 +3188,7 @@ import { SvgSettings16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgSettings24
 
@@ -3039,6 +3207,7 @@ import { SvgSettings24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgShare16
 
@@ -3057,6 +3226,7 @@ import { SvgShare16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgShare24
 
@@ -3075,6 +3245,7 @@ import { SvgShare24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgStar16
 
@@ -3093,6 +3264,7 @@ import { SvgStar16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgStar24
 
@@ -3111,6 +3283,7 @@ import { SvgStar24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgStarFilled16
 
@@ -3129,6 +3302,7 @@ import { SvgStarFilled16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgStarFilled24
 
@@ -3147,6 +3321,7 @@ import { SvgStarFilled24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgSubscribe16
 
@@ -3165,6 +3340,7 @@ import { SvgSubscribe16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgSubscribe24
 
@@ -3183,6 +3359,7 @@ import { SvgSubscribe24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgSubscribeOff16
 
@@ -3201,6 +3378,7 @@ import { SvgSubscribeOff16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgSubscribeOff24
 
@@ -3219,6 +3397,7 @@ import { SvgSubscribeOff24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgSubtract16
 
@@ -3237,6 +3416,7 @@ import { SvgSubtract16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgSubtract24
 
@@ -3255,6 +3435,7 @@ import { SvgSubtract24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgSubtractCircle16
 
@@ -3273,6 +3454,7 @@ import { SvgSubtractCircle16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgSubtractCircle24
 
@@ -3291,6 +3473,7 @@ import { SvgSubtractCircle24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgSync16
 
@@ -3309,6 +3492,7 @@ import { SvgSync16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgSync24
 
@@ -3327,6 +3511,7 @@ import { SvgSync24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgTable16
 
@@ -3345,6 +3530,7 @@ import { SvgTable16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgTable24
 
@@ -3363,6 +3549,7 @@ import { SvgTable24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgTerminalWindow16
 
@@ -3381,6 +3568,7 @@ import { SvgTerminalWindow16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgTerminalWindow24
 
@@ -3399,6 +3587,7 @@ import { SvgTerminalWindow24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgTextBold16
 
@@ -3417,6 +3606,7 @@ import { SvgTextBold16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgTextBold24
 
@@ -3435,6 +3625,7 @@ import { SvgTextBold24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgTextBox16
 
@@ -3453,6 +3644,7 @@ import { SvgTextBox16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgTextBox24
 
@@ -3471,6 +3663,7 @@ import { SvgTextBox24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgTextHeading16
 
@@ -3489,6 +3682,7 @@ import { SvgTextHeading16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgTextHeading24
 
@@ -3507,6 +3701,7 @@ import { SvgTextHeading24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgTextItalic16
 
@@ -3525,6 +3720,7 @@ import { SvgTextItalic16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgTextItalic24
 
@@ -3543,6 +3739,7 @@ import { SvgTextItalic24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgTextListOrdered16
 
@@ -3561,6 +3758,7 @@ import { SvgTextListOrdered16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgTextListOrdered24
 
@@ -3579,6 +3777,7 @@ import { SvgTextListOrdered24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgTextListUnordered16
 
@@ -3597,6 +3796,7 @@ import { SvgTextListUnordered16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgTextListUnordered24
 
@@ -3615,6 +3815,7 @@ import { SvgTextListUnordered24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgThumbDown16
 
@@ -3633,6 +3834,7 @@ import { SvgThumbDown16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgThumbDown24
 
@@ -3651,6 +3853,7 @@ import { SvgThumbDown24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgThumbUp16
 
@@ -3669,6 +3872,7 @@ import { SvgThumbUp16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgThumbUp24
 
@@ -3687,6 +3891,7 @@ import { SvgThumbUp24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgTranslate16
 
@@ -3705,6 +3910,7 @@ import { SvgTranslate16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgTranslate24
 
@@ -3723,6 +3929,7 @@ import { SvgTranslate24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgUndo16
 
@@ -3741,6 +3948,7 @@ import { SvgUndo16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgUndo24
 
@@ -3759,6 +3967,7 @@ import { SvgUndo24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgUpload16
 
@@ -3777,6 +3986,7 @@ import { SvgUpload16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgUpload24
 
@@ -3795,6 +4005,7 @@ import { SvgUpload24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgUser16
 
@@ -3813,6 +4024,7 @@ import { SvgUser16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgUser24
 
@@ -3831,6 +4043,7 @@ import { SvgUser24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgUserGroup16
 
@@ -3849,6 +4062,7 @@ import { SvgUserGroup16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgUserGroup24
 
@@ -3867,6 +4081,7 @@ import { SvgUserGroup24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgView16
 
@@ -3885,6 +4100,7 @@ import { SvgView16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgView24
 
@@ -3903,6 +4119,7 @@ import { SvgView24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgViewOff16
 
@@ -3921,6 +4138,7 @@ import { SvgViewOff16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgViewOff24
 
@@ -3939,6 +4157,7 @@ import { SvgViewOff24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationArea16
 
@@ -3957,6 +4176,7 @@ import { SvgVisualizationArea16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationArea24
 
@@ -3975,6 +4195,7 @@ import { SvgVisualizationArea24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationAreaStacked16
 
@@ -3993,6 +4214,7 @@ import { SvgVisualizationAreaStacked16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationAreaStacked24
 
@@ -4011,6 +4233,7 @@ import { SvgVisualizationAreaStacked24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationBar16
 
@@ -4029,6 +4252,7 @@ import { SvgVisualizationBar16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationBar24
 
@@ -4047,6 +4271,7 @@ import { SvgVisualizationBar24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationBarStacked16
 
@@ -4065,6 +4290,7 @@ import { SvgVisualizationBarStacked16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationBarStacked24
 
@@ -4083,6 +4309,7 @@ import { SvgVisualizationBarStacked24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationColumn16
 
@@ -4101,6 +4328,7 @@ import { SvgVisualizationColumn16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationColumn24
 
@@ -4119,6 +4347,7 @@ import { SvgVisualizationColumn24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationColumnMulti16
 
@@ -4137,6 +4366,7 @@ import { SvgVisualizationColumnMulti16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationColumnMulti24
 
@@ -4155,6 +4385,7 @@ import { SvgVisualizationColumnMulti24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationColumnStacked16
 
@@ -4173,6 +4404,7 @@ import { SvgVisualizationColumnStacked16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationColumnStacked24
 
@@ -4191,6 +4423,7 @@ import { SvgVisualizationColumnStacked24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationGauge16
 
@@ -4209,6 +4442,7 @@ import { SvgVisualizationGauge16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationGauge24
 
@@ -4227,6 +4461,7 @@ import { SvgVisualizationGauge24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationLine16
 
@@ -4245,6 +4480,7 @@ import { SvgVisualizationLine16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationLine24
 
@@ -4263,6 +4499,7 @@ import { SvgVisualizationLine24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationLineMulti16
 
@@ -4281,6 +4518,7 @@ import { SvgVisualizationLineMulti16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationLineMulti24
 
@@ -4299,6 +4537,7 @@ import { SvgVisualizationLineMulti24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationLinelist16
 
@@ -4317,6 +4556,7 @@ import { SvgVisualizationLinelist16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationLinelist24
 
@@ -4335,6 +4575,7 @@ import { SvgVisualizationLinelist24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationPie16
 
@@ -4353,6 +4594,7 @@ import { SvgVisualizationPie16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationPie24
 
@@ -4371,6 +4613,7 @@ import { SvgVisualizationPie24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationPivotTable16
 
@@ -4389,6 +4632,7 @@ import { SvgVisualizationPivotTable16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationPivotTable24
 
@@ -4407,6 +4651,7 @@ import { SvgVisualizationPivotTable24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationRadar16
 
@@ -4425,6 +4670,7 @@ import { SvgVisualizationRadar16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationRadar24
 
@@ -4443,6 +4689,7 @@ import { SvgVisualizationRadar24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationScatter16
 
@@ -4461,6 +4708,7 @@ import { SvgVisualizationScatter16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationScatter24
 
@@ -4479,6 +4727,7 @@ import { SvgVisualizationScatter24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationSingleValue16
 
@@ -4497,6 +4746,7 @@ import { SvgVisualizationSingleValue16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgVisualizationSingleValue24
 
@@ -4515,6 +4765,7 @@ import { SvgVisualizationSingleValue24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgWarning16
 
@@ -4533,6 +4784,7 @@ import { SvgWarning16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgWarning24
 
@@ -4551,6 +4803,7 @@ import { SvgWarning24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgWarningFilled16
 
@@ -4569,6 +4822,7 @@ import { SvgWarningFilled16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgWarningFilled24
 
@@ -4587,6 +4841,7 @@ import { SvgWarningFilled24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgWindow16
 
@@ -4605,6 +4860,7 @@ import { SvgWindow16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgWindow24
 
@@ -4623,6 +4879,7 @@ import { SvgWindow24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgWorld16
 
@@ -4641,6 +4898,7 @@ import { SvgWorld16 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||
 
 ### SvgWorld24
 
@@ -4659,3 +4917,4 @@ import { SvgWorld24 } from '@dhis2/ui-icons'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |color|string||||
+|dataTest|string||||

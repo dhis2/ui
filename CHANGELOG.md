@@ -1,3 +1,10 @@
+# [8.13.0](https://github.com/dhis2/ui/compare/v8.12.4...v8.13.0) (2023-04-20)
+
+
+### Features
+
+* add dataTest prop to icons ([#1251](https://github.com/dhis2/ui/issues/1251)) ([d472773](https://github.com/dhis2/ui/commit/d472773a32aca85c131f3638bf8deb0e2f462030))
+
 ## [8.12.4](https://github.com/dhis2/ui/compare/v8.12.3...v8.12.4) (2023-03-21)
 
 
