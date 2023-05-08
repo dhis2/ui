@@ -34,7 +34,7 @@ export const NoticeBoxIcon = ({ valid, warning, error, dataTest }) => {
             <Icon color={color} />
 
             <style jsx>{`
-                margin-right: ${spacers.dp12};
+                margin-inline-end: ${spacers.dp12};
                 height: ${spacers.dp24};
             `}</style>
         </div>

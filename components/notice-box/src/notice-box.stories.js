@@ -97,3 +97,11 @@ export const WithoutTitle = () => (
 export const TitleOnly = () => (
     <NoticeBox title="This noticebox has only a title"></NoticeBox>
 )
+
+export const RTL = (args) => (
+    <div dir="rtl">
+        <NoticeBox {...args}>هذه رسالة باللغة العربية.</NoticeBox>
+    </div>
+)
+RTL.args = { title: 'مثال على العنوان' }
+RTL.storyName = 'RTL Text'

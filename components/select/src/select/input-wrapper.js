@@ -87,7 +87,8 @@ const InputWrapper = ({
                 }
 
                 .root-right {
-                    margin: 4px 0px 0px 8px;
+                    margin-block-start: 4px;
+                    margin-inline-start: 8px;
                 }
             `}</style>
         </div>
