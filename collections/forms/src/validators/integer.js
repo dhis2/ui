@@ -6,15 +6,14 @@ import { isEmpty, isNumeric, toNumber } from './helpers/index.js'
 const INTEGER_PATTERN = /^(-?[1-9]\d*|0)$/
 
 const integer = (value) => {
-    const invalidIntegerMessage = i18n.t(
-        'Please provide a round number without decimals'
-    )
-
-    return isEmpty(value) ||
+    if (
+        isEmpty(value) ||
         (INTEGER_PATTERN.test(value) &&
             isNumeric(value) &&
             Number.isSafeInteger(toNumber(value)))
-        ? undefined
-        : invalidIntegerMessage
+    ) {
+        return undefined
+    }
+    return i18n.t('Please provide a round number without decimals')
 }
 export { integer }

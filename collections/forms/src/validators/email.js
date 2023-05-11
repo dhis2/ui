@@ -29,12 +29,13 @@ const EMAIL_ADDRESS_PATTERN =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i
 
 const email = (value) => {
-    const invalidEmailMessage = i18n.t('Please provide a valid email address')
-
-    return isEmpty(value) ||
+    if (
+        isEmpty(value) ||
         (isString(value) && EMAIL_ADDRESS_PATTERN.test(value))
-        ? undefined
-        : invalidEmailMessage
+    ) {
+        return undefined
+    }
+    return i18n.t('Please provide a valid email address')
 }
 
 export { email }

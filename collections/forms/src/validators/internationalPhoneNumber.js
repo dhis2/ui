@@ -28,29 +28,24 @@ import { isEmpty, isString, isNumeric } from './helpers/index.js'
  */
 
 const internationalPhoneNumber = (value) => {
-    const invalidInternationalPhoneNumberMessage = i18n.t(
-        'Please provide a valid international phone number.'
-    )
-
     // allow empty values
     if (isEmpty(value)) {
         return undefined
     }
 
-    // value must be a string
-    if (!isString(value)) {
-        return invalidInternationalPhoneNumberMessage
+    if (isString(value)) {
+        const cleanedValue = value
+            // strip all hyphens, dots, spaces
+            .replace(/[-. )(]/g, '')
+            // trim leading zeroes and plus signs
+            .replace(/^[0+]+/, '')
+
+        if (isNumeric(cleanedValue) && cleanedValue.length <= 15) {
+            return undefined
+        }
     }
 
-    const cleanedValue = value
-        // strip all hyphens, dots, spaces
-        .replace(/[-. )(]/g, '')
-        // trim leading zeroes and plus signs
-        .replace(/^[0+]+/, '')
-
-    return isNumeric(cleanedValue) && cleanedValue.length <= 15
-        ? undefined
-        : invalidInternationalPhoneNumberMessage
+    return i18n.t('Please provide a valid international phone number.')
 }
 
 export { internationalPhoneNumber }
