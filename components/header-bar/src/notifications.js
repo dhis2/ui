@@ -51,6 +51,7 @@ export const Notifications = ({
                     display: flex;
                     flex-direction: row;
                     align-items: center;
+                    height: 100%;
                 }
             `}</style>
         </div>

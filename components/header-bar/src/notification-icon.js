@@ -20,21 +20,34 @@ export const NotificationIcon = ({ count, href, kind, dataTestId }) => (
         <style jsx>{`
             a {
                 position: relative;
-                margin: 4px 24px 0 0;
+                margin: 0;
                 cursor: pointer;
+                padding: 0 ${spacers.dp12};
+                height: 100%;
+                display: flex;
+                align-items: center;
             }
             a:focus {
-                outline: 1px dotted white;
+                outline: 2px solid white;
+                outline-offset: -2px;
             }
-
+            a:focus:not(:focus-visible) {
+                outline: none;
+            }
+            a:hover {
+                background: #1a557f;
+            }
+            a:active {
+                background: #104067;
+            }
             span {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 z-index: 1;
                 position: absolute;
-                top: -9px;
-                right: -6px;
+                top: 3px;
+                right: 2px;
                 min-width: 18px;
                 min-height: 18px;
                 border-radius: ${spacers.dp12};

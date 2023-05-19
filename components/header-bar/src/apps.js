@@ -1,7 +1,7 @@
 import { Card } from '@dhis2-ui/card'
 import { InputField } from '@dhis2-ui/input'
 import { useConfig } from '@dhis2/app-runtime'
-import { colors, theme } from '@dhis2/ui-constants'
+import { colors, spacers, theme } from '@dhis2/ui-constants'
 import { IconApps24, IconSettings24 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React, { useState, useEffect, useCallback, useRef } from 'react'
@@ -186,9 +186,7 @@ const AppMenu = ({ apps, filter, onFilterChange }) => (
             div {
                 z-index: 10000;
                 position: absolute;
-                top: 28px;
-                right: -6px;
-                border-top: 4px solid transparent;
+                right: -4px;
             }
         `}</style>
     </div>
@@ -239,19 +237,28 @@ const Apps = ({ apps }) => {
                 button {
                     display: block;
                     background: transparent;
-                    padding: 0;
+                    padding: ${spacers.dp4} ${spacers.dp12} 0;
                     border: 0;
                     cursor: pointer;
+                    height: 100%;
                 }
                 button:focus {
-                    outline: 1px dotted white;
+                    outline: 2px solid white;
+                    outline-offset: -2px;
+                }
+                button:focus:not(:focus-visible) {
+                    outline: none;
+                }
+                button:hover {
+                    background: #1a557f;
+                }
+                button:active {
+                    background: #104067;
                 }
 
                 div {
                     position: relative;
-                    width: 24px;
-                    height: 30px;
-                    margin: 8px 0 0 0;
+                    height: 100%;
                 }
             `}</style>
         </div>
