@@ -10,6 +10,7 @@ const FlyoutMenu = ({
     dense,
     maxHeight,
     maxWidth,
+    openSubmenuOnHover,
 }) => {
     const [openedSubMenu, setOpenedSubMenu] = useState(null)
     const toggleSubMenu = (index) => {
@@ -25,6 +26,7 @@ const FlyoutMenu = ({
                         ? cloneElement(child, {
                               showSubMenu: openedSubMenu === index,
                               toggleSubMenu: toggleSubMenu.bind(this, index),
+                              openSubmenuOnHover: !!openSubmenuOnHover,
                           })
                         : child
                 )}
@@ -63,6 +65,7 @@ FlyoutMenu.propTypes = {
     dense: PropTypes.bool,
     maxHeight: PropTypes.string,
     maxWidth: PropTypes.string,
+    openSubmenuOnHover: PropTypes.bool,
 }
 
 export { FlyoutMenu }

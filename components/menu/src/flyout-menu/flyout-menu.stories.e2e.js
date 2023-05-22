@@ -24,6 +24,13 @@ export const TogglesSubMenus = () => (
     </FlyoutMenu>
 )
 
+export const TogglesSubMenusOnHover = () => (
+    <FlyoutMenu openSubmenuOnHover>
+        <MenuItem label="Item 1">SubMenu 1</MenuItem>
+        <MenuItem label="Item 2">SubMenu 2</MenuItem>
+    </FlyoutMenu>
+)
+
 export const DefaultPosition = () => <MenuItemSubMenuPositions />
 export const FlippedPosition = () => (
     <div>

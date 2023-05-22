@@ -22,6 +22,7 @@ const createOnClickHandler =
         onClick && onClick({ value }, evt)
         toggleSubMenu && toggleSubMenu()
     }
+    
 const MenuItem = ({
     href,
     onClick,
@@ -35,6 +36,7 @@ const MenuItem = ({
     active,
     dataTest,
     chevron,
+    openSubmenuOnHover,
     value,
     label,
     showSubMenu,
@@ -68,6 +70,11 @@ const MenuItem = ({
                               })
                             : undefined
                     }
+                    onMouseEnter={
+                        openSubmenuOnHover && !disabled
+                            ? toggleSubMenu
+                            : undefined
+                    }
                 >
                     {icon && <span className="icon">{icon}</span>}
 
@@ -85,7 +92,12 @@ const MenuItem = ({
             {children && showSubMenu && (
                 <Portal>
                     <Popper placement="right-start" reference={menuItemRef}>
-                        <FlyoutMenu dense={dense}>{children}</FlyoutMenu>
+                        <FlyoutMenu
+                            dense={dense}
+                            openSubmenuOnHover={openSubmenuOnHover}
+                        >
+                            {children}
+                        </FlyoutMenu>
                     </Popper>
                 </Portal>
             )}
@@ -116,6 +128,8 @@ MenuItem.propTypes = {
     icon: PropTypes.node,
     /** Text in the menu item */
     label: PropTypes.node,
+    /** When true, nested menu items will show when hovering the paren menu */
+    openSubmenuOnHover: PropTypes.bool,
     /** When true, nested menu items are shown in a Popper */
     showSubMenu: PropTypes.bool,
     /** For using menu item as a link */

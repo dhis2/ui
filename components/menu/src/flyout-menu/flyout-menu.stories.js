@@ -114,7 +114,41 @@ export const WithSubMenus = (args) => (
 WithSubMenus.parameters = {
     docs: {
         description: {
-            story: 'See this demo in the Canvas tab for proper alignment of sub menus.',
+            story:
+                'See this demo in the Canvas tab for proper alignment of sub menus.',
+        },
+    },
+}
+
+export const WithHoverableSubMenus = (args) => (
+    <FlyoutMenu {...args}>
+        <MenuItem label="Item 1" />
+        <MenuItem label="Item 2">
+            <MenuItem label="Item 2 a" />
+            <MenuItem label="Item 2 b">
+                <MenuItem label="Item 2 b i" />
+                <MenuItem label="Item 2 b ii" />
+            </MenuItem>
+            <MenuItem label="Item 2 c" />
+        </MenuItem>
+        <MenuItem label="Item 3" />
+        <MenuItem label="Item 4">
+            <MenuItem label="Item 4 a" />
+            <MenuItem label="Item 4 b">
+                <MenuItem label="Item 4 b i" />
+                <MenuItem label="Item 4 b ii" />
+            </MenuItem>
+            <MenuItem label="Item 4 c" />
+        </MenuItem>
+        <MenuItem label="Item 5" />
+    </FlyoutMenu>
+)
+WithHoverableSubMenus.args = { openSubmenuOnHover: true }
+WithHoverableSubMenus.parameters = {
+    docs: {
+        description: {
+            story:
+                'See this demo in the Canvas tab for proper alignment of sub menus.',
         },
     },
 }
@@ -152,7 +186,8 @@ export const WithVariousChildren = (args) => (
 WithVariousChildren.parameters = {
     docs: {
         description: {
-            story: 'See this demo in the Canvas tab for proper alignment of sub menus.',
+            story:
+                'See this demo in the Canvas tab for proper alignment of sub menus.',
         },
     },
 }
