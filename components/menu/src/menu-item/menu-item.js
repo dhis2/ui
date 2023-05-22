@@ -11,13 +11,18 @@ const isModifiedEvent = (evt) =>
     evt.metaKey || evt.altKey || evt.ctrlKey || evt.shiftKey
 
 const createOnClickHandler = ({
+    disabled,
     onClick,
     openSubmenuOnHover,
     toggleSubMenu,
     isLink,
     value,
 }) => (evt) => {
-    if ((isLink && isModifiedEvent(evt)) || !(onClick || toggleSubMenu)) {
+    if (
+        disabled ||
+        (isLink && isModifiedEvent(evt)) ||
+        !(onClick || toggleSubMenu)
+    ) {
         return
     }
     evt.preventDefault()
@@ -67,17 +72,14 @@ const MenuItem = ({
                 <a
                     target={target}
                     href={!disabled && href ? href : undefined}
-                    onClick={
-                        !disabled
-                            ? createOnClickHandler({
-                                  onClick,
-                                  toggleSubMenu,
-                                  isLink: !!href,
-                                  value,
-                                  openSubmenuOnHover,
-                              })
-                            : undefined
-                    }
+                    onClick={createOnClickHandler({
+                        onClick,
+                        disabled,
+                        toggleSubMenu,
+                        isLink: !!href,
+                        value,
+                        openSubmenuOnHover,
+                    })}
                     onMouseEnter={
                         openSubmenuOnHover && !disabled
                             ? toggleSubMenu
