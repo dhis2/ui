@@ -9,6 +9,10 @@ When('the user hovers the first SubMenu anchor', () => {
     cy.contains('Item 1').trigger('mouseover')
 })
 
+When('the user clicks the first SubMenu anchor after the hover', () => {
+    cy.contains('Item 1').trigger('click')
+})
+
 Then('first SubMenu is visible', () => {
     cy.contains('SubMenu 1').should('be.visible')
 })
