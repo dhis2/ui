@@ -114,8 +114,7 @@ export const WithSubMenus = (args) => (
 WithSubMenus.parameters = {
     docs: {
         description: {
-            story:
-                'See this demo in the Canvas tab for proper alignment of sub menus.',
+            story: 'See this demo in the Canvas tab for proper alignment of sub menus.',
         },
     },
 }
@@ -147,8 +146,7 @@ WithHoverableSubMenus.args = { openSubmenuOnHover: true }
 WithHoverableSubMenus.parameters = {
     docs: {
         description: {
-            story:
-                'See this demo in the Canvas tab for proper alignment of sub menus.',
+            story: 'See this demo in the Canvas tab for proper alignment of sub menus.',
         },
     },
 }
@@ -186,8 +184,7 @@ export const WithVariousChildren = (args) => (
 WithVariousChildren.parameters = {
     docs: {
         description: {
-            story:
-                'See this demo in the Canvas tab for proper alignment of sub menus.',
+            story: 'See this demo in the Canvas tab for proper alignment of sub menus.',
         },
     },
 }

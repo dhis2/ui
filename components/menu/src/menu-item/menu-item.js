@@ -10,30 +10,25 @@ import styles from './menu-item.styles.js'
 const isModifiedEvent = (evt) =>
     evt.metaKey || evt.altKey || evt.ctrlKey || evt.shiftKey
 
-const createOnClickHandler = ({
-    disabled,
-    onClick,
-    openSubmenuOnHover,
-    toggleSubMenu,
-    isLink,
-    value,
-}) => (evt) => {
-    if (
-        disabled ||
-        (isLink && isModifiedEvent(evt)) ||
-        !(onClick || toggleSubMenu)
-    ) {
-        return
-    }
-    evt.preventDefault()
-    evt.stopPropagation()
+const createOnClickHandler =
+    ({ disabled, onClick, openSubmenuOnHover, toggleSubMenu, isLink, value }) =>
+    (evt) => {
+        if (
+            disabled ||
+            (isLink && isModifiedEvent(evt)) ||
+            !(onClick || toggleSubMenu)
+        ) {
+            return
+        }
+        evt.preventDefault()
+        evt.stopPropagation()
 
-    onClick && onClick({ value }, evt)
+        onClick && onClick({ value }, evt)
 
-    if (!openSubmenuOnHover && toggleSubMenu) {
-        toggleSubMenu()
+        if (!openSubmenuOnHover && toggleSubMenu) {
+            toggleSubMenu()
+        }
     }
-}
 
 const MenuItem = ({
     href,
