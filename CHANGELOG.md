@@ -1,3 +1,10 @@
+## [8.13.1](https://github.com/dhis2/ui/compare/v8.13.0...v8.13.1) (2023-05-23)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([5fe8056](https://github.com/dhis2/ui/commit/5fe8056bc08efa790e1dbe0a6969059aa9e5ea3b))
+
 # [8.13.0](https://github.com/dhis2/ui/compare/v8.12.4...v8.13.0) (2023-04-20)
 
 

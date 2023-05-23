@@ -8,10 +8,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-10-03T12:12:05.437Z\n"
+"POT-Creation-Date: 2023-01-18T16:13:05.063Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2022\n"
-"Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
+"Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -44,9 +44,6 @@ msgstr "关闭"
 
 msgid "Copy debug info"
 msgstr "复制调试信息"
-
-msgid "Last online {{relativeTime}}"
-msgstr "最后在线 {{relativeTime}}"
 
 msgid "Online"
 msgstr "在线"
