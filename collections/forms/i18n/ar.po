@@ -6,10 +6,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-11T13:37:19.312Z\n"
+"POT-Creation-Date: 2023-02-28T09:45:49.286Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2022\n"
-"Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
+"Language-Team: Arabic (https://app.transifex.com/hisp-uio/teams/100509/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -82,9 +82,6 @@ msgstr "يجب أن تحتوي كلمة المرور على رقم واحد عل
 msgid "Password should have at least one special character"
 msgstr "يجب أن تحتوي كلمة المرور على رمز واحد على الأقل"
 
-msgid "Please provide a username between 4 and 255 characters"
-msgstr "يرجى تزويد اسم مستخدم يتراوح بين 4 و 255 حرفًا"
-
 msgid "Please provide a valid email address"
 msgstr "يرجى ادخال صيغة بريد الكتروني سليمة"
 
@@ -105,3 +102,9 @@ msgstr "يرجى تزويد سلسلة نصية"
 
 msgid "Please provide a valid url"
 msgstr "يرجى ادخال صيغة ارتباط url سليمة"
+
+msgctxt " - or @"
+msgid ""
+"Please provide a username between 4 and 255 characters long and possibly "
+"separated by . "
+msgstr ""
