@@ -41,8 +41,8 @@ const Layer = ({
 
                 <style jsx>{`
                     div {
-                        block-start: 0;
-                        inline-start: 0;
+                        inset-block-start: 0;
+                        inset-inline-start: 0;
                         min-height: 100vh;
                         min-width: 100vw;
                     }
