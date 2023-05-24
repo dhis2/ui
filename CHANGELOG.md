@@ -1,3 +1,10 @@
+## [8.13.3](https://github.com/dhis2/ui/compare/v8.13.2...v8.13.3) (2023-05-24)
+
+
+### Bug Fixes
+
+* **headerbar:** improve clickable area interactions ([07fc0fe](https://github.com/dhis2/ui/commit/07fc0fe64715be744177035550e221665a563afc))
+
 ## [8.13.2](https://github.com/dhis2/ui/compare/v8.13.1...v8.13.2) (2023-05-24)
 
 
