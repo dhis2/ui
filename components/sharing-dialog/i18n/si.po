@@ -64,7 +64,7 @@ msgid "User or group"
 msgstr ""
 
 msgid "Search"
-msgstr ""
+msgstr "සොයන්න"
 
 msgid "Apply dashboard sharing settings to visualizations"
 msgstr ""
@@ -133,7 +133,7 @@ msgid "Sharing and access"
 msgstr ""
 
 msgid "Close"
-msgstr ""
+msgstr "වසන්න"
 
 msgid "Dashboard sharing"
 msgstr ""
