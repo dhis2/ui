@@ -12,7 +12,7 @@ export default css`
     }
 
     .container.badge {
-        margin-right: ${spacers.dp24};
+        margin-right: ${spacers.dp8};
         padding: ${spacers.dp8};
         border-radius: 5px;
         font-size: 14px;

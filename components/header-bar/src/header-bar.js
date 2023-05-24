@@ -115,7 +115,6 @@ export const HeaderBar = ({
                         align-items: center;
                         justify-content: space-between;
                         background-color: #2c6693;
-                        border-bottom: 1px solid rgba(32, 32, 32, 0.15);
                         color: ${colors.white};
                         height: 48px;
                     }

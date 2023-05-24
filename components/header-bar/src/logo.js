@@ -19,6 +19,9 @@ export const Logo = () => {
                     margin: 0 12px 0 0;
                     border-right: 1px solid rgba(32, 32, 32, 0.15);
                 }
+                div:hover {
+                    background-color: #1a557f;
+                }
 
                 a,
                 a:hover,
@@ -26,6 +29,13 @@ export const Logo = () => {
                 a:active,
                 a:visited {
                     user-select: none;
+                }
+                a:focus {
+                    outline: 2px solid white;
+                    outline-offset: -2px;
+                }
+                a:focus:not(:focus-visible) {
+                    outline: none;
                 }
             `}</style>
         </div>

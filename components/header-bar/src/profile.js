@@ -61,23 +61,27 @@ const Profile = ({ name, email, avatarId, helpUrl }) => {
             <style jsx>{`
                 .headerbar-profile {
                     position: relative;
-                    width: 36px;
-                    height: 36px;
-                    min-width: 36px;
-                    min-height: 36px;
-                    margin: 2px 12px 0 24px;
+                    height: 100%;
                 }
 
                 .headerbar-profile-btn {
                     background: transparent;
-                    padding: 0;
+                    padding: 6px;
                     border: 0;
                     cursor: pointer;
-                    width: 100%;
-                    height: 100%;
                 }
                 .headerbar-profile-btn:focus {
-                    outline: 1px dotted white;
+                    outline: 2px solid white;
+                    outline-offset: -2px;
+                }
+                .headerbar-profile-btn:focus:not(:focus-visible) {
+                    outline: none;
+                }
+                .headerbar-profile-btn:hover {
+                    background: #1a557f;
+                }
+                .headerbar-profile-btn:active {
+                    background: #104067;
                 }
             `}</style>
         </div>
