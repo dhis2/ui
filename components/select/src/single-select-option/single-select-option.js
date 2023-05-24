@@ -30,7 +30,8 @@ const SingleSelectOption = ({
                 font-size: 14px;
                 text-decoration: none;
                 color: ${colors.grey900};
-                padding: ${spacers.dp8} ${spacers.dp12};
+                padding-block: ${spacers.dp8};
+                padding-inline: ${spacers.dp12};
             }
 
             div:hover {

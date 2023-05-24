@@ -12,7 +12,8 @@ const NoMatch = ({ message, className }) => (
                 font-family: ${theme.fonts};
                 font-size: 13px;
                 line-height: 16px;
-                padding: ${spacers.dp8} ${spacers.dp24};
+                padding-block: ${spacers.dp8};
+                padding-inline: ${spacers.dp24};
                 text-align: center;
             }
         `}</style>
