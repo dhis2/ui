@@ -1,6 +1,6 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { SingleSelectOption } from '../index.js'
 import { SingleSelect } from './index.js'
 
@@ -211,6 +211,31 @@ WithPrefixAndSelection.args = {
     ...WithPrefix.args,
     ...WithOptionsAndASelection.args,
 }
+
+export const WithRTL = (args) => {
+    // as options are rendered in Portal, the body dir (of the iframe) needs to be set to 'rtl'
+    useEffect(() => {
+        document.body.dir = 'rtl'
+        return () => {
+            document.body.dir = 'ltr'
+        }
+    }, [])
+
+    return (
+        <div dir="rtl">
+            <SingleSelect {...args}>
+                <SingleSelectOption value="1" label="الخيار 1" />
+                <SingleSelectOption value="2" label="الخيار 2" />
+                <SingleSelectOption value="3" label="الخيار 3" />
+            </SingleSelect>
+        </div>
+    )
+}
+WithRTL.args = {
+    prefix: 'نص البادئة',
+    ...WithOptionsAndASelection.args,
+}
+WithRTL.storyName = 'RTL Text'
 
 export const WithPlaceholder = WithOptionsTemplate.bind({})
 WithPlaceholder.args = { placeholder: 'Placeholder text' }

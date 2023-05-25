@@ -19,7 +19,8 @@ export const Loading = ({ message, className, dataTest }) => (
                 color: ${colors.grey700};
                 font-family: ${theme.fonts};
                 font-size: 13px;
-                padding: ${spacers.dp8} ${spacers.dp24};
+                padding-block: ${spacers.dp8};
+                padding-inline: ${spacers.dp24};
             }
         `}</style>
     </div>
