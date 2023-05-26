@@ -58,7 +58,7 @@ msgid "Account"
 msgstr ""
 
 msgid "Help"
-msgstr ""
+msgstr "උදවු"
 
 msgid "About DHIS2"
 msgstr ""
