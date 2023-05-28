@@ -22,4 +22,4 @@ msgid "No file uploaded yet"
 msgstr ""
 
 msgid "Remove"
-msgstr "ඉවත් කරන්"
+msgstr "ඉවත් කරන්න"

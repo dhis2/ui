@@ -49,7 +49,7 @@ msgid "No access"
 msgstr "පිවිසිය නොහැක"
 
 msgid "Can view"
-msgstr ""
+msgstr "නාරඹිය හැක"
 
 msgid "Can view and edit"
 msgstr ""
