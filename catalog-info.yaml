@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ui
+  annotations:
+    github.com/project-slug: dhis2/ui
+spec:
+  type: librry
+  lifecycle: prod
