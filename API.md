@@ -21,6 +21,7 @@
 - [@dhis2-ui/layer](components/layer/API.md)
 - [@dhis2-ui/legend](components/legend/API.md)
 - [@dhis2-ui/loader](components/loader/API.md)
+- [@dhis2-ui/login-form](components/login-form/API.md)
 - [@dhis2-ui/logo](components/logo/API.md)
 - [@dhis2-ui/menu](components/menu/API.md)
 - [@dhis2-ui/modal](components/modal/API.md)

@@ -1,0 +1,209 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"POT-Creation-Date: 2023-06-02T12:48:59.973Z\n"
+"PO-Revision-Date: 2023-06-02T12:48:59.973Z\n"
+
+msgid "Log in details"
+msgstr "Log in details"
+
+msgid "Username"
+msgstr "Username"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Minimum 8 characters, at least 1 uppercase, 1 lowercase, 1 number, 1 symbol"
+msgstr "Minimum 8 characters, at least 1 uppercase, 1 lowercase, 1 number, 1 symbol"
+
+msgid "Personal details"
+msgstr "Personal details"
+
+msgid "First name"
+msgstr "First name"
+
+msgid "Last name"
+msgstr "Last name"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Phone number"
+msgstr "Phone number"
+
+msgid "Employer"
+msgstr "Employer"
+
+msgid "Creating..."
+msgstr "Creating..."
+
+msgid "Create account"
+msgstr "Create account"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Enter your details below to create a {{- applicationName}} account."
+msgstr "Enter your details below to create a {{- applicationName}} account."
+
+msgid "Already have an account?"
+msgstr "Already have an account?"
+
+msgid "Log in."
+msgstr "Log in."
+
+msgid "Something went wrong, and we could not register your account"
+msgstr "Something went wrong, and we could not register your account"
+
+msgid "Account created successfully"
+msgstr "Account created successfully"
+
+msgid "You can use your username and password to log in."
+msgstr "You can use your username and password to log in."
+
+msgid "Verify your email address"
+msgstr "Verify your email address"
+
+msgid ""
+"Check your email for a link to verify your email address and finish setting "
+"up your account."
+msgstr ""
+"Check your email for a link to verify your email address and finish setting "
+"up your account."
+
+msgid "Back to log in page"
+msgstr "Back to log in page"
+
+msgid "The requested page is not configured for your system"
+msgstr "The requested page is not configured for your system"
+
+msgid "This field is required"
+msgstr "This field is required"
+
+msgid "Cannot process registration"
+msgstr "Cannot process registration"
+
+msgid ""
+"Information required to process your registration is missing. Please "
+"contact your system administrator."
+msgstr ""
+"Information required to process your registration is missing. Please "
+"contact your system administrator."
+
+msgid "Email confirmation"
+msgstr "Email confirmation"
+
+msgid "Could not confirm email"
+msgstr "Could not confirm email"
+
+msgid ""
+"Your link may have expired. Please try again and contact your system "
+"administrator if the problem remains."
+msgstr ""
+"Your link may have expired. Please try again and contact your system "
+"administrator if the problem remains."
+
+msgid "Email confirmed"
+msgstr "Email confirmed"
+
+msgid ""
+"Your email is confirmed. You can now use your username and password to log "
+"in."
+msgstr ""
+"Your email is confirmed. You can now use your username and password to log "
+"in."
+
+msgid "Forgot password?"
+msgstr "Forgot password?"
+
+msgid "Don't have an account?"
+msgstr "Don't have an account?"
+
+msgid "Create an account"
+msgstr "Create an account"
+
+msgid "Verify and log in"
+msgstr "Verify and log in"
+
+msgid "Log in"
+msgstr "Log in"
+
+msgid "Authentication code"
+msgstr "Authentication code"
+
+msgid "Logging in"
+msgstr "Logging in"
+
+msgid "Incorrect username or password"
+msgstr "Incorrect username or password"
+
+msgid "Two-factor authentication"
+msgstr "Two-factor authentication"
+
+msgid "Enter the code from your two-factor authentication app to log in."
+msgstr "Enter the code from your two-factor authentication app to log in."
+
+msgid "Username or email"
+msgstr "Username or email"
+
+msgid "Sending..."
+msgstr "Sending..."
+
+msgid "Send password reset request form"
+msgstr "Send password reset request form"
+
+msgid "Password reset failed"
+msgstr "Password reset failed"
+
+msgid ""
+"The username might be invalid, your account might not allow password reset, "
+"or there might be a problem with your account email address."
+msgstr ""
+"The username might be invalid, your account might not allow password reset, "
+"or there might be a problem with your account email address."
+
+msgid ""
+"We've sent an email with a password reset link to your registered email "
+"address."
+msgstr ""
+"We've sent an email with a password reset link to your registered email "
+"address."
+
+msgid "Reset password"
+msgstr "Reset password"
+
+msgid ""
+"Enter your username below, a link to reset your password will be sent to "
+"your registered e-mail."
+msgstr ""
+"Enter your username below, a link to reset your password will be sent to "
+"your registered e-mail."
+
+msgid "Saving..."
+msgstr "Saving..."
+
+msgid "Save new password"
+msgstr "Save new password"
+
+msgid "New password not saved"
+msgstr "New password not saved"
+
+msgid ""
+"There was a problem saving your password. Try again or contact your system "
+"administrator."
+msgstr ""
+"There was a problem saving your password. Try again or contact your system "
+"administrator."
+
+msgid "New password saved. You can use it to log in to your account."
+msgstr "New password saved. You can use it to log in to your account."
+
+msgid "Choose new password"
+msgstr "Choose new password"
+
+msgid "Enter the new password for your account below"
+msgstr "Enter the new password for your account below"
