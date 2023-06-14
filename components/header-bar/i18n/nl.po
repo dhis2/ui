@@ -53,13 +53,13 @@ msgid "Edit profile"
 msgstr "Bewerk profiel"
 
 msgid "Settings"
-msgstr ""
+msgstr "Instellingen"
 
 msgid "Account"
-msgstr ""
+msgstr "Account"
 
 msgid "Help"
-msgstr ""
+msgstr "Hulp"
 
 msgid "About DHIS2"
 msgstr ""
