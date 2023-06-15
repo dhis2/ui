@@ -23,10 +23,10 @@ msgid "No data found"
 msgstr "Geen gegevens gevonden"
 
 msgid "Type to filter options"
-msgstr ""
+msgstr "Typ om opties te filteren"
 
 msgid "Loading options"
-msgstr ""
+msgstr "Laad opties"
 
 msgid "No options found"
-msgstr ""
+msgstr "Geen opties gevonden"
