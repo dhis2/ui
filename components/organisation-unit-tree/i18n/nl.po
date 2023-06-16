@@ -1,12 +1,11 @@
 # 
 # Translators:
-# Rica Zamora Duchateau, 2022
 # Charel van den Elsen, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-06-04T18:40:29.413Z\n"
+"POT-Creation-Date: 2022-02-22T12:46:32.977Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
 "Last-Translator: Charel van den Elsen, 2023\n"
 "Language-Team: Dutch (https://app.transifex.com/hisp-uio/teams/100509/nl/)\n"
@@ -16,11 +15,11 @@ msgstr ""
 "Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Upload a file"
-msgstr "Een bestand uploaden"
+msgid "No children match filter"
+msgstr "Er komen geen kinderen overeen met het filter"
 
-msgid "No file uploaded yet"
-msgstr "Er is nog geen bestand geüpload"
+msgid "Could not load children"
+msgstr "Kan kinderen niet laden"
 
-msgid "Remove"
-msgstr "Verwijderen"
+msgid "Error: {{ ERRORMESSAGE }}"
+msgstr "Fout: {{ ERRORMESSAGE }}"

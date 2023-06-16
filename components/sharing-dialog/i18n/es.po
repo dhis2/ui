@@ -6,13 +6,14 @@
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # Pablo Pajuelo Cabezas <pablo@dhis2.org>, 2021
 # Marta Vila <marta@dhis2.org>, 2023
+# Janeth Cruz, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-11-25T09:59:40.995Z\n"
 "PO-Revision-Date: 2021-10-01 23:39+0000\n"
-"Last-Translator: Marta Vila <marta@dhis2.org>, 2023\n"
+"Last-Translator: Janeth Cruz, 2023\n"
 "Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,16 +22,16 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "View only"
-msgstr ""
+msgstr "Solo lectura"
 
 msgid "View and edit"
-msgstr ""
+msgstr "Ver y editar"
 
 msgid "Give access to a user or group"
-msgstr ""
+msgstr "Dar acceso a un usuario o grupo"
 
 msgid "Access level"
-msgstr ""
+msgstr "Nivel de acceso"
 
 msgid "Select a level"
 msgstr "Selecciona un nivel"
@@ -39,16 +40,16 @@ msgid "Not available offline"
 msgstr "No disponible sin conexión a internet"
 
 msgid "Give access"
-msgstr ""
+msgstr "Dar acceso"
 
 msgid "Users and groups that currently have access"
 msgstr ""
 
 msgid "User / Group"
-msgstr ""
+msgstr "Usuario / Grupo"
 
 msgid "All users"
-msgstr ""
+msgstr "Todos los usuarios"
 
 msgid "No access"
 msgstr "Sin acceso"
@@ -57,47 +58,55 @@ msgid "Can view"
 msgstr "Puede ver"
 
 msgid "Can view and edit"
-msgstr ""
+msgstr "Puede ver y editar"
 
 msgid "Metadata"
 msgstr "Metadatos"
 
 msgid "Remove access"
-msgstr ""
+msgstr "Eliminar acceso"
 
 msgid "User or group"
-msgstr ""
+msgstr "Usuario o Grupo"
 
 msgid "Search"
 msgstr "Buscar"
 
 msgid "Apply dashboard sharing settings to visualizations"
-msgstr ""
+msgstr "Aplicar la configuración compartir del tablero a las visualizaciones"
 
 msgid "Something went wrong"
 msgstr "Algo ha ido mal"
 
 msgid "Apply sharing to dashboard visualizations"
-msgstr ""
+msgstr "Aplicar compartir a las visualizaciones del tablero"
 
 msgid ""
 "No visualizations were updated. Check that you have permission to change "
 "sharing for all visualizations."
 msgstr ""
+"No se actualizaron las visualizaciones. Compruebe que tiene permiso para "
+"cambiar la configuración compartir de todas las visualizaciones."
 
 msgid ""
 "Not all visualizations could be updated successfully. {{ success }} updated "
 "successfully, {{ failed }} failed to update. Check that you have permission "
 "to change sharing for all visualizations."
 msgstr ""
+"No todas las visualizaciones se pudieron actualizar correctamente. {{ "
+"success }} actualizado con éxito, {{ failed }} error al actualizar. "
+"Compruebe que tiene permiso para cambiar compartir de todas las "
+"visualizaciones."
 
 msgid ""
 "No visualizations were updated because sharing settings are already "
 "sufficient."
 msgstr ""
+"No se han actualizado las visualizaciones porque la configuración para "
+"compartir ya es suficiente"
 
 msgid "Successfully updated sharing for all visualizations."
-msgstr ""
+msgstr "Compartir actualizado con éxito para todas las visualizaciones."
 
 msgid ""
 "Not all visualization sharing settings needed to be updated. {{ updated }} "
@@ -106,6 +115,7 @@ msgstr ""
 
 msgid "There are no users or groups to apply sharing settings for."
 msgstr ""
+"No hay usuarios o grupos a los que aplicar la configuración compartir."
 
 msgid ""
 "Number of visualizations on this dashboard that will potentially get updated"
@@ -118,27 +128,37 @@ msgid ""
 "have access to the dashboard also have at least \"View only\" access to its "
 "visualizations (charts, tables, maps, event charts and event reports)."
 msgstr ""
+"La aplicación de la misma configuración para compartir garantiza que los "
+"usuarios y grupos que tienen acceso al tablero también tienen al menos "
+"acceso de \"Solo lectura\" a sus visualizaciones (gráficos, tablas, mapas, "
+"gráficos de eventos e informes de eventos)."
 
 msgid ""
 "If a user or group already has \"View and edit\" access to a visualization, "
 "this won't be reduced to \"View only\". The \"All users\" access level won't"
 " be updated or changed."
 msgstr ""
+"Si un usuario o grupo ya tiene acceso \"Ver y editar\" a una visualización, "
+"este no se reducirá a \"Solo lectura\". El nivel de acceso \"Todos los "
+"usuarios\" no se actualizará ni cambiará."
 
 msgid ""
 "Applying sharing can't be undone, and needs to be done again if new "
 "visualizations are added to the dashboard or its sharing settings are "
 "changed."
 msgstr ""
+"La aplicación compartir no puede deshacerse y tendrá que realizarse de nuevo"
+" si se agregan nuevas visualizaciones al tablero o se cambia la "
+"configuración de compartir."
 
 msgid "Sharing and access: {{- objectName}}"
-msgstr ""
+msgstr "Compartir y acceder: {{- objectName}}"
 
 msgid "Sharing and access"
-msgstr ""
+msgstr "Compartir y acceder"
 
 msgid "Close"
 msgstr "Cerrar"
 
 msgid "Dashboard sharing"
-msgstr ""
+msgstr "Compartir tablero"
