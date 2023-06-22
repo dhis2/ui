@@ -1,0 +1,6 @@
+export {LoginFormWrapper as LoginForm} from './forms/login.js'
+export {PasswordResetRequestFormWrapper as PasswordResetRequestForm} from './forms/password-reset-request.js'
+export {PasswordUpdateFormWrapper as PasswordUpdateForm} from './forms/password-update.js'
+export {CreateAccountFormWrapper as CreateAccountForm} from './forms/create-account.js'
+export {CompleteRegistrationFormWrapper as CompleteRegistrationForm} from './forms/complete-registration.js'
+export {ConfirmEmailFormWrapper as ConfirmEmailForm} from './forms/confirm-email.js'

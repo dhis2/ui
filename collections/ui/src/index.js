@@ -37,6 +37,7 @@ export { Label } from '@dhis2-ui/label'
 export { Layer, useLayerContext } from '@dhis2-ui/layer'
 export { Legend } from '@dhis2-ui/legend'
 export { CircularLoader, LinearLoader } from '@dhis2-ui/loader'
+export { LoginForm } from '@dhis2-ui/login-forms'
 export { Logo, LogoIcon, LogoIconWhite, LogoWhite } from '@dhis2-ui/logo'
 export {
     Menu,

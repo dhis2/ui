@@ -954,6 +954,39 @@ import { LinearLoader } from '@dhis2/ui'
 |margin|string|`spacers.dp12`||The margin around the loader, can be a full shorthand|
 |width|string|`'300px'`||The width of the entire indicator|
 
+### LoginForm
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+
+```js
+import { LoginForm } from '@dhis2/ui'
+```
+
+
+
+### LoginForm
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+
+```js
+import { LoginForm } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|setFormUserName|function||||
+|setTwoFAVerificationRequired|function||||
+|uiLocale|string|`'en'`|||
+
 ### LogoIcon
 
 #### Usage

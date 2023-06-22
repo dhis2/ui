@@ -41,6 +41,7 @@
         "@dhis2-ui/layer": "8.13.6",
         "@dhis2-ui/legend": "8.13.6",
         "@dhis2-ui/loader": "8.13.6",
+        "@dhis2-ui/login-forms": "8.13.6",
         "@dhis2-ui/logo": "8.13.6",
         "@dhis2-ui/menu": "8.13.6",
         "@dhis2-ui/modal": "8.13.6",
