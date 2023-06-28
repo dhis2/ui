@@ -135,6 +135,14 @@ WithInitialFocus.args = { initialFocus: true }
 WithInitialFocus.parameters = { docs: { disable: true } }
 WithInitialFocus.storyName = 'With initialFocus'
 
+export const Dense = WithOptionsTemplate.bind({})
+Dense.args = { dense: true, placeholder: 'Dense sized multi select' }
+Dense.storyName = 'Dense'
+
+export const DenseWithSelections = WithOptionsTemplate.bind({})
+DenseWithSelections.args = { dense: true, selected: ['1', '2'] }
+DenseWithSelections.storyName = 'Dense with selections'
+
 export const Empty = EmptyTemplate.bind({})
 
 export const EmptyWithEmptyText = EmptyTemplate.bind({})
