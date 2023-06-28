@@ -78,7 +78,7 @@ const InputWrapper = ({
                 }
 
                 .root.dense {
-                    padding: 4px 8px;
+                    padding: 2px 8px;
                     min-height: 32px;
                 }
 
