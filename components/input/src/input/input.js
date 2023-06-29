@@ -22,7 +22,8 @@ const styles = css`
         color: ${colors.grey900};
         background-color: white;
 
-        padding: 12px 11px 10px;
+        padding: 11px 12px;
+        max-height: 40px;
 
         outline: 0;
         border: 1px solid ${colors.grey500};
@@ -32,7 +33,8 @@ const styles = css`
     }
 
     input.dense {
-        padding: 8px 11px 6px;
+        max-height: 32px;
+        padding: 7px 8px;
     }
 
     input:focus {
