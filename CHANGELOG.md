@@ -1,3 +1,14 @@
+## [8.13.13](https://github.com/dhis2/ui/compare/v8.13.12...v8.13.13) (2023-06-29)
+
+
+### Bug Fixes
+
+* **input:** adjust padding ([936f3ef](https://github.com/dhis2/ui/commit/936f3ef2b8da3944a1ef78f267bd8a0d592a6926))
+* **input:** force maximum height ([ae31398](https://github.com/dhis2/ui/commit/ae313982367190c7cb67e8ade95bbbe15362ff08))
+* **select:** adjust inner shadow ([a49b032](https://github.com/dhis2/ui/commit/a49b032398a01d63a2594c1f3d25ad841ce7c0cb))
+* **select:** adjust padding ([115d3eb](https://github.com/dhis2/ui/commit/115d3eb0fa88e5ed0ce21c8d423ff3bbfd9d2604))
+* **textarea:** adjust styling ([ef5d838](https://github.com/dhis2/ui/commit/ef5d83832d578d46594af79289ab333ff8747a6e))
+
 ## [8.13.12](https://github.com/dhis2/ui/compare/v8.13.11...v8.13.12) (2023-06-29)
 
 
