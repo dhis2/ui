@@ -26,7 +26,7 @@
         "@dhis2-ui/css": "8.13.13",
         "@dhis2/ui-constants": "8.13.13",
         "@fontsource/roboto": "^4.5.0",
-        "@storybook/addon-a11y": "^6.3.7",
+        "@storybook/addon-a11y": "^7.0.27",
         "@storybook/addon-console": "^1.2.3",
         "@storybook/addon-essentials": "^6.3.7",
         "@storybook/addon-storysource": "^6.3.7",
