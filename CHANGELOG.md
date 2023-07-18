@@ -1,3 +1,10 @@
+## [8.13.14](https://github.com/dhis2/ui/compare/v8.13.13...v8.13.14) (2023-07-18)
+
+
+### Bug Fixes
+
+* **transfer:** ensure selected is an array ([40559d7](https://github.com/dhis2/ui/commit/40559d7017cb40f239330fec23724e6531fac427))
+
 ## [8.13.13](https://github.com/dhis2/ui/compare/v8.13.12...v8.13.13) (2023-06-29)
 
 
