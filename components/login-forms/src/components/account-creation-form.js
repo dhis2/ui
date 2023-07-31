@@ -1,7 +1,6 @@
-import i18n from '@dhis2/d2-i18n'
 import { Button } from '@dhis2-ui/button'
+import i18n from '@dhis2/d2-i18n'
 import { colors, spacers } from '@dhis2/ui-constants'
-import { InputFieldFF, ReactFinalForm } from '@dhis2/ui-forms'
 import {
     composeValidators,
     createCharacterLengthRange,
@@ -9,16 +8,18 @@ import {
     dhis2Username,
     email,
     internationalPhoneNumber,
+    InputFieldFF,
+    ReactFinalForm,
 } from '@dhis2/ui-forms'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 import { Link, useInRouterContext } from 'react-router-dom'
+import { getIsRequired, removeHTMLTags } from '../helpers/index.js'
+import { useLoginConfig } from '../providers/use-login-config.js'
 import { BackToLoginButton } from './back-to-login-button.js'
 // import "../styles.css";
 import { FormNotice } from './form-notice.js'
 import { FormSubtitle } from './form-subtitle.js'
-import { getIsRequired, removeHTMLTags } from '../helpers/index.js'
-import { useLoginConfig } from '../providers/use-login-config.js'
 
 export const CREATE_FORM_TYPES = {
     create: 'create',
@@ -170,13 +171,13 @@ const InnerCreateAccountForm = ({
                             ? i18n.t('Creating...', { lng: uiLocale })
                             : i18n.t('Create account', { lng: uiLocale })}
                     </Button>
-                    {inRouterContext &&
+                    {inRouterContext && (
                         <Link className="no-underline" to="/">
                             <Button secondary disabled={loading}>
                                 {i18n.t('Cancel', { lng: uiLocale })}
                             </Button>
                         </Link>
-                    }
+                    )}
                 </div>
             </form>
             <style>
@@ -260,12 +261,11 @@ export const CreateAccount = ({
                                 {i18n.t('Already have an account?', {
                                     lng: uiLocale,
                                 })}{' '}
-                                {inRouterContext &&
+                                {inRouterContext && (
                                     <Link to="/">
                                         {i18n.t('Log in.', { lng: uiLocale })}
                                     </Link>
-                                }
-
+                                )}
                             </p>
                         )}
                     </FormSubtitle>

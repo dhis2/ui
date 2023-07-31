@@ -1,10 +1,11 @@
 import { useDataMutation } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
+import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
-import { useParams, useInRouterContext } from 'react-router-dom'
 import { BackToLoginButton } from '../components/back-to-login-button.js'
 import { FormContainer } from '../components/form-container.js'
 import { FormNotice } from '../components/form-notice.js'
+import { useParams } from '../hooks/index.js'
 import { useLoginConfig } from '../providers/use-login-config.js'
 
 const confirmEmailMutation = {
@@ -13,29 +14,24 @@ const confirmEmailMutation = {
     data: (data) => ({ ...data }),
 }
 
-export const ConfirmEmailFormWrapper = ({width}) => {
+export const ConfirmEmailFormWrapper = ({ width }) => {
     const { uiLocale } = useLoginConfig()
-    const inRouterContext = useInRouterContext()
 
     const [confirmEmail, { error, data }] =
         useDataMutation(confirmEmailMutation)
     const [parametersMissing, setParametersMissing] = useState(false)
+    const params = useParams()
 
     useEffect(() => {
-        if (!inRouterContext) {
-            setParametersMissing(true)
-            return
-        }
-        const params = useParams()
         const token = params.get('token')
         const email = params.get('email')
-    
+
         if (token && email) {
             confirmEmail({ token, email })
         } else {
             setParametersMissing(true)
         }
-    }, [inRouterContext, confirmEmail])
+    }, [confirmEmail, params])
 
     return (
         <>
@@ -77,3 +73,6 @@ export const ConfirmEmailFormWrapper = ({width}) => {
     )
 }
 
+ConfirmEmailFormWrapper.propTypes = {
+    width: PropTypes.string,
+}

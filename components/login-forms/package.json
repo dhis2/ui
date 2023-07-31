@@ -26,13 +26,18 @@
         "test": "d2-app-scripts test --jestConfig ../../jest.config.shared.js"
     },
     "peerDependencies": {
+        "@dhis2/app-runtime": "^3",
+        "@dhis2/d2-i18n": "^1.1.0",
         "react": "^16.8",
         "react-dom": "^16.8",
         "styled-jsx": "^4"
     },
     "dependencies": {
+        "@dhis2-ui/button": "^8.13.14",
+        "@dhis2-ui/notice-box": "^8.13.14",
         "@dhis2/prop-types": "^3.1.2",
         "@dhis2/ui-constants": "8.13.6",
+        "@dhis2/ui-forms": "^8.13.14",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2",
         "react-router-dom": "^6.12.1"
@@ -41,6 +46,8 @@
         "build"
     ],
     "devDependencies": {
+        "@dhis2/app-runtime": "^3.9.4",
+        "@dhis2/d2-i18n": "^1.1.0",
         "react": "16.13",
         "react-dom": "16.13",
         "styled-jsx": "^4.0.1"

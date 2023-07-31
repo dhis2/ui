@@ -1,5 +1,5 @@
-import {colors,spacers} from '@dhis2/ui-constants'
 import { NoticeBox } from '@dhis2-ui/notice-box'
+import { spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 

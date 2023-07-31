@@ -33,5 +33,7 @@ const defaultLocales = [
 export const useLoginConfig = () => ({
     ...defaultProviderValues,
     defaultLocales,
-    refreshOnTranslation: () => {console.log('translation should occur')}
+    refreshOnTranslation: () => {
+        console.log('translation should occur')
+    },
 })

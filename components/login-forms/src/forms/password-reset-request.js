@@ -1,18 +1,18 @@
+import { Button } from '@dhis2-ui/button'
 import { useDataMutation } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import { Button } from '@dhis2-ui/button'
-import {colors,spacers} from '@dhis2/ui-constants'
+import { spacers } from '@dhis2/ui-constants'
 import { InputFieldFF, ReactFinalForm } from '@dhis2/ui-forms'
 import PropTypes from 'prop-types'
-import React, { useEffect, useState } from 'react'
-import { Link, useParams, useInRouterContext } from 'react-router-dom'
+import React, { useState } from 'react'
 import { BackToLoginButton } from '../components/back-to-login-button.js'
 import { FormContainer } from '../components/form-container.js'
 import { FormNotice } from '../components/form-notice.js'
 import { FormSubtitle } from '../components/form-subtitle.js'
+import { Link } from '../components/link.js'
 import { NotAllowedNotice } from '../components/not-allowed-notice.js'
 import { getIsRequired } from '../helpers/validators.js'
-import { useGetErrorIfNotAllowed } from '../hooks/index.js'
+import { useGetErrorIfNotAllowed, useParams } from '../hooks/index.js'
 import { useLoginConfig } from '../providers/use-login-config.js'
 
 const passwordResetRequestMutation = {
@@ -28,15 +28,7 @@ const InnerPasswordResetRequestForm = ({
     uiLocale,
     loading,
 }) => {
-    const [userNameFromParams, setUserNameFromParams] = useState()
-    const inRouterContext = useInRouterContext()
-
-    useEffect(()=>{
-        if (inRouterContext) {
-            const [params] = useParams()
-            setUserNameFromParams(params.get('username'))
-        }
-    },[inRouterContext])
+    const params = useParams()
 
     return (
         <>
@@ -51,7 +43,7 @@ const InnerPasswordResetRequestForm = ({
                         key={formSubmitted ? 1 : 0}
                         initialFocus
                         readOnly={loading}
-                        initialValue={userNameFromParams || ''}
+                        initialValue={params.get('username') || ''}
                     />
                 </div>
                 <div className="formButtons">
@@ -67,18 +59,15 @@ const InnerPasswordResetRequestForm = ({
                                   lng: uiLocale,
                               })}
                     </Button>
-                    {inRouterContext &&
-                        <Link className="no-underline" to="/">
-                            <Button
-                                secondary
-                                disabled={loading}
-                                className="reset-btn"
-                            >
-                                {i18n.t('Cancel', { lng: uiLocale })}
-                            </Button>
-                        </Link>
-                    }
-
+                    <Link className="no-underline" to="/">
+                        <Button
+                            secondary
+                            disabled={loading}
+                            className="reset-btn"
+                        >
+                            {i18n.t('Cancel', { lng: uiLocale })}
+                        </Button>
+                    </Link>
                 </div>
             </form>
             <style>
@@ -199,7 +188,7 @@ const requiredPropsForPasswordReset = [
     'emailConfigured',
 ]
 
-export const PasswordResetRequestFormWrapper = ({width}) => {
+export const PasswordResetRequestFormWrapper = ({ width }) => {
     const { uiLocale } = useLoginConfig()
     const { notAllowed } = useGetErrorIfNotAllowed(
         requiredPropsForPasswordReset
@@ -227,4 +216,8 @@ export const PasswordResetRequestFormWrapper = ({width}) => {
             </FormContainer>
         </>
     )
+}
+
+PasswordResetRequestFormWrapper.propTypes = {
+    width: PropTypes.string,
 }

@@ -1,4 +1,4 @@
-import {colors, spacers} from '@dhis2/ui-constants'
+import { colors, spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 

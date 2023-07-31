@@ -1,19 +1,23 @@
+import { Button } from '@dhis2-ui/button'
 import { useDataMutation } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import {spacers} from '@dhis2/ui-constants'
-import { Button } from '@dhis2-ui/button'
-import { InputFieldFF, ReactFinalForm } from '@dhis2/ui-forms'
-import { composeValidators, dhis2Password } from '@dhis2/ui-forms'
+import { spacers } from '@dhis2/ui-constants'
+import {
+    composeValidators,
+    dhis2Password,
+    InputFieldFF,
+    ReactFinalForm,
+} from '@dhis2/ui-forms'
 import PropTypes from 'prop-types'
-import React, {useEffect, useState} from 'react'
-import { Link, useParams, useInRouterContext } from 'react-router-dom'
+import React from 'react'
 import { BackToLoginButton } from '../components/back-to-login-button.js'
 import { FormContainer } from '../components/form-container.js'
 import { FormNotice } from '../components/form-notice.js'
 import { FormSubtitle } from '../components/form-subtitle.js'
+import { Link } from '../components/link.js'
 import { NotAllowedNotice } from '../components/not-allowed-notice.js'
 import { getIsRequired } from '../helpers/validators.js'
-import { useGetErrorIfNotAllowed } from '../hooks/index.js'
+import { useGetErrorIfNotAllowed, useParams } from '../hooks/index.js'
 import { useLoginConfig } from '../providers/use-login-config.js'
 
 const passwordUpdateMutation = {
@@ -24,7 +28,6 @@ const passwordUpdateMutation = {
 
 const InnerPasswordUpdateForm = ({ handleSubmit, uiLocale, loading }) => {
     const isRequired = getIsRequired(uiLocale)
-    const inRouterContext = useInRouterContext()
 
     return (
         <>
@@ -54,18 +57,15 @@ const InnerPasswordUpdateForm = ({ handleSubmit, uiLocale, loading }) => {
                                   lng: uiLocale,
                               })}
                     </Button>
-                    {inRouterContext &&
-                        <Link className="no-underline" to="/">
-                            <Button
-                                secondary
-                                disabled={loading}
-                                className="reset-btn"
-                            >
-                                {i18n.t('Cancel', { lng: uiLocale })}
-                            </Button>
-                        </Link>
-                    }
-
+                    <Link className="no-underline" to="/">
+                        <Button
+                            secondary
+                            disabled={loading}
+                            className="reset-btn"
+                        >
+                            {i18n.t('Cancel', { lng: uiLocale })}
+                        </Button>
+                    </Link>
                 </div>
             </form>
             <style>
@@ -175,17 +175,9 @@ const requiredPropsForPasswordReset = [
     'emailConfigured',
 ]
 
-export const PasswordUpdateFormWrapper = ({width}) => {
+export const PasswordUpdateFormWrapper = ({ width }) => {
     const { uiLocale } = useLoginConfig()
-    const inRouterContext = useInRouterContext()
-    const [token, setToken] = useState('')
-
-    useEffect(()=>{
-        if (inRouterContext) {
-            const [params] = useParams()
-            setToken(params.get('token'))
-        }
-    },[inRouterContext])
+    const params = useParams()
 
     // display error if token is invalid?
     const { notAllowed } = useGetErrorIfNotAllowed(
@@ -210,7 +202,10 @@ export const PasswordUpdateFormWrapper = ({width}) => {
                         )}
                     </p>
                 </FormSubtitle>
-                <PasswordUpdateForm uiLocale={uiLocale} token={token} />
+                <PasswordUpdateForm
+                    uiLocale={uiLocale}
+                    token={params.get('token')}
+                />
                 <style>
                     {`
         .pw-request-form-fields {
@@ -238,4 +233,8 @@ export const PasswordUpdateFormWrapper = ({width}) => {
             </FormContainer>
         </>
     )
+}
+
+PasswordUpdateFormWrapper.propTypes = {
+    width: PropTypes.string,
 }

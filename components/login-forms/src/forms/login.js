@@ -1,14 +1,13 @@
-import i18n from '@dhis2/d2-i18n'
 import { Button } from '@dhis2-ui/button'
+import i18n from '@dhis2/d2-i18n'
 import { colors, spacers } from '@dhis2/ui-constants'
 import { InputFieldFF, ReactFinalForm } from '@dhis2/ui-forms'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState, useRef } from 'react'
-import { useForm } from 'react-final-form'
-import { Link, useInRouterContext } from 'react-router-dom'
 import { FormContainer } from '../components/form-container.js'
 import { FormNotice } from '../components/form-notice.js'
 import { FormSubtitle } from '../components/form-subtitle.js'
+import { Link } from '../components/link.js'
 import { checkIsFormValid, getIsRequired } from '../helpers/index.js'
 import { useLogin } from '../hooks/index.js'
 import { useLoginConfig } from '../providers/use-login-config.js'
@@ -21,19 +20,21 @@ const Links = ({ formUserName }) => {
         uiLocale,
     } = useLoginConfig()
 
-    const inRouterContext = useInRouterContext()
-
     return (
         <>
             <div className="links">
-                {inRouterContext && allowAccountRecovery && emailConfigured && (
-                    <span>
-                        <Link to={`/reset-password?username=${formUserName}`}>
-                            {i18n.t('Forgot password?', { lng: uiLocale })}
-                        </Link>
-                    </span>
+                {allowAccountRecovery && emailConfigured && (
+                    <>
+                        <span>
+                            <Link
+                                to={`/reset-password?username=${formUserName}`}
+                            >
+                                {i18n.t('Forgot password?', { lng: uiLocale })}
+                            </Link>
+                        </span>
+                    </>
                 )}
-                {inRouterContext && selfRegistrationEnabled && (
+                {selfRegistrationEnabled && (
                     <span>
                         {i18n.t("Don't have an account?", { lng: uiLocale })}{' '}
                         <Link to="/create-account">
@@ -73,7 +74,7 @@ const InnerLoginForm = ({
     loading,
     setFormUserName,
 }) => {
-    const form = useForm()
+    const form = ReactFinalForm.useForm()
     const ref = useRef()
     const clearTwoFA = () => {
         form.change('password', undefined)
@@ -277,7 +278,7 @@ LoginForm.propTypes = {
 }
 
 // this is set up this way to isolate styling from login form logic
-export const LoginFormWrapper = ({width}) => {
+export const LoginFormWrapper = ({ width }) => {
     const [twoFAVerificationRequired, setTwoFAVerificationRequired] =
         useState(false)
     const [formUserName, setFormUserName] = useState('')
@@ -312,4 +313,8 @@ export const LoginFormWrapper = ({width}) => {
             )}
         </FormContainer>
     )
+}
+
+LoginFormWrapper.propTypes = {
+    width: PropTypes.string,
 }

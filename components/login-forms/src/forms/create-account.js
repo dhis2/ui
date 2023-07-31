@@ -1,5 +1,6 @@
 import { useDataMutation } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
+import PropTypes from 'prop-types'
 import React from 'react'
 import {
     CreateAccount,
@@ -41,7 +42,7 @@ const CreateAccountForm = () => {
 
 const requiredPropsForCreateAccount = ['selfRegistrationEnabled']
 
-export const CreateAccountFormWrapper = ({width}) => {
+export const CreateAccountFormWrapper = ({ width }) => {
     const { uiLocale } = useLoginConfig()
     const { notAllowed } = useGetErrorIfNotAllowed(
         requiredPropsForCreateAccount
@@ -53,10 +54,16 @@ export const CreateAccountFormWrapper = ({width}) => {
 
     return (
         <>
-            <FormContainer width={width} title={i18n.t('Create account', { lng: uiLocale })}>
+            <FormContainer
+                width={width}
+                title={i18n.t('Create account', { lng: uiLocale })}
+            >
                 <CreateAccountForm />
             </FormContainer>
         </>
     )
 }
 
+CreateAccountFormWrapper.propTypes = {
+    width: PropTypes.string,
+}

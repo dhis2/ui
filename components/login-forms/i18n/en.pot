@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-06-09T14:43:50.645Z\n"
-"PO-Revision-Date: 2023-06-09T14:43:50.645Z\n"
+"POT-Creation-Date: 2023-07-13T14:58:18.779Z\n"
+"PO-Revision-Date: 2023-07-13T14:58:18.779Z\n"
 
 msgid "Log in details"
 msgstr "Log in details"
@@ -80,6 +80,39 @@ msgstr "Back to log in page"
 
 msgid "The requested page is not configured for your system"
 msgstr "The requested page is not configured for your system"
+
+msgid "Cannot process registration"
+msgstr "Cannot process registration"
+
+msgid ""
+"Information required to process your registration is missing. Please "
+"contact your system administrator."
+msgstr ""
+"Information required to process your registration is missing. Please "
+"contact your system administrator."
+
+msgid "Email confirmation"
+msgstr "Email confirmation"
+
+msgid "Could not confirm email"
+msgstr "Could not confirm email"
+
+msgid ""
+"Your link may have expired. Please try again and contact your system "
+"administrator if the problem remains."
+msgstr ""
+"Your link may have expired. Please try again and contact your system "
+"administrator if the problem remains."
+
+msgid "Email confirmed"
+msgstr "Email confirmed"
+
+msgid ""
+"Your email is confirmed. You can now use your username and password to log "
+"in."
+msgstr ""
+"Your email is confirmed. You can now use your username and password to log "
+"in."
 
 msgid "Forgot password?"
 msgstr "Forgot password?"
