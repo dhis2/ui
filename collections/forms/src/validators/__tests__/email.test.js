@@ -1,4 +1,4 @@
-import { email, invalidEmailMessage } from '../email.js'
+import { email } from '../email.js'
 import {
     testValidatorValues,
     allowsEmptyValues,
@@ -16,6 +16,8 @@ import {
  * I have kept the original list of values and have simply commented out
  * the ones that are not evaluated correctly by our regex.
  */
+
+const invalidEmailMessage = 'Please provide a valid email address'
 
 describe('validator: email', () => {
     allowsEmptyValues(email)

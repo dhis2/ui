@@ -1,8 +1,10 @@
-import { string, invalidStringMessage } from '../string.js'
+import { string } from '../string.js'
 import {
     testValidatorValues,
     allowsEmptyValues,
 } from '../test-helpers/index.js'
+
+const invalidStringMessage = 'Please provide a string'
 
 describe('validator: string', () => {
     allowsEmptyValues(string)

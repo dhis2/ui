@@ -1,8 +1,11 @@
-import { dhis2Username, invalidUsernameMessage } from '../dhis2Username.js'
+import { dhis2Username } from '../dhis2Username.js'
 import {
     testValidatorValues,
     allowsEmptyValues,
 } from '../test-helpers/index.js'
+
+const invalidUsernameMessage =
+    'Please provide a username between 4 and 255 characters long and possibly separated by . _ - or @'
 
 describe('validator: dhis2Username', () => {
     allowsEmptyValues(dhis2Username)

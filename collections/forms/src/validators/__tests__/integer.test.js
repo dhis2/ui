@@ -1,8 +1,10 @@
-import { integer, invalidIntegerMessage } from '../integer.js'
+import { integer } from '../integer.js'
 import {
     testValidatorValues,
     allowsEmptyValues,
 } from '../test-helpers/index.js'
+
+const invalidIntegerMessage = 'Please provide a round number without decimals'
 
 describe('validator: integer', () => {
     allowsEmptyValues(integer)

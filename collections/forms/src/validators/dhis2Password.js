@@ -8,20 +8,6 @@ const DIGIT_PATTERN = /^(?=.*[0-9]).+$/
 // https://github.com/dhis2/dhis2-core/blob/master/dhis-2/dhis-services/dhis-service-core/src/main/java/org/hisp/dhis/user/SpecialCharacterValidationRule.java#L39
 const SPECIAL_CHARACTER_PATTERN = /[^a-zA-Z0-9]/
 
-const notString = i18n.t('Password should be a string')
-const tooShort = i18n.t('Password should be at least 8 characters long')
-const tooLong = i18n.t('Password should be no longer than 34 characters')
-const noLowerCase = i18n.t(
-    'Password should contain at least one lowercase letter'
-)
-const noUpperCase = i18n.t(
-    'Password should contain at least one UPPERCASE letter'
-)
-const noNumber = i18n.t('Password should contain at least one number')
-const noSpecialCharacter = i18n.t(
-    'Password should have at least one special character'
-)
-
 /**
  * Tests if a given password is compliant with the password restrictions.
  * This function checks all restrictions below, but returns when the first violation was found:
@@ -38,44 +24,34 @@ const dhis2Password = (value) => {
     }
 
     if (!isString(value)) {
-        return notString
+        return i18n.t('Password should be a string')
     }
 
     if (value.length < 8) {
-        return tooShort
+        return i18n.t('Password should be at least 8 characters long')
     }
 
     if (value.length > 35) {
-        return tooLong
+        return i18n.t('Password should be no longer than 34 characters')
     }
 
     if (!LOWER_CASE_PATTERN.test(value)) {
-        return noLowerCase
+        return i18n.t('Password should contain at least one lowercase letter')
     }
 
     if (!UPPER_CASE_PATTERN.test(value)) {
-        return noUpperCase
+        return i18n.t('Password should contain at least one UPPERCASE letter')
     }
 
     if (!DIGIT_PATTERN.test(value)) {
-        return noNumber
+        return i18n.t('Password should contain at least one number')
     }
 
     if (!SPECIAL_CHARACTER_PATTERN.test(value)) {
-        return noSpecialCharacter
+        return i18n.t('Password should have at least one special character')
     }
 
     return undefined
 }
 
-const errorMessages = {
-    notString,
-    tooShort,
-    tooLong,
-    noLowerCase,
-    noUpperCase,
-    noNumber,
-    noSpecialCharacter,
-}
-
-export { dhis2Password, errorMessages }
+export { dhis2Password }

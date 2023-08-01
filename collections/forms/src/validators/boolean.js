@@ -1,11 +1,12 @@
 import i18n from '../locales/index.js'
 import { isEmpty } from './helpers/index.js'
 
-const invalidBooleanMessage = i18n.t('Please provide a boolean value')
+const boolean = (value) => {
+    if (isEmpty(value) || typeof value === 'boolean') {
+        return undefined
+    }
 
-const boolean = (value) =>
-    isEmpty(value) || typeof value === 'boolean'
-        ? undefined
-        : invalidBooleanMessage
+    return i18n.t('Please provide a boolean value')
+}
 
-export { boolean, invalidBooleanMessage }
+export { boolean }
