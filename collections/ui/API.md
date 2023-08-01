@@ -954,6 +954,37 @@ import { LinearLoader } from '@dhis2/ui'
 |margin|string|`spacers.dp12`||The margin around the loader, can be a full shorthand|
 |width|string|`'300px'`||The width of the entire indicator|
 
+### CompleteRegistrationForm
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+
+```js
+import { CompleteRegistrationForm } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|uiLocale|string||||
+
+### CreateAccountForm
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+
+```js
+import { CreateAccountForm } from '@dhis2/ui'
+```
+
+
+
 ### LoginForm
 
 #### Usage
@@ -972,6 +1003,43 @@ import { LoginForm } from '@dhis2/ui'
 |---|---|---|---|---|
 |setFormUserName|function||||
 |setTwoFAVerificationRequired|function||||
+|uiLocale|string|`'en'`|||
+
+### PasswordResetRequestForm
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+
+```js
+import { PasswordResetRequestForm } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|uiLocale|string|`'en'`|||
+
+### PasswordUpdateForm
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+
+```js
+import { PasswordUpdateForm } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|token|string||||
 |uiLocale|string|`'en'`|||
 
 ### LogoIcon

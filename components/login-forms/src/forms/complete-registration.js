@@ -11,7 +11,7 @@ import { FormContainer } from '../components/form-container.js'
 import { FormNotice } from '../components/form-notice.js'
 import { NotAllowedNotice } from '../components/not-allowed-notice.js'
 import { useGetErrorIfNotAllowed, useParams } from '../hooks/index.js'
-import { useLoginConfig } from '../providers/use-login-config.js'
+import { useLoginSettings } from '../providers/use-login-settings.js'
 
 const selfRegisterMutation = {
     resource: 'auth/completeRegistration',
@@ -91,7 +91,7 @@ CompleteRegistrationForm.propTypes = {
 const requiredPropsForCreateAccount = ['emailConfigured']
 
 export const CompleteRegistrationFormWrapper = ({ width }) => {
-    const { uiLocale } = useLoginConfig()
+    const { uiLocale } = useLoginSettings()
     const { notAllowed } = useGetErrorIfNotAllowed(
         requiredPropsForCreateAccount
     )

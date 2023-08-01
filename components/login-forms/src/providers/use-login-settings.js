@@ -1,4 +1,4 @@
-// mock this for now
+// mock this for now (will be in app-runtime)
 
 const defaultProviderValues = {
     applicationDescription:
@@ -30,7 +30,7 @@ const defaultLocales = [
     { locale: 'es', name: 'español – Spanish' },
 ]
 
-export const useLoginConfig = () => ({
+export const useLoginSettings = () => ({
     ...defaultProviderValues,
     defaultLocales,
     refreshOnTranslation: () => {

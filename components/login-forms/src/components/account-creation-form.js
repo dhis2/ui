@@ -15,7 +15,7 @@ import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 import { Link, useInRouterContext } from 'react-router-dom'
 import { getIsRequired, removeHTMLTags } from '../helpers/index.js'
-import { useLoginConfig } from '../providers/use-login-config.js'
+import { useLoginSettings } from '../providers/use-login-settings.js'
 import { BackToLoginButton } from './back-to-login-button.js'
 // import "../styles.css";
 import { FormNotice } from './form-notice.js'
@@ -230,7 +230,7 @@ export const CreateAccount = ({
     handleRegister,
 }) => {
     // depends on https://dhis2.atlassian.net/browse/DHIS2-14615
-    const { applicationTitle, uiLocale } = useLoginConfig()
+    const { applicationTitle, uiLocale } = useLoginSettings()
     const inRouterContext = useInRouterContext()
 
     useEffect(() => {

@@ -6,7 +6,7 @@ import { BackToLoginButton } from '../components/back-to-login-button.js'
 import { FormContainer } from '../components/form-container.js'
 import { FormNotice } from '../components/form-notice.js'
 import { useParams } from '../hooks/index.js'
-import { useLoginConfig } from '../providers/use-login-config.js'
+import { useLoginSettings } from '../providers/use-login-settings.js'
 
 const confirmEmailMutation = {
     resource: 'auth/confirmEmailAccount',
@@ -15,7 +15,7 @@ const confirmEmailMutation = {
 }
 
 export const ConfirmEmailFormWrapper = ({ width }) => {
-    const { uiLocale } = useLoginConfig()
+    const { uiLocale } = useLoginSettings()
 
     const [confirmEmail, { error, data }] =
         useDataMutation(confirmEmailMutation)

@@ -18,7 +18,7 @@ import { Link } from '../components/link.js'
 import { NotAllowedNotice } from '../components/not-allowed-notice.js'
 import { getIsRequired } from '../helpers/validators.js'
 import { useGetErrorIfNotAllowed, useParams } from '../hooks/index.js'
-import { useLoginConfig } from '../providers/use-login-config.js'
+import { useLoginSettings } from '../providers/use-login-settings.js'
 
 const passwordUpdateMutation = {
     resource: 'auth/passwordReset',
@@ -176,7 +176,7 @@ const requiredPropsForPasswordReset = [
 ]
 
 export const PasswordUpdateFormWrapper = ({ width }) => {
-    const { uiLocale } = useLoginConfig()
+    const { uiLocale } = useLoginSettings()
     const params = useParams()
 
     // display error if token is invalid?

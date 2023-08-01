@@ -9,7 +9,7 @@ import {
 import { FormContainer } from '../components/form-container.js'
 import { NotAllowedNotice } from '../components/not-allowed-notice.js'
 import { useGetErrorIfNotAllowed } from '../hooks/index.js'
-import { useLoginConfig } from '../providers/use-login-config.js'
+import { useLoginSettings } from '../providers/use-login-settings.js'
 
 const selfRegisterMutation = {
     resource: 'auth/register',
@@ -19,7 +19,7 @@ const selfRegisterMutation = {
 
 const CreateAccountForm = () => {
     // depends on https://dhis2.atlassian.net/browse/DHIS2-14615
-    const { emailConfigured } = useLoginConfig()
+    const { emailConfigured } = useLoginSettings()
 
     const [resetPassword, { loading, fetching, error, data }] =
         useDataMutation(selfRegisterMutation)
@@ -43,7 +43,7 @@ const CreateAccountForm = () => {
 const requiredPropsForCreateAccount = ['selfRegistrationEnabled']
 
 export const CreateAccountFormWrapper = ({ width }) => {
-    const { uiLocale } = useLoginConfig()
+    const { uiLocale } = useLoginSettings()
     const { notAllowed } = useGetErrorIfNotAllowed(
         requiredPropsForCreateAccount
     )

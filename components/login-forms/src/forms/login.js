@@ -10,7 +10,7 @@ import { FormSubtitle } from '../components/form-subtitle.js'
 import { Link } from '../components/link.js'
 import { checkIsFormValid, getIsRequired } from '../helpers/index.js'
 import { useLogin } from '../hooks/index.js'
-import { useLoginConfig } from '../providers/use-login-config.js'
+import { useLoginSettings } from '../providers/use-login-settings.js'
 
 const Links = ({ formUserName }) => {
     const {
@@ -18,7 +18,7 @@ const Links = ({ formUserName }) => {
         emailConfigured,
         selfRegistrationEnabled,
         uiLocale,
-    } = useLoginConfig()
+    } = useLoginSettings()
 
     return (
         <>
@@ -27,7 +27,7 @@ const Links = ({ formUserName }) => {
                     <>
                         <span>
                             <Link
-                                to={`/reset-password?username=${formUserName}`}
+                                to={`#/reset-password?username=${formUserName}`}
                             >
                                 {i18n.t('Forgot password?', { lng: uiLocale })}
                             </Link>
@@ -37,7 +37,7 @@ const Links = ({ formUserName }) => {
                 {selfRegistrationEnabled && (
                     <span>
                         {i18n.t("Don't have an account?", { lng: uiLocale })}{' '}
-                        <Link to="/create-account">
+                        <Link to="#/create-account">
                             {i18n.t('Create an account', { lng: uiLocale })}
                         </Link>
                     </span>
@@ -282,7 +282,7 @@ export const LoginFormWrapper = ({ width }) => {
     const [twoFAVerificationRequired, setTwoFAVerificationRequired] =
         useState(false)
     const [formUserName, setFormUserName] = useState('')
-    const { uiLocale } = useLoginConfig()
+    const { uiLocale } = useLoginSettings()
 
     return (
         <FormContainer

@@ -13,7 +13,7 @@ import { Link } from '../components/link.js'
 import { NotAllowedNotice } from '../components/not-allowed-notice.js'
 import { getIsRequired } from '../helpers/validators.js'
 import { useGetErrorIfNotAllowed, useParams } from '../hooks/index.js'
-import { useLoginConfig } from '../providers/use-login-config.js'
+import { useLoginSettings } from '../providers/use-login-settings.js'
 
 const passwordResetRequestMutation = {
     resource: 'auth/forgotPassword',
@@ -189,7 +189,7 @@ const requiredPropsForPasswordReset = [
 ]
 
 export const PasswordResetRequestFormWrapper = ({ width }) => {
-    const { uiLocale } = useLoginConfig()
+    const { uiLocale } = useLoginSettings()
     const { notAllowed } = useGetErrorIfNotAllowed(
         requiredPropsForPasswordReset
     )
