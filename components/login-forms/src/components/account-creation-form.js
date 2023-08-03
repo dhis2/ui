@@ -13,13 +13,13 @@ import {
 } from '@dhis2/ui-forms'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
-import { Link, useInRouterContext } from 'react-router-dom'
 import { getIsRequired, removeHTMLTags } from '../helpers/index.js'
 import { useLoginSettings } from '../providers/use-login-settings.js'
 import { BackToLoginButton } from './back-to-login-button.js'
 // import "../styles.css";
 import { FormNotice } from './form-notice.js'
 import { FormSubtitle } from './form-subtitle.js'
+import { Link } from './link.js'
 
 export const CREATE_FORM_TYPES = {
     create: 'create',
@@ -66,7 +66,6 @@ const InnerCreateAccountForm = ({
     prepopulatedFields,
 }) => {
     const isRequired = getIsRequired(uiLocale)
-    const inRouterContext = useInRouterContext()
 
     return (
         <>
@@ -171,13 +170,11 @@ const InnerCreateAccountForm = ({
                             ? i18n.t('Creating...', { lng: uiLocale })
                             : i18n.t('Create account', { lng: uiLocale })}
                     </Button>
-                    {inRouterContext && (
-                        <Link className="no-underline" to="/">
-                            <Button secondary disabled={loading}>
-                                {i18n.t('Cancel', { lng: uiLocale })}
-                            </Button>
-                        </Link>
-                    )}
+                    <Link className="no-underline" to="/">
+                        <Button secondary disabled={loading}>
+                            {i18n.t('Cancel', { lng: uiLocale })}
+                        </Button>
+                    </Link>
                 </div>
             </form>
             <style>
@@ -231,7 +228,6 @@ export const CreateAccount = ({
 }) => {
     // depends on https://dhis2.atlassian.net/browse/DHIS2-14615
     const { applicationTitle, uiLocale } = useLoginSettings()
-    const inRouterContext = useInRouterContext()
 
     useEffect(() => {
         // we should scroll top top of the page when an error is registered, so user sees this
@@ -261,11 +257,9 @@ export const CreateAccount = ({
                                 {i18n.t('Already have an account?', {
                                     lng: uiLocale,
                                 })}{' '}
-                                {inRouterContext && (
-                                    <Link to="/">
-                                        {i18n.t('Log in.', { lng: uiLocale })}
-                                    </Link>
-                                )}
+                                <Link to="/">
+                                    {i18n.t('Log in.', { lng: uiLocale })}
+                                </Link>
                             </p>
                         )}
                     </FormSubtitle>
