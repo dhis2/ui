@@ -2,15 +2,9 @@ import { Button } from '@dhis2-ui/button'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Link, useInRouterContext } from 'react-router-dom'
+import { Link } from './link.js'
 
 export const BackToLoginButton = ({ uiLocale, fullWidth }) => {
-    const inRouterContext = useInRouterContext()
-
-    if (!inRouterContext) {
-        return null
-    }
-
     return (
         <>
             <div>
