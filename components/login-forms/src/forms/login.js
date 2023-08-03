@@ -1,4 +1,5 @@
 import { Button } from '@dhis2-ui/button'
+import { useLoginSettings } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { colors, spacers } from '@dhis2/ui-constants'
 import { InputFieldFF, ReactFinalForm } from '@dhis2/ui-forms'
@@ -10,7 +11,7 @@ import { FormSubtitle } from '../components/form-subtitle.js'
 import { Link } from '../components/link.js'
 import { checkIsFormValid, getIsRequired } from '../helpers/index.js'
 import { useLogin } from '../hooks/index.js'
-import { useLoginSettings } from '../providers/use-login-settings.js'
+// import { useLoginSettings } from '../providers/use-login-settings.js'
 
 const Links = ({ formUserName }) => {
     const {

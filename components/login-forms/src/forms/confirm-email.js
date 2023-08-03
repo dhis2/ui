@@ -1,4 +1,4 @@
-import { useDataMutation } from '@dhis2/app-runtime'
+import { useDataMutation, useLoginSettings } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
@@ -6,7 +6,7 @@ import { BackToLoginButton } from '../components/back-to-login-button.js'
 import { FormContainer } from '../components/form-container.js'
 import { FormNotice } from '../components/form-notice.js'
 import { useParams } from '../hooks/index.js'
-import { useLoginSettings } from '../providers/use-login-settings.js'
+// import { useLoginSettings } from '../providers/use-login-settings.js'
 
 const confirmEmailMutation = {
     resource: 'auth/confirmEmailAccount',

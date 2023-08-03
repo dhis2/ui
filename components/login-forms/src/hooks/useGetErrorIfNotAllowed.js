@@ -1,4 +1,5 @@
-import { useLoginSettings } from '../providers/use-login-settings.js'
+import { useLoginSettings } from '@dhis2/app-runtime'
+// import { useLoginSettings } from '../providers/use-login-settings.js'
 
 export const useGetErrorIfNotAllowed = (requiredSettings) => {
     // redirect to main page if password reset is not allowed

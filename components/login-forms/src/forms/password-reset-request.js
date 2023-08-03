@@ -1,5 +1,5 @@
 import { Button } from '@dhis2-ui/button'
-import { useDataMutation } from '@dhis2/app-runtime'
+import { useDataMutation, useLoginSettings } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { spacers } from '@dhis2/ui-constants'
 import { InputFieldFF, ReactFinalForm } from '@dhis2/ui-forms'
@@ -13,7 +13,8 @@ import { Link } from '../components/link.js'
 import { NotAllowedNotice } from '../components/not-allowed-notice.js'
 import { getIsRequired } from '../helpers/validators.js'
 import { useGetErrorIfNotAllowed, useParams } from '../hooks/index.js'
-import { useLoginSettings } from '../providers/use-login-settings.js'
+
+// import { useLoginSettings } from '../providers/use-login-settings.js'
 
 const passwordResetRequestMutation = {
     resource: 'auth/forgotPassword',
