@@ -1,47 +1,49 @@
 # 
 # Translators:
-# Prabhjot Singh, 2021
-# Janeth Cruz, 2023
+# Charel van den Elsen, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-03-10T20:20:19.392Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
-"Last-Translator: Janeth Cruz, 2023\n"
-"Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
+"Last-Translator: Charel van den Elsen, 2023\n"
+"Language-Team: Dutch (https://app.transifex.com/hisp-uio/teams/100509/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Language: nl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid ""
 "Page {{page}} of {{pageCount}}, items {{firstItem}}-{{lastItem}} of "
 "{{total}}"
 msgstr ""
-"Página {{page}} de {{pageCount}}, elementos {{firstItem}} - {{lastItem}} de "
+"Pagina {{page}} van {{pageCount}}, items {{firstItem}}-{{lastItem}} van "
 "{{total}}"
 
 msgid "Page {{page}}, items {{firstItem}}-{{lastItem}}"
-msgstr "Página {{page}}, elementos {{firstItem}}-{{lastItem}}"
+msgstr "Pagina {{page}}, items {{firstItem}}-{{lastItem}}"
 
 msgid "Page {{page}}"
-msgstr "Página {{page}}"
+msgstr "Pagina {{pagina}}"
 
 msgid "Next"
-msgstr "Siguiente"
+msgstr "Volgende"
 
 msgid "Page"
-msgstr "Página"
+msgstr "Bladzijde"
 
 msgid "Items per page"
-msgstr "Elementos por página"
+msgstr "Items per pagina"
 
 msgid "Previous"
-msgstr "Anterior"
+msgstr "Vorige"
 
 msgid ""
 "You are at page {{page}} showing items {{firstItem}}-{{lastItem}}, but there"
 " are {{pageCount}} pages and {{total}} items"
 msgstr ""
+"U bevindt zich op pagina {{page}} laat items zien "
+"{{firstItem}}-{{lastItem}}, maar er zijn {{pageCount}} pagina's en {{total}}"
+" items"

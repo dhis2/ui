@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2021
+# channara rin, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-05-10T11:56:32.496Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2021\n"
-"Language-Team: Khmer (https://www.transifex.com/hisp-uio/teams/100509/km/)\n"
+"Last-Translator: channara rin, 2023\n"
+"Language-Team: Khmer (https://app.transifex.com/hisp-uio/teams/100509/km/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,16 +16,16 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Clear"
-msgstr "លុបចោល"
+msgstr "សម្អាត"
 
 msgid "No data found"
-msgstr ""
+msgstr "មិនមានទិន្នន័យបង្ហាញ"
 
 msgid "Type to filter options"
-msgstr ""
+msgstr "វាយបញ្ចូលមុខងារដើម្បីច្រោះ"
 
 msgid "Loading options"
-msgstr ""
+msgstr "កំពុងទាញយកមុខងារ"
 
 msgid "No options found"
-msgstr ""
+msgstr "មិនមានមុខងារបង្ហាញ"

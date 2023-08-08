@@ -1,3 +1,84 @@
+## [8.13.15](https://github.com/dhis2/ui/compare/v8.13.14...v8.13.15) (2023-08-01)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([d87ba1a](https://github.com/dhis2/ui/commit/d87ba1a9f07b718031bc8ce0dd2c38d7fbd8f0fa))
+
+## [8.13.14](https://github.com/dhis2/ui/compare/v8.13.13...v8.13.14) (2023-07-18)
+
+
+### Bug Fixes
+
+* **transfer:** ensure selected is an array ([40559d7](https://github.com/dhis2/ui/commit/40559d7017cb40f239330fec23724e6531fac427))
+
+## [8.13.13](https://github.com/dhis2/ui/compare/v8.13.12...v8.13.13) (2023-06-29)
+
+
+### Bug Fixes
+
+* **input:** adjust padding ([936f3ef](https://github.com/dhis2/ui/commit/936f3ef2b8da3944a1ef78f267bd8a0d592a6926))
+* **input:** force maximum height ([ae31398](https://github.com/dhis2/ui/commit/ae313982367190c7cb67e8ade95bbbe15362ff08))
+* **select:** adjust inner shadow ([a49b032](https://github.com/dhis2/ui/commit/a49b032398a01d63a2594c1f3d25ad841ce7c0cb))
+* **select:** adjust padding ([115d3eb](https://github.com/dhis2/ui/commit/115d3eb0fa88e5ed0ce21c8d423ff3bbfd9d2604))
+* **textarea:** adjust styling ([ef5d838](https://github.com/dhis2/ui/commit/ef5d83832d578d46594af79289ab333ff8747a6e))
+
+## [8.13.12](https://github.com/dhis2/ui/compare/v8.13.11...v8.13.12) (2023-06-29)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([b1e9762](https://github.com/dhis2/ui/commit/b1e97625ddaa7c26bc2e2e7a50a34c3b36496cc6))
+
+## [8.13.11](https://github.com/dhis2/ui/compare/v8.13.10...v8.13.11) (2023-06-22)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([2ec86ff](https://github.com/dhis2/ui/commit/2ec86fff56ce7b22f14704ea40f4f4359240d766))
+
+## [8.13.10](https://github.com/dhis2/ui/compare/v8.13.9...v8.13.10) (2023-06-17)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([83fa191](https://github.com/dhis2/ui/commit/83fa191350a7d6b89e107316dc671c7833279385))
+
+## [8.13.9](https://github.com/dhis2/ui/compare/v8.13.8...v8.13.9) (2023-06-16)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([582dd20](https://github.com/dhis2/ui/commit/582dd20bc93a3cb8700e86ac6901c88752f6cf97))
+
+## [8.13.8](https://github.com/dhis2/ui/compare/v8.13.7...v8.13.8) (2023-06-15)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([bc1675b](https://github.com/dhis2/ui/commit/bc1675bed069dc6694a9e6c7d305a7cc9e57bf09))
+
+## [8.13.7](https://github.com/dhis2/ui/compare/v8.13.6...v8.13.7) (2023-06-13)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([5a27a32](https://github.com/dhis2/ui/commit/5a27a32b130a0d54e0c80fc91bfad2b342d244ad))
+
+## [8.13.6](https://github.com/dhis2/ui/compare/v8.13.5...v8.13.6) (2023-05-28)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([25a0eed](https://github.com/dhis2/ui/commit/25a0eedf557574a8056b2ffabfe4a868715af727))
+
+## [8.13.5](https://github.com/dhis2/ui/compare/v8.13.4...v8.13.5) (2023-05-27)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([d1ad531](https://github.com/dhis2/ui/commit/d1ad531427fcd86e60bfb18b9b7326807121827b))
+
 ## [8.13.4](https://github.com/dhis2/ui/compare/v8.13.3...v8.13.4) (2023-05-25)
 
 

@@ -1,14 +1,15 @@
 # 
 # Translators:
 # Rica Zamora Duchateau, 2022
+# Charel van den Elsen, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-11-25T09:59:40.995Z\n"
 "PO-Revision-Date: 2021-10-01 23:39+0000\n"
-"Last-Translator: Rica Zamora Duchateau, 2022\n"
-"Language-Team: Dutch (https://www.transifex.com/hisp-uio/teams/100509/nl/)\n"
+"Last-Translator: Charel van den Elsen, 2023\n"
+"Language-Team: Dutch (https://app.transifex.com/hisp-uio/teams/100509/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,124 +17,149 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "View only"
-msgstr ""
+msgstr "Alleen bekijken"
 
 msgid "View and edit"
-msgstr ""
+msgstr "Bekijk en bewerk"
 
 msgid "Give access to a user or group"
-msgstr ""
+msgstr "Geef toegang aan een gebruiker of groep"
 
 msgid "Access level"
-msgstr ""
+msgstr "Toegangsniveau"
 
 msgid "Select a level"
-msgstr ""
+msgstr "Selecteer een niveau"
 
 msgid "Not available offline"
 msgstr "Niet beschikbaar offline"
 
 msgid "Give access"
-msgstr ""
+msgstr "Toegang geven"
 
 msgid "Users and groups that currently have access"
-msgstr ""
+msgstr "Gebruikers en groepen die momenteel toegang hebben"
 
 msgid "User / Group"
-msgstr ""
+msgstr "Gebruiker / groep"
 
 msgid "All users"
-msgstr ""
+msgstr "Alle gebruikers"
 
 msgid "No access"
 msgstr "Geen toegang"
 
 msgid "Can view"
-msgstr ""
+msgstr "Kan bekijken"
 
 msgid "Can view and edit"
-msgstr ""
+msgstr "Kan bekijken en bewerken"
 
 msgid "Metadata"
 msgstr "Metagegevens"
 
 msgid "Remove access"
-msgstr ""
+msgstr "Toegang verwijderen"
 
 msgid "User or group"
-msgstr ""
+msgstr "Gebruiker of groep"
 
 msgid "Search"
-msgstr ""
+msgstr "Zoek"
 
 msgid "Apply dashboard sharing settings to visualizations"
-msgstr ""
+msgstr "Instellingen voor delen van dashboards toepassen op visualisaties"
 
 msgid "Something went wrong"
 msgstr "Er is iets fout gegaan."
 
 msgid "Apply sharing to dashboard visualizations"
-msgstr ""
+msgstr "Pas delen toe op dashboardvisualisaties"
 
 msgid ""
 "No visualizations were updated. Check that you have permission to change "
 "sharing for all visualizations."
 msgstr ""
+"Er zijn geen visualisaties bijgewerkt. Controleer of u gemachtigd bent om "
+"het delen voor alle visualisaties te wijzigen."
 
 msgid ""
 "Not all visualizations could be updated successfully. {{ success }} updated "
 "successfully, {{ failed }} failed to update. Check that you have permission "
 "to change sharing for all visualizations."
 msgstr ""
+"Niet alle visualisaties konden met succes worden bijgewerkt. {{ success }} "
+"succesvol bijgewerkt, {{ mislukt }} kan niet worden bijgewerkt. Controleer "
+"of u gemachtigd bent om het delen voor alle visualisaties te wijzigen."
 
 msgid ""
 "No visualizations were updated because sharing settings are already "
 "sufficient."
 msgstr ""
+"Er zijn geen visualisaties bijgewerkt omdat de instellingen voor delen al "
+"voldoende zijn."
 
 msgid "Successfully updated sharing for all visualizations."
-msgstr ""
+msgstr "Delen voor alle visualisaties is geüpdatet."
 
 msgid ""
 "Not all visualization sharing settings needed to be updated. {{ updated }} "
 "updated, {{ skipped }} already had sufficient sharing settings."
 msgstr ""
+"Niet alle instellingen voor het delen van visualisaties hoefden te worden "
+"bijgewerkt. {{ bijgewerkt }} bijgewerkt, {{ overgeslagen }} had al voldoende"
+" instellingen voor delen."
 
 msgid "There are no users or groups to apply sharing settings for."
 msgstr ""
+"Er zijn geen gebruikers of groepen om instellingen voor delen toe te passen."
 
 msgid ""
 "Number of visualizations on this dashboard that will potentially get updated"
 " sharing settings: {{ visualizationsCount }}. The number of users or groups "
 "that these updated settings will apply to: {{ entityAmount }}."
 msgstr ""
+"Aantal visualisaties op dit dashboard dat mogelijk geüpdatete instellingen "
+"voor delen krijgt: {{ visualizationsCount }}. Het aantal gebruikers of "
+"groepen waarop deze bijgewerkte instellingen van toepassing zijn: {{ "
+"entityAmount }}."
 
 msgid ""
 "Applying the same sharing settings makes sure that users and groups that "
 "have access to the dashboard also have at least \"View only\" access to its "
 "visualizations (charts, tables, maps, event charts and event reports)."
 msgstr ""
+"Het toepassen van dezelfde instellingen voor delen zorgt ervoor dat "
+"gebruikers en groepen die toegang hebben tot het dashboard ook ten minste "
+"\"Alleen weergeven\" toegang hebben tot de visualisaties (grafieken, "
+"tabellen, kaarten, gebeurtenisgrafieken en gebeurtenisrapporten)."
 
 msgid ""
 "If a user or group already has \"View and edit\" access to a visualization, "
 "this won't be reduced to \"View only\". The \"All users\" access level won't"
 " be updated or changed."
 msgstr ""
+"Als een gebruiker of groep al het recht \"Bekijken en bewerken\" heeft voor "
+"een visualisatie, wordt dit niet beperkt tot \"Alleen weergeven\". Het "
+"toegangsniveau 'Alle gebruikers' wordt niet bijgewerkt of gewijzigd."
 
 msgid ""
 "Applying sharing can't be undone, and needs to be done again if new "
 "visualizations are added to the dashboard or its sharing settings are "
 "changed."
 msgstr ""
+"Het toepassen van delen kan niet ongedaan worden gemaakt en moet opnieuw "
+"worden gedaan als er nieuwe visualisaties aan het dashboard worden "
+"toegevoegd of als de instellingen voor delen worden gewijzigd."
 
 msgid "Sharing and access: {{- objectName}}"
-msgstr ""
+msgstr "Delen en toegang: {{- objectName}}"
 
 msgid "Sharing and access"
-msgstr ""
+msgstr "Delen en toegang"
 
 msgid "Close"
 msgstr "Sluit"
 
 msgid "Dashboard sharing"
-msgstr ""
+msgstr "Dashboard delen"

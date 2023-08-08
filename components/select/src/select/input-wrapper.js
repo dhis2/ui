@@ -49,7 +49,7 @@ const InputWrapper = ({
                     min-height: 40px;
                     padding-block: 6px;
                     padding-inline: 12px;
-                    box-shadow: inset 0 1px 2px 0 rgba(48, 54, 60, 0.1);
+                    box-shadow: inset 0 0 1px 0 rgba(48, 54, 60, 0.1);
                 }
 
                 .root:not(.disabled):focus,
@@ -79,7 +79,7 @@ const InputWrapper = ({
                 }
 
                 .root.dense {
-                    padding-block: 4px;
+                    padding-block: 2px;
                     padding-inline: 8px;
                     min-height: 32px;
                 }

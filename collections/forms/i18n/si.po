@@ -22,7 +22,7 @@ msgid "Upload files"
 msgstr ""
 
 msgid "Remove"
-msgstr "ඉවත් කරන්"
+msgstr "ඉවත් කරන්න"
 
 msgid "Please provide an alpha-numeric value"
 msgstr ""
