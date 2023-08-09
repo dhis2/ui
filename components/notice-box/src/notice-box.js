@@ -40,7 +40,8 @@ export const NoticeBox = ({
                     border: 1px solid ${colors.blue200};
                     border-radius: 3px;
                     display: flex;
-                    padding: ${spacers.dp12} ${spacers.dp16};
+                    padding-block: ${spacers.dp12};
+                    padding-inline: ${spacers.dp16};
                 }
 
                 .root.warning {

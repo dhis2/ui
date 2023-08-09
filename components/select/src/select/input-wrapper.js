@@ -47,7 +47,8 @@ const InputWrapper = ({
                     box-sizing: border-box;
                     display: flex;
                     min-height: 40px;
-                    padding: 6px 12px;
+                    padding-block: 6px;
+                    padding-inline: 12px;
                     box-shadow: inset 0 0 1px 0 rgba(48, 54, 60, 0.1);
                 }
 
@@ -78,7 +79,8 @@ const InputWrapper = ({
                 }
 
                 .root.dense {
-                    padding: 2px 8px;
+                    padding-block: 2px;
+                    padding-inline: 8px;
                     min-height: 32px;
                 }
 
@@ -87,7 +89,8 @@ const InputWrapper = ({
                 }
 
                 .root-right {
-                    margin: 4px 0px 0px 8px;
+                    margin-block-start: 4px;
+                    margin-inline-start: 8px;
                 }
             `}</style>
         </div>

@@ -19,10 +19,12 @@ const FilterInput = ({ value, onChange, placeholder, className, dataTest }) => (
         <style jsx>{`
             div {
                 position: sticky;
-                top: 0;
+                inset-block-start: 0;
                 background: ${colors.white};
-                padding: ${spacers.dp8} ${spacers.dp8} ${spacers.dp4}
-                    ${spacers.dp8};
+                padding-block-start: ${spacers.dp8};
+                padding-inline-end: ${spacers.dp8};
+                padding-block-end: ${spacers.dp4};
+                padding-inline-start: ${spacers.dp8};
                 z-index: 1;
             }
         `}</style>

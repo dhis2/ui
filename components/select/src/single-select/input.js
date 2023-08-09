@@ -71,8 +71,8 @@ const Input = ({
                 }
 
                 .root-right {
-                    margin-left: auto;
-                    margin-right: 10px;
+                    margin-inline-start: auto;
+                    margin-inline-end: 10px;
                 }
             `}</style>
 

@@ -40,7 +40,7 @@ const Selection = ({ options, selected, className }) => {
                 }
 
                 .root-icon {
-                    margin-right: ${spacers.dp8};
+                    margin-inline-end: ${spacers.dp8};
                     width: ${spacers.dp16};
                     height: ${spacers.dp16};
                     overflow: hidden;

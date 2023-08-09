@@ -16,7 +16,7 @@ export const NoticeBoxContent = ({ children, dataTest, title }) => {
                     display: flex;
                     flex-direction: column;
                     gap: ${spacers.dp8};
-                    padding-top: 3px;
+                    padding-block-start: 3px;
                 }
             `}</style>
         </div>
