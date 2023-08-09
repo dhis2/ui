@@ -1,3 +1,10 @@
+# [8.14.0](https://github.com/dhis2/ui/compare/v8.13.15...v8.14.0) (2023-08-09)
+
+
+### Features
+
+* singleselect, noticebox rtl ([#1320](https://github.com/dhis2/ui/issues/1320)) ([ea066c1](https://github.com/dhis2/ui/commit/ea066c13aec64c249b74a66833f44700a9a43b79))
+
 ## [8.13.15](https://github.com/dhis2/ui/compare/v8.13.14...v8.13.15) (2023-08-01)
 
 
