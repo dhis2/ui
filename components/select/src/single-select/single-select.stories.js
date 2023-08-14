@@ -1,6 +1,7 @@
+import { IntersectionDetector } from '@dhis2-ui/intersection-detector'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { SingleSelectOption } from '../index.js'
 import { SingleSelect } from './index.js'
 
@@ -271,6 +272,73 @@ WithClearButtonSelectionAndOnChange.storyName =
 
 export const WithFilterField = WithOptionsTemplate.bind({})
 WithFilterField.args = { ...WithInvalidFilterableOptions.args }
+
+function StickyFilterField({ value, onChange }) {
+    return (
+        <div style={{ position: 'sticky', top: '0' }}>
+            <input type="input" value={value} onChange={onChange} />
+        </div>
+    )
+}
+
+export const WithCustomFiltering = () => {
+    const [visibleAreaRef, setVisibleAreaRef] = useState(null)
+    const [filterValue, setFilterValue] = useState('')
+
+    return (
+        <SingleSelect>
+            <div
+                ref={visibleAreaRef}
+                style={{
+                    position: 'absolute',
+                    top: 0,
+                    height: '100%',
+                    width: '100%',
+                }}
+            />
+
+            <div style={{ position: 'relative' }}>
+                <StickyFilterField
+                    value={filterValue}
+                    onChange={(e) => setFilterValue(e.target.value)}
+                />
+                <SingleSelectOption value="1" label="option one" />
+                <SingleSelectOption value="2" label="option two" />
+                <SingleSelectOption value="3" label="option three" />
+                <SingleSelectOption value="4" label="option four" />
+                <SingleSelectOption value="5" label="option five" />
+                <SingleSelectOption value="6" label="option six" />
+                <SingleSelectOption value="7" label="option seven" />
+                <SingleSelectOption value="8" label="option eight" />
+                <SingleSelectOption value="9" label="option nine" />
+                <SingleSelectOption value="10" label="option ten" />
+                <SingleSelectOption value="11" label="option eleven" />
+
+                <div
+                    style={{
+                        width: '100%',
+                        height: 50,
+                        position: 'absolute',
+                        zIndex: -1,
+                        bottom: 0,
+                        left: 0,
+                        background: 'red',
+                    }}
+                >
+                    <IntersectionDetector
+                        rootRef={visibleAreaRef}
+                        onChange={({ isIntersecting }) => {
+                            console.log('> isIntersecting', isIntersecting)
+                            if (isIntersecting) {
+                                console.log('On end reached')
+                            }
+                        }}
+                    />
+                </div>
+            </div>
+        </SingleSelect>
+    )
+}
 
 export const DefaultPosition = (args) => (
     <>
