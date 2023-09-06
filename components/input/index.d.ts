@@ -15,13 +15,13 @@ export type InputType =
     | 'time'
     | 'search'
 
-export interface ValueNameObject {
+export interface EventPayload {
     value: string | undefined | null
     name: string | undefined | null
 }
 
 type InputEventHandler<Event extends React.SyntheticEvent> = (
-    arg0: ValueNameObject,
+    arg0: EventPayload,
     event: Event
 ) => void
 
