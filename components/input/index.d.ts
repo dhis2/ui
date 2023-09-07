@@ -25,9 +25,15 @@ export type InputEventHandler<Event extends React.SyntheticEvent> = (
     event: Event
 ) => void
 
-type InputFocusHandler = InputEventHandler<React.FocusEvent<HTMLInputElement>>
-type InputChangeHandler = InputEventHandler<React.ChangeEvent<HTMLInputElement>>
-type InputKeyHandler = InputEventHandler<React.KeyboardEvent<HTMLInputElement>>
+export type InputFocusHandler = InputEventHandler<
+    React.FocusEvent<HTMLInputElement>
+>
+export type InputChangeHandler = InputEventHandler<
+    React.ChangeEvent<HTMLInputElement>
+>
+export type InputKeyHandler = InputEventHandler<
+    React.KeyboardEvent<HTMLInputElement>
+>
 
 export interface InputProps {
     /**
