@@ -7,18 +7,18 @@ export interface TextAreaEventPayload {
     name?: string
 }
 
-export type InputEventHandler<Event extends React.SyntheticEvent> = (
+export type TextAreaEventHandler<Event extends React.SyntheticEvent> = (
     payload: TextAreaEventPayload,
     event: Event
 ) => void
 
-type TextAreaFocusHandler = InputEventHandler<
+type TextAreaFocusHandler = TextAreaEventHandler<
     React.FocusEvent<HTMLInputElement>
 >
-type TextAreaChangeHandler = InputEventHandler<
+type TextAreaChangeHandler = TextAreaEventHandler<
     React.ChangeEvent<HTMLInputElement>
 >
-type TextAreaKeyHandler = InputEventHandler<
+type TextAreaKeyHandler = TextAreaEventHandler<
     React.KeyboardEvent<HTMLInputElement>
 >
 

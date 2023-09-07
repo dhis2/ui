@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { InputEventHandler } from '@dhis2-ui/input'
 import { LayerBackdropClickEvent } from '@dhis2-ui/layer'
 import { CheckboxProps } from '@dhis2-ui/checkbox'
 
