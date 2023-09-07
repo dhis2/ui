@@ -5,6 +5,10 @@ export type LayerLevel = number | string
 export type LayerPosition = 'absolute' | 'fixed'
 
 export type LayerBackdropClickEvent = React.MouseEvent<HTMLDivElement>
+export type LayerBackdropClickHandler = (
+    arg0: {},
+    arg1: LayerBackdropClickEvent
+) => void
 
 export interface LayerProps {
     children?: React.ReactNode
@@ -26,7 +30,7 @@ export interface LayerProps {
     /**
      * Backdrop click handler
      */
-    onBackdropClick?: (arg0: {}, arg1: LayerBackdropClickEvent) => void
+    onBackdropClick?: LayerBackdropClickHandler
     /**
      * Click handler - DEPRECATED
      */

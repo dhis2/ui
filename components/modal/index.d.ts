@@ -1,10 +1,7 @@
 import * as React from 'react'
+import { LayerBackdropClickHandler } from '@dhis2-ui/layer'
 
-export interface CloseButtonProps {
-    onClick?: (...args: any[]) => any
-}
-
-export const CloseButton: React.FC<CloseButtonProps>
+export type ModalOnCloseEventHandler = LayerBackdropClickHandler
 
 export interface ModalProps {
     children?: React.ReactNode
@@ -12,13 +9,13 @@ export interface ModalProps {
     dataTest?: string
     fluid?: boolean
     hide?: boolean
-    large?: any
-    position?: any
-    small?: any
+    large?: boolean
+    position?: 'top' | 'middle' | 'bottom'
+    small?: boolean
     /**
      * Callback used when the Modal closes
      */
-    onClose?: (...args: any[]) => any
+    onClose?: LayerBackdropClickHandler
 }
 
 export const Modal: React.FC<ModalProps>
