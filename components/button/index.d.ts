@@ -2,19 +2,19 @@ import * as React from 'react'
 
 export type ButtonType = 'submit' | 'reset' | 'button'
 
-export interface ValueNameObject {
+export interface EventPayload {
     value: string | undefined | null
     name: string | undefined | null
 }
 
 type ButtonEventHandler<Event extends React.SyntheticEvent> = (
-    arg0: ValueNameObject,
+    arg0: EventPayload,
     event: Event
 ) => void
 
 type ButtonOpenEventHandler<
     Event extends React.SyntheticEvent = React.MouseEvent<HTMLButtonElement>
-> = (arg0: ValueNameObject & { open: boolean }, event: Event) => void
+> = (arg0: EventPayload & { open: boolean }, event: Event) => void
 
 export interface ButtonProps {
     /**
