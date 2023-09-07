@@ -59,6 +59,7 @@
         "@testing-library/react": "^12.1.2",
         "@testing-library/react-hooks": "^7.0.1",
         "@testing-library/user-event": "^13.5.0",
+        "@types/react": "^16.14.0",
         "ast-types": "^0.14.2",
         "concurrently": "^6.2.1",
         "cypress": "^9.5.0",
