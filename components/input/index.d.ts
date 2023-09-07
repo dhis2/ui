@@ -16,8 +16,8 @@ export type InputType =
     | 'search'
 
 export interface EventPayload {
-    value: string | undefined | null
-    name: string | undefined | null
+    value?: string
+    name?: string
 }
 
 type InputEventHandler<Event extends React.SyntheticEvent> = (

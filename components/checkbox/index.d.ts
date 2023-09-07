@@ -1,8 +1,8 @@
 import * as React from 'react'
 
 export interface EventPayload {
-    value: string | undefined | null
-    name: string | undefined | null
+    value?: string
+    name?: string
     checked: boolean
 }
 
@@ -35,7 +35,7 @@ export interface CheckboxProps {
     tabIndex?: string
     valid?: boolean
     value?: string
-    warning?: any
+    warning?: boolean
     onBlur?: CheckboxFocusHandler
     /**
      * Called with signature `(object, event)`

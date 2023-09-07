@@ -1,12 +1,8 @@
 import * as React from 'react'
-import {
-    ButtonProps,
-    EventPayload as ButtonEventPayload,
-} from '@dhis2-ui/button'
-
+=
 export interface FileInputEventPayload {
     files: FileList
-    name: string | undefined | null
+    name?: string
 }
 
 type FileInputEventHandler<Event extends React.SyntheticEvent> = (
