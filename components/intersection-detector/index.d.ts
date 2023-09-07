@@ -4,7 +4,7 @@ export interface IntersectionDetectorProps {
     /**
      * React ref on other component to detect intersections with
      */
-    rootRef: React.RefObject<HTMLElement>
+    rootRef: React.MutableRefObject<HTMLElement>
     /**
      * Called with signature `({ isIntersecting: bool })`
      */
