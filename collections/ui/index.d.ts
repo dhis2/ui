@@ -33,13 +33,26 @@ export * from '@dhis2-ui/node'
 export * from '@dhis2-ui/notice-box'
 export * from '@dhis2-ui/organisation-unit-tree'
 export * from '@dhis2-ui/popover'
-export * from '@dhis2-ui/popper'
+export { Popper, PopperProps } from '@dhis2-ui/popper'
 export * from '@dhis2-ui/portal'
 export * from '@dhis2-ui/radio'
 export * from '@dhis2-ui/required'
-export * from '@dhis2-ui/pagination'
+export { Pagination, PaginationProps } from '@dhis2-ui/pagination'
 export * from '@dhis2-ui/sharing-dialog'
-export * from '@dhis2-ui/select'
+export {
+    SingleSelect,
+    SingleSelectField,
+    SingleSelectOption,
+    MultiSelect,
+    MultiSelectField,
+    MultiSelectOption,
+    SingleSelectProps,
+    SingleSelectFieldProps,
+    SingleSelectOptionProps,
+    MultiSelectProps,
+    MultiSelectFieldProps,
+    MultiSelectOptionProps,
+} from '@dhis2-ui/select'
 export * from '@dhis2-ui/selector-bar'
 export * from '@dhis2-ui/switch'
 export * from '@dhis2-ui/table'
