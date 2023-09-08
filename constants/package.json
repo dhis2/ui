@@ -29,6 +29,10 @@
         "prop-types": "^15.7.2"
     },
     "files": [
-        "build"
+        "build",
+        "types"
+    ],
+    "types": [
+        "types"
     ]
 }

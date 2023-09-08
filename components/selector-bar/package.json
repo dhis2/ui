@@ -54,6 +54,10 @@
         "styled-jsx": "^4.0.1"
     },
     "files": [
-        "build"
+        "build",
+        "types"
+    ],
+    "types": [
+        "types"
     ]
 }
