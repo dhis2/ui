@@ -9,7 +9,7 @@ import {Box } from '@dhis2/ui'
 
 <Demo>
     <Box>
-    <p><a href="https://ui.dhis2.nu/demo/?path=/story/icons-list--complete-icon-set" target="_blank">Storybook demo: List of all icons</a>.</p> 
+    <p><a href="https://ui.dhis2.nu/demo/?path=/story/icons--complete-icon-set" target="_blank">Storybook demo: List of all icons</a>.</p> 
     </Box>
 </Demo>
 
