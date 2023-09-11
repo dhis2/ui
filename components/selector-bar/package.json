@@ -57,5 +57,5 @@
         "build",
         "types"
     ],
-  "types": "types"
+    "types": "types"
 }

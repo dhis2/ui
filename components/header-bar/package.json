@@ -63,5 +63,5 @@
         "react-dom": "16.13",
         "styled-jsx": "^4.0.1"
     },
-  "types": "types"
+    "types": "types"
 }
