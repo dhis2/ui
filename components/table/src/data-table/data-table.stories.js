@@ -65,7 +65,7 @@ const BasicTemplate = ({ bordered, large, draggable, bodyProps, ...args }) => (
                 <DataTableColumnHeader large={large}>
                     First name
                 </DataTableColumnHeader>
-                <DataTableColumnHeader onlarge={large}>
+                <DataTableColumnHeader large={large}>
                     Last name
                 </DataTableColumnHeader>
                 <DataTableColumnHeader large={large}>
