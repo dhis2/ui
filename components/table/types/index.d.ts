@@ -237,7 +237,15 @@ export interface DataTableBodyProps {
 
 export const DataTableBody: React.ForwardRefExoticComponent<DataTableBodyProps>
 
-export interface DataTableCellProps {
+
+type TdProps = React.ComponentPropsWithoutRef<'td'>
+type ThProps = React.ComponentPropsWithoutRef<'th'>
+type DataTableCellForwardProps = Omit<
+    TdProps | ThProps,
+    keyof DataTableCellProps
+>
+
+export type DataTableCellProps = {
     /**
      * To toggle border color, for example for editing
      */
@@ -287,11 +295,13 @@ export interface DataTableCellProps {
     /**
      * Required when fixed
      */
-    width?: boolean
-    onClick?: React.ReactEventHandler
+    width?: string
+    onClick?: React.MouseEventHandler
 }
 
-export const DataTableCell: React.ForwardRefExoticComponent<DataTableCellProps>
+export const DataTableCell: React.ForwardRefExoticComponent<
+    DataTableCellProps & DataTableCellForwardProps
+>
 
 export type DataTableSortDirection = 'asc' | 'desc' | 'default'
 
