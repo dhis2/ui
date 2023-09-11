@@ -1,3 +1,10 @@
+## [8.14.1](https://github.com/dhis2/ui/compare/v8.14.0...v8.14.1) (2023-09-11)
+
+
+### Bug Fixes
+
+* pass through props for DataTableCell ([589c573](https://github.com/dhis2/ui/commit/589c573d9f8dbca5e83236d9a5f0ed022bb847ec))
+
 # [8.14.0](https://github.com/dhis2/ui/compare/v8.13.15...v8.14.0) (2023-08-09)
 
 

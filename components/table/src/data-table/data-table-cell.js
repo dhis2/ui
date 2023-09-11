@@ -27,6 +27,7 @@ export const DataTableCell = forwardRef(
             valid,
             width,
             onClick,
+            ...props
         },
         ref
     ) => {
@@ -36,6 +37,7 @@ export const DataTableCell = forwardRef(
                 : TableDataCell
         return (
             <TableCell
+                {...props}
                 active={active}
                 align={align}
                 backgroundColor={backgroundColor}
