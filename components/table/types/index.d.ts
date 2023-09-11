@@ -237,7 +237,6 @@ export interface DataTableBodyProps {
 
 export const DataTableBody: React.ForwardRefExoticComponent<DataTableBodyProps>
 
-
 type TdProps = React.ComponentPropsWithoutRef<'td'>
 type ThProps = React.ComponentPropsWithoutRef<'th'>
 type DataTableCellForwardProps = Omit<
