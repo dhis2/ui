@@ -34,7 +34,7 @@ export interface LayerProps {
     /**
      * Click handler - DEPRECATED
      */
-    onClick?: any
+    onClick?: LayerBackdropClickHandler
 }
 
 export const Layer: React.FC<LayerProps>
