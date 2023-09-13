@@ -1,0 +1,25 @@
+# 
+# Translators:
+# Yury Rogachev <yury@dhis2.org>, 2021
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2022-02-22T12:46:32.977Z\n"
+"PO-Revision-Date: 2021-06-24 12:50+0000\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
+"Language-Team: Uzbek (Latin) (https://app.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uz@Latn\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "No children match filter"
+msgstr ""
+
+msgid "Could not load children"
+msgstr "Bolalar yuklanmadi"
+
+msgid "Error: {{ ERRORMESSAGE }}"
+msgstr ""

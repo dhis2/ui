@@ -1,0 +1,44 @@
+# 
+# Translators:
+# Yury Rogachev <yury@dhis2.org>, 2021
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2022-03-10T20:20:19.392Z\n"
+"PO-Revision-Date: 2021-06-24 12:50+0000\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
+"Language-Team: Uzbek (Latin) (https://app.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uz@Latn\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid ""
+"Page {{page}} of {{pageCount}}, items {{firstItem}}-{{lastItem}} of "
+"{{total}}"
+msgstr ""
+
+msgid "Page {{page}}, items {{firstItem}}-{{lastItem}}"
+msgstr ""
+
+msgid "Page {{page}}"
+msgstr ""
+
+msgid "Next"
+msgstr "Кейинги"
+
+msgid "Page"
+msgstr "Sahifa"
+
+msgid "Items per page"
+msgstr ""
+
+msgid "Previous"
+msgstr "Oldingi"
+
+msgid ""
+"You are at page {{page}} showing items {{firstItem}}-{{lastItem}}, but there"
+" are {{pageCount}} pages and {{total}} items"
+msgstr ""

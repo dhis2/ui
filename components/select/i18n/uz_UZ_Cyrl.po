@@ -5,21 +5,27 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-06-04T18:40:29.413Z\n"
+"POT-Creation-Date: 2021-05-10T11:56:32.496Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
-"Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
+"Language-Team: Uzbek (Cyrillic) (https://app.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uz@Cyrl\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "Upload a file"
+msgid "Clear"
+msgstr "Тозалаш"
+
+msgid "No data found"
+msgstr "Маълумотлар топилмади"
+
+msgid "Type to filter options"
 msgstr ""
 
-msgid "No file uploaded yet"
+msgid "Loading options"
 msgstr ""
 
-msgid "Remove"
-msgstr "Олиб ташлаш"
+msgid "No options found"
+msgstr ""
