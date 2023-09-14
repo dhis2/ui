@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/popover",
-    "version": "8.14.1",
+    "version": "8.14.2",
     "description": "UI Popover",
     "repository": {
         "type": "git",
@@ -32,9 +32,9 @@
     },
     "dependencies": {
         "@dhis2/prop-types": "^3.1.2",
-        "@dhis2-ui/layer": "8.14.1",
-        "@dhis2-ui/popper": "8.14.1",
-        "@dhis2/ui-constants": "8.14.1",
+        "@dhis2-ui/layer": "8.14.2",
+        "@dhis2-ui/popper": "8.14.2",
+        "@dhis2/ui-constants": "8.14.2",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },
