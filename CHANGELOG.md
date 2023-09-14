@@ -1,3 +1,10 @@
+## [8.14.3](https://github.com/dhis2/ui/compare/v8.14.2...v8.14.3) (2023-09-14)
+
+
+### Bug Fixes
+
+* **pagination:** add row padding on small screens and demo stories ([b373859](https://github.com/dhis2/ui/commit/b37385931645dbae98108c850ec384e8a8f6e03c))
+
 ## [8.14.2](https://github.com/dhis2/ui/compare/v8.14.1...v8.14.2) (2023-09-14)
 
 
