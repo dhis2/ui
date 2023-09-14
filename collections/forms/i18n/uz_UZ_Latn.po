@@ -1,22 +1,22 @@
 # 
 # Translators:
-# Ibatov <ibatovk@who.int>, 2021
+# Yury Rogachev <yury@dhis2.org>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-11T13:37:19.312Z\n"
+"POT-Creation-Date: 2023-05-05T12:46:11.864Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
-"Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
-"Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
+"Language-Team: Uzbek (Latin) (https://app.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uz@Cyrl\n"
+"Language: uz@Latn\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Upload file"
-msgstr "Файлни юклаш"
+msgstr "Faylni yuklash"
 
 msgid "Upload files"
 msgstr ""
@@ -37,8 +37,8 @@ msgid ""
 "Please make sure the value of this input matches the value in "
 "\"{{otherField}}\"."
 msgstr ""
-"Ушбу ёзувнинг қиймати \"{{otherField}}\" даги қийматга мос келишига ишонч "
-"ҳосил қилинг."
+"Ushbu yozuvning qiymati \"{{otherField}}\" dagi qiymatga mos kelishiga "
+"ishonch hosil qiling."
 
 msgid "Please enter a maximum of {{upperBound}} characters"
 msgstr ""
@@ -64,28 +64,25 @@ msgid "Password should be a string"
 msgstr ""
 
 msgid "Password should be at least 8 characters long"
-msgstr "Пароль камида 8 та белгидан иборат бўлиши лозим"
+msgstr "Parol kamida 8 ta belgidan iborat boʼlishi lozim"
 
 msgid "Password should be no longer than 34 characters"
-msgstr "Пароль 34 та белгидан ошмаслиги лозим"
+msgstr "Parol 34 ta belgidan oshmasligi lozim"
 
 msgid "Password should contain at least one lowercase letter"
-msgstr "Пароль таркибида камида 1 та кичик ҳарф бўлиши лозим"
+msgstr "Parol tarkibida kamida 1 ta kichik harf boʼlishi lozim"
 
 msgid "Password should contain at least one UPPERCASE letter"
-msgstr "Пароль таркибида камида 1 та БОШ ҳарф бўлиши лозим"
+msgstr "Parol tarkibida kamida 1 ta BOSh harf boʼlishi lozim"
 
 msgid "Password should contain at least one number"
-msgstr "Пароль таркибида камида 1 та рақам бўлиши лозим"
+msgstr "Parol tarkibida kamida 1 ta raqam boʼlishi lozim"
 
 msgid "Password should have at least one special character"
-msgstr "Пароль таркибида камида 1 та махсус белги бўлиши лозим"
-
-msgid "Please provide a username between 4 and 255 characters"
-msgstr ""
+msgstr "Parol tarkibida kamida 1 ta maxsus belgi boʼlishi lozim"
 
 msgid "Please provide a valid email address"
-msgstr "Илтимос, амалдаги е-почта манзилини кўрсатинг"
+msgstr "Iltimos, amaldagi ye-pochta manzilini koʼrsating"
 
 msgid "Please provide a value"
 msgstr ""
@@ -103,4 +100,10 @@ msgid "Please provide a string"
 msgstr ""
 
 msgid "Please provide a valid url"
-msgstr "Илтимос, ҳақиқий URL манзилни кўрсатинг"
+msgstr "Iltimos, haqiqiy URL manzilni koʼrsating"
+
+msgctxt " - or @"
+msgid ""
+"Please provide a username between 4 and 255 characters long and possibly "
+"separated by . "
+msgstr ""
