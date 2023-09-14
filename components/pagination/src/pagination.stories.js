@@ -87,3 +87,15 @@ WithoutAnySelect.args = {
     ...WithoutGoToPageSelect.args,
     ...WithoutPageSizeSelect.args,
 }
+
+const InBox = ({ boxWidth, ...args }) => (
+    <div style={{ width: boxWidth }}>
+        <Pagination {...args} />
+    </div>
+)
+
+export const MediumWidth = InBox.bind({})
+MediumWidth.args = { ...pagers.atTenthPage, boxWidth: 500 }
+
+export const NarrowWidth = InBox.bind({})
+NarrowWidth.args = { ...pagers.atTenthPage, boxWidth: 100 }
