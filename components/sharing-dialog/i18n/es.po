@@ -1,19 +1,19 @@
 # 
 # Translators:
-# phil_dhis2, 2021
+# Philip Larsen Donnelly, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # William Aviles <waviles@clintonhealthaccess.org>, 2021
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
-# Pablo Pajuelo Cabezas <pablo@dhis2.org>, 2021
 # Marta Vila <marta@dhis2.org>, 2023
 # Janeth Cruz, 2023
+# Enzo Nicolas Rossi <enzo@dhis2.org>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-11-25T09:59:40.995Z\n"
 "PO-Revision-Date: 2021-10-01 23:39+0000\n"
-"Last-Translator: Janeth Cruz, 2023\n"
+"Last-Translator: Enzo Nicolas Rossi <enzo@dhis2.org>, 2023\n"
 "Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,7 +43,7 @@ msgid "Give access"
 msgstr "Dar acceso"
 
 msgid "Users and groups that currently have access"
-msgstr ""
+msgstr "Usuarios y grupos que actualmente tienen acceso"
 
 msgid "User / Group"
 msgstr "Usuario / Grupo"
@@ -76,7 +76,7 @@ msgid "Apply dashboard sharing settings to visualizations"
 msgstr "Aplicar la configuración compartir del tablero a las visualizaciones"
 
 msgid "Something went wrong"
-msgstr "Algo ha ido mal"
+msgstr "Algo ha salido mal"
 
 msgid "Apply sharing to dashboard visualizations"
 msgstr "Aplicar compartir a las visualizaciones del tablero"
@@ -95,8 +95,8 @@ msgid ""
 msgstr ""
 "No todas las visualizaciones se pudieron actualizar correctamente. {{ "
 "success }} actualizado con éxito, {{ failed }} error al actualizar. "
-"Compruebe que tiene permiso para cambiar compartir de todas las "
-"visualizaciones."
+"Compruebe que tiene permiso para cambiar la configuración de uso compartido "
+"de todas las visualizaciones."
 
 msgid ""
 "No visualizations were updated because sharing settings are already "
@@ -106,22 +106,32 @@ msgstr ""
 "compartir ya es suficiente"
 
 msgid "Successfully updated sharing for all visualizations."
-msgstr "Compartir actualizado con éxito para todas las visualizaciones."
+msgstr ""
+"Configuración de uso compartido actualizado con éxito para todas las "
+"visualizaciones."
 
 msgid ""
 "Not all visualization sharing settings needed to be updated. {{ updated }} "
 "updated, {{ skipped }} already had sufficient sharing settings."
 msgstr ""
+"No todas las configuraciones para compartir visualizaciones requieren "
+"actualización. {{ updated }} actualizado, {{ skipped }} ya tiene suficiente "
+"acceso."
 
 msgid "There are no users or groups to apply sharing settings for."
 msgstr ""
-"No hay usuarios o grupos a los que aplicar la configuración compartir."
+"No hay usuarios o grupos a los que aplicar la configuración de uso "
+"compartido"
 
 msgid ""
 "Number of visualizations on this dashboard that will potentially get updated"
 " sharing settings: {{ visualizationsCount }}. The number of users or groups "
 "that these updated settings will apply to: {{ entityAmount }}."
 msgstr ""
+"Número de visualizaciones en este tablero que potencialmente actualizarán su"
+" confugiración de uso compartido: {{ visualizationsCount }}. El número de "
+"usuarios o grupos a los que se aplicarán estas configuraciones actualizadas:"
+" {{ entityAmount }}."
 
 msgid ""
 "Applying the same sharing settings makes sure that users and groups that "
@@ -147,15 +157,15 @@ msgid ""
 "visualizations are added to the dashboard or its sharing settings are "
 "changed."
 msgstr ""
-"La aplicación compartir no puede deshacerse y tendrá que realizarse de nuevo"
-" si se agregan nuevas visualizaciones al tablero o se cambia la "
-"configuración de compartir."
+"Aplicar esta configuración de uso compartido no puede deshacerse, y deberás "
+"hacer estos cambios nuevamente si nuevas visualizaciones son agregadas al "
+"tablero o si su configuración de uso compartido es modificada."
 
 msgid "Sharing and access: {{- objectName}}"
 msgstr "Compartir y acceder: {{- objectName}}"
 
 msgid "Sharing and access"
-msgstr "Compartir y acceder"
+msgstr "Acceso compartido"
 
 msgid "Close"
 msgstr "Cerrar"
