@@ -1,3 +1,5 @@
+/// <reference path="../../types/index.d.ts" />
+
 import { CircularLoader } from '@dhis2-ui/loader'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
@@ -34,7 +36,7 @@ export const Button = ({
         if (initialFocus && ref.current) {
             ref.current.focus()
         }
-    }, [initialFocus, ref.current])
+    }, [initialFocus])
 
     const handleClick = (event) => onClick && onClick({ value, name }, event)
     const handleBlur = (event) => onBlur && onBlur({ value, name }, event)
