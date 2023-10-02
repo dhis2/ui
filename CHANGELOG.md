@@ -1,3 +1,10 @@
+## [8.14.6](https://github.com/dhis2/ui/compare/v8.14.5...v8.14.6) (2023-10-02)
+
+
+### Bug Fixes
+
+* **portal:** get default mount node at execution time ([20ab2ca](https://github.com/dhis2/ui/commit/20ab2cacb84c0f704d6cbb18000b035ce581446c))
+
 ## [8.14.5](https://github.com/dhis2/ui/compare/v8.14.4...v8.14.5) (2023-09-23)
 
 
