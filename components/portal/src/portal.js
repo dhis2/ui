@@ -10,15 +10,17 @@ import { createPortal } from 'react-dom'
  * template.
  *
  * As a fallback, portals will be attached to the document body.
+ *
+ * This needs to be a function so that it works in tests as well.
  */
-const defaultNode =
+const getDefaultNode = () =>
     document.getElementById('dhis2-portal-root') || document.body
 
 export const Portal = ({ children, node, disable }) => {
     const [mountNode, setMountNode] = useState(null)
 
     useEffect(() => {
-        setMountNode(node || defaultNode)
+        setMountNode(node || getDefaultNode())
     }, [node])
 
     if (disable) {
