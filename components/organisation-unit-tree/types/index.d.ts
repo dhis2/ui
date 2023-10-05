@@ -15,10 +15,10 @@ interface OrganisationUnitEventPayload extends OrganisationUnitNode {
 }
 
 export interface NodeLabelProps {
+    disableSelection: boolean
     hasChildren: boolean
     hasSelectedDescendants: boolean
     loading: boolean
-    error: boolean
     selected: string[]
     open: boolean
     path: string[]
@@ -27,6 +27,7 @@ export interface NodeLabelProps {
     label: string
     checked: boolean
     highlighted: boolean
+    error?: Error
 }
 
 export interface OrganisationUnitTreeProps {
@@ -40,7 +41,7 @@ export interface OrganisationUnitTreeProps {
      */
     onChange: (
         payload: OrganisationUnitEventPayload,
-        event: React.MouseEvent<HTMLSpanElement>
+        event: React.MouseEvent<HTMLSpanElement | HTMLInputElement>
     ) => void
     /**
      * When set, the error when loading children fails will be shown automatically
@@ -131,7 +132,7 @@ export interface OrganisationUnitTreeProps {
      */
     onChildrenLoaded?: (
         data: OrganisationUnitNode & {
-            children: Omit<OrganisationUnitNode, 'children'>
+            children: Array<Omit<OrganisationUnitNode, 'children'>>
         }
     ) => void
     /**
@@ -146,15 +147,19 @@ export interface OrganisationUnitTreeProps {
 
 export const OrganisationUnitTree: React.FC<OrganisationUnitTreeProps>
 
-export interface RootErrorProps {
+export interface OrganisationUnitTreeRootErrorProps {
     error: string
     dataTest?: string
 }
 
-export const RootError: React.FC<RootErrorProps>
+export const OrganisationUnitTreeRootError: React.FC<OrganisationUnitTreeRootErrorProps>
 
-export interface RootLoadingProps {
+export interface OrganisationUnitTreeRootLoadingProps {
     dataTest?: string
 }
 
-export const RootLoading: React.FC<RootLoadingProps>
+export const OrganisationUnitTreeRootLoading: React.FC<OrganisationUnitTreeRootLoadingProps>
+
+export const getAllExpandedOrgUnitPaths: (
+    initiallyExpanded: string[]
+) => string[]

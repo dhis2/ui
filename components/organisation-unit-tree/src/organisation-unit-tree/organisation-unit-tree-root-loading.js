@@ -2,7 +2,7 @@ import { CircularLoader } from '@dhis2-ui/loader'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export const RootLoading = ({ dataTest }) => (
+export const OrganisationUnitTreeRootLoading = ({ dataTest }) => (
     <div data-test={dataTest}>
         <CircularLoader small />
 
@@ -15,10 +15,10 @@ export const RootLoading = ({ dataTest }) => (
     </div>
 )
 
-RootLoading.defaultProps = {
+OrganisationUnitTreeRootLoading.defaultProps = {
     dataTest: 'dhis2-uiwidgets-orgunittree-loading',
 }
 
-RootLoading.propTypes = {
+OrganisationUnitTreeRootLoading.propTypes = {
     dataTest: PropTypes.string,
 }
