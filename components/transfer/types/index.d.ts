@@ -54,16 +54,20 @@ export interface TransferProps {
 
 export const Transfer: React.FC<TransferProps>
 
+type TransferOptionOnClickProp = (payload: { value: string }) => void
+
 export interface TransferOptionRenderProps extends TransferOption {
     highlighted: boolean
     selected: boolean
-    onClick: (payload: { value: string }) => void
-    onDoubleClick: (payload: { value: string }) => void
+    onClick: TransferOptionOnClickProp
+    onDoubleClick: TransferOptionOnClickProp
 }
 
 export interface TransferOptionProps {
     label: React.ReactNode
     value: string
+    onClick: TransferOptionOnClickProp
+    onDoubleClick: TransferOptionOnClickProp
     className?: string
     dataTest?: string
     disabled?: boolean
