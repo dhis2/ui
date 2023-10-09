@@ -1,0 +1,32 @@
+# 
+# Translators:
+# Viktor Varland <viktor@dhis2.org>, 2023
+# Philip Larsen Donnelly, 2023
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-05-10T11:56:32.496Z\n"
+"PO-Revision-Date: 2023-10-09 12:26+0000\n"
+"Last-Translator: Philip Larsen Donnelly, 2023\n"
+"Language-Team: Burmese (https://app.transifex.com/hisp-uio/teams/100509/my/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: my\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Clear"
+msgstr "ရှင်းလင်းသည်"
+
+msgid "No data found"
+msgstr "data မတွေ့ပါ။"
+
+msgid "Type to filter options"
+msgstr ""
+
+msgid "Loading options"
+msgstr ""
+
+msgid "No options found"
+msgstr ""

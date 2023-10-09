@@ -1,0 +1,32 @@
+# 
+# Translators:
+# Philip Larsen Donnelly, 2023
+# Hamza Assada <7amza.it@gmail.com>, 2023
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-05-10T11:56:32.496Z\n"
+"PO-Revision-Date: 2023-10-09 12:26+0000\n"
+"Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2023\n"
+"Language-Team: Arabic (https://app.transifex.com/hisp-uio/teams/100509/ar/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+msgid "Clear"
+msgstr "مسح"
+
+msgid "No data found"
+msgstr "لم يتم إيجاد بيانات"
+
+msgid "Type to filter options"
+msgstr "اكتب لتصفية الخيارات"
+
+msgid "Loading options"
+msgstr "تحميل الخيارات"
+
+msgid "No options found"
+msgstr "لم يتم العثور على خيارات"

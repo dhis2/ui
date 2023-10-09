@@ -1,0 +1,31 @@
+# 
+# Translators:
+# Jiří Podhorecký, 2023
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-05-10T11:56:32.496Z\n"
+"PO-Revision-Date: 2023-10-09 12:26+0000\n"
+"Last-Translator: Jiří Podhorecký, 2023\n"
+"Language-Team: Czech (https://app.transifex.com/hisp-uio/teams/100509/cs/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+
+msgid "Clear"
+msgstr "Vyčistit"
+
+msgid "No data found"
+msgstr "Nenalezena žádná data"
+
+msgid "Type to filter options"
+msgstr "Zadáním filtrujete možnosti"
+
+msgid "Loading options"
+msgstr "Možnosti načítání"
+
+msgid "No options found"
+msgstr "Nenalezeny žádné možnosti"
