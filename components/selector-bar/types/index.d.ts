@@ -13,15 +13,15 @@ export interface SelectorBarProps {
 export const SelectorBar: React.FC<SelectorBarProps>
 
 export interface SelectorBarItemProps {
-    label: string,
-    children: React.ReactNode,
-    className?: string,
-    dataTest?: string,
-    disabled: boolean,
-    displayOnly?: boolean,
-    noValueMessage?: string,
-    open?: boolean,
-    setOpen?: (open: boolean) => void,
-    value?: string,
-    onClearSelectionClick: () => void,
+    label: string
+    children: React.ReactNode
+    className?: string
+    dataTest?: string
+    disabled: boolean
+    displayOnly?: boolean
+    noValueMessage?: string
+    open?: boolean
+    setOpen?: (open: boolean) => void
+    value?: string
+    onClearSelectionClick: () => void
 }
