@@ -83,5 +83,10 @@
         "react": "16.13",
         "react-dom": "16.13",
         "styled-jsx": "^4.0.1"
-    }
+    },
+    "files": [
+        "build",
+        "types"
+    ],
+    "types": "types"
 }

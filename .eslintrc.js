@@ -33,6 +33,7 @@ const config = {
                 '*.stories*.js',
                 '**/__stories__/*.js',
                 '**/__stories__/**/*.js',
+                '*.d.ts',
             ],
             rules: {
                 'import/no-extraneous-dependencies': 'error',

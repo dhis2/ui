@@ -40,11 +40,13 @@
         "resize-observer-polyfill": "^1.5.1"
     },
     "files": [
-        "build"
+        "build",
+        "types"
     ],
     "devDependencies": {
         "react": "16.13",
         "react-dom": "16.13",
         "styled-jsx": "^4.0.1"
-    }
+    },
+    "types": "types"
 }
