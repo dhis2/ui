@@ -1,3 +1,10 @@
+## [8.14.2-alpha.1](https://github.com/dhis2/ui/compare/v8.14.1...v8.14.2-alpha.1) (2023-10-12)
+
+
+### Bug Fixes
+
+* **types:** add type declarations for components ([#1399](https://github.com/dhis2/ui/issues/1399)) ([d3e74c5](https://github.com/dhis2/ui/commit/d3e74c572f30f383e94868c66ff4c767a68c97dc))
+
 ## [8.14.1](https://github.com/dhis2/ui/compare/v8.14.0...v8.14.1) (2023-09-11)
 
 

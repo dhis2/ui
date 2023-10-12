@@ -1282,6 +1282,43 @@ import { NoticeBox } from '@dhis2/ui'
 |valid|custom|||Applies 'valid' message styles. Mutually exclusive with the `error` and `warning` props|
 |warning|custom|||Applies 'warning' message styles. Mutually exclusive with the `error` and `valid` props|
 
+### OrganisationUnitTreeRootError
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+
+```js
+import { OrganisationUnitTreeRootError } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|error|string||*||
+|dataTest|string|`'dhis2-uiwidgets-orgunittree-error'`|||
+
+### OrganisationUnitTreeRootLoading
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+
+```js
+import { OrganisationUnitTreeRootLoading } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|dataTest|string|`'dhis2-uiwidgets-orgunittree-loading'`|||
+
 ### OrganisationUnitTree
 
 #### Usage
