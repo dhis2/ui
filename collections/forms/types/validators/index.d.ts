@@ -1,5 +1,3 @@
-export type ValuesWithId = Array<{ id: string }> | undefined
-
 export type Validator = (value: unknown) => string | undefined
 
 export const alphaNumeric: Validator

@@ -1,5 +1,5 @@
 
-import type { ValuesWithId } from "../validators"
+export type ValuesWithId = Array<{ id: string }> | undefined
 
 export const arrayWithIdObjects: {
     format: (value: ValuesWithId) => string,

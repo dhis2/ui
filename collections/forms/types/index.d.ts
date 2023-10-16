@@ -1,3 +1,6 @@
+import * as FinalForm from 'final-form'
+import * as ReactFinalForm from 'react-final-form'
+
 
 export { CheckboxFieldFF } from './CheckboxFieldFF/CheckboxFieldFF'
 export { FileInputFieldFF } from './FileInputFieldFF/FileInputFieldFF'
@@ -12,3 +15,16 @@ export { FieldGroupFF } from './FieldGroupFF/FieldGroupFF'
 export * from './transformers'
 export * from './validators'
 
+
+/**
+ * Allows direct access to the FinalForm library. Please note that this is considered advanced
+ * usage and that you need to stay up to date with breaking changes in the FinalForm library.
+ */
+export { FinalForm }
+
+/**
+ * Allows direct access to the ReactFinalForm library. Please note that this is considered
+ * advanced usage and that you need to stay up to date with breaking changes in the FinalForm
+ * library.
+ */
+export { ReactFinalForm }
