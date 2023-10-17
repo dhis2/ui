@@ -4,13 +4,13 @@ import type { FieldRenderProps } from 'react-final-form'
 
 export type FilesValue = File[] | undefined | null | ''
 
-type FileInputOverriddenProps = Omit<
+type FileInputRestProps = Omit<
     FileInputFieldProps,
     'onChange' | 'multiple' | 'name'
 >
 
 export type FileInputFieldFFProps = FieldRenderProps<FilesValue> &
-    FileInputOverriddenProps & {
+    FileInputRestProps & {
         showValidStatus?: boolean
         multifile: FileInputFieldProps['multiple']
     }

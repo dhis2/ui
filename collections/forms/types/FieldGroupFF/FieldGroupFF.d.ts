@@ -1,7 +1,7 @@
 import React from 'react'
 import type { FieldGroupProps } from '@dhis2-ui/field'
 
-export type FieldGroupFFProps = Pick<
+export type FieldGroupFFProps = Omit<
     FieldGroupProps,
     'children' | 'label' | 'name' | 'required'
 >

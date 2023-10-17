@@ -4,12 +4,12 @@ import type { TextAreaFieldProps } from '@dhis2-ui/text-area'
 
 type InputValue = TextAreaFieldProps['value']
 
-type TextAreaFieldOverriddenProps = Omit<
+type TextAreaFieldRestProps = Omit<
     TextAreaFieldProps,
     'onChange' | 'value' | 'name'
 >
 
 export type TextAreaFieldFFProps = FieldRenderProps<InputValue> &
-    TextAreaFieldOverriddenProps
+    TextAreaFieldRestProps
 
 export const TextAreaFieldFF: React.FC<TextAreaFieldFFProps>

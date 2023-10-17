@@ -7,7 +7,7 @@ import type {
 
 type InputValue = MultiSelectFieldProps['selected'] | ''
 
-type MultiSelectFieldOverriddenProps = Omit<
+type MultiSelectFieldRestProps = Omit<
     MultiSelectFieldProps,
     'onChange' | 'value'
 >
@@ -15,7 +15,7 @@ type MultiSelectFieldOverriddenProps = Omit<
 type MultiSelectOptions = Array<Pick<MultiSelectOptionProps, 'value' | 'label'>>
 
 export type MultiSelectFieldFFProps = FieldRenderProps<InputValue> &
-    MultiSelectFieldOverriddenProps & {
+    MultiSelectFieldRestProps & {
         showLoadingStatus?: boolean
         showValidStatus?: boolean
         options: MultiSelectOptions

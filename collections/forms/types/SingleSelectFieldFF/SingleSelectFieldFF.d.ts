@@ -11,13 +11,13 @@ type SingleSelectOptions = Array<
     Pick<SingleSelectOptionProps, 'value' | 'label'>
 >
 
-type SingleSelectOverriddenProps = Omit<
+type SingleSelectRestProps = Omit<
     SingleSelectFieldProps,
     'onChange' | 'value' | 'name'
 >
 
 export type SingleSelectFieldFFProps = FieldRenderProps<InputValue> &
-    SingleSelectOverriddenProps & {
+    SingleSelectRestProps & {
         showLoadingStatus?: boolean
         showValidStatus?: boolean
         options: SingleSelectOptions

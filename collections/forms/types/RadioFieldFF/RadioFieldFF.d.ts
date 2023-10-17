@@ -4,13 +4,13 @@ import type { RadioProps } from '@dhis2-ui/radio'
 
 type InputValue = RadioProps['value']
 
-type RadioOverriddenProps = Omit<
+type RadioRestProps = Omit<
     RadioProps,
     'onChange' | 'value' | 'checked' | 'name'
 >
 
 export type RadioFieldFFProps = FieldRenderProps<InputValue> &
-    RadioOverriddenProps & {
+    RadioRestProps & {
         showValidStatus?: boolean
     }
 

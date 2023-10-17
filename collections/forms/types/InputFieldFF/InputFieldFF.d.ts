@@ -4,13 +4,13 @@ import type { FieldRenderProps } from 'react-final-form'
 
 export type InputValue = InputFieldProps['value']
 
-type InputFieldOverriddenProps = Omit<
+type InputFieldRestProps = Omit<
     InputFieldProps,
     'onChange' | 'value' | 'name'
 >
 
 export type InputFieldFFProps = FieldRenderProps<InputValue> &
-    InputFieldOverriddenProps & {
+    InputFieldRestProps & {
         showLoadingStatus?: boolean
         showValidStatus?: boolean
     }

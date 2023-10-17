@@ -4,12 +4,12 @@ import type { SwitchFieldProps } from '@dhis2-ui/switch'
 
 type InputValue = SwitchFieldProps['value']
 
-type SwitchFieldOverriddenProps = Omit<
+type SwitchFieldRestProps = Omit<
     SwitchFieldProps,
     'onChange' | 'checked' | 'value' | 'name'
 >
 
 export type SwitchFieldFFProps = FieldRenderProps<InputValue> &
-    SwitchFieldOverriddenProps
+    SwitchFieldRestProps
 
 export const SwitchFieldFF: React.FC<SwitchFieldFFProps>
