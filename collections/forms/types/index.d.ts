@@ -1,7 +1,6 @@
 import * as FinalForm from 'final-form'
 import * as ReactFinalForm from 'react-final-form'
 
-
 export { CheckboxFieldFF } from './CheckboxFieldFF/CheckboxFieldFF'
 export { FileInputFieldFF } from './FileInputFieldFF/FileInputFieldFF'
 export { InputFieldFF } from './InputFieldFF/InputFieldFF'
@@ -14,7 +13,6 @@ export { FieldGroupFF } from './FieldGroupFF/FieldGroupFF'
 
 export * from './transformers'
 export * from './validators'
-
 
 /**
  * Allows direct access to the FinalForm library. Please note that this is considered advanced

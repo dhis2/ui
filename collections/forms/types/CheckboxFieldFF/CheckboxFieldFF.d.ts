@@ -1,7 +1,5 @@
 import type { FieldRenderProps } from 'react-final-form'
-import type {
-    CheckboxFieldProps,
-} from '@dhis2-ui/checkbox'
+import type { CheckboxFieldProps } from '@dhis2-ui/checkbox'
 import React from 'react'
 
 type CheckBoxValue = CheckboxFieldProps['value']
