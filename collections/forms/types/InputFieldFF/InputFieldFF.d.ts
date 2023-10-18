@@ -4,10 +4,7 @@ import type { FieldRenderProps } from 'react-final-form'
 
 export type InputValue = InputFieldProps['value']
 
-type InputFieldRestProps = Omit<
-    InputFieldProps,
-    'onChange' | 'value' | 'name'
->
+type InputFieldRestProps = Omit<InputFieldProps, 'onChange' | 'value' | 'name'>
 
 export type InputFieldFFProps = FieldRenderProps<InputValue> &
     InputFieldRestProps & {
