@@ -1,3 +1,10 @@
+# [8.15.0-alpha.1](https://github.com/dhis2/ui/compare/v8.14.2-alpha.1...v8.15.0-alpha.1) (2023-10-19)
+
+
+### Features
+
+* **types:** add types for forms collection ([#1415](https://github.com/dhis2/ui/issues/1415)) ([2e9d91a](https://github.com/dhis2/ui/commit/2e9d91a688f4d60ae2107f1b9ef9b26fecb53585))
+
 ## [8.14.2-alpha.1](https://github.com/dhis2/ui/compare/v8.14.1...v8.14.2-alpha.1) (2023-10-12)
 
 
