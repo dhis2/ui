@@ -1,12 +1,12 @@
 import * as React from 'react'
 
-type RadioEventPayload = {
+export type RadioEventPayload = {
     value?: string
     name?: string
     checked: boolean
 }
 
-type RadioEventHandler<Event extends React.SyntheticEvent> = (
+export type RadioEventHandler<Event extends React.SyntheticEvent> = (
     payload: RadioEventPayload,
     event: Event
 ) => void
