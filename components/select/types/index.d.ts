@@ -3,13 +3,13 @@ import { LayerBackdropClickEvent } from '@dhis2-ui/layer'
 import { CheckboxProps } from '@dhis2-ui/checkbox'
 
 interface BaseEventPayload {
-    selected?: string | string[]
+    selected: string | string[]
 }
 interface SingleSelectEventPayload extends BaseEventPayload {
-    selected?: string
+    selected: string
 }
 interface MultiSelectEventPayload extends BaseEventPayload {
-    selected?: string[]
+    selected: string[]
 }
 
 type SelectEventHandler<
