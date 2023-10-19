@@ -19,22 +19,16 @@ type SelectEventHandler<
     Event extends React.SyntheticEvent
 > = (payload: T, event: Event) => void
 
-export type SelectOnBlurHandler<T extends BaseEventPayload> = SelectEventHandler<
-    T,
-    LayerBackdropClickEvent
->
-export type SelectOnFocusHandler<T extends BaseEventPayload> = SelectEventHandler<
-    T,
-    React.FocusEvent<HTMLDivElement>    
->
+export type SelectOnBlurHandler<T extends BaseEventPayload> =
+    SelectEventHandler<T, LayerBackdropClickEvent>
+export type SelectOnFocusHandler<T extends BaseEventPayload> =
+    SelectEventHandler<T, React.FocusEvent<HTMLDivElement>>
 export type SelectKeyHandler<T extends BaseEventPayload> = SelectEventHandler<
     T,
     React.KeyboardEvent<HTMLDivElement>
 >
-export type SelectChangeHandler<T extends BaseEventPayload> = SelectEventHandler<
-    T,
-    React.MouseEvent
->
+export type SelectChangeHandler<T extends BaseEventPayload> =
+    SelectEventHandler<T, React.MouseEvent>
 
 export interface MultiSelectProps {
     children?: React.ReactNode
