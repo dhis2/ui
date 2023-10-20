@@ -5,10 +5,12 @@ import { CheckboxProps } from '@dhis2-ui/checkbox'
 interface BaseEventPayload {
     selected: string | string[]
 }
-interface SingleSelectEventPayload extends BaseEventPayload {
+
+export interface SingleSelectEventPayload extends BaseEventPayload {
     selected: string
 }
-interface MultiSelectEventPayload extends BaseEventPayload {
+
+export interface MultiSelectEventPayload extends BaseEventPayload {
     selected: string[]
 }
 
@@ -17,22 +19,16 @@ type SelectEventHandler<
     Event extends React.SyntheticEvent
 > = (payload: T, event: Event) => void
 
-type SelectOnBlurHandler<T extends BaseEventPayload> = SelectEventHandler<
-    T,
-    LayerBackdropClickEvent
->
-type SelectOnFocusHandler<T extends BaseEventPayload> = SelectEventHandler<
-    T,
-    React.FocusEvent<HTMLDivElement>
->
-type SelectKeyHandler<T extends BaseEventPayload> = SelectEventHandler<
+export type SelectOnBlurHandler<T extends BaseEventPayload> =
+    SelectEventHandler<T, LayerBackdropClickEvent>
+export type SelectOnFocusHandler<T extends BaseEventPayload> =
+    SelectEventHandler<T, React.FocusEvent<HTMLDivElement>>
+export type SelectKeyHandler<T extends BaseEventPayload> = SelectEventHandler<
     T,
     React.KeyboardEvent<HTMLDivElement>
 >
-type SelectChangeHandler<T extends BaseEventPayload> = SelectEventHandler<
-    T,
-    React.MouseEvent
->
+export type SelectChangeHandler<T extends BaseEventPayload> =
+    SelectEventHandler<T, React.MouseEvent>
 
 export interface MultiSelectProps {
     children?: React.ReactNode

@@ -54,7 +54,7 @@ export interface TransferProps {
 
 export const Transfer: React.FC<TransferProps>
 
-type TransferOptionOnClickProp = (payload: { value: string }) => void
+export type TransferOptionOnClickProp = (payload: { value: string }) => void
 
 export interface TransferOptionRenderProps extends TransferOption {
     highlighted: boolean

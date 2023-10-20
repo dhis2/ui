@@ -2,14 +2,14 @@ import * as React from 'react'
 
 export type OrganisationUnitTreeRoots = string | string[]
 
-interface OrganisationUnitNode {
+export interface OrganisationUnitNode {
     id: string
     displayName: string
     children?: number
     path: string
 }
 
-interface OrganisationUnitEventPayload extends OrganisationUnitNode {
+export interface OrganisationUnitEventPayload extends OrganisationUnitNode {
     checked: boolean
     selected: string[]
 }
