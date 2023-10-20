@@ -1,3 +1,10 @@
+# [8.15.0-alpha.2](https://github.com/dhis2/ui/compare/v8.15.0-alpha.1...v8.15.0-alpha.2) (2023-10-20)
+
+
+### Bug Fixes
+
+* minor type fixes ([#1416](https://github.com/dhis2/ui/issues/1416)) ([71f4537](https://github.com/dhis2/ui/commit/71f4537098bd9869a4903127a5ccde78f64a8c7f))
+
 # [8.15.0-alpha.1](https://github.com/dhis2/ui/compare/v8.14.2-alpha.1...v8.15.0-alpha.1) (2023-10-19)
 
 
