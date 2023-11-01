@@ -1,8 +1,16 @@
 import '../common/index.js'
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a SingleSelect with onBlur handler is rendered', () => {
     cy.visitStory('SingleSelect', 'With onBlur')
+})
+
+When('the user selects the first option', () => {
+    cy.get('[data-test="first-option"]').click()
+})
+
+When('the user focuses the text input', () => {
+    cy.get('.input').focus()
 })
 
 Then('the onBlur handler is called', () => {
