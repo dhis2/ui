@@ -8,7 +8,6 @@ const InputWrapper = ({
     dataTest,
     onToggle,
     children,
-    tabIndex,
     error,
     warning,
     valid,
@@ -29,7 +28,6 @@ const InputWrapper = ({
         <div
             className={classNames}
             onClick={onToggle}
-            tabIndex={tabIndex}
             ref={inputRef}
             data-test={dataTest}
         >
@@ -97,14 +95,9 @@ const InputWrapper = ({
     )
 }
 
-InputWrapper.defaultProps = {
-    tabIndex: '0',
-}
-
 InputWrapper.propTypes = {
     dataTest: PropTypes.string.isRequired,
     inputRef: PropTypes.object.isRequired,
-    tabIndex: PropTypes.string.isRequired,
     onToggle: PropTypes.func.isRequired,
     children: PropTypes.element,
     className: PropTypes.string,

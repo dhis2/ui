@@ -95,7 +95,7 @@ export class Select extends Component {
         this.state.open ? this.handleClose() : this.handleOpen()
     }
 
-    onOutsideClick = (e) => {
+    onOutsideClick = (_, e) => {
         const { onBlur, disabled, selected } = this.props
 
         if (disabled) {
@@ -182,16 +182,17 @@ export class Select extends Component {
 
         return (
             <div
+                tabIndex={disabled ? '-1' : tabIndex}
                 className={className}
                 ref={this.selectRef}
                 onFocus={this.onFocus}
+                onBlur={this.onBlur}
                 onKeyDown={this.onKeyDown}
                 data-test={dataTest}
             >
                 <InputWrapper
                     onToggle={this.onToggle}
                     inputRef={this.inputRef}
-                    tabIndex={disabled ? '-1' : tabIndex}
                     error={error}
                     warning={warning}
                     valid={valid}
@@ -219,6 +220,7 @@ export class Select extends Component {
 
 Select.defaultProps = {
     dataTest: 'dhis2-uicore-select',
+    tabIndex: '0',
 }
 
 Select.propTypes = {

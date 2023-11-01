@@ -1,5 +1,13 @@
 import '../common/index.js'
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then, After } from 'cypress-cucumber-preprocessor/steps'
+
+After(() => {
+    cy.window().then((win) => {
+        win.onChange.reset()
+        win.onFocus.reset()
+        win.onBlur.reset()
+    })
+})
 
 Given('a SingleSelect with onBlur handler is rendered', () => {
     cy.visitStory('SingleSelect', 'With onBlur')
