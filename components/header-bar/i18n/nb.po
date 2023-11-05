@@ -1,13 +1,13 @@
 # 
 # Translators:
-# Karoline Tufte Lien <karoline@dhis2.org>, 2022
+# Karoline Tufte Lien <karoline@dhis2.org>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2023-01-18T16:13:05.063Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
-"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2022\n"
+"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2023\n"
 "Language-Team: Norwegian Bokmål (https://app.transifex.com/hisp-uio/teams/100509/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,28 +19,28 @@ msgid "Search apps"
 msgstr "Søk etter apper"
 
 msgid "DHIS2 {{dhis2Version}}"
-msgstr ""
+msgstr "DHIS2 {{dhis2Version}}"
 
 msgid "DHIS2 version unknown"
-msgstr ""
+msgstr "DHIS2-versjon ukjent"
 
 msgid "{{appName}} version unknown"
-msgstr ""
+msgstr "{{appName}} versjon ukjent"
 
 msgid "App {{appVersion}}"
-msgstr ""
+msgstr "App {{appVersion}}"
 
 msgid "App version unknown"
-msgstr ""
+msgstr "Appversjon ukjent"
 
 msgid "Debug info"
-msgstr ""
+msgstr "Feilsøkingsinformasjon"
 
 msgid "Close"
 msgstr "Lukk"
 
 msgid "Copy debug info"
-msgstr ""
+msgstr "Kopier feilsøkingsinformasjon"
 
 msgid "Online"
 msgstr "Påkoblet"
@@ -67,10 +67,10 @@ msgid "Logout"
 msgstr "Logg ut"
 
 msgid "New {{appName}} version available"
-msgstr ""
+msgstr "Ny {{appName}}versjon tilgjengelig"
 
 msgid "New app version available"
-msgstr ""
+msgstr "Ny appversjon tilgjengelig"
 
 msgid "Click to reload"
-msgstr ""
+msgstr "Klikk for å laste inn på nytt"
