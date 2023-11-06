@@ -1,0 +1,61 @@
+{
+    "name": "@dhis2-ui/native-select",
+    "version": "8.14.9",
+    "description": "UI Select",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dhis2/ui.git",
+        "directory": "components/select"
+    },
+    "homepage": "https://github.com/dhis2/ui#readme",
+    "license": "BSD-3-Clause",
+    "private": false,
+    "main": "./build/cjs/index.js",
+    "module": "./build/es/index.js",
+    "exports": {
+        "import": "./build/es/index.js",
+        "require": "./build/cjs/index.js"
+    },
+    "sideEffects": false,
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "start": "start-storybook -c ../../storybook/config --port 5000",
+        "build": "d2-app-scripts build",
+        "test": "d2-app-scripts test --jestConfig ../../jest.config.shared.js"
+    },
+    "peerDependencies": {
+        "@dhis2/d2-i18n": "^1",
+        "react": "^16.8",
+        "react-dom": "^16.8",
+        "styled-jsx": "^4"
+    },
+    "dependencies": {
+        "@dhis2/prop-types": "^3.1.2",
+        "@dhis2-ui/box": "8.14.9",
+        "@dhis2-ui/button": "8.14.9",
+        "@dhis2-ui/card": "8.14.9",
+        "@dhis2-ui/checkbox": "8.14.9",
+        "@dhis2-ui/chip": "8.14.9",
+        "@dhis2-ui/field": "8.14.9",
+        "@dhis2-ui/input": "8.14.9",
+        "@dhis2-ui/layer": "8.14.9",
+        "@dhis2-ui/loader": "8.14.9",
+        "@dhis2-ui/popper": "8.14.9",
+        "@dhis2-ui/status-icon": "8.14.9",
+        "@dhis2/ui-constants": "8.14.9",
+        "@dhis2/ui-icons": "8.14.9",
+        "classnames": "^2.3.1",
+        "prop-types": "^15.7.2"
+    },
+    "files": [
+        "build"
+    ],
+    "devDependencies": {
+        "@dhis2/d2-i18n": "^1.1.0",
+        "react": "16.13",
+        "react-dom": "16.13",
+        "styled-jsx": "^4.0.1"
+    }
+}
