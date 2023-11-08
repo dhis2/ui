@@ -63,14 +63,6 @@ export default {
     },
 }
 
-const WithOptionsTemplate = () => (
-    <SingleSelect onChange={onChange}>
-        <SingleSelectOption value="1" label="option one" />
-        <SingleSelectOption value="2" label="option two" />
-        <SingleSelectOption value="3" label="option three" />
-    </SingleSelect>
-)
-
 export const WithOptionsAndOnChange = () => (
     <SingleSelect onChange={onChange}>
         <SingleSelectOption value="1" label="option one" />
@@ -101,11 +93,7 @@ export const WithOnFocus = () => (
 WithOnFocus.storyName = 'With onFocus'
 
 export const WithOnBlur = () => (
-    <SingleSelect
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-    >
+    <SingleSelect onChange={onChange} onFocus={onFocus} onBlur={onBlur}>
         <SingleSelectOption value="1" label="option one" />
         <SingleSelectOption value="2" label="option two" />
         <SingleSelectOption value="3" label="option three" />
@@ -137,11 +125,7 @@ export const WithInvalidOptions = (args) => (
 )
 
 export const WithInvalidFilterableOptions = () => (
-    <SingleSelect
-        filterable
-        noMatchText="No match found"
-        onChange={onChange}
-    >
+    <SingleSelect filterable noMatchText="No match found" onChange={onChange}>
         <div>invalid one</div>
         <SingleSelectOption value="1" label="option one" />
         <div>invalid two</div>
@@ -158,11 +142,7 @@ WithInitialFocus.parameters = { docs: { disable: true } }
 WithInitialFocus.storyName = 'With initialFocus'
 
 export const Dense = () => (
-    <SingleSelect
-        dense
-        placeholder="Dense sized select"
-        onChange={onChange}
-    >
+    <SingleSelect dense placeholder="Dense sized select" onChange={onChange}>
         <SingleSelectOption value="1" label="option one" />
         <SingleSelectOption value="2" label="option two" />
         <SingleSelectOption value="3" label="option three" />
@@ -172,10 +152,7 @@ export const Dense = () => (
 export const Empty = () => <SingleSelect onChange={onChange} />
 
 export const EmptyWithEmptyText = () => (
-    <SingleSelect
-        onChange={onChange}
-        empty="Custom empty text"
-    />
+    <SingleSelect onChange={onChange} empty="Custom empty text" />
 )
 
 export const EmptyWithEmptyComponent = () => (
@@ -194,11 +171,7 @@ export const WithOptionsAndLoading = () => (
 )
 
 export const WithOptionsLoadingAndLoadingText = () => (
-    <SingleSelect
-        loading
-        loadingText="Loading options"
-        onChange={onChange}
-    >
+    <SingleSelect loading loadingText="Loading options" onChange={onChange}>
         <SingleSelectOption value="1" label="option one" />
         <SingleSelectOption value="2" label="option two" />
         <SingleSelectOption value="3" label="option three" />
@@ -253,11 +226,7 @@ export const WithOptionsAndDisabled = () => (
 WithOptionsAndDisabled.storyName = 'With options and disabled'
 
 export const WithOptionsASelectionAndDisabled = () => (
-    <SingleSelect
-        disabled
-        selected="1"
-        onChange={onChange}
-    >
+    <SingleSelect disabled selected="1" onChange={onChange}>
         <SingleSelectOption value="1" label="option one" />
         <SingleSelectOption value="2" label="option two" />
         <SingleSelectOption value="3" label="option three" />
@@ -267,10 +236,7 @@ WithOptionsASelectionAndDisabled.storyName =
     'With options, a selection and disabled'
 
 export const WithPrefix = () => (
-    <SingleSelect
-        prefix="Prefix text"
-        onChange={onChange}
-    >
+    <SingleSelect prefix="Prefix text" onChange={onChange}>
         <SingleSelectOption value="1" label="option one" />
         <SingleSelectOption value="2" label="option two" />
         <SingleSelectOption value="3" label="option three" />
@@ -278,11 +244,7 @@ export const WithPrefix = () => (
 )
 
 export const WithPrefixAndSelection = () => (
-    <SingleSelect
-        selected="1"
-        prefix="Prefix text"
-        onChange={onChange}
-    >
+    <SingleSelect selected="1" prefix="Prefix text" onChange={onChange}>
         <SingleSelectOption value="1" label="option one" />
         <SingleSelectOption value="2" label="option two" />
         <SingleSelectOption value="3" label="option three" />
@@ -315,10 +277,7 @@ export const WithRTL = () => {
 WithRTL.storyName = 'RTL Text'
 
 export const WithPlaceholder = () => (
-    <SingleSelect
-        placeholder="Placeholder text"
-        onChange={onChange}
-    >
+    <SingleSelect placeholder="Placeholder text" onChange={onChange}>
         <SingleSelectOption value="1" label="option one" />
         <SingleSelectOption value="2" label="option two" />
         <SingleSelectOption value="3" label="option three" />
@@ -348,12 +307,7 @@ export const WithDisabledOptionAndOnChange = () => (
 WithDisabledOptionAndOnChange.storyName = 'With disabled option and onChange'
 
 export const WithClearButtonSelectionAndOnChange = () => (
-    <SingleSelect
-        clearable
-        selected="1"
-        clearText="Clear"
-        onChange={onChange}
-    >
+    <SingleSelect clearable selected="1" clearText="Clear" onChange={onChange}>
         <SingleSelectOption value="1" label="option one" />
         <SingleSelectOption value="2" label="option two" />
         <SingleSelectOption value="3" label="option three" />
