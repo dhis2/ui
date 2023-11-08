@@ -22,7 +22,7 @@ export class Select extends Component {
 
     componentDidMount() {
         if (this.props.initialFocus) {
-            this.inputRef.current.focus()
+            this.selectRef.current.focus()
         }
 
         this.setState({ menuWidth: this.getMenuWidth() })
@@ -95,18 +95,12 @@ export class Select extends Component {
         this.state.open ? this.handleClose() : this.handleOpen()
     }
 
-    onOutsideClick = (_, e) => {
-        const { onBlur, disabled, selected } = this.props
-
-        if (disabled) {
+    onOutsideClick = () => {
+        if (this.props.disabled) {
             return
         }
 
         this.handleClose()
-
-        if (onBlur) {
-            onBlur({ selected }, e)
-        }
     }
 
     onKeyDown = (e) => {
@@ -186,7 +180,13 @@ export class Select extends Component {
                 className={className}
                 ref={this.selectRef}
                 onFocus={this.onFocus}
-                onBlur={this.onBlur}
+                onBlur={(e) => {
+                    if (!this.props.onBlur) {
+                        return
+                    }
+
+                    this.props.onBlur({ selected }, e)
+                }}
                 onKeyDown={this.onKeyDown}
                 data-test={dataTest}
             >
@@ -213,6 +213,12 @@ export class Select extends Component {
                         {menu}
                     </MenuWrapper>
                 )}
+
+                <style jsx>{`
+                    div:focus {
+                        outline: 0;
+                    }
+                `}</style>
             </div>
         )
     }
