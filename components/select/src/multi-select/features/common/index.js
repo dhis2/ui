@@ -45,5 +45,5 @@ Then('the options are displayed', () => {
 })
 
 Then('the MultiSelect has focus', () => {
-    cy.focused().should('have.attr', 'data-test', 'dhis2-uicore-select-input')
+    cy.focused().should('have.attr', 'data-test', 'dhis2-uicore-select')
 })

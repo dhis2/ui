@@ -12,5 +12,4 @@ Feature: Calls onBlur cb when blurred
         And the SingleSelect input is clicked
         And the SingleSelect has focus
         When the user selects the first option
-        And the user focuses the text input
         Then the onBlur handler is called

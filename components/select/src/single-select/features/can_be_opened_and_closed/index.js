@@ -12,8 +12,8 @@ Given('the SingleSelect is closed', () => {
 })
 
 Given('the SingleSelect is focused', () => {
-    cy.get('[data-test="dhis2-uicore-select-input"]').focus()
-    cy.focused().should('have.attr', 'data-test', 'dhis2-uicore-select-input')
+    cy.get('[data-test="dhis2-uicore-select"]').focus()
+    cy.focused().should('have.attr', 'data-test', 'dhis2-uicore-select')
 })
 
 When('the down arrowkey is pressed on the focused element', () => {
