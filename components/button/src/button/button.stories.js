@@ -108,6 +108,12 @@ Destructive.parameters = {
         },
     },
 }
+export const DestructiveSecondary = Template.bind({})
+DestructiveSecondary.args = {
+    destructive: true,
+    secondary: true,
+    name: 'Destructive secondary button',
+}
 
 export const Disabled = (args) => (
     <>

@@ -187,6 +187,35 @@ export default css`
         fill: ${colors.white};
     }
 
+    .destructive.secondary {
+        border-color: rgba(74, 87, 104, 0.25);
+        background: transparent;
+        color: ${colors.red700};
+        fill: ${colors.red700};
+        font-weight: 400;
+    }
+
+    .destructive.secondary:hover {
+        border-color: ${colors.red600};
+        background: ${colors.red050};
+        color: ${colors.red800};
+        fill: ${colors.red800};
+    }
+
+    .destructive.secondary:active,
+    .destructive.secondary:active:focus {
+        background: ${colors.red100};
+        border-color: ${colors.red700};
+        box-shadow: none;
+    }
+
+    .destructive.secondary:disabled {
+        background: transparent;
+        border-color: rgba(74, 87, 104, 0.25);
+        color: rgba(183, 28, 28, 0.6);
+        fill: rgba(183, 28, 28, 0.6);
+    }
+
     .icon-only {
         padding: 0 0 0 5px;
     }
