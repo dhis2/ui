@@ -1,20 +1,18 @@
 # 
 # Translators:
-# Philip Larsen Donnelly, 2021
-# Viktor Varland <viktor@dhis2.org>, 2021
-# Saysamone Sibounma, 2023
+# Yury Rogachev <yury@dhis2.org>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-11-25T09:59:40.995Z\n"
 "PO-Revision-Date: 2021-10-01 23:39+0000\n"
-"Last-Translator: Saysamone Sibounma, 2023\n"
-"Language-Team: Lao (https://app.transifex.com/hisp-uio/teams/100509/lo/)\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
+"Language-Team: Uzbek (Latin) (https://app.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: lo\n"
+"Language: uz@Latn\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "View only"
@@ -30,7 +28,7 @@ msgid "Access level"
 msgstr ""
 
 msgid "Select a level"
-msgstr ""
+msgstr "Pogʼonani tanlang"
 
 msgid "Not available offline"
 msgstr ""
@@ -48,16 +46,16 @@ msgid "All users"
 msgstr ""
 
 msgid "No access"
-msgstr "ບໍ່ມີການເຂົ້າເຖີງ"
+msgstr "Kirish taʼqiqlangan"
 
 msgid "Can view"
-msgstr "ສາມາດເບີ່ງ"
+msgstr "Кўриш мумкин"
 
 msgid "Can view and edit"
 msgstr ""
 
 msgid "Metadata"
-msgstr "ໂຄງຮ່າງຖານຂໍ້ມູນ"
+msgstr "Metadata"
 
 msgid "Remove access"
 msgstr ""
@@ -66,13 +64,13 @@ msgid "User or group"
 msgstr ""
 
 msgid "Search"
-msgstr "ຄົນຫາ"
+msgstr "Izlash"
 
 msgid "Apply dashboard sharing settings to visualizations"
 msgstr ""
 
 msgid "Something went wrong"
-msgstr "ມີບາງຢ່າງຜິດພາດ"
+msgstr "Nimadir notoʼgʼri bajarildi"
 
 msgid "Apply sharing to dashboard visualizations"
 msgstr ""
@@ -135,7 +133,7 @@ msgid "Sharing and access"
 msgstr ""
 
 msgid "Close"
-msgstr "ປິດ"
+msgstr "Yopmoq"
 
 msgid "Dashboard sharing"
 msgstr ""

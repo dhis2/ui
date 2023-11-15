@@ -1,21 +1,19 @@
 # 
 # Translators:
-# Philip Larsen Donnelly, 2021
-# Viktor Varland <viktor@dhis2.org>, 2021
-# Saysamone Sibounma, 2023
+# Oi Suomi On! <oisuomion@protonmail.com>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-11-25T09:59:40.995Z\n"
 "PO-Revision-Date: 2021-10-01 23:39+0000\n"
-"Last-Translator: Saysamone Sibounma, 2023\n"
-"Language-Team: Lao (https://app.transifex.com/hisp-uio/teams/100509/lo/)\n"
+"Last-Translator: Oi Suomi On! <oisuomion@protonmail.com>, 2023\n"
+"Language-Team: Finnish (https://app.transifex.com/hisp-uio/teams/100509/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: lo\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: fi\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "View only"
 msgstr ""
@@ -48,16 +46,16 @@ msgid "All users"
 msgstr ""
 
 msgid "No access"
-msgstr "ບໍ່ມີການເຂົ້າເຖີງ"
+msgstr ""
 
 msgid "Can view"
-msgstr "ສາມາດເບີ່ງ"
+msgstr ""
 
 msgid "Can view and edit"
 msgstr ""
 
 msgid "Metadata"
-msgstr "ໂຄງຮ່າງຖານຂໍ້ມູນ"
+msgstr ""
 
 msgid "Remove access"
 msgstr ""
@@ -66,13 +64,13 @@ msgid "User or group"
 msgstr ""
 
 msgid "Search"
-msgstr "ຄົນຫາ"
+msgstr ""
 
 msgid "Apply dashboard sharing settings to visualizations"
 msgstr ""
 
 msgid "Something went wrong"
-msgstr "ມີບາງຢ່າງຜິດພາດ"
+msgstr "Jokin meni pieleen"
 
 msgid "Apply sharing to dashboard visualizations"
 msgstr ""
@@ -135,7 +133,7 @@ msgid "Sharing and access"
 msgstr ""
 
 msgid "Close"
-msgstr "ປິດ"
+msgstr ""
 
 msgid "Dashboard sharing"
 msgstr ""

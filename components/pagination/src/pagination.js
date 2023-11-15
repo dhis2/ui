@@ -1,4 +1,5 @@
 import { requiredIf } from '@dhis2/prop-types'
+import { spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -100,6 +101,7 @@ const Pagination = ({
                 .container {
                     display: flex;
                     flex-wrap: wrap;
+                    row-gap: ${spacers.dp4};
                 }
                 .spacer {
                     flex-grow: 1;
