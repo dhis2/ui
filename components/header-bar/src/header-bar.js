@@ -114,9 +114,9 @@ export const HeaderBar = ({
                         flex-direction: row;
                         align-items: center;
                         justify-content: space-between;
-                        background-color: #2c6693;
+                        background-color: #165c92;
                         color: ${colors.white};
-                        height: 48px;
+                        height: 40px;
                     }
                     .right-control-spacer {
                         margin-left: auto;

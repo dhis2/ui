@@ -14,13 +14,13 @@ export const Logo = () => {
             <style jsx>{`
                 div {
                     box-sizing: border-box;
-                    min-width: 49px;
-                    max-height: 48px;
-                    margin: 0 12px 0 0;
+                    min-width: 41px;
+                    max-height: 40px;
+                    margin: 0 8px 0 0;
                     border-right: 1px solid rgba(32, 32, 32, 0.15);
                 }
                 div:hover {
-                    background-color: #1a557f;
+                    background-color: #104f7e;
                 }
 
                 a,

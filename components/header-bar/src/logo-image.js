@@ -5,8 +5,8 @@ import css from 'styled-jsx/css'
 
 const logoStyles = css.resolve`
     svg {
-        height: 25px;
-        width: 27px;
+        height: 20px;
+        width: 22px;
     }
 
     img {
@@ -56,9 +56,9 @@ export const LogoImage = () => {
             <style jsx>{`
                 div {
                     padding: 4px;
-                    min-width: 48px;
+                    min-width: 40px;
                     max-width: 250px;
-                    height: 48px;
+                    height: 40px;
 
                     display: flex;
                     justify-content: center;

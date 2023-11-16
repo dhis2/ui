@@ -9,9 +9,9 @@ export const Title = ({ app, instance }) => (
             div {
                 overflow: hidden;
                 text-overflow: ellipsis;
-                font-size: 14px;
-                font-weight: 500;
+                font-size: 13px;
                 letter-spacing: 0.01em;
+                text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
                 white-space: nowrap;
             }
         `}</style>

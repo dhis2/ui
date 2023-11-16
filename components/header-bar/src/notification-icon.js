@@ -22,7 +22,7 @@ export const NotificationIcon = ({ count, href, kind, dataTestId }) => (
                 position: relative;
                 margin: 0;
                 cursor: pointer;
-                padding: 0 ${spacers.dp12};
+                padding: 0 ${spacers.dp8};
                 height: 100%;
                 display: flex;
                 align-items: center;
@@ -35,10 +35,10 @@ export const NotificationIcon = ({ count, href, kind, dataTestId }) => (
                 outline: none;
             }
             a:hover {
-                background: #1a557f;
+                background: #104f7e;
             }
             a:active {
-                background: #104067;
+                background: #0d4168;
             }
             span {
                 display: flex;
@@ -48,15 +48,17 @@ export const NotificationIcon = ({ count, href, kind, dataTestId }) => (
                 position: absolute;
                 top: 3px;
                 right: 2px;
-                min-width: 18px;
-                min-height: 18px;
+                min-width: 16px;
+                min-height: 16px;
                 border-radius: ${spacers.dp12};
                 box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
                     0 1px 2px 0 rgba(0, 0, 0, 0.06);
                 background-color: ${theme.secondary500};
+                border: 1px solid ${theme.secondary700};
                 color: ${colors.white};
-                font-size: 13px;
-                font-weight: 600;
+                text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+                font-size: 12px;
+                font-weight: 500;
                 line-height: 15px;
                 text-align: center;
                 cursor: inherit;
