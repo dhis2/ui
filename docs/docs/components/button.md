@@ -147,6 +147,7 @@ Buttons are available in different sizes. Use the size that matches the usage gu
 -   Buttons can show only an icon.
 -   Icons with a text label are useful for providing more information about the action. Users scanning an interface might recognize an icon quicker than text.
 -   Buttons with only an icon need to show a tooltip ==link== on hover and focus that tells the user what the button action is.
+-   Regular size buttons use 24px icons. Buttons size `small` use 16px icons.
 
 ### State: Disabled
 
