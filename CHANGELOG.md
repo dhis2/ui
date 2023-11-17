@@ -1,3 +1,10 @@
+## [8.14.11](https://github.com/dhis2/ui/compare/v8.14.10...v8.14.11) (2023-11-17)
+
+
+### Bug Fixes
+
+* **button:** adjust small variant icon usage ([5fd8d29](https://github.com/dhis2/ui/commit/5fd8d29ae2ccc9fbc4a9c8ef06a4fc9dbf6eb518))
+
 ## [8.14.10](https://github.com/dhis2/ui/compare/v8.14.9...v8.14.10) (2023-11-05)
 
 
