@@ -1,6 +1,6 @@
 [main]
 host     = https://www.transifex.com
-lang_map = fa_AF: prs, uz@Cyrl: uz, uz@Latn: uz_Latn
+lang_map = fa_AF: prs, uz@Cyrl: uz_UZ_Cyrl, uz@Latn: uz_UZ_Latn
 
 [o:hisp-uio:p:app-component-ui:r:file-input]
 file_filter  = components/file-input/i18n/<lang>.po
@@ -33,6 +33,13 @@ minimum_perc = 0
 [o:hisp-uio:p:app-component-ui:r:select]
 file_filter  = components/select/i18n/<lang>.po
 source_file  = components/select/i18n/en.pot
+source_lang  = en
+type         = PO
+minimum_perc = 0
+
+[o:hisp-uio:p:app-component-ui:r:selector-bar]
+file_filter  = components/selector-bar/i18n/<lang>.po
+source_file  = components/selector-bar/i18n/en.pot
 source_lang  = en
 type         = PO
 minimum_perc = 0
