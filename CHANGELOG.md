@@ -1,3 +1,19 @@
+# [8.15.0-alpha.3](https://github.com/dhis2/ui/compare/v8.15.0-alpha.2...v8.15.0-alpha.3) (2023-11-20)
+
+
+### Bug Fixes
+
+* **package:** include types in exports field ([e16036b](https://github.com/dhis2/ui/commit/e16036b6c4fc32f702fe0e677f7bd4598c258fd5))
+* **pagination:** add row padding on small screens and demo stories ([b373859](https://github.com/dhis2/ui/commit/b37385931645dbae98108c850ec384e8a8f6e03c))
+* **portal:** get default mount node at execution time ([20ab2ca](https://github.com/dhis2/ui/commit/20ab2cacb84c0f704d6cbb18000b035ce581446c))
+* **translations:** sync translations from transifex (master) ([f7cc472](https://github.com/dhis2/ui/commit/f7cc4726949384d9e6e7739a39565f51d9dcf286))
+* **translations:** sync translations from transifex (master) ([7ea15fe](https://github.com/dhis2/ui/commit/7ea15feb4dfe7e21bef2cbca93b1159ddb6b8960))
+* **translations:** sync translations from transifex (master) ([fb22f68](https://github.com/dhis2/ui/commit/fb22f682f36a1347eecfbdbc65bb32ed30d7d7fe))
+* **translations:** sync translations from transifex (master) ([071453c](https://github.com/dhis2/ui/commit/071453c5570fa61461a01310e65ca2061b64a80d))
+* **translations:** sync translations from transifex (master) ([4a8b0b3](https://github.com/dhis2/ui/commit/4a8b0b3135347c474cbc0a37bc155a83e16e2713))
+* **translations:** sync translations from transifex (master) ([ac1b242](https://github.com/dhis2/ui/commit/ac1b2425b04d1e269dc8d05396d97a98bb37e882))
+* **translations:** sync translations from transifex (master) ([28e0da7](https://github.com/dhis2/ui/commit/28e0da7dfca340ad7c4e9a3e7ebe4150decb3d82))
+
 # [8.15.0-alpha.2](https://github.com/dhis2/ui/compare/v8.15.0-alpha.1...v8.15.0-alpha.2) (2023-10-20)
 
 ### Bug Fixes
