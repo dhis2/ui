@@ -25,3 +25,5 @@ export const WithTarget = () => (
 export const WithIcon = () => (
     <MenuItem icon={<div>Icon</div>} label="Menu item" />
 )
+
+export const WithSuffix = () => <MenuItem suffix="Suffix" label="Menu item" />
