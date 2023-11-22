@@ -1,3 +1,11 @@
+## [8.14.12](https://github.com/dhis2/ui/compare/v8.14.11...v8.14.12) (2023-11-22)
+
+
+### Bug Fixes
+
+* republish to fix broken release ([d503a51](https://github.com/dhis2/ui/commit/d503a51258c308b33875716e680278a9095ef86f))
+* trigger publish ([323a9dc](https://github.com/dhis2/ui/commit/323a9dc1037c138690e24bc2203076f654cc3c04))
+
 ## [8.14.11](https://github.com/dhis2/ui/compare/v8.14.10...v8.14.11) (2023-11-17)
 
 
