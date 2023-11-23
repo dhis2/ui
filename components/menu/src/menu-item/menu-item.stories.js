@@ -1,3 +1,4 @@
+import { Tag } from '@dhis2/ui'
 import { colors } from '@dhis2/ui-constants'
 import {
     IconApps24,
@@ -95,6 +96,13 @@ Suffix.args = {
     label: 'Open in Data Visualizer',
     icon: <IconVisualizationColumn24 color={colors.grey600} />,
     suffix: <IconLaunch16 color={colors.grey600} />,
+}
+
+export const SuffixAndChevron = Template.bind({})
+SuffixAndChevron.args = {
+    label: 'Security notifications',
+    chevron: true,
+    suffix: <Tag>3</Tag>,
 }
 
 export const OnClick = (args) => (
