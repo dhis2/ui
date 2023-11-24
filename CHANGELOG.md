@@ -1,24 +1,17 @@
-# [8.15.0-alpha.3](https://github.com/dhis2/ui/compare/v8.15.0-alpha.2...v8.15.0-alpha.3) (2023-11-20)
+## [8.14.12](https://github.com/dhis2/ui/compare/v8.14.11...v8.14.12) (2023-11-22)
 
 
 ### Bug Fixes
 
-* **package:** include types in exports field ([e16036b](https://github.com/dhis2/ui/commit/e16036b6c4fc32f702fe0e677f7bd4598c258fd5))
-* **pagination:** add row padding on small screens and demo stories ([b373859](https://github.com/dhis2/ui/commit/b37385931645dbae98108c850ec384e8a8f6e03c))
-* **portal:** get default mount node at execution time ([20ab2ca](https://github.com/dhis2/ui/commit/20ab2cacb84c0f704d6cbb18000b035ce581446c))
-* **translations:** sync translations from transifex (master) ([f7cc472](https://github.com/dhis2/ui/commit/f7cc4726949384d9e6e7739a39565f51d9dcf286))
-* **translations:** sync translations from transifex (master) ([7ea15fe](https://github.com/dhis2/ui/commit/7ea15feb4dfe7e21bef2cbca93b1159ddb6b8960))
-* **translations:** sync translations from transifex (master) ([fb22f68](https://github.com/dhis2/ui/commit/fb22f682f36a1347eecfbdbc65bb32ed30d7d7fe))
-* **translations:** sync translations from transifex (master) ([071453c](https://github.com/dhis2/ui/commit/071453c5570fa61461a01310e65ca2061b64a80d))
-* **translations:** sync translations from transifex (master) ([4a8b0b3](https://github.com/dhis2/ui/commit/4a8b0b3135347c474cbc0a37bc155a83e16e2713))
-* **translations:** sync translations from transifex (master) ([ac1b242](https://github.com/dhis2/ui/commit/ac1b2425b04d1e269dc8d05396d97a98bb37e882))
-* **translations:** sync translations from transifex (master) ([28e0da7](https://github.com/dhis2/ui/commit/28e0da7dfca340ad7c4e9a3e7ebe4150decb3d82))
+* republish to fix broken release ([d503a51](https://github.com/dhis2/ui/commit/d503a51258c308b33875716e680278a9095ef86f))
+* trigger publish ([323a9dc](https://github.com/dhis2/ui/commit/323a9dc1037c138690e24bc2203076f654cc3c04))
 
-# [8.15.0-alpha.2](https://github.com/dhis2/ui/compare/v8.15.0-alpha.1...v8.15.0-alpha.2) (2023-10-20)
+## [8.14.11](https://github.com/dhis2/ui/compare/v8.14.10...v8.14.11) (2023-11-17)
+
 
 ### Bug Fixes
 
-* minor type fixes ([#1416](https://github.com/dhis2/ui/issues/1416)) ([71f4537](https://github.com/dhis2/ui/commit/71f4537098bd9869a4903127a5ccde78f64a8c7f))
+* **button:** adjust small variant icon usage ([5fd8d29](https://github.com/dhis2/ui/commit/5fd8d29ae2ccc9fbc4a9c8ef06a4fc9dbf6eb518))
 
 ## [8.14.10](https://github.com/dhis2/ui/compare/v8.14.9...v8.14.10) (2023-11-05)
 
@@ -26,20 +19,6 @@
 ### Bug Fixes
 
 * **translations:** sync translations from transifex (master) ([f7cc472](https://github.com/dhis2/ui/commit/f7cc4726949384d9e6e7739a39565f51d9dcf286))
-
-
-# [8.15.0-alpha.1](https://github.com/dhis2/ui/compare/v8.14.2-alpha.1...v8.15.0-alpha.1) (2023-10-19)
-
-
-### Features
-
-* **types:** add types for forms collection ([#1415](https://github.com/dhis2/ui/issues/1415)) ([2e9d91a](https://github.com/dhis2/ui/commit/2e9d91a688f4d60ae2107f1b9ef9b26fecb53585))
-
-## [8.14.2-alpha.1](https://github.com/dhis2/ui/compare/v8.14.1...v8.14.2-alpha.1) (2023-10-12)
-
-### Bug Fixes
-* **types:** add type declarations for components ([#1399](https://github.com/dhis2/ui/issues/1399)) ([d3e74c5](https://github.com/dhis2/ui/commit/d3e74c572f30f383e94868c66ff4c767a68c97dc))
-
 
 ## [8.14.9](https://github.com/dhis2/ui/compare/v8.14.8...v8.14.9) (2023-10-10)
 
