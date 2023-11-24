@@ -75,7 +75,7 @@ export default css`
 
     .small {
         height: 28px;
-        padding: 0 8px;
+        padding: 0 6px;
         font-size: 14px;
         line-height: 16px;
     }
@@ -205,7 +205,7 @@ export default css`
     }
 
     .small.icon-only {
-        padding: 0 0 0 1px;
+        padding: 0 4px 0 5px;
     }
 
     .small .button-icon {
