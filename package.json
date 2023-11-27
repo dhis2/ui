@@ -75,5 +75,9 @@
         "rimraf": "^3.0.2",
         "styled-jsx": "^4.0.1",
         "wait-on": "^6.0.0"
+    },
+    "devDependencies": {
+        "@storybook/builder-webpack5": "6.3.7",
+        "eslint-plugin-storybook": "^0.6.15"
     }
 }

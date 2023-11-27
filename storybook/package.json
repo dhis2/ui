@@ -11,8 +11,8 @@
     "license": "BSD-3-Clause",
     "private": true,
     "scripts": {
-        "start": "EXTEND_ESLINT=true start-storybook -c config --port 5000 --quiet --ci -s static",
-        "build": "EXTEND_ESLINT=true build-storybook -c config -o ../dist/demo --quiet -s static"
+        "start": "EXTEND_ESLINT=true sb dev -c config --port 5000 --quiet --ci -s static",
+        "build": "EXTEND_ESLINT=true sb build -c config -o ../dist/demo --quiet -s static"
     },
     "peerDependencies": {
         "react": "^16.8",
@@ -26,18 +26,19 @@
         "@dhis2-ui/css": "8.14.12",
         "@dhis2/ui-constants": "8.14.12",
         "@fontsource/roboto": "^4.5.0",
-        "@storybook/addon-a11y": "^6.3.7",
-        "@storybook/addon-console": "^1.2.3",
-        "@storybook/addon-essentials": "^6.3.7",
-        "@storybook/addon-storysource": "^6.3.7",
-        "@storybook/addons": "^6.3.7",
-        "@storybook/channels": "^6.3.7",
-        "@storybook/components": "^6.3.7",
-        "@storybook/core-events": "^6.3.8",
-        "@storybook/node-logger": "^6.3.7",
-        "@storybook/preset-create-react-app": "^3.2.0",
-        "@storybook/react": "^6.3.7",
-        "@storybook/theming": "^6.3.7",
+        "@storybook/addon-a11y": "^7.5.3",
+        "@storybook/addon-console": "^2.0.0",
+        "@storybook/addon-essentials": "^7.5.3",
+        "@storybook/addon-storysource": "^7.5.3",
+        "@storybook/addons": "^7.5.3",
+        "@storybook/channels": "^7.5.3",
+        "@storybook/cli": "^7.5.3",
+        "@storybook/components": "^7.5.3",
+        "@storybook/core-events": "^7.5.3",
+        "@storybook/node-logger": "^7.5.3",
+        "@storybook/preset-create-react-app": "^7.5.3",
+        "@storybook/react": "^7.5.3",
+        "@storybook/theming": "^7.5.3",
         "storybook-addon-jsx": "^7.3.14"
     },
     "devDependencies": {
