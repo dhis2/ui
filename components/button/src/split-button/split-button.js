@@ -147,8 +147,10 @@ SplitButton.propTypes = {
     /** Component to render when the dropdown is opened */
     component: PropTypes.element,
     dataTest: PropTypes.string,
-    /** Applies 'destructive' appearance to indicate purpose. Mutually exclusive with `primary` and `secondary` props */
-    destructive: sharedPropTypes.buttonVariantPropType,
+    /**
+     * Applies 'destructive' button appearance, implying a dangerous action.
+     */
+    destructive: PropTypes.bool,
     /** Disables the button and makes it uninteractive */
     disabled: PropTypes.bool,
     /** An icon to add inside the button */
@@ -158,10 +160,14 @@ SplitButton.propTypes = {
     /** Changes button size. Mutually exclusive with `small` prop */
     large: sharedPropTypes.sizePropType,
     name: PropTypes.string,
-    /** Applies 'primary' appearance to indicate purpose. Mutually exclusive with `destructive` and `secondary` props */
-    primary: sharedPropTypes.buttonVariantPropType,
-    /** Applies 'secondary' appearance to indicate purpose. Mutually exclusive with `primary` and `destructive` props */
-    secondary: sharedPropTypes.buttonVariantPropType,
+    /**
+     * Applies 'primary' button appearance, implying the most important action.
+     */
+    primary: PropTypes.bool,
+    /**
+     * Applies 'secondary' button appearance.
+     */
+    secondary: PropTypes.bool,
     /** Changes button size. Mutually exclusive with `large` prop */
     small: sharedPropTypes.sizePropType,
     tabIndex: PropTypes.string,
