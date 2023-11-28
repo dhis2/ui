@@ -1,3 +1,10 @@
+## [8.15.1](https://github.com/dhis2/ui/compare/v8.15.0...v8.15.1) (2023-11-28)
+
+
+### Bug Fixes
+
+* **prop-type:** fix deprecation of buttonVariantPropType ([#1433](https://github.com/dhis2/ui/issues/1433)) ([81644a8](https://github.com/dhis2/ui/commit/81644a8e54cf7a4f29ff33536029df6e2bad9437))
+
 # [8.15.0](https://github.com/dhis2/ui/compare/v8.14.13...v8.15.0) (2023-11-27)
 
 
