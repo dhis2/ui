@@ -175,8 +175,10 @@ DropdownButton.propTypes = {
     /** Component to show/hide when button is clicked */
     component: PropTypes.element,
     dataTest: PropTypes.string,
-    /** Button variant. Mutually exclusive with `primary` and `secondary` props */
-    destructive: sharedPropTypes.buttonVariantPropType,
+    /**
+     * Applies 'destructive' button appearance, implying a dangerous action.
+     */
+    destructive: PropTypes.bool,
     /** Make the button non-interactive */
     disabled: PropTypes.bool,
     icon: PropTypes.element,
@@ -187,10 +189,14 @@ DropdownButton.propTypes = {
     name: PropTypes.string,
     /** Controls popper visibility. When implementing this prop the component becomes a controlled component */
     open: PropTypes.bool,
-    /** Button variant. Mutually exclusive with `destructive` and `secondary` props */
-    primary: sharedPropTypes.buttonVariantPropType,
-    /** Button variant. Mutually exclusive with `primary` and `destructive` props */
-    secondary: sharedPropTypes.buttonVariantPropType,
+    /**
+     * Applies 'primary' button appearance, implying the most important action.
+     */
+    primary: PropTypes.bool,
+    /**
+     * Applies 'secondary' button appearance.
+     */
+    secondary: PropTypes.bool,
     /** Button size. Mutually exclusive with `large` prop */
     small: sharedPropTypes.sizePropType,
     tabIndex: PropTypes.string,
