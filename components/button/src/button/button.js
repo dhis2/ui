@@ -100,11 +100,9 @@ Button.propTypes = {
      */
     dataTest: PropTypes.string,
     /**
-     * Indicates that the button makes potentially dangerous
-     * deletions or data changes.
-     * Mutually exclusive with `primary` and `secondary` props
+     * Applies 'destructive' button appearance, implying a dangerous action.
      */
-    destructive: sharedPropTypes.buttonVariantPropType,
+    destructive: PropTypes.bool,
     /** Applies a greyed-out appearance and makes the button non-interactive  */
     disabled: PropTypes.bool,
     /** An icon element to display inside the button */
@@ -121,15 +119,13 @@ Button.propTypes = {
      */
     name: PropTypes.string,
     /**
-     * Applies 'primary' button appearance.
-     * Mutually exclusive with `destructive` and `secondary` props
+     * Applies 'primary' button appearance, implying the most important action.
      */
-    primary: sharedPropTypes.buttonVariantPropType,
+    primary: PropTypes.bool,
     /**
      * Applies 'secondary' button appearance.
-     * Mutually exclusive with `primary` and `destructive` props
      */
-    secondary: sharedPropTypes.buttonVariantPropType,
+    secondary: PropTypes.bool,
     /** Makes the button small. Mutually exclusive with `large` prop */
     small: sharedPropTypes.sizePropType,
     /** Tab index for focusing the button with a keyboard */

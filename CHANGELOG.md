@@ -1,3 +1,17 @@
+# [8.15.0](https://github.com/dhis2/ui/compare/v8.14.13...v8.15.0) (2023-11-27)
+
+
+### Features
+
+* **button:** destructive secondary variant ([b72a04a](https://github.com/dhis2/ui/commit/b72a04a93cfb08180c030a94b8ad6008f3084bcf))
+
+## [8.14.13](https://github.com/dhis2/ui/compare/v8.14.12...v8.14.13) (2023-11-26)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([cefd956](https://github.com/dhis2/ui/commit/cefd956826c7ab12c16b30f90e3c9c494f3c682a))
+
 ## [8.14.12](https://github.com/dhis2/ui/compare/v8.14.11...v8.14.12) (2023-11-22)
 
 

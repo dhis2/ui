@@ -1,13 +1,13 @@
 # 
 # Translators:
-# Ibatov <ibatovk@who.int>, 2021
+# Ibatov <ibatovk@who.int>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-11-25T09:59:40.995Z\n"
 "PO-Revision-Date: 2021-10-01 23:39+0000\n"
-"Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
+"Last-Translator: Ibatov <ibatovk@who.int>, 2023\n"
 "Language-Team: Uzbek (Cyrillic) (https://app.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,13 +16,13 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "View only"
-msgstr ""
+msgstr "Фақат кўриш учун"
 
 msgid "View and edit"
-msgstr ""
+msgstr "Кўриш ва таҳрирлаш"
 
 msgid "Give access to a user or group"
-msgstr ""
+msgstr "Фойдаланувчи ёки гуруҳга киришга рухсат бериш"
 
 msgid "Access level"
 msgstr "Кириш мумкин бўлган босқичлар"
@@ -34,16 +34,16 @@ msgid "Not available offline"
 msgstr "Оффлайн режимда мавжуд эмас"
 
 msgid "Give access"
-msgstr ""
+msgstr "Рухсат бериш"
 
 msgid "Users and groups that currently have access"
-msgstr ""
+msgstr "Рухсати бор бўлган яойдаланувчилар ёки гуруҳлар"
 
 msgid "User / Group"
-msgstr ""
+msgstr "Фойдаланувчи/Гуруҳ"
 
 msgid "All users"
-msgstr ""
+msgstr "Барча фойдаланувчилар"
 
 msgid "No access"
 msgstr "Кириш ҳуқуқи мавжуд эмас"
@@ -52,16 +52,16 @@ msgid "Can view"
 msgstr "Кўриш мумкин"
 
 msgid "Can view and edit"
-msgstr ""
+msgstr "Кўриш ва таҳрирлаш имкони"
 
 msgid "Metadata"
 msgstr "МетаМаълумот"
 
 msgid "Remove access"
-msgstr ""
+msgstr "Рухсатни бекор қилиш"
 
 msgid "User or group"
-msgstr ""
+msgstr "Фойдаланувчи ёки гуруҳ"
 
 msgid "Search"
 msgstr "Қидириш"
@@ -127,13 +127,13 @@ msgid ""
 msgstr ""
 
 msgid "Sharing and access: {{- objectName}}"
-msgstr ""
+msgstr "Уланиш ва кириш: {{- objectName}}"
 
 msgid "Sharing and access"
-msgstr ""
+msgstr "Уланиш ва кириш"
 
 msgid "Close"
 msgstr "Ёпиш"
 
 msgid "Dashboard sharing"
-msgstr ""
+msgstr "Бошқарув панелига уланиш"
