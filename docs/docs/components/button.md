@@ -32,7 +32,7 @@ Buttons are used to trigger actions. There are different button variants that ar
 | ------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | `Basic`       | Default. Will suit the majority of actions on a page.                                                                      |
 | `Primary`     | Use for the most important action on a page, like a _Save data_ button in a form. Only use one `primary` button on a page. |
-| `Secondary`   | Use for less important actions, usually in combination with other buttons.                                                 |
+| `Secondary`   | Use for less important actions, usually in combination with other buttons. Can be applied to `Destructive`.                |
 | `Destructive` | Only for primary-type actions that will delete or destroy something. Don't use several on a single page.                   |
 
 #### Basic
@@ -67,12 +67,16 @@ Buttons are used to trigger actions. There are different button variants that ar
 #### Destructive
 
 <Demo>
-    <Button destructive>Destructive button</Button>
+    <div class="stacked-examples-horizontal">
+        <Button destructive>Destructive button</Button>
+        <Button destructive secondary>Destructive secondary button</Button>
+    </div>
 </Demo>
 
 -   Only use for primary-type actions that will destroy data.
 -   Don't use if the action will only remove an item from the current context.
 -   Only use a one `destructive` button per page.
+-   `Destructive secondary` can be used more than once per page for less important destructive actions.
 
 ### Format
 

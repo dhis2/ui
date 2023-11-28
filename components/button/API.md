@@ -17,15 +17,15 @@ import { Button } from '@dhis2-ui/button'
 |children|node|||Component to render inside the button|
 |className|string|||A className that will be passed to the `<button>` element|
 |dataTest|string|`'dhis2-uicore-button'`||A string that will be applied as a `data-test` attribute on the button element<br/>for identification during testing|
-|destructive|custom|||Indicates that the button makes potentially dangerous<br/>deletions or data changes.<br/>Mutually exclusive with `primary` and `secondary` props|
+|destructive|boolean|||Applies 'destructive' button appearance, implying a dangerous action.|
 |disabled|boolean|||Applies a greyed-out appearance and makes the button non-interactive|
 |icon|element|||An icon element to display inside the button|
 |initialFocus|boolean|||Use this variant to capture the initial focus on the page.|
 |large|custom|||Makes the button large. Mutually exclusive with `small`|
 |loading|boolean|||Sets the button into a loading state|
 |name|string|||Sets `name` attribute on button element.<br/>Gets passed as part of the first argument to callbacks (see `onClick`).|
-|primary|custom|||Applies 'primary' button appearance.<br/>Mutually exclusive with `destructive` and `secondary` props|
-|secondary|custom|||Applies 'secondary' button appearance.<br/>Mutually exclusive with `primary` and `destructive` props|
+|primary|boolean|||Applies 'primary' button appearance, implying the most important action.|
+|secondary|boolean|||Applies 'secondary' button appearance.|
 |small|custom|||Makes the button small. Mutually exclusive with `large` prop|
 |tabIndex|string|||Tab index for focusing the button with a keyboard|
 |toggled|boolean|||Changes appearance of button to an on/off state|

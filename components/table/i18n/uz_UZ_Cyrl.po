@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-05-10T11:56:32.496Z\n"
+"POT-Creation-Date: 2021-06-15T13:35:03.608Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2023\n"
 "Language-Team: Uzbek (Cyrillic) (https://app.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
@@ -15,17 +15,8 @@ msgstr ""
 "Language: uz@Cyrl\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "Clear"
-msgstr "Тозалаш"
+msgid "Toggle filter"
+msgstr "Фильтрни алмаштириш"
 
-msgid "No data found"
-msgstr "Маълумотлар топилмади"
-
-msgid "Type to filter options"
-msgstr ""
-
-msgid "Loading options"
-msgstr "Вариантлар юкланмоқда"
-
-msgid "No options found"
-msgstr ""
+msgid "Sort items"
+msgstr "Элементларни саралаш"
