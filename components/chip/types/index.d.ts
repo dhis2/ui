@@ -26,6 +26,7 @@ export interface ChipProps {
     marginTop?: number
     overflow?: boolean
     selected?: boolean
+    tabIndex?: string
     onClick?: (arg0: {}, arg1: React.MouseEvent<HTMLSpanElement>) => void
     onRemove?: (arg0: {}, arg1: React.MouseEvent<HTMLSpanElement>) => void
 }
