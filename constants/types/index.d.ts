@@ -1,3 +1,10 @@
+import { bool } from 'prop-types'
+import {
+    insideAlignmentPropType,
+    popperPlacementPropType,
+    popperReferencePropType,
+} from '../src/shared-prop-types'
+
 export type ColorBase = 'blue' | 'teal' | 'red' | 'yellow' | 'green' | 'grey'
 export type ColorVariant =
     | '900'
@@ -61,3 +68,11 @@ export type ThemeProp =
     | 'focus'
     | 'fonts'
 export const theme: Record<ThemeProp, string>
+
+export interface sharedPropTypes {
+    statusPropType: typeof bool
+    sizePropType: typeof bool
+    insideAlignmentPropType: typeof insideAlignmentPropType
+    popperPlacementPropType: typeof popperPlacementPropType
+    popperReferencePropType: typeof popperReferencePropType
+}

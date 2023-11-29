@@ -30,11 +30,7 @@ export interface ButtonProps {
      * for identification during testing
      */
     dataTest?: string
-    /**
-     * Indicates that the button makes potentially dangerous
-     * deletions or data changes.
-     * Mutually exclusive with `primary` and `secondary` props
-     */
+    /** Applies 'destructive' button appearance, implying a dangerous action */
     destructive?: boolean
     /**
      * Applies a greyed-out appearance and makes the button non-interactive
@@ -61,15 +57,9 @@ export interface ButtonProps {
      * Gets passed as part of the first argument to callbacks (see `onClick`).
      */
     name?: string
-    /**
-     * Applies 'primary' button appearance.
-     * Mutually exclusive with `destructive` and `secondary` props
-     */
+    /** Applies 'primary' button appearance, implying the most important action */
     primary?: boolean
-    /**
-     * Applies 'secondary' button appearance.
-     * Mutually exclusive with `primary` and `destructive` props
-     */
+    /** Applies 'secondary' button appearance */
     secondary?: boolean
     /**
      * Makes the button small. Mutually exclusive with `large` prop
@@ -143,9 +133,7 @@ export interface DropdownButtonProps {
      */
     component?: React.ReactElement<any>
     dataTest?: string
-    /**
-     * Button variant. Mutually exclusive with `primary` and `secondary` props
-     */
+    /** Applies 'destructive' button appearance, implying a dangerous action. */
     destructive?: boolean
     /**
      * Make the button non-interactive
@@ -165,16 +153,12 @@ export interface DropdownButtonProps {
      * Controls popper visibility. When implementing this prop the component becomes a controlled component
      */
     open?: boolean
-    /**
-     * Button variant. Mutually exclusive with `destructive` and `secondary` props
-     */
+    /** Applies 'primary' button appearance, implying the most important action */
     primary?: boolean
-    /**
-     * Button variant. Mutually exclusive with `primary` and `destructive` props
-     */
+    /** Applies 'secondary' button appearance */
     secondary?: boolean
     /**
-     * Button size. Mutually exclusive with `large` prop
+     * Changes button size. Mutually exclusive with `large` prop
      */
     small?: boolean
     tabIndex?: string
@@ -206,9 +190,7 @@ export interface SplitButtonProps {
      */
     component?: React.ReactElement<any>
     dataTest?: string
-    /**
-     * Applies 'destructive' appearance to indicate purpose. Mutually exclusive with `primary` and `secondary` props
-     */
+    /** Applies 'destructive' button appearance, implying a dangerous action. */
     destructive?: boolean
     /**
      * Disables the button and makes it uninteractive
@@ -227,13 +209,9 @@ export interface SplitButtonProps {
      */
     large?: boolean
     name?: string
-    /**
-     * Applies 'primary' appearance to indicate purpose. Mutually exclusive with `destructive` and `secondary` props
-     */
+    /** Applies 'primary' button appearance, implying the most important action */
     primary?: boolean
-    /**
-     * Applies 'secondary' appearance to indicate purpose. Mutually exclusive with `primary` and `destructive` props
-     */
+    /** Applies 'secondary' button appearance */
     secondary?: boolean
     /**
      * Changes button size. Mutually exclusive with `large` prop
