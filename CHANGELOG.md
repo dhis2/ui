@@ -1,16 +1,9 @@
-# [8.16.0-alpha.1](https://github.com/dhis2/ui/compare/v8.15.0...v8.16.0-alpha.1) (2023-11-28)
+## [8.15.1](https://github.com/dhis2/ui/compare/v8.15.0...v8.15.1) (2023-11-28)
 
 
 ### Bug Fixes
 
-* **package:** include types in exports field ([e16036b](https://github.com/dhis2/ui/commit/e16036b6c4fc32f702fe0e677f7bd4598c258fd5))
-* minor type fixes ([#1416](https://github.com/dhis2/ui/issues/1416)) ([71f4537](https://github.com/dhis2/ui/commit/71f4537098bd9869a4903127a5ccde78f64a8c7f))
-* **types:** add type declarations for components ([#1399](https://github.com/dhis2/ui/issues/1399)) ([d3e74c5](https://github.com/dhis2/ui/commit/d3e74c572f30f383e94868c66ff4c767a68c97dc))
-
-
-### Features
-
-* **types:** add types for forms collection ([#1415](https://github.com/dhis2/ui/issues/1415)) ([2e9d91a](https://github.com/dhis2/ui/commit/2e9d91a688f4d60ae2107f1b9ef9b26fecb53585))
+* **prop-type:** fix deprecation of buttonVariantPropType ([#1433](https://github.com/dhis2/ui/issues/1433)) ([81644a8](https://github.com/dhis2/ui/commit/81644a8e54cf7a4f29ff33536029df6e2bad9437))
 
 # [8.15.0](https://github.com/dhis2/ui/compare/v8.14.13...v8.15.0) (2023-11-27)
 
