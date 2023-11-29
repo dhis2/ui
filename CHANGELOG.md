@@ -1,3 +1,11 @@
+# [8.16.0-alpha.2](https://github.com/dhis2/ui/compare/v8.16.0-alpha.1...v8.16.0-alpha.2) (2023-11-29)
+
+
+### Bug Fixes
+
+* **prop-type:** fix deprecation of buttonVariantPropType ([#1433](https://github.com/dhis2/ui/issues/1433)) ([81644a8](https://github.com/dhis2/ui/commit/81644a8e54cf7a4f29ff33536029df6e2bad9437))
+* **types:** minor type fixes ([#1434](https://github.com/dhis2/ui/issues/1434)) [skip release] ([5e1068d](https://github.com/dhis2/ui/commit/5e1068d5ce6be0e52bee1d98ace752b1bf08f683))
+
 ## [8.15.1](https://github.com/dhis2/ui/compare/v8.15.0...v8.15.1) (2023-11-28)
 
 
