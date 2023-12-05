@@ -20,6 +20,13 @@ export const statusArgType = {
     control: { type: 'boolean' },
 }
 
+export const buttonVariantArgType =
+    // No description because it should be set for the component description
+    {
+        table: { type: { summary: 'bool' } },
+        control: { type: 'boolean' },
+    }
+
 /**
  * Size variant propType
  * @return {PropType} Mutually exclusive variants:
