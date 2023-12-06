@@ -78,15 +78,15 @@ import { DropdownButton } from '@dhis2-ui/button'
 |className|string||||
 |component|element|||Component to show/hide when button is clicked|
 |dataTest|string|`'dhis2-uicore-dropdownbutton'`|||
-|destructive|custom|||Button variant. Mutually exclusive with `primary` and `secondary` props|
+|destructive|boolean|||Applies 'destructive' button appearance, implying a dangerous action.|
 |disabled|boolean|||Make the button non-interactive|
 |icon|element||||
 |initialFocus|boolean|||Grants button initial focus on the page|
 |large|custom|||Button size. Mutually exclusive with `small` prop|
 |name|string||||
 |open|boolean|||Controls popper visibility. When implementing this prop the component becomes a controlled component|
-|primary|custom|||Button variant. Mutually exclusive with `destructive` and `secondary` props|
-|secondary|custom|||Button variant. Mutually exclusive with `primary` and `destructive` props|
+|primary|boolean|||Applies 'primary' button appearance, implying the most important action.|
+|secondary|boolean|||Applies 'secondary' button appearance.|
 |small|custom|||Button size. Mutually exclusive with `large` prop|
 |tabIndex|string||||
 |type|'submit' │ 'reset' │ 'button'|||Type of button. Can take advantage of different default behavior|
@@ -113,14 +113,14 @@ import { SplitButton } from '@dhis2-ui/button'
 |className|string||||
 |component|element|||Component to render when the dropdown is opened|
 |dataTest|string|`'dhis2-uicore-splitbutton'`|||
-|destructive|custom|||Applies 'destructive' appearance to indicate purpose. Mutually exclusive with `primary` and `secondary` props|
+|destructive|boolean|||Applies 'destructive' button appearance, implying a dangerous action.|
 |disabled|boolean|||Disables the button and makes it uninteractive|
 |icon|element|||An icon to add inside the button|
 |initialFocus|boolean|||Grants the button the initial focus|
 |large|custom|||Changes button size. Mutually exclusive with `small` prop|
 |name|string||||
-|primary|custom|||Applies 'primary' appearance to indicate purpose. Mutually exclusive with `destructive` and `secondary` props|
-|secondary|custom|||Applies 'secondary' appearance to indicate purpose. Mutually exclusive with `primary` and `destructive` props|
+|primary|boolean|||Applies 'primary' button appearance, implying the most important action.|
+|secondary|boolean|||Applies 'secondary' button appearance.|
 |small|custom|||Changes button size. Mutually exclusive with `large` prop|
 |tabIndex|string||||
 |type|'submit' │ 'reset' │ 'button'|||Type of button. Applied to html `button` element|

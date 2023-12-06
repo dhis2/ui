@@ -1,3 +1,16 @@
+# [9.0.0-alpha.1](https://github.com/dhis2/ui/compare/v8.16.0-alpha.2...v9.0.0-alpha.1) (2023-12-06)
+
+
+### Bug Fixes
+
+* **constants:** remove buttonVariantProptype from constants ([#1436](https://github.com/dhis2/ui/issues/1436)) ([d4dc535](https://github.com/dhis2/ui/commit/d4dc5350ac4254feb7a4e0c1aa4a55113845e247))
+
+
+### BREAKING CHANGES
+
+* **constants:** `buttonVariantPropType` has been removed from constants.
+This is mostly intended for internal use, but was part of the public API.
+
 # [8.16.0-alpha.2](https://github.com/dhis2/ui/compare/v8.16.0-alpha.1...v8.16.0-alpha.2) (2023-11-29)
 
 
