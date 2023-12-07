@@ -39,6 +39,7 @@ const MenuItem = ({
     label,
     showSubMenu,
     toggleSubMenu,
+    suffix,
 }) => {
     const menuItemRef = useRef()
 
@@ -72,6 +73,8 @@ const MenuItem = ({
                     {icon && <span className="icon">{icon}</span>}
 
                     <span className="label">{label}</span>
+
+                    {suffix && <span className="suffix">{suffix}</span>}
 
                     {(chevron || children) && (
                         <span className="chevron">
@@ -118,6 +121,8 @@ MenuItem.propTypes = {
     label: PropTypes.node,
     /** When true, nested menu items are shown in a Popper */
     showSubMenu: PropTypes.bool,
+    /** A supporting element shown at the end of the menu item */
+    suffix: PropTypes.node,
     /** For using menu item as a link */
     target: PropTypes.string,
     /** On click, this function is called (without args) */

@@ -3,7 +3,7 @@ title: Menu
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { FlyoutMenu, MenuItem, MenuDivider, MenuSectionHeader, IconSave24, IconDelete24, IconShare24, IconEdit24 } from '@dhis2/ui'
+import { FlyoutMenu, MenuItem, MenuDivider, MenuSectionHeader, IconSave24, IconDelete24, IconShare24, IconEdit24, IconVisualizationColumn24, IconFilter24, IconClock24, IconLaunch16 } from '@dhis2/ui'
 
 import API from '../../../components/menu/API.md'
 
@@ -105,6 +105,21 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
 -   Use dividers to split items that logically belong together. This makes the menu easier to scan.
 -   Dividers can also show a section header, a text label for that group of menu items.
 -   Use a section header to clarify what the menu items refer to, but don't rely on it. Menus and menu item actions should be clear without needing section headers.
+
+### Suffix
+
+<Demo>
+    <FlyoutMenu className="demo-fullwidth">
+        <MenuItem icon= {<IconFilter24 />} label="Filter data" />
+        <MenuItem icon= {<IconClock24 />} label="Change time period" />
+        <MenuItem icon= {<IconVisualizationColumn24 />} label="Open in Data Visualizer app" suffix= {<IconLaunch16/>}/>
+    </FlyoutMenu>
+</Demo>
+
+-   A menu item can show a suffix.
+-   Use a suffix to show extra information about the context or intent of a menu item.
+-   Common use cases include showing a menu item's keyboard shortcut and showing an indicator that a menu item will open a new tab.
+-   Don't include interactive components, like buttons, in a menu item suffix.
 
 ### Icon
 
