@@ -1,3 +1,10 @@
+# [8.16.0](https://github.com/dhis2/ui/compare/v8.15.1...v8.16.0) (2023-12-07)
+
+
+### Features
+
+* **menu-item:** add suffix prop ([77cd949](https://github.com/dhis2/ui/commit/77cd94953cf8c14b21373c53d055a8f8ed68110d))
+
 ## [8.15.1](https://github.com/dhis2/ui/compare/v8.15.0...v8.15.1) (2023-11-28)
 
 
