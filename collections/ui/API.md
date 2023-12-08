@@ -1122,6 +1122,7 @@ import { MenuItem } from '@dhis2/ui'
 |icon|node|||An icon for the left side of the menu item|
 |label|node|||Text in the menu item|
 |showSubMenu|boolean|||When true, nested menu items are shown in a Popper|
+|suffix|node|||A supporting element shown at the end of the menu item|
 |target|string|||For using menu item as a link|
 |toggleSubMenu|function|||On click, this function is called (without args)|
 |value|string|||Value associated with item. Passed as an argument to onClick handler.|

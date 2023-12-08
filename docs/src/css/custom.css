@@ -248,3 +248,6 @@ footer {
     flex-direction: column;
     gap: 8px;
 }
+.demo-fullwidth {
+    width: 100%;
+}

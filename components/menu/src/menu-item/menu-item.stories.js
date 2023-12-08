@@ -1,4 +1,10 @@
-import { IconApps24 } from '@dhis2/ui-icons'
+import { Tag } from '@dhis2/ui'
+import { colors } from '@dhis2/ui-constants'
+import {
+    IconApps24,
+    IconVisualizationColumn24,
+    IconLaunch16,
+} from '@dhis2/ui-icons'
 import React, { useState } from 'react'
 import { Menu } from '../index.js'
 import { MenuItem } from './menu-item.js'
@@ -83,6 +89,20 @@ Icon.parameters = {
             story: 'A menu item can include an icon to help the user understand or recognize the option. An icon should support the menu item text and be simple enough to be understood in a dense UI. Icons add a lot of visual noise a menu, so only include them where they will help the user. Do not include icons only for visual reasons, the icon must functionally support the users understanding. Do not use complex icons. All menu items in a single menu do not need to have icons.',
         },
     },
+}
+
+export const Suffix = Template.bind({})
+Suffix.args = {
+    label: 'Open in Data Visualizer',
+    icon: <IconVisualizationColumn24 color={colors.grey600} />,
+    suffix: <IconLaunch16 color={colors.grey600} />,
+}
+
+export const SuffixAndChevron = Template.bind({})
+SuffixAndChevron.args = {
+    label: 'Security notifications',
+    chevron: true,
+    suffix: <Tag>3</Tag>,
 }
 
 export const OnClick = (args) => (

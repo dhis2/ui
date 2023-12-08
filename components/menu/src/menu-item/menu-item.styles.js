@@ -96,6 +96,12 @@ export default css`
         height: 24px;
     }
 
+    .suffix {
+        display: flex;
+        align-items: center;
+        margin-left: ${spacers.dp8};
+    }
+
     .chevron {
         display: flex;
         align-items: center;
