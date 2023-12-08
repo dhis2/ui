@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/ui-forms",
-    "version": "8.16.0",
+    "version": "9.0.0-alpha.2",
     "main": "./build/cjs/index.js",
     "module": "./build/es/index.js",
     "sideEffects": [
@@ -8,6 +8,7 @@
         "build/cjs/locales/index.js"
     ],
     "exports": {
+        "types": "./types/index.d.ts",
         "import": "./build/es/index.js",
         "require": "./build/cjs/index.js"
     },
@@ -34,25 +35,27 @@
     },
     "dependencies": {
         "@dhis2/prop-types": "^3.1.2",
-        "@dhis2-ui/button": "8.16.0",
-        "@dhis2-ui/checkbox": "8.16.0",
-        "@dhis2-ui/field": "8.16.0",
-        "@dhis2-ui/file-input": "8.16.0",
-        "@dhis2-ui/input": "8.16.0",
-        "@dhis2-ui/radio": "8.16.0",
-        "@dhis2-ui/select": "8.16.0",
-        "@dhis2-ui/switch": "8.16.0",
-        "@dhis2-ui/text-area": "8.16.0",
+        "@dhis2-ui/button": "9.0.0-alpha.2",
+        "@dhis2-ui/checkbox": "9.0.0-alpha.2",
+        "@dhis2-ui/field": "9.0.0-alpha.2",
+        "@dhis2-ui/file-input": "9.0.0-alpha.2",
+        "@dhis2-ui/input": "9.0.0-alpha.2",
+        "@dhis2-ui/radio": "9.0.0-alpha.2",
+        "@dhis2-ui/select": "9.0.0-alpha.2",
+        "@dhis2-ui/switch": "9.0.0-alpha.2",
+        "@dhis2-ui/text-area": "9.0.0-alpha.2",
         "classnames": "^2.3.1",
         "final-form": "^4.20.2",
         "prop-types": "^15.7.2",
         "react-final-form": "^6.5.3"
     },
     "files": [
-        "build"
+        "build",
+        "types"
     ],
     "devDependencies": {
         "react": "16.13",
         "react-dom": "16.13"
-    }
+    },
+    "types": "types"
 }

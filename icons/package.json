@@ -1,10 +1,11 @@
 {
     "name": "@dhis2/ui-icons",
-    "version": "8.16.0",
+    "version": "9.0.0-alpha.2",
     "description": "Icons used in the UI libs",
     "main": "./build/cjs/react/index.js",
     "module": "./build/es/react/index.js",
     "exports": {
+        "types": "./types/index.d.ts",
         "import": "./build/es/react/index.js",
         "require": "./build/cjs/react/index.js"
     },
@@ -29,7 +30,8 @@
         "clean": "rimraf ./src/react"
     },
     "files": [
-        "build"
+        "build",
+        "types"
     ],
     "peerDependencies": {
         "react": "^16.8",
@@ -39,5 +41,6 @@
     "devDependencies": {
         "react": "16.13",
         "react-dom": "16.13"
-    }
+    },
+    "types": "types"
 }

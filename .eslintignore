@@ -1,3 +1,4 @@
 .yarn/
 utilities/icons/src/react/**/*.js
 **/locales/
+*.d.ts

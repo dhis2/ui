@@ -20,28 +20,12 @@ export const statusArgType = {
     control: { type: 'boolean' },
 }
 
-/**
- * @deprecated Not unused, will be removed in a future version.
- * Button variant propType
- * @return {PropType} Mutually exclusive variants:
- * primary/secondary/destructive
- */
-export const buttonVariantPropType = mutuallyExclusive(
-    ['primary', 'secondary', 'destructive'],
-    PropTypes.bool
-)
-export const buttonVariantArgType = {
+export const buttonVariantArgType =
     // No description because it should be set for the component description
-    table: {
-        type: {
-            summary: 'bool',
-            detail: "'primary', 'secondary', and 'destructive' are mutually exclusive props",
-        },
-    },
-    control: {
-        type: 'boolean',
-    },
-}
+    {
+        table: { type: { summary: 'bool' } },
+        control: { type: 'boolean' },
+    }
 
 /**
  * Size variant propType

@@ -1,10 +1,11 @@
 {
     "name": "@dhis2/ui-constants",
-    "version": "8.16.0",
+    "version": "9.0.0-alpha.2",
     "description": "Constants used in the UI libs",
     "main": "./build/cjs/index.js",
     "module": "./build/es/index.js",
     "exports": {
+        "types": "./types/index.d.ts",
         "import": "./build/es/index.js",
         "require": "./build/cjs/index.js"
     },
@@ -29,6 +30,8 @@
         "prop-types": "^15.7.2"
     },
     "files": [
-        "build"
-    ]
+        "build",
+        "types"
+    ],
+    "types": "types"
 }

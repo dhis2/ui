@@ -4,7 +4,6 @@
 - [layers](src/layers.js)
 - [statusPropType](src/shared-prop-types.js)
 - [statusArgType](src/shared-prop-types.js)
-- [buttonVariantPropType](src/shared-prop-types.js)
 - [buttonVariantArgType](src/shared-prop-types.js)
 - [sizePropType](src/shared-prop-types.js)
 - [sizeArgType](src/shared-prop-types.js)

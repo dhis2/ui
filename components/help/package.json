@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/help",
-    "version": "8.16.0",
+    "version": "9.0.0-alpha.2",
     "description": "UI Help",
     "repository": {
         "type": "git",
@@ -13,6 +13,7 @@
     "main": "./build/cjs/index.js",
     "module": "./build/es/index.js",
     "exports": {
+        "types": "./types/index.d.ts",
         "import": "./build/es/index.js",
         "require": "./build/cjs/index.js"
     },
@@ -32,16 +33,18 @@
     },
     "dependencies": {
         "@dhis2/prop-types": "^3.1.2",
-        "@dhis2/ui-constants": "8.16.0",
+        "@dhis2/ui-constants": "9.0.0-alpha.2",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },
     "files": [
-        "build"
+        "build",
+        "types"
     ],
     "devDependencies": {
         "react": "16.13",
         "react-dom": "16.13",
         "styled-jsx": "^4.0.1"
-    }
+    },
+    "types": "types"
 }

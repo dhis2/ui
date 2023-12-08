@@ -5,8 +5,8 @@ import { OrganisationUnitNode } from '../organisation-unit-node/index.js'
 import { orgUnitPathPropType } from '../prop-types.js'
 import { defaultRenderNodeLabel } from './default-render-node-label/index.js'
 import { filterRootIds } from './filter-root-ids.js'
-import { RootError } from './root-error.js'
-import { RootLoading } from './root-loading.js'
+import { OrganisationUnitTreeRootError } from './organisation-unit-tree-root-error.js'
+import { OrganisationUnitTreeRootLoading } from './organisation-unit-tree-root-loading.js'
 import { useExpanded } from './use-expanded/index.js'
 import { useForceReload } from './use-force-reload.js'
 import { useRootOrgData } from './use-root-org-data/index.js'
@@ -73,8 +73,8 @@ const OrganisationUnitTree = ({
 
     return (
         <div data-test={dataTest}>
-            {isLoading && <RootLoading />}
-            {error && <RootError error={error} />}
+            {isLoading && <OrganisationUnitTreeRootLoading />}
+            {error && <OrganisationUnitTreeRootError error={error} />}
             {!error &&
                 !isLoading &&
                 rootIds.map((rootId) => {
