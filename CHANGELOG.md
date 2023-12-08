@@ -1,23 +1,9 @@
-# [9.0.0-alpha.1](https://github.com/dhis2/ui/compare/v8.16.0-alpha.2...v9.0.0-alpha.1) (2023-12-06)
+# [8.16.0](https://github.com/dhis2/ui/compare/v8.15.1...v8.16.0) (2023-12-07)
 
 
-### Bug Fixes
+### Features
 
-* **constants:** remove buttonVariantProptype from constants ([#1436](https://github.com/dhis2/ui/issues/1436)) ([d4dc535](https://github.com/dhis2/ui/commit/d4dc5350ac4254feb7a4e0c1aa4a55113845e247))
-
-
-### BREAKING CHANGES
-
-* **constants:** `buttonVariantPropType` has been removed from constants.
-This is mostly intended for internal use, but was part of the public API.
-
-# [8.16.0-alpha.2](https://github.com/dhis2/ui/compare/v8.16.0-alpha.1...v8.16.0-alpha.2) (2023-11-29)
-
-
-### Bug Fixes
-
-* **prop-type:** fix deprecation of buttonVariantPropType ([#1433](https://github.com/dhis2/ui/issues/1433)) ([81644a8](https://github.com/dhis2/ui/commit/81644a8e54cf7a4f29ff33536029df6e2bad9437))
-* **types:** minor type fixes ([#1434](https://github.com/dhis2/ui/issues/1434)) [skip release] ([5e1068d](https://github.com/dhis2/ui/commit/5e1068d5ce6be0e52bee1d98ace752b1bf08f683))
+* **menu-item:** add suffix prop ([77cd949](https://github.com/dhis2/ui/commit/77cd94953cf8c14b21373c53d055a8f8ed68110d))
 
 ## [8.15.1](https://github.com/dhis2/ui/compare/v8.15.0...v8.15.1) (2023-11-28)
 
