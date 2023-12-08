@@ -1,3 +1,25 @@
+# [9.0.0](https://github.com/dhis2/ui/compare/v8.16.0...v9.0.0) (2023-12-08)
+
+
+### Bug Fixes
+
+* **constants:** remove buttonVariantProptype from constants ([#1436](https://github.com/dhis2/ui/issues/1436)) ([d4dc535](https://github.com/dhis2/ui/commit/d4dc5350ac4254feb7a4e0c1aa4a55113845e247))
+* **package:** include types in exports field ([e16036b](https://github.com/dhis2/ui/commit/e16036b6c4fc32f702fe0e677f7bd4598c258fd5))
+* **types:** add type declarations for components ([#1399](https://github.com/dhis2/ui/issues/1399)) ([d3e74c5](https://github.com/dhis2/ui/commit/d3e74c572f30f383e94868c66ff4c767a68c97dc))
+* **types:** minor type fixes ([#1434](https://github.com/dhis2/ui/issues/1434)) [skip release] ([5e1068d](https://github.com/dhis2/ui/commit/5e1068d5ce6be0e52bee1d98ace752b1bf08f683))
+* minor type fixes ([#1416](https://github.com/dhis2/ui/issues/1416)) ([71f4537](https://github.com/dhis2/ui/commit/71f4537098bd9869a4903127a5ccde78f64a8c7f))
+
+
+### Features
+
+* **types:** add types for forms collection ([#1415](https://github.com/dhis2/ui/issues/1415)) ([2e9d91a](https://github.com/dhis2/ui/commit/2e9d91a688f4d60ae2107f1b9ef9b26fecb53585))
+
+
+### BREAKING CHANGES
+
+* **constants:** `buttonVariantPropType` has been removed from constants.
+This is mostly intended for internal use, but was part of the public API.
+
 # [9.0.0-alpha.2](https://github.com/dhis2/ui/compare/v9.0.0-alpha.1...v9.0.0-alpha.2) (2023-12-08)
 
 
