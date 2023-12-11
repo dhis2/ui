@@ -1,3 +1,10 @@
+## [9.0.1](https://github.com/dhis2/ui/compare/v9.0.0...v9.0.1) (2023-12-11)
+
+
+### Bug Fixes
+
+* **alertbar action:** prevent text wrapping ([f51f45d](https://github.com/dhis2/ui/commit/f51f45d0dcda7c78b61cef66d34cbe24e4a5e206))
+
 # [9.0.0](https://github.com/dhis2/ui/compare/v8.16.0...v9.0.0) (2023-12-08)
 
 
