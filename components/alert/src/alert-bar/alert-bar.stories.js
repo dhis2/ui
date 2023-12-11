@@ -147,6 +147,21 @@ export const WithActions = () => (
 )
 WithActions.storyName = 'With actions'
 
+export const WithActionsAndInsufficientSpace = () => (
+    <AlertBar
+        permanent
+        actions={[
+            { label: 'Long action 1', onClick: () => {} },
+            { label: 'Long action 2', onClick: () => {} },
+        ]}
+    >
+        Some text, a pretty normal amount, that conflicts with pretty long
+        actions
+    </AlertBar>
+)
+WithActionsAndInsufficientSpace.storyName =
+    'With actions and insufficient space'
+
 export const Icons = () => (
     <React.Fragment>
         <AlertBar permanent>Default icon</AlertBar>
