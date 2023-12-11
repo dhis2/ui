@@ -16,6 +16,7 @@ class Action extends Component {
                     span {
                         margin-right: ${spacers.dp12};
                         text-decoration: underline;
+                        white-space: nowrap;
                     }
                     span:hover {
                         cursor: pointer;
