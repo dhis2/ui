@@ -16,6 +16,7 @@ export const TableRow = ({
     className,
     dataTest,
     suppressZebraStriping,
+    ...rest
 }) => {
     const { suppressZebraStriping: suppressZebraStripingFromContext } =
         useContext(TableContext)
@@ -30,6 +31,7 @@ export const TableRow = ({
             className={cx(className, { zebraStriping })}
             data-test={dataTest}
             role={role}
+            {...rest}
         >
             {children}
 

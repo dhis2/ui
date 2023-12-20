@@ -20,6 +20,7 @@ export const DataTableRow = forwardRef(
             draggable,
             role,
             onExpandToggle,
+            ...rest
         },
         ref
     ) => {
@@ -45,6 +46,7 @@ export const DataTableRow = forwardRef(
                     selected={selected}
                     draggable={draggable}
                     role={role}
+                    {...rest}
                 >
                     {draggable && <DragHandleCell />}
                     {expandableContent && (
