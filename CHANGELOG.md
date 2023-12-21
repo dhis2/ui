@@ -1,3 +1,10 @@
+# [9.1.0](https://github.com/dhis2/ui/compare/v9.0.1...v9.1.0) (2023-12-21)
+
+
+### Features
+
+* **LIBS-539:** forward data-row props to allow handling dom events ([a293b16](https://github.com/dhis2/ui/commit/a293b16c82d8f69797eed73c3d028b8bcd4a668d))
+
 ## [9.0.1](https://github.com/dhis2/ui/compare/v9.0.0...v9.0.1) (2023-12-11)
 
 
