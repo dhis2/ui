@@ -1,14 +1,15 @@
 # 
 # Translators:
-# phil_dhis2, 2022
+# Philip Larsen Donnelly, 2022
+# Saysamone Sibounma, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-10-03T12:12:05.437Z\n"
+"POT-Creation-Date: 2023-01-18T16:13:05.063Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
-"Last-Translator: phil_dhis2, 2022\n"
-"Language-Team: Lao (https://www.transifex.com/hisp-uio/teams/100509/lo/)\n"
+"Last-Translator: Saysamone Sibounma, 2023\n"
+"Language-Team: Lao (https://app.transifex.com/hisp-uio/teams/100509/lo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -42,9 +43,6 @@ msgstr "ປິດ"
 msgid "Copy debug info"
 msgstr ""
 
-msgid "Last online {{relativeTime}}"
-msgstr ""
-
 msgid "Online"
 msgstr "ມີການເຊື່ອມຕໍ່"
 
@@ -67,7 +65,7 @@ msgid "About DHIS2"
 msgstr ""
 
 msgid "Logout"
-msgstr ""
+msgstr "ອອກຈາກລະບົບ"
 
 msgid "New {{appName}} version available"
 msgstr ""

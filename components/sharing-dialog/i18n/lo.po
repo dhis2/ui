@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "View only"
-msgstr ""
+msgstr "ເບິ່ງໄດ້ເທົ່ານັ້ນ"
 
 msgid "View and edit"
 msgstr ""
