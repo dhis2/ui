@@ -10,7 +10,7 @@ import API from '../../../components/calendar/API.md'
 
 # Calendar Input
 
-This is an Input wrapper around [calendar](./calendar) to display an input that shows the calendar when in focus.
+This is an Input wrapper around [calendar](./calendar.md) to display an input that shows the calendar when in focus.
 
 ## Demo
 
@@ -117,7 +117,7 @@ Ethiopic calendar (with narrow day names, short day names and localised to Engli
 
 ## API Reference
 
-The component takes the same props as [the calendar](./calendar) component, as well as the props for [InputField](./inputfield) that are relevant to an input of type `text`.
+The component takes the same props as [the calendar](./calendar.md) component, as well as the props for [InputField](./inputfield.md) that are relevant to an input of type `text`.
 
 It adds one property `clearable` which is a boolean. If set to true, it adds a clear button to delete the selected date.
 
