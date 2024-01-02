@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `AlertBar`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { AlertBar } from '@dhis2-ui/alert'
+import { AlertBar } from '@dhis2/ui'
 ```
 
 
@@ -31,11 +31,11 @@ import { AlertBar } from '@dhis2-ui/alert'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `AlertStack`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { AlertStack } from '@dhis2-ui/alert'
+import { AlertStack } from '@dhis2/ui'
 ```
 
 

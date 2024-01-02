@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Modal`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { Modal } from '@dhis2-ui/modal'
+import { Modal } from '@dhis2/ui'
 ```
 
 
@@ -28,11 +28,11 @@ import { Modal } from '@dhis2-ui/modal'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `ModalActions`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { ModalActions } from '@dhis2-ui/modal'
+import { ModalActions } from '@dhis2/ui'
 ```
 
 
@@ -47,11 +47,11 @@ import { ModalActions } from '@dhis2-ui/modal'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `ModalContent`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { ModalContent } from '@dhis2-ui/modal'
+import { ModalContent } from '@dhis2/ui'
 ```
 
 
@@ -67,11 +67,11 @@ import { ModalContent } from '@dhis2-ui/modal'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `ModalTitle`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { ModalTitle } from '@dhis2-ui/modal'
+import { ModalTitle } from '@dhis2/ui'
 ```
 
 

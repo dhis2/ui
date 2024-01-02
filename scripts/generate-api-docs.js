@@ -77,11 +77,10 @@ const format = ({ ast, pkg }) => {
 
     if (pkg?.name) {
         table += '#### Usage\n\n'
-        table +=
-            '**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.\n\n'
+        table += `To use \`${ast.displayName}\`, you can import the component from the \`@dhis2/ui\` library  \n\n`
         table += `
 \`\`\`js
-import { ${ast.displayName} } from '${pkg.name}'
+import { ${ast.displayName} } from '@dhis2/ui'
 \`\`\`\n\n
 `
     }

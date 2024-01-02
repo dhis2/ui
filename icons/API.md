@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgAdd16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgAdd16 } from '@dhis2/ui-icons'
+import { SvgAdd16 } from '@dhis2/ui'
 ```
 
 
@@ -21,11 +21,11 @@ import { SvgAdd16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgAdd24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgAdd24 } from '@dhis2/ui-icons'
+import { SvgAdd24 } from '@dhis2/ui'
 ```
 
 
@@ -40,11 +40,11 @@ import { SvgAdd24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgAddCircle16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgAddCircle16 } from '@dhis2/ui-icons'
+import { SvgAddCircle16 } from '@dhis2/ui'
 ```
 
 
@@ -59,11 +59,11 @@ import { SvgAddCircle16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgAddCircle24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgAddCircle24 } from '@dhis2/ui-icons'
+import { SvgAddCircle24 } from '@dhis2/ui'
 ```
 
 
@@ -78,11 +78,11 @@ import { SvgAddCircle24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgApps16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgApps16 } from '@dhis2/ui-icons'
+import { SvgApps16 } from '@dhis2/ui'
 ```
 
 
@@ -97,11 +97,11 @@ import { SvgApps16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgApps24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgApps24 } from '@dhis2/ui-icons'
+import { SvgApps24 } from '@dhis2/ui'
 ```
 
 
@@ -116,11 +116,11 @@ import { SvgApps24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgArchive16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgArchive16 } from '@dhis2/ui-icons'
+import { SvgArchive16 } from '@dhis2/ui'
 ```
 
 
@@ -135,11 +135,11 @@ import { SvgArchive16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgArchive24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgArchive24 } from '@dhis2/ui-icons'
+import { SvgArchive24 } from '@dhis2/ui'
 ```
 
 
@@ -154,11 +154,11 @@ import { SvgArchive24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgArrowDown16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgArrowDown16 } from '@dhis2/ui-icons'
+import { SvgArrowDown16 } from '@dhis2/ui'
 ```
 
 
@@ -173,11 +173,11 @@ import { SvgArrowDown16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgArrowDown24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgArrowDown24 } from '@dhis2/ui-icons'
+import { SvgArrowDown24 } from '@dhis2/ui'
 ```
 
 
@@ -192,11 +192,11 @@ import { SvgArrowDown24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgArrowLeft16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgArrowLeft16 } from '@dhis2/ui-icons'
+import { SvgArrowLeft16 } from '@dhis2/ui'
 ```
 
 
@@ -211,11 +211,11 @@ import { SvgArrowLeft16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgArrowLeft24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgArrowLeft24 } from '@dhis2/ui-icons'
+import { SvgArrowLeft24 } from '@dhis2/ui'
 ```
 
 
@@ -230,11 +230,11 @@ import { SvgArrowLeft24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgArrowLeftMulti16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgArrowLeftMulti16 } from '@dhis2/ui-icons'
+import { SvgArrowLeftMulti16 } from '@dhis2/ui'
 ```
 
 
@@ -249,11 +249,11 @@ import { SvgArrowLeftMulti16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgArrowLeftMulti24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgArrowLeftMulti24 } from '@dhis2/ui-icons'
+import { SvgArrowLeftMulti24 } from '@dhis2/ui'
 ```
 
 
@@ -268,11 +268,11 @@ import { SvgArrowLeftMulti24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgArrowRight16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgArrowRight16 } from '@dhis2/ui-icons'
+import { SvgArrowRight16 } from '@dhis2/ui'
 ```
 
 
@@ -287,11 +287,11 @@ import { SvgArrowRight16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgArrowRight24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgArrowRight24 } from '@dhis2/ui-icons'
+import { SvgArrowRight24 } from '@dhis2/ui'
 ```
 
 
@@ -306,11 +306,11 @@ import { SvgArrowRight24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgArrowRightMulti16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgArrowRightMulti16 } from '@dhis2/ui-icons'
+import { SvgArrowRightMulti16 } from '@dhis2/ui'
 ```
 
 
@@ -325,11 +325,11 @@ import { SvgArrowRightMulti16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgArrowRightMulti24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgArrowRightMulti24 } from '@dhis2/ui-icons'
+import { SvgArrowRightMulti24 } from '@dhis2/ui'
 ```
 
 
@@ -344,11 +344,11 @@ import { SvgArrowRightMulti24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgArrowUp16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgArrowUp16 } from '@dhis2/ui-icons'
+import { SvgArrowUp16 } from '@dhis2/ui'
 ```
 
 
@@ -363,11 +363,11 @@ import { SvgArrowUp16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgArrowUp24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgArrowUp24 } from '@dhis2/ui-icons'
+import { SvgArrowUp24 } from '@dhis2/ui'
 ```
 
 
@@ -382,11 +382,11 @@ import { SvgArrowUp24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgAt16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgAt16 } from '@dhis2/ui-icons'
+import { SvgAt16 } from '@dhis2/ui'
 ```
 
 
@@ -401,11 +401,11 @@ import { SvgAt16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgAt24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgAt24 } from '@dhis2/ui-icons'
+import { SvgAt24 } from '@dhis2/ui'
 ```
 
 
@@ -420,11 +420,11 @@ import { SvgAt24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgAttachment16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgAttachment16 } from '@dhis2/ui-icons'
+import { SvgAttachment16 } from '@dhis2/ui'
 ```
 
 
@@ -439,11 +439,11 @@ import { SvgAttachment16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgAttachment24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgAttachment24 } from '@dhis2/ui-icons'
+import { SvgAttachment24 } from '@dhis2/ui'
 ```
 
 
@@ -458,11 +458,11 @@ import { SvgAttachment24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgBlock16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgBlock16 } from '@dhis2/ui-icons'
+import { SvgBlock16 } from '@dhis2/ui'
 ```
 
 
@@ -477,11 +477,11 @@ import { SvgBlock16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgBlock24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgBlock24 } from '@dhis2/ui-icons'
+import { SvgBlock24 } from '@dhis2/ui'
 ```
 
 
@@ -496,11 +496,11 @@ import { SvgBlock24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgCalendar16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgCalendar16 } from '@dhis2/ui-icons'
+import { SvgCalendar16 } from '@dhis2/ui'
 ```
 
 
@@ -515,11 +515,11 @@ import { SvgCalendar16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgCalendar24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgCalendar24 } from '@dhis2/ui-icons'
+import { SvgCalendar24 } from '@dhis2/ui'
 ```
 
 
@@ -534,11 +534,11 @@ import { SvgCalendar24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgCheckmark12`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgCheckmark12 } from '@dhis2/ui-icons'
+import { SvgCheckmark12 } from '@dhis2/ui'
 ```
 
 
@@ -553,11 +553,11 @@ import { SvgCheckmark12 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgCheckmark16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgCheckmark16 } from '@dhis2/ui-icons'
+import { SvgCheckmark16 } from '@dhis2/ui'
 ```
 
 
@@ -572,11 +572,11 @@ import { SvgCheckmark16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgCheckmark24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgCheckmark24 } from '@dhis2/ui-icons'
+import { SvgCheckmark24 } from '@dhis2/ui'
 ```
 
 
@@ -591,11 +591,11 @@ import { SvgCheckmark24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgCheckmarkCircle16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgCheckmarkCircle16 } from '@dhis2/ui-icons'
+import { SvgCheckmarkCircle16 } from '@dhis2/ui'
 ```
 
 
@@ -610,11 +610,11 @@ import { SvgCheckmarkCircle16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgCheckmarkCircle24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgCheckmarkCircle24 } from '@dhis2/ui-icons'
+import { SvgCheckmarkCircle24 } from '@dhis2/ui'
 ```
 
 
@@ -629,11 +629,11 @@ import { SvgCheckmarkCircle24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgChevronDown16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgChevronDown16 } from '@dhis2/ui-icons'
+import { SvgChevronDown16 } from '@dhis2/ui'
 ```
 
 
@@ -648,11 +648,11 @@ import { SvgChevronDown16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgChevronDown24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgChevronDown24 } from '@dhis2/ui-icons'
+import { SvgChevronDown24 } from '@dhis2/ui'
 ```
 
 
@@ -667,11 +667,11 @@ import { SvgChevronDown24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgChevronLeft16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgChevronLeft16 } from '@dhis2/ui-icons'
+import { SvgChevronLeft16 } from '@dhis2/ui'
 ```
 
 
@@ -686,11 +686,11 @@ import { SvgChevronLeft16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgChevronLeft24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgChevronLeft24 } from '@dhis2/ui-icons'
+import { SvgChevronLeft24 } from '@dhis2/ui'
 ```
 
 
@@ -705,11 +705,11 @@ import { SvgChevronLeft24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgChevronRight16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgChevronRight16 } from '@dhis2/ui-icons'
+import { SvgChevronRight16 } from '@dhis2/ui'
 ```
 
 
@@ -724,11 +724,11 @@ import { SvgChevronRight16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgChevronRight24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgChevronRight24 } from '@dhis2/ui-icons'
+import { SvgChevronRight24 } from '@dhis2/ui'
 ```
 
 
@@ -743,11 +743,11 @@ import { SvgChevronRight24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgChevronUp16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgChevronUp16 } from '@dhis2/ui-icons'
+import { SvgChevronUp16 } from '@dhis2/ui'
 ```
 
 
@@ -762,11 +762,11 @@ import { SvgChevronUp16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgChevronUp24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgChevronUp24 } from '@dhis2/ui-icons'
+import { SvgChevronUp24 } from '@dhis2/ui'
 ```
 
 
@@ -781,11 +781,11 @@ import { SvgChevronUp24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgClock16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgClock16 } from '@dhis2/ui-icons'
+import { SvgClock16 } from '@dhis2/ui'
 ```
 
 
@@ -800,11 +800,11 @@ import { SvgClock16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgClock24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgClock24 } from '@dhis2/ui-icons'
+import { SvgClock24 } from '@dhis2/ui'
 ```
 
 
@@ -819,11 +819,11 @@ import { SvgClock24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgClockHistory16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgClockHistory16 } from '@dhis2/ui-icons'
+import { SvgClockHistory16 } from '@dhis2/ui'
 ```
 
 
@@ -838,11 +838,11 @@ import { SvgClockHistory16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgClockHistory24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgClockHistory24 } from '@dhis2/ui-icons'
+import { SvgClockHistory24 } from '@dhis2/ui'
 ```
 
 
@@ -857,11 +857,11 @@ import { SvgClockHistory24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgColor16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgColor16 } from '@dhis2/ui-icons'
+import { SvgColor16 } from '@dhis2/ui'
 ```
 
 
@@ -876,11 +876,11 @@ import { SvgColor16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgColor24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgColor24 } from '@dhis2/ui-icons'
+import { SvgColor24 } from '@dhis2/ui'
 ```
 
 
@@ -895,11 +895,11 @@ import { SvgColor24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgCopy16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgCopy16 } from '@dhis2/ui-icons'
+import { SvgCopy16 } from '@dhis2/ui'
 ```
 
 
@@ -914,11 +914,11 @@ import { SvgCopy16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgCopy24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgCopy24 } from '@dhis2/ui-icons'
+import { SvgCopy24 } from '@dhis2/ui'
 ```
 
 
@@ -933,11 +933,11 @@ import { SvgCopy24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgCross16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgCross16 } from '@dhis2/ui-icons'
+import { SvgCross16 } from '@dhis2/ui'
 ```
 
 
@@ -952,11 +952,11 @@ import { SvgCross16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgCross24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgCross24 } from '@dhis2/ui-icons'
+import { SvgCross24 } from '@dhis2/ui'
 ```
 
 
@@ -971,11 +971,11 @@ import { SvgCross24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgDashboardWindow16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgDashboardWindow16 } from '@dhis2/ui-icons'
+import { SvgDashboardWindow16 } from '@dhis2/ui'
 ```
 
 
@@ -990,11 +990,11 @@ import { SvgDashboardWindow16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgDashboardWindow24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgDashboardWindow24 } from '@dhis2/ui-icons'
+import { SvgDashboardWindow24 } from '@dhis2/ui'
 ```
 
 
@@ -1009,11 +1009,11 @@ import { SvgDashboardWindow24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgDataInteger16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgDataInteger16 } from '@dhis2/ui-icons'
+import { SvgDataInteger16 } from '@dhis2/ui'
 ```
 
 
@@ -1028,11 +1028,11 @@ import { SvgDataInteger16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgDataInteger24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgDataInteger24 } from '@dhis2/ui-icons'
+import { SvgDataInteger24 } from '@dhis2/ui'
 ```
 
 
@@ -1047,11 +1047,11 @@ import { SvgDataInteger24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgDataString16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgDataString16 } from '@dhis2/ui-icons'
+import { SvgDataString16 } from '@dhis2/ui'
 ```
 
 
@@ -1066,11 +1066,11 @@ import { SvgDataString16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgDataString24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgDataString24 } from '@dhis2/ui-icons'
+import { SvgDataString24 } from '@dhis2/ui'
 ```
 
 
@@ -1085,11 +1085,11 @@ import { SvgDataString24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgDelete16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgDelete16 } from '@dhis2/ui-icons'
+import { SvgDelete16 } from '@dhis2/ui'
 ```
 
 
@@ -1104,11 +1104,11 @@ import { SvgDelete16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgDelete24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgDelete24 } from '@dhis2/ui-icons'
+import { SvgDelete24 } from '@dhis2/ui'
 ```
 
 
@@ -1123,11 +1123,11 @@ import { SvgDelete24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgDimensionCategoryOptionGroupset16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgDimensionCategoryOptionGroupset16 } from '@dhis2/ui-icons'
+import { SvgDimensionCategoryOptionGroupset16 } from '@dhis2/ui'
 ```
 
 
@@ -1142,11 +1142,11 @@ import { SvgDimensionCategoryOptionGroupset16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgDimensionData16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgDimensionData16 } from '@dhis2/ui-icons'
+import { SvgDimensionData16 } from '@dhis2/ui'
 ```
 
 
@@ -1161,11 +1161,11 @@ import { SvgDimensionData16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgDimensionDataElementGroupset16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgDimensionDataElementGroupset16 } from '@dhis2/ui-icons'
+import { SvgDimensionDataElementGroupset16 } from '@dhis2/ui'
 ```
 
 
@@ -1180,11 +1180,11 @@ import { SvgDimensionDataElementGroupset16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgDimensionDataSet16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgDimensionDataSet16 } from '@dhis2/ui-icons'
+import { SvgDimensionDataSet16 } from '@dhis2/ui'
 ```
 
 
@@ -1199,11 +1199,11 @@ import { SvgDimensionDataSet16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgDimensionEventDataItem16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgDimensionEventDataItem16 } from '@dhis2/ui-icons'
+import { SvgDimensionEventDataItem16 } from '@dhis2/ui'
 ```
 
 
@@ -1218,11 +1218,11 @@ import { SvgDimensionEventDataItem16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgDimensionIndicator16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgDimensionIndicator16 } from '@dhis2/ui-icons'
+import { SvgDimensionIndicator16 } from '@dhis2/ui'
 ```
 
 
@@ -1237,11 +1237,11 @@ import { SvgDimensionIndicator16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgDimensionOrgUnit16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgDimensionOrgUnit16 } from '@dhis2/ui-icons'
+import { SvgDimensionOrgUnit16 } from '@dhis2/ui'
 ```
 
 
@@ -1256,11 +1256,11 @@ import { SvgDimensionOrgUnit16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgDimensionOrgUnitGroupset16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgDimensionOrgUnitGroupset16 } from '@dhis2/ui-icons'
+import { SvgDimensionOrgUnitGroupset16 } from '@dhis2/ui'
 ```
 
 
@@ -1275,11 +1275,11 @@ import { SvgDimensionOrgUnitGroupset16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgDimensionProgramIndicator16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgDimensionProgramIndicator16 } from '@dhis2/ui-icons'
+import { SvgDimensionProgramIndicator16 } from '@dhis2/ui'
 ```
 
 
@@ -1294,11 +1294,11 @@ import { SvgDimensionProgramIndicator16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgDimensionValidationRule16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgDimensionValidationRule16 } from '@dhis2/ui-icons'
+import { SvgDimensionValidationRule16 } from '@dhis2/ui'
 ```
 
 
@@ -1313,11 +1313,11 @@ import { SvgDimensionValidationRule16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgDirectionNorth16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgDirectionNorth16 } from '@dhis2/ui-icons'
+import { SvgDirectionNorth16 } from '@dhis2/ui'
 ```
 
 
@@ -1332,11 +1332,11 @@ import { SvgDirectionNorth16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgDirectionNorth24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgDirectionNorth24 } from '@dhis2/ui-icons'
+import { SvgDirectionNorth24 } from '@dhis2/ui'
 ```
 
 
@@ -1351,11 +1351,11 @@ import { SvgDirectionNorth24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgDownload16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgDownload16 } from '@dhis2/ui-icons'
+import { SvgDownload16 } from '@dhis2/ui'
 ```
 
 
@@ -1370,11 +1370,11 @@ import { SvgDownload16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgDownload24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgDownload24 } from '@dhis2/ui-icons'
+import { SvgDownload24 } from '@dhis2/ui'
 ```
 
 
@@ -1389,11 +1389,11 @@ import { SvgDownload24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgDragHandle16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgDragHandle16 } from '@dhis2/ui-icons'
+import { SvgDragHandle16 } from '@dhis2/ui'
 ```
 
 
@@ -1408,11 +1408,11 @@ import { SvgDragHandle16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgDragHandle24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgDragHandle24 } from '@dhis2/ui-icons'
+import { SvgDragHandle24 } from '@dhis2/ui'
 ```
 
 
@@ -1427,11 +1427,11 @@ import { SvgDragHandle24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgDuplicate16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgDuplicate16 } from '@dhis2/ui-icons'
+import { SvgDuplicate16 } from '@dhis2/ui'
 ```
 
 
@@ -1446,11 +1446,11 @@ import { SvgDuplicate16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgDuplicate24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgDuplicate24 } from '@dhis2/ui-icons'
+import { SvgDuplicate24 } from '@dhis2/ui'
 ```
 
 
@@ -1465,11 +1465,11 @@ import { SvgDuplicate24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgEdit16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgEdit16 } from '@dhis2/ui-icons'
+import { SvgEdit16 } from '@dhis2/ui'
 ```
 
 
@@ -1484,11 +1484,11 @@ import { SvgEdit16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgEdit24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgEdit24 } from '@dhis2/ui-icons'
+import { SvgEdit24 } from '@dhis2/ui'
 ```
 
 
@@ -1503,11 +1503,11 @@ import { SvgEdit24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgEditItems16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgEditItems16 } from '@dhis2/ui-icons'
+import { SvgEditItems16 } from '@dhis2/ui'
 ```
 
 
@@ -1522,11 +1522,11 @@ import { SvgEditItems16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgEditItems24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgEditItems24 } from '@dhis2/ui-icons'
+import { SvgEditItems24 } from '@dhis2/ui'
 ```
 
 
@@ -1541,11 +1541,11 @@ import { SvgEditItems24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgEmptyFrame16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgEmptyFrame16 } from '@dhis2/ui-icons'
+import { SvgEmptyFrame16 } from '@dhis2/ui'
 ```
 
 
@@ -1560,11 +1560,11 @@ import { SvgEmptyFrame16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgEmptyFrame24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgEmptyFrame24 } from '@dhis2/ui-icons'
+import { SvgEmptyFrame24 } from '@dhis2/ui'
 ```
 
 
@@ -1579,11 +1579,11 @@ import { SvgEmptyFrame24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgError16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgError16 } from '@dhis2/ui-icons'
+import { SvgError16 } from '@dhis2/ui'
 ```
 
 
@@ -1598,11 +1598,11 @@ import { SvgError16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgError24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgError24 } from '@dhis2/ui-icons'
+import { SvgError24 } from '@dhis2/ui'
 ```
 
 
@@ -1617,11 +1617,11 @@ import { SvgError24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgErrorFilled16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgErrorFilled16 } from '@dhis2/ui-icons'
+import { SvgErrorFilled16 } from '@dhis2/ui'
 ```
 
 
@@ -1636,11 +1636,11 @@ import { SvgErrorFilled16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgErrorFilled24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgErrorFilled24 } from '@dhis2/ui-icons'
+import { SvgErrorFilled24 } from '@dhis2/ui'
 ```
 
 
@@ -1655,11 +1655,11 @@ import { SvgErrorFilled24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgExportItems24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgExportItems24 } from '@dhis2/ui-icons'
+import { SvgExportItems24 } from '@dhis2/ui'
 ```
 
 
@@ -1674,11 +1674,11 @@ import { SvgExportItems24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgFaceAdd16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgFaceAdd16 } from '@dhis2/ui-icons'
+import { SvgFaceAdd16 } from '@dhis2/ui'
 ```
 
 
@@ -1693,11 +1693,11 @@ import { SvgFaceAdd16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgFaceAdd24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgFaceAdd24 } from '@dhis2/ui-icons'
+import { SvgFaceAdd24 } from '@dhis2/ui'
 ```
 
 
@@ -1712,11 +1712,11 @@ import { SvgFaceAdd24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgFile16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgFile16 } from '@dhis2/ui-icons'
+import { SvgFile16 } from '@dhis2/ui'
 ```
 
 
@@ -1731,11 +1731,11 @@ import { SvgFile16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgFile24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgFile24 } from '@dhis2/ui-icons'
+import { SvgFile24 } from '@dhis2/ui'
 ```
 
 
@@ -1750,11 +1750,11 @@ import { SvgFile24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgFileDocument16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgFileDocument16 } from '@dhis2/ui-icons'
+import { SvgFileDocument16 } from '@dhis2/ui'
 ```
 
 
@@ -1769,11 +1769,11 @@ import { SvgFileDocument16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgFileDocument24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgFileDocument24 } from '@dhis2/ui-icons'
+import { SvgFileDocument24 } from '@dhis2/ui'
 ```
 
 
@@ -1788,11 +1788,11 @@ import { SvgFileDocument24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgFilter16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgFilter16 } from '@dhis2/ui-icons'
+import { SvgFilter16 } from '@dhis2/ui'
 ```
 
 
@@ -1807,11 +1807,11 @@ import { SvgFilter16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgFilter24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgFilter24 } from '@dhis2/ui-icons'
+import { SvgFilter24 } from '@dhis2/ui'
 ```
 
 
@@ -1826,11 +1826,11 @@ import { SvgFilter24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgFlag16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgFlag16 } from '@dhis2/ui-icons'
+import { SvgFlag16 } from '@dhis2/ui'
 ```
 
 
@@ -1845,11 +1845,11 @@ import { SvgFlag16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgFlag24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgFlag24 } from '@dhis2/ui-icons'
+import { SvgFlag24 } from '@dhis2/ui'
 ```
 
 
@@ -1864,11 +1864,11 @@ import { SvgFlag24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgFolder16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgFolder16 } from '@dhis2/ui-icons'
+import { SvgFolder16 } from '@dhis2/ui'
 ```
 
 
@@ -1883,11 +1883,11 @@ import { SvgFolder16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgFolder24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgFolder24 } from '@dhis2/ui-icons'
+import { SvgFolder24 } from '@dhis2/ui'
 ```
 
 
@@ -1902,11 +1902,11 @@ import { SvgFolder24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgFolderOpen16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgFolderOpen16 } from '@dhis2/ui-icons'
+import { SvgFolderOpen16 } from '@dhis2/ui'
 ```
 
 
@@ -1921,11 +1921,11 @@ import { SvgFolderOpen16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgFolderOpen24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgFolderOpen24 } from '@dhis2/ui-icons'
+import { SvgFolderOpen24 } from '@dhis2/ui'
 ```
 
 
@@ -1940,11 +1940,11 @@ import { SvgFolderOpen24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgFullscreen16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgFullscreen16 } from '@dhis2/ui-icons'
+import { SvgFullscreen16 } from '@dhis2/ui'
 ```
 
 
@@ -1959,11 +1959,11 @@ import { SvgFullscreen16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgFullscreen24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgFullscreen24 } from '@dhis2/ui-icons'
+import { SvgFullscreen24 } from '@dhis2/ui'
 ```
 
 
@@ -1978,11 +1978,11 @@ import { SvgFullscreen24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgFullscreenExit16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgFullscreenExit16 } from '@dhis2/ui-icons'
+import { SvgFullscreenExit16 } from '@dhis2/ui'
 ```
 
 
@@ -1997,11 +1997,11 @@ import { SvgFullscreenExit16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgFullscreenExit24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgFullscreenExit24 } from '@dhis2/ui-icons'
+import { SvgFullscreenExit24 } from '@dhis2/ui'
 ```
 
 
@@ -2016,11 +2016,11 @@ import { SvgFullscreenExit24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgHome16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgHome16 } from '@dhis2/ui-icons'
+import { SvgHome16 } from '@dhis2/ui'
 ```
 
 
@@ -2035,11 +2035,11 @@ import { SvgHome16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgHome24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgHome24 } from '@dhis2/ui-icons'
+import { SvgHome24 } from '@dhis2/ui'
 ```
 
 
@@ -2054,11 +2054,11 @@ import { SvgHome24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgImage16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgImage16 } from '@dhis2/ui-icons'
+import { SvgImage16 } from '@dhis2/ui'
 ```
 
 
@@ -2073,11 +2073,11 @@ import { SvgImage16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgImage24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgImage24 } from '@dhis2/ui-icons'
+import { SvgImage24 } from '@dhis2/ui'
 ```
 
 
@@ -2092,11 +2092,11 @@ import { SvgImage24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgImportItems24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgImportItems24 } from '@dhis2/ui-icons'
+import { SvgImportItems24 } from '@dhis2/ui'
 ```
 
 
@@ -2111,11 +2111,11 @@ import { SvgImportItems24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgInfo16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgInfo16 } from '@dhis2/ui-icons'
+import { SvgInfo16 } from '@dhis2/ui'
 ```
 
 
@@ -2130,11 +2130,11 @@ import { SvgInfo16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgInfo24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgInfo24 } from '@dhis2/ui-icons'
+import { SvgInfo24 } from '@dhis2/ui'
 ```
 
 
@@ -2149,11 +2149,11 @@ import { SvgInfo24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgInfoFilled16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgInfoFilled16 } from '@dhis2/ui-icons'
+import { SvgInfoFilled16 } from '@dhis2/ui'
 ```
 
 
@@ -2168,11 +2168,11 @@ import { SvgInfoFilled16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgInfoFilled24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgInfoFilled24 } from '@dhis2/ui-icons'
+import { SvgInfoFilled24 } from '@dhis2/ui'
 ```
 
 
@@ -2187,11 +2187,11 @@ import { SvgInfoFilled24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgLaunch16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgLaunch16 } from '@dhis2/ui-icons'
+import { SvgLaunch16 } from '@dhis2/ui'
 ```
 
 
@@ -2206,11 +2206,11 @@ import { SvgLaunch16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgLaunch24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgLaunch24 } from '@dhis2/ui-icons'
+import { SvgLaunch24 } from '@dhis2/ui'
 ```
 
 
@@ -2225,11 +2225,11 @@ import { SvgLaunch24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgLayoutColumns16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgLayoutColumns16 } from '@dhis2/ui-icons'
+import { SvgLayoutColumns16 } from '@dhis2/ui'
 ```
 
 
@@ -2244,11 +2244,11 @@ import { SvgLayoutColumns16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgLayoutColumns24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgLayoutColumns24 } from '@dhis2/ui-icons'
+import { SvgLayoutColumns24 } from '@dhis2/ui'
 ```
 
 
@@ -2263,11 +2263,11 @@ import { SvgLayoutColumns24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgLayoutRows16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgLayoutRows16 } from '@dhis2/ui-icons'
+import { SvgLayoutRows16 } from '@dhis2/ui'
 ```
 
 
@@ -2282,11 +2282,11 @@ import { SvgLayoutRows16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgLayoutRows24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgLayoutRows24 } from '@dhis2/ui-icons'
+import { SvgLayoutRows24 } from '@dhis2/ui'
 ```
 
 
@@ -2301,11 +2301,11 @@ import { SvgLayoutRows24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgLegend16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgLegend16 } from '@dhis2/ui-icons'
+import { SvgLegend16 } from '@dhis2/ui'
 ```
 
 
@@ -2320,11 +2320,11 @@ import { SvgLegend16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgLegend24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgLegend24 } from '@dhis2/ui-icons'
+import { SvgLegend24 } from '@dhis2/ui'
 ```
 
 
@@ -2339,11 +2339,11 @@ import { SvgLegend24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgLink16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgLink16 } from '@dhis2/ui-icons'
+import { SvgLink16 } from '@dhis2/ui'
 ```
 
 
@@ -2358,11 +2358,11 @@ import { SvgLink16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgLink24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgLink24 } from '@dhis2/ui-icons'
+import { SvgLink24 } from '@dhis2/ui'
 ```
 
 
@@ -2377,11 +2377,11 @@ import { SvgLink24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgList16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgList16 } from '@dhis2/ui-icons'
+import { SvgList16 } from '@dhis2/ui'
 ```
 
 
@@ -2396,11 +2396,11 @@ import { SvgList16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgList24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgList24 } from '@dhis2/ui-icons'
+import { SvgList24 } from '@dhis2/ui'
 ```
 
 
@@ -2415,11 +2415,11 @@ import { SvgList24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgLocation16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgLocation16 } from '@dhis2/ui-icons'
+import { SvgLocation16 } from '@dhis2/ui'
 ```
 
 
@@ -2434,11 +2434,11 @@ import { SvgLocation16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgLocation24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgLocation24 } from '@dhis2/ui-icons'
+import { SvgLocation24 } from '@dhis2/ui'
 ```
 
 
@@ -2453,11 +2453,11 @@ import { SvgLocation24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgLock16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgLock16 } from '@dhis2/ui-icons'
+import { SvgLock16 } from '@dhis2/ui'
 ```
 
 
@@ -2472,11 +2472,11 @@ import { SvgLock16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgLock24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgLock24 } from '@dhis2/ui-icons'
+import { SvgLock24 } from '@dhis2/ui'
 ```
 
 
@@ -2491,11 +2491,11 @@ import { SvgLock24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgLockOpen16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgLockOpen16 } from '@dhis2/ui-icons'
+import { SvgLockOpen16 } from '@dhis2/ui'
 ```
 
 
@@ -2510,11 +2510,11 @@ import { SvgLockOpen16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgLockOpen24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgLockOpen24 } from '@dhis2/ui-icons'
+import { SvgLockOpen24 } from '@dhis2/ui'
 ```
 
 
@@ -2529,11 +2529,11 @@ import { SvgLockOpen24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgLogOut16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgLogOut16 } from '@dhis2/ui-icons'
+import { SvgLogOut16 } from '@dhis2/ui'
 ```
 
 
@@ -2548,11 +2548,11 @@ import { SvgLogOut16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgLogOut24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgLogOut24 } from '@dhis2/ui-icons'
+import { SvgLogOut24 } from '@dhis2/ui'
 ```
 
 
@@ -2567,11 +2567,11 @@ import { SvgLogOut24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgMail16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgMail16 } from '@dhis2/ui-icons'
+import { SvgMail16 } from '@dhis2/ui'
 ```
 
 
@@ -2586,11 +2586,11 @@ import { SvgMail16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgMail24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgMail24 } from '@dhis2/ui-icons'
+import { SvgMail24 } from '@dhis2/ui'
 ```
 
 
@@ -2605,11 +2605,11 @@ import { SvgMail24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgMailOpen16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgMailOpen16 } from '@dhis2/ui-icons'
+import { SvgMailOpen16 } from '@dhis2/ui'
 ```
 
 
@@ -2624,11 +2624,11 @@ import { SvgMailOpen16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgMailOpen24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgMailOpen24 } from '@dhis2/ui-icons'
+import { SvgMailOpen24 } from '@dhis2/ui'
 ```
 
 
@@ -2643,11 +2643,11 @@ import { SvgMailOpen24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgMessages16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgMessages16 } from '@dhis2/ui-icons'
+import { SvgMessages16 } from '@dhis2/ui'
 ```
 
 
@@ -2662,11 +2662,11 @@ import { SvgMessages16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgMessages24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgMessages24 } from '@dhis2/ui-icons'
+import { SvgMessages24 } from '@dhis2/ui'
 ```
 
 
@@ -2681,11 +2681,11 @@ import { SvgMessages24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgMore16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgMore16 } from '@dhis2/ui-icons'
+import { SvgMore16 } from '@dhis2/ui'
 ```
 
 
@@ -2700,11 +2700,11 @@ import { SvgMore16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgMore24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgMore24 } from '@dhis2/ui-icons'
+import { SvgMore24 } from '@dhis2/ui'
 ```
 
 
@@ -2719,11 +2719,11 @@ import { SvgMore24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgMove16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgMove16 } from '@dhis2/ui-icons'
+import { SvgMove16 } from '@dhis2/ui'
 ```
 
 
@@ -2738,11 +2738,11 @@ import { SvgMove16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgMove24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgMove24 } from '@dhis2/ui-icons'
+import { SvgMove24 } from '@dhis2/ui'
 ```
 
 
@@ -2757,11 +2757,11 @@ import { SvgMove24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgPushLeft16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgPushLeft16 } from '@dhis2/ui-icons'
+import { SvgPushLeft16 } from '@dhis2/ui'
 ```
 
 
@@ -2776,11 +2776,11 @@ import { SvgPushLeft16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgPushLeft24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgPushLeft24 } from '@dhis2/ui-icons'
+import { SvgPushLeft24 } from '@dhis2/ui'
 ```
 
 
@@ -2795,11 +2795,11 @@ import { SvgPushLeft24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgPushRight16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgPushRight16 } from '@dhis2/ui-icons'
+import { SvgPushRight16 } from '@dhis2/ui'
 ```
 
 
@@ -2814,11 +2814,11 @@ import { SvgPushRight16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgPushRight24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgPushRight24 } from '@dhis2/ui-icons'
+import { SvgPushRight24 } from '@dhis2/ui'
 ```
 
 
@@ -2833,11 +2833,11 @@ import { SvgPushRight24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgQuestion16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgQuestion16 } from '@dhis2/ui-icons'
+import { SvgQuestion16 } from '@dhis2/ui'
 ```
 
 
@@ -2852,11 +2852,11 @@ import { SvgQuestion16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgQuestion24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgQuestion24 } from '@dhis2/ui-icons'
+import { SvgQuestion24 } from '@dhis2/ui'
 ```
 
 
@@ -2871,11 +2871,11 @@ import { SvgQuestion24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgQuestionFilled16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgQuestionFilled16 } from '@dhis2/ui-icons'
+import { SvgQuestionFilled16 } from '@dhis2/ui'
 ```
 
 
@@ -2890,11 +2890,11 @@ import { SvgQuestionFilled16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgQuestionFilled24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgQuestionFilled24 } from '@dhis2/ui-icons'
+import { SvgQuestionFilled24 } from '@dhis2/ui'
 ```
 
 
@@ -2909,11 +2909,11 @@ import { SvgQuestionFilled24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgQueue16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgQueue16 } from '@dhis2/ui-icons'
+import { SvgQueue16 } from '@dhis2/ui'
 ```
 
 
@@ -2928,11 +2928,11 @@ import { SvgQueue16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgQueue24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgQueue24 } from '@dhis2/ui-icons'
+import { SvgQueue24 } from '@dhis2/ui'
 ```
 
 
@@ -2947,11 +2947,11 @@ import { SvgQueue24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgRedo16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgRedo16 } from '@dhis2/ui-icons'
+import { SvgRedo16 } from '@dhis2/ui'
 ```
 
 
@@ -2966,11 +2966,11 @@ import { SvgRedo16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgRedo24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgRedo24 } from '@dhis2/ui-icons'
+import { SvgRedo24 } from '@dhis2/ui'
 ```
 
 
@@ -2985,11 +2985,11 @@ import { SvgRedo24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgReorder16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgReorder16 } from '@dhis2/ui-icons'
+import { SvgReorder16 } from '@dhis2/ui'
 ```
 
 
@@ -3004,11 +3004,11 @@ import { SvgReorder16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgReorder24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgReorder24 } from '@dhis2/ui-icons'
+import { SvgReorder24 } from '@dhis2/ui'
 ```
 
 
@@ -3023,11 +3023,11 @@ import { SvgReorder24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgReply16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgReply16 } from '@dhis2/ui-icons'
+import { SvgReply16 } from '@dhis2/ui'
 ```
 
 
@@ -3042,11 +3042,11 @@ import { SvgReply16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgReply24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgReply24 } from '@dhis2/ui-icons'
+import { SvgReply24 } from '@dhis2/ui'
 ```
 
 
@@ -3061,11 +3061,11 @@ import { SvgReply24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgRuler16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgRuler16 } from '@dhis2/ui-icons'
+import { SvgRuler16 } from '@dhis2/ui'
 ```
 
 
@@ -3080,11 +3080,11 @@ import { SvgRuler16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgRuler24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgRuler24 } from '@dhis2/ui-icons'
+import { SvgRuler24 } from '@dhis2/ui'
 ```
 
 
@@ -3099,11 +3099,11 @@ import { SvgRuler24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgSave16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgSave16 } from '@dhis2/ui-icons'
+import { SvgSave16 } from '@dhis2/ui'
 ```
 
 
@@ -3118,11 +3118,11 @@ import { SvgSave16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgSave24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgSave24 } from '@dhis2/ui-icons'
+import { SvgSave24 } from '@dhis2/ui'
 ```
 
 
@@ -3137,11 +3137,11 @@ import { SvgSave24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgSearch16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgSearch16 } from '@dhis2/ui-icons'
+import { SvgSearch16 } from '@dhis2/ui'
 ```
 
 
@@ -3156,11 +3156,11 @@ import { SvgSearch16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgSearch24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgSearch24 } from '@dhis2/ui-icons'
+import { SvgSearch24 } from '@dhis2/ui'
 ```
 
 
@@ -3175,11 +3175,11 @@ import { SvgSearch24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgSettings16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgSettings16 } from '@dhis2/ui-icons'
+import { SvgSettings16 } from '@dhis2/ui'
 ```
 
 
@@ -3194,11 +3194,11 @@ import { SvgSettings16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgSettings24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgSettings24 } from '@dhis2/ui-icons'
+import { SvgSettings24 } from '@dhis2/ui'
 ```
 
 
@@ -3213,11 +3213,11 @@ import { SvgSettings24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgShare16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgShare16 } from '@dhis2/ui-icons'
+import { SvgShare16 } from '@dhis2/ui'
 ```
 
 
@@ -3232,11 +3232,11 @@ import { SvgShare16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgShare24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgShare24 } from '@dhis2/ui-icons'
+import { SvgShare24 } from '@dhis2/ui'
 ```
 
 
@@ -3251,11 +3251,11 @@ import { SvgShare24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgStar16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgStar16 } from '@dhis2/ui-icons'
+import { SvgStar16 } from '@dhis2/ui'
 ```
 
 
@@ -3270,11 +3270,11 @@ import { SvgStar16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgStar24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgStar24 } from '@dhis2/ui-icons'
+import { SvgStar24 } from '@dhis2/ui'
 ```
 
 
@@ -3289,11 +3289,11 @@ import { SvgStar24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgStarFilled16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgStarFilled16 } from '@dhis2/ui-icons'
+import { SvgStarFilled16 } from '@dhis2/ui'
 ```
 
 
@@ -3308,11 +3308,11 @@ import { SvgStarFilled16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgStarFilled24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgStarFilled24 } from '@dhis2/ui-icons'
+import { SvgStarFilled24 } from '@dhis2/ui'
 ```
 
 
@@ -3327,11 +3327,11 @@ import { SvgStarFilled24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgSubscribe16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgSubscribe16 } from '@dhis2/ui-icons'
+import { SvgSubscribe16 } from '@dhis2/ui'
 ```
 
 
@@ -3346,11 +3346,11 @@ import { SvgSubscribe16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgSubscribe24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgSubscribe24 } from '@dhis2/ui-icons'
+import { SvgSubscribe24 } from '@dhis2/ui'
 ```
 
 
@@ -3365,11 +3365,11 @@ import { SvgSubscribe24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgSubscribeOff16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgSubscribeOff16 } from '@dhis2/ui-icons'
+import { SvgSubscribeOff16 } from '@dhis2/ui'
 ```
 
 
@@ -3384,11 +3384,11 @@ import { SvgSubscribeOff16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgSubscribeOff24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgSubscribeOff24 } from '@dhis2/ui-icons'
+import { SvgSubscribeOff24 } from '@dhis2/ui'
 ```
 
 
@@ -3403,11 +3403,11 @@ import { SvgSubscribeOff24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgSubtract16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgSubtract16 } from '@dhis2/ui-icons'
+import { SvgSubtract16 } from '@dhis2/ui'
 ```
 
 
@@ -3422,11 +3422,11 @@ import { SvgSubtract16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgSubtract24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgSubtract24 } from '@dhis2/ui-icons'
+import { SvgSubtract24 } from '@dhis2/ui'
 ```
 
 
@@ -3441,11 +3441,11 @@ import { SvgSubtract24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgSubtractCircle16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgSubtractCircle16 } from '@dhis2/ui-icons'
+import { SvgSubtractCircle16 } from '@dhis2/ui'
 ```
 
 
@@ -3460,11 +3460,11 @@ import { SvgSubtractCircle16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgSubtractCircle24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgSubtractCircle24 } from '@dhis2/ui-icons'
+import { SvgSubtractCircle24 } from '@dhis2/ui'
 ```
 
 
@@ -3479,11 +3479,11 @@ import { SvgSubtractCircle24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgSync16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgSync16 } from '@dhis2/ui-icons'
+import { SvgSync16 } from '@dhis2/ui'
 ```
 
 
@@ -3498,11 +3498,11 @@ import { SvgSync16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgSync24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgSync24 } from '@dhis2/ui-icons'
+import { SvgSync24 } from '@dhis2/ui'
 ```
 
 
@@ -3517,11 +3517,11 @@ import { SvgSync24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgTable16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgTable16 } from '@dhis2/ui-icons'
+import { SvgTable16 } from '@dhis2/ui'
 ```
 
 
@@ -3536,11 +3536,11 @@ import { SvgTable16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgTable24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgTable24 } from '@dhis2/ui-icons'
+import { SvgTable24 } from '@dhis2/ui'
 ```
 
 
@@ -3555,11 +3555,11 @@ import { SvgTable24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgTerminalWindow16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgTerminalWindow16 } from '@dhis2/ui-icons'
+import { SvgTerminalWindow16 } from '@dhis2/ui'
 ```
 
 
@@ -3574,11 +3574,11 @@ import { SvgTerminalWindow16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgTerminalWindow24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgTerminalWindow24 } from '@dhis2/ui-icons'
+import { SvgTerminalWindow24 } from '@dhis2/ui'
 ```
 
 
@@ -3593,11 +3593,11 @@ import { SvgTerminalWindow24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgTextBold16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgTextBold16 } from '@dhis2/ui-icons'
+import { SvgTextBold16 } from '@dhis2/ui'
 ```
 
 
@@ -3612,11 +3612,11 @@ import { SvgTextBold16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgTextBold24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgTextBold24 } from '@dhis2/ui-icons'
+import { SvgTextBold24 } from '@dhis2/ui'
 ```
 
 
@@ -3631,11 +3631,11 @@ import { SvgTextBold24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgTextBox16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgTextBox16 } from '@dhis2/ui-icons'
+import { SvgTextBox16 } from '@dhis2/ui'
 ```
 
 
@@ -3650,11 +3650,11 @@ import { SvgTextBox16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgTextBox24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgTextBox24 } from '@dhis2/ui-icons'
+import { SvgTextBox24 } from '@dhis2/ui'
 ```
 
 
@@ -3669,11 +3669,11 @@ import { SvgTextBox24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgTextHeading16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgTextHeading16 } from '@dhis2/ui-icons'
+import { SvgTextHeading16 } from '@dhis2/ui'
 ```
 
 
@@ -3688,11 +3688,11 @@ import { SvgTextHeading16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgTextHeading24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgTextHeading24 } from '@dhis2/ui-icons'
+import { SvgTextHeading24 } from '@dhis2/ui'
 ```
 
 
@@ -3707,11 +3707,11 @@ import { SvgTextHeading24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgTextItalic16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgTextItalic16 } from '@dhis2/ui-icons'
+import { SvgTextItalic16 } from '@dhis2/ui'
 ```
 
 
@@ -3726,11 +3726,11 @@ import { SvgTextItalic16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgTextItalic24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgTextItalic24 } from '@dhis2/ui-icons'
+import { SvgTextItalic24 } from '@dhis2/ui'
 ```
 
 
@@ -3745,11 +3745,11 @@ import { SvgTextItalic24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgTextListOrdered16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgTextListOrdered16 } from '@dhis2/ui-icons'
+import { SvgTextListOrdered16 } from '@dhis2/ui'
 ```
 
 
@@ -3764,11 +3764,11 @@ import { SvgTextListOrdered16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgTextListOrdered24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgTextListOrdered24 } from '@dhis2/ui-icons'
+import { SvgTextListOrdered24 } from '@dhis2/ui'
 ```
 
 
@@ -3783,11 +3783,11 @@ import { SvgTextListOrdered24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgTextListUnordered16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgTextListUnordered16 } from '@dhis2/ui-icons'
+import { SvgTextListUnordered16 } from '@dhis2/ui'
 ```
 
 
@@ -3802,11 +3802,11 @@ import { SvgTextListUnordered16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgTextListUnordered24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgTextListUnordered24 } from '@dhis2/ui-icons'
+import { SvgTextListUnordered24 } from '@dhis2/ui'
 ```
 
 
@@ -3821,11 +3821,11 @@ import { SvgTextListUnordered24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgThumbDown16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgThumbDown16 } from '@dhis2/ui-icons'
+import { SvgThumbDown16 } from '@dhis2/ui'
 ```
 
 
@@ -3840,11 +3840,11 @@ import { SvgThumbDown16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgThumbDown24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgThumbDown24 } from '@dhis2/ui-icons'
+import { SvgThumbDown24 } from '@dhis2/ui'
 ```
 
 
@@ -3859,11 +3859,11 @@ import { SvgThumbDown24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgThumbUp16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgThumbUp16 } from '@dhis2/ui-icons'
+import { SvgThumbUp16 } from '@dhis2/ui'
 ```
 
 
@@ -3878,11 +3878,11 @@ import { SvgThumbUp16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgThumbUp24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgThumbUp24 } from '@dhis2/ui-icons'
+import { SvgThumbUp24 } from '@dhis2/ui'
 ```
 
 
@@ -3897,11 +3897,11 @@ import { SvgThumbUp24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgTranslate16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgTranslate16 } from '@dhis2/ui-icons'
+import { SvgTranslate16 } from '@dhis2/ui'
 ```
 
 
@@ -3916,11 +3916,11 @@ import { SvgTranslate16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgTranslate24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgTranslate24 } from '@dhis2/ui-icons'
+import { SvgTranslate24 } from '@dhis2/ui'
 ```
 
 
@@ -3935,11 +3935,11 @@ import { SvgTranslate24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgUndo16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgUndo16 } from '@dhis2/ui-icons'
+import { SvgUndo16 } from '@dhis2/ui'
 ```
 
 
@@ -3954,11 +3954,11 @@ import { SvgUndo16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgUndo24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgUndo24 } from '@dhis2/ui-icons'
+import { SvgUndo24 } from '@dhis2/ui'
 ```
 
 
@@ -3973,11 +3973,11 @@ import { SvgUndo24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgUpload16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgUpload16 } from '@dhis2/ui-icons'
+import { SvgUpload16 } from '@dhis2/ui'
 ```
 
 
@@ -3992,11 +3992,11 @@ import { SvgUpload16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgUpload24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgUpload24 } from '@dhis2/ui-icons'
+import { SvgUpload24 } from '@dhis2/ui'
 ```
 
 
@@ -4011,11 +4011,11 @@ import { SvgUpload24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgUser16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgUser16 } from '@dhis2/ui-icons'
+import { SvgUser16 } from '@dhis2/ui'
 ```
 
 
@@ -4030,11 +4030,11 @@ import { SvgUser16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgUser24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgUser24 } from '@dhis2/ui-icons'
+import { SvgUser24 } from '@dhis2/ui'
 ```
 
 
@@ -4049,11 +4049,11 @@ import { SvgUser24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgUserGroup16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgUserGroup16 } from '@dhis2/ui-icons'
+import { SvgUserGroup16 } from '@dhis2/ui'
 ```
 
 
@@ -4068,11 +4068,11 @@ import { SvgUserGroup16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgUserGroup24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgUserGroup24 } from '@dhis2/ui-icons'
+import { SvgUserGroup24 } from '@dhis2/ui'
 ```
 
 
@@ -4087,11 +4087,11 @@ import { SvgUserGroup24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgView16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgView16 } from '@dhis2/ui-icons'
+import { SvgView16 } from '@dhis2/ui'
 ```
 
 
@@ -4106,11 +4106,11 @@ import { SvgView16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgView24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgView24 } from '@dhis2/ui-icons'
+import { SvgView24 } from '@dhis2/ui'
 ```
 
 
@@ -4125,11 +4125,11 @@ import { SvgView24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgViewOff16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgViewOff16 } from '@dhis2/ui-icons'
+import { SvgViewOff16 } from '@dhis2/ui'
 ```
 
 
@@ -4144,11 +4144,11 @@ import { SvgViewOff16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgViewOff24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgViewOff24 } from '@dhis2/ui-icons'
+import { SvgViewOff24 } from '@dhis2/ui'
 ```
 
 
@@ -4163,11 +4163,11 @@ import { SvgViewOff24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationArea16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationArea16 } from '@dhis2/ui-icons'
+import { SvgVisualizationArea16 } from '@dhis2/ui'
 ```
 
 
@@ -4182,11 +4182,11 @@ import { SvgVisualizationArea16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationArea24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationArea24 } from '@dhis2/ui-icons'
+import { SvgVisualizationArea24 } from '@dhis2/ui'
 ```
 
 
@@ -4201,11 +4201,11 @@ import { SvgVisualizationArea24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationAreaStacked16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationAreaStacked16 } from '@dhis2/ui-icons'
+import { SvgVisualizationAreaStacked16 } from '@dhis2/ui'
 ```
 
 
@@ -4220,11 +4220,11 @@ import { SvgVisualizationAreaStacked16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationAreaStacked24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationAreaStacked24 } from '@dhis2/ui-icons'
+import { SvgVisualizationAreaStacked24 } from '@dhis2/ui'
 ```
 
 
@@ -4239,11 +4239,11 @@ import { SvgVisualizationAreaStacked24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationBar16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationBar16 } from '@dhis2/ui-icons'
+import { SvgVisualizationBar16 } from '@dhis2/ui'
 ```
 
 
@@ -4258,11 +4258,11 @@ import { SvgVisualizationBar16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationBar24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationBar24 } from '@dhis2/ui-icons'
+import { SvgVisualizationBar24 } from '@dhis2/ui'
 ```
 
 
@@ -4277,11 +4277,11 @@ import { SvgVisualizationBar24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationBarStacked16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationBarStacked16 } from '@dhis2/ui-icons'
+import { SvgVisualizationBarStacked16 } from '@dhis2/ui'
 ```
 
 
@@ -4296,11 +4296,11 @@ import { SvgVisualizationBarStacked16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationBarStacked24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationBarStacked24 } from '@dhis2/ui-icons'
+import { SvgVisualizationBarStacked24 } from '@dhis2/ui'
 ```
 
 
@@ -4315,11 +4315,11 @@ import { SvgVisualizationBarStacked24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationColumn16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationColumn16 } from '@dhis2/ui-icons'
+import { SvgVisualizationColumn16 } from '@dhis2/ui'
 ```
 
 
@@ -4334,11 +4334,11 @@ import { SvgVisualizationColumn16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationColumn24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationColumn24 } from '@dhis2/ui-icons'
+import { SvgVisualizationColumn24 } from '@dhis2/ui'
 ```
 
 
@@ -4353,11 +4353,11 @@ import { SvgVisualizationColumn24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationColumnMulti16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationColumnMulti16 } from '@dhis2/ui-icons'
+import { SvgVisualizationColumnMulti16 } from '@dhis2/ui'
 ```
 
 
@@ -4372,11 +4372,11 @@ import { SvgVisualizationColumnMulti16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationColumnMulti24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationColumnMulti24 } from '@dhis2/ui-icons'
+import { SvgVisualizationColumnMulti24 } from '@dhis2/ui'
 ```
 
 
@@ -4391,11 +4391,11 @@ import { SvgVisualizationColumnMulti24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationColumnStacked16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationColumnStacked16 } from '@dhis2/ui-icons'
+import { SvgVisualizationColumnStacked16 } from '@dhis2/ui'
 ```
 
 
@@ -4410,11 +4410,11 @@ import { SvgVisualizationColumnStacked16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationColumnStacked24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationColumnStacked24 } from '@dhis2/ui-icons'
+import { SvgVisualizationColumnStacked24 } from '@dhis2/ui'
 ```
 
 
@@ -4429,11 +4429,11 @@ import { SvgVisualizationColumnStacked24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationGauge16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationGauge16 } from '@dhis2/ui-icons'
+import { SvgVisualizationGauge16 } from '@dhis2/ui'
 ```
 
 
@@ -4448,11 +4448,11 @@ import { SvgVisualizationGauge16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationGauge24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationGauge24 } from '@dhis2/ui-icons'
+import { SvgVisualizationGauge24 } from '@dhis2/ui'
 ```
 
 
@@ -4467,11 +4467,11 @@ import { SvgVisualizationGauge24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationLine16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationLine16 } from '@dhis2/ui-icons'
+import { SvgVisualizationLine16 } from '@dhis2/ui'
 ```
 
 
@@ -4486,11 +4486,11 @@ import { SvgVisualizationLine16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationLine24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationLine24 } from '@dhis2/ui-icons'
+import { SvgVisualizationLine24 } from '@dhis2/ui'
 ```
 
 
@@ -4505,11 +4505,11 @@ import { SvgVisualizationLine24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationLineMulti16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationLineMulti16 } from '@dhis2/ui-icons'
+import { SvgVisualizationLineMulti16 } from '@dhis2/ui'
 ```
 
 
@@ -4524,11 +4524,11 @@ import { SvgVisualizationLineMulti16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationLineMulti24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationLineMulti24 } from '@dhis2/ui-icons'
+import { SvgVisualizationLineMulti24 } from '@dhis2/ui'
 ```
 
 
@@ -4543,11 +4543,11 @@ import { SvgVisualizationLineMulti24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationLinelist16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationLinelist16 } from '@dhis2/ui-icons'
+import { SvgVisualizationLinelist16 } from '@dhis2/ui'
 ```
 
 
@@ -4562,11 +4562,11 @@ import { SvgVisualizationLinelist16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationLinelist24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationLinelist24 } from '@dhis2/ui-icons'
+import { SvgVisualizationLinelist24 } from '@dhis2/ui'
 ```
 
 
@@ -4581,11 +4581,11 @@ import { SvgVisualizationLinelist24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationPie16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationPie16 } from '@dhis2/ui-icons'
+import { SvgVisualizationPie16 } from '@dhis2/ui'
 ```
 
 
@@ -4600,11 +4600,11 @@ import { SvgVisualizationPie16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationPie24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationPie24 } from '@dhis2/ui-icons'
+import { SvgVisualizationPie24 } from '@dhis2/ui'
 ```
 
 
@@ -4619,11 +4619,11 @@ import { SvgVisualizationPie24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationPivotTable16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationPivotTable16 } from '@dhis2/ui-icons'
+import { SvgVisualizationPivotTable16 } from '@dhis2/ui'
 ```
 
 
@@ -4638,11 +4638,11 @@ import { SvgVisualizationPivotTable16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationPivotTable24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationPivotTable24 } from '@dhis2/ui-icons'
+import { SvgVisualizationPivotTable24 } from '@dhis2/ui'
 ```
 
 
@@ -4657,11 +4657,11 @@ import { SvgVisualizationPivotTable24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationRadar16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationRadar16 } from '@dhis2/ui-icons'
+import { SvgVisualizationRadar16 } from '@dhis2/ui'
 ```
 
 
@@ -4676,11 +4676,11 @@ import { SvgVisualizationRadar16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationRadar24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationRadar24 } from '@dhis2/ui-icons'
+import { SvgVisualizationRadar24 } from '@dhis2/ui'
 ```
 
 
@@ -4695,11 +4695,11 @@ import { SvgVisualizationRadar24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationScatter16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationScatter16 } from '@dhis2/ui-icons'
+import { SvgVisualizationScatter16 } from '@dhis2/ui'
 ```
 
 
@@ -4714,11 +4714,11 @@ import { SvgVisualizationScatter16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationScatter24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationScatter24 } from '@dhis2/ui-icons'
+import { SvgVisualizationScatter24 } from '@dhis2/ui'
 ```
 
 
@@ -4733,11 +4733,11 @@ import { SvgVisualizationScatter24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationSingleValue16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationSingleValue16 } from '@dhis2/ui-icons'
+import { SvgVisualizationSingleValue16 } from '@dhis2/ui'
 ```
 
 
@@ -4752,11 +4752,11 @@ import { SvgVisualizationSingleValue16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgVisualizationSingleValue24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationSingleValue24 } from '@dhis2/ui-icons'
+import { SvgVisualizationSingleValue24 } from '@dhis2/ui'
 ```
 
 
@@ -4771,11 +4771,11 @@ import { SvgVisualizationSingleValue24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgWarning16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgWarning16 } from '@dhis2/ui-icons'
+import { SvgWarning16 } from '@dhis2/ui'
 ```
 
 
@@ -4790,11 +4790,11 @@ import { SvgWarning16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgWarning24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgWarning24 } from '@dhis2/ui-icons'
+import { SvgWarning24 } from '@dhis2/ui'
 ```
 
 
@@ -4809,11 +4809,11 @@ import { SvgWarning24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgWarningFilled16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgWarningFilled16 } from '@dhis2/ui-icons'
+import { SvgWarningFilled16 } from '@dhis2/ui'
 ```
 
 
@@ -4828,11 +4828,11 @@ import { SvgWarningFilled16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgWarningFilled24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgWarningFilled24 } from '@dhis2/ui-icons'
+import { SvgWarningFilled24 } from '@dhis2/ui'
 ```
 
 
@@ -4847,11 +4847,11 @@ import { SvgWarningFilled24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgWindow16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgWindow16 } from '@dhis2/ui-icons'
+import { SvgWindow16 } from '@dhis2/ui'
 ```
 
 
@@ -4866,11 +4866,11 @@ import { SvgWindow16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgWindow24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgWindow24 } from '@dhis2/ui-icons'
+import { SvgWindow24 } from '@dhis2/ui'
 ```
 
 
@@ -4885,11 +4885,11 @@ import { SvgWindow24 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgWorld16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgWorld16 } from '@dhis2/ui-icons'
+import { SvgWorld16 } from '@dhis2/ui'
 ```
 
 
@@ -4904,11 +4904,11 @@ import { SvgWorld16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SvgWorld24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgWorld24 } from '@dhis2/ui-icons'
+import { SvgWorld24 } from '@dhis2/ui'
 ```
 
 

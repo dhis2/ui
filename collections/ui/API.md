@@ -2,7 +2,7 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `AlertBar`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -31,7 +31,7 @@ import { AlertBar } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `AlertStack`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -51,7 +51,7 @@ import { AlertStack } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Box`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -79,7 +79,7 @@ import { Box } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Button`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -117,7 +117,7 @@ import { Button } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `ButtonStrip`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -139,7 +139,7 @@ import { ButtonStrip } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `DropdownButton`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -174,7 +174,7 @@ import { DropdownButton } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SplitButton`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -208,7 +208,7 @@ import { SplitButton } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Calendar`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -235,7 +235,7 @@ import { Calendar } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Card`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -255,7 +255,7 @@ import { Card } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Center`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -276,7 +276,7 @@ import { Center } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Checkbox`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -311,7 +311,7 @@ import { Checkbox } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `CheckboxField`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -348,7 +348,7 @@ import { CheckboxField } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Chip`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -380,7 +380,7 @@ import { Chip } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Cover`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -402,7 +402,7 @@ import { Cover } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `CssReset`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -415,7 +415,7 @@ import { CssReset } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `CssVariables`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -437,7 +437,7 @@ import { CssVariables } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Divider`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -458,7 +458,7 @@ import { Divider } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Field`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -487,7 +487,7 @@ import { Field } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `FieldGroup`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -516,7 +516,7 @@ import { FieldGroup } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `FieldSet`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -536,7 +536,7 @@ import { FieldSet } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `FileInput`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -571,7 +571,7 @@ import { FileInput } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `FileInputField`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -612,7 +612,7 @@ import { FileInputField } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `FileListItem`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -637,7 +637,7 @@ import { FileListItem } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `FileListPlaceholder`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -656,7 +656,7 @@ import { FileListPlaceholder } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `FileList`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -676,7 +676,7 @@ import { FileList } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `HeaderBar`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -697,7 +697,7 @@ import { HeaderBar } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Logo`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -710,7 +710,7 @@ import { Logo } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Help`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -733,7 +733,7 @@ import { Help } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Input`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -774,7 +774,7 @@ import { Input } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `InputField`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -819,7 +819,7 @@ import { InputField } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `IntersectionDetector`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -842,7 +842,7 @@ import { IntersectionDetector } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Label`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -865,7 +865,7 @@ import { Label } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Layer`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -891,7 +891,7 @@ import { Layer } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Legend`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -912,7 +912,7 @@ import { Legend } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `CircularLoader`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -935,7 +935,7 @@ import { CircularLoader } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `LinearLoader`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -958,7 +958,7 @@ import { LinearLoader } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `LogoIcon`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -977,7 +977,7 @@ import { LogoIcon } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `LogoIconWhite`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -996,7 +996,7 @@ import { LogoIconWhite } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Logo`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1015,7 +1015,7 @@ import { Logo } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `LogoWhite`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1034,7 +1034,7 @@ import { LogoWhite } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `FlyoutMenu`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1057,7 +1057,7 @@ import { FlyoutMenu } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Menu`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1078,7 +1078,7 @@ import { Menu } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `MenuDivider`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1098,7 +1098,7 @@ import { MenuDivider } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `MenuItem`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1132,7 +1132,7 @@ import { MenuItem } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `MenuSectionHeader`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1154,7 +1154,7 @@ import { MenuSectionHeader } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Modal`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1180,7 +1180,7 @@ import { Modal } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `ModalActions`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1199,7 +1199,7 @@ import { ModalActions } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `ModalContent`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1219,7 +1219,7 @@ import { ModalContent } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `ModalTitle`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1238,7 +1238,7 @@ import { ModalTitle } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Node`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1263,7 +1263,7 @@ import { Node } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `NoticeBox`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1287,7 +1287,7 @@ import { NoticeBox } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `OrganisationUnitTreeRootError`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1306,7 +1306,7 @@ import { OrganisationUnitTreeRootError } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `OrganisationUnitTreeRootLoading`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1324,7 +1324,7 @@ import { OrganisationUnitTreeRootLoading } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `OrganisationUnitTree`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1361,7 +1361,7 @@ import { OrganisationUnitTree } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Label`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1394,7 +1394,7 @@ import { Label } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Pagination`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1431,7 +1431,7 @@ import { Pagination } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Popover`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1459,7 +1459,7 @@ import { Popover } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Popper`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1486,7 +1486,7 @@ import { Popper } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Radio`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1520,7 +1520,7 @@ import { Radio } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Required`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1538,7 +1538,7 @@ import { Required } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SegmentedControl`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1558,7 +1558,7 @@ import { SegmentedControl } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Input`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1586,7 +1586,7 @@ import { Input } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Menu`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1608,7 +1608,7 @@ import { Menu } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `MultiSelect`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1652,7 +1652,7 @@ import { MultiSelect } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `MultiSelectField`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1701,7 +1701,7 @@ import { MultiSelectField } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `MultiSelectOption`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1725,7 +1725,7 @@ import { MultiSelectOption } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Input`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1753,7 +1753,7 @@ import { Input } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Menu`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1777,7 +1777,7 @@ import { Menu } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SingleSelect`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1821,7 +1821,7 @@ import { SingleSelect } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SingleSelectField`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1870,7 +1870,7 @@ import { SingleSelectField } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SingleSelectOption`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1894,7 +1894,7 @@ import { SingleSelectOption } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SelectorBar`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1917,7 +1917,7 @@ import { SelectorBar } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SelectorBarItem`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -1945,7 +1945,7 @@ import { SelectorBarItem } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SharingDialog`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2006,7 +2006,7 @@ import { SharingDialog } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Modal`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2026,7 +2026,7 @@ import { Modal } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Switch`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2062,7 +2062,7 @@ import { Switch } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SwitchField`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2099,7 +2099,7 @@ import { SwitchField } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Tab`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2123,7 +2123,7 @@ import { Tab } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TabBar`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2145,7 +2145,7 @@ import { TabBar } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `DataTableCell`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2183,7 +2183,7 @@ import { DataTableCell } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `DataTable`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2208,7 +2208,7 @@ import { DataTable } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `StackedTableBody`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2228,7 +2228,7 @@ import { StackedTableBody } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `StackedTableCellHead`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2250,7 +2250,7 @@ import { StackedTableCellHead } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `StackedTableCell`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2276,7 +2276,7 @@ import { StackedTableCell } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `StackedTableFoot`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2296,7 +2296,7 @@ import { StackedTableFoot } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `StackedTableHead`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2316,7 +2316,7 @@ import { StackedTableHead } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `StackedTableRowHead`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2336,7 +2336,7 @@ import { StackedTableRowHead } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `StackedTableRow`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2356,7 +2356,7 @@ import { StackedTableRow } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `StackedTable`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2377,7 +2377,7 @@ import { StackedTable } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Table`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2397,7 +2397,7 @@ import { Table } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TableBody`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2418,7 +2418,7 @@ import { TableBody } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TableCellHead`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2442,7 +2442,7 @@ import { TableCellHead } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TableCell`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2466,7 +2466,7 @@ import { TableCell } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TableFoot`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2487,7 +2487,7 @@ import { TableFoot } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TableHead`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2508,7 +2508,7 @@ import { TableHead } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TableRowHead`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2530,7 +2530,7 @@ import { TableRowHead } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TableRow`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2552,7 +2552,7 @@ import { TableRow } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Table`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2574,7 +2574,7 @@ import { Table } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `DataTableColumnHeader`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2611,7 +2611,7 @@ import { DataTableColumnHeader } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `DataTableRow`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2637,7 +2637,7 @@ import { DataTableRow } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TableBody`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2659,7 +2659,7 @@ import { TableBody } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TableFoot`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2680,7 +2680,7 @@ import { TableFoot } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TableHead`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2701,7 +2701,7 @@ import { TableHead } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TableRow`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2724,7 +2724,7 @@ import { TableRow } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Table`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2748,7 +2748,7 @@ import { Table } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Tag`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2774,7 +2774,7 @@ import { Tag } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TextArea`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2813,7 +2813,7 @@ import { TextArea } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TextAreaField`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2856,7 +2856,7 @@ import { TextAreaField } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Tooltip`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2881,7 +2881,7 @@ import { Tooltip } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TransferOption`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2906,7 +2906,7 @@ import { TransferOption } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Transfer`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
@@ -2965,7 +2965,7 @@ import { Transfer } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `UserAvatar`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
