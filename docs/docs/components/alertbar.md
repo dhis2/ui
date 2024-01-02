@@ -20,9 +20,9 @@ An alert bar communicates something to the user by showing a prominent, floating
 
 ### When to use
 
-- **Tell the user about something important**. Alert bars should only be used for information the user needs to know about.
-- **To inform without blocking**. An alert bar doesn't block the rest of the page, so it should be used to communicate when the user doesn't need to be pulled out of a workflow.
-- **Confirm important actions**. A successful alert bar can tell the user that something was saved successfully without stopping them from moving on.
+-   **Tell the user about something important**. Alert bars should only be used for information the user needs to know about.
+-   **To inform without blocking**. An alert bar doesn't block the rest of the page, so it should be used to communicate when the user doesn't need to be pulled out of a workflow.
+-   **Confirm important actions**. A successful alert bar can tell the user that something was saved successfully without stopping them from moving on.
 
 ### When not to use
 
