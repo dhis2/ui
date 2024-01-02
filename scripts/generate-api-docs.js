@@ -76,11 +76,16 @@ const format = ({ ast, pkg }) => {
     table += `### ${ast.displayName}\n\n`
 
     if (pkg?.name) {
+        // alter Svg to Icon as the actually exported value is Icon, not Svg
+        const toDisplayName =
+            ast.displayName.indexOf('Svg') !== -1
+                ? ast.displayName.replace('Svg', 'Icon')
+                : ast.displayName
         table += '#### Usage\n\n'
-        table += `To use \`${ast.displayName}\`, you can import the component from the \`@dhis2/ui\` library  \n\n`
+        table += `To use \`${toDisplayName}\`, you can import the component from the \`@dhis2/ui\` library  \n\n`
         table += `
 \`\`\`js
-import { ${ast.displayName} } from '@dhis2/ui'
+import { ${toDisplayName} } from '@dhis2/ui'
 \`\`\`\n\n
 `
     }
