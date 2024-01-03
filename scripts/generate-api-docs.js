@@ -11,7 +11,7 @@ const RE_OBJECTOF =
     /(?:React\.)?(?:PropTypes\.)?objectOf\((?:React\.)?(?:PropTypes\.)?(\w+)\)/
 
 const format_type = (type) => {
-    switch (type.name.toLowerCase()) {
+    switch (type?.name.toLowerCase()) {
         case 'instanceof': {
             return `instanceOf(${type.value})`
         }
@@ -66,7 +66,7 @@ const format_type = (type) => {
             return JSON.stringify(rst, null, 2).replace(/\n/g, '<br/>')
         }
         default: {
-            return `${type.name}`
+            return `${type?.name}`
         }
     }
 }
