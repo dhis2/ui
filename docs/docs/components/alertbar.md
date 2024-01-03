@@ -173,6 +173,22 @@ An alert bar communicates something to the user by showing a prominent, floating
 -   Each variant shows a default icon to support the content being communicated.
 -   A custom icon can be used. Only use icons that are relevant to the content and that help the user understand the context. Use the default icon unless there's a good reason not to.
 
+## Using AlertStack
+
+As you can see with all the demo's above, we've used the `AlertStack` component to render the `AlertBar` component. This is because the `AlertStack` component is responsible for positioning the `AlertBar` component in relation to other `AlertBar`s. Especially when there are multiple `AlertBar` components on the page, the `AlertStack` component will make sure that they are stacked on top of each other and that they are not overlapping. It is therefore recommended to always use the `AlertStack` component when using the `AlertBar` component.
+
+To use the `AlertStack` component, you can simply wrap your `AlertBar` component in the `AlertStack` component. The `AlertStack` component will then take care of the positioning.
+
+```jsx
+import { AlertStack, AlertBar } from '@dhis2/ui'
+
+;<AlertStack>
+    <AlertBar>...</AlertBar>
+    <AlertBar>...</AlertBar>
+    <AlertBar>...</AlertBar>
+</AlertStack>
+```
+
 ## API Reference
 
 <API />
