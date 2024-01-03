@@ -180,9 +180,9 @@ As you can see with all the demo's above, we've used the `AlertStack` component 
 To use the `AlertStack` component, you can simply wrap your `AlertBar` component in the `AlertStack` component. The `AlertStack` component will then take care of the positioning.
 
 ```jsx
-import { AlertStack, AlertBar } from '@dhis2/ui'
+import { AlertStack, AlertBar } from '@dhis2/ui';
 
-;<AlertStack>
+<AlertStack>
     <AlertBar>...</AlertBar>
     <AlertBar>...</AlertBar>
     <AlertBar>...</AlertBar>
