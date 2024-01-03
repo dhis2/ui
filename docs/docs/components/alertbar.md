@@ -65,14 +65,15 @@ An alert bar communicates something to the user by showing a prominent, floating
 
 ```jsx
 <AlertStack>
-    <AlertBar success permanent>1000 objects updated.</AlertBar>
+    <AlertBar success permanent>
+        1000 objects updated.
+    </AlertBar>
 </AlertStack>
 ```
 
 -   Only use to confirm successful, major actions.
 -   Don't use for minor confirmations or navigation movements.
 -   Always tell the user what was successful. Use clear labels like _45 units updated_, rather than just _Updated_.
-
 
 #### Warning
 
@@ -82,7 +83,9 @@ An alert bar communicates something to the user by showing a prominent, floating
 
 ```jsx
 <AlertStack>
-    <AlertBar warning permanent>Some data is taking a long time to sync.</AlertBar>
+    <AlertBar warning permanent>
+        Some data is taking a long time to sync.
+    </AlertBar>
 </AlertStack>
 ```
 
@@ -99,7 +102,9 @@ An alert bar communicates something to the user by showing a prominent, floating
 
 ```jsx
 <AlertStack>
-    <AlertBar critical permanent>There was a problem loading this dashboard.</AlertBar>
+    <AlertBar critical permanent>
+        There was a problem loading this dashboard.
+    </AlertBar>
 </AlertStack>
 ```
 
@@ -143,13 +148,15 @@ An alert bar communicates something to the user by showing a prominent, floating
         actions={[
             {
                 label: 'Save',
-                onClick: clickHandler
+                onClick: clickHandler,
             },
             {
                 label: 'Cancel',
-                onClick: clickHandler
+                onClick: clickHandler,
             },
-        ]} permanent>
+        ]}
+        permanent
+    >
         Hello world
     </AlertBar>
 </AlertStack>
