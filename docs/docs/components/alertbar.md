@@ -46,6 +46,12 @@ An alert bar communicates something to the user by showing a prominent, floating
     <AlertBar permanent>Data export complete.</AlertBar>
 </Demo>
 
+```jsx
+<AlertStack>
+    <AlertBar permanent>Data export complete.</AlertBar>
+</AlertStack>
+```
+
 -   An `info` alert bar is the default. Use it if none of the other variants fit.
 -   Automatically dismiss after 5 seconds, so the message should be a useful but not critical.
 -   Use for minor positive confirmations, like _Sharing settings changed._
@@ -57,15 +63,28 @@ An alert bar communicates something to the user by showing a prominent, floating
     <AlertBar success permanent>1000 objects updated.</AlertBar>
 </Demo>
 
+```jsx
+<AlertStack>
+    <AlertBar success permanent>1000 objects updated.</AlertBar>
+</AlertStack>
+```
+
 -   Only use to confirm successful, major actions.
 -   Don't use for minor confirmations or navigation movements.
 -   Always tell the user what was successful. Use clear labels like _45 units updated_, rather than just _Updated_.
+
 
 #### Warning
 
 <Demo>
     <AlertBar warning permanent>Some data is taking a long time to sync.</AlertBar>
 </Demo>
+
+```jsx
+<AlertStack>
+    <AlertBar warning permanent>Some data is taking a long time to sync.</AlertBar>
+</AlertStack>
+```
 
 -   Use to warn of potential problems or things that might happen, like _Some data is taking a long time to sync_.
 -   Show before the problem happens, if possible.
@@ -77,6 +96,12 @@ An alert bar communicates something to the user by showing a prominent, floating
 <Demo>
     <AlertBar critical permanent>There was a problem loading this dashboard.</AlertBar>
 </Demo>
+
+```jsx
+<AlertStack>
+    <AlertBar critical permanent>There was a problem loading this dashboard.</AlertBar>
+</AlertStack>
+```
 
 -   Only use to communicate a serious problem, like broken functionality or a failed process.
 -   Use when a user can still interact with the page. If the entire page broken, use a [`Modal`](modal.md) dialog or error screen instead.
@@ -111,6 +136,24 @@ An alert bar communicates something to the user by showing a prominent, floating
                 }
             ]} permanent>Hello world</AlertBar>
 </Demo>
+
+```jsx
+<AlertStack>
+    <AlertBar
+        actions={[
+            {
+                label: 'Save',
+                onClick: clickHandler
+            },
+            {
+                label: 'Cancel',
+                onClick: clickHandler
+            },
+        ]} permanent>
+        Hello world
+    </AlertBar>
+</AlertStack>
+```
 
 -   Alert bars can have up to two optional actions.
 -   Actions offer a shortcut to act on the information in the alert bar.

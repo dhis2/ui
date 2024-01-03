@@ -14,15 +14,15 @@ import { AlertBar } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|actions|custom|||An array of 0-2 action objects|
+|actions|custom|||An array of 0-2 action objects <br/>`[{label: "Save", onClick: clickHandler}]`|
 |children|string|||The message string for the alert|
 |className|string||||
 |critical|custom|||Alert bars with `critical` will not autohide|
 |dataTest|string|`'dhis2-uicore-alertbar'`|||
-|duration|number|`8000`|||
-|hidden|boolean||||
+|duration|number|`8000`||How long you want the notification to display, in `ms`, when it's not permanent|
+|hidden|boolean|||AlertBar will be hidden on creation when this is set|
 |icon|custom|`true`||A specific icon to override the default icon in the bar.<br/>If `false` is provided, no icon will be shown.|
-|permanent|boolean||||
+|permanent|boolean|||When set, AlertBar will not auto-hide|
 |success|custom||||
 |warning|custom|||Alert bars with `warning` will not autohide|
 |onHidden|function||||
@@ -230,6 +230,24 @@ import { Calendar } from '@dhis2/ui'
 |timeZone|string|||the timeZone to use|
 |weekDayFormat|'narrow' │ 'short' │ 'long'|`'narrow'`||the format to display for the week day, i.e. Monday (long), Mon (short), M (narrow)|
 |width|string|`'240px'`||the width of the calendar component|
+
+### CalendarInput
+
+#### Usage
+
+To use `CalendarInput`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { CalendarInput } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|dataTest|undefined|`'dhis2-uiwidgets-calendar-inputfield'`|||
 
 ### Card
 
