@@ -100,7 +100,7 @@ import { ${toDisplayName} } from '@dhis2/ui'
                     defaultValue ? `\`${defaultValue.value}\`` : ''
                 }`,
                 required: `${required ? '*' : ''}`,
-                description: description.replace(/\n/g, '<br/>'),
+                description: description?.replace(/\n/g, '<br/>') ?? '',
                 type: `${format_type(type)}`,
             })
         )
