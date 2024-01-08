@@ -28,25 +28,29 @@ export const SegmentedControl = ({ options, selected, onChange }) => {
     }
 
     return (
-        <div className="segmented-control">
+        <ul className="segmented-control">
             {options.map(({ label, value, disabled }) => (
-                <button
-                    key={label}
-                    type="button"
-                    className={cx('segment', {
-                        selected: value === selected,
-                        disabled,
-                    })}
-                    onClick={(e) => onChange({ value }, e)}
-                    disabled={disabled}
-                >
-                    {label}
-                </button>
+                <li key="label">
+                    <button
+                        type="button"
+                        className={cx('segment', {
+                            selected: value === selected,
+                            disabled,
+                        })}
+                        onClick={(e) => onChange({ value }, e)}
+                        disabled={disabled}
+                    >
+                        {label}
+                    </button>
+                </li>
             ))}
 
             <style jsx>{`
                 .segmented-control {
+                    all: unset;
+                    list-style: none;
                     display: inline-flex;
+                    align-items: stretch;
                     background: ${colors.grey300};
                     border-radius: 5px;
                     padding: 2px;
@@ -63,6 +67,7 @@ export const SegmentedControl = ({ options, selected, onChange }) => {
                     color: ${colors.grey700};
                     min-width: 72px;
                     max-width: 320px;
+                    height: 100%;
                     padding: 6px ${spacers.dp12};
                 }
 
@@ -92,7 +97,7 @@ export const SegmentedControl = ({ options, selected, onChange }) => {
                     opacity: 0.5;
                 }
             `}</style>
-        </div>
+        </ul>
     )
 }
 
