@@ -1,4 +1,4 @@
-import { colors, spacers, theme } from '@dhis2/ui-constants'
+import { colors, elevations, spacers, theme } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import { PropTypes } from 'prop-types'
 import React from 'react'
@@ -46,26 +46,24 @@ export const SegmentedControl = ({ options, selected, onChange }) => {
 
             <style jsx>{`
                 .segmented-control {
-                    /* create a stacking context for the children */
-                    position: relative;
-                    z-index: 0;
+                    display: inline-flex;
+                    background: ${colors.grey300};
+                    border-radius: 5px;
+                    padding: 2px;
                 }
 
                 .segment {
                     all: unset;
                     box-sizing: border-box;
-                    display: inline-block;
-                    position: relative;
                     cursor: pointer;
                     font-size: 14px;
                     text-align: center;
-                    border: 1px solid ${colors.grey400};
-                    border-right-width: 0;
-                    background: ${colors.grey050};
-                    color: ${colors.grey600};
+                    border-radius: 5px;
+                    background: transparent;
+                    color: ${colors.grey700};
                     min-width: 72px;
                     max-width: 320px;
-                    padding: ${spacers.dp8} ${spacers.dp16};
+                    padding: 6px ${spacers.dp12};
                 }
 
                 .segment:focus {
@@ -77,36 +75,16 @@ export const SegmentedControl = ({ options, selected, onChange }) => {
                     outline: none;
                 }
 
-                .segment:not(.selected):hover,
-                .segment:not(.selected):focus {
-                    background: ${colors.grey100};
-                    color: ${colors.grey700};
-                }
-
-                .segment:first-of-type {
-                    border-radius: 3px 0 0 3px;
-                }
-
-                .segment:last-of-type {
-                    border-right-width: 1px;
-                    border-radius: 0 3px 3px 0;
+                .segment:not(.selected):not(.disabled):hover {
+                    background: ${colors.grey400};
+                    color: ${colors.grey900};
                 }
 
                 .segment.selected {
                     cursor: default;
-                    font-weight: 600;
-                    border: 1px solid ${colors.teal800};
-                    background: ${colors.teal600};
-                    color: white;
-                }
-
-                .segment.selected:not(:last-of-type) {
-                    z-index: 1;
-                    margin-right: -1px;
-                }
-
-                .segment.selected:focus {
-                    background: ${colors.teal700};
+                    box-shadow: ${elevations.e100};
+                    background: ${colors.white};
+                    color: ${colors.grey900};
                 }
 
                 .segment.disabled {
