@@ -18,7 +18,12 @@ import { SegmentedControl } from '@dhis2/ui'
 ```
 */
 
-export const SegmentedControl = ({ options, selected, onChange }) => {
+export const SegmentedControl = ({
+    options,
+    selected,
+    onChange,
+    ariaLabel,
+}) => {
     if (!options.map(({ value }) => value).includes(selected)) {
         const message =
             `There is no option with the value: "${selected}". ` +
@@ -28,7 +33,7 @@ export const SegmentedControl = ({ options, selected, onChange }) => {
     }
 
     return (
-        <ul className="segmented-control">
+        <ul className="segmented-control" aria-label={ariaLabel}>
             {options.map(({ label, value, disabled }) => (
                 <li key="label">
                     <button
@@ -114,4 +119,6 @@ SegmentedControl.propTypes = {
     selected: PropTypes.string.isRequired,
     /** Called with the signature `({ value: string }, event)` */
     onChange: PropTypes.func.isRequired,
+    /** Used to provide an accessible label to a segmented control without a visible label */
+    ariaLabel: PropTypes.string,
 }
