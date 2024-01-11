@@ -22,7 +22,7 @@ export class Select extends Component {
 
     componentDidMount() {
         if (this.props.initialFocus) {
-            this.inputRef.current.focus()
+            this.selectRef.current.focus()
         }
 
         this.setState({ menuWidth: this.getMenuWidth() })
@@ -95,18 +95,12 @@ export class Select extends Component {
         this.state.open ? this.handleClose() : this.handleOpen()
     }
 
-    onOutsideClick = (e) => {
-        const { onBlur, disabled, selected } = this.props
-
-        if (disabled) {
+    onOutsideClick = () => {
+        if (this.props.disabled) {
             return
         }
 
         this.handleClose()
-
-        if (onBlur) {
-            onBlur({ selected }, e)
-        }
     }
 
     onKeyDown = (e) => {
@@ -182,16 +176,23 @@ export class Select extends Component {
 
         return (
             <div
+                tabIndex={disabled ? '-1' : tabIndex}
                 className={className}
                 ref={this.selectRef}
                 onFocus={this.onFocus}
+                onBlur={(e) => {
+                    if (!this.props.onBlur) {
+                        return
+                    }
+
+                    this.props.onBlur({ selected }, e)
+                }}
                 onKeyDown={this.onKeyDown}
                 data-test={dataTest}
             >
                 <InputWrapper
                     onToggle={this.onToggle}
                     inputRef={this.inputRef}
-                    tabIndex={disabled ? '-1' : tabIndex}
                     error={error}
                     warning={warning}
                     valid={valid}
@@ -212,6 +213,12 @@ export class Select extends Component {
                         {menu}
                     </MenuWrapper>
                 )}
+
+                <style jsx>{`
+                    div:focus {
+                        outline: 0;
+                    }
+                `}</style>
             </div>
         )
     }
@@ -219,6 +226,7 @@ export class Select extends Component {
 
 Select.defaultProps = {
     dataTest: 'dhis2-uicore-select',
+    tabIndex: '0',
 }
 
 Select.propTypes = {

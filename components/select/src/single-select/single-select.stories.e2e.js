@@ -49,11 +49,22 @@ storiesOf('SingleSelect', module)
         </SingleSelect>
     ))
     .add('With onBlur', () => (
-        <SingleSelect className="select" onBlur={window.onBlur}>
-            <SingleSelectOption value="1" label="option one" />
-            <SingleSelectOption value="2" label="option two" />
-            <SingleSelectOption value="3" label="option three" />
-        </SingleSelect>
+        <>
+            <SingleSelect
+                className="select"
+                onChange={window.onChange}
+                onBlur={window.onBlur}
+            >
+                <SingleSelectOption
+                    dataTest="first-option"
+                    value="1"
+                    label="option one"
+                />
+                <SingleSelectOption value="2" label="option two" />
+                <SingleSelectOption value="3" label="option three" />
+            </SingleSelect>
+            <input type="input" className="input" />
+        </>
     ))
     .add('With custom options and onChange', () => (
         <SingleSelect className="select" onChange={window.onChange}>

@@ -20,7 +20,7 @@ Given('the SingleSelect is open', () => {
 })
 
 When('the SingleSelect input is clicked', () => {
-    cy.get('[data-test="dhis2-uicore-select-input"]').click()
+    cy.get('[data-test="dhis2-uicore-select"]').click()
 })
 
 When('the user clicks the backdrop layer', () => {
@@ -40,5 +40,5 @@ Then('the options are displayed', () => {
 })
 
 Then('the SingleSelect has focus', () => {
-    cy.focused().should('have.attr', 'data-test', 'dhis2-uicore-select-input')
+    cy.focused().should('have.attr', 'data-test', 'dhis2-uicore-select')
 })

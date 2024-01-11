@@ -8,7 +8,6 @@ const InputWrapper = ({
     dataTest,
     onToggle,
     children,
-    tabIndex,
     error,
     warning,
     valid,
@@ -29,7 +28,6 @@ const InputWrapper = ({
         <div
             className={classNames}
             onClick={onToggle}
-            tabIndex={tabIndex}
             ref={inputRef}
             data-test={dataTest}
         >
@@ -52,7 +50,7 @@ const InputWrapper = ({
                     box-shadow: inset 0 0 1px 0 rgba(48, 54, 60, 0.1);
                 }
 
-                .root:not(.disabled):focus,
+                :global(:focus) > .root:not(.disabled),
                 .root:not(.disabled):active {
                     outline: none;
                     box-shadow: inset 0 0 0 2px ${theme.focus};
@@ -97,14 +95,9 @@ const InputWrapper = ({
     )
 }
 
-InputWrapper.defaultProps = {
-    tabIndex: '0',
-}
-
 InputWrapper.propTypes = {
     dataTest: PropTypes.string.isRequired,
     inputRef: PropTypes.object.isRequired,
-    tabIndex: PropTypes.string.isRequired,
     onToggle: PropTypes.func.isRequired,
     children: PropTypes.element,
     className: PropTypes.string,
