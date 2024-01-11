@@ -1,3 +1,12 @@
+## [9.1.2](https://github.com/dhis2/ui/compare/v9.1.1...v9.1.2) (2024-01-11)
+
+
+### Bug Fixes
+
+* **segmented-control:** add aria-label prop ([cce94e0](https://github.com/dhis2/ui/commit/cce94e01ce27f00f0002fa7f617f63546909aa3a))
+* **segmented-control:** adjust design ([558973f](https://github.com/dhis2/ui/commit/558973f51a0bf60d0d406072f60b36d7c2d1fb71))
+* **segmented-control:** use semantic markup ([5fd90a0](https://github.com/dhis2/ui/commit/5fd90a05557b0ab650f38d788cc04331519fc953))
+
 ## [9.1.1](https://github.com/dhis2/ui/compare/v9.1.0...v9.1.1) (2023-12-24)
 
 
