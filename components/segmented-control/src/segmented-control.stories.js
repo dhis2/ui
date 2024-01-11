@@ -17,6 +17,7 @@ export default {
         ],
         selected: 'DOG',
         onChange: logger,
+        ariaLabel: 'Segmented control label',
     },
 }
 
@@ -32,4 +33,17 @@ DisabledOption.args = {
         { label: 'Three', value: 'THREE' },
     ],
     selected: 'THREE',
+}
+
+export const LongLabels = Template.bind({})
+LongLabels.args = {
+    options: [
+        {
+            label: 'Program configuration, security, and distribution',
+            value: 'PROGRAM',
+        },
+        { label: 'Two', value: 'TWO' },
+        { label: 'Three', value: 'THREE' },
+    ],
+    selected: 'PROGRAM',
 }
