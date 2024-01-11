@@ -1,3 +1,10 @@
+# [9.2.0](https://github.com/dhis2/ui/compare/v9.1.2...v9.2.0) (2024-01-11)
+
+
+### Features
+
+* **icons:** add visualization outlier table icon ([6c6dae9](https://github.com/dhis2/ui/commit/6c6dae9ccd9e43b3862aac518ebabf0784d178ed))
+
 ## [9.1.2](https://github.com/dhis2/ui/compare/v9.1.1...v9.1.2) (2024-01-11)
 
 
