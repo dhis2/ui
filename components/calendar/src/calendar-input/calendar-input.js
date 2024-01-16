@@ -36,24 +36,27 @@ export const CalendarInput = ({
 } = {}) => {
     const ref = useRef()
     const [open, setOpen] = useState(false)
-    const [tempInputValue, setTempInputValue] = useState(date)
+    const [tempInputValue, _setTempInputValue] = useState(date)
 
-    useEffect(() => {
-        const isValidInputDate = validateInput(tempInputValue)
-        if (isValidInputDate && date !== tempInputValue) {
-            const [year, month, day] = tempInputValue.split('-')
+    const setTempInputValue = (nextTempValue) => {
+        _setTempInputValue(nextTempValue)
+        const isValidInputDate = validateInput(nextTempValue)
+
+        if (isValidInputDate) {
+            const [year, month, day] = nextTempValue.split('-')
             const nextDate = Temporal.PlainDate.from({
                 calendar,
                 year,
                 month,
                 day,
             })
+
             onDateSelect({
                 calendarDate: nextDate,
-                calendarDateString: tempInputValue,
+                calendarDateString: nextTempValue,
             })
         }
-    }, [calendar, date, tempInputValue, onDateSelect])
+    }
 
     const calendarProps = React.useMemo(() => {
         const onDateSelectWrapper = (selectedDate) => {
