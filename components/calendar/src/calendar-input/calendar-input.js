@@ -3,8 +3,9 @@ import { Card } from '@dhis2-ui/card'
 import { InputField, InputFieldProps } from '@dhis2-ui/input'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
+import { Temporal } from '@js-temporal/polyfill'
 import cx from 'classnames'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Calendar, CalendarProps } from '../calendar/calendar.js'
 import i18n from '../locales/index.js'
 
@@ -13,6 +14,10 @@ const offsetModifier = {
     options: {
         offset: [0, 2],
     },
+}
+
+export const validateInput = (input) => {
+    return /^\d{4}([/-])\d{2}\1\d{2}$/.test(input)
 }
 
 export const CalendarInput = ({
@@ -31,12 +36,31 @@ export const CalendarInput = ({
 } = {}) => {
     const ref = useRef()
     const [open, setOpen] = useState(false)
+    const [tempInputValue, setTempInputValue] = useState(date)
+
+    useEffect(() => {
+        const isValidInputDate = validateInput(tempInputValue)
+        if (isValidInputDate && date !== tempInputValue) {
+            const [year, month, day] = tempInputValue.split('-')
+            const nextDate = Temporal.PlainDate.from({
+                calendar,
+                year,
+                month,
+                day,
+            })
+            onDateSelect({
+                calendarDate: nextDate,
+                calendarDateString: tempInputValue,
+            })
+        }
+    }, [calendar, date, tempInputValue, onDateSelect])
 
     const calendarProps = React.useMemo(() => {
         const onDateSelectWrapper = (selectedDate) => {
             setOpen(false)
-            onDateSelect?.(selectedDate)
+            setTempInputValue(selectedDate.calendarDateString)
         }
+
         return {
             onDateSelect: onDateSelectWrapper,
             calendar,
@@ -56,7 +80,6 @@ export const CalendarInput = ({
         dir,
         locale,
         numberingSystem,
-        onDateSelect,
         timeZone,
         weekDayFormat,
         width,
@@ -74,7 +97,8 @@ export const CalendarInput = ({
                     {...rest}
                     type="text"
                     onFocus={onFocus}
-                    value={date}
+                    value={tempInputValue}
+                    onChange={({ value }) => setTempInputValue(value)}
                 />
                 {clearable && (
                     <div
