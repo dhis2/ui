@@ -8,7 +8,7 @@ describe('<Button>', () => {
         const dataTest = 'dhis2-uicore-button'
         const wrapper = mount(<Button dataTest={dataTest} />)
 
-        const actual = wrapper.find({ 'data-test': dataTest })
+        const actual = wrapper.find('button').find({ 'data-test': dataTest })
 
         expect(actual.length).toBe(1)
     })
@@ -17,7 +17,7 @@ describe('<Button>', () => {
         const dataTest = 'button-data-test'
         const wrapper = mount(<Button dataTest={dataTest} />)
 
-        const actual = wrapper.find({ 'data-test': dataTest })
+        const actual = wrapper.find('button').find({ 'data-test': dataTest })
 
         expect(actual.length).toBe(1)
     })

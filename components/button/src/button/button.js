@@ -3,7 +3,8 @@ import { sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef } from 'react'
-import styles from './button.styles.js'
+import { NativeButton } from '../index.js'
+import { className as styledClassName, styles } from './button.styles.js'
 
 export const Button = ({
     children,
@@ -43,7 +44,7 @@ export const Button = ({
         onKeyDown && onKeyDown({ value, name }, event)
 
     const iconOnly = icon && !children
-    const buttonClassName = cx(className, {
+    const buttonClassName = cx(className, styledClassName, {
         primary,
         secondary,
         destructive,
@@ -55,7 +56,7 @@ export const Button = ({
     })
 
     return (
-        <button
+        <NativeButton
             ref={ref}
             name={name}
             className={buttonClassName}
@@ -79,8 +80,8 @@ export const Button = ({
             )}
             {icon && <span className="button-icon">{icon}</span>}
             {children}
-            <style jsx>{styles}</style>
-        </button>
+            {styles}
+        </NativeButton>
     )
 }
 
