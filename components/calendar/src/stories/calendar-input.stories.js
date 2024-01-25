@@ -27,6 +27,7 @@ const buildCalendar =
     () =>
         (
             <CalendarStoryWrapper
+                clearable
                 component={CalendarInput}
                 dir="ltr"
                 timeZone="Africa/Khartoum"
