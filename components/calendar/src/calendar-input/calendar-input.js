@@ -3,9 +3,9 @@ import { Card } from '@dhis2-ui/card'
 import { InputField, InputFieldProps } from '@dhis2-ui/input'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
-import { Temporal } from '@js-temporal/polyfill'
+import { useDatePicker } from '@dhis2/multi-calendar-dates'
 import cx from 'classnames'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 import { Calendar, CalendarProps } from '../calendar/calendar.js'
 import i18n from '../locales/index.js'
 
@@ -16,8 +16,21 @@ const offsetModifier = {
     },
 }
 
-export const validateInput = (input) => {
-    return /^\d{4}([/-])\d{2}\1\d{2}$/.test(input)
+export function validateInput(input) {
+    return /^\d{4}([/-]?)\d{2}\1\d{2}$/.test(input)
+}
+
+function searchCalendarWeekDays(date, calendarWeekDays) {
+    for (let i = 0; i < calendarWeekDays.length; ++i) {
+        const days = calendarWeekDays[i]
+        const temporalDate = days.find(({ calendarDate }) => calendarDate === date)
+
+        if (temporalDate) {
+            return temporalDate.zdt
+        }
+    }
+
+    return null
 }
 
 export const CalendarInput = ({
