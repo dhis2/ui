@@ -16,8 +16,10 @@ export const Logo = () => {
                     box-sizing: border-box;
                     min-width: 49px;
                     max-height: 48px;
-                    margin: 0 12px 0 0;
-                    border-right: 1px solid rgba(32, 32, 32, 0.15);
+                    margin-block: 0;
+                    margin-inline-end: 12px;
+                    margin-inline-start: 0;
+                    border-inline-end: 1px solid rgba(32, 32, 32, 0.15);
                 }
                 div:hover {
                     background-color: #1a557f;
