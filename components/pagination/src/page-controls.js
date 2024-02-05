@@ -30,7 +30,9 @@ const PageControls = ({
             onClick={() => onClick(page - 1)}
             dataTest={`${dataTest}-page-previous`}
         >
-            <IconChevronLeft16 />
+            <div className="navigator-icon">
+                <IconChevronLeft16 />
+            </div>
             {translate(previousPageText)}
         </Button>
         <Button
@@ -42,7 +44,9 @@ const PageControls = ({
             dataTest={`${dataTest}-page-next`}
         >
             {translate(nextPageText)}
-            <IconChevronRight16 />
+            <div className="navigator-icon">
+                <IconChevronRight16 />
+            </div>
         </Button>
         <style jsx>{`
             div {
@@ -50,12 +54,15 @@ const PageControls = ({
             }
             div :global(.button-previous) {
                 height: 32px;
-                padding-left: 0;
+                padding-inline-start: 0;
             }
             div :global(.button-next) {
                 height: 32px;
-                padding-right: 0;
-                margin-left: ${spacers.dp4};
+                padding-inline-end: 0;
+                margin-inline-start: ${spacers.dp4};
+            }
+            div :global(.navigator-icon:dir(rtl)) {
+                transform: rotate(180deg);
             }
         `}</style>
     </div>
