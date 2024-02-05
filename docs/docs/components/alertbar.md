@@ -18,6 +18,19 @@ An alert bar communicates something to the user by showing a prominent, floating
 
 ## Usage
 
+Usage of the AlertBar component is not recommended when using the Application Platform, as integration is already implemented directly. 
+
+An easy way to show the AlertBar using the Application Platform is by using the `useAlert` hook. A simple example of how to use the `useAlert` hook is shown below:
+
+```js
+// Create the alert
+const { show } = useAlert('My alert message', { duration: 3000 })
+// ...later (show the alert)
+show()
+```
+
+You can read more about the hook on the [Developer Portal](https://developers.dhis2.org/docs/app-runtime/hooks/useAlert).
+
 ### When to use
 
 -   **Tell the user about something important**. Alert bars should only be used for information the user needs to know about.
