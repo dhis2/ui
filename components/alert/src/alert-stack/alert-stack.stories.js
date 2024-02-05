@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { AlertBar } from '../alert-bar/index.js'
 import { AlertStack } from './alert-stack.js'
 
@@ -39,3 +39,30 @@ export const Default = (args) => (
         </AlertBar>
     </AlertStack>
 )
+
+export const RTL = (args) => {
+    useEffect(() => {
+        document.body.dir = 'rtl'
+        return () => {
+            document.body.dir = 'ltr'
+        }
+    }, [])
+    return (
+        <div dir="rtl">
+            <AlertStack {...args}>
+                <AlertBar permanent>
+                    First notification - I am at the bottom
+                </AlertBar>
+                <AlertBar permanent critical>
+                    Second notification
+                </AlertBar>
+                <AlertBar permanent warning>
+                    Third notification
+                </AlertBar>
+                <AlertBar permanent success>
+                    Fourth notification - I am at the top
+                </AlertBar>
+            </AlertStack>
+        </div>
+    )
+}
