@@ -35,9 +35,9 @@ const containerStyle = css`
         align-items: center;
         height: 20px;
         width: 20px;
-        margin-right: 4px;
+        margin-inline-end: 4px;
         border-radius: 12px;
-        margin-left: -8px;
+        margin-inline-start: -8px;
     }
     span:hover {
         background: ${colors.grey400};

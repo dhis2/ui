@@ -126,3 +126,10 @@ DenseRemoveable.args = {
     ...Removable.args,
     children: 'Removable and dense',
 }
+
+export const RTLRemovable = (args) => (
+    <div dir="rtl">
+        <Chip {...args}>RTL removable</Chip>
+    </div>
+)
+RTLRemovable.args = { ...Removable.args }
