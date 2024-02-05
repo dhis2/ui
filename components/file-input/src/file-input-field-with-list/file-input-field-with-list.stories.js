@@ -54,3 +54,10 @@ DefaultButtonLabelAndRemoveText.storyName =
 
 export const DefaultPlaceholder = Template.bind({})
 DefaultPlaceholder.storyName = 'Default: placeholder'
+
+export const RTL = (args) => (
+    <div dir="rtl">
+        <Template {...args} />
+    </div>
+)
+RTL.args = { files: files }

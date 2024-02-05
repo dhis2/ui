@@ -54,8 +54,11 @@ const FileListItem = ({
                 margin: 0;
                 padding-top: ${spacers.dp4};
             }
+            span {
+                display: inline-block;
+            }
             .icon {
-                margin-right: 4px;
+                margin-inline-end: 4px;
                 flex-grow: 0;
                 flex-shrink: 0;
                 display: flex;

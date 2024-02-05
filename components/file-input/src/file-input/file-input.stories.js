@@ -74,3 +74,9 @@ export const Statuses = (args) => (
         <FileInput {...args} buttonLabel="Error" name="error" error />
     </>
 )
+
+export const RTL = (args) => (
+    <div dir="rtl">
+        <FileInput {...args} buttonLabel="Default" name="default" />
+    </div>
+)
