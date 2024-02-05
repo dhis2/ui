@@ -68,7 +68,7 @@ export default css`
     }
 
     li.with-chevron a {
-        padding-right: ${spacers.dp8};
+        padding-inline-end: ${spacers.dp8};
     }
 
     li.dense a {
@@ -77,7 +77,7 @@ export default css`
     }
 
     li.with-chevron.dense a {
-        padding-right: ${spacers.dp4};
+        padding-inline-end: ${spacers.dp4};
     }
 
     .label {
@@ -91,7 +91,7 @@ export default css`
 
     .icon {
         flex-grow: 0;
-        margin-right: ${spacers.dp12};
+        margin-inline-end: ${spacers.dp12};
         width: 24px;
         height: 24px;
     }
@@ -99,18 +99,18 @@ export default css`
     .suffix {
         display: flex;
         align-items: center;
-        margin-left: ${spacers.dp8};
+        margin-inline-start: ${spacers.dp8};
     }
 
     .chevron {
         display: flex;
         align-items: center;
         flex-grow: 0;
-        margin-left: ${spacers.dp24};
+        margin-inline-start: ${spacers.dp24};
     }
 
     li.dense .icon {
-        margin-right: ${spacers.dp8};
+        margin-inline-end: ${spacers.dp8};
         width: 16px;
         height: 16px;
     }
