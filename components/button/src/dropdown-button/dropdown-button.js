@@ -59,7 +59,7 @@ ArrowUp.propTypes = {
 }
 
 const arrow = resolve`
-    margin-left: ${spacers.dp12};
+    margin-inline-start: ${spacers.dp12};
 `
 
 class DropdownButton extends Component {

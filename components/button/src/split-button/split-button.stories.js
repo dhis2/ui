@@ -79,3 +79,12 @@ WithIcon.args = {
     component: <div>Component</div>,
     icon: <div>Icon</div>,
 }
+
+export const RTL = (args) => (
+    <div dir="rtl">
+        <SplitButton {...args} />
+    </div>
+)
+RTL.args = {
+    children: 'RTL text',
+}

@@ -118,3 +118,12 @@ const ManualControlTemplate = (args) => {
 }
 export const ManualControl = ManualControlTemplate.bind({})
 ManualControl.args = {}
+
+export const RTL = (args) => (
+    <div dir="rtl">
+        <DropdownButton {...args} />
+    </div>
+)
+RTL.args = {
+    children: 'RTL text',
+}

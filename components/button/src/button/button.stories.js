@@ -214,6 +214,17 @@ Icon.parameters = {
     },
 }
 
+export const IconRTL = (args) => (
+    <div dir="rtl">
+        <Button {...args} />
+    </div>
+)
+IconRTL.args = {
+    icon: DemoIcon24,
+    name: 'RTL icon button',
+    children: 'RTL text',
+}
+
 export const IconOnly = Template.bind({})
 IconOnly.args = {
     icon: DemoIcon24,
