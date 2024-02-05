@@ -18,7 +18,7 @@ An alert bar communicates something to the user by showing a prominent, floating
 
 ## Usage
 
-Usage of the AlertBar component is not recommended when using the Application Platform, as integration is already implemented directly. 
+Usage of the AlertBar component is not recommended when using the Application Platform, as integration is already implemented directly.
 
 An easy way to show the AlertBar using the Application Platform is by using the `useAlert` hook. A simple example of how to use the `useAlert` hook is shown below:
 
@@ -193,9 +193,9 @@ As you can see with all the demo's above, we've used the `AlertStack` component 
 To use the `AlertStack` component, you can simply wrap your `AlertBar` component in the `AlertStack` component. The `AlertStack` component will then take care of the positioning.
 
 ```jsx
-import { AlertStack, AlertBar } from '@dhis2/ui';
+import { AlertStack, AlertBar } from '@dhis2/ui'
 
-<AlertStack>
+;<AlertStack>
     <AlertBar>...</AlertBar>
     <AlertBar>...</AlertBar>
     <AlertBar>...</AlertBar>
