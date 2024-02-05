@@ -396,3 +396,9 @@ export const TextLeaves = () => (
     </div>
 )
 TextLeaves.storyName = 'Text leaves'
+
+export const RTL = (args) => (
+    <div dir="rtl">
+        <MultipleRoots {...args} />
+    </div>
+)
