@@ -50,7 +50,7 @@ export const ReorderingActions = ({
             }
 
             div > :global(button):first-child {
-                margin-left: ${spacers.dp8};
+                margin-inline-start: ${spacers.dp8};
             }
         `}</style>
     </div>
