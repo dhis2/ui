@@ -132,7 +132,7 @@ class Radio extends Component {
                         width: 18px;
 
                         /* The same offset as the icon, 2px border, 1px padding */
-                        left: 3px;
+                        inset-inline-start: 3px;
                     }
 
                     label.dense input {
@@ -143,14 +143,14 @@ class Radio extends Component {
 
                     .icon {
                         user-select: none;
-                        margin-right: ${label ? spacers.dp4 : 0};
+                        margin-inline-end: ${label ? spacers.dp4 : 0};
                         border: 2px solid transparent;
                         padding: 1px;
                         border-radius: 50%;
                     }
 
                     label.dense .icon {
-                        margin-right: 3px;
+                        margin-inline-end: 3px;
                     }
 
                     input:focus + .icon {

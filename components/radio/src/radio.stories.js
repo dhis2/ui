@@ -151,3 +151,9 @@ ImageLabelDense.storyName = 'Image label - Dense'
 
 export const NoLabel = Template.bind({})
 NoLabel.args = { label: null, className: 'some-name' }
+
+export const RTL = (args) => (
+    <div dir="rtl">
+        <Template {...args} />
+    </div>
+)
