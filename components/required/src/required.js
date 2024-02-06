@@ -7,7 +7,7 @@ export const Required = ({ dataTest }) => (
         *
         <style jsx>{`
             span {
-                padding-left: ${spacers.dp4};
+                padding-inline-start: ${spacers.dp4};
             }
         `}</style>
     </span>
