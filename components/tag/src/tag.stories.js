@@ -103,3 +103,10 @@ WithClippedTextAndMaxWidth.args = {
     children: 'I am long text',
     maxWidth: '50px',
 }
+
+export const RTL = (args) => (
+    <div dir="rtl">
+        <Template {...args} />
+    </div>
+)
+RTL.args = { icon: <ExampleIcon /> }
