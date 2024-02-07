@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Tooltip } from './tooltip.js'
 
 const subtitle = 'Displayed when a user hovers over the element'
@@ -186,3 +186,18 @@ export const HidesWhenOutOfFrame = (args) => (
         <p>{"I'm an extra paragraph"}</p>
     </div>
 )
+
+export const RTLLeft = (args) => {
+    useEffect(() => {
+        document.documentElement.setAttribute('dir', 'rtl')
+        return () => {
+            document.documentElement.setAttribute('dir', 'ltr')
+        }
+    }, [])
+    return (
+        <div dir="rtl">
+            <Template {...args} />
+        </div>
+    )
+}
+RTLLeft.args = { placement: 'left' }

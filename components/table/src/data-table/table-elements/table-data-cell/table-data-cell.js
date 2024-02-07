@@ -62,7 +62,7 @@ export const TableDataCell = forwardRef(
                 <style jsx>{styles}</style>
                 <style jsx>{`
                     td {
-                        insert-inline-start: ${left};
+                        inset-inline-start: ${left};
                         text-align: ${align};
                         width: ${width};
                         background-color: ${backgroundColor || colors.white};

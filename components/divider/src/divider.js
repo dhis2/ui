@@ -2,18 +2,20 @@ import { colors, spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const Divider = ({ className, dataTest, dense, margin }) => {
-    let rtlMargin = margin
+const flipMargin = (margin) => {
     const splitMargin = margin.split(' ')
     if (splitMargin?.length === 4) {
-        rtlMargin = [
+        return [
             splitMargin[0],
             splitMargin[3],
             splitMargin[2],
             splitMargin[1],
         ].join(' ')
     }
+    return margin
+}
 
+const Divider = ({ className, dataTest, dense, margin }) => {
     return (
         <div className={className} data-test={dataTest}>
             <style jsx>{`
@@ -29,7 +31,7 @@ const Divider = ({ className, dataTest, dense, margin }) => {
                     margin: ${dense ? `${spacers.dp4} 0` : margin};
                 }
                 :dir(rtl) {
-                    margin: ${dense ? `${spacers.dp4} 0` : rtlMargin};
+                    margin: ${dense ? `${spacers.dp4} 0` : flipMargin(margin)};
                 }
             `}</style>
         </div>
