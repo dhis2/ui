@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 const flipMargin = (margin) => {
-    const splitMargin = margin.split(' ')
+    const splitMargin = margin.split(/\s+/)
     if (splitMargin?.length === 4) {
         return [
             splitMargin[0],

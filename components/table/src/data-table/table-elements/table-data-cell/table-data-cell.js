@@ -37,7 +37,7 @@ export const TableDataCell = forwardRef(
         },
         ref
     ) => {
-        const rtlAlign = rtlCorrespondingAlignments[align]
+        const rtlAlign = rtlCorrespondingAlignments[align] ?? align
         return (
             <td
                 {...props}
