@@ -60,7 +60,7 @@ export const TableHeaderCell = forwardRef(
             <style jsx>{styles}</style>
             <style jsx>{`
                 th {
-                    left: ${left};
+                    inset-inline-start: ${left};
                     top: ${top};
                     text-align: ${align};
                     width: ${width};

@@ -1,6 +1,6 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { MultiSelectOption } from '../index.js'
 import { MultiSelect } from './index.js'
 
@@ -366,3 +366,18 @@ export const ShiftedIntoView = (args) => (
         `}</style>
     </>
 )
+
+export const RTL = (args) => {
+    useEffect(() => {
+        document.body.dir = 'rtl'
+        return () => {
+            document.body.dir = 'ltr'
+        }
+    }, [])
+    return (
+        <div dir="rtl">
+            <WithOptionsTemplate {...args} />
+        </div>
+    )
+}
+RTL.args = { selected: ['1', '2'], prefix: 'RTL text' }

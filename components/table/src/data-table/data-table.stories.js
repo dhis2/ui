@@ -1334,3 +1334,9 @@ export const LongCellContentLargeCells = LongCellContentTemplate.bind({})
 LongCellContentLargeCells.args = {
     large: 'true',
 }
+
+export const RTL = (args) => (
+    <div dir="rtl">
+        <BasicTemplate {...args} />
+    </div>
+)

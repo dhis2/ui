@@ -99,3 +99,10 @@ MediumWidth.args = { ...pagers.atTenthPage, boxWidth: 500 }
 
 export const NarrowWidth = InBox.bind({})
 NarrowWidth.args = { ...pagers.atTenthPage, boxWidth: 100 }
+
+export const RTL = (args) => (
+    <div dir="rtl">
+        <Pagination {...args} />
+    </div>
+)
+RTL.args = { ...pagers.atTenthPage }

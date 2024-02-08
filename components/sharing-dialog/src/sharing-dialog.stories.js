@@ -1,5 +1,5 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { SharingDialog } from './sharing-dialog.js'
 
 const subtitle = 'The common dialog for managing object sharing in DHIS2 apps'
@@ -249,3 +249,23 @@ export const ForDashboardWithCascadeSharingPartialSuccess = (args) => (
 ForDashboardWithCascadeSharingPartialSuccess.storyName =
     'For dashboard with cascading sharing partial success'
 ForDashboardWithCascadeSharingPartialSuccess.args = { type: 'dashboard' }
+
+export const RTL = (args) => {
+    useEffect(() => {
+        document.body.dir = 'rtl'
+        return () => {
+            document.body.dir = 'ltr'
+        }
+    }, [])
+    return (
+        <div dir="rtl">
+            <CustomDataProvider data={customDefaultData}>
+                <SharingDialog {...args} />
+            </CustomDataProvider>
+        </div>
+    )
+}
+// Have this be the primary story on the docs page
+RTL.parameters = {
+    docs: { disable: false, source: { type: 'dynamic' } },
+}

@@ -86,7 +86,7 @@ export const ListItem = ({
                 }
 
                 .details-text {
-                    margin-left: 8px;
+                    margin-inline-start: 8px;
                 }
 
                 .details-name {

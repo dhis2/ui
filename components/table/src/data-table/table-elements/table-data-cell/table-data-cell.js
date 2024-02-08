@@ -5,6 +5,12 @@ import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
 import styles from './table-data-cell.styles.js'
 
+const rtlCorrespondingAlignments = {
+    left: 'right',
+    right: 'left',
+    center: 'center',
+}
+
 export const TableDataCell = forwardRef(
     (
         {
@@ -30,50 +36,56 @@ export const TableDataCell = forwardRef(
             ...props
         },
         ref
-    ) => (
-        <td
-            {...props}
-            ref={ref}
-            colSpan={colSpan}
-            rowSpan={rowSpan}
-            onClick={onClick}
-            className={cx(className, {
-                active,
-                bordered,
-                error,
-                large,
-                muted,
-                staticStyle,
-                valid,
-            })}
-            data-test={dataTest}
-            role={role}
-            scope={scope}
-        >
-            {children}
-            <style jsx>{styles}</style>
-            <style jsx>{`
-                td {
-                    left: ${left};
-                    text-align: ${align};
-                    width: ${width};
-                    background-color: ${backgroundColor || colors.white};
-                }
-                :global(tr.selected) > td {
-                    background-color: ${backgroundColor || colors.teal100};
-                }
-                :global(tr:hover) > td:not(.staticStyle) {
-                    background-color: ${backgroundColor || colors.grey100};
-                }
-                :global(tr:active) > td:not(.staticStyle) {
-                    background-color: ${backgroundColor || colors.grey200};
-                }
-                :global(tr.selected:hover) > td:not(.staticStyle) {
-                    background-color: ${backgroundColor || '#cdeae8'};
-                }
-            `}</style>
-        </td>
-    )
+    ) => {
+        const rtlAlign = rtlCorrespondingAlignments[align] ?? align
+        return (
+            <td
+                {...props}
+                ref={ref}
+                colSpan={colSpan}
+                rowSpan={rowSpan}
+                onClick={onClick}
+                className={cx(className, {
+                    active,
+                    bordered,
+                    error,
+                    large,
+                    muted,
+                    staticStyle,
+                    valid,
+                })}
+                data-test={dataTest}
+                role={role}
+                scope={scope}
+            >
+                {children}
+                <style jsx>{styles}</style>
+                <style jsx>{`
+                    td {
+                        inset-inline-start: ${left};
+                        text-align: ${align};
+                        width: ${width};
+                        background-color: ${backgroundColor || colors.white};
+                    }
+                    :dir(rtl) {
+                        text-align: ${rtlAlign};
+                    }
+                    :global(tr.selected) > td {
+                        background-color: ${backgroundColor || colors.teal100};
+                    }
+                    :global(tr:hover) > td:not(.staticStyle) {
+                        background-color: ${backgroundColor || colors.grey100};
+                    }
+                    :global(tr:active) > td:not(.staticStyle) {
+                        background-color: ${backgroundColor || colors.grey200};
+                    }
+                    :global(tr.selected:hover) > td:not(.staticStyle) {
+                        background-color: ${backgroundColor || '#cdeae8'};
+                    }
+                `}</style>
+            </td>
+        )
+    }
 )
 
 TableDataCell.displayName = 'TableDataCell'

@@ -11,6 +11,10 @@ const styles = css`
         width: 35px;
     }
 
+    svg:dir(rtl) {
+        transform: scale(-1, 1);
+    }
+
     svg.dense {
         height: 14px;
         width: 27px;
@@ -25,6 +29,10 @@ const styles = css`
     svg .cross,
     svg .handle {
         fill: ${colors.white};
+    }
+
+    svg .checkmark:dir(rtl) {
+        display: none;
     }
 
     svg.checked .handle-unchecked,

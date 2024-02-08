@@ -159,7 +159,7 @@ export const ProfileMenu = ({ ...props }) => (
             div {
                 z-index: 10000;
                 position: absolute;
-                right: 4px;
+                inset-inline-end: 4px;
                 width: 320px;
             }
         `}</style>

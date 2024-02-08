@@ -74,3 +74,15 @@ export const DefaultAlignedRight = (args) => (
 )
 DefaultAlignedRight.args = { end: true }
 DefaultAlignedRight.storyName = 'Default - aligned right'
+
+export const DefaultRTL = (args) => (
+    <div dir="rtl">
+        <ButtonStrip {...args}>
+            <Button>Save</Button>
+            <Button>Save</Button>
+            <Button>Save</Button>
+            <Button>Save</Button>
+        </ButtonStrip>
+    </div>
+)
+DefaultRTL.storyName = 'Default - RTL'

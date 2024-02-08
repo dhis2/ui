@@ -40,7 +40,7 @@ export const Toggle = ({ open, onOpen, onClose, dataTest }) => {
                 div:after {
                     background: ${colors.grey400};
                     height: calc(100% - 24px);
-                    left: 12px;
+                    inset-inline-start: 12px;
                     position: absolute;
                     top: 15px;
                     width: 1px;
@@ -60,7 +60,13 @@ export const Toggle = ({ open, onOpen, onClose, dataTest }) => {
                     transform: rotate(-90deg);
                     transition: transform 0.1s ease-out;
                 }
+                div :global(svg:dir(rtl)) {
+                    transform: rotate(90deg);
+                }
                 .open :global(svg) {
+                    transform: rotate(0);
+                }
+                .open :global(svg:dir(rtl)) {
                     transform: rotate(0);
                 }
                 div:hover {

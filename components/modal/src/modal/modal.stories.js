@@ -9,7 +9,7 @@ import {
 import { SingleSelect, SingleSelectOption } from '@dhis2-ui/select'
 import { Tooltip } from '@dhis2-ui/tooltip'
 import { sharedPropTypes } from '@dhis2/ui-constants'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ModalActions, ModalContent, ModalTitle } from '../index.js'
 import { Modal } from './modal.js'
 
@@ -991,3 +991,18 @@ FluidBottom.args = {
     position: 'bottom',
 }
 FluidBottom.storyName = 'Fluid (Bottom)'
+
+export const RTL = (args) => {
+    useEffect(() => {
+        document.body.dir = 'rtl'
+        return () => {
+            document.body.dir = 'ltr'
+        }
+    }, [])
+    return (
+        <div dir="rtl">
+            <SmallTitleContentAction {...args} />
+        </div>
+    )
+}
+RTL.args = { small: true, onClose }

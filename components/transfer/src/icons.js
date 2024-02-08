@@ -7,6 +7,9 @@ const centerButtonStyles = css`
     svg {
         min-width: 20px;
     }
+    svg:dir(rtl) {
+        transform: rotate(180deg) translateX(4px);
+    }
 `
 
 export const IconAddAll = ({ dataTest, disabled }) => (

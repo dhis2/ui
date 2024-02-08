@@ -221,7 +221,7 @@ export default css`
     }
 
     .button-icon {
-        margin-right: 6px;
+        margin-inline-end: 6px;
         color: inherit;
         fill: inherit;
         font-size: 26px;
@@ -230,19 +230,21 @@ export default css`
     }
 
     .icon-only .button-icon {
-        margin-right: 5px;
+        margin-inline-end: 5px;
     }
 
     .small.icon-only {
-        padding: 0 4px 0 5px;
+        padding-block: 0;
+        padding-inline-start: 5px;
+        padding-inline-end: 4px;
     }
 
     .small .button-icon {
-        margin-right: 2px;
+        margin-inline-end: 2px;
     }
 
     .small.icon-only .button-icon {
-        margin-right: 1px;
+        margin-inline-end: 1px;
     }
 
     .toggled {
@@ -277,7 +279,7 @@ export default css`
     .loader {
         width: 16px;
         height: 16px;
-        margin-right: 8px;
+        margin-inline-end: 8px;
     }
 
     .loader + .button-icon {
@@ -286,6 +288,8 @@ export default css`
 
     .icon-only .loader {
         margin: 0 8px 0 4px;
+        margin-inline-start: 4px;
+        margin-inline-end: 8px;
     }
     .small.icon-only .loader {
         margin: 0 4px;

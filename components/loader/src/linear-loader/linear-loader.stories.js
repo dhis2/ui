@@ -50,3 +50,10 @@ export const OverlayComponent = (args) => (
     </div>
 )
 OverlayComponent.args = { amount: 80 }
+
+export const RTL = (args) => (
+    <div dir="rtl">
+        <LinearLoader {...args} />
+    </div>
+)
+RTL.args = { amount: 60 }

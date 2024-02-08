@@ -108,6 +108,23 @@ export const States = () => (
     </React.Fragment>
 )
 
+export const RTL = () => (
+    <React.Fragment>
+        <div dir="rtl">
+            <AlertBar permanent>Default (info)</AlertBar>
+            <AlertBar permanent success>
+                Success
+            </AlertBar>
+            <AlertBar permanent warning>
+                Warning
+            </AlertBar>
+            <AlertBar permanent critical>
+                Critical
+            </AlertBar>
+        </div>
+    </React.Fragment>
+)
+
 export const AutoHiding = () => (
     <React.Fragment>
         <AlertBar permanent>Permanent never auto-hides</AlertBar>

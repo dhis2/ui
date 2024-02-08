@@ -22,6 +22,8 @@ const Chip = ({
     marginLeft,
     marginRight,
     marginTop,
+    marginInlineStart,
+    marginInlineEnd,
 }) => (
     <span
         onClick={(e) => {
@@ -98,8 +100,10 @@ const Chip = ({
         <style jsx>{`
             span {
                 ${marginBottom && `margin-bottom: ${marginBottom}px;`}
-                ${marginLeft && `margin-left: ${marginLeft}px;`}
-                ${marginRight && `margin-right: ${marginRight}px;`}
+                ${marginLeft &&
+                `margin-inline-start: ${marginInlineStart ?? marginLeft}px;`}
+                ${marginRight &&
+                `margin-inline-end: ${marginInlineEnd ?? marginRight}px;`}
                 ${marginTop && `margin-top: ${marginTop}px`}
             }
         `}</style>
@@ -111,6 +115,8 @@ Chip.defaultProps = {
     marginBottom: 4,
     marginLeft: 4,
     marginRight: 4,
+    marginInlineStart: 4,
+    marginInlineEnd: 4,
     marginTop: 4,
 }
 
@@ -124,9 +130,13 @@ Chip.propTypes = {
     icon: PropTypes.element,
     /** `margin-bottom` value, applied in `px`  */
     marginBottom: PropTypes.number,
-    /** `margin-left` value, applied in `px`  */
+    /** `margin-inline-end` value, applied in `px`  */
+    marginInlineEnd: PropTypes.number,
+    /** `margin-inline-start` value, applied in `px`  */
+    marginInlineStart: PropTypes.number,
+    /** `margin-inline-start` value, applied in `px`  */
     marginLeft: PropTypes.number,
-    /** `margin-right` value, applied in `px`  */
+    /** `margin-inline-end` value, applied in `px`  */
     marginRight: PropTypes.number,
     /** `margin-top` value, applied in `px`  */
     marginTop: PropTypes.number,

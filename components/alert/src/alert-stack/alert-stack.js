@@ -12,9 +12,9 @@ export const AlertStack = ({ className, children, dataTest }) => (
                 div {
                     position: fixed;
                     top: auto;
-                    right: auto;
+                    inset-inline-end: auto;
                     bottom: 0;
-                    left: 50%;
+                    inset-inline-start: 50%;
                     transform: translateX(-50%);
 
                     z-index: ${layers.alert};
@@ -23,6 +23,10 @@ export const AlertStack = ({ className, children, dataTest }) => (
                     flex-direction: column-reverse;
 
                     pointer-events: none;
+                }
+
+                div:dir(rtl) {
+                    transform: translateX(50%);
                 }
             `}</style>
         </div>

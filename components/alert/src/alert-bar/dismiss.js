@@ -8,7 +8,7 @@ const Dismiss = ({ onClick, dataTest }) => (
         <IconCross24 />
         <style jsx>{`
             div {
-                margin-left: ${spacers.dp16};
+                margin-inline-start: ${spacers.dp16};
                 min-height: 32px;
                 min-width: 32px;
                 display: flex;

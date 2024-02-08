@@ -556,3 +556,10 @@ LoadingPicked.args = {
     options: options.slice(0, 3),
     initiallySelected: options.slice(0, 2).map(({ value }) => value),
 }
+
+export const RTL = (args) => (
+    <div dir="rtl">
+        <Multiple {...args} />
+    </div>
+)
+RTL.args = { options: options.slice(0, 3), enableOrderChange: true }

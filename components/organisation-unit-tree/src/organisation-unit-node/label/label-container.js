@@ -24,7 +24,7 @@ export const LabelContainer = ({ highlighted, children }) => (
 
             .highlighted {
                 background: ${colors.teal200};
-                padding-right: 4px;
+                padding-inline-end: 4px;
             }
         `}</style>
     </div>

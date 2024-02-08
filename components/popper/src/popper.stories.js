@@ -1,5 +1,5 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Popper } from './popper.js'
 
 const description = `
@@ -143,3 +143,20 @@ export const VirtualElementRef = (args) => {
 }
 VirtualElementRef.args = { placement: 'left-end' }
 VirtualElementRef.parameters = { docs: { source: { type: 'code' } } }
+
+export const RTL = (args) => {
+    useEffect(() => {
+        document.documentElement.setAttribute('dir', 'rtl')
+        return () => {
+            document.documentElement.setAttribute('dir', 'ltr')
+        }
+    }, [])
+    return (
+        <div dir="rtl">
+            <span>If dir=rtl, `left` and `right` placement are reversed</span>
+            <Template {...args} placement="left" />
+            <br />
+            <Template {...args} placement="right-start" />
+        </div>
+    )
+}

@@ -455,3 +455,9 @@ export const LargerTable = (args) => (
         </StackedTableFoot>
     </StackedTable>
 )
+
+export const RTL = (args) => (
+    <div dir="rtl">
+        <Default {...args} />
+    </div>
+)
