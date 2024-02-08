@@ -1,3 +1,10 @@
+# [9.3.0-alpha.1](https://github.com/dhis2/ui/compare/v9.2.0...v9.3.0-alpha.1) (2024-02-08)
+
+
+### Features
+
+* rtl support for components [LIBS-525] ([#1448](https://github.com/dhis2/ui/issues/1448)) ([d8b5fec](https://github.com/dhis2/ui/commit/d8b5feccd4b20aa17c10f6fa9315e40daa03902a))
+
 # [9.2.0](https://github.com/dhis2/ui/compare/v9.1.2...v9.2.0) (2024-01-11)
 
 
