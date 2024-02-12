@@ -27,6 +27,7 @@ export const Button = ({
     onFocus,
     onKeyDown,
     loading,
+    ...otherProps
 }) => {
     const ref = useRef()
 
@@ -67,6 +68,7 @@ export const Button = ({
             onClick={handleClick}
             onFocus={handleFocus}
             onKeyDown={handleKeyDown}
+            {...otherProps}
         >
             {loading && (
                 <span className="loader">
@@ -149,6 +151,7 @@ Button.propTypes = {
      * Called with args `({ value, name }, event)`
      * */
     onClick: PropTypes.func,
+
     /** Callback to trigger on focus. Called with same args as `onClick` */
     onFocus: PropTypes.func,
     /** Callback to trigger on key-down. Called with same args as `onClick` */
