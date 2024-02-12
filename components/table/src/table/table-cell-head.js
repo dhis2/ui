@@ -12,6 +12,10 @@ const tableCellHeadStyles = css`
         height: 45px;
     }
 
+    th:dir(rtl) {
+        text-align: right;
+    }
+
     .dense {
         padding: 9px 12px;
         height: 36px;

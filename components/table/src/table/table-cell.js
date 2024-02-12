@@ -12,6 +12,10 @@ const tableCellStyles = css`
         height: 45px;
     }
 
+    td:dir(rtl) {
+        text-align: right;
+    }
+
     .dense {
         padding: 9px 12px;
         height: 36px;
