@@ -1,3 +1,10 @@
+# [9.3.0-alpha.2](https://github.com/dhis2/ui/compare/v9.3.0-alpha.1...v9.3.0-alpha.2) (2024-02-13)
+
+
+### Bug Fixes
+
+* rtl cleanup ([#1450](https://github.com/dhis2/ui/issues/1450)) ([5f6761f](https://github.com/dhis2/ui/commit/5f6761f8b6154dc9d9b44b226d3562f4035cf536))
+
 # [9.3.0-alpha.1](https://github.com/dhis2/ui/compare/v9.2.0...v9.3.0-alpha.1) (2024-02-08)
 
 
