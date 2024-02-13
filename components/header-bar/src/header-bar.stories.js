@@ -1,5 +1,6 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import React from 'react'
+import { HashRouter } from 'react-router-dom'
 import {
     createDecoratorProvider,
     mockOfflineInterface,
@@ -180,6 +181,14 @@ export default {
 export const Default = () => (
     <CustomDataProvider data={customData}>
         <HeaderBar appName="Example!" />
+    </CustomDataProvider>
+)
+
+export const WithGlobalShellRouter = () => (
+    <CustomDataProvider data={customData}>
+        <HashRouter basename="/">
+            <HeaderBar appName="Example!" />
+        </HashRouter>
     </CustomDataProvider>
 )
 

@@ -22,7 +22,7 @@
         "access": "public"
     },
     "scripts": {
-        "start": "start-storybook -c ../../storybook/config --port 5000",
+        "start": "start-storybook -c ../../storybook/config --port 5005",
         "build": "d2-app-scripts build",
         "test": "d2-app-scripts test --jestConfig ../../jest.config.shared.js"
     },
@@ -31,6 +31,7 @@
         "@dhis2/d2-i18n": "^1",
         "react": "^16.8",
         "react-dom": "^16.8",
+        "react-router-dom": "^6.4",
         "styled-jsx": "^4"
     },
     "dependencies": {
@@ -62,6 +63,7 @@
         "@dhis2/d2-i18n": "^1.1.0",
         "react": "16.13",
         "react-dom": "16.13",
+        "react-router-dom": "^6.22.0",
         "styled-jsx": "^4.0.1"
     },
     "types": "types"

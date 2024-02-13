@@ -5,6 +5,8 @@ import { colors, spacers, theme } from '@dhis2/ui-constants'
 import { IconApps24, IconSettings24 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React, { useState, useEffect, useCallback, useRef } from 'react'
+import { Link, useInRouterContext } from 'react-router-dom'
+import css from 'styled-jsx/css'
 import { joinPath } from './join-path.js'
 import i18n from './locales/index.js'
 
@@ -64,34 +66,64 @@ Search.propTypes = {
     onChange: PropTypes.func.isRequired,
 }
 
-function Item({ name, path, img }) {
+const { className, styles } = css.resolve`
+    a {
+        text-decoration: none;
+        margin: 8px;
+    }
+`
+function ItemWrapper({ name, path, children }) {
+    const inRouterContext = useInRouterContext()
+
+    if (inRouterContext) {
+        // todo: client-side routing scheme
+        return (
+            <Link to={`/app/${name}`} className={className}>
+                {children}
+                {styles}
+            </Link>
+        )
+    }
+
     return (
-        <a href={path}>
-            <img src={img} alt="app logo" />
+        <a href={path} className={className}>
+            {children}
+            {styles}
+        </a>
+    )
+}
+ItemWrapper.propTypes = {
+    children: PropTypes.node,
+    name: PropTypes.string,
+    path: PropTypes.string,
+}
 
-            <div>{name}</div>
+function Item({ displayName, name, path, img }) {
+    return (
+        <ItemWrapper name={name} path={path}>
+            <div className="wrapper">
+                <img src={img} alt="app logo" />
 
+                <div className="name">{displayName}</div>
+            </div>
             <style jsx>{`
-                a {
-                    display: inline-block;
+                div.wrapper {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     justify-content: center;
                     width: 96px;
-                    margin: 8px;
                     border-radius: 12px;
-                    text-decoration: none;
                     cursor: pointer;
                 }
 
-                a:hover,
-                a:focus {
+                div.wrapper:hover,
+                div.wrapper:focus {
                     background-color: ${theme.primary050};
                     cursor: pointer;
                 }
 
-                a:hover > div {
+                div.wrapper:hover > div.name {
                     font-weight: 500;
                     cursor: pointer;
                 }
@@ -103,7 +135,7 @@ function Item({ name, path, img }) {
                     cursor: pointer;
                 }
 
-                div {
+                div.name {
                     overflow-wrap: anywhere;
                     margin-top: 14px;
                     color: rgba(0, 0, 0, 0.87);
@@ -114,11 +146,12 @@ function Item({ name, path, img }) {
                     cursor: pointer;
                 }
             `}</style>
-        </a>
+        </ItemWrapper>
     )
 }
 
 Item.propTypes = {
+    displayName: PropTypes.string,
     img: PropTypes.string,
     name: PropTypes.string,
     path: PropTypes.string,
@@ -141,7 +174,8 @@ function List({ apps, filter }) {
                 .map(({ displayName, name, defaultAction, icon }, idx) => (
                     <Item
                         key={`app-${name}-${idx}`}
-                        name={displayName || name}
+                        displayName={displayName || name}
+                        name={name}
                         path={defaultAction}
                         img={icon}
                     />
