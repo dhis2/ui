@@ -16,7 +16,7 @@ type ButtonOpenEventHandler<
     Event extends React.SyntheticEvent = React.MouseEvent<HTMLButtonElement>
 > = (arg0: ButtonEventPayload & { open: boolean }, event: Event) => void
 
-export interface ButtonProps {
+export interface ButtonProps extends HTMLButtonElement {
     /**
      * Component to render inside the button
      */
