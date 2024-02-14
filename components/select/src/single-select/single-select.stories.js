@@ -272,6 +272,8 @@ WithClearButtonSelectionAndOnChange.storyName =
 export const WithFilterField = WithOptionsTemplate.bind({})
 WithFilterField.args = { ...WithInvalidFilterableOptions.args }
 
+export { WithCustomFiltering } from './__stories__/custom-filtering.js'
+
 export const DefaultPosition = (args) => (
     <>
         <SingleSelect {...args}>
