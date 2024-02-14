@@ -188,6 +188,8 @@ export const WithGlobalShellRouter = () => (
     <CustomDataProvider data={customData}>
         <HashRouter basename="/">
             <HeaderBar appName="Example!" />
+            {/* To test the menu closing functionality */}
+            <iframe width={'100%'} height={'400px'} src={'https://dhis2.org'} />
         </HashRouter>
     </CustomDataProvider>
 )

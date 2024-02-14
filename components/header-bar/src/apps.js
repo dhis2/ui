@@ -1,10 +1,12 @@
 import { Card } from '@dhis2-ui/card'
 import { InputField } from '@dhis2-ui/input'
+import { Layer } from '@dhis2-ui/layer'
+import { Popper } from '@dhis2-ui/popper'
 import { useConfig } from '@dhis2/app-runtime'
 import { colors, spacers, theme } from '@dhis2/ui-constants'
 import { IconApps24, IconSettings24 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
-import React, { useState, useEffect, useCallback, useRef } from 'react'
+import React, { useState, useCallback, useRef } from 'react'
 import { Link, useInRouterContext } from 'react-router-dom'
 import css from 'styled-jsx/css'
 import { joinPath } from './join-path.js'
@@ -215,14 +217,6 @@ const AppMenu = ({ apps, filter, onFilterChange }) => (
             <Search value={filter} onChange={onFilterChange} />
             <List apps={apps} filter={filter} />
         </Card>
-
-        <style jsx>{`
-            div {
-                z-index: 10000;
-                position: absolute;
-                right: -4px;
-            }
-        `}</style>
     </div>
 )
 
@@ -236,22 +230,13 @@ const Apps = ({ apps }) => {
     const [show, setShow] = useState(false)
     const [filter, setFilter] = useState('')
 
-    const handleVisibilityToggle = useCallback(() => setShow(!show), [show])
+    const handleVisibilityToggle = useCallback(() => setShow((s) => !s), [])
     const handleFilterChange = useCallback(({ value }) => setFilter(value), [])
 
-    const containerEl = useRef(null)
-    const onDocClick = useCallback((evt) => {
-        if (containerEl.current && !containerEl.current.contains(evt.target)) {
-            setShow(false)
-        }
-    }, [])
-    useEffect(() => {
-        document.addEventListener('click', onDocClick)
-        return () => document.removeEventListener('click', onDocClick)
-    }, [onDocClick])
+    const containerRef = useRef(null)
 
     return (
-        <div ref={containerEl} data-test="headerbar-apps">
+        <div ref={containerRef} data-test="headerbar-apps">
             <button
                 onClick={handleVisibilityToggle}
                 data-test="headerbar-apps-icon"
@@ -260,11 +245,15 @@ const Apps = ({ apps }) => {
             </button>
 
             {show ? (
-                <AppMenu
-                    apps={apps}
-                    filter={filter}
-                    onFilterChange={handleFilterChange}
-                />
+                <Layer onBackdropClick={handleVisibilityToggle}>
+                    <Popper reference={containerRef} placement="bottom-end">
+                        <AppMenu
+                            apps={apps}
+                            filter={filter}
+                            onFilterChange={handleFilterChange}
+                        />
+                    </Popper>
+                </Layer>
             ) : null}
 
             <style jsx>{`

@@ -22,7 +22,7 @@
         "access": "public"
     },
     "scripts": {
-        "start": "start-storybook -c ../../storybook/config --port 5005",
+        "start": "start-storybook -c ../../storybook/config --port 5000",
         "build": "d2-app-scripts build",
         "test": "d2-app-scripts test --jestConfig ../../jest.config.shared.js"
     },
@@ -46,6 +46,7 @@
         "@dhis2-ui/logo": "9.2.0",
         "@dhis2-ui/menu": "9.2.0",
         "@dhis2-ui/modal": "9.2.0",
+        "@dhis2-ui/popper": "9.2.0",
         "@dhis2-ui/user-avatar": "9.2.0",
         "@dhis2/prop-types": "^3.1.2",
         "@dhis2/ui-constants": "9.2.0",
