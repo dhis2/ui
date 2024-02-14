@@ -22,6 +22,7 @@ const Chip = ({
     marginLeft,
     marginRight,
     marginTop,
+    tabIndex,
 }) => (
     <span
         onClick={(e) => {
@@ -36,6 +37,7 @@ const Chip = ({
             dragging,
         })}
         data-test={dataTest}
+        tabIndex={tabIndex}
     >
         <Icon icon={icon} dataTest={`${dataTest}-icon`} />
         <Content overflow={overflow}>{children}</Content>
@@ -132,6 +134,7 @@ Chip.propTypes = {
     marginTop: PropTypes.number,
     overflow: PropTypes.bool,
     selected: PropTypes.bool,
+    tabIndex: PropTypes.string,
     onClick: PropTypes.func,
     onRemove: PropTypes.func,
 }
