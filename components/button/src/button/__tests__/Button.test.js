@@ -22,6 +22,20 @@ describe('<Button>', () => {
         expect(actual.length).toBe(1)
     })
 
+    it('has the accessibility attributes', () => {
+        const dataTest = 'button-data-test'
+        const wrapper = mount(
+            <Button
+                dataTest={dataTest}
+                ariaLabel="test aria label"
+                title="title for button"
+            />
+        )
+        const buttonElement = wrapper.find('button').getDOMNode()
+        expect(buttonElement).toHaveAttribute('title', 'title for button')
+        expect(buttonElement).toHaveAttribute('ariaLabel', 'test aria label')
+    })
+
     describe('toggle', () => {
         it('should have class "toggled" if toggled-prop is true', () => {
             const wrapper = mount(<Button toggled />)

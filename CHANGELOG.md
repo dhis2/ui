@@ -1,3 +1,10 @@
+# [9.3.0](https://github.com/dhis2/ui/compare/v9.2.0...v9.3.0) (2024-02-13)
+
+
+### Features
+
+* update accessibility in button component ([0a015c7](https://github.com/dhis2/ui/commit/0a015c7fe9115edcaa5126daca0ef65f092c925e))
+
 # [9.3.0-alpha.2](https://github.com/dhis2/ui/compare/v9.3.0-alpha.1...v9.3.0-alpha.2) (2024-02-13)
 
 

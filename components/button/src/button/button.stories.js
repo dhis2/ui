@@ -30,6 +30,8 @@ export default {
         children: 'Label me!',
         value: 'default',
         onClick: logger,
+        title: 'Button',
+        ariaLabel: 'Button',
     },
     argTypes: {
         primary: { ...buttonVariantArgType },
@@ -230,6 +232,8 @@ IconOnly.args = {
     icon: DemoIcon24,
     name: 'Icon only button',
     children: null,
+    title: 'Icon Button',
+    ariaLabel: 'Icon Button',
 }
 
 export const IconSmall = Template.bind({})
