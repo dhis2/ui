@@ -8,12 +8,12 @@ Given(
     }
 )
 
-Then(`the headerbar contains a text icon of size 36px`, () => {
+Then(`the headerbar contains a text icon of size 24px`, () => {
     cy.fixture('HeaderBar/me').then(() => {
         cy.get('[data-test="headerbar-profile-icon-text"]')
             .should('be.visible')
-            .and('have.css', 'height', '36px')
-            .and('have.css', 'width', '36px')
+            .and('have.css', 'height', '24px')
+            .and('have.css', 'width', '24px')
     })
 })
 

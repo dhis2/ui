@@ -237,7 +237,7 @@ const Apps = ({ apps }) => {
                 button {
                     display: block;
                     background: transparent;
-                    padding: ${spacers.dp4} ${spacers.dp12} 0;
+                    padding: ${spacers.dp4} ${spacers.dp8} 0;
                     border: 0;
                     cursor: pointer;
                     height: 100%;
@@ -250,10 +250,10 @@ const Apps = ({ apps }) => {
                     outline: none;
                 }
                 button:hover {
-                    background: #1a557f;
+                    background: #104f7e;
                 }
                 button:active {
-                    background: #104067;
+                    background: #0d4168;
                 }
 
                 div {

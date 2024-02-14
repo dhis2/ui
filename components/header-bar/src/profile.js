@@ -1,4 +1,5 @@
 import { UserAvatar } from '@dhis2-ui/user-avatar'
+import { spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useCallback, useRef, useState } from 'react'
 import { DebugInfoModal } from './debug-info/debug-info-modal.js'
@@ -34,7 +35,7 @@ const Profile = ({ name, email, avatarId, helpUrl }) => {
                     avatarId={avatarId}
                     name={name}
                     dataTest="headerbar-profile-icon"
-                    medium
+                    small
                 />
             </button>
 
@@ -66,7 +67,7 @@ const Profile = ({ name, email, avatarId, helpUrl }) => {
 
                 .headerbar-profile-btn {
                     background: transparent;
-                    padding: 6px;
+                    padding: ${spacers.dp8};
                     border: 0;
                     cursor: pointer;
                 }
@@ -78,10 +79,10 @@ const Profile = ({ name, email, avatarId, helpUrl }) => {
                     outline: none;
                 }
                 .headerbar-profile-btn:hover {
-                    background: #1a557f;
+                    background: #104f7e;
                 }
                 .headerbar-profile-btn:active {
-                    background: #104067;
+                    background: #0d4168;
                 }
             `}</style>
         </div>
