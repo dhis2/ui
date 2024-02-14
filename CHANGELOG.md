@@ -1,3 +1,15 @@
+# [9.4.0-alpha.1](https://github.com/dhis2/ui/compare/v9.3.0...v9.4.0-alpha.1) (2024-02-14)
+
+
+### Bug Fixes
+
+* rtl cleanup ([#1450](https://github.com/dhis2/ui/issues/1450)) ([5f6761f](https://github.com/dhis2/ui/commit/5f6761f8b6154dc9d9b44b226d3562f4035cf536))
+
+
+### Features
+
+* rtl support for components [LIBS-525] ([#1448](https://github.com/dhis2/ui/issues/1448)) ([d8b5fec](https://github.com/dhis2/ui/commit/d8b5feccd4b20aa17c10f6fa9315e40daa03902a))
+
 # [9.3.0](https://github.com/dhis2/ui/compare/v9.2.0...v9.3.0) (2024-02-13)
 
 
