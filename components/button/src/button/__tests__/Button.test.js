@@ -7,7 +7,7 @@ describe('<Button>', () => {
     let consoleSpy
 
     beforeEach(() => {
-        consoleSpy = jest.spyOn(console, 'warn').mockImplementation()
+        consoleSpy = jest.spyOn(console, 'debug').mockImplementation()
     })
 
     afterEach(() => {

@@ -39,7 +39,7 @@ export const Button = ({
 
     const { 'aria-label': ariaLabel, title } = otherProps
     if (!children && !title && !ariaLabel) {
-        console.warn(
+        console.debug(
             'Button component has no children but is missing title or ariaLabel attribute.'
         )
     }
