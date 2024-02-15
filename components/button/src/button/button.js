@@ -37,6 +37,13 @@ export const Button = ({
         }
     }, [initialFocus, ref.current])
 
+    const { 'aria-label': ariaLabel, title } = otherProps
+    if (!children && !title && !ariaLabel) {
+        console.warn(
+            'Button component has no children but is missing title or ariaLabel attribute.'
+        )
+    }
+
     const handleClick = (event) => onClick && onClick({ value, name }, event)
     const handleBlur = (event) => onBlur && onBlur({ value, name }, event)
     const handleFocus = (event) => onFocus && onFocus({ value, name }, event)

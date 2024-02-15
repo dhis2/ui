@@ -4,6 +4,52 @@ import React from 'react'
 import { Button } from '../button.js'
 
 describe('<Button>', () => {
+    let consoleSpy
+
+    beforeEach(() => {
+        consoleSpy = jest.spyOn(console, 'warn').mockImplementation()
+    })
+
+    afterEach(() => {
+        consoleSpy.mockRestore()
+    })
+
+    describe('warning for missing aria-label or title', () => {
+        it('No warning  if children exist but aria-label or title is missing', () => {
+            render(<Button>Children content</Button>)
+
+            expect(consoleSpy).not.toHaveBeenCalled()
+        })
+
+        it('does not warn if aria-label or title is present', () => {
+            render(
+                <Button ariaLabel="Test" title="Test">
+                    Children content
+                </Button>
+            )
+
+            expect(consoleSpy).not.toHaveBeenCalled()
+        })
+
+        it('warns if no children are present with no arial-label and title', () => {
+            render(<Button>{/* No children */}</Button>)
+
+            expect(consoleSpy).toHaveBeenCalledWith(
+                'Button component has no children but is missing title or ariaLabel attribute.'
+            )
+        })
+
+        it('No warning if there are no children but arial label and title', () => {
+            render(
+                <Button ariaLabel="Test" title="Test">
+                    {/* No children */}
+                </Button>
+            )
+
+            expect(consoleSpy).not.toHaveBeenCalled()
+        })
+    })
+
     it('renders a default data-test attribute', () => {
         const dataTest = 'dhis2-uicore-button'
         const wrapper = mount(<Button dataTest={dataTest} />)
