@@ -265,7 +265,7 @@ export const RTL = (args) => {
         </div>
     )
 }
-// Have this be the primary story on the docs page
+
 RTL.parameters = {
     docs: { disable: false, source: { type: 'dynamic' } },
 }
