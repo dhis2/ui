@@ -100,10 +100,10 @@ const Chip = ({
         <style jsx>{`
             span {
                 ${marginBottom && `margin-bottom: ${marginBottom}px;`}
-                ${marginLeft &&
-                `margin-inline-start: ${marginInlineStart ?? marginLeft}px;`}
-                ${marginRight &&
-                `margin-inline-end: ${marginInlineEnd ?? marginRight}px;`}
+                ${marginInlineStart &&
+                `margin-inline-start: ${marginLeft ?? marginInlineStart}px;`}
+                ${marginInlineEnd &&
+                `margin-inline-end: ${marginRight ?? marginInlineEnd}px;`}
                 ${marginTop && `margin-top: ${marginTop}px`}
             }
         `}</style>
@@ -113,8 +113,6 @@ const Chip = ({
 Chip.defaultProps = {
     dataTest: 'dhis2-uicore-chip',
     marginBottom: 4,
-    marginLeft: 4,
-    marginRight: 4,
     marginInlineStart: 4,
     marginInlineEnd: 4,
     marginTop: 4,
