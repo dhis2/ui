@@ -61,7 +61,7 @@ const PageControls = ({
                 padding-inline-end: 0;
                 margin-inline-start: ${spacers.dp4};
             }
-            div :global(.navigator-icon:dir(rtl)) {
+            div .navigator-icon:dir(rtl) {
                 transform: rotate(180deg);
             }
         `}</style>
