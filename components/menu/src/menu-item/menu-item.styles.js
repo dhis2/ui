@@ -109,6 +109,10 @@ export default css`
         margin-inline-start: ${spacers.dp24};
     }
 
+    .chevron:dir(rtl) {
+        transform: rotate(180deg);
+    }
+
     li.dense .icon {
         margin-inline-end: ${spacers.dp8};
         width: 16px;
