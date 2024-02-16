@@ -40,6 +40,7 @@ const MenuItem = ({
     showSubMenu,
     toggleSubMenu,
     suffix,
+    checkbox,
 }) => {
     const menuItemRef = useRef()
 
@@ -55,6 +56,9 @@ const MenuItem = ({
                 })}
                 ref={menuItemRef}
                 data-test={dataTest}
+                role={checkbox ? 'menuitemcheckbox' : 'menuitem'}
+                aria-haspopup={toggleSubMenu ? 'menu' : undefined}
+                aria-disabled={disabled}
             >
                 <a
                     target={target}
@@ -102,6 +106,7 @@ MenuItem.defaultProps = {
 
 MenuItem.propTypes = {
     active: PropTypes.bool,
+    checkbox: PropTypes.bool,
     chevron: PropTypes.bool,
     /**
      * Nested menu items can become submenus.

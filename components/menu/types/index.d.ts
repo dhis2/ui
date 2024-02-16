@@ -82,6 +82,10 @@ export interface MenuItemProps {
      */
     value?: string
     /**
+     * For using menu item as a checkbox
+     */
+    checkbox?: boolean
+    /**
      * Click handler called with signature `({ value: string }, event)`
      */
     onClick?: (
