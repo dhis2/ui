@@ -166,3 +166,14 @@ SubMenus.parameters = {
         },
     },
 }
+
+export const RTLSuffixAndChevron = (args) => (
+    <div dir="rtl">
+        <Template {...args} />
+    </div>
+)
+RTLSuffixAndChevron.args = {
+    label: 'Security notifications',
+    chevron: true,
+    suffix: <Tag>3</Tag>,
+}
