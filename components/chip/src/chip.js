@@ -6,6 +6,8 @@ import { Content } from './content.js'
 import { Icon } from './icon.js'
 import { Remove } from './remove.js'
 
+const DEFAULT_INLINE_MARGIN = '4'
+
 const Chip = ({
     selected,
     dense,
@@ -100,10 +102,12 @@ const Chip = ({
         <style jsx>{`
             span {
                 ${marginBottom && `margin-bottom: ${marginBottom}px;`}
-                ${marginInlineStart &&
-                `margin-inline-start: ${marginLeft ?? marginInlineStart}px;`}
-                ${marginInlineEnd &&
-                `margin-inline-end: ${marginRight ?? marginInlineEnd}px;`}
+                margin-inline-start: ${marginInlineStart ??
+                marginLeft ??
+                DEFAULT_INLINE_MARGIN}px;
+                margin-inline-end: ${marginInlineEnd ??
+                marginRight ??
+                DEFAULT_INLINE_MARGIN}px;
                 ${marginTop && `margin-top: ${marginTop}px`}
             }
         `}</style>
@@ -113,8 +117,6 @@ const Chip = ({
 Chip.defaultProps = {
     dataTest: 'dhis2-uicore-chip',
     marginBottom: 4,
-    marginInlineStart: 4,
-    marginInlineEnd: 4,
     marginTop: 4,
 }
 
