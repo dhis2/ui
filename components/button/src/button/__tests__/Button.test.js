@@ -4,7 +4,6 @@ import React from 'react'
 import { Button } from '../button.js'
 
 describe('<Button>', () => {
-    
     let consoleSpy
 
     beforeEach(() => {
