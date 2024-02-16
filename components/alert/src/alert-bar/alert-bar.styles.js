@@ -11,9 +11,9 @@ export default css`
         border-radius: 4px;
         box-shadow: ${elevations.e300};
         padding-top: ${spacers.dp8};
-        padding-right: ${spacers.dp8};
+        padding-inline-end: ${spacers.dp8};
         padding-bottom: ${spacers.dp8};
-        padding-left: ${spacers.dp24};
+        padding-inline-start: ${spacers.dp24};
         margin-bottom: ${spacers.dp16};
         max-width: 600px;
         min-width: 300px;

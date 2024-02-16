@@ -23,7 +23,7 @@ export const CloseButton = ({ onClick }) => (
                 border-radius: 3px;
                 position: absolute;
                 top: 0px;
-                right: 0px;
+                inset-inline-end: 0px;
             }
             button:hover {
                 background-color: ${colors.grey200};

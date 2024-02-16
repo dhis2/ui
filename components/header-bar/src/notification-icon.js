@@ -12,7 +12,7 @@ function icon(kind) {
 }
 
 export const NotificationIcon = ({ count, href, kind, dataTestId }) => (
-    <a href={href} className={kind} data-test={dataTestId}>
+    <a dir="ltr" href={href} className={kind} data-test={dataTestId}>
         {icon(kind)}
 
         {count > 0 && <span data-test={`${dataTestId}-count`}>{count}</span>}
@@ -47,7 +47,7 @@ export const NotificationIcon = ({ count, href, kind, dataTestId }) => (
                 z-index: 1;
                 position: absolute;
                 top: 3px;
-                right: 2px;
+                inset-inline-end: 2px;
                 min-width: 18px;
                 min-height: 18px;
                 border-radius: ${spacers.dp12};

@@ -122,3 +122,13 @@ ValueTextOverflow.args = {
     dense: true,
     warning: true,
 }
+
+export const RTLErrorPlaceholder = (args) => (
+    <div dir="rtl">
+        <Input {...args} />
+    </div>
+)
+RTLErrorPlaceholder.args = {
+    error: true,
+    placeholder: 'RTL placeholder',
+}

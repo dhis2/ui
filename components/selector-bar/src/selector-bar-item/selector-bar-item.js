@@ -115,7 +115,9 @@ export const SelectorBarItem = ({
                          * that's why the padding on the right is only 8px.
                          */ ''
                     }
-                    padding: 0 ${spacers.dp8} 0 ${spacers.dp12};
+                    padding-block: 0;
+                    padding-inline-start: ${spacers.dp8};
+                    padding-inline-end: ${spacers.dp12};
                     font-size: 14px;
                     line-height: 16px;
                     border: none;
@@ -135,13 +137,13 @@ export const SelectorBarItem = ({
                 }
 
                 .value {
-                    padding-left: ${spacers.dp8};
+                    padding-inline-start: ${spacers.dp8};
                 }
 
                 .clear-icon {
                     display: flex;
                     align-items: center;
-                    margin-left: ${spacers.dp4};
+                    margin-inline-start: ${spacers.dp4};
                     padding: ${spacers.dp4};
                     cursor: pointer;
                 }
@@ -155,7 +157,7 @@ export const SelectorBarItem = ({
 
                 .toggle-icon {
                     display: flex;
-                    margin-left: ${spacers.dp4};
+                    margin-inline-start: ${spacers.dp4};
                     height: 100%;
                     align-items: center;
                 }

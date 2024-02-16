@@ -76,7 +76,7 @@ const ProfileDetails = ({ name, email }) => (
             div {
                 display: flex;
                 flex-direction: column;
-                margin-left: 20px;
+                margin-inline-start: 20px;
                 color: #000;
                 font-size: 14px;
                 font-weight: 400;
@@ -104,7 +104,7 @@ export const ProfileHeader = ({ name, email, avatarId }) => (
             div {
                 display: flex;
                 flex-direction: row;
-                margin-left: 24px;
+                margin-inline-start: 24px;
                 padding-top: 20px;
             }
         `}</style>

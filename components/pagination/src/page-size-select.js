@@ -44,7 +44,7 @@ const PageSizeSelect = ({
                 align-items: center;
                 flex-shrink: 0;
                 min-height: 32px;
-                margin-right: ${spacers.dp12};
+                margin-inline-end: ${spacers.dp12};
                 flex-grow: 1;
             }
         `}</style>

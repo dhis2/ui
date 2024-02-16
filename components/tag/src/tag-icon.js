@@ -7,7 +7,7 @@ export const TagIcon = ({ children, dataTest }) => (
         <style jsx>{`
             display: flex;
             align-items: center;
-            margin-right: 4px;
+            margin-inline-end: 4px;
             max-height: 16px;
             max-width: 16px;
         `}</style>

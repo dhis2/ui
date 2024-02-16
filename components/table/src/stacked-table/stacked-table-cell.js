@@ -34,6 +34,9 @@ export const StackedTableCell = ({
                     width: 100%;
                     display: block;
                 }
+                td:dir(rtl) {
+                    text-align: right;
+                }
 
                 td:last-child {
                     border-bottom: 0;

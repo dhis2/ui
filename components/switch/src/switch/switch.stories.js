@@ -1,5 +1,5 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Switch } from './index.js'
 
 const subtitle = 'An input control that allows an on and an off state'
@@ -138,3 +138,20 @@ ErrorDense.storyName = 'Error - Dense'
 export const ImageLabelDense = Template.bind({})
 ImageLabelDense.args = { ...ImageLabel.args, ...DefaultDense.args }
 ImageLabelDense.storyName = 'Image label - Dense'
+
+export const RTL = (args) => {
+    useEffect(() => {
+        document.documentElement.setAttribute('dir', 'rtl')
+        return () => {
+            document.documentElement.setAttribute('dir', 'ltr')
+        }
+    }, [])
+
+    return (
+        <div dir="rtl">
+            <Template {...args} />
+            <Template checked={true} value="checked" />
+            <Template error={true} checked={true} value="error" />
+        </div>
+    )
+}

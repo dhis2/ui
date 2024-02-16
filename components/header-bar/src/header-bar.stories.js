@@ -253,6 +253,14 @@ export const WithOnlineStatusMessage = () => (
     </CustomDataProvider>
 )
 
+export const RTLHeader = () => (
+    <CustomDataProvider data={customData}>
+        <div dir="rtl">
+            <HeaderBar appName="Example!" />
+        </div>
+    </CustomDataProvider>
+)
+
 WithOnlineStatusMessage.decorators = [
     createDecoratorProvider(
         {

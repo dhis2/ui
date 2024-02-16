@@ -31,3 +31,10 @@ Dense.args = { dense: true }
 
 export const Margin = Template.bind({})
 Margin.args = { margin: '20px 20px 20px 20px' }
+
+export const RTLUnevenMargin = (args) => (
+    <div dir="rtl">
+        <Template {...args} />
+    </div>
+)
+RTLUnevenMargin.args = { margin: '10px 5px 40px 50px' }

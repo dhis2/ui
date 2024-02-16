@@ -88,7 +88,7 @@ export const OptionsContainer = ({
                     position: absolute;
                     z-index: 2;
                     top: 0;
-                    left: 0;
+                    inset-inline-start: 0;
                 }
 
                 .content-container {

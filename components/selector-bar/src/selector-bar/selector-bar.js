@@ -85,7 +85,7 @@ export const SelectorBar = ({
                          * 8px already come from the clear selection component
                          */ ''
                     }
-                    padding-left: 4px;
+                    padding-inline-start: 4px;
                 }
             `}</style>
         </div>

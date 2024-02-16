@@ -43,7 +43,7 @@ const PageSelect = ({
         </SingleSelect>
         <style jsx>{`
             div {
-                margin-right: ${spacers.dp12};
+                margin-inline-end: ${spacers.dp12};
             }
         `}</style>
     </div>

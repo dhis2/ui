@@ -209,3 +209,11 @@ export const Autogrow = (args) => (
         />
     </>
 )
+
+export const RTL = (args) => (
+    <div dir="rtl">
+        <Template {...args} />
+    </div>
+)
+RTL.args = { valid: true, value: 'This RTL text is valid' }
+RTL.storyName = 'RTL: Valid'

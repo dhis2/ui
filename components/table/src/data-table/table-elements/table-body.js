@@ -24,15 +24,15 @@ export const TableBody = forwardRef(
                     position: absolute;
                     top: 0;
                     bottom: 0;
-                    left: 0;
-                    right: 0;
+                    inset-inline-start: 0;
+                    inset-inline-end: 0;
                     background-color: rgba(255, 255, 255, 0.8);
                 }
                 .loading:after {
                     content: '';
                     position: absolute;
                     top: calc(50% - 24px);
-                    left: calc(50% - 24px);
+                    inset-inline-start: calc(50% - 24px);
                     width: 48px;
                     height: 48px;
                     border: 6px solid rgba(110, 122, 138, 0.15);

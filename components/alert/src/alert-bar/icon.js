@@ -57,7 +57,7 @@ const Icon = ({ icon, success, warning, critical, info, dataTest }) => {
             )}
             <style jsx>{`
                 div {
-                    margin-right: ${spacers.dp16};
+                    margin-inline-end: ${spacers.dp16};
                 }
             `}</style>
         </div>

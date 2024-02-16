@@ -122,14 +122,14 @@ class SplitButton extends Component {
                     }
 
                     div > :global(button:first-child) {
-                        border-top-right-radius: 0;
-                        border-bottom-right-radius: 0;
-                        border-right: 0;
+                        border-start-end-radius: 0;
+                        border-end-end-radius: 0;
+                        border-inline-end: 0;
                     }
 
                     div > :global(button:last-child) {
-                        border-top-left-radius: 0;
-                        border-bottom-left-radius: 0;
+                        border-start-start-radius: 0;
+                        border-end-start-radius: 0;
                     }
                 `}</style>
             </div>

@@ -16,17 +16,17 @@ export default css`
         font-size: 13px;
     }
     th:last-of-type {
-        border-right: 1px solid ${colors.grey300};
+        border-inline-end: 1px solid ${colors.grey300};
     }
     th.active {
         outline: 2px solid ${colors.grey600};
         outline-offset: -2px;
     }
     th.bordered {
-        border-right: 1px solid ${colors.grey300};
+        border-inline-end: 1px solid ${colors.grey300};
     }
     th.bordered:last-child {
-        border-right: 1px solid transparent;
+        border-inline-end: 1px solid transparent;
     }
     th.error {
         color: ${colors.red700};

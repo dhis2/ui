@@ -183,3 +183,9 @@ export const TabStatesWithIcon = (args) => (
     </TabBar>
 )
 TabStatesWithIcon.storyName = 'Tab states - with icon'
+
+export const RTL = (args) => (
+    <div dir="rtl">
+        <TabStatesWithIcon {...args} />
+    </div>
+)

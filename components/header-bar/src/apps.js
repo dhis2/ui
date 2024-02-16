@@ -161,7 +161,9 @@ function List({ apps, filter }) {
 
                     min-height: 200px;
                     max-height: 465px;
-                    margin: 0 8px 8px 8px;
+                    margin-block-start: 0;
+                    margin-block-end: 8px;
+                    margin-inline: 8px;
 
                     overflow: auto;
                     overflow-x: hidden;
@@ -186,7 +188,7 @@ const AppMenu = ({ apps, filter, onFilterChange }) => (
             div {
                 z-index: 10000;
                 position: absolute;
-                right: -4px;
+                inset-inline-end: -4px;
             }
         `}</style>
     </div>
@@ -237,7 +239,9 @@ const Apps = ({ apps }) => {
                 button {
                     display: block;
                     background: transparent;
-                    padding: ${spacers.dp4} ${spacers.dp12} 0;
+                    padding-block-start: ${spacers.dp4};
+                    padding-block-end: 0;
+                    padding-inline: ${spacers.dp12};
                     border: 0;
                     cursor: pointer;
                     height: 100%;

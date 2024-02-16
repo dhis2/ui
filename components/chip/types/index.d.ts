@@ -13,13 +13,21 @@ export interface ChipProps {
      */
     marginBottom?: number
     /**
-     * `margin-left` value, applied in `px`
+     * `margin-inline-start` value, applied in `px` (if marginInlineStart not provided)
      */
     marginLeft?: number
     /**
-     * `margin-right` value, applied in `px`
+     * `margin-inline-end` value, applied in `px` (if marginInlineEnd not provided)
      */
     marginRight?: number
+    /**
+     * `margin-inline-start` value, applied in `px`
+     */
+    marginInlineStart?: number
+    /**
+     * `margin-inline-end` value, applied in `px`
+     */
+    marginInlineEnd?: number
     /**
      * `margin-top` value, applied in `px`
      */

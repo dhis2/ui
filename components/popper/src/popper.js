@@ -5,6 +5,16 @@ import { usePopper } from 'react-popper'
 import { getReferenceElement } from './get-reference-element.js'
 import { deduplicateModifiers } from './modifiers.js'
 
+const flipPlacement = (placement) => {
+    if (placement.startsWith('right')) {
+        return placement.replace('right', 'left')
+    }
+    if (placement.startsWith('left')) {
+        return placement.replace('left', 'right')
+    }
+    return placement
+}
+
 const Popper = ({
     children,
     className,
@@ -32,7 +42,10 @@ const Popper = ({
     const { styles, attributes } = usePopper(referenceElement, popperElement, {
         strategy,
         onFirstUpdate,
-        placement,
+        placement:
+            document.documentElement.dir === 'rtl'
+                ? flipPlacement(placement)
+                : placement,
         modifiers: deduplicatedModifiers,
     })
 

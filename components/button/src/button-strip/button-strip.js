@@ -27,11 +27,11 @@ const ButtonStrip = ({ className, children, middle, end, dataTest }) => (
             }
 
             .box {
-                margin-left: ${spacers.dp8};
+                margin-inline-start: ${spacers.dp8};
             }
 
             .box:first-child {
-                margin-left: 0;
+                margin-inline-start: 0;
             }
         `}</style>
     </div>

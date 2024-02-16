@@ -75,10 +75,16 @@ export const SideBarMenu = (args) => (
                 backgroundColor: '#f3ffff',
                 flexGrow: 1,
                 padding: 20,
-                borderLeft: '1px solid grey',
+                borderInlineStart: '1px solid grey',
             }}
         >
             Main content
         </section>
     </main>
+)
+
+export const SideBarMenuRTL = (args) => (
+    <div dir="rtl" style={{ height: '100%' }}>
+        <SideBarMenu {...args} />
+    </div>
 )

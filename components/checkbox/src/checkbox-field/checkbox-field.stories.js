@@ -139,3 +139,11 @@ ErrorDense.storyName = 'Error - Dense'
 export const ImageLabelDense = Template.bind({})
 ImageLabelDense.args = { ...DefaultDense.args, ...ImageLabel.args }
 ImageLabelDense.storyName = 'Image label - Dense'
+
+export const RTL = (args) => (
+    <div dir="rtl">
+        <>
+            <CheckboxField {...args} />
+        </>
+    </div>
+)

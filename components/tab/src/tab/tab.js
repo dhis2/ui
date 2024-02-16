@@ -56,7 +56,7 @@ const Tab = ({
                 display: block;
                 position: absolute;
                 bottom: -1px;
-                left: 0;
+                inset-inline-start: 0;
                 height: 4px;
                 width: 100%;
                 background-color: transparent;
