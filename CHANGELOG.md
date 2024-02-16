@@ -1,3 +1,10 @@
+# [9.4.0](https://github.com/dhis2/ui/compare/v9.3.0...v9.4.0) (2024-02-16)
+
+
+### Features
+
+* add rtl support for ui components ([#1452](https://github.com/dhis2/ui/issues/1452)) ([19bffac](https://github.com/dhis2/ui/commit/19bffacafb1f6963a648736e165e82757705fbad))
+
 # [9.4.0-alpha.2](https://github.com/dhis2/ui/compare/v9.4.0-alpha.1...v9.4.0-alpha.2) (2024-02-16)
 
 
