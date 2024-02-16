@@ -38,6 +38,7 @@ export const Button = ({
     }, [initialFocus, ref.current])
 
     const { 'aria-label': ariaLabel, title } = otherProps
+    
     if (!children && !title && !ariaLabel) {
         console.debug(
             'Button component has no children but is missing title or ariaLabel attribute.'
