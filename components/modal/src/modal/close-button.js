@@ -13,7 +13,7 @@ export const CloseButton = ({ onClick }) => (
         title="Close modal dialog"
         data-test="dhis2-modal-close-button"
         onClick={createClickHandler(onClick)}
-        aria-label={i18n.t('Close modal dialog')}
+        aria-label="Close modal dialog"
     >
         <IconCross16 />
         <style jsx>{`
