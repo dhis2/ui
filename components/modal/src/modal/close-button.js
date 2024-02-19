@@ -2,6 +2,7 @@ import { colors, theme } from '@dhis2/ui-constants'
 import { IconCross16 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React from 'react'
+import i18n from '../locales/index.js'
 
 const createClickHandler = (onClick) => (event) => {
     onClick({}, event)
@@ -9,8 +10,10 @@ const createClickHandler = (onClick) => (event) => {
 
 export const CloseButton = ({ onClick }) => (
     <button
+        title="Close modal dialog"
         data-test="dhis2-modal-close-button"
         onClick={createClickHandler(onClick)}
+        aria-label={i18n.t('Close modal dialog')}
     >
         <IconCross16 />
         <style jsx>{`
