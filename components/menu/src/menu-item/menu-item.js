@@ -3,7 +3,7 @@ import { Portal } from '@dhis2-ui/portal'
 import { IconChevronRight24 } from '@dhis2/ui-icons'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { FlyoutMenu } from '../index.js'
 import styles from './menu-item.styles.js'
 
@@ -41,8 +41,15 @@ const MenuItem = ({
     toggleSubMenu,
     suffix,
     checkbox,
+    handleRef,
 }) => {
     const menuItemRef = useRef()
+
+    useEffect(() => {
+        if (handleRef) {
+            handleRef(menuItemRef.current)
+        }
+    }, [handleRef])
 
     return (
         <>
@@ -59,6 +66,7 @@ const MenuItem = ({
                 role={checkbox ? 'menuitemcheckbox' : 'menuitem'}
                 aria-haspopup={toggleSubMenu ? 'menu' : undefined}
                 aria-disabled={disabled}
+                aria-pressed={active}
             >
                 <a
                     target={target}
@@ -118,6 +126,7 @@ MenuItem.propTypes = {
     dense: PropTypes.bool,
     destructive: PropTypes.bool,
     disabled: PropTypes.bool,
+    handleRef: PropTypes.func,
     /** For using menu item as a link */
     href: PropTypes.string,
     /** An icon for the left side of the menu item */
