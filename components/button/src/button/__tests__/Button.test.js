@@ -35,7 +35,7 @@ describe('<Button>', () => {
             render(<Button>{/* No children */}</Button>)
 
             expect(consoleSpy).toHaveBeenCalledWith(
-                'Button component has no children but is missing title or ariaLabel attribute.'
+                'Button component has no children but is missing title and ariaLabel attribute.'
             )
         })
 

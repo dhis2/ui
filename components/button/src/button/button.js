@@ -41,7 +41,7 @@ export const Button = ({
 
     if (!children && !title && !ariaLabel) {
         console.debug(
-            'Button component has no children but is missing title or ariaLabel attribute.'
+            'Button component has no children but is missing title and ariaLabel attribute.'
         )
     }
 
