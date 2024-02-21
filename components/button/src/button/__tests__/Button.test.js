@@ -14,16 +14,16 @@ describe('<Button>', () => {
         consoleSpy.mockRestore()
     })
 
-    describe('warning for missing aria-label or title', () => {
-        it('No warning  if children exist but aria-label or title is missing', () => {
+    describe('warning for missing aria-label and title', () => {
+        it('No warning  if children exist but aria-label and title is missing', () => {
             render(<Button>Children content</Button>)
 
             expect(consoleSpy).not.toHaveBeenCalled()
         })
 
-        it('does not warn if aria-label or title is present', () => {
+        it('does not warn if aria-label and title is present', () => {
             render(
-                <Button ariaLabel="Test" title="Test">
+                <Button aria-label="Test" title="Test">
                     Children content
                 </Button>
             )
@@ -41,7 +41,7 @@ describe('<Button>', () => {
 
         it('No warning if there are no children but arial label and title', () => {
             render(
-                <Button ariaLabel="Test" title="Test">
+                <Button aria-label="Test" title="Test">
                     {/* No children */}
                 </Button>
             )
