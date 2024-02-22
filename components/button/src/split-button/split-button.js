@@ -18,7 +18,24 @@ class SplitButton extends Component {
     state = {
         open: false,
     }
+
     anchorRef = React.createRef()
+
+    componentDidMount() {
+        document.addEventListener('keydown', this.handleKeyDown)
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('keydown', this.handleKeyDown)
+    }
+
+    handleKeyDown = (event) => {
+        if (event.key === 'Escape' && this.state.open) {
+            this.setState({ open: false })
+
+            this.anchorRef.current && this.anchorRef.current.focus()
+        }
+    }
 
     onClick = (payload, event) => {
         if (this.props.onClick) {
@@ -33,8 +50,9 @@ class SplitButton extends Component {
         }
     }
 
-    onToggle = () => this.setState({ open: !this.state.open })
-
+    onToggle = () => {
+        this.setState((prevState) => ({ open: !prevState.open }))
+    }
     render() {
         const { open } = this.state
         const {
@@ -94,6 +112,8 @@ class SplitButton extends Component {
                     tabIndex={tabIndex}
                     className={cx(className, rightButton.className)}
                     dataTest={`${dataTest}-toggle`}
+                    title="Toggle dropdown"
+                    aria-label="Toggle dropdown"
                 >
                     {arrow}
                 </Button>
