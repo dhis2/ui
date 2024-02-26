@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { Children, cloneElement, isValidElement } from 'react'
 
 const Menu = ({ children, className, dataTest, dense }) => (
-    <ul className={className} data-test={dataTest}>
+    <ul className={className} data-test={dataTest} role="menu">
         {Children.map(children, (child, index) =>
             isValidElement(child)
                 ? cloneElement(child, {
