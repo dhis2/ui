@@ -51,7 +51,6 @@ class SplitButton extends Component {
     }
 
     onToggle = () => {
-        // Ensure that the state is correctly toggled
         this.setState((prevState) => ({ open: !prevState.open }))
     }
 
