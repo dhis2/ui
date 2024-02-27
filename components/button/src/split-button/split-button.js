@@ -28,11 +28,11 @@ class SplitButton extends Component {
     componentWillUnmount() {
         document.removeEventListener('keydown', this.handleKeyDown)
     }
-
     handleKeyDown = (event) => {
+        event.preventDefault()
         if (event.key === 'Escape' && this.state.open) {
+            event.stopPropagation()
             this.setState({ open: false })
-
             this.anchorRef.current && this.anchorRef.current.focus()
         }
     }
@@ -51,8 +51,10 @@ class SplitButton extends Component {
     }
 
     onToggle = () => {
+        // Ensure that the state is correctly toggled
         this.setState((prevState) => ({ open: !prevState.open }))
     }
+
     render() {
         const { open } = this.state
         const {
