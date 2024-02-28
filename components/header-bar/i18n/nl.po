@@ -2,13 +2,14 @@
 # Translators:
 # Rica Zamora Duchateau, 2022
 # Charel van den Elsen, 2023
+# Philip Larsen Donnelly, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2023-01-18T16:13:05.063Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
-"Last-Translator: Charel van den Elsen, 2023\n"
+"Last-Translator: Philip Larsen Donnelly, 2024\n"
 "Language-Team: Dutch (https://app.transifex.com/hisp-uio/teams/100509/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgid "Search apps"
 msgstr "Zoek apps"
 
 msgid "DHIS2 {{dhis2Version}}"
-msgstr "DHIS2 {{dhis2Versie}}"
+msgstr "DHIS2 {{dhis2Version}}"
 
 msgid "DHIS2 version unknown"
 msgstr "DHIS2-versie onbekend"
