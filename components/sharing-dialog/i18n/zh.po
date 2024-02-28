@@ -1,17 +1,17 @@
 # 
 # Translators:
-# phil_dhis2, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # 晓东 林 <13981924470@126.com>, 2021
 # easylin <lin_xd@126.com>, 2021
+# Philip Larsen Donnelly, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-11-25T09:59:40.995Z\n"
 "PO-Revision-Date: 2021-10-01 23:39+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2021\n"
-"Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
+"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -87,7 +87,7 @@ msgid ""
 "Not all visualizations could be updated successfully. {{ success }} updated "
 "successfully, {{ failed }} failed to update. Check that you have permission "
 "to change sharing for all visualizations."
-msgstr "并非所有可视化都可以成功更新。 {{成功}}更新成功，{{失败}}更新失败。检查您是否有权更改所有可视化的共享。"
+msgstr "并非所有可视化都可以成功更新。 {{ success }}更新成功，{{ failed }}更新失败。检查您是否有权更改所有可视化的共享。"
 
 msgid ""
 "No visualizations were updated because sharing settings are already "
@@ -100,7 +100,7 @@ msgstr "已成功更新所有可视化的共享。"
 msgid ""
 "Not all visualization sharing settings needed to be updated. {{ updated }} "
 "updated, {{ skipped }} already had sufficient sharing settings."
-msgstr "并非所有可视化共享设置都需要更新。 {{更新}}更新，{{跳过}}已经有足够的分享设置。"
+msgstr "并非所有可视化共享设置都需要更新。 {{ updated }}更新，{{ skipped }}已经有足够的分享设置。"
 
 msgid "There are no users or groups to apply sharing settings for."
 msgstr "没有要应用共享设置的用户或组。"
@@ -110,7 +110,8 @@ msgid ""
 " sharing settings: {{ visualizationsCount }}. The number of users or groups "
 "that these updated settings will apply to: {{ entityAmount }}."
 msgstr ""
-"此仪表板上可能会获得更新共享设置的可视化数量：{{可视化计数}}。这些更新的设置将应用于的用户或组的数量：{{ entityAmount }}。"
+"此仪表板上可能会获得更新共享设置的可视化数量：{{ visualizationsCount }}。这些更新的设置将应用于的用户或组的数量：{{ "
+"entityAmount }}。"
 
 msgid ""
 "Applying the same sharing settings makes sure that users and groups that "
