@@ -3,9 +3,10 @@ import { Card } from '@dhis2-ui/card'
 import { InputField, InputFieldProps } from '@dhis2-ui/input'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
-import { useDatePicker } from '@dhis2/multi-calendar-dates'
+import { useDatePicker, validateDateString } from '@dhis2/multi-calendar-dates'
 import { IconCheckmark24 } from '@dhis2/ui-icons'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React, { useCallback, useRef, useState } from 'react'
 import { Calendar, CalendarProps } from '../calendar/calendar.js'
 import i18n from '../locales/index.js'
@@ -15,10 +16,6 @@ const offsetModifier = {
     options: {
         offset: [0, 2],
     },
-}
-
-export function validateInput(input) {
-    return /^\d{4}([/-]?)\d{2}\1\d{2}$/.test(input)
 }
 
 function searchCalendarWeekDays(date, calendarWeekDays) {
@@ -46,12 +43,26 @@ export const CalendarInput = ({
     width,
     cellSize,
     clearable,
+    onError,
     ...rest
 } = {}) => {
     const ref = useRef()
     const [open, setOpen] = useState(false)
+    const [invalidMessage, _setInvalidMessage] = useState('')
+    const setInvalidMessage = useCallback((nextInvalidMessage) => {
+        _setInvalidMessage((prevInvalidMessage) => {
+            const isUpdate = prevInvalidMessage !== nextInvalidMessage
+
+            if (isUpdate) {
+                onError?.(nextInvalidMessage)
+            }
+
+            return nextInvalidMessage
+        })
+    }, [onError])
+
     const [tempInputValue, _setTempInputValue] = useState(date)
-    const currentValidDate = validateInput(tempInputValue)
+    const currentValidDate = validateDateString(tempInputValue)
         ? tempInputValue
         : date
     const { calendarWeekDays } = useDatePicker({
@@ -61,21 +72,39 @@ export const CalendarInput = ({
 
     const setTempInputValue = useCallback((nextTempValue) => {
         _setTempInputValue(nextTempValue)
-        const isValidInputDate = validateInput(nextTempValue)
+      let nextInvalidMessage
 
-        if (isValidInputDate) {
-            const calendarDate = searchCalendarWeekDays(nextTempValue, calendarWeekDays)
-            onDateSelect({
-                calendarDate,
-                calendarDateString: nextTempValue,
-            })
-        }
-    }, [onDateSelect, calendarWeekDays])
+      try {
+          nextInvalidMessage = validateDateString(nextTempValue)
+      } catch (e) {
+        console.error(e)
+      }
+
+      if (!nextTempValue) {
+          onDateSelect({
+              calendarDate: null,
+              calendarDateString: '',
+          })
+      } else if (!nextInvalidMessage) {
+          setInvalidMessage('')
+          const calendarDate = searchCalendarWeekDays(nextTempValue, calendarWeekDays)
+          onDateSelect({
+              calendarDate,
+              calendarDateString: nextTempValue,
+          })
+      } else {
+          setInvalidMessage(nextInvalidMessage)
+      }
+    }, [onDateSelect, calendarWeekDays, setInvalidMessage])
 
     const onDateSelectWrapper = useCallback((selectedDate) => {
         setOpen(false)
         setTempInputValue(selectedDate?.calendarDateString || '')
     }, [setTempInputValue])
+
+    const showInvalidMessage = !!tempInputValue && !!invalidMessage
+    const warning = rest.warning || (!rest.required && showInvalidMessage)
+    const error = rest.error || (rest.required && !!showInvalidMessage)
 
     return (
         <>
@@ -87,6 +116,9 @@ export const CalendarInput = ({
                         type="text"
                         value={tempInputValue}
                         onChange={({ value }) => setTempInputValue(value)}
+                        warning={warning || (!rest.required && showInvalidMessage)}
+                        error={error || (rest.required && !!showInvalidMessage)}
+                        helpText={rest.helpText || (tempInputValue && invalidMessage)}
                     />
                 </div>
 
@@ -98,8 +130,8 @@ export const CalendarInput = ({
                             // https://dhis2.atlassian.net/browse/DHIS2-14848
                             'with-icon':
                                 rest.valid ||
-                                rest.error ||
-                                rest.warning ||
+                                error ||
+                                warning ||
                                 rest.loading,
                             'with-dense-wrapper': rest.dense,
                         })}
@@ -173,8 +205,7 @@ export const CalendarInput = ({
                     }
 
                     .calendar-clear-button.with-icon {
-                        inset-inline-end: 36px;
-
+                        inset-inline-end: 81px;
                     }
 
                     .calendar-clear-button.with-dense-wrapper {
@@ -194,7 +225,9 @@ export const CalendarInput = ({
 CalendarInput.defaultProps = {
     dataTest: 'dhis2-uiwidgets-calendar-inputfield',
 }
+
 CalendarInput.propTypes = {
     ...CalendarProps,
     ...InputFieldProps,
+    onError: PropTypes.func,
 }
