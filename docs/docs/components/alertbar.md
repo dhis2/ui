@@ -46,7 +46,7 @@ const MyComponent = () => {
 }
 ```
 
-Read more about the `useAlert()` hook at the [App Runtime documentation]((https://developers.dhis2.org/docs/app-runtime/hooks/useAlert))
+Read more about the `useAlert()` hook at the [App Runtime documentation](<(https://developers.dhis2.org/docs/app-runtime/hooks/useAlert)>)
 
 ### When to use
 
@@ -211,7 +211,6 @@ To use the `AlertStack` component, you can simply wrap your `AlertBar` component
 
 ```jsx
 import { AlertStack, AlertBar } from '@dhis2/ui'
-
 ;<AlertStack>
     <AlertBar>...</AlertBar>
     <AlertBar>...</AlertBar>
