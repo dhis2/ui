@@ -100,7 +100,6 @@ Nepali is a custom calendar not natively implemented in Temporal and Nepali loca
     />
 ```
 
-
 ## Gregorian calendar
 
 Gregorian calendar localised in English, Arabic (Tunisia), Arabic (Sudan), Arabic (Iraq) and Amharic.
@@ -142,11 +141,7 @@ Gregorian calendar localised in English, Arabic (Tunisia), Arabic (Sudan), Arabi
 To display the calendar with a specific locale, use the codeblock below. Adjust the locale to the desired language.
 
 ```jsx
-<Calendar
-    calendar="iso8601"
-    locale="en"
-    timeZone="Europe/London"
-/>
+<Calendar calendar="iso8601" locale="en" timeZone="Europe/London" />
 ```
 
 ## Other calendars
@@ -186,13 +181,8 @@ Some other calendars: Islamic in Arabic, Indian in English and Persian in Farsi
 Each of the calendars above can be displayed with the following code.
 
 ```jsx
-<Calendar
-    calendar="islamic-civil"
-    locale="ar"
-    timeZone="Europe/London"
-/>
+<Calendar calendar="islamic-civil" locale="ar" timeZone="Europe/London" />
 ```
-
 
 :::note
 Additionally the component supports a number of other calendars that are not currently used in DHIS2, since they're implemented in the [Temporal API](https://tc39.es/proposal-temporal/)). These other calendars are: `hebrew`, `islamic`, `islamic-umalqura`, `islamic-tbla`, `islamic-civil`, `islamic-rgsa`, `persian`, `ethioaa`, `coptic`, `chinese`, `dangi`, `roc`, `indian`, `buddhist`, `japanese`.
@@ -202,7 +192,7 @@ Additionally the component supports a number of other calendars that are not cur
 
 ### When to use
 
- To display a calendar for the user to pick a day in any supported calendar system, localised to any of the 90+ languages supported by [The Unicode Common Locale Data Repository (CLDR)](https://cldr.unicode.org/index) supported natively in all modern browsers. Supported DHIS2 calendars are: `iso8601` (i.e. the Gregorian calendar common in most of the world),`ethiopic`, `nepali` (custom implementation).
+To display a calendar for the user to pick a day in any supported calendar system, localised to any of the 90+ languages supported by [The Unicode Common Locale Data Repository (CLDR)](https://cldr.unicode.org/index) supported natively in all modern browsers. Supported DHIS2 calendars are: `iso8601` (i.e. the Gregorian calendar common in most of the world),`ethiopic`, `nepali` (custom implementation).
 
 ### When not to use
 
