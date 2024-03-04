@@ -18,18 +18,35 @@ An alert bar communicates something to the user by showing a prominent, floating
 
 ## Usage
 
+:::caution Usage Notice
 Usage of the AlertBar component is not recommended when using the Application Platform, as integration is already implemented directly.
+:::
 
-An easy way to show the AlertBar using the Application Platform is by using the `useAlert` hook. A simple example of how to use the `useAlert` hook is shown below:
+In apps using the App Platform, it’s recommended to use the `useAlert()` hook from the `@dhis2/app-runtime` library instead of using the UI components directly, since an Alerts Manager component is already set up to manage showing, hiding, and stacking alerts.
 
-```js
-// Create the alert
-const { show } = useAlert('My alert message', { duration: 3000 })
-// ...later (show the alert)
-show()
+When passing the options object to the `useAlert(message, options)` hook, the keys and value types of the options are the same as the props of the `AlertBar` component, as documented on this page below, e.g.
+
+```jsx
+import { useAlert } from '@dhis2/app-runtime'
+
+const MyComponent = () => {
+    const { show } = useAlert('Hello', {
+        warning: true,
+        duration: 15000,
+        actions: [
+            { label: 'Hi!', onClick: () => alert('Hi!') },
+            { label: 'Bye!', onClick: () => alert('Bye!') },
+        ],
+    })
+
+    // ...later:
+    show()
+
+    // ...
+}
 ```
 
-You can read more about the hook on the [Developer Portal](https://developers.dhis2.org/docs/app-runtime/hooks/useAlert).
+Read more about the `useAlert()` hook at the [App Runtime documentation]((https://developers.dhis2.org/docs/app-runtime/hooks/useAlert))
 
 ### When to use
 
