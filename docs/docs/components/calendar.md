@@ -18,54 +18,116 @@ Here are some sample calendars built with this UI component. Check [StoryBook]((
 
 ## Ethiopic calendar
 
-Ethiopic calendar (with narrow day names, short day names and localised to English)
+Ethiopic calendar with narrow day names, short day names and localised to English. You can see all three calendars below with their respective code blocks.
+
+### Narrow day names
 
 <Demo>
-    <div className="wrapper">
-        <Calendar
-                calendar="ethiopic"
-                locale="am-ET"
-                numberingSystem="ethi"
-                timeZone="Europe/London"
-        />
-        <Calendar
-                calendar="ethiopic"
-                locale="am-ET"
-                numberingSystem="ethi"
-                timeZone="Europe/London"
-                weekDayFormat="short"
-        />
-        <Calendar
-                calendar="ethiopic"
-                locale="en"
-                numberingSystem="ethi"
-                timeZone="Europe/London"
-                weekDayFormat="short"
-        />
-    </div>
+    <Calendar
+        calendar="ethiopic"
+        locale="am-ET"
+        numberingSystem="ethi"
+        timeZone="Europe/London"
+    />
 </Demo>
+
+```jsx
+<Calendar
+    calendar="ethiopic"
+    locale="am-ET"
+    numberingSystem="ethi"
+    timeZone="Europe/London"
+/>
+```
+
+### Short day names
+
+<Demo>
+    <Calendar
+        calendar="ethiopic"
+        locale="am-ET"
+        numberingSystem="ethi"
+        timeZone="Europe/London"
+        weekDayFormat="short"
+    />
+</Demo>
+
+```jsx
+<Calendar
+    calendar="ethiopic"
+    locale="am-ET"
+    numberingSystem="ethi"
+    timeZone="Europe/London"
+    weekDayFormat="short"
+/>
+```
+
+### English day names
+
+<Demo>
+    <Calendar
+        calendar="ethiopic"
+        locale="en"
+        numberingSystem="ethi"
+        timeZone="Europe/London"
+        weekDayFormat="short"
+    />
+</Demo>
+
+```jsx
+<Calendar
+    calendar="ethiopic"
+    locale="en"
+    numberingSystem="ethi"
+    timeZone="Europe/London"
+    weekDayFormat="short"
+/>
+```
 
 ## Nepali calendar
 
 Nepali calendar (with Nepali and English characters)
 
-> Nepali is a custom calendar not natively implemented in Temporal and Nepali locale is not natively supported by browsers' Internationalization standard. We are providing a custom implementation for the calendar, as well as the localised values. The only two locales allowed are: `ne-NP` (nepali) and `en-NP` (nepali transliterated in latin characters).
+:::note 
+Nepali is a custom calendar not natively implemented in Temporal and Nepali locale is not natively supported by browsers' Internationalization standard. We are providing a custom implementation for the calendar, as well as the localised values. The only two locales allowed are: `ne-NP` (nepali) and `en-NP` (nepali transliterated in latin characters).
+:::
+
+### Nepali 
 
 <Demo>
-    <div className="wrapper">
-        <Calendar
-                calendar="nepali"
-                locale="ne-NP"
-                timeZone="Europe/London"
-        />
-        <Calendar
-                calendar="nepali"
-                locale="en-NP"
-                timeZone="Europe/London"
-                weekDayFormat="short"
-        />
-    </div>
+    <Calendar
+        calendar="nepali"
+        locale="ne-NP"
+        timeZone="Europe/London"
+    />
 </Demo>
+
+```jsx
+<Calendar
+    calendar="nepali"
+    locale="ne-NP"
+    timeZone="Europe/London"
+/>
+```
+
+### Transliterated in latin characters
+<Demo>
+    <Calendar
+        calendar="nepali"
+        locale="en-NP"
+        timeZone="Europe/London"
+        weekDayFormat="short"
+    />
+</Demo>
+
+```jsx
+<Calendar
+    calendar="nepali"
+    locale="en-NP"
+    timeZone="Europe/London"
+    weekDayFormat="short"
+/>
+```
 
 ## Gregorian calendar
 
