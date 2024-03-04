@@ -11,7 +11,9 @@ import { InputClearButton } from './input-clear-button.js'
 function searchCalendarWeekDays(date, calendarWeekDays) {
     for (let i = 0; i < calendarWeekDays.length; ++i) {
         const days = calendarWeekDays[i]
-        const temporalDate = days.find(({ calendarDate }) => calendarDate === date)
+        const temporalDate = days.find(
+            ({ calendarDate }) => calendarDate === date
+        )
 
         if (temporalDate) {
             return temporalDate.zdt
@@ -39,20 +41,23 @@ export const CalendarInputEditable = ({
     const ref = useRef()
     const [open, setOpen] = useState(false)
     const [invalidMessage, _setInvalidMessage] = useState('')
-    const setInvalidMessage = useCallback((nextInvalidMessage) => {
-        _setInvalidMessage((prevInvalidMessage) => {
-            const isUpdate = prevInvalidMessage !== nextInvalidMessage
+    const setInvalidMessage = useCallback(
+        (nextInvalidMessage) => {
+            _setInvalidMessage((prevInvalidMessage) => {
+                const isUpdate = prevInvalidMessage !== nextInvalidMessage
 
-            if (isUpdate) {
-                onError?.(nextInvalidMessage)
-            }
+                if (isUpdate) {
+                    onError?.(nextInvalidMessage)
+                }
 
-            return nextInvalidMessage
-        })
-    }, [onError])
+                return nextInvalidMessage
+            })
+        },
+        [onError]
+    )
 
     const [tempInputValue, _setTempInputValue] = useState(date)
-    const currentValidDate = validateDateString(tempInputValue)
+    const currentValidDate = validateDateString(tempInputValue, { calendar })
         ? tempInputValue
         : date
     const { calendarWeekDays } = useDatePicker({
@@ -60,37 +65,48 @@ export const CalendarInputEditable = ({
         options: { calendar },
     })
 
-    const setTempInputValue = useCallback((nextTempValue) => {
-        _setTempInputValue(nextTempValue)
-      let nextInvalidMessage
+    const setTempInputValue = useCallback(
+        (nextTempValue) => {
+            _setTempInputValue(nextTempValue)
+            let nextInvalidMessage
 
-      try {
-          nextInvalidMessage = validateDateString(nextTempValue)
-      } catch (e) {
-        console.error(e)
-      }
+            try {
+                nextInvalidMessage = validateDateString(nextTempValue, {
+                    calendar,
+                })
+            } catch (e) {
+                console.error(e)
+            }
 
-      if (!nextTempValue) {
-          onDateSelect({
-              calendarDate: null,
-              calendarDateString: '',
-          })
-      } else if (!nextInvalidMessage) {
-          setInvalidMessage('')
-          const calendarDate = searchCalendarWeekDays(nextTempValue, calendarWeekDays)
-          onDateSelect({
-              calendarDate,
-              calendarDateString: nextTempValue,
-          })
-      } else {
-          setInvalidMessage(nextInvalidMessage)
-      }
-    }, [onDateSelect, calendarWeekDays, setInvalidMessage])
+            if (!nextTempValue) {
+                onDateSelect({
+                    calendarDate: null,
+                    calendarDateString: '',
+                })
+            } else if (!nextInvalidMessage) {
+                setInvalidMessage('')
+                const calendarDate = searchCalendarWeekDays(
+                    nextTempValue,
+                    calendarWeekDays
+                )
+                onDateSelect({
+                    calendarDate,
+                    calendarDateString: nextTempValue,
+                })
+            } else {
+                setInvalidMessage(nextInvalidMessage)
+            }
+        },
+        [onDateSelect, calendarWeekDays, setInvalidMessage, calendar]
+    )
 
-    const onDateSelectWrapper = useCallback((selectedDate) => {
-        setOpen(false)
-        setTempInputValue(selectedDate?.calendarDateString || '')
-    }, [setTempInputValue])
+    const onDateSelectWrapper = useCallback(
+        (selectedDate) => {
+            setOpen(false)
+            setTempInputValue(selectedDate?.calendarDateString || '')
+        },
+        [setTempInputValue]
+    )
 
     const showInvalidMessage = !!tempInputValue && !!invalidMessage
     const warning = rest.warning || (!rest.required && showInvalidMessage)
@@ -106,9 +122,13 @@ export const CalendarInputEditable = ({
                         type="text"
                         value={tempInputValue}
                         onChange={({ value }) => setTempInputValue(value)}
-                        warning={warning || (!rest.required && showInvalidMessage)}
+                        warning={
+                            warning || (!rest.required && showInvalidMessage)
+                        }
                         error={error || (rest.required && !!showInvalidMessage)}
-                        helpText={rest.helpText || (tempInputValue && invalidMessage)}
+                        helpText={
+                            rest.helpText || (tempInputValue && invalidMessage)
+                        }
                     />
                 </div>
 
