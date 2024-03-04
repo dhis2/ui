@@ -11,7 +11,7 @@ import API from '../../../components/button/API.md'
 
 Buttons are used to trigger actions. There are different button variants that are used for different types of actions.
 <Demo>
-    <Button>Enroll in program</Button>
+<Button>Enroll in program</Button>
 </Demo>
 
 ## Usage
@@ -88,7 +88,9 @@ Buttons are used to trigger actions. There are different button variants that ar
 ```jsx
 <div class="stacked-examples-horizontal">
     <Button destructive>Destructive button</Button>
-    <Button destructive secondary>Destructive secondary button</Button>
+    <Button destructive secondary>
+        Destructive secondary button
+    </Button>
 </div>
 ```
 
@@ -161,9 +163,9 @@ Buttons are available in different sizes. Use the size that matches the usage gu
 </Demo>
 
 ```jsx
-<div className='stacked-examples-horizontal'>
-    <Button icon={<IconCheckmark24/>}></Button>
-    <Button icon={<IconCheckmark24/>} toggled></Button>
+<div className="stacked-examples-horizontal">
+    <Button icon={<IconCheckmark24 />}></Button>
+    <Button icon={<IconCheckmark24 />} toggled></Button>
 </div>
 ```
 
@@ -182,9 +184,9 @@ Buttons are available in different sizes. Use the size that matches the usage gu
 </Demo>
 
 ```jsx
-<div className='stacked-examples-horizontal'>
-    <Button icon={<IconCheckmark24/>}>Mark as complete</Button>
-    <Button icon={<IconCheckmark24/>}></Button>
+<div className="stacked-examples-horizontal">
+    <Button icon={<IconCheckmark24 />}>Mark as complete</Button>
+    <Button icon={<IconCheckmark24 />}></Button>
 </div>
 ```
 

@@ -88,11 +88,11 @@ Ethiopic calendar with narrow day names, short day names and localised to Englis
 
 Nepali calendar (with Nepali and English characters)
 
-:::note 
+:::note
 Nepali is a custom calendar not natively implemented in Temporal and Nepali locale is not natively supported by browsers' Internationalization standard. We are providing a custom implementation for the calendar, as well as the localised values. The only two locales allowed are: `ne-NP` (nepali) and `en-NP` (nepali transliterated in latin characters).
 :::
 
-### Nepali 
+### Nepali
 
 <Demo>
     <Calendar
@@ -103,14 +103,11 @@ Nepali is a custom calendar not natively implemented in Temporal and Nepali loca
 </Demo>
 
 ```jsx
-<Calendar
-    calendar="nepali"
-    locale="ne-NP"
-    timeZone="Europe/London"
-/>
+<Calendar calendar="nepali" locale="ne-NP" timeZone="Europe/London" />
 ```
 
 ### Transliterated in latin characters
+
 <Demo>
     <Calendar
         calendar="nepali"
