@@ -46,7 +46,7 @@ const MyComponent = () => {
 }
 ```
 
-Read more about the `useAlert()` hook at the [App Runtime documentation](<(https://developers.dhis2.org/docs/app-runtime/hooks/useAlert)>)
+Read more about the `useAlert()` hook at the [App Runtime documentation](https://developers.dhis2.org/docs/app-runtime/hooks/useAlert)
 
 ### When to use
 
