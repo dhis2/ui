@@ -9,6 +9,10 @@ Feature: The Calendar renders in Nepali calendar system
         Given a nepali calendar in "nepali" is rendered
         Then we should be able to select a day
 
+    Scenario: Type a day in the Nepali calendar in Nepali
+        Given a nepali calendar in "nepali" is rendered
+        Then we should be able to enter a day
+
     Scenario: Display a Nepali calendar in English
         Given a nepali calendar in "english" is rendered
         Then nepali days should be rendered in "english"

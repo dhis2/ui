@@ -53,3 +53,22 @@ Then('we should be able to select a day', () => {
         '13 October 2021'
     )
 })
+
+Then('we should be able to enter a day', () => {
+    const nepaliDate = '2078-06-27'
+    cy.get(`[data-test="${nepaliDate}"]`).click()
+
+    cy.get('[data-test="dhis2-uiwidgets-calendar-inputfield"] input').should(
+        'have.value',
+        nepaliDate
+    )
+
+    cy.get('[data-test="storybook-calendar-result"]').should(
+        'have.text',
+        nepaliDate
+    )
+    cy.get('[data-test="storybook-calendar-result-iso"]').should(
+        'have.text',
+        '13 October 2021'
+    )
+})

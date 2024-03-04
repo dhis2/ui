@@ -59,3 +59,9 @@ export type CalendarInputProps = Omit<
     CalendarProps
 
 export const CalendarInput: React.FC<CalendarInputProps>
+
+export type CalendarInputEditableProps = CalendarInputProps & {
+    onError?: (nextInvalidMessage: string) => void,
+}
+
+export const CalendarInputEditable: React.FC<CalendarInputEditableProps>
