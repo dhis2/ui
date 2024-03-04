@@ -18,66 +18,41 @@ Here are some sample calendars built with this UI component. Check [StoryBook]((
 
 ## Ethiopic calendar
 
-Ethiopic calendar with narrow day names, short day names and localised to English. You can see all three calendars below with their respective code blocks.
+Ethiopic calendar with narrow day names, short day names and localised to English.
 
 ### Narrow day names
 
 <Demo>
-    <Calendar
-        calendar="ethiopic"
-        locale="am-ET"
-        numberingSystem="ethi"
-        timeZone="Europe/London"
-    />
+    <div className="wrapper">
+        <Calendar
+                calendar="ethiopic"
+                locale="am-ET"
+                numberingSystem="ethi"
+                timeZone="Europe/London"
+        />
+        <Calendar
+                calendar="ethiopic"
+                locale="am-ET"
+                numberingSystem="ethi"
+                timeZone="Europe/London"
+                weekDayFormat="short"
+        />
+        <Calendar
+                calendar="ethiopic"
+                locale="en"
+                numberingSystem="ethi"
+                timeZone="Europe/London"
+                weekDayFormat="short"
+        />
+    </div>
 </Demo>
+
+To display the calendar with short day names, use the codeblock below. For the narrow day names remove the `weekDayFormat` prop. For the English locale, use the `en` locale and the short `weekDayFormat`.
 
 ```jsx
 <Calendar
     calendar="ethiopic"
     locale="am-ET"
-    numberingSystem="ethi"
-    timeZone="Europe/London"
-/>
-```
-
-### Short day names
-
-<Demo>
-    <Calendar
-        calendar="ethiopic"
-        locale="am-ET"
-        numberingSystem="ethi"
-        timeZone="Europe/London"
-        weekDayFormat="short"
-    />
-</Demo>
-
-```jsx
-<Calendar
-    calendar="ethiopic"
-    locale="am-ET"
-    numberingSystem="ethi"
-    timeZone="Europe/London"
-    weekDayFormat="short"
-/>
-```
-
-### English day names
-
-<Demo>
-    <Calendar
-        calendar="ethiopic"
-        locale="en"
-        numberingSystem="ethi"
-        timeZone="Europe/London"
-        weekDayFormat="short"
-    />
-</Demo>
-
-```jsx
-<Calendar
-    calendar="ethiopic"
-    locale="en"
     numberingSystem="ethi"
     timeZone="Europe/London"
     weekDayFormat="short"
@@ -92,39 +67,39 @@ Nepali calendar (with Nepali and English characters)
 Nepali is a custom calendar not natively implemented in Temporal and Nepali locale is not natively supported by browsers' Internationalization standard. We are providing a custom implementation for the calendar, as well as the localised values. The only two locales allowed are: `ne-NP` (nepali) and `en-NP` (nepali transliterated in latin characters).
 :::
 
-### Nepali
-
 <Demo>
+    <div className="wrapper">
+        <Calendar
+            calendar="nepali"
+            locale="ne-NP"
+            timeZone="Europe/London"
+        />
+        <Calendar
+            calendar="nepali"
+            locale="en-NP"
+            timeZone="Europe/London"
+            weekDayFormat="short"
+        />
+    </div>
+</Demo>
+
+```jsx
+    // Napali
     <Calendar
         calendar="nepali"
         locale="ne-NP"
         timeZone="Europe/London"
     />
-</Demo>
 
-```jsx
-<Calendar calendar="nepali" locale="ne-NP" timeZone="Europe/London" />
-```
-
-### Transliterated in latin characters
-
-<Demo>
+    // Nepali transliterated in latin characters
     <Calendar
         calendar="nepali"
         locale="en-NP"
         timeZone="Europe/London"
         weekDayFormat="short"
     />
-</Demo>
-
-```jsx
-<Calendar
-    calendar="nepali"
-    locale="en-NP"
-    timeZone="Europe/London"
-    weekDayFormat="short"
-/>
 ```
+
 
 ## Gregorian calendar
 
@@ -164,6 +139,16 @@ Gregorian calendar localised in English, Arabic (Tunisia), Arabic (Sudan), Arabi
     </div>
 </Demo>
 
+To display the calendar with a specific locale, use the codeblock below. Adjust the locale to the desired language.
+
+```jsx
+<Calendar
+    calendar="iso8601"
+    locale="en"
+    timeZone="Europe/London"
+/>
+```
+
 ## Other calendars
 
 Some other calendars: Islamic in Arabic, Indian in English and Persian in Farsi
@@ -198,13 +183,26 @@ Some other calendars: Islamic in Arabic, Indian in English and Persian in Farsi
     </style>
 </Demo>
 
+Each of the calendars above can be displayed with the following code.
+
+```jsx
+<Calendar
+    calendar="islamic-civil"
+    locale="ar"
+    timeZone="Europe/London"
+/>
+```
+
+
+:::note
+Additionally the component supports a number of other calendars that are not currently used in DHIS2, since they're implemented in the [Temporal API](https://tc39.es/proposal-temporal/)). These other calendars are: `hebrew`, `islamic`, `islamic-umalqura`, `islamic-tbla`, `islamic-civil`, `islamic-rgsa`, `persian`, `ethioaa`, `coptic`, `chinese`, `dangi`, `roc`, `indian`, `buddhist`, `japanese`.
+:::
+
 ## Usage
 
 ### When to use
 
--   To display a calendar for the user to pick a day in any supported calendar system, localised to any of the 90+ languages supported by [The Unicode Common Locale Data Repository (CLDR)](https://cldr.unicode.org/index) supported natively in all modern browsers. Supported DHIS2 calendars are: `iso8601` (i.e. the Gregorian calendar common in most of the world),`ethiopic`, `nepali` (custom implementation).
-
-    -   Additionally the component supports a number of other calendars that are not currently used in DHIS2, since they're implemented in the [Temporal API](https://tc39.es/proposal-temporal/)). These other calendars are: `hebrew`, `islamic`, `islamic-umalqura`, `islamic-tbla`, `islamic-civil`, `islamic-rgsa`, `persian`, `ethioaa`, `coptic`, `chinese`, `dangi`, `roc`, `indian`, `buddhist`, `japanese`.
+ To display a calendar for the user to pick a day in any supported calendar system, localised to any of the 90+ languages supported by [The Unicode Common Locale Data Repository (CLDR)](https://cldr.unicode.org/index) supported natively in all modern browsers. Supported DHIS2 calendars are: `iso8601` (i.e. the Gregorian calendar common in most of the world),`ethiopic`, `nepali` (custom implementation).
 
 ### When not to use
 
