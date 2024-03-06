@@ -41,6 +41,7 @@ const MenuItem = ({
     toggleSubMenu,
     suffix,
     checkbox,
+    selected,
 }) => {
     const menuItemRef = useRef()
 
@@ -51,13 +52,13 @@ const MenuItem = ({
                     destructive,
                     disabled,
                     dense,
-                    active: active || showSubMenu,
+                    active: active || showSubMenu || selected,
                     'with-chevron': children || chevron,
                 })}
-                ref={menuItemRef}
                 data-test={dataTest}
                 role={checkbox ? 'menuitemcheckbox' : 'menuitem'}
                 aria-disabled={disabled ? disabled : false}
+                tabIndex={-1}
             >
                 <a
                     target={target}
@@ -123,6 +124,7 @@ MenuItem.propTypes = {
     icon: PropTypes.node,
     /** Text in the menu item */
     label: PropTypes.node,
+    selected: PropTypes.bool,
     /** When true, nested menu items are shown in a Popper */
     showSubMenu: PropTypes.bool,
     /** A supporting element shown at the end of the menu item */
