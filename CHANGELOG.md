@@ -1,3 +1,10 @@
+## [9.4.2](https://github.com/dhis2/ui/compare/v9.4.1...v9.4.2) (2024-03-07)
+
+
+### Bug Fixes
+
+* force a new release ([ba66677](https://github.com/dhis2/ui/commit/ba666771c5efec00626ad91294ae1bc303cee7c8))
+
 ## [9.4.1](https://github.com/dhis2/ui/compare/v9.4.0...v9.4.1) (2024-02-28)
 
 
