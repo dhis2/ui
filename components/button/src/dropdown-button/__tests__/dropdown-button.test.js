@@ -1,6 +1,6 @@
-import { render, fireEvent, waitFor } from '@testing-library/react'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
+import { render, fireEvent, waitFor } from '@testing-library/react'
 import { mount } from 'enzyme'
 import React from 'react'
 import { act } from 'react-dom/test-utils'
