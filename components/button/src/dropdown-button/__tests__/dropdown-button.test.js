@@ -1,8 +1,10 @@
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
+import { render, fireEvent, waitFor } from '@testing-library/react'
 import { mount } from 'enzyme'
 import React from 'react'
 import { act } from 'react-dom/test-utils'
+import { Modal } from '../../../../modal/src/modal/modal.js'
 import { Button } from '../../index.js'
 import { DropdownButton } from '../dropdown-button.js'
 
@@ -43,7 +45,64 @@ describe('<DropdownButton>', () => {
                     })
                 )
             })
+            it('closes dropdown when escape key is pressed', async () => {
+                const componentText = 'Dropdown Content'
+
+                const { getByTestId, queryByText } = render(
+                    <DropdownButton component={componentText} />
+                )
+
+                const toggleButton = getByTestId(
+                    'dhis2-uicore-dropdownbutton-toggle'
+                )
+                fireEvent.click(toggleButton)
+
+                await waitFor(() => {
+                    expect(queryByText(componentText)).toBeInTheDocument()
+                })
+
+                fireEvent.keyDown(document, { key: 'Escape' })
+
+                await waitFor(() => {
+                    expect(queryByText(componentText)).not.toBeInTheDocument()
+                })
+            })
+            test('modal remains open when dropdown button is closed on escape click', async () => {
+                const dropdownButtonText = 'Dropdown Content'
+                const headingText = 'Heading Text'
+                const modalContent = (
+                    <div>
+                        <h1>{headingText}</h1>
+                        <DropdownButton component={dropdownButtonText} />
+                    </div>
+                )
+
+                const { getByTestId, queryByText } = render(
+                    <Modal hide={false} onClose={() => {}}>
+                        {modalContent}
+                    </Modal>
+                )
+
+                const toggleButton = getByTestId(
+                    'dhis2-uicore-dropdownbutton-toggle'
+                )
+                fireEvent.click(toggleButton)
+
+                await waitFor(() => {
+                    expect(queryByText(dropdownButtonText)).toBeInTheDocument()
+                })
+
+                fireEvent.keyDown(document, { key: 'Escape' })
+
+                await waitFor(() => {
+                    expect(
+                        queryByText(dropdownButtonText)
+                    ).not.toBeInTheDocument()
+                    expect(queryByText(headingText)).toBeInTheDocument()
+                })
+            })
         })
+
         describe('closed state', () => {
             const onClick = jest.fn()
             const wrapper = mount(
