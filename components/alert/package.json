@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/alert",
-    "version": "9.4.0",
+    "version": "9.4.1",
     "description": "UI Alert",
     "repository": {
         "type": "git",
@@ -33,9 +33,9 @@
     },
     "dependencies": {
         "@dhis2/prop-types": "^3.1.2",
-        "@dhis2-ui/portal": "9.4.0",
-        "@dhis2/ui-constants": "9.4.0",
-        "@dhis2/ui-icons": "9.4.0",
+        "@dhis2-ui/portal": "9.4.1",
+        "@dhis2/ui-constants": "9.4.1",
+        "@dhis2/ui-icons": "9.4.1",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },
