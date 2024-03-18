@@ -10,7 +10,7 @@ const CircularLoader = ({
     invert,
     className,
     dataTest,
-    ariaLabel,
+    'aria-label': ariaLabel,
 }) => (
     <div
         role="progressbar"
@@ -69,7 +69,7 @@ CircularLoader.defaultProps = {
 }
 
 CircularLoader.propTypes = {
-    ariaLabel: PropTypes.string,
+    'aria-label': PropTypes.string,
     className: PropTypes.string,
     dataTest: PropTypes.string,
     extrasmall: sharedPropTypes.sizePropType,

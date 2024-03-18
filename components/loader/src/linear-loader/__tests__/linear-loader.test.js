@@ -7,7 +7,7 @@ describe('Linear Loader', () => {
         const wrapper = mount(
             <LinearLoader
                 dataTest={'linear-loader-test'}
-                ariaLabel="Linear Loader"
+                aria-label="Linear Loader"
                 amount={15}
             />
         )

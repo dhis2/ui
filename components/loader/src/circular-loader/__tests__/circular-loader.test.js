@@ -7,7 +7,7 @@ describe('Circular Loader', () => {
         const wrapper = mount(
             <CircularLoader
                 dataTest={'circular-loader-test'}
-                ariaLabel="Circular Loader"
+                aria-label="Circular Loader"
             />
         )
         const actual = wrapper.find({ 'data-test': 'circular-loader-test' })

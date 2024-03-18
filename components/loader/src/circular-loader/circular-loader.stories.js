@@ -31,13 +31,13 @@ export default {
 const Template = (args) => <CircularLoader {...args} />
 
 export const Default = Template.bind({})
-Default.args = { ariaLabel: 'Default Loader' }
+Default.args = { 'aria-label': 'Default Loader' }
 
 export const Small = Template.bind({})
-Small.args = { small: true, ariaLabel: 'Small Loader' }
+Small.args = { small: true, 'aria-label': 'Small Loader' }
 
 export const Large = Template.bind({})
-Large.args = { large: true, ariaLabel: 'Large Loader' }
+Large.args = { large: true, 'aria-label': 'Large Loader' }
 
 export const ExtraSmall = Template.bind({})
-ExtraSmall.args = { extrasmall: true, ariaLabel: 'ExtraSmall Loader' }
+ExtraSmall.args = { extrasmall: true, 'aria-label': 'ExtraSmall Loader' }

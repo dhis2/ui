@@ -38,7 +38,7 @@ const LinearLoader = ({
     invert,
     className,
     dataTest,
-    ariaLabel,
+    'aria-label': ariaLabel,
 }) => {
     return (
         <div
@@ -81,7 +81,7 @@ LinearLoader.defaultProps = {
 LinearLoader.propTypes = {
     /** The progression in percent without the '%' sign */
     amount: PropTypes.number.isRequired,
-    ariaLabel: PropTypes.string,
+    'aria-label': PropTypes.string,
     className: PropTypes.string,
     dataTest: PropTypes.string,
     /** Use inverted color scheme */

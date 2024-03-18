@@ -32,7 +32,7 @@ export default {
 export const Determinate = (args) => <LinearLoader {...args} />
 Determinate.args = {
     amount: 60,
-    ariaLabel: 'Determinate Loader',
+    'aria-label': 'Determinate Loader',
 }
 
 export const OverlayPage = (args) => (
@@ -42,7 +42,7 @@ export const OverlayPage = (args) => (
         </Center>
     </Layer>
 )
-OverlayPage.args = { amount: 30, ariaLabel: 'Loader with Overlay Page' }
+OverlayPage.args = { amount: 30, 'aria-label': 'Loader with Overlay Page' }
 OverlayPage.parameters = { docs: { inlineStories: false } }
 
 export const OverlayComponent = (args) => (
@@ -54,7 +54,7 @@ export const OverlayComponent = (args) => (
         </Cover>
     </div>
 )
-OverlayComponent.args = { amount: 80, ariaLabel: 'Loader with Overlay Component', }
+OverlayComponent.args = { amount: 80, 'aria-label': 'Loader with Overlay Component', }
 
 export const RTL = (args) => (
     <div dir="rtl">
