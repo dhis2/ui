@@ -2,7 +2,6 @@
  * https://react-svgr.com/docs/custom-templates
  * https://babeljs.io/docs/en/babel-template#ast-1
  */
-
 function template(
     { template },
     opts,
@@ -12,17 +11,30 @@ function template(
     const tpl = template.smart({ plugins })
 
     return tpl.ast`
-        import PropTypes from 'prop-types'
+        import PropTypes from 'prop-types';
         ${imports}
 
-        function ${componentName}({ color, dataTest }) {
-            return ${jsx};
+        function ${componentName}({ color, dataTest, ariaLabel }) {
+            return (
+                ${jsx}
+                // Include title element with icon name as the aria label
+                <title>{ariaLabel}</title>
+            );
         }
 
         ${componentName}.propTypes = {
             color: PropTypes.string,
             dataTest: PropTypes.string,
-        }
+            ariaLabel: PropTypes.string
+        };
+
+        // Include aria-labelledby attribute and title element if ariaLabel is provided
+        ${componentName}.defaultProps = {
+            ariaLabel: "${componentName}",
+            ...(ariaLabel ? {
+                'aria-labelledby': "${componentName}-title"
+            } : {})
+        };
 
         ${exports}
     `

@@ -2,6 +2,8 @@ import * as React from 'react'
 
 export interface IconProps {
     color?: string
+    dataTest?: string
+    ariaLabel?: string
 }
 
 export const IconAdd16: React.FC<IconProps>
