@@ -7,6 +7,7 @@ export interface CircularLoaderProps {
     invert?: boolean
     large?: boolean
     small?: boolean
+    'aria-label'?: string
 }
 
 export const CircularLoader: React.FC<CircularLoaderProps>
@@ -30,6 +31,7 @@ export interface LinearLoaderProps {
      * The width of the entire indicator
      */
     width?: string
+    'aria-label'?: string
 }
 
 export const LinearLoader: React.FC<LinearLoaderProps>
