@@ -7,6 +7,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import css from 'styled-jsx/css'
 import { Button } from '../index.js'
+import i18n from '../locales/index.js'
 
 const rightButton = css.resolve`
     button {
@@ -113,8 +114,8 @@ class SplitButton extends Component {
                     tabIndex={tabIndex}
                     className={cx(className, rightButton.className)}
                     dataTest={`${dataTest}-toggle`}
-                    title="Toggle dropdown"
-                    aria-label="Toggle dropdown"
+                    title={i18n.t('Toggle dropdown')}
+                    aria-label={i18n.t('Toggle dropdown')}
                 >
                     {arrow}
                 </Button>

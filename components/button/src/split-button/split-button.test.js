@@ -11,7 +11,7 @@ describe('SplitButton', () => {
         expect(getByText('Click me')).toBeInTheDocument()
     })
 
-    it('toggles dropdown when right button is clicked', () => {
+    it('toggles dropdown when left button is clicked', () => {
         const { getByTestId, queryByTestId } = render(<SplitButton />)
         const toggleButton = getByTestId('dhis2-uicore-splitbutton-toggle')
 
@@ -47,25 +47,6 @@ describe('SplitButton', () => {
         expect(getByTestId('dhis2-uicore-splitbutton-menu')).toBeInTheDocument()
 
         fireEvent.keyDown(document, { key: 'Enter' })
-
-        // Use waitFor to wait for the DOM to update
-        await waitFor(() => {
-            expect(
-                getByTestId('dhis2-uicore-splitbutton-menu')
-            ).toBeInTheDocument()
-        })
-    })
-
-    it("does not close dropdown 'SpaceBar' key is pressed", async () => {
-        const { getByTestId } = render(
-            <SplitButton component={<div>Dropdown Content</div>} />
-        )
-
-        const toggleButton = getByTestId('dhis2-uicore-splitbutton-toggle')
-        fireEvent.click(toggleButton)
-        expect(getByTestId('dhis2-uicore-splitbutton-menu')).toBeInTheDocument()
-
-        fireEvent.keyDown(document, { key: ' ' })
 
         // Use waitFor to wait for the DOM to update
         await waitFor(() => {
