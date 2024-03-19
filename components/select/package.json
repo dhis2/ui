@@ -33,7 +33,6 @@
         "styled-jsx": "^4"
     },
     "dependencies": {
-        "@dhis2/prop-types": "^3.1.2",
         "@dhis2-ui/box": "9.4.2",
         "@dhis2-ui/button": "9.4.2",
         "@dhis2-ui/card": "9.4.2",
@@ -45,6 +44,8 @@
         "@dhis2-ui/loader": "9.4.2",
         "@dhis2-ui/popper": "9.4.2",
         "@dhis2-ui/status-icon": "9.4.2",
+        "@dhis2-ui/tooltip": "^9.4.2",
+        "@dhis2/prop-types": "^3.1.2",
         "@dhis2/ui-constants": "9.4.2",
         "@dhis2/ui-icons": "9.4.2",
         "classnames": "^2.3.1",
