@@ -926,6 +926,7 @@ import { CircularLoader } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
+|aria-label|string||||
 |className|string||||
 |dataTest|string|`'dhis2-uicore-circularloader'`|||
 |extrasmall|custom||||
@@ -950,6 +951,7 @@ import { LinearLoader } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |amount|number||*|The progression in percent without the '%' sign|
+|aria-label|string||||
 |className|string||||
 |dataTest|string|`'dhis2-uicore-linearloader'`|||
 |invert|boolean|||Use inverted color scheme|
