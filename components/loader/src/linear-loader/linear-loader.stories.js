@@ -54,7 +54,10 @@ export const OverlayComponent = (args) => (
         </Cover>
     </div>
 )
-OverlayComponent.args = { amount: 80, 'aria-label': 'Loader with Overlay Component', }
+OverlayComponent.args = {
+    amount: 80,
+    'aria-label': 'Loader with Overlay Component',
+}
 
 export const RTL = (args) => (
     <div dir="rtl">
