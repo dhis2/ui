@@ -160,23 +160,20 @@ describe('Keyboard interaction', () => {
 
         expect(document.querySelector(tooltipContentSelector)).toBe(null)
 
-        // wait for 'open delay' to elapse to open tooltip
         act(() => {
             jest.advanceTimersByTime(200)
         })
 
-        // expect tooltip to be open after delay
         const res = document.querySelector(tooltipContentSelector)
         expect(res).not.toBe(null)
         expect(res.textContent).toBe(tooltipContent)
 
         wrapper.simulate('blur')
         act(() => {
-            jest.advanceTimersByTime(200) // Assuming default closeDelay is 200ms
+            jest.advanceTimersByTime(200)
         })
         expect(document.querySelector(tooltipContentSelector)).toBe(null)
-        // this last part clears a warning about "code should be wrapped in `act(...)`"
-        // and clears the tooltip
+
         act(() => {
             jest.runAllTimers()
         })
@@ -187,10 +184,27 @@ describe('Keyboard interaction', () => {
 
         // open tooltip
         wrapper.simulate('mouseover')
+
         act(() => {
-            jest.advanceTimersByTime(200) // open the tooltip
+            jest.advanceTimersByTime(200)
         })
-        document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))
+
+        // verify tooltip is open
+        expect(document.querySelector(tooltipContentSelector)).not.toBe(null)
+
+        //Press the Escape key
+        act(() => {
+            document.dispatchEvent(
+                new KeyboardEvent('keydown', { key: 'Escape' })
+            )
+        })
+
+        // wait for close delay
+        act(() => {
+            jest.advanceTimersByTime(200)
+        })
+
+        // expect tooltip to be closed
         expect(document.querySelector(tooltipContentSelector)).toBe(null)
     })
 })

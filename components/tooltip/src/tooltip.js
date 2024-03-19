@@ -130,6 +130,7 @@ const Tooltip = ({
                         modifiers={[offsetModifier, flipModifier, hideModifier]}
                     >
                         <div
+                            className={className}
                             id="tooltipContenDhis2Ui"
                             onMouseOver={onMouseOver}
                             onMouseOut={onMouseOut}
