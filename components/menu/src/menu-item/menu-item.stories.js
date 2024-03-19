@@ -133,6 +133,7 @@ export const ToggleMenuItem = (args) => {
                 onClick={toggleOn}
                 icon={icon}
                 label="A toggle menu item"
+                checkbox={true}
             />
         </Menu>
     )

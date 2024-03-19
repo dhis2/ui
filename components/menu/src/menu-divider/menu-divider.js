@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 const MenuDivider = ({ className, dataTest, dense }) => (
-    <li className={className} data-test={dataTest}>
+    <li className={className} data-test={dataTest} role="separator">
         <Divider dense={dense} />
 
         <style jsx>{`
