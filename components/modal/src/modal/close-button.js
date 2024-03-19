@@ -10,7 +10,7 @@ const createClickHandler = (onClick) => (event) => {
 
 export const CloseButton = ({ onClick }) => (
     <button
-        title="Close modal dialog"
+        title={i18n.t('Close modal dialog')}
         data-test="dhis2-modal-close-button"
         onClick={createClickHandler(onClick)}
         aria-label={i18n.t('Close modal dialog')}
