@@ -15,26 +15,16 @@ function template(
         ${imports}
 
         function ${componentName}({ color, dataTest, ariaLabel }) {
-            return (
-                ${jsx}
-                // Include title element with icon name as the aria label
-                <title>{ariaLabel}</title>
-            );
+            return ${jsx}
         }
 
         ${componentName}.propTypes = {
             color: PropTypes.string,
             dataTest: PropTypes.string,
             ariaLabel: PropTypes.string
-        };
-
-        // Include aria-labelledby attribute and title element if ariaLabel is provided
-        ${componentName}.defaultProps = {
-            ariaLabel: "${componentName}",
-            ...(ariaLabel ? {
-                'aria-labelledby': "${componentName}-title"
-            } : {})
-        };
+        }
+        
+        ${jsx}.props['aria-label'] = ariaLabel;
 
         ${exports}
     `
