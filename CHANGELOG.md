@@ -1,3 +1,10 @@
+## [9.4.3](https://github.com/dhis2/ui/compare/v9.4.2...v9.4.3) (2024-03-19)
+
+
+### Bug Fixes
+
+* **select:** adjust clear button ([367f04c](https://github.com/dhis2/ui/commit/367f04c8d89d6eda101647b18c6f2a4fc30979ad))
+
 ## [9.4.2](https://github.com/dhis2/ui/compare/v9.4.1...v9.4.2) (2024-03-07)
 
 
