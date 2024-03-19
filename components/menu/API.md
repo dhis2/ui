@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `FlyoutMenu`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { FlyoutMenu } from '@dhis2-ui/menu'
+import { FlyoutMenu } from '@dhis2/ui'
 ```
 
 
@@ -25,11 +25,11 @@ import { FlyoutMenu } from '@dhis2-ui/menu'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Menu`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { Menu } from '@dhis2-ui/menu'
+import { Menu } from '@dhis2/ui'
 ```
 
 
@@ -46,11 +46,11 @@ import { Menu } from '@dhis2-ui/menu'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `MenuDivider`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { MenuDivider } from '@dhis2-ui/menu'
+import { MenuDivider } from '@dhis2/ui'
 ```
 
 
@@ -66,11 +66,11 @@ import { MenuDivider } from '@dhis2-ui/menu'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `MenuItem`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { MenuItem } from '@dhis2-ui/menu'
+import { MenuItem } from '@dhis2/ui'
 ```
 
 
@@ -100,11 +100,11 @@ import { MenuItem } from '@dhis2-ui/menu'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `MenuSectionHeader`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { MenuSectionHeader } from '@dhis2-ui/menu'
+import { MenuSectionHeader } from '@dhis2/ui'
 ```
 
 

@@ -149,7 +149,8 @@ AlertBar.defaultProps = {
 }
 
 AlertBar.propTypes = {
-    /** An array of 0-2 action objects */
+    /** An array of 0-2 action objects 
+`[{label: "Save", onClick: clickHandler}]`*/
     actions: actionsPropType,
     /** The message string for the alert */
     children: PropTypes.string,
@@ -157,13 +158,16 @@ AlertBar.propTypes = {
     /** Alert bars with `critical` will not autohide */
     critical: alertTypePropType,
     dataTest: PropTypes.string,
+    /** How long you want the notification to display, in `ms`, when it's not permanent */
     duration: PropTypes.number,
+    /** AlertBar will be hidden on creation when this is set to true */
     hidden: PropTypes.bool,
     /**
      * A specific icon to override the default icon in the bar.
      * If `false` is provided, no icon will be shown.
      */
     icon: iconPropType,
+    /** When set, AlertBar will not autohide */
     permanent: PropTypes.bool,
     success: alertTypePropType,
     /** Alert bars with `warning` will not autohide */

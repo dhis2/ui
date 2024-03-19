@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `NoticeBox`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { NoticeBox } from '@dhis2-ui/notice-box'
+import { NoticeBox } from '@dhis2/ui'
 ```
 
 

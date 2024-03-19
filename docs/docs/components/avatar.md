@@ -1,5 +1,6 @@
 ---
-title: Avatar
+title: User Avatar
+id: avatar
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
@@ -8,9 +9,9 @@ import { UserAvatar } from '@dhis2/ui'
 
 import API from '../../../components/user-avatar/API.md'
 
-# Avatar
+# User Avatar
 
-An avatar is a visual icon that represents a user.
+A User Avatar is a visual icon that represents a user.
 
 <Demo>
     <UserAvatar name="Karimbe Olefeme"/>
@@ -47,6 +48,16 @@ An avatar is a visual icon that represents a user.
 </Demo>
 
 Avatars are available in different sizes. Use the size that works best for the space available and the context.
+
+The Demo above lists the different sizes available. The related JSX is:
+
+```jsx
+<UserAvatar extrasmall name="Example Person"/>
+<UserAvatar small name="Example Person"/>
+<UserAvatar medium name="Example Person"/>
+<UserAvatar large name="Example Person"/>
+<UserAvatar extralarge name="Example Person"/>
+```
 
 ## API Reference
 

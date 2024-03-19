@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `CssReset`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { CssReset } from '@dhis2-ui/css'
+import { CssReset } from '@dhis2/ui'
 ```
 
 
@@ -15,11 +15,11 @@ import { CssReset } from '@dhis2-ui/css'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `CssVariables`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { CssVariables } from '@dhis2-ui/css'
+import { CssVariables } from '@dhis2/ui'
 ```
 
 

@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Help`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { Help } from '@dhis2-ui/help'
+import { Help } from '@dhis2/ui'
 ```
 
 

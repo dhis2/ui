@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TransferOption`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { TransferOption } from '@dhis2-ui/transfer'
+import { TransferOption } from '@dhis2/ui'
 ```
 
 
@@ -27,11 +27,11 @@ import { TransferOption } from '@dhis2-ui/transfer'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Transfer`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { Transfer } from '@dhis2-ui/transfer'
+import { Transfer } from '@dhis2/ui'
 ```
 
 

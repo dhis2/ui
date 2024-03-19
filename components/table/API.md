@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `DataTableCell`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { DataTableCell } from '@dhis2-ui/table'
+import { DataTableCell } from '@dhis2/ui'
 ```
 
 
@@ -40,11 +40,11 @@ import { DataTableCell } from '@dhis2-ui/table'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `DataTable`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { DataTable } from '@dhis2-ui/table'
+import { DataTable } from '@dhis2/ui'
 ```
 
 
@@ -65,11 +65,11 @@ import { DataTable } from '@dhis2-ui/table'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `StackedTableBody`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { StackedTableBody } from '@dhis2-ui/table'
+import { StackedTableBody } from '@dhis2/ui'
 ```
 
 
@@ -85,11 +85,11 @@ import { StackedTableBody } from '@dhis2-ui/table'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `StackedTableCellHead`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { StackedTableCellHead } from '@dhis2-ui/table'
+import { StackedTableCellHead } from '@dhis2/ui'
 ```
 
 
@@ -107,11 +107,11 @@ import { StackedTableCellHead } from '@dhis2-ui/table'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `StackedTableCell`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { StackedTableCell } from '@dhis2-ui/table'
+import { StackedTableCell } from '@dhis2/ui'
 ```
 
 
@@ -133,11 +133,11 @@ import { StackedTableCell } from '@dhis2-ui/table'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `StackedTableFoot`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { StackedTableFoot } from '@dhis2-ui/table'
+import { StackedTableFoot } from '@dhis2/ui'
 ```
 
 
@@ -153,11 +153,11 @@ import { StackedTableFoot } from '@dhis2-ui/table'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `StackedTableHead`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { StackedTableHead } from '@dhis2-ui/table'
+import { StackedTableHead } from '@dhis2/ui'
 ```
 
 
@@ -173,11 +173,11 @@ import { StackedTableHead } from '@dhis2-ui/table'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `StackedTableRowHead`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { StackedTableRowHead } from '@dhis2-ui/table'
+import { StackedTableRowHead } from '@dhis2/ui'
 ```
 
 
@@ -193,11 +193,11 @@ import { StackedTableRowHead } from '@dhis2-ui/table'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `StackedTableRow`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { StackedTableRow } from '@dhis2-ui/table'
+import { StackedTableRow } from '@dhis2/ui'
 ```
 
 
@@ -213,11 +213,11 @@ import { StackedTableRow } from '@dhis2-ui/table'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `StackedTable`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { StackedTable } from '@dhis2-ui/table'
+import { StackedTable } from '@dhis2/ui'
 ```
 
 
@@ -234,11 +234,11 @@ import { StackedTable } from '@dhis2-ui/table'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Table`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { Table } from '@dhis2-ui/table'
+import { Table } from '@dhis2/ui'
 ```
 
 
@@ -254,11 +254,11 @@ import { Table } from '@dhis2-ui/table'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TableBody`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { TableBody } from '@dhis2-ui/table'
+import { TableBody } from '@dhis2/ui'
 ```
 
 
@@ -275,11 +275,11 @@ import { TableBody } from '@dhis2-ui/table'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TableCellHead`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { TableCellHead } from '@dhis2-ui/table'
+import { TableCellHead } from '@dhis2/ui'
 ```
 
 
@@ -299,11 +299,11 @@ import { TableCellHead } from '@dhis2-ui/table'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TableCell`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { TableCell } from '@dhis2-ui/table'
+import { TableCell } from '@dhis2/ui'
 ```
 
 
@@ -323,11 +323,11 @@ import { TableCell } from '@dhis2-ui/table'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TableFoot`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { TableFoot } from '@dhis2-ui/table'
+import { TableFoot } from '@dhis2/ui'
 ```
 
 
@@ -344,11 +344,11 @@ import { TableFoot } from '@dhis2-ui/table'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TableHead`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { TableHead } from '@dhis2-ui/table'
+import { TableHead } from '@dhis2/ui'
 ```
 
 
@@ -365,11 +365,11 @@ import { TableHead } from '@dhis2-ui/table'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TableRowHead`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { TableRowHead } from '@dhis2-ui/table'
+import { TableRowHead } from '@dhis2/ui'
 ```
 
 
@@ -387,11 +387,11 @@ import { TableRowHead } from '@dhis2-ui/table'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TableRow`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { TableRow } from '@dhis2-ui/table'
+import { TableRow } from '@dhis2/ui'
 ```
 
 
@@ -409,11 +409,11 @@ import { TableRow } from '@dhis2-ui/table'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Table`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { Table } from '@dhis2-ui/table'
+import { Table } from '@dhis2/ui'
 ```
 
 
@@ -431,11 +431,11 @@ import { Table } from '@dhis2-ui/table'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `DataTableColumnHeader`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { DataTableColumnHeader } from '@dhis2-ui/table'
+import { DataTableColumnHeader } from '@dhis2/ui'
 ```
 
 
@@ -468,11 +468,11 @@ import { DataTableColumnHeader } from '@dhis2-ui/table'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `DataTableRow`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { DataTableRow } from '@dhis2-ui/table'
+import { DataTableRow } from '@dhis2/ui'
 ```
 
 
@@ -494,11 +494,11 @@ import { DataTableRow } from '@dhis2-ui/table'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TableBody`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { TableBody } from '@dhis2-ui/table'
+import { TableBody } from '@dhis2/ui'
 ```
 
 
@@ -516,11 +516,11 @@ import { TableBody } from '@dhis2-ui/table'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TableFoot`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { TableFoot } from '@dhis2-ui/table'
+import { TableFoot } from '@dhis2/ui'
 ```
 
 
@@ -537,11 +537,11 @@ import { TableFoot } from '@dhis2-ui/table'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TableHead`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { TableHead } from '@dhis2-ui/table'
+import { TableHead } from '@dhis2/ui'
 ```
 
 
@@ -558,11 +558,11 @@ import { TableHead } from '@dhis2-ui/table'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TableRow`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { TableRow } from '@dhis2-ui/table'
+import { TableRow } from '@dhis2/ui'
 ```
 
 
@@ -581,11 +581,11 @@ import { TableRow } from '@dhis2-ui/table'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Table`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { Table } from '@dhis2-ui/table'
+import { Table } from '@dhis2/ui'
 ```
 
 

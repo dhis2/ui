@@ -42,7 +42,6 @@ const sidebars = {
         {
             Components: [
                 'components/alertbar',
-                'components/avatar',
                 'components/button',
                 'components/card',
                 'components/calendar',
@@ -68,6 +67,7 @@ const sidebars = {
                 'components/tag',
                 'components/tooltip',
                 'components/transfer',
+                'components/avatar',
             ],
         },
         {

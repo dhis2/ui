@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `CheckboxFieldFF`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { CheckboxFieldFF } from '@dhis2/ui-forms'
+import { CheckboxFieldFF } from '@dhis2/ui'
 ```
 
 
@@ -27,11 +27,11 @@ import { CheckboxFieldFF } from '@dhis2/ui-forms'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `FieldGroupFF`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { FieldGroupFF } from '@dhis2/ui-forms'
+import { FieldGroupFF } from '@dhis2/ui'
 ```
 
 
@@ -48,11 +48,11 @@ import { FieldGroupFF } from '@dhis2/ui-forms'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `FileInputFieldFF`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { FileInputFieldFF } from '@dhis2/ui-forms'
+import { FileInputFieldFF } from '@dhis2/ui'
 ```
 
 
@@ -75,11 +75,11 @@ import { FileInputFieldFF } from '@dhis2/ui-forms'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `InputFieldFF`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { InputFieldFF } from '@dhis2/ui-forms'
+import { InputFieldFF } from '@dhis2/ui'
 ```
 
 
@@ -102,11 +102,11 @@ import { InputFieldFF } from '@dhis2/ui-forms'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `MultiSelectFieldFF`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { MultiSelectFieldFF } from '@dhis2/ui-forms'
+import { MultiSelectFieldFF } from '@dhis2/ui'
 ```
 
 
@@ -130,11 +130,11 @@ import { MultiSelectFieldFF } from '@dhis2/ui-forms'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `RadioFieldFF`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { RadioFieldFF } from '@dhis2/ui-forms'
+import { RadioFieldFF } from '@dhis2/ui'
 ```
 
 
@@ -155,11 +155,11 @@ import { RadioFieldFF } from '@dhis2/ui-forms'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SingleSelectFieldFF`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SingleSelectFieldFF } from '@dhis2/ui-forms'
+import { SingleSelectFieldFF } from '@dhis2/ui'
 ```
 
 
@@ -183,11 +183,11 @@ import { SingleSelectFieldFF } from '@dhis2/ui-forms'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SwitchFieldFF`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SwitchFieldFF } from '@dhis2/ui-forms'
+import { SwitchFieldFF } from '@dhis2/ui'
 ```
 
 
@@ -208,11 +208,11 @@ import { SwitchFieldFF } from '@dhis2/ui-forms'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TextAreaFieldFF`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { TextAreaFieldFF } from '@dhis2/ui-forms'
+import { TextAreaFieldFF } from '@dhis2/ui'
 ```
 
 
