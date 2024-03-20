@@ -1,0 +1,31 @@
+# 
+# Translators:
+# KRG HIS <antonia.bezenchek@informa.pro>, 2021
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-05-10T11:56:32.496Z\n"
+"PO-Revision-Date: 2021-06-24 12:50+0000\n"
+"Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2021\n"
+"Language-Team: Central Kurdish (https://www.transifex.com/hisp-uio/teams/100509/ckb/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ckb\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Clear"
+msgstr "پاککردنەوە"
+
+msgid "No data found"
+msgstr ""
+
+msgid "Type to filter options"
+msgstr ""
+
+msgid "Loading options"
+msgstr ""
+
+msgid "No options found"
+msgstr ""
