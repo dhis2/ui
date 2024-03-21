@@ -1,5 +1,5 @@
-import '../common/index.js'
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+require('../common/index.js')
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('an empty MultiSelect is rendered', () => {
     cy.visitStory('MultiSelect', 'Empty')

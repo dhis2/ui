@@ -1,5 +1,5 @@
-import '../common/index.js'
-import { Then } from 'cypress-cucumber-preprocessor/steps'
+require('../common/index.js')
+import { Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Then(
     'the interpretations link contains an icon with a number greater than 0',

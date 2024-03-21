@@ -1,5 +1,5 @@
-import '../common/index.js'
-import { When, Then } from 'cypress-cucumber-preprocessor/steps'
+require('../common/index.js')
+import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 When('the user clicks on the profile icons', () => {
     cy.get(

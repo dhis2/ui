@@ -1,4 +1,4 @@
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a Layer with children is rendered', () => {
     cy.visitStory('Layer', 'Default')

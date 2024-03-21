@@ -1,4 +1,4 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('reordering of items is enabled', () => {
     // no op
@@ -14,6 +14,14 @@ Given('the selected list has some items', () => {
 
 Given('the {int}. item is highlighted', (previousPisition) => {
     const index = previousPisition - 1
+    console.log('> index', index)
+
+    cy.get('{transfer-pickedoptions} {transferoption}')
+        .eq(index)
+        .invoke('attr', 'data-value')
+        // For some reason, using `.as()` directly doesn't work.
+        // Wrapping it inside a `.then` works though
+        .then(previousValue => cy.wrap(previousValue).as('previousValue'))
 
     cy.get('{transfer-pickedoptions} {transferoption}')
         .eq(index)
@@ -45,7 +53,11 @@ When("the user clicks the 'move down' button", () => {
 
 Then('the highlighted item should be moved to the {int}. place', (next) => {
     const index = next - 1
-    cy.get('@previous').invoke('index').should('equal', index)
+
+    cy.get('@previousValue')
+        .then(previousValue => cy.get(`[data-value="${previousValue}"]`))
+        .invoke('index')
+        .should('equal', index)
 })
 
 Then("the 'move up' and 'move down' buttons should be disabled", () => {
