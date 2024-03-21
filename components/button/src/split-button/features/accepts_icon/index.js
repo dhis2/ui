@@ -6,9 +6,11 @@ Given('a SplitButton with an icon is rendered', () => {
 })
 
 Then('the icon is visible on the left button only', () => {
-    cy.get('[data-test="dhis2-uicore-splitbutton-button"] :contains("Icon")')
-        .should('be.visible')
+    cy.get(
+        '[data-test="dhis2-uicore-splitbutton-button"] :contains("Icon")'
+    ).should('be.visible')
 
-    cy.get('[data-test="dhis2-uicore-splitbutton-toggle"] :contains("Icon")')
-        .should('not.exist')
+    cy.get(
+        '[data-test="dhis2-uicore-splitbutton-toggle"] :contains("Icon")'
+    ).should('not.exist')
 })

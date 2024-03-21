@@ -15,8 +15,11 @@ import { parseSelectorWithDataTest } from './common/parseSelectorWithDataTest.js
  * cy.get('{node} {node} input', 'custom-prefix')
  * cy.get('[data-test="custom-prefix-node"] [data-test="custom-prefix-node"] input')
  */
-Cypress.Commands.overwriteQuery('get', function (originalFn, selectors, options = {}) {
-    const { prefix, ...restOptions } = options
-    const selector = parseSelectorWithDataTest(selectors, prefix)
-    return originalFn.call(this, selector, restOptions)
-})
+Cypress.Commands.overwriteQuery(
+    'get',
+    function (originalFn, selectors, options = {}) {
+        const { prefix, ...restOptions } = options
+        const selector = parseSelectorWithDataTest(selectors, prefix)
+        return originalFn.call(this, selector, restOptions)
+    }
+)

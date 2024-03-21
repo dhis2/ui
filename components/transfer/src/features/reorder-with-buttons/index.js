@@ -21,7 +21,7 @@ Given('the {int}. item is highlighted', (previousPisition) => {
         .invoke('attr', 'data-value')
         // For some reason, using `.as()` directly doesn't work.
         // Wrapping it inside a `.then` works though
-        .then(previousValue => cy.wrap(previousValue).as('previousValue'))
+        .then((previousValue) => cy.wrap(previousValue).as('previousValue'))
 
     cy.get('{transfer-pickedoptions} {transferoption}')
         .eq(index)
@@ -55,7 +55,7 @@ Then('the highlighted item should be moved to the {int}. place', (next) => {
     const index = next - 1
 
     cy.get('@previousValue')
-        .then(previousValue => cy.get(`[data-value="${previousValue}"]`))
+        .then((previousValue) => cy.get(`[data-value="${previousValue}"]`))
         .invoke('index')
         .should('equal', index)
 })
