@@ -37,6 +37,8 @@ const UserAvatar = ({
             extralarge,
         })}
         data-test={dataTest}
+        aria-label={name}
+        aria-hidden={!name}
     >
         {avatarId ? (
             <ImageAvatar avatarId={avatarId} dataTest={`${dataTest}-image`} />
