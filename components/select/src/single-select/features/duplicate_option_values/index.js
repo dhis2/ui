@@ -17,9 +17,11 @@ Then(
     }
 )
 Then('both options are highlighted in the dropdown', () => {
-    cy.get('[data-test="dhis2-uicore-singleselectoption"]:contains("option one")')
-        .should('have.class', 'active')
+    cy.get(
+        '[data-test="dhis2-uicore-singleselectoption"]:contains("option one")'
+    ).should('have.class', 'active')
 
-    cy.get('[data-test="dhis2-uicore-singleselectoption"]:contains("option one a")')
-        .should('have.class', 'active')
+    cy.get(
+        '[data-test="dhis2-uicore-singleselectoption"]:contains("option one a")'
+    ).should('have.class', 'active')
 })
