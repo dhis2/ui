@@ -48,10 +48,9 @@
         "@dhis2/app-runtime": "^3.9.0",
         "@dhis2/cli-app-scripts": "^8.0.0",
         "@dhis2/cli-style": "10.4.2",
-        "@dhis2/cli-utils-cypress": "^8.0.3",
         "@dhis2/cli-utils-docsite": "^3.1.2",
-        "@dhis2/cypress-commands": "^9.0.2",
-        "@dhis2/cypress-plugins": "^9.0.2",
+        "@dhis2/cypress-commands": "^10.0.3",
+        "@dhis2/cypress-plugins": "^10.0.3",
         "@dhis2/d2-i18n": "^1.1.0",
         "@manypkg/cli": "^0.18.0",
         "@svgr/cli": "^5.5.0",
@@ -61,7 +60,7 @@
         "@testing-library/user-event": "^13.5.0",
         "ast-types": "^0.14.2",
         "concurrently": "^6.2.1",
-        "cypress": "^9.5.0",
+        "cypress": "^12",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.6",
         "execa": "^5.1.1",
@@ -78,5 +77,9 @@
     },
     "peerDependencies": {
         "@types/react": ">=16.14.0"
+    },
+    "devDependencies": {
+        "@badeball/cypress-cucumber-preprocessor": "^20.0.2",
+        "@cypress/webpack-preprocessor": "^6.0.1"
     }
 }
