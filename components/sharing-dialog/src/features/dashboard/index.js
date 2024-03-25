@@ -1,4 +1,4 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 import { dashboards, dashboardSharing } from '../fixtures/index.js'
 
 Given('a sharing dialog of the dashboard type is visible', () => {

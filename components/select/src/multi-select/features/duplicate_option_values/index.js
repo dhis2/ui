@@ -1,5 +1,5 @@
-import '../common/index.js'
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+require('../common/index.js')
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given(
     'a MultiSelect with options with a duplicate value and this value is selected',

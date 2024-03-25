@@ -1,4 +1,4 @@
-import { Given } from 'cypress-cucumber-preprocessor/steps'
+import { Given } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a required SingleSelect with no selected value', () => {
     cy.visitStory('Testing:SingleSelectFieldFF', 'Required')

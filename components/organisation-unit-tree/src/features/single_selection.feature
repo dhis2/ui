@@ -2,7 +2,7 @@ Feature: When specified only one unit can be selected
 
     Scenario: The user selects a unit when no other unit is selected
         Given an OrganisationUnitTree with two nodes is rendered
-        And no unit is selected
+        And no unit has been selected
         When the user selects the first unit
         Then the first unit is selected
 

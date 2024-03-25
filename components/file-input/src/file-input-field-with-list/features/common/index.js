@@ -1,4 +1,4 @@
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a FileInputFieldWithList with multiple files is rendered', () => {
     cy.visitStory('FileInputFieldWithList', 'Multiple files - with files')

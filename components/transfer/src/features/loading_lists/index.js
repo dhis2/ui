@@ -1,4 +1,4 @@
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('the source list is loading', () => {
     cy.visitStory('Transfer Loading Lists', 'Loading Source')

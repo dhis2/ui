@@ -1,4 +1,4 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a Tab with onClick handler is rendered', () => {
     cy.visitStory('Tab', 'With onClick')

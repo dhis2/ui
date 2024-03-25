@@ -1,4 +1,4 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 const expectStubPayloadToEqual = (stub, prop, expected) => {
     const calls = stub.getCalls()

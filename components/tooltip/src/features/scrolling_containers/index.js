@@ -1,7 +1,7 @@
-import '../common/index.js'
-import '../positions/index.js'
-import '../visibility_toggling/index.js'
-import { Given, When, Then, And } from 'cypress-cucumber-preprocessor/steps'
+require('../common/index.js')
+require('../positions/index.js')
+require('../visibility_toggling/index.js')
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 /**
  * Note that scrolling behavior is tricky with cypress:
@@ -52,7 +52,7 @@ Given('this test uses timers', () => {
     cy.clock()
 })
 
-And('there is a pause to allow the tooltip to open', () => {
+When('there is a pause to allow the tooltip to open', () => {
     cy.tick(250)
 })
 

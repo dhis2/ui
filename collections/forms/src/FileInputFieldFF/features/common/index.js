@@ -1,4 +1,4 @@
-import { Given } from 'cypress-cucumber-preprocessor/steps'
+import { Given } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a single-file FileInput is rendered', () => {
     cy.visitStory('Testing:FileInput', 'Standard form')

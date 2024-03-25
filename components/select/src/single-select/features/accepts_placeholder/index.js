@@ -1,5 +1,5 @@
-import '../common/index.js'
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+require('../common/index.js')
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a SingleSelect with a placeholder and no selection is rendered', () => {
     cy.visitStory('SingleSelect', 'With placeholder')

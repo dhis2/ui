@@ -1,5 +1,6 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { getOrganisationUnitData, namespace } from '../../__e2e__/common.js'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
+import { getOrganisationUnitData } from '../../__e2e__/get-organisation-unit-data.js'
+import { namespace } from '../../__e2e__/namespace.js'
 
 const expectOrgUnitsToBeDisplayed = (ids) => {
     const expandedLabels = ids.map(

@@ -1,4 +1,4 @@
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a Switch with initialFocus is rendered', () => {
     cy.visitStory('Switch', 'With initialFocus')

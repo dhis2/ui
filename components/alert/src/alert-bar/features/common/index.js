@@ -1,4 +1,4 @@
-import { When, Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { When, Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a default AlertBar is rendered', () => {
     cy.visitStory('AlertBar', 'Default')

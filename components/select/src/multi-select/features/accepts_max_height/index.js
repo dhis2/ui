@@ -1,5 +1,5 @@
-import '../common/index.js'
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+require('../common/index.js')
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a MultiSelect with more than ten options is rendered', () => {
     cy.visitStory('MultiSelect', 'With more than ten options')
@@ -14,10 +14,6 @@ Given(
         )
     }
 )
-
-Given('the MultiSelect is open', () => {
-    cy.get('[data-test="dhis2-uicore-select"]').click()
-})
 
 Then('has the default max-height', () => {
     cy.get('[data-test="dhis2-uicore-select-menu-menuwrapper"]').should(

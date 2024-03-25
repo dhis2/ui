@@ -1,5 +1,5 @@
-import '../common/index.js'
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+require('../common/index.js')
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a TextArea with onChange handler is rendered', () => {
     cy.visitStory('TextArea', 'With onChange')

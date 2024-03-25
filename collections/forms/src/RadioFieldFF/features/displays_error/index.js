@@ -1,5 +1,5 @@
-import '../common/index.js'
-import { When, Then } from 'cypress-cucumber-preprocessor/steps'
+require('../common/index.js')
+import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
 import { hasValueMessage } from '../../../validators/hasValue.js'
 
 When('the user submits the form', () => {

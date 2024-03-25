@@ -1,4 +1,4 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 import { extractOptionFromElement } from '../common/index.js'
 
 Given('the option list has one or more items', () => {

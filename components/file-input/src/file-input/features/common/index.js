@@ -1,4 +1,4 @@
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('the FileInput does not have any files', () => {
     cy.get('[data-test="dhis2-uicore-fileinput"] input').then(($input) => {

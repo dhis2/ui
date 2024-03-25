@@ -1,5 +1,5 @@
 /* global before,after */
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 const handler = (err) => {
     // > This error means that ResizeObserver was not able to deliver all

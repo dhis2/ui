@@ -1,4 +1,4 @@
-import { Given, Then, When } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then, When } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('an empty MultiSelectField is rendered', () => {
     cy.visitStory('MultiSelectField', 'Without options')

@@ -1,5 +1,5 @@
-import '../common/index.js'
-import { Then, Given } from 'cypress-cucumber-preprocessor/steps'
+require('../common/index.js')
+import { Then, Given } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('there are 0 unread messages', () => {
     cy.visitStory('HeaderBarTesting', 'Zero Unread Messages')

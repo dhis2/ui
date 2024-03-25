@@ -1,6 +1,5 @@
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
-import { modulesWithSpecialCharacters } from '../../__e2e__/stories/common.js'
-import '../common/index.js'
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
+import { modulesWithSpecialCharacters } from '../../__e2e__/stories/modulesWithSpecialCharacters.js'
 
 Given(/some app names contain a (.*)/, (character) => {
     // Needs to be wrapped, otherwise for some reason the wrong char is in the scope

@@ -1,4 +1,4 @@
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 Given(
     'a Popper with placement bottom-start has a React Ref as its reference',
     () => {

@@ -1,4 +1,4 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a OrganisationUnitTree with three levels is rendered', () => {
     cy.visitStory('OrganisationUnitTree', 'Force reloading')

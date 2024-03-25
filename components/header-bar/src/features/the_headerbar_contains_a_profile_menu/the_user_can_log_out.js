@@ -1,4 +1,4 @@
-import { And, Then } from 'cypress-cucumber-preprocessor/steps'
+import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
 import { baseUrl } from '../common/index.js'
 
 const logoutUrl = `${baseUrl}dhis-web-commons-security/logout.action`
@@ -11,7 +11,7 @@ Then('contains a link to log out the user', () => {
     })
 })
 
-And('there is no loading mask', () => {
+When('there is no loading mask', () => {
     cy.get('[data-test="headerbar-profile-menu-loading-mask"]').should(
         'not.exist'
     )
@@ -30,7 +30,7 @@ Then('a loading mask covers the screen', () => {
 })
 
 // Currently not working
-And('clearSensitiveCaches is called', async () => {
+When('clearSensitiveCaches is called', async () => {
     // Open caches to test 'clearSensitiveCaches':
     // A keepable cache
     await caches.open('workbox-precache-v2-asdf')

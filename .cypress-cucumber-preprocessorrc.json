@@ -1,0 +1,6 @@
+{
+    "nonGlobalStepDefinitions": true,
+    "e2e": {
+        "stepDefinitions": "[filepath]/*.{js,mjs,ts,tsx}"
+    }
+}

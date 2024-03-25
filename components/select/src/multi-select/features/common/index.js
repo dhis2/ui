@@ -1,4 +1,4 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a MultiSelect with options and onChange handler is rendered', () => {
     cy.visitStory('MultiSelect', 'With options and onChange')

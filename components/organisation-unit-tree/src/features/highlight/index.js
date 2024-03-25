@@ -1,4 +1,4 @@
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a OrganisationUnitTree with a highlighted root unit is rendered', () => {
     cy.visitStory('OrganisationUnitTree', 'Root highlighted')

@@ -1,4 +1,4 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a clearable MultiSelectField with selected option is rendered', () => {
     cy.visitStory('MultiSelectField', 'With clearable and selected option')

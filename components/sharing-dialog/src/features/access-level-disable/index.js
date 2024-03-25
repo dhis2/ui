@@ -1,4 +1,4 @@
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 import { disabledAccess } from '../fixtures/index.js'
 
 Given('a sharing dialog without public access is visible', () => {
