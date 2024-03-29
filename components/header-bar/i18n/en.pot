@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-01-18T16:13:05.063Z\n"
-"PO-Revision-Date: 2023-01-18T16:13:05.063Z\n"
+"POT-Creation-Date: 2024-03-29T07:26:07.540Z\n"
+"PO-Revision-Date: 2024-03-29T07:26:07.540Z\n"
 
 msgid "Search apps"
 msgstr "Search apps"
@@ -34,6 +34,12 @@ msgstr "Close"
 
 msgid "Copy debug info"
 msgstr "Copy debug info"
+
+msgid "Interpretations"
+msgstr "Interpretations"
+
+msgid "Messages"
+msgstr "Messages"
 
 msgid "Online"
 msgstr "Online"
