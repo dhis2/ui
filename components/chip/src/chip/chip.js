@@ -53,6 +53,8 @@ const Chip = ({
             data-test={dataTest}
             tabIndex={-1}
             role="option"
+            aria-selected={selected ? 'true' : 'false'}
+            aria-disabled={disabled ? 'true' : 'false'}
         >
             <Icon icon={icon} dataTest={`${dataTest}-icon`} />
             <Content overflow={overflow}>{children}</Content>
