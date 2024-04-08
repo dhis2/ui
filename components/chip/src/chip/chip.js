@@ -27,7 +27,8 @@ const Chip = ({
     marginInlineStart,
     marginInlineEnd,
 }) => (
-    <span
+    <button
+        role="option"
         onClick={(e) => {
             if (!disabled && onClick) {
                 onClick({}, e)
@@ -40,13 +41,14 @@ const Chip = ({
             dragging,
         })}
         data-test={dataTest}
+        tabIndex={-1}
     >
         <Icon icon={icon} dataTest={`${dataTest}-icon`} />
         <Content overflow={overflow}>{children}</Content>
         <Remove onRemove={onRemove} dataTest={`${dataTest}-remove`} />
 
         <style jsx>{`
-            span {
+            button {
                 display: inline-flex;
                 align-items: center;
                 height: 32px;
@@ -57,6 +59,7 @@ const Chip = ({
                 cursor: pointer;
                 user-select: none;
                 color: ${colors.grey900};
+                padding: 0;
             }
 
             .dense {
@@ -111,7 +114,7 @@ const Chip = ({
                 ${marginTop && `margin-top: ${marginTop}px`}
             }
         `}</style>
-    </span>
+    </button>
 )
 
 Chip.defaultProps = {
