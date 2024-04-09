@@ -1,3 +1,10 @@
+## [9.4.4](https://github.com/dhis2/ui/compare/v9.4.3...v9.4.4) (2024-04-09)
+
+
+### Bug Fixes
+
+* **deps:** upgrade @dhis2/multi-calendar-dates for relaxed peer deps fix ([#1472](https://github.com/dhis2/ui/issues/1472)) ([5d743fc](https://github.com/dhis2/ui/commit/5d743fccc2f68a8e5a5078b02aa25e6c679772be))
+
 ## [9.4.3](https://github.com/dhis2/ui/compare/v9.4.2...v9.4.3) (2024-03-19)
 
 
