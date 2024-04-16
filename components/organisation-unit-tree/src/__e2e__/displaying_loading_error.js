@@ -22,7 +22,6 @@ const dataProviderDataWithError = {
     },
 }
 
-export default { title: namespace }
 export const A0000000001LoadingError = () => (
     <CustomDataProvider data={dataProviderDataWithError}>
         <StatefulMultiSelectionWrapper>

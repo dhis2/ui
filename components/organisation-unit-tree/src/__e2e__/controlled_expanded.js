@@ -6,11 +6,6 @@ import { createDecoratorCustomDataProvider, namespace } from './common.js'
 window.initiallyExpandedPaths = ['/A0000000000/A0000000001']
 window.orgUnitPathToExpand = '/A0000000000/A0000000001'
 
-export default {
-    title: namespace,
-    decorators: [createDecoratorCustomDataProvider()],
-}
-
 export const Controlled = () => {
     const initiallyExpanded = getAllExpandedOrgUnitPaths(
         window.initiallyExpandedPaths
@@ -74,6 +69,8 @@ export const Controlled = () => {
     )
 }
 
+Controlled.decorators = [createDecoratorCustomDataProvider()]
+
 export const MissingProps = () => {
     const expanded = []
     const handleExpand = () => null
@@ -88,3 +85,5 @@ export const MissingProps = () => {
         />
     )
 }
+
+MissingProps.decorators = [createDecoratorCustomDataProvider()]

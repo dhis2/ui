@@ -5,13 +5,10 @@ import {
     createDecoratorStatefulMultiSelection,
 } from './common.js'
 
-export default {
-    title: 'OrganisationUnitTree/expanded',
-    decorators: [
-        createDecoratorStatefulMultiSelection(),
-        createDecoratorCustomDataProvider(),
-    ],
-}
+const decorators = [
+    createDecoratorStatefulMultiSelection(),
+    createDecoratorCustomDataProvider(),
+]
 
 export const NoInitiallyExpandedPaths = (_, { onChange, selected }) => (
     <OrganisationUnitTree
@@ -20,6 +17,8 @@ export const NoInitiallyExpandedPaths = (_, { onChange, selected }) => (
         onChange={onChange}
     />
 )
+
+NoInitiallyExpandedPaths.decorators = decorators
 
 export const InitiallyExpandedPaths = (_, { onChange, selected }) => (
     <OrganisationUnitTree
@@ -30,6 +29,8 @@ export const InitiallyExpandedPaths = (_, { onChange, selected }) => (
     />
 )
 
+InitiallyExpandedPaths.decorators = decorators
+
 export const WithRootMainAndRootSubOrgUnit = (_, { onChange, selected }) => (
     <OrganisationUnitTree
         roots={['A0000000000', 'A0000000001']}
@@ -37,3 +38,5 @@ export const WithRootMainAndRootSubOrgUnit = (_, { onChange, selected }) => (
         onChange={onChange}
     />
 )
+
+WithRootMainAndRootSubOrgUnit.decorators = decorators

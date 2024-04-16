@@ -5,7 +5,7 @@ import { formDecorator } from '../formDecorator.js'
 import { hasValue } from '../validators/index.js'
 import { RadioFieldFF } from './RadioFieldFF.js'
 
-export default { title: 'TestingRadioFieldFF', decorators: [formDecorator] }
+export default { title: 'Testing:RadioFieldFF', decorators: [formDecorator] }
 export const RequiredAndNoSelectedValue = () => (
     <FieldGroupFF name="choice">
         <Field

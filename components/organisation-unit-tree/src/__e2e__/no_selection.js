@@ -7,46 +7,28 @@ import {
     namespace,
 } from './common.js'
 
-window.allUnits = []
-for (let i = 0; i < 7; ++i) {
-    window.allUnits.push(`A000000000${i}`)
-}
-
-export default { title: namespace }
-export const FilteredBy3LevelPath = () => (
+export const NoSelectionClosed = () => (
     <CustomDataProvider data={dataProviderData}>
         <StatefulMultiSelectionWrapper>
             {({ onChange }) => (
                 <OrganisationUnitTree
+                    disableSelection
                     roots="A0000000000"
                     onChange={onChange}
-                    initiallyExpanded={[
-                        '/A0000000000',
-                            '/A0000000000/A0000000001',
-                            '/A0000000000/A0000000002',
-                    ]}
-                    filter={['/A0000000000/A0000000001/A0000000003']}
                 />
             )}
         </StatefulMultiSelectionWrapper>
     </CustomDataProvider>
 )
-export const FilteredBy3LevelPathAnd2LevelPath = () => (
+export const NoSelectionRootOpened = () => (
     <CustomDataProvider data={dataProviderData}>
         <StatefulMultiSelectionWrapper>
             {({ onChange }) => (
                 <OrganisationUnitTree
+                    disableSelection
                     roots="A0000000000"
                     onChange={onChange}
-                    initiallyExpanded={[
-                        '/A0000000000',
-                            '/A0000000000/A0000000001',
-                            '/A0000000000/A0000000002',
-                    ]}
-                    filter={[
-                        '/A0000000000/A0000000001/A0000000003',
-                            '/A0000000000/A0000000002',
-                    ]}
+                    initiallyExpanded={['/A0000000000']}
                 />
             )}
         </StatefulMultiSelectionWrapper>

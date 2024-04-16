@@ -38,7 +38,6 @@ window.onCollapse = window.Cypress && window.Cypress.cy.stub()
 window.onExpand = window.Cypress && window.Cypress.cy.stub()
 window.onChildrenLoaded = window.Cypress && window.Cypress.cy.stub()
 
-export default { title: namespace }
 export const Events = () => (
     <CustomDataProvider data={customizedDataProviderData}>
         <StatefulMultiSelectionWrapper>
