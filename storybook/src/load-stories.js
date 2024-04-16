@@ -71,19 +71,16 @@ exports.loadStories = () => {
             console.info(
                 `custom => Loading ${isTesting ? 'testing' : 'all'} stories`
             )
-            return isTesting
-                ? [
-                      `${COLLECTIONS_DIR}/*/src/**/*.stories.e2e.@(js|jsx)`,
-                      `${COMPONENTS_DIR}/*/src/**/*.stories.e2e.@(js|jsx)`,
-                      `${ICONS_DIR}/src/**/*.stories.e2e.@(js|jsx)`,
-                      `${CONSTANTS_DIR}/src/**/*.stories.e2e.@(js|jsx)`,
-                  ]
-                : [
-                      `${COLLECTIONS_DIR}/*/src/**/*.stories.@(js|jsx|mdx)`,
-                      `${COMPONENTS_DIR}/*/src/**/*.stories.@(js|jsx|mdx)`,
-                      `${ICONS_DIR}/src/**/*.stories.@(js|jsx|mdx)`,
-                      `${CONSTANTS_DIR}/src/**/*.stories.@(js|jsx|mdx)`,
-                  ]
+
+            const fileTypeExtension = '@(js|jsx|mdx)'
+            const fileExtension = `${isTesting ? 'e3e.stories' : 'stories'}`
+
+            return [
+                `${COLLECTIONS_DIR}/*/src/**/*${fileExtension}.${fileTypeExtension}`,
+                `${COMPONENTS_DIR}/*/src/**/*${fileExtension}.${fileTypeExtension}`,
+                `${ICONS_DIR}/src/**/*${fileExtension}.${fileTypeExtension}`,
+                `${CONSTANTS_DIR}/src/**/*${fileExtension}.${fileTypeExtension}`,
+            ]
         }
     }
 }

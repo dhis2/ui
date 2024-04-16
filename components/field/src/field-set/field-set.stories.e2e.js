@@ -1,7 +1,7 @@
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { FieldSet } from './field-set.js'
 
-storiesOf('FieldSet', module).add('With children', () => (
+export default { title: 'FieldSet' }
+export const WithChildren = () => (
     <FieldSet>I am a child</FieldSet>
-))
+)

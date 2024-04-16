@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { FileInputFieldWithList } from './index.js'
 
@@ -33,42 +32,42 @@ const onChange = (payload, event) => {
     )
 }
 
-storiesOf('FileInputFieldWithList', module)
-    .add('Single file - with file', () => (
-        <FileInputFieldWithList
-            buttonLabel="Upload file"
-            name="upload"
-            files={singleFileArray}
-            removeText="remove"
-            onChange={onChange}
-        />
-    ))
-    .add('Multiple files - empty', () => (
-        <FileInputFieldWithList
-            buttonLabel="Upload file"
-            multiple
-            name="upload"
-            removeText="remove"
-            onChange={onChange}
-        />
-    ))
-    .add('Multiple files - with files', () => (
-        <FileInputFieldWithList
-            buttonLabel="Upload file"
-            multiple
-            name="upload"
-            files={multipleFileArray}
-            removeText="remove"
-            onChange={onChange}
-        />
-    ))
-    .add('With file and default texts', () => (
-        <FileInputFieldWithList
-            name="upload"
-            files={singleFileArray}
-            onChange={onChange}
-        />
-    ))
-    .add('With default texts', () => (
-        <FileInputFieldWithList name="upload" onChange={onChange} />
-    ))
+export default { title: 'FileInputFieldWithList' }
+export const SingleFileWithFile = () => (
+    <FileInputFieldWithList
+        buttonLabel="Upload file"
+        name="upload"
+        files={singleFileArray}
+        removeText="remove"
+        onChange={onChange}
+    />
+)
+export const MultipleFilesEmpty = () => (
+    <FileInputFieldWithList
+        buttonLabel="Upload file"
+        multiple
+        name="upload"
+        removeText="remove"
+        onChange={onChange}
+    />
+)
+export const MultipleFilesWithFiles = () => (
+    <FileInputFieldWithList
+        buttonLabel="Upload file"
+        multiple
+        name="upload"
+        files={multipleFileArray}
+        removeText="remove"
+        onChange={onChange}
+    />
+)
+export const WithFileAndDefaultTexts = () => (
+    <FileInputFieldWithList
+        name="upload"
+        files={singleFileArray}
+        onChange={onChange}
+    />
+)
+export const WithDefaultTexts = () => (
+    <FileInputFieldWithList name="upload" onChange={onChange} />
+)

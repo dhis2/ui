@@ -1,7 +1,7 @@
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { FileListPlaceholder } from './file-list-placeholder.js'
 
-storiesOf('FileListPlaceholder', module).add('With children', () => (
+export default { title: 'FileListPlaceholder' }
+export const WithChildren = () => (
     <FileListPlaceholder>I am a child</FileListPlaceholder>
-))
+)

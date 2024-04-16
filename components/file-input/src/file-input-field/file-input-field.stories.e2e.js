@@ -1,16 +1,13 @@
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { FileInputField } from './file-input-field.js'
 
-storiesOf('FileInputField', module)
-    .add('With label and required', () => (
-        <FileInputField
-            name="upload"
-            label="upload something"
-            buttonLabel="Upload file"
-            required
-        />
-    ))
-    .add('Default', () => (
-        <FileInputField name="upload" label="upload something" />
-    ))
+export default { title: 'FileInputField' }
+export const WithLabelAndRequired = () => (
+    <FileInputField
+        name="upload"
+        label="upload something"
+        buttonLabel="Upload file"
+        required
+    />
+)
+export const Default = () => <FileInputField name="upload" label="upload something" />

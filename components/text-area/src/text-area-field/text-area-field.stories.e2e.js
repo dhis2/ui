@@ -1,11 +1,11 @@
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { TextAreaField } from './index.js'
 
-storiesOf('TextAreaField', module).add('With label and required', () => (
+export default { title: 'TextAreaField' }
+export const WithLabelAndRequired = () => (
     <TextAreaField
         name="textarea"
         label="I am required and have an asterisk"
         required
     />
-))
+)

@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { FileInput } from './index.js'
 
@@ -17,34 +16,34 @@ const onChange = (payload, event) => {
     )
 }
 
-storiesOf('FileInput', module)
-    .add('With onChange', () => (
-        <FileInput
-            onChange={onChange}
-            buttonLabel="Upload file"
-            name="upload"
-        />
-    ))
-    .add('With onChange and multiple', () => (
-        <FileInput
-            name="upload"
-            onChange={onChange}
-            buttonLabel="Upload files"
-            multiple
-        />
-    ))
-    .add('With initialFocus and onBlur', () => (
-        <FileInput
-            buttonLabel="Upload file"
-            name="upload"
-            initialFocus
-            onBlur={window.onBlur}
-        />
-    ))
-    .add('With onFocus', () => (
-        <FileInput
-            buttonLabel="Upload file"
-            name="upload"
-            onFocus={window.onFocus}
-        />
-    ))
+export default { title: 'FileInput' }
+export const WithOnChange = () => (
+    <FileInput
+        onChange={onChange}
+        buttonLabel="Upload file"
+        name="upload"
+    />
+)
+export const WithOnChangeAndMultiple = () => (
+    <FileInput
+        name="upload"
+        onChange={onChange}
+        buttonLabel="Upload files"
+        multiple
+    />
+)
+export const WithInitialFocusAndOnBlur = () => (
+    <FileInput
+        buttonLabel="Upload file"
+        name="upload"
+        initialFocus
+        onBlur={window.onBlur}
+    />
+)
+export const WithOnFocus = () => (
+    <FileInput
+        buttonLabel="Upload file"
+        name="upload"
+        onFocus={window.onFocus}
+    />
+)

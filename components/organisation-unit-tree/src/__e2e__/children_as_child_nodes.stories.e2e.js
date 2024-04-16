@@ -1,5 +1,4 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { OrganisationUnitTree } from '../index.js'
 import {
@@ -8,7 +7,8 @@ import {
     namespace,
 } from './common.js'
 
-storiesOf(namespace, module).add('Closed with children', () => (
+export default { title: namespace }
+export const ClosedWithChildren = () => (
     <CustomDataProvider data={dataProviderData}>
         <StatefulMultiSelectionWrapper>
             {({ selected, onChange }) => (
@@ -20,4 +20,4 @@ storiesOf(namespace, module).add('Closed with children', () => (
             )}
         </StatefulMultiSelectionWrapper>
     </CustomDataProvider>
-))
+)

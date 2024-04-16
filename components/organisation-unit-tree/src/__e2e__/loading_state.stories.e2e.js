@@ -1,5 +1,4 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { OrganisationUnitTree } from '../index.js'
 import {
@@ -28,7 +27,8 @@ const data = {
     },
 }
 
-storiesOf(namespace, module).add('A0000000001 loading', () => (
+export default { title: namespace }
+export const A0000000001Loading = () => (
     <CustomDataProvider data={data}>
         <StatefulMultiSelectionWrapper>
             {({ onChange }) => (
@@ -36,4 +36,4 @@ storiesOf(namespace, module).add('A0000000001 loading', () => (
             )}
         </StatefulMultiSelectionWrapper>
     </CustomDataProvider>
-))
+)

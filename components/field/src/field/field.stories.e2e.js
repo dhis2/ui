@@ -1,7 +1,7 @@
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { Field } from './field.js'
 
-storiesOf('Field', module).add('With children', () => (
+export default { title: 'Field' }
+export const WithChildren = () => (
     <Field>I am a child</Field>
-))
+)
