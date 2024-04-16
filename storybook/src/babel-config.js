@@ -14,8 +14,15 @@ exports.babelConfig = (config) => {
     // with the storybook babel configuration.
     const merged = {
         ...config,
-        presets: [...custom.presets],
-        plugins: [...custom.plugins, ...custom.env[mode].plugins],
+        presets: custom.presets,
+        plugins: [...custom.plugins, ...custom.env[mode].plugins].map(plugin => {
+            if (plugin instanceof Array) {
+                return [plugin[0], { ...plugin[1], loose: true }]
+            }
+
+            return [plugin, { loose: true }]
+        }),
     }
+
     return merged
 }

@@ -1,5 +1,4 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { OrganisationUnitTree } from '../index.js'
 import {
@@ -23,29 +22,29 @@ const dataProviderDataWithError = {
     },
 }
 
-storiesOf(namespace, module)
-    .add('A0000000001 loading error', () => (
-        <CustomDataProvider data={dataProviderDataWithError}>
-            <StatefulMultiSelectionWrapper>
-                {() => (
-                    <OrganisationUnitTree
-                        roots="A0000000000"
-                        onChange={() => null}
-                    />
-                )}
-            </StatefulMultiSelectionWrapper>
-        </CustomDataProvider>
-    ))
-    .add('A0000000001 loading error autoexpand', () => (
-        <CustomDataProvider data={dataProviderDataWithError}>
-            <StatefulMultiSelectionWrapper>
-                {() => (
-                    <OrganisationUnitTree
-                        autoExpandLoadingError
-                        roots="A0000000000"
-                        onChange={() => null}
-                    />
-                )}
-            </StatefulMultiSelectionWrapper>
-        </CustomDataProvider>
-    ))
+export default { title: namespace }
+export const A0000000001LoadingError = () => (
+    <CustomDataProvider data={dataProviderDataWithError}>
+        <StatefulMultiSelectionWrapper>
+            {() => (
+                <OrganisationUnitTree
+                    roots="A0000000000"
+                    onChange={() => null}
+                />
+            )}
+        </StatefulMultiSelectionWrapper>
+    </CustomDataProvider>
+)
+export const A0000000001LoadingErrorAutoexpand = () => (
+    <CustomDataProvider data={dataProviderDataWithError}>
+        <StatefulMultiSelectionWrapper>
+            {() => (
+                <OrganisationUnitTree
+                    autoExpandLoadingError
+                    roots="A0000000000"
+                    onChange={() => null}
+                />
+            )}
+        </StatefulMultiSelectionWrapper>
+    </CustomDataProvider>
+)

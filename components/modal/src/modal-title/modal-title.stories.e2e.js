@@ -1,7 +1,7 @@
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { ModalTitle } from './modal-title.js'
 
-storiesOf('ModalTitle', module).add('With children', () => (
+export default { title: 'ModalTitle' }
+export const WithChildren = () => (
     <ModalTitle>I am a child</ModalTitle>
-))
+)

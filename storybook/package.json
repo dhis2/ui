@@ -11,8 +11,10 @@
     "license": "BSD-3-Clause",
     "private": true,
     "scripts": {
-        "start": "EXTEND_ESLINT=true start-storybook -c config --port 5000 --quiet --ci -s static",
-        "build": "EXTEND_ESLINT=true build-storybook -c config -o ../dist/demo --quiet -s static"
+        "_start": "EXTEND_ESLINT=true storybook dev -c config --port 5000 --quiet --ci -s static",
+        "start": "EXTEND_ESLINT=true storybook dev -c config --port 5000 --quiet --ci --debug-webpack",
+        "_build": "EXTEND_ESLINT=true storybook build -c config -o ../dist/demo --quiet -s static",
+        "build": "EXTEND_ESLINT=true storybook build -c config -o ../dist/demo --quiet"
     },
     "peerDependencies": {
         "react": "^16.8",
@@ -26,23 +28,27 @@
         "@dhis2-ui/css": "9.8.3",
         "@dhis2/ui-constants": "9.8.3",
         "@fontsource/roboto": "^4.5.0",
-        "@storybook/addon-a11y": "^6.3.7",
-        "@storybook/addon-console": "^1.2.3",
-        "@storybook/addon-essentials": "^6.3.7",
-        "@storybook/addon-storysource": "^6.3.7",
-        "@storybook/addons": "^6.3.7",
-        "@storybook/channels": "^6.3.7",
-        "@storybook/components": "^6.3.7",
-        "@storybook/core-events": "^6.3.8",
-        "@storybook/node-logger": "^6.3.7",
-        "@storybook/preset-create-react-app": "^3.2.0",
-        "@storybook/react": "^6.3.7",
-        "@storybook/theming": "^6.3.7",
+        "@storybook/addon-a11y": "^8.0.6",
+        "@storybook/addon-console": "^3.0.0",
+        "@storybook/addon-essentials": "^8.0.6",
+        "@storybook/addon-storysource": "^8.0.6",
+        "@storybook/addons": "^7.6.17",
+        "@storybook/channels": "^8.0.6",
+        "@storybook/components": "^8.0.6",
+        "@storybook/core-events": "^8.0.6",
+        "@storybook/node-logger": "^8.0.6",
+        "@storybook/preset-create-react-app": "^8.0.6",
+        "@storybook/react": "^8.0.6",
+        "@storybook/theming": "^8.0.6",
         "storybook-addon-jsx": "^7.3.14"
     },
     "devDependencies": {
+        "@storybook/react-webpack5": "^8.0.6",
+        "crypto-browserify": "^3.12.0",
         "react": "16.13",
         "react-dom": "16.13",
+        "storybook": "^8.0.6",
+        "stream-browserify": "^3.0.0",
         "styled-jsx": "^4.0.1"
     }
 }

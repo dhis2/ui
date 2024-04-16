@@ -1,9 +1,9 @@
 import { Checkbox } from '@dhis2-ui/checkbox'
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { FieldGroup } from './field-group.js'
 
-storiesOf('FieldGroup', module).add('With label and required', () => (
+export default { title: 'FieldGroup' }
+export const WithLabelAndRequired = () => (
     <FieldGroup
         label="I am a required label"
         name="required"
@@ -14,4 +14,4 @@ storiesOf('FieldGroup', module).add('With label and required', () => (
         <Checkbox value="second" label="Second" />
         <Checkbox value="third" label="Third" />
     </FieldGroup>
-))
+)

@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { Field } from 'react-final-form'
 import { CheckboxFieldFF } from '../CheckboxFieldFF/CheckboxFieldFF.js'
@@ -13,7 +12,7 @@ import { TextAreaFieldFF } from '../TextAreaFieldFF/TextAreaFieldFF.js'
 import { composeValidators, email, hasValue } from '../validators/index.js'
 import { FileInputFieldFF } from './FileInputFieldFF.js'
 
-const StandardForm = ({ values }) => {
+const Form = ({ values }) => {
     return (
         <div style={{ maxWidth: 830 }}>
             <Field
@@ -262,9 +261,12 @@ const StandardForm = ({ values }) => {
     )
 }
 
-storiesOf('Testing:FileInput', module)
-    .addDecorator(formDecorator)
-    .addParameters({ options: { showPanel: false } })
-    .add('Standard form', (_, { formRenderProps }) => (
-        <StandardForm {...formRenderProps} />
-    ))
+export default {
+    title: 'Testing:FileInput',
+    decorators: [formDecorator],
+    parameters: { options: { showPanel: false } },
+}
+
+export const StandardForm = (_, { formRenderProps }) => (
+    <Form {...formRenderProps} />
+)

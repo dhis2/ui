@@ -1,5 +1,4 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { OrganisationUnitTree } from '../index.js'
 import {
@@ -10,11 +9,12 @@ import {
 
 window.selection = []
 
-storiesOf(namespace, module).add('Multiple selection', () => (
+export default { title: namespace }
+export const MultipleSelection = () => (
     <CustomDataProvider data={dataProviderData}>
         <StatefulMultiSelectionWrapper
             onSelectionChange={(newSelection) =>
-                (window.selection = newSelection)
+                    (window.selection = newSelection)
             }
         >
             {({ selected, onChange }) => (
@@ -26,4 +26,4 @@ storiesOf(namespace, module).add('Multiple selection', () => (
             )}
         </StatefulMultiSelectionWrapper>
     </CustomDataProvider>
-))
+)

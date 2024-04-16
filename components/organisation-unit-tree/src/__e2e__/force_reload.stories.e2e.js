@@ -1,5 +1,4 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
-import { storiesOf } from '@storybook/react'
 import React, { useState } from 'react'
 import { OrganisationUnitTree } from '../index.js'
 import {
@@ -31,7 +30,7 @@ const afterReloadData = {
     },
 }
 
-const ForceReloading = () => {
+const ForceReloading_ = () => {
     const [forceReload, setForceReload] = useState(false)
 
     return (
@@ -63,4 +62,5 @@ const ForceReloading = () => {
     )
 }
 
-storiesOf(namespace, module).add('Force reloading', () => <ForceReloading />)
+export default { title: namespace }
+export const ForceReloading = () => <ForceReloading_ />

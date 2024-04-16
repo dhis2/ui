@@ -1,7 +1,6 @@
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { NoticeBox } from './notice-box.js'
 
-storiesOf('NoticeBox', module)
-    .add('With children', () => <NoticeBox>The noticebox content</NoticeBox>)
-    .add('With title', () => <NoticeBox title="The noticebox title" />)
+export default { title: 'NoticeBox' }
+export const WithChildren = () => <NoticeBox>The noticebox content</NoticeBox>
+export const WithTitle = () => <NoticeBox title="The noticebox title" />

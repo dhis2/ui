@@ -1,5 +1,4 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { OrganisationUnitTree } from '../index.js'
 import {
@@ -39,7 +38,8 @@ window.onCollapse = window.Cypress && window.Cypress.cy.stub()
 window.onExpand = window.Cypress && window.Cypress.cy.stub()
 window.onChildrenLoaded = window.Cypress && window.Cypress.cy.stub()
 
-storiesOf(namespace, module).add('Events', () => (
+export default { title: namespace }
+export const Events = () => (
     <CustomDataProvider data={customizedDataProviderData}>
         <StatefulMultiSelectionWrapper>
             {({ selected, onChange }) => (
@@ -57,4 +57,4 @@ storiesOf(namespace, module).add('Events', () => (
             )}
         </StatefulMultiSelectionWrapper>
     </CustomDataProvider>
-))
+)
