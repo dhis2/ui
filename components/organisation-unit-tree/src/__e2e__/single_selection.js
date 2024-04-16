@@ -34,7 +34,6 @@ const data = {
     },
 }
 
-export default { title: namespace }
 export const SingleSelection = () => (
     <CustomDataProvider data={data}>
         <StatefulMultiSelectionWrapper>

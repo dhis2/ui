@@ -9,7 +9,6 @@ import {
 
 window.selection = []
 
-export default { title: namespace }
 export const MultipleSelection = () => (
     <CustomDataProvider data={dataProviderData}>
         <StatefulMultiSelectionWrapper

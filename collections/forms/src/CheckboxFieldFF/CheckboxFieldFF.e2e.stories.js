@@ -7,7 +7,7 @@ import { CheckboxFieldFF } from './CheckboxFieldFF.js'
 // https://github.com/final-form/react-final-form-arrays/issues/111
 const initialValue = ['yes']
 
-export default { title: 'TestingCheckbox', decorators: [formDecorator] }
+export default { title: 'Testing:Checkbox', decorators: [formDecorator] }
 export const Unchecked = () => (
     <Field
         type="checkbox"

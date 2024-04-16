@@ -5,14 +5,6 @@ import {
     createDecoratorStatefulMultiSelection,
 } from './common.js'
 
-export default {
-    title: 'OrganisationUnitTree',
-    decorators: [
-        createDecoratorStatefulMultiSelection(),
-        createDecoratorCustomDataProvider(),
-    ],
-}
-
 export const MultipleRootSubAndOneMainOrgUnit = (_, { selected, onChange }) => {
     const [filter, setFilter] = useState('')
 
@@ -29,3 +21,8 @@ export const MultipleRootSubAndOneMainOrgUnit = (_, { selected, onChange }) => {
         </>
     )
 }
+
+MultipleRootSubAndOneMainOrgUnit.decorators = [
+    createDecoratorStatefulMultiSelection(),
+    createDecoratorCustomDataProvider(),
+]
