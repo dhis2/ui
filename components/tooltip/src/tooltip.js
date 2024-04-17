@@ -117,6 +117,7 @@ const Tooltip = ({
                     ref={popperReference}
                     aria-describedby={open ? 'tooltipContenDhis2Ui' : ''}
                     data-test={`${dataTest}-reference`}
+                    tabIndex={0}
                 >
                     {children}
                 </span>
