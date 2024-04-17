@@ -113,6 +113,13 @@ Selects are used to choose one or more items from a list of options.
     </SingleSelectField>
 </Demo>
 
+```jsx
+<SingleSelectField label="Label" placeholder="Choose an option">
+    <SingleSelectOption label="Option one" value="1" />
+    <SingleSelectOption label="Option two" value="2" />
+    <SingleSelectOption label="Option three" value="3" />
+</SingleSelectField>
+```
 
 -   Only use placeholder text to clarify what kind of content is expected.
 -   Placeholder text shouldn't repeat the label.
