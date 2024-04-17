@@ -51,6 +51,16 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
     </FlyoutMenu>
 </Demo>
 
+```jsx
+<FlyoutMenu>
+    <MenuItem label="Add to program" />
+    <MenuItem label="Add to stage" />
+    <MenuDivider />
+    <MenuItem label="Analyze data" />
+    <MenuItem label="Run integrity check" />
+</FlyoutMenu>
+```
+
 -   Order the menu items in a logical way, grouping together related actions.
 -   Destructive menu items should be shown in their own group, usually last.
 
@@ -69,6 +79,17 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
     </div>
 </Demo>
 
+```jsx
+<FlyoutMenu>
+    <MenuItem label="Menu item label" />
+    <MenuItem label="Menu item label" />
+</FlyoutMenu>
+<FlyoutMenu>
+    <MenuItem dense label="Menu item label" />
+    <MenuItem dense label="Menu item label" />
+</FlyoutMenu>
+```
+
 -   Menu items are available in two sizes, regular and `dense`.
 -   Use `dense` sized menu items in complex, information-dense layouts. Otherwise, the regular size.
 
@@ -76,11 +97,19 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
 
 <Demo>
     <FlyoutMenu>
+        <MenuItem label="Menu item label">
+            <MenuItem label="Menu item label" />
+        </MenuItem>
+    </FlyoutMenu>
+</Demo>
+
+```jsx
+<FlyoutMenu>
     <MenuItem label="Menu item label">
         <MenuItem label="Menu item label" />
     </MenuItem>
-    </FlyoutMenu>
-</Demo>
+</FlyoutMenu>
+```
 
 -   A menu item can open another menu.
 -   Use nested menus when there's complex options that can be grouped together, like a _Download_ parent item containing different file formats.
@@ -101,6 +130,17 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
     </FlyoutMenu>
 </Demo>
 
+```jsx
+<FlyoutMenu>
+    <MenuSectionHeader label="Actions"/>
+    <MenuItem label="Add to program" />
+    <MenuItem label="Add to stage" />
+    <MenuSectionHeader label="Other"/>
+    <MenuItem label="Analyze data" />
+    <MenuItem label="Run integrity check" />
+</FlyoutMenu>
+```
+
 -   A menu can show dividers between groups of menu items.
 -   Use dividers to split items that logically belong together. This makes the menu easier to scan.
 -   Dividers can also show a section header, a text label for that group of menu items.
@@ -116,6 +156,14 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
     </FlyoutMenu>
 </Demo>
 
+```jsx
+<FlyoutMenu>
+    <MenuItem icon= {<IconFilter24 />} label="Filter data" />
+    <MenuItem icon= {<IconClock24 />} label="Change time period" />
+    <MenuItem icon= {<IconVisualizationColumn24 />} label="Open in Data Visualizer app" suffix= {<IconLaunch16/>}/>
+</FlyoutMenu>
+```
+
 -   A menu item can show a suffix.
 -   Use a suffix to show extra information about the context or intent of a menu item.
 -   Common use cases include showing a menu item's keyboard shortcut and showing an indicator that a menu item will open a new tab.
@@ -130,6 +178,14 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
         <MenuItem icon= {<IconShare24 /> } label="Share" />
     </FlyoutMenu>
 </Demo>
+
+```jsx
+<FlyoutMenu>
+    <MenuItem icon= {<IconSave24 /> } label="Save" />
+    <MenuItem icon= {<IconEdit24 /> } label="Rename" />
+    <MenuItem icon= {<IconShare24 /> } label="Share" />
+</FlyoutMenu>
+```
 
 -   A menu item can show an icon.
 -   Use icons to support the text label by providing context or a visual reference.
@@ -147,6 +203,16 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
     </FlyoutMenu>
 </Demo>
 
+```jsx
+<FlyoutMenu>
+    <MenuItem icon= {<IconSave24 /> } label="Save" />
+    <MenuItem icon= {<IconEdit24 /> } label="Rename" />
+    <MenuItem icon= {<IconShare24 /> } label="Share" />
+    <MenuDivider />
+    <MenuItem destructive icon= {<IconDelete24 /> } label="Delete program" />
+</FlyoutMenu>
+```
+
 -   Use destructive menu items for critical, destructive actions like _Delete_ or _End process_.
 -   Don't use a destructive menu item unless the item is both critical and destructive. Important menu items shouldn't use the destructive type to highlight only their importance.
 -   Most menus should have a maximum of one destructive item.
@@ -162,6 +228,13 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
     </FlyoutMenu>
 </Demo>
 
+```jsx
+<FlyoutMenu>
+    <MenuItem disabled icon= {<IconSave24 /> } label="Save" />
+    <MenuItem icon= {<IconEdit24 /> } label="Rename" />
+    <MenuItem icon= {<IconShare24 /> } label="Share" />
+</FlyoutMenu>
+```
 -   Use disabled menu items when a menu item is temporarily unavailable.
 -   Don't use the disabled state if the menu item will never be available in this context. Remove it instead.
 
@@ -171,4 +244,4 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
 
 ## Links
 
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/actions-menu-flyout-menu--default)
+-   [Demo](/demo/?path=/story/flyout-menu--default)

@@ -20,6 +20,8 @@ A file input is used to choose and upload files.
 
 ## Usage
 
+
+
 ### When to use
 
 -   **Adding files from a user's machine**. Use a file input when a user can upload a file from their local machine. This is usually as part of a form.
@@ -40,6 +42,10 @@ A file input is used to choose and upload files.
     />
 </Demo>
 
+```jsx
+<FileInputField label="Upload birth certificate" />
+```
+
 -   Use a label above the button if the file input is part of a form with other controls.
 
 ##### Button
@@ -49,6 +55,10 @@ A file input is used to choose and upload files.
     buttonLabel="Upload test data"
     />
 </Demo>
+
+```jsx
+<FileInputField buttonLabel="Upload test data" />
+```
 
 -   When a form label isn't used, the button label should make it clear what kind of file is expected. Use _Upload certificate_ instead of just _Upload_, for example.
 
@@ -60,6 +70,13 @@ A file input is used to choose and upload files.
     label="Upload birth certificate"
     />
 </Demo>
+
+```jsx
+<FileInputField
+    helpText="Max size 5mb. Supported file types are .jpg, .png, and .pdf."
+    label="Upload birth certificate"
+/>
+```
 
 -   Use help text to tell the user about any limitations or expectations of the files, like size or format.
 
@@ -75,6 +92,14 @@ A file input is used to choose and upload files.
     </FileInputField>
 </Demo>
 
+```jsx
+<FileInputField label="Upload documents">
+    <FileListItem label="document-name.pdf" removeText="Remove"/>
+    <FileListItem label="uploaded-document.pdf" removeText="Remove"/>
+    <FileListItem label="DHIS2-UI-Guide.pdf" removeText="Remove"/>
+</FileInputField>
+```
+
 -   Allow multiple file upload if that fits the use case.
 -   Don't use several file inputs for the same kind of file, use one with multiple files allowed.
 
@@ -84,4 +109,4 @@ A file input is used to choose and upload files.
 
 ## Links
 
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-file-input-file-input--default)
+-   [Demo](/demo/?path=/story/file-input--default)
