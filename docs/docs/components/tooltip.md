@@ -48,6 +48,13 @@ A tooltip is used to show contextual information when triggered by clicking, foc
     <Tooltip placement="bottom" content="Tooltip content">Hover to trigger bottom tooltip.</Tooltip>
 </Demo>
 
+```jsx
+<Tooltip content="Tooltip content">Hover to trigger top tooltip.</Tooltip>
+<Tooltip placement="left" content="Tooltip content">Hover to trigger left tooltip.</Tooltip>
+<Tooltip placement="right" content="Tooltip content">Hover to trigger right tooltip.</Tooltip>
+<Tooltip placement="bottom" content="Tooltip content">Hover to trigger bottom tooltip.</Tooltip>
+```
+
 -   By default, tooltips are shown above the triggering element.
 -   Other positions, `left`, `right`, and `bottom`, are available. Only use these positions if there's a reason `top` doesn't work, like in an information dense layout.
 
@@ -56,6 +63,10 @@ A tooltip is used to show contextual information when triggered by clicking, foc
 <Demo>
     <Tooltip openDelay={500} closeDelay={50} content="Tooltip content">Hover to trigger a tooltip with a longer open delay and shorter close delay.</Tooltip>
 </Demo>
+
+```jsx
+<Tooltip openDelay={500} closeDelay={50} content="Tooltip content">Hover to trigger a tooltip with a longer open delay and shorter close delay.</Tooltip>
+```
 
 -   Tooltips have two delay durations: `open` and `close`.
 -   Use the default delay durations unless there's a specific use case to change them.
@@ -67,4 +78,4 @@ A tooltip is used to show contextual information when triggered by clicking, foc
 
 ## Links
 
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/data-display-tooltip--default-placement-top)
+-   [Demo](/demo/?path=/story/tooltip--default-placement-top)

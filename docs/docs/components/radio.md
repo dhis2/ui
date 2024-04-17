@@ -48,6 +48,11 @@ Radio inputs are used to choose one item from a list.
     <Radio label="Radio input" checked dense />
 </Demo>
 
+```jsx
+<Radio label="Radio input" checked />
+<Radio label="Radio input" checked dense />
+```
+
 -   Radio inputs are available in two sizes, regular and `dense`. Regular sized radio inputs are useful when there's space available. Use `dense` sized radio inputs in compact, information dense interfaces.
 
 ## API Reference
@@ -56,4 +61,4 @@ Radio inputs are used to choose one item from a list.
 
 ## Links
 
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-radio-radio--default)
+-   [Demo](/demo/?path=/story/radio--default)

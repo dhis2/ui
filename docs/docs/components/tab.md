@@ -51,6 +51,13 @@ Tabs are used to navigate between different views within the same page or contex
     </TabBar>
 </Demo>
 
+```jsx
+<TabBar>
+    <Tab icon={<IconSubscribe16/>}>Notifications</Tab>
+    <Tab icon={<IconShare16/>} selected>Sharing and access</Tab>
+    <Tab icon={<IconDownload16/>}>Downloads</Tab>
+</TabBar>
+```
 -   A tab can show an icon.
 -   Use icons to support the text label by providing context or a visual reference.
 -   Don't include icons for decoration only, they add complexity to the interface.
@@ -66,6 +73,15 @@ Tabs are used to navigate between different views within the same page or contex
     </TabBar>
 </Demo>
 
+```jsx
+<TabBar>
+    <Tab>Tab label 1</Tab>
+    <Tab selected>Tab label 2</Tab>
+    <Tab disabled >Tab label 3</Tab>
+    <Tab disabled>Tab label 4</Tab>
+</TabBar>
+```
+
 -   Use a disabled state if a tab can't be used temporarily.
 -   Show a [`Tooltip`](tooltip.md) when hovering a disabled tab to give a short explanation of why the tab can't be used.
 -   If a tab will never be enabled in the current context, remove it instead.
@@ -76,4 +92,4 @@ Tabs are used to navigate between different views within the same page or contex
 
 ## Links
 
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/data-display-tooltip--default-placement-top)
+-   [Demo](/demo/?path=/story/tab-bar--default-fluid)

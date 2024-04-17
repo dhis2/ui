@@ -35,6 +35,13 @@ Tags are used to label items by a set of shared properties, like category or sta
 | <Tag positive>Positive</Tag> | Use to communicate success or validity.                                   |
 | <Tag negative>Negative</Tag> | Use to communicate a problem or error.                                    |
 
+```jsx
+<Tag>Default</Tag>
+<Tag neutral>Neutral</Tag>
+<Tag positive>Positive</Tag>
+<Tag negative>Negative</Tag>
+```
+
 ### Format
 
 #### Label
@@ -52,6 +59,11 @@ Tags are used to label items by a set of shared properties, like category or sta
     </div>
 </Demo>
 
+```jsx
+<Tag icon={<IconCheckmarkCircle16/>} positive>Passed</Tag>
+<Tag icon={<IconError16/>} negative>Failed</Tag>
+```
+
 -   A tag can show an icon before the text label.
 -   Use icons to support the text label by providing context or a visual reference.
 -   Don't include icons for decoration only, they add complexity to the interface.
@@ -67,6 +79,13 @@ Tags are used to label items by a set of shared properties, like category or sta
     </div>
 </Demo>
 
+```jsx
+<Tag bold>Tag label</Tag>
+<Tag bold neutral>Tag label</Tag>
+<Tag bold positive>Tag label</Tag>
+<Tag bold negative>Tag label</Tag>
+```
+
 -   Use bold tags where it's important the information is noticed by a user.
 -   Don't overuse bold tags, only use them when the information is important.
 
@@ -76,4 +95,4 @@ Tags are used to label items by a set of shared properties, like category or sta
 
 ## Links
 
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/data-display-tag--default)
+-   [Demo](/demo/?path=/story/tag--default)

@@ -44,7 +44,7 @@ A transfer is made up of two lists. The _source list_ that shows the available o
 ### Footer
 
 <Demo>
-<TransferDemoFooter/>
+    <TransferDemoFooter/>
 </Demo>
 
 -   Use footers for actions that apply to a list, like _Reload items_.

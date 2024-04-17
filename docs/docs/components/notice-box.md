@@ -49,6 +49,12 @@ A notice box shows important information about a situation.
     </NoticeBox>
 </Demo>
 
+```jsx
+<NoticeBox title="Database recently updated">
+    Dashboard data can take a few hours to update, so the most recent data might not be shown.
+</NoticeBox>
+```
+
 -   The default choice. Use whenever the information isn't a problem or something the user definitely needs to know before moving on.
 
 #### Warning
@@ -59,6 +65,13 @@ A notice box shows important information about a situation.
         <br/><Button small secondary>Edit access settings</Button>
     </NoticeBox>
 </Demo>
+
+```jsx
+<NoticeBox warning title="No assigned organisation units">
+    No one will be able to find this program because it doesn't have any assigned organisation units.
+    <br/><Button small secondary>Edit access settings</Button>
+</NoticeBox>
+```
 
 -   Use to alert the user to a problem that isn't blocking the current workflow.
 -   If possible, offer an [action](#actions) to help the user fix the problem.
@@ -72,6 +85,13 @@ A notice box shows important information about a situation.
     </NoticeBox>
 </Demo>
 
+```jsx
+<NoticeBox error title="Analytics tables failed">
+    There isn't any data because there was a problem generating analytics tables.
+    <br/><Button small secondary>Go to analytics tables</Button>
+</NoticeBox>
+```
+
 -   Use to alert the user to a problem or error that's blocking the current workflow.
 -   If possible, offer an [action](#actions) to help the user fix the problem.
 
@@ -82,6 +102,12 @@ A notice box shows important information about a situation.
         Your password has been reset. You can log in with your username and password.
     </NoticeBox>
 </Demo>
+
+```jsx
+<NoticeBox valid title="Password reset successfully">
+    Your password has been reset. You can log in with your username and password.
+</NoticeBox>
+```
 
 -   Use to inform the user that an important action is complete, or the process was successful.
 -   Only use when the information needs to stay on screen. In most `valid` cases, using an [alert bar](./alertbar.md) is a better choice.
@@ -108,4 +134,4 @@ A notice box shows important information about a situation.
 
 ## Links
 
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/data-display-notice-box--default)
+-   [Demo](/demo/?path=/story/notice-box--default)

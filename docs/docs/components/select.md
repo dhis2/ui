@@ -53,6 +53,15 @@ Selects are used to choose one or more items from a list of options.
     </SingleSelectField>
 </Demo>
 
+```jsx
+<SingleSelectField label="Aggregation type">
+    <SingleSelectOption label="Sum" value="1" />
+    <SingleSelectOption label="Mean" value="2" />
+    <SingleSelectOption label="Average" value="3" />
+</SingleSelectField>
+```
+
+
 -   Use a single select if the user can only choose one option.
 
 #### Multi select
@@ -67,6 +76,15 @@ Selects are used to choose one or more items from a list of options.
         <MultiSelectOption label="Critical" value="6" />
     </MultiSelectField>
 </Demo>
+
+```jsx
+<MultiSelectField label="Priority" selected={['1', '5',]}>
+    <MultiSelectOption label="Very low" value="1" />
+    <MultiSelectOption label="High" value="4" />
+    <MultiSelectOption label="Very high" value="5" />
+    <MultiSelectOption label="Critical" value="6" />
+</MultiSelectField>
+```
 
 -   Use a multi select if the user can choose one or more options.
 
@@ -95,6 +113,7 @@ Selects are used to choose one or more items from a list of options.
     </SingleSelectField>
 </Demo>
 
+
 -   Only use placeholder text to clarify what kind of content is expected.
 -   Placeholder text shouldn't repeat the label.
 -   Always use placeholder text if a label isn't used.
@@ -117,6 +136,14 @@ Selects are used to choose one or more items from a list of options.
     </SingleSelectField>
 </Demo>
 
+```jsx
+<SingleSelectField label="Aggregation type" helpText="Choose the aggregation type to apply to imported data.">
+    <SingleSelectOption label="Option one" value="1" />
+    <SingleSelectOption label="Option two" value="2" />
+    <SingleSelectOption label="Option three" value="3" />
+</SingleSelectField>
+```
+
 -   Use help text to tell the user about any limitations or expectations for the content.
 -   Help text can also be used to clarify what the input is for if it's a complex concept.
 
@@ -134,6 +161,19 @@ Selects are used to choose one or more items from a list of options.
         <SingleSelectOption label="Option three" value="3" />
     </SingleSelectField>
 </Demo>
+
+```jsx
+<SingleSelectField label="Regular sized select">
+    <SingleSelectOption label="Option one" value="1" />
+    <SingleSelectOption label="Option two" value="2" />
+    <SingleSelectOption label="Option three" value="3" />
+</SingleSelectField>
+<SingleSelectField dense label="Dense sized select">
+    <SingleSelectOption label="Option one" value="1" />
+    <SingleSelectOption label="Option two" value="2" />
+    <SingleSelectOption label="Option three" value="3" />
+</SingleSelectField>
+```
 
 -   Selects are available in two sizes, regular and `dense`. Regular sized selects are useful when there's space available. Use `dense` sized selects in compact, information-dense interfaces.
 
@@ -161,6 +201,16 @@ Selects are used to choose one or more items from a list of options.
     </SingleSelectField>
 </Demo>
 
+```jsx
+<SingleSelectField filterable label="Label">
+    <SingleSelectOption label="Option one" value="1" />
+    <SingleSelectOption label="Option two" value="2" />
+    <SingleSelectOption label="Option three" value="3" />
+    <SingleSelectOption label="Option nine" value="9" />
+    <SingleSelectOption label="Option ten" value="10" />
+</SingleSelectField>
+```
+
 -   A select can show a filter control that filters the available options.
 -   Use a filter when there's many options, more than 10, to choose from.
 
@@ -180,6 +230,16 @@ Selects are used to choose one or more items from a list of options.
         <SingleSelectOption label="Option ten" value="10" />
     </SingleSelectField>
 </Demo>
+
+```jsx
+<SingleSelectField clearable label="Label" selected="1">
+    <SingleSelectOption label="Option one" value="1" />
+    <SingleSelectOption label="Option two" value="2" />
+    <SingleSelectOption label="Option three" value="3" />
+    <SingleSelectOption label="Option nine" value="9" />
+    <SingleSelectOption label="Option ten" value="10" />
+</SingleSelectField>
+```
 
 -   A select can show a _Clear_ button that removes the current selection.
 -   Use a clearable select if there isn't a _None_ choice in the options.
@@ -201,6 +261,14 @@ Selects are used to choose one or more items from a list of options.
     </SingleSelectField>
 </Demo>
 
+```jsx
+<SingleSelectField prefix="Data type" selected="3">
+    <SingleSelectOption label="Data element" value="1" />
+    <SingleSelectOption label="Event data item" value="2" />
+    <SingleSelectOption label="Program indicator" value="3" />
+    <SingleSelectOption label="Option ten" value="10" />
+</SingleSelectField>
+```
 -   A select can show a label that prefixes the chosen option label.
 -   Use a prefix when there is limited space and a label above the select would take up too much space.
 -   Prefix labels should be short and clear.
@@ -221,6 +289,15 @@ Selects are used to choose one or more items from a list of options.
         <SingleSelectOption label="Option ten" value="10" />
     </SingleSelectField>
 </Demo>
+
+```jsx
+<SingleSelectField error validationText="There's a problem with this choice." label="Label">
+    <SingleSelectOption label="Option one" value="1" />
+    <SingleSelectOption label="Option two" value="2" />
+    <SingleSelectOption label="Option three" value="3" />
+    <SingleSelectOption label="Option ten" value="10" />
+</SingleSelectField>
+```
 
 -   Use an error state if there's a problem with the chosen option, or if it's required but empty.
 -   Don't show an error too early, give the user a chance to make a choice.
@@ -243,6 +320,15 @@ Selects are used to choose one or more items from a list of options.
     </SingleSelectField>
 </Demo>
 
+```jsx
+<SingleSelectField disabled label="Label">
+    <SingleSelectOption label="Option one" value="1" />
+    <SingleSelectOption label="Option eight" value="8" />
+    <SingleSelectOption label="Option nine" value="9" />
+    <SingleSelectOption label="Option ten" value="10" />
+</SingleSelectField>
+```
+
 -   Use a disabled state if the select temporarily can't be used.
 -   Show a [`Tooltip`](tooltip.md) on hover or focus to explain why the select is disabled.
 
@@ -252,4 +338,4 @@ Selects are used to choose one or more items from a list of options.
 
 ## Links
 
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-single-select-single-select-field--default)
+-   [Demo](/demo/?path=/story/single-select--with-options-and-on-change)
