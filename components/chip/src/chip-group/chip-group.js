@@ -12,8 +12,9 @@ const ChipGroup = ({ className, dataTest, children }) => {
             const chips = Array.from(
                 chipContainer.current.querySelectorAll('[role="option"]')
             )
-
-            chips[0].focus()
+            if (chips.length > 0) {
+                chips[0].focus()
+            }
             return
         }
 
@@ -38,6 +39,10 @@ const ChipGroup = ({ className, dataTest, children }) => {
             event.preventDefault()
             const prevIndex = (currentIndex - 1 + chips.length) % chips.length
             chips[prevIndex].focus()
+        }
+        if (event.key === 'Backspace' || event.key === 'Delete') {
+            const nextIndex = (currentIndex + 1) % chips.length
+            chips[nextIndex].focus()
         }
     }
     return (
