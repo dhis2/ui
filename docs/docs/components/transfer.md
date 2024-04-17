@@ -32,11 +32,46 @@ A transfer is made up of two lists. The _source list_ that shows the available o
 
 ## Options
 
+For all the demo's below, `transferOptions` is an array of objects with the following shape:
+
+```js
+[
+    {
+        label: 'ANC 1st visit',
+        value: 'anc_1st_visit',
+    },
+]
+```
+
+The `onChange` and `selected` properties are created like this:
+
+```js
+const [selected, setSelected] = useState()
+const onChange = (payload) => setSelected(payload.selected)
+```
+
 ### Header
 
 <Demo>
     <TransferDemoHeader />
 </Demo>
+
+```jsx
+<Transfer
+    options={transferOptions}
+    selected={selected}
+    leftHeader={<Header label="Available options" />}
+    rightHeader={<Header label="Selected options" />}
+    onChange={onChange}
+/>
+```
+
+The `header` component is as follows:
+
+```jsx
+<p style={{ margin: '8px 0', color: '#4A5768', fontSize: '14px', fontWeight: '500',}}>{props.label}</p>
+```
+
 
 -   Use headers for titles that make it clear what the transfer options are.
 -   _Source list_ headers could also contain group filters.
@@ -47,6 +82,25 @@ A transfer is made up of two lists. The _source list_ that shows the available o
     <TransferDemoFooter/>
 </Demo>
 
+```jsx
+<Transfer
+    options={transferOptions}
+    selected={selected}
+    leftFooter={<Footer />}
+    onChange={onChange}
+/>
+```
+
+The footer component is as follows:
+
+```jsx
+<div style={{ margin: '4px 0' }}>
+    <Button secondary small>
+        Reload
+    </Button>
+</div>
+```
+
 -   Use footers for actions that apply to a list, like _Reload items_.
 
 ### Reordering
@@ -55,6 +109,15 @@ A transfer is made up of two lists. The _source list_ that shows the available o
     <TransferDemoReorder />
 </Demo>
 
+```jsx
+<Transfer
+    enableOrderChange
+    options={transferOptions}
+    selected={selected}
+    onChange={onChange}
+/>
+```
+
 -   Allow reordering if the order of the chosen options has meaning or consequences.
 
 ### Filtering
@@ -62,6 +125,16 @@ A transfer is made up of two lists. The _source list_ that shows the available o
 <Demo>
     <TransferDemoFilter />
 </Demo>
+
+```jsx
+<Transfer
+    filterable
+    filterPlaceholder="Search for an option"
+    options={transferOptions}
+    selected={selected}
+    onChange={onChange}
+/>
+```
 
 -   Use filtering to help a user find options in the _source list_.
 
