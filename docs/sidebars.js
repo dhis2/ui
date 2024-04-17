@@ -96,6 +96,11 @@ const sidebars = {
             ],
         },
         'package/changelog',
+        {
+            type: 'link',
+            label: 'Developer Portal',
+            href: 'https://developers.dhis2.org',
+        },
     ],
 }
 
