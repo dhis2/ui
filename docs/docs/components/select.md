@@ -61,7 +61,6 @@ Selects are used to choose one or more items from a list of options.
 </SingleSelectField>
 ```
 
-
 -   Use a single select if the user can only choose one option.
 
 #### Multi select
@@ -78,7 +77,7 @@ Selects are used to choose one or more items from a list of options.
 </Demo>
 
 ```jsx
-<MultiSelectField label="Priority" selected={['1', '5',]}>
+<MultiSelectField label="Priority" selected={['1', '5']}>
     <MultiSelectOption label="Very low" value="1" />
     <MultiSelectOption label="High" value="4" />
     <MultiSelectOption label="Very high" value="5" />
@@ -144,7 +143,10 @@ Selects are used to choose one or more items from a list of options.
 </Demo>
 
 ```jsx
-<SingleSelectField label="Aggregation type" helpText="Choose the aggregation type to apply to imported data.">
+<SingleSelectField
+    label="Aggregation type"
+    helpText="Choose the aggregation type to apply to imported data."
+>
     <SingleSelectOption label="Option one" value="1" />
     <SingleSelectOption label="Option two" value="2" />
     <SingleSelectOption label="Option three" value="3" />
@@ -276,6 +278,7 @@ Selects are used to choose one or more items from a list of options.
     <SingleSelectOption label="Option ten" value="10" />
 </SingleSelectField>
 ```
+
 -   A select can show a label that prefixes the chosen option label.
 -   Use a prefix when there is limited space and a label above the select would take up too much space.
 -   Prefix labels should be short and clear.
@@ -298,7 +301,11 @@ Selects are used to choose one or more items from a list of options.
 </Demo>
 
 ```jsx
-<SingleSelectField error validationText="There's a problem with this choice." label="Label">
+<SingleSelectField
+    error
+    validationText="There's a problem with this choice."
+    label="Label"
+>
     <SingleSelectOption label="Option one" value="1" />
     <SingleSelectOption label="Option two" value="2" />
     <SingleSelectOption label="Option three" value="3" />

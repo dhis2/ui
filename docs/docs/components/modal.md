@@ -66,14 +66,28 @@ The `hide` variable used in the demo's below are initiated using `useState(true)
     <ModalTitle>Modal title</ModalTitle>
 
     <ModalContent>
-        <InputField label="First name" required value="Karimbe" inputWidth="320px" />
-        <InputField label="Last name" value="Olefeme" required inputWidth="320px" />
+        <InputField
+            label="First name"
+            required
+            value="Karimbe"
+            inputWidth="320px"
+        />
+        <InputField
+            label="Last name"
+            value="Olefeme"
+            required
+            inputWidth="320px"
+        />
     </ModalContent>
 
     <ModalActions>
         <ButtonStrip end>
-            <Button onClick={() => setHide(true)} secondary>Cancel</Button>
-            <Button onClick={() => setHide(true)} primary>Save changes</Button>
+            <Button onClick={() => setHide(true)} secondary>
+                Cancel
+            </Button>
+            <Button onClick={() => setHide(true)} primary>
+                Save changes
+            </Button>
         </ButtonStrip>
     </ModalActions>
 </Modal>
@@ -126,17 +140,31 @@ The `hide` variable used in the demo's below are initiated using `useState(true)
 <Modal hide={hide}>
     <ModalTitle>Update profile</ModalTitle>
     <ModalContent>
-        <InputField label="First name" required error validationText="First name can't be empty." inputWidth="320px" />
-        <InputField label="Last name" value="Olefeme" required inputWidth="320px" />
+        <InputField
+            label="First name"
+            required
+            error
+            validationText="First name can't be empty."
+            inputWidth="320px"
+        />
+        <InputField
+            label="Last name"
+            value="Olefeme"
+            required
+            inputWidth="320px"
+        />
         <Box marginTop="16px">
-            <NoticeBox error>There's a problem with this form.
-            </NoticeBox>
+            <NoticeBox error>There's a problem with this form.</NoticeBox>
         </Box>
     </ModalContent>
     <ModalActions>
         <ButtonStrip end>
-            <Button onClick={() => setHide(true)} secondary>Cancel</Button>
-            <Button disabled onClick={() => setHide(true)} primary>Save changes</Button>
+            <Button onClick={() => setHide(true)} secondary>
+                Cancel
+            </Button>
+            <Button disabled onClick={() => setHide(true)} primary>
+                Save changes
+            </Button>
         </ButtonStrip>
     </ModalActions>
 </Modal>

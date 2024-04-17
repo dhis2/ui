@@ -53,11 +53,14 @@ Tabs are used to navigate between different views within the same page or contex
 
 ```jsx
 <TabBar>
-    <Tab icon={<IconSubscribe16/>}>Notifications</Tab>
-    <Tab icon={<IconShare16/>} selected>Sharing and access</Tab>
-    <Tab icon={<IconDownload16/>}>Downloads</Tab>
+    <Tab icon={<IconSubscribe16 />}>Notifications</Tab>
+    <Tab icon={<IconShare16 />} selected>
+        Sharing and access
+    </Tab>
+    <Tab icon={<IconDownload16 />}>Downloads</Tab>
 </TabBar>
 ```
+
 -   A tab can show an icon.
 -   Use icons to support the text label by providing context or a visual reference.
 -   Don't include icons for decoration only, they add complexity to the interface.
@@ -77,7 +80,7 @@ Tabs are used to navigate between different views within the same page or contex
 <TabBar>
     <Tab>Tab label 1</Tab>
     <Tab selected>Tab label 2</Tab>
-    <Tab disabled >Tab label 3</Tab>
+    <Tab disabled>Tab label 3</Tab>
     <Tab disabled>Tab label 4</Tab>
 </TabBar>
 ```

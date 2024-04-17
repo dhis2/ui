@@ -44,7 +44,14 @@ Different elements of the pagination component can be included, depending on the
 </Demo>
 
 ```jsx
-<Pagination page={2} pageCount={10} pageSize={50} total={430} hidePageSizeSelect hidePageSummary/>
+<Pagination
+    page={2}
+    pageCount={10}
+    pageSize={50}
+    total={430}
+    hidePageSizeSelect
+    hidePageSummary
+/>
 ```
 
 -   Offers access to any page without navigating with previous or next buttons.
@@ -57,7 +64,14 @@ Different elements of the pagination component can be included, depending on the
 </Demo>
 
 ```jsx
-<Pagination page={2} pageCount={10} pageSize={50} total={430} hidePageSelect hidePageSizeSelect/>
+<Pagination
+    page={2}
+    pageCount={10}
+    pageSize={50}
+    total={430}
+    hidePageSelect
+    hidePageSizeSelect
+/>
 ```
 
 -   Shows a short summary of the current page in context of the whole set of items.
@@ -71,7 +85,14 @@ Different elements of the pagination component can be included, depending on the
 </Demo>
 
 ```jsx
-<Pagination page={2} pageCount={10} pageSize={50} total={430} hidePageSelect hidePageSummary/>
+<Pagination
+    page={2}
+    pageCount={10}
+    pageSize={50}
+    total={430}
+    hidePageSelect
+    hidePageSummary
+/>
 ```
 
 -   Changes the number of items included in a page.

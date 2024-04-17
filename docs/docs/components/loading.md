@@ -54,8 +54,9 @@ Loaders are used to show that something is in progress. They keep users informed
 </Demo>
 
 ```jsx
-<LinearLoader amount="25"/>
+<LinearLoader amount="25" />
 ```
+
 -   Use a linear loader when the progress can be shown as a percentage of 100%.
 
 ### Format
@@ -77,6 +78,7 @@ Loaders are used to show that something is in progress. They keep users informed
 <CircularLoader />
 <CircularLoader large />
 ```
+
 -   Circular loaders are available in four sizes.
 -   Use the size that matches the size of the component being loaded.
 

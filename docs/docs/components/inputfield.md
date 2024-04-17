@@ -56,7 +56,7 @@ An input is used to enter data, like text or a number.
 
 ```jsx
 <InputField placeholder="Example: Malaria Registration" label="Program name" />
-````
+```
 
 -   Only use placeholder text to clarify what kind of content is expected.
 -   Placeholder text shouldn't repeat the label.
@@ -70,7 +70,11 @@ An input is used to enter data, like text or a number.
 </Demo>
 
 ```jsx
-<InputField value="Malaria Registration" label="Program name" helpText="Used for data entry and shown on all reports." />
+<InputField
+    value="Malaria Registration"
+    label="Program name"
+    helpText="Used for data entry and shown on all reports."
+/>
 ```
 
 -   Use help text to tell the user about any limitations or expectations for the content.
@@ -151,7 +155,12 @@ An input is used to enter data, like text or a number.
 </Demo>
 
 ```jsx
-<InputField value="Malaria Registration" label="Program name" error validationText="There's a program with this name already. Try another program name." />
+<InputField
+    value="Malaria Registration"
+    label="Program name"
+    error
+    validationText="There's a program with this name already. Try another program name."
+/>
 ```
 
 -   Use an error state if there's a problem with the content of the input, or if it's required but empty.
@@ -165,7 +174,9 @@ An input is used to enter data, like text or a number.
 </Demo>
 
 ```jsx
-<Tooltip content="Stage name is automatically generated and can't be changed."><InputField value="Referrals" label="Stage name" readOnly /></Tooltip>
+<Tooltip content="Stage name is automatically generated and can't be changed.">
+    <InputField value="Referrals" label="Stage name" readOnly />
+</Tooltip>
 ```
 
 -   Use a disabled state if the input temporarily can't be used.
@@ -179,7 +190,7 @@ An input is used to enter data, like text or a number.
 
 ```jsx
 <InputField value="Olukayode" label="First name" inputWidth="240px" />
-````
+```
 
 -   Text inputs are the default type.
 -   Use a text input for entering any kind of text content, like a mix of letters and numbers.
@@ -191,7 +202,12 @@ An input is used to enter data, like text or a number.
 </Demo>
 
 ```jsx
-<InputField value="19" label="Admission count" inputWidth="100px" type="number" />
+<InputField
+    value="19"
+    label="Admission count"
+    inputWidth="100px"
+    type="number"
+/>
 ```
 
 -   Use a number input for entering numbers.
@@ -204,7 +220,12 @@ An input is used to enter data, like text or a number.
 </Demo>
 
 ```jsx
-<InputField value="It's a secret!" label="Password" inputWidth="320px"  type="password" />
+<InputField
+    value="It's a secret!"
+    label="Password"
+    inputWidth="320px"
+    type="password"
+/>
 ```
 
 -   Use a password input whenever a user is entering a password or secret value.
@@ -216,8 +237,13 @@ An input is used to enter data, like text or a number.
 </Demo>
 
 ```jsx
-<InputField  label="Incident date and time" inputWidth="240px" type="datetime-local" />
+<InputField
+    label="Incident date and time"
+    inputWidth="240px"
+    type="datetime-local"
+/>
 ```
+
 -   Using date/time inputs offers different interactions depending on the user's browser.
 
 ### Other data types

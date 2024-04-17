@@ -23,7 +23,16 @@ Elevation is used to create and communicate depth in an interface.
 To use elevation, apply a `box-shadow` to an element. The `box-shadow` property takes the variable available in the UI library, as specified in the variants.
 
 ```jsx
-<div style={{background: 'white', boxShadow: 'var(--elevations-e200)', display: 'inline-block', padding: '16px'}}>An elevated element</div>
+<div
+    style={{
+        background: 'white',
+        boxShadow: 'var(--elevations-e200)',
+        display: 'inline-block',
+        padding: '16px',
+    }}
+>
+    An elevated element
+</div>
 ```
 
 This example usees the `e200` variant.

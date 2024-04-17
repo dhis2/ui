@@ -65,7 +65,9 @@ A tooltip is used to show contextual information when triggered by clicking, foc
 </Demo>
 
 ```jsx
-<Tooltip openDelay={500} closeDelay={50} content="Tooltip content">Hover to trigger a tooltip with a longer open delay and shorter close delay.</Tooltip>
+<Tooltip openDelay={500} closeDelay={50} content="Tooltip content">
+    Hover to trigger a tooltip with a longer open delay and shorter close delay.
+</Tooltip>
 ```
 
 -   Tooltips have two delay durations: `open` and `close`.

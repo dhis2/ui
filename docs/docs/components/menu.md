@@ -132,10 +132,10 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
 
 ```jsx
 <FlyoutMenu>
-    <MenuSectionHeader label="Actions"/>
+    <MenuSectionHeader label="Actions" />
     <MenuItem label="Add to program" />
     <MenuItem label="Add to stage" />
-    <MenuSectionHeader label="Other"/>
+    <MenuSectionHeader label="Other" />
     <MenuItem label="Analyze data" />
     <MenuItem label="Run integrity check" />
 </FlyoutMenu>
@@ -158,9 +158,13 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
 
 ```jsx
 <FlyoutMenu>
-    <MenuItem icon= {<IconFilter24 />} label="Filter data" />
-    <MenuItem icon= {<IconClock24 />} label="Change time period" />
-    <MenuItem icon= {<IconVisualizationColumn24 />} label="Open in Data Visualizer app" suffix= {<IconLaunch16/>}/>
+    <MenuItem icon={<IconFilter24 />} label="Filter data" />
+    <MenuItem icon={<IconClock24 />} label="Change time period" />
+    <MenuItem
+        icon={<IconVisualizationColumn24 />}
+        label="Open in Data Visualizer app"
+        suffix={<IconLaunch16 />}
+    />
 </FlyoutMenu>
 ```
 
@@ -181,9 +185,9 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
 
 ```jsx
 <FlyoutMenu>
-    <MenuItem icon= {<IconSave24 /> } label="Save" />
-    <MenuItem icon= {<IconEdit24 /> } label="Rename" />
-    <MenuItem icon= {<IconShare24 /> } label="Share" />
+    <MenuItem icon={<IconSave24 />} label="Save" />
+    <MenuItem icon={<IconEdit24 />} label="Rename" />
+    <MenuItem icon={<IconShare24 />} label="Share" />
 </FlyoutMenu>
 ```
 
@@ -205,11 +209,11 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
 
 ```jsx
 <FlyoutMenu>
-    <MenuItem icon= {<IconSave24 /> } label="Save" />
-    <MenuItem icon= {<IconEdit24 /> } label="Rename" />
-    <MenuItem icon= {<IconShare24 /> } label="Share" />
+    <MenuItem icon={<IconSave24 />} label="Save" />
+    <MenuItem icon={<IconEdit24 />} label="Rename" />
+    <MenuItem icon={<IconShare24 />} label="Share" />
     <MenuDivider />
-    <MenuItem destructive icon= {<IconDelete24 /> } label="Delete program" />
+    <MenuItem destructive icon={<IconDelete24 />} label="Delete program" />
 </FlyoutMenu>
 ```
 
@@ -230,11 +234,12 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
 
 ```jsx
 <FlyoutMenu>
-    <MenuItem disabled icon= {<IconSave24 /> } label="Save" />
-    <MenuItem icon= {<IconEdit24 /> } label="Rename" />
-    <MenuItem icon= {<IconShare24 /> } label="Share" />
+    <MenuItem disabled icon={<IconSave24 />} label="Save" />
+    <MenuItem icon={<IconEdit24 />} label="Rename" />
+    <MenuItem icon={<IconShare24 />} label="Share" />
 </FlyoutMenu>
 ```
+
 -   Use disabled menu items when a menu item is temporarily unavailable.
 -   Don't use the disabled state if the menu item will never be available in this context. Remove it instead.
 

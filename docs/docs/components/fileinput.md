@@ -20,8 +20,6 @@ A file input is used to choose and upload files.
 
 ## Usage
 
-
-
 ### When to use
 
 -   **Adding files from a user's machine**. Use a file input when a user can upload a file from their local machine. This is usually as part of a form.
@@ -94,9 +92,9 @@ A file input is used to choose and upload files.
 
 ```jsx
 <FileInputField label="Upload documents">
-    <FileListItem label="document-name.pdf" removeText="Remove"/>
-    <FileListItem label="uploaded-document.pdf" removeText="Remove"/>
-    <FileListItem label="DHIS2-UI-Guide.pdf" removeText="Remove"/>
+    <FileListItem label="document-name.pdf" removeText="Remove" />
+    <FileListItem label="uploaded-document.pdf" removeText="Remove" />
+    <FileListItem label="DHIS2-UI-Guide.pdf" removeText="Remove" />
 </FileInputField>
 ```
 

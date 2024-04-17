@@ -35,7 +35,7 @@ A transfer is made up of two lists. The _source list_ that shows the available o
 For all the demo's below, `transferOptions` is an array of objects with the following shape:
 
 ```js
-[
+;[
     {
         label: 'ANC 1st visit',
         value: 'anc_1st_visit',
@@ -69,9 +69,17 @@ const onChange = (payload) => setSelected(payload.selected)
 The `header` component is as follows:
 
 ```jsx
-<p style={{ margin: '8px 0', color: '#4A5768', fontSize: '14px', fontWeight: '500',}}>{props.label}</p>
+<p
+    style={{
+        margin: '8px 0',
+        color: '#4A5768',
+        fontSize: '14px',
+        fontWeight: '500',
+    }}
+>
+    {props.label}
+</p>
 ```
-
 
 -   Use headers for titles that make it clear what the transfer options are.
 -   _Source list_ headers could also contain group filters.

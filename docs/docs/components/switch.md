@@ -50,7 +50,7 @@ Switches are used to toggle something between an on and off state.
 <Switch checked dense label="Dense sized switch"/>
 ```
 
-- Switches are available in two sizes, regular and `dense`. Regular sized switches are useful when there's space available. Use `dense` sized switches in compact, information-dense interfaces.
+-   Switches are available in two sizes, regular and `dense`. Regular sized switches are useful when there's space available. Use `dense` sized switches in compact, information-dense interfaces.
 
 ## API Reference
 

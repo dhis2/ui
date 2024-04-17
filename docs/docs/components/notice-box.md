@@ -51,7 +51,8 @@ A notice box shows important information about a situation.
 
 ```jsx
 <NoticeBox title="Database recently updated">
-    Dashboard data can take a few hours to update, so the most recent data might not be shown.
+    Dashboard data can take a few hours to update, so the most recent data might
+    not be shown.
 </NoticeBox>
 ```
 
@@ -68,8 +69,12 @@ A notice box shows important information about a situation.
 
 ```jsx
 <NoticeBox warning title="No assigned organisation units">
-    No one will be able to find this program because it doesn't have any assigned organisation units.
-    <br/><Button small secondary>Edit access settings</Button>
+    No one will be able to find this program because it doesn't have any
+    assigned organisation units.
+    <br />
+    <Button small secondary>
+        Edit access settings
+    </Button>
 </NoticeBox>
 ```
 
@@ -87,8 +92,12 @@ A notice box shows important information about a situation.
 
 ```jsx
 <NoticeBox error title="Analytics tables failed">
-    There isn't any data because there was a problem generating analytics tables.
-    <br/><Button small secondary>Go to analytics tables</Button>
+    There isn't any data because there was a problem generating analytics
+    tables.
+    <br />
+    <Button small secondary>
+        Go to analytics tables
+    </Button>
 </NoticeBox>
 ```
 
@@ -105,7 +114,8 @@ A notice box shows important information about a situation.
 
 ```jsx
 <NoticeBox valid title="Password reset successfully">
-    Your password has been reset. You can log in with your username and password.
+    Your password has been reset. You can log in with your username and
+    password.
 </NoticeBox>
 ```
 
