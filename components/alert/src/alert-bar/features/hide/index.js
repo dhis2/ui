@@ -1,5 +1,4 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
-require('../common/index.js')
 
 Given('a permanent AlertBar with hidden and onHidden is rendered', () => {
     cy.visitStory('AlertBar', 'Hidden prop')

@@ -1,4 +1,3 @@
-require('../common/index.js')
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 When('a file with the wrong file type is provided', () => {

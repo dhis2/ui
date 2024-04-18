@@ -1,4 +1,3 @@
-require('../common/index.js')
 import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a SplitButton with onClick hander is rendered', () => {

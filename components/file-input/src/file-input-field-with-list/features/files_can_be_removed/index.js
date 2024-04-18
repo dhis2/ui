@@ -1,4 +1,3 @@
-require('../common/index.js')
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 When('the remove handle behind a file is clicked', () => {
