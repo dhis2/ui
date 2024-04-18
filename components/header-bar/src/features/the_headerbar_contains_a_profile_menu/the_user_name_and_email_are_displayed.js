@@ -1,4 +1,3 @@
-require('../common/index.js')
 import { Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Then('contains the user name', () => {

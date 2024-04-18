@@ -43,6 +43,7 @@
         "lint:staged": "d2-style check --staged",
         "test": "d2-app-scripts test",
         "start": "yarn workspace ui-storybook start",
+        "start:legacy": "NODE_OPTIONS=--openssl-legacy-provider yarn workspace ui-storybook start",
         "start:docs": "yarn workspace ui-docusaurus start"
     },
     "dependencies": {

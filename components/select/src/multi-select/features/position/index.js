@@ -1,4 +1,3 @@
-require('../common/index.js')
 import { Given, Then, When } from '@badeball/cypress-cucumber-preprocessor'
 
 Given(

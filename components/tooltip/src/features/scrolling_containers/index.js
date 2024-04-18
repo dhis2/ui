@@ -1,4 +1,3 @@
-require('../common/index.js')
 require('../positions/index.js')
 require('../visibility_toggling/index.js')
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'

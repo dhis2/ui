@@ -1,4 +1,3 @@
-require('../common/index.js')
 import { Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Then('the messages link contains an icon with a number greater than 0', () => {

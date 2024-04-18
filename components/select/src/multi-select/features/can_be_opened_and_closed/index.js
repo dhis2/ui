@@ -1,4 +1,3 @@
-require('../common/index.js')
 import { Given, When } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a MultiSelect with options is rendered', () => {

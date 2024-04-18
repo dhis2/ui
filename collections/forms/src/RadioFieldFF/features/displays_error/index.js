@@ -1,4 +1,3 @@
-require('../common/index.js')
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
 import { hasValueMessage } from '../../../validators/hasValue.js'
 

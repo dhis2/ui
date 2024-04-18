@@ -1,4 +1,3 @@
-require('../common/index.js')
 import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('an empty SingleSelect is rendered', () => {

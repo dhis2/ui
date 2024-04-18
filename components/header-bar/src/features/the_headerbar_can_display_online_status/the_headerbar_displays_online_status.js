@@ -5,7 +5,6 @@ import {
     Then,
     When,
 } from '@badeball/cypress-cucumber-preprocessor'
-require('../common/index.js')
 
 // see https://github.com/cypress-io/cypress/issues/17723#issuecomment-1457064322
 const goOffline = () => {
