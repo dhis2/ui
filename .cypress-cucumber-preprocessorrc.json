@@ -1,6 +1,9 @@
 {
     "nonGlobalStepDefinitions": true,
     "e2e": {
-        "stepDefinitions": "[filepath]/*.{js,mjs,ts,tsx}"
+        "stepDefinitions": [
+            "[filepath]/*.{js,mjs,ts,tsx}",
+            "[filepath]/../common/index.{js,mjs,ts,tsx}"
+        ]
     }
 }
