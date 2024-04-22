@@ -5,7 +5,7 @@ import { colors, spacers } from '@dhis2/ui-constants'
 import { IconChevronUp24, IconChevronDown24 } from '@dhis2/ui-icons'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useRef } from 'react'
 
 const offsetModifier = {
     name: 'offset',
@@ -41,11 +41,15 @@ export const SelectorBarItem = React.forwardRef(
         },
         ref
     ) => {
+        let buttonRef = useRef()
+        if (ref) {
+            buttonRef = ref
+        }
         const Icon = open ? IconChevronUp24 : IconChevronDown24
 
         return (
             <button
-                ref={ref}
+                ref={buttonRef}
                 className={cx(
                     'selector-bar-item',
                     className,
@@ -98,7 +102,7 @@ export const SelectorBarItem = React.forwardRef(
                         }}
                     >
                         <Popper
-                            reference={ref}
+                            reference={buttonRef}
                             placement="bottom-start"
                             modifiers={[offsetModifier]}
                         >
