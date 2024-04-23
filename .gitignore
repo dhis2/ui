@@ -29,6 +29,7 @@ bundle.stats.json
 
 # cypress
 cypress/screenshots
+cypress/downloads
 cypress/videos
 cypress.env.json
 
