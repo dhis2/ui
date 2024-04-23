@@ -19,9 +19,7 @@ Given('the {int}. item is highlighted', (previousPosition) => {
     cy.get('{transfer-pickedoptions} {transferoption}')
         .eq(index)
         .invoke('attr', 'data-value')
-        // For some reason, using `.as()` directly doesn't work.
-        // Wrapping it inside a `.then` works though
-        .then((previousValue) => cy.wrap(previousValue).as('previousValue'))
+        .as('previousValue', { type: 'static' })
 
     cy.get('{transfer-pickedoptions} {transferoption}')
         .eq(index)
