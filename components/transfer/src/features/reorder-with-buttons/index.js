@@ -12,8 +12,8 @@ Given('the selected list has some items', () => {
     cy.visitStory('Transfer Reorder Buttons', 'Has Some Selected')
 })
 
-Given('the {int}. item is highlighted', (previousPisition) => {
-    const index = previousPisition - 1
+Given('the {int}. item is highlighted', (previousPosition) => {
+    const index = previousPosition - 1
     console.log('> index', index)
 
     cy.get('{transfer-pickedoptions} {transferoption}')
