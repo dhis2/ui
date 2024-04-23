@@ -47,14 +47,25 @@
         "start:docs": "yarn workspace ui-docusaurus start"
     },
     "dependencies": {
+        "@dhis2/d2-i18n": "^1.1.0",
+        "react": "16.13",
+        "react-dom": "16.13",
+        "react-scripts": "^4.0.3",
+        "styled-jsx": "^4.0.1"
+    },
+    "peerDependencies": {
+        "@types/react": ">=16.14.0"
+    },
+    "devDependencies": {
         "@babel/parser": "^7.17.0",
+        "@badeball/cypress-cucumber-preprocessor": "^20.0.2",
+        "@cypress/webpack-preprocessor": "^6.0.1",
         "@dhis2/app-runtime": "^3.9.0",
         "@dhis2/cli-app-scripts": "^8.0.0",
         "@dhis2/cli-style": "10.4.2",
         "@dhis2/cli-utils-docsite": "^3.1.2",
         "@dhis2/cypress-commands": "^10.0.3",
         "@dhis2/cypress-plugins": "^10.0.3",
-        "@dhis2/d2-i18n": "^1.1.0",
         "@manypkg/cli": "^0.18.0",
         "@svgr/cli": "^5.5.0",
         "@testing-library/jest-dom": "^5.16.1",
@@ -69,20 +80,9 @@
         "execa": "^5.1.1",
         "fast-glob": "^3.2.7",
         "find-up": "^5.0.0",
-        "react": "16.13",
         "react-dev-utils": "^10.2.1",
         "react-docgen": "^5.4.0",
-        "react-dom": "16.13",
-        "react-scripts": "^4.0.3",
         "rimraf": "^3.0.2",
-        "styled-jsx": "^4.0.1",
         "wait-on": "^6.0.0"
-    },
-    "peerDependencies": {
-        "@types/react": ">=16.14.0"
-    },
-    "devDependencies": {
-        "@badeball/cypress-cucumber-preprocessor": "^20.0.2",
-        "@cypress/webpack-preprocessor": "^6.0.1"
     }
 }
