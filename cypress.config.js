@@ -17,6 +17,6 @@ module.exports = defineConfig({
         setupNodeEvents,
         baseUrl: 'http://localhost:5000',
         specPattern: '**/src/**/*.feature',
-        // excludeSpecPattern: '**/build/**/*',
+        experimentalRunAllSpecs: true,
     },
 })
