@@ -1,6 +1,5 @@
-require('../positions/index.js')
-require('../visibility_toggling/index.js')
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
+import { getReferenceAndContentPositions } from '../common/getReferenceAndContentPositions.js'
 
 /**
  * Note that scrolling behavior is tricky with cypress:
@@ -82,4 +81,14 @@ Then('the Tooltip still exists but is hidden', () => {
 When('enough time passes for the CLOSE_DELAY to complete', () => {
     cy.clock()
     cy.tick(500)
+})
+
+Then('the Tooltip is rendered below the anchor', () => {
+    getReferenceAndContentPositions().should(([refPos, contentPos]) => {
+        expect(contentPos.top).to.be.greaterThan(refPos.bottom)
+    })
+})
+
+Then('the Tooltip is not rendered', () => {
+    cy.get('[data-test="dhis2-uicore-tooltip-content"]').should('not.exist')
 })
