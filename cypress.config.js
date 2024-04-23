@@ -11,7 +11,6 @@ async function setupNodeEvents(on, config) {
 }
 
 module.exports = defineConfig({
-    video: false,
     projectId: 'vyavbk',
     e2e: {
         setupNodeEvents,

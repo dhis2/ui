@@ -35,7 +35,7 @@
         "cy:start:legacy": "NODE_OPTIONS=--openssl-legacy-provider yarn cy:start",
         "cy:start": "yarn build:lib && STORYBOOK_TESTING=1 yarn start",
         "cy:open": "wait-on 'http://localhost:5000' && cypress open",
-        "cy:run": "wait-on 'http://localhost:5000' && cypress run --config-file=cypress.config.js",
+        "cy:run": "wait-on 'http://localhost:5000' && cypress run",
         "cy:test": "./scripts/cypress.js",
         "format": "d2-style apply",
         "format:staged": "d2-style apply --staged",
