@@ -63,7 +63,7 @@
         "@testing-library/user-event": "^13.5.0",
         "ast-types": "^0.14.2",
         "concurrently": "^6.2.1",
-        "cypress": "^12",
+        "cypress": "^13.8.0",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.6",
         "execa": "^5.1.1",
