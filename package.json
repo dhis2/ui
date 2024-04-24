@@ -9,8 +9,7 @@
     "contributors": [
         {
             "name": "Jan-Gerke Salomon",
-            "email": "jan-gerke@dhis2.org",
-            "url": "http://functionalprogramming.ninja"
+            "email": "jan-gerke@dhis2.org"
         }
     ],
     "license": "BSD-3-Clause",
