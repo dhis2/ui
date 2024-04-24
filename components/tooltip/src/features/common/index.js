@@ -36,23 +36,16 @@ Then('the Tooltip stays visible', () => {
     cy.get('[data-test="dhis2-uicore-tooltip-content"]').should('exist')
 })
 
-Then('the Tooltip is rendered on top of the anchor', () => {
+Then('the Tooltip is rendered on top of the anchor', async () => {
     cy.get('[data-test="dhis2-uicore-tooltip-reference"]').then(($ref) => {
         const refPos = $ref[0].getBoundingClientRect()
 
         cy.get('[data-test="dhis2-uicore-tooltip-content"]').then(
             ($content) => {
                 const contentPos = $content[0].getBoundingClientRect()
+                expect(contentPos.bottom).to.be.greaterThan(refPos.top)
                 expect(refPos.top).to.be.greaterThan(contentPos.top)
             }
         )
     })
-
-    // cy.getPositionsBySelectors(
-    //     '[data-test="dhis2-uicore-tooltip-content"]',
-    //     '[data-test="dhis2-uicore-tooltip-reference"]'
-    // ).should(([refPos, contentPos]) => {
-    //     expect(contentPos.bottom).to.be.greaterThan(refPos.top)
-    //     expect(refPos.top).to.be.greaterThan(contentPos.top)
-    // })
 })
