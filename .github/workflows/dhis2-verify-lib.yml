@@ -26,10 +26,10 @@ jobs:
             - uses: c-hive/gha-yarn-cache@v1
             - run: |
                   yarn install --frozen-lockfile
-                  NODE_OPTIONS=--openssl-legacy-provider yarn setup
+                  yarn setup
 
             - name: Build
-              run: NODE_OPTIONS=--openssl-legacy-provider yarn build
+              run: yarn build
 
             - run: ./scripts/create-artifact.sh
 
@@ -112,7 +112,7 @@ jobs:
               uses: cypress-io/github-action@v6
               with:
                   # This should be a command that starts the server to test against.
-                  start: 'yarn cy:start:legacy'
+                  start: 'yarn cy:start'
                   wait-on: 'http://localhost:5000'
                   wait-on-timeout: 300
                   record: true
