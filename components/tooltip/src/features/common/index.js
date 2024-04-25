@@ -36,7 +36,7 @@ Then('the Tooltip stays visible', () => {
     cy.get('[data-test="dhis2-uicore-tooltip-content"]').should('exist')
 })
 
-Then('the Tooltip is rendered on top of the anchor', async () => {
+Then('the Tooltip is rendered on top of the anchor', () => {
     cy.get('[data-test="dhis2-uicore-tooltip-reference"]').then(($ref) => {
         const refPos = $ref[0].getBoundingClientRect()
 
