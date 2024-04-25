@@ -1,5 +1,4 @@
-import '../common/index.js'
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a MultiSelect with hidden sibling elements', () => {
     cy.visitStory('MultiSelect', 'Menu width changing')

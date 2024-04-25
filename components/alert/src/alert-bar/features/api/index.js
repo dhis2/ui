@@ -1,5 +1,4 @@
-import '../common/index.js'
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('an AlertBar with onHidden handler is rendered', () => {
     cy.visitStory('AlertBar', 'With onHidden')
@@ -20,6 +19,11 @@ Given('an AlertBar with a message is rendered', () => {
 Given('an AlertBar with permanent is rendered', () => {
     cy.visitStory('AlertBar', 'Permanent')
     cy.get('[data-test="dhis2-uicore-alertbar"]').should('be.visible')
+})
+
+When('the Alertbar is not rendered', () => {
+    cy.wait(8000)
+    cy.get('[data-test="dhis2-uicore-alertbar"]').should('not.exist')
 })
 
 Then('the icon will be visible', () => {

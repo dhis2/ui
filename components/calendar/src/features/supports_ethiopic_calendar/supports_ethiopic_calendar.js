@@ -1,4 +1,4 @@
-import { Given, Then, And } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('an Ethiopic calendar is rendered in {word}', (language) => {
     cy.visitStory('CalendarInputTesting', `Ethiopic With ${language}`)
@@ -18,7 +18,7 @@ Then('days should be rendered in "{word}"', (language) => {
     })
 })
 
-And('months should be rendered in "{word}" with navigation', (language) => {
+Then('months should be rendered in "{word}" with navigation', (language) => {
     const months =
         language === 'amharic'
             ? { current: 'ጥቅምት', previous: 'መስከረም', next: 'ኅዳር' }
@@ -32,7 +32,7 @@ And('months should be rendered in "{word}" with navigation', (language) => {
     cy.contains(months.previous).should('be.visible')
 })
 
-And('the era should not be displayed in the year', () => {
+Then('the era should not be displayed in the year', () => {
     cy.get('[data-test="calendar-current-year"]').should(
         'not.contain.text',
         'ERA1'

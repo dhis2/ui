@@ -1,4 +1,4 @@
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a Radio with a label is rendered', () => {
     cy.visitStory('Radio', 'With label')

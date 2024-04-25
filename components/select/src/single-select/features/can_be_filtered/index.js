@@ -1,5 +1,4 @@
-import '../common/index.js'
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a filterable SingleSelect with options is rendered', () => {
     cy.visitStory('SingleSelect', 'With filter field')

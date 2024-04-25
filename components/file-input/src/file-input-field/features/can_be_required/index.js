@@ -1,4 +1,4 @@
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a FileInputField with label and a required flag is rendered', () => {
     cy.visitStory('FileInputField', 'With label and required')

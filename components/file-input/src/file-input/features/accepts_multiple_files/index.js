@@ -1,5 +1,4 @@
-import '../common/index.js'
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a FileInput with multiple and onChange handler is rendered', () => {
     cy.visitStory('FileInput', 'With onChange and multiple')
