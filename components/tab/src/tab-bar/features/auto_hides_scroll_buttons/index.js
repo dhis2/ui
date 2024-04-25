@@ -1,24 +1,4 @@
-/* global before,after */
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
-
-const handler = (err) => {
-    // > This error means that ResizeObserver was not able to deliver all
-    // > observations within a single animation frame. It is benign (your site
-    // > will not break). – Aleksandar Totic Apr 15 at 3:14
-    // -----
-    // https://stackoverflow.com/a/50387233
-    if (err.message.match('ResizeObserver loop limit exceeded')) {
-        return false
-    }
-}
-
-before(() => {
-    Cypress.on('uncaught:exception', handler)
-})
-
-after(() => {
-    Cypress.off('uncaught:exception', handler)
-})
 
 Given('a tabbar with enough space for all tabs is rendered', () => {
     cy.viewport(1024, 768)

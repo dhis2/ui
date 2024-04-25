@@ -3,7 +3,8 @@
     "e2e": {
         "stepDefinitions": [
             "[filepath]/*.{js,mjs,ts,tsx}",
-            "[filepath]/../common/index.{js,mjs,ts,tsx}"
+            "[filepath]/../common/index.{js,mjs,ts,tsx}",
+            "cypress/e2e/common.js"
         ]
     }
 }
