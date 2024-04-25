@@ -9,7 +9,9 @@ Cypress.on('uncaught:exception', (err) => {
     const errMsg = err.toString()
     if (
         errMsg.match(/ResizeObserver loop limit exceeded/) ||
-        errMsg.match(/ResizeObserver loop completed with undelivered notifications/)
+        errMsg.match(
+            /ResizeObserver loop completed with undelivered notifications/
+        )
     ) {
         return false
     }
