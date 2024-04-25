@@ -57,7 +57,7 @@
     },
     "devDependencies": {
         "@babel/parser": "^7.17.0",
-        "@badeball/cypress-cucumber-preprocessor": "^20.0.2",
+        "@badeball/cypress-cucumber-preprocessor": "^20.0.4",
         "@cypress/webpack-preprocessor": "^6.0.1",
         "@dhis2/app-runtime": "^3.9.0",
         "@dhis2/cli-app-scripts": "^8.0.0",
