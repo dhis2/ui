@@ -23,7 +23,7 @@ export interface SwitchProps {
     /**
      * Sets an aria-label attribute on the input
      */
-    ariaLabel?: string
+    'aria-label'?: string
     checked?: boolean
     className?: string
     dataTest?: string
