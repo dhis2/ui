@@ -115,14 +115,11 @@ Ethiopic calendar (with narrow day names, short day names and localised to Engli
     </style>
 </Demo>
 
-The wrapper is a custom component that wraps the calendar and input field. It is not part of the library. This component is called `CalendarDemo` in our code, and can be found in the [source code](https://github.com/dhis2/ui/blob/08c3e684970437048179179d8cfad5e2edcfc814/docs/src/components/CalendarDemo.jsx#L6).
-
 The Gregorian with initial date is then generated with this code.
 
 ```jsx
-<CalendarDemo
+<CalendarInput
     label="Gregorian date (with initial date)"
-    component={CalendarInput}
     calendar="gregory"
     locale="en-GB"
     date="2021-10-13"
