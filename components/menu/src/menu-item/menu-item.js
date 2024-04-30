@@ -3,7 +3,7 @@ import { Portal } from '@dhis2-ui/portal'
 import { IconChevronRight24 } from '@dhis2/ui-icons'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { FlyoutMenu } from '../index.js'
 import styles from './menu-item.styles.js'
 
@@ -40,10 +40,18 @@ const MenuItem = ({
     showSubMenu,
     toggleSubMenu,
     suffix,
+    tabIndex,
     checkbox,
-    selected,
+    radio,
+    checked,
 }) => {
     const menuItemRef = useRef()
+
+    useEffect(() => {
+        if (active && tabIndex === 0) {
+            menuItemRef.current.childNodes[0].focus()
+        }
+    }, [active, tabIndex])
 
     return (
         <>
@@ -52,13 +60,11 @@ const MenuItem = ({
                     destructive,
                     disabled,
                     dense,
-                    active: active || showSubMenu || selected,
+                    active: active || showSubMenu,
                     'with-chevron': children || chevron,
                 })}
+                ref={menuItemRef}
                 data-test={dataTest}
-                role={checkbox ? 'menuitemcheckbox' : 'menuitem'}
-                aria-disabled={disabled ? disabled : false}
-                tabIndex={-1}
             >
                 <a
                     target={target}
@@ -73,6 +79,18 @@ const MenuItem = ({
                               })
                             : undefined
                     }
+                    role={
+                        checkbox
+                            ? 'menuitemcheckbox'
+                            : radio
+                            ? 'menuitemradio'
+                            : 'menuitem'
+                    }
+                    aria-haspopup={children && 'menu'}
+                    aria-expanded={showSubMenu}
+                    aria-checked={checkbox && checked}
+                    aria-disabled={disabled}
+                    tabIndex={tabIndex}
                 >
                     {icon && <span className="icon">{icon}</span>}
 
@@ -106,7 +124,10 @@ MenuItem.defaultProps = {
 
 MenuItem.propTypes = {
     active: PropTypes.bool,
+    /* For using menuitem as checkbox */
     checkbox: PropTypes.bool,
+    /* Value of checkbox */
+    checked: PropTypes.bool,
     chevron: PropTypes.bool,
     /**
      * Nested menu items can become submenus.
@@ -124,11 +145,13 @@ MenuItem.propTypes = {
     icon: PropTypes.node,
     /** Text in the menu item */
     label: PropTypes.node,
-    selected: PropTypes.bool,
+    /* For using menuitem as radio */
+    radio: PropTypes.bool,
     /** When true, nested menu items are shown in a Popper */
     showSubMenu: PropTypes.bool,
     /** A supporting element shown at the end of the menu item */
     suffix: PropTypes.node,
+    tabIndex: PropTypes.number,
     /** For using menu item as a link */
     target: PropTypes.string,
     /** On click, this function is called (without args) */

@@ -3,134 +3,179 @@ import React, {
     Children,
     cloneElement,
     isValidElement,
+    useCallback,
     useEffect,
-    useState,
     useRef,
+    useState,
 } from 'react'
 
+const getMenu = (menuitem) => {
+    let menu = menuitem
+    let role = menuitem.getAttribute('role')
+
+    while (menu && role !== 'menu' && role !== 'menubar') {
+        menu = menu.parentNode
+        if (menu) {
+            role = menu.getAttribute('role')
+        }
+    }
+
+    return menu
+}
+
 const Menu = ({ children, className, dataTest, dense }) => {
-    const [selectedIndex, setSelectedIndex] = useState(-1)
+    const [focusedIndex, setFocusedIndex] = useState(0)
     const menuRef = useRef(null)
+    const [showSubMenu, setShowSubMenu] = useState(false)
+    // track last parent menu item
+    // const [parentMenuItem, setParentMenuItem] = useState()
+
+    const handleFocus = (e) => {
+        if (menuRef.current === e.target) {
+            menuRef.current?.firstChild?.childNodes[0]?.focus()
+        }
+    }
+
+    const setNextIndex = ({ arrayLength, index }) => {
+        const newIndex = index === arrayLength - 1 ? 0 : index + 1
+
+        return newIndex
+    }
+
+    const setPrevIndex = ({ arrayLength, index }) => {
+        const newIndex = index === 0 ? arrayLength - 1 : index - 1
+
+        return newIndex
+    }
+
+    const handleKeyDown = useCallback(
+        (event) => {
+            const childrenArray = Children.toArray(children)
+            const childrenLength = childrenArray.length
+
+            const activeEl = document.activeElement
+
+            switch (event.key) {
+                case 'ArrowUp':
+                    event.preventDefault()
+                    setFocusedIndex((prevIndex) =>
+                        setPrevIndex({
+                            arrayLength: childrenLength,
+                            index: prevIndex,
+                        })
+                    )
+                    break
+                case 'ArrowDown':
+                    event.preventDefault()
+                    setFocusedIndex((prevIndex) =>
+                        setNextIndex({
+                            arrayLength: childrenLength,
+                            index: prevIndex,
+                        })
+                    )
+                    break
+                case 'ArrowRight':
+                    event.preventDefault()
+                    if (activeEl.getAttribute('aria-haspopup')) {
+                        setShowSubMenu(true)
+                        activeEl.setAttribute('aria-expanded', true)
+                    }
+
+                    break
+                case 'ArrowLeft':
+                    event.preventDefault()
+                    setShowSubMenu(false)
+                    // popper
+                    getMenu(activeEl).parentNode.parentNode.style.display = ''
+                    // activeEl.setAttribute('aria-expanded', false)
+
+                    break
+                case 'Enter':
+                case ' ':
+                    event.preventDefault()
+
+                    if (activeEl.onclick) {
+                        activeEl.click()
+                    }
+
+                    // link
+                    if (activeEl.href) {
+                        window.open(
+                            activeEl.href,
+                            activeEl.target ? activeEl.target : '_blank'
+                        )
+                    }
+
+                    break
+                default:
+                    return
+            }
+        },
+        [children]
+    )
 
     useEffect(() => {
-        if (!menuRef.current) {
+        if (!menuRef && !menuRef.current) {
             return
         }
         const menu = menuRef.current
-        const childrenArray = Children.toArray(children)
 
-        const handleIndex = (index, action) => {
-            let current_position = index
-            if (current_position === -1) {
-                return current_position
-            }
-            const current_element = childrenArray[current_position]
-            if (
-                ['MenuSectionHeader', 'MenuDivider'].includes(
-                    current_element.type?.name
-                ) ||
-                current_element.props.disabled
-            ) {
-                current_position = action === 'up' ? index - 1 : index + 1
-            }
-
-            if (current_position > childrenArray.length - 1) {
-                current_position = 0
-            } else if (current_position < 0) {
-                current_position = childrenArray.length - 1
-            }
-
-            return current_position
-        }
-
-        const handleDirection = (event) => {
-            let active = selectedIndex
-            const { key } = event
-
-            if (key === 'ArrowUp') {
-                if (active > 0) {
-                    active = active - 1
-                    active = handleIndex(active, 'up')
-                    setSelectedIndex(active)
-                }
-            }
-            if (key === 'ArrowDown') {
-                if (active < childrenArray.length - 1) {
-                    active = active + 1
-                    active = handleIndex(active, 'down')
-                    setSelectedIndex(active)
-                }
-            }
-        }
-
-        const handleActionKeys = (event) => {
-            if (selectedIndex > -1) {
-                const { target } = event
-                const child = target.children[selectedIndex]
-                if (child.onclick) {
-                    child.click()
-                } else if (child.childNodes[0].onclick) {
-                    child.childNodes[0].click()
-                }
-            }
-        }
-
-        const handleKeyDown = (event) => {
-            event.preventDefault()
-
-            if (event.key === ' ' || event.key === 'Enter') {
-                handleActionKeys(event)
-            }
-            if (event.key.startsWith('Arrow')) {
-                handleDirection(event)
-            }
-        }
-
+        menu.addEventListener('focus', handleFocus)
         menu.addEventListener('keydown', handleKeyDown)
 
         return () => {
             menu.removeEventListener('keydown', handleKeyDown)
+            menu.removeEventListener('focus', handleFocus)
         }
-    }, [children, selectedIndex])
+    }, [handleKeyDown])
 
     return (
-        <ul
-            className={className}
-            data-test={dataTest}
-            role="menu"
-            tabIndex={0}
-            ref={menuRef}
-        >
-            {Children.map(children, (child, index) => {
-                return isValidElement(child)
-                    ? cloneElement(child, {
-                          dense:
-                              typeof child.props.dense === 'boolean'
-                                  ? child.props.dense
-                                  : dense,
-                          hideDivider:
-                              typeof child.props.hideDivider !== 'boolean' &&
-                              index === 0
-                                  ? true
-                                  : child.props.hideDivider,
-                          selected:
-                              index === selectedIndex && !child.props.disabled,
-                      })
-                    : child
-            })}
+        <>
+            <ul
+                className={className}
+                data-test={dataTest}
+                ref={menuRef}
+                role={'menu'}
+                tabIndex={0}
+            >
+                {Children.map(children, (child, index) => {
+                    return isValidElement(child) ? (
+                        cloneElement(child, {
+                            dense:
+                                typeof child.props.dense === 'boolean'
+                                    ? child.props.dense
+                                    : dense,
+                            hideDivider:
+                                typeof child.props.hideDivider !== 'boolean' &&
+                                index === 0
+                                    ? true
+                                    : child.props.hideDivider,
+                            active: focusedIndex === index,
+                            tabIndex: focusedIndex === index ? 0 : -1,
+                            showSubMenu: child.props.children
+                                ? showSubMenu
+                                : null,
+                        })
+                    ) : (
+                        <li tabIndex={focusedIndex === index ? 0 : -1}>
+                            {child}
+                        </li>
+                    )
+                })}
 
-            <style jsx>{`
-                ul {
-                    display: block;
-                    position: relative;
-                    width: 100%;
-                    margin: 0;
+                <style jsx>{`
+                    ul {
+                        display: block;
+                        position: relative;
+                        width: 100%;
+                        margin: 0;
 
-                    padding: 0;
-                    user-select: none;
-                }
-            `}</style>
-        </ul>
+                        padding: 0;
+                        user-select: none;
+                    }
+                `}</style>
+            </ul>
+        </>
     )
 }
 

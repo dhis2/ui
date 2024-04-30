@@ -20,7 +20,7 @@ describe('Menu Component', () => {
         const menuElement = wrapper.find({ 'data-test': menuDataTest })
         const menuItem = wrapper.find({ 'data-test': menuItemDataTest })
         const menuDivider = wrapper.find({ 'data-test': dividerDataTest })
-        expect(menuItem.prop('role')).toBe('menuitem')
+        expect(menuItem.firstChild.prop('role')).toBe('menuitem')
         expect(menuDivider.prop('role')).toBe('separator')
         expect(menuElement.prop('role')).toBe('menu')
     })
