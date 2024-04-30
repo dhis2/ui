@@ -12,7 +12,7 @@ import API from '../../../components/popover/API.md'
 A popover is used to show more information when a user interacts with a trigger element.
 
 <Demo>
-    <p><a href="https://ui.dhis2.nu/demo/?path=/story/data-display-popover--default" target="_blank">Storybook demo: Popover</a>.</p> 
+    <p><a href="/demo/?path=/story/popover--default" target="_blank">Storybook demo: Popover</a>.</p> 
 </Demo>
 
 ## Usage
@@ -37,4 +37,4 @@ A popover is used to show more information when a user interacts with a trigger 
 
 ## Links
 
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/data-display-popover--default)
+-   [Demo](/demo/?path=/story/popover--default)

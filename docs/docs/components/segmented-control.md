@@ -12,8 +12,7 @@ import API from '../../../components/segmented-control/API.md'
 A segmented control is used to choose between related options that have an effect on a related area.
 
 <Demo>
-    <SegmentedControl options
-    ={[
+    <SegmentedControl options={[
             {
                 label: 'Option 1',
                 value: 'option1'
@@ -27,12 +26,36 @@ A segmented control is used to choose between related options that have an effec
                 value: 'option3'
             }
         ]}
-        selected
-        ="option1"
+        selected="option1"
+        onChange= {({value}) => {
+            console.log(value)
+            }}
     />
 </Demo>
 
 ## Usage
+
+```jsx
+<SegmentedControl
+    options={[
+        {
+            label: 'Option 1',
+            value: 'option1',
+        },
+        {
+            label: 'Option 2',
+            value: 'option2',
+        },
+        {
+            label: 'Option 3',
+            value: 'option3',
+        },
+    ]}
+    selected="option1"
+/>
+```
+
+The value of each property can be used to select the option, using the `selected` property. The `onChange` callback function is called when an option is selected with the value of the item that was clicked. If you want to automatically change to the item that is selected visually, you can use this callback in combination with a state variable.
 
 ### When to use
 
@@ -59,4 +82,4 @@ A segmented control is used to choose between related options that have an effec
 
 ## Links
 
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/actions-segmented-control--default)
+-   [Demo](/demo/?path=/story/segmented-control--default)

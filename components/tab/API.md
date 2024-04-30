@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Tab`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { Tab } from '@dhis2-ui/tab'
+import { Tab } from '@dhis2/ui'
 ```
 
 
@@ -26,11 +26,11 @@ import { Tab } from '@dhis2-ui/tab'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TabBar`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { TabBar } from '@dhis2-ui/tab'
+import { TabBar } from '@dhis2/ui'
 ```
 
 

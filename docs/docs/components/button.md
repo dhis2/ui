@@ -41,6 +41,10 @@ Buttons are used to trigger actions. There are different button variants that ar
     <Button basic>Basic button</Button>
 </Demo>
 
+```jsx
+<Button basic>Basic button</Button>
+```
+
 -   A `basic` button is the default button to use. It suits the majority of use cases.
 -   Don't use a `basic` button for the most important action on the page. Use `primary` instead.
 
@@ -49,6 +53,10 @@ Buttons are used to trigger actions. There are different button variants that ar
 <Demo>
     <Button primary>Primary button</Button>
 </Demo>
+
+```jsx
+<Button primary>Primary button</Button>
+```
 
 -   Only use for the most important action on a page, like _Save data_ in a form.
 -   Only use one `primary` button per page, otherwise it's not clear what the main action is.
@@ -59,6 +67,10 @@ Buttons are used to trigger actions. There are different button variants that ar
 <Demo>
     <Button secondary>Secondary button</Button>
 </Demo>
+
+```jsx
+<Button secondary>Secondary button</Button>
+```
 
 -   Use for actions that are used less often. Using `secondary` buttons reduces amount of elements on a page competing for a user's attention.
 -   Use as a passive alternative to `primary` actions, like _Cancel_ as a passive alternative to _Save_.
@@ -72,6 +84,15 @@ Buttons are used to trigger actions. There are different button variants that ar
         <Button destructive secondary>Destructive secondary button</Button>
     </div>
 </Demo>
+
+```jsx
+<div class="stacked-examples-horizontal">
+    <Button destructive>Destructive button</Button>
+    <Button destructive secondary>
+        Destructive secondary button
+    </Button>
+</div>
+```
 
 -   Only use for primary-type actions that will destroy data.
 -   Don't use if the action will only remove an item from the current context.
@@ -109,6 +130,10 @@ Buttons are available in different sizes. Use the size that matches the usage gu
     <DropdownButton>Dropdown button</DropdownButton>
 </Demo>
 
+```jsx
+<DropdownButton>Dropdown button</DropdownButton>
+```
+
 -   A dropdown button offers several actions in a small space. Clicking the button opens a menu with several actions.
 -   Use to replace a group of buttons where space is limited.
 -   A dropdown button label should make it clear there are more options inside, like _Actions_.
@@ -118,6 +143,10 @@ Buttons are available in different sizes. Use the size that matches the usage gu
 <Demo>
     <SplitButton>Split button</SplitButton>
 </Demo>
+
+```jsx
+<SplitButton>Split button</SplitButton>
+```
 
 -   A split button offers a main action and a dropdown of several other actions. Clicking the main button triggers an action. Clicking the split arrow opens a menu with several actions.
 -   Use when there is a main action and several secondary actions, like a main action of _Save_ and secondary actions of _Save and add another_ and _Save and open_.
@@ -133,6 +162,13 @@ Buttons are available in different sizes. Use the size that matches the usage gu
     </div>
 </Demo>
 
+```jsx
+<div className="stacked-examples-horizontal">
+    <Button icon={<IconCheckmark24 />}></Button>
+    <Button icon={<IconCheckmark24 />} toggled></Button>
+</div>
+```
+
 -   Represents an on/off state.
 -   Use a toggle button when an option can be turned on or off, and a checkbox ==link== isn't suitable, like in a toolbar.
 -   Toggle buttons can be used with `basic` and `secondary` variants.
@@ -147,6 +183,13 @@ Buttons are available in different sizes. Use the size that matches the usage gu
     </div>
 </Demo>
 
+```jsx
+<div className="stacked-examples-horizontal">
+    <Button icon={<IconCheckmark24 />}>Mark as complete</Button>
+    <Button icon={<IconCheckmark24 />}></Button>
+</div>
+```
+
 -   Buttons can have an optional icon alongside the text label.
 -   Buttons can show only an icon.
 -   Icons with a text label are useful for providing more information about the action. Users scanning an interface might recognize an icon quicker than text.
@@ -159,6 +202,10 @@ Buttons are available in different sizes. Use the size that matches the usage gu
     <Button disabled>Enroll in program</Button>
 </Demo>
 
+```jsx
+<Button disabled>Enroll in program</Button>
+```
+
 -   Use a disabled state when the button action can't be triggered.
 -   Show a tooltip ==link== on hover, or help text, that tells the user why the action can't be triggered.
 -   Don't change the button label between disabled and enabled states.
@@ -169,6 +216,10 @@ Buttons are available in different sizes. Use the size that matches the usage gu
 <Demo>
     <Button loading>Loading…</Button>
 </Demo>
+
+```jsx
+<Button loading>Loading…</Button>
+```
 
 -   Use a loading state after a user triggers that button.
 -   Change the button label to tell the user what's happening. For example, after clicking a _Start job_ button, the loading state label could be _Starting job…_.

@@ -115,6 +115,17 @@ Ethiopic calendar (with narrow day names, short day names and localised to Engli
     </style>
 </Demo>
 
+The Gregorian with initial date is then generated with this code.
+
+```jsx
+<CalendarInput
+    label="Gregorian date (with initial date)"
+    calendar="gregory"
+    locale="en-GB"
+    date="2021-10-13"
+/>
+```
+
 ## API Reference
 
 The component takes the same props as [the calendar](./calendar) component, as well as the props for [InputField](./inputfield) that are relevant to an input of type `text`.

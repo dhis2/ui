@@ -10,13 +10,43 @@ import API from '../../../components/alert/API.md'
 
 # Alert bar
 
-An alert bar communicates something to the user by showing a prominent, floating bar at the bottom of the screen.
+An alert bar communicates something to the user by showing a prominent, floating bar at the bottom of the screen, using one of several styles each indicating a different purpose.
 
 <Demo>
     <AlertBar permanent>Hello world</AlertBar>
 </Demo>
 
 ## Usage
+
+:::caution Usage Notice
+Usage of the AlertBar component is not recommended when using the Application Platform, as integration is already implemented directly.
+:::
+
+In apps using the App Platform, it’s recommended to use the `useAlert()` hook from the `@dhis2/app-runtime` library instead of using the UI components directly, since an Alerts Manager component is already set up to manage showing, hiding, and stacking alerts.
+
+When passing the options object to the `useAlert(message, options)` hook, the keys and value types of the options are the same as the props of the `AlertBar` component, as documented on this page below, e.g.
+
+```jsx
+import { useAlert } from '@dhis2/app-runtime'
+
+const MyComponent = () => {
+    const { show } = useAlert('Hello', {
+        warning: true,
+        duration: 15000,
+        actions: [
+            { label: 'Hi!', onClick: () => alert('Hi!') },
+            { label: 'Bye!', onClick: () => alert('Bye!') },
+        ],
+    })
+
+    // ...later:
+    show()
+
+    // ...
+}
+```
+
+Read more about the `useAlert()` hook at the [App Runtime documentation](https://developers.dhis2.org/docs/app-runtime/hooks/useAlert)
 
 ### When to use
 
@@ -46,6 +76,12 @@ An alert bar communicates something to the user by showing a prominent, floating
     <AlertBar permanent>Data export complete.</AlertBar>
 </Demo>
 
+```jsx
+<AlertStack>
+    <AlertBar permanent>Data export complete.</AlertBar>
+</AlertStack>
+```
+
 -   An `info` alert bar is the default. Use it if none of the other variants fit.
 -   Automatically dismiss after 5 seconds, so the message should be a useful but not critical.
 -   Use for minor positive confirmations, like _Sharing settings changed._
@@ -57,6 +93,14 @@ An alert bar communicates something to the user by showing a prominent, floating
     <AlertBar success permanent>1000 objects updated.</AlertBar>
 </Demo>
 
+```jsx
+<AlertStack>
+    <AlertBar success permanent>
+        1000 objects updated.
+    </AlertBar>
+</AlertStack>
+```
+
 -   Only use to confirm successful, major actions.
 -   Don't use for minor confirmations or navigation movements.
 -   Always tell the user what was successful. Use clear labels like _45 units updated_, rather than just _Updated_.
@@ -66,6 +110,14 @@ An alert bar communicates something to the user by showing a prominent, floating
 <Demo>
     <AlertBar warning permanent>Some data is taking a long time to sync.</AlertBar>
 </Demo>
+
+```jsx
+<AlertStack>
+    <AlertBar warning permanent>
+        Some data is taking a long time to sync.
+    </AlertBar>
+</AlertStack>
+```
 
 -   Use to warn of potential problems or things that might happen, like _Some data is taking a long time to sync_.
 -   Show before the problem happens, if possible.
@@ -77,6 +129,14 @@ An alert bar communicates something to the user by showing a prominent, floating
 <Demo>
     <AlertBar critical permanent>There was a problem loading this dashboard.</AlertBar>
 </Demo>
+
+```jsx
+<AlertStack>
+    <AlertBar critical permanent>
+        There was a problem loading this dashboard.
+    </AlertBar>
+</AlertStack>
+```
 
 -   Only use to communicate a serious problem, like broken functionality or a failed process.
 -   Use when a user can still interact with the page. If the entire page broken, use a [`Modal`](modal.md) dialog or error screen instead.
@@ -112,6 +172,26 @@ An alert bar communicates something to the user by showing a prominent, floating
             ]} permanent>Hello world</AlertBar>
 </Demo>
 
+```jsx
+<AlertStack>
+    <AlertBar
+        actions={[
+            {
+                label: 'Save',
+                onClick: clickHandler,
+            },
+            {
+                label: 'Cancel',
+                onClick: clickHandler,
+            },
+        ]}
+        permanent
+    >
+        Hello world
+    </AlertBar>
+</AlertStack>
+```
+
 -   Alert bars can have up to two optional actions.
 -   Actions offer a shortcut to act on the information in the alert bar.
 -   Actions can do something on the current page, like _Retry_ for a failed action.
@@ -122,6 +202,21 @@ An alert bar communicates something to the user by showing a prominent, floating
 
 -   Each variant shows a default icon to support the content being communicated.
 -   A custom icon can be used. Only use icons that are relevant to the content and that help the user understand the context. Use the default icon unless there's a good reason not to.
+
+## Using AlertStack
+
+As you can see with all the demo's above, we've used the `AlertStack` component to render the `AlertBar` component. This is because the `AlertStack` component is responsible for positioning the `AlertBar` component in relation to other `AlertBar`s. Especially when there are multiple `AlertBar` components on the page, the `AlertStack` component will make sure that they are stacked on top of each other and that they are not overlapping. It is therefore recommended to always use the `AlertStack` component when using the `AlertBar` component.
+
+To use the `AlertStack` component, you can simply wrap your `AlertBar` component in the `AlertStack` component. The `AlertStack` component will then take care of the positioning.
+
+```jsx
+import { AlertStack, AlertBar } from '@dhis2/ui'
+;<AlertStack>
+    <AlertBar>...</AlertBar>
+    <AlertBar>...</AlertBar>
+    <AlertBar>...</AlertBar>
+</AlertStack>
+```
 
 ## API Reference
 

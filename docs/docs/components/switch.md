@@ -18,6 +18,11 @@ Switches are used to toggle something between an on and off state.
 
 ## Usage
 
+```jsx
+<Switch label="Label"/>
+<Switch checked label="Label"/>
+```
+
 ### When to use
 
 -   **Toggle a job or process**. Use a switch to toggle a constantly running process. Examples of constantly running processes might be _Automatic updates_, _Logging_, or a background task.
@@ -39,7 +44,13 @@ Switches are used to toggle something between an on and off state.
     <Switch checked label="Regular sized switch"/>
     <Switch checked dense label="Dense sized switch"/>
 </Demo>
-- Switches are available in two sizes, regular and `dense`. Regular sized switches are useful when there's space available. Use `dense` sized switches in compact, information-dense interfaces.
+
+```jsx
+<Switch checked label="Regular sized switch"/>
+<Switch checked dense label="Dense sized switch"/>
+```
+
+-   Switches are available in two sizes, regular and `dense`. Regular sized switches are useful when there's space available. Use `dense` sized switches in compact, information-dense interfaces.
 
 ## API Reference
 
@@ -47,4 +58,4 @@ Switches are used to toggle something between an on and off state.
 
 ## Links
 
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-switch-switch-field--default)
+-   [Demo](/demo/?path=/story/switch--default)

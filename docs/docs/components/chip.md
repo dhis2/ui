@@ -15,6 +15,10 @@ Chips are used to select from a set of defined options. Chips can also represent
     <Chip>Hello world</Chip>
 </Demo>
 
+```jsx
+<Chip>Hello world</Chip>
+```
+
 ## Usage
 
 ### When to use
@@ -41,6 +45,11 @@ Chips are used to select from a set of defined options. Chips can also represent
     <Chip dense>Hello world</Chip>
 </Demo>
 
+```jsx
+<Chip>Hello world</Chip>
+<Chip dense>Hello world</Chip>
+```
+
 -   Chips are available in two sizes, regular and `dense`.
 -   Use regular sized chips where there is space.
 -   Use `dense` sized chips in information-dense pages, or inside other components.
@@ -65,6 +74,10 @@ Chips are used to select from a set of defined options. Chips can also represent
     <Chip onRemove>Hello world</Chip>
 </Demo>
 
+```jsx
+<Chip onRemove>Hello world</Chip>
+```
+
 -   Use removable chips if an option can be removed from the group.
 -   Only use removable chips when chips can be added back to the same group through another action, like choosing from a menu.
 
@@ -73,6 +86,10 @@ Chips are used to select from a set of defined options. Chips can also represent
 <Demo>
     <Chip icon={<IconStar24/>} >Hello world</Chip>
 </Demo>
+
+```jsx
+<Chip icon={<IconStar24 />}>Hello world</Chip>
+```
 
 -   Chips can show an icon before the text label.
 -   Icons are useful to highlight special chips, like starred items.
