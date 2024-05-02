@@ -3,116 +3,121 @@ import React, {
     Children,
     cloneElement,
     isValidElement,
-    useCallback,
-    useEffect,
     useRef,
     useState,
+    useEffect,
+    useCallback,
 } from 'react'
 
-const getMenu = (menuitem) => {
-    let menu = menuitem
-    let role = menuitem.getAttribute('role')
+function setNextIndex({ arrayLength, index }) {
+    return index === arrayLength - 1 ? 0 : index + 1
+}
 
-    while (menu && role !== 'menu' && role !== 'menubar') {
-        menu = menu.parentNode
-        if (menu) {
-            role = menu.getAttribute('role')
-        }
-    }
-
-    return menu
+function setPrevIndex({ arrayLength, index }) {
+    return index === 0 ? arrayLength - 1 : index - 1
 }
 
 const Menu = ({ children, className, dataTest, dense }) => {
-    const [focusedIndex, setFocusedIndex] = useState(0)
+    const [focusedIndex, setFocusedIndex] = useState(-1)
     const menuRef = useRef(null)
-    const [showSubMenu, setShowSubMenu] = useState(false)
-    // track last parent menu item
-    // const [parentMenuItem, setParentMenuItem] = useState()
+    const itemsRefs = useRef([])
 
-    const handleFocus = (e) => {
-        if (menuRef.current === e.target) {
-            menuRef.current?.firstChild?.childNodes[0]?.focus()
+    const findFocusableItems = () => {
+        const obj = {}
+
+        if (itemsRefs.current?.length) {
+            itemsRefs.current.map((ref, index) => {
+                return (obj[index] = ref)
+            })
         }
+        return obj
     }
 
-    const setNextIndex = ({ arrayLength, index }) => {
-        const newIndex = index === arrayLength - 1 ? 0 : index + 1
+    const focusFirstFocusableItem = useCallback((e) => {
+        const focusableItems = findFocusableItems()
 
-        return newIndex
-    }
+        if (e.target === menuRef.current) {
+            setFocusedIndex(~~Object.keys(focusableItems)[0])
+            Object.values(focusableItems)[0].focus()
+        }
+    }, [])
 
-    const setPrevIndex = ({ arrayLength, index }) => {
-        const newIndex = index === 0 ? arrayLength - 1 : index - 1
+    const setNextFocusableIndex = useCallback(({ elemIndex, action }) => {
+        const focusableItems = findFocusableItems()
+        const focusableIndicesArray = Object.keys(focusableItems).map(
+            (i) => ~~i
+        )
+        const position = focusableIndicesArray.indexOf(elemIndex)
 
-        return newIndex
-    }
+        if (position != -1) {
+            if (action === 'next') {
+                return focusableIndicesArray[
+                    setNextIndex({
+                        arrayLength: focusableIndicesArray.length,
+                        index: position,
+                    })
+                ]
+            } else {
+                return focusableIndicesArray[
+                    setPrevIndex({
+                        arrayLength: focusableIndicesArray.length,
+                        index: position,
+                    })
+                ]
+            }
+        } else {
+            return focusableIndicesArray[0]
+        }
+    }, [])
 
     const handleKeyDown = useCallback(
         (event) => {
-            const childrenArray = Children.toArray(children)
-            const childrenLength = childrenArray.length
-
-            const activeEl = document.activeElement
-
             switch (event.key) {
                 case 'ArrowUp':
                     event.preventDefault()
                     setFocusedIndex((prevIndex) =>
-                        setPrevIndex({
-                            arrayLength: childrenLength,
-                            index: prevIndex,
+                        setNextFocusableIndex({
+                            elemIndex: prevIndex,
+                            action: 'previous',
                         })
                     )
                     break
                 case 'ArrowDown':
                     event.preventDefault()
                     setFocusedIndex((prevIndex) =>
-                        setNextIndex({
-                            arrayLength: childrenLength,
-                            index: prevIndex,
+                        setNextFocusableIndex({
+                            elemIndex: prevIndex,
+                            action: 'next',
                         })
                     )
                     break
                 case 'ArrowRight':
                     event.preventDefault()
-                    if (activeEl.getAttribute('aria-haspopup')) {
-                        setShowSubMenu(true)
-                        activeEl.setAttribute('aria-expanded', true)
+                    if (event.target.hasAttribute('aria-haspopup')) {
+                        event.target.click()
                     }
-
                     break
                 case 'ArrowLeft':
                     event.preventDefault()
-                    setShowSubMenu(false)
-                    // popper
-                    getMenu(activeEl).parentNode.parentNode.style.display = ''
-                    // activeEl.setAttribute('aria-expanded', false)
-
                     break
-                case 'Enter':
                 case ' ':
+                case 'Enter':
                     event.preventDefault()
-
-                    if (activeEl.onclick) {
-                        activeEl.click()
-                    }
-
-                    // link
-                    if (activeEl.href) {
-                        window.open(
-                            activeEl.href,
-                            activeEl.target ? activeEl.target : '_blank'
-                        )
-                    }
-
+                    event.target.click()
                     break
                 default:
                     return
             }
         },
-        [children]
+        [setNextFocusableIndex]
     )
+
+    useEffect(() => {
+        if (!itemsRefs.current?.length) {
+            return
+        }
+        itemsRefs.current[focusedIndex]?.focus()
+    }, [focusedIndex])
 
     useEffect(() => {
         if (!menuRef && !menuRef.current) {
@@ -120,62 +125,67 @@ const Menu = ({ children, className, dataTest, dense }) => {
         }
         const menu = menuRef.current
 
-        menu.addEventListener('focus', handleFocus)
+        menu.addEventListener('focus', focusFirstFocusableItem)
         menu.addEventListener('keydown', handleKeyDown)
 
         return () => {
             menu.removeEventListener('keydown', handleKeyDown)
-            menu.removeEventListener('focus', handleFocus)
+            menu.removeEventListener('focus', focusFirstFocusableItem)
         }
-    }, [handleKeyDown])
+    }, [focusFirstFocusableItem, handleKeyDown])
 
     return (
-        <>
-            <ul
-                className={className}
-                data-test={dataTest}
-                ref={menuRef}
-                role={'menu'}
-                tabIndex={0}
-            >
-                {Children.map(children, (child, index) => {
-                    return isValidElement(child) ? (
-                        cloneElement(child, {
-                            dense:
-                                typeof child.props.dense === 'boolean'
-                                    ? child.props.dense
-                                    : dense,
-                            hideDivider:
-                                typeof child.props.hideDivider !== 'boolean' &&
-                                index === 0
-                                    ? true
-                                    : child.props.hideDivider,
-                            active: focusedIndex === index,
-                            tabIndex: focusedIndex === index ? 0 : -1,
-                            showSubMenu: child.props.children
-                                ? showSubMenu
-                                : null,
-                        })
-                    ) : (
-                        <li tabIndex={focusedIndex === index ? 0 : -1}>
-                            {child}
-                        </li>
-                    )
-                })}
+        <ul
+            className={className}
+            data-test={dataTest}
+            tabIndex={0}
+            ref={menuRef}
+            role="menu"
+        >
+            {Children.map(children, (child, index) => {
+                return isValidElement(child)
+                    ? cloneElement(child, {
+                          dense:
+                              typeof child.props.dense === 'boolean'
+                                  ? child.props.dense
+                                  : dense,
+                          hideDivider:
+                              typeof child.props.hideDivider !== 'boolean' &&
+                              index === 0
+                                  ? true
+                                  : child.props.hideDivider,
+                          tabIndex: focusedIndex === index ? 0 : -1,
+                          active: focusedIndex === index,
+                          ref: (node) => {
+                              const role = node?.getAttribute('role')
+                              if (
+                                  [
+                                      'menuitem',
+                                      'menuitemradio',
+                                      'menuitemcheckbox',
+                                  ].includes(role)
+                              ) {
+                                  return (itemsRefs.current[index] = node)
+                              } else {
+                                  return null
+                              }
+                          },
+                      })
+                    : child
+            })}
 
-                <style jsx>{`
-                    ul {
-                        display: block;
-                        position: relative;
-                        width: 100%;
-                        margin: 0;
+            <style jsx>{`
+                ul {
+                    display: block;
+                    position: relative;
+                    width: 100%;
+                    margin: 0;
 
-                        padding: 0;
-                        user-select: none;
-                    }
-                `}</style>
-            </ul>
-        </>
+                    padding: 0;
+                    user-select: none;
+                }
+            `}</style>
+        </ul>
     )
 }
 

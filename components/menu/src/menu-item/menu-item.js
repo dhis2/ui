@@ -3,7 +3,7 @@ import { Portal } from '@dhis2-ui/portal'
 import { IconChevronRight24 } from '@dhis2/ui-icons'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useRef, useEffect } from 'react'
+import React, { forwardRef, useRef } from 'react'
 import { FlyoutMenu } from '../index.js'
 import styles from './menu-item.styles.js'
 
@@ -22,36 +22,33 @@ const createOnClickHandler =
         onClick && onClick({ value }, evt)
         toggleSubMenu && toggleSubMenu()
     }
-const MenuItem = ({
-    href,
-    onClick,
-    children,
-    target,
-    icon,
-    className,
-    destructive,
-    disabled,
-    dense,
-    active,
-    dataTest,
-    chevron,
-    value,
-    label,
-    showSubMenu,
-    toggleSubMenu,
-    suffix,
-    tabIndex,
-    checkbox,
-    radio,
-    checked,
-}) => {
+const MenuItem = forwardRef(function MenuItem(
+    {
+        href,
+        onClick,
+        children,
+        target,
+        icon,
+        className,
+        destructive,
+        disabled,
+        dense,
+        active,
+        dataTest,
+        chevron,
+        value,
+        label,
+        showSubMenu,
+        toggleSubMenu,
+        suffix,
+        tabIndex,
+        checkbox,
+        radio,
+        checked,
+    },
+    ref
+) {
     const menuItemRef = useRef()
-
-    useEffect(() => {
-        if (active && tabIndex === 0) {
-            menuItemRef.current.childNodes[0].focus()
-        }
-    }, [active, tabIndex])
 
     return (
         <>
@@ -79,6 +76,8 @@ const MenuItem = ({
                               })
                             : undefined
                     }
+                    tabIndex={tabIndex}
+                    ref={ref}
                     role={
                         checkbox
                             ? 'menuitemcheckbox'
@@ -88,9 +87,9 @@ const MenuItem = ({
                     }
                     aria-haspopup={children && 'menu'}
                     aria-expanded={showSubMenu}
-                    aria-checked={checkbox && checked}
                     aria-disabled={disabled}
-                    tabIndex={tabIndex}
+                    aria-checked={checkbox && checked}
+                    aria-label={label}
                 >
                     {icon && <span className="icon">{icon}</span>}
 
@@ -116,7 +115,7 @@ const MenuItem = ({
             )}
         </>
     )
-}
+})
 
 MenuItem.defaultProps = {
     dataTest: 'dhis2-uicore-menuitem',

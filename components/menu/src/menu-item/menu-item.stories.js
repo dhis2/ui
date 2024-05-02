@@ -134,6 +134,7 @@ export const ToggleMenuItem = (args) => {
                 icon={icon}
                 label="A toggle menu item"
                 checkbox={true}
+                checked={on}
             />
         </Menu>
     )
