@@ -35,4 +35,4 @@ A card is a container element used to group together and separate blocks of cont
 
 ## Links
 
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/layout-card--default)
+-   <a href="/demo/?path=/story/card--default" target="_blank">Demo</a>

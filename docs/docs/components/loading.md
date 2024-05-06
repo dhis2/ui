@@ -104,4 +104,4 @@ Loaders are used to show that something is in progress. They keep users informed
 
 ## Links
 
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/feedback-loading-indicators-circular-loader--default)
+-   <a href="/demo/?path=/story/circular-loader--default" target="_blank">Demo</a>

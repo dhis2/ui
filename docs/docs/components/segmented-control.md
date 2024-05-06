@@ -82,4 +82,4 @@ The value of each property can be used to select the option, using the `selected
 
 ## Links
 
--   [Demo](/demo/?path=/story/segmented-control--default)
+-   <a href="/demo/?path=/story/segmented-control--default" target="_blank">Demo</a>

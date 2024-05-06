@@ -158,4 +158,4 @@ The footer component is as follows:
 
 ## Links
 
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-transfer--multiple)
+-   <a href="/demo/?path=/story/transfer--multiple" target="_blank">Demo</a>

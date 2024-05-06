@@ -107,4 +107,4 @@ A file input is used to choose and upload files.
 
 ## Links
 
--   [Demo](/demo/?path=/story/file-input--default)
+-   <a href="/demo/?path=/story/file-input--default" target="_blank">Demo</a>

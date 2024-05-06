@@ -65,4 +65,4 @@ The Demo above lists the different sizes available. The related JSX is:
 
 ## Links
 
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/utils-user-avatar--default)
+-   <a href="/demo/?path=/story/user-avatar--default" target="_blank">Demo</a>

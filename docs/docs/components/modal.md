@@ -179,4 +179,4 @@ The `hide` variable used in the demo's below are initiated using `useState(true)
 
 ## Links
 
--   [Demo](/demo/?path=/story/modal--default-content)
+-   <a href="/demo/?path=/story/modal--default-content" target="_blank">Demo</a>

@@ -58,4 +58,4 @@ Switches are used to toggle something between an on and off state.
 
 ## Links
 
--   [Demo](/demo/?path=/story/switch--default)
+-   <a href="/demo/?path=/story/switch--default" target="_blank">Demo</a>

@@ -249,4 +249,4 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
 
 ## Links
 
--   [Demo](/demo/?path=/story/flyout-menu--default)
+-   <a href="/demo/?path=/story/flyout-menu--default" target="_blank">Demo</a>

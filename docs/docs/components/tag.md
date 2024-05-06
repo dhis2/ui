@@ -95,4 +95,4 @@ Tags are used to label items by a set of shared properties, like category or sta
 
 ## Links
 
--   [Demo](/demo/?path=/story/tag--default)
+-   <a href="/demo/?path=/story/tag--default" target="_blank">Demo</a>

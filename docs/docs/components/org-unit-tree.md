@@ -41,4 +41,4 @@ An organisation unit tree is used to choose organisation units from a hierarchy.
 
 ## Links
 
--   [Demo](/demo/?path=/story/organisation-unit-tree--collapsed)
+-   <a href="/demo/?path=/story/organisation-unit-tree--collapsed" target="_blank">Demo</a>

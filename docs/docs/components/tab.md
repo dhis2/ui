@@ -95,4 +95,4 @@ Tabs are used to navigate between different views within the same page or contex
 
 ## Links
 
--   [Demo](/demo/?path=/story/tab-bar--default-fluid)
+-   <a href="/demo/?path=/story/tab-bar--default-fluid" target="_blank">Demo</a>

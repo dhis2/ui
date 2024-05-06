@@ -61,4 +61,4 @@ Radio inputs are used to choose one item from a list.
 
 ## Links
 
--   [Demo](/demo/?path=/story/radio--default)
+-   <a href="/demo/?path=/story/radio--default" target="_blank">Demo</a>
