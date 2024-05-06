@@ -262,5 +262,5 @@ The following data types don't change the interaction with the input, but should
 
 ## Links
 
-- <a href="/demo/?path=/story/file-input-field--default" target="_blank">Demo</a>
-- <a href="/demo/?path=/story/text-area--placeholder-no-value" target="_blank">`TextArea`Demo</a>
+-   <a href="/demo/?path=/story/file-input-field--default" target="_blank">Demo</a>
+-   <a href="/demo/?path=/story/text-area--placeholder-no-value" target="_blank">`TextArea`Demo</a>
