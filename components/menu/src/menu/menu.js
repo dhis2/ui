@@ -33,14 +33,13 @@ const Menu = ({ children, className, dataTest, dense }) => {
         return obj
     }
 
-    const focusFirstFocusableItem = useCallback(
+    const handleFocus = useCallback(
         (e) => {
             const focusableItems = findFocusableItems()
 
             if (e.target === menuRef.current) {
                 if (focusedIndex === -1) {
                     setFocusedIndex(~~Object.keys(focusableItems)[0])
-                    // Object.values(focusableItems)[0].focus()
                 }
             }
         },
@@ -96,33 +95,12 @@ const Menu = ({ children, className, dataTest, dense }) => {
                         })
                     )
                     break
-                case 'ArrowRight':
-                    event.preventDefault()
-                    if (event.target.hasAttribute('aria-haspopup')) {
-                        event.target.click()
-                    }
-                    break
-                case 'ArrowLeft':
-                    event.preventDefault()
-                    document
-                        .querySelector(
-                            `[aria-owns='${event.target.parentNode.parentNode.parentNode.parentNode.getAttribute(
-                                'id'
-                            )}']`
-                        )
-                        .focus()
-                    document
-                        .querySelector(
-                            `[aria-owns='${event.target.parentNode.parentNode.parentNode.parentNode.getAttribute(
-                                'id'
-                            )}']`
-                        )
-                        .click()
-                    break
                 case ' ':
                 case 'Enter':
                     event.preventDefault()
-                    event.target.click()
+                    if (event.target.getAttribute('aria-disabled') === null) {
+                        event.target.click()
+                    }
                     break
                 default:
                     return
@@ -144,14 +122,14 @@ const Menu = ({ children, className, dataTest, dense }) => {
         }
         const menu = menuRef.current
 
-        menu.addEventListener('focus', focusFirstFocusableItem)
+        menu.addEventListener('focus', handleFocus)
         menu.addEventListener('keydown', handleKeyDown)
 
         return () => {
             menu.removeEventListener('keydown', handleKeyDown)
-            menu.removeEventListener('focus', focusFirstFocusableItem)
+            menu.removeEventListener('focus', handleFocus)
         }
-    }, [focusFirstFocusableItem, handleKeyDown])
+    }, [handleFocus, handleKeyDown])
 
     return (
         <ul
@@ -178,20 +156,24 @@ const Menu = ({ children, className, dataTest, dense }) => {
                           showSubMenu: child.props.children
                               ? child.props.showSubMenu
                               : null,
-                          ref: (node) => {
-                              const role = node?.getAttribute('role')
-                              if (
-                                  [
-                                      'menuitem',
-                                      'menuitemradio',
-                                      'menuitemcheckbox',
-                                  ].includes(role)
-                              ) {
-                                  return (itemsRefs.current[index] = node)
-                              } else {
-                                  return null
-                              }
-                          },
+                          ...(child.props.dataTest &&
+                          child.props.dataTest.includes('menuitem')
+                              ? {
+                                    ref: (node) => {
+                                        const role = node?.getAttribute('role')
+                                        if (
+                                            [
+                                                'menuitem',
+                                                'menuitemradio',
+                                                'menuitemcheckbox',
+                                            ].includes(role)
+                                        ) {
+                                            return (itemsRefs.current[index] =
+                                                node)
+                                        }
+                                    },
+                                }
+                              : {}),
                       })
                     : child
             })}

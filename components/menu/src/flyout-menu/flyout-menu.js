@@ -1,6 +1,13 @@
 import { colors, elevations, spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
-import React, { Children, cloneElement, isValidElement, useState } from 'react'
+import React, {
+    Children,
+    cloneElement,
+    isValidElement,
+    useEffect,
+    useRef,
+    useState,
+} from 'react'
 import { Menu } from '../index.js'
 
 const FlyoutMenu = ({
@@ -16,9 +23,16 @@ const FlyoutMenu = ({
         const toggleValue = index === openedSubMenu ? null : index
         setOpenedSubMenu(toggleValue)
     }
+    const ref = useRef(null)
+
+    useEffect(() => {
+        if (ref.current && ref.current?.children[0]) {
+            ref.current.children[0].focus()
+        }
+    }, [])
 
     return (
-        <div className={className} data-test={dataTest}>
+        <div className={className} data-test={dataTest} ref={ref}>
             <Menu dense={dense}>
                 {Children.map(children, (child, index) =>
                     isValidElement(child)

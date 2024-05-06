@@ -3,7 +3,7 @@ import { Portal } from '@dhis2-ui/portal'
 import { IconChevronRight24 } from '@dhis2/ui-icons'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { forwardRef, useRef } from 'react'
+import React, { forwardRef, useCallback, useRef, useState } from 'react'
 import { FlyoutMenu } from '../index.js'
 import styles from './menu-item.styles.js'
 
@@ -49,6 +49,32 @@ const MenuItem = forwardRef(function MenuItem(
     ref
 ) {
     const menuItemRef = useRef()
+    const [openSubMenu, setOpenSubmenu] = useState(false)
+    const [subMenu, setSubMenu] = useState([])
+
+    const handleKeyDown = useCallback(
+        (event) => {
+            setSubMenu(document.querySelectorAll('[data-submenu-open=true]'))
+            switch (event.key) {
+                case 'ArrowRight':
+                    event.preventDefault()
+                    if (event.target.getAttribute('aria-haspopup')) {
+                        setOpenSubmenu(true)
+                    }
+                    break
+                case 'ArrowLeft':
+                    event.preventDefault()
+                    if (subMenu.length) {
+                        subMenu[subMenu.length - 1].focus()
+                    }
+                    setOpenSubmenu(false)
+                    break
+                default:
+                    return
+            }
+        },
+        [subMenu]
+    )
 
     return (
         <>
@@ -86,7 +112,7 @@ const MenuItem = forwardRef(function MenuItem(
                             : 'menuitem'
                     }
                     aria-haspopup={children && 'menu'}
-                    aria-expanded={showSubMenu}
+                    aria-expanded={showSubMenu || openSubMenu}
                     aria-disabled={disabled}
                     aria-checked={checkbox && checked}
                     aria-label={label}
@@ -94,6 +120,8 @@ const MenuItem = forwardRef(function MenuItem(
                         children &&
                         `popper-${label.split(' ').join('-').toLowerCase()}`
                     }
+                    data-submenu-open={children ? openSubMenu : null}
+                    onKeyDown={handleKeyDown}
                 >
                     {icon && <span className="icon">{icon}</span>}
 
@@ -110,7 +138,7 @@ const MenuItem = forwardRef(function MenuItem(
 
                 <style jsx>{styles}</style>
             </li>
-            {children && showSubMenu && (
+            {children && (showSubMenu || openSubMenu) && (
                 <Portal>
                     <Popper
                         placement="right-start"
