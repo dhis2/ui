@@ -90,6 +90,10 @@ const MenuItem = forwardRef(function MenuItem(
                     aria-disabled={disabled}
                     aria-checked={checkbox && checked}
                     aria-label={label}
+                    aria-owns={
+                        children &&
+                        `popper-${label.split(' ').join('-').toLowerCase()}`
+                    }
                 >
                     {icon && <span className="icon">{icon}</span>}
 
@@ -108,7 +112,14 @@ const MenuItem = forwardRef(function MenuItem(
             </li>
             {children && showSubMenu && (
                 <Portal>
-                    <Popper placement="right-start" reference={menuItemRef}>
+                    <Popper
+                        placement="right-start"
+                        reference={menuItemRef}
+                        id={`popper-${label
+                            .split(' ')
+                            .join('-')
+                            .toLowerCase()}`}
+                    >
                         <FlyoutMenu dense={dense}>{children}</FlyoutMenu>
                     </Popper>
                 </Portal>

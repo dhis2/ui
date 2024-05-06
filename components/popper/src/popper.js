@@ -16,6 +16,7 @@ const flipPlacement = (placement) => {
 }
 
 const Popper = ({
+    id,
     children,
     className,
     dataTest,
@@ -51,6 +52,7 @@ const Popper = ({
 
     return (
         <div
+            id={id}
             className={className}
             data-test={dataTest}
             ref={setPopperElement}
@@ -74,6 +76,7 @@ Popper.propTypes = {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
     dataTest: PropTypes.string,
+    id: PropTypes.string,
     /** A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/) */
     modifiers: PropTypes.arrayOf(
         PropTypes.shape({

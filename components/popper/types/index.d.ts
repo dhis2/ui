@@ -6,6 +6,7 @@ type PopperReference = VirtualElement | Element
 type ReferenceElement = PopperReference | React.RefObject<PopperReference>
 
 export interface PopperProps {
+    id?: string
     /**
      * Content inside the Popper
      */

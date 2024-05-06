@@ -33,14 +33,19 @@ const Menu = ({ children, className, dataTest, dense }) => {
         return obj
     }
 
-    const focusFirstFocusableItem = useCallback((e) => {
-        const focusableItems = findFocusableItems()
+    const focusFirstFocusableItem = useCallback(
+        (e) => {
+            const focusableItems = findFocusableItems()
 
-        if (e.target === menuRef.current) {
-            setFocusedIndex(~~Object.keys(focusableItems)[0])
-            Object.values(focusableItems)[0].focus()
-        }
-    }, [])
+            if (e.target === menuRef.current) {
+                if (focusedIndex === -1) {
+                    setFocusedIndex(~~Object.keys(focusableItems)[0])
+                    // Object.values(focusableItems)[0].focus()
+                }
+            }
+        },
+        [focusedIndex]
+    )
 
     const setNextFocusableIndex = useCallback(({ elemIndex, action }) => {
         const focusableItems = findFocusableItems()
@@ -99,6 +104,20 @@ const Menu = ({ children, className, dataTest, dense }) => {
                     break
                 case 'ArrowLeft':
                     event.preventDefault()
+                    document
+                        .querySelector(
+                            `[aria-owns='${event.target.parentNode.parentNode.parentNode.parentNode.getAttribute(
+                                'id'
+                            )}']`
+                        )
+                        .focus()
+                    document
+                        .querySelector(
+                            `[aria-owns='${event.target.parentNode.parentNode.parentNode.parentNode.getAttribute(
+                                'id'
+                            )}']`
+                        )
+                        .click()
                     break
                 case ' ':
                 case 'Enter':
@@ -156,6 +175,9 @@ const Menu = ({ children, className, dataTest, dense }) => {
                                   : child.props.hideDivider,
                           tabIndex: focusedIndex === index ? 0 : -1,
                           active: focusedIndex === index,
+                          showSubMenu: child.props.children
+                              ? child.props.showSubMenu
+                              : null,
                           ref: (node) => {
                               const role = node?.getAttribute('role')
                               if (

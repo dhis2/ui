@@ -1,12 +1,6 @@
 import { colors, elevations, spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
-import React, {
-    Children,
-    cloneElement,
-    isValidElement,
-    useState,
-    // useEffect,
-} from 'react'
+import React, { Children, cloneElement, isValidElement, useState } from 'react'
 import { Menu } from '../index.js'
 
 const FlyoutMenu = ({
@@ -17,24 +11,11 @@ const FlyoutMenu = ({
     maxHeight,
     maxWidth,
 }) => {
-    const [openedSubMenu, setOpenedSubMenu] = useState(0)
+    const [openedSubMenu, setOpenedSubMenu] = useState(null)
     const toggleSubMenu = (index) => {
         const toggleValue = index === openedSubMenu ? null : index
         setOpenedSubMenu(toggleValue)
     }
-
-    // useEffect(() => {
-    //     if (openedSubMenu) {
-    //         menuItemRef.current.childNodes[0].focus()
-    //     }
-    // }, [openedSubMenu])
-
-    // console.log(document.activeElement, "flyout menu active element")
-    // // const handleKeydown = () => {
-
-    // // }
-
-    console.log(openedSubMenu, 'opened submenu')
 
     return (
         <div className={className} data-test={dataTest}>
