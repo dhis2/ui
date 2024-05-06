@@ -47,7 +47,7 @@
         "classnames": "^2.3.1",
         "final-form": "^4.20.2",
         "prop-types": "^15.7.2",
-        "react-final-form": "^6.5.3"
+        "react-final-form": "^6.5.9"
     },
     "files": [
         "build",
