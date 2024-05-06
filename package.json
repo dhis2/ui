@@ -65,7 +65,7 @@
         "@dhis2/cli-utils-docsite": "^3.1.2",
         "@dhis2/cypress-commands": "^10.0.5",
         "@dhis2/cypress-plugins": "^10.0.5",
-        "@manypkg/cli": "^0.18.0",
+        "@manypkg/cli": "^0.21.4",
         "@svgr/cli": "^5.5.0",
         "@testing-library/jest-dom": "^5.16.1",
         "@testing-library/react": "^12.1.2",
