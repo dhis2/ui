@@ -224,4 +224,4 @@ import { AlertStack, AlertBar } from '@dhis2/ui'
 
 ## Links
 
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/feedback-alerts-alert-bar--default)
+-   <a href="/demo/?path=/story/alert-bar--default" target="_blank">Demo</a>

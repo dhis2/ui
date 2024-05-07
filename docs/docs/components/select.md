@@ -352,4 +352,4 @@ Selects are used to choose one or more items from a list of options.
 
 ## Links
 
--   [Demo](/demo/?path=/story/single-select--with-options-and-on-change)
+-   <a href="/demo/?path=/story/single-select--with-options-and-on-change" target="_blank">Demo</a>

@@ -194,4 +194,4 @@ Patterns are common ways of achieving some functionality. Patterns aren't offere
 
 ## Links
 
--   [Demo](/demo/?path=/story/datatable--default)
+-   <a href="/demo/?path=/story/datatable--default" target="_blank">Demo</a>

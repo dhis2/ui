@@ -204,12 +204,8 @@ To display a calendar for the user to pick a day in any supported calendar syste
 
 ## Links
 
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/calendar--with-ethiopic)
-
+-   <a href="/demo/?path=/story/calendar--ethiopic" target="_blank">Demo</a>
 -   [Design document](https://docs.google.com/document/d/19zjyB45oBbqC5KeubaU8E7cw9fGhFc3tOXY0GkzZKqc/edit#)
-
 -   [ADR for decision to use Temporal API](https://github.com/dhis2/multi-calendar-dates/blob/beta/doc/architecture/decisions/0002-use-temporal-api-as-the-backbone-for-the-engine.md)
-
 -   [multi-calendar-dates](https://github.com/dhis2/multi-calendar-dates) is the library that this component is built on top of.
-
 -   [Temporal API standard propsal](https://tc39.es/proposal-temporal/): the standard powering the multi-calendar-dates library

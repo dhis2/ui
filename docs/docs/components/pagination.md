@@ -104,4 +104,4 @@ Different elements of the pagination component can be included, depending on the
 
 ## Links
 
--   [Demo](/demo/?path=/story/pagination--default)
+-   <a href="/demo/?path=/story/pagination--default" target="_blank">Demo</a>

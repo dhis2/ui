@@ -144,4 +144,4 @@ A notice box shows important information about a situation.
 
 ## Links
 
--   [Demo](/demo/?path=/story/notice-box--default)
+-   <a href="/demo/?path=/story/notice-box--default" target="_blank">Demo</a>

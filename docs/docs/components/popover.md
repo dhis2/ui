@@ -37,4 +37,4 @@ A popover is used to show more information when a user interacts with a trigger 
 
 ## Links
 
--   [Demo](/demo/?path=/story/popover--default)
+-   <a href="/demo/?path=/story/popover--default" target="_blank">Demo</a>

@@ -101,4 +101,4 @@ Chips are used to select from a set of defined options. Chips can also represent
 
 ## Links
 
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/actions-chip--default)
+-   <a href="/demo/?path=/story/chip--default" target="_blank">Demo</a>

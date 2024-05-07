@@ -231,4 +231,4 @@ Buttons are available in different sizes. Use the size that matches the usage gu
 
 ## Links
 
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/actions-buttons-button--basic)
+-   <a href="/demo/?path=/story/button--basic" target="_blank">Demo</a>

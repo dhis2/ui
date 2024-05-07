@@ -55,4 +55,4 @@ Checkboxes are used to choose one or more items from a list. A checkbox can also
 
 ## Links
 
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-checkbox-checkbox--default)
+-   <a href="/demo/?path=/story/checkbox--default" target="_blank">Demo</a>
