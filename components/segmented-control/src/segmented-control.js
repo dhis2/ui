@@ -35,7 +35,7 @@ export const SegmentedControl = ({
     return (
         <ul className="segmented-control" aria-label={ariaLabel}>
             {options.map(({ label, value, disabled }) => (
-                <li key="label">
+                <li key={`option-${value}`}>
                     <button
                         type="button"
                         className={cx('segment', {
