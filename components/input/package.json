@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/input",
-    "version": "9.4.5",
+    "version": "9.4.6",
     "description": "UI Input",
     "repository": {
         "type": "git",
@@ -33,13 +33,13 @@
     },
     "dependencies": {
         "@dhis2/prop-types": "^3.1.2",
-        "@dhis2-ui/box": "9.4.5",
-        "@dhis2-ui/field": "9.4.5",
-        "@dhis2-ui/input": "9.4.5",
-        "@dhis2-ui/loader": "9.4.5",
-        "@dhis2-ui/status-icon": "9.4.5",
-        "@dhis2/ui-constants": "9.4.5",
-        "@dhis2/ui-icons": "9.4.5",
+        "@dhis2-ui/box": "9.4.6",
+        "@dhis2-ui/field": "9.4.6",
+        "@dhis2-ui/input": "9.4.6",
+        "@dhis2-ui/loader": "9.4.6",
+        "@dhis2-ui/status-icon": "9.4.6",
+        "@dhis2/ui-constants": "9.4.6",
+        "@dhis2/ui-icons": "9.4.6",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },

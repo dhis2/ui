@@ -1,3 +1,10 @@
+## [9.4.6](https://github.com/dhis2/ui/compare/v9.4.5...v9.4.6) (2024-05-10)
+
+
+### Bug Fixes
+
+* li key to be unique ([7de6dc5](https://github.com/dhis2/ui/commit/7de6dc5b805abee8f3ff8538ba5f0414e8240802))
+
 ## [9.4.5](https://github.com/dhis2/ui/compare/v9.4.4...v9.4.5) (2024-05-10)
 
 
