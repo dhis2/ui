@@ -4581,11 +4581,11 @@ import { IconVisualizationLinelist24 } from '@dhis2/ui'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `IconVisualizationOutlierTable16`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationOutlierTable16 } from '@dhis2/ui-icons'
+import { IconVisualizationOutlierTable16 } from '@dhis2/ui'
 ```
 
 
@@ -4600,11 +4600,11 @@ import { SvgVisualizationOutlierTable16 } from '@dhis2/ui-icons'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `IconVisualizationOutlierTable24`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SvgVisualizationOutlierTable24 } from '@dhis2/ui-icons'
+import { IconVisualizationOutlierTable24 } from '@dhis2/ui'
 ```
 
 

@@ -20,9 +20,9 @@ import { AlertBar } from '@dhis2/ui'
 |critical|custom|||Alert bars with `critical` will not autohide|
 |dataTest|string|`'dhis2-uicore-alertbar'`|||
 |duration|number|`8000`||How long you want the notification to display, in `ms`, when it's not permanent|
-|hidden|boolean|||AlertBar will be hidden on creation when this is set|
+|hidden|boolean|||AlertBar will be hidden on creation when this is set to true|
 |icon|custom|`true`||A specific icon to override the default icon in the bar.<br/>If `false` is provided, no icon will be shown.|
-|permanent|boolean|||When set, AlertBar will not auto-hide|
+|permanent|boolean|||When set, AlertBar will not autohide|
 |success|custom||||
 |warning|custom|||Alert bars with `warning` will not autohide|
 |onHidden|function||||

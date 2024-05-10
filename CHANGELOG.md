@@ -1,3 +1,12 @@
+## [9.4.5](https://github.com/dhis2/ui/compare/v9.4.4...v9.4.5) (2024-05-10)
+
+
+### Bug Fixes
+
+* upgrade @dhis2/cypress-commands and @dhis2/cypress-plugins to 10.0.5 ([c7bcc68](https://github.com/dhis2/ui/commit/c7bcc68a5d9496a53f7e8933d1f48699f403a8cb))
+* use npm version 6 for semantic release action in publish step ([#1499](https://github.com/dhis2/ui/issues/1499)) ([4d4fb40](https://github.com/dhis2/ui/commit/4d4fb40afd945ad3f78c943e24c3ed702cd4ce31))
+* **translations:** sync translations from transifex (master) ([0bf3520](https://github.com/dhis2/ui/commit/0bf352080cbd58c292325c1adf1c4cb6e840423f))
+
 ## [9.4.4](https://github.com/dhis2/ui/compare/v9.4.3...v9.4.4) (2024-04-09)
 
 
