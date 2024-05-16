@@ -16,7 +16,8 @@ type ButtonOpenEventHandler<
     Event extends React.SyntheticEvent = React.MouseEvent<HTMLButtonElement>
 > = (arg0: ButtonEventPayload & { open: boolean }, event: Event) => void
 
-export interface ButtonProps {
+
+export interface BaseButtonProps {
     /**
      * Component to render inside the button
      */
@@ -102,9 +103,9 @@ export interface ButtonProps {
     onKeyDown?: ButtonEventHandler<React.KeyboardEvent<HTMLButtonElement>>
 }
 
-export const Button: React.FC<
-    ButtonProps & Omit<React.HTMLProps<HTMLButtonElement>, keyof ButtonProps>
->
+export type ButtonProps = BaseButtonProps & Omit<React.ComponentPropsWithoutRef<'button'>, keyof BaseButtonProps>
+
+export const Button: React.FC<ButtonProps>
 
 export interface ButtonStripProps {
     children?: React.ReactNode
