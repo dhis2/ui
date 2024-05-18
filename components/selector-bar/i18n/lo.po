@@ -1,13 +1,12 @@
 # 
 # Translators:
-# Philip Larsen Donnelly, 2021
 # Namwan Chanthavisouk, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-06-04T18:40:29.413Z\n"
-"PO-Revision-Date: 2021-06-24 12:50+0000\n"
+"POT-Creation-Date: 2021-12-07T14:09:16.792Z\n"
+"PO-Revision-Date: 2023-06-08 13:23+0000\n"
 "Last-Translator: Namwan Chanthavisouk, 2024\n"
 "Language-Team: Lao (https://app.transifex.com/hisp-uio/teams/100509/lo/)\n"
 "MIME-Version: 1.0\n"
@@ -16,11 +15,5 @@ msgstr ""
 "Language: lo\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "Upload a file"
-msgstr "ອັບໂຫຼດເອກະສານ"
-
-msgid "No file uploaded yet"
-msgstr "ຍັງບໍ່ມີເອກະສານອັບໂຫຼດເທື່ອ"
-
-msgid "Remove"
-msgstr "ລົບອອກ"
+msgid "Clear selections"
+msgstr "ລົບຕົວເລືອກ"
