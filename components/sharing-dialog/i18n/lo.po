@@ -3,13 +3,14 @@
 # Philip Larsen Donnelly, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Saysamone Sibounma, 2023
+# Namwan Chanthavisouk, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-11-25T09:59:40.995Z\n"
 "PO-Revision-Date: 2021-10-01 23:39+0000\n"
-"Last-Translator: Saysamone Sibounma, 2023\n"
+"Last-Translator: Namwan Chanthavisouk, 2024\n"
 "Language-Team: Lao (https://app.transifex.com/hisp-uio/teams/100509/lo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,31 +22,31 @@ msgid "View only"
 msgstr "ເບິ່ງໄດ້ເທົ່ານັ້ນ"
 
 msgid "View and edit"
-msgstr ""
+msgstr "ເບິ່ງ ແລະ ແກ້ໄຂ"
 
 msgid "Give access to a user or group"
-msgstr ""
+msgstr "ໃຫ້ຜູ້ໃຊ້ ຫຼື ກຸ່ມເຂົ້າເຖິງ"
 
 msgid "Access level"
-msgstr ""
+msgstr "ຂັ້ນການເຂົ້າເຖິງ"
 
 msgid "Select a level"
-msgstr ""
+msgstr "ເລືອກຂັ້ນ"
 
 msgid "Not available offline"
-msgstr ""
+msgstr "ບໍ່ສາມາດໃຊ້ໄດ້ອອບລາຍ"
 
 msgid "Give access"
-msgstr ""
+msgstr "ໃຫ້ການເຂົ້າເຖິງ"
 
 msgid "Users and groups that currently have access"
-msgstr ""
+msgstr "ຜູ້ໃຊ້ ແລະ ກຸ່ມທີ່ໄດ້ເຂົ້າເຖິງ"
 
 msgid "User / Group"
-msgstr ""
+msgstr "ຜູ້ໃຊ້ / ກຸ່ມ"
 
 msgid "All users"
-msgstr ""
+msgstr "ຜູ້ໃຊ້ທັງໝົດ"
 
 msgid "No access"
 msgstr "ບໍ່ມີການເຂົ້າເຖີງ"
@@ -54,88 +55,107 @@ msgid "Can view"
 msgstr "ສາມາດເບີ່ງ"
 
 msgid "Can view and edit"
-msgstr ""
+msgstr "ສາມາດເບິ່ງ ແລະ ແກ້ໄຂ"
 
 msgid "Metadata"
 msgstr "ໂຄງຮ່າງຖານຂໍ້ມູນ"
 
 msgid "Remove access"
-msgstr ""
+msgstr "ເອົາການເຂົ້າເຖິງອອກ"
 
 msgid "User or group"
-msgstr ""
+msgstr "ຜູ້ໃຊ້ ຫຼື ກຸ່ມ"
 
 msgid "Search"
-msgstr "ຄົນຫາ"
+msgstr "ຄົ້ນຫາ"
 
 msgid "Apply dashboard sharing settings to visualizations"
-msgstr ""
+msgstr "ນຳໃຊ້ການຕັ້ງຄ່າແບ່ງປັນກະດານຂ່າວກັບພາບຂໍ້ມູນ"
 
 msgid "Something went wrong"
 msgstr "ມີບາງຢ່າງຜິດພາດ"
 
 msgid "Apply sharing to dashboard visualizations"
-msgstr ""
+msgstr "ນຳໃຊ້ການແບ່ງປັນພາບຂໍ້ມູນກັບກະດານຂ່າວ"
 
 msgid ""
 "No visualizations were updated. Check that you have permission to change "
 "sharing for all visualizations."
 msgstr ""
+"ບໍ່ມີການອັບເດດພາບຂໍ້ມູນ. "
+"ກວດເບິ່ງຄືນວ່າທ່ານໄດ້ຮັບການອະນຸຍາດໃຫ້ປ່ຽນການແບ່ງປັນສໍາລັບພາບຂໍ້ມູນ."
 
 msgid ""
 "Not all visualizations could be updated successfully. {{ success }} updated "
 "successfully, {{ failed }} failed to update. Check that you have permission "
 "to change sharing for all visualizations."
 msgstr ""
+"ພາບຂໍ້ມູນທັງໝົດບໍ່ສາມາດອັບເດດໄດ້ສຳເລັດ. ອັບເດດ {{ success }} ສຳເລັດແລ້ວ, {{ "
+"failed }} ລົ້ມເຫລວໃນການອັບເດດ. "
+"ກວດເບິ່ງວ່າທ່ານໄດ້ຮັບການອະນຸຍາດໃຫ້ປ່ຽນການແບ່ງປັນສໍາລັບພາບຂໍ້ມູນທັງຫມົດ."
 
 msgid ""
 "No visualizations were updated because sharing settings are already "
 "sufficient."
-msgstr ""
+msgstr "ບໍ່ມີການອັບເດດພາບຂໍ້ມູນເນື່ອງຈາກການຕັ້ງຄ່າການແບ່ງປັນພຽງພໍແລ້ວ."
 
 msgid "Successfully updated sharing for all visualizations."
-msgstr ""
+msgstr "ອັບເດດການແບ່ງປັນສຳເລັດແລ້ວສຳລັບພາບຂໍ້ມູນທັງໝົດ."
 
 msgid ""
 "Not all visualization sharing settings needed to be updated. {{ updated }} "
 "updated, {{ skipped }} already had sufficient sharing settings."
 msgstr ""
+"ບໍ່ແມ່ນການຕັ້ງຄ່າການແບ່ງປັນພາບທັງໝົດທີ່ຈຳເປັນເພື່ອອັບເດດ. {{ updated }} "
+"ອັບເດດແລ້ວ, {{ skipped }} ມີການຕັ້ງຄ່າການແບ່ງປັນພຽງພໍແລ້ວ."
 
 msgid "There are no users or groups to apply sharing settings for."
-msgstr ""
+msgstr "ບໍ່ມີຜູ້ໃຊ້ ຫຼື ກຸ່ມສຳລັບການນໍາໃຊ້ການຕັ້ງຄ່າແບ່ງປັນ."
 
 msgid ""
 "Number of visualizations on this dashboard that will potentially get updated"
 " sharing settings: {{ visualizationsCount }}. The number of users or groups "
 "that these updated settings will apply to: {{ entityAmount }}."
 msgstr ""
+"ຈຳນວນພາບຂໍ້ມູນໃນກະດານຂ່າວນີ້ທີ່ອາດຈະໄດ້ມີການອັບເດດການຕັ້ງຄ່າການແບ່ງປັນ: {{ "
+"visualizationsCount }}. ຈຳນວນຜູ້ໃຊ້ "
+"ຫຼືກຸ່ມທີ່ອັບເດດການຕັ້ງຄ່າເຫຼົ່ານີ້ຈະໃຊ້ກັບ: {{ entityAmount }}."
 
 msgid ""
 "Applying the same sharing settings makes sure that users and groups that "
 "have access to the dashboard also have at least \"View only\" access to its "
 "visualizations (charts, tables, maps, event charts and event reports)."
 msgstr ""
+"ການໃຊ້ການຕັ້ງຄ່າແບບແບ່ງປັນຄືກັນແມ່ນຕ້ອງໃຫ້ແນ່ໃຈວ່າຜູ້ໃຊ້ ແລະ "
+"ກຸ່ມທີ່ເຂົ້າເຖິງກະດານຂ່າວສາມາດ \"ເບິ່ງເທົ່ານັ້ນ\" ໃນພາບຂໍ້ມູນ (ແຜນການ, "
+"ຕາຕະລາງ, ແຜນທີ່, ຕາຕະລາງເຫດການ ແລະ ການລາຍງານເຫດການ)."
 
 msgid ""
 "If a user or group already has \"View and edit\" access to a visualization, "
 "this won't be reduced to \"View only\". The \"All users\" access level won't"
 " be updated or changed."
 msgstr ""
+"ຖ້າຜູ້ໃຊ້ ຫຼື ກຸ່ມມີການເຂົ້າເຖິງແບບ \"ເບິ່ງ ແລະແກ້ໄຂ\" "
+"ຕໍ່ພາບຂໍ້ມູນນັ້ນຈະບໍ່ຖືກຫຼຸດລົງເປັນ \"ເບິ່ງເທົ່ານັ້ນ\". ການເຂົ້າເຖິງຂັ້ນ "
+"\"ຜູ້ໃຊ້ທັງໝົດ\" ຈະບໍ່ຖືກອັບເດດ ຫຼື ປ່ຽນແປງ."
 
 msgid ""
 "Applying sharing can't be undone, and needs to be done again if new "
 "visualizations are added to the dashboard or its sharing settings are "
 "changed."
 msgstr ""
+"ການໃຊ້ການແບ່ງປັນບໍ່ສາມາດຍົກເລີກໄດ້, ແລະຕ້ອງເຮັດອີກຄັ້ງ "
+"ຖ້າມີການເພີ່ມພາບຂໍ໊ມູນໃໝ່ໃນກະດານຂ່າວ ຫຼື "
+"ການຕັ້ງຄ່າການແບ່ງປັນຂອງມັນມີການປ່ຽນແປງ."
 
 msgid "Sharing and access: {{- objectName}}"
-msgstr ""
+msgstr "ການແບ່ງປັນ ແລະ ການເຂົາເຖິງ: {{- objectName}}"
 
 msgid "Sharing and access"
-msgstr ""
+msgstr "ການແບ່ງປັນ ແລະ ການເຂົ້າເຖິງ"
 
 msgid "Close"
 msgstr "ປິດ"
 
 msgid "Dashboard sharing"
-msgstr ""
+msgstr "ການແບ່ງປັນກະດານຂ່າວ"
