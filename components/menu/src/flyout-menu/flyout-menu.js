@@ -10,6 +10,7 @@ const FlyoutMenu = ({
     dense,
     maxHeight,
     maxWidth,
+    isFocused,
 }) => {
     const [openedSubMenu, setOpenedSubMenu] = useState(null)
     const toggleSubMenu = (index) => {
@@ -19,7 +20,7 @@ const FlyoutMenu = ({
 
     return (
         <div className={className} data-test={dataTest}>
-            <Menu dense={dense}>
+            <Menu dense={dense} isFocused={isFocused}>
                 {Children.map(children, (child, index) =>
                     isValidElement(child)
                         ? cloneElement(child, {
@@ -52,6 +53,7 @@ FlyoutMenu.defaultProps = {
     dataTest: 'dhis2-uicore-menu',
     maxWidth: '380px',
     maxHeight: 'auto',
+    isFocused: false,
 }
 
 FlyoutMenu.propTypes = {
@@ -61,6 +63,7 @@ FlyoutMenu.propTypes = {
     dataTest: PropTypes.string,
     /** Menu uses smaller dimensions */
     dense: PropTypes.bool,
+    isFocused: PropTypes.bool,
     maxHeight: PropTypes.string,
     maxWidth: PropTypes.string,
 }

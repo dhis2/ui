@@ -1,8 +1,13 @@
+import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { Children, cloneElement, isValidElement } from 'react'
 
-const Menu = ({ children, className, dataTest, dense }) => (
-    <ul className={className} data-test={dataTest}>
+const Menu = ({ children, className, dataTest, dense, isFocused }) => (
+    <ul
+        className={`${className} ${isFocused ? 'focused' : ''}`}
+        data-test={dataTest}
+        tabIndex="0"
+    >
         {Children.map(children, (child, index) =>
             isValidElement(child)
                 ? cloneElement(child, {
@@ -25,9 +30,11 @@ const Menu = ({ children, className, dataTest, dense }) => (
                 position: relative;
                 width: 100%;
                 margin: 0;
-
                 padding: 0;
                 user-select: none;
+            }
+            ul.focused {
+                border: 2px solid ${colors.blue600};
             }
         `}</style>
     </ul>
@@ -35,6 +42,7 @@ const Menu = ({ children, className, dataTest, dense }) => (
 
 Menu.defaultProps = {
     dataTest: 'dhis2-uicore-menulist',
+    isFocused: false,
 }
 
 Menu.propTypes = {
@@ -44,6 +52,7 @@ Menu.propTypes = {
     dataTest: PropTypes.string,
     /** Applies `dense` property to all child components unless already specified */
     dense: PropTypes.bool,
+    isFocused: PropTypes.bool,
 }
 
 export { Menu }

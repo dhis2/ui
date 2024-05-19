@@ -49,6 +49,17 @@ Dense.parameters = {
     },
 }
 
+export const FocusedMenu = (args) => {
+    return (
+        <Menu {...args}>
+            <MenuItem label="Focused Menu Item" />
+            <MenuItem label="Focused Menu Item" />
+        </Menu>
+    )
+}
+
+FocusedMenu.args = { isFocused: true }
+
 export const AutoHideFirstSectionHeaderDivider = (args) => (
     <Menu {...args}>
         <MenuSectionHeader label="First - no divider above" />

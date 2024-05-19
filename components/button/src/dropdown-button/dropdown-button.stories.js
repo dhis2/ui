@@ -65,7 +65,7 @@ Large.args = { large: true }
 export const WithMenu = Template.bind({})
 WithMenu.args = {
     component: (
-        <FlyoutMenu>
+        <FlyoutMenu isFocused={true}>
             <MenuItem label="Item 1" />
             <MenuItem label="Item 2" />
             <MenuItem label="Item 3" />
