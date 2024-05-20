@@ -3,8 +3,9 @@ import { Card } from '@dhis2-ui/card'
 import { InputField, InputFieldProps } from '@dhis2-ui/input'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
+import { validateDateString } from '@dhis2/multi-calendar-dates'
 import cx from 'classnames'
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { Calendar, CalendarProps } from '../calendar/calendar.js'
 import i18n from '../locales/index.js'
 
@@ -27,10 +28,16 @@ export const CalendarInput = ({
     width,
     cellSize,
     clearable,
+    editable,
+    minDate,
+    maxDate,
     ...rest
 } = {}) => {
     const ref = useRef()
+    const [tempDate, setTempDate] = useState(date)
     const [open, setOpen] = useState(false)
+    const [error, setError] = useState('')
+    const [warning, setWarning] = useState('')
 
     const calendarProps = React.useMemo(() => {
         const onDateSelectWrapper = (selectedDate) => {
@@ -66,6 +73,47 @@ export const CalendarInput = ({
         setOpen(true)
     }
 
+    useEffect(() => {
+        setTempDate(date)
+        const { isValid, errorMessage, warningMessage } = validateDateString(
+            date,
+            {
+                minDateString: minDate,
+                maxDateString: maxDate,
+                validationType: 'throw',
+            }
+        )
+        if (isValid) {
+            setError('')
+            setWarning(warningMessage || '')
+        } else {
+            setError(errorMessage)
+            setOpen(true)
+        }
+    }, [date, maxDate, minDate])
+
+    const handleChange = (e) => {
+        setOpen(false)
+        const newDate = e.value
+        setTempDate(newDate)
+        const { isValid, errorMessage, warningMessage } = validateDateString(
+            newDate,
+            {
+                minDateString: minDate,
+                maxDateString: maxDate,
+                validationType: 'throw',
+            }
+        )
+        setOpen(true)
+        if (isValid) {
+            setError('')
+            setWarning(warningMessage || '')
+            onDateSelect({ calendarDateString: newDate })
+        } else {
+            setError(errorMessage)
+        }
+    }
+
     return (
         <>
             <div className="calendar-input-wrapper" ref={ref}>
@@ -74,14 +122,15 @@ export const CalendarInput = ({
                     {...rest}
                     type="text"
                     onFocus={onFocus}
-                    value={date}
+                    value={tempDate}
+                    onChange={editable ? handleChange : undefined}
+                    validationText={error || warning}
+                    error={!!error}
+                    warning={!!warning}
                 />
                 {clearable && (
                     <div
                         className={cx('calendar-clear-button', {
-                            // ToDo: this is a workaround to show the clear button in the correct place when an icon is shown.
-                            // Long-term, we should abstract and share the logic multi-select uses for the input-wrapper
-                            // https://dhis2.atlassian.net/browse/DHIS2-14848
                             'with-icon':
                                 rest.valid ||
                                 rest.error ||
@@ -94,7 +143,10 @@ export const CalendarInput = ({
                             dataTest="calendar-clear-button"
                             secondary
                             small
-                            onClick={() => calendarProps.onDateSelect(null)}
+                            onClick={() => {
+                                setTempDate('')
+                                onDateSelect?.(null)
+                            }}
                             type="button"
                         >
                             {i18n.t('Clear')}
@@ -130,7 +182,6 @@ export const CalendarInput = ({
                         inset-inline-end: 6px;
                         inset-block-start: 27px;
                     }
-
                     .calendar-clear-button.with-icon {
                         inset-inline-end: 36px;
                     }

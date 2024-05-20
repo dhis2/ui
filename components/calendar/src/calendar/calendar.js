@@ -4,7 +4,7 @@ import {
 } from '@dhis2/multi-calendar-dates'
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { CalendarTable } from './calendar-table.js'
 import { NavigationContainer } from './navigation-container.js'
 
@@ -25,6 +25,10 @@ export const Calendar = ({
 
     const [selectedDateString, setSelectedDateString] = useState(date)
     const languageDirection = useResolvedDirection(dir, locale)
+
+    useEffect(() => {
+        setSelectedDateString(date)
+    }, [date])
 
     const options = {
         locale,
