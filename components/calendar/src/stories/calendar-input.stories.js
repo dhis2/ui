@@ -22,20 +22,17 @@ export default {
     },
 }
 
-const buildCalendar =
-    ({ date, locale, calendar }) =>
-    () =>
-        (
-            <CalendarStoryWrapper
-                component={CalendarInput}
-                dir="ltr"
-                timeZone="Africa/Khartoum"
-                weekDayFormat="short"
-                date={date}
-                locale={locale}
-                calendar={calendar}
-            />
-        )
+const buildCalendar = ({ date, locale, calendar }) => () => (
+    <CalendarStoryWrapper
+        component={CalendarInput}
+        dir="ltr"
+        timeZone="Africa/Khartoum"
+        weekDayFormat="short"
+        date={date}
+        locale={locale}
+        calendar={calendar}
+    />
+)
 
 export const EthiopicWithAmharic = buildCalendar({
     calendar: 'ethiopic',
@@ -112,5 +109,30 @@ export const CalendarWithClearButton = ({
                 </span>
             </div>
         </>
+    )
+}
+
+export function CalendarWithEditiableInput() {
+    const [date, setDate] = useState('2020-07-03')
+    return (
+        <div>
+            <>
+                <CalendarInput
+                    editable
+                    date={date}
+                    calendar="gregory"
+                    onDateSelect={(selectedDate) => {
+                        const date = selectedDate?.calendarDateString
+                        setDate(date)
+                    }}
+                    label="ooo"
+                    width={'700px'}
+                    inputWidth="900px"
+                    timeZone={'UTC'}
+                    minDate={'2020-07-01'}
+                    maxDate={'2020-07-09'}
+                />
+            </>
+        </div>
     )
 }
