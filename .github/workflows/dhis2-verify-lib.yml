@@ -125,17 +125,36 @@ jobs:
             - name: Increase FS watchers
               run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
+            - name: Set Cypress Record Environment Variables
+              if: env.SHOULD_RECORD == 'true'
+              run: |
+                  echo "CYPRESS_GROUP=e2e-${{ matrix.spec-group.id }}" >> $GITHUB_ENV
+                  echo "CYPRESS_TAG=${{ github.event_name }}" >> $GITHUB_ENV
+                  echo "CYPRESS_CI_BUILD_ID=${{ github.run_id }}" >> $GITHUB_ENV
+
+            - name: Debug Environment Variables
+              run: |
+                  echo "SHOULD_RECORD=${{ env.SHOULD_RECORD }}"
+                  echo "CI Build ID=${{ github.run_id }}"
+                  echo "Group ID=e2e-${{ matrix.spec-group.id }}"
+                  echo "Spec=${{ join(matrix.spec-group.tests, ',') }}"
+                  echo "Record=${{ env.SHOULD_RECORD }}"
+                  echo "Parallel=${{ env.SHOULD_RECORD }}"
+                  echo "Computed Group=${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_GROUP || '' }}"
+                  echo "Computed Tag=${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_TAG || '' }}"
+                  echo "Computed CI Build ID=${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_CI_BUILD_ID || '' }}"
+
             - name: End-to-End tests
               uses: cypress-io/github-action@v6
               with:
                   start: 'yarn cy:start:legacy'
                   wait-on: 'http://localhost:5000'
                   wait-on-timeout: 300
-                  record: ${{ env.SHOULD_RECORD == 'true' }}
-                  parallel: ${{ env.SHOULD_RECORD == 'true'}}
-                  group: e2e-${{ matrix.spec-group.id }}
-                  tag: ${{ env.SHOULD_RECORD == 'true' && github.event_name || '' }}
-                  ci-build-id: ${{ env.SHOULD_RECORD == 'true' && github.run_id || '' }}
+                  record: ${{ env.SHOULD_RECORD }}
+                  parallel: ${{ env.SHOULD_RECORD }}
+                  group: ${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_GROUP || '' }}
+                  tag: ${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_TAG || '' }}
+                  ci-build-id: ${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_CI_BUILD_ID || '' }}
                   spec: ${{ join(matrix.spec-group.tests, ',') }}
               env:
                   BROWSER: none
