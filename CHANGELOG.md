@@ -1,3 +1,11 @@
+## [9.4.9](https://github.com/dhis2/ui/compare/v9.4.8...v9.4.9) (2024-05-27)
+
+
+### Bug Fixes
+
+* **button:** fix prop types for button ([9e9ba33](https://github.com/dhis2/ui/commit/9e9ba33c5dffd7490b72eaa77f65d565b4ef42ba))
+* **types:** update button props to follow best practices ([9c9ff02](https://github.com/dhis2/ui/commit/9c9ff02bfb2b52b842f7ce0d6050342063fd6d3f))
+
 ## [9.4.8](https://github.com/dhis2/ui/compare/v9.4.7...v9.4.8) (2024-05-26)
 
 
