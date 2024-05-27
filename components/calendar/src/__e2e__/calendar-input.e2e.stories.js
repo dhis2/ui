@@ -11,7 +11,7 @@ export {
     GregorianWithArabic,
     GregorianWithEnglish,
     IslamicWithArabic,
-} from '../stories/calendar-input.stories.js'
+} from '../stories/calendar-input.prod.stories.js'
 
 export const TestCalendarWithClearButton = () => {
     const params = new URLSearchParams(location.search)
