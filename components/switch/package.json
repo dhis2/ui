@@ -22,7 +22,7 @@
         "access": "public"
     },
     "scripts": {
-        "start": "start-storybook -c ../../storybook/config --port 5000",
+        "start": "storybook dev -c ../../storybook/config --port 5000",
         "build": "d2-app-scripts build",
         "test": "d2-app-scripts test --jestConfig ../../jest.config.shared.js"
     },
