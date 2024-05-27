@@ -28,8 +28,8 @@
     },
     "peerDependencies": {
         "@dhis2/d2-i18n": "^1",
-        "react": "^16.8",
-        "react-dom": "^16.8",
+        "react": "^16.13",
+        "react-dom": "^16.13",
         "styled-jsx": "^4"
     },
     "dependencies": {
