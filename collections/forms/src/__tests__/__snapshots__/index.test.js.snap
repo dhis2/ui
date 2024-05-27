@@ -11,6 +11,7 @@ Array [
   "getIn",
   "setIn",
   "version",
+  "default",
 ]
 `;
 
@@ -21,6 +22,8 @@ exports[`final-form named export should re-export the expected type for FORM_ERR
 exports[`final-form named export should re-export the expected type for configOptions 1`] = `"object"`;
 
 exports[`final-form named export should re-export the expected type for createForm 1`] = `"function"`;
+
+exports[`final-form named export should re-export the expected type for default 1`] = `"object"`;
 
 exports[`final-form named export should re-export the expected type for fieldSubscriptionItems 1`] = `"object"`;
 
