@@ -11,9 +11,7 @@
     "license": "BSD-3-Clause",
     "private": true,
     "scripts": {
-        "_start": "EXTEND_ESLINT=true storybook dev -c config --port 5000 --quiet --ci -s static",
-        "start": "EXTEND_ESLINT=true storybook dev -c config --port 5000 --quiet --ci --debug-webpack",
-        "_build": "EXTEND_ESLINT=true storybook build -c config -o ../dist/demo --quiet -s static",
+        "start": "EXTEND_ESLINT=true storybook dev -c config --port 5000 --ci",
         "build": "EXTEND_ESLINT=true storybook build -c config -o ../dist/demo --quiet"
     },
     "peerDependencies": {

@@ -25,6 +25,8 @@ module.exports = {
         name: getAbsolutePath("@storybook/react-webpack5"),
         options: {}
     },
+
+    staticDirs: [join(__dirname, '../static')],
 }
 
 function getAbsolutePath(value) {
