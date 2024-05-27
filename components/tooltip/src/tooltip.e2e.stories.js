@@ -2,7 +2,7 @@ import { Modal } from '@dhis2-ui/modal'
 import React from 'react'
 import css from 'styled-jsx/css'
 import { Tooltip } from './tooltip.js'
-import { HidesWhenOutOfFrame } from './tooltip.stories.js'
+import { HidesWhenOutOfFrame } from './tooltip.prod.stories.js'
 
 const noPaddingStyles = css`
     :global(#root) {
