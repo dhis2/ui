@@ -1,3 +1,10 @@
+# [9.5.0](https://github.com/dhis2/ui/compare/v9.4.9...v9.5.0) (2024-05-29)
+
+
+### Features
+
+* **FileListItem:** accessibility improvements for FileListItem ([#1474](https://github.com/dhis2/ui/issues/1474)) ([b5d5e2d](https://github.com/dhis2/ui/commit/b5d5e2d5b050206ff66da4b0864912ac1f517ede))
+
 ## [9.4.9](https://github.com/dhis2/ui/compare/v9.4.8...v9.4.9) (2024-05-27)
 
 
