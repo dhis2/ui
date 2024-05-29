@@ -1,9 +1,9 @@
 import { Button } from '@dhis2-ui/button'
 import { Card } from '@dhis2-ui/card'
-import { InputField, InputFieldProps } from '@dhis2-ui/input'
+import { InputField } from '@dhis2-ui/input'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
-import { validateDateString } from '@dhis2/multi-calendar-dates'
+import { useDatePicker } from '@dhis2/multi-calendar-dates'
 import cx from 'classnames'
 import React, { useRef, useState, useEffect } from 'react'
 import { Calendar, CalendarProps } from '../calendar/calendar.js'
@@ -31,10 +31,11 @@ export const CalendarInput = ({
     editable,
     minDate,
     maxDate,
+    format,
+    validation,
     ...rest
 } = {}) => {
     const ref = useRef()
-    const [tempDate, setTempDate] = useState(date)
     const [open, setOpen] = useState(false)
     const [error, setError] = useState('')
     const [warning, setWarning] = useState('')
@@ -69,49 +70,34 @@ export const CalendarInput = ({
         width,
     ])
 
-    const onFocus = () => {
-        setOpen(true)
-    }
+    const pickerOptions = useDatePicker({
+        onDateSelect: (result) => {
+            setOpen(false)
+            onDateSelect(result)
+        },
+        date: date,
+        minDate: minDate,
+        maxDate: maxDate,
+        validation: validation,
+        format: format,
+        options: calendarProps,
+    })
 
     useEffect(() => {
-        setTempDate(date)
-        const { isValid, errorMessage, warningMessage } = validateDateString(
-            date,
-            {
-                minDateString: minDate,
-                maxDateString: maxDate,
-                validationType: 'throw',
-            }
-        )
-        if (isValid) {
-            setError('')
-            setWarning(warningMessage || '')
-        } else {
-            setError(errorMessage)
-            setOpen(true)
-        }
-    }, [date, maxDate, minDate])
+        setError(pickerOptions.errorMessage || '')
+        setWarning(pickerOptions.warningMessage || '')
+    }, [
+        pickerOptions.errorMessage,
+        pickerOptions.warningMessage,
+        pickerOptions.isValid,
+    ])
 
     const handleChange = (e) => {
-        setOpen(false)
-        const newDate = e.value
-        setTempDate(newDate)
-        const { isValid, errorMessage, warningMessage } = validateDateString(
-            newDate,
-            {
-                minDateString: minDate,
-                maxDateString: maxDate,
-                validationType: 'throw',
-            }
-        )
+        onDateSelect?.({ calendarDateString: e.value })
+    }
+
+    const onFocus = () => {
         setOpen(true)
-        if (isValid) {
-            setError('')
-            setWarning(warningMessage || '')
-            onDateSelect({ calendarDateString: newDate })
-        } else {
-            setError(errorMessage)
-        }
     }
 
     return (
@@ -122,7 +108,7 @@ export const CalendarInput = ({
                     {...rest}
                     type="text"
                     onFocus={onFocus}
-                    value={tempDate}
+                    value={date}
                     onChange={editable ? handleChange : undefined}
                     validationText={error || warning}
                     error={!!error}
@@ -144,7 +130,6 @@ export const CalendarInput = ({
                             secondary
                             small
                             onClick={() => {
-                                setTempDate('')
                                 onDateSelect?.(null)
                             }}
                             type="button"
@@ -166,7 +151,11 @@ export const CalendarInput = ({
                         modifiers={[offsetModifier]}
                     >
                         <Card>
-                            <Calendar {...calendarProps} date={date} />
+                            <Calendar
+                                {...calendarProps}
+                                {...pickerOptions}
+                                date={date}
+                            />
                         </Card>
                     </Popper>
                 </Layer>
@@ -199,5 +188,4 @@ CalendarInput.defaultProps = {
 }
 CalendarInput.propTypes = {
     ...CalendarProps,
-    ...InputFieldProps,
 }
