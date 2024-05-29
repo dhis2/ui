@@ -1,7 +1,7 @@
+import { layers } from '@dhis2/ui-constants'
 import { Center } from '@dhis2-ui/center'
 import { Cover } from '@dhis2-ui/cover'
 import { Layer } from '@dhis2-ui/layer'
-import { layers } from '@dhis2/ui-constants'
 import React from 'react'
 import { LinearLoader } from './index.js'
 

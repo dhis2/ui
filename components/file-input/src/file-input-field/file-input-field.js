@@ -1,6 +1,6 @@
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import { Field } from '@dhis2-ui/field'
 import { Label } from '@dhis2-ui/label'
-import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { FileInput, FileList, FileListPlaceholder } from '../index.js'

@@ -13,12 +13,7 @@ export const WithOnClick = () => (
     </Button>
 )
 export const WithInitialFocusAndOnBlur = () => (
-    <Button
-        name="Button"
-        value="default"
-        initialFocus
-        onBlur={window.onBlur}
-    >
+    <Button name="Button" value="default" initialFocus onBlur={window.onBlur}>
         Label me!
     </Button>
 )

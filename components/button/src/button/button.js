@@ -1,5 +1,5 @@
-import { CircularLoader } from '@dhis2-ui/loader'
 import { sharedPropTypes } from '@dhis2/ui-constants'
+import { CircularLoader } from '@dhis2-ui/loader'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef } from 'react'

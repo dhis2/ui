@@ -1,7 +1,7 @@
-import { Divider } from '@dhis2-ui/divider'
-import { SingleSelectField, SingleSelectOption } from '@dhis2-ui/select'
 import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
+import { Divider } from '@dhis2-ui/divider'
+import { SingleSelectField, SingleSelectOption } from '@dhis2-ui/select'
 import PropTypes from 'prop-types'
 import React, { useContext } from 'react'
 import {

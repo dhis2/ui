@@ -14,7 +14,7 @@ export const PermanentWithActions = () => (
         permanent
         actions={[
             { label: 'Save', onClick: () => {} },
-                { label: 'Cancel', onClick: () => {} },
+            { label: 'Cancel', onClick: () => {} },
         ]}
     >
         With Actions

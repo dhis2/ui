@@ -1,6 +1,6 @@
+import { useAlert } from '@dhis2/app-runtime'
 import { Button, ButtonStrip } from '@dhis2-ui/button'
 import { Modal, ModalActions, ModalContent, ModalTitle } from '@dhis2-ui/modal'
-import { useAlert } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 import React from 'react'
 import i18n from '../locales/index.js'

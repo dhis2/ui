@@ -7,12 +7,7 @@ window.onFocus = window.Cypress && window.Cypress.cy.stub()
 
 export default { title: 'Radio' }
 export const WithOnChange = () => (
-    <Radio
-        name="Ex"
-        label="Radio"
-        value="default"
-        onChange={window.onChange}
-    />
+    <Radio name="Ex" label="Radio" value="default" onChange={window.onChange} />
 )
 export const WithInitialFocusAndOnBlur = () => (
     <Radio

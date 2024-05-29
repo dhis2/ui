@@ -1,5 +1,5 @@
-import { Button } from '@dhis2-ui/button'
 import { spacers } from '@dhis2/ui-constants'
+import { Button } from '@dhis2-ui/button'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { IconMoveDown, IconMoveUp } from './icons.js'

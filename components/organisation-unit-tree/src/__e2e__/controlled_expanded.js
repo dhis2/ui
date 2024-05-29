@@ -1,7 +1,7 @@
 import { Button } from '@dhis2-ui/button'
 import React, { useState } from 'react'
 import { OrganisationUnitTree, getAllExpandedOrgUnitPaths } from '../index.js'
-import { createDecoratorCustomDataProvider, namespace } from './common.js'
+import { createDecoratorCustomDataProvider } from './common.js'
 
 window.initiallyExpandedPaths = ['/A0000000000/A0000000001']
 window.orgUnitPathToExpand = '/A0000000000/A0000000001'

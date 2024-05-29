@@ -1,3 +1,4 @@
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import { Box } from '@dhis2-ui/box'
 import { Button, ButtonStrip } from '@dhis2-ui/button'
 import {
@@ -8,7 +9,6 @@ import {
 } from '@dhis2-ui/menu'
 import { SingleSelect, SingleSelectOption } from '@dhis2-ui/select'
 import { Tooltip } from '@dhis2-ui/tooltip'
-import { sharedPropTypes } from '@dhis2/ui-constants'
 import React, { useEffect, useState } from 'react'
 import { ModalActions, ModalContent, ModalTitle } from '../index.js'
 import { Modal } from './modal.js'

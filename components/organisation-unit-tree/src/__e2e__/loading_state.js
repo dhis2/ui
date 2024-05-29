@@ -5,7 +5,6 @@ import {
     StatefulMultiSelectionWrapper,
     dataProviderData,
     delayResponse,
-    namespace,
 } from './common.js'
 
 const data = {

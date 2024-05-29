@@ -1,6 +1,6 @@
-import { StatusIcon } from '@dhis2-ui/status-icon'
 import { requiredIf } from '@dhis2/prop-types'
 import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
+import { StatusIcon } from '@dhis2-ui/status-icon'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Loading as CommonLoading, Select } from '../select/index.js'

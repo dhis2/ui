@@ -15,8 +15,14 @@ export { ForceReloading } from './__e2e__/force_reload.js'
 export { RootHighlighted } from './__e2e__/highlight.js'
 export { A0000000001Loading } from './__e2e__/loading_state.js'
 export { MultipleSelection } from './__e2e__/multi_selection.js'
-export { NoSelectionClosed, NoSelectionRootOpened } from './__e2e__/no_selection.js'
-export { FilteredBy3LevelPath, FilteredBy3LevelPathAnd2LevelPath } from './__e2e__/path_based_filtering.js'
+export {
+    NoSelectionClosed,
+    NoSelectionRootOpened,
+} from './__e2e__/no_selection.js'
+export {
+    FilteredBy3LevelPath,
+    FilteredBy3LevelPathAnd2LevelPath,
+} from './__e2e__/path_based_filtering.js'
 export { SingleSelection } from './__e2e__/single_selection.js'
 export { MultipleRootSubAndOneMainOrgUnit } from './__e2e__/sub_unit_as_root.js'
 export { Events } from './__e2e__/tree_api.js'

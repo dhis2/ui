@@ -1,5 +1,5 @@
-import { StatusIcon } from '@dhis2-ui/status-icon'
 import { theme, colors, spacers, sharedPropTypes } from '@dhis2/ui-constants'
+import { StatusIcon } from '@dhis2-ui/status-icon'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
