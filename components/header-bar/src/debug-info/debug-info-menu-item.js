@@ -1,5 +1,5 @@
-import { MenuItem } from '@dhis2-ui/menu'
 import { colors } from '@dhis2/ui-constants'
+import { MenuItem } from '@dhis2-ui/menu'
 import PropTypes from 'prop-types'
 import React from 'react'
 import i18n from '../locales/index.js'

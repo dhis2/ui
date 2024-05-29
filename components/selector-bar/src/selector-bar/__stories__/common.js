@@ -1,7 +1,7 @@
-import { Menu, MenuItem } from '@dhis2-ui/menu'
-import { OrganisationUnitTree } from '@dhis2-ui/organisation-unit-tree'
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
+import { Menu, MenuItem } from '@dhis2-ui/menu'
+import { OrganisationUnitTree } from '@dhis2-ui/organisation-unit-tree'
 import React, { useState } from 'react'
 
 export const decoratorCommonStyles = (fn) => (

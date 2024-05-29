@@ -10,4 +10,6 @@ export const WithLabelAndRequired = () => (
         required
     />
 )
-export const Default = () => <FileInputField name="upload" label="upload something" />
+export const Default = () => (
+    <FileInputField name="upload" label="upload something" />
+)

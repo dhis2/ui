@@ -5,6 +5,7 @@ import { DebugInfoModal } from './debug-info/debug-info-modal.js'
 import i18n from './locales/index.js'
 import { ProfileMenu } from './profile-menu/index.js'
 import { useOnDocClick } from './profile/use-on-doc-click.js'
+import { ProfileMenu } from './profile-menu/index.js'
 
 const Profile = ({ name, email, avatarId, helpUrl }) => {
     const [showProfileMenu, setShowProfileMenu] = useState(false)

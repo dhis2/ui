@@ -3,12 +3,7 @@ import { CheckboxField } from './index.js'
 
 export default { title: 'CheckboxField' }
 export const WithLabelAndRequired = () => (
-    <CheckboxField
-        name="Ex"
-        label="CheckboxField"
-        required
-        value="checked"
-    />
+    <CheckboxField name="Ex" label="CheckboxField" required value="checked" />
 )
 export const WithHelpText = () => (
     <CheckboxField

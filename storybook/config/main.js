@@ -1,4 +1,4 @@
-import { dirname, join } from "path";
+import { dirname, join } from 'path'
 const { babelConfig } = require('../src/babel-config.js')
 const { loadStories } = require('../src/load-stories.js')
 const { webpackConfig } = require('../src/webpack-config.js')
@@ -13,8 +13,8 @@ module.exports = {
             name: '@storybook/addon-storysource',
             options: { loaderOptions: { injectDecorator: false } },
         },
-        getAbsolutePath("@storybook/addon-a11y"),
-        getAbsolutePath("@storybook/preset-create-react-app"),
+        getAbsolutePath('@storybook/addon-a11y'),
+        getAbsolutePath('@storybook/preset-create-react-app'),
     ],
 
     stories: async (list) => [...(list || []), ...loadStories()],
@@ -22,13 +22,13 @@ module.exports = {
     webpackFinal: webpackConfig,
 
     framework: {
-        name: getAbsolutePath("@storybook/react-webpack5"),
-        options: {}
+        name: getAbsolutePath('@storybook/react-webpack5'),
+        options: {},
     },
 
     staticDirs: [join(__dirname, '../static')],
 }
 
 function getAbsolutePath(value) {
-    return dirname(require.resolve(join(value, "package.json")));
+    return dirname(require.resolve(join(value, 'package.json')))
 }

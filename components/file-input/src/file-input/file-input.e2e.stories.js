@@ -18,11 +18,7 @@ const onChange = (payload, event) => {
 
 export default { title: 'FileInput' }
 export const WithOnChange = () => (
-    <FileInput
-        onChange={onChange}
-        buttonLabel="Upload file"
-        name="upload"
-    />
+    <FileInput onChange={onChange} buttonLabel="Upload file" name="upload" />
 )
 export const WithOnChangeAndMultiple = () => (
     <FileInput

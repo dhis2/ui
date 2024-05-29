@@ -1,7 +1,7 @@
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import { Checkbox } from '@dhis2-ui/checkbox'
 import { Radio } from '@dhis2-ui/radio'
 import { Switch } from '@dhis2-ui/switch'
-import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
 import { FieldGroup } from './field-group.js'
 

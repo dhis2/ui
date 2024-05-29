@@ -1,6 +1,6 @@
+import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import { InputField } from '@dhis2-ui/input'
 import { Menu, MenuItem } from '@dhis2-ui/menu'
-import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import useSize from '@react-hook/size'
 import PropTypes from 'prop-types'
 import React, { useRef } from 'react'

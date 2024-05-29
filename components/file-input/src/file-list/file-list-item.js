@@ -1,6 +1,6 @@
-import { CircularLoader } from '@dhis2-ui/loader'
 import { theme, colors, spacers } from '@dhis2/ui-constants'
 import { IconAttachment16 } from '@dhis2/ui-icons'
+import { CircularLoader } from '@dhis2-ui/loader'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'

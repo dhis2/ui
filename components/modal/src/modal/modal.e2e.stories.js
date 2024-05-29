@@ -51,7 +51,7 @@ export const BottomAlignedWithOnClose = () => (
     </Modal>
 )
 export const WithChildren = () => <Modal>I am a child</Modal>
-  export const WithStatefulChildren = () => {
+export const WithStatefulChildren = () => {
     const [hide, setHide] = useState(false)
 
     return (

@@ -73,7 +73,9 @@ exports.loadStories = () => {
             )
 
             const fileTypeExtension = '@(js|jsx|mdx)'
-            const fileExtension = `${isTesting ? 'e2e.stories' : 'prod.stories'}`
+            const fileExtension = `${
+                isTesting ? 'e2e.stories' : 'prod.stories'
+            }`
 
             return [
                 `${COLLECTIONS_DIR}/*/src/**/*${fileExtension}.${fileTypeExtension}`,

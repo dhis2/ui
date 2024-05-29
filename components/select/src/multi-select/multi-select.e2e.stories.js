@@ -205,11 +205,7 @@ export const WithOptionsAndASelection = () => (
     </MultiSelect>
 )
 export const WithOptionsASelectionAndOnChange = () => (
-    <MultiSelect
-        className="select"
-        selected={['1']}
-        onChange={window.onChange}
-    >
+    <MultiSelect className="select" selected={['1']} onChange={window.onChange}>
         <MultiSelectOption value="1" label="option one" />
         <MultiSelectOption value="2" label="option two" />
         <MultiSelectOption value="3" label="option three" />
@@ -259,10 +255,10 @@ export const DefaultPosition = () => (
             <MultiSelectOption value="12" label="option twelve" />
         </MultiSelect>
         <style jsx>{`
-        :global(#root) {
-                    height: 2000px !important;
-                }
-            `}</style>
+            :global(#root) {
+                height: 2000px !important;
+            }
+        `}</style>
     </>
 )
 export const FlippedPosition = () => (
@@ -282,17 +278,17 @@ export const FlippedPosition = () => (
             <MultiSelectOption value="12" label="option twelve" />
         </MultiSelect>
         <style jsx>{`
-        :global(html),
-        :global(body),
-        :global(#root) {
-                    position: relative;
-                    height: 500px;
-                    max-height: 500px;
-                }
-                :global(#root) {
-                    padding-top: 400px !important;
-                }
-            `}</style>
+            :global(html),
+            :global(body),
+            :global(#root) {
+                position: relative;
+                height: 500px;
+                max-height: 500px;
+            }
+            :global(#root) {
+                padding-top: 400px !important;
+            }
+        `}</style>
     </>
 )
 export const ShiftedIntoView = () => (
@@ -312,17 +308,17 @@ export const ShiftedIntoView = () => (
             <MultiSelectOption value="12" label="option twelve" />
         </MultiSelect>
         <style jsx>{`
-        :global(html),
-        :global(body),
-        :global(#root) {
-                    position: relative;
-                    height: 300px !important;
-                    max-height: 300px;
-                }
-                :global(#root) {
-                    padding-top: 130px !important;
-                }
-            `}</style>
+            :global(html),
+            :global(body),
+            :global(#root) {
+                position: relative;
+                height: 300px !important;
+                max-height: 300px;
+            }
+            :global(#root) {
+                padding-top: 130px !important;
+            }
+        `}</style>
     </>
 )
 export const WithDuplicateSelectedOptionValues = () => (
@@ -350,10 +346,10 @@ export const WithOptionsThatCanBeAddedToTheInput = () => {
                 <MultiSelectOption value="3" label="option three" />
             </MultiSelect>
             <style jsx>{`
-            :global(#root) {
-                        height: 2000px !important;
-                    }
-                `}</style>
+                :global(#root) {
+                    height: 2000px !important;
+                }
+            `}</style>
         </>
     )
 }
@@ -379,9 +375,7 @@ export const MenuWidthChanging = () => {
                         <div style={{ flexGrow: 1 }}>
                             <MultiSelect
                                 onChange={({ selected }) =>
-                                        console.log(
-                                    'size changed to ' + selected
-                                )
+                                    console.log('size changed to ' + selected)
                                 }
                             >
                                 {options.map(({ name, id }) => (
@@ -405,9 +399,7 @@ export const MenuWidthChanging = () => {
                             </div>
                         )}
                     </div>
-                    <Button onClick={() => setToggle(!toggle)}>
-                        Toggle
-                    </Button>
+                    <Button onClick={() => setToggle(!toggle)}>Toggle</Button>
                 </ModalContent>
             </Modal>
         </div>

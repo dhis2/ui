@@ -9,7 +9,7 @@ const defaultOptions = [{ value: 'initial', label: 'Initial' }]
 export default {
     title: 'Testing:SingleSelectFieldFF',
     decorators: [formDecorator],
-    parameters: { options: { showPanel: false } }
+    parameters: { options: { showPanel: false } },
 }
 export const Required = (_, { cypressProps }) => (
     <Field

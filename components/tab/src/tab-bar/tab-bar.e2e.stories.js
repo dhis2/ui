@@ -4,7 +4,7 @@ import { TabBar } from './index.js'
 
 export default { title: 'TabBar' }
 export const WithChildren = () => <TabBar>I am a child</TabBar>
-  export const ScrollableWithChildren = () => (
+export const ScrollableWithChildren = () => (
     <TabBar scrollable>I am a child</TabBar>
 )
 export const ScrollableWithSomeTabs = () => {

@@ -24,12 +24,7 @@ export const WithInitialFocusAndOnBlur = () => (
     />
 )
 export const WithOnFocus = () => (
-    <Switch
-        name="Ex"
-        label="Switch"
-        value="default"
-        onFocus={window.onFocus}
-    />
+    <Switch name="Ex" label="Switch" value="default" onFocus={window.onFocus} />
 )
 export const WithDisabled = () => (
     <Switch name="Ex" label="Switch" value="default" disabled />

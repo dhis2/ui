@@ -88,7 +88,7 @@ export const WithInitialFocus = () => (
     <SingleSelect className="select" initialFocus />
 )
 export const Empty = () => <SingleSelect className="select" />
-    export const EmptyWithEmptyText = () => (
+export const EmptyWithEmptyText = () => (
     <SingleSelect className="select" empty="Custom empty text" />
 )
 export const EmptyWithEmptyComponent = () => (
@@ -205,11 +205,7 @@ export const WithOptionsAndASelection = () => (
     </SingleSelect>
 )
 export const WithOptionsASelectionAndOnChange = () => (
-    <SingleSelect
-        className="select"
-        selected="1"
-        onChange={window.onChange}
-    >
+    <SingleSelect className="select" selected="1" onChange={window.onChange}>
         <SingleSelectOption value="1" label="option one" />
         <SingleSelectOption value="2" label="option two" />
         <SingleSelectOption value="3" label="option three" />
@@ -229,11 +225,7 @@ export const WithClearButtonSelectionAndOnChange = () => (
     </SingleSelect>
 )
 export const WithFilterField = () => (
-    <SingleSelect
-        filterable
-        noMatchText="No match found"
-        className="select"
-    >
+    <SingleSelect filterable noMatchText="No match found" className="select">
         <SingleSelectOption value="1" label="option one" />
         <SingleSelectOption value="2" label="option two" />
         <SingleSelectOption value="3" label="option three" />
@@ -256,10 +248,10 @@ export const DefaultPosition = () => (
             <SingleSelectOption value="12" label="option twelve" />
         </SingleSelect>
         <style jsx>{`
-        :global(#root) {
-                    margin-bottom: 2000px;
-                }
-            `}</style>
+            :global(#root) {
+                margin-bottom: 2000px;
+            }
+        `}</style>
     </>
 )
 export const FlippedPosition = () => (
@@ -279,17 +271,17 @@ export const FlippedPosition = () => (
             <SingleSelectOption value="12" label="option twelve" />
         </SingleSelect>
         <style jsx>{`
-        :global(html),
-        :global(body),
-        :global(#root) {
-                    position: relative;
-                    height: 500px;
-                    max-height: 500px;
-                }
-                :global(#root) {
-                    padding-top: 400px !important;
-                }
-            `}</style>
+            :global(html),
+            :global(body),
+            :global(#root) {
+                position: relative;
+                height: 500px;
+                max-height: 500px;
+            }
+            :global(#root) {
+                padding-top: 400px !important;
+            }
+        `}</style>
     </>
 )
 export const ShiftedIntoView = () => (
@@ -309,17 +301,17 @@ export const ShiftedIntoView = () => (
             <SingleSelectOption value="12" label="option twelve" />
         </SingleSelect>
         <style jsx>{`
-        :global(html),
-        :global(body),
-        :global(#root) {
-                    position: relative;
-                    height: 300px !important;
-                    max-height: 300px;
-                }
-                :global(#root) {
-                    padding-top: 130px !important;
-                }
-            `}</style>
+            :global(html),
+            :global(body),
+            :global(#root) {
+                position: relative;
+                height: 300px !important;
+                max-height: 300px;
+            }
+            :global(#root) {
+                padding-top: 130px !important;
+            }
+        `}</style>
     </>
 )
 export const WithDuplicateSelectedOptionValues = () => (
@@ -352,9 +344,7 @@ export const MenuWidthChanging = () => {
                         <div style={{ flexGrow: 1 }}>
                             <SingleSelect
                                 onChange={({ selected }) =>
-                                        console.log(
-                                    'size changed to ' + selected
-                                )
+                                    console.log('size changed to ' + selected)
                                 }
                             >
                                 {options.map(({ name, id }) => (
@@ -378,9 +368,7 @@ export const MenuWidthChanging = () => {
                             </div>
                         )}
                     </div>
-                    <Button onClick={() => setToggle(!toggle)}>
-                        Toggle
-                    </Button>
+                    <Button onClick={() => setToggle(!toggle)}>Toggle</Button>
                 </ModalContent>
             </Modal>
         </div>

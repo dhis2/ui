@@ -7,7 +7,7 @@ window.onRemove = window.Cypress && window.Cypress.cy.stub()
 export default { title: 'Chip' }
 export const Default = () => <Chip>Message</Chip>
 export const WithOnClick = () => <Chip onClick={window.onClick}>Chippy</Chip>
-  export const WithOnRemove = () => (
+export const WithOnRemove = () => (
     <Chip onRemove={window.onRemove}>Chipmunk</Chip>
 )
 export const WithChildren = () => <Chip>I am a child</Chip>

@@ -1,5 +1,5 @@
-import { useHighlightedOptions } from '../../transfer/use-highlighted-options.js'
 import { createToggleHighlightedOption } from '../../transfer/use-highlighted-options/create-toggle-highlighted-option.js'
+import { useHighlightedOptions } from '../../transfer/use-highlighted-options.js'
 
 jest.mock(
     '../../transfer/use-highlighted-options/create-toggle-highlighted-option.js',

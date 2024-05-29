@@ -1,5 +1,5 @@
-import { Input } from '@dhis2-ui/input'
 import { sharedPropTypes } from '@dhis2/ui-constants'
+import { Input } from '@dhis2-ui/input'
 import React from 'react'
 import { Field } from './field.js'
 

@@ -1,11 +1,7 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import React from 'react'
 import { OrganisationUnitTree } from '../index.js'
-import {
-    StatefulMultiSelectionWrapper,
-    dataProviderData,
-    namespace,
-} from './common.js'
+import { StatefulMultiSelectionWrapper, dataProviderData } from './common.js'
 
 window.allUnits = []
 for (let i = 0; i < 7; ++i) {
@@ -21,8 +17,8 @@ export const FilteredBy3LevelPath = () => (
                     onChange={onChange}
                     initiallyExpanded={[
                         '/A0000000000',
-                            '/A0000000000/A0000000001',
-                            '/A0000000000/A0000000002',
+                        '/A0000000000/A0000000001',
+                        '/A0000000000/A0000000002',
                     ]}
                     filter={['/A0000000000/A0000000001/A0000000003']}
                 />
@@ -39,12 +35,12 @@ export const FilteredBy3LevelPathAnd2LevelPath = () => (
                     onChange={onChange}
                     initiallyExpanded={[
                         '/A0000000000',
-                            '/A0000000000/A0000000001',
-                            '/A0000000000/A0000000002',
+                        '/A0000000000/A0000000001',
+                        '/A0000000000/A0000000002',
                     ]}
                     filter={[
                         '/A0000000000/A0000000001/A0000000003',
-                            '/A0000000000/A0000000002',
+                        '/A0000000000/A0000000002',
                     ]}
                 />
             )}

@@ -35,6 +35,7 @@
     },
     "dependencies": {
         "@dhis2/prop-types": "^3.1.2",
+        "@dhis2-ui/button": "9.10.1",
         "@dhis2-ui/checkbox": "9.10.1",
         "@dhis2-ui/loader": "9.10.1",
         "@dhis2-ui/node": "9.10.1",

@@ -1,11 +1,7 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import React from 'react'
 import { OrganisationUnitTree } from '../index.js'
-import {
-    StatefulMultiSelectionWrapper,
-    dataProviderData,
-    namespace,
-} from './common.js'
+import { StatefulMultiSelectionWrapper, dataProviderData } from './common.js'
 
 const data = {
     organisationUnits: (...args) => {

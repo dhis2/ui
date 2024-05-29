@@ -1,6 +1,6 @@
-import { Button } from '@dhis2-ui/button'
 import { spacers } from '@dhis2/ui-constants'
 import { IconChevronLeft16, IconChevronRight16 } from '@dhis2/ui-icons'
+import { Button } from '@dhis2-ui/button'
 import PropTypes from 'prop-types'
 import React from 'react'
 

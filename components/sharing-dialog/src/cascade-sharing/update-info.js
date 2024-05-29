@@ -1,5 +1,5 @@
-import { NoticeBox } from '@dhis2-ui/notice-box'
 import { useDataQuery } from '@dhis2/app-runtime'
+import { NoticeBox } from '@dhis2-ui/notice-box'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { getVisualizationsCount, getInfoMessage } from './helpers.js'

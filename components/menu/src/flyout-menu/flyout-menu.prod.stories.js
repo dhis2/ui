@@ -1,7 +1,7 @@
+import { IconChevronDown16 } from '@dhis2/ui-icons'
 import { Layer } from '@dhis2-ui/layer'
 import { MenuDivider, MenuItem, MenuSectionHeader } from '@dhis2-ui/menu'
 import { Popper } from '@dhis2-ui/popper'
-import { IconChevronDown16 } from '@dhis2/ui-icons'
 import React, { useState, useRef } from 'react'
 import { FlyoutMenu } from './flyout-menu.js'
 

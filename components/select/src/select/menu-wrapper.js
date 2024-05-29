@@ -1,6 +1,6 @@
+import { colors, elevations } from '@dhis2/ui-constants'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
-import { colors, elevations } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 

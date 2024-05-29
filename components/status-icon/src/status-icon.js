@@ -1,10 +1,10 @@
-import { CircularLoader } from '@dhis2-ui/loader'
 import { theme } from '@dhis2/ui-constants'
 import {
     IconErrorFilled24,
     IconWarningFilled24,
     IconCheckmark24,
 } from '@dhis2/ui-icons'
+import { CircularLoader } from '@dhis2-ui/loader'
 import PropTypes from 'prop-types'
 import React from 'react'
 

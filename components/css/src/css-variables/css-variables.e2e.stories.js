@@ -38,9 +38,6 @@ export const WithSpacers = () => (
 export const WithElevations = () => (
     <React.Fragment>
         <CssVariables elevations />
-        <div
-            id="custom"
-            style={{ boxShadow: 'var(--elevations-e100)' }}
-        ></div>
+        <div id="custom" style={{ boxShadow: 'var(--elevations-e100)' }}></div>
     </React.Fragment>
 )

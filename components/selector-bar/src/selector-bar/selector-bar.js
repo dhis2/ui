@@ -1,5 +1,5 @@
-import { Button } from '@dhis2-ui/button'
 import { colors, spacers } from '@dhis2/ui-constants'
+import { Button } from '@dhis2-ui/button'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useRef, useState, useEffect } from 'react'

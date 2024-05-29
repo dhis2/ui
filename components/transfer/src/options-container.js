@@ -1,5 +1,5 @@
-import { CircularLoader } from '@dhis2-ui/loader'
 import { spacers } from '@dhis2/ui-constants'
+import { CircularLoader } from '@dhis2-ui/loader'
 import PropTypes from 'prop-types'
 import React, { Fragment, useRef } from 'react'
 import { EndIntersectionDetector } from './end-intersection-detector.js'
