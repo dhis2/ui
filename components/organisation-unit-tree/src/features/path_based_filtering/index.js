@@ -1,4 +1,4 @@
-import { Before, Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Before, Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Before(() => {
     cy.wrap([]).as('displayedUnits')
@@ -79,7 +79,7 @@ Then('the second node on the first level is visible', () => {
     addDisplayedUnit('A0000000002')
 })
 
-Then('all other nodes are not rendered', async () => {
+Then('all other nodes are not rendered', () => {
     cy.get('@displayedUnits').then((displayedUnits) => {
         cy.window().then((win) => {
             const excludedUnitNumbers = win.allUnits

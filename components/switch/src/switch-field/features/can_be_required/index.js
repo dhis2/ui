@@ -1,4 +1,4 @@
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a SwitchField with label and a required flag is rendered', () => {
     cy.visitStory('SwitchField', 'With label and required')

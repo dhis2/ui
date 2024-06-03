@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Pagination`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { Pagination } from '@dhis2-ui/pagination'
+import { Pagination } from '@dhis2/ui'
 ```
 
 

@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/ui-root",
-    "version": "9.4.2",
+    "version": "9.5.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/dhis2/ui.git"
@@ -9,8 +9,7 @@
     "contributors": [
         {
             "name": "Jan-Gerke Salomon",
-            "email": "jan-gerke@dhis2.org",
-            "url": "http://functionalprogramming.ninja"
+            "email": "jan-gerke@dhis2.org"
         }
     ],
     "license": "BSD-3-Clause",
@@ -28,9 +27,11 @@
     "scripts": {
         "setup": "./scripts/setup.js",
         "build": "./scripts/build-world.sh",
+        "build:legacy": "NODE_OPTIONS=--openssl-legacy-provider ./scripts/build-world.sh",
         "build:lib": "./scripts/build.js",
         "build:docs": "./scripts/build-docs.js",
         "build:api": "./scripts/generate-api-docs.js",
+        "cy:start:legacy": "NODE_OPTIONS=--openssl-legacy-provider yarn cy:start",
         "cy:start": "yarn build:lib && STORYBOOK_TESTING=1 yarn start",
         "cy:open": "wait-on 'http://localhost:5000' && cypress open",
         "cy:run": "wait-on 'http://localhost:5000' && cypress run",
@@ -41,18 +42,29 @@
         "lint:staged": "d2-style check --staged",
         "test": "d2-app-scripts test",
         "start": "yarn workspace ui-storybook start",
+        "start:legacy": "NODE_OPTIONS=--openssl-legacy-provider yarn workspace ui-storybook start",
         "start:docs": "yarn workspace ui-docusaurus start"
     },
     "dependencies": {
+        "@dhis2/d2-i18n": "^1.1.0",
+        "react": "16.13",
+        "react-dom": "16.13",
+        "react-scripts": "^4.0.3",
+        "styled-jsx": "^4.0.1"
+    },
+    "peerDependencies": {
+        "@types/react": ">=16.14.0"
+    },
+    "devDependencies": {
         "@babel/parser": "^7.17.0",
+        "@badeball/cypress-cucumber-preprocessor": "^20.0.2",
+        "@cypress/webpack-preprocessor": "^6.0.1",
         "@dhis2/app-runtime": "^3.9.0",
         "@dhis2/cli-app-scripts": "^8.0.0",
         "@dhis2/cli-style": "10.4.2",
-        "@dhis2/cli-utils-cypress": "^8.0.3",
         "@dhis2/cli-utils-docsite": "^3.1.2",
-        "@dhis2/cypress-commands": "^9.0.2",
-        "@dhis2/cypress-plugins": "^9.0.2",
-        "@dhis2/d2-i18n": "^1.1.0",
+        "@dhis2/cypress-commands": "^10.0.5",
+        "@dhis2/cypress-plugins": "^10.0.5",
         "@manypkg/cli": "^0.18.0",
         "@svgr/cli": "^5.5.0",
         "@testing-library/jest-dom": "^5.16.1",
@@ -61,22 +73,15 @@
         "@testing-library/user-event": "^13.5.0",
         "ast-types": "^0.14.2",
         "concurrently": "^6.2.1",
-        "cypress": "^9.5.0",
+        "cypress": "^13.8.0",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.6",
         "execa": "^5.1.1",
         "fast-glob": "^3.2.7",
         "find-up": "^5.0.0",
-        "react": "16.13",
         "react-dev-utils": "^10.2.1",
         "react-docgen": "^5.4.0",
-        "react-dom": "16.13",
-        "react-scripts": "^4.0.3",
         "rimraf": "^3.0.2",
-        "styled-jsx": "^4.0.1",
         "wait-on": "^6.0.0"
-    },
-    "peerDependencies": {
-        "@types/react": ">=16.14.0"
     }
 }

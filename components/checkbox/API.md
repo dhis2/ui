@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Checkbox`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { Checkbox } from '@dhis2-ui/checkbox'
+import { Checkbox } from '@dhis2/ui'
 ```
 
 
@@ -37,11 +37,11 @@ import { Checkbox } from '@dhis2-ui/checkbox'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `CheckboxField`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { CheckboxField } from '@dhis2-ui/checkbox'
+import { CheckboxField } from '@dhis2/ui'
 ```
 
 

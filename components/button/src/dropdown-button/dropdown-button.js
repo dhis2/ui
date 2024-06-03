@@ -69,6 +69,22 @@ class DropdownButton extends Component {
 
     anchorRef = React.createRef()
 
+    componentDidMount() {
+        document.addEventListener('keydown', this.handleKeyDown)
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('keydown', this.handleKeyDown)
+    }
+
+    handleKeyDown = (event) => {
+        event.preventDefault()
+        if (event.key === 'Escape' && this.state.open) {
+            event.stopPropagation()
+            this.setState({ open: false })
+        }
+    }
+
     onClickHandler = ({ name, value }, event) => {
         const handleClick = (open) => {
             if (this.props.onClick) {
@@ -133,6 +149,7 @@ class DropdownButton extends Component {
                     tabIndex={tabIndex}
                     type={type}
                     initialFocus={initialFocus}
+                    data-test="dhis2-uicore-dropdownbutton-toggle"
                 >
                     {children}
                     <ArrowIconComponent className={arrow.className} />

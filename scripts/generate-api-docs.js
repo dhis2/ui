@@ -11,7 +11,7 @@ const RE_OBJECTOF =
     /(?:React\.)?(?:PropTypes\.)?objectOf\((?:React\.)?(?:PropTypes\.)?(\w+)\)/
 
 const format_type = (type) => {
-    switch (type.name.toLowerCase()) {
+    switch (type?.name.toLowerCase()) {
         case 'instanceof': {
             return `instanceOf(${type.value})`
         }
@@ -66,7 +66,7 @@ const format_type = (type) => {
             return JSON.stringify(rst, null, 2).replace(/\n/g, '<br/>')
         }
         default: {
-            return `${type.name}`
+            return `${type?.name}`
         }
     }
 }
@@ -76,12 +76,16 @@ const format = ({ ast, pkg }) => {
     table += `### ${ast.displayName}\n\n`
 
     if (pkg?.name) {
+        // alter Svg to Icon as the actually exported value is Icon, not Svg
+        const toDisplayName =
+            ast.displayName.indexOf('Svg') !== -1
+                ? ast.displayName.replace('Svg', 'Icon')
+                : ast.displayName
         table += '#### Usage\n\n'
-        table +=
-            '**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.\n\n'
+        table += `To use \`${toDisplayName}\`, you can import the component from the \`@dhis2/ui\` library  \n\n`
         table += `
 \`\`\`js
-import { ${ast.displayName} } from '${pkg.name}'
+import { ${toDisplayName} } from '@dhis2/ui'
 \`\`\`\n\n
 `
     }
@@ -96,7 +100,7 @@ import { ${ast.displayName} } from '${pkg.name}'
                     defaultValue ? `\`${defaultValue.value}\`` : ''
                 }`,
                 required: `${required ? '*' : ''}`,
-                description: description.replace(/\n/g, '<br/>'),
+                description: description?.replace(/\n/g, '<br/>') ?? '',
                 type: `${format_type(type)}`,
             })
         )

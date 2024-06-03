@@ -1,5 +1,4 @@
-import '../common/index.js'
-import { Given, Then, When } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then, When } from '@badeball/cypress-cucumber-preprocessor'
 
 Given(
     'the HeaderBar loads without an error and the user does not have an avatar',
