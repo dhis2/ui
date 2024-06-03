@@ -14,7 +14,7 @@ import { Switch } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|ariaLabel|string|||Sets an aria-label attribute on the input|
+|aria-label|string|||Sets an aria-label attribute on the input|
 |checked|boolean|`false`|||
 |className|string||||
 |dataTest|string|`'dhis2-uicore-switch'`|||
