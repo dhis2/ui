@@ -49,7 +49,7 @@
         "@dhis2-ui/organisation-unit-tree": "9.7.0",
         "@dhis2-ui/select": "9.7.0",
         "@dhis2/d2-i18n": "^1.1.0",
-        "@testing-library/jest-dom": "^5.16.1",
+        "@testing-library/jest-dom": "^6.4.5",
         "react": "16.13",
         "react-dom": "16.13",
         "styled-jsx": "^4.0.1"
