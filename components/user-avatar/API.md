@@ -15,6 +15,7 @@ import { UserAvatar } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |name|string||*||
+|ariaLabel|string||||
 |avatarId|string||||
 |className|string||||
 |dataTest|string|`'dhis2-uicore-useravatar'`|||

@@ -1929,6 +1929,7 @@ import { SelectorBar } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|any||*||
 |additionalContent|any||||
+|ariaLabel|string||||
 |className|string||||
 |dataTest|string|`'dhis2-ui-selectorbar'`|||
 |disableClearSelections|boolean||||
@@ -2999,6 +3000,7 @@ import { UserAvatar } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |name|string||*||
+|ariaLabel|string||||
 |avatarId|string||||
 |className|string||||
 |dataTest|string|`'dhis2-uicore-useravatar'`|||

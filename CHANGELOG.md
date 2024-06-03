@@ -1,3 +1,11 @@
+# [9.6.0](https://github.com/dhis2/ui/compare/v9.5.0...v9.6.0) (2024-06-03)
+
+
+### Features
+
+* accessibility on dropdown button ([#1460](https://github.com/dhis2/ui/issues/1460)) ([51750ea](https://github.com/dhis2/ui/commit/51750ea88450d587066127d0bf7592494234bca4))
+* **selectionBar:** accessibility improvements for SelectionBar ([#1475](https://github.com/dhis2/ui/issues/1475)) ([b43882c](https://github.com/dhis2/ui/commit/b43882c93e7c4dc0b514560f2a1ee37bb2bad72f))
+
 # [9.5.0](https://github.com/dhis2/ui/compare/v9.4.9...v9.5.0) (2024-05-29)
 
 
