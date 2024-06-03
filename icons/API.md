@@ -16,6 +16,7 @@ import { IconAdd16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgAdd24
 
@@ -35,6 +36,7 @@ import { IconAdd24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgAddCircle16
 
@@ -54,6 +56,7 @@ import { IconAddCircle16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgAddCircle24
 
@@ -73,6 +76,7 @@ import { IconAddCircle24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgApps16
 
@@ -92,6 +96,7 @@ import { IconApps16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgApps24
 
@@ -111,6 +116,7 @@ import { IconApps24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgArchive16
 
@@ -130,6 +136,7 @@ import { IconArchive16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgArchive24
 
@@ -149,6 +156,7 @@ import { IconArchive24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgArrowDown16
 
@@ -168,6 +176,7 @@ import { IconArrowDown16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgArrowDown24
 
@@ -187,6 +196,7 @@ import { IconArrowDown24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgArrowLeft16
 
@@ -206,6 +216,7 @@ import { IconArrowLeft16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgArrowLeft24
 
@@ -225,6 +236,7 @@ import { IconArrowLeft24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgArrowLeftMulti16
 
@@ -244,6 +256,7 @@ import { IconArrowLeftMulti16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgArrowLeftMulti24
 
@@ -263,6 +276,7 @@ import { IconArrowLeftMulti24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgArrowRight16
 
@@ -282,6 +296,7 @@ import { IconArrowRight16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgArrowRight24
 
@@ -301,6 +316,7 @@ import { IconArrowRight24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgArrowRightMulti16
 
@@ -320,6 +336,7 @@ import { IconArrowRightMulti16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgArrowRightMulti24
 
@@ -339,6 +356,7 @@ import { IconArrowRightMulti24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgArrowUp16
 
@@ -358,6 +376,7 @@ import { IconArrowUp16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgArrowUp24
 
@@ -377,6 +396,7 @@ import { IconArrowUp24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgAt16
 
@@ -396,6 +416,7 @@ import { IconAt16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgAt24
 
@@ -415,6 +436,7 @@ import { IconAt24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgAttachment16
 
@@ -434,6 +456,7 @@ import { IconAttachment16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgAttachment24
 
@@ -453,6 +476,7 @@ import { IconAttachment24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgBlock16
 
@@ -472,6 +496,7 @@ import { IconBlock16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgBlock24
 
@@ -491,6 +516,7 @@ import { IconBlock24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgCalendar16
 
@@ -510,6 +536,7 @@ import { IconCalendar16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgCalendar24
 
@@ -529,6 +556,7 @@ import { IconCalendar24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgCheckmark12
 
@@ -548,6 +576,7 @@ import { IconCheckmark12 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgCheckmark16
 
@@ -567,6 +596,7 @@ import { IconCheckmark16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgCheckmark24
 
@@ -586,6 +616,7 @@ import { IconCheckmark24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgCheckmarkCircle16
 
@@ -605,6 +636,7 @@ import { IconCheckmarkCircle16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgCheckmarkCircle24
 
@@ -624,6 +656,7 @@ import { IconCheckmarkCircle24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgChevronDown16
 
@@ -643,6 +676,7 @@ import { IconChevronDown16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgChevronDown24
 
@@ -662,6 +696,7 @@ import { IconChevronDown24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgChevronLeft16
 
@@ -681,6 +716,7 @@ import { IconChevronLeft16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgChevronLeft24
 
@@ -700,6 +736,7 @@ import { IconChevronLeft24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgChevronRight16
 
@@ -719,6 +756,7 @@ import { IconChevronRight16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgChevronRight24
 
@@ -738,6 +776,7 @@ import { IconChevronRight24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgChevronUp16
 
@@ -757,6 +796,7 @@ import { IconChevronUp16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgChevronUp24
 
@@ -776,6 +816,7 @@ import { IconChevronUp24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgClock16
 
@@ -795,6 +836,7 @@ import { IconClock16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgClock24
 
@@ -814,6 +856,7 @@ import { IconClock24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgClockHistory16
 
@@ -833,6 +876,7 @@ import { IconClockHistory16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgClockHistory24
 
@@ -852,6 +896,7 @@ import { IconClockHistory24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgColor16
 
@@ -871,6 +916,7 @@ import { IconColor16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgColor24
 
@@ -890,6 +936,7 @@ import { IconColor24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgCopy16
 
@@ -909,6 +956,7 @@ import { IconCopy16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgCopy24
 
@@ -928,6 +976,7 @@ import { IconCopy24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgCross16
 
@@ -947,6 +996,7 @@ import { IconCross16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgCross24
 
@@ -966,6 +1016,7 @@ import { IconCross24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgDashboardWindow16
 
@@ -985,6 +1036,7 @@ import { IconDashboardWindow16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgDashboardWindow24
 
@@ -1004,6 +1056,7 @@ import { IconDashboardWindow24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgDataInteger16
 
@@ -1023,6 +1076,7 @@ import { IconDataInteger16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgDataInteger24
 
@@ -1042,6 +1096,7 @@ import { IconDataInteger24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgDataString16
 
@@ -1061,6 +1116,7 @@ import { IconDataString16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgDataString24
 
@@ -1080,6 +1136,7 @@ import { IconDataString24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgDelete16
 
@@ -1099,6 +1156,7 @@ import { IconDelete16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgDelete24
 
@@ -1118,6 +1176,7 @@ import { IconDelete24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgDimensionCategoryOptionGroupset16
 
@@ -1137,6 +1196,7 @@ import { IconDimensionCategoryOptionGroupset16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgDimensionData16
 
@@ -1156,6 +1216,7 @@ import { IconDimensionData16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgDimensionDataElementGroupset16
 
@@ -1175,6 +1236,7 @@ import { IconDimensionDataElementGroupset16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgDimensionDataSet16
 
@@ -1194,6 +1256,7 @@ import { IconDimensionDataSet16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgDimensionEventDataItem16
 
@@ -1213,6 +1276,7 @@ import { IconDimensionEventDataItem16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgDimensionIndicator16
 
@@ -1232,6 +1296,7 @@ import { IconDimensionIndicator16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgDimensionOrgUnit16
 
@@ -1251,6 +1316,7 @@ import { IconDimensionOrgUnit16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgDimensionOrgUnitGroupset16
 
@@ -1270,6 +1336,7 @@ import { IconDimensionOrgUnitGroupset16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgDimensionProgramIndicator16
 
@@ -1289,6 +1356,7 @@ import { IconDimensionProgramIndicator16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgDimensionValidationRule16
 
@@ -1308,6 +1376,7 @@ import { IconDimensionValidationRule16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgDirectionNorth16
 
@@ -1327,6 +1396,7 @@ import { IconDirectionNorth16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgDirectionNorth24
 
@@ -1346,6 +1416,7 @@ import { IconDirectionNorth24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgDownload16
 
@@ -1365,6 +1436,7 @@ import { IconDownload16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgDownload24
 
@@ -1384,6 +1456,7 @@ import { IconDownload24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgDragHandle16
 
@@ -1403,6 +1476,7 @@ import { IconDragHandle16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgDragHandle24
 
@@ -1422,6 +1496,7 @@ import { IconDragHandle24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgDuplicate16
 
@@ -1441,6 +1516,7 @@ import { IconDuplicate16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgDuplicate24
 
@@ -1460,6 +1536,7 @@ import { IconDuplicate24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgEdit16
 
@@ -1479,6 +1556,7 @@ import { IconEdit16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgEdit24
 
@@ -1498,6 +1576,7 @@ import { IconEdit24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgEditItems16
 
@@ -1517,6 +1596,7 @@ import { IconEditItems16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgEditItems24
 
@@ -1536,6 +1616,7 @@ import { IconEditItems24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgEmptyFrame16
 
@@ -1555,6 +1636,7 @@ import { IconEmptyFrame16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgEmptyFrame24
 
@@ -1574,6 +1656,7 @@ import { IconEmptyFrame24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgError16
 
@@ -1593,6 +1676,7 @@ import { IconError16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgError24
 
@@ -1612,6 +1696,7 @@ import { IconError24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgErrorFilled16
 
@@ -1631,6 +1716,7 @@ import { IconErrorFilled16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgErrorFilled24
 
@@ -1650,6 +1736,7 @@ import { IconErrorFilled24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgExportItems24
 
@@ -1669,6 +1756,7 @@ import { IconExportItems24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgFaceAdd16
 
@@ -1688,6 +1776,7 @@ import { IconFaceAdd16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgFaceAdd24
 
@@ -1707,6 +1796,7 @@ import { IconFaceAdd24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgFile16
 
@@ -1726,6 +1816,7 @@ import { IconFile16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgFile24
 
@@ -1745,6 +1836,7 @@ import { IconFile24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgFileDocument16
 
@@ -1764,6 +1856,7 @@ import { IconFileDocument16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgFileDocument24
 
@@ -1783,6 +1876,7 @@ import { IconFileDocument24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgFilter16
 
@@ -1802,6 +1896,7 @@ import { IconFilter16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgFilter24
 
@@ -1821,6 +1916,7 @@ import { IconFilter24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgFlag16
 
@@ -1840,6 +1936,7 @@ import { IconFlag16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgFlag24
 
@@ -1859,6 +1956,7 @@ import { IconFlag24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgFolder16
 
@@ -1878,6 +1976,7 @@ import { IconFolder16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgFolder24
 
@@ -1897,6 +1996,7 @@ import { IconFolder24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgFolderOpen16
 
@@ -1916,6 +2016,7 @@ import { IconFolderOpen16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgFolderOpen24
 
@@ -1935,6 +2036,7 @@ import { IconFolderOpen24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgFullscreen16
 
@@ -1954,6 +2056,7 @@ import { IconFullscreen16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgFullscreen24
 
@@ -1973,6 +2076,7 @@ import { IconFullscreen24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgFullscreenExit16
 
@@ -1992,6 +2096,7 @@ import { IconFullscreenExit16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgFullscreenExit24
 
@@ -2011,6 +2116,7 @@ import { IconFullscreenExit24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgHome16
 
@@ -2030,6 +2136,7 @@ import { IconHome16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgHome24
 
@@ -2049,6 +2156,7 @@ import { IconHome24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgImage16
 
@@ -2068,6 +2176,7 @@ import { IconImage16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgImage24
 
@@ -2087,6 +2196,7 @@ import { IconImage24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgImportItems24
 
@@ -2106,6 +2216,7 @@ import { IconImportItems24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgInfo16
 
@@ -2125,6 +2236,7 @@ import { IconInfo16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgInfo24
 
@@ -2144,6 +2256,7 @@ import { IconInfo24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgInfoFilled16
 
@@ -2163,6 +2276,7 @@ import { IconInfoFilled16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgInfoFilled24
 
@@ -2182,6 +2296,7 @@ import { IconInfoFilled24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgLaunch16
 
@@ -2201,6 +2316,7 @@ import { IconLaunch16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgLaunch24
 
@@ -2220,6 +2336,7 @@ import { IconLaunch24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgLayoutColumns16
 
@@ -2239,6 +2356,7 @@ import { IconLayoutColumns16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgLayoutColumns24
 
@@ -2258,6 +2376,7 @@ import { IconLayoutColumns24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgLayoutRows16
 
@@ -2277,6 +2396,7 @@ import { IconLayoutRows16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgLayoutRows24
 
@@ -2296,6 +2416,7 @@ import { IconLayoutRows24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgLegend16
 
@@ -2315,6 +2436,7 @@ import { IconLegend16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgLegend24
 
@@ -2334,6 +2456,7 @@ import { IconLegend24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgLink16
 
@@ -2353,6 +2476,7 @@ import { IconLink16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgLink24
 
@@ -2372,6 +2496,7 @@ import { IconLink24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgList16
 
@@ -2391,6 +2516,7 @@ import { IconList16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgList24
 
@@ -2410,6 +2536,7 @@ import { IconList24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgLocation16
 
@@ -2429,6 +2556,7 @@ import { IconLocation16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgLocation24
 
@@ -2448,6 +2576,7 @@ import { IconLocation24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgLock16
 
@@ -2467,6 +2596,7 @@ import { IconLock16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgLock24
 
@@ -2486,6 +2616,7 @@ import { IconLock24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgLockOpen16
 
@@ -2505,6 +2636,7 @@ import { IconLockOpen16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgLockOpen24
 
@@ -2524,6 +2656,7 @@ import { IconLockOpen24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgLogOut16
 
@@ -2543,6 +2676,7 @@ import { IconLogOut16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgLogOut24
 
@@ -2562,6 +2696,7 @@ import { IconLogOut24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgMail16
 
@@ -2581,6 +2716,7 @@ import { IconMail16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgMail24
 
@@ -2600,6 +2736,7 @@ import { IconMail24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgMailOpen16
 
@@ -2619,6 +2756,7 @@ import { IconMailOpen16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgMailOpen24
 
@@ -2638,6 +2776,7 @@ import { IconMailOpen24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgMessages16
 
@@ -2657,6 +2796,7 @@ import { IconMessages16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgMessages24
 
@@ -2676,6 +2816,7 @@ import { IconMessages24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgMore16
 
@@ -2695,6 +2836,7 @@ import { IconMore16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgMore24
 
@@ -2714,6 +2856,7 @@ import { IconMore24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgMove16
 
@@ -2733,6 +2876,7 @@ import { IconMove16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgMove24
 
@@ -2752,6 +2896,7 @@ import { IconMove24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgPushLeft16
 
@@ -2771,6 +2916,7 @@ import { IconPushLeft16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgPushLeft24
 
@@ -2790,6 +2936,7 @@ import { IconPushLeft24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgPushRight16
 
@@ -2809,6 +2956,7 @@ import { IconPushRight16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgPushRight24
 
@@ -2828,6 +2976,7 @@ import { IconPushRight24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgQuestion16
 
@@ -2847,6 +2996,7 @@ import { IconQuestion16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgQuestion24
 
@@ -2866,6 +3016,7 @@ import { IconQuestion24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgQuestionFilled16
 
@@ -2885,6 +3036,7 @@ import { IconQuestionFilled16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgQuestionFilled24
 
@@ -2904,6 +3056,7 @@ import { IconQuestionFilled24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgQueue16
 
@@ -2923,6 +3076,7 @@ import { IconQueue16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgQueue24
 
@@ -2942,6 +3096,7 @@ import { IconQueue24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgRedo16
 
@@ -2961,6 +3116,7 @@ import { IconRedo16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgRedo24
 
@@ -2980,6 +3136,7 @@ import { IconRedo24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgReorder16
 
@@ -2999,6 +3156,7 @@ import { IconReorder16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgReorder24
 
@@ -3018,6 +3176,7 @@ import { IconReorder24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgReply16
 
@@ -3037,6 +3196,7 @@ import { IconReply16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgReply24
 
@@ -3056,6 +3216,7 @@ import { IconReply24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgRuler16
 
@@ -3075,6 +3236,7 @@ import { IconRuler16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgRuler24
 
@@ -3094,6 +3256,7 @@ import { IconRuler24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgSave16
 
@@ -3113,6 +3276,7 @@ import { IconSave16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgSave24
 
@@ -3132,6 +3296,7 @@ import { IconSave24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgSearch16
 
@@ -3151,6 +3316,7 @@ import { IconSearch16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgSearch24
 
@@ -3170,6 +3336,7 @@ import { IconSearch24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgSettings16
 
@@ -3189,6 +3356,7 @@ import { IconSettings16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgSettings24
 
@@ -3208,6 +3376,7 @@ import { IconSettings24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgShare16
 
@@ -3227,6 +3396,7 @@ import { IconShare16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgShare24
 
@@ -3246,6 +3416,7 @@ import { IconShare24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgStar16
 
@@ -3265,6 +3436,7 @@ import { IconStar16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgStar24
 
@@ -3284,6 +3456,7 @@ import { IconStar24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgStarFilled16
 
@@ -3303,6 +3476,7 @@ import { IconStarFilled16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgStarFilled24
 
@@ -3322,6 +3496,7 @@ import { IconStarFilled24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgSubscribe16
 
@@ -3341,6 +3516,7 @@ import { IconSubscribe16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgSubscribe24
 
@@ -3360,6 +3536,7 @@ import { IconSubscribe24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgSubscribeOff16
 
@@ -3379,6 +3556,7 @@ import { IconSubscribeOff16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgSubscribeOff24
 
@@ -3398,6 +3576,7 @@ import { IconSubscribeOff24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgSubtract16
 
@@ -3417,6 +3596,7 @@ import { IconSubtract16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgSubtract24
 
@@ -3436,6 +3616,7 @@ import { IconSubtract24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgSubtractCircle16
 
@@ -3455,6 +3636,7 @@ import { IconSubtractCircle16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgSubtractCircle24
 
@@ -3474,6 +3656,7 @@ import { IconSubtractCircle24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgSync16
 
@@ -3493,6 +3676,7 @@ import { IconSync16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgSync24
 
@@ -3512,6 +3696,7 @@ import { IconSync24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgTable16
 
@@ -3531,6 +3716,7 @@ import { IconTable16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgTable24
 
@@ -3550,6 +3736,7 @@ import { IconTable24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgTerminalWindow16
 
@@ -3569,6 +3756,7 @@ import { IconTerminalWindow16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgTerminalWindow24
 
@@ -3588,6 +3776,7 @@ import { IconTerminalWindow24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgTextBold16
 
@@ -3607,6 +3796,7 @@ import { IconTextBold16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgTextBold24
 
@@ -3626,6 +3816,7 @@ import { IconTextBold24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgTextBox16
 
@@ -3645,6 +3836,7 @@ import { IconTextBox16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgTextBox24
 
@@ -3664,6 +3856,7 @@ import { IconTextBox24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgTextHeading16
 
@@ -3683,6 +3876,7 @@ import { IconTextHeading16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgTextHeading24
 
@@ -3702,6 +3896,7 @@ import { IconTextHeading24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgTextItalic16
 
@@ -3721,6 +3916,7 @@ import { IconTextItalic16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgTextItalic24
 
@@ -3740,6 +3936,7 @@ import { IconTextItalic24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgTextListOrdered16
 
@@ -3759,6 +3956,7 @@ import { IconTextListOrdered16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgTextListOrdered24
 
@@ -3778,6 +3976,7 @@ import { IconTextListOrdered24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgTextListUnordered16
 
@@ -3797,6 +3996,7 @@ import { IconTextListUnordered16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgTextListUnordered24
 
@@ -3816,6 +4016,7 @@ import { IconTextListUnordered24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgThumbDown16
 
@@ -3835,6 +4036,7 @@ import { IconThumbDown16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgThumbDown24
 
@@ -3854,6 +4056,7 @@ import { IconThumbDown24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgThumbUp16
 
@@ -3873,6 +4076,7 @@ import { IconThumbUp16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgThumbUp24
 
@@ -3892,6 +4096,7 @@ import { IconThumbUp24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgTranslate16
 
@@ -3911,6 +4116,7 @@ import { IconTranslate16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgTranslate24
 
@@ -3930,6 +4136,7 @@ import { IconTranslate24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgUndo16
 
@@ -3949,6 +4156,7 @@ import { IconUndo16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgUndo24
 
@@ -3968,6 +4176,7 @@ import { IconUndo24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgUpload16
 
@@ -3987,6 +4196,7 @@ import { IconUpload16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgUpload24
 
@@ -4006,6 +4216,7 @@ import { IconUpload24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgUser16
 
@@ -4025,6 +4236,7 @@ import { IconUser16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgUser24
 
@@ -4044,6 +4256,7 @@ import { IconUser24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgUserGroup16
 
@@ -4063,6 +4276,7 @@ import { IconUserGroup16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgUserGroup24
 
@@ -4082,6 +4296,7 @@ import { IconUserGroup24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgView16
 
@@ -4101,6 +4316,7 @@ import { IconView16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgView24
 
@@ -4120,6 +4336,7 @@ import { IconView24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgViewOff16
 
@@ -4139,6 +4356,7 @@ import { IconViewOff16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgViewOff24
 
@@ -4158,6 +4376,7 @@ import { IconViewOff24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationArea16
 
@@ -4177,6 +4396,7 @@ import { IconVisualizationArea16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationArea24
 
@@ -4196,6 +4416,7 @@ import { IconVisualizationArea24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationAreaStacked16
 
@@ -4215,6 +4436,7 @@ import { IconVisualizationAreaStacked16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationAreaStacked24
 
@@ -4234,6 +4456,7 @@ import { IconVisualizationAreaStacked24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationBar16
 
@@ -4253,6 +4476,7 @@ import { IconVisualizationBar16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationBar24
 
@@ -4272,6 +4496,7 @@ import { IconVisualizationBar24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationBarStacked16
 
@@ -4291,6 +4516,7 @@ import { IconVisualizationBarStacked16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationBarStacked24
 
@@ -4310,6 +4536,7 @@ import { IconVisualizationBarStacked24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationColumn16
 
@@ -4329,6 +4556,7 @@ import { IconVisualizationColumn16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationColumn24
 
@@ -4348,6 +4576,7 @@ import { IconVisualizationColumn24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationColumnMulti16
 
@@ -4367,6 +4596,7 @@ import { IconVisualizationColumnMulti16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationColumnMulti24
 
@@ -4386,6 +4616,7 @@ import { IconVisualizationColumnMulti24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationColumnStacked16
 
@@ -4405,6 +4636,7 @@ import { IconVisualizationColumnStacked16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationColumnStacked24
 
@@ -4424,6 +4656,7 @@ import { IconVisualizationColumnStacked24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationGauge16
 
@@ -4443,6 +4676,7 @@ import { IconVisualizationGauge16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationGauge24
 
@@ -4462,6 +4696,7 @@ import { IconVisualizationGauge24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationLine16
 
@@ -4481,6 +4716,7 @@ import { IconVisualizationLine16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationLine24
 
@@ -4500,6 +4736,7 @@ import { IconVisualizationLine24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationLineMulti16
 
@@ -4519,6 +4756,7 @@ import { IconVisualizationLineMulti16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationLineMulti24
 
@@ -4538,6 +4776,7 @@ import { IconVisualizationLineMulti24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationLinelist16
 
@@ -4557,6 +4796,7 @@ import { IconVisualizationLinelist16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationLinelist24
 
@@ -4576,6 +4816,7 @@ import { IconVisualizationLinelist24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationOutlierTable16
 
@@ -4595,6 +4836,7 @@ import { IconVisualizationOutlierTable16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationOutlierTable24
 
@@ -4614,6 +4856,7 @@ import { IconVisualizationOutlierTable24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationPie16
 
@@ -4633,6 +4876,7 @@ import { IconVisualizationPie16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationPie24
 
@@ -4652,6 +4896,7 @@ import { IconVisualizationPie24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationPivotTable16
 
@@ -4671,6 +4916,7 @@ import { IconVisualizationPivotTable16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationPivotTable24
 
@@ -4690,6 +4936,7 @@ import { IconVisualizationPivotTable24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationRadar16
 
@@ -4709,6 +4956,7 @@ import { IconVisualizationRadar16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationRadar24
 
@@ -4728,6 +4976,7 @@ import { IconVisualizationRadar24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationScatter16
 
@@ -4747,6 +4996,7 @@ import { IconVisualizationScatter16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationScatter24
 
@@ -4766,6 +5016,7 @@ import { IconVisualizationScatter24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationSingleValue16
 
@@ -4785,6 +5036,7 @@ import { IconVisualizationSingleValue16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgVisualizationSingleValue24
 
@@ -4804,6 +5056,7 @@ import { IconVisualizationSingleValue24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgWarning16
 
@@ -4823,6 +5076,7 @@ import { IconWarning16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgWarning24
 
@@ -4842,6 +5096,7 @@ import { IconWarning24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgWarningFilled16
 
@@ -4861,6 +5116,7 @@ import { IconWarningFilled16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgWarningFilled24
 
@@ -4880,6 +5136,7 @@ import { IconWarningFilled24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgWindow16
 
@@ -4899,6 +5156,7 @@ import { IconWindow16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgWindow24
 
@@ -4918,6 +5176,7 @@ import { IconWindow24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgWorld16
 
@@ -4937,6 +5196,7 @@ import { IconWorld16 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
 
 ### SvgWorld24
 
@@ -4956,3 +5216,4 @@ import { IconWorld24 } from '@dhis2/ui'
 |---|---|---|---|---|
 |color|string||||
 |dataTest|string||||
+|ariaLabel|string||||
