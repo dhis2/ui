@@ -9,6 +9,7 @@ import {
     DASHBOARD,
     EVENT_VISUALIZATION,
     INTERPRETATION,
+    AGGREGATE_DATA_EXCHANGE,
 } from './constants.js'
 import { FetchingContext } from './fetching-context/index.js'
 import {
@@ -204,6 +205,7 @@ SharingDialog.propTypes = {
         DASHBOARD,
         EVENT_VISUALIZATION,
         INTERPRETATION,
+        AGGREGATE_DATA_EXCHANGE,
     ]).isRequired,
     dataTest: PropTypes.string,
     initialSharingSettings: PropTypes.shape({
