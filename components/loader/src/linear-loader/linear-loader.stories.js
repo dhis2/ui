@@ -24,11 +24,16 @@ export default {
         componentSubtitle: subtitle,
         docs: { description: { component: description } },
     },
-    argTypes: { margin: { table: { defaultValue: { summary: '12px' } } } },
+    argTypes: {
+        margin: { table: { defaultValue: { summary: '12px' } } },
+    },
 }
 
 export const Determinate = (args) => <LinearLoader {...args} />
-Determinate.args = { amount: 60 }
+Determinate.args = {
+    amount: 60,
+    'aria-label': 'Determinate Loader',
+}
 
 export const OverlayPage = (args) => (
     <Layer level={layers.blocking} translucent>
@@ -37,7 +42,7 @@ export const OverlayPage = (args) => (
         </Center>
     </Layer>
 )
-OverlayPage.args = { amount: 30 }
+OverlayPage.args = { amount: 30, 'aria-label': 'Loader with Overlay Page' }
 OverlayPage.parameters = { docs: { inlineStories: false } }
 
 export const OverlayComponent = (args) => (
@@ -49,7 +54,10 @@ export const OverlayComponent = (args) => (
         </Cover>
     </div>
 )
-OverlayComponent.args = { amount: 80 }
+OverlayComponent.args = {
+    amount: 80,
+    'aria-label': 'Loader with Overlay Component',
+}
 
 export const RTL = (args) => (
     <div dir="rtl">

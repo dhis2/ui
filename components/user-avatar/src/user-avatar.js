@@ -27,6 +27,7 @@ const UserAvatar = ({
     large,
     medium,
     small,
+    ariaLabel,
 }) => (
     <div
         className={cx(className, {
@@ -37,6 +38,8 @@ const UserAvatar = ({
             extralarge,
         })}
         data-test={dataTest}
+        aria-label={ariaLabel || name}
+        aria-hidden={!name}
     >
         {avatarId ? (
             <ImageAvatar avatarId={avatarId} dataTest={`${dataTest}-image`} />
@@ -90,6 +93,7 @@ UserAvatar.propTypes = {
     // SVG fallback with a `IconUser24`.
     // This has been discussed and deferred
     name: PropTypes.string.isRequired,
+    ariaLabel: PropTypes.string,
     avatarId: PropTypes.string,
     className: PropTypes.string,
     dataTest: PropTypes.string,

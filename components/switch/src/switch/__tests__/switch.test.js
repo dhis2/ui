@@ -28,4 +28,17 @@ describe('<Switch />', () => {
 
         expect(onKeyDown).toHaveBeenCalledTimes(1)
     })
+
+    it('renders the switch with aria label', () => {
+        const ariaLabel = 'test switch'
+        render(
+            <Switch
+                aria-label={ariaLabel}
+                name="foo"
+                value="bar"
+                checked={false}
+            />
+        )
+        expect(screen.getAllByLabelText(ariaLabel)).toHaveLength(1)
+    })
 })

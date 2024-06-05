@@ -944,6 +944,7 @@ import { CircularLoader } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
+|aria-label|string||||
 |className|string||||
 |dataTest|string|`'dhis2-uicore-circularloader'`|||
 |extrasmall|custom||||
@@ -968,6 +969,7 @@ import { LinearLoader } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |amount|number||*|The progression in percent without the '%' sign|
+|aria-label|string||||
 |className|string||||
 |dataTest|string|`'dhis2-uicore-linearloader'`|||
 |invert|boolean|||Use inverted color scheme|
@@ -1929,6 +1931,7 @@ import { SelectorBar } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|any||*||
 |additionalContent|any||||
+|ariaLabel|string||||
 |className|string||||
 |dataTest|string|`'dhis2-ui-selectorbar'`|||
 |disableClearSelections|boolean||||
@@ -2059,7 +2062,7 @@ import { Switch } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|ariaLabel|string|||Sets an aria-label attribute on the input|
+|aria-label|string|||Sets an aria-label attribute on the input|
 |checked|boolean|`false`|||
 |className|string||||
 |dataTest|string|`'dhis2-uicore-switch'`|||
@@ -2999,6 +3002,7 @@ import { UserAvatar } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |name|string||*||
+|ariaLabel|string||||
 |avatarId|string||||
 |className|string||||
 |dataTest|string|`'dhis2-uicore-useravatar'`|||
