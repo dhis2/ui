@@ -24,7 +24,7 @@ export const TextAvatar = ({
     medium,
     small,
 }) => (
-    <div className="text-avatar" data-test={dataTest}>
+    <div className="text-avatar" data-test={dataTest} aria-label={name}>
         <div
             className={cx('text-avatar-initials', {
                 extrasmall,

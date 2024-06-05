@@ -1,10 +1,10 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('an OrganisationUnitTree with two nodes is rendered', () => {
     cy.visitStory('OrganisationUnitTree', 'Single selection')
 })
 
-Given('no unit is selected', () => {
+Given('no unit has been selected', () => {
     cy.get('.checked').should('not.exist')
 })
 
@@ -37,11 +37,5 @@ Then('the second unit is selected', () => {
 })
 
 Then('no unit is selected', () => {
-    cy.get('[data-test="dhis2-uiwidgets-orgunittree-node"]').should(
-        ($nodes) => {
-            $nodes.each((index, node) => {
-                cy.wrap(Cypress.$(node)).shouldNotBeASelectedOrgUnitNode()
-            })
-        }
-    )
+    cy.get('.checked').should('not.exist')
 })

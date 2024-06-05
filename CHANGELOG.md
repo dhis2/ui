@@ -1,3 +1,78 @@
+# [9.7.0](https://github.com/dhis2/ui/compare/v9.6.0...v9.7.0) (2024-06-03)
+
+
+### Bug Fixes
+
+* **Tooltip:** add missing tabIndex ([389e61a](https://github.com/dhis2/ui/commit/389e61aa40f46180045005be09ef295adfae65e7))
+
+
+### Features
+
+* splitButton accessibility improvements ([#1458](https://github.com/dhis2/ui/issues/1458)) ([8370915](https://github.com/dhis2/ui/commit/8370915eb91252a501ef6c1acb6ed40a26160b5a))
+* **tooltip:** accessibility improvements for tooltip ([#1463](https://github.com/dhis2/ui/issues/1463)) ([9afcfdf](https://github.com/dhis2/ui/commit/9afcfdf4b6b13e927351364d29d63a774bb1cfa1))
+* add aria attributes to loaders ([#1449](https://github.com/dhis2/ui/issues/1449)) ([aaa60fb](https://github.com/dhis2/ui/commit/aaa60fbd5b4d83f5ede5d3f98db182099af49134))
+* add optional aria-label prop to switch component ([bf9927a](https://github.com/dhis2/ui/commit/bf9927a204d56e688ee64cbff021e249f7f94b5e))
+
+# [9.6.0](https://github.com/dhis2/ui/compare/v9.5.0...v9.6.0) (2024-06-03)
+
+
+### Features
+
+* accessibility on dropdown button ([#1460](https://github.com/dhis2/ui/issues/1460)) ([51750ea](https://github.com/dhis2/ui/commit/51750ea88450d587066127d0bf7592494234bca4))
+* **selectionBar:** accessibility improvements for SelectionBar ([#1475](https://github.com/dhis2/ui/issues/1475)) ([b43882c](https://github.com/dhis2/ui/commit/b43882c93e7c4dc0b514560f2a1ee37bb2bad72f))
+
+# [9.5.0](https://github.com/dhis2/ui/compare/v9.4.9...v9.5.0) (2024-05-29)
+
+
+### Features
+
+* **FileListItem:** accessibility improvements for FileListItem ([#1474](https://github.com/dhis2/ui/issues/1474)) ([b5d5e2d](https://github.com/dhis2/ui/commit/b5d5e2d5b050206ff66da4b0864912ac1f517ede))
+
+## [9.4.9](https://github.com/dhis2/ui/compare/v9.4.8...v9.4.9) (2024-05-27)
+
+
+### Bug Fixes
+
+* **button:** fix prop types for button ([9e9ba33](https://github.com/dhis2/ui/commit/9e9ba33c5dffd7490b72eaa77f65d565b4ef42ba))
+* **types:** update button props to follow best practices ([9c9ff02](https://github.com/dhis2/ui/commit/9c9ff02bfb2b52b842f7ce0d6050342063fd6d3f))
+
+## [9.4.8](https://github.com/dhis2/ui/compare/v9.4.7...v9.4.8) (2024-05-26)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([b84d585](https://github.com/dhis2/ui/commit/b84d58557e13f122dce7c65fc52e1a5017012e93))
+
+## [9.4.7](https://github.com/dhis2/ui/compare/v9.4.6...v9.4.7) (2024-05-19)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([157bc54](https://github.com/dhis2/ui/commit/157bc54f4c755fc5de5b22426cf0f3e4efed3d86))
+
+## [9.4.6](https://github.com/dhis2/ui/compare/v9.4.5...v9.4.6) (2024-05-10)
+
+
+### Bug Fixes
+
+* li key to be unique ([7de6dc5](https://github.com/dhis2/ui/commit/7de6dc5b805abee8f3ff8538ba5f0414e8240802))
+
+## [9.4.5](https://github.com/dhis2/ui/compare/v9.4.4...v9.4.5) (2024-05-10)
+
+
+### Bug Fixes
+
+* upgrade @dhis2/cypress-commands and @dhis2/cypress-plugins to 10.0.5 ([c7bcc68](https://github.com/dhis2/ui/commit/c7bcc68a5d9496a53f7e8933d1f48699f403a8cb))
+* use npm version 6 for semantic release action in publish step ([#1499](https://github.com/dhis2/ui/issues/1499)) ([4d4fb40](https://github.com/dhis2/ui/commit/4d4fb40afd945ad3f78c943e24c3ed702cd4ce31))
+* **translations:** sync translations from transifex (master) ([0bf3520](https://github.com/dhis2/ui/commit/0bf352080cbd58c292325c1adf1c4cb6e840423f))
+
+## [9.4.4](https://github.com/dhis2/ui/compare/v9.4.3...v9.4.4) (2024-04-09)
+
+
+### Bug Fixes
+
+* **deps:** upgrade @dhis2/multi-calendar-dates for relaxed peer deps fix ([#1472](https://github.com/dhis2/ui/issues/1472)) ([5d743fc](https://github.com/dhis2/ui/commit/5d743fccc2f68a8e5a5078b02aa25e6c679772be))
+
 ## [9.4.3](https://github.com/dhis2/ui/compare/v9.4.2...v9.4.3) (2024-03-19)
 
 

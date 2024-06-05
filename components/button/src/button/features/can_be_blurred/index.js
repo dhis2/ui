@@ -1,4 +1,4 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('an Button with initialFocus and onBlur handler is rendered', () => {
     cy.visitStory('Button', 'With initialFocus and onBlur')

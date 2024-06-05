@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `MultiSelect`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { MultiSelect } from '@dhis2-ui/select'
+import { MultiSelect } from '@dhis2/ui'
 ```
 
 
@@ -46,11 +46,11 @@ import { MultiSelect } from '@dhis2-ui/select'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `MultiSelectField`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { MultiSelectField } from '@dhis2-ui/select'
+import { MultiSelectField } from '@dhis2/ui'
 ```
 
 
@@ -95,11 +95,11 @@ import { MultiSelectField } from '@dhis2-ui/select'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `MultiSelectOption`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { MultiSelectOption } from '@dhis2-ui/select'
+import { MultiSelectOption } from '@dhis2/ui'
 ```
 
 
@@ -119,11 +119,11 @@ import { MultiSelectOption } from '@dhis2-ui/select'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SingleSelect`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SingleSelect } from '@dhis2-ui/select'
+import { SingleSelect } from '@dhis2/ui'
 ```
 
 
@@ -163,11 +163,11 @@ import { SingleSelect } from '@dhis2-ui/select'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SingleSelectField`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SingleSelectField } from '@dhis2-ui/select'
+import { SingleSelectField } from '@dhis2/ui'
 ```
 
 
@@ -212,11 +212,11 @@ import { SingleSelectField } from '@dhis2-ui/select'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SingleSelectOption`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SingleSelectOption } from '@dhis2-ui/select'
+import { SingleSelectOption } from '@dhis2/ui'
 ```
 
 

@@ -10,6 +10,7 @@ export interface UserAvatarProps {
     large?: boolean
     medium?: boolean
     small?: boolean
+    ariaLabel?: string
 }
 
 export const UserAvatar: React.FC<UserAvatarProps>

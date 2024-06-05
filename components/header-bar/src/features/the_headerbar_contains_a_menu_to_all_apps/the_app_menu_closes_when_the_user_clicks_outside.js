@@ -1,5 +1,4 @@
-import '../common/index.js'
-import { When } from 'cypress-cucumber-preprocessor/steps'
+import { When } from '@badeball/cypress-cucumber-preprocessor'
 
 When('the user opens the menu', () => {
     cy.get('[data-test="headerbar-apps-icon"]').click()

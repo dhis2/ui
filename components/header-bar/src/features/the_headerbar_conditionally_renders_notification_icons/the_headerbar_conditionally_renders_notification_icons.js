@@ -1,4 +1,4 @@
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('the user has the ALL authority', () => {
     cy.visitStory('HeaderBarTesting', 'User Has All Authority')

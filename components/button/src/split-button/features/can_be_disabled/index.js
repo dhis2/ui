@@ -1,4 +1,4 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a disabled SplitButton is rendered', () => {
     cy.visitStory('SplitButton', 'With disabled')

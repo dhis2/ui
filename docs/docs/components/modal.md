@@ -53,9 +53,45 @@ A modal shows content on a layer on top of page, interrupting a workflow and foc
 
 ### Actions
 
+:::info Note
+The `hide` variable used in the demo's below are initiated using `useState(true)` and set to `false` with the button you see in the demos.
+:::
+
 <Demo>
     <ModalDemoActions/>
 </Demo>
+
+```jsx
+<Modal hide={hide}>
+    <ModalTitle>Modal title</ModalTitle>
+
+    <ModalContent>
+        <InputField
+            label="First name"
+            required
+            value="Karimbe"
+            inputWidth="320px"
+        />
+        <InputField
+            label="Last name"
+            value="Olefeme"
+            required
+            inputWidth="320px"
+        />
+    </ModalContent>
+
+    <ModalActions>
+        <ButtonStrip end>
+            <Button onClick={() => setHide(true)} secondary>
+                Cancel
+            </Button>
+            <Button onClick={() => setHide(true)} primary>
+                Save changes
+            </Button>
+        </ButtonStrip>
+    </ModalActions>
+</Modal>
+```
 
 -   A modal should contain action buttons.
 -   Action buttons should offer clear choices and relate to the modal content.
@@ -68,6 +104,29 @@ A modal shows content on a layer on top of page, interrupting a workflow and foc
     <ModalDemoLoading/>
 </Demo>
 
+```jsx
+<Modal hide={hide}>
+    <ModalTitle>Modal title</ModalTitle>
+    <ModalContent>
+        <Box minHeight="240px">
+            <CenteredContent>
+                <CircularLoader />
+            </CenteredContent>
+        </Box>
+    </ModalContent>
+    <ModalActions>
+        <ButtonStrip end>
+            <Button onClick={() => setHide(true)} secondary>
+                Cancel
+            </Button>
+            <Button onClick={() => setHide(true)} primary>
+                Save changes
+            </Button>
+        </ButtonStrip>
+    </ModalActions>
+</Modal>
+```
+
 -   Show a [`Loader`](loading.md) when a modal is loading content.
 -   Don't show a full page loader before showing the modal. Show the modal immediately.
 
@@ -76,6 +135,40 @@ A modal shows content on a layer on top of page, interrupting a workflow and foc
 <Demo>
     <ModalDemoError/>
 </Demo>
+
+```jsx
+<Modal hide={hide}>
+    <ModalTitle>Update profile</ModalTitle>
+    <ModalContent>
+        <InputField
+            label="First name"
+            required
+            error
+            validationText="First name can't be empty."
+            inputWidth="320px"
+        />
+        <InputField
+            label="Last name"
+            value="Olefeme"
+            required
+            inputWidth="320px"
+        />
+        <Box marginTop="16px">
+            <NoticeBox error>There's a problem with this form.</NoticeBox>
+        </Box>
+    </ModalContent>
+    <ModalActions>
+        <ButtonStrip end>
+            <Button onClick={() => setHide(true)} secondary>
+                Cancel
+            </Button>
+            <Button disabled onClick={() => setHide(true)} primary>
+                Save changes
+            </Button>
+        </ButtonStrip>
+    </ModalActions>
+</Modal>
+```
 
 -   If there's a problem with something inside the modal, like a missing input field, show a [`Notice box`](notice-box.md) at the bottom of the modal.
 -   If there's a problem with something outside of the modal, like getting an empty response back from the server, show an [`Alert bar`](alertbar.md) outside of the modal.
@@ -86,4 +179,4 @@ A modal shows content on a layer on top of page, interrupting a workflow and foc
 
 ## Links
 
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/layout-modal--default-content)
+-   <a href="/demo/?path=/story/modal--default-content" target="_blank">Demo</a>

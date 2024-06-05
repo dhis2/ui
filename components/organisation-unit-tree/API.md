@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `OrganisationUnitTreeRootError`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { OrganisationUnitTreeRootError } from '@dhis2-ui/organisation-unit-tree'
+import { OrganisationUnitTreeRootError } from '@dhis2/ui'
 ```
 
 
@@ -21,11 +21,11 @@ import { OrganisationUnitTreeRootError } from '@dhis2-ui/organisation-unit-tree'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `OrganisationUnitTreeRootLoading`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { OrganisationUnitTreeRootLoading } from '@dhis2-ui/organisation-unit-tree'
+import { OrganisationUnitTreeRootLoading } from '@dhis2/ui'
 ```
 
 
@@ -39,11 +39,11 @@ import { OrganisationUnitTreeRootLoading } from '@dhis2-ui/organisation-unit-tre
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `OrganisationUnitTree`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { OrganisationUnitTree } from '@dhis2-ui/organisation-unit-tree'
+import { OrganisationUnitTree } from '@dhis2/ui'
 ```
 
 

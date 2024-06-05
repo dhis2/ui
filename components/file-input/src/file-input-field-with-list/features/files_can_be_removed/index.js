@@ -1,5 +1,4 @@
-import '../common/index.js'
-import { When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 When('the remove handle behind a file is clicked', () => {
     cy.contains('test1.md')
