@@ -1,3 +1,10 @@
+# [9.8.0](https://github.com/dhis2/ui/compare/v9.7.0...v9.8.0) (2024-06-06)
+
+
+### Features
+
+* add data test prop to sharing dialog ([5a1d81d](https://github.com/dhis2/ui/commit/5a1d81d769e48487c922fb3bc6e12b31f58cdd9a))
+
 # [9.7.0](https://github.com/dhis2/ui/compare/v9.6.0...v9.7.0) (2024-06-03)
 
 
