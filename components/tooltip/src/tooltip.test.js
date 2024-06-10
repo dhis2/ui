@@ -152,3 +152,59 @@ describe('it handles custom open and close delays', () => {
         expect(document.querySelector(tooltipContentSelector)).toBe(null)
     })
 })
+
+describe('Keyboard interaction', () => {
+    it('opens on keyboard focus and closes on blur', () => {
+        wrapper = mount(<Tooltip content={tooltipContent}>Hi hi!</Tooltip>)
+        wrapper.simulate('focus')
+
+        expect(document.querySelector(tooltipContentSelector)).toBe(null)
+
+        act(() => {
+            jest.advanceTimersByTime(200)
+        })
+
+        const res = document.querySelector(tooltipContentSelector)
+        expect(res).not.toBe(null)
+        expect(res.textContent).toBe(tooltipContent)
+
+        wrapper.simulate('blur')
+        act(() => {
+            jest.advanceTimersByTime(200)
+        })
+        expect(document.querySelector(tooltipContentSelector)).toBe(null)
+
+        act(() => {
+            jest.runAllTimers()
+        })
+    })
+
+    it('closes when escape key is pressed', () => {
+        wrapper = mount(<Tooltip content={tooltipContent}>Hi hi!</Tooltip>)
+
+        // open tooltip
+        wrapper.simulate('mouseover')
+
+        act(() => {
+            jest.advanceTimersByTime(200)
+        })
+
+        // verify tooltip is open
+        expect(document.querySelector(tooltipContentSelector)).not.toBe(null)
+
+        //Press the Escape key
+        act(() => {
+            document.dispatchEvent(
+                new KeyboardEvent('keydown', { key: 'Escape' })
+            )
+        })
+
+        // wait for close delay
+        act(() => {
+            jest.advanceTimersByTime(200)
+        })
+
+        // expect tooltip to be closed
+        expect(document.querySelector(tooltipContentSelector)).toBe(null)
+    })
+})

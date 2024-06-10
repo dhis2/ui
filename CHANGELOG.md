@@ -1,3 +1,32 @@
+## [9.8.1](https://github.com/dhis2/ui/compare/v9.8.0...v9.8.1) (2024-06-09)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([ca3f6bf](https://github.com/dhis2/ui/commit/ca3f6bf6f46d1fcac88eafe2a62e80d03861b693))
+
+# [9.8.0](https://github.com/dhis2/ui/compare/v9.7.0...v9.8.0) (2024-06-06)
+
+
+### Features
+
+* add data test prop to sharing dialog ([5a1d81d](https://github.com/dhis2/ui/commit/5a1d81d769e48487c922fb3bc6e12b31f58cdd9a))
+
+# [9.7.0](https://github.com/dhis2/ui/compare/v9.6.0...v9.7.0) (2024-06-03)
+
+
+### Bug Fixes
+
+* **Tooltip:** add missing tabIndex ([389e61a](https://github.com/dhis2/ui/commit/389e61aa40f46180045005be09ef295adfae65e7))
+
+
+### Features
+
+* splitButton accessibility improvements ([#1458](https://github.com/dhis2/ui/issues/1458)) ([8370915](https://github.com/dhis2/ui/commit/8370915eb91252a501ef6c1acb6ed40a26160b5a))
+* **tooltip:** accessibility improvements for tooltip ([#1463](https://github.com/dhis2/ui/issues/1463)) ([9afcfdf](https://github.com/dhis2/ui/commit/9afcfdf4b6b13e927351364d29d63a774bb1cfa1))
+* add aria attributes to loaders ([#1449](https://github.com/dhis2/ui/issues/1449)) ([aaa60fb](https://github.com/dhis2/ui/commit/aaa60fbd5b4d83f5ede5d3f98db182099af49134))
+* add optional aria-label prop to switch component ([bf9927a](https://github.com/dhis2/ui/commit/bf9927a204d56e688ee64cbff021e249f7f94b5e))
+
 # [9.6.0](https://github.com/dhis2/ui/compare/v9.5.0...v9.6.0) (2024-06-03)
 
 
