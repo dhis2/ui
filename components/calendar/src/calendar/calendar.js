@@ -1,4 +1,7 @@
-import { useResolvedDirection } from '@dhis2/multi-calendar-dates'
+import {
+    useResolvedDirection,
+    useDatePicker,
+} from '@dhis2/multi-calendar-dates'
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -12,11 +15,32 @@ export const Calendar = (calendarProps) => {
         locale,
         width,
         cellSize,
-        calendarWeekDays,
-        weekDayLabels,
         isValid,
+        onDateSelect,
+        minDate,
+        maxDate,
+        validation,
+        format,
     } = calendarProps
+    let { calendarWeekDays, weekDayLabels } = calendarProps
+    const pickerOptions = useDatePicker({
+        onDateSelect: (result) => {
+            onDateSelect(result)
+        },
+        date: date,
+        minDate: minDate,
+        maxDate: maxDate,
+        validation: validation,
+        format: format,
+        options: calendarProps,
+    })
 
+    if (!calendarWeekDays) {
+        calendarWeekDays = pickerOptions.calendarWeekDays
+    }
+    if (!weekDayLabels) {
+        weekDayLabels = pickerOptions.weekDayLabels
+    }
     const wrapperBorderColor = colors.grey300
     const backgroundColor = 'none'
 
@@ -30,7 +54,11 @@ export const Calendar = (calendarProps) => {
                 data-test="calendar"
             >
                 <NavigationContainer
-                    pickerOptions={calendarProps}
+                    pickerOptions={
+                        calendarProps.calendarWeekDays
+                            ? calendarProps
+                            : pickerOptions
+                    }
                     languageDirection={languageDirection}
                 />
                 <CalendarTable
@@ -82,6 +110,12 @@ export const CalendarProps = {
     width: PropTypes.string,
     /** is date valid and within range */
     isValid: PropTypes.bool,
+    calendarWeekDays: PropTypes.array,
+    weekDayLabels: PropTypes.arrayOf(PropTypes.string),
+    minDate: PropTypes.string,
+    maxDate: PropTypes.string,
+    validation: PropTypes.string,
+    format: PropTypes.string,
 }
 
-Calendar.propTypes = CalendarProps
+Calendar.propTypes = { ...CalendarProps }
