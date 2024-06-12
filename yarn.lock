@@ -2049,16 +2049,6 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2-ui/css@9.4.4":
-  version "9.4.4"
-  resolved "https://registry.yarnpkg.com/@dhis2-ui/css/-/css-9.4.4.tgz#c46af291af86eec008f60205c7c46e100ef8188a"
-  integrity sha512-VBmYcTKet0YDEguptZ0+Yc789HmNiaMDTu3iUnJKuvurhYSaFGD/oK7d2Sr6bIo0KTQ+/XpcOL68+wRLktGgwQ==
-  dependencies:
-    "@dhis2/prop-types" "^3.1.2"
-    "@dhis2/ui-constants" "9.4.4"
-    classnames "^2.3.1"
-    prop-types "^15.7.2"
-
 "@dhis2-ui/divider@7.16.3":
   version "7.16.3"
   resolved "https://registry.yarnpkg.com/@dhis2-ui/divider/-/divider-7.16.3.tgz#a0330b7a191a2747f1fe1991cad540eb245ba674"
@@ -2766,13 +2756,6 @@
   dependencies:
     prop-types "^15.7.2"
 
-"@dhis2/ui-constants@9.4.4":
-  version "9.4.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-constants/-/ui-constants-9.4.4.tgz#4fe728f96fe92752b4a033b03f2fdb1313eafeb3"
-  integrity sha512-O+jHTT/S3jgcHP7gxcZenpMyOfBktvoB9MVGzoVaAW5rRbYe0cCSe1Zh70h25VMVhwxBTCTIR7G3uvDWcdb5Ww==
-  dependencies:
-    prop-types "^15.7.2"
-
 "@dhis2/ui-forms@7.16.3":
   version "7.16.3"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-forms/-/ui-forms-7.16.3.tgz#a72bbd635ca7faa1432dadd676981e1d8ab27160"
@@ -2797,11 +2780,6 @@
   version "7.16.3"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-icons/-/ui-icons-7.16.3.tgz#86ecd617688f9d9d63de3b29ca5d8a236aa03190"
   integrity sha512-G+/a74qCAxV04aVFOxCbP9s0sEMXUPGGMZn2kLRnrRsLNcSy6/d6h2EoCa1ASs0nOXvacl1mOHyfv2QXMEy7RA==
-
-"@dhis2/ui-icons@9.4.8":
-  version "9.4.8"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-icons/-/ui-icons-9.4.8.tgz#10e9da99114e993542c84dc11e614de9c67d063e"
-  integrity sha512-h/DL4aZLVYN4Mg4B/Pw1UVvMxorsJQuk7+1uwoNkrEqtkJaP5i9ltza8goTCnNj++2GHKTfa76MQC0UeMHoSoQ==
 
 "@dhis2/ui@^7.2.0":
   version "7.16.3"
