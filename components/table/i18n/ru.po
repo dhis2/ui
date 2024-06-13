@@ -1,12 +1,11 @@
 # 
 # Translators:
-# Philip Larsen Donnelly, 2021
 # Yury Rogachev <yury@dhis2.org>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-05-10T11:56:32.496Z\n"
+"POT-Creation-Date: 2021-06-15T13:35:03.608Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
 "Last-Translator: Yury Rogachev <yury@dhis2.org>, 2024\n"
 "Language-Team: Russian (https://app.transifex.com/hisp-uio/teams/100509/ru/)\n"
@@ -16,17 +15,8 @@ msgstr ""
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-msgid "Clear"
-msgstr "Очистить"
+msgid "Toggle filter"
+msgstr "Переключить фильтр"
 
-msgid "No data found"
-msgstr "Данные не найдены"
-
-msgid "Type to filter options"
-msgstr "Начать печатать для фильтрации опций"
-
-msgid "Loading options"
-msgstr "Загрузка опций"
-
-msgid "No options found"
-msgstr "Опции не найдены"
+msgid "Sort items"
+msgstr "Сортировать элементы"
