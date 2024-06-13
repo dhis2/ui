@@ -65,14 +65,13 @@ export const ShiftingPosition = () => (
         <style jsx>{noPaddingStyles}</style>
         <style jsx>{`
             p {
-                margin: 0;
             }
             :global(html),
             :global(body),
-            :global(#root) {
+            :global(div#storybook-root) {
                 position: relative;
-                height: 50px;
-                max-height: 50px;
+                height: 40px;
+                max-height: 40px;
                 overflow: hidden;
             }
         `}</style>
