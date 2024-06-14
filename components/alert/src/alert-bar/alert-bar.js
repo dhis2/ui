@@ -18,6 +18,7 @@ const AlertBar = ({
     hidden,
     icon,
     permanent,
+    dismissable,
     success,
     warning,
     onHidden,
@@ -127,10 +128,10 @@ const AlertBar = ({
                 hide={runHideAnimation}
                 dataTest={dataTest}
             />
-            <Dismiss
+            {dismissable && <Dismiss
                 onClick={runHideAnimation}
                 dataTest={`${dataTest}-dismiss`}
-            />
+            />}
 
             <style jsx>{styles}</style>
         </div>
@@ -146,6 +147,7 @@ AlertBar.defaultProps = {
     duration: 8000,
     dataTest: 'dhis2-uicore-alertbar',
     icon: true,
+    dismissable: true,
 }
 
 AlertBar.propTypes = {
@@ -169,6 +171,7 @@ AlertBar.propTypes = {
     icon: iconPropType,
     /** When set, AlertBar will not autohide */
     permanent: PropTypes.bool,
+    dismissable: PropTypes.bool,
     success: alertTypePropType,
     /** Alert bars with `warning` will not autohide */
     warning: alertTypePropType,
