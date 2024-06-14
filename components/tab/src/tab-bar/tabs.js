@@ -1,38 +1,45 @@
 import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useRef } from 'react'
+import React, { useRef, useMemo } from 'react'
 
 const Tabs = ({ children, fixed, dataTest }) => {
     const tabContainer = useRef(null)
 
+    const childrenRefs = useMemo(
+        () => React.Children.map(children, () => React.createRef()),
+        [children]
+    )
+
     const handleKeyDown = (event) => {
         const currentFocus = document.activeElement
-        if (
-            !tabContainer.current ||
-            !tabContainer.current.contains(currentFocus)
-        ) {
+
+        if (tabContainer.current && tabContainer.current === currentFocus) {
+            if (childrenRefs.length > 0 && childrenRefs[0].current) {
+                childrenRefs[0].current.focus()
+            }
             return
         }
 
-        const role = currentFocus.getAttribute('role')
-        if (role !== 'tab') {
+        const currentIndex = childrenRefs.findIndex(
+            (ref) => ref.current === currentFocus
+        )
+
+        if (currentIndex === -1) {
             return
         }
-        const tabs = Array.from(
-            tabContainer.current.querySelectorAll('[role="tab"]')
-        )
-        const currentIndex = tabs.indexOf(currentFocus)
 
         if (event.key === 'ArrowRight') {
             event.preventDefault()
-            const nextIndex = (currentIndex + 1) % tabs.length
-            tabs[nextIndex].focus()
+            const nextIndex = (currentIndex + 1) % childrenRefs.length
+            childrenRefs[nextIndex].current.focus()
         }
+
         if (event.key === 'ArrowLeft') {
             event.preventDefault()
-            const prevIndex = (currentIndex - 1 + tabs.length) % tabs.length
-            tabs[prevIndex].focus()
+            const prevIndex =
+                (currentIndex - 1 + childrenRefs.length) % childrenRefs.length
+            childrenRefs[prevIndex].current.focus()
         }
     }
 
@@ -42,9 +49,14 @@ const Tabs = ({ children, fixed, dataTest }) => {
             ref={tabContainer}
             data-test={dataTest}
             role="tablist"
+            tabIndex={0}
             onKeyDown={handleKeyDown}
         >
-            {children}
+            {React.Children.map(children, (child, index) =>
+                React.cloneElement(child, {
+                    ref: childrenRefs[index],
+                })
+            )}
 
             <style jsx>{`
                 div {
