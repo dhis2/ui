@@ -1,14 +1,15 @@
 # 
 # Translators:
-# phil_dhis2, 2022
+# Philip Larsen Donnelly, 2024
+# Yury Rogachev <yury@dhis2.org>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-10-03T12:12:05.437Z\n"
+"POT-Creation-Date: 2024-03-29T07:26:07.540Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
-"Last-Translator: phil_dhis2, 2022\n"
-"Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2024\n"
+"Language-Team: Russian (https://app.transifex.com/hisp-uio/teams/100509/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,37 +20,40 @@ msgid "Search apps"
 msgstr "Поиск приложений"
 
 msgid "DHIS2 {{dhis2Version}}"
-msgstr ""
+msgstr "DHIS2 {{dhis2Version}}"
 
 msgid "DHIS2 version unknown"
-msgstr ""
+msgstr "DHIS2 - Версия неизвестна"
 
 msgid "{{appName}} version unknown"
-msgstr ""
+msgstr "{{appName}} - версия неизвестна"
 
 msgid "App {{appVersion}}"
-msgstr ""
+msgstr "Приложение {{appVersion}}"
 
 msgid "App version unknown"
-msgstr ""
+msgstr " Приложение - Версия неизвестна"
 
 msgid "Debug info"
-msgstr ""
+msgstr "Информация об отладке"
 
 msgid "Close"
 msgstr "Закрыть"
 
 msgid "Copy debug info"
-msgstr ""
+msgstr "Скопировать информацию об отладке"
 
-msgid "Last online {{relativeTime}}"
-msgstr ""
+msgid "Interpretations"
+msgstr "Интерпретации"
+
+msgid "Messages"
+msgstr "Сообщения"
 
 msgid "Online"
-msgstr "Онлайн"
+msgstr "Режим онлайн"
 
 msgid "Offline"
-msgstr "Офлайн"
+msgstr "Автономный режим"
 
 msgid "Edit profile"
 msgstr "Редактировать профиль"
@@ -64,16 +68,16 @@ msgid "Help"
 msgstr "Помощь"
 
 msgid "About DHIS2"
-msgstr ""
+msgstr "О DHIS2"
 
 msgid "Logout"
-msgstr ""
+msgstr "Выход из системы"
 
 msgid "New {{appName}} version available"
-msgstr ""
+msgstr "Доступна новая версия приложения {{appName}} "
 
 msgid "New app version available"
-msgstr ""
+msgstr "Доступна новая версия приложения"
 
 msgid "Click to reload"
-msgstr ""
+msgstr "Нажать для перезагрузки"
