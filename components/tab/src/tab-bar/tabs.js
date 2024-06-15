@@ -52,11 +52,19 @@ const Tabs = ({ children, fixed, dataTest }) => {
             tabIndex={0}
             onKeyDown={handleKeyDown}
         >
-            {React.Children.map(children, (child, index) =>
-                React.cloneElement(child, {
-                    ref: childrenRefs[index],
-                })
-            )}
+            {React.Children.map(children, (child, index) => {
+                if (React.isValidElement(child)) {
+                    return React.cloneElement(child, {
+                        ref: childrenRefs[index],
+                    })
+                }
+                // Wrap non-element children e.g string in a <span>
+                return (
+                    <span ref={childrenRefs[index]} tabIndex={-1}>
+                        {child}
+                    </span>
+                )
+            })}
 
             <style jsx>{`
                 div {
