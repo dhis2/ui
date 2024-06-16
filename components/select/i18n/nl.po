@@ -1,6 +1,6 @@
 # 
 # Translators:
-# Rica Zamora Duchateau, 2022
+# Rica, 2022
 # Charel van den Elsen, 2023
 # 
 msgid ""
