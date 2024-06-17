@@ -2,22 +2,22 @@ import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('the detector is not intersecting with the root', () => {
     cy.visitStory('IntersectionDetector', 'Out Of View')
-    cy.window().then((win) => {
-        cy.wrap(win.onChange)
-            .as('onChangeStub')
-            .should('be.calledOnce')
-            .should('be.calledWith', { isIntersecting: false })
-    })
+    cy.window().should((win) => expect(win.onChange).to.not.be.undefined)
+    cy.window()
+		.its('onChange')
+        .as('onChangeStub', { static: true })
+        .should('be.calledOnce')
+        .should('be.calledWith', { isIntersecting: false })
 })
 
 Given('the detector is intersecting with the root', () => {
     cy.visitStory('IntersectionDetector', 'In View')
-    cy.window().then((win) => {
-        cy.wrap(win.onChange)
-            .as('onChangeStub')
-            .should('be.calledOnce')
-            .should('be.calledWith', { isIntersecting: true })
-    })
+    cy.window().should((win) => expect(win.onChange).to.not.be.undefined)
+    cy.window()
+		.its('onChange')
+        .as('onChangeStub', { static: true })
+        .should('be.calledOnce')
+        .should('be.calledWith', { isIntersecting: true })
 })
 
 When('the user scrolls the detector into view', () => {
