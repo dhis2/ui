@@ -16,7 +16,6 @@ import { SelectorBar } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|any||*||
 |additionalContent|any||||
-|ariaLabel|string||||
 |className|string||||
 |dataTest|string|`'dhis2-ui-selectorbar'`|||
 |disableClearSelections|boolean||||
