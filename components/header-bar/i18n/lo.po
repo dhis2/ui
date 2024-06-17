@@ -1,14 +1,15 @@
 # 
 # Translators:
-# Philip Larsen Donnelly, 2022
 # Saysamone Sibounma, 2023
+# Namwan Chanthavisouk, 2024
+# Philip Larsen Donnelly, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-01-18T16:13:05.063Z\n"
+"POT-Creation-Date: 2024-03-29T07:26:07.540Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
-"Last-Translator: Saysamone Sibounma, 2023\n"
+"Last-Translator: Philip Larsen Donnelly, 2024\n"
 "Language-Team: Lao (https://app.transifex.com/hisp-uio/teams/100509/lo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,28 +21,34 @@ msgid "Search apps"
 msgstr "ຄົ້ນຫາແອັບ"
 
 msgid "DHIS2 {{dhis2Version}}"
-msgstr ""
+msgstr "DHIS2 {{dhis2Version}}"
 
 msgid "DHIS2 version unknown"
-msgstr ""
+msgstr "DHIS2 ບໍ່ຮູ້ເວີຊັນ"
 
 msgid "{{appName}} version unknown"
-msgstr ""
+msgstr "{{appName}} ບໍ່ຮູ້ເວີຊັນ"
 
 msgid "App {{appVersion}}"
-msgstr ""
+msgstr "ແອັບ {{appVersion}}"
 
 msgid "App version unknown"
-msgstr ""
+msgstr "ບໍ່ຮູ້ເວີຊັນແອັບ"
 
 msgid "Debug info"
-msgstr ""
+msgstr "ຂໍ້ມູນການແກ້ໄຂ"
 
 msgid "Close"
 msgstr "ປິດ"
 
 msgid "Copy debug info"
-msgstr ""
+msgstr "ກ໋ອບປີ້ຂໍ້ມູນການແກ້ໄຂ"
+
+msgid "Interpretations"
+msgstr "ການແປຂໍ້ມູນ"
+
+msgid "Messages"
+msgstr "ຂໍ້ຄວາມ"
 
 msgid "Online"
 msgstr "ມີການເຊື່ອມຕໍ່"
@@ -62,16 +69,16 @@ msgid "Help"
 msgstr "ຊ່ວຍ"
 
 msgid "About DHIS2"
-msgstr ""
+msgstr "ກ່ຽວກັບ DHIS2"
 
 msgid "Logout"
 msgstr "ອອກຈາກລະບົບ"
 
 msgid "New {{appName}} version available"
-msgstr ""
+msgstr "ມີເວີຊັນໃໝ່ {{appName}} "
 
 msgid "New app version available"
-msgstr ""
+msgstr "ມີແອັບເວີຊັນໃໝ່"
 
 msgid "Click to reload"
-msgstr ""
+msgstr "ຄລິກເພື່ອໂຫຼດຄືນໃໝ່"

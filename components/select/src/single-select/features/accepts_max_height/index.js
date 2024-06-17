@@ -1,5 +1,4 @@
-import '../common/index.js'
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a SingleSelect with more than ten options is rendered', () => {
     cy.visitStory('SingleSelect', 'With more than ten options')
@@ -14,10 +13,6 @@ Given(
         )
     }
 )
-
-Given('the SingleSelect is open', () => {
-    cy.get('[data-test="dhis2-uicore-select"]').click()
-})
 
 Then('has the default max-height', () => {
     cy.get('[data-test="dhis2-uicore-select-menu-menuwrapper"]').should(

@@ -1,5 +1,4 @@
-import '../common/index.js'
-import { Then } from 'cypress-cucumber-preprocessor/steps'
+import { Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Then('the files are displayed in a list', () => {
     cy.get('[data-test="dhis2-uicore-filelistitem"] .label')

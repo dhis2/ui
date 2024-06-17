@@ -1,5 +1,4 @@
-import '../common/index.js'
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a disabled MultiSelect with options is rendered', () => {
     cy.visitStory('MultiSelect', 'With options and disabled')
@@ -18,10 +17,6 @@ Given('the MultiSelect is closed', () => {
 Given('the MultiSelect is focused', () => {
     cy.get('[data-test="dhis2-uicore-select-input"]').focus()
     cy.focused().should('have.attr', 'data-test', 'dhis2-uicore-select-input')
-})
-
-When('the MultiSelect input is clicked', () => {
-    cy.get('[data-test="dhis2-uicore-select-input"]').click()
 })
 
 When('the down arrowkey is pressed on the focused element', () => {

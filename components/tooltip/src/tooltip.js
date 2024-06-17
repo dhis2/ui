@@ -115,6 +115,7 @@ const Tooltip = ({
                     onFocus={onFocus}
                     onBlur={onBlur}
                     ref={popperReference}
+                    tabIndex={0}
                     aria-describedby={open ? 'tooltipContenDhis2Ui' : ''}
                     data-test={`${dataTest}-reference`}
                 >

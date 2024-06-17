@@ -1,5 +1,4 @@
-import '../common/index.js'
-import { When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 When('the mouse cursor leaves the anchor', () => {
     // Trigger the mouseout event, and make sure the mouse is

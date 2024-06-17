@@ -1,4 +1,4 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 import { parseSelectorWithDataTest } from '../../../../../cypress/support/common/parseSelectorWithDataTest.js'
 import { extractOptionFromElement } from '../common/index.js'
 
@@ -235,25 +235,6 @@ Then(
             })
 
             expect(allSelected).to.equal(true)
-        })
-    }
-)
-
-Then(
-    'the transferred items should be appended to the selected list in the order they were displayed in the options list',
-    () => {
-        cy.all(
-            () => cy.get('@itemsToBeSelected'),
-            () => cy.get('{transfer-pickedoptions} {transferoption}')
-        ).should(([itemsToBeSelected, $selectedOptions]) => {
-            const selectedOptions = $selectedOptions
-                .toArray()
-                .map(extractOptionFromElement)
-            const previouslySelectedSubset = selectedOptions.slice(
-                -1 * itemsToBeSelected.length
-            )
-
-            expect(itemsToBeSelected).to.eql(previouslySelectedSubset)
         })
     }
 )

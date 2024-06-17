@@ -1,15 +1,15 @@
 # 
 # Translators:
-# phil_dhis2, 2021
-# Viktor Varland <viktor@dhis2.org>, 2021
+# Philip Larsen Donnelly, 2021
+# Namwan Chanthavisouk, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-11T13:37:19.312Z\n"
+"POT-Creation-Date: 2024-04-18T04:00:14.144Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2021\n"
-"Language-Team: Lao (https://www.transifex.com/hisp-uio/teams/100509/lo/)\n"
+"Last-Translator: Namwan Chanthavisouk, 2024\n"
+"Language-Team: Lao (https://app.transifex.com/hisp-uio/teams/100509/lo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,89 +17,95 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Upload file"
-msgstr "ໂຫຼດເອກະສານ"
+msgstr "ອັບໂຫຼດເອກະສານ"
 
 msgid "Upload files"
-msgstr ""
+msgstr "ອັບໂຫຼດເອກະສານ"
 
 msgid "Remove"
 msgstr "ລົບອອກ"
 
 msgid "Please provide an alpha-numeric value"
-msgstr ""
+msgstr "ກະລຸນາລະບຸຄ່າທີ່ເປັນຕົວອັກສອນ ແລະ ຕົວເລກ"
 
 msgid "Please provide a boolean value"
-msgstr ""
+msgstr "ກະລຸນາລະບຸຄ່າທີ່ເປັນສູນ"
 
 msgid "Please enter between {{lowerBound}} and {{upperBound}} characters"
-msgstr ""
+msgstr "ກະລຸນາຕື່ມລະຫວ່າງຕົວອັກສອນ {{lowerBound}} ແລະ {{upperBound}} "
 
 msgid ""
 "Please make sure the value of this input matches the value in "
 "\"{{otherField}}\"."
-msgstr ""
+msgstr "ກະລຸນາກວດສອບໃຫ້ແນ່ໃຈວ່າຄ່າຂອງຂໍ້ມູນນີ້ກົງກັບຄ່າໃນ \" {{otherField}} \""
 
 msgid "Please enter a maximum of {{upperBound}} characters"
-msgstr ""
+msgstr "ກະລຸນາຕື່ມຕົວອັກສອນສູງສຸດ {{upperBound}}"
 
 msgid "Please enter a number with a maximum of {{upperBound}}"
-msgstr ""
+msgstr "ກະລຸນາຕື່ມຕົວເລກທີ່ມີຈຳນວນສູງສຸດ {{upperBound}}"
 
 msgid "Please enter at least {{lowerBound}} characters"
-msgstr ""
+msgstr "ກະລຸນາຕື່ມຕົວອັກສອນຢ່າງໜ້ອຍ {{lowerBound}} "
 
 msgid "Please enter a number of at least {{lowerBound}}"
-msgstr ""
+msgstr "ກະລຸນາຕື່ມຈຳນວນຢ່າງໜ້ອຍ {{lowerBound}}"
 
 msgid "Number cannot be less than {{lowerBound}} or more than {{upperBound}}"
-msgstr ""
+msgstr "ຕົວເລກບໍ່ສາມາດໜ້ອຍກວ່າ {{lowerBound}} ຫຼືຫຼາຍກວ່າ {{upperBound}}"
 
 msgid ""
 "Please make sure the value of this input matches the pattern "
 "{{patternString}}."
 msgstr ""
+"ກະລຸນາກວດສອບໃຫ້ແນ່ໃຈວ່າຄ່າຂອງຂໍ້ມູນນີ້ກົງກັບຮູບແບບ {{patternString}} ."
 
 msgid "Password should be a string"
-msgstr ""
+msgstr "ລະຫັດຜ່ານຄວນເປັນຕົວອັກສອນ"
 
 msgid "Password should be at least 8 characters long"
-msgstr ""
+msgstr "ລະຫັດຜ່ານຄວນມີຢ່າງໜ້ອຍ 8 ຕົວອັກສອນ"
 
 msgid "Password should be no longer than 34 characters"
-msgstr ""
+msgstr "ລະຫັດຜ່ານຄວນຈະບໍ່ເກີນ 34 ຕົວອັກສອນ"
 
 msgid "Password should contain at least one lowercase letter"
-msgstr ""
+msgstr "ລະຫັດຜ່ານຄວນມີຕົວພິມນ້ອຍຢ່າງໜ້ອຍໜຶ່ງຕົວ"
 
 msgid "Password should contain at least one UPPERCASE letter"
-msgstr ""
+msgstr "ລະຫັດຜ່ານຄວນມີຕົວພິມໃຫຍ່ຢ່າງໜ້ອຍໜຶ່ງຕົວ"
 
 msgid "Password should contain at least one number"
-msgstr ""
+msgstr "ລະຫັດຜ່ານຄວນມີຢ່າງໜ້ອຍໜຶ່ງຕົວເລກ"
 
 msgid "Password should have at least one special character"
-msgstr ""
-
-msgid "Please provide a username between 4 and 255 characters"
-msgstr ""
+msgstr "ລະຫັດຜ່ານຄວນມີຢ່າງໜ້ອຍໜຶ່ງຕົວອັກສອນພິເສດ"
 
 msgid "Please provide a valid email address"
-msgstr ""
+msgstr "ກະລຸນາລະບຸທີ່ຢູ່ອີເມວທີ່ຖືກຕ້ອງ"
 
 msgid "Please provide a value"
-msgstr ""
+msgstr "ກະລຸນາລະບຸຄ່າ"
 
 msgid "Please provide a round number without decimals"
-msgstr ""
+msgstr "ກະ​ລຸ​ນາ​ປ້ອນຈໍາ​ນວນ​ມົນ​ໂດຍ​ບໍ່​ມີ​ຈຸດ"
 
 msgid "Please provide a valid international phone number."
-msgstr ""
+msgstr "ກະລຸນາປ້ອນເບີໂທລະສັບທີ່ຖືກຕ້ອງ"
 
 msgid "Please provide a number"
-msgstr ""
+msgstr "ກະລຸນາປ້ອນຕົວເລກ"
 
 msgid "Please provide a string"
-msgstr ""
+msgstr "ກະລຸນາປ້ອນຕົວອັກສອນ"
 
 msgid "Please provide a valid url"
+msgstr "ກະລຸນາປ້ອນ URL ທີ່ຖືກຕ້ອງ"
+
+msgctxt " - or @"
+msgid ""
+"Please provide a username between 4 and 255 characters long and possibly "
+"separated by . "
 msgstr ""
+"ກະ​ລຸ​ນາ​ປ້ອນຊື່​ຜູ້​ໃຊ້​ລະ​ຫວ່າງ 4 ແລະ 255 ຕົວ​ອັກ​ສອນ​​ ແລະ​ ​ແຍກ​ອອກ​ . _"
+" - ຫຼື @"

@@ -1,5 +1,4 @@
-import '../common/index.js'
-import { Given } from 'cypress-cucumber-preprocessor/steps'
+import { Given } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a SingleSelect with initial focus is rendered', () => {
     cy.visitStory('SingleSelect', 'With initialFocus')

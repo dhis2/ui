@@ -11,8 +11,30 @@ import API from '../../../components/table/API.md'
 A data table is used to display and allow interaction with data in a structured way.
 
 <Demo>
-    <p><a href="https://ui.dhis2.nu/demo/?path=/story/data-display-datatable--default" target="_blank">Storybook demo: Date table</a>.</p> 
+    <p><a href="/demo/?path=/story/datatable--default" target="_blank">Storybook demo: Date table</a>.</p> 
 </Demo>
+
+A minimal version of the linked demo looks like this.
+
+```jsx
+<DataTable>
+    <TableHead>
+        <DataTableRow>
+            <DataTableColumnHeader>First name</DataTableColumnHeader>
+        </DataTableRow>
+    </TableHead>
+    <TableBody>
+        <DataTableRow>
+            <DataTableCell>Onyekachukwu</DataTableCell>
+        </DataTableRow>
+    </TableBody>
+    <TableFoot>
+        <DataTableRow>
+            <DataTableCell>Footer content</DataTableCell>
+        </DataTableRow>
+    </TableFoot>
+</DataTable>
+```
 
 ## Usage
 
@@ -29,7 +51,7 @@ A data table is used to display and allow interaction with data in a structured 
 ### Sorting
 
 <Demo>
-    <p><a href="https://ui.dhis2.nu/demo/?path=/story/data-display-datatable--column-header-sorting" target="_blank">Storybook demo: Sorting</a>.</p> 
+    <p><a href="/demo/?path=/story/datatable--column-header-sorting" target="_blank">Storybook demo: Sorting</a>.</p> 
 </Demo>
 
 -   Data table items can be sorted by different columns by clicking on the sort icon in a column header.
@@ -38,7 +60,7 @@ A data table is used to display and allow interaction with data in a structured 
 ### Filtering: Inline
 
 <Demo>
-    <p><a href="https://ui.dhis2.nu/demo/?path=/story/data-display-datatable--inline-filtering" target="_blank">Storybook demo: Filtering inline</a>.</p> 
+    <p><a href="/demo/?path=/story/datatable--inline-filtering" target="_blank">Storybook demo: Filtering inline</a>.</p> 
 </Demo>
 
 -   Use inline filters in complex interfaces to offer filtering functionality without extra controls outside of the table.
@@ -47,7 +69,7 @@ A data table is used to display and allow interaction with data in a structured 
 ### Fixed header
 
 <Demo>
-    <p><a href="https://ui.dhis2.nu/demo/?path=/story/data-display-datatable--fixed-header" target="_blank">Storybook demo: Fixed header</a>.</p> 
+    <p><a href="/demo/?path=/story/datatable--fixed-header" target="_blank">Storybook demo: Fixed header</a>.</p> 
 </Demo>
 
 -   Use a fixed header in data tables that are used to browse a lot of data. Fixed headers stay in view and make it easier to understand what cells contain.
@@ -55,7 +77,7 @@ A data table is used to display and allow interaction with data in a structured 
 ### Fixed columns
 
 <Demo>
-    <p><a href="https://ui.dhis2.nu/demo/?path=/story/data-display-datatable--fixed-first-column" target="_blank">Storybook demo: Fixed column</a>.</p> 
+    <p><a href="/demo/?path=/story/datatable--fixed-first-column" target="_blank">Storybook demo: Fixed column</a>.</p> 
 </Demo>
 
 -   Use fixed columns in dense interfaces where the table might need to be scrolled horizontally.
@@ -64,7 +86,7 @@ A data table is used to display and allow interaction with data in a structured 
 ### Expandable rows
 
 <Demo>
-    <p><a href="https://ui.dhis2.nu/demo/?path=/story/data-display-datatable--expandable-content" target="_blank">Storybook demo: Expandable rows</a>.</p> 
+    <p><a href="/demo/?path=/story/datatable--expandable-content" target="_blank">Storybook demo: Expandable rows</a>.</p> 
 </Demo>
 
 -   Use expandable rows if there's more useful information that doesn't fit well into columns, like paragraphs of text, images, or video.
@@ -72,7 +94,7 @@ A data table is used to display and allow interaction with data in a structured 
 ### Selectable rows
 
 <Demo>
-    <p><a href="https://ui.dhis2.nu/demo/?path=/story/data-display-datatable--selectable-rows" target="_blank">Storybook demo: Selectable rows</a>.</p> 
+    <p><a href="/demo/?path=/story/datatable--selectable-rows" target="_blank">Storybook demo: Selectable rows</a>.</p> 
 </Demo>
 
 -   Use selectable rows if a user can perform batch actions on rows in the data table, like selecting several rows and exporting or deleting them.
@@ -80,7 +102,7 @@ A data table is used to display and allow interaction with data in a structured 
 ### Draggable rows
 
 <Demo>
-    <p><a href="https://ui.dhis2.nu/demo/?path=/story/data-display-datatable--draggable-rows" target="_blank">Storybook demo: Draggable rows</a>.</p> 
+    <p><a href="/demo/?path=/story/datatable--draggable-rows" target="_blank">Storybook demo: Draggable rows</a>.</p> 
 </Demo>
 
 -   Use draggable rows if the order of rows in the data table has a meaningful impact. With draggable rows, a user can drag rows to change the order.
@@ -88,7 +110,7 @@ A data table is used to display and allow interaction with data in a structured 
 ### Bordered cells
 
 <Demo>
-    <p><a href="https://ui.dhis2.nu/demo/?path=/story/data-display-datatable--bordered-cells" target="_blank">Storybook demo: Bordered cells</a>.</p> 
+    <p><a href="/demo/?path=/story/datatable--bordered-cells" target="_blank">Storybook demo: Bordered cells</a>.</p> 
 </Demo>
 
 -   Use bordered cells when showing complex data that might have similar values, like long numbers, to help a user visually scan data values.
@@ -96,7 +118,7 @@ A data table is used to display and allow interaction with data in a structured 
 ### Built-in styles
 
 <Demo>
-    <p><a href="https://ui.dhis2.nu/demo/?path=/story/data-display-datatable--cell-styling" target="_blank">Storybook demo: Built-in styles</a>.</p> 
+    <p><a href="/demo/?path=/story/datatable--cell-styling" target="_blank">Storybook demo: Built-in styles</a>.</p> 
 </Demo>
 
 -   A data table offers several built-in text styles.
@@ -105,7 +127,7 @@ A data table is used to display and allow interaction with data in a structured 
 ### Large cells
 
 <Demo>
-    <p><a href="https://ui.dhis2.nu/demo/?path=/story/data-display-datatable--large-cells" target="_blank">Storybook demo: Large cells</a>.</p> 
+    <p><a href="/demo/?path=/story/datatable--large-cells" target="_blank">Storybook demo: Large cells</a>.</p> 
 </Demo>
 
 -   Use large cells can be used for data tables that will don't show a lot of rows.
@@ -172,4 +194,4 @@ Patterns are common ways of achieving some functionality. Patterns aren't offere
 
 ## Links
 
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/data-display-datatable--default)
+-   <a href="/demo/?path=/story/datatable--default" target="_blank">Demo</a>
