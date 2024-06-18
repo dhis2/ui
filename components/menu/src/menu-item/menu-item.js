@@ -4,7 +4,7 @@ import { Portal } from '@dhis2-ui/portal'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useRef } from 'react'
-import { FlyoutMenu } from '../flyout-menu'
+import { FlyoutMenu } from '../flyout-menu/index.js'
 import styles from './menu-item.styles.js'
 
 const isModifiedEvent = (evt) =>

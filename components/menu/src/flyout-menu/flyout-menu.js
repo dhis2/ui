@@ -1,7 +1,7 @@
 import { colors, elevations, spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { Children, cloneElement, isValidElement, useState } from 'react'
-import { Menu } from '../index.js'
+import { Menu } from '../menu/index.js'
 
 const FlyoutMenu = ({
     children,

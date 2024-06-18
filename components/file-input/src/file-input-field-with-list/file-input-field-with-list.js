@@ -1,7 +1,7 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { FileInputField } from '../file-input-field'
+import { FileInputField } from '../file-input-field/index.js'
 import i18n from '../locales/index.js'
 import { FileListItemWithRemove } from './file-list-item-with-remove.js'
 

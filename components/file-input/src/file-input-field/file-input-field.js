@@ -3,8 +3,8 @@ import { Field } from '@dhis2-ui/field'
 import { Label } from '@dhis2-ui/label'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { FileInput } from '../file-input'
-import { FileList, FileListPlaceholder } from '../file-list'
+import { FileInput } from '../file-input/index.js'
+import { FileList, FileListPlaceholder } from '../file-list/index.js'
 import i18n from '../locales/index.js'
 
 // TODO: i18n
