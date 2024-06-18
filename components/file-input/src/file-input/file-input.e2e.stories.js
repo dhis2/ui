@@ -3,6 +3,7 @@ import { FileInput } from './index.js'
 
 window.onBlur = window.Cypress && window.Cypress.cy.stub()
 window.onFocus = window.Cypress && window.Cypress.cy.stub()
+window.onChange = window.Cypress && window.Cypress.cy.stub()
 
 const onChange = (payload, event) => {
     // NOTE: if files is not transformed into an array,

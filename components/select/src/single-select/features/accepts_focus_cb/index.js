@@ -1,7 +1,7 @@
 import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a SingleSelect with onFocus handler is rendered', () => {
-    cy.visitStory('SingleSelect', 'With onFocus')
+    cy.visitStory('SingleSelect', 'With on focus')
 })
 
 Then('the onFocus handler is called', () => {

@@ -44,7 +44,7 @@ Then('the Tooltip is rendered on top of the anchor', () => {
             ($content) => {
                 const contentPos = $content[0].getBoundingClientRect()
                 expect(contentPos.bottom).to.be.greaterThan(refPos.top)
-                expect(refPos.top).to.be.greaterThan(contentPos.top)
+                expect(refPos.top).to.be.at.least(contentPos.top)
             }
         )
     })

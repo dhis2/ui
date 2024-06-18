@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a Chip with onClick handler is rendered', () => {
-    cy.visitStory('Chip', 'With onClick')
+    cy.visitStory('Chip', 'With on click')
 })
 
 When('the Chip is clicked', () => {

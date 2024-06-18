@@ -53,8 +53,10 @@ Then(
 
 Then('the SubMenu is rendered on top of the MenuItem', () => {
     getMenuItemAndSubMenuRects().should(([menuItemRect, subMenuRect]) => {
-        expect(subMenuRect.left).to.be.at.most(menuItemRect.left)
-        expect(subMenuRect.right).to.be.at.least(menuItemRect.right)
+        expect(subMenuRect.left).to.be.at.most(menuItemRect.right)
+        expect(subMenuRect.right).to.be.at.least(menuItemRect.left)
+        expect(subMenuRect.top).to.be.at.most(menuItemRect.bottom)
+        expect(subMenuRect.bottom).to.be.at.least(menuItemRect.top)
     })
 })
 

@@ -1,7 +1,7 @@
 import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a DropdownButton with initialFocus is rendered', () => {
-    cy.visitStory('DropdownButton', 'With initialFocus')
+    cy.visitStory('DropdownButton', 'With initial focus')
 })
 
 Then('the DropdownButton is focused', () => {

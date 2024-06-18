@@ -86,7 +86,7 @@ WithOptionsAndASelection.storyName = 'With options and a selection'
 
 export const WithOnFocus = WithOptionsTemplate.bind({})
 WithOnFocus.args = { onFocus }
-WithOnFocus.storyName = 'With onFocus'
+WithOnFocus.storyName = 'With on focus'
 
 export const WithOnBlur = WithOptionsTemplate.bind({})
 WithOnBlur.args = { onBlur }
@@ -133,7 +133,7 @@ WithInvalidFilterableOptions.args = {
 export const WithInitialFocus = EmptyTemplate.bind({})
 WithInitialFocus.args = { initialFocus: true }
 WithInitialFocus.parameters = { docs: { disable: true } }
-WithInitialFocus.storyName = 'With initialFocus'
+WithInitialFocus.storyName = 'With initial focus'
 
 export const Dense = WithOptionsTemplate.bind({})
 Dense.args = { dense: true, placeholder: 'Dense sized multi select' }

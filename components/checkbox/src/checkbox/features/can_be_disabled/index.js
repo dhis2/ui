@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a disabled Checkbox with onClick handler is rendered', () => {
-    cy.visitStory('Checkbox', 'Disabled with onClick')
+    cy.visitStory('Checkbox', 'Disabled with on click')
 })
 
 When('the Checkbox is clicked', () => {

@@ -2,7 +2,7 @@ import React from 'react'
 import { AlertBar } from '../alert-bar/index.js'
 import { AlertStack } from './alert-stack.js'
 
-export default { title: 'AlertStac' }
+export default { title: 'AlertStack' }
 
 export const Default = () => (
     <AlertStack>

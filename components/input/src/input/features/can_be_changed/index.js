@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a Input with onChange handler is rendered', () => {
-    cy.visitStory('Input', 'With onChange')
+    cy.visitStory('Input', 'With on change')
 })
 
 When('the Input is filled with a character', () => {

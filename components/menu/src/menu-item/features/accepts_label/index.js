@@ -6,5 +6,5 @@ Given('a MenuItem supplied with a label is rendered', () => {
 })
 
 Then('the label is visible', () => {
-    cy.contains('label').should('be.visible')
+    cy.get(':contains("label")').should('be.visible')
 })

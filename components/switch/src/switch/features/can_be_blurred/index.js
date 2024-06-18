@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a Switch with initialFocus and onBlur handler is rendered', () => {
-    cy.visitStory('Switch', 'With initialFocus and onBlur')
+    cy.visitStory('Switch', 'With initial focus and on blur')
 })
 
 When('the Switch is blurred', () => {

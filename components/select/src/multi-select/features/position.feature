@@ -44,4 +44,3 @@ Feature: Position of MultiSelect menu dropdown
         Then the Input remains the same height
         And the top of the menu is aligned with the bottom of the input
         And the left of the Menu is aligned with the left of the Input
-

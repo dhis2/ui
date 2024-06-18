@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a top-aligned Modal with onClose handler is rendered', () => {
-    cy.visitStory('Modal', 'With onClose')
+    cy.visitStory('Modal', 'With on close')
 })
 
 When('the Screencover is clicked above the modal', () => {
@@ -15,7 +15,7 @@ Then('the onClose handler is called', () => {
 })
 
 Given('a bottom-aligned Modal with onClose handler is rendered', () => {
-    cy.visitStory('Modal', 'Bottom-aligned, with onClose')
+    cy.visitStory('Modal', 'Bottom-aligned, with on close')
 })
 
 When('the Screencover is clicked below the modal', () => {
@@ -23,7 +23,7 @@ When('the Screencover is clicked below the modal', () => {
 })
 
 Given('a Modal with onClose handler is rendered', () => {
-    cy.visitStory('Modal', 'With onClose')
+    cy.visitStory('Modal', 'With on close')
 })
 
 When('the close button is clicked', () => {

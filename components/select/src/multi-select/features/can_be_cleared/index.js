@@ -5,7 +5,7 @@ Given(
     () => {
         cy.visitStory(
             'MultiSelect',
-            'With clear button, selection and onChange'
+            'With clear button, selection and on change'
         )
     }
 )

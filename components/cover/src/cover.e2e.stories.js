@@ -32,13 +32,13 @@ export const WithChildren = () => (
 
 export const Blocking = () => (
     <>
-        <button onClick={window.onButtonClick}>Test</button>
+        <button data-test="button" onClick={window.onButtonClick}>Test</button>
         <Cover />
     </>
 )
 
 export const WithClickHandler = () => (
     <Cover onClick={window.onCover}>
-        <button onClick={window.onButtonClick}>Test</button>
+        <button data-test="button" onClick={window.onButtonClick}>Test</button>
     </Cover>
 )
