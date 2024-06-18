@@ -1,3 +1,31 @@
+## [9.8.3](https://github.com/dhis2/ui/compare/v9.8.2...v9.8.3) (2024-06-16)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([5f7f65a](https://github.com/dhis2/ui/commit/5f7f65a01bb0819a5794e1ce10550b283a9b3c0e))
+
+## [9.8.2](https://github.com/dhis2/ui/compare/v9.8.1...v9.8.2) (2024-06-14)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([0dfb475](https://github.com/dhis2/ui/commit/0dfb4754c0d0d13f54a499b7a589633b877fe2a7))
+
+## [9.8.1](https://github.com/dhis2/ui/compare/v9.8.0...v9.8.1) (2024-06-09)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([ca3f6bf](https://github.com/dhis2/ui/commit/ca3f6bf6f46d1fcac88eafe2a62e80d03861b693))
+
+# [9.8.0](https://github.com/dhis2/ui/compare/v9.7.0...v9.8.0) (2024-06-06)
+
+
+### Features
+
+* add data test prop to sharing dialog ([5a1d81d](https://github.com/dhis2/ui/commit/5a1d81d769e48487c922fb3bc6e12b31f58cdd9a))
+
 # [9.7.0](https://github.com/dhis2/ui/compare/v9.6.0...v9.7.0) (2024-06-03)
 
 
