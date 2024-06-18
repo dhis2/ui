@@ -78,8 +78,8 @@ class DropdownButton extends Component {
     }
 
     handleKeyDown = (event) => {
-        event.preventDefault()
         if (event.key === 'Escape' && this.state.open) {
+            event.preventDefault()
             event.stopPropagation()
             this.setState({ open: false })
         }
