@@ -5,7 +5,7 @@ import { Popper } from '@dhis2-ui/popper'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { resolve } from 'styled-jsx/css'
-import { Button } from '../index.js'
+import { Button } from '../button'
 
 function ArrowDown({ className }) {
     return (

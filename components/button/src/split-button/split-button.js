@@ -6,7 +6,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import css from 'styled-jsx/css'
-import { Button } from '../index.js'
+import { Button } from '../button'
 import i18n from '../locales/index.js'
 
 const rightButton = css.resolve`

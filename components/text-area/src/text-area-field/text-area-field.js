@@ -3,7 +3,7 @@ import { Box } from '@dhis2-ui/box'
 import { Field } from '@dhis2-ui/field'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { TextArea } from '../index.js'
+import { TextArea } from '../text-area'
 
 const TextAreaField = ({
     className,
