@@ -9,7 +9,7 @@ Given('a Layer with a button in it is rendered', () => {
 })
 
 When('the user clicks the button', () => {
-    cy.get('button').click()
+    cy.get('button:contains("Test")').click()
 })
 
 When('the user clicks on the layer', () => {

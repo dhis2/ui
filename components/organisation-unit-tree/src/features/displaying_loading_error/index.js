@@ -3,7 +3,7 @@ import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 Given(
     "loading errors do not display automatically and loading A0000000001's children will fail",
     () => {
-        cy.visitStory('OrganisationUnitTree', 'A0000000001 loading error')
+        cy.visitStory('OrganisationUnitTree', 'A 0000000001 loading error')
     }
 )
 
@@ -12,7 +12,7 @@ Given(
     () => {
         cy.visitStory(
             'OrganisationUnitTree',
-            'A0000000001 loading error autoexpand'
+            'A 0000000001 loading error autoexpand'
         )
     }
 )

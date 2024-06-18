@@ -13,4 +13,3 @@ Feature: Accept different reference types
     Scenario: Accepts a virtual element
         Given a Popper with placement bottom-start has a virtual element as its reference
         Then the top and left of the popper correspond with the virtualElement
-

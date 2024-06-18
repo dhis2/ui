@@ -1,13 +1,13 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a SingleSelect with options and onChange handler is rendered', () => {
-    cy.visitStory('SingleSelect', 'With options and onChange')
+    cy.visitStory('SingleSelect', 'With options and on change')
 })
 
 Given(
     'a SingleSelect with options, a selection and onChange handler is rendered',
     () => {
-        cy.visitStory('SingleSelect', 'With options, a selection and onChange')
+        cy.visitStory('SingleSelect', 'With options, a selection and on change')
     }
 )
 

@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a Radio with onChange handler is rendered', () => {
-    cy.visitStory('Radio', 'With onChange')
+    cy.visitStory('Radio', 'With on change')
 })
 
 When('the Radio is checked', () => {

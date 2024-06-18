@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('an AlertBar with onHidden handler is rendered', () => {
-    cy.visitStory('AlertBar', 'With onHidden')
+    cy.visitStory('AlertBar', 'With on hidden')
 })
 
 Given('an AlertBar with disabled icon is rendered', () => {

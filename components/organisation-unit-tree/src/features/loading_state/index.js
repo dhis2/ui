@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a OrganisationUnitTree with two levels is rendered', () => {
-    cy.visitStory('OrganisationUnitTree', 'A0000000001 loading')
+    cy.visitStory('OrganisationUnitTree', 'A 0000000001 loading')
 })
 
 Given('the root level is closed', () => {

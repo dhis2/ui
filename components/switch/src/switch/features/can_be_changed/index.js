@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a Switch with onChange handler is rendered', () => {
-    cy.visitStory('Switch', 'With onChange')
+    cy.visitStory('Switch', 'With on change')
 })
 
 When('the Switch is clicked', () => {

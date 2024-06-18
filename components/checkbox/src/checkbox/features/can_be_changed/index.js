@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a Checkbox with onChange handler is rendered', () => {
-    cy.visitStory('Checkbox', 'With onChange')
+    cy.visitStory('Checkbox', 'With on change')
 })
 
 When('the Checkbox is clicked', () => {

@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a TextArea with onChange handler is rendered', () => {
-    cy.visitStory('TextArea', 'With onChange')
+    cy.visitStory('TextArea', 'With on change')
 })
 
 When('the TextArea is filled with a character', () => {

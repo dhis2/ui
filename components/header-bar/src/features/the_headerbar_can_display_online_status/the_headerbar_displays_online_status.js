@@ -94,6 +94,10 @@ Given('the browser goes offline', () => {
 })
 
 Then('the status badge shows offline', () => {
+    // cy.get('[data-test="headerbar-online-status"].badge .label')
+    //     .invoke('text')
+    //     .should('equal', 'Offline')
+
     cy.get('[data-test="headerbar-online-status"].badge .label').should(
         ($label) => {
             expect($label.text()).to.equal('Offline')

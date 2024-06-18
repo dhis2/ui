@@ -3,14 +3,14 @@ import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 Given(
     'a MultiSelect with a disabled option and onChange handler is rendered',
     () => {
-        cy.visitStory('MultiSelect', 'With disabled option and onChange')
+        cy.visitStory('MultiSelect', 'With disabled option and on change')
     }
 )
 
 Given(
     'a MultiSelect with custom options and onChange handler is rendered',
     () => {
-        cy.visitStory('MultiSelect', 'With custom options and onChange')
+        cy.visitStory('MultiSelect', 'With custom options and on change')
     }
 )
 

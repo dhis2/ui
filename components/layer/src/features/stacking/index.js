@@ -34,7 +34,10 @@ Given(
 )
 
 Then('the second layer is on top of the first layer', () => {
-    cy.get('body').click()
+    // Wouldn't work if the element wasn't ontop of the second layer.
+    // Cypress would fail, stating:
+    // "[...] is being covered by another element: [...]"
+    cy.get('.backdrop:visible').click()
     cy.window().should((win) => {
         expect(win.onLayerClick).to.be.calledOnce
         expect(win.onLayerClick).to.be.calledWith('second')
@@ -42,7 +45,7 @@ Then('the second layer is on top of the first layer', () => {
 })
 
 Then('the alert layer is on top', () => {
-    cy.get('body').click()
+    cy.get('.backdrop:visible').click()
     cy.window().should((win) => {
         expect(win.onLayerClick).to.be.calledOnce
         expect(win.onLayerClick).to.be.calledWith('alert')
@@ -50,7 +53,7 @@ Then('the alert layer is on top', () => {
 })
 
 Then('the layer with level 1001 is on top', () => {
-    cy.get('body').click()
+    cy.get('.backdrop:visible').click()
     cy.window().should((win) => {
         expect(win.onLayerClick).to.be.calledOnce
         expect(win.onLayerClick).to.be.calledWith('1001')
@@ -58,7 +61,7 @@ Then('the layer with level 1001 is on top', () => {
 })
 
 Then('the blocking layer is on top', () => {
-    cy.get('body').click()
+    cy.get('.backdrop:visible').click()
     cy.window().should((win) => {
         expect(win.onLayerClick).to.be.calledOnce
         expect(win.onLayerClick).to.be.calledWith('blocking')

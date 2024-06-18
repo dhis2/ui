@@ -248,7 +248,7 @@ export const DefaultPosition = () => (
             <SingleSelectOption value="12" label="option twelve" />
         </SingleSelect>
         <style jsx>{`
-            :global(#root) {
+            :global(#storybook-root) {
                 margin-bottom: 2000px;
             }
         `}</style>
@@ -273,12 +273,12 @@ export const FlippedPosition = () => (
         <style jsx>{`
             :global(html),
             :global(body),
-            :global(#root) {
+            :global(#storybook-root) {
                 position: relative;
                 height: 500px;
                 max-height: 500px;
             }
-            :global(#root) {
+            :global(#storybook-root) {
                 padding-top: 400px !important;
             }
         `}</style>
@@ -303,12 +303,12 @@ export const ShiftedIntoView = () => (
         <style jsx>{`
             :global(html),
             :global(body),
-            :global(#root) {
+            :global(#storybook-root) {
                 position: relative;
                 height: 300px !important;
                 max-height: 300px;
             }
-            :global(#root) {
+            :global(#storybook-root) {
                 padding-top: 130px !important;
             }
         `}</style>

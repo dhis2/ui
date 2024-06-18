@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a TextArea with onFocus handler is rendered', () => {
-    cy.visitStory('TextArea', 'With onFocus')
+    cy.visitStory('TextArea', 'With on focus')
 })
 
 When('the TextArea is focused', () => {

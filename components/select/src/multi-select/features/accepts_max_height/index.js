@@ -9,7 +9,7 @@ Given(
     () => {
         cy.visitStory(
             'MultiSelect',
-            'With more than three options and a 100px max-height'
+            'With more than three options and a 100 px max-height'
         )
     }
 )
