@@ -3,8 +3,8 @@ import { Box } from '@dhis2-ui/box'
 import { Field } from '@dhis2-ui/field'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { MultiSelect } from '../multi-select'
 import i18n from '../locales/index.js'
+import { MultiSelect } from '../multi-select/index.js'
 
 // TODO: translate
 const translate = (prop, interpolationObject) => {

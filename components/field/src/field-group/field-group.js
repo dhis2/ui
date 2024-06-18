@@ -1,8 +1,8 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Field } from '../field'
-import { FieldSet } from '../field-set'
+import { Field } from '../field/index.js'
+import { FieldSet } from '../field-set/index.js'
 const FieldGroup = ({
     children,
     className,
