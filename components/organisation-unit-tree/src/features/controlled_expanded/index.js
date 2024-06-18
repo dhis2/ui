@@ -30,7 +30,9 @@ Given(
         cy.visitStory(namespace, 'Controlled')
         cy.get(':contains("Org Unit 1")').should('exist')
         cy.window().then((win) => {
-            cy.wrap(win.initiallyExpandedPaths).as('providedPaths', { type: 'static' })
+            cy.wrap(win.initiallyExpandedPaths).as('providedPaths', {
+                type: 'static',
+            })
         })
     }
 )
@@ -47,7 +49,9 @@ When('the org unit tree should is done loading the provided paths', () => {
 
 When('the user clicks on a button to collapse one of the opened paths', () => {
     cy.window().then((win) => {
-        cy.wrap([win.orgUnitPathToExpand]).as('providedPaths', { type: 'static' })
+        cy.wrap([win.orgUnitPathToExpand]).as('providedPaths', {
+            type: 'static',
+        })
     })
 
     cy.get('[data-test="org-unit-toggle"]').click()
