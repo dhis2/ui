@@ -48,6 +48,7 @@ export const SharingDialog = ({
     onError,
     onSave,
     initialSharingSettings,
+    dataTest,
 }) => {
     const { show: showError } = useAlert((error) => error, { critical: true })
 
@@ -159,7 +160,11 @@ export const SharingDialog = ({
 
     return (
         <FetchingContext.Provider value={mutating || fetching}>
-            <Modal onClose={onClose} name={object.displayName || object.name}>
+            <Modal
+                onClose={onClose}
+                name={object.displayName || object.name}
+                dataTest={dataTest}
+            >
                 <TabbedContent
                     id={id}
                     users={users}
@@ -187,6 +192,7 @@ SharingDialog.defaultProps = {
     onClose: () => {},
     onError: () => {},
     onSave: () => {},
+    dataTest: 'dhis2-uicore-sharingdialog',
 }
 
 SharingDialog.propTypes = {
@@ -199,7 +205,7 @@ SharingDialog.propTypes = {
         EVENT_VISUALIZATION,
         INTERPRETATION,
     ]).isRequired,
-    /** Used to seed the component with data to show whilst loading */
+    dataTest: PropTypes.string,
     initialSharingSettings: PropTypes.shape({
         allowPublic: PropTypes.bool.isRequired,
         groups: PropTypes.objectOf(
