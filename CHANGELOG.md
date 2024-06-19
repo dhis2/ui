@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # [9.7.0](https://github.com/dhis2/ui/compare/v9.6.0...v9.7.0) (2024-06-03)
 
 
@@ -45,7 +43,6 @@
 
 * **translations:** sync translations from transifex (master) ([b84d585](https://github.com/dhis2/ui/commit/b84d58557e13f122dce7c65fc52e1a5017012e93))
 
->>>>>>> 2dc0405a59b26b62d01af8417fa7e4876a6fb4bc
 ## [9.4.7](https://github.com/dhis2/ui/compare/v9.4.6...v9.4.7) (2024-05-19)
 
 
