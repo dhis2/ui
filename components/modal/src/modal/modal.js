@@ -35,8 +35,8 @@ export const Modal = ({
         }
 
         const handleKeyDown = (event) => {
-            event.preventDefault()
             if (event.key === 'Escape' && onClose) {
+                event.preventDefault()
                 event.stopPropagation()
                 onClose()
             }
