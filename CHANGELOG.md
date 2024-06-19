@@ -1,3 +1,10 @@
+## [9.8.4](https://github.com/dhis2/ui/compare/v9.8.3...v9.8.4) (2024-06-19)
+
+
+### Bug Fixes
+
+* **drop-down:** dont swallow keyDown events unless its esc and open ([#1529](https://github.com/dhis2/ui/issues/1529)) ([bdb8eff](https://github.com/dhis2/ui/commit/bdb8eff1c34f1352ce27130584bcf2f442b9e6d5))
+
 ## [9.8.3](https://github.com/dhis2/ui/compare/v9.8.2...v9.8.3) (2024-06-16)
 
 

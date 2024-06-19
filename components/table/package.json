@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/table",
-    "version": "9.8.3",
+    "version": "9.8.4",
     "description": "UI Table",
     "repository": {
         "type": "git",
@@ -34,8 +34,8 @@
     },
     "dependencies": {
         "@dhis2/prop-types": "^3.1.2",
-        "@dhis2/ui-constants": "9.8.3",
-        "@dhis2/ui-icons": "9.8.3",
+        "@dhis2/ui-constants": "9.8.4",
+        "@dhis2/ui-icons": "9.8.4",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },
