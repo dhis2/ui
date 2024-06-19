@@ -1,3 +1,10 @@
+## [9.8.5](https://github.com/dhis2/ui/compare/v9.8.4...v9.8.5) (2024-06-19)
+
+
+### Bug Fixes
+
+* **modal:** dont swallow keyDown events ([d4a0c44](https://github.com/dhis2/ui/commit/d4a0c44bcd3892f46510eae0c16c977681f8069f))
+
 ## [9.8.4](https://github.com/dhis2/ui/compare/v9.8.3...v9.8.4) (2024-06-19)
 
 
