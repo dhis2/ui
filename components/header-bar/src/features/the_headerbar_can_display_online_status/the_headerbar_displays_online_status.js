@@ -39,6 +39,7 @@ Given(
 
 Given('the HeaderBar loads without error when PWA is enabled', () => {
     cy.visitStory('HeaderBarTesting', 'PWA Enabled')
+    cy.get(':contains("Online")').should('exist')
 })
 
 Given(
