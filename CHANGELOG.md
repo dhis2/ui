@@ -1,3 +1,33 @@
+## [9.8.7](https://github.com/dhis2/ui/compare/v9.8.6...v9.8.7) (2024-06-20)
+
+
+### Bug Fixes
+
+* **split-button:** stop swallowing key down events ([22d43bc](https://github.com/dhis2/ui/commit/22d43bc54ee5be5fc6b17400ac7b4a518051dfe7))
+
+## [9.8.6](https://github.com/dhis2/ui/compare/v9.8.5...v9.8.6) (2024-06-20)
+
+
+### Bug Fixes
+
+* add aggregate data exchange to sharing dialog type prop's type ([d3b5486](https://github.com/dhis2/ui/commit/d3b54860337913be53ed25cbb72a0710787fdd28))
+* add all possible sharing dialog type prop's types ([43210cb](https://github.com/dhis2/ui/commit/43210cb1f7df6e903f86ad8f5a4d93471704a28b))
+* restrict dialog types to only sharable and restrict type of sharing type ([1748809](https://github.com/dhis2/ui/commit/1748809b093ebefefc01db2e4054d61b039fcd52))
+
+## [9.8.5](https://github.com/dhis2/ui/compare/v9.8.4...v9.8.5) (2024-06-19)
+
+
+### Bug Fixes
+
+* **modal:** dont swallow keyDown events ([d4a0c44](https://github.com/dhis2/ui/commit/d4a0c44bcd3892f46510eae0c16c977681f8069f))
+
+## [9.8.4](https://github.com/dhis2/ui/compare/v9.8.3...v9.8.4) (2024-06-19)
+
+
+### Bug Fixes
+
+* **drop-down:** dont swallow keyDown events unless its esc and open ([#1529](https://github.com/dhis2/ui/issues/1529)) ([bdb8eff](https://github.com/dhis2/ui/commit/bdb8eff1c34f1352ce27130584bcf2f442b9e6d5))
+
 ## [9.8.3](https://github.com/dhis2/ui/compare/v9.8.2...v9.8.3) (2024-06-16)
 
 
