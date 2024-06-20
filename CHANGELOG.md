@@ -1,3 +1,10 @@
+## [9.8.9](https://github.com/dhis2/ui/compare/v9.8.8...v9.8.9) (2024-06-20)
+
+
+### Bug Fixes
+
+* update @dhis2/multi-calendar-dates ([#1525](https://github.com/dhis2/ui/issues/1525)) ([cf5d39d](https://github.com/dhis2/ui/commit/cf5d39d2b9898958e6e3c359d1062f16b2011778))
+
 ## [9.8.8](https://github.com/dhis2/ui/compare/v9.8.7...v9.8.8) (2024-06-20)
 
 
