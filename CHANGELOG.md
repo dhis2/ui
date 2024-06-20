@@ -1,3 +1,10 @@
+## [9.8.7](https://github.com/dhis2/ui/compare/v9.8.6...v9.8.7) (2024-06-20)
+
+
+### Bug Fixes
+
+* **split-button:** stop swallowing key down events ([22d43bc](https://github.com/dhis2/ui/commit/22d43bc54ee5be5fc6b17400ac7b4a518051dfe7))
+
 ## [9.8.6](https://github.com/dhis2/ui/compare/v9.8.5...v9.8.6) (2024-06-20)
 
 
