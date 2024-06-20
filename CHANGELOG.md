@@ -1,3 +1,10 @@
+## [9.8.8](https://github.com/dhis2/ui/compare/v9.8.7...v9.8.8) (2024-06-20)
+
+
+### Bug Fixes
+
+* i18n wrap pick a date ([#1531](https://github.com/dhis2/ui/issues/1531)) ([4e4a43d](https://github.com/dhis2/ui/commit/4e4a43db24342300c4db94ac497d1a381c50dab2))
+
 ## [9.8.7](https://github.com/dhis2/ui/compare/v9.8.6...v9.8.7) (2024-06-20)
 
 
