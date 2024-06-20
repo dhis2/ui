@@ -30,8 +30,8 @@ class SplitButton extends Component {
         document.removeEventListener('keydown', this.handleKeyDown)
     }
     handleKeyDown = (event) => {
-        event.preventDefault()
         if (event.key === 'Escape' && this.state.open) {
+            event.preventDefault()
             event.stopPropagation()
             this.setState({ open: false })
             this.anchorRef.current && this.anchorRef.current.focus()
