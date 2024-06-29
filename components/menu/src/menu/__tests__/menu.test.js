@@ -139,46 +139,45 @@ describe('Menu Component', () => {
         expect(onClick).toHaveBeenCalledTimes(2)
     })
 
-    it('can handle non MenuItem components', async () => {
+    it('can handle non MenuItem components', () => {
         const onClick = jest.fn()
         const { getByText } = render(
             <Menu dataTest={menuDataTest} dense={false}>
-                <a href="#" role="menuitem">
-                    Link 1
-                </a>
                 <span role="menuitem" onClick={onClick}>
-                    Item 1
+                    Span 1
                 </span>
-                <MenuItem dataTest={menuItemDataTest} label="Menu item 2" />
+                <li tabIndex={-1}>
+                    <a href="#" role="menuitem">
+                        Link 2
+                    </a>
+                </li>
+                <li>
+                    <span onClick={onClick}>Span 2</span>
+                </li>
             </Menu>
         )
 
-        const span = getByText(/Item 1/i)
-        const link = getByText(/link 1/i)
-        const menuItem = getByText(/menu item 2/i)
+        const nonListMenuItem = getByText(/span 1/i)
+        const listMenuItem = getByText(/link 2/i)
+        const plainListItem = getByText(/span 2/i)
+
+        // all children must be list items
+        expect(nonListMenuItem.parentElement.nodeName).toBe('LI')
 
         userEvent.tab()
-
-        expect(link).toHaveFocus()
-        expect(link.tabIndex).toBe(0)
-        expect(span).not.toHaveFocus()
-        expect(menuItem.parentNode.parentNode).not.toHaveFocus()
-
-        userEvent.keyboard('{ArrowDown}')
-        expect(link).not.toHaveFocus()
-        expect(span).toHaveFocus()
-        expect(menuItem.parentNode.parentNode).not.toHaveFocus()
-
-        userEvent.keyboard('{ArrowDown}')
-        expect(link).not.toHaveFocus()
-        expect(span).not.toHaveFocus()
-        expect(menuItem.parentNode.parentNode).toHaveFocus()
-
-        userEvent.keyboard('{ArrowUp}')
-        expect(span).toHaveFocus()
+        expect(nonListMenuItem.parentElement).toHaveFocus()
+        expect(nonListMenuItem.parentElement.tabIndex).toBe(0)
 
         expect(onClick).toHaveBeenCalledTimes(0)
         userEvent.keyboard('[Space]')
         expect(onClick).toHaveBeenCalledTimes(1)
+
+        userEvent.keyboard('{ArrowDown}')
+        expect(listMenuItem.parentElement).toHaveFocus()
+
+        userEvent.keyboard('{ArrowDown}')
+        expect(nonListMenuItem.parentElement).toHaveFocus()
+        // non menu items do not receive focus
+        expect(plainListItem.parentElement).not.toHaveFocus()
     })
 })

@@ -1,106 +1,62 @@
-import { useCallback, useRef, useState, useEffect } from 'react'
-import { filterValidMenuItemsIndices } from './helpers.js'
+import { useRef, useState, useEffect, useCallback } from 'react'
+import { getFocusableItemsIndices } from './helpers.js'
 
 export const useMenuNavigation = (children) => {
     const menuRef = useRef(null)
-    const menuItemsRef = useRef(null)
     const [focusableItemsIndices, setFocusableItemsIndices] = useState(null)
     const [activeItemIndex, setActiveItemIndex] = useState(-1)
 
-    // Focus the first menu item when the menu receives focus
-    const handleFocus = useCallback(
-        (event) => {
-            if (event.target === menuRef?.current) {
-                const i = focusableItemsIndices?.[0]
-                menuRef.current.children[i].focus()
-                setActiveItemIndex(0)
-            }
-        },
-        [focusableItemsIndices]
-    )
-
-    // Trigger actionable menu item
-    const handleAction = (event) => {
-        switch (event.key) {
-            case 'Enter':
-            case ' ':
-                event.preventDefault()
-                // UI library MenuItem
-                if (event.target.nodeName === 'LI') {
-                    event.target.children[0].click()
-                } else {
-                    event.target.click()
-                }
-                break
-            default:
-                break
+    // Initializes the indices for focusable items
+    useEffect(() => {
+        if (menuRef) {
+            const menuItems = Array.from(menuRef.current.children)
+            const itemsIndices = getFocusableItemsIndices(menuItems)
+            setFocusableItemsIndices(itemsIndices)
         }
-    }
+    }, [children])
+
+    // Focus the active menu child
+    useEffect(() => {
+        if (menuRef) {
+            if (focusableItemsIndices && activeItemIndex > -1) {
+                const currentIndex = focusableItemsIndices[activeItemIndex]
+                menuRef.current.children[currentIndex].focus()
+            }
+        }
+    }, [activeItemIndex, focusableItemsIndices])
 
     // Navigate through focusable children using arrow keys
-    const handleNavigation = useCallback(
+    // Trigger actionable items
+    const handleKeyDown = useCallback(
         (event) => {
             const totalFocusablePositions = focusableItemsIndices?.length
+            const lastIndex = totalFocusablePositions - 1
             switch (event.key) {
                 case 'ArrowUp':
                     event.preventDefault()
-                    if (activeItemIndex > 0) {
-                        setActiveItemIndex(activeItemIndex - 1)
-                    } else {
-                        setActiveItemIndex(totalFocusablePositions - 1)
-                    }
+                    setActiveItemIndex(
+                        activeItemIndex > 0 ? activeItemIndex - 1 : lastIndex
+                    )
                     break
                 case 'ArrowDown':
                     event.preventDefault()
-                    if (activeItemIndex >= totalFocusablePositions - 1) {
-                        setActiveItemIndex(0)
-                    } else {
-                        setActiveItemIndex(activeItemIndex + 1)
+                    setActiveItemIndex(
+                        activeItemIndex >= lastIndex ? 0 : activeItemIndex + 1
+                    )
+                    break
+                case 'Enter':
+                case ' ':
+                    event.preventDefault()
+                    if (event.target.nodeName === 'LI') {
+                        event.target.children[0].click()
                     }
                     break
                 default:
                     break
             }
         },
-        [activeItemIndex, focusableItemsIndices]
+        [activeItemIndex, focusableItemsIndices?.length]
     )
-
-    // Keydown: handleNavigation and handleAction
-    const handleKeyDown = useCallback(
-        (event) => {
-            handleAction(event)
-            if (menuRef?.current?.children.length > 1) {
-                handleNavigation(event)
-            }
-        },
-        [handleNavigation]
-    )
-
-    // Initializes the indices for focusable items
-    useEffect(() => {
-        if (!menuRef) {
-            return
-        }
-
-        const menu = menuRef.current
-        menuItemsRef.current = Array.from(menu.children)
-        const itemsIndices = filterValidMenuItemsIndices(
-            Array.from(menu.children)
-        )
-        setFocusableItemsIndices(itemsIndices)
-    }, [children])
-
-    // Focus the active menu child
-    useEffect(() => {
-        if (
-            focusableItemsIndices &&
-            menuItemsRef?.current &&
-            activeItemIndex > -1
-        ) {
-            const currentIndex = focusableItemsIndices[activeItemIndex]
-            menuItemsRef.current[currentIndex].focus()
-        }
-    }, [activeItemIndex, focusableItemsIndices])
 
     // Event listeners for menu focus and key handling
     useEffect(() => {
@@ -109,6 +65,16 @@ export const useMenuNavigation = (children) => {
         }
 
         const menu = menuRef.current
+
+        // Focus the first menu item when the menu receives focus
+        const handleFocus = (event) => {
+            if (event.target === menuRef.current) {
+                const firstItemIndex = focusableItemsIndices?.[0]
+                menuRef.current.children[firstItemIndex].focus()
+                setActiveItemIndex(0)
+            }
+        }
+
         menu.addEventListener('focus', handleFocus)
         menu.addEventListener('keydown', handleKeyDown)
 
@@ -116,7 +82,7 @@ export const useMenuNavigation = (children) => {
             menu.removeEventListener('focus', handleFocus)
             menu.removeEventListener('keydown', handleKeyDown)
         }
-    }, [handleFocus, handleKeyDown])
+    }, [activeItemIndex, focusableItemsIndices, handleKeyDown])
 
     return {
         menuRef,

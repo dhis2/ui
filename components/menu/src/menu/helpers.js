@@ -1,23 +1,26 @@
-export const isValidMenuItem = (node) => {
-    const role = node.getAttribute('role')
-
-    const menuItemCheck =
-        role && ['menuitem', 'menuitemcheckbox', 'menuitemradio'].includes(role)
-
-    // UI Library MenuItem
-    if (role === 'presentation') {
-        return isValidMenuItem(node.children[0])
-    } else {
-        return role !== 'separator' && menuItemCheck
-    }
+const isMenuItem = (role) => {
+    return ['menuitem', 'menuitemcheckbox', 'menuitemradio'].includes(role)
 }
 
-export const filterValidMenuItemsIndices = (children) => {
-    const validIndices = []
-    children.forEach((node, index) => {
-        if (isValidMenuItem(node)) {
-            validIndices.push(index)
+const isValidMenuItemNode = (node) => {
+    if (node.nodeName === 'LI' && node.firstElementChild) {
+        return isValidMenuItemNode(node.firstElementChild)
+    }
+
+    const role = node.getAttribute('role')
+    return role && isMenuItem(role)
+}
+
+export const getFocusableItemsIndices = (elements) => {
+    const focusableIndices = []
+    elements.forEach((node, index) => {
+        if (isValidMenuItemNode(node)) {
+            focusableIndices.push(index)
         }
     })
-    return validIndices
+    return focusableIndices
+}
+
+export const hasMenuItemRole = (component) => {
+    return isMenuItem(component?.props?.['role'])
 }
