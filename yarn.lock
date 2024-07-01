@@ -20463,7 +20463,7 @@ react-dom@16.13:
     prop-types "^15.6.2"
     scheduler "^0.19.1"
 
-"react-dom@^16.8.0 || ^17.0.0 || ^18.0.0":
+react-dom@18, "react-dom@^16.8.0 || ^17.0.0 || ^18.0.0":
   version "18.3.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.3.1.tgz#c2265d79511b57d479b3dd3fdfa51536494c5cb4"
   integrity sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==
@@ -20802,7 +20802,7 @@ react-tooltip@^3.10.0:
   dependencies:
     prop-types "^15.6.0"
 
-react@16.13, react@16.13.1, "react@^16.8.0 || ^17.0.0 || ^18.0.0", react@^16.8.6:
+react@16.13, react@16.13.1, react@18, "react@^16.8.0 || ^17.0.0 || ^18.0.0", react@^16.8.6:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
   integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
