@@ -1,3 +1,10 @@
+## [9.8.10](https://github.com/dhis2/ui/compare/v9.8.9...v9.8.10) (2024-07-01)
+
+
+### Bug Fixes
+
+* **LIBS-629:** bump library to use Nepali script when 'ne' locale passed ([6546572](https://github.com/dhis2/ui/commit/6546572ea30d8faed53728cb8b005da0445326d4))
+
 ## [9.8.9](https://github.com/dhis2/ui/compare/v9.8.8...v9.8.9) (2024-06-20)
 
 
