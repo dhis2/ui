@@ -42,6 +42,14 @@ export const MenuDivider: React.FC<MenuDividerProps>
 
 export interface MenuItemProps {
     active?: boolean
+    /**
+     * Specifies if menu item is a checkbox
+     */
+    checkbox?: boolean
+    /**
+     * checkbox state for toggleable menu items
+     */
+    checked?: boolean
     chevron?: boolean
     /**
      * Nested menu items can become submenus.
