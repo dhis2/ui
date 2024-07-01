@@ -38,7 +38,7 @@
         "@dhis2-ui/input": "9.8.9",
         "@dhis2-ui/layer": "9.8.9",
         "@dhis2-ui/popper": "9.8.9",
-        "@dhis2/multi-calendar-dates": "^1.1.2",
+        "@dhis2/multi-calendar-dates": "^1.2.3",
         "@dhis2/prop-types": "^3.1.2",
         "@dhis2/ui-constants": "9.8.9",
         "@dhis2/ui-icons": "9.8.9",
