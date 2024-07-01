@@ -77,6 +77,10 @@ export interface MenuItemProps {
      * When true, nested menu items are shown in a Popper
      */
     showSubMenu?: boolean
+    /**
+     * A supporting element shown at the end of the menu item
+     */
+    suffix: React.ReactNode
     tabIndex?: number
     /**
      * For using menu item as a link
