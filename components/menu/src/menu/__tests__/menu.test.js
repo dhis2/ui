@@ -28,7 +28,7 @@ describe('Menu Component', () => {
 
         expect(menuItem.childAt(0).props().role).toBe('menuitem')
         expect(menuItem.childAt(0).prop('aria-label')).toBe('Menu item')
-        expect(menuDivider.prop('role')).toBe('separator')
+        expect(menuDivider.find('[role="separator"]').exists()).toBe(true)
     })
 
     it('Empty menu has role menu', () => {
