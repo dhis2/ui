@@ -7,6 +7,7 @@ export const useMenuNavigation = (children) => {
     const [activeItemIndex, setActiveItemIndex] = useState(-1)
 
     // Initializes the indices for focusable items
+    // focusable items have the role of menuitem || menuitemcheckbox || menuitemradio
     useEffect(() => {
         if (menuRef) {
             const menuItems = Array.from(menuRef.current.children)

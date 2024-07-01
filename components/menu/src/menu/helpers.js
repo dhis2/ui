@@ -6,9 +6,19 @@ const isValidMenuItemNode = (node) => {
     if (node.nodeName === 'LI' && node.firstElementChild) {
         return isValidMenuItemNode(node.firstElementChild)
     }
-
     const role = node.getAttribute('role')
-    return role && isMenuItem(role)
+
+    // for h1 - h6 headings since their heading role is not explicitly set
+    // style elements do not have roles
+    if (node.nodeName.startsWith('H') || node.nodeName === 'STYLE') {
+        return false
+    }
+
+    if (role) {
+        return isMenuItem(role)
+    } else {
+        console.warn('Missing: role attribute on the menu child')
+    }
 }
 
 export const getFocusableItemsIndices = (elements) => {
