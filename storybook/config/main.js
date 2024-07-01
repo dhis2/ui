@@ -27,6 +27,10 @@ module.exports = {
     },
 
     staticDirs: [join(__dirname, '../static')],
+
+    core: {
+        enableCrashReports: false,
+    },
 }
 
 function getAbsolutePath(value) {
