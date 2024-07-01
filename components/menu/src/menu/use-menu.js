@@ -18,7 +18,7 @@ export const useMenuNavigation = (children) => {
     // Focus the active menu child
     useEffect(() => {
         if (menuRef) {
-            if (focusableItemsIndices && activeItemIndex > -1) {
+            if (focusableItemsIndices?.length && activeItemIndex > -1) {
                 const currentIndex = focusableItemsIndices[activeItemIndex]
                 menuRef.current.children[currentIndex].focus()
             }
@@ -30,32 +30,38 @@ export const useMenuNavigation = (children) => {
     const handleKeyDown = useCallback(
         (event) => {
             const totalFocusablePositions = focusableItemsIndices?.length
-            const lastIndex = totalFocusablePositions - 1
-            switch (event.key) {
-                case 'ArrowUp':
-                    event.preventDefault()
-                    setActiveItemIndex(
-                        activeItemIndex > 0 ? activeItemIndex - 1 : lastIndex
-                    )
-                    break
-                case 'ArrowDown':
-                    event.preventDefault()
-                    setActiveItemIndex(
-                        activeItemIndex >= lastIndex ? 0 : activeItemIndex + 1
-                    )
-                    break
-                case 'Enter':
-                case ' ':
-                    event.preventDefault()
-                    if (event.target.nodeName === 'LI') {
-                        event.target.children[0].click()
-                    }
-                    break
-                default:
-                    break
+            if (totalFocusablePositions) {
+                const lastIndex = totalFocusablePositions - 1
+                switch (event.key) {
+                    case 'ArrowUp':
+                        event.preventDefault()
+                        setActiveItemIndex(
+                            activeItemIndex > 0
+                                ? activeItemIndex - 1
+                                : lastIndex
+                        )
+                        break
+                    case 'ArrowDown':
+                        event.preventDefault()
+                        setActiveItemIndex(
+                            activeItemIndex >= lastIndex
+                                ? 0
+                                : activeItemIndex + 1
+                        )
+                        break
+                    case 'Enter':
+                    case ' ':
+                        event.preventDefault()
+                        if (event.target.nodeName === 'LI') {
+                            event.target.children[0].click()
+                        }
+                        break
+                    default:
+                        break
+                }
             }
         },
-        [activeItemIndex, focusableItemsIndices?.length]
+        [activeItemIndex, focusableItemsIndices]
     )
 
     // Event listeners for menu focus and key handling
@@ -70,7 +76,8 @@ export const useMenuNavigation = (children) => {
         const handleFocus = (event) => {
             if (event.target === menuRef.current) {
                 const firstItemIndex = focusableItemsIndices?.[0]
-                menuRef.current.children[firstItemIndex].focus()
+                firstItemIndex &&
+                    menuRef.current.children[firstItemIndex].focus()
                 setActiveItemIndex(0)
             }
         }
