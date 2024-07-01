@@ -34,6 +34,7 @@ const buildCalendar =
                 date={date}
                 locale={locale}
                 calendar={calendar}
+                onDateSelect={()=>{}}
             />
         )
 
@@ -85,6 +86,7 @@ export const IslamicWithArabic = () => {
                 locale="ar-SD"
                 calendar="islamic-civil"
                 clearable={true}
+                onDateSelect={()=>{}}
             />
         </div>
     )
