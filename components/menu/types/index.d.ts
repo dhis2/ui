@@ -78,6 +78,11 @@ export interface MenuItemProps {
      */
     showSubMenu?: boolean
     /**
+     * A supporting element shown at the end of the menu item
+     */
+    suffix: React.ReactNode
+    tabIndex?: number
+    /**
      * For using menu item as a link
      */
     target?: string
