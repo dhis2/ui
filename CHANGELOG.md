@@ -1,3 +1,11 @@
+# [9.9.0](https://github.com/dhis2/ui/compare/v9.8.10...v9.9.0) (2024-07-02)
+
+
+### Features
+
+* **menu:** add aria-attributes and roles to menu and its components ([#1514](https://github.com/dhis2/ui/issues/1514)) ([54b816c](https://github.com/dhis2/ui/commit/54b816c8ac28ef74ac628130994c9c8fadf9d178))
+* **menu:** add keyboard accessibility to menus ([#1533](https://github.com/dhis2/ui/issues/1533)) ([235a71e](https://github.com/dhis2/ui/commit/235a71e92d41c35b84e61407adfbfa53b3513d4e))
+
 ## [9.8.10](https://github.com/dhis2/ui/compare/v9.8.9...v9.8.10) (2024-07-01)
 
 
