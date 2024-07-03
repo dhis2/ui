@@ -64,7 +64,7 @@
         "@dhis2/cli-style": "10.4.2",
         "@dhis2/cli-utils-docsite": "^3.1.2",
         "@dhis2/cypress-commands": "^10.0.5",
-        "@dhis2/cypress-plugins": "^10.0.5",
+        "@dhis2/cypress-plugins": "^10.0.6",
         "@manypkg/cli": "^0.18.0",
         "@svgr/cli": "^5.5.0",
         "@testing-library/jest-dom": "^5.16.1",
