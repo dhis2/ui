@@ -1133,6 +1133,8 @@ import { MenuItem } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |active|boolean||||
+|checkbox|boolean||||
+|checked|boolean||||
 |chevron|boolean||||
 |children|node|||Nested menu items can become submenus.<br/>See `showSubMenu` and `toggleSubMenu` props, and 'Children' demo|
 |className|string||||
@@ -1145,6 +1147,7 @@ import { MenuItem } from '@dhis2/ui'
 |label|node|||Text in the menu item|
 |showSubMenu|boolean|||When true, nested menu items are shown in a Popper|
 |suffix|node|||A supporting element shown at the end of the menu item|
+|tabIndex|number||||
 |target|string|||For using menu item as a link|
 |toggleSubMenu|function|||On click, this function is called (without args)|
 |value|string|||Value associated with item. Passed as an argument to onClick handler.|
@@ -1982,40 +1985,9 @@ import { SharingDialog } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |id|string||*|The id of the object to share|
-|type|import {
-    ACCESS_NONE,
-    ACCESS_VIEW_ONLY,
-    ACCESS_VIEW_AND_EDIT,
-    VISUALIZATION,
-    DASHBOARD,
-    EVENT_VISUALIZATION,
-    INTERPRETATION,
-} from './constants.js' │ import {
-    ACCESS_NONE,
-    ACCESS_VIEW_ONLY,
-    ACCESS_VIEW_AND_EDIT,
-    VISUALIZATION,
-    DASHBOARD,
-    EVENT_VISUALIZATION,
-    INTERPRETATION,
-} from './constants.js' │ import {
-    ACCESS_NONE,
-    ACCESS_VIEW_ONLY,
-    ACCESS_VIEW_AND_EDIT,
-    VISUALIZATION,
-    DASHBOARD,
-    EVENT_VISUALIZATION,
-    INTERPRETATION,
-} from './constants.js' │ import {
-    ACCESS_NONE,
-    ACCESS_VIEW_ONLY,
-    ACCESS_VIEW_AND_EDIT,
-    VISUALIZATION,
-    DASHBOARD,
-    EVENT_VISUALIZATION,
-    INTERPRETATION,
-} from './constants.js'||*|The type of object to share|
-|initialSharingSettings|{<br/>  "allowPublic": "boolean",<br/>  "groups": "objectOf",<br/>  "name": "string",<br/>  "public": "import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    VISUALIZATION,\n    DASHBOARD,\n    EVENT_VISUALIZATION,\n    INTERPRETATION,\n} from './constants.js' │ import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    VISUALIZATION,\n    DASHBOARD,\n    EVENT_VISUALIZATION,\n    INTERPRETATION,\n} from './constants.js' │ import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    VISUALIZATION,\n    DASHBOARD,\n    EVENT_VISUALIZATION,\n    INTERPRETATION,\n} from './constants.js'",<br/>  "users": "objectOf"<br/>}|`{
+|type|DIALOG_TYPES_LIST||*|The type of object to share|
+|dataTest|string|`'dhis2-uicore-sharingdialog'`|||
+|initialSharingSettings|{<br/>  "allowPublic": "boolean",<br/>  "groups": "objectOf",<br/>  "name": "string",<br/>  "public": "import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    DIALOG_TYPES_LIST,\n} from './constants.js' │ import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    DIALOG_TYPES_LIST,\n} from './constants.js' │ import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    DIALOG_TYPES_LIST,\n} from './constants.js'",<br/>  "users": "objectOf"<br/>}|`{
     name: '',
     allowPublic: true,
     public: ACCESS_NONE,
@@ -2043,6 +2015,7 @@ import { Modal } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |children|node||*||
+|dataTest|string|`'dhis2-uicore-sharingdialog-modal'`|||
 |name|string||||
 |onClose|function||||
 

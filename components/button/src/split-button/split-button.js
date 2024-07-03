@@ -32,6 +32,7 @@ class SplitButton extends Component {
 
     handleKeyDown = (event) => {
         if (event.key === 'Escape' && this.state.open) {
+            event.preventDefault()
             event.stopPropagation()
             this.setState({ open: false })
             this.anchorRef.current && this.anchorRef.current.focus()
