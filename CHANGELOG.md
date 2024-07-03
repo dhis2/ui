@@ -1,3 +1,69 @@
+## [9.9.1](https://github.com/dhis2/ui/compare/v9.9.0...v9.9.1) (2024-07-02)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#1532](https://github.com/dhis2/ui/issues/1532)) ([bb15173](https://github.com/dhis2/ui/commit/bb151732970dee94d0431d379373fbb369776346))
+
+# [9.9.0](https://github.com/dhis2/ui/compare/v9.8.10...v9.9.0) (2024-07-02)
+
+
+### Features
+
+* **menu:** add aria-attributes and roles to menu and its components ([#1514](https://github.com/dhis2/ui/issues/1514)) ([54b816c](https://github.com/dhis2/ui/commit/54b816c8ac28ef74ac628130994c9c8fadf9d178))
+* **menu:** add keyboard accessibility to menus ([#1533](https://github.com/dhis2/ui/issues/1533)) ([235a71e](https://github.com/dhis2/ui/commit/235a71e92d41c35b84e61407adfbfa53b3513d4e))
+
+## [9.8.10](https://github.com/dhis2/ui/compare/v9.8.9...v9.8.10) (2024-07-01)
+
+
+### Bug Fixes
+
+* **LIBS-629:** bump library to use Nepali script when 'ne' locale passed ([6546572](https://github.com/dhis2/ui/commit/6546572ea30d8faed53728cb8b005da0445326d4))
+
+## [9.8.9](https://github.com/dhis2/ui/compare/v9.8.8...v9.8.9) (2024-06-20)
+
+
+### Bug Fixes
+
+* update @dhis2/multi-calendar-dates ([#1525](https://github.com/dhis2/ui/issues/1525)) ([cf5d39d](https://github.com/dhis2/ui/commit/cf5d39d2b9898958e6e3c359d1062f16b2011778))
+
+## [9.8.8](https://github.com/dhis2/ui/compare/v9.8.7...v9.8.8) (2024-06-20)
+
+
+### Bug Fixes
+
+* i18n wrap pick a date ([#1531](https://github.com/dhis2/ui/issues/1531)) ([4e4a43d](https://github.com/dhis2/ui/commit/4e4a43db24342300c4db94ac497d1a381c50dab2))
+
+## [9.8.7](https://github.com/dhis2/ui/compare/v9.8.6...v9.8.7) (2024-06-20)
+
+
+### Bug Fixes
+
+* **split-button:** stop swallowing key down events ([22d43bc](https://github.com/dhis2/ui/commit/22d43bc54ee5be5fc6b17400ac7b4a518051dfe7))
+
+## [9.8.6](https://github.com/dhis2/ui/compare/v9.8.5...v9.8.6) (2024-06-20)
+
+
+### Bug Fixes
+
+* add aggregate data exchange to sharing dialog type prop's type ([d3b5486](https://github.com/dhis2/ui/commit/d3b54860337913be53ed25cbb72a0710787fdd28))
+* add all possible sharing dialog type prop's types ([43210cb](https://github.com/dhis2/ui/commit/43210cb1f7df6e903f86ad8f5a4d93471704a28b))
+* restrict dialog types to only sharable and restrict type of sharing type ([1748809](https://github.com/dhis2/ui/commit/1748809b093ebefefc01db2e4054d61b039fcd52))
+
+## [9.8.5](https://github.com/dhis2/ui/compare/v9.8.4...v9.8.5) (2024-06-19)
+
+
+### Bug Fixes
+
+* **modal:** dont swallow keyDown events ([d4a0c44](https://github.com/dhis2/ui/commit/d4a0c44bcd3892f46510eae0c16c977681f8069f))
+
+## [9.8.4](https://github.com/dhis2/ui/compare/v9.8.3...v9.8.4) (2024-06-19)
+
+
+### Bug Fixes
+
+* **drop-down:** dont swallow keyDown events unless its esc and open ([#1529](https://github.com/dhis2/ui/issues/1529)) ([bdb8eff](https://github.com/dhis2/ui/commit/bdb8eff1c34f1352ce27130584bcf2f442b9e6d5))
+
 ## [9.8.3](https://github.com/dhis2/ui/compare/v9.8.2...v9.8.3) (2024-06-16)
 
 

@@ -40,6 +40,9 @@ const MenuItem = ({
     showSubMenu,
     toggleSubMenu,
     suffix,
+    checkbox,
+    checked,
+    tabIndex,
 }) => {
     const menuItemRef = useRef()
 
@@ -50,11 +53,13 @@ const MenuItem = ({
                     destructive,
                     disabled,
                     dense,
-                    active: active || showSubMenu,
+                    active: active || showSubMenu || tabIndex === 0,
                     'with-chevron': children || chevron,
                 })}
                 ref={menuItemRef}
                 data-test={dataTest}
+                role="presentation"
+                tabIndex={tabIndex}
             >
                 <a
                     target={target}
@@ -69,6 +74,12 @@ const MenuItem = ({
                               })
                             : undefined
                     }
+                    role={checkbox ? 'menuitemcheckbox' : 'menuitem'}
+                    aria-checked={checkbox ? checked : null}
+                    aria-disabled={disabled}
+                    aria-haspopup={children && 'menu'}
+                    aria-expanded={showSubMenu}
+                    aria-label={label}
                 >
                     {icon && <span className="icon">{icon}</span>}
 
@@ -102,6 +113,8 @@ MenuItem.defaultProps = {
 
 MenuItem.propTypes = {
     active: PropTypes.bool,
+    checkbox: PropTypes.bool,
+    checked: PropTypes.bool,
     chevron: PropTypes.bool,
     /**
      * Nested menu items can become submenus.
@@ -123,6 +136,7 @@ MenuItem.propTypes = {
     showSubMenu: PropTypes.bool,
     /** A supporting element shown at the end of the menu item */
     suffix: PropTypes.node,
+    tabIndex: PropTypes.number,
     /** For using menu item as a link */
     target: PropTypes.string,
     /** On click, this function is called (without args) */
