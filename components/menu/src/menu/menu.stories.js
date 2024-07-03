@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { MenuItem, MenuSectionHeader } from '../index.js'
 import { Menu } from './index.js'
 
@@ -44,7 +44,8 @@ Dense.args = { dense: true }
 Dense.parameters = {
     docs: {
         description: {
-            story: 'Menus are available in regular or dense sizes. Use dense menus in data-heavy applications used by users comfortable with technology. Use regular menus in apps that are less complex or have few controls.',
+            story:
+                'Menus are available in regular or dense sizes. Use dense menus in data-heavy applications used by users comfortable with technology. Use regular menus in apps that are less complex or have few controls.',
         },
     },
 }
@@ -88,3 +89,42 @@ export const SideBarMenuRTL = (args) => (
         <SideBarMenu {...args} />
     </div>
 )
+
+export const SideBarMenuRerenderTest = (args) => {
+    const [result, setResult] = useState(0)
+    return (
+        <main
+            style={{
+                display: 'flex',
+                height: '100%',
+                border: '1px solid grey',
+            }}
+        >
+            <aside style={{ width: 200, height: '100%', flexGrow: 0 }}>
+                <span>
+                    Clicking here should update counter but not rerender Menu:{' '}
+                    {result}
+                </span>
+                <div>
+                    <button onClick={() => setResult((result) => result + 1)}>
+                        Update
+                    </button>
+                    <Menu {...args}>
+                        <MenuItem label="Menu item" />
+                        <MenuItem label="Menu item" />
+                    </Menu>
+                </div>
+            </aside>
+            <section
+                style={{
+                    backgroundColor: '#f3ffff',
+                    flexGrow: 1,
+                    padding: 20,
+                    borderInlineStart: '1px solid grey',
+                }}
+            >
+                Main content
+            </section>
+        </main>
+    )
+}
