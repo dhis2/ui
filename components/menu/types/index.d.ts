@@ -7,6 +7,7 @@ export interface FlyoutMenuProps {
     children?: React.ReactNode
     className?: string
     dataTest?: string
+    isFocused?: boolean
     /**
      * Menu uses smaller dimensions
      */
