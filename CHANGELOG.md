@@ -1,3 +1,11 @@
+# [9.10.0](https://github.com/dhis2/ui/compare/v9.9.1...v9.10.0) (2024-07-03)
+
+
+### Features
+
+* **menu:** memoise menu's childrenToRender function and add valid role checks ([#1539](https://github.com/dhis2/ui/issues/1539)) ([bddbdae](https://github.com/dhis2/ui/commit/bddbdaeb63180b80a4352a256e7916ab75f633e9))
+* **TabBar:** accessibility improvements for TabBar & Tab ([#1468](https://github.com/dhis2/ui/issues/1468)) ([b095f5a](https://github.com/dhis2/ui/commit/b095f5a90688b7e95338622137c71b2305fd9fe7))
+
 ## [9.9.1](https://github.com/dhis2/ui/compare/v9.9.0...v9.9.1) (2024-07-02)
 
 
