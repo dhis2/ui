@@ -170,7 +170,7 @@ export const DropDownMenu = (args) => {
             {open && (
                 <Layer onBackdropClick={toggle}>
                     <Popper reference={ref} placement="bottom-start">
-                        <FlyoutMenu {...args}>
+                        <FlyoutMenu {...args} closeMenu={toggle}>
                             <MenuItem label="Item 1" />
                             <MenuItem label="Item 2" />
                         </FlyoutMenu>
