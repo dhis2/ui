@@ -52,9 +52,9 @@ export const useMenuNavigation = (children) => {
                         break
                     case 'Enter':
                     case ' ':
-                        event.preventDefault()
                         if (event.target.nodeName === 'LI') {
-                            event.target.children[0].click()
+                            event.preventDefault()
+                            event.target.children?.[0]?.click()
                         }
                         break
                     default:

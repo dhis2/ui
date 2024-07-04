@@ -1,3 +1,4 @@
+import { Input } from '@dhis2-ui/input'
 import { render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { mount } from 'enzyme'
@@ -179,5 +180,25 @@ describe('Menu Component', () => {
         expect(nonListMenuItem.parentElement).toHaveFocus()
         // non menu items do not receive focus
         expect(plainListItem.parentElement).not.toHaveFocus()
+    })
+
+    it('does not hijack input change value if space entered [bug]', () => {
+        const onChange = jest.fn()
+        const { getByPlaceholderText } = render(
+            <Menu dataTest={menuDataTest} dense={false}>
+                <MenuItem value="myValue" label="Click menu item" />
+                <Input onChange={onChange} placeholder="test"></Input>
+            </Menu>
+        )
+
+        const inputField = getByPlaceholderText('test')
+        inputField.focus()
+        userEvent.keyboard('t')
+        userEvent.keyboard('e')
+        userEvent.keyboard(' ')
+        userEvent.keyboard('st')
+
+        expect(inputField.value).toBe('te st')
+        expect(onChange).toHaveBeenCalled()
     })
 })
