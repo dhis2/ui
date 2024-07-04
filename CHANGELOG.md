@@ -1,3 +1,11 @@
+## [9.10.1](https://github.com/dhis2/ui/compare/v9.10.0...v9.10.1) (2024-07-04)
+
+
+### Bug Fixes
+
+* **selectorbar:** handle components other than SelectorBarItem correctly as children ([#1534](https://github.com/dhis2/ui/issues/1534)) ([7c78ac7](https://github.com/dhis2/ui/commit/7c78ac729b763e1c230d50828cc2728f0ed360e7))
+* do not hijack input when inside a menu ([#1551](https://github.com/dhis2/ui/issues/1551)) ([7a27d3d](https://github.com/dhis2/ui/commit/7a27d3df5e4812ee01a3c2a9b1d69a3bab1ce96e))
+
 # [9.10.0](https://github.com/dhis2/ui/compare/v9.9.1...v9.10.0) (2024-07-03)
 
 
