@@ -2,7 +2,7 @@ import { Button } from '@dhis2-ui/button'
 import { colors, spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useRef, useMemo } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import i18n from '../locales/index.js'
 
 const ClearSelection = ({ disabled, onClick }) => {
@@ -38,25 +38,38 @@ export const SelectorBar = ({
     additionalContent,
     ariaLabel,
 }) => {
-    const chipContainer = useRef(null)
+    const container = useRef(null)
 
-    const childrenRefs = useMemo(
-        () => React.Children.map(children, () => React.createRef()),
-        [children]
-    )
+    const [childrenToFocus, setChildrenToFocus] = useState([])
+
+    useEffect(() => {
+        if (container.current) {
+            const controlsDiv = container.current.querySelector('.controls')
+            if (controlsDiv) {
+                const childElements = Array.from(controlsDiv.children)
+                childElements.forEach((child) => {
+                    child.tabIndex = -1
+                })
+                setChildrenToFocus(childElements)
+            }
+        }
+    }, [children])
 
     const handleKeyDown = (event) => {
         const currentFocus = document.activeElement
 
-        if (chipContainer.current && chipContainer.current === currentFocus) {
-            if (childrenRefs.length > 0 && childrenRefs[0].current) {
-                childrenRefs[0].current.focus()
+        if (container.current && container.current === currentFocus) {
+            if (childrenToFocus.length > 0 && childrenToFocus[0]) {
+                childrenToFocus[0].focus()
             }
             return
         }
+        if (!childrenToFocus.length) {
+            return
+        }
 
-        const currentIndex = childrenRefs.findIndex(
-            (ref) => ref.current === currentFocus
+        const currentIndex = childrenToFocus.findIndex(
+            (element) => element === currentFocus
         )
 
         if (currentIndex === -1) {
@@ -65,15 +78,16 @@ export const SelectorBar = ({
 
         if (event.key === 'ArrowRight') {
             event.preventDefault()
-            const nextIndex = (currentIndex + 1) % childrenRefs.length
-            childrenRefs[nextIndex].current.focus()
+            const nextIndex = (currentIndex + 1) % childrenToFocus.length
+            childrenToFocus[nextIndex].focus()
         }
 
         if (event.key === 'ArrowLeft') {
             event.preventDefault()
             const prevIndex =
-                (currentIndex - 1 + childrenRefs.length) % childrenRefs.length
-            childrenRefs[prevIndex].current.focus()
+                (currentIndex - 1 + childrenToFocus.length) %
+                childrenToFocus.length
+            childrenToFocus[prevIndex].focus()
         }
     }
 
@@ -88,16 +102,17 @@ export const SelectorBar = ({
                 data-test={dataTest}
                 onKeyDown={handleKeyDown}
                 tabIndex={0}
-                ref={chipContainer}
+                ref={container}
                 role="toolbar"
                 aria-label={ariaLabel}
             >
                 <div className="controls">
-                    {React.Children.map(children, (child, index) =>
+                    {/*                     {React.Children.map(children, (child, index) =>
                         React.cloneElement(child, {
                             ref: childrenRefs[index],
                         })
-                    )}
+                    )} */}
+                    {children}
                     {onClearSelectionClick && (
                         <ClearSelection
                             disabled={disableClearSelections}
