@@ -5,5 +5,5 @@ Given('a MenuItem with target is rendered', () => {
 })
 
 Then('a link is rendered with the target', () => {
-    cy.get('a').should('have.attr', 'target').and('include', '_blank')
+    cy.get('#storybook-root a').should('have.attr', 'target').and('include', '_blank')
 })
