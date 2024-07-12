@@ -35,9 +35,8 @@ const Chip = ({
             onRemove({}, event)
         }
     }
-
     return (
-        <button
+        <span
             onClick={(e) => {
                 if (!disabled && onClick) {
                     onClick({}, e)
@@ -61,7 +60,7 @@ const Chip = ({
             <Remove onRemove={onRemove} dataTest={`${dataTest}-remove`} />
 
             <style jsx>{`
-                button {
+                span {
                     display: inline-flex;
                     align-items: center;
                     height: 32px;
@@ -72,7 +71,6 @@ const Chip = ({
                     cursor: pointer;
                     user-select: none;
                     color: ${colors.grey900};
-                    padding: 0;
                 }
 
                 .dense {
@@ -81,7 +79,7 @@ const Chip = ({
                     line-height: 15px;
                 }
 
-                button:hover {
+                span:hover {
                     background-color: ${colors.grey300};
                 }
 
@@ -116,7 +114,7 @@ const Chip = ({
                 }
             `}</style>
             <style jsx>{`
-                button {
+                span {
                     ${marginBottom && `margin-bottom: ${marginBottom}px;`}
                     margin-inline-start: ${marginInlineStart ??
                     marginLeft ??
@@ -127,7 +125,7 @@ const Chip = ({
                     ${marginTop && `margin-top: ${marginTop}px`}
                 }
             `}</style>
-        </button>
+        </span>
     )
 }
 
