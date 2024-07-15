@@ -1,3 +1,13 @@
+## [9.10.2](https://github.com/dhis2/ui/compare/v9.10.1...v9.10.2) (2024-07-15)
+
+
+### Bug Fixes
+
+* **icon types:** export IconSubtract16 & IconSubtract24 ([5237c66](https://github.com/dhis2/ui/commit/5237c66ffa372ca79eb28c55369cefc7d4eab327))
+* **menu item types:** make suffix prop optional ([c059fde](https://github.com/dhis2/ui/commit/c059fde8e511c21c8540a418833a98b2f868eb6e))
+* **modal types:** accept ReactNodes as children ([bc59cf7](https://github.com/dhis2/ui/commit/bc59cf769d24ac66061b78424db0732f164ce387))
+* **tag types:** accept ReactNodes as children ([c093a14](https://github.com/dhis2/ui/commit/c093a14988da636a88bc9ce2c5e7589a5a7e8f80))
+
 ## [9.10.1](https://github.com/dhis2/ui/compare/v9.10.0...v9.10.1) (2024-07-04)
 
 
