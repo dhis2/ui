@@ -80,7 +80,7 @@ export interface MenuItemProps {
     /**
      * A supporting element shown at the end of the menu item
      */
-    suffix: React.ReactNode
+    suffix?: React.ReactNode
     tabIndex?: number
     /**
      * For using menu item as a link
