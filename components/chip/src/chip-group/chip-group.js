@@ -13,10 +13,6 @@ const ChipGroup = ({ className, dataTest, children }) => {
             )
             if (controlsDiv) {
                 const childElements = Array.from(controlsDiv)
-                childElements.forEach((child) => {
-                    child.tabIndex = -1
-                    child.role = 'option'
-                })
                 setChildrenToFocus(childElements)
             }
         }
@@ -58,46 +54,6 @@ const ChipGroup = ({ className, dataTest, children }) => {
         }
     }
 
-    /*     const handleKeyDown = (event) => {
-        const currentFocus = document.activeElement
-
-        if (chipContainer.current && chipContainer.current === currentFocus) {
-            const chips = Array.from(
-                chipContainer.current.querySelectorAll('[role="option"]')
-            )
-            if (chips.length > 0) {
-                chips[0].focus()
-            }
-            return
-        }
-
-        const role = currentFocus.getAttribute('role')
-
-        if (role !== 'option') {
-            return
-        }
-
-        const chips = Array.from(
-            chipContainer.current.querySelectorAll('[role="option"]')
-        )
-
-        const currentIndex = chips.indexOf(currentFocus)
-
-        if (event.key === 'ArrowRight') {
-            event.preventDefault()
-            const nextIndex = (currentIndex + 1) % chips.length
-            chips[nextIndex].focus()
-        }
-        if (event.key === 'ArrowLeft') {
-            event.preventDefault()
-            const prevIndex = (currentIndex - 1 + chips.length) % chips.length
-            chips[prevIndex].focus()
-        }
-        if (event.key === 'Backspace' || event.key === 'Delete') {
-            const nextIndex = (currentIndex + 1) % chips.length
-            chips[nextIndex].focus()
-        }
-    } */
     return (
         <div
             className={className}
