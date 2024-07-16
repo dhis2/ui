@@ -1,4 +1,4 @@
-import { FlyoutMenu, MenuItem } from '@dhis2-ui/menu'
+import { FlyoutMenu, MenuDivider, MenuItem } from '@dhis2-ui/menu'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React, { useState } from 'react'
 import { DropdownButton } from './index.js'
@@ -126,4 +126,47 @@ export const RTL = (args) => (
 )
 RTL.args = {
     children: 'RTL text',
+}
+
+export const OptionsButtonWithConditional = () => {
+    const [showMenu, setShowMenu] = useState(false)
+    const [isValid] = useState(true)
+
+    const closeMenu = () => setShowMenu(false)
+
+    const optionsMenu = (
+        <FlyoutMenu closeMenu={closeMenu}>
+            {isValid && (
+                <MenuItem
+                    key={1}
+                    label={'Print form with values'}
+                    onClick={closeMenu}
+                />
+            )}
+            {isValid && (
+                <MenuItem
+                    key={2}
+                    onClick={closeMenu}
+                    label={'Print empty form'}
+                />
+            )}
+            {isValid && <MenuDivider key={3} />}
+
+            <MenuItem key={4} label={'Help'} onClick={closeMenu} />
+        </FlyoutMenu>
+    )
+
+    return (
+        <>
+            <DropdownButton
+                small
+                open={showMenu}
+                onClick={() => setShowMenu(!showMenu)}
+                secondary
+                component={optionsMenu}
+            >
+                {'Options'}
+            </DropdownButton>
+        </>
+    )
 }
