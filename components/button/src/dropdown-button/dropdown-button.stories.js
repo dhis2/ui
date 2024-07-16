@@ -135,24 +135,55 @@ export const OptionsButtonWithConditional = () => {
     const closeMenu = () => setShowMenu(false)
 
     const optionsMenu = (
+        <FlyoutMenu>
+            {isValid && (
+                <>
+                    <MenuItem
+                        label={'Print form with values'}
+                        onClick={closeMenu}
+                    />
+                    <MenuItem onClick={closeMenu} label={'Print empty form'} />
+                    <MenuDivider />
+                </>
+            )}
+            <MenuItem label={'Help'} onClick={closeMenu} />
+        </FlyoutMenu>
+    )
+
+    return (
+        <>
+            <DropdownButton
+                small
+                open={showMenu}
+                onClick={() => setShowMenu(!showMenu)}
+                secondary
+                component={optionsMenu}
+            >
+                {'Options'}
+            </DropdownButton>
+        </>
+    )
+}
+
+export const ModifiedOptionsButtonWithConditional = () => {
+    const [showMenu, setShowMenu] = useState(false)
+    const [isValid] = useState(true)
+
+    const closeMenu = () => setShowMenu(false)
+
+    const optionsMenu = (
         <FlyoutMenu closeMenu={closeMenu}>
             {isValid && (
                 <MenuItem
-                    key={1}
                     label={'Print form with values'}
                     onClick={closeMenu}
                 />
             )}
             {isValid && (
-                <MenuItem
-                    key={2}
-                    onClick={closeMenu}
-                    label={'Print empty form'}
-                />
+                <MenuItem onClick={closeMenu} label={'Print empty form'} />
             )}
-            {isValid && <MenuDivider key={3} />}
-
-            <MenuItem key={4} label={'Help'} onClick={closeMenu} />
+            {isValid && <MenuDivider />}
+            <MenuItem label={'Help'} onClick={closeMenu} />
         </FlyoutMenu>
     )
 
