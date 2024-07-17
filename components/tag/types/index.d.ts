@@ -5,7 +5,7 @@ export interface TagProps {
      * Use bold tags where it is important that the tag is seen by the user in an information dense interface. Bold tags should be reserved for edge cases and not overused.
      */
     bold?: boolean
-    children?: string
+    children?: React.ReactNode
     className?: string
     dataTest?: string
     /**

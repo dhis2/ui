@@ -26,6 +26,6 @@ ModalTitle.defaultProps = {
 }
 
 ModalTitle.propTypes = {
-    children: PropTypes.string,
+    children: PropTypes.node,
     dataTest: PropTypes.string,
 }

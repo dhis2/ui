@@ -79,5 +79,5 @@ import { ModalTitle } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|children|string||||
+|children|node||||
 |dataTest|string|`'dhis2-uicore-modaltitle'`|||

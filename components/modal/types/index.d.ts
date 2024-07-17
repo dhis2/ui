@@ -36,7 +36,7 @@ export interface ModalContentProps {
 export const ModalContent: React.FC<ModalContentProps>
 
 export interface ModalTitleProps {
-    children?: string
+    children?: React.ReactNode
     dataTest?: string
 }
 
