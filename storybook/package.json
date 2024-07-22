@@ -12,7 +12,7 @@
     "private": true,
     "scripts": {
         "start": "EXTEND_ESLINT=true storybook dev -c config --port 5000 --ci",
-        "build": "EXTEND_ESLINT=true storybook build -c config -o ../dist/demo --quiet"
+        "build": "EXTEND_ESLINT=true storybook build -c config -o ../dist/demo"
     },
     "peerDependencies": {
         "styled-jsx": "^4"
