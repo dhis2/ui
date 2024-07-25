@@ -3,10 +3,17 @@ import { Card } from '@dhis2-ui/card'
 import { InputField } from '@dhis2-ui/input'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
-import { useDatePicker } from '@dhis2/multi-calendar-dates'
+import {
+    useDatePicker,
+    useResolvedDirection,
+} from '@dhis2/multi-calendar-dates'
+import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
-import React, { useRef, useState, useEffect } from 'react'
-import { Calendar, CalendarProps } from '../calendar/calendar.js'
+// import { debounce } from 'lodash'
+import React, { useRef, useState, useMemo, useCallback } from 'react'
+import { CalendarTable } from '../calendar/calendar-table.js'
+import { CalendarProps } from '../calendar/calendar.js'
+import { NavigationContainer } from '../calendar/navigation-container.js'
 import i18n from '../locales/index.js'
 
 const offsetModifier = {
@@ -17,7 +24,7 @@ const offsetModifier = {
 }
 
 export const CalendarInput = ({
-    onDateSelect,
+    onDateSelect: parentOnDateSelect,
     calendar,
     date,
     dir,
@@ -31,66 +38,41 @@ export const CalendarInput = ({
     editable,
     minDate,
     maxDate,
-    format,
+    format, // todo: props and types for format and validation
     validation,
     ...rest
 } = {}) => {
     const ref = useRef()
     const [open, setOpen] = useState(false)
-    const [error, setError] = useState('')
-    const [warning, setWarning] = useState('')
 
-    const calendarProps = React.useMemo(() => {
-        const onDateSelectWrapper = (selectedDate) => {
-            setOpen(false)
-            onDateSelect?.(selectedDate)
-        }
-        return {
-            onDateSelect: onDateSelectWrapper,
+    const useDatePickerOptions = useMemo(
+        () => ({
             calendar,
-            date,
-            dir,
             locale,
+            timeZone, // todo: we probably shouldn't have had timezone here in the first place
             numberingSystem,
             weekDayFormat,
-            timeZone,
-            width,
-            cellSize,
-        }
-    }, [
-        calendar,
-        cellSize,
-        date,
-        dir,
-        locale,
-        numberingSystem,
-        onDateSelect,
-        timeZone,
-        weekDayFormat,
-        width,
-    ])
+        }),
+        [calendar, locale, numberingSystem, timeZone, weekDayFormat]
+    )
 
-    const pickerOptions = useDatePicker({
-        onDateSelect: (result) => {
-            setOpen(false)
-            onDateSelect(result)
+    const onDateSelect = useCallback(
+        (result, keepPopperOpen = false) => {
+            setOpen(keepPopperOpen)
+            parentOnDateSelect?.(result)
         },
-        date: date,
+        [parentOnDateSelect]
+    )
+
+    const pickerResults = useDatePicker({
+        onDateSelect,
+        date,
         minDate: minDate,
         maxDate: maxDate,
         validation: validation,
         format: format,
-        options: calendarProps,
+        options: useDatePickerOptions,
     })
-
-    useEffect(() => {
-        setError(pickerOptions.errorMessage || '')
-        setWarning(pickerOptions.warningMessage || '')
-    }, [
-        pickerOptions.errorMessage,
-        pickerOptions.warningMessage,
-        pickerOptions.isValid,
-    ])
 
     const handleChange = (e) => {
         onDateSelect?.({ calendarDateString: e.value })
@@ -99,6 +81,41 @@ export const CalendarInput = ({
     const onFocus = () => {
         setOpen(true)
     }
+
+    const calendarProps = useMemo(() => {
+        return {
+            date,
+            dir,
+            locale,
+            width,
+            cellSize,
+            minDate,
+            maxDate,
+            validation, // todo: clarify "validation" type in the hook
+            format,
+            calendarWeekDays: pickerResults.calendarWeekDays,
+            weekDayLabels: pickerResults.weekDayLabels,
+            currMonth: pickerResults.currMonth,
+            currYear: pickerResults.currYear,
+            nextMonth: pickerResults.nextMonth,
+            nextYear: pickerResults.nextYear,
+            prevMonth: pickerResults.prevMonth,
+            prevYear: pickerResults.prevYear,
+        }
+    }, [
+        cellSize,
+        date,
+        dir,
+        format,
+        locale,
+        maxDate,
+        minDate,
+        pickerResults,
+        validation,
+        width,
+    ])
+
+    const languageDirection = useResolvedDirection(dir, locale)
 
     return (
         <>
@@ -110,9 +127,12 @@ export const CalendarInput = ({
                     onFocus={onFocus}
                     value={date}
                     onChange={editable ? handleChange : undefined}
-                    validationText={error || warning}
-                    error={!!error}
-                    warning={!!warning}
+                    validationText={
+                        pickerResults.errorMessage ||
+                        pickerResults.warningMessage
+                    }
+                    error={!!pickerResults.errorMessage}
+                    warning={!!pickerResults.warningMessage}
                 />
                 {clearable && (
                     <div
@@ -151,11 +171,27 @@ export const CalendarInput = ({
                         modifiers={[offsetModifier]}
                     >
                         <Card>
-                            <Calendar
-                                {...calendarProps}
-                                {...pickerOptions}
-                                date={date}
-                            />
+                            <div
+                                className="calendar-wrapper"
+                                dir={languageDirection}
+                                data-test="calendar"
+                            >
+                                <NavigationContainer
+                                    pickerOptions={calendarProps}
+                                    languageDirection={languageDirection}
+                                />
+                                <CalendarTable
+                                    selectedDate={
+                                        calendarProps.isValid ? date : null
+                                    }
+                                    calendarWeekDays={
+                                        calendarProps.calendarWeekDays
+                                    }
+                                    weekDayLabels={calendarProps.weekDayLabels}
+                                    cellSize={cellSize}
+                                    width={width}
+                                />
+                            </div>
                         </Card>
                     </Popper>
                 </Layer>
@@ -176,6 +212,20 @@ export const CalendarInput = ({
                     }
                     .calendar-clear-button.with-dense-wrapper {
                         inset-block-start: 23px;
+                    }
+                    .calendar-wrapper {
+                        font-family: Roboto, sans-serif;
+                        font-weight: 400;
+                        font-size: 14px;
+                        background-color: none;
+                        display: flex;
+                        flex-direction: column;
+                        border: 1px solid ${colors.grey300};
+                        border-radius: 3px;
+                        min-width: ${width};
+                        width: max-content;
+                        box-shadow: 0px 4px 6px -2px #2129340d;
+                        box-shadow: 0px 10px 15px -3px #2129341a;
                     }
                 `}
             </style>
