@@ -3,10 +3,14 @@ import { Card } from '@dhis2-ui/card'
 import { InputField } from '@dhis2-ui/input'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
-import { useDatePicker } from '@dhis2/multi-calendar-dates'
+import {
+    useDatePicker,
+    useResolvedDirection,
+} from '@dhis2/multi-calendar-dates'
 import cx from 'classnames'
-import React, { useRef, useState, useEffect } from 'react'
-import { Calendar, CalendarProps } from '../calendar/calendar.js'
+import React, { useRef, useState, useMemo, useCallback } from 'react'
+import { CalendarContainer } from '../calendar/calendar-container.js'
+import { CalendarProps } from '../calendar/calendar.js'
 import i18n from '../locales/index.js'
 
 const offsetModifier = {
@@ -17,7 +21,7 @@ const offsetModifier = {
 }
 
 export const CalendarInput = ({
-    onDateSelect,
+    onDateSelect: parentOnDateSelect,
     calendar,
     date,
     dir,
@@ -31,74 +35,64 @@ export const CalendarInput = ({
     editable,
     minDate,
     maxDate,
-    format,
+    format, // todo: props and types for format and validation
     validation,
     ...rest
 } = {}) => {
     const ref = useRef()
     const [open, setOpen] = useState(false)
-    const [error, setError] = useState('')
-    const [warning, setWarning] = useState('')
 
-    const calendarProps = React.useMemo(() => {
-        const onDateSelectWrapper = (selectedDate) => {
-            setOpen(false)
-            onDateSelect?.(selectedDate)
-        }
-        return {
-            onDateSelect: onDateSelectWrapper,
+    const useDatePickerOptions = useMemo(
+        () => ({
             calendar,
-            date,
-            dir,
             locale,
+            timeZone, // todo: we probably shouldn't have had timezone here in the first place
             numberingSystem,
             weekDayFormat,
-            timeZone,
-            width,
-            cellSize,
-        }
-    }, [
-        calendar,
-        cellSize,
-        date,
-        dir,
-        locale,
-        numberingSystem,
-        onDateSelect,
-        timeZone,
-        weekDayFormat,
-        width,
-    ])
+        }),
+        [calendar, locale, numberingSystem, timeZone, weekDayFormat]
+    )
 
-    const pickerOptions = useDatePicker({
+    const pickerResults = useDatePicker({
         onDateSelect: (result) => {
             setOpen(false)
-            onDateSelect(result)
+            parentOnDateSelect?.(result)
         },
-        date: date,
+        date,
         minDate: minDate,
         maxDate: maxDate,
         validation: validation,
         format: format,
-        options: calendarProps,
+        options: useDatePickerOptions,
     })
 
-    useEffect(() => {
-        setError(pickerOptions.errorMessage || '')
-        setWarning(pickerOptions.warningMessage || '')
-    }, [
-        pickerOptions.errorMessage,
-        pickerOptions.warningMessage,
-        pickerOptions.isValid,
-    ])
-
     const handleChange = (e) => {
-        onDateSelect?.({ calendarDateString: e.value })
+        parentOnDateSelect?.({ calendarDateString: e.value })
     }
 
     const onFocus = () => {
         setOpen(true)
     }
+
+    const languageDirection = useResolvedDirection(dir, locale)
+
+    const calendarProps = useMemo(() => {
+        return {
+            date,
+            width,
+            cellSize,
+            isValid: pickerResults.isValid,
+            calendarWeekDays: pickerResults.calendarWeekDays,
+            weekDayLabels: pickerResults.weekDayLabels,
+            currMonth: pickerResults.currMonth,
+            currYear: pickerResults.currYear,
+            nextMonth: pickerResults.nextMonth,
+            nextYear: pickerResults.nextYear,
+            prevMonth: pickerResults.prevMonth,
+            prevYear: pickerResults.prevYear,
+            languageDirection,
+        }
+    }, [cellSize, date, pickerResults, width, languageDirection])
 
     return (
         <>
@@ -110,9 +104,12 @@ export const CalendarInput = ({
                     onFocus={onFocus}
                     value={date}
                     onChange={editable ? handleChange : undefined}
-                    validationText={error || warning}
-                    error={!!error}
-                    warning={!!warning}
+                    validationText={
+                        pickerResults.errorMessage ||
+                        pickerResults.warningMessage
+                    }
+                    error={!!pickerResults.errorMessage}
+                    warning={!!pickerResults.warningMessage}
                 />
                 {clearable && (
                     <div
@@ -130,7 +127,7 @@ export const CalendarInput = ({
                             secondary
                             small
                             onClick={() => {
-                                onDateSelect?.(null)
+                                parentOnDateSelect?.(null)
                             }}
                             type="button"
                         >
@@ -151,11 +148,7 @@ export const CalendarInput = ({
                         modifiers={[offsetModifier]}
                     >
                         <Card>
-                            <Calendar
-                                {...calendarProps}
-                                {...pickerOptions}
-                                date={date}
-                            />
+                            <CalendarContainer {...calendarProps} />
                         </Card>
                     </Popper>
                 </Layer>
