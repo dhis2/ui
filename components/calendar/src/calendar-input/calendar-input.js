@@ -93,6 +93,7 @@ export const CalendarInput = ({
             maxDate,
             validation, // todo: clarify "validation" type in the hook
             format,
+            isValid: pickerResults.isValid,
             calendarWeekDays: pickerResults.calendarWeekDays,
             weekDayLabels: pickerResults.weekDayLabels,
             currMonth: pickerResults.currMonth,
