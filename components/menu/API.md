@@ -16,6 +16,7 @@ import { FlyoutMenu } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node|||Typically, but not limited to, `MenuItem` components|
 |className|string||||
+|closeMenu|function|||when Escape key is pressed, this function is called to close the flyout menu|
 |dataTest|string|`'dhis2-uicore-menu'`|||
 |dense|boolean|||Menu uses smaller dimensions|
 |maxHeight|string|`'auto'`|||
