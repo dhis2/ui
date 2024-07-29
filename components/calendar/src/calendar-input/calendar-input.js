@@ -7,13 +7,10 @@ import {
     useDatePicker,
     useResolvedDirection,
 } from '@dhis2/multi-calendar-dates'
-import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
-// import { debounce } from 'lodash'
 import React, { useRef, useState, useMemo, useCallback } from 'react'
-import { CalendarTable } from '../calendar/calendar-table.js'
+import { CalendarContainer } from '../calendar/calendar-container.js'
 import { CalendarProps } from '../calendar/calendar.js'
-import { NavigationContainer } from '../calendar/navigation-container.js'
 import i18n from '../locales/index.js'
 
 const offsetModifier = {
@@ -56,16 +53,11 @@ export const CalendarInput = ({
         [calendar, locale, numberingSystem, timeZone, weekDayFormat]
     )
 
-    const onDateSelect = useCallback(
-        (result, keepPopperOpen = false) => {
-            setOpen(keepPopperOpen)
+    const pickerResults = useDatePicker({
+        onDateSelect: (result) => {
+            setOpen(false)
             parentOnDateSelect?.(result)
         },
-        [parentOnDateSelect]
-    )
-
-    const pickerResults = useDatePicker({
-        onDateSelect,
         date,
         minDate: minDate,
         maxDate: maxDate,
@@ -75,24 +67,20 @@ export const CalendarInput = ({
     })
 
     const handleChange = (e) => {
-        onDateSelect?.({ calendarDateString: e.value })
+        parentOnDateSelect?.({ calendarDateString: e.value })
     }
 
     const onFocus = () => {
         setOpen(true)
     }
 
+    const languageDirection = useResolvedDirection(dir, locale)
+
     const calendarProps = useMemo(() => {
         return {
             date,
-            dir,
-            locale,
             width,
             cellSize,
-            minDate,
-            maxDate,
-            validation, // todo: clarify "validation" type in the hook
-            format,
             isValid: pickerResults.isValid,
             calendarWeekDays: pickerResults.calendarWeekDays,
             weekDayLabels: pickerResults.weekDayLabels,
@@ -102,21 +90,9 @@ export const CalendarInput = ({
             nextYear: pickerResults.nextYear,
             prevMonth: pickerResults.prevMonth,
             prevYear: pickerResults.prevYear,
+            languageDirection,
         }
-    }, [
-        cellSize,
-        date,
-        dir,
-        format,
-        locale,
-        maxDate,
-        minDate,
-        pickerResults,
-        validation,
-        width,
-    ])
-
-    const languageDirection = useResolvedDirection(dir, locale)
+    }, [cellSize, date, pickerResults, width, languageDirection])
 
     return (
         <>
@@ -151,7 +127,7 @@ export const CalendarInput = ({
                             secondary
                             small
                             onClick={() => {
-                                onDateSelect?.(null)
+                                parentOnDateSelect?.(null)
                             }}
                             type="button"
                         >
@@ -172,27 +148,7 @@ export const CalendarInput = ({
                         modifiers={[offsetModifier]}
                     >
                         <Card>
-                            <div
-                                className="calendar-wrapper"
-                                dir={languageDirection}
-                                data-test="calendar"
-                            >
-                                <NavigationContainer
-                                    pickerOptions={calendarProps}
-                                    languageDirection={languageDirection}
-                                />
-                                <CalendarTable
-                                    selectedDate={
-                                        calendarProps.isValid ? date : null
-                                    }
-                                    calendarWeekDays={
-                                        calendarProps.calendarWeekDays
-                                    }
-                                    weekDayLabels={calendarProps.weekDayLabels}
-                                    cellSize={cellSize}
-                                    width={width}
-                                />
-                            </div>
+                            <CalendarContainer {...calendarProps} />
                         </Card>
                     </Popper>
                 </Layer>
@@ -213,20 +169,6 @@ export const CalendarInput = ({
                     }
                     .calendar-clear-button.with-dense-wrapper {
                         inset-block-start: 23px;
-                    }
-                    .calendar-wrapper {
-                        font-family: Roboto, sans-serif;
-                        font-weight: 400;
-                        font-size: 14px;
-                        background-color: none;
-                        display: flex;
-                        flex-direction: column;
-                        border: 1px solid ${colors.grey300};
-                        border-radius: 3px;
-                        min-width: ${width};
-                        width: max-content;
-                        box-shadow: 0px 4px 6px -2px #2129340d;
-                        box-shadow: 0px 10px 15px -3px #2129341a;
                     }
                 `}
             </style>

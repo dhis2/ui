@@ -2,11 +2,9 @@ import {
     useDatePicker,
     useResolvedDirection,
 } from '@dhis2/multi-calendar-dates'
-import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
-import { CalendarTable } from './calendar-table.js'
-import { NavigationContainer } from './navigation-container.js'
+import React, { useMemo, useState } from 'react'
+import { CalendarContainer } from './calendar-container.js'
 
 export const Calendar = ({
     onDateSelect,
@@ -20,9 +18,6 @@ export const Calendar = ({
     width,
     cellSize,
 }) => {
-    const wrapperBorderColor = colors.grey300
-    const backgroundColor = 'none'
-
     const [selectedDateString, setSelectedDateString] = useState(date)
     const languageDirection = useResolvedDirection(dir, locale)
 
@@ -34,7 +29,7 @@ export const Calendar = ({
         weekDayFormat,
     }
 
-    const pickerOptions = useDatePicker({
+    const pickerResults = useDatePicker({
         onDateSelect: (result) => {
             const { calendarDateString } = result
             setSelectedDateString(calendarDateString)
@@ -44,43 +39,33 @@ export const Calendar = ({
         options,
     })
 
-    const { calendarWeekDays, weekDayLabels } = pickerOptions
+    const calendarProps = useMemo(() => {
+        return {
+            date,
+            dir,
+            locale,
+            width,
+            cellSize,
+            // minDate,
+            // maxDate,
+            // validation, // todo: clarify how we use validation props (and format) in Calendar (not CalendarInput)
+            // format,
+            isValid: pickerResults.isValid,
+            calendarWeekDays: pickerResults.calendarWeekDays,
+            weekDayLabels: pickerResults.weekDayLabels,
+            currMonth: pickerResults.currMonth,
+            currYear: pickerResults.currYear,
+            nextMonth: pickerResults.nextMonth,
+            nextYear: pickerResults.nextYear,
+            prevMonth: pickerResults.prevMonth,
+            prevYear: pickerResults.prevYear,
+            languageDirection,
+        }
+    }, [cellSize, date, dir, locale, pickerResults, width, languageDirection])
 
     return (
         <div>
-            <div
-                className="calendar-wrapper"
-                dir={languageDirection}
-                data-test="calendar"
-            >
-                <NavigationContainer
-                    pickerOptions={pickerOptions}
-                    languageDirection={languageDirection}
-                />
-                <CalendarTable
-                    selectedDate={selectedDateString}
-                    calendarWeekDays={calendarWeekDays}
-                    weekDayLabels={weekDayLabels}
-                    cellSize={cellSize}
-                    width={width}
-                />
-            </div>
-            <style jsx>{`
-                .calendar-wrapper {
-                    font-family: Roboto, sans-serif;
-                    font-weight: 400;
-                    font-size: 14px;
-                    background-color: ${backgroundColor};
-                    display: flex;
-                    flex-direction: column;
-                    border: 1px solid ${wrapperBorderColor};
-                    border-radius: 3px;
-                    min-width: ${width};
-                    width: max-content;
-                    box-shadow: 0px 4px 6px -2px #2129340d;
-                    box-shadow: 0px 10px 15px -3px #2129341a;
-                }
-            `}</style>
+            <CalendarContainer {...calendarProps} />
         </div>
     )
 }
