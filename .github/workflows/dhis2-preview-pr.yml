@@ -10,7 +10,7 @@ name: 'dhis2: pr preview'
 # - Customize the 'jobs.build.steps.netlify-deploy.publish-dir' property
 
 on:
-    pull_request:
+    push:
 
 concurrency:
     group: ${{ github.workflow}}-${{ github.ref }}
