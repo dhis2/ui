@@ -2621,15 +2621,7 @@
   resolved "https://registry.yarnpkg.com/@dhis2/cypress-plugins/-/cypress-plugins-10.0.5.tgz#e841f2659bce9864062b52b398f9009821d35a04"
   integrity sha512-Gwbpt8zW0z9iXwdCrIvnUtz1UfiNxkRz5qL7SxBlaRgjag3JC7M2l48zzJ0aGy2L3wGqTbJ9xrs3G1DC4Ydz1A==
 
-"@dhis2/d2-i18n@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-i18n/-/d2-i18n-1.1.0.tgz#ec777c5091f747e4c5aa4f9801c62ba4d1ef3d16"
-  integrity sha512-x3u58goDQsMfBzy50koxNrJjofJTtjRZOfz6f6Py/wMMJfp/T6vZjWMQgcfWH0JrV6d04K1RTt6bI05wqsVQvg==
-  dependencies:
-    i18next "^10.3"
-    moment "^2.24.0"
-
-"@dhis2/d2-i18n@^1.1.3":
+"@dhis2/d2-i18n@^1.1.0", "@dhis2/d2-i18n@^1.1.3":
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-i18n/-/d2-i18n-1.1.3.tgz#ad73030f7cfceeed1b5bcaad86a9b336130bdfb1"
   integrity sha512-vOu6RDNumOJM396mHt35bETk9ai9b6XJyAwlUy1HstUZNvfET61F8rjCmMuXZU6zJ8ELux8kMFqlH8IG0vDJmA==
