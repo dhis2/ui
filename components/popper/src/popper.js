@@ -1,6 +1,6 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import { usePopper } from 'react-popper'
 import { getReferenceElement } from './get-reference-element.js'
 import { deduplicateModifiers } from './modifiers.js'
@@ -49,6 +49,12 @@ const Popper = ({
         modifiers: deduplicatedModifiers,
     })
 
+    useEffect(() => {
+        if (popperElement) {
+            popperElement?.firstElementChild?.focus()
+        }
+    }, [popperElement])
+
     return (
         <div
             className={className}
@@ -56,6 +62,7 @@ const Popper = ({
             ref={setPopperElement}
             style={styles.popper}
             {...attributes.popper}
+            tabIndex={0}
         >
             {children}
         </div>
