@@ -97,7 +97,12 @@ function modify_internal_package_resolutions(cfg) {
         const p = require(pkg)
         const name = p.name
 
-        const index = fg.sync(`node_modules/${name}/src/**/index.js`, {
+        const pathToResolve =
+            process.env.NODE_ENV === 'production'
+                ? `node_modules/${name}/build/es/**/index.js`
+                : `node_modules/${name}/src/**/index.js`
+
+        const index = fg.sync(pathToResolve, {
             depth: 1,
             onlyFiles: true,
             cwd: PROJECT_ROOT,
