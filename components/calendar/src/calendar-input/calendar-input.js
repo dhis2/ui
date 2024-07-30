@@ -8,7 +8,7 @@ import {
     useResolvedDirection,
 } from '@dhis2/multi-calendar-dates'
 import cx from 'classnames'
-import React, { useRef, useState, useMemo, useCallback } from 'react'
+import React, { useRef, useState, useMemo } from 'react'
 import { CalendarContainer } from '../calendar/calendar-container.js'
 import { CalendarProps } from '../calendar/calendar.js'
 import i18n from '../locales/index.js'
@@ -32,11 +32,10 @@ export const CalendarInput = ({
     width,
     cellSize,
     clearable,
-    editable,
     minDate,
     maxDate,
     format, // todo: props and types for format and validation
-    validation,
+    strictValidation,
     ...rest
 } = {}) => {
     const ref = useRef()
@@ -61,7 +60,7 @@ export const CalendarInput = ({
         date,
         minDate: minDate,
         maxDate: maxDate,
-        validation: validation,
+        strictValidation: strictValidation,
         format: format,
         options: useDatePickerOptions,
     })
@@ -103,7 +102,7 @@ export const CalendarInput = ({
                     type="text"
                     onFocus={onFocus}
                     value={date}
-                    onChange={editable ? handleChange : undefined}
+                    onChange={handleChange}
                     validationText={
                         pickerResults.errorMessage ||
                         pickerResults.warningMessage
