@@ -1475,10 +1475,10 @@
     minimatch "^3.0.4"
     node-hook "^1.0.0"
 
-"@badeball/cypress-cucumber-preprocessor@^20.0.2":
-  version "20.1.0"
-  resolved "https://registry.yarnpkg.com/@badeball/cypress-cucumber-preprocessor/-/cypress-cucumber-preprocessor-20.1.0.tgz#4b29960b7ba0ae8fd91afa6a920e296fae607a6e"
-  integrity sha512-K4zm9BAFYxggxld6CXn4B+q3nJLJSQYWArqPQzHSZKZCTLJ0a2qGS4dGrcUqfe8yFbNQ4u9S9OcJzYho5xajRA==
+"@badeball/cypress-cucumber-preprocessor@^20.1.1":
+  version "20.1.1"
+  resolved "https://registry.yarnpkg.com/@badeball/cypress-cucumber-preprocessor/-/cypress-cucumber-preprocessor-20.1.1.tgz#528ca4fdaff5e0ea838c4eb3a5c9613ea644b04d"
+  integrity sha512-oskUD3DukTK1OuP+SEo0qsM8aJsHJOxINvWuNh7VF2dSx19wLSGikjbtuiahgbypL1ZvR2/x0kJY6EHCcbrZ1A==
   dependencies:
     "@badeball/cypress-configuration" "^6.1.1"
     "@cucumber/ci-environment" "^10.0.1"
@@ -21090,7 +21090,7 @@ react-tooltip@^3.10.0:
   dependencies:
     prop-types "^15.6.0"
 
-react@16.13, react@16.13.1, "react@^16.8.0 || ^17.0.0 || ^18.0.0", react@^16.8.6:
+react@16.13, "react@^16.8.0 || ^17.0.0 || ^18.0.0", react@^16.8.6:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
   integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
