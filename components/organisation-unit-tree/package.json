@@ -22,19 +22,20 @@
         "access": "public"
     },
     "scripts": {
-        "start": "start-storybook -c ../../storybook/config --port 5000",
+        "start": "storybook dev -c ../../storybook/config --port 5000",
         "build": "d2-app-scripts build",
         "test": "d2-app-scripts test --jestConfig ../../jest.config.shared.js"
     },
     "peerDependencies": {
         "@dhis2/app-runtime": "^3",
         "@dhis2/d2-i18n": "^1",
-        "react": "^16.8",
-        "react-dom": "^16.8",
+        "react": "^16.13",
+        "react-dom": "^16.13",
         "styled-jsx": "^4"
     },
     "dependencies": {
         "@dhis2/prop-types": "^3.1.2",
+        "@dhis2-ui/button": "9.11.0",
         "@dhis2-ui/checkbox": "9.11.0",
         "@dhis2-ui/loader": "9.11.0",
         "@dhis2-ui/node": "9.11.0",

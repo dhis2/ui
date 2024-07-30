@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-03-29T07:26:07.540Z\n"
-"PO-Revision-Date: 2024-03-29T07:26:07.540Z\n"
+"POT-Creation-Date: 2024-06-12T03:40:49.012Z\n"
+"PO-Revision-Date: 2024-06-12T03:40:49.013Z\n"
 
 msgid "Search apps"
 msgstr "Search apps"
@@ -73,3 +73,6 @@ msgstr "New app version available"
 
 msgid "Click to reload"
 msgstr "Click to reload"
+
+msgid "header bar profile"
+msgstr "header bar profile"

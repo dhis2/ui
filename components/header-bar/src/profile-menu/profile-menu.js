@@ -1,9 +1,3 @@
-import { Card } from '@dhis2-ui/card'
-import { Center } from '@dhis2-ui/center'
-import { Divider } from '@dhis2-ui/divider'
-import { Layer } from '@dhis2-ui/layer'
-import { CircularLoader } from '@dhis2-ui/loader'
-import { MenuDivider, MenuItem } from '@dhis2-ui/menu'
 import { clearSensitiveCaches, useConfig } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import {
@@ -13,6 +7,12 @@ import {
     IconUser24,
     IconQuestion24,
 } from '@dhis2/ui-icons'
+import { Card } from '@dhis2-ui/card'
+import { Center } from '@dhis2-ui/center'
+import { Divider } from '@dhis2-ui/divider'
+import { Layer } from '@dhis2-ui/layer'
+import { CircularLoader } from '@dhis2-ui/loader'
+import { MenuDivider, MenuItem } from '@dhis2-ui/menu'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { DebugInfoMenuItem } from '../debug-info/debug-info-menu-item.js'

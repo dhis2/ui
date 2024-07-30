@@ -1,7 +1,7 @@
+import { spacers, spacersNum, sharedPropTypes } from '@dhis2/ui-constants'
 import { Card } from '@dhis2-ui/card'
 import { Center } from '@dhis2-ui/center'
 import { Layer } from '@dhis2-ui/layer'
-import { spacers, spacersNum, sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'

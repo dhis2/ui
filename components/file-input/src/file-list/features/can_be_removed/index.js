@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a FileListItem with Onremove handler is rendered', () => {
-    cy.visitStory('FileListItem', 'With onRemove')
+    cy.visitStory('FileListItem', 'With on remove')
 })
 
 When('the user clicks on the remove text', () => {

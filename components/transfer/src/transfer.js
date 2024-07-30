@@ -15,7 +15,6 @@ import { ReorderingActions } from './reordering-actions.js'
 import { RightFooter } from './right-footer.js'
 import { RightHeader } from './right-header.js'
 import { RightSide } from './right-side.js'
-import { TransferOption } from './transfer-option.js'
 import {
     addAllSelectableSourceOptions,
     addIndividualSourceOptions,
@@ -31,6 +30,7 @@ import {
     useFilter,
     useHighlightedOptions,
 } from './transfer/index.js'
+import { TransferOption } from './transfer-option.js'
 
 const identity = (value) => value
 

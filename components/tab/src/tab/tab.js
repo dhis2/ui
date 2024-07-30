@@ -1,5 +1,5 @@
-import { Tooltip } from '@dhis2-ui/tooltip'
 import { colors, theme } from '@dhis2/ui-constants'
+import { Tooltip } from '@dhis2-ui/tooltip'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useState, useEffect, useRef } from 'react'

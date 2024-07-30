@@ -1,10 +1,10 @@
+import { IconChevronRight24 } from '@dhis2/ui-icons'
 import { Popper } from '@dhis2-ui/popper'
 import { Portal } from '@dhis2-ui/portal'
-import { IconChevronRight24 } from '@dhis2/ui-icons'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
-import { FlyoutMenu } from '../index.js'
+import { FlyoutMenu } from '../flyout-menu/index.js'
 import styles from './menu-item.styles.js'
 
 const isModifiedEvent = (evt) =>

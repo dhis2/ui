@@ -1,5 +1,5 @@
-import { Portal } from '@dhis2-ui/portal'
 import { deprecated } from '@dhis2/prop-types'
+import { Portal } from '@dhis2-ui/portal'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'

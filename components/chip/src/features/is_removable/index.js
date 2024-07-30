@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a Chip with onRemove handler is rendered', () => {
-    cy.visitStory('Chip', 'With onRemove')
+    cy.visitStory('Chip', 'With on remove')
 })
 
 When('the remove icon is clicked', () => {

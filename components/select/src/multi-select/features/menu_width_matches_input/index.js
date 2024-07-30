@@ -7,7 +7,7 @@ Given('a MultiSelect with hidden sibling elements', () => {
     })
 })
 When('the button is clicked', () => {
-    cy.get('button').click()
+    cy.get('[data-test="dhis2-uicore-button"]').click()
 })
 Then('the siblings are displayed', () => {
     cy.get('.toggler').should('exist').and('have.length', 2)

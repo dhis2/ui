@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a Radio with onFocus handler is rendered', () => {
-    cy.visitStory('Radio', 'With onFocus')
+    cy.visitStory('Radio', 'With on focus')
 })
 
 When('the Radio is focused', () => {

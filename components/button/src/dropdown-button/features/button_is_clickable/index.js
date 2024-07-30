@@ -1,7 +1,7 @@
 import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a DropdownButton with onClick handler is rendered', () => {
-    cy.visitStory('DropdownButton', 'With onClick')
+    cy.visitStory('DropdownButton', 'With on click')
 })
 
 Then('the onClick handler is called', () => {

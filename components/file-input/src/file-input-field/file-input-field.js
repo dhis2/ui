@@ -1,9 +1,10 @@
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import { Field } from '@dhis2-ui/field'
 import { Label } from '@dhis2-ui/label'
-import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { FileInput, FileList, FileListPlaceholder } from '../index.js'
+import { FileInput } from '../file-input/index.js'
+import { FileList, FileListPlaceholder } from '../file-list/index.js'
 import i18n from '../locales/index.js'
 
 // TODO: i18n

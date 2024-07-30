@@ -44,7 +44,7 @@ jobs:
                   NODE_OPTIONS=--openssl-legacy-provider yarn setup
 
             - name: Build
-              run: yarn build:legacy
+              run: yarn build
 
             - run: ./scripts/create-artifact.sh
 
@@ -147,7 +147,8 @@ jobs:
             - name: End-to-End tests
               uses: cypress-io/github-action@v6
               with:
-                  start: 'yarn cy:start:legacy'
+                  # This should be a command that starts the server to test against.
+                  start: 'yarn cy:start'
                   wait-on: 'http://localhost:5000'
                   wait-on-timeout: 300
                   record: ${{ env.SHOULD_RECORD }}
@@ -185,9 +186,6 @@ jobs:
             # ensure that d2-app-scripts is available
             - run: yarn install --frozen-lockfile
 
-            # FIXME: Add legacy npm to allow our broken peerdeps for now.
-            # This should be addressed properly by fixing our peerdeps.
-            - run: npm i -g npm@6
             - uses: dhis2/action-semantic-release@master
               with:
                   publish-npm: true

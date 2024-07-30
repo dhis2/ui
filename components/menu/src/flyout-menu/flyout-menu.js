@@ -8,7 +8,7 @@ import React, {
     useRef,
     useState,
 } from 'react'
-import { Menu } from '../index.js'
+import { Menu } from '../menu/index.js'
 
 const FlyoutMenu = ({
     children,
