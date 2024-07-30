@@ -33,6 +33,7 @@ export const useMenuNavigation = (children) => {
             const totalFocusablePositions = focusableItemsIndices?.length
             if (totalFocusablePositions) {
                 const lastIndex = totalFocusablePositions - 1
+
                 switch (event.key) {
                     case 'ArrowUp':
                         event.preventDefault()
@@ -62,7 +63,7 @@ export const useMenuNavigation = (children) => {
                 }
             }
         },
-        [activeItemIndex, focusableItemsIndices]
+        [activeItemIndex, focusableItemsIndices?.length]
     )
 
     // Event listeners for menu focus and key handling

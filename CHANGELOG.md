@@ -1,3 +1,17 @@
+# [9.11.0](https://github.com/dhis2/ui/compare/v9.10.3...v9.11.0) (2024-07-29)
+
+
+### Features
+
+* implement accessible flyout menu and handle submenus ([#1495](https://github.com/dhis2/ui/issues/1495)) ([73d1f7e](https://github.com/dhis2/ui/commit/73d1f7e062ad393a156b3b439b590c5927f0fc9d))
+
+## [9.10.3](https://github.com/dhis2/ui/compare/v9.10.2...v9.10.3) (2024-07-24)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([b7d3ec6](https://github.com/dhis2/ui/commit/b7d3ec6a91d7fd54c9220364c678f71c9daa14eb))
+
 ## [9.10.2](https://github.com/dhis2/ui/compare/v9.10.1...v9.10.2) (2024-07-15)
 
 

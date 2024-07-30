@@ -6,6 +6,10 @@ export interface FlyoutMenuProps {
      */
     children?: React.ReactNode
     className?: string
+    /**
+     * On Escape key press, this function is called
+     */
+    closeMenu?: () => void
     dataTest?: string
     /**
      * Menu uses smaller dimensions
