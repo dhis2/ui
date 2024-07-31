@@ -1,3 +1,17 @@
+# [9.9.0-alpha.1](https://github.com/dhis2/ui/compare/v9.8.1...v9.9.0-alpha.1) (2024-06-17)
+
+
+### Features
+
+* splitButton accessibility improvements ([#1458](https://github.com/dhis2/ui/issues/1458)) ([51a1b14](https://github.com/dhis2/ui/commit/51a1b149ae720703339dc36edc88de70c6798bf8))
+* **tooltip:** accessibility improvements for tooltip ([#1463](https://github.com/dhis2/ui/issues/1463)) ([f11eabb](https://github.com/dhis2/ui/commit/f11eabb87309efdb6e1d961a461002cdc76664b1))
+* add aria attributes to loaders ([#1449](https://github.com/dhis2/ui/issues/1449)) ([2832584](https://github.com/dhis2/ui/commit/28325848aac6e1c5244b7a48ed5d8951a0cfa1d3))
+
+
+### Reverts
+
+* Revert "feat(selectionBar): accessibility improvements for SelectionBar (#1475)" ([54498fb](https://github.com/dhis2/ui/commit/54498fbdd8cec448c891855b72691d5613c83a47)), closes [#1475](https://github.com/dhis2/ui/issues/1475)
+
 ## [9.8.1](https://github.com/dhis2/ui/compare/v9.8.0...v9.8.1) (2024-06-09)
 
 
