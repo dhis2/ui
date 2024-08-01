@@ -80,5 +80,8 @@
         "react-docgen": "^5.4.0",
         "rimraf": "^3.0.2",
         "wait-on": "^6.0.0"
+    },
+    "resolutions": {
+        "react": "^16.13"
     }
 }
