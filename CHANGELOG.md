@@ -1,3 +1,10 @@
+# [9.9.0-alpha.2](https://github.com/dhis2/ui/compare/v9.9.0-alpha.1...v9.9.0-alpha.2) (2024-08-01)
+
+
+### Features
+
+* support editable input | min & max dates | dd-mm-yyyy format in CalendarInput ([#1504](https://github.com/dhis2/ui/issues/1504)) ([99a78f5](https://github.com/dhis2/ui/commit/99a78f5caec83529af26a11a2dd4d93fface30b4))
+
 # [9.9.0-alpha.1](https://github.com/dhis2/ui/compare/v9.8.1...v9.9.0-alpha.1) (2024-06-17)
 
 
