@@ -48,7 +48,7 @@ export const CalendarTable = ({
     </div>
 )
 
-CalendarTable.propTypes = {
+export const CalendarTableProps = {
     calendarWeekDays: PropTypes.arrayOf(
         PropTypes.arrayOf(
             PropTypes.shape({
@@ -70,3 +70,5 @@ CalendarTable.propTypes = {
     weekDayLabels: PropTypes.arrayOf(PropTypes.string),
     width: PropTypes.string,
 }
+
+CalendarTable.propTypes = CalendarTableProps

@@ -7,14 +7,19 @@ import i18n from '../locales/index.js'
 const wrapperBorderColor = colors.grey300
 const headerBackground = colors.grey050
 
-export const NavigationContainer = ({ languageDirection, pickerOptions }) => {
+export const NavigationContainer = ({
+    languageDirection,
+    currMonth,
+    currYear,
+    nextMonth,
+    nextYear,
+    prevMonth,
+    prevYear,
+}) => {
     const PreviousIcon =
         languageDirection === 'ltr' ? IconChevronLeft16 : IconChevronRight16
     const NextIcon =
         languageDirection === 'ltr' ? IconChevronRight16 : IconChevronLeft16
-
-    const { currMonth, currYear, nextMonth, nextYear, prevMonth, prevYear } =
-        pickerOptions
 
     // Ethiopic years - when localised to English - add the era (i.e. 2015 ERA1), which is redundant in practice (like writing AD for gregorian years)
     // there is an ongoing discussion in JS-Temporal polyfill whether the era should be included or not, but for our case, it's safer to remove it
@@ -155,30 +160,30 @@ export const NavigationContainer = ({ languageDirection, pickerOptions }) => {
     )
 }
 
-NavigationContainer.propTypes = {
+export const NavigationContainerProps = {
+    currMonth: PropTypes.shape({
+        label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    }),
+    currYear: PropTypes.shape({
+        label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    }),
     languageDirection: PropTypes.oneOf(['ltr', 'rtl']),
-    pickerOptions: PropTypes.shape({
-        currMonth: PropTypes.shape({
-            label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        }),
-        currYear: PropTypes.shape({
-            label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        }),
-        nextMonth: PropTypes.shape({
-            label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-            navigateTo: PropTypes.func,
-        }),
-        nextYear: PropTypes.shape({
-            label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-            navigateTo: PropTypes.func,
-        }),
-        prevMonth: PropTypes.shape({
-            label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-            navigateTo: PropTypes.func,
-        }),
-        prevYear: PropTypes.shape({
-            label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-            navigateTo: PropTypes.func,
-        }),
+    nextMonth: PropTypes.shape({
+        label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        navigateTo: PropTypes.func,
+    }),
+    nextYear: PropTypes.shape({
+        label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        navigateTo: PropTypes.func,
+    }),
+    prevMonth: PropTypes.shape({
+        label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        navigateTo: PropTypes.func,
+    }),
+    prevYear: PropTypes.shape({
+        label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        navigateTo: PropTypes.func,
     }),
 }
+
+NavigationContainer.propTypes = NavigationContainerProps
