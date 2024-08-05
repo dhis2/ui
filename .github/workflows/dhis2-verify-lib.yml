@@ -101,13 +101,6 @@ jobs:
         if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
         needs: [build, setup-matrix]
 
-        strategy:
-            fail-fast: false
-            matrix:
-                spec-group: ${{ fromJson(needs.setup-matrix.outputs.matrix) }}
-        env:
-            SHOULD_RECORD: ${{ contains(github.event.head_commit.message, '[e2e record]') || contains(join(github.event.pull_request.labels.*.name), 'e2e record') }}
-
         steps:
             - name: Checkout
               uses: actions/checkout@v2
@@ -151,8 +144,6 @@ jobs:
                   start: 'yarn cy:start'
                   wait-on: 'http://localhost:5000'
                   wait-on-timeout: 300
-                  record: ${{ env.SHOULD_RECORD }}
-                  parallel: ${{ env.SHOULD_RECORD }}
                   group: ${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_GROUP || '' }}
                   tag: ${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_TAG || '' }}
                   ci-build-id: ${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_CI_BUILD_ID || '' }}
