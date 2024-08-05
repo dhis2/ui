@@ -82,6 +82,7 @@
         "wait-on": "^6.0.0"
     },
     "resolutions": {
-        "react": "16.13.1"
+        "react": "16.13.1",
+        "react-test-renderer": "16.12.0"
     }
 }

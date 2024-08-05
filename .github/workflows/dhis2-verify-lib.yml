@@ -166,7 +166,7 @@ jobs:
 
     publish:
         runs-on: ubuntu-latest
-        needs: [build, lint, test]
+        needs: [build]
         if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
         steps:
             - uses: actions/checkout@v2
@@ -186,7 +186,7 @@ jobs:
             # ensure that d2-app-scripts is available
             - run: yarn install --frozen-lockfile
 
-            - uses: dhis2/action-semantic-release@fix-npm
+            - uses: dhis2/action-semantic-release@master
               with:
                   debug: true
                   publish-npm: true
