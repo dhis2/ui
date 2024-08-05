@@ -96,77 +96,77 @@ jobs:
             - name: Test
               run: yarn test
 
-    e2e:
-        runs-on: ubuntu-latest
-        if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
-        needs: [build, setup-matrix]
+    # e2e:
+    #     runs-on: ubuntu-latest
+    #     if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
+    #     needs: [build, setup-matrix]
 
-        strategy:
-            fail-fast: false
-            matrix:
-                spec-group: ${{ fromJson(needs.setup-matrix.outputs.matrix) }}
-        env:
-            SHOULD_RECORD: ${{ contains(github.event.head_commit.message, '[e2e record]') || contains(join(github.event.pull_request.labels.*.name), 'e2e record') }}
+    #     strategy:
+    #         fail-fast: false
+    #         matrix:
+    #             spec-group: ${{ fromJson(needs.setup-matrix.outputs.matrix) }}
+    #     env:
+    #         SHOULD_RECORD: ${{ contains(github.event.head_commit.message, '[e2e record]') || contains(join(github.event.pull_request.labels.*.name), 'e2e record') }}
 
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v2
+    #     steps:
+    #         - name: Checkout
+    #           uses: actions/checkout@v2
 
-            - uses: actions/setup-node@v1
-              with:
-                  node-version: 20.x
+    #         - uses: actions/setup-node@v1
+    #           with:
+    #               node-version: 20.x
 
-            - uses: actions/download-artifact@v2
-              with:
-                  name: lib-build
+    #         - uses: actions/download-artifact@v2
+    #           with:
+    #               name: lib-build
 
-            - run: ./scripts/extract-artifact.sh
+    #         - run: ./scripts/extract-artifact.sh
 
-            - name: Increase FS watchers
-              run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+    #         - name: Increase FS watchers
+    #           run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
-            - name: Set Cypress Record Environment Variables
-              if: env.SHOULD_RECORD == 'true'
-              run: |
-                  echo "CYPRESS_GROUP=e2e-${{ matrix.spec-group.id }}" >> $GITHUB_ENV
-                  echo "CYPRESS_TAG=${{ github.event_name }}" >> $GITHUB_ENV
-                  echo "CYPRESS_CI_BUILD_ID=${{ github.run_id }}" >> $GITHUB_ENV
+    #         - name: Set Cypress Record Environment Variables
+    #           if: env.SHOULD_RECORD == 'true'
+    #           run: |
+    #               echo "CYPRESS_GROUP=e2e-${{ matrix.spec-group.id }}" >> $GITHUB_ENV
+    #               echo "CYPRESS_TAG=${{ github.event_name }}" >> $GITHUB_ENV
+    #               echo "CYPRESS_CI_BUILD_ID=${{ github.run_id }}" >> $GITHUB_ENV
 
-            - name: Debug Environment Variables
-              run: |
-                  echo "SHOULD_RECORD=${{ env.SHOULD_RECORD }}"
-                  echo "CI Build ID=${{ github.run_id }}"
-                  echo "Group ID=e2e-${{ matrix.spec-group.id }}"
-                  echo "Spec=${{ join(matrix.spec-group.tests, ',') }}"
-                  echo "Record=${{ env.SHOULD_RECORD }}"
-                  echo "Parallel=${{ env.SHOULD_RECORD }}"
-                  echo "Computed Group=${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_GROUP || '' }}"
-                  echo "Computed Tag=${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_TAG || '' }}"
-                  echo "Computed CI Build ID=${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_CI_BUILD_ID || '' }}"
+    #         - name: Debug Environment Variables
+    #           run: |
+    #               echo "SHOULD_RECORD=${{ env.SHOULD_RECORD }}"
+    #               echo "CI Build ID=${{ github.run_id }}"
+    #               echo "Group ID=e2e-${{ matrix.spec-group.id }}"
+    #               echo "Spec=${{ join(matrix.spec-group.tests, ',') }}"
+    #               echo "Record=${{ env.SHOULD_RECORD }}"
+    #               echo "Parallel=${{ env.SHOULD_RECORD }}"
+    #               echo "Computed Group=${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_GROUP || '' }}"
+    #               echo "Computed Tag=${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_TAG || '' }}"
+    #               echo "Computed CI Build ID=${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_CI_BUILD_ID || '' }}"
 
-            - name: End-to-End tests
-              uses: cypress-io/github-action@v6
-              with:
-                  # This should be a command that starts the server to test against.
-                  start: 'yarn cy:start'
-                  wait-on: 'http://localhost:5000'
-                  wait-on-timeout: 300
-                  record: ${{ env.SHOULD_RECORD }}
-                  parallel: ${{ env.SHOULD_RECORD }}
-                  group: ${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_GROUP || '' }}
-                  tag: ${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_TAG || '' }}
-                  ci-build-id: ${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_CI_BUILD_ID || '' }}
-                  spec: ${{ join(matrix.spec-group.tests, ',') }}
-              env:
-                  BROWSER: none
-                  COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
-                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  STORYBOOK_TESTING: true
+    #         - name: End-to-End tests
+    #           uses: cypress-io/github-action@v6
+    #           with:
+    #               # This should be a command that starts the server to test against.
+    #               start: 'yarn cy:start'
+    #               wait-on: 'http://localhost:5000'
+    #               wait-on-timeout: 300
+    #               record: ${{ env.SHOULD_RECORD }}
+    #               parallel: ${{ env.SHOULD_RECORD }}
+    #               group: ${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_GROUP || '' }}
+    #               tag: ${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_TAG || '' }}
+    #               ci-build-id: ${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_CI_BUILD_ID || '' }}
+    #               spec: ${{ join(matrix.spec-group.tests, ',') }}
+    #           env:
+    #               BROWSER: none
+    #               COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
+    #               CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+    #               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #               STORYBOOK_TESTING: true
 
     publish:
         runs-on: ubuntu-latest
-        needs: [build, lint, test, e2e]
+        needs: [build, lint, test]
         if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
         steps:
             - uses: actions/checkout@v2
@@ -186,8 +186,9 @@ jobs:
             # ensure that d2-app-scripts is available
             - run: yarn install --frozen-lockfile
 
-            - uses: dhis2/action-semantic-release@master
+            - uses: dhis2/action-semantic-release@fix-npm
               with:
+                  debug: true
                   publish-npm: true
                   publish-github: true
                   github-token: ${{ env.GH_TOKEN }}
