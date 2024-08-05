@@ -44,8 +44,8 @@
     },
     "dependencies": {
         "@dhis2/d2-i18n": "^1.1.0",
-        "react": "^16.13",
-        "react-dom": "^16.13",
+        "react": "16.13",
+        "react-dom": "16.13",
         "react-scripts": "^5.0.1",
         "styled-jsx": "^4.0.1"
     },
@@ -82,6 +82,6 @@
         "wait-on": "^6.0.0"
     },
     "resolutions": {
-        "react": "^16.13"
+        "react": "16.13.1"
     }
 }
