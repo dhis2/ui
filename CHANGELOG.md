@@ -1,3 +1,16 @@
+## [9.11.1-beta.1](https://github.com/dhis2/ui/compare/v9.11.0...v9.11.1-beta.1) (2024-08-06)
+
+
+### Bug Fixes
+
+* add package overrides for npm ([f9afae3](https://github.com/dhis2/ui/commit/f9afae37f92f7884e36711a9a99bcf85e3538873))
+* get rid of storybook references in docs ([1904b17](https://github.com/dhis2/ui/commit/1904b172bfde066a17a0edf82c196959ba35c8bb))
+* get storybook 8 working ([8c6be62](https://github.com/dhis2/ui/commit/8c6be62c2df9261109df12e51c7dc2339b59eedf))
+* issue with production build not loading some dependent modules ([5060c61](https://github.com/dhis2/ui/commit/5060c6143e3788895ab4282ba7dc84283d62bae8))
+* pin react version in resolution ([#1573](https://github.com/dhis2/ui/issues/1573)) ([46cdd79](https://github.com/dhis2/ui/commit/46cdd79c27b28d69eb8e5d72a6946376961ba670))
+* resolve react version ([#1567](https://github.com/dhis2/ui/issues/1567)) ([c18a73d](https://github.com/dhis2/ui/commit/c18a73d71a1a59e4229adae2f964e06041eaab8b))
+* **calendar:** pin temporal dependency to version 0.4.3 due to breaking changes ([3b5a586](https://github.com/dhis2/ui/commit/3b5a58614eb6992469d5c5d74aa19aa225fb2b1c))
+
 # [9.11.0](https://github.com/dhis2/ui/compare/v9.10.3...v9.11.0) (2024-07-29)
 
 
