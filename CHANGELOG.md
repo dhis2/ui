@@ -1,3 +1,10 @@
+## [9.11.1-beta.2](https://github.com/dhis2/ui/compare/v9.11.1-beta.1...v9.11.1-beta.2) (2024-08-06)
+
+
+### Bug Fixes
+
+* bump cli-app-scripts ([e579469](https://github.com/dhis2/ui/commit/e579469327a6c4cca8aba1c2f84f831234934360))
+
 ## [9.11.1-beta.1](https://github.com/dhis2/ui/compare/v9.11.0...v9.11.1-beta.1) (2024-08-06)
 
 
