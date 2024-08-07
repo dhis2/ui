@@ -1,3 +1,10 @@
+## [9.11.1-beta.3](https://github.com/dhis2/ui/compare/v9.11.1-beta.2...v9.11.1-beta.3) (2024-08-07)
+
+
+### Bug Fixes
+
+* use a different version of action-semantic-release ([471a300](https://github.com/dhis2/ui/commit/471a300551cdfb8e0d9cb13cd937173f7b5eddf1))
+
 ## [9.11.1-beta.2](https://github.com/dhis2/ui/compare/v9.11.1-beta.1...v9.11.1-beta.2) (2024-08-06)
 
 
