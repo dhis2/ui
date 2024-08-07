@@ -23,6 +23,8 @@ export const CalendarContainer = ({
     prevMonth,
     prevYear,
     languageDirection,
+    excludedRef,
+    unfocusable,
 }) => {
     const navigationProps = useMemo(() => {
         return {
@@ -50,14 +52,20 @@ export const CalendarContainer = ({
                 dir={languageDirection}
                 data-test="calendar"
             >
-                <NavigationContainer {...navigationProps} />
-                <CalendarTable
-                    selectedDate={date}
-                    calendarWeekDays={calendarWeekDays}
-                    weekDayLabels={weekDayLabels}
-                    cellSize={cellSize}
-                    width={width}
-                />
+                <div ref={excludedRef}>
+                    <NavigationContainer
+                        {...navigationProps}
+                        unfocusable={unfocusable}
+                    />
+                    <CalendarTable
+                        selectedDate={date}
+                        calendarWeekDays={calendarWeekDays}
+                        weekDayLabels={weekDayLabels}
+                        cellSize={cellSize}
+                        width={width}
+                        unfocusable={unfocusable}
+                    />
+                </div>
             </div>
             <style jsx>{`
                 .calendar-wrapper {
@@ -82,11 +90,13 @@ export const CalendarContainer = ({
 CalendarContainer.defaultProps = {
     cellSize: '32px',
     width: '240px',
+    unfocusable: false,
 }
 
 CalendarContainer.propTypes = {
     /** the currently selected date using an iso-like format YYYY-MM-DD, in the calendar system provided (not iso8601) */
     date: PropTypes.string,
+    unfocusable: PropTypes.bool,
     ...CalendarTableProps,
     ...NavigationContainerProps,
 }

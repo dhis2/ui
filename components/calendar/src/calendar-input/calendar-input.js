@@ -8,7 +8,7 @@ import {
     useResolvedDirection,
 } from '@dhis2/multi-calendar-dates'
 import cx from 'classnames'
-import React, { useRef, useState, useMemo } from 'react'
+import React, { useRef, useState, useMemo, useEffect } from 'react'
 import { CalendarContainer } from '../calendar/calendar-container.js'
 import { CalendarProps } from '../calendar/calendar.js'
 import i18n from '../locales/index.js'
@@ -40,6 +40,11 @@ export const CalendarInput = ({
 } = {}) => {
     const ref = useRef()
     const [open, setOpen] = useState(false)
+    const [partialDate, setPartialDate] = useState(date)
+
+    const excludeRef = useRef(null)
+
+    useEffect(() => setPartialDate(date), [date])
 
     const useDatePickerOptions = useMemo(
         () => ({
@@ -66,7 +71,17 @@ export const CalendarInput = ({
     })
 
     const handleChange = (e) => {
-        parentOnDateSelect?.({ calendarDateString: e.value })
+        setPartialDate(e.value)
+    }
+
+    const handleBlur = (_, e) => {
+        parentOnDateSelect?.({ calendarDateString: partialDate })
+        if (
+            excludeRef.current &&
+            !excludeRef.current.contains(e.relatedTarget)
+        ) {
+            setOpen(false)
+        }
     }
 
     const onFocus = () => {
@@ -101,8 +116,9 @@ export const CalendarInput = ({
                     {...rest}
                     type="text"
                     onFocus={onFocus}
-                    value={date}
+                    value={partialDate}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     validationText={
                         pickerResults.errorMessage ||
                         pickerResults.warningMessage
@@ -147,7 +163,11 @@ export const CalendarInput = ({
                         modifiers={[offsetModifier]}
                     >
                         <Card>
-                            <CalendarContainer {...calendarProps} />
+                            <CalendarContainer
+                                {...calendarProps}
+                                excludedRef={excludeRef}
+                                unfocusable
+                            />
                         </Card>
                     </Popper>
                 </Layer>
