@@ -1,3 +1,10 @@
+# [9.9.0-alpha.4](https://github.com/dhis2/ui/compare/v9.9.0-alpha.3...v9.9.0-alpha.4) (2024-08-07)
+
+
+### Features
+
+* verify date input only on blur on calendar input, close calendar popup on blur as well ([d8b0d1c](https://github.com/dhis2/ui/commit/d8b0d1cd2fd93a88413f0f73ad216783e6dd3ff7))
+
 # [9.9.0-alpha.3](https://github.com/dhis2/ui/compare/v9.9.0-alpha.2...v9.9.0-alpha.3) (2024-08-01)
 
 
