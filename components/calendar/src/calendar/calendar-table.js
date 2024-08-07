@@ -10,6 +10,7 @@ export const CalendarTable = ({
     width,
     cellSize,
     selectedDate,
+    unfocusable,
 }) => (
     <div className="calendar-table-wrapper">
         <table className="calendar-table">
@@ -24,6 +25,7 @@ export const CalendarTable = ({
                                 key={day?.calendarDate}
                                 cellSize={cellSize}
                                 width={width}
+                                unfocusable={unfocusable}
                             />
                         ))}
                     </tr>
@@ -67,6 +69,7 @@ export const CalendarTableProps = {
     ).isRequired,
     cellSize: PropTypes.string,
     selectedDate: PropTypes.string,
+    unfocusable: PropTypes.bool,
     weekDayLabels: PropTypes.arrayOf(PropTypes.string),
     width: PropTypes.string,
 }

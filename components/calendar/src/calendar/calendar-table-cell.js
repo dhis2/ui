@@ -3,7 +3,12 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export const CalendarTableCell = ({ day, cellSize, selectedDate }) => {
+export const CalendarTableCell = ({
+    day,
+    cellSize,
+    selectedDate,
+    unfocusable,
+}) => {
     const dayHoverBackgroundColor = colors.grey200
     const selectedDayBackgroundColor = colors.teal700
 
@@ -16,6 +21,7 @@ export const CalendarTableCell = ({ day, cellSize, selectedDate }) => {
                     isToday: day.isToday,
                     otherMonth: !day.isInCurrentMonth,
                 })}
+                tabIndex={unfocusable ? -1 : 0}
             >
                 {day.label}
             </button>
@@ -94,4 +100,5 @@ CalendarTableCell.propTypes = {
         onClick: PropTypes.func,
     }),
     selectedDate: PropTypes.string,
+    unfocusable: PropTypes.bool,
 }
