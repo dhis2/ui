@@ -186,7 +186,7 @@ jobs:
             # ensure that d2-app-scripts is available
             - run: yarn install --frozen-lockfile
 
-            - uses: dhis2/action-semantic-release@master
+            - uses: dhis2/action-semantic-release@fix-npm
               with:
                   debug: true
                   publish-npm: true
