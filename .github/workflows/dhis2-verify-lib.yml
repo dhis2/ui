@@ -98,7 +98,7 @@ jobs:
 
     e2e:
         runs-on: ubuntu-latest
-        if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
+        if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]' && github.event.pull_request.draft == false"
         needs: [build, setup-matrix]
 
         strategy:
