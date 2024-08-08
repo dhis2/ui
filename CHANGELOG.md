@@ -1,3 +1,11 @@
+## [9.11.1-beta.11](https://github.com/dhis2/ui/compare/v9.11.1-beta.10...v9.11.1-beta.11) (2024-08-08)
+
+
+### Bug Fixes
+
+* update yarn.lock again ([270a1a5](https://github.com/dhis2/ui/commit/270a1a578a5a92e8539a01619565fda3dbb6e0bb))
+* use action-semantic-release@node20 ([caea7e2](https://github.com/dhis2/ui/commit/caea7e261e88ddc918848f817e0d36db09877a79))
+
 ## [9.11.1-beta.10](https://github.com/dhis2/ui/compare/v9.11.1-beta.9...v9.11.1-beta.10) (2024-08-08)
 
 
