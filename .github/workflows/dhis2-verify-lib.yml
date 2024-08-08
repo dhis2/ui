@@ -184,8 +184,7 @@ jobs:
 
             # ensure that d2-app-scripts is available
             - uses: c-hive/gha-yarn-cache@v1
-            - run: |
-                  yarn install --frozen-lockfile
+            - run: yarn install --frozen-lockfile
 
             - uses: dhis2/action-semantic-release@master
               with:
