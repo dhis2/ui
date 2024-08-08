@@ -1,3 +1,10 @@
+## [9.11.1-beta.10](https://github.com/dhis2/ui/compare/v9.11.1-beta.9...v9.11.1-beta.10) (2024-08-08)
+
+
+### Bug Fixes
+
+* try again ([4fec178](https://github.com/dhis2/ui/commit/4fec178322d88a4fcbb8d4e39fb458d05dfe7b57))
+
 ## [9.11.1-beta.9](https://github.com/dhis2/ui/compare/v9.11.1-beta.8...v9.11.1-beta.9) (2024-08-08)
 
 
