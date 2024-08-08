@@ -48,6 +48,9 @@ const alertTypeArgType = {
             summary: 'bool',
             detail: "'success', 'warning', and 'critical' are mutually exclusive props",
         },
+        defaultValue: {
+            summary: false,
+        },
     },
     control: {
         type: 'boolean',
@@ -60,6 +63,29 @@ const iconArgType = {
         },
     },
 }
+
+const permanentArgType = {
+    table: {
+        type: {
+            summary: 'bool',
+        },
+        defaultValue: {
+            summary: false,
+        },
+    },
+    control: {
+        type: 'boolean',
+    },
+}
+
+const childrenArgType = {
+    table: {
+        type: {
+            summary: 'String to display in the alert bar',
+        },
+    },
+}
+
 const actionsArgType = {
     table: {
         type: {
@@ -72,6 +98,9 @@ export default {
     title: 'Alert Bar',
     component: AlertBar,
     decorators: [Wrapper],
+    args: {
+        children: 'I will autohide',
+    },
     parameters: {
         componentSubtitle: subtitle,
         docs: {
@@ -85,13 +114,13 @@ export default {
         critical: { ...alertTypeArgType },
         success: { ...alertTypeArgType },
         warning: { ...alertTypeArgType },
+        permanent: { ...permanentArgType },
+        children: { ...childrenArgType },
         icon: { ...iconArgType },
     },
 }
 
-export const Default = (args) => (
-    <AlertBar {...args}>Default - I will autohide</AlertBar>
-)
+export const Default = (args) => <AlertBar {...args}></AlertBar>
 
 export const States = () => (
     <React.Fragment>

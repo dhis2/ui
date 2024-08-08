@@ -11,9 +11,13 @@ import API from '../../../components/alert/API.md'
 # Alert bar
 
 An alert bar communicates something to the user by showing a prominent, floating bar at the bottom of the screen, using one of several styles each indicating a different purpose.
-
 <Demo>
-    <AlertBar permanent>Hello world</AlertBar>
+<iframe
+  src="https://ui.dhis2.nu/demo/?path=/story/alert-bar--states&full=1&shortcuts=false&singleStory=true"
+  width="700"
+  height="330"
+></iframe>
+
 </Demo>
 
 ## Usage
