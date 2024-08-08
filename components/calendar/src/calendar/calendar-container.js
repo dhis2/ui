@@ -10,7 +10,7 @@ import {
 const wrapperBorderColor = colors.grey300
 const backgroundColor = 'none'
 
-export const CalendarContainer = ({
+export const CalendarContainer = React.memo(function CalendarContainer({
     date,
     width,
     cellSize,
@@ -25,7 +25,7 @@ export const CalendarContainer = ({
     languageDirection,
     excludedRef,
     unfocusable,
-}) => {
+}) {
     const navigationProps = useMemo(() => {
         return {
             currMonth,
@@ -85,7 +85,7 @@ export const CalendarContainer = ({
             `}</style>
         </div>
     )
-}
+})
 
 CalendarContainer.defaultProps = {
     cellSize: '32px',
