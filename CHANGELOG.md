@@ -1,3 +1,10 @@
+# [9.9.0-alpha.5](https://github.com/dhis2/ui/compare/v9.9.0-alpha.4...v9.9.0-alpha.5) (2024-08-08)
+
+
+### Features
+
+* memorize calendar container component to improve perfromance ([#1575](https://github.com/dhis2/ui/issues/1575)) ([0d00a19](https://github.com/dhis2/ui/commit/0d00a19663147b24acc0513aa8958d630ffed94c))
+
 # [9.9.0-alpha.4](https://github.com/dhis2/ui/compare/v9.9.0-alpha.3...v9.9.0-alpha.4) (2024-08-07)
 
 
