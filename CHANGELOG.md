@@ -1,3 +1,10 @@
+## [9.11.1-beta.6](https://github.com/dhis2/ui/compare/v9.11.1-beta.5...v9.11.1-beta.6) (2024-08-08)
+
+
+### Bug Fixes
+
+* update yarn.lock again ([9d6194d](https://github.com/dhis2/ui/commit/9d6194d01413fa2b70008653edddfa4b2b46efdd))
+
 ## [9.11.1-beta.5](https://github.com/dhis2/ui/compare/v9.11.1-beta.4...v9.11.1-beta.5) (2024-08-08)
 
 
