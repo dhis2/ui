@@ -1,3 +1,11 @@
+## [9.11.1-beta.5](https://github.com/dhis2/ui/compare/v9.11.1-beta.4...v9.11.1-beta.5) (2024-08-08)
+
+
+### Bug Fixes
+
+* revert github action ([b5d40ef](https://github.com/dhis2/ui/commit/b5d40ef615ba0ea8fdf38e10397df096ae02428b))
+* use semantic-release with node20 ([9dfd6e0](https://github.com/dhis2/ui/commit/9dfd6e038a2697bfd684d1860b3141fc5d73e947))
+
 ## [9.11.1-beta.4](https://github.com/dhis2/ui/compare/v9.11.1-beta.3...v9.11.1-beta.4) (2024-08-08)
 
 
