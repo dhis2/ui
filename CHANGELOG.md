@@ -1,3 +1,11 @@
+## [9.11.1-beta.9](https://github.com/dhis2/ui/compare/v9.11.1-beta.8...v9.11.1-beta.9) (2024-08-08)
+
+
+### Bug Fixes
+
+* force a new release ([fee6e7e](https://github.com/dhis2/ui/commit/fee6e7e4a9f2f28c07068504700cbe0a26e17194))
+* make sure to use yarn1 ([626d395](https://github.com/dhis2/ui/commit/626d395bc95bf7ee8aec684d68d0a160920eff6c))
+
 ## [9.11.1-beta.8](https://github.com/dhis2/ui/compare/v9.11.1-beta.7...v9.11.1-beta.8) (2024-08-08)
 
 
