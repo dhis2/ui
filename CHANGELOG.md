@@ -1,3 +1,10 @@
+# [9.9.0-alpha.6](https://github.com/dhis2/ui/compare/v9.9.0-alpha.5...v9.9.0-alpha.6) (2024-08-08)
+
+
+### Bug Fixes
+
+* bump multi calendar library version in calendar component  ([#1576](https://github.com/dhis2/ui/issues/1576)) ([5f2b13d](https://github.com/dhis2/ui/commit/5f2b13dc3abfd2396c83c39fb399d3c7e0d1dffe))
+
 # [9.9.0-alpha.5](https://github.com/dhis2/ui/compare/v9.9.0-alpha.4...v9.9.0-alpha.5) (2024-08-08)
 
 
