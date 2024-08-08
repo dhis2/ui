@@ -73,7 +73,7 @@
         "cypress": "^13.8.0",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.8",
-        "execa": "^5.1.1",
+        "execa": "^9.3.0",
         "fast-glob": "^3.2.7",
         "find-up": "^5.0.0",
         "react-dev-utils": "^10.2.1",
