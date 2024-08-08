@@ -1,3 +1,10 @@
+## [9.11.1-beta.4](https://github.com/dhis2/ui/compare/v9.11.1-beta.3...v9.11.1-beta.4) (2024-08-08)
+
+
+### Bug Fixes
+
+* remove package causing issues with npm ([23abeef](https://github.com/dhis2/ui/commit/23abeef8451bfeeceb1a48856041e56313603875))
+
 ## [9.11.1-beta.3](https://github.com/dhis2/ui/compare/v9.11.1-beta.2...v9.11.1-beta.3) (2024-08-07)
 
 
