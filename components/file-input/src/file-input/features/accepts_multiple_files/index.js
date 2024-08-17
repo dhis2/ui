@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a FileInput with multiple and onChange handler is rendered', () => {
-    cy.visitStory('FileInput', 'With onChange and multiple')
+    cy.visitStory('FileInput', 'With on change and multiple')
 })
 
 When('the user selected multiple files', () => {

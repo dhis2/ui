@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 const toPrefixedThemeSection = (themeSectionKey) =>
+    // eslint-disable-next-line import/namespace
     Object.entries(theme[themeSectionKey]).reduce((prefixed, [key, value]) => {
         prefixed[`${themeSectionKey}-${key}`] = value
 

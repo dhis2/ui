@@ -39,6 +39,7 @@ Given(
 
 Given('the HeaderBar loads without error when PWA is enabled', () => {
     cy.visitStory('HeaderBarTesting', 'PWA Enabled')
+    cy.get(':contains("Online")').should('exist')
 })
 
 Given(
@@ -94,6 +95,10 @@ Given('the browser goes offline', () => {
 })
 
 Then('the status badge shows offline', () => {
+    // cy.get('[data-test="headerbar-online-status"].badge .label')
+    //     .invoke('text')
+    //     .should('equal', 'Offline')
+
     cy.get('[data-test="headerbar-online-status"].badge .label').should(
         ($label) => {
             expect($label.text()).to.equal('Offline')

@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a loading FileListItem with onCancel handler is rendered', () => {
-    cy.visitStory('FileListItem', 'Loading with onCancel')
+    cy.visitStory('FileListItem', 'Loading with on cancel')
 })
 
 When('the user clicks on the cancel text', () => {

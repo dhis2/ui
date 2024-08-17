@@ -20,13 +20,13 @@ msgid "Clear"
 msgstr "Limpiar"
 
 msgid "No data found"
-msgstr ""
+msgstr "No se han encontrado datos"
 
 msgid "Type to filter options"
 msgstr "Escriba para filtrar opciones"
 
 msgid "Loading options"
-msgstr ""
+msgstr "Opciones de carga"
 
 msgid "No options found"
-msgstr ""
+msgstr "No se han encontrado opciones"

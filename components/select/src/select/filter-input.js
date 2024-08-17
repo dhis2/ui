@@ -1,5 +1,5 @@
-import { Input } from '@dhis2-ui/input'
 import { spacers, colors } from '@dhis2/ui-constants'
+import { Input } from '@dhis2-ui/input'
 import PropTypes from 'prop-types'
 import React from 'react'
 

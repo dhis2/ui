@@ -20,8 +20,12 @@ When('the user clicks on the "Cancel" button', () => {
     ).click()
 })
 
-When('the user click a button which toggles the hidden prop', () => {
-    cy.get('button').click()
+When('the user click a button which toggles the hidden prop to false', () => {
+    cy.get('button:contains("Show")').click()
+})
+
+When('the user click a button which toggles the hidden prop to true', () => {
+    cy.get('button:contains("Hide")').click()
 })
 
 When('the custom duration has passed', () => {

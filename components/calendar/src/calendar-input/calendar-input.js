@@ -112,7 +112,7 @@ export const CalendarInput = ({
         <>
             <div className="calendar-input-wrapper" ref={ref}>
                 <InputField
-                    label="Pick a date"
+                    label={i18n.t('Pick a date')}
                     {...rest}
                     type="text"
                     onFocus={onFocus}

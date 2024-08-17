@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a Button with onFocus handler is rendered', () => {
-    cy.visitStory('Button', 'With onFocus')
+    cy.visitStory('Button', 'With on focus')
 })
 
 When('the Button is focused', () => {

@@ -17,20 +17,14 @@ const getRootOrgUnitByLabel = (label) => {
 Given(
     'a OrganisationUnitTree with children and no paths in the initiallyExpanded prop is rendered',
     () => {
-        cy.visitStory(
-            'OrganisationUnitTree/expanded',
-            'No initially expanded paths'
-        )
+        cy.visitStory('OrganisationUnitTree', 'No initially expanded paths')
     }
 )
 
 Given(
     'a OrganisationUnitTree with children and the path of the first unit on the second level in the initiallyExpanded prop is rendered',
     () => {
-        cy.visitStory(
-            'OrganisationUnitTree/expanded',
-            'Initially expanded paths'
-        )
+        cy.visitStory('OrganisationUnitTree', 'Initially expanded paths')
     }
 )
 
@@ -38,7 +32,7 @@ Given(
     'both a sub org unit with children and a main org unit are root org units',
     () => {
         cy.visitStory(
-            'OrganisationUnitTree/expanded',
+            'OrganisationUnitTree',
             'with root main and root sub org unit'
         )
     }

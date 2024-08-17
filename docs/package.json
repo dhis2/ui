@@ -1,6 +1,6 @@
 {
     "name": "ui-docusaurus",
-    "version": "9.9.0-alpha.6",
+    "version": "9.11.1",
     "private": true,
     "description": "UI Docusaurus",
     "repository": {
@@ -28,12 +28,11 @@
         "file-loader": "^6.2.0",
         "prism-react-renderer": "^1.2.1",
         "prop-types": "^15.7.2",
-        "react-docgen-props-table": "^1.0.3",
         "url-loader": "^4.1.1"
     },
     "peerDependencies": {
-        "react": "^16.8",
-        "react-dom": "^16.8",
+        "react": "^16.13",
+        "react-dom": "^16.13",
         "styled-jsx": "^4"
     },
     "browserslist": {

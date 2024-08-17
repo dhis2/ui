@@ -1,6 +1,6 @@
-import { MenuItem } from '@dhis2-ui/menu'
 import { useConfig } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
+import { MenuItem } from '@dhis2-ui/menu'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { useHeaderBarContext } from '../header-bar-context.js'

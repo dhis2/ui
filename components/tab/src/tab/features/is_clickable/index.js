@@ -1,11 +1,11 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a Tab with onClick handler is rendered', () => {
-    cy.visitStory('Tab', 'With onClick')
+    cy.visitStory('Tab', 'With on click')
 })
 
 Given('a disabled Tab with onClick handler is rendered', () => {
-    cy.visitStory('Tab', 'With onClick and disabled')
+    cy.visitStory('Tab', 'With on click and disabled')
 })
 
 When('the Tab is clicked', () => {

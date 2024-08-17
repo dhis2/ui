@@ -1,12 +1,12 @@
-import { Layer } from '@dhis2-ui/layer'
-import { Popper } from '@dhis2-ui/popper'
 import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
 import { IconChevronUp16, IconChevronDown16 } from '@dhis2/ui-icons'
+import { Layer } from '@dhis2-ui/layer'
+import { Popper } from '@dhis2-ui/popper'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import css from 'styled-jsx/css'
-import { Button } from '../index.js'
+import { Button } from '../button/index.js'
 import i18n from '../locales/index.js'
 
 const rightButton = css.resolve`
@@ -30,8 +30,8 @@ class SplitButton extends Component {
         document.removeEventListener('keydown', this.handleKeyDown)
     }
     handleKeyDown = (event) => {
-        event.preventDefault()
         if (event.key === 'Escape' && this.state.open) {
+            event.preventDefault()
             event.stopPropagation()
             this.setState({ open: false })
             this.anchorRef.current && this.anchorRef.current.focus()

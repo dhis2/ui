@@ -26,7 +26,7 @@ msgid "Type to filter options"
 msgstr "Начать печатать для фильтрации опций"
 
 msgid "Loading options"
-msgstr ""
+msgstr "Загрузка опций"
 
 msgid "No options found"
-msgstr ""
+msgstr "Опции не найдены"

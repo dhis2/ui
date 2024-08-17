@@ -1,7 +1,7 @@
 import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a FileListItem with removeText is rendered', () => {
-    cy.visitStory('FileListItem', 'With removeText')
+    cy.visitStory('FileListItem', 'With remove text')
 })
 
 Then('the removeText will be visible', () => {

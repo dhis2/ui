@@ -15,7 +15,7 @@ import { Tag } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |bold|boolean|||Use bold tags where it is important that the tag is seen by the user in an information dense interface. Bold tags should be reserved for edge cases and not overused.|
-|children|string||||
+|children|node||||
 |className|string||||
 |dataTest|string|`'dhis2-uicore-tag'`|||
 |icon|node|||Tags can contain icons. Use icons where they will help users easily identify the content of the tag. Tags must have a text label and cannot display only an icon.|

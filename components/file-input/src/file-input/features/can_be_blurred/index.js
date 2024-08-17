@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('an FileInput with initialFocus and onBlur handler is rendered', () => {
-    cy.visitStory('FileInput', 'With initialFocus and onBlur')
+    cy.visitStory('FileInput', 'With initial focus and on blur')
 })
 
 When('the FileInput is blurred', () => {

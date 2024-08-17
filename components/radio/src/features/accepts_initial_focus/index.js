@@ -1,7 +1,7 @@
 import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a Radio with initialFocus is rendered', () => {
-    cy.visitStory('Radio', 'With initialFocus')
+    cy.visitStory('Radio', 'With initial focus')
 })
 
 Then('the Radio is focused', () => {
