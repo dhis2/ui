@@ -44,8 +44,8 @@
     },
     "dependencies": {
         "@dhis2/d2-i18n": "^1.1.0",
-        "react": "16.13.1",
-        "react-dom": "16.13.1",
+        "react": "16.13",
+        "react-dom": "16.13",
         "react-scripts": "^5.0.1",
         "styled-jsx": "^4.0.1"
     },
@@ -83,15 +83,6 @@
     },
     "overrides": {
         "react": "$react",
-        "react-dom": "$react",
-        "react-scripts": "^5.0.1",
-        "styled-jsx": "^4.0.1"
-    },
-    "resolutions": {
-        "react": "16.13.1",
-        "react-dom": "16.13.1",
-        "react-scripts": "^5.0.1",
-        "styled-jsx": "^4.0.1"
+        "react-dom": "$react"
     }
-
 }
