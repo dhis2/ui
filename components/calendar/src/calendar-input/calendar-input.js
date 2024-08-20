@@ -1,6 +1,7 @@
 import {
     useDatePicker,
     useResolvedDirection,
+    validateDateString
 } from '@dhis2/multi-calendar-dates'
 import { Button } from '@dhis2-ui/button'
 import { Card } from '@dhis2-ui/card'
@@ -71,11 +72,20 @@ export const CalendarInput = ({
     })
 
     const handleChange = (e) => {
+        setOpen(false)
         setPartialDate(e.value)
     }
 
     const handleBlur = (_, e) => {
-        parentOnDateSelect?.({ calendarDateString: partialDate })
+        const validated = validateDateString(partialDate, {
+            calendar,
+            format,
+            minDateString: minDate,
+            maxDateString: maxDate,
+            strictValidation,
+        })
+        parentOnDateSelect?.({ calendarDateString: partialDate, ...validated })
+
         if (
             excludeRef.current &&
             !excludeRef.current.contains(e.relatedTarget)
