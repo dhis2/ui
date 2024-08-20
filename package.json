@@ -79,7 +79,7 @@
         "react-dev-utils": "^10.2.1",
         "react-docgen": "^5.4.0",
         "rimraf": "^3.0.2",
-        "wait-on": "^6.0.0"
+        "wait-on": "^8.0.0"
     },
     "overrides": {
         "react": "$react",
