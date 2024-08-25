@@ -16,7 +16,7 @@ const FieldGroup = ({
     error,
     warning,
 }) => (
-    <FieldSet classname={className} dataTest={dataTest}>
+    <FieldSet className={className} dataTest={dataTest}>
         <Field
             label={label}
             disabled={disabled}
