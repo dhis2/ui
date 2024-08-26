@@ -1,3 +1,10 @@
+## [9.11.3](https://github.com/dhis2/ui/compare/v9.11.2...v9.11.3) (2024-08-21)
+
+
+### Bug Fixes
+
+* select-field not showing in correct place ([#1400](https://github.com/dhis2/ui/issues/1400)) ([d97d640](https://github.com/dhis2/ui/commit/d97d640f92c1c42dbc92e46771b6a58870add895))
+
 ## [9.11.2](https://github.com/dhis2/ui/compare/v9.11.1...v9.11.2) (2024-08-18)
 
 
@@ -11,9 +18,6 @@
 
 ### Bug Fixes
 
-* bump multi calendar library version in calendar component  ([#1576](https://github.com/dhis2/ui/issues/1576)) ([5f2b13d](https://github.com/dhis2/ui/commit/5f2b13dc3abfd2396c83c39fb399d3c7e0d1dffe))
-
-# [9.9.0-alpha.5](https://github.com/dhis2/ui/compare/v9.9.0-alpha.4...v9.9.0-alpha.5) (2024-08-08)
 * fix publishing to npm ([#1577](https://github.com/dhis2/ui/issues/1577)) ([1889a7b](https://github.com/dhis2/ui/commit/1889a7baf0ad1b6709272be61094da80cad65fe1))
 * get rid of storybook references in docs ([1904b17](https://github.com/dhis2/ui/commit/1904b172bfde066a17a0edf82c196959ba35c8bb))
 * get storybook 8 working ([8c6be62](https://github.com/dhis2/ui/commit/8c6be62c2df9261109df12e51c7dc2339b59eedf))
@@ -27,16 +31,6 @@
 
 ### Features
 
-* memorize calendar container component to improve perfromance ([#1575](https://github.com/dhis2/ui/issues/1575)) ([0d00a19](https://github.com/dhis2/ui/commit/0d00a19663147b24acc0513aa8958d630ffed94c))
-
-# [9.9.0-alpha.4](https://github.com/dhis2/ui/compare/v9.9.0-alpha.3...v9.9.0-alpha.4) (2024-08-07)
-
-
-### Features
-
-* verify date input only on blur on calendar input, close calendar popup on blur as well ([d8b0d1c](https://github.com/dhis2/ui/commit/d8b0d1cd2fd93a88413f0f73ad216783e6dd3ff7))
-
-# [9.9.0-alpha.3](https://github.com/dhis2/ui/compare/v9.9.0-alpha.2...v9.9.0-alpha.3) (2024-08-01)
 * implement accessible flyout menu and handle submenus ([#1495](https://github.com/dhis2/ui/issues/1495)) ([73d1f7e](https://github.com/dhis2/ui/commit/73d1f7e062ad393a156b3b439b590c5927f0fc9d))
 
 ## [9.10.3](https://github.com/dhis2/ui/compare/v9.10.2...v9.10.3) (2024-07-24)
@@ -44,9 +38,6 @@
 
 ### Bug Fixes
 
-* bump multi calendar library version in calendar ([#1566](https://github.com/dhis2/ui/issues/1566)) ([d205016](https://github.com/dhis2/ui/commit/d205016ae9f51eb286007762d99549325199cedc))
-
-# [9.9.0-alpha.2](https://github.com/dhis2/ui/compare/v9.9.0-alpha.1...v9.9.0-alpha.2) (2024-08-01)
 * **translations:** sync translations from transifex (master) ([b7d3ec6](https://github.com/dhis2/ui/commit/b7d3ec6a91d7fd54c9220364c678f71c9daa14eb))
 
 ## [9.10.2](https://github.com/dhis2/ui/compare/v9.10.1...v9.10.2) (2024-07-15)
@@ -72,9 +63,6 @@
 
 ### Features
 
-* support editable input | min & max dates | dd-mm-yyyy format in CalendarInput ([#1504](https://github.com/dhis2/ui/issues/1504)) ([99a78f5](https://github.com/dhis2/ui/commit/99a78f5caec83529af26a11a2dd4d93fface30b4))
-
-# [9.9.0-alpha.1](https://github.com/dhis2/ui/compare/v9.8.1...v9.9.0-alpha.1) (2024-06-17)
 * **menu:** memoise menu's childrenToRender function and add valid role checks ([#1539](https://github.com/dhis2/ui/issues/1539)) ([bddbdae](https://github.com/dhis2/ui/commit/bddbdaeb63180b80a4352a256e7916ab75f633e9))
 * **TabBar:** accessibility improvements for TabBar & Tab ([#1468](https://github.com/dhis2/ui/issues/1468)) ([b095f5a](https://github.com/dhis2/ui/commit/b095f5a90688b7e95338622137c71b2305fd9fe7))
 

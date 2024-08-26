@@ -6,7 +6,7 @@ There are are a number of constants that can be imported from the UI library tha
 import { colors, theme, spacers, layers, elevation } from '@dhis2/ui'
 ```
 
-If you need access to these variables in CSS (not recommended), see the `<CssVariables>` component documentation for making these variables accessible in CSS.
+If you need access to these variables in CSS, see the `<CssVariables>` component documentation for making these variables accessible in CSS.
 
 ## Colors
 
