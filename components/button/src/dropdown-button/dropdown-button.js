@@ -1,11 +1,11 @@
-import { Layer } from '@dhis2-ui/layer'
-import { Popper } from '@dhis2-ui/popper'
 import { requiredIf } from '@dhis2/prop-types'
 import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
+import { Layer } from '@dhis2-ui/layer'
+import { Popper } from '@dhis2-ui/popper'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { resolve } from 'styled-jsx/css'
-import { Button } from '../index.js'
+import { Button } from '../button/index.js'
 
 function ArrowDown({ className }) {
     return (
@@ -78,8 +78,8 @@ class DropdownButton extends Component {
     }
 
     handleKeyDown = (event) => {
-        event.preventDefault()
         if (event.key === 'Escape' && this.state.open) {
+            event.preventDefault()
             event.stopPropagation()
             this.setState({ open: false })
         }

@@ -1,12 +1,12 @@
+import {
+    useDatePicker,
+    useResolvedDirection,
+} from '@dhis2/multi-calendar-dates'
 import { Button } from '@dhis2-ui/button'
 import { Card } from '@dhis2-ui/card'
 import { InputField } from '@dhis2-ui/input'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
-import {
-    useDatePicker,
-    useResolvedDirection,
-} from '@dhis2/multi-calendar-dates'
 import cx from 'classnames'
 import React, { useRef, useState, useMemo, useEffect } from 'react'
 import { CalendarContainer } from '../calendar/calendar-container.js'

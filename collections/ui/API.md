@@ -1070,6 +1070,7 @@ import { FlyoutMenu } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node|||Typically, but not limited to, `MenuItem` components|
 |className|string||||
+|closeMenu|function|||when Escape key is pressed, this function is called to close the flyout menu|
 |dataTest|string|`'dhis2-uicore-menu'`|||
 |dense|boolean|||Menu uses smaller dimensions|
 |maxHeight|string|`'auto'`|||
@@ -1133,6 +1134,8 @@ import { MenuItem } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |active|boolean||||
+|checkbox|boolean||||
+|checked|boolean||||
 |chevron|boolean||||
 |children|node|||Nested menu items can become submenus.<br/>See `showSubMenu` and `toggleSubMenu` props, and 'Children' demo|
 |className|string||||
@@ -1145,6 +1148,7 @@ import { MenuItem } from '@dhis2/ui'
 |label|node|||Text in the menu item|
 |showSubMenu|boolean|||When true, nested menu items are shown in a Popper|
 |suffix|node|||A supporting element shown at the end of the menu item|
+|tabIndex|number||||
 |target|string|||For using menu item as a link|
 |toggleSubMenu|function|||On click, this function is called (without args)|
 |value|string|||Value associated with item. Passed as an argument to onClick handler.|
@@ -1253,7 +1257,7 @@ import { ModalTitle } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|children|string||||
+|children|node||||
 |dataTest|string|`'dhis2-uicore-modaltitle'`|||
 
 ### Node
@@ -1931,6 +1935,7 @@ import { SelectorBar } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|any||*||
 |additionalContent|any||||
+|ariaLabel|string||||
 |className|string||||
 |dataTest|string|`'dhis2-ui-selectorbar'`|||
 |disableClearSelections|boolean||||
@@ -1981,47 +1986,15 @@ import { SharingDialog } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |id|string||*|The id of the object to share|
-|type|import {
-    ACCESS_NONE,
-    ACCESS_VIEW_ONLY,
-    ACCESS_VIEW_AND_EDIT,
-    VISUALIZATION,
-    DASHBOARD,
-    EVENT_VISUALIZATION,
-    INTERPRETATION,
-} from './constants.js' │ import {
-    ACCESS_NONE,
-    ACCESS_VIEW_ONLY,
-    ACCESS_VIEW_AND_EDIT,
-    VISUALIZATION,
-    DASHBOARD,
-    EVENT_VISUALIZATION,
-    INTERPRETATION,
-} from './constants.js' │ import {
-    ACCESS_NONE,
-    ACCESS_VIEW_ONLY,
-    ACCESS_VIEW_AND_EDIT,
-    VISUALIZATION,
-    DASHBOARD,
-    EVENT_VISUALIZATION,
-    INTERPRETATION,
-} from './constants.js' │ import {
-    ACCESS_NONE,
-    ACCESS_VIEW_ONLY,
-    ACCESS_VIEW_AND_EDIT,
-    VISUALIZATION,
-    DASHBOARD,
-    EVENT_VISUALIZATION,
-    INTERPRETATION,
-} from './constants.js'||*|The type of object to share|
+|type|DIALOG_TYPES_LIST||*|The type of object to share|
 |dataTest|string|`'dhis2-uicore-sharingdialog'`|||
-|initialSharingSettings|{<br/>  "allowPublic": "boolean",<br/>  "groups": "objectOf",<br/>  "name": "string",<br/>  "public": "import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    VISUALIZATION,\n    DASHBOARD,\n    EVENT_VISUALIZATION,\n    INTERPRETATION,\n} from './constants.js' │ import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    VISUALIZATION,\n    DASHBOARD,\n    EVENT_VISUALIZATION,\n    INTERPRETATION,\n} from './constants.js' │ import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    VISUALIZATION,\n    DASHBOARD,\n    EVENT_VISUALIZATION,\n    INTERPRETATION,\n} from './constants.js'",<br/>  "users": "objectOf"<br/>}|`{
+|initialSharingSettings|{<br/>  "allowPublic": "boolean",<br/>  "groups": "objectOf",<br/>  "name": "string",<br/>  "public": "import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    DIALOG_TYPES_LIST,\n} from './constants.js' │ import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    DIALOG_TYPES_LIST,\n} from './constants.js' │ import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    DIALOG_TYPES_LIST,\n} from './constants.js'",<br/>  "users": "objectOf"<br/>}|`{
     name: '',
     allowPublic: true,
     public: ACCESS_NONE,
     groups: {},
     users: {},
-}`|||
+}`||Used to seed the component with data to show whilst loading|
 |onClose|function|`() => {}`|||
 |onError|function|`() => {}`|||
 |onSave|function|`() => {}`|||
@@ -2786,7 +2759,7 @@ import { Tag } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |bold|boolean|||Use bold tags where it is important that the tag is seen by the user in an information dense interface. Bold tags should be reserved for edge cases and not overused.|
-|children|string||||
+|children|node||||
 |className|string||||
 |dataTest|string|`'dhis2-uicore-tag'`|||
 |icon|node|||Tags can contain icons. Use icons where they will help users easily identify the content of the tag. Tags must have a text label and cannot display only an icon.|

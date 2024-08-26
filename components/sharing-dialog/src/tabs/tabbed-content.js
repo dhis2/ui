@@ -8,10 +8,8 @@ import {
     ACCESS_NONE,
     ACCESS_VIEW_ONLY,
     ACCESS_VIEW_AND_EDIT,
-    VISUALIZATION,
-    DASHBOARD,
-    EVENT_VISUALIZATION,
-    INTERPRETATION,
+    DIALOG_TYPES_LIST,
+    DIALOG_TYPES,
 } from '../constants.js'
 import i18n from '../locales/index.js'
 
@@ -28,7 +26,7 @@ export const TabbedContent = ({
 }) => {
     const [activeTabIndex, setActiveTabIndex] = useState(0)
 
-    if (type === DASHBOARD) {
+    if (type === DIALOG_TYPES.DASHBOARD) {
         return (
             <>
                 <TabBar>
@@ -104,12 +102,7 @@ TabbedContent.propTypes = {
         ACCESS_VIEW_ONLY,
         ACCESS_VIEW_AND_EDIT,
     ]).isRequired,
-    type: PropTypes.oneOf([
-        VISUALIZATION,
-        DASHBOARD,
-        EVENT_VISUALIZATION,
-        INTERPRETATION,
-    ]).isRequired,
+    type: PropTypes.oneOf(DIALOG_TYPES_LIST).isRequired,
     users: PropTypes.arrayOf(
         PropTypes.shape({
             access: PropTypes.oneOf([

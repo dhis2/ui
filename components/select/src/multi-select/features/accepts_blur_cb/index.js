@@ -1,7 +1,7 @@
 import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a MultiSelect with onBlur handler is rendered', () => {
-    cy.visitStory('MultiSelect', 'With onBlur')
+    cy.visitStory('MultiSelect', 'With on blur')
 })
 
 Then('the onBlur handler is called', () => {

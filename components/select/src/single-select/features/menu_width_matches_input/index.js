@@ -7,7 +7,7 @@ Given('a SingleSelect with hidden sibling elements', () => {
     })
 })
 When('the button is clicked', () => {
-    cy.get('button').click()
+    cy.get('button:contains("Toggle")').click()
 })
 Then('the siblings are displayed', () => {
     cy.get('.toggler').should('exist').and('have.length', 2)

@@ -1,6 +1,6 @@
+import { colors, layers } from '@dhis2/ui-constants'
 import { Popper } from '@dhis2-ui/popper'
 import { Portal } from '@dhis2-ui/portal'
-import { colors, layers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
 import { resolve } from 'styled-jsx/css'

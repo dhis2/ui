@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a Checkbox with onFocus handler is rendered', () => {
-    cy.visitStory('Checkbox', 'With onFocus')
+    cy.visitStory('Checkbox', 'With on focus')
 })
 
 When('the Checkbox is focused', () => {

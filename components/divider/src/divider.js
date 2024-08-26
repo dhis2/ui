@@ -17,7 +17,7 @@ const flipMargin = (margin) => {
 
 const Divider = ({ className, dataTest, dense, margin }) => {
     return (
-        <div className={className} data-test={dataTest}>
+        <div className={className} data-test={dataTest} role="separator">
             <style jsx>{`
                 div {
                     display: inline-block;

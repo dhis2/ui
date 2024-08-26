@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a closed Node with an onOpen handler is rendered', () => {
-    cy.visitStory('Node', 'Closed with onOpen')
+    cy.visitStory('Node', 'Closed with on open')
 })
 
 When('the arrow is clicked', () => {

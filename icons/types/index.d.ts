@@ -184,6 +184,8 @@ export const IconSubscribe16: React.FC<IconProps>
 export const IconSubscribe24: React.FC<IconProps>
 export const IconSubscribeOff16: React.FC<IconProps>
 export const IconSubscribeOff24: React.FC<IconProps>
+export const IconSubtract16: React.FC<IconProps>
+export const IconSubtract24: React.FC<IconProps>
 export const IconSubtractCircle16: React.FC<IconProps>
 export const IconSubtractCircle24: React.FC<IconProps>
 export const IconSync16: React.FC<IconProps>

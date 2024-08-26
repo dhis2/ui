@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/select",
-    "version": "9.9.0-alpha.6",
+    "version": "9.11.2",
     "description": "UI Select",
     "repository": {
         "type": "git",
@@ -22,32 +22,32 @@
         "access": "public"
     },
     "scripts": {
-        "start": "start-storybook -c ../../storybook/config --port 5000",
+        "start": "storybook dev -c ../../storybook/config --port 5000",
         "build": "d2-app-scripts build",
         "test": "d2-app-scripts test --jestConfig ../../jest.config.shared.js"
     },
     "peerDependencies": {
         "@dhis2/d2-i18n": "^1",
-        "react": "^16.8",
-        "react-dom": "^16.8",
+        "react": "^16.13",
+        "react-dom": "^16.13",
         "styled-jsx": "^4"
     },
     "dependencies": {
-        "@dhis2-ui/box": "9.9.0-alpha.6",
-        "@dhis2-ui/button": "9.9.0-alpha.6",
-        "@dhis2-ui/card": "9.9.0-alpha.6",
-        "@dhis2-ui/checkbox": "9.9.0-alpha.6",
-        "@dhis2-ui/chip": "9.9.0-alpha.6",
-        "@dhis2-ui/field": "9.9.0-alpha.6",
-        "@dhis2-ui/input": "9.9.0-alpha.6",
-        "@dhis2-ui/layer": "9.9.0-alpha.6",
-        "@dhis2-ui/loader": "9.9.0-alpha.6",
-        "@dhis2-ui/popper": "9.9.0-alpha.6",
-        "@dhis2-ui/status-icon": "9.9.0-alpha.6",
-        "@dhis2-ui/tooltip": "9.9.0-alpha.6",
+        "@dhis2-ui/box": "9.11.2",
+        "@dhis2-ui/button": "9.11.2",
+        "@dhis2-ui/card": "9.11.2",
+        "@dhis2-ui/checkbox": "9.11.2",
+        "@dhis2-ui/chip": "9.11.2",
+        "@dhis2-ui/field": "9.11.2",
+        "@dhis2-ui/input": "9.11.2",
+        "@dhis2-ui/layer": "9.11.2",
+        "@dhis2-ui/loader": "9.11.2",
+        "@dhis2-ui/popper": "9.11.2",
+        "@dhis2-ui/status-icon": "9.11.2",
+        "@dhis2-ui/tooltip": "9.11.2",
         "@dhis2/prop-types": "^3.1.2",
-        "@dhis2/ui-constants": "9.9.0-alpha.6",
-        "@dhis2/ui-icons": "9.9.0-alpha.6",
+        "@dhis2/ui-constants": "9.11.2",
+        "@dhis2/ui-icons": "9.11.2",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },

@@ -1,7 +1,7 @@
 import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a TextArea with initialFocus is rendered', () => {
-    cy.visitStory('TextArea', 'With initialFocus')
+    cy.visitStory('TextArea', 'With initial focus')
 })
 
 Then('the TextArea is focused', () => {

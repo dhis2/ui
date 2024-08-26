@@ -16,6 +16,7 @@ import { FlyoutMenu } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node|||Typically, but not limited to, `MenuItem` components|
 |className|string||||
+|closeMenu|function|||when Escape key is pressed, this function is called to close the flyout menu|
 |dataTest|string|`'dhis2-uicore-menu'`|||
 |dense|boolean|||Menu uses smaller dimensions|
 |maxHeight|string|`'auto'`|||
@@ -79,6 +80,8 @@ import { MenuItem } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |active|boolean||||
+|checkbox|boolean||||
+|checked|boolean||||
 |chevron|boolean||||
 |children|node|||Nested menu items can become submenus.<br/>See `showSubMenu` and `toggleSubMenu` props, and 'Children' demo|
 |className|string||||
@@ -91,6 +94,7 @@ import { MenuItem } from '@dhis2/ui'
 |label|node|||Text in the menu item|
 |showSubMenu|boolean|||When true, nested menu items are shown in a Popper|
 |suffix|node|||A supporting element shown at the end of the menu item|
+|tabIndex|number||||
 |target|string|||For using menu item as a link|
 |toggleSubMenu|function|||On click, this function is called (without args)|
 |value|string|||Value associated with item. Passed as an argument to onClick handler.|

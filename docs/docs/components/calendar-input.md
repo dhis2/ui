@@ -123,6 +123,7 @@ The Gregorian with initial date is then generated with this code.
     calendar="gregory"
     locale="en-GB"
     date="2021-10-13"
+    onDateSelect={handelDateChange}
 />
 ```
 
