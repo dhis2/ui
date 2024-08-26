@@ -24,7 +24,7 @@
         "@dhis2-ui/alert": "9.11.2",
         "@dhis2-ui/box": "9.11.2",
         "@dhis2-ui/button": "9.11.2",
-        "@dhis2-ui/calendar": "9.11.2",
+        "@dhis2-ui/calendar": "9.9.0-alpha.6",
         "@dhis2-ui/card": "9.11.2",
         "@dhis2-ui/center": "9.11.2",
         "@dhis2-ui/checkbox": "9.11.2",
