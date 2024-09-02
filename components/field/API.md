@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Field`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { Field } from '@dhis2-ui/field'
+import { Field } from '@dhis2/ui'
 ```
 
 
@@ -31,11 +31,11 @@ import { Field } from '@dhis2-ui/field'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `FieldGroup`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { FieldGroup } from '@dhis2-ui/field'
+import { FieldGroup } from '@dhis2/ui'
 ```
 
 
@@ -60,11 +60,11 @@ import { FieldGroup } from '@dhis2-ui/field'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `FieldSet`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { FieldSet } from '@dhis2-ui/field'
+import { FieldSet } from '@dhis2/ui'
 ```
 
 

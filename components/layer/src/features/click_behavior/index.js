@@ -1,4 +1,4 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a Layer with a button below it is rendered', () => {
     cy.visitStory('Layer', 'Blocking')
@@ -9,7 +9,7 @@ Given('a Layer with a button in it is rendered', () => {
 })
 
 When('the user clicks the button', () => {
-    cy.get('button').click()
+    cy.get('button:contains("Test")').click()
 })
 
 When('the user clicks on the layer', () => {

@@ -1,11 +1,11 @@
-import { Layer } from '@dhis2-ui/layer'
-import { Popper } from '@dhis2-ui/popper'
 import { requiredIf } from '@dhis2/prop-types'
 import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
+import { Layer } from '@dhis2-ui/layer'
+import { Popper } from '@dhis2-ui/popper'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { resolve } from 'styled-jsx/css'
-import { Button } from '../index.js'
+import { Button } from '../button/index.js'
 
 function ArrowDown({ className }) {
     return (
@@ -68,6 +68,22 @@ class DropdownButton extends Component {
     }
 
     anchorRef = React.createRef()
+
+    componentDidMount() {
+        document.addEventListener('keydown', this.handleKeyDown)
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('keydown', this.handleKeyDown)
+    }
+
+    handleKeyDown = (event) => {
+        if (event.key === 'Escape' && this.state.open) {
+            event.preventDefault()
+            event.stopPropagation()
+            this.setState({ open: false })
+        }
+    }
 
     onClickHandler = ({ name, value }, event) => {
         const handleClick = (open) => {
@@ -133,6 +149,7 @@ class DropdownButton extends Component {
                     tabIndex={tabIndex}
                     type={type}
                     initialFocus={initialFocus}
+                    data-test="dhis2-uicore-dropdownbutton-toggle"
                 >
                     {children}
                     <ArrowIconComponent className={arrow.className} />

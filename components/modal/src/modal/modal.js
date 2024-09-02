@@ -1,10 +1,10 @@
+import { spacers, spacersNum, sharedPropTypes } from '@dhis2/ui-constants'
 import { Card } from '@dhis2-ui/card'
 import { Center } from '@dhis2-ui/center'
 import { Layer } from '@dhis2-ui/layer'
-import { spacers, spacersNum, sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { resolve } from 'styled-jsx/css'
 import { CloseButton } from './close-button.js'
 
@@ -28,6 +28,27 @@ export const Modal = ({
     small,
 }) => {
     const layerStyles = resolveLayerStyles(hide)
+
+    useEffect(() => {
+        if (hide) {
+            return
+        }
+
+        const handleKeyDown = (event) => {
+            if (event.key === 'Escape' && onClose) {
+                event.preventDefault()
+                event.stopPropagation()
+                onClose()
+            }
+        }
+
+        document.addEventListener('keydown', handleKeyDown)
+
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown)
+        }
+    }, [hide, onClose])
+
     return (
         <Layer
             onBackdropClick={onClose}

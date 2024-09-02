@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `FlyoutMenu`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { FlyoutMenu } from '@dhis2-ui/menu'
+import { FlyoutMenu } from '@dhis2/ui'
 ```
 
 
@@ -16,6 +16,7 @@ import { FlyoutMenu } from '@dhis2-ui/menu'
 |---|---|---|---|---|
 |children|node|||Typically, but not limited to, `MenuItem` components|
 |className|string||||
+|closeMenu|function|||when Escape key is pressed, this function is called to close the flyout menu|
 |dataTest|string|`'dhis2-uicore-menu'`|||
 |dense|boolean|||Menu uses smaller dimensions|
 |maxHeight|string|`'auto'`|||
@@ -25,11 +26,11 @@ import { FlyoutMenu } from '@dhis2-ui/menu'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Menu`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { Menu } from '@dhis2-ui/menu'
+import { Menu } from '@dhis2/ui'
 ```
 
 
@@ -46,11 +47,11 @@ import { Menu } from '@dhis2-ui/menu'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `MenuDivider`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { MenuDivider } from '@dhis2-ui/menu'
+import { MenuDivider } from '@dhis2/ui'
 ```
 
 
@@ -66,11 +67,11 @@ import { MenuDivider } from '@dhis2-ui/menu'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `MenuItem`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { MenuItem } from '@dhis2-ui/menu'
+import { MenuItem } from '@dhis2/ui'
 ```
 
 
@@ -79,6 +80,8 @@ import { MenuItem } from '@dhis2-ui/menu'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |active|boolean||||
+|checkbox|boolean||||
+|checked|boolean||||
 |chevron|boolean||||
 |children|node|||Nested menu items can become submenus.<br/>See `showSubMenu` and `toggleSubMenu` props, and 'Children' demo|
 |className|string||||
@@ -91,6 +94,7 @@ import { MenuItem } from '@dhis2-ui/menu'
 |label|node|||Text in the menu item|
 |showSubMenu|boolean|||When true, nested menu items are shown in a Popper|
 |suffix|node|||A supporting element shown at the end of the menu item|
+|tabIndex|number||||
 |target|string|||For using menu item as a link|
 |toggleSubMenu|function|||On click, this function is called (without args)|
 |value|string|||Value associated with item. Passed as an argument to onClick handler.|
@@ -100,11 +104,11 @@ import { MenuItem } from '@dhis2-ui/menu'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `MenuSectionHeader`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { MenuSectionHeader } from '@dhis2-ui/menu'
+import { MenuSectionHeader } from '@dhis2/ui'
 ```
 
 

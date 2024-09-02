@@ -1,6 +1,6 @@
-import { UserAvatar } from '@dhis2-ui/user-avatar'
 import { colors } from '@dhis2/ui-constants'
 import { IconWorld24, IconUserGroup24 } from '@dhis2/ui-icons'
+import { UserAvatar } from '@dhis2-ui/user-avatar'
 import PropTypes from 'prop-types'
 import React from 'react'
 import {

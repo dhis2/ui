@@ -17,6 +17,10 @@ A card is a container element used to group together and separate blocks of cont
 
 ## Usage
 
+```jsx
+<Card>This is content that's inside a card.</Card>
+```
+
 ### When to use
 
 -   **Group content**. Use a card as a container for related content. When there's different areas of content on a page, a card helps to establish boundaries between them.
@@ -31,4 +35,4 @@ A card is a container element used to group together and separate blocks of cont
 
 ## Links
 
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/layout-card--default)
+-   <a href="/demo/?path=/story/card--default" target="_blank">Demo</a>

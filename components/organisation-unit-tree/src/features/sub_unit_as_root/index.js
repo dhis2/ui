@@ -1,4 +1,4 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 const rootOrgUnitLabelSelector = `
     [data-test="dhis2-uiwidgets-orgunittree"]
@@ -22,21 +22,7 @@ Given('both a sub org unit and a main org unit are root org units', () => {
     )
 })
 
-Given('both a sub org unit and a main org unit are root org units', () => {
-    cy.visitStory(
-        'OrganisationUnitTree',
-        'multiple root sub and one main org unit'
-    )
-})
-
 Given('multiple sub org units is a root org unit', () => {
-    cy.visitStory(
-        'OrganisationUnitTree',
-        'multiple root sub and one main org unit'
-    )
-})
-
-Given('the root sub org unit is a child of the root main org unit', () => {
     cy.visitStory(
         'OrganisationUnitTree',
         'multiple root sub and one main org unit'

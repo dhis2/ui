@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Calendar`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { Calendar } from '@dhis2-ui/calendar'
+import { Calendar } from '@dhis2/ui'
 ```
 
 
@@ -24,3 +24,21 @@ import { Calendar } from '@dhis2-ui/calendar'
 |timeZone|string|||the timeZone to use|
 |weekDayFormat|'narrow' │ 'short' │ 'long'|`'narrow'`||the format to display for the week day, i.e. Monday (long), Mon (short), M (narrow)|
 |width|string|`'240px'`||the width of the calendar component|
+
+### CalendarInput
+
+#### Usage
+
+To use `CalendarInput`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { CalendarInput } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|dataTest|undefined|`'dhis2-uiwidgets-calendar-inputfield'`|||

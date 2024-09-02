@@ -1,6 +1,6 @@
+import { colors, elevations } from '@dhis2/ui-constants'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
-import { colors, elevations } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -13,7 +13,7 @@ const MenuWrapper = ({
     selectRef,
 }) => {
     return (
-        <Layer onBackdropClick={onClick} transparent>
+        <Layer onBackdropClick={onClick} transparent disablePortal>
             <Popper
                 reference={selectRef}
                 placement="bottom-start"

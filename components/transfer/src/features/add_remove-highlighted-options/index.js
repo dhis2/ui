@@ -1,4 +1,4 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('the option list has two or more items', () => {
     cy.visitStory('Transfer add & remove highlighted options', 'Has Options')

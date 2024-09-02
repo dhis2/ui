@@ -4,9 +4,7 @@ import {
     Given,
     Then,
     When,
-    And,
-} from 'cypress-cucumber-preprocessor/steps'
-import '../common/index.js'
+} from '@badeball/cypress-cucumber-preprocessor'
 
 // see https://github.com/cypress-io/cypress/issues/17723#issuecomment-1457064322
 const goOffline = () => {
@@ -41,6 +39,7 @@ Given(
 
 Given('the HeaderBar loads without error when PWA is enabled', () => {
     cy.visitStory('HeaderBarTesting', 'PWA Enabled')
+    cy.get(':contains("Online")').should('exist')
 })
 
 Given(
@@ -53,7 +52,7 @@ Given(
     }
 )
 
-And('the viewport is narrower than 480px', () => {
+Given('the viewport is narrower than 480px', () => {
     cy.viewport(460, 660)
 })
 
@@ -71,7 +70,7 @@ Then('the HeaderBar displays only the desktop status badge', () => {
     cy.get('[data-test="headerbar-online-status"].bar').should('not.be.visible')
 })
 
-And('the status badge shows online', () => {
+Then('the status badge shows online', () => {
     cy.get('[data-test="headerbar-online-status"].badge .label').should(
         ($label) => {
             expect($label.text()).to.equal('Online')
@@ -91,11 +90,15 @@ Then('the HeaderBar displays only the mobile status bar', () => {
     )
 })
 
-And('the browser goes offline', () => {
+Given('the browser goes offline', () => {
     goOffline()
 })
 
 Then('the status badge shows offline', () => {
+    // cy.get('[data-test="headerbar-online-status"].badge .label')
+    //     .invoke('text')
+    //     .should('equal', 'Offline')
+
     cy.get('[data-test="headerbar-online-status"].badge .label').should(
         ($label) => {
             expect($label.text()).to.equal('Offline')

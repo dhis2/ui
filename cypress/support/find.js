@@ -16,11 +16,11 @@ import { parseSelectorWithDataTest } from './common/parseSelectorWithDataTest.js
  * cy.get('.foo').find('{node} input', 'custom-prefix')
  * cy.get('.foo').find('[data-test="custom-prefix-node"] input')
  */
-// eslint-disable-next-line max-params
-const find = (originalFn, subject, selectors, options = {}) => {
-    const { prefix, ...restOptions } = options
-    const selector = parseSelectorWithDataTest(selectors, prefix)
-    return originalFn(subject, selector, restOptions)
-}
-
-Cypress.Commands.overwrite('find', find)
+Cypress.Commands.overwriteQuery(
+    'find',
+    function (originalFn, selectors, options = {}) {
+        const { prefix, ...restOptions } = options
+        const selector = parseSelectorWithDataTest(selectors, prefix)
+        return originalFn.call(this, selector, restOptions)
+    }
+)

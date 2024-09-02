@@ -1,4 +1,4 @@
-import { Then, Given } from 'cypress-cucumber-preprocessor/steps'
+import { Then, Given } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('the custom title is "Barbaz" and the app title is "Example!"', () => {
     cy.visitStory('HeaderBarTesting', 'Custom Application Title')

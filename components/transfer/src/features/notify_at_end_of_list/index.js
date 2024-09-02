@@ -1,16 +1,4 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-
-Cypress.on('uncaught:exception', (err) => {
-    // This prevents a benign error:
-    //   This error means that ResizeObserver was not able to deliver all
-    //   observations within a single animation frame. It is benign (your site
-    //   will not break).
-    //
-    // Source: https://stackoverflow.com/a/50387233/1319140
-    if (err.match(/ResizeObserver loop limit exceeded/)) {
-        return false
-    }
-})
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given(
     'the Transfer has enough items to fill the source list completely',

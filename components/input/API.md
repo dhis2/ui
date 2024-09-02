@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Input`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { Input } from '@dhis2-ui/input'
+import { Input } from '@dhis2/ui'
 ```
 
 
@@ -43,11 +43,11 @@ import { Input } from '@dhis2-ui/input'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `InputField`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { InputField } from '@dhis2-ui/input'
+import { InputField } from '@dhis2/ui'
 ```
 
 

@@ -1,5 +1,5 @@
-import { CircularLoader } from '@dhis2-ui/loader'
 import { sharedPropTypes } from '@dhis2/ui-constants'
+import { CircularLoader } from '@dhis2-ui/loader'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef } from 'react'
@@ -36,6 +36,14 @@ export const Button = ({
             ref.current.focus()
         }
     }, [initialFocus, ref.current])
+
+    const { 'aria-label': ariaLabel, title } = otherProps
+
+    if (!children && !title && !ariaLabel) {
+        console.debug(
+            'Button component has no children but is missing title and ariaLabel attribute.'
+        )
+    }
 
     const handleClick = (event) => onClick && onClick({ value, name }, event)
     const handleBlur = (event) => onBlur && onBlur({ value, name }, event)

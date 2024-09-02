@@ -1,17 +1,16 @@
-import '../common/index.js'
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given(
     'a MultiSelect with a disabled option and onChange handler is rendered',
     () => {
-        cy.visitStory('MultiSelect', 'With disabled option and onChange')
+        cy.visitStory('MultiSelect', 'With disabled option and on change')
     }
 )
 
 Given(
     'a MultiSelect with custom options and onChange handler is rendered',
     () => {
-        cy.visitStory('MultiSelect', 'With custom options and onChange')
+        cy.visitStory('MultiSelect', 'With custom options and on change')
     }
 )
 
@@ -20,7 +19,9 @@ When('an option is clicked', () => {
 })
 
 When('the selected option is clicked', () => {
-    cy.get('[data-test="dhis2-uicore-layer"]').contains('option one').click()
+    cy.get(
+        '[data-test="dhis2-uicore-multiselectoption"]:contains("option one")'
+    ).click()
 })
 
 When('another option is clicked', () => {
@@ -36,9 +37,9 @@ When('the disabled option is clicked', () => {
 })
 
 When('the selected option is clicked again', () => {
-    cy.get('[data-test="dhis2-uicore-multiselectoption"] label')
-        .contains('option one')
-        .click()
+    cy.get(
+        '[data-test="dhis2-uicore-multiselectoption"]:contains("option one")'
+    ).click()
 })
 
 Then('the clicked option is selected', () => {

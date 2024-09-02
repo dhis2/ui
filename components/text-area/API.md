@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TextArea`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { TextArea } from '@dhis2-ui/text-area'
+import { TextArea } from '@dhis2/ui'
 ```
 
 
@@ -41,11 +41,11 @@ import { TextArea } from '@dhis2-ui/text-area'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `TextAreaField`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { TextAreaField } from '@dhis2-ui/text-area'
+import { TextAreaField } from '@dhis2/ui'
 ```
 
 

@@ -1,12 +1,12 @@
 import '@fontsource/roboto/latin.css'
 import { CssReset } from '@dhis2-ui/css'
 import React, { Fragment } from 'react'
-import { jsxDecorator } from 'storybook-addon-jsx'
+// import { jsxDecorator } from 'storybook-addon-jsx'
 import '@storybook/addon-console'
 
 export const decorators = [
     // Enable storybook jsx visualization
-    jsxDecorator,
+    // jsxDecorator,
     /**
      * Basic wrapper for all our components, styles the root elements and applies
      * our css reset for consistency/

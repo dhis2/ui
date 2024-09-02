@@ -1,4 +1,4 @@
-import { Given, Then, When } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then, When } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('the HeaderBar loads without an error and the user has an avatar', () => {
     cy.visitStory('HeaderBarTesting', 'Me With Avatar')

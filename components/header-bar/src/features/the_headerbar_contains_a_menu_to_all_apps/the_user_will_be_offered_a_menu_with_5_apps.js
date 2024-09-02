@@ -1,4 +1,4 @@
-import { When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 When('the user clicks on the menu icons', () => {
     cy.get('[data-test="headerbar-apps-icon"]').click()

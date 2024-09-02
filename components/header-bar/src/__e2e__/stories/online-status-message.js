@@ -1,5 +1,5 @@
-import { Button } from '@dhis2-ui/button'
 import { useOnlineStatusMessage } from '@dhis2/app-runtime'
+import { Button } from '@dhis2-ui/button'
 import React from 'react'
 import { HeaderBar } from '../../index.js'
 import {

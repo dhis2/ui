@@ -1,8 +1,7 @@
-import '../common/index.js'
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a MultiSelect with onFocus handler is rendered', () => {
-    cy.visitStory('MultiSelect', 'With onFocus')
+    cy.visitStory('MultiSelect', 'With on focus')
 })
 
 Then('the onFocus handler is called', () => {

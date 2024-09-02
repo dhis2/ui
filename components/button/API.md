@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Button`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { Button } from '@dhis2-ui/button'
+import { Button } from '@dhis2/ui'
 ```
 
 
@@ -40,11 +40,11 @@ import { Button } from '@dhis2-ui/button'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `ButtonStrip`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { ButtonStrip } from '@dhis2-ui/button'
+import { ButtonStrip } from '@dhis2/ui'
 ```
 
 
@@ -62,11 +62,11 @@ import { ButtonStrip } from '@dhis2-ui/button'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `DropdownButton`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { DropdownButton } from '@dhis2-ui/button'
+import { DropdownButton } from '@dhis2/ui'
 ```
 
 
@@ -97,11 +97,11 @@ import { DropdownButton } from '@dhis2-ui/button'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SplitButton`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SplitButton } from '@dhis2-ui/button'
+import { SplitButton } from '@dhis2/ui'
 ```
 
 

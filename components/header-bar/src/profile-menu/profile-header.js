@@ -1,5 +1,5 @@
-import { UserAvatar } from '@dhis2-ui/user-avatar'
 import { useConfig } from '@dhis2/app-runtime'
+import { UserAvatar } from '@dhis2-ui/user-avatar'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { joinPath } from '../join-path.js'

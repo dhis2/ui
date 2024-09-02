@@ -47,7 +47,7 @@ class Switch extends Component {
 
     render() {
         const {
-            ariaLabel,
+            'aria-label': ariaLabel,
             checked,
             className,
             disabled,
@@ -172,7 +172,7 @@ Switch.defaultProps = {
 
 Switch.propTypes = {
     /** Sets an aria-label attribute on the input */
-    ariaLabel: PropTypes.string,
+    'aria-label': PropTypes.string,
     checked: PropTypes.bool,
     className: PropTypes.string,
     dataTest: PropTypes.string,

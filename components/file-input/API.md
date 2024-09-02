@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `FileInput`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { FileInput } from '@dhis2-ui/file-input'
+import { FileInput } from '@dhis2/ui'
 ```
 
 
@@ -37,11 +37,11 @@ import { FileInput } from '@dhis2-ui/file-input'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `FileInputField`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { FileInputField } from '@dhis2-ui/file-input'
+import { FileInputField } from '@dhis2/ui'
 ```
 
 
@@ -78,11 +78,11 @@ import { FileInputField } from '@dhis2-ui/file-input'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `FileInputFieldWithList`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { FileInputFieldWithList } from '@dhis2-ui/file-input'
+import { FileInputFieldWithList } from '@dhis2/ui'
 ```
 
 
@@ -120,11 +120,11 @@ import { FileInputFieldWithList } from '@dhis2-ui/file-input'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `FileListItem`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { FileListItem } from '@dhis2-ui/file-input'
+import { FileListItem } from '@dhis2/ui'
 ```
 
 
@@ -145,11 +145,11 @@ import { FileListItem } from '@dhis2-ui/file-input'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `FileListPlaceholder`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { FileListPlaceholder } from '@dhis2-ui/file-input'
+import { FileListPlaceholder } from '@dhis2/ui'
 ```
 
 
@@ -164,11 +164,11 @@ import { FileListPlaceholder } from '@dhis2-ui/file-input'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `FileList`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { FileList } from '@dhis2-ui/file-input'
+import { FileList } from '@dhis2/ui'
 ```
 
 

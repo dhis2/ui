@@ -1,4 +1,4 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('the selector bar item is closed', () => {
     cy.visitStory('SelectorBarItem', 'closed no value')

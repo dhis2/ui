@@ -5,10 +5,7 @@ import {
     ACCESS_NONE,
     ACCESS_VIEW_ONLY,
     ACCESS_VIEW_AND_EDIT,
-    VISUALIZATION,
-    DASHBOARD,
-    EVENT_VISUALIZATION,
-    INTERPRETATION,
+    DIALOG_TYPES_LIST,
 } from './constants.js'
 import { FetchingContext } from './fetching-context/index.js'
 import {
@@ -48,6 +45,7 @@ export const SharingDialog = ({
     onError,
     onSave,
     initialSharingSettings,
+    dataTest,
 }) => {
     const { show: showError } = useAlert((error) => error, { critical: true })
 
@@ -159,7 +157,11 @@ export const SharingDialog = ({
 
     return (
         <FetchingContext.Provider value={mutating || fetching}>
-            <Modal onClose={onClose} name={object.displayName || object.name}>
+            <Modal
+                onClose={onClose}
+                name={object.displayName || object.name}
+                dataTest={dataTest}
+            >
                 <TabbedContent
                     id={id}
                     users={users}
@@ -187,18 +189,15 @@ SharingDialog.defaultProps = {
     onClose: () => {},
     onError: () => {},
     onSave: () => {},
+    dataTest: 'dhis2-uicore-sharingdialog',
 }
 
 SharingDialog.propTypes = {
     /** The id of the object to share */
     id: PropTypes.string.isRequired,
     /** The type of object to share */
-    type: PropTypes.oneOf([
-        VISUALIZATION,
-        DASHBOARD,
-        EVENT_VISUALIZATION,
-        INTERPRETATION,
-    ]).isRequired,
+    type: PropTypes.oneOf(DIALOG_TYPES_LIST).isRequired,
+    dataTest: PropTypes.string,
     /** Used to seed the component with data to show whilst loading */
     initialSharingSettings: PropTypes.shape({
         allowPublic: PropTypes.bool.isRequired,

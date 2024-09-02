@@ -19,8 +19,8 @@ Feature: Hiding the AlertBar
         Given a permanent AlertBar with hidden and onHidden is rendered
         Then the AlertBar is not rendered
         And the onHidden handler is not called
-        When the user click a button which toggles the hidden prop
+        When the user click a button which toggles the hidden prop to false
         Then the AlertBar is rendered
-        When the user click a button which toggles the hidden prop
+        When the user click a button which toggles the hidden prop to true
         Then the AlertBar is not rendered
         And the onHidden handler is called

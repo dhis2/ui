@@ -14,7 +14,7 @@ import API from '../../../components/organisation-unit-tree/API.md'
 An organisation unit tree is used to choose organisation units from a hierarchy.
 
 <Demo>
-    <p>See <a href="https://ui.dhis2.nu/demo/?path=/story/forms-organisation-unit-tree--collapsed" target="_blank">storybook</a> for demos.</p> 
+    <p>See <a href="/demo/?path=/story/organisation-unit-tree--collapsed" target="_blank">storybook</a> for demos.</p> 
 </Demo>
 
 ## Usage
@@ -41,4 +41,4 @@ An organisation unit tree is used to choose organisation units from a hierarchy.
 
 ## Links
 
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-organisation-unit-tree--collapsed)
+-   <a href="/demo/?path=/story/organisation-unit-tree--collapsed" target="_blank">Demo</a>
