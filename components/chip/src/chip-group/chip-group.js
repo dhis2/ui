@@ -63,7 +63,7 @@ const ChipGroup = ({ className, dataTest, children }) => {
             const selectedChild = childrenToFocus.find(
                 (child) => child.getAttribute('aria-selected') === 'true'
             )
-            if (!selectedChild) {
+            if (!selectedChild && childrenToFocus[0]) {
                 childrenToFocus[0].focus()
             }
             selectedChild.focus()

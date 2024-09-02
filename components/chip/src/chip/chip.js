@@ -26,6 +26,9 @@ const Chip = ({
     marginTop,
     marginInlineStart,
     marginInlineEnd,
+    component: Component,
+    href,
+    to,
 }) => {
     const handleKeyDown = (event) => {
         if (!onRemove) {
@@ -35,32 +38,49 @@ const Chip = ({
             onRemove({}, event)
         }
     }
-    return (
-        <span
-            onClick={(e) => {
-                if (!disabled && onClick) {
-                    onClick({}, e)
-                }
-            }}
-            onKeyDown={handleKeyDown}
-            className={cx(className, {
-                selected,
-                dense,
-                disabled,
-                dragging,
-            })}
-            data-test={dataTest}
-            tabIndex={-1}
-            role="option"
-            aria-selected={selected ? 'true' : 'false'}
-            aria-disabled={disabled ? 'true' : 'false'}
-        >
+
+    const chipProps = {
+        onClick: (e) => {
+            if (!disabled && onClick) {
+                onClick({}, e)
+            }
+        },
+        onKeyDown: handleKeyDown,
+        className: cx('chip', className, {
+            selected,
+            dense,
+            disabled,
+            dragging,
+        }),
+        'data-test': dataTest,
+        tabIndex: -1,
+        role: 'option',
+        'aria-selected': selected ? 'true' : 'false',
+        'aria-disabled': disabled ? 'true' : 'false',
+    }
+
+    const content = (
+        <>
             <Icon icon={icon} dataTest={`${dataTest}-icon`} />
             <Content overflow={overflow}>{children}</Content>
             <Remove onRemove={onRemove} dataTest={`${dataTest}-remove`} />
+        </>
+    )
 
+    const chipElement =
+        Component === 'a' ? (
+            <Component {...chipProps} href={href} to={to}>
+                {content}
+            </Component>
+        ) : (
+            <span {...chipProps}>{content}</span>
+        )
+
+    return (
+        <>
+            {chipElement}
             <style jsx>{`
-                span {
+                :global(.chip) {
                     display: inline-flex;
                     align-items: center;
                     height: 32px;
@@ -71,50 +91,7 @@ const Chip = ({
                     cursor: pointer;
                     user-select: none;
                     color: ${colors.grey900};
-                }
-
-                .dense {
-                    height: 24px;
-                    font-size: 13px;
-                    line-height: 15px;
-                }
-
-                span:hover {
-                    background-color: ${colors.grey300};
-                }
-
-                .selected {
-                    background-color: ${theme.secondary600};
-                    font-weight: 500;
-                }
-
-                .selected:hover {
-                    background-color: #00695c;
-                }
-
-                .selected,
-                .selected .icon,
-                .selected .remove-icon {
-                    color: ${colors.white};
-                }
-
-                .disabled {
-                    cursor: not-allowed;
-                    opacity: 0.3;
-                }
-
-                .disabled .remove-icon {
-                    pointer-events: none;
-                }
-
-                .dragging {
-                    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-                        0 2px 2px 0 rgba(0, 0, 0, 0.14),
-                        0 1px 5px 0 rgba(0, 0, 0, 0.12);
-                }
-            `}</style>
-            <style jsx>{`
-                span {
+                    text-decoration: none;
                     ${marginBottom && `margin-bottom: ${marginBottom}px;`}
                     margin-inline-start: ${marginInlineStart ??
                     marginLeft ??
@@ -124,8 +101,49 @@ const Chip = ({
                     DEFAULT_INLINE_MARGIN}px;
                     ${marginTop && `margin-top: ${marginTop}px`}
                 }
+
+                :global(.chip.dense) {
+                    height: 24px;
+                    font-size: 13px;
+                    line-height: 15px;
+                }
+
+                :global(.chip:hover) {
+                    background-color: ${colors.grey300};
+                }
+
+                :global(.chip.selected) {
+                    background-color: ${theme.secondary600};
+                    font-weight: 500;
+                }
+
+                :global(.chip.selected:hover) {
+                    background-color: #00695c;
+                }
+
+                :global(.chip.selected),
+                :global(.chip.selected .icon),
+                :global(.chip.selected .remove-icon) {
+                    color: ${colors.white};
+                }
+
+                :global(.chip.disabled) {
+                    cursor: not-allowed;
+                    opacity: 0.3;
+                }
+
+                :global(.chip.disabled .remove-icon) {
+                    pointer-events: none;
+                }
+
+                :global(.chip.dragging) {
+                    box-shadow:
+                        0 3px 1px -2px rgba(0, 0, 0, 0.2),
+                        0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                        0 1px 5px 0 rgba(0, 0, 0, 0.12);
+                }
             `}</style>
-        </span>
+        </>
     )
 }
 
@@ -138,25 +156,22 @@ Chip.defaultProps = {
 Chip.propTypes = {
     children: PropTypes.any,
     className: PropTypes.string,
+    component: PropTypes.oneOf(['a', 'span']),
     dataTest: PropTypes.string,
     dense: PropTypes.bool,
     disabled: PropTypes.bool,
     dragging: PropTypes.bool,
+    href: PropTypes.string,
     icon: PropTypes.element,
-    /** `margin-bottom` value, applied in `px`  */
     marginBottom: PropTypes.number,
-    /** `margin-inline-end` value, applied in `px`  */
     marginInlineEnd: PropTypes.number,
-    /** `margin-inline-start` value, applied in `px`  */
     marginInlineStart: PropTypes.number,
-    /** `margin-inline-start` value, applied in `px`  */
     marginLeft: PropTypes.number,
-    /** `margin-inline-end` value, applied in `px`  */
     marginRight: PropTypes.number,
-    /** `margin-top` value, applied in `px`  */
     marginTop: PropTypes.number,
     overflow: PropTypes.bool,
     selected: PropTypes.bool,
+    to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     onClick: PropTypes.func,
     onRemove: PropTypes.func,
 }
