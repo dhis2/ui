@@ -8,28 +8,22 @@ const ChipGroup = ({ className, dataTest, children }) => {
 
     useEffect(() => {
         if (chipContainer.current) {
-            const controlsDiv = chipContainer.current.querySelectorAll(
+            const chips = chipContainer.current.querySelectorAll(
                 '[role="option"]'
             )
-            if (controlsDiv) {
-                const childElements = Array.from(controlsDiv)
-                setChildrenToFocus(childElements)
+            if (chips.length > 0) {
+                const childrenToFocus = Array.from(chips)
+                setChildrenToFocus(childrenToFocus)
             }
         }
     }, [children])
 
     const handleKeyDown = (event) => {
-        const currentFocus = document.activeElement
-
-        if (chipContainer.current && chipContainer.current === currentFocus) {
-            if (childrenToFocus.length > 0 && childrenToFocus[0]) {
-                childrenToFocus[0].focus()
-            }
-            return
-        }
         if (!childrenToFocus.length) {
             return
         }
+
+        const currentFocus = document.activeElement
 
         const currentIndex = childrenToFocus.findIndex(
             (element) => element === currentFocus
@@ -52,6 +46,28 @@ const ChipGroup = ({ className, dataTest, children }) => {
                 childrenToFocus.length
             childrenToFocus[prevIndex].focus()
         }
+
+        if (event.key === 'Backspace' || event.key === 'Delete') {
+            event.preventDefault()
+            event.stopPropagation()
+            const nextIndex = (currentIndex + 1) % childrenToFocus.length
+            childrenToFocus[nextIndex].focus()
+        }
+    }
+
+    const handleFocus = (event) => {
+        if (!childrenToFocus.length) {
+            return
+        }
+        if (event.target === chipContainer.current) {
+            const selectedChild = childrenToFocus.find(
+                (child) => child.getAttribute('aria-selected') === 'true'
+            )
+            if (!selectedChild) {
+                childrenToFocus[0].focus()
+            }
+            selectedChild.focus()
+        }
     }
 
     return (
@@ -59,11 +75,12 @@ const ChipGroup = ({ className, dataTest, children }) => {
             className={className}
             data-test={dataTest}
             onKeyDown={handleKeyDown}
+            onFocus={handleFocus}
             ref={chipContainer}
             tabIndex={0}
+            role="listbox"
         >
-            <div role="listbox">{children}</div>
-
+            {children}
             <style jsx>{`
                 div {
                     display: flex;
