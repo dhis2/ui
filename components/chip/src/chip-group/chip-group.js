@@ -8,9 +8,8 @@ const ChipGroup = ({ className, dataTest, children }) => {
 
     useEffect(() => {
         if (chipContainer.current) {
-            const chips = chipContainer.current.querySelectorAll(
-                '[role="option"]'
-            )
+            const chips =
+                chipContainer.current.querySelectorAll('[role="option"]')
             if (chips.length > 0) {
                 const childrenToFocus = Array.from(chips)
                 setChildrenToFocus(childrenToFocus)
