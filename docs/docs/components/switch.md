@@ -3,7 +3,6 @@ title: Switch
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { Switch } from '@dhis2/ui'
 
 import API from '../../../components/switch/API.md'
 
@@ -11,16 +10,15 @@ import API from '../../../components/switch/API.md'
 
 Switches are used to toggle something between an on and off state.
 
-<Demo>
-    <Switch label="Label"/>
-    <Switch checked label="Label"/>
-</Demo>
+<Demo
+    path="switch--focused-unchecked"
+    height="150px"
+/>
 
 ## Usage
 
 ```jsx
-<Switch label="Label"/>
-<Switch checked label="Label"/>
+<Switch label="Switch"/>
 ```
 
 ### When to use
@@ -40,13 +38,12 @@ Switches are used to toggle something between an on and off state.
 
 #### Size
 
-<Demo>
-    <Switch checked label="Regular sized switch"/>
-    <Switch checked dense label="Dense sized switch"/>
-</Demo>
+<Demo
+    path="switch--checked-dense"
+    height="120px"
+/>
 
 ```jsx
-<Switch checked label="Regular sized switch"/>
 <Switch checked dense label="Dense sized switch"/>
 ```
 

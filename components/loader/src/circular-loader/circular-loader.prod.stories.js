@@ -25,6 +25,7 @@ export default {
         small: { ...sharedPropTypes.sizeArgType },
         large: { ...sharedPropTypes.sizeArgType },
         extrasmall: { ...sharedPropTypes.sizeArgType },
+        invert: { ...sharedPropTypes.sizeArgType },
     },
 }
 

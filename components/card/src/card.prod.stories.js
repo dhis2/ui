@@ -27,10 +27,17 @@ export default {
         componentSubtitle: subtitle,
         docs: { description: { component: description } },
     },
+    argTypes: {
+        children: { control: { type: 'text' } },
+    },
 }
 
 export const Default = (args) => (
-    <Box width="358px" height="358px">
+    <Box width="200px" height="75px">
         <Card {...args} />
     </Box>
 )
+
+Default.args = {
+    children: 'Card content',
+}

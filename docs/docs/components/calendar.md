@@ -3,8 +3,8 @@ title: Calendar
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { CalendarDemo as Calendar } from '@site/src/components/CalendarDemo.jsx'
-import { Box } from '@dhis2/ui'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
 
 import API from '../../../components/calendar/API.md'
 
@@ -22,30 +22,11 @@ Ethiopic calendar with narrow day names, short day names and localised to Englis
 
 ### Narrow day names
 
-<Demo>
-    <div className="wrapper">
-        <Calendar
-                calendar="ethiopic"
-                locale="am-ET"
-                numberingSystem="ethi"
-                timeZone="Europe/London"
-        />
-        <Calendar
-                calendar="ethiopic"
-                locale="am-ET"
-                numberingSystem="ethi"
-                timeZone="Europe/London"
-                weekDayFormat="short"
-        />
-        <Calendar
-                calendar="ethiopic"
-                locale="en"
-                numberingSystem="ethi"
-                timeZone="Europe/London"
-                weekDayFormat="short"
-        />
-    </div>
-</Demo>
+<Demo
+    path="/story/calendar--basic"
+    args="calendar:ethiopic;weekDayFormat:narrow;locale:am-ET;numberingSystem:ethi"
+    height="350px"
+/>
 
 To display the calendar with short day names, use the codeblock below. For the narrow day names remove the `weekDayFormat` prop. For the English locale, use the `en` locale and the short `weekDayFormat`.
 
@@ -55,88 +36,87 @@ To display the calendar with short day names, use the codeblock below. For the n
     locale="am-ET"
     numberingSystem="ethi"
     timeZone="Europe/London"
-    weekDayFormat="short"
+    weekDayFormat="narrow"
 />
 ```
 
 ## Nepali calendar
 
-Nepali calendar (with Nepali and English characters)
-
 :::note
 Nepali is a custom calendar not natively implemented in Temporal and Nepali locale is not natively supported by browsers' Internationalization standard. We are providing a custom implementation for the calendar, as well as the localised values. The only two locales allowed are: `ne-NP` (nepali) and `en-NP` (nepali transliterated in latin characters).
 :::
 
-<Demo>
-    <div className="wrapper">
-        <Calendar
-            calendar="nepali"
-            locale="ne-NP"
-            timeZone="Europe/London"
-        />
-        <Calendar
-            calendar="nepali"
-            locale="en-NP"
-            timeZone="Europe/London"
-            weekDayFormat="short"
-        />
-    </div>
-</Demo>
+Nepali calendar with Napali characters.
+
+<Demo
+    path="/story/calendar--basic"
+    args="calendar:nepali;locale:ne-NP"
+    height="350px"
+/>
 
 ```jsx
-    // Napali
-    <Calendar
-        calendar="nepali"
-        locale="ne-NP"
-        timeZone="Europe/London"
-    />
+// Napali
+<Calendar calendar="nepali" locale="ne-NP" timeZone="Europe/London" />
+```
 
-    // Nepali transliterated in latin characters
-    <Calendar
-        calendar="nepali"
-        locale="en-NP"
-        timeZone="Europe/London"
-        weekDayFormat="short"
-    />
+Nepali calendar transliterated into latin characters.
+<Demo
+    path="/story/calendar--basic"
+    args="calendar:nepali;locale:en-NP"
+    height="350px"
+/>
+
+```jsx
+// Nepali transliterated in latin characters
+<Calendar
+    calendar="nepali"
+    locale="en-NP"
+    timeZone="Europe/London"
+    weekDayFormat="short"
+/>
 ```
 
 ## Gregorian calendar
 
 Gregorian calendar localised in English, Arabic (Tunisia), Arabic (Sudan), Arabic (Iraq) and Amharic.
 
-<Demo>
-    <div className="wrapper">
-        <Calendar
-                calendar="iso8601"
-                locale="en"
-                timeZone="Europe/London"
+<Tabs lazy>
+    <TabItem value="English" label="English">
+        <Demo
+            path="/story/calendar--basic"
+            args="calendar:gregori;locale:en"
+            height="350px"
         />
-        <Calendar
-                calendar="iso8601"
-                locale="ar-TN"
-                timeZone="Europe/London"
-                dir="rtl"
+    </TabItem>
+    <TabItem value="Arabic (Tunisia)" label="Arabic (Tunisia)">
+        <Demo
+            path="/story/calendar--basic"
+            args="calendar:gregori;locale:ar-TN"
+            height="350px"
         />
-        <Calendar
-                calendar="iso8601"
-                locale="ar-SD"
-                timeZone="Europe/London"
-                dir="rtl"
+    </TabItem>
+    <TabItem value="Arabic (Sudan)" label="Arabic (Sudan)">
+        <Demo
+            path="/story/calendar--basic"
+            args="calendar:gregori;locale:ar-SD"
+            height="350px"
         />
-        <Calendar
-                calendar="iso8601"
-                locale="ar-IQ"
-                timeZone="Europe/London"
-                dir="rtl"
+    </TabItem>
+    <TabItem value="Arabic (Iraq)" label="Arabic (Iraq)">
+        <Demo
+            path="/story/calendar--basic"
+            args="calendar:gregori;locale:ar-IQ"
+            height="350px"
         />
-        <Calendar
-                calendar="iso8601"
-                locale="am-ET"
-                timeZone="Europe/London"
-                dir="rtl"
+    </TabItem>
+    <TabItem value="Amharic" label="Amharic">
+        <Demo
+            path="/story/calendar--basic"
+            args="calendar:gregori;locale:am-ET"
+            height="350px"
         />
-    </div>
-</Demo>
+    </TabItem>
+</Tabs>
 
 To display the calendar with a specific locale, use the codeblock below. Adjust the locale to the desired language.
 
@@ -148,35 +128,29 @@ To display the calendar with a specific locale, use the codeblock below. Adjust 
 
 Some other calendars: Islamic in Arabic, Indian in English and Persian in Farsi
 
-<Demo>
-    <div className="wrapper">
-        <Calendar
-                calendar="islamic-civil"
-                locale="ar"
-                timeZone="Europe/London"
+<Tabs>
+    <TabItem value="Islamic in Arabic" label="Islamic in Arabic">
+        <Demo
+            path="/story/calendar--basic"
+            args="calendar:islamic-civil;locale:ar"
+            height="350px"
         />
-        <Calendar
-                calendar="indian"
-                locale="en"
-                timeZone="Europe/London"
-                weekDayFormat="short"
+    </TabItem>
+    <TabItem value="Indian in English" label="Indian in English">
+        <Demo
+            path="/story/calendar--basic"
+            args="calendar:indian;locale:en;weekDayFormat:short"
+            height="350px"
         />
-        <Calendar
-                calendar="persian"
-                locale="fa"
-                timeZone="Europe/London"
-                weekDayFormat="short"
+    </TabItem>
+    <TabItem value="Persian in Farsi" label="Persian in Farsi">
+        <Demo
+            path="/story/calendar--basic"
+            args="calendar:persian;locale:fa;weekDayFormat:short"
+            height="350px"
         />
-    </div>
-    <style jsx>{`
-        .wrapper {
-            display: flex;
-            gap: 10px;
-            overflow-x: scroll
-        }
-    `}
-    </style>
-</Demo>
+    </TabItem>
+</Tabs>
 
 Each of the calendars above can be displayed with the following code.
 

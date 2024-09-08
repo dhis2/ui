@@ -20,4 +20,37 @@
     font-size: 0.8rem;
     padding: 2px 4px;
     font-family: monospace;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.button {
+    background-color: var(--ifm-color-primary);
+    color: white;
+    border: 1px solid var(--ifm-color-emphasis-200);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: var(--ifm-color-primary-dark);
+}
+
+.iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
 }

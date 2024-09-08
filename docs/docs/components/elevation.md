@@ -11,13 +11,6 @@ import API from '../../../components/css/API.md'
 
 Elevation is used to create and communicate depth in an interface.
 
-<Demo>
-    <CssVariables elevations/>
-    <Box>
-    <div style={{background: 'white', boxShadow: 'var(--elevations-e200)', display: 'inline-block', padding: '16px'}}>An elevated element</div>
-    </Box>
-</Demo>
-
 ## Usage
 
 To use elevation, apply a `box-shadow` to an element. The `box-shadow` property takes the variable available in the UI library, as specified in the variants.

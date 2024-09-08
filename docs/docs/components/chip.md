@@ -3,17 +3,17 @@ title: Chip
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { Chip, IconStar24 } from '@dhis2/ui'
-
 import API from '../../../components/chip/API.md'
 
 # Chip
 
 Chips are used to select from a set of defined options. Chips can also represent a set of chosen options.
 
-<Demo>
-    <Chip>Hello world</Chip>
-</Demo>
+<Demo
+    path="/story/chip--default"
+    args="children:Hello World"
+    height="120px"
+/>
 
 ```jsx
 <Chip>Hello world</Chip>
@@ -40,13 +40,13 @@ Chips are used to select from a set of defined options. Chips can also represent
 
 #### Size
 
-<Demo>
-    <Chip>Hello world</Chip>
-    <Chip dense>Hello world</Chip>
-</Demo>
+<Demo
+    path="/story/chip--dense"
+    args="children:Hello World"
+    height="120px"
+/>
 
 ```jsx
-<Chip>Hello world</Chip>
 <Chip dense>Hello world</Chip>
 ```
 
@@ -70,9 +70,11 @@ Chips are used to select from a set of defined options. Chips can also represent
 
 ### Removable
 
-<Demo>
-    <Chip onRemove>Hello world</Chip>
-</Demo>
+<Demo
+    path="/story/chip--removable"
+    args="children:Hello World"
+    height="120px"
+/>
 
 ```jsx
 <Chip onRemove>Hello world</Chip>
@@ -83,9 +85,11 @@ Chips are used to select from a set of defined options. Chips can also represent
 
 ### Icon
 
-<Demo>
-    <Chip icon={<IconStar24/>} >Hello world</Chip>
-</Demo>
+<Demo
+    path="/story/chip--icon"
+    args="children:Hello World"
+    height="120px"
+/>
 
 ```jsx
 <Chip icon={<IconStar24 />}>Hello world</Chip>

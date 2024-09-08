@@ -207,7 +207,7 @@ WithOptionsASelectionAndDisabled.storyName =
     'With options, a selection and disabled'
 
 export const WithPrefix = WithOptionsTemplate.bind({})
-WithPrefix.args = { prefix: 'Prefix text' }
+WithPrefix.args = { prefix: 'Prefix text', selected: '1' }
 
 export const WithPrefixAndSelection = WithOptionsTemplate.bind({})
 WithPrefixAndSelection.args = {

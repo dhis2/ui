@@ -4,18 +4,16 @@ id: avatar
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { DocFigure } from '@site/src/components/DocFigure.jsx'
-import { UserAvatar } from '@dhis2/ui'
-
 import API from '../../../components/user-avatar/API.md'
 
 # User Avatar
 
 A User Avatar is a visual icon that represents a user.
 
-<Demo>
-    <UserAvatar name="Karimbe Olefeme"/>
-</Demo>
+<Demo
+    path="/story/user-avatar--default"
+    height="110px"
+/>
 
 ## Usage
 
@@ -37,15 +35,10 @@ A User Avatar is a visual icon that represents a user.
 
 #### Size
 
-<Demo>
-    <div className='stacked-examples-horizontal'>
-        <UserAvatar extrasmall name="Example Person"/>
-        <UserAvatar small name="Example Person"/>
-        <UserAvatar medium name="Example Person"/>
-        <UserAvatar large name="Example Person"/>
-        <UserAvatar extralarge name="Example Person"/>
-    </div>
-</Demo>
+<Demo
+    path="/story/user-avatar--sizes"
+    height="150px"
+/>
 
 Avatars are available in different sizes. Use the size that works best for the space available and the context.
 
