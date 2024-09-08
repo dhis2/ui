@@ -40,7 +40,6 @@ A tooltip is used to show contextual information when triggered by clicking, foc
 
 ### Position
 
-
 <Tabs>
     <TabItem value="Default" label="Default">
         <Demo

@@ -30,12 +30,12 @@ Tags are used to label items by a set of shared properties, like category or sta
 
 ### Variants
 
-| Variant                      | When to use                                                               |
-| ---------------------------- | ------------------------------------------------------------------------- |
-| Default                      | The default choice. Use this if no other variant matches the use case.    |
-| Neutral                      | Use to communicate neutrality, when something isn't positive or negative. |
-| Positive                     | Use to communicate success or validity.                                   |
-| Negative                     | Use to communicate a problem or error.                                    |
+| Variant  | When to use                                                               |
+| -------- | ------------------------------------------------------------------------- |
+| Default  | The default choice. Use this if no other variant matches the use case.    |
+| Neutral  | Use to communicate neutrality, when something isn't positive or negative. |
+| Positive | Use to communicate success or validity.                                   |
+| Negative | Use to communicate a problem or error.                                    |
 
 <Tabs>
     <TabItem value="Default" label="Default">

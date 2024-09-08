@@ -100,7 +100,6 @@ The footer component is as follows:
 >
     Reload list
 </a>
-
 ```
 
 -   Use footers for actions that apply to a list, like _Reload items_.
@@ -143,7 +142,6 @@ The footer component is as follows:
 -   Use filtering to help a user find options in the _source list_.
 
 ### Loading
-
 
 <Demo
     path="transfer--loading-source"

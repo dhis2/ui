@@ -21,11 +21,23 @@ export const Demo = ({ path, args, height }) => {
 
     const handleShowFullDemo = () => {
         const formattedPath = formatPath(path)
-        const fullDemoUrl = `${DEMO_URL}/?path=${encodeURIComponent(formattedPath)}${args ? `&args=${encodeURIComponent(args).replace(/%3A/g, ':').replace(/%3B/g, ';')}` : ''}`
+        const fullDemoUrl = `${DEMO_URL}/?path=${encodeURIComponent(
+            formattedPath
+        )}${
+            args
+                ? `&args=${encodeURIComponent(args)
+                      .replace(/%3A/g, ':')
+                      .replace(/%3B/g, ';')}`
+                : ''
+        }`
         window.open(fullDemoUrl, '_blank', 'noopener,noreferrer')
     }
 
-    const iframeSrc = `${DEMO_URL}/iframe.html?path=${encodeURIComponent(formatPath(path))}&full=1&shortcuts=false&singleStory=true${args ? `&args=${encodeURIComponent(args)}` : ''}`
+    const iframeSrc = `${DEMO_URL}/iframe.html?path=${encodeURIComponent(
+        formatPath(path)
+    )}&full=1&shortcuts=false&singleStory=true${
+        args ? `&args=${encodeURIComponent(args)}` : ''
+    }`
 
     return (
         <div className={styles.demo}>
