@@ -9,7 +9,7 @@ import API from '../../../components/button/API.md'
 
 Buttons are used to trigger actions. There are different button variants that are used for different types of actions.
 <Demo
-    path="/story/button--basic"
+    path="button--basic"
     args="children:Enroll in program"
     height="120px"
 />
@@ -38,7 +38,7 @@ Buttons are used to trigger actions. There are different button variants that ar
 #### Basic
 
 <Demo
-    path="/story/button--basic"
+    path="button--basic"
     args="children:Basic button"
     height="120px"
 />
@@ -53,7 +53,7 @@ Buttons are used to trigger actions. There are different button variants that ar
 #### Primary
 
 <Demo
-    path="/story/button--primary"
+    path="button--primary"
     args="children:Primary button"
     height="120px"
 />
@@ -69,7 +69,7 @@ Buttons are used to trigger actions. There are different button variants that ar
 #### Secondary
 
 <Demo
-    path="/story/button--secondary"
+    path="button--secondary"
     args="children:Secondary button"
     height="120px"
 />
@@ -85,7 +85,7 @@ Buttons are used to trigger actions. There are different button variants that ar
 #### Destructive
 
 <Demo
-    path="/story/button--destructive"
+    path="button--destructive"
     args="children:Descructive button"
     height="120px"
 />

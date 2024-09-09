@@ -23,7 +23,7 @@ Ethiopic calendar with narrow day names, short day names and localised to Englis
 ### Narrow day names
 
 <Demo
-    path="/story/calendar--basic"
+    path="calendar--basic"
     args="calendar:ethiopic;weekDayFormat:narrow;locale:am-ET;numberingSystem:ethi"
     height="350px"
 />
@@ -49,7 +49,7 @@ Nepali is a custom calendar not natively implemented in Temporal and Nepali loca
 Nepali calendar with Napali characters.
 
 <Demo
-    path="/story/calendar--basic"
+    path="calendar--basic"
     args="calendar:nepali;locale:ne-NP"
     height="350px"
 />
@@ -61,7 +61,7 @@ Nepali calendar with Napali characters.
 
 Nepali calendar transliterated into latin characters.
 <Demo
-    path="/story/calendar--basic"
+    path="calendar--basic"
     args="calendar:nepali;locale:en-NP"
     height="350px"
 />
@@ -83,35 +83,35 @@ Gregorian calendar localised in English, Arabic (Tunisia), Arabic (Sudan), Arabi
 <Tabs lazy>
     <TabItem value="English" label="English">
         <Demo
-            path="/story/calendar--basic"
+            path="calendar--basic"
             args="calendar:gregori;locale:en"
             height="350px"
         />
     </TabItem>
     <TabItem value="Arabic (Tunisia)" label="Arabic (Tunisia)">
         <Demo
-            path="/story/calendar--basic"
+            path="calendar--basic"
             args="calendar:gregori;locale:ar-TN"
             height="350px"
         />
     </TabItem>
     <TabItem value="Arabic (Sudan)" label="Arabic (Sudan)">
         <Demo
-            path="/story/calendar--basic"
+            path="calendar--basic"
             args="calendar:gregori;locale:ar-SD"
             height="350px"
         />
     </TabItem>
     <TabItem value="Arabic (Iraq)" label="Arabic (Iraq)">
         <Demo
-            path="/story/calendar--basic"
+            path="calendar--basic"
             args="calendar:gregori;locale:ar-IQ"
             height="350px"
         />
     </TabItem>
     <TabItem value="Amharic" label="Amharic">
         <Demo
-            path="/story/calendar--basic"
+            path="calendar--basic"
             args="calendar:gregori;locale:am-ET"
             height="350px"
         />
@@ -131,21 +131,21 @@ Some other calendars: Islamic in Arabic, Indian in English and Persian in Farsi
 <Tabs>
     <TabItem value="Islamic in Arabic" label="Islamic in Arabic">
         <Demo
-            path="/story/calendar--basic"
+            path="calendar--basic"
             args="calendar:islamic-civil;locale:ar"
             height="350px"
         />
     </TabItem>
     <TabItem value="Indian in English" label="Indian in English">
         <Demo
-            path="/story/calendar--basic"
+            path="calendar--basic"
             args="calendar:indian;locale:en;weekDayFormat:short"
             height="350px"
         />
     </TabItem>
     <TabItem value="Persian in Farsi" label="Persian in Farsi">
         <Demo
-            path="/story/calendar--basic"
+            path="calendar--basic"
             args="calendar:persian;locale:fa;weekDayFormat:short"
             height="350px"
         />

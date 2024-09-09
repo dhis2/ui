@@ -9,7 +9,7 @@ import API from '../../../components/alert/API.md'
 
 An alert bar communicates something to the user by showing a prominent, floating bar at the bottom of the screen, using one of several styles each indicating a different purpose.
 <Demo 
-    path="/story/alert-bar--states" 
+    path="alert-bar--states" 
     height="310px"
 />
 
@@ -70,7 +70,7 @@ Read more about the `useAlert()` hook at the [App Runtime documentation](https:/
 #### Info
 
 <Demo 
-    path="/story/alert-bar--default" 
+    path="alert-bar--default" 
     args="children:Data export complete;permanent:!true" 
     height="130px" 
 />
@@ -89,7 +89,7 @@ Read more about the `useAlert()` hook at the [App Runtime documentation](https:/
 #### Success
 
 <Demo 
-    path="/story/alert-bar--default" 
+    path="alert-bar--default" 
     args="children:1000 objects updated;permanent:!true;success:true" 
     height="130px" 
 />
@@ -109,7 +109,7 @@ Read more about the `useAlert()` hook at the [App Runtime documentation](https:/
 #### Warning
 
 <Demo 
-    path="/story/alert-bar--default" 
+    path="alert-bar--default" 
     args="children:Sync incomplete;permanent:!true;warning:true" 
     height="130px" 
 />
@@ -130,7 +130,7 @@ Read more about the `useAlert()` hook at the [App Runtime documentation](https:/
 #### Critical
 
 <Demo 
-    path="/story/alert-bar--default" 
+    path="alert-bar--default" 
     args="children:Problem loading data;permanent:!true;critical:true" 
     height="130px" 
 />
@@ -166,7 +166,7 @@ Read more about the `useAlert()` hook at the [App Runtime documentation](https:/
 ### Actions
 
 <Demo 
-    path="/story/alert-bar--with-actions" 
+    path="alert-bar--with-actions" 
     height="130px" 
 />
 
@@ -202,7 +202,7 @@ Read more about the `useAlert()` hook at the [App Runtime documentation](https:/
 -   A custom icon can be used. Only use icons that are relevant to the content and that help the user understand the context. Use the default icon unless there's a good reason not to.
 
 <Demo 
-    path="/story/alert-bar--icons" 
+    path="alert-bar--icons" 
     height="250px"
 />
 

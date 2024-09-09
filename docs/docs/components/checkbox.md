@@ -10,7 +10,7 @@ import API from '../../../components/checkbox/API.md'
 Checkboxes are used to choose one or more items from a list. A checkbox can also be used to toggle an option.
 
 <Demo
-    path="/story/checkbox--checked"
+    path="checkbox--checked"
     args="label:Checked Checkbox"
     height="120px"
 />
@@ -41,7 +41,7 @@ Checkboxes are used to choose one or more items from a list. A checkbox can also
 #### Size
 
 <Demo
-    path="/story/checkbox--checked-dense"
+    path="checkbox--checked-dense"
     args="label:Dense Checked Checkbox"
     height="120px"
 />

@@ -11,7 +11,7 @@ import API from '../../../components/user-avatar/API.md'
 A User Avatar is a visual icon that represents a user.
 
 <Demo
-    path="/story/user-avatar--default"
+    path="user-avatar--default"
     height="110px"
 />
 
@@ -36,7 +36,7 @@ A User Avatar is a visual icon that represents a user.
 #### Size
 
 <Demo
-    path="/story/user-avatar--sizes"
+    path="user-avatar--sizes"
     height="150px"
 />
 

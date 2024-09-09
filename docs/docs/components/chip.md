@@ -10,7 +10,7 @@ import API from '../../../components/chip/API.md'
 Chips are used to select from a set of defined options. Chips can also represent a set of chosen options.
 
 <Demo
-    path="/story/chip--default"
+    path="chip--default"
     args="children:Hello World"
     height="120px"
 />
@@ -41,7 +41,7 @@ Chips are used to select from a set of defined options. Chips can also represent
 #### Size
 
 <Demo
-    path="/story/chip--dense"
+    path="chip--dense"
     args="children:Hello World"
     height="120px"
 />
@@ -71,7 +71,7 @@ Chips are used to select from a set of defined options. Chips can also represent
 ### Removable
 
 <Demo
-    path="/story/chip--removable"
+    path="chip--removable"
     args="children:Hello World"
     height="120px"
 />
@@ -86,7 +86,7 @@ Chips are used to select from a set of defined options. Chips can also represent
 ### Icon
 
 <Demo
-    path="/story/chip--icon"
+    path="chip--icon"
     args="children:Hello World"
     height="120px"
 />

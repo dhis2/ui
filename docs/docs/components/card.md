@@ -10,7 +10,7 @@ import API from '../../../components/card/API.md'
 A card is a container element used to group together and separate blocks of content.
 
 <Demo
-    path="/story/card--default"
+    path="card--default"
     args="children:Card Content."
     height="150px"
 />
