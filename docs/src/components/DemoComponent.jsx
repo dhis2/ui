@@ -1,6 +1,6 @@
-import { DEMO_URL } from '@site/src/constants.js'
 import PropTypes from 'prop-types'
 import React, { useRef } from 'react'
+import { DEMO_URL } from '../constants.js'
 import styles from './DemoComponent.module.css'
 
 export const Demo = ({ path, args, height }) => {
@@ -8,7 +8,7 @@ export const Demo = ({ path, args, height }) => {
 
     const handleReload = () => {
         if (iframeRef.current) {
-            iframeRef.current.src = iframeRef.current.src
+            iframeRef.current.contentWindow.location.reload()
         }
     }
 
