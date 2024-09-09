@@ -1,3 +1,21 @@
+### ChipGroup
+
+#### Usage
+
+**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+
+```js
+import { ChipGroup } from '@dhis2-ui/chip'
+```
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|children|node|||The Chip components to be rendered within the group|
+|className|string|||Additional CSS class for the chip group|
+|dataTest|string|`'dhis2-uicore-chipgroup'`||Data test id for testing purposes|
+
 ### Chip
 
 #### Usage
