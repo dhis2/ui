@@ -3,8 +3,6 @@ title: Elevation
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { CssVariables } from '@dhis2/ui'
-
 import API from '../../../components/css/API.md'
 
 # Elevation
@@ -41,15 +39,10 @@ This example usees the `e200` variant.
 
 ### Variants
 
-<Demo>
-    <CssVariables elevations/>
-    <div className='stacked-examples-horizontal'>
-        <div style={{background: 'white', boxShadow: 'var(--elevations-e100', display: 'inline-block', padding: '16px', marginRight: '16px', fontFamily: 'monospace'}}>e100</div>
-        <div style={{background: 'white', boxShadow: 'var(--elevations-e200', display: 'inline-block', padding: '16px', marginRight: '16px', fontFamily: 'monospace'}}>e200</div>
-        <div style={{background: 'white', boxShadow: 'var(--elevations-e300', display: 'inline-block', padding: '16px', marginRight: '16px', fontFamily: 'monospace'}}>e300</div>
-        <div style={{background: 'white', boxShadow: 'var(--elevations-e400', display: 'inline-block', padding: '16px', marginRight: '16px', fontFamily: 'monospace'}}>e400</div>
-    </div>
-</Demo>
+<Demo
+    path="css-variables--elevations"
+    height="120px"
+/>
 
 -   There are four levels of elevation: `e100`, `e200`, `e300`, `e400`.
 -   Use different elevation levels to communicate different depths or stacks of elements.
