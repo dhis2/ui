@@ -3,18 +3,15 @@ title: Alert bar
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { DocFigure } from '@site/src/components/DocFigure.jsx'
-import { AlertBar } from '@dhis2/ui'
-
 import API from '../../../components/alert/API.md'
 
 # Alert bar
 
 An alert bar communicates something to the user by showing a prominent, floating bar at the bottom of the screen, using one of several styles each indicating a different purpose.
-
-<Demo>
-    <AlertBar permanent>Hello world</AlertBar>
-</Demo>
+<Demo 
+    path="alert-bar--states" 
+    height="310px"
+/>
 
 ## Usage
 
@@ -72,9 +69,11 @@ Read more about the `useAlert()` hook at the [App Runtime documentation](https:/
 
 #### Info
 
-<Demo>
-    <AlertBar permanent>Data export complete.</AlertBar>
-</Demo>
+<Demo 
+    path="alert-bar--default" 
+    args="children:Data export complete;permanent:!true" 
+    height="130px" 
+/>
 
 ```jsx
 <AlertStack>
@@ -89,9 +88,11 @@ Read more about the `useAlert()` hook at the [App Runtime documentation](https:/
 
 #### Success
 
-<Demo>
-    <AlertBar success permanent>1000 objects updated.</AlertBar>
-</Demo>
+<Demo 
+    path="alert-bar--default" 
+    args="children:1000 objects updated;permanent:!true;success:true" 
+    height="130px" 
+/>
 
 ```jsx
 <AlertStack>
@@ -107,14 +108,16 @@ Read more about the `useAlert()` hook at the [App Runtime documentation](https:/
 
 #### Warning
 
-<Demo>
-    <AlertBar warning permanent>Some data is taking a long time to sync.</AlertBar>
-</Demo>
+<Demo 
+    path="alert-bar--default" 
+    args="children:Sync incomplete;permanent:!true;warning:true" 
+    height="130px" 
+/>
 
 ```jsx
 <AlertStack>
     <AlertBar warning permanent>
-        Some data is taking a long time to sync.
+        Sync incomplete
     </AlertBar>
 </AlertStack>
 ```
@@ -126,14 +129,16 @@ Read more about the `useAlert()` hook at the [App Runtime documentation](https:/
 
 #### Critical
 
-<Demo>
-    <AlertBar critical permanent>There was a problem loading this dashboard.</AlertBar>
-</Demo>
+<Demo 
+    path="alert-bar--default" 
+    args="children:Problem loading data;permanent:!true;critical:true" 
+    height="130px" 
+/>
 
 ```jsx
 <AlertStack>
     <AlertBar critical permanent>
-        There was a problem loading this dashboard.
+        Problem loading data
     </AlertBar>
 </AlertStack>
 ```
@@ -160,17 +165,10 @@ Read more about the `useAlert()` hook at the [App Runtime documentation](https:/
 
 ### Actions
 
-<Demo>
-    <AlertBar actions
-={[
-                {
-                    label: 'Save',
-                },
-                {
-                    label: 'Cancel',
-                }
-            ]} permanent>Hello world</AlertBar>
-</Demo>
+<Demo 
+    path="alert-bar--with-actions" 
+    height="130px" 
+/>
 
 ```jsx
 <AlertStack>
@@ -202,6 +200,11 @@ Read more about the `useAlert()` hook at the [App Runtime documentation](https:/
 
 -   Each variant shows a default icon to support the content being communicated.
 -   A custom icon can be used. Only use icons that are relevant to the content and that help the user understand the context. Use the default icon unless there's a good reason not to.
+
+<Demo 
+    path="alert-bar--icons" 
+    height="250px"
+/>
 
 ## Using AlertStack
 

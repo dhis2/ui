@@ -89,6 +89,13 @@ StatusError.args = {
 }
 StatusError.storyName = 'Status: Error'
 
+export const StatusDisabled = Template.bind({})
+StatusDisabled.args = {
+    disabled: true,
+    ...WithHelpText.args,
+}
+StatusDisabled.storyName = 'Status: Disabled'
+
 export const Required = Template.bind({})
 Required.args = { required: true }
 

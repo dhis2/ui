@@ -20,6 +20,41 @@ export default {
         componentSubtitle: subtitle,
         docs: { description: { component: description } },
     },
+    argTypes: {
+        calendar: {
+            control: 'select',
+            options: [
+                'gregory',
+                'islamic',
+                'nepali',
+                'ethiopic',
+                'persian',
+                'indian',
+            ],
+        },
+        weekDayFormat: {
+            control: 'select',
+            options: ['long', 'short', 'narrow'],
+        },
+        locale: {
+            control: 'text',
+        },
+        numberingSystem: {
+            control: 'select',
+            options: ['latn', 'arab', 'ethi'],
+        },
+    },
+}
+
+export const Basic = (args) => {
+    return <Calendar {...args} />
+}
+
+Basic.args = {
+    onDateSelect: (date) => console.log(date),
+    calendar: 'gregory',
+    weekDayFormat: 'narrow',
+    locale: 'en',
 }
 
 export const Ethiopic = (args) => {

@@ -3,7 +3,6 @@ title: Tabs
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { TabBar, Tab, IconSubscribe16, IconShare16, IconDownload16 } from '@dhis2/ui'
 
 import API from '../../../components/tab/API.md'
 
@@ -11,14 +10,10 @@ import API from '../../../components/tab/API.md'
 
 Tabs are used to navigate between different views within the same page or context.
 
-<Demo>
-    <TabBar>
-        <Tab>Tab label 1</Tab>
-        <Tab selected>Tab label 2</Tab>
-        <Tab>Tab label 3</Tab>
-        <Tab>Tab label 4</Tab>
-    </TabBar>
-</Demo>
+<Demo
+    path="tab-bar--default-fluid"
+    height="120px"
+/>
 
 ## Usage
 
@@ -43,13 +38,10 @@ Tabs are used to navigate between different views within the same page or contex
 
 ### Icon
 
-<Demo>
-    <TabBar>
-        <Tab icon={<IconSubscribe16/>}>Notifications</Tab>
-        <Tab icon={<IconShare16/>} selected>Sharing and access</Tab>
-        <Tab icon={<IconDownload16/>}>Downloads</Tab>
-    </TabBar>
-</Demo>
+<Demo
+    path="tab-bar--tab-states-with-icon"
+    height="120px"
+/>
 
 ```jsx
 <TabBar>
@@ -67,14 +59,12 @@ Tabs are used to navigate between different views within the same page or contex
 
 ### State: Disabled
 
-<Demo>
-    <TabBar>
-        <Tab>Tab label 1</Tab>
-        <Tab selected>Tab label 2</Tab>
-        <Tab disabled >Tab label 3</Tab>
-        <Tab disabled>Tab label 4</Tab>
-    </TabBar>
-</Demo>
+<Demo
+    path="tab-bar--tab-states"
+    height="120px"
+/>
+
+In the example above you can see the 3rd tab is disabled.
 
 ```jsx
 <TabBar>

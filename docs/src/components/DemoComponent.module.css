@@ -20,4 +20,39 @@
     font-size: 0.8rem;
     padding: 2px 4px;
     font-family: monospace;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.button {
+    background-color: transparent;
+    color: var(--ifm-color-emphasis-900);
+    border: 1px solid var(--ifm-color-emphasis-700);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 2px 4px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: var(--ifm-color-emphasis-900);
+    border-color: var(--ifm-color-emphasis-900);
+    color: #fff;
+}
+
+.iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
 }

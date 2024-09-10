@@ -3,7 +3,6 @@ title: Segmented control
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { SegmentedControl } from '@dhis2/ui'
 
 import API from '../../../components/segmented-control/API.md'
 
@@ -11,27 +10,10 @@ import API from '../../../components/segmented-control/API.md'
 
 A segmented control is used to choose between related options that have an effect on a related area.
 
-<Demo>
-    <SegmentedControl options={[
-            {
-                label: 'Option 1',
-                value: 'option1'
-            },
-            {
-                label: 'Option 2',
-                value: 'option2'
-            },
-            {
-                label: 'Option 3',
-                value: 'option3'
-            }
-        ]}
-        selected="option1"
-        onChange= {({value}) => {
-            console.log(value)
-            }}
-    />
-</Demo>
+<Demo
+    path="segmented-control--default"
+    height="120px"
+/>
 
 ## Usage
 
@@ -39,15 +21,15 @@ A segmented control is used to choose between related options that have an effec
 <SegmentedControl
     options={[
         {
-            label: 'Option 1',
+            label: 'Dog',
             value: 'option1',
         },
         {
-            label: 'Option 2',
+            label: 'Cat',
             value: 'option2',
         },
         {
-            label: 'Option 3',
+            label: 'Giraffe',
             value: 'option3',
         },
     ]}

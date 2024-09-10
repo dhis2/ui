@@ -48,7 +48,7 @@ jobs:
 
             - run: ./scripts/create-artifact.sh
 
-            - uses: actions/upload-artifact@v2
+            - uses: actions/upload-artifact@v4
               with:
                   name: lib-build
                   path: lib-build.tar
@@ -63,7 +63,7 @@ jobs:
               with:
                   node-version: 20.x
 
-            - uses: actions/download-artifact@v2
+            - uses: actions/download-artifact@v4
               with:
                   name: lib-build
 
@@ -84,7 +84,7 @@ jobs:
               with:
                   node-version: 20.x
 
-            - uses: actions/download-artifact@v2
+            - uses: actions/download-artifact@v4
               with:
                   name: lib-build
 
@@ -100,7 +100,6 @@ jobs:
         runs-on: ubuntu-latest
         if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
         needs: [build, setup-matrix]
-
         strategy:
             fail-fast: false
             matrix:
@@ -116,7 +115,7 @@ jobs:
               with:
                   node-version: 20.x
 
-            - uses: actions/download-artifact@v2
+            - uses: actions/download-artifact@v4
               with:
                   name: lib-build
 
@@ -176,7 +175,7 @@ jobs:
               with:
                   node-version: 20.x
 
-            - uses: actions/download-artifact@v2
+            - uses: actions/download-artifact@v4
               with:
                   name: lib-build
 

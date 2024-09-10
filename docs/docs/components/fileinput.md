@@ -3,20 +3,16 @@ title: File input
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { FileInputField, FileListItem } from '@dhis2/ui'
-
 import API from '../../../components/file-input/API.md'
 
 # File input
 
 A file input is used to choose and upload files.
 
-<Demo>
-    <FileInputField
-    helpText="Max size 5mb. Supported file types are .jpg, .png, and .pdf."
-    label="Upload birth certificate"
-    />
-</Demo>
+<Demo
+    path="file-input-field--with-label"
+    height="150px"
+/>
 
 ## Usage
 
@@ -34,11 +30,11 @@ A file input is used to choose and upload files.
 
 ##### Label
 
-<Demo>
-    <FileInputField
-    label="Upload birth certificate"
-    />
-</Demo>
+<Demo
+    path="file-input-field--with-label"
+    args="label:Upload birth certificate"
+    height="150px"
+/>
 
 ```jsx
 <FileInputField label="Upload birth certificate" />
@@ -48,11 +44,11 @@ A file input is used to choose and upload files.
 
 ##### Button
 
-<Demo>
-    <FileInputField
-    buttonLabel="Upload test data"
-    />
-</Demo>
+<Demo
+    path="file-input-field--with-label"
+    args="buttonLabel:Upload test data"
+    height="150px"
+/>
 
 ```jsx
 <FileInputField buttonLabel="Upload test data" />
@@ -62,18 +58,14 @@ A file input is used to choose and upload files.
 
 ##### Help text
 
-<Demo>
-    <FileInputField
-    helpText="Max size 5mb. Supported file types are .jpg, .png, and .pdf."
-    label="Upload birth certificate"
-    />
-</Demo>
+<Demo
+    path="file-input-field--help-text"
+    args="helpText:Max+size+is+5mb;label:Upload+birth+certificate"
+    height="200px"
+/>
 
 ```jsx
-<FileInputField
-    helpText="Max size 5mb. Supported file types are .jpg, .png, and .pdf."
-    label="Upload birth certificate"
-/>
+<FileInputField helpText="Max size 5mb" label="Upload birth certificate" />
 ```
 
 -   Use help text to tell the user about any limitations or expectations of the files, like size or format.
@@ -82,19 +74,24 @@ A file input is used to choose and upload files.
 
 ### Multiple files
 
-<Demo>
-    <FileInputField label="Upload documents">
-        <FileListItem label="document-name.pdf" removeText="Remove"/>
-        <FileListItem label="uploaded-document.pdf" removeText="Remove"/>
-        <FileListItem label="DHIS2-UI-Guide.pdf" removeText="Remove"/>
-    </FileInputField>
-</Demo>
+<Demo
+    path="file-input-field--file-list"
+    args="buttonLabel:Upload+documents"
+    height="300px"
+/>
 
 ```jsx
 <FileInputField label="Upload documents">
-    <FileListItem label="document-name.pdf" removeText="Remove" />
-    <FileListItem label="uploaded-document.pdf" removeText="Remove" />
-    <FileListItem label="DHIS2-UI-Guide.pdf" removeText="Remove" />
+    <FileListItem label="picture1.jpg" removeText="Remove" />
+    <FileListItem
+        label="mage_that_is_uploading.jpg"
+        loading
+        cancelText="Cancel"
+    />
+    <FileListItem
+        label="image_file_name_is_to_long_to_display_on_one_line.jpg"
+        removeText="Remove"
+    />
 </FileInputField>
 ```
 

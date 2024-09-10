@@ -1,12 +1,16 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import { Box } from '@dhis2-ui/box'
 import { Button, ButtonStrip } from '@dhis2-ui/button'
+import { Center as CenteredContent } from '@dhis2-ui/center'
+import { InputField } from '@dhis2-ui/input'
+import { CircularLoader } from '@dhis2-ui/loader'
 import {
     FlyoutMenu,
     MenuDivider,
     MenuItem,
     MenuSectionHeader,
 } from '@dhis2-ui/menu'
+import { NoticeBox } from '@dhis2-ui/notice-box'
 import { SingleSelect, SingleSelectOption } from '@dhis2-ui/select'
 import { Tooltip } from '@dhis2-ui/tooltip'
 import React, { useEffect, useState } from 'react'
@@ -668,6 +672,59 @@ export const LargeWithSelectComponent = (args) => (
 )
 LargeWithSelectComponent.args = { large: true }
 LargeWithSelectComponent.storyName = 'Large: with Select component'
+
+export const ModalWithErrorState = (args) => (
+    <Modal {...args}>
+        <ModalTitle>Update profile</ModalTitle>
+        <ModalContent>
+            <InputField
+                label="First name"
+                required
+                error
+                validationText="First name can't be empty."
+                inputWidth="320px"
+            />
+            <InputField
+                label="Last name"
+                value="Olefeme"
+                required
+                inputWidth="320px"
+            />
+            <Box marginTop="16px">
+                <NoticeBox error>There is a problem with this form.</NoticeBox>
+            </Box>
+        </ModalContent>
+        <ModalActions>
+            <ButtonStrip end>
+                <Button secondary>Cancel</Button>
+                <Button disabled primary>
+                    Save changes
+                </Button>
+            </ButtonStrip>
+        </ModalActions>
+    </Modal>
+)
+ModalWithErrorState.storyName = 'With error state'
+
+export const ModalWithLoadingState = (args) => (
+    <Modal {...args}>
+        <ModalTitle>Modal title</ModalTitle>
+        <ModalContent>
+            <Box minHeight="240px">
+                <CenteredContent>
+                    <CircularLoader />
+                </CenteredContent>
+            </Box>
+        </ModalContent>
+        <ModalActions>
+            <ButtonStrip end>
+                <Button secondary>Cancel</Button>
+                <Button primary>Save changes</Button>
+            </ButtonStrip>
+        </ModalActions>
+    </Modal>
+)
+ModalWithLoadingState.storyName = 'With loading state'
 
 export const LargeModalWithMoreNestedModals = (args) => (
     <>
