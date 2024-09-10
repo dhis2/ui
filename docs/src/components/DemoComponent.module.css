@@ -46,7 +46,9 @@
 }
 
 .button:hover {
-    background-color: var(--ifm-color-primary-dark);
+    background-color: var(--ifm-color-emphasis-900);
+    border-color: var(--ifm-color-emphasis-900);
+    color: #fff;
 }
 
 .iframe {
