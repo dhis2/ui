@@ -31,9 +31,9 @@
 }
 
 .button {
-    background-color: var(--ifm-color-primary);
-    color: white;
-    border: 1px solid var(--ifm-color-emphasis-200);
+    background-color: transparent;
+    color: var(--ifm-color-emphasis-900);
+    border: 1px solid var(--ifm-color-emphasis-700);
     border-radius: 4px;
     cursor: pointer;
     font-size: 0.8rem;
