@@ -51,7 +51,7 @@ export const Demo = ({ path, args, height }) => {
                         className={styles.button}
                         onClick={handleShowFullDemo}
                     >
-                        Show Full Demo
+                        Go to full demo
                     </button>
                 </div>
             </div>
