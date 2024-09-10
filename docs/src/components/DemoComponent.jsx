@@ -45,7 +45,7 @@ export const Demo = ({ path, args, height }) => {
                 Demo
                 <div className={styles.buttons}>
                     <button className={styles.button} onClick={handleReload}>
-                        Reload
+                        Reset demo
                     </button>
                     <button
                         className={styles.button}
