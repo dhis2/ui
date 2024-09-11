@@ -1,9 +1,9 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import { Box } from '@dhis2-ui/box'
 import { Field } from '@dhis2-ui/field'
+import { Input } from '@dhis2-ui/input'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Input } from '../input/index.js'
 
 class InputField extends React.Component {
     render() {
