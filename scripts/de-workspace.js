@@ -186,6 +186,10 @@ function updateImportStatements(workspacesInfo, entryFolder) {
             // Remove surrounding string delimiters
             .map(str => str.slice(1, -1))
 
+        const localesImports = unique(jsFileContent.match(/'(\.\.\/){1,}locales\/index\.js'/g))
+            // Remove surrounding string delimiters
+            .map(str => str.slice(1, -1))
+
         const otherImports = unique(jsFileContent.match(/'@dhis2\/ui-[^']+'/g))
             // Remove surrounding string delimiters
             .map(str => str.slice(1, -1))
@@ -208,6 +212,16 @@ function updateImportStatements(workspacesInfo, entryFolder) {
             jsFileContent
         )
 
+        const updatedLocalesImports = localesImports.reduce(
+            (curContent, localesPath) => {
+                const upPath = Array.from(Array(pathUpCount + 1)).map(() => '..').join('/')
+                const importPath = `${upPath}/locales/index.js`
+                const nextContent = curContent.replace(new RegExp(localesPath.replace('/', '\/')), importPath)
+                return nextContent
+            },
+            updatedComponentImports
+        )
+
         const updatedFileContents = otherImports.reduce(
             (curContent, workspaceName) => {
                 const importFolderName = workspaceName.replace('@dhis2/ui-', '')
@@ -216,7 +230,7 @@ function updateImportStatements(workspacesInfo, entryFolder) {
                 const nextContent = curContent.replace(new RegExp(workspaceName.replace('/', '\/')), importPath)
                 return nextContent
             },
-            updatedComponentImports
+            updatedLocalesImports
         )
 
         fs.writeFileSync(jsFile, updatedFileContents)
