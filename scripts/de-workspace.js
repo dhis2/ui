@@ -17,6 +17,7 @@ const CONSTANTS_OLD_FOLDER = path.join(ROOT_FOLDER, 'constants')
 const CONSTANTS_FOLDER = path.join(SRC_FOLDER, 'constants')
 const ICONS_OLD_FOLDER = path.join(ROOT_FOLDER, 'icons')
 const ICONS_FOLDER = path.join(SRC_FOLDER, 'icons')
+const ICONS_INDEX_JS = path.join(ICONS_FOLDER, 'index.js')
 const STORYBOOK_FOLDER = path.join(ROOT_FOLDER, 'storybook')
 
 async function main() {
@@ -59,6 +60,7 @@ async function main() {
     copyIconsSrc()
     copyIconsTypes()
     copyIconsScripts()
+    fs.writeFileSync(SRC_INDEX_JS, "export * from './react/index.js'", { flag: 'w+' })
 
     // storybook
     copyStorybookDependencies()
