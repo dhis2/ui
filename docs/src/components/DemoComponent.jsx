@@ -33,7 +33,7 @@ export const Demo = ({ path, args, height }) => {
         window.open(fullDemoUrl, '_blank', 'noopener,noreferrer')
     }
 
-    const iframeSrc = `${DEMO_URL}/iframe.html?path=${encodeURIComponent(
+    const iframeSrc = `${DEMO_URL}/iframe.html?path=/story/${encodeURIComponent(
         formatPath(path)
     )}&full=1&shortcuts=false&singleStory=true${
         args ? `&args=${encodeURIComponent(args)}` : ''
