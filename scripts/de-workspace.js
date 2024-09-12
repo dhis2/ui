@@ -60,7 +60,7 @@ async function main() {
     copyIconsSrc()
     copyIconsTypes()
     copyIconsScripts()
-    fs.writeFileSync(SRC_INDEX_JS, "export * from './react/index.js'", { flag: 'w+' })
+    fs.writeFileSync(ICONS_INDEX_JS, "export * from './react/index.js'", { flag: 'w+' })
 
     // storybook
     copyStorybookDependencies()
@@ -71,6 +71,7 @@ async function main() {
 
     // Cleanup
     removeWorkspaces()
+    execSync('npm run build:icons', { cwd: ROOT_FOLDER })
 }
 
 async function getComponentWorkspacesInfo() {
@@ -98,8 +99,17 @@ function copySrcFolder(workspaceInfo) {
 }
 
 function addIndexJsEntry(workspaceInfo) {
+    let exportStatement
     const workspaceFolderName = workspaceInfo.location.split('/').slice(-1)[0]
-    const exportStatement = `export * from './${workspaceFolderName}/index.js'\n`
+
+    if (workspaceFolderName === 'center') {
+        exportStatement = `export { Center, Center as CenteredContent } from './center/index.js'\n`
+    } else if (workspaceFolderName === 'cover') {
+        exportStatement = `export { Cover, Cover as ComponentCover } from './cover/index.js'\n`
+    } else {
+        exportStatement = `export * from './${workspaceFolderName}/index.js'\n`
+    }
+
     fs.writeFileSync(COMPONENTS_INDEX_JS, exportStatement, { flag: 'a' })
 }
 
@@ -274,6 +284,16 @@ function copyIconsSrc() {
     fs.cpSync(
         path.join(ICONS_OLD_FOLDER, 'svgr.config.js'),
         path.join(ROOT_FOLDER, 'svgr.config.js'),
+    )
+
+    const svgrConfigJs = fs.readFileSync(
+        path.join(ROOT_FOLDER, 'svgr.config.js'),
+        { encoding: 'utf8' }
+    )
+    const svgrConfigJsUpdated = svgrConfigJs.replace(/'\.\/templates/g, '\'./src/icons/templates')
+    fs.writeFileSync(
+        path.join(ROOT_FOLDER, 'svgr.config.js'),
+        svgrConfigJsUpdated
     )
 }
 
