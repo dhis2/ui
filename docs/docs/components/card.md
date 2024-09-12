@@ -32,7 +32,3 @@ A card is a container element used to group together and separate blocks of cont
 ## API Reference
 
 <API />
-
-## Links
-
--   <a href="/demo/?path=/story/card--default" target="_blank">Demo</a>

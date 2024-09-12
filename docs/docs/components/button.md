@@ -95,7 +95,7 @@ Buttons are used to trigger actions. There are different button variants that ar
 ```
 
 <Demo
-    path="/story/button--destructive-secondary"
+    path="button--destructive-secondary"
     args="children:Destructive secondary button"
     height="120px"
 />
@@ -240,7 +240,3 @@ Buttons are available in different sizes. Use the size that matches the usage gu
 ## API Reference
 
 <API />
-
-## Links
-
--   <a href="/demo/?path=/story/button--basic" target="_blank">Demo</a>

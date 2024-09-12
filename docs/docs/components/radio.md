@@ -68,7 +68,3 @@ Radio inputs are used to choose one item from a list.
 ## API Reference
 
 <API />
-
-## Links
-
--   <a href="/demo/?path=/story/radio--default" target="_blank">Demo</a>

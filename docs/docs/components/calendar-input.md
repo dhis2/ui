@@ -14,7 +14,7 @@ This is an Input wrapper around [calendar](./calendar) to display an input that 
 Below you'll find a customizable demo of the CalendarInput component. Click "show full demo" to see this and other components.
 
 <Demo
-    path="/story/calendarinput--gregorian-with-english"
+    path="calendarinput--gregorian-with-english"
     height="350px"
 />
 
