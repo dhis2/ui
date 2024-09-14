@@ -132,7 +132,7 @@ export class Input extends Component {
         const {
             role,
             className,
-            type,
+            type = 'text',
             dense,
             disabled,
             readOnly,
@@ -148,7 +148,7 @@ export class Input extends Component {
             min,
             step,
             autoComplete,
-            dataTest,
+            dataTest = 'dhis2-uicore-input',
         } = this.props
 
         return (

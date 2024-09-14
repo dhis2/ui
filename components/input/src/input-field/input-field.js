@@ -35,7 +35,7 @@ class InputField extends React.Component {
             validationText,
             inputWidth,
             autoComplete,
-            dataTest,
+            dataTest = 'dhis2-uiwidgets-inputfield',
         } = this.props
 
         return (

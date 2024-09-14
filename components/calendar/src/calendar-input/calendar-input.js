@@ -27,6 +27,7 @@ export const CalendarInput = ({
     width,
     cellSize,
     clearable,
+    dataTest = 'dhis2-uiwidgets-calendar-inputfield',
     ...rest
 } = {}) => {
     const ref = useRef()
@@ -72,6 +73,7 @@ export const CalendarInput = ({
                 <InputField
                     label={i18n.t('Pick a date')}
                     {...rest}
+                    dataTest={dataTest}
                     type="text"
                     onFocus={onFocus}
                     value={date}

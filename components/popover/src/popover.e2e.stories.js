@@ -21,8 +21,12 @@ class PopperInBoxWithCenteredReferenceElement extends Component {
     ref = createRef()
 
     render() {
-        const { paddingTop, popoverHeight, popoverWidth, ...popoverProps } =
-            this.props
+        const {
+            paddingTop = 220,
+            popoverHeight = 200,
+            popoverWidth = 336,
+            ...popoverProps
+        } = this.props
         return (
             <div style={{ ...boxStyle, paddingTop, height: paddingTop + 100 }}>
                 <div

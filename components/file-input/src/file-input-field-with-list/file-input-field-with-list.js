@@ -2,6 +2,7 @@ import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { FileInputField } from '../file-input-field/index.js'
+import i18n from '../locales/index.js'
 import { FileListItemWithRemove } from './file-list-item-with-remove.js'
 
 // TODO: i18n
@@ -61,12 +62,12 @@ class FileInputFieldWithList extends Component {
     render() {
         const {
             accept,
-            buttonLabel,
+            buttonLabel = () => i18n.t('Upload a file'),
             className,
-            dataTest,
+            dataTest = 'dhis2-uiwidgets-fileinputfieldwithlist',
             disabled,
             error,
-            files,
+            files = [],
             helpText,
             initialFocus,
             label,
@@ -76,8 +77,8 @@ class FileInputFieldWithList extends Component {
             onBlur,
             onFocus,
             onKeyDown,
-            placeholder,
-            removeText,
+            placeholder = () => i18n.t('No file uploaded yet'),
+            removeText = () => i18n.t('Remove'),
             required,
             small,
             tabIndex,

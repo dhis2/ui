@@ -72,7 +72,7 @@ class SplitButton extends Component {
             disabled,
             type,
             tabIndex,
-            dataTest,
+            dataTest = 'dhis2-uicore-splitbutton',
             initialFocus,
         } = this.props
 

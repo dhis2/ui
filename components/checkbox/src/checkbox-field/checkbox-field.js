@@ -5,11 +5,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { Checkbox } from '../checkbox/index.js'
 
-const AddRequired = ({
-    label,
-    required,
-    dataTest = 'dhis2-uiwidgets-checkboxfield',
-}) => (
+const AddRequired = ({ label, required, dataTest }) => (
     <React.Fragment>
         {label}
         {required && <Required dataTest={`${dataTest}-required`} />}

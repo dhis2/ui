@@ -58,7 +58,7 @@ class Radio extends Component {
             value,
             warning,
             dense,
-            dataTest,
+            dataTest = 'dhis2-uicore-radio',
         } = this.props
 
         const classes = cx({

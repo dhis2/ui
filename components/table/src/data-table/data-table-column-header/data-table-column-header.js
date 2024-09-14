@@ -23,7 +23,7 @@ export const DataTableColumnHeader = forwardRef(
             children,
             className,
             colSpan,
-            dataTest,
+            dataTest = 'dhis2-uicore-datatablecellhead',
             filter,
             fixed,
             large,

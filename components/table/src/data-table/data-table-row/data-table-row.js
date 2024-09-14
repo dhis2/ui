@@ -13,7 +13,7 @@ export const DataTableRow = forwardRef(
         {
             children,
             className,
-            dataTest,
+            dataTest = 'dhis2-uicore-datatablerow',
             expandableContent,
             expanded,
             selected,

@@ -7,17 +7,18 @@ export const DataTableCell = forwardRef(
     (
         {
             active,
-            align,
+            align = 'left',
             backgroundColor,
             bordered,
             children,
             className,
             colSpan,
-            dataTest,
+            dataTest = 'dhis2-uicore-datatablecell',
             error,
             fixed,
             large,
-            left,
+
+            left = 'auto',
             muted,
             rowSpan,
             role,
@@ -25,7 +26,7 @@ export const DataTableCell = forwardRef(
             staticStyle,
             tag,
             valid,
-            width,
+            width = 'auto',
             onClick,
             ...props
         },

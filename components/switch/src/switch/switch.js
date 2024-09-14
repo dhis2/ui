@@ -48,7 +48,7 @@ class Switch extends Component {
     render() {
         const {
             'aria-label': ariaLabel,
-            checked,
+            checked = false,
             className,
             disabled,
             error,
@@ -59,8 +59,8 @@ class Switch extends Component {
             value,
             warning,
             dense,
-            dataTest,
-            role,
+            dataTest = 'dhis2-uicore-switch',
+            role = 'switch',
         } = this.props
 
         const classes = cx({

@@ -124,7 +124,7 @@ class DropdownButton extends Component {
             tabIndex,
             type,
             initialFocus,
-            dataTest,
+            dataTest = 'dhis2-uicore-dropdownbutton',
         } = this.props
         const open =
             typeof this.props.open === 'boolean'

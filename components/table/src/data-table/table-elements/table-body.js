@@ -4,7 +4,17 @@ import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
 
 export const TableBody = forwardRef(
-    ({ children, className, dataTest, role, loading, ...props }, ref) => (
+    (
+        {
+            children,
+            className,
+            dataTest = 'dhis2-uicore-tablebody',
+            role,
+            loading,
+            ...props
+        },
+        ref
+    ) => (
         <tbody
             {...props}
             className={cx(className, {

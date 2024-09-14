@@ -5,11 +5,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { Switch } from '../switch/index.js'
 
-const AddRequired = ({
-    label,
-    required,
-    dataTest = 'dhis2-uiwidgets-switchfield',
-}) => (
+const AddRequired = ({ label, required, dataTest }) => (
     <React.Fragment>
         {label}
         {required && <Required dataTest={`${dataTest}-required`} />}

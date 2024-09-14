@@ -121,10 +121,10 @@ export class TextArea extends Component {
             loading,
             value,
             tabIndex,
-            rows,
-            width,
-            resize,
-            dataTest,
+            resize = 'vertical',
+            rows = 4,
+            width = '100%',
+            dataTest = 'dhis2-uicore-textarea',
         } = this.props
         const { height } = this.state
 

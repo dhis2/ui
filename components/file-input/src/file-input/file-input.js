@@ -50,10 +50,10 @@ class FileInput extends Component {
 
     render() {
         const {
-            accept,
+            accept = '*',
             buttonLabel,
             className,
-            dataTest,
+            dataTest = 'dhis2-uicore-fileinput',
             disabled,
             error,
             initialFocus,

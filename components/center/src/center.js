@@ -3,7 +3,15 @@ import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
 
 export const Center = forwardRef(
-    ({ className, dataTest, children, position }, ref) => (
+    (
+        {
+            className,
+            dataTest = 'dhis2-uicore-centeredcontent',
+            children,
+            position = 'middle',
+        },
+        ref
+    ) => (
         <div
             className={cx('center', className, position)}
             data-test={dataTest}

@@ -3,6 +3,7 @@ import { Box } from '@dhis2-ui/box'
 import { Field } from '@dhis2-ui/field'
 import PropTypes from 'prop-types'
 import React from 'react'
+import i18n from '../locales/index.js'
 import { SingleSelect } from '../single-select/index.js'
 
 // TODO: translate
@@ -28,7 +29,7 @@ class SingleSelectField extends React.Component {
             warning,
             disabled,
             loading,
-            selected,
+            selected = '',
             tabIndex,
             helpText,
             validationText,
@@ -37,17 +38,17 @@ class SingleSelectField extends React.Component {
             inputWidth,
             children,
             clearable,
-            clearText,
+            clearText = () => i18n.t('Clear'),
             filterable,
-            filterPlaceholder,
+            filterPlaceholder = () => i18n.t('Type to filter options'),
             placeholder,
             prefix,
-            empty,
-            loadingText,
-            noMatchText,
+            empty = () => i18n.t('No data found'),
+            loadingText = () => i18n.t('Loading options'),
+            noMatchText = () => i18n.t('No options found'),
             initialFocus,
             dense,
-            dataTest,
+            dataTest = 'dhis2-uiwidgets-singleselectfield',
         } = this.props
 
         return (

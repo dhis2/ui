@@ -4,7 +4,16 @@ import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
 
 export const TableToolbar = forwardRef(
-    ({ children, className, dataTest, position, ...props }, ref) => (
+    (
+        {
+            children,
+            className,
+            dataTest = 'dhis2-uicore-tabletoolbar',
+            position = 'top',
+            ...props
+        },
+        ref
+    ) => (
         <div
             {...props}
             data-test={dataTest}

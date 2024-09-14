@@ -8,11 +8,11 @@ export const Table = forwardRef(
         {
             children,
             className,
-            dataTest,
-            layout,
+            dataTest = 'dhis2-uicore-table',
+            layout = 'auto',
             role,
             borderless,
-            width,
+            width = '100%',
             ...props
         },
         ref

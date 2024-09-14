@@ -3,7 +3,17 @@ import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
 
 export const TableScrollBox = forwardRef(
-    ({ children, className, dataTest, maxHeight, maxWidth, ...props }, ref) => (
+    (
+        {
+            children,
+            className,
+            dataTest = 'dhis2-uicore-tablescrollbox',
+            maxHeight = 'auto',
+            maxWidth = 'auto',
+            ...props
+        },
+        ref
+    ) => (
         <div {...props} className={className} data-test={dataTest} ref={ref}>
             {children}
             <style jsx>{`

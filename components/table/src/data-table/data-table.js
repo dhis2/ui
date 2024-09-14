@@ -8,12 +8,12 @@ export const DataTable = forwardRef(
         {
             children,
             className,
-            dataTest,
-            layout,
+            dataTest = 'dhis2-uicore-datatable',
+            layout = 'auto',
             role,
             scrollHeight,
             scrollWidth,
-            width,
+            width = '100%',
         },
         ref
     ) => {
