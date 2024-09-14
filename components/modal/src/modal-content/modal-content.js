@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export const ModalContent = ({ children, className, dataTest }) => (
+export const ModalContent = ({
+    children,
+    className,
+    dataTest = 'dhis2-uicore-modalcontent',
+}) => (
     <div className={className} data-test={dataTest}>
         {children}
 
@@ -14,10 +18,6 @@ export const ModalContent = ({ children, className, dataTest }) => (
         `}</style>
     </div>
 )
-
-ModalContent.defaultProps = {
-    dataTest: 'dhis2-uicore-modalcontent',
-}
 
 ModalContent.propTypes = {
     children: PropTypes.node,

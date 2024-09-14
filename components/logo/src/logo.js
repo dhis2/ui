@@ -16,33 +16,29 @@ const blue = '#0080d4'
 const white = '#ffffff'
 const dark = '#212225'
 
-export const LogoIcon = ({ className, dataTest }) => (
-    <LogoIconSvg iconColor={blue} className={className} dataTest={dataTest} />
-)
-
-LogoIcon.defaultProps = {
-    dataTest: 'dhis2-uicore-logoicon',
-}
+export const LogoIcon = ({
+    className,
+    dataTest = 'dhis2-uicore-logowhite',
+}) => <LogoIconSvg iconColor={blue} className={className} dataTest={dataTest} />
 
 LogoIcon.propTypes = {
     className: PropTypes.string,
     dataTest: PropTypes.string,
 }
 
-export const LogoIconWhite = ({ className, dataTest }) => (
+export const LogoIconWhite = ({
+    className,
+    dataTest = 'dhis2-uicore-logowhite',
+}) => (
     <LogoIconSvg iconColor={white} className={className} dataTest={dataTest} />
 )
-
-LogoIconWhite.defaultProps = {
-    dataTest: 'dhis2-uicore-logoiconwhite',
-}
 
 LogoIconWhite.propTypes = {
     className: PropTypes.string,
     dataTest: PropTypes.string,
 }
 
-export const Logo = ({ className, dataTest }) => (
+export const Logo = ({ className, dataTest = 'dhis2-uicore-logowhite' }) => (
     <LogoSvg
         iconColor={blue}
         textColor={dark}
@@ -51,16 +47,15 @@ export const Logo = ({ className, dataTest }) => (
     />
 )
 
-Logo.defaultProps = {
-    dataTest: 'dhis2-uicore-logo',
-}
-
 Logo.propTypes = {
     className: PropTypes.string,
     dataTest: PropTypes.string,
 }
 
-export const LogoWhite = ({ className, dataTest }) => (
+export const LogoWhite = ({
+    className,
+    dataTest = 'dhis2-uicore-logowhite',
+}) => (
     <LogoSvg
         iconColor={white}
         textColor={white}
@@ -68,10 +63,6 @@ export const LogoWhite = ({ className, dataTest }) => (
         dataTest={dataTest}
     />
 )
-
-LogoWhite.defaultProps = {
-    dataTest: 'dhis2-uicore-logowhite',
-}
 
 LogoWhite.propTypes = {
     className: PropTypes.string,

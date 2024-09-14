@@ -90,13 +90,6 @@ export const TableDataCell = forwardRef(
 
 TableDataCell.displayName = 'TableDataCell'
 
-TableDataCell.defaultProps = {
-    align: 'left',
-    dataTest: 'dhis2-uicore-tabledatacel',
-    left: 'auto',
-    width: 'auto',
-}
-
 const stylePropType = mutuallyExclusive(
     ['valid', 'error', 'muted'],
     PropTypes.bool

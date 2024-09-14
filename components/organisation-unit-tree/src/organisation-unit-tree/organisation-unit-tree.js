@@ -16,15 +16,15 @@ const OrganisationUnitTree = ({
     roots,
 
     autoExpandLoadingError,
-    dataTest,
+    dataTest = 'dhis2-uiwidgets-orgunittree',
     disableSelection,
     forceReload,
-    highlighted,
+    highlighted = [],
     isUserDataViewFallback,
-    initiallyExpanded,
-    filter,
-    renderNodeLabel,
-    selected,
+    initiallyExpanded = [],
+    filter = [],
+    renderNodeLabel = defaultRenderNodeLabel,
+    selected = [],
     singleSelection,
     suppressAlphabeticalSorting,
 
@@ -235,15 +235,6 @@ OrganisationUnitTree.propTypes = {
      * we'd have to reload the sibling nodes currently as well)
      */
     //idsThatShouldBeReloaded: propTypes.arrayOf(orgUnitIdPropType),
-}
-
-OrganisationUnitTree.defaultProps = {
-    dataTest: 'dhis2-uiwidgets-orgunittree',
-    filter: [],
-    highlighted: [],
-    initiallyExpanded: [],
-    selected: [],
-    renderNodeLabel: defaultRenderNodeLabel,
 }
 
 export { OrganisationUnitTree }

@@ -173,13 +173,6 @@ export class TextArea extends Component {
     }
 }
 
-TextArea.defaultProps = {
-    rows: 4,
-    width: '100%',
-    resize: 'vertical',
-    dataTest: 'dhis2-uicore-textarea',
-}
-
 TextArea.propTypes = {
     /** Grow the text area in response to overflow instead of adding a scroll bar */
     autoGrow: PropTypes.bool,

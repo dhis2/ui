@@ -21,7 +21,7 @@ const UserAvatar = ({
     name,
     avatarId,
     className,
-    dataTest,
+    dataTest = 'dhis2-uicore-useravatar',
     extralarge,
     extrasmall,
     large,
@@ -83,10 +83,6 @@ const UserAvatar = ({
         `}</style>
     </div>
 )
-
-UserAvatar.defaultProps = {
-    dataTest: 'dhis2-uicore-useravatar',
-}
 
 UserAvatar.propTypes = {
     // Name could stop being required if we implement an

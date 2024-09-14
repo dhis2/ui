@@ -44,12 +44,6 @@ export const Table = forwardRef(
 
 Table.displayName = 'Table'
 
-Table.defaultProps = {
-    dataTest: 'dhis2-uicore-table',
-    width: '100%',
-    layout: 'auto',
-}
-
 Table.propTypes = {
     /**
      * Removes border from the table

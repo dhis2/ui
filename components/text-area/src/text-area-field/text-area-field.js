@@ -28,10 +28,10 @@ const TextAreaField = ({
     validationText,
     autoGrow,
     readOnly,
-    resize,
-    rows,
+    resize = 'vertical',
+    rows = 4,
     inputWidth,
-    dataTest,
+    dataTest = 'dhis2-uiwidgets-textareafield',
 }) => (
     <Field
         className={className}
@@ -71,12 +71,6 @@ const TextAreaField = ({
         </Box>
     </Field>
 )
-
-TextAreaField.defaultProps = {
-    rows: 4,
-    resize: 'vertical',
-    dataTest: 'dhis2-uiwidgets-textareafield',
-}
 
 TextAreaField.propTypes = {
     /** Grow the text area in response to overflow instead of adding a scroll bar */

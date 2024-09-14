@@ -217,10 +217,6 @@ export class Select extends Component {
     }
 }
 
-Select.defaultProps = {
-    dataTest: 'dhis2-uicore-select',
-}
-
 Select.propTypes = {
     input: PropTypes.element.isRequired,
     menu: PropTypes.element.isRequired,

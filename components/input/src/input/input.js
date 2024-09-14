@@ -199,11 +199,6 @@ export class Input extends Component {
     }
 }
 
-Input.defaultProps = {
-    type: 'text',
-    dataTest: 'dhis2-uicore-input',
-}
-
 Input.propTypes = {
     /** The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete) */
     autoComplete: PropTypes.string,

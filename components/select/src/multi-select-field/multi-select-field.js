@@ -100,17 +100,6 @@ class MultiSelectField extends React.Component {
     }
 }
 
-MultiSelectField.defaultProps = {
-    selected: [],
-    dataTest: 'dhis2-uiwidgets-multiselectfield',
-
-    clearText: () => i18n.t('Clear'),
-    empty: () => i18n.t('No data found'),
-    filterPlaceholder: () => i18n.t('Type to filter options'),
-    loadingText: () => i18n.t('Loading options'),
-    noMatchText: () => i18n.t('No options found'),
-}
-
 MultiSelectField.propTypes = {
     /** Should be `MultiSelectOption` components */
     children: PropTypes.node,

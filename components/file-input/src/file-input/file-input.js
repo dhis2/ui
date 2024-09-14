@@ -115,11 +115,6 @@ class FileInput extends Component {
     }
 }
 
-FileInput.defaultProps = {
-    accept: '*',
-    dataTest: 'dhis2-uicore-fileinput',
-}
-
 FileInput.propTypes = {
     /**
      * The `accept` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept)

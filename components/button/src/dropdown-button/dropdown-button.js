@@ -181,10 +181,6 @@ class DropdownButton extends Component {
     }
 }
 
-DropdownButton.defaultProps = {
-    dataTest: 'dhis2-uicore-dropdownbutton',
-}
-
 DropdownButton.propTypes = {
     /** Children to render inside the buton */
     children: PropTypes.node,

@@ -45,11 +45,6 @@ class PopperInBoxWithCenteredReferenceElement extends Component {
         )
     }
 }
-PopperInBoxWithCenteredReferenceElement.defaultProps = {
-    paddingTop: 220,
-    popoverHeight: 200,
-    popoverWidth: 336,
-}
 PopperInBoxWithCenteredReferenceElement.propTypes = {
     paddingTop: PropTypes.number,
     popoverHeight: PropTypes.number,

@@ -37,11 +37,6 @@ export const Center = forwardRef(
 
 Center.displayName = 'Center'
 
-Center.defaultProps = {
-    dataTest: 'dhis2-uicore-centeredcontent',
-    position: 'middle',
-}
-
 Center.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

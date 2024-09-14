@@ -22,12 +22,6 @@ export const TableScrollBox = forwardRef(
 
 TableScrollBox.displayName = 'TableScrollBox'
 
-TableScrollBox.defaultProps = {
-    dataTest: 'dhis2-uicore-tablescrollbox',
-    maxHeight: 'auto',
-    maxWidth: 'auto',
-}
-
 TableScrollBox.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

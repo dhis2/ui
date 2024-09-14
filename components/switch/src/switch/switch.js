@@ -164,12 +164,6 @@ class Switch extends Component {
     }
 }
 
-Switch.defaultProps = {
-    checked: false,
-    dataTest: 'dhis2-uicore-switch',
-    role: 'switch',
-}
-
 Switch.propTypes = {
     /** Sets an aria-label attribute on the input */
     'aria-label': PropTypes.string,

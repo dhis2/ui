@@ -161,10 +161,6 @@ export const Tab = React.forwardRef(
     }
 )
 
-Tab.defaultProps = {
-    dataTest: 'dhis2-uicore-tab',
-}
-
 Tab.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

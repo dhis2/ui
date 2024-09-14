@@ -33,7 +33,7 @@ export const SelectorBar = ({
     className,
     children,
     onClearSelectionClick,
-    dataTest,
+    dataTest = 'dhis2-ui-selectorbar',
     disableClearSelections,
     additionalContent,
     ariaLabel,
@@ -158,10 +158,6 @@ export const SelectorBar = ({
             </div>
         </>
     )
-}
-
-SelectorBar.defaultProps = {
-    dataTest: 'dhis2-ui-selectorbar',
 }
 
 SelectorBar.propTypes = {

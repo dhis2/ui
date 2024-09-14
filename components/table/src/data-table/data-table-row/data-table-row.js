@@ -78,10 +78,6 @@ export const DataTableRow = forwardRef(
 
 DataTableRow.displayName = 'DataTableRow'
 
-DataTableRow.defaultProps = {
-    dataTest: 'dhis2-uicore-datatablerow',
-}
-
 DataTableRow.propTypes = {
     /** Should be `<DataTableCell>` or `<DataTableCellHead>` components */
     children: PropTypes.node,

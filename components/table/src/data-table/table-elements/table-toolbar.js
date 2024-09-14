@@ -33,11 +33,6 @@ export const TableToolbar = forwardRef(
 
 TableToolbar.displayName = 'TableToolbar'
 
-TableToolbar.defaultProps = {
-    dataTest: 'dhis2-uicore-tabletoolbar',
-    position: 'top',
-}
-
 TableToolbar.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

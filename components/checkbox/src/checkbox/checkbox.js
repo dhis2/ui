@@ -178,12 +178,6 @@ class Checkbox extends Component {
     }
 }
 
-Checkbox.defaultProps = {
-    checked: false,
-    indeterminate: false,
-    dataTest: 'dhis2-uicore-checkbox',
-}
-
 const uniqueOnStatePropType = mutuallyExclusive(
     ['checked', 'indeterminate'],
     PropTypes.bool

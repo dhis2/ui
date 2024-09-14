@@ -163,10 +163,6 @@ class Radio extends Component {
     }
 }
 
-Radio.defaultProps = {
-    dataTest: 'dhis2-uicore-radio',
-}
-
 Radio.propTypes = {
     checked: PropTypes.bool,
     className: PropTypes.string,

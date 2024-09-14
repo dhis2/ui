@@ -67,13 +67,6 @@ export const DataTableCell = forwardRef(
 
 DataTableCell.displayName = 'DataTableCell'
 
-DataTableCell.defaultProps = {
-    align: 'left',
-    dataTest: 'dhis2-uicore-datatablecell',
-    left: 'auto',
-    width: 'auto',
-}
-
 const stylePropType = mutuallyExclusive(
     ['valid', 'error', 'muted'],
     PropTypes.bool

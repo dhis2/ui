@@ -55,10 +55,6 @@ export const TableBody = forwardRef(
 )
 TableBody.displayName = 'TableBody'
 
-TableBody.defaultProps = {
-    dataTest: 'dhis2-uicore-tablebody',
-}
-
 TableBody.propTypes = {
     /** Should be `<TableRow>` components */
     children: PropTypes.node,

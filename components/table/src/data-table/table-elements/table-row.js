@@ -31,10 +31,6 @@ export const TableRow = forwardRef(
 
 TableRow.displayName = 'TableRow'
 
-TableRow.defaultProps = {
-    dataTest: 'dhis2-uicore-tablerow',
-}
-
 TableRow.propTypes = {
     /** Should be `<TableDataCell>` or `<TableDataCellHead>` components */
     children: PropTypes.node,

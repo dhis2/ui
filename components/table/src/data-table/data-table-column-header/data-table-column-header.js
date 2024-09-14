@@ -95,10 +95,6 @@ export const DataTableColumnHeader = forwardRef(
 
 DataTableColumnHeader.displayName = 'DataTableColumnHeader'
 
-DataTableColumnHeader.defaultProps = {
-    dataTest: 'dhis2-uicore-datatablecellhead',
-}
-
 DataTableColumnHeader.propTypes = {
     align: PropTypes.oneOf(['left', 'center', 'right']),
     children: PropTypes.node,

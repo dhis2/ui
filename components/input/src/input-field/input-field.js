@@ -82,10 +82,6 @@ class InputField extends React.Component {
     }
 }
 
-InputField.defaultProps = {
-    dataTest: 'dhis2-uiwidgets-inputfield',
-}
-
 const InputFieldProps = {
     /** The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete) */
     autoComplete: PropTypes.string,

@@ -49,12 +49,6 @@ export const DataTable = forwardRef(
 
 DataTable.displayName = 'DataTable'
 
-DataTable.defaultProps = {
-    dataTest: 'dhis2-uicore-datatable',
-    width: '100%',
-    layout: 'auto',
-}
-
 DataTable.propTypes = {
     /**
      * Should be `<DataTableHead>`, `<DataTableBody>`, and `<DataTableFoot>` components

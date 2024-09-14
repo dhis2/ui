@@ -155,13 +155,12 @@ export default {
     },
 }
 
-const StatefulTemplate = ({ initiallySelected, ...args }) => {
+const StatefulTemplate = ({ initiallySelected = [], ...args }) => {
     const [selected, setSelected] = useState(initiallySelected)
     const onChange = (payload) => setSelected(payload.selected)
 
     return <Transfer {...args} selected={selected} onChange={onChange} />
 }
-StatefulTemplate.defaultProps = { initiallySelected: [] }
 StatefulTemplate.propTypes = { initiallySelected: PropTypes.array }
 
 export const SingleSelection = StatefulTemplate.bind({})
@@ -243,14 +242,14 @@ const RenderOptionCode = () => (
     </>
 )
 
-const StatefulTemplateCustomRenderOption = ({ initiallySelected, ...args }) => {
+const StatefulTemplateCustomRenderOption = ({
+    initiallySelected = [],
+    ...args
+}) => {
     const [selected, setSelected] = useState(initiallySelected)
     const onChange = (payload) => setSelected(payload.selected)
 
     return <Transfer {...args} selected={selected} onChange={onChange} />
-}
-StatefulTemplateCustomRenderOption.defaultProps = {
-    initiallySelected: [],
 }
 StatefulTemplateCustomRenderOption.propTypes = {
     initiallySelected: PropTypes.array,

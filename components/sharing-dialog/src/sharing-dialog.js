@@ -41,11 +41,17 @@ const mutation = {
 export const SharingDialog = ({
     id,
     type,
-    onClose,
-    onError,
-    onSave,
-    initialSharingSettings,
-    dataTest,
+    onClose = () => {},
+    onError = () => {},
+    onSave = () => {},
+    initialSharingSettings = {
+        name: '',
+        allowPublic: true,
+        public: ACCESS_NONE,
+        groups: {},
+        users: {},
+    },
+    dataTest = 'dhis2-uicore-sharingdialog',
 }) => {
     const { show: showError } = useAlert((error) => error, { critical: true })
 
@@ -176,20 +182,6 @@ export const SharingDialog = ({
             </Modal>
         </FetchingContext.Provider>
     )
-}
-
-SharingDialog.defaultProps = {
-    initialSharingSettings: {
-        name: '',
-        allowPublic: true,
-        public: ACCESS_NONE,
-        groups: {},
-        users: {},
-    },
-    onClose: () => {},
-    onError: () => {},
-    onSave: () => {},
-    dataTest: 'dhis2-uicore-sharingdialog',
 }
 
 SharingDialog.propTypes = {

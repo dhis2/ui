@@ -18,12 +18,12 @@ const flipPlacement = (placement) => {
 const Popper = ({
     children,
     className,
-    dataTest,
-    modifiers,
+    dataTest = 'dhis2-uicore-popper',
+    modifiers = [],
     observePopperResize,
     observeReferenceResize,
     onFirstUpdate,
-    placement,
+    placement = 'auto',
     reference,
     strategy,
 }) => {
@@ -67,12 +67,6 @@ const Popper = ({
             {children}
         </div>
     )
-}
-
-Popper.defaultProps = {
-    dataTest: 'dhis2-uicore-popper',
-    modifiers: [],
-    placement: 'auto',
 }
 
 // Prop names follow the names here: https://popper.js.org/docs/v2/constructors/

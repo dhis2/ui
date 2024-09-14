@@ -8,8 +8,8 @@ export const StackedTableCell = ({
     className,
     colSpan,
     column,
-    dataTest,
-    headerLabels,
+    dataTest = 'dhis2-uicore-stackedtablecell',
+    headerLabels = [],
     hideTitle,
     rowSpan,
     title,
@@ -56,9 +56,4 @@ StackedTableCell.propTypes = {
     hideTitle: PropTypes.bool,
     rowSpan: PropTypes.string,
     title: PropTypes.string,
-}
-
-StackedTableCell.defaultProps = {
-    dataTest: 'dhis2-uicore-stackedtablecell',
-    headerLabels: [],
 }

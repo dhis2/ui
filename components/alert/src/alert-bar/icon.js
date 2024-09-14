@@ -9,7 +9,7 @@ import {
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const StatusIcon = ({ error, warning, valid, info, defaultTo }) => {
+const StatusIcon = ({ error, warning, valid, info, defaultTo = null }) => {
     if (error) {
         return <IconErrorFilled24 color={colors.white} />
     }
@@ -24,10 +24,6 @@ const StatusIcon = ({ error, warning, valid, info, defaultTo }) => {
     }
 
     return defaultTo
-}
-
-StatusIcon.defaultProps = {
-    defaultTo: null,
 }
 
 StatusIcon.propTypes = {

@@ -10,7 +10,7 @@ import { Menu } from './menu.js'
 
 const MultiSelect = ({
     className,
-    selected,
+    selected = [],
     tabIndex,
     maxHeight,
     inputMaxHeight,
@@ -35,7 +35,7 @@ const MultiSelect = ({
     noMatchText,
     initialFocus,
     dense,
-    dataTest,
+    dataTest = 'dhis2-uicore-multiselect',
 }) => {
     // If the select is filterable, use a filterable menu
     const menu = filterable ? (
@@ -103,11 +103,6 @@ const MultiSelect = ({
             `}</style>
         </div>
     )
-}
-
-MultiSelect.defaultProps = {
-    selected: [],
-    dataTest: 'dhis2-uicore-multiselect',
 }
 
 MultiSelect.propTypes = {

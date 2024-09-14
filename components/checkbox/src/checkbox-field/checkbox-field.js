@@ -5,7 +5,11 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { Checkbox } from '../checkbox/index.js'
 
-const AddRequired = ({ label, required, dataTest }) => (
+const AddRequired = ({
+    label,
+    required,
+    dataTest = 'dhis2-uiwidgets-checkboxfield',
+}) => (
     <React.Fragment>
         {label}
         {required && <Required dataTest={`${dataTest}-required`} />}
@@ -37,7 +41,7 @@ const CheckboxField = ({
     required,
     helpText,
     validationText,
-    dataTest,
+    dataTest = 'dhis2-uiwidgets-checkboxfield',
 }) => (
     <Field
         className={className}
@@ -74,10 +78,6 @@ const CheckboxField = ({
         />
     </Field>
 )
-
-CheckboxField.defaultProps = {
-    dataTest: 'dhis2-uiwidgets-checkboxfield',
-}
 
 CheckboxField.propTypes = {
     checked: PropTypes.bool,

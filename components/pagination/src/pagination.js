@@ -15,24 +15,24 @@ const MAX_PAGE_COUNT = 2000
 
 const Pagination = ({
     className,
-    dataTest,
+    dataTest = 'dhis2-uiwidgets-pagination',
     disabled,
     hidePageSelect,
     hidePageSizeSelect,
     hidePageSummary,
     isLastPage,
-    nextPageText,
+    nextPageText = () => i18n.t('Next'),
     onPageChange,
     onPageSizeChange,
     page,
     pageCount,
     pageLength,
-    pageSelectText,
+    pageSelectText = () => i18n.t('Page'),
     pageSize,
-    pageSizes,
-    pageSizeSelectText,
-    pageSummaryText,
-    previousPageText,
+    pageSizes = ['5', '10', '20', '30', '40', '50', '75', '100'],
+    pageSizeSelectText = () => i18n.t('Items per page'),
+    pageSummaryText = getDefaultPageSummaryText,
+    previousPageText = () => i18n.t('Previous'),
     total,
 }) => {
     const { firstItem, lastItem } = getItemRange({
@@ -115,16 +115,6 @@ const Pagination = ({
             `}</style>
         </div>
     )
-}
-
-Pagination.defaultProps = {
-    dataTest: 'dhis2-uiwidgets-pagination',
-    pageSizes: ['5', '10', '20', '30', '40', '50', '75', '100'],
-    nextPageText: () => i18n.t('Next'),
-    pageSelectText: () => i18n.t('Page'),
-    pageSizeSelectText: () => i18n.t('Items per page'),
-    pageSummaryText: getDefaultPageSummaryText,
-    previousPageText: () => i18n.t('Previous'),
 }
 
 Pagination.propTypes = {

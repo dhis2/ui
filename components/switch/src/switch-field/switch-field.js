@@ -5,7 +5,11 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { Switch } from '../switch/index.js'
 
-const AddRequired = ({ label, required, dataTest }) => (
+const AddRequired = ({
+    label,
+    required,
+    dataTest = 'dhis2-uiwidgets-switchfield',
+}) => (
     <React.Fragment>
         {label}
         {required && <Required dataTest={`${dataTest}-required`} />}
@@ -37,7 +41,7 @@ const SwitchField = ({
     required,
     helpText,
     validationText,
-    dataTest,
+    dataTest = 'dhis2-uiwidgets-switchfield',
 }) => (
     <Field
         className={className}
@@ -76,10 +80,6 @@ const SwitchField = ({
         />
     </Field>
 )
-
-SwitchField.defaultProps = {
-    dataTest: 'dhis2-uiwidgets-switchfield',
-}
 
 SwitchField.propTypes = {
     checked: PropTypes.bool,

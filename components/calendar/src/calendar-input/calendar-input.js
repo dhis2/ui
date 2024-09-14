@@ -143,9 +143,6 @@ export const CalendarInput = ({
     )
 }
 
-CalendarInput.defaultProps = {
-    dataTest: 'dhis2-uiwidgets-calendar-inputfield',
-}
 CalendarInput.propTypes = {
     ...CalendarProps,
     ...InputFieldProps,

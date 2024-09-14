@@ -128,15 +128,6 @@ class FileInputFieldWithList extends Component {
     }
 }
 
-FileInputFieldWithList.defaultProps = {
-    dataTest: 'dhis2-uiwidgets-fileinputfieldwithlist',
-    files: [],
-
-    buttonLabel: () => i18n.t('Upload a file'),
-    placeholder: () => i18n.t('No file uploaded yet'),
-    removeText: () => i18n.t('Remove'),
-}
-
 FileInputFieldWithList.propTypes = {
     /** Called with signature `({ name: string, files: [File] }, event)` */
     onChange: PropTypes.func.isRequired,

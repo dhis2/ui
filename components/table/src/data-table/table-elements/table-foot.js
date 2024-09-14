@@ -17,10 +17,6 @@ export const TableFoot = forwardRef(
 
 TableFoot.displayName = 'TableFoot'
 
-TableFoot.defaultProps = {
-    dataTest: 'dhis2-uicore-tablefoot',
-}
-
 TableFoot.propTypes = {
     /** Should be `<TableRow>` components */
     children: PropTypes.node,

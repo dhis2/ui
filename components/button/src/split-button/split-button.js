@@ -159,10 +159,6 @@ class SplitButton extends Component {
     }
 }
 
-SplitButton.defaultProps = {
-    dataTest: 'dhis2-uicore-splitbutton',
-}
-
 SplitButton.propTypes = {
     children: PropTypes.string,
     className: PropTypes.string,

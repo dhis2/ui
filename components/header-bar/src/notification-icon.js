@@ -13,7 +13,7 @@ function icon(kind) {
 }
 
 export const NotificationIcon = ({
-    count,
+    count = 0,
     href,
     kind,
     dataTestId,
@@ -80,10 +80,6 @@ export const NotificationIcon = ({
         `}</style>
     </a>
 )
-
-NotificationIcon.defaultProps = {
-    count: 0,
-}
 
 NotificationIcon.propTypes = {
     'aria-label': PropTypes.string.isRequired,

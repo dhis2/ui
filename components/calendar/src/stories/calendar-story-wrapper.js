@@ -159,12 +159,6 @@ export const CalendarStoryWrapper = (props) => {
     )
 }
 
-CalendarStoryWrapper.defaultProps = {
-    calendar: 'gregorian',
-    component: Calendar,
-    weekDayFormat: 'narrow',
-}
-
 CalendarStoryWrapper.propTypes = {
     calendar: PropTypes.string.isRequired,
     component: PropTypes.elementType.isRequired,

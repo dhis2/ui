@@ -43,10 +43,6 @@ export const TableHeaderCellAction = forwardRef(
 
 TableHeaderCellAction.displayName = 'TableHeaderCellAction'
 
-TableHeaderCellAction.defaultProps = {
-    dataTest: 'dhis2-uicore-tableheadercellaction',
-}
-
 TableHeaderCellAction.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
