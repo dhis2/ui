@@ -3,7 +3,7 @@ import React, { useRef } from 'react'
 import { DEMO_URL } from '../constants.js'
 import styles from './DemoComponent.module.css'
 
-export const Demo = ({ path, args, height }) => {
+export const Demo = ({ path, args = '', height = '100px' }) => {
     const iframeRef = useRef(null)
 
     const handleReload = () => {
@@ -72,9 +72,4 @@ Demo.propTypes = {
     path: PropTypes.string.isRequired,
     args: PropTypes.string,
     height: PropTypes.string,
-}
-
-Demo.defaultProps = {
-    args: '',
-    height: '100px',
 }

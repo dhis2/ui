@@ -150,7 +150,14 @@ export default {
     },
     // Default args:
     args: {
-        ...Transfer.defaultProps,
+        dataTest: 'dhis2-uicore-transfer',
+        height: '240px',
+        initialSearchTerm: '',
+        initialSearchTermPicked: '',
+        maxSelections: Infinity,
+        optionsWidth: '320px',
+        selected: [],
+        selectedWidth: '320px',
         options: options,
     },
 }
