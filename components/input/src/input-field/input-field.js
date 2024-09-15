@@ -6,6 +6,10 @@ import React from 'react'
 import { Input } from '../input/index.js'
 
 class InputField extends React.Component {
+    static defaultProps = {
+        dataTest: 'dhis2-uiwidgets-inputfield',
+    }
+
     render() {
         const {
             className,

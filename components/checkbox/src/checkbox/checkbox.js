@@ -58,6 +58,12 @@ class Checkbox extends Component {
         }
     }
 
+    static defaultProps = {
+        checked: false,
+        indeterminate: false,
+        dataTest: 'dhis2-uicore-checkbox',
+    }
+
     render() {
         const {
             checked = false,

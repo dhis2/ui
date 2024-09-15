@@ -67,6 +67,10 @@ class DropdownButton extends Component {
         open: false,
     }
 
+    static defaultProps = {
+        dataTest: 'dhis2-uicore-dropdownbutton',
+    }
+
     anchorRef = React.createRef()
 
     componentDidMount() {

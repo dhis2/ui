@@ -45,6 +45,12 @@ class Switch extends Component {
         }
     }
 
+    static defaultProps = {
+        checked: false,
+        dataTest: 'dhis2-uicore-switch',
+        role: 'switch',
+    }
+
     render() {
         const {
             'aria-label': ariaLabel,

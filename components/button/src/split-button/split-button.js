@@ -20,6 +20,10 @@ class SplitButton extends Component {
         open: false,
     }
 
+    static defaultProps = {
+        dataTest: 'dhis2-uicore-splitbutton',
+    }
+
     anchorRef = React.createRef()
 
     componentDidMount() {
@@ -78,6 +82,7 @@ class SplitButton extends Component {
 
         const arrow = open ? <IconChevronUp16 /> : <IconChevronDown16 />
 
+        console.log(dataTest)
         return (
             <div ref={this.anchorRef} data-test={dataTest}>
                 <Button

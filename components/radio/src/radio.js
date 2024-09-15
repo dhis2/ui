@@ -45,6 +45,10 @@ class Radio extends Component {
         }
     }
 
+    static defaultProps = {
+        dataTest: 'dhis2-uicore-radio',
+    }
+
     render() {
         const {
             checked = false,

@@ -89,6 +89,11 @@ const styles = css`
 `
 
 export class Input extends Component {
+    static defaultProps = {
+        type: 'text',
+        dataTest: 'dhis2-uicore-input',
+    }
+
     inputRef = React.createRef()
 
     componentDidMount() {

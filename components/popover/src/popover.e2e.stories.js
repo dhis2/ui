@@ -19,6 +19,11 @@ const referenceElementStyle = {
 
 class PopperInBoxWithCenteredReferenceElement extends Component {
     ref = createRef()
+    static defaultProps = {
+        paddingTop: 220,
+        popoverHeight: 200,
+        popoverWidth: 336,
+    }
 
     render() {
         const {

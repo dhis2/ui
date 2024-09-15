@@ -59,6 +59,14 @@ class FileInputFieldWithList extends Component {
         )
     }
 
+    static defaultProps = {
+        accept: '*',
+        dataTest: 'dhis2-uiwidgets-fileinputfield',
+
+        buttonLabel: () => i18n.t('Upload a file'),
+        placeholder: () => i18n.t('No file uploaded yet'),
+    }
+
     render() {
         const {
             accept,

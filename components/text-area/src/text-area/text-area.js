@@ -106,6 +106,12 @@ export class TextArea extends Component {
             name: this.props.name,
         }
     }
+    static defaultProps = {
+        rows: 4,
+        width: '100%',
+        resize: 'vertical',
+        dataTest: 'dhis2-uicore-textarea',
+    }
 
     render() {
         const {
