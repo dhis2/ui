@@ -1,0 +1,37 @@
+const template = require('./src/icons/templates/icon-template.js')
+const indexTemplate = require('./src/icons/templates/index-template.js')
+
+module.exports = {
+    // This controls how the index.js file is generated
+    indexTemplate,
+    // This controls how the svgs are transformed to jsx
+    template,
+
+    // Do not pass props on to the root svg node
+    expandProps: false,
+
+    // Pass the color prop on to the root svg node
+    svgProps: {
+        color: '{color}',
+        ['data-test']: '{dataTest}',
+    },
+
+    // Compress svgs
+    svgo: true,
+    svgoConfig: {
+        plugins: [
+            {
+                removeViewBox: false,
+                mergePaths: true,
+            },
+        ],
+    },
+
+    /**
+     * Replace hardcoded fills on paths, so that it can be overridden
+     * by setting the `color` prop
+     */
+    replaceAttrValues: {
+        '#010101': 'currentColor',
+    },
+}

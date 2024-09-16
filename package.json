@@ -1,56 +1,67 @@
 {
-    "name": "@dhis2/ui-root",
+    "name": "@dhis2/ui",
     "version": "9.11.3",
     "repository": {
         "type": "git",
         "url": "https://github.com/dhis2/ui.git"
     },
-    "author": "Viktor Varland <viktor@dhis2.org>",
+    "author": "Jan-Gerke Salomon <jan-gerke@dhis2.org>",
     "contributors": [
         {
-            "name": "Jan-Gerke Salomon",
-            "email": "jan-gerke@dhis2.org"
+            "name": "Viktor Varland",
+            "email": "viktor@dhis2.org"
         }
     ],
     "license": "BSD-3-Clause",
-    "private": true,
-    "workspaces": {
-        "packages": [
-            "collections/*",
-            "components/*",
-            "constants",
-            "icons",
-            "storybook",
-            "docs"
-        ]
-    },
     "scripts": {
         "setup": "./scripts/setup.js",
-        "build": "./scripts/build-world.sh",
+        "clean:icons": "rimraf ./src/icons/react",
+        "start": "EXTEND_ESLINT=true storybook dev -c storybook/config --port 5000 --ci",
+        "start:docs": "yarn workspace ui-docusaurus start",
+        "__build": "./scripts/build-world.sh",
+        "build": "d2-app-scripts build",
         "build:lib": "./scripts/build.js",
         "build:docs": "./scripts/build-docs.js",
         "build:api": "./scripts/generate-api-docs.js",
-        "cy:start": "yarn build:lib && STORYBOOK_TESTING=1 yarn start",
-        "cy:open": "wait-on 'http://localhost:5000' && cypress open",
-        "cy:run": "wait-on 'http://localhost:5000' && cypress run",
-        "cy:test": "./scripts/cypress.js",
+        "build:icons": "svgr -d src/icons/react src/icons/svg",
         "format": "d2-style apply",
         "format:staged": "d2-style apply --staged",
         "lint": "d2-style check",
         "lint:staged": "d2-style check --staged",
-        "test": "d2-app-scripts test",
-        "start": "yarn workspace ui-storybook start",
-        "start:docs": "yarn workspace ui-docusaurus start"
+        "test": "d2-app-scripts test"
     },
     "dependencies": {
+        "@babel/plugin-proposal-class-properties": "^7.13.0",
+        "@babel/plugin-proposal-private-methods": "^7.13.0",
+        "@babel/plugin-proposal-private-property-in-object": "^7.14.0",
+        "@dhis2-ui/css": "9.11.3",
         "@dhis2/d2-i18n": "^1.1.0",
-        "react": "16.13",
-        "react-dom": "16.13",
+        "@dhis2/multi-calendar-dates": "^1.2.3",
+        "@dhis2/prop-types": "^3.1.2",
+        "@dhis2/ui-constants": "9.11.3",
+        "@fontsource/roboto": "^4.5.0",
+        "@popperjs/core": "^2.10.1",
+        "@react-hook/size": "^2.1.2",
+        "@storybook/addon-a11y": "^8.0.6",
+        "@storybook/addon-console": "^3.0.0",
+        "@storybook/addon-essentials": "^8.0.6",
+        "@storybook/addon-storysource": "^8.0.6",
+        "@storybook/channels": "^8.0.6",
+        "@storybook/components": "^8.0.6",
+        "@storybook/core-events": "^8.0.6",
+        "@storybook/node-logger": "^8.0.6",
+        "@storybook/preset-create-react-app": "^8.0.6",
+        "@storybook/react": "^8.0.6",
+        "@storybook/theming": "^8.0.6",
+        "@testing-library/react": "^12.1.2",
+        "classnames": "^2.3.1",
+        "moment": "^2.29.1",
+        "prop-types": "^15.7.2",
+        "react-popper": "^2.2.5",
         "react-scripts": "^5.0.1",
+        "resize-observer-polyfill": "^1.5.1",
+        "storybook-addon-jsx": "^7.3.14",
         "styled-jsx": "^4.0.1"
-    },
-    "peerDependencies": {
-        "@types/react": ">=16.14.0"
     },
     "devDependencies": {
         "@babel/parser": "^7.17.0",
@@ -62,7 +73,9 @@
         "@dhis2/cli-utils-docsite": "^3.1.2",
         "@dhis2/cypress-commands": "^10.0.5",
         "@dhis2/cypress-plugins": "^10.0.5",
+        "@dhis2/d2-i18n": "^1.1.0",
         "@manypkg/cli": "^0.18.0",
+        "@storybook/react-webpack5": "^8.0.6",
         "@svgr/cli": "^5.5.0",
         "@testing-library/jest-dom": "^5.16.1",
         "@testing-library/react": "^12.1.2",
@@ -70,19 +83,46 @@
         "@testing-library/user-event": "^13.5.0",
         "ast-types": "^0.14.2",
         "concurrently": "^6.2.1",
+        "crypto-browserify": "^3.12.0",
         "cypress": "^13.8.0",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.8",
         "execa": "^5.1.1",
         "fast-glob": "^3.2.7",
         "find-up": "^5.0.0",
+        "react": "^16.13",
+        "react-dom": "^16.13",
         "react-dev-utils": "^10.2.1",
         "react-docgen": "^5.4.0",
+        "react-dom": "16.13",
         "rimraf": "^3.0.2",
+        "storybook": "^8.0.6",
+        "stream-browserify": "^3.0.0",
+        "styled-jsx": "^4.0.1",
         "wait-on": "^6.0.0"
     },
-    "overrides": {
-        "react": "$react",
-        "react-dom": "$react"
+    "peerDependencies": {
+        "@dhis2/app-runtime": "^3",
+        "@dhis2/d2-i18n": "^1",
+        "@types/react": ">=16.14.0",
+        "react": "^16.13",
+        "react-dom": "^16.13",
+        "styled-jsx": "^4",
+        "typescript": "^4"
+    },
+    "peerDependenciesMeta": {
+      "typescript": {
+        "optional": true
+      }
+    }
+    "main": "./build/cjs/index.js",
+    "module": "./build/es/index.js",
+    "exports": {
+        "import": "./build/es/index.js",
+        "require": "./build/cjs/index.js"
+    },
+    "resolutions": {
+        "react": "^16.13",
+        "react-dom": "^16.13"
     }
 }
