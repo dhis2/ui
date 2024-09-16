@@ -1,0 +1,10 @@
+{
+    "userGroups": [
+        {
+            "id": "group-1",
+            "name": "A group",
+            "displayName": "A group"
+        }
+    ],
+    "users": []
+}
