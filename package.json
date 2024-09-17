@@ -114,7 +114,7 @@
       "typescript": {
         "optional": true
       }
-    }
+    },
     "main": "./build/cjs/index.js",
     "module": "./build/es/index.js",
     "exports": {

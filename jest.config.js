@@ -5,6 +5,6 @@ module.exports = {
         '<rootDir>/jest.enzyme.config.js',
         '<rootDir>/jest.testing-library.config.js',
     ],
-    roots: ['<rootDir>/collections', '<rootDir>/components'],
+    roots: ['<rootDir>/src'],
     testPathIgnorePatterns: ['/node_modules/', '/build/', '/.d2/'],
 }
