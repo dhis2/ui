@@ -1,0 +1,78 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"POT-Creation-Date: 2024-06-12T03:40:49.012Z\n"
+"PO-Revision-Date: 2024-06-12T03:40:49.013Z\n"
+
+msgid "Search apps"
+msgstr "Search apps"
+
+msgid "DHIS2 {{dhis2Version}}"
+msgstr "DHIS2 {{dhis2Version}}"
+
+msgid "DHIS2 version unknown"
+msgstr "DHIS2 version unknown"
+
+msgid "{{appName}} version unknown"
+msgstr "{{appName}} version unknown"
+
+msgid "App {{appVersion}}"
+msgstr "App {{appVersion}}"
+
+msgid "App version unknown"
+msgstr "App version unknown"
+
+msgid "Debug info"
+msgstr "Debug info"
+
+msgid "Close"
+msgstr "Close"
+
+msgid "Copy debug info"
+msgstr "Copy debug info"
+
+msgid "Interpretations"
+msgstr "Interpretations"
+
+msgid "Messages"
+msgstr "Messages"
+
+msgid "Online"
+msgstr "Online"
+
+msgid "Offline"
+msgstr "Offline"
+
+msgid "Edit profile"
+msgstr "Edit profile"
+
+msgid "Settings"
+msgstr "Settings"
+
+msgid "Account"
+msgstr "Account"
+
+msgid "Help"
+msgstr "Help"
+
+msgid "About DHIS2"
+msgstr "About DHIS2"
+
+msgid "Logout"
+msgstr "Logout"
+
+msgid "New {{appName}} version available"
+msgstr "New {{appName}} version available"
+
+msgid "New app version available"
+msgstr "New app version available"
+
+msgid "Click to reload"
+msgstr "Click to reload"
+
+msgid "header bar profile"
+msgstr "header bar profile"

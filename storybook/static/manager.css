@@ -1,0 +1,10 @@
+/* Styles to customize storybook manager UI (search, sidebar, etc) go here */
+
+.sidebar-subheading {
+    color: #404b5a !important;
+    text-transform: none !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: normal !important;
+    margin: 16px 20px 0px 20px !important;
+}

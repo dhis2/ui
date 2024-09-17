@@ -1,0 +1,153 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"POT-Creation-Date: 2021-11-25T09:59:40.995Z\n"
+"PO-Revision-Date: 2021-11-25T09:59:40.995Z\n"
+
+msgid "View only"
+msgstr "View only"
+
+msgid "View and edit"
+msgstr "View and edit"
+
+msgid "Give access to a user or group"
+msgstr "Give access to a user or group"
+
+msgid "Access level"
+msgstr "Access level"
+
+msgid "Select a level"
+msgstr "Select a level"
+
+msgid "Not available offline"
+msgstr "Not available offline"
+
+msgid "Give access"
+msgstr "Give access"
+
+msgid "Users and groups that currently have access"
+msgstr "Users and groups that currently have access"
+
+msgid "User / Group"
+msgstr "User / Group"
+
+msgid "All users"
+msgstr "All users"
+
+msgid "No access"
+msgstr "No access"
+
+msgid "Can view"
+msgstr "Can view"
+
+msgid "Can view and edit"
+msgstr "Can view and edit"
+
+msgid "Metadata"
+msgstr "Metadata"
+
+msgid "Remove access"
+msgstr "Remove access"
+
+msgid "User or group"
+msgstr "User or group"
+
+msgid "Search"
+msgstr "Search"
+
+msgid "Apply dashboard sharing settings to visualizations"
+msgstr "Apply dashboard sharing settings to visualizations"
+
+msgid "Something went wrong"
+msgstr "Something went wrong"
+
+msgid "Apply sharing to dashboard visualizations"
+msgstr "Apply sharing to dashboard visualizations"
+
+msgid ""
+"No visualizations were updated. Check that you have permission to change "
+"sharing for all visualizations."
+msgstr ""
+"No visualizations were updated. Check that you have permission to change "
+"sharing for all visualizations."
+
+msgid ""
+"Not all visualizations could be updated successfully. {{ success }} updated "
+"successfully, {{ failed }} failed to update. Check that you have permission "
+"to change sharing for all visualizations."
+msgstr ""
+"Not all visualizations could be updated successfully. {{ success }} updated "
+"successfully, {{ failed }} failed to update. Check that you have permission "
+"to change sharing for all visualizations."
+
+msgid ""
+"No visualizations were updated because sharing settings are already "
+"sufficient."
+msgstr ""
+"No visualizations were updated because sharing settings are already "
+"sufficient."
+
+msgid "Successfully updated sharing for all visualizations."
+msgstr "Successfully updated sharing for all visualizations."
+
+msgid ""
+"Not all visualization sharing settings needed to be updated. {{ updated }} "
+"updated, {{ skipped }} already had sufficient sharing settings."
+msgstr ""
+"Not all visualization sharing settings needed to be updated. {{ updated }} "
+"updated, {{ skipped }} already had sufficient sharing settings."
+
+msgid "There are no users or groups to apply sharing settings for."
+msgstr "There are no users or groups to apply sharing settings for."
+
+msgid ""
+"Number of visualizations on this dashboard that will potentially get "
+"updated sharing settings: {{ visualizationsCount }}. The number of users or "
+"groups that these updated settings will apply to: {{ entityAmount }}."
+msgstr ""
+"Number of visualizations on this dashboard that will potentially get "
+"updated sharing settings: {{ visualizationsCount }}. The number of users or "
+"groups that these updated settings will apply to: {{ entityAmount }}."
+
+msgid ""
+"Applying the same sharing settings makes sure that users and groups that "
+"have access to the dashboard also have at least \"View only\" access to its "
+"visualizations (charts, tables, maps, event charts and event reports)."
+msgstr ""
+"Applying the same sharing settings makes sure that users and groups that "
+"have access to the dashboard also have at least \"View only\" access to its "
+"visualizations (charts, tables, maps, event charts and event reports)."
+
+msgid ""
+"If a user or group already has \"View and edit\" access to a visualization, "
+"this won't be reduced to \"View only\". The \"All users\" access level "
+"won't be updated or changed."
+msgstr ""
+"If a user or group already has \"View and edit\" access to a visualization, "
+"this won't be reduced to \"View only\". The \"All users\" access level "
+"won't be updated or changed."
+
+msgid ""
+"Applying sharing can't be undone, and needs to be done again if new "
+"visualizations are added to the dashboard or its sharing settings are "
+"changed."
+msgstr ""
+"Applying sharing can't be undone, and needs to be done again if new "
+"visualizations are added to the dashboard or its sharing settings are "
+"changed."
+
+msgid "Sharing and access: {{- objectName}}"
+msgstr "Sharing and access: {{- objectName}}"
+
+msgid "Sharing and access"
+msgstr "Sharing and access"
+
+msgid "Close"
+msgstr "Close"
+
+msgid "Dashboard sharing"
+msgstr "Dashboard sharing"

@@ -1,0 +1,139 @@
+# 
+# Translators:
+# Valeriu Plesca <vplesca@gmail.com>, 2022
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-11-25T09:59:40.995Z\n"
+"PO-Revision-Date: 2021-10-01 23:39+0000\n"
+"Last-Translator: Valeriu Plesca <vplesca@gmail.com>, 2022\n"
+"Language-Team: Romanian (https://www.transifex.com/hisp-uio/teams/100509/ro/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
+
+msgid "View only"
+msgstr ""
+
+msgid "View and edit"
+msgstr ""
+
+msgid "Give access to a user or group"
+msgstr ""
+
+msgid "Access level"
+msgstr ""
+
+msgid "Select a level"
+msgstr ""
+
+msgid "Not available offline"
+msgstr ""
+
+msgid "Give access"
+msgstr ""
+
+msgid "Users and groups that currently have access"
+msgstr ""
+
+msgid "User / Group"
+msgstr ""
+
+msgid "All users"
+msgstr ""
+
+msgid "No access"
+msgstr ""
+
+msgid "Can view"
+msgstr ""
+
+msgid "Can view and edit"
+msgstr ""
+
+msgid "Metadata"
+msgstr ""
+
+msgid "Remove access"
+msgstr ""
+
+msgid "User or group"
+msgstr ""
+
+msgid "Search"
+msgstr "Căutare"
+
+msgid "Apply dashboard sharing settings to visualizations"
+msgstr ""
+
+msgid "Something went wrong"
+msgstr ""
+
+msgid "Apply sharing to dashboard visualizations"
+msgstr ""
+
+msgid ""
+"No visualizations were updated. Check that you have permission to change "
+"sharing for all visualizations."
+msgstr ""
+
+msgid ""
+"Not all visualizations could be updated successfully. {{ success }} updated "
+"successfully, {{ failed }} failed to update. Check that you have permission "
+"to change sharing for all visualizations."
+msgstr ""
+
+msgid ""
+"No visualizations were updated because sharing settings are already "
+"sufficient."
+msgstr ""
+
+msgid "Successfully updated sharing for all visualizations."
+msgstr ""
+
+msgid ""
+"Not all visualization sharing settings needed to be updated. {{ updated }} "
+"updated, {{ skipped }} already had sufficient sharing settings."
+msgstr ""
+
+msgid "There are no users or groups to apply sharing settings for."
+msgstr ""
+
+msgid ""
+"Number of visualizations on this dashboard that will potentially get updated"
+" sharing settings: {{ visualizationsCount }}. The number of users or groups "
+"that these updated settings will apply to: {{ entityAmount }}."
+msgstr ""
+
+msgid ""
+"Applying the same sharing settings makes sure that users and groups that "
+"have access to the dashboard also have at least \"View only\" access to its "
+"visualizations (charts, tables, maps, event charts and event reports)."
+msgstr ""
+
+msgid ""
+"If a user or group already has \"View and edit\" access to a visualization, "
+"this won't be reduced to \"View only\". The \"All users\" access level won't"
+" be updated or changed."
+msgstr ""
+
+msgid ""
+"Applying sharing can't be undone, and needs to be done again if new "
+"visualizations are added to the dashboard or its sharing settings are "
+"changed."
+msgstr ""
+
+msgid "Sharing and access: {{- objectName}}"
+msgstr ""
+
+msgid "Sharing and access"
+msgstr ""
+
+msgid "Close"
+msgstr "Închidere"
+
+msgid "Dashboard sharing"
+msgstr ""

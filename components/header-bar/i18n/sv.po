@@ -1,0 +1,82 @@
+# 
+# Translators:
+# Philip Larsen Donnelly, 2024
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2024-03-29T07:26:07.540Z\n"
+"PO-Revision-Date: 2021-06-24 12:50+0000\n"
+"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Language-Team: Swedish (https://app.transifex.com/hisp-uio/teams/100509/sv/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sv\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Search apps"
+msgstr "Sök program"
+
+msgid "DHIS2 {{dhis2Version}}"
+msgstr ""
+
+msgid "DHIS2 version unknown"
+msgstr ""
+
+msgid "{{appName}} version unknown"
+msgstr ""
+
+msgid "App {{appVersion}}"
+msgstr ""
+
+msgid "App version unknown"
+msgstr ""
+
+msgid "Debug info"
+msgstr ""
+
+msgid "Close"
+msgstr "Stänga"
+
+msgid "Copy debug info"
+msgstr ""
+
+msgid "Interpretations"
+msgstr "tolkningar"
+
+msgid "Messages"
+msgstr "meddelanden"
+
+msgid "Online"
+msgstr "Uppkopplad"
+
+msgid "Offline"
+msgstr "Off-line"
+
+msgid "Edit profile"
+msgstr "Redigera profil"
+
+msgid "Settings"
+msgstr "Inställningar"
+
+msgid "Account"
+msgstr "Konto"
+
+msgid "Help"
+msgstr "Hjälp"
+
+msgid "About DHIS2"
+msgstr ""
+
+msgid "Logout"
+msgstr ""
+
+msgid "New {{appName}} version available"
+msgstr ""
+
+msgid "New app version available"
+msgstr ""
+
+msgid "Click to reload"
+msgstr ""
