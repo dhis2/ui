@@ -3,7 +3,7 @@ title: Alert bar
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import API from '../../../components/alert/API.md'
+import API from '../../../collections/ui/src/alert/API.md'
 
 # Alert bar
 

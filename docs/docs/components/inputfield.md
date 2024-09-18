@@ -3,7 +3,7 @@ title: Input
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import API from '../../../components/input/API.md'
+import API from '../../../collections/ui/src/input/API.md'
 
 # Input
 

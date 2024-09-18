@@ -1,66 +1,66 @@
-export * from '@dhis2/ui-constants'
-export * from '@dhis2/ui-icons'
+export * from './constants/index.js'
+export * from './icons/index.js'
 
 // DEPRECATED?
 export * from '@dhis2/ui-forms'
 
 // components
-export { AlertBar, AlertStack } from '@dhis2-ui/alert'
+export { AlertBar, AlertStack } from './alert/index.js'
 export {
     Button,
     ButtonStrip,
     DropdownButton,
     SplitButton,
-} from '@dhis2-ui/button'
-export { Box } from '@dhis2-ui/box'
-export { Calendar, CalendarInput } from '@dhis2-ui/calendar'
-export { Card } from '@dhis2-ui/card'
-export { Center, Center as CenteredContent } from '@dhis2-ui/center'
-export { Checkbox, CheckboxField } from '@dhis2-ui/checkbox'
-export { Chip } from '@dhis2-ui/chip'
-export { Cover, Cover as ComponentCover } from '@dhis2-ui/cover'
-export { CssReset, CssVariables } from '@dhis2-ui/css'
-export { Divider } from '@dhis2-ui/divider'
-export { Field, FieldSet, FieldGroup } from '@dhis2-ui/field'
+} from './button/index.js'
+export { Box } from './box/index.js'
+export { Calendar, CalendarInput } from './calendar/index.js'
+export { Card } from './card/index.js'
+export { Center, Center as CenteredContent } from './center/index.js'
+export { Checkbox, CheckboxField } from './checkbox/index.js'
+export { Chip } from './chip/index.js'
+export { Cover, Cover as ComponentCover } from './cover/index.js'
+export { CssReset, CssVariables } from './css/index.js'
+export { Divider } from './divider/index.js'
+export { Field, FieldSet, FieldGroup } from './field/index.js'
 export {
     FileInput,
     FileInputField,
     FileList,
     FileListItem,
     FileListPlaceholder,
-} from '@dhis2-ui/file-input'
-export { HeaderBar } from '@dhis2-ui/header-bar'
-export { Help } from '@dhis2-ui/help'
-export { Input, InputField } from '@dhis2-ui/input'
-export { IntersectionDetector } from '@dhis2-ui/intersection-detector'
-export { Label } from '@dhis2-ui/label'
-export { Layer, useLayerContext } from '@dhis2-ui/layer'
-export { Legend } from '@dhis2-ui/legend'
-export { CircularLoader, LinearLoader } from '@dhis2-ui/loader'
-export { Logo, LogoIcon, LogoIconWhite, LogoWhite } from '@dhis2-ui/logo'
+} from './file-input/index.js'
+export { HeaderBar } from './header-bar/index.js'
+export { Help } from './help/index.js'
+export { Input, InputField } from './input/index.js'
+export { IntersectionDetector } from './intersection-detector/index.js'
+export { Label } from './label/index.js'
+export { Layer, useLayerContext } from './layer/index.js'
+export { Legend } from './legend/index.js'
+export { CircularLoader, LinearLoader } from './loader/index.js'
+export { Logo, LogoIcon, LogoIconWhite, LogoWhite } from './logo/index.js'
 export {
     Menu,
     MenuDivider,
     MenuItem,
     MenuSectionHeader,
     FlyoutMenu,
-} from '@dhis2-ui/menu'
-export { Modal, ModalActions, ModalContent, ModalTitle } from '@dhis2-ui/modal'
-export { Node } from '@dhis2-ui/node'
-export { NoticeBox } from '@dhis2-ui/notice-box'
+} from './menu/index.js'
+export { Modal, ModalActions, ModalContent, ModalTitle } from './modal/index.js'
+export { Node } from './node/index.js'
+export { NoticeBox } from './notice-box/index.js'
 export {
     OrganisationUnitTree,
     OrganisationUnitTreeRootError,
     OrganisationUnitTreeRootLoading,
     getAllExpandedOrgUnitPaths,
-} from '@dhis2-ui/organisation-unit-tree'
-export { Popover } from '@dhis2-ui/popover'
-export { Popper } from '@dhis2-ui/popper'
-export { Portal } from '@dhis2-ui/portal'
-export { Radio } from '@dhis2-ui/radio'
-export { Required } from '@dhis2-ui/required'
-export { Pagination } from '@dhis2-ui/pagination'
-export { SharingDialog } from '@dhis2-ui/sharing-dialog'
+} from './organisation-unit-tree/index.js'
+export { Popover } from './popover/index.js'
+export { Popper } from './popper/index.js'
+export { Portal } from './portal/index.js'
+export { Radio } from './radio/index.js'
+export { Required } from './required/index.js'
+export { Pagination } from './pagination/index.js'
+export { SharingDialog } from './sharing-dialog/index.js'
 export {
     MultiSelect,
     MultiSelectField,
@@ -68,9 +68,9 @@ export {
     SingleSelect,
     SingleSelectField,
     SingleSelectOption,
-} from '@dhis2-ui/select'
-export { SelectorBar, SelectorBarItem } from '@dhis2-ui/selector-bar'
-export { Switch, SwitchField } from '@dhis2-ui/switch'
+} from './select/index.js'
+export { SelectorBar, SelectorBarItem } from './selector-bar/index.js'
+export { Switch, SwitchField } from './switch/index.js'
 export {
     DataTable,
     DataTableBody,
@@ -96,11 +96,11 @@ export {
     StackedTableHead,
     StackedTableRow,
     StackedTableRowHead,
-} from '@dhis2-ui/table'
-export { Tab, TabBar } from '@dhis2-ui/tab'
-export { Tag } from '@dhis2-ui/tag'
-export { TextArea, TextAreaField } from '@dhis2-ui/text-area'
-export { Tooltip } from '@dhis2-ui/tooltip'
-export { Transfer, TransferOption } from '@dhis2-ui/transfer'
-export { UserAvatar } from '@dhis2-ui/user-avatar'
-export { SegmentedControl } from '@dhis2-ui/segmented-control'
+} from './table/index.js'
+export { Tab, TabBar } from './tab/index.js'
+export { Tag } from './tag/index.js'
+export { TextArea, TextAreaField } from './text-area/index.js'
+export { Tooltip } from './tooltip/index.js'
+export { Transfer, TransferOption } from './transfer/index.js'
+export { UserAvatar } from './user-avatar/index.js'
+export { SegmentedControl } from './segmented-control/index.js'

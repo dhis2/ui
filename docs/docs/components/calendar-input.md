@@ -3,7 +3,7 @@ title: Calendar Input
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import API from '../../../components/calendar/API.md'
+import API from '../../../collections/ui/src/calendar/API.md'
 
 # Calendar Input
 

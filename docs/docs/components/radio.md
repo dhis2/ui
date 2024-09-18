@@ -3,7 +3,7 @@ title: Radio
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import API from '../../../components/radio/API.md'
+import API from '../../../collections/ui/src/radio/API.md'
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 

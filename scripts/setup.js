@@ -73,7 +73,7 @@ concurrently(
             name: 'constants',
             command: 'yarn workspace @dhis2/ui-constants build',
         },
-        { name: 'css', command: 'yarn workspace @dhis2-ui/css build' },
+        // { name: 'css', command: 'yarn workspace @dhis2-ui/css build' },
         {
             name: 'forms',
             command:

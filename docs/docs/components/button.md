@@ -3,7 +3,7 @@ title: Button
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import API from '../../../components/button/API.md'
+import API from '../../../collections/ui/src/button/API.md'
 
 # Button
 

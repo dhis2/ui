@@ -3,7 +3,7 @@ title: Transfer
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import API from '../../../components/transfer/API.md'
+import API from '../../../collections/ui/src/transfer/API.md'
 
 # Transfer
 

@@ -3,7 +3,7 @@ title: Card
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import API from '../../../components/card/API.md'
+import API from '../../../collections/ui/src/card/API.md'
 
 # Card
 

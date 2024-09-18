@@ -4,7 +4,7 @@ title: Segmented control
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
 
-import API from '../../../components/segmented-control/API.md'
+import API from '../../../collections/ui/src/segmented-control/API.md'
 
 # Segmented control
 

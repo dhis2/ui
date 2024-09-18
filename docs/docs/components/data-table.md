@@ -3,7 +3,7 @@ title: Data table
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import API from '../../../components/table/API.md'
+import API from '../../../collections/ui/src/table/API.md'
 
 # Data table
 

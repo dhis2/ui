@@ -4,7 +4,7 @@ title: Notice box
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
 
-import API from '../../../components/notice-box/API.md'
+import API from '../../../collections/ui/src/notice-box/API.md'
 
 # Notice box
 

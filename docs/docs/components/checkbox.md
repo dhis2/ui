@@ -3,7 +3,7 @@ title: Checkbox
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import API from '../../../components/checkbox/API.md'
+import API from '../../../collections/ui/src/checkbox/API.md'
 
 # Checkbox
 

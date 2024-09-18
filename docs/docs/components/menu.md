@@ -3,7 +3,7 @@ title: Menu
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import API from '../../../components/menu/API.md'
+import API from '../../../collections/ui/src/menu/API.md'
 
 # Menu
 

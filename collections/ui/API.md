@@ -1,3 +1,781 @@
+### Box
+
+#### Usage
+
+To use `Box`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { Box } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|children|node||||
+|className|string||||
+|dataTest|string|`'dhis2-uicore-box'`|||
+|height|string||||
+|marginTop|string||||
+|maxHeight|string||||
+|maxWidth|string||||
+|minHeight|string||||
+|minWidth|string||||
+|overflow|string||||
+|width|string||||
+
+### Card
+
+#### Usage
+
+To use `Card`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { Card } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|children|node||||
+|className|string||||
+|dataTest|string|`'dhis2-uicore-card'`|||
+
+### Center
+
+#### Usage
+
+To use `Center`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { Center } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|children|node||||
+|className|string||||
+|dataTest|string|`'dhis2-uicore-centeredcontent'`|||
+|position|'top' │ 'middle' │ 'bottom'|`'middle'`||Vertical alignment|
+
+### Chip
+
+#### Usage
+
+To use `Chip`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { Chip } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|children|any||||
+|className|string||||
+|dataTest|string|`'dhis2-uicore-chip'`|||
+|dense|boolean||||
+|disabled|boolean||||
+|dragging|boolean||||
+|icon|element||||
+|marginBottom|number|`4`||`margin-bottom` value, applied in `px`|
+|marginInlineEnd|number|||`margin-inline-end` value, applied in `px`|
+|marginInlineStart|number|||`margin-inline-start` value, applied in `px`|
+|marginLeft|number|||`margin-inline-start` value, applied in `px`|
+|marginRight|number|||`margin-inline-end` value, applied in `px`|
+|marginTop|number|`4`||`margin-top` value, applied in `px`|
+|overflow|boolean||||
+|selected|boolean||||
+|onClick|function||||
+|onRemove|function||||
+
+### Cover
+
+#### Usage
+
+To use `Cover`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { Cover } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|children|node||||
+|className|string||||
+|dataTest|string|`'dhis2-uicore-componentcover'`|||
+|translucent|boolean|||Adds a semi-transparent background to the cover|
+|onClick|function||||
+
+### Divider
+
+#### Usage
+
+To use `Divider`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { Divider } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|className|string||||
+|dataTest|string|`'dhis2-uicore-divider'`|||
+|dense|boolean||||
+|margin|string|``${spacers.dp8} 0``|||
+
+### HeaderBar
+
+#### Usage
+
+To use `HeaderBar`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { HeaderBar } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|appName|string||||
+|className|string||||
+|updateAvailable|boolean||||
+|onApplyAvailableUpdate|function||||
+
+### Logo
+
+#### Usage
+
+To use `Logo`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { Logo } from '@dhis2/ui'
+```
+
+
+
+### Help
+
+#### Usage
+
+To use `Help`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { Help } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|children|string||||
+|className|string||||
+|dataTest|string|`'dhis2-uicore-help'`|||
+|error|custom||||
+|valid|custom||||
+|warning|custom||||
+
+### IntersectionDetector
+
+#### Usage
+
+To use `IntersectionDetector`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { IntersectionDetector } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|rootRef|{<br/>  "current": "instanceOf(HTMLElement)"<br/>}||*|React ref on other component to detect intersections with|
+|onChange|function||*|Called with signature `({ isIntersecting: bool })`|
+|children|any||||
+|className|string||||
+|dataTest|string|`'dhis2-uicore-intersectiondetector'`|||
+|threshold|number|`0`||The [threshold](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options) value: a value from 0.0 to 1.0 that controls the point at which an intersecting component is considered 'intersected' or 'visible' and the onChange callback triggers|
+
+### Label
+
+#### Usage
+
+To use `Label`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { Label } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|children|string||||
+|className|string||||
+|dataTest|string|`'dhis2-uicore-label'`|||
+|disabled|boolean||||
+|htmlFor|string||||
+|required|boolean||||
+
+### Layer
+
+#### Usage
+
+To use `Layer`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { Layer } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|children|node||||
+|className|string||||
+|dataTest|string|`'dhis2-uicore-layer'`|||
+|disablePortal|boolean|||Disable the Portal, useful for nesting layers|
+|level|number │ string|`'auto'`||Z-index level|
+|position|'absolute' │ 'fixed'|`'fixed'`|||
+|translucent|boolean|||Adds a semi-transparent background|
+|onBackdropClick|function|||Backdrop click handler|
+|onClick|custom|||Click handler - DEPRECATED|
+
+### Legend
+
+#### Usage
+
+To use `Legend`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { Legend } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|children|node||||
+|className|string||||
+|dataTest|string|`'dhis2-uicore-legend'`|||
+|required|boolean|||Indicates the associated field set is required|
+
+### LogoIcon
+
+#### Usage
+
+To use `LogoIcon`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { LogoIcon } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|className|string||||
+|dataTest|string|`'dhis2-uicore-logoicon'`|||
+
+### LogoIconWhite
+
+#### Usage
+
+To use `LogoIconWhite`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { LogoIconWhite } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|className|string||||
+|dataTest|string|`'dhis2-uicore-logoiconwhite'`|||
+
+### Logo
+
+#### Usage
+
+To use `Logo`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { Logo } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|className|string||||
+|dataTest|string|`'dhis2-uicore-logo'`|||
+
+### LogoWhite
+
+#### Usage
+
+To use `LogoWhite`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { LogoWhite } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|className|string||||
+|dataTest|string|`'dhis2-uicore-logowhite'`|||
+
+### Node
+
+#### Usage
+
+To use `Node`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { Node } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|children|node|||Content below this level of the hierarchy; children are revealed when this leaf is 'open'|
+|className|string||||
+|component|element|||Content/label for this leaf, for example a checkbox|
+|dataTest|string|`'dhis2-uicore-node'`|||
+|icon|node|||A custom icon to use instead of a toggle arrow|
+|open|boolean||||
+|onClose|function||||
+|onOpen|function||||
+
+### NoticeBox
+
+#### Usage
+
+To use `NoticeBox`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { NoticeBox } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|children|node||||
+|className|string||||
+|dataTest|string|`'dhis2-uicore-noticebox'`|||
+|error|custom|||Applies 'error' message styles. Mutually exclusive with the `valid` and `warning` props|
+|title|string||||
+|valid|custom|||Applies 'valid' message styles. Mutually exclusive with the `error` and `warning` props|
+|warning|custom|||Applies 'warning' message styles. Mutually exclusive with the `error` and `valid` props|
+
+### Pagination
+
+#### Usage
+
+To use `Pagination`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { Pagination } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|page|number||*||
+|pageSize|number||*||
+|className|string||||
+|dataTest|string|`'dhis2-uiwidgets-pagination'`|||
+|disabled|boolean||||
+|hidePageSelect|boolean||||
+|hidePageSizeSelect|boolean||||
+|hidePageSummary|boolean||||
+|isLastPage|boolean||||
+|nextPageText|string │ function|`() => i18n.t('Next')`|||
+|pageCount|number||||
+|pageLength|custom||||
+|pageSelectText|string │ function|`() => i18n.t('Page')`|||
+|pageSizeSelectText|string │ function|`() => i18n.t('Items per page')`|||
+|pageSizes|arrayOf(string)|`['5', '10', '20', '30', '40', '50', '75', '100']`|||
+|pageSummaryText|string │ function|`getDefaultPageSummaryText`|||
+|previousPageText|string │ function|`() => i18n.t('Previous')`|||
+|total|number||||
+|onPageChange|function||||
+|onPageSizeChange|function||||
+
+### Popover
+
+#### Usage
+
+To use `Popover`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { Popover } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|children|node||*||
+|arrow|boolean|`true`||Show or hide the arrow|
+|className|string||||
+|dataTest|string|`'dhis2-uicore-popover'`|||
+|elevation|string|`elevations.e200`||Box-shadow to create appearance of elevation.  Use `elevations` constants from the UI library.|
+|maxWidth|number|`360`|||
+|observePopperResize|boolean||||
+|observeReferenceResize|boolean||||
+|placement|custom|`'top'`|||
+|reference|custom|||A React ref that refers to the element the Popover should position against|
+|onClickOutside|function||||
+
+### Popper
+
+#### Usage
+
+To use `Popper`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { Popper } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|children|node||*|Content inside the Popper|
+|className|string||||
+|dataTest|string|`'dhis2-uicore-popper'`|||
+|modifiers|arrayOf({<br/>  "name": "string",<br/>  "options": "object"<br/>})|`[]`||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
+|observePopperResize|boolean|||Makes the Popper update position when the **Popper content** changes size|
+|observeReferenceResize|boolean|||Makes the Popper update position when the **reference element** changes size|
+|placement|custom|`'auto'`||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
+|reference|custom|||A React ref, DOM node, or [virtual element](https://popper.js.org/docs/v2/virtual-elements/) for the popper to position itself against|
+|strategy|'absolute' │ 'fixed'|||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
+|onFirstUpdate|function|||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
+
+### Radio
+
+#### Usage
+
+To use `Radio`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { Radio } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|checked|boolean||||
+|className|string||||
+|dataTest|string|`'dhis2-uicore-radio'`|||
+|dense|boolean||||
+|disabled|boolean||||
+|error|custom|||Adds 'error' styling for feedback. Mutually exclusive with `valid` and `warning` props|
+|initialFocus|boolean||||
+|label|node||||
+|name|string|||Name associated with this element. Passed in object to event handler functions|
+|tabIndex|string||||
+|valid|custom|||Adds 'valid' styling for feedback. Mutually exclusive with `error` and `warning` props|
+|value|string|||Value associated with this element. Passed in object to event handler functions|
+|warning|custom|||Adds 'warning' styling for feedback. Mutually exclusive with `valid` and `error` props|
+|onBlur|function|||Called with the signature `({ name: string, value: string, checked: bool }, event)`|
+|onChange|function|||Called with the signature `({ name: string, value: string, checked: bool }, event)`|
+|onFocus|function|||Called with the signature `({ name: string, value: string, checked: bool }, event)`|
+|onKeyDown|function|||Called with the signature `({ name: string, value: string, checked: bool }, event)`|
+
+### Required
+
+#### Usage
+
+To use `Required`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { Required } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|dataTest|string||*||
+
+### SegmentedControl
+
+#### Usage
+
+To use `SegmentedControl`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { SegmentedControl } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|options|arrayOf({<br/>  "label": "string",<br/>  "value": "string",<br/>  "disabled": "boolean"<br/>})||*|Options to populate the segmented control|
+|selected|string||*|An option to select; should match the `value` property of the option to be selected|
+|onChange|function||*|Called with the signature `({ value: string }, event)`|
+|ariaLabel|string|||Used to provide an accessible label to a segmented control without a visible label|
+
+### SharingDialog
+
+#### Usage
+
+To use `SharingDialog`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { SharingDialog } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|id|string||*|The id of the object to share|
+|type|DIALOG_TYPES_LIST||*|The type of object to share|
+|dataTest|string|`'dhis2-uicore-sharingdialog'`|||
+|initialSharingSettings|{<br/>  "allowPublic": "boolean",<br/>  "groups": "objectOf",<br/>  "name": "string",<br/>  "public": "import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    DIALOG_TYPES_LIST,\n} from './constants.js' │ import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    DIALOG_TYPES_LIST,\n} from './constants.js' │ import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    DIALOG_TYPES_LIST,\n} from './constants.js'",<br/>  "users": "objectOf"<br/>}|`{
+    name: '',
+    allowPublic: true,
+    public: ACCESS_NONE,
+    groups: {},
+    users: {},
+}`||Used to seed the component with data to show whilst loading|
+|onClose|function|`() => {}`|||
+|onError|function|`() => {}`|||
+|onSave|function|`() => {}`|||
+
+### Tag
+
+#### Usage
+
+To use `Tag`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { Tag } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|bold|boolean|||Use bold tags where it is important that the tag is seen by the user in an information dense interface. Bold tags should be reserved for edge cases and not overused.|
+|children|node||||
+|className|string||||
+|dataTest|string|`'dhis2-uicore-tag'`|||
+|icon|node|||Tags can contain icons. Use icons where they will help users easily identify the content of the tag. Tags must have a text label and cannot display only an icon.|
+|maxWidth|string|`'240px'`|||
+|negative|custom|||Red 'negative' tags imply an error or a problem. `neutral`, `positive`, and `negative` are mutually exclusive props|
+|neutral|custom|||Blue 'neutral' tags are used when a tag _could_ have valid or error status but is currently neutral. `neutral`, `positive`, and `negative` are mutually exclusive props|
+|positive|custom|||Green 'valid' tags should be used to indicate validity or success. `neutral`, `positive`, and `negative` are mutually exclusive props|
+
+### Tooltip
+
+#### Usage
+
+To use `Tooltip`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { Tooltip } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|children|node │ function|||If child is a function, it's called with `{ onMouseOver, onMouseOut, ref }` args to apply to a reference element. If child is a node, it is wrapped in a `span` with the appropriate attributes and handlers.|
+|className|string||||
+|closeDelay|number|`200`||Time (in ms) until tooltip closes after mouse out|
+|content|node|||Content to display when the tooltip is open|
+|dataTest|string|`'dhis2-uicore-tooltip'`|||
+|maxWidth|number|`300`||Max width of the tooltip in px|
+|openDelay|number|`200`||Time (in ms) until tooltip open after mouse over|
+|placement|'top' │ 'right' │ 'bottom' │ 'left'|`'top'`||Where to place the tooltip relative to its reference|
+
+### TransferOption
+
+#### Usage
+
+To use `TransferOption`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { TransferOption } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|label|node||*||
+|value|string||*||
+|className|string||||
+|dataTest|string|`'dhis2-uicore-transferoption'`|||
+|disabled|boolean||||
+|highlighted|boolean||||
+|onClick|function||||
+|onDoubleClick|function||||
+
+### Transfer
+
+#### Usage
+
+To use `Transfer`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { Transfer } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|options|arrayOf({<br/>  "label": "string",<br/>  "value": "string",<br/>  "disabled": "boolean"<br/>})||*||
+|onChange|function||*||
+|addAllText|string||||
+|addIndividualText|string||||
+|className|string||||
+|dataTest|string|`'dhis2-uicore-transfer'`|||
+|disabled|boolean||||
+|enableOrderChange|boolean||||
+|filterCallback|function|`defaultFilterCallback`|||
+|filterCallbackPicked|function|`defaultFilterCallback`|||
+|filterLabel|string||||
+|filterLabelPicked|string||||
+|filterPlaceholder|string||||
+|filterPlaceholderPicked|string||||
+|filterable|boolean||||
+|filterablePicked|boolean||||
+|height|string|`'240px'`|||
+|hideFilterInput|boolean||||
+|hideFilterInputPicked|boolean||||
+|initialSearchTerm|string|`''`|||
+|initialSearchTermPicked|string|`''`|||
+|leftFooter|node||||
+|leftHeader|node||||
+|loading|boolean||||
+|loadingPicked|boolean||||
+|maxSelections|1 │ Infinity|`Infinity`|||
+|optionsWidth|string|`'320px'`|||
+|removeAllText|string||||
+|removeIndividualText|string||||
+|renderOption|function|`(option) => <TransferOption {...option} />`|||
+|rightFooter|node||||
+|rightHeader|node||||
+|searchTerm|string||||
+|searchTermPicked|string||||
+|selected|arrayOf(string)|`[]`|||
+|selectedEmptyComponent|node||||
+|selectedWidth|string|`'320px'`|||
+|sourceEmptyPlaceholder|node||||
+|onEndReached|function||||
+|onEndReachedPicked|function||||
+|onFilterChange|function||||
+|onFilterChangePicked|function||||
+
+### UserAvatar
+
+#### Usage
+
+To use `UserAvatar`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { UserAvatar } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|name|string||*||
+|ariaLabel|string||||
+|avatarId|string||||
+|className|string||||
+|dataTest|string|`'dhis2-uicore-useravatar'`|||
+|extralarge|custom||||
+|extrasmall|custom||||
+|large|custom||||
+|medium|custom||||
+|small|custom||||
+
 ### AlertBar
 
 #### Usage
@@ -46,34 +824,6 @@ import { AlertStack } from '@dhis2/ui'
 |children|node||||
 |className|string||||
 |dataTest|string|`'dhis2-uicore-alertstack'`|||
-
-### Box
-
-#### Usage
-
-To use `Box`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { Box } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|children|node||||
-|className|string||||
-|dataTest|string|`'dhis2-uicore-box'`|||
-|height|string||||
-|marginTop|string||||
-|maxHeight|string||||
-|maxWidth|string||||
-|minHeight|string||||
-|minWidth|string||||
-|overflow|string||||
-|width|string||||
 
 ### Button
 
@@ -249,47 +999,6 @@ import { CalendarInput } from '@dhis2/ui'
 |---|---|---|---|---|
 |dataTest|undefined|`'dhis2-uiwidgets-calendar-inputfield'`|||
 
-### Card
-
-#### Usage
-
-To use `Card`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { Card } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|children|node||||
-|className|string||||
-|dataTest|string|`'dhis2-uicore-card'`|||
-
-### Center
-
-#### Usage
-
-To use `Center`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { Center } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|children|node||||
-|className|string||||
-|dataTest|string|`'dhis2-uicore-centeredcontent'`|||
-|position|'top' │ 'middle' │ 'bottom'|`'middle'`||Vertical alignment|
-
 ### Checkbox
 
 #### Usage
@@ -362,62 +1071,6 @@ import { CheckboxField } from '@dhis2/ui'
 |onFocus|function|||Called with signature `({ name: string, value: string, checked: bool }, event)`|
 |onKeyDown|function|||Called with signature `({ name: string, value: string, checked: bool }, event)`|
 
-### Chip
-
-#### Usage
-
-To use `Chip`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { Chip } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|children|any||||
-|className|string||||
-|dataTest|string|`'dhis2-uicore-chip'`|||
-|dense|boolean||||
-|disabled|boolean||||
-|dragging|boolean||||
-|icon|element||||
-|marginBottom|number|`4`||`margin-bottom` value, applied in `px`|
-|marginInlineEnd|number|||`margin-inline-end` value, applied in `px`|
-|marginInlineStart|number|||`margin-inline-start` value, applied in `px`|
-|marginLeft|number|||`margin-inline-start` value, applied in `px`|
-|marginRight|number|||`margin-inline-end` value, applied in `px`|
-|marginTop|number|`4`||`margin-top` value, applied in `px`|
-|overflow|boolean||||
-|selected|boolean||||
-|onClick|function||||
-|onRemove|function||||
-
-### Cover
-
-#### Usage
-
-To use `Cover`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { Cover } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|children|node||||
-|className|string||||
-|dataTest|string|`'dhis2-uicore-componentcover'`|||
-|translucent|boolean|||Adds a semi-transparent background to the cover|
-|onClick|function||||
-
 ### CssReset
 
 #### Usage
@@ -452,27 +1105,6 @@ import { CssVariables } from '@dhis2/ui'
 |layers|boolean|`false`|||
 |spacers|boolean|`false`|||
 |theme|boolean|`false`|||
-
-### Divider
-
-#### Usage
-
-To use `Divider`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { Divider } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|className|string||||
-|dataTest|string|`'dhis2-uicore-divider'`|||
-|dense|boolean||||
-|margin|string|``${spacers.dp8} 0``|||
 
 ### Field
 
@@ -692,63 +1324,6 @@ import { FileList } from '@dhis2/ui'
 |className|string||||
 |dataTest|string|`'dhis2-uicore-filelist'`|||
 
-### HeaderBar
-
-#### Usage
-
-To use `HeaderBar`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { HeaderBar } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|appName|string||||
-|className|string||||
-|updateAvailable|boolean||||
-|onApplyAvailableUpdate|function||||
-
-### Logo
-
-#### Usage
-
-To use `Logo`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { Logo } from '@dhis2/ui'
-```
-
-
-
-### Help
-
-#### Usage
-
-To use `Help`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { Help } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|children|string||||
-|className|string||||
-|dataTest|string|`'dhis2-uicore-help'`|||
-|error|custom||||
-|valid|custom||||
-|warning|custom||||
-
 ### Input
 
 #### Usage
@@ -835,99 +1410,6 @@ import { InputField } from '@dhis2/ui'
 |onFocus|function|||Called with signature `({ name: string, value: string }, event)`|
 |onKeyDown|function|||Called with signature `({ name: string, value: string }, event)`|
 
-### IntersectionDetector
-
-#### Usage
-
-To use `IntersectionDetector`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { IntersectionDetector } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|rootRef|{<br/>  "current": "instanceOf(HTMLElement)"<br/>}||*|React ref on other component to detect intersections with|
-|onChange|function||*|Called with signature `({ isIntersecting: bool })`|
-|children|any||||
-|className|string||||
-|dataTest|string|`'dhis2-uicore-intersectiondetector'`|||
-|threshold|number|`0`||The [threshold](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options) value: a value from 0.0 to 1.0 that controls the point at which an intersecting component is considered 'intersected' or 'visible' and the onChange callback triggers|
-
-### Label
-
-#### Usage
-
-To use `Label`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { Label } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|children|string||||
-|className|string||||
-|dataTest|string|`'dhis2-uicore-label'`|||
-|disabled|boolean||||
-|htmlFor|string||||
-|required|boolean||||
-
-### Layer
-
-#### Usage
-
-To use `Layer`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { Layer } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|children|node||||
-|className|string||||
-|dataTest|string|`'dhis2-uicore-layer'`|||
-|disablePortal|boolean|||Disable the Portal, useful for nesting layers|
-|level|number │ string|`'auto'`||Z-index level|
-|position|'absolute' │ 'fixed'|`'fixed'`|||
-|translucent|boolean|||Adds a semi-transparent background|
-|onBackdropClick|function|||Backdrop click handler|
-|onClick|custom|||Click handler - DEPRECATED|
-
-### Legend
-
-#### Usage
-
-To use `Legend`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { Legend } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|children|node||||
-|className|string||||
-|dataTest|string|`'dhis2-uicore-legend'`|||
-|required|boolean|||Indicates the associated field set is required|
-
 ### CircularLoader
 
 #### Usage
@@ -975,82 +1457,6 @@ import { LinearLoader } from '@dhis2/ui'
 |invert|boolean|||Use inverted color scheme|
 |margin|string|`spacers.dp12`||The margin around the loader, can be a full shorthand|
 |width|string|`'300px'`||The width of the entire indicator|
-
-### LogoIcon
-
-#### Usage
-
-To use `LogoIcon`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { LogoIcon } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|className|string||||
-|dataTest|string|`'dhis2-uicore-logoicon'`|||
-
-### LogoIconWhite
-
-#### Usage
-
-To use `LogoIconWhite`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { LogoIconWhite } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|className|string||||
-|dataTest|string|`'dhis2-uicore-logoiconwhite'`|||
-
-### Logo
-
-#### Usage
-
-To use `Logo`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { Logo } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|className|string||||
-|dataTest|string|`'dhis2-uicore-logo'`|||
-
-### LogoWhite
-
-#### Usage
-
-To use `LogoWhite`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { LogoWhite } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|className|string||||
-|dataTest|string|`'dhis2-uicore-logowhite'`|||
 
 ### FlyoutMenu
 
@@ -1260,55 +1666,6 @@ import { ModalTitle } from '@dhis2/ui'
 |children|node||||
 |dataTest|string|`'dhis2-uicore-modaltitle'`|||
 
-### Node
-
-#### Usage
-
-To use `Node`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { Node } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|children|node|||Content below this level of the hierarchy; children are revealed when this leaf is 'open'|
-|className|string||||
-|component|element|||Content/label for this leaf, for example a checkbox|
-|dataTest|string|`'dhis2-uicore-node'`|||
-|icon|node|||A custom icon to use instead of a toggle arrow|
-|open|boolean||||
-|onClose|function||||
-|onOpen|function||||
-
-### NoticeBox
-
-#### Usage
-
-To use `NoticeBox`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { NoticeBox } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|children|node||||
-|className|string||||
-|dataTest|string|`'dhis2-uicore-noticebox'`|||
-|error|custom|||Applies 'error' message styles. Mutually exclusive with the `valid` and `warning` props|
-|title|string||||
-|valid|custom|||Applies 'valid' message styles. Mutually exclusive with the `error` and `warning` props|
-|warning|custom|||Applies 'warning' message styles. Mutually exclusive with the `error` and `valid` props|
-
 ### OrganisationUnitTreeRootError
 
 #### Usage
@@ -1382,204 +1739,6 @@ import { OrganisationUnitTree } from '@dhis2/ui'
 |onChildrenLoaded|function|||Called with the children's data that was loaded|
 |onCollapse|function|||Called with `{ path: string }` with the path of the parent of the level closed|
 |onExpand|function|||Called with `{ path: string }` with the path of the parent of the level opened|
-
-### Label
-
-#### Usage
-
-To use `Label`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { Label } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|children|any||*||
-|dataTest|string||*||
-|fullPath|string||*||
-|hasChildren|boolean||*||
-|loading|boolean||*||
-|node|{<br/>  "displayName": "string",<br/>  "id": "string",<br/>  "children": "number",<br/>  "path": "string"<br/>}||*||
-|open|boolean||*||
-|rootId|string||*||
-|onChange|function||*||
-|onToggleOpen|function||*||
-|checked|boolean||||
-|disableSelection|boolean||||
-|hasSelectedDescendants|boolean||||
-|highlighted|boolean||||
-|selected|arrayOf(custom)||||
-|singleSelection|boolean||||
-
-### Pagination
-
-#### Usage
-
-To use `Pagination`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { Pagination } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|page|number||*||
-|pageSize|number||*||
-|className|string||||
-|dataTest|string|`'dhis2-uiwidgets-pagination'`|||
-|disabled|boolean||||
-|hidePageSelect|boolean||||
-|hidePageSizeSelect|boolean||||
-|hidePageSummary|boolean||||
-|isLastPage|boolean||||
-|nextPageText|string │ function|`() => i18n.t('Next')`|||
-|pageCount|number||||
-|pageLength|custom||||
-|pageSelectText|string │ function|`() => i18n.t('Page')`|||
-|pageSizeSelectText|string │ function|`() => i18n.t('Items per page')`|||
-|pageSizes|arrayOf(string)|`['5', '10', '20', '30', '40', '50', '75', '100']`|||
-|pageSummaryText|string │ function|`getDefaultPageSummaryText`|||
-|previousPageText|string │ function|`() => i18n.t('Previous')`|||
-|total|number||||
-|onPageChange|function||||
-|onPageSizeChange|function||||
-
-### Popover
-
-#### Usage
-
-To use `Popover`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { Popover } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|children|node||*||
-|arrow|boolean|`true`||Show or hide the arrow|
-|className|string||||
-|dataTest|string|`'dhis2-uicore-popover'`|||
-|elevation|string|`elevations.e200`||Box-shadow to create appearance of elevation.  Use `elevations` constants from the UI library.|
-|maxWidth|number|`360`|||
-|observePopperResize|boolean||||
-|observeReferenceResize|boolean||||
-|placement|custom|`'top'`|||
-|reference|custom|||A React ref that refers to the element the Popover should position against|
-|onClickOutside|function||||
-
-### Popper
-
-#### Usage
-
-To use `Popper`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { Popper } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|children|node||*|Content inside the Popper|
-|className|string||||
-|dataTest|string|`'dhis2-uicore-popper'`|||
-|modifiers|arrayOf({<br/>  "name": "string",<br/>  "options": "object"<br/>})|`[]`||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
-|observePopperResize|boolean|||Makes the Popper update position when the **Popper content** changes size|
-|observeReferenceResize|boolean|||Makes the Popper update position when the **reference element** changes size|
-|placement|custom|`'auto'`||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
-|reference|custom|||A React ref, DOM node, or [virtual element](https://popper.js.org/docs/v2/virtual-elements/) for the popper to position itself against|
-|strategy|'absolute' │ 'fixed'|||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
-|onFirstUpdate|function|||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
-
-### Radio
-
-#### Usage
-
-To use `Radio`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { Radio } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|checked|boolean||||
-|className|string||||
-|dataTest|string|`'dhis2-uicore-radio'`|||
-|dense|boolean||||
-|disabled|boolean||||
-|error|custom|||Adds 'error' styling for feedback. Mutually exclusive with `valid` and `warning` props|
-|initialFocus|boolean||||
-|label|node||||
-|name|string|||Name associated with this element. Passed in object to event handler functions|
-|tabIndex|string||||
-|valid|custom|||Adds 'valid' styling for feedback. Mutually exclusive with `error` and `warning` props|
-|value|string|||Value associated with this element. Passed in object to event handler functions|
-|warning|custom|||Adds 'warning' styling for feedback. Mutually exclusive with `valid` and `error` props|
-|onBlur|function|||Called with the signature `({ name: string, value: string, checked: bool }, event)`|
-|onChange|function|||Called with the signature `({ name: string, value: string, checked: bool }, event)`|
-|onFocus|function|||Called with the signature `({ name: string, value: string, checked: bool }, event)`|
-|onKeyDown|function|||Called with the signature `({ name: string, value: string, checked: bool }, event)`|
-
-### Required
-
-#### Usage
-
-To use `Required`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { Required } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|dataTest|string||*||
-
-### SegmentedControl
-
-#### Usage
-
-To use `SegmentedControl`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { SegmentedControl } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|options|arrayOf({<br/>  "label": "string",<br/>  "value": "string",<br/>  "disabled": "boolean"<br/>})||*|Options to populate the segmented control|
-|selected|string||*|An option to select; should match the `value` property of the option to be selected|
-|onChange|function||*|Called with the signature `({ value: string }, event)`|
-|ariaLabel|string|||Used to provide an accessible label to a segmented control without a visible label|
 
 ### Input
 
@@ -1968,36 +2127,6 @@ import { SelectorBarItem } from '@dhis2/ui'
 |setOpen|function||||
 |value|string||||
 |onClearSelectionClick|function||||
-
-### SharingDialog
-
-#### Usage
-
-To use `SharingDialog`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { SharingDialog } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|id|string||*|The id of the object to share|
-|type|DIALOG_TYPES_LIST||*|The type of object to share|
-|dataTest|string|`'dhis2-uicore-sharingdialog'`|||
-|initialSharingSettings|{<br/>  "allowPublic": "boolean",<br/>  "groups": "objectOf",<br/>  "name": "string",<br/>  "public": "import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    DIALOG_TYPES_LIST,\n} from './constants.js' │ import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    DIALOG_TYPES_LIST,\n} from './constants.js' │ import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    DIALOG_TYPES_LIST,\n} from './constants.js'",<br/>  "users": "objectOf"<br/>}|`{
-    name: '',
-    allowPublic: true,
-    public: ACCESS_NONE,
-    groups: {},
-    users: {},
-}`||Used to seed the component with data to show whilst loading|
-|onClose|function|`() => {}`|||
-|onError|function|`() => {}`|||
-|onSave|function|`() => {}`|||
 
 ### Modal
 
@@ -2568,6 +2697,121 @@ import { Table } from '@dhis2/ui'
 |role|string||||
 |suppressZebraStriping|boolean|||Remove the default striping on alternating rows|
 
+### TextArea
+
+#### Usage
+
+To use `TextArea`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { TextArea } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|autoGrow|boolean|||Grow the text area in response to overflow instead of adding a scroll bar|
+|className|string||||
+|dataTest|string|`'dhis2-uicore-textarea'`|||
+|dense|boolean|||Compact mode|
+|disabled|boolean|||Disables the textarea and makes in non-interactive|
+|error|custom|||Applies 'error' styles for validation feedback. Mutually exclusive with `valid` and `warning` props|
+|initialFocus|boolean|||Grabs initial focus on the page|
+|loading|boolean|||Adds a loading spinner|
+|name|string|||Name associated with the text area. Passed in object argument to event handlers.|
+|placeholder|string|||Placeholder text for an empty textarea|
+|readOnly|boolean|||Makes the textarea read-only|
+|resize|'none' │ 'both' │ 'horizontal' │ 'vertical'|`'vertical'`||[Resize property](https://developer.mozilla.org/en-US/docs/Web/CSS/resize) for the textarea element|
+|rows|number|`4`||Initial height of the textarea, in lines of text|
+|tabIndex|string||||
+|valid|custom|||Applies 'valid' styles for validation feedback. Mutually exclusive with `warning` and `error` props|
+|value|string|||Value in the textarea. Can be used to control component (recommended). Passed in object argument to event handlers.|
+|warning|custom|||Applies 'warning' styles for validation feedback. Mutually exclusive with `valid` and `error` props|
+|width|string|`'100%'`||Width of the text area. Can be any valid CSS measurement|
+|onBlur|function|||Called with signature ({ name: string, value: string }, event)|
+|onChange|function|||Called with signature ({ name: string, value: string }, event)|
+|onFocus|function|||Called with signature ({ name: string, value: string }, event)|
+|onKeyDown|function|||Called with signature ({ name: string, value: string }, event)|
+
+### TextAreaField
+
+#### Usage
+
+To use `TextAreaField`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { TextAreaField } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|autoGrow|boolean|||Grow the text area in response to overflow instead of adding a scroll bar|
+|className|string||||
+|dataTest|string|`'dhis2-uiwidgets-textareafield'`|||
+|dense|boolean|||Compact mode|
+|disabled|boolean|||Disables the textarea and makes in non-interactive|
+|error|custom|||Applies 'error' styles for validation feedback. Mutually exclusive with `valid` and `warning` props|
+|helpText|string|||Adds useful help text below the textarea|
+|initialFocus|boolean|||Grabs initial focus on the page|
+|inputWidth|string|||Sets the width of the textarea. Minimum 220px. Any valid CSS measurement can be used|
+|label|string|||Labels the textarea|
+|loading|boolean|||Adds a loading spinner|
+|name|string|||Name associated with the text area. Passed in object argument to event handlers.|
+|placeholder|string|||Placeholder text for an empty textarea|
+|readOnly|boolean|||Makes the textarea read-only|
+|required|boolean|||Adds an asterisk to the label to indicate this field is required|
+|resize|'none' │ 'both' │ 'horizontal' │ 'vertical'|`'vertical'`||[Resize property](https://developer.mozilla.org/en-US/docs/Web/CSS/resize) for the textarea element|
+|rows|number|`4`||Initial height of the textarea, in lines of text|
+|tabIndex|string||||
+|valid|custom|||Applies 'valid' styles for validation feedback. Mutually exclusive with `warning` and `error` props|
+|validationText|string|||Validation text below the textarea to provide validation feedback. Changes appearance depending on validation status|
+|value|string|||Value in the textarea. Can be used to control component (recommended). Passed in object argument to event handlers.|
+|warning|custom|||Applies 'warning' styles for validation feedback. Mutually exclusive with `valid` and `error` props|
+|onBlur|function|||Called with signature ({ name: string, value: string }, event)|
+|onChange|function|||Called with signature ({ name: string, value: string }, event)|
+|onFocus|function|||Called with signature ({ name: string, value: string }, event)|
+|onKeyDown|function|||Called with signature ({ name: string, value: string }, event)|
+
+### Label
+
+#### Usage
+
+To use `Label`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { Label } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|children|any||*||
+|dataTest|string||*||
+|fullPath|string||*||
+|hasChildren|boolean||*||
+|loading|boolean||*||
+|node|{<br/>  "displayName": "string",<br/>  "id": "string",<br/>  "children": "number",<br/>  "path": "string"<br/>}||*||
+|open|boolean||*||
+|rootId|string||*||
+|onChange|function||*||
+|onToggleOpen|function||*||
+|checked|boolean||||
+|disableSelection|boolean||||
+|hasSelectedDescendants|boolean||||
+|highlighted|boolean||||
+|selected|arrayOf(custom)||||
+|singleSelection|boolean||||
+
 ### DataTableColumnHeader
 
 #### Usage
@@ -2741,247 +2985,3 @@ import { Table } from '@dhis2/ui'
 |layout|'auto' │ 'fixed' │ 'initial' │ 'inherit'|`'auto'`||Sets the `table-layout` property. Switching to `fixed` can prevent style<br/>issues when dealing with a table with multiple frozen columns or when dealing<br/>with filter elements in the table headers.|
 |role|string||||
 |width|string|`'100%'`||Sets the `width` property. Providing an explicit width can prevent style<br/>issues when dealing with horizontally scrolling tables with a fixed layout.|
-
-### Tag
-
-#### Usage
-
-To use `Tag`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { Tag } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|bold|boolean|||Use bold tags where it is important that the tag is seen by the user in an information dense interface. Bold tags should be reserved for edge cases and not overused.|
-|children|node||||
-|className|string||||
-|dataTest|string|`'dhis2-uicore-tag'`|||
-|icon|node|||Tags can contain icons. Use icons where they will help users easily identify the content of the tag. Tags must have a text label and cannot display only an icon.|
-|maxWidth|string|`'240px'`|||
-|negative|custom|||Red 'negative' tags imply an error or a problem. `neutral`, `positive`, and `negative` are mutually exclusive props|
-|neutral|custom|||Blue 'neutral' tags are used when a tag _could_ have valid or error status but is currently neutral. `neutral`, `positive`, and `negative` are mutually exclusive props|
-|positive|custom|||Green 'valid' tags should be used to indicate validity or success. `neutral`, `positive`, and `negative` are mutually exclusive props|
-
-### TextArea
-
-#### Usage
-
-To use `TextArea`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { TextArea } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|autoGrow|boolean|||Grow the text area in response to overflow instead of adding a scroll bar|
-|className|string||||
-|dataTest|string|`'dhis2-uicore-textarea'`|||
-|dense|boolean|||Compact mode|
-|disabled|boolean|||Disables the textarea and makes in non-interactive|
-|error|custom|||Applies 'error' styles for validation feedback. Mutually exclusive with `valid` and `warning` props|
-|initialFocus|boolean|||Grabs initial focus on the page|
-|loading|boolean|||Adds a loading spinner|
-|name|string|||Name associated with the text area. Passed in object argument to event handlers.|
-|placeholder|string|||Placeholder text for an empty textarea|
-|readOnly|boolean|||Makes the textarea read-only|
-|resize|'none' │ 'both' │ 'horizontal' │ 'vertical'|`'vertical'`||[Resize property](https://developer.mozilla.org/en-US/docs/Web/CSS/resize) for the textarea element|
-|rows|number|`4`||Initial height of the textarea, in lines of text|
-|tabIndex|string||||
-|valid|custom|||Applies 'valid' styles for validation feedback. Mutually exclusive with `warning` and `error` props|
-|value|string|||Value in the textarea. Can be used to control component (recommended). Passed in object argument to event handlers.|
-|warning|custom|||Applies 'warning' styles for validation feedback. Mutually exclusive with `valid` and `error` props|
-|width|string|`'100%'`||Width of the text area. Can be any valid CSS measurement|
-|onBlur|function|||Called with signature ({ name: string, value: string }, event)|
-|onChange|function|||Called with signature ({ name: string, value: string }, event)|
-|onFocus|function|||Called with signature ({ name: string, value: string }, event)|
-|onKeyDown|function|||Called with signature ({ name: string, value: string }, event)|
-
-### TextAreaField
-
-#### Usage
-
-To use `TextAreaField`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { TextAreaField } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|autoGrow|boolean|||Grow the text area in response to overflow instead of adding a scroll bar|
-|className|string||||
-|dataTest|string|`'dhis2-uiwidgets-textareafield'`|||
-|dense|boolean|||Compact mode|
-|disabled|boolean|||Disables the textarea and makes in non-interactive|
-|error|custom|||Applies 'error' styles for validation feedback. Mutually exclusive with `valid` and `warning` props|
-|helpText|string|||Adds useful help text below the textarea|
-|initialFocus|boolean|||Grabs initial focus on the page|
-|inputWidth|string|||Sets the width of the textarea. Minimum 220px. Any valid CSS measurement can be used|
-|label|string|||Labels the textarea|
-|loading|boolean|||Adds a loading spinner|
-|name|string|||Name associated with the text area. Passed in object argument to event handlers.|
-|placeholder|string|||Placeholder text for an empty textarea|
-|readOnly|boolean|||Makes the textarea read-only|
-|required|boolean|||Adds an asterisk to the label to indicate this field is required|
-|resize|'none' │ 'both' │ 'horizontal' │ 'vertical'|`'vertical'`||[Resize property](https://developer.mozilla.org/en-US/docs/Web/CSS/resize) for the textarea element|
-|rows|number|`4`||Initial height of the textarea, in lines of text|
-|tabIndex|string||||
-|valid|custom|||Applies 'valid' styles for validation feedback. Mutually exclusive with `warning` and `error` props|
-|validationText|string|||Validation text below the textarea to provide validation feedback. Changes appearance depending on validation status|
-|value|string|||Value in the textarea. Can be used to control component (recommended). Passed in object argument to event handlers.|
-|warning|custom|||Applies 'warning' styles for validation feedback. Mutually exclusive with `valid` and `error` props|
-|onBlur|function|||Called with signature ({ name: string, value: string }, event)|
-|onChange|function|||Called with signature ({ name: string, value: string }, event)|
-|onFocus|function|||Called with signature ({ name: string, value: string }, event)|
-|onKeyDown|function|||Called with signature ({ name: string, value: string }, event)|
-
-### Tooltip
-
-#### Usage
-
-To use `Tooltip`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { Tooltip } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|children|node │ function|||If child is a function, it's called with `{ onMouseOver, onMouseOut, ref }` args to apply to a reference element. If child is a node, it is wrapped in a `span` with the appropriate attributes and handlers.|
-|className|string||||
-|closeDelay|number|`200`||Time (in ms) until tooltip closes after mouse out|
-|content|node|||Content to display when the tooltip is open|
-|dataTest|string|`'dhis2-uicore-tooltip'`|||
-|maxWidth|number|`300`||Max width of the tooltip in px|
-|openDelay|number|`200`||Time (in ms) until tooltip open after mouse over|
-|placement|'top' │ 'right' │ 'bottom' │ 'left'|`'top'`||Where to place the tooltip relative to its reference|
-
-### TransferOption
-
-#### Usage
-
-To use `TransferOption`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { TransferOption } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|label|node||*||
-|value|string||*||
-|className|string||||
-|dataTest|string|`'dhis2-uicore-transferoption'`|||
-|disabled|boolean||||
-|highlighted|boolean||||
-|onClick|function||||
-|onDoubleClick|function||||
-
-### Transfer
-
-#### Usage
-
-To use `Transfer`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { Transfer } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|options|arrayOf({<br/>  "label": "string",<br/>  "value": "string",<br/>  "disabled": "boolean"<br/>})||*||
-|onChange|function||*||
-|addAllText|string||||
-|addIndividualText|string||||
-|className|string||||
-|dataTest|string|`'dhis2-uicore-transfer'`|||
-|disabled|boolean||||
-|enableOrderChange|boolean||||
-|filterCallback|function|`defaultFilterCallback`|||
-|filterCallbackPicked|function|`defaultFilterCallback`|||
-|filterLabel|string||||
-|filterLabelPicked|string||||
-|filterPlaceholder|string||||
-|filterPlaceholderPicked|string||||
-|filterable|boolean||||
-|filterablePicked|boolean||||
-|height|string|`'240px'`|||
-|hideFilterInput|boolean||||
-|hideFilterInputPicked|boolean||||
-|initialSearchTerm|string|`''`|||
-|initialSearchTermPicked|string|`''`|||
-|leftFooter|node||||
-|leftHeader|node||||
-|loading|boolean||||
-|loadingPicked|boolean||||
-|maxSelections|1 │ Infinity|`Infinity`|||
-|optionsWidth|string|`'320px'`|||
-|removeAllText|string||||
-|removeIndividualText|string||||
-|renderOption|function|`(option) => <TransferOption {...option} />`|||
-|rightFooter|node||||
-|rightHeader|node||||
-|searchTerm|string||||
-|searchTermPicked|string||||
-|selected|arrayOf(string)|`[]`|||
-|selectedEmptyComponent|node||||
-|selectedWidth|string|`'320px'`|||
-|sourceEmptyPlaceholder|node||||
-|onEndReached|function||||
-|onEndReachedPicked|function||||
-|onFilterChange|function||||
-|onFilterChangePicked|function||||
-
-### UserAvatar
-
-#### Usage
-
-To use `UserAvatar`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { UserAvatar } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|name|string||*||
-|ariaLabel|string||||
-|avatarId|string||||
-|className|string||||
-|dataTest|string|`'dhis2-uicore-useravatar'`|||
-|extralarge|custom||||
-|extrasmall|custom||||
-|large|custom||||
-|medium|custom||||
-|small|custom||||

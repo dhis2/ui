@@ -17,9 +17,6 @@
     "workspaces": {
         "packages": [
             "collections/*",
-            "components/*",
-            "constants",
-            "icons",
             "storybook",
             "docs"
         ]
@@ -29,7 +26,8 @@
         "build": "./scripts/build-world.sh",
         "build:lib": "./scripts/build.js",
         "build:docs": "./scripts/build-docs.js",
-        "build:api": "./scripts/generate-api-docs.js",
+        "build:api": "echo '@TODO'",
+        "__build:api": "./scripts/generate-api-docs.js",
         "cy:start": "yarn build:lib && STORYBOOK_TESTING=1 yarn start",
         "cy:open": "wait-on 'http://localhost:5000' && cypress open",
         "cy:run": "wait-on 'http://localhost:5000' && cypress run",
@@ -81,8 +79,8 @@
         "rimraf": "^3.0.2",
         "wait-on": "^6.0.0"
     },
-    "overrides": {
-        "react": "$react",
-        "react-dom": "$react"
+    "resolutions": {
+        "react": "16.13.1",
+        "react-dom": "16.13.1"
     }
 }

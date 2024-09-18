@@ -4,7 +4,7 @@ title: Pagination
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
 
-import API from '../../../components/pagination/API.md'
+import API from '../../../collections/ui/src/pagination/API.md'
 
 # Pagination
 

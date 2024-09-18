@@ -1,12 +1,6 @@
 const path = require('path')
 const fg = require('fast-glob')
-const {
-    PROJECT_ROOT,
-    COMPONENTS_DIR,
-    COLLECTIONS_DIR,
-    ICONS_DIR,
-    CONSTANTS_DIR,
-} = require('./paths.js')
+const { PROJECT_ROOT, COLLECTIONS_DIR } = require('./paths.js')
 const { uiPackages } = require('./ui-packages.js')
 
 /*
@@ -29,24 +23,12 @@ function modify_internal_package_loaders(cfg) {
     // Find the rules that deal with .js
     const jsLoaders = regexLoaders.filter((loader) => loader.test.test('.js'))
 
-    const [components, collections, icons, constants] = uiPackages()
+    const [collections] = uiPackages()
 
     console.info('custom => Webpack module loaders')
     jsLoaders.forEach((loader) => {
         for (const collection of collections) {
             loader.include.push(new RegExp(`collections/${collection}/src`))
-        }
-
-        for (const component of components) {
-            loader.include.push(new RegExp(`components/${component}/src`))
-        }
-
-        if (icons) {
-            loader.include.push(new RegExp('icons/src'))
-        }
-
-        if (constants) {
-            loader.include.push(new RegExp('constants/src'))
         }
 
         console.log(
@@ -86,12 +68,7 @@ function modify_internal_package_loaders(cfg) {
  * bundle using fast-refresh in CRA.
  */
 function modify_internal_package_resolutions(cfg) {
-    const packages = fg.sync([
-        `${COMPONENTS_DIR}/*/package.json`,
-        `${COLLECTIONS_DIR}/*/package.json`,
-        `${ICONS_DIR}/package.json`,
-        `${CONSTANTS_DIR}/package.json`,
-    ])
+    const packages = fg.sync([`${COLLECTIONS_DIR}/*/package.json`])
 
     for (const pkg of packages) {
         const p = require(pkg)

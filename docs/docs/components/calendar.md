@@ -6,7 +6,7 @@ import { Demo } from '@site/src/components/DemoComponent.jsx'
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-import API from '../../../components/calendar/API.md'
+import API from '../../../collections/ui/src/calendar/API.md'
 
 # Calendar
 

@@ -3,7 +3,7 @@ title: Loader
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import API from '../../../components/loader/API.md'
+import API from '../../../collections/ui/src/loader/API.md'
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

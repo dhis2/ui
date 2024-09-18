@@ -4,7 +4,7 @@ title: Select
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
 
-import API from '../../../components/select/API.md'
+import API from '../../../collections/ui/src/select/API.md'
 
 # Select
 

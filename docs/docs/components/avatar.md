@@ -4,7 +4,7 @@ id: avatar
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import API from '../../../components/user-avatar/API.md'
+import API from '../../../collections/ui/src/user-avatar/API.md'
 
 # User Avatar
 

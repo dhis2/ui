@@ -3,7 +3,7 @@ title: Organisation unit tree
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import API from '../../../components/organisation-unit-tree/API.md'
+import API from '../../../collections/ui/src/organisation-unit-tree/API.md'
 
 # Organisation unit tree
 

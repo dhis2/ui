@@ -3,7 +3,7 @@ title: File input
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import API from '../../../components/file-input/API.md'
+import API from '../../../collections/ui/src/file-input/API.md'
 
 # File input
 

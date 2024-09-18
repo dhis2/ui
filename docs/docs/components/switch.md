@@ -4,7 +4,7 @@ title: Switch
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
 
-import API from '../../../components/switch/API.md'
+import API from '../../../collections/ui/src/switch/API.md'
 
 # Switch
 

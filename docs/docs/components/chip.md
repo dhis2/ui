@@ -3,7 +3,7 @@ title: Chip
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import API from '../../../components/chip/API.md'
+import API from '../../../collections/ui/src/chip/API.md'
 
 # Chip
 

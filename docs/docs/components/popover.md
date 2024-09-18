@@ -4,7 +4,7 @@ title: Popover
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
 
-import API from '../../../components/popover/API.md'
+import API from '../../../collections/ui/src/popover/API.md'
 
 # Popover
 

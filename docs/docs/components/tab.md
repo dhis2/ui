@@ -4,7 +4,7 @@ title: Tabs
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
 
-import API from '../../../components/tab/API.md'
+import API from '../../../collections/ui/src/tab/API.md'
 
 # Tab
 

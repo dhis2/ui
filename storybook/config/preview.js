@@ -1,5 +1,5 @@
 import '@fontsource/roboto/latin.css'
-import { CssReset } from '@dhis2-ui/css'
+import { CssReset } from '@dhis2/ui'
 import React, { Fragment } from 'react'
 // import { jsxDecorator } from 'storybook-addon-jsx'
 import '@storybook/addon-console'

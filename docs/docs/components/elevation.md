@@ -3,7 +3,7 @@ title: Elevation
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import API from '../../../components/css/API.md'
+import API from '../../../collections/ui/src/css/API.md'
 
 # Elevation
 
