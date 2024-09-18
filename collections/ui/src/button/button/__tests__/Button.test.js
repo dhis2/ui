@@ -11,7 +11,7 @@ describe('<Button>', () => {
     })
 
     afterEach(() => {
-        consoleSpy.mockRestore()
+        consoleSpy.mockClear()
     })
 
     describe('warning for missing aria-label and title', () => {

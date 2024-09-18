@@ -1,8 +1,6 @@
 export * from './constants/index.js'
 export * from './icons/index.js'
-
-// DEPRECATED?
-export * from '@dhis2/ui-forms'
+export * from './forms/index.js'
 
 // components
 export { AlertBar, AlertStack } from './alert/index.js'

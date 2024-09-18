@@ -30,7 +30,8 @@ const { uiPackages } = require(path.resolve(
  * doing this to allow Storybook to start cleanly without building
  * everything upfront.
  */
-const [components] = uiPackages({ absolute: true })
+// const [components] = uiPackages({ absolute: true })
+const components = []
 
 /*
  * Right now, we use the @dhis2/d2-i18n runtime to do i18n so we check
@@ -65,28 +66,12 @@ const commands = components
     })
     .filter((p) => p)
 
-concurrently(
-    [
-        ...commands,
-        { name: 'icons', command: 'yarn workspace @dhis2/ui-icons build' },
-        {
-            name: 'constants',
-            command: 'yarn workspace @dhis2/ui-constants build',
-        },
-        // { name: 'css', command: 'yarn workspace @dhis2-ui/css build' },
-        {
-            name: 'forms',
-            command:
-                'yarn workspace @dhis2/ui-forms d2-app-scripts i18n generate',
-        },
-    ],
-    {
-        prefix: 'name',
-        killOthers: ['failure'],
-        restartTries: 1,
-        cwd: path.resolve(__dirname, '..'),
-    }
-).then(
+concurrently(commands, {
+    prefix: 'name',
+    killOthers: ['failure'],
+    restartTries: 1,
+    cwd: path.resolve(__dirname, '..'),
+}).then(
     () => {
         console.log('UI setup complete')
         process.exit(0)

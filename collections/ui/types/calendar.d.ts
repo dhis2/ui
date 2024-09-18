@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useDatePicker } from '@dhis2/multi-calendar-dates'
-import { InputFieldProps } from '@dhis2-ui/input'
+import { InputFieldProps } from './input.d.ts'
 
 export type CalendarDir = 'ltr' | 'rtl'
 

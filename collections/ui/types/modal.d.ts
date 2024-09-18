@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { LayerBackdropClickHandler } from '@dhis2-ui/layer'
+import { LayerBackdropClickHandler } from './layer.d.ts'
 
 export type ModalOnCloseEventHandler = LayerBackdropClickHandler
 

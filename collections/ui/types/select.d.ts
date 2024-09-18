@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { LayerBackdropClickEvent } from '@dhis2-ui/layer'
-import { CheckboxProps } from '@dhis2-ui/checkbox'
+import { LayerBackdropClickEvent } from './layer.d.ts'
+import { CheckboxProps } from './checkbox.d.ts'
 
 interface BaseEventPayload {
     selected: string | string[]

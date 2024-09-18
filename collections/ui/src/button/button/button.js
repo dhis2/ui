@@ -1,8 +1,8 @@
-import { sharedPropTypes } from '../../constants/index.js'
-import { CircularLoader } from '../../loader/index.js'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef } from 'react'
+import { sharedPropTypes } from '../../constants/index.js'
+import { CircularLoader } from '../../loader/index.js'
 import styles from './button.styles.js'
 
 export const Button = ({
@@ -39,7 +39,11 @@ export const Button = ({
 
     const { 'aria-label': ariaLabel, title } = otherProps
 
-    if (!children && !title && !ariaLabel) {
+    if (
+        /* process.env.NODE_ENV !== 'test' && */ !children &&
+        !title &&
+        !ariaLabel
+    ) {
         console.debug(
             'Button component has no children but is missing title and ariaLabel attribute.'
         )

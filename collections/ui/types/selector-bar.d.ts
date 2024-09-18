@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ButtonProps } from '@dhis2-ui/button'
+import { ButtonProps } from './button.d.ts'
 
 export interface SelectorBarProps {
     children: React.ReactNode

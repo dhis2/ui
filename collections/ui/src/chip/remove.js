@@ -1,9 +1,7 @@
-import { colors } from '../constants/index.js'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { css, resolve } from 'styled-jsx/css'
-
-console.log('> css', css)
+import { colors } from '../constants/index.js'
 
 function CancelOutline({ className }) {
     return (

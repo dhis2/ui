@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { InputChangeHandler, InputEventHandler } from '@dhis2-ui/input'
+import { InputChangeHandler, InputEventHandler } from './input.d.ts'
 
 export interface TransferProps {
     options: TransferOption[]

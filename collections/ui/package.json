@@ -23,7 +23,6 @@
         "clean": "rimraf ./src/react"
     },
     "dependencies": {
-        "@dhis2/ui-forms": "9.11.4",
         "prop-types": "^15.7.2",
         "@dhis2/prop-types": "^3.1.2",
         "classnames": "^2.3.1",
@@ -38,15 +37,19 @@
     "peerDependencies": {
         "@dhis2/app-runtime": "^3",
         "@dhis2/d2-i18n": "^1",
+        "final-form": "^4.20.2",
         "react": "^16.13",
         "react-dom": "^16.13",
+        "react-final-form": "^6.5.3",
         "styled-jsx": "^4"
     },
     "devDependencies": {
         "@dhis2/app-runtime": "^3.9.0",
         "@dhis2/d2-i18n": "^1.1.0",
+        "final-form": "^4.20.2",
         "react": "16.13",
         "react-dom": "16.13",
+        "react-final-form": "^6.5.3",
         "styled-jsx": "^4.0.1",
         "@testing-library/jest-dom": "^5.16.1"
     },
