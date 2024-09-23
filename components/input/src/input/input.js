@@ -4,7 +4,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import css from 'styled-jsx/css'
-import { inputTypes } from './inputTypes'
+import { inputTypes } from './inputTypes.js'
 
 const styles = css`
     .input {
