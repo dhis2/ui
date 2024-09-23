@@ -3,16 +3,16 @@ title: Button
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { Button, DropdownButton, SplitButton, IconCheckmark24 } from '@dhis2/ui'
-
 import API from '../../../components/button/API.md'
 
 # Button
 
 Buttons are used to trigger actions. There are different button variants that are used for different types of actions.
-<Demo>
-<Button>Enroll in program</Button>
-</Demo>
+<Demo
+    path="button--basic"
+    args="children:Enroll in program"
+    height="120px"
+/>
 
 ## Usage
 
@@ -37,9 +37,11 @@ Buttons are used to trigger actions. There are different button variants that ar
 
 #### Basic
 
-<Demo>
-    <Button basic>Basic button</Button>
-</Demo>
+<Demo
+    path="button--basic"
+    args="children:Basic button"
+    height="120px"
+/>
 
 ```jsx
 <Button basic>Basic button</Button>
@@ -50,9 +52,11 @@ Buttons are used to trigger actions. There are different button variants that ar
 
 #### Primary
 
-<Demo>
-    <Button primary>Primary button</Button>
-</Demo>
+<Demo
+    path="button--primary"
+    args="children:Primary button"
+    height="120px"
+/>
 
 ```jsx
 <Button primary>Primary button</Button>
@@ -64,9 +68,11 @@ Buttons are used to trigger actions. There are different button variants that ar
 
 #### Secondary
 
-<Demo>
-    <Button secondary>Secondary button</Button>
-</Demo>
+<Demo
+    path="button--secondary"
+    args="children:Secondary button"
+    height="120px"
+/>
 
 ```jsx
 <Button secondary>Secondary button</Button>
@@ -78,20 +84,26 @@ Buttons are used to trigger actions. There are different button variants that ar
 
 #### Destructive
 
-<Demo>
-    <div class="stacked-examples-horizontal">
-        <Button destructive>Destructive button</Button>
-        <Button destructive secondary>Destructive secondary button</Button>
-    </div>
-</Demo>
+<Demo
+    path="button--destructive"
+    args="children:Descructive button"
+    height="120px"
+/>
 
 ```jsx
-<div class="stacked-examples-horizontal">
-    <Button destructive>Destructive button</Button>
-    <Button destructive secondary>
-        Destructive secondary button
-    </Button>
-</div>
+<Button destructive>Destructive button</Button>
+```
+
+<Demo
+    path="/story/button--destructive-secondary"
+    args="children:Destructive secondary button"
+    height="120px"
+/>
+
+```jsx
+<Button destructive secondary>
+    Destructive secondary button
+</Button>
 ```
 
 -   Only use for primary-type actions that will destroy data.

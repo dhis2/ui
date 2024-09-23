@@ -3,18 +3,18 @@ title: Data table
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-
 import API from '../../../components/table/API.md'
 
 # Data table
 
 A data table is used to display and allow interaction with data in a structured way.
 
-<Demo>
-    <p><a href="/demo/?path=/story/datatable--default" target="_blank">Storybook demo: Date table</a>.</p> 
-</Demo>
+<Demo
+    path="datatable--default"
+    height="300px"
+/>
 
-A minimal version of the linked demo looks like this.
+A minimal version of the demo looks like this.
 
 ```jsx
 <DataTable>
@@ -50,85 +50,95 @@ A minimal version of the linked demo looks like this.
 
 ### Sorting
 
-<Demo>
-    <p><a href="/demo/?path=/story/datatable--column-header-sorting" target="_blank">Storybook demo: Sorting</a>.</p> 
-</Demo>
+<Demo
+    path="datatable--column-header-sorting"
+    height="250px"
+/>
 
 -   Data table items can be sorted by different columns by clicking on the sort icon in a column header.
 -   Always allow sorting of items by different columns unless the order is specific and shouldn't be changed.
 
 ### Filtering: Inline
 
-<Demo>
-    <p><a href="/demo/?path=/story/datatable--inline-filtering" target="_blank">Storybook demo: Filtering inline</a>.</p> 
-</Demo>
+<Demo
+    path="datatable--inline-filtering"
+    height="250px"
+/>
 
 -   Use inline filters in complex interfaces to offer filtering functionality without extra controls outside of the table.
 -   If filtering is the main functionality of the data table, consider offering standalone filters.
 
 ### Fixed header
 
-<Demo>
-    <p><a href="/demo/?path=/story/datatable--fixed-header" target="_blank">Storybook demo: Fixed header</a>.</p> 
-</Demo>
+<Demo
+    path="datatable--fixed-header"
+    height="450px"
+/>
 
 -   Use a fixed header in data tables that are used to browse a lot of data. Fixed headers stay in view and make it easier to understand what cells contain.
 
 ### Fixed columns
 
-<Demo>
-    <p><a href="/demo/?path=/story/datatable--fixed-first-column" target="_blank">Storybook demo: Fixed column</a>.</p> 
-</Demo>
+<Demo
+    path="datatable--fixed-first-column"
+    height="350px"
+/>
 
 -   Use fixed columns in dense interfaces where the table might need to be scrolled horizontally.
 -   Any number of columns can be fixed, but usually a single column is enough, as long as it provides a clear reference for the rest of the row.
 
 ### Expandable rows
 
-<Demo>
-    <p><a href="/demo/?path=/story/datatable--expandable-content" target="_blank">Storybook demo: Expandable rows</a>.</p> 
-</Demo>
+<Demo
+    path="datatable--expandable-content"
+    height="280px"
+/>
 
 -   Use expandable rows if there's more useful information that doesn't fit well into columns, like paragraphs of text, images, or video.
 
 ### Selectable rows
 
-<Demo>
-    <p><a href="/demo/?path=/story/datatable--selectable-rows" target="_blank">Storybook demo: Selectable rows</a>.</p> 
-</Demo>
+<Demo
+    path="datatable--selectable-rows"
+    height="280px"
+/>
 
 -   Use selectable rows if a user can perform batch actions on rows in the data table, like selecting several rows and exporting or deleting them.
 
 ### Draggable rows
 
-<Demo>
-    <p><a href="/demo/?path=/story/datatable--draggable-rows" target="_blank">Storybook demo: Draggable rows</a>.</p> 
-</Demo>
+<Demo
+    path="datatable--draggable-rows"
+    height="350px"
+/>
 
 -   Use draggable rows if the order of rows in the data table has a meaningful impact. With draggable rows, a user can drag rows to change the order.
 
 ### Bordered cells
 
-<Demo>
-    <p><a href="/demo/?path=/story/datatable--bordered-cells" target="_blank">Storybook demo: Bordered cells</a>.</p> 
-</Demo>
+<Demo
+    path="datatable--bordered-cells"
+    height="350px"
+/>
 
 -   Use bordered cells when showing complex data that might have similar values, like long numbers, to help a user visually scan data values.
 
 ### Built-in styles
 
-<Demo>
-    <p><a href="/demo/?path=/story/datatable--cell-styling" target="_blank">Storybook demo: Built-in styles</a>.</p> 
-</Demo>
+<Demo
+    path="datatable--cell-styling"
+    height="350px"
+/>
 
 -   A data table offers several built-in text styles.
 -   Use the built-in styles to help offer a consistent data table experience across DHIS2 apps.
 
 ### Large cells
 
-<Demo>
-    <p><a href="/demo/?path=/story/datatable--large-cells" target="_blank">Storybook demo: Large cells</a>.</p> 
-</Demo>
+<Demo
+    path="datatable--large-cells"
+    height="350px"
+/>
 
 -   Use large cells can be used for data tables that will don't show a lot of rows.
 -   Large cells can help users scan and work with a few rows.
@@ -194,4 +204,4 @@ Patterns are common ways of achieving some functionality. Patterns aren't offere
 
 ## Links
 
--   <a href="/demo/?path=/story/datatable--default" target="_blank">Demo</a>
+-   <a href="/demo/?path=datatable--default" target="_blank">Demo</a>

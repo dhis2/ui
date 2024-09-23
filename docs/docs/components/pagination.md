@@ -3,7 +3,6 @@ title: Pagination
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { Pagination } from '@dhis2/ui'
 
 import API from '../../../components/pagination/API.md'
 
@@ -11,9 +10,10 @@ import API from '../../../components/pagination/API.md'
 
 Pagination is used to navigate content across several pages.
 
-<Demo>
-    <Pagination page={2} pageCount={10} pageSize={50} total={430}/>
-</Demo>
+<Demo
+    path="pagination--default"
+    height="150px"
+/>
 
 ## Usage
 
@@ -39,9 +39,11 @@ Different elements of the pagination component can be included, depending on the
 
 ### Element: Page number selector
 
-<Demo>
-    <Pagination page={2} pageCount={10} pageSize={50} total={430} hidePageSizeSelect hidePageSummary/>
-</Demo>
+<Demo
+    path="pagination--without-page-size-select"
+    height="150px"
+    args="page:2;pageCount:10;total:430;hidePageSummary:!true"
+/>
 
 ```jsx
 <Pagination
@@ -59,9 +61,11 @@ Different elements of the pagination component can be included, depending on the
 
 ### Element: Context information
 
-<Demo>
-    <Pagination page={2} pageCount={10} pageSize={50} total={430} hidePageSelect hidePageSizeSelect/>
-</Demo>
+<Demo
+    path="pagination--without-page-size-select"
+    height="150px"
+    args="page:2;pageCount:10;total:430;hidePageSelect:!true"
+/>
 
 ```jsx
 <Pagination
@@ -80,9 +84,11 @@ Different elements of the pagination component can be included, depending on the
 
 ### Element: Item count selector
 
-<Demo>
-    <Pagination page={2} pageCount={10} pageSize={50} total={430} hidePageSelect hidePageSummary/>
-</Demo>
+<Demo
+    path="pagination--without-page-size-select"
+    height="150px"
+    args="page:2;pageCount:10;total:430;hidePageSizeSelect:!false;hidePageSelect:!true;hidePageSummary:!true"
+/>
 
 ```jsx
 <Pagination

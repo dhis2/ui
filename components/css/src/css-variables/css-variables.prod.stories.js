@@ -49,3 +49,64 @@ export const NoVariables = (args) => (
         <p>By default no custom properties are inserted.</p>
     </App>
 )
+
+export const Elevations = (args) => (
+    <App>
+        <CssVariables elevations {...args} />
+        <div
+            style={{
+                display: 'flex',
+                gap: '8px',
+            }}
+        >
+            <div
+                style={{
+                    background: 'white',
+                    boxShadow: 'var(--elevations-e100',
+                    display: 'inline-block',
+                    padding: '16px',
+                    marginRight: '16px',
+                    fontFamily: 'monospace',
+                }}
+            >
+                e100
+            </div>
+            <div
+                style={{
+                    background: 'white',
+                    boxShadow: 'var(--elevations-e200',
+                    display: 'inline-block',
+                    padding: '16px',
+                    marginRight: '16px',
+                    fontFamily: 'monospace',
+                }}
+            >
+                e200
+            </div>
+            <div
+                style={{
+                    background: 'white',
+                    boxShadow: 'var(--elevations-e300',
+                    display: 'inline-block',
+                    padding: '16px',
+                    marginRight: '16px',
+                    fontFamily: 'monospace',
+                }}
+            >
+                e300
+            </div>
+            <div
+                style={{
+                    background: 'white',
+                    boxShadow: 'var(--elevations-e400',
+                    display: 'inline-block',
+                    padding: '16px',
+                    marginRight: '16px',
+                    fontFamily: 'monospace',
+                }}
+            >
+                e400
+            </div>
+        </div>
+    </App>
+)

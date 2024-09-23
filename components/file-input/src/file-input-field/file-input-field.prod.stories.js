@@ -26,6 +26,7 @@ export default {
         onChange: onChange,
         name: 'uploadName',
         label: 'Upload something',
+        buttonLabel: 'Upload a file',
     },
     argTypes: {
         small: { ...sharedPropTypes.sizeArgType },

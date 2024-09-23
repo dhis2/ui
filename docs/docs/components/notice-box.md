@@ -3,7 +3,6 @@ title: Notice box
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { NoticeBox, Button } from '@dhis2/ui'
 
 import API from '../../../components/notice-box/API.md'
 
@@ -11,11 +10,10 @@ import API from '../../../components/notice-box/API.md'
 
 A notice box shows important information about a situation.
 
-<Demo>
-    <NoticeBox title="Notice box title">
-        Notice box content
-    </NoticeBox>
-</Demo>
+<Demo
+    path="notice-box--default"
+    height="200px"
+/>
 
 ## Usage
 
@@ -43,11 +41,10 @@ A notice box shows important information about a situation.
 
 #### Information
 
-<Demo>
-    <NoticeBox title="Database recently updated">
-        Dashboard data can take a few hours to update, so the most recent data might not be shown.
-    </NoticeBox>
-</Demo>
+<Demo
+    path="notice-box--default"
+    height="200px"
+/>
 
 ```jsx
 <NoticeBox title="Database recently updated">
@@ -60,21 +57,15 @@ A notice box shows important information about a situation.
 
 #### Warning
 
-<Demo>
-    <NoticeBox warning title="No assigned organisation units">
-        No one will be able to find this program because it doesn't have any assigned organisation units.
-        <br/><Button small secondary>Edit access settings</Button>
-    </NoticeBox>
-</Demo>
+<Demo
+    path="notice-box--warning"
+    height="200px"
+/>
 
 ```jsx
-<NoticeBox warning title="No assigned organisation units">
-    No one will be able to find this program because it doesn't have any
-    assigned organisation units.
-    <br />
-    <Button small secondary>
-        Edit access settings
-    </Button>
+<NoticeBox warning title="This program has no assigned Organisation Units">
+    No one will be able to access this program. Add some Organisation Units to
+    the access list.
 </NoticeBox>
 ```
 
@@ -83,21 +74,15 @@ A notice box shows important information about a situation.
 
 #### Error
 
-<Demo>
-    <NoticeBox error title="Analytics tables failed">
-        There isn't any data because there was a problem generating analytics tables.
-        <br/><Button small secondary>Go to analytics tables</Button>
-    </NoticeBox>
-</Demo>
+<Demo
+    path="notice-box--error"
+    height="200px"
+/>
 
 ```jsx
-<NoticeBox error title="Analytics tables failed">
-    There isn't any data because there was a problem generating analytics
-    tables.
-    <br />
-    <Button small secondary>
-        Go to analytics tables
-    </Button>
+<NoticeBox error title="Access rules for this instance are set to 'Public'">
+    Data could be accessed from outside this instance. Update access rules
+    immediately.
 </NoticeBox>
 ```
 
@@ -106,16 +91,14 @@ A notice box shows important information about a situation.
 
 #### Valid
 
-<Demo>
-    <NoticeBox valid title="Password reset successfully">
-        Your password has been reset. You can log in with your username and password.
-    </NoticeBox>
-</Demo>
+<Demo
+    path="notice-box--valid"
+    height="200px"
+/>
 
 ```jsx
-<NoticeBox valid title="Password reset successfully">
-    Your password has been reset. You can log in with your username and
-    password.
+<NoticeBox valid title="Program rules exported successfully">
+    Programs using these rules are updated automatically.
 </NoticeBox>
 ```
 
