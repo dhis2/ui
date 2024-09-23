@@ -3,7 +3,8 @@ title: Tooltip
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { Tooltip } from '@dhis2/ui'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
 
 import API from '../../../components/tooltip/API.md'
 
@@ -11,9 +12,10 @@ import API from '../../../components/tooltip/API.md'
 
 A tooltip is used to show contextual information when triggered by clicking, focusing, or hovering an element.
 
-<Demo>
-    <Tooltip content="Tooltip content">Hover to trigger tooltip.</Tooltip>
-</Demo>
+<Demo
+    path="tooltip--default-placement-top"
+    height="200px"
+/>
 
 ## Usage
 
@@ -38,15 +40,32 @@ A tooltip is used to show contextual information when triggered by clicking, foc
 
 ### Position
 
-<Demo>
-    <Tooltip content="Tooltip content">Hover to trigger top tooltip.</Tooltip>
-    <br/>
-    <Tooltip placement="left" content="Tooltip content">Hover to trigger left tooltip.</Tooltip>
-    <br/>
-    <Tooltip placement="right" content="Tooltip content">Hover to trigger right tooltip.</Tooltip>
-    <br/>
-    <Tooltip placement="bottom" content="Tooltip content">Hover to trigger bottom tooltip.</Tooltip>
-</Demo>
+<Tabs>
+    <TabItem value="Default" label="Default">
+        <Demo
+            path="tooltip--default-placement-top"
+            height="200px"
+        />
+    </TabItem>
+    <TabItem value="Left" label="Left">
+        <Demo
+            path="tooltip--placement-left"
+            height="200px"
+        />
+    </TabItem>
+    <TabItem value="Right" label="Right">
+        <Demo
+            path="tooltip--placement-right"
+            height="200px"
+        />
+    </TabItem>
+    <TabItem value="Bottom" label="Bottom">
+       <Demo
+            path="tooltip--placement-bottom"
+            height="200px"
+        />
+    </TabItem>
+</Tabs>
 
 ```jsx
 <Tooltip content="Tooltip content">Hover to trigger top tooltip.</Tooltip>
@@ -60,9 +79,11 @@ A tooltip is used to show contextual information when triggered by clicking, foc
 
 ### Delay
 
-<Demo>
-    <Tooltip openDelay={500} closeDelay={50} content="Tooltip content">Hover to trigger a tooltip with a longer open delay and shorter close delay.</Tooltip>
-</Demo>
+<Demo
+    path="tooltip--configurable-open-and-close-delays"
+    height="200px"
+    args="openDelay:500;closeDelay:50"
+/>
 
 ```jsx
 <Tooltip openDelay={500} closeDelay={50} content="Tooltip content">

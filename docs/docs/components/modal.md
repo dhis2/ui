@@ -3,18 +3,16 @@ title: Modal
 ---
 
 import { Demo } from '../../src/components/DemoComponent.jsx'
-import { ModalDemoMain, ModalDemoActions, ModalDemoLoading, ModalDemoError } from '@site/src/components/ModalDemos.jsx'
-import { Modal, ModalTitle, ModalContent, ModalActions, Button } from '@dhis2/ui'
-
 import API from '../../../components/modal/API.md'
 
 # Modal
 
 A modal shows content on a layer on top of page, interrupting a workflow and focusing a user's attention on the modal contents.
 
-<Demo>
-    <ModalDemoMain/>
-</Demo>
+<Demo
+    path="modal--default-content"
+    height="350px"
+/>
 
 ## Usage
 
@@ -57,36 +55,43 @@ A modal shows content on a layer on top of page, interrupting a workflow and foc
 The `hide` variable used in the demo's below are initiated using `useState(true)` and set to `false` with the button you see in the demos.
 :::
 
-<Demo>
-    <ModalDemoActions/>
-</Demo>
+<Demo
+    path="modal--modal-that-hides-with-stateful-componens"
+    height="400px"
+/>
+
+Here's the initial state of the demo, showing the buttons that control the modal:
+
+```jsx
+<ButtonStrip>
+    <Button onClick={() => setHide(false)} disabled={!render}>
+        Show the hidden modal
+    </Button>
+
+    <Button onClick={() => setRender(true)} disabled={render}>
+        Render Modal
+    </Button>
+</ButtonStrip>
+```
+
+Here's the modal that is controlled by the buttons:
 
 ```jsx
 <Modal hide={hide}>
-    <ModalTitle>Modal title</ModalTitle>
+    <ModalTitle>Can be hidden</ModalTitle>
 
     <ModalContent>
-        <InputField
-            label="First name"
-            required
-            value="Karimbe"
-            inputWidth="320px"
-        />
-        <InputField
-            label="Last name"
-            value="Olefeme"
-            required
-            inputWidth="320px"
-        />
+        <StatefuleComponent />
     </ModalContent>
 
     <ModalActions>
         <ButtonStrip end>
-            <Button onClick={() => setHide(true)} secondary>
-                Cancel
+            <Button onClick={() => setRender(false)} secondary>
+                Close modal
             </Button>
+
             <Button onClick={() => setHide(true)} primary>
-                Save changes
+                Hide modal
             </Button>
         </ButtonStrip>
     </ModalActions>
@@ -100,9 +105,10 @@ The `hide` variable used in the demo's below are initiated using `useState(true)
 
 ### State: Loading
 
-<Demo>
-    <ModalDemoLoading/>
-</Demo>
+<Demo
+    path="modal--modal-with-loading-state"
+    height="450px"
+/>
 
 ```jsx
 <Modal hide={hide}>
@@ -132,9 +138,10 @@ The `hide` variable used in the demo's below are initiated using `useState(true)
 
 ### State: Error
 
-<Demo>
-    <ModalDemoError/>
-</Demo>
+<Demo
+    path="modal--modal-with-error-state"
+    height="550px"
+/>
 
 ```jsx
 <Modal hide={hide}>

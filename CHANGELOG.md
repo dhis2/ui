@@ -1,3 +1,10 @@
+## [9.11.4](https://github.com/dhis2/ui/compare/v9.11.3...v9.11.4) (2024-09-10)
+
+
+### Bug Fixes
+
+* circular dependency in input-field ([#1590](https://github.com/dhis2/ui/issues/1590)) ([bcd0f41](https://github.com/dhis2/ui/commit/bcd0f41f3ba583c5ce23af316a61709e4f90b93a))
+
 ## [9.11.3](https://github.com/dhis2/ui/compare/v9.11.2...v9.11.3) (2024-08-21)
 
 

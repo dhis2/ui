@@ -3,21 +3,16 @@ title: Menu
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { FlyoutMenu, MenuItem, MenuDivider, MenuSectionHeader, IconSave24, IconDelete24, IconShare24, IconEdit24, IconVisualizationColumn24, IconFilter24, IconClock24, IconLaunch16 } from '@dhis2/ui'
-
 import API from '../../../components/menu/API.md'
 
 # Menu
 
 A menu gives access to menu items, through a panel that opens from a trigger element. Menu items usually trigger actions.
 
-<Demo>
-    <FlyoutMenu>
-        <MenuItem label="Menu item label" />
-        <MenuItem label="Menu item label" />
-        <MenuItem label="Menu item label" />
-    </FlyoutMenu>
-</Demo>
+<Demo
+    path="flyout-menu--default"
+    height="200px"
+/>
 
 ## Usage
 
@@ -41,23 +36,39 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
 
 ##### Order and grouping
 
-<Demo>
-    <FlyoutMenu>
-        <MenuItem label="Add to program" />
-        <MenuItem label="Add to stage" />
-        <MenuDivider />
-        <MenuItem label="Analyze data" />
-        <MenuItem label="Run integrity check" />
-    </FlyoutMenu>
-</Demo>
+<Demo
+    path="flyout-menu--with-various-children"
+    height="550px"
+/>
 
 ```jsx
 <FlyoutMenu>
-    <MenuItem label="Add to program" />
-    <MenuItem label="Add to stage" />
+    <MenuSectionHeader label="Section with sub-menus" />
+    <MenuItem label="Item 1" />
+    <MenuItem label="Item 2">
+        <MenuItem label="Item 2 a" />
+        <MenuItem label="Item 2 b">
+            <MenuItem label="Item 2 b i" />
+            <MenuItem label="Item 2 b ii" />
+        </MenuItem>
+        <MenuItem label="Item 2 c" />
+    </MenuItem>
+    <MenuItem label="Item 3" />
+    <MenuItem label="Item 4">
+        <MenuItem label="Item 4 a" />
+        <MenuItem label="Item 4 b">
+            <MenuItem label="Item 4 b i" />
+            <MenuItem label="Item 4 b ii" />
+        </MenuItem>
+        <MenuItem label="Item 4 c" />
+    </MenuItem>
+    <MenuItem label="Item 5" />
+    <MenuSectionHeader label="Section with dividers between menu items" />
+    <MenuItem label="Item 1" />
     <MenuDivider />
-    <MenuItem label="Analyze data" />
-    <MenuItem label="Run integrity check" />
+    <MenuItem label="Item 2" />
+    <MenuDivider />
+    <MenuItem label="Item 3" />
 </FlyoutMenu>
 ```
 
@@ -66,24 +77,12 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
 
 ##### Size
 
-<Demo>
-    <div className='stacked-examples-horizontal'>
-        <FlyoutMenu>
-            <MenuItem label="Menu item label" />
-            <MenuItem label="Menu item label" />
-        </FlyoutMenu>
-        <FlyoutMenu>
-            <MenuItem dense label="Menu item label" />
-            <MenuItem dense label="Menu item label" />
-        </FlyoutMenu>
-    </div>
-</Demo>
+<Demo
+    path="flyout-menu--dense"
+    height="150px"
+/>
 
 ```jsx
-<FlyoutMenu>
-    <MenuItem label="Menu item label" />
-    <MenuItem label="Menu item label" />
-</FlyoutMenu>
 <FlyoutMenu>
     <MenuItem dense label="Menu item label" />
     <MenuItem dense label="Menu item label" />
@@ -95,13 +94,7 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
 
 #### Nesting
 
-<Demo>
-    <FlyoutMenu>
-        <MenuItem label="Menu item label">
-            <MenuItem label="Menu item label" />
-        </MenuItem>
-    </FlyoutMenu>
-</Demo>
+As shown in the [order and grouping](#order-and-grouping) section, a menu can contain multiple levels of menu items.
 
 ```jsx
 <FlyoutMenu>
@@ -119,16 +112,7 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
 
 ### Dividers and section headers
 
-<Demo>
-    <FlyoutMenu>
-        <MenuSectionHeader label="Actions"/>
-        <MenuItem label="Add to program" />
-        <MenuItem label="Add to stage" />
-        <MenuSectionHeader label="Other"/>
-        <MenuItem label="Analyze data" />
-        <MenuItem label="Run integrity check" />
-    </FlyoutMenu>
-</Demo>
+As shown in the [order and grouping](#order-and-grouping) section, a menu can contain dividers and section headers.
 
 ```jsx
 <FlyoutMenu>
@@ -148,22 +132,17 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
 
 ### Suffix
 
-<Demo>
-    <FlyoutMenu className="demo-fullwidth">
-        <MenuItem icon= {<IconFilter24 />} label="Filter data" />
-        <MenuItem icon= {<IconClock24 />} label="Change time period" />
-        <MenuItem icon= {<IconVisualizationColumn24 />} label="Open in Data Visualizer app" suffix= {<IconLaunch16/>}/>
-    </FlyoutMenu>
-</Demo>
+<Demo
+    path="menu-item--suffix"
+    height="150px"
+/>
 
 ```jsx
 <FlyoutMenu>
-    <MenuItem icon={<IconFilter24 />} label="Filter data" />
-    <MenuItem icon={<IconClock24 />} label="Change time period" />
     <MenuItem
-        icon={<IconVisualizationColumn24 />}
-        label="Open in Data Visualizer app"
-        suffix={<IconLaunch16 />}
+        suffix={<IconReference />}
+        icon={<IconReference />}
+        label="Open in data visualizer"
     />
 </FlyoutMenu>
 ```
@@ -175,20 +154,19 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
 
 ### Icon
 
-<Demo>
-    <FlyoutMenu>
-        <MenuItem icon= {<IconSave24 /> } label="Save" />
-        <MenuItem icon= {<IconEdit24 /> } label="Rename" />
-        <MenuItem icon= {<IconShare24 /> } label="Share" />
-    </FlyoutMenu>
-</Demo>
+<Demo
+    path="menu-item--icon"
+    height="150px"
+/>
 
 ```jsx
-<FlyoutMenu>
-    <MenuItem icon={<IconSave24 />} label="Save" />
-    <MenuItem icon={<IconEdit24 />} label="Rename" />
-    <MenuItem icon={<IconShare24 />} label="Share" />
-</FlyoutMenu>
+<Menu>
+    <MenuItem icon={<IconApps24 />} label="Menu item" />
+    <MenuItem
+        icon={<IconApps24 color="magenta" />}
+        label="Menu item - with custom icon fill"
+    />
+</Menu>
 ```
 
 -   A menu item can show an icon.
@@ -197,24 +175,14 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
 
 ### Type: Destructive
 
-<Demo>
-    <FlyoutMenu>
-        <MenuItem icon= {<IconSave24 /> } label="Save" />
-        <MenuItem icon= {<IconEdit24 /> } label="Rename" />
-        <MenuItem icon= {<IconShare24 /> } label="Share" />
-        <MenuDivider />
-        <MenuItem destructive icon= {<IconDelete24 /> } label="Delete program" />
-    </FlyoutMenu>
-</Demo>
+<Demo
+    path="menu-item--destructive"
+    height="150px"
+    args="label:Delete+program"
+/>
 
 ```jsx
-<FlyoutMenu>
-    <MenuItem icon={<IconSave24 />} label="Save" />
-    <MenuItem icon={<IconEdit24 />} label="Rename" />
-    <MenuItem icon={<IconShare24 />} label="Share" />
-    <MenuDivider />
-    <MenuItem destructive icon={<IconDelete24 />} label="Delete program" />
-</FlyoutMenu>
+<MenuItem destructive label="Delete program" />
 ```
 
 -   Use destructive menu items for critical, destructive actions like _Delete_ or _End process_.
@@ -224,20 +192,14 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
 
 ### State: Disabled
 
-<Demo>
-    <FlyoutMenu>
-        <MenuItem disabled icon= {<IconSave24 /> } label="Save" />
-        <MenuItem icon= {<IconEdit24 /> } label="Rename" />
-        <MenuItem icon= {<IconShare24 /> } label="Share" />
-    </FlyoutMenu>
-</Demo>
+<Demo
+    path="menu-item--disabled"
+    height="150px"
+    args="label:Save"
+/>
 
 ```jsx
-<FlyoutMenu>
-    <MenuItem disabled icon={<IconSave24 />} label="Save" />
-    <MenuItem icon={<IconEdit24 />} label="Rename" />
-    <MenuItem icon={<IconShare24 />} label="Share" />
-</FlyoutMenu>
+<MenuItem disabled label="Save" />
 ```
 
 -   Use disabled menu items when a menu item is temporarily unavailable.

@@ -3,28 +3,16 @@ title: Select
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { SingleSelectField, MultiSelectField, SingleSelectOption, MultiSelectOption } from '@dhis2/ui'
 
 import API from '../../../components/select/API.md'
 
 # Select
 
 Selects are used to choose one or more items from a list of options.
-
-<Demo>
-    <SingleSelectField label="Label">
-        <SingleSelectOption label="Option one" value="1" />
-        <SingleSelectOption label="Option two" value="2" />
-        <SingleSelectOption label="Option three" value="3" />
-        <SingleSelectOption label="Option four" value="4" />
-        <SingleSelectOption label="Option five" value="5" />
-        <SingleSelectOption label="Option six" value="6" />
-        <SingleSelectOption label="Option seven" value="7" />
-        <SingleSelectOption label="Option eight" value="8" />
-        <SingleSelectOption label="Option nine" value="9" />
-        <SingleSelectOption label="Option ten" value="10" />
-    </SingleSelectField>
-</Demo>
+<Demo
+    path="single-select--with-options-and-a-selection"
+    height="200px"
+/>
 
 ## Usage
 
@@ -40,24 +28,17 @@ Selects are used to choose one or more items from a list of options.
 
 #### Single select
 
-<Demo>
-    <SingleSelectField label="Aggregation type">
-        <SingleSelectOption label="Sum" value="1" />
-        <SingleSelectOption label="Mean" value="2" />
-        <SingleSelectOption label="Average" value="3" />
-        <SingleSelectOption label="Mode" value="4" />
-        <SingleSelectOption label="Min" value="5" />
-        <SingleSelectOption label="Max" value="6" />
-        <SingleSelectOption label="Median" value="7" />
-        <SingleSelectOption label="Total" value="8" />
-    </SingleSelectField>
-</Demo>
+<Demo
+    path="single-select-field--with-help-text"
+    height="200px"
+    args="label:Aggregation type;children[0].key:1;children[0].props.value:1;children[0].props.label:one;children[1].key:2;children[1].props.value:2;children[1].props.label:two;children[2].key:3;children[2].props.value:3;children[2].props.label:three;children[3]:!undefined;children[4]:!undefined;children[5]:!undefined;children[6]:!undefined;children[7]:!undefined;children[8]:!undefined;children[9]:!undefined"
+/>
 
 ```jsx
 <SingleSelectField label="Aggregation type">
-    <SingleSelectOption label="Sum" value="1" />
-    <SingleSelectOption label="Mean" value="2" />
-    <SingleSelectOption label="Average" value="3" />
+    <SingleSelectOption label="One" value="1" />
+    <SingleSelectOption label="Two" value="2" />
+    <SingleSelectOption label="Three" value="3" />
 </SingleSelectField>
 ```
 
@@ -65,19 +46,14 @@ Selects are used to choose one or more items from a list of options.
 
 #### Multi select
 
-<Demo>
-    <MultiSelectField label="Priority" selected={['1', '5',]}>
-        <MultiSelectOption label="Very low" value="1" />
-        <MultiSelectOption label="Low" value="2" />
-        <MultiSelectOption label="Medium" value="3" />
-        <MultiSelectOption label="High" value="4" />
-        <MultiSelectOption label="Very high" value="5" />
-        <MultiSelectOption label="Critical" value="6" />
-    </MultiSelectField>
-</Demo>
+<Demo
+    path="multi-select-field--default"
+    height="200px"
+    args="label:priority;children[0].props.label:Very+low"
+/>
 
 ```jsx
-<MultiSelectField label="Priority" selected={['1', '5']}>
+<MultiSelectField label="Priority" selected={['1']}>
     <MultiSelectOption label="Very low" value="1" />
     <MultiSelectOption label="High" value="4" />
     <MultiSelectOption label="Very high" value="5" />
@@ -97,20 +73,11 @@ Selects are used to choose one or more items from a list of options.
 
 ##### Placeholder
 
-<Demo>
-    <SingleSelectField label="Label" placeholder="Choose an option">
-        <SingleSelectOption label="Option one" value="1" />
-        <SingleSelectOption label="Option two" value="2" />
-        <SingleSelectOption label="Option three" value="3" />
-        <SingleSelectOption label="Option four" value="4" />
-        <SingleSelectOption label="Option five" value="5" />
-        <SingleSelectOption label="Option six" value="6" />
-        <SingleSelectOption label="Option seven" value="7" />
-        <SingleSelectOption label="Option eight" value="8" />
-        <SingleSelectOption label="Option nine" value="9" />
-        <SingleSelectOption label="Option ten" value="10" />
-    </SingleSelectField>
-</Demo>
+<Demo
+    path="single-select--with-placeholder"
+    height="200px"
+    args="label:Label;placeholder:Choose+an+option"
+/>
 
 ```jsx
 <SingleSelectField label="Label" placeholder="Choose an option">
@@ -127,20 +94,11 @@ Selects are used to choose one or more items from a list of options.
 
 ##### Help text
 
-<Demo>
-    <SingleSelectField label="Aggregation type" helpText="Choose the aggregation type to apply to imported data.">
-        <SingleSelectOption label="Option one" value="1" />
-        <SingleSelectOption label="Option two" value="2" />
-        <SingleSelectOption label="Option three" value="3" />
-        <SingleSelectOption label="Option four" value="4" />
-        <SingleSelectOption label="Option five" value="5" />
-        <SingleSelectOption label="Option six" value="6" />
-        <SingleSelectOption label="Option seven" value="7" />
-        <SingleSelectOption label="Option eight" value="8" />
-        <SingleSelectOption label="Option nine" value="9" />
-        <SingleSelectOption label="Option ten" value="10" />
-    </SingleSelectField>
-</Demo>
+<Demo
+    path="single-select-field--with-help-text"
+    height="200px"
+    args="label:Aggregation+type;helpText:Choose+the+aggregation+type+to+apply+to+imported+data"
+/>
 
 ```jsx
 <SingleSelectField
@@ -158,25 +116,12 @@ Selects are used to choose one or more items from a list of options.
 
 #### Size
 
-<Demo>
-    <SingleSelectField label="Regular sized select">
-        <SingleSelectOption label="Option one" value="1" />
-        <SingleSelectOption label="Option two" value="2" />
-        <SingleSelectOption label="Option three" value="3" />
-    </SingleSelectField>
-    <SingleSelectField dense label="Dense sized select">
-        <SingleSelectOption label="Option one" value="1" />
-        <SingleSelectOption label="Option two" value="2" />
-        <SingleSelectOption label="Option three" value="3" />
-    </SingleSelectField>
-</Demo>
+<Demo
+    path="single-select--dense"
+    height="200px"
+/>
 
 ```jsx
-<SingleSelectField label="Regular sized select">
-    <SingleSelectOption label="Option one" value="1" />
-    <SingleSelectOption label="Option two" value="2" />
-    <SingleSelectOption label="Option three" value="3" />
-</SingleSelectField>
 <SingleSelectField dense label="Dense sized select">
     <SingleSelectOption label="Option one" value="1" />
     <SingleSelectOption label="Option two" value="2" />
@@ -195,20 +140,10 @@ Selects are used to choose one or more items from a list of options.
 
 ### Filtering
 
-<Demo>
-    <SingleSelectField filterable label="Label">
-        <SingleSelectOption label="Option one" value="1" />
-        <SingleSelectOption label="Option two" value="2" />
-        <SingleSelectOption label="Option three" value="3" />
-        <SingleSelectOption label="Option four" value="4" />
-        <SingleSelectOption label="Option five" value="5" />
-        <SingleSelectOption label="Option six" value="6" />
-        <SingleSelectOption label="Option seven" value="7" />
-        <SingleSelectOption label="Option eight" value="8" />
-        <SingleSelectOption label="Option nine" value="9" />
-        <SingleSelectOption label="Option ten" value="10" />
-    </SingleSelectField>
-</Demo>
+<Demo
+    path="single-select--with-filter-field"
+    height="250px"
+/>
 
 ```jsx
 <SingleSelectField filterable label="Label">
@@ -225,20 +160,10 @@ Selects are used to choose one or more items from a list of options.
 
 ### Clearing
 
-<Demo>
-    <SingleSelectField clearable label="Label" selected="1">
-        <SingleSelectOption label="Option one" value="1" />
-        <SingleSelectOption label="Option two" value="2" />
-        <SingleSelectOption label="Option three" value="3" />
-        <SingleSelectOption label="Option four" value="4" />
-        <SingleSelectOption label="Option five" value="5" />
-        <SingleSelectOption label="Option six" value="6" />
-        <SingleSelectOption label="Option seven" value="7" />
-        <SingleSelectOption label="Option eight" value="8" />
-        <SingleSelectOption label="Option nine" value="9" />
-        <SingleSelectOption label="Option ten" value="10" />
-    </SingleSelectField>
-</Demo>
+<Demo
+    path="single-select--with-clear-button-selection-and-on-change"
+    height="210px"
+/>
 
 ```jsx
 <SingleSelectField clearable label="Label" selected="1">
@@ -255,20 +180,11 @@ Selects are used to choose one or more items from a list of options.
 
 ### Prefix
 
-<Demo>
-    <SingleSelectField prefix="Data type" selected="3">
-        <SingleSelectOption label="Data element" value="1" />
-        <SingleSelectOption label="Event data item" value="2" />
-        <SingleSelectOption label="Program indicator" value="3" />
-        <SingleSelectOption label="Option four" value="4" />
-        <SingleSelectOption label="Option five" value="5" />
-        <SingleSelectOption label="Option six" value="6" />
-        <SingleSelectOption label="Option seven" value="7" />
-        <SingleSelectOption label="Option eight" value="8" />
-        <SingleSelectOption label="Option nine" value="9" />
-        <SingleSelectOption label="Option ten" value="10" />
-    </SingleSelectField>
-</Demo>
+<Demo
+    path="single-select--with-prefix"
+    height="210px"
+    args="prefix:Data+type"
+/>
 
 ```jsx
 <SingleSelectField prefix="Data type" selected="3">
@@ -285,25 +201,15 @@ Selects are used to choose one or more items from a list of options.
 
 ### State: Error
 
-<Demo>
-    <SingleSelectField error validationText="There's a problem with this choice." label="Label">
-        <SingleSelectOption label="Option one" value="1" />
-        <SingleSelectOption label="Option two" value="2" />
-        <SingleSelectOption label="Option three" value="3" />
-        <SingleSelectOption label="Option four" value="4" />
-        <SingleSelectOption label="Option five" value="5" />
-        <SingleSelectOption label="Option six" value="6" />
-        <SingleSelectOption label="Option seven" value="7" />
-        <SingleSelectOption label="Option eight" value="8" />
-        <SingleSelectOption label="Option nine" value="9" />
-        <SingleSelectOption label="Option ten" value="10" />
-    </SingleSelectField>
-</Demo>
+<Demo
+    path="single-select-field--status-error"
+    height="210px"
+/>
 
 ```jsx
 <SingleSelectField
     error
-    validationText="There's a problem with this choice."
+    validationText="That value is wrong. Sorry!"
     label="Label"
 >
     <SingleSelectOption label="Option one" value="1" />
@@ -319,20 +225,10 @@ Selects are used to choose one or more items from a list of options.
 
 ### State: Disabled
 
-<Demo>
-    <SingleSelectField disabled label="Label">
-        <SingleSelectOption label="Option one" value="1" />
-        <SingleSelectOption label="Option two" value="2" />
-        <SingleSelectOption label="Option three" value="3" />
-        <SingleSelectOption label="Option four" value="4" />
-        <SingleSelectOption label="Option five" value="5" />
-        <SingleSelectOption label="Option six" value="6" />
-        <SingleSelectOption label="Option seven" value="7" />
-        <SingleSelectOption label="Option eight" value="8" />
-        <SingleSelectOption label="Option nine" value="9" />
-        <SingleSelectOption label="Option ten" value="10" />
-    </SingleSelectField>
-</Demo>
+<Demo
+    path="single-select-field--status-disabled"
+    height="150px"
+/>
 
 ```jsx
 <SingleSelectField disabled label="Label">

@@ -3,7 +3,6 @@ title: Popover
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { Popover } from '@dhis2/ui'
 
 import API from '../../../components/popover/API.md'
 
@@ -11,9 +10,10 @@ import API from '../../../components/popover/API.md'
 
 A popover is used to show more information when a user interacts with a trigger element.
 
-<Demo>
-    <p><a href="/demo/?path=/story/popover--default" target="_blank">Storybook demo: Popover</a>.</p> 
-</Demo>
+<Demo
+    path="popover--default"
+    height="400px"
+/>
 
 ## Usage
 
