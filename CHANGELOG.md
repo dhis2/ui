@@ -1,3 +1,29 @@
+# [9.12.0-alpha.1](https://github.com/dhis2/ui/compare/v9.11.4...v9.12.0-alpha.1) (2024-09-23)
+
+
+### Bug Fixes
+
+* bump multi calendar library version in calendar ([#1566](https://github.com/dhis2/ui/issues/1566)) ([d205016](https://github.com/dhis2/ui/commit/d205016ae9f51eb286007762d99549325199cedc))
+* bump multi calendar library version in calendar component  ([#1576](https://github.com/dhis2/ui/issues/1576)) ([5f2b13d](https://github.com/dhis2/ui/commit/5f2b13dc3abfd2396c83c39fb399d3c7e0d1dffe))
+* update yarn.lock after deduping ([5c24b02](https://github.com/dhis2/ui/commit/5c24b02782c2e9c530ec857669ba51ff3e5f3768))
+
+
+### Features
+
+* add aria attributes to loaders ([#1449](https://github.com/dhis2/ui/issues/1449)) ([2832584](https://github.com/dhis2/ui/commit/28325848aac6e1c5244b7a48ed5d8951a0cfa1d3))
+* memorize calendar container component to improve perfromance ([#1575](https://github.com/dhis2/ui/issues/1575)) ([0d00a19](https://github.com/dhis2/ui/commit/0d00a19663147b24acc0513aa8958d630ffed94c))
+* merge master into alpha ([7afecf9](https://github.com/dhis2/ui/commit/7afecf9121d573bc96f58f8bb89215440036c970))
+* splitButton accessibility improvements ([#1458](https://github.com/dhis2/ui/issues/1458)) ([51a1b14](https://github.com/dhis2/ui/commit/51a1b149ae720703339dc36edc88de70c6798bf8))
+* support editable input | min & max dates | dd-mm-yyyy format in CalendarInput ([#1504](https://github.com/dhis2/ui/issues/1504)) ([99a78f5](https://github.com/dhis2/ui/commit/99a78f5caec83529af26a11a2dd4d93fface30b4))
+* use alpha of multi calendar library ([0c6b966](https://github.com/dhis2/ui/commit/0c6b966fca18912e88a13c6822ec68b46208e99a))
+* verify date input only on blur on calendar input, close calendar popup on blur as well ([d8b0d1c](https://github.com/dhis2/ui/commit/d8b0d1cd2fd93a88413f0f73ad216783e6dd3ff7))
+* **tooltip:** accessibility improvements for tooltip ([#1463](https://github.com/dhis2/ui/issues/1463)) ([f11eabb](https://github.com/dhis2/ui/commit/f11eabb87309efdb6e1d961a461002cdc76664b1))
+
+
+### Reverts
+
+* Revert "feat(selectionBar): accessibility improvements for SelectionBar (#1475)" ([54498fb](https://github.com/dhis2/ui/commit/54498fbdd8cec448c891855b72691d5613c83a47)), closes [#1475](https://github.com/dhis2/ui/issues/1475)
+
 ## [9.11.4](https://github.com/dhis2/ui/compare/v9.11.3...v9.11.4) (2024-09-10)
 
 
