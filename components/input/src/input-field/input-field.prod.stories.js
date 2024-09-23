@@ -128,13 +128,13 @@ export const InputWidth = (args) => (
         <InputField
             {...args}
             name="input1"
-            label="My textarea has a width of 100px"
+            label="My inputField has a width of 100px"
             inputWidth="100px"
         />
         <InputField
             {...args}
             name="input2"
-            label="My textarea has a width of 220px"
+            label="My inputField has a width of 220px"
             inputWidth="220px"
         />
     </>

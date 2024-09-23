@@ -63,7 +63,12 @@ export const NoTotalAtLastPageWithoutPageLength = Template.bind({})
 NoTotalAtLastPageWithoutPageLength.args = { ...pagers.noTotalAtLastPage }
 
 export const WithoutPageSizeSelect = Template.bind({})
-WithoutPageSizeSelect.args = { ...pagers.atTenthPage, hidePageSizeSelect: true }
+WithoutPageSizeSelect.args = {
+    ...pagers.atTenthPage,
+    hidePageSizeSelect: true,
+    hidePageSelect: false,
+    hidePageSummary: false,
+}
 
 export const WithoutGoToPageSelect = Template.bind({})
 WithoutGoToPageSelect.args = { ...pagers.atTenthPage, hidePageSelect: true }

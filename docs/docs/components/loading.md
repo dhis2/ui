@@ -3,17 +3,18 @@ title: Loader
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { CircularLoader, LinearLoader } from '@dhis2/ui'
-
 import API from '../../../components/loader/API.md'
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Loader
 
 Loaders are used to show that something is in progress. They keep users informed about the what's going on.
 
-<Demo>
-    <CircularLoader />
-</Demo>
+<Demo
+    path="circular-loader--default"
+    height="150px"
+/>
 
 ## Usage
 
@@ -37,9 +38,10 @@ Loaders are used to show that something is in progress. They keep users informed
 
 #### Circular
 
-<Demo>
-    <CircularLoader />
-</Demo>
+<Demo
+    path="circular-loader--large"
+    height="150px"
+/>
 
 ```jsx
 <CircularLoader />
@@ -49,9 +51,11 @@ Loaders are used to show that something is in progress. They keep users informed
 
 #### Linear
 
-<Demo>
-    <LinearLoader amount="25"/>
-</Demo>
+<Demo
+    path="linear-loader--determinate"
+    height="130px"
+    args="amount:25"
+/>
 
 ```jsx
 <LinearLoader amount="25" />
@@ -63,14 +67,32 @@ Loaders are used to show that something is in progress. They keep users informed
 
 #### Size
 
-<Demo>
-    <div className='stacked-examples-vertical'>
-        <CircularLoader extrasmall />
-        <CircularLoader small/>
-        <CircularLoader />
-        <CircularLoader large />
-    </div>
-</Demo>
+<Tabs>
+    <TabItem value="xsmall" label="Extra Small">
+        <Demo
+            path="circular-loader--extra-small"
+            height="150px"
+        />
+    </TabItem>
+    <TabItem value="small" label="Small">
+        <Demo
+            path="circular-loader--small"
+            height="150px"
+        />
+    </TabItem>
+    <TabItem value="medium" label="Medium">
+        <Demo
+            path="circular-loader--default"
+            height="150px"
+        />
+    </TabItem>
+    <TabItem value="large" label="Large">
+        <Demo
+            path="circular-loader--large"
+            height="150px"
+        />
+    </TabItem>
+</Tabs>
 
 ```jsx
 <CircularLoader extrasmall />
@@ -86,15 +108,15 @@ Loaders are used to show that something is in progress. They keep users informed
 
 ### Inverted
 
-<Demo>
-    <div style={{
-        backgroundColor: '#999',
-        padding: '8px',
-    }}>
-        <CircularLoader invert />
-        <LinearLoader amount="25" invert />
-    </div>
-</Demo>
+<Demo
+    path="circular-loader--default"
+    height="150px"
+    args="invert:true"
+/>
+
+```jsx
+<CircularLoader invert />
+```
 
 -   Inverted loaders can be used on dark backgrounds, like a blocking backdrop layer.
 
