@@ -3,8 +3,7 @@ import { Box } from '@dhis2-ui/box'
 import { Field } from '@dhis2-ui/field'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Input } from '../input/input.js'
-import { inputTypes } from '../input/inputTypes.js'
+import { Input, inputTypes } from '../input/index.js'
 
 class InputField extends React.Component {
     render() {
