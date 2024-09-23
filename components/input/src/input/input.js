@@ -4,6 +4,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import css from 'styled-jsx/css'
+import { inputTypes } from './inputTypes'
 
 const styles = css`
     .input {
@@ -235,21 +236,7 @@ Input.propTypes = {
     step: PropTypes.string,
     tabIndex: PropTypes.string,
     /** The native input `type` attribute */
-    type: PropTypes.oneOf([
-        'text',
-        'number',
-        'password',
-        'email',
-        'url',
-        'tel',
-        'date',
-        'datetime',
-        'datetime-local',
-        'month',
-        'week',
-        'time',
-        'search',
-    ]),
+    type: PropTypes.oneOf(inputTypes),
     /** Applies 'valid' appearance for validation feedback. Mutually exclusive with `error` and `warning` props */
     valid: sharedPropTypes.statusPropType,
     /** Value in the input. Can be used to control the component (recommended). Passed to event handler callbacks in object */
