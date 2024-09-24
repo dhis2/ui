@@ -2,7 +2,7 @@
 title: Modal
 ---
 
-import { Demo } from '../../src/components/DemoComponent.jsx'
+import { Demo } from '@site/src/components/DemoComponent.jsx'
 import API from '../../../components/modal/API.md'
 
 # Modal
