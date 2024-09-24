@@ -66,7 +66,7 @@ import { SwitchField } from '@dhis2/ui'
 |validationText|string|||Adds text below the switch to provide validation feedback. Acquires styles from `valid`, `warning` and `error` statuses|
 |value|string|||Value associated with the switch. Passed in object as argument to event handlers|
 |warning|custom|||Applies 'warning' styling to switch and validation text for feedback. Mutually exclusive with `valid` and `error` props|
-|onBlur|function|||Called with signature ({ name: string, value: string, checked: bool }, event)|
-|onChange|function|||Called with signature ({ name: string, value: string, checked: bool }, event)|
-|onFocus|function|||Called with signature ({ name: string, value: string, checked: bool }, event)|
-|onKeyDown|function|||Called with signature ({ name: string, value: string, checked: bool }, event)|
+|onBlur|function|||Called with signature `({ name: string, value: string, checked: bool }, event)`|
+|onChange|function|||Called with signature `({ name: string, value: string, checked: bool }, event)`|
+|onFocus|function|||Called with signature `({ name: string, value: string, checked: bool }, event)`|
+|onKeyDown|function|||Called with signature `({ name: string, value: string, checked: bool }, event)`|

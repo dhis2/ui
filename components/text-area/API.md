@@ -32,10 +32,10 @@ import { TextArea } from '@dhis2/ui'
 |value|string|||Value in the textarea. Can be used to control component (recommended). Passed in object argument to event handlers.|
 |warning|custom|||Applies 'warning' styles for validation feedback. Mutually exclusive with `valid` and `error` props|
 |width|string|``'100%'``||Width of the text area. Can be any valid CSS measurement|
-|onBlur|function|||Called with signature ({ name: string, value: string }, event)|
-|onChange|function|||Called with signature ({ name: string, value: string }, event)|
-|onFocus|function|||Called with signature ({ name: string, value: string }, event)|
-|onKeyDown|function|||Called with signature ({ name: string, value: string }, event)|
+|onBlur|function|||Called with signature `({ name: string, value: string }, event)`|
+|onChange|function|||Called with signature `({ name: string, value: string }, event)`|
+|onFocus|function|||Called with signature `({ name: string, value: string }, event)`|
+|onKeyDown|function|||Called with signature `({ name: string, value: string }, event)`|
 
 ### TextAreaField
 
@@ -75,7 +75,7 @@ import { TextAreaField } from '@dhis2/ui'
 |validationText|string|||Validation text below the textarea to provide validation feedback. Changes appearance depending on validation status|
 |value|string|||Value in the textarea. Can be used to control component (recommended). Passed in object argument to event handlers.|
 |warning|custom|||Applies 'warning' styles for validation feedback. Mutually exclusive with `valid` and `error` props|
-|onBlur|function|||Called with signature ({ name: string, value: string }, event)|
-|onChange|function|||Called with signature ({ name: string, value: string }, event)|
-|onFocus|function|||Called with signature ({ name: string, value: string }, event)|
-|onKeyDown|function|||Called with signature ({ name: string, value: string }, event)|
+|onBlur|function|||Called with signature `({ name: string, value: string }, event)`|
+|onChange|function|||Called with signature `({ name: string, value: string }, event)`|
+|onFocus|function|||Called with signature `({ name: string, value: string }, event)`|
+|onKeyDown|function|||Called with signature `({ name: string, value: string }, event)`|
