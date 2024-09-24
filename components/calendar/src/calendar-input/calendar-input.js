@@ -1,11 +1,17 @@
+import {
+    useDatePicker,
+    useResolvedDirection,
+    validateDateString
+} from '@dhis2/multi-calendar-dates'
 import { Button } from '@dhis2-ui/button'
 import { Card } from '@dhis2-ui/card'
-import { InputField, InputFieldProps } from '@dhis2-ui/input'
+import { InputField } from '@dhis2-ui/input'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
 import cx from 'classnames'
-import React, { useRef, useState } from 'react'
-import { Calendar, CalendarProps } from '../calendar/calendar.js'
+import React, { useRef, useState, useMemo, useEffect } from 'react'
+import { CalendarContainer } from '../calendar/calendar-container.js'
+import { CalendarProps } from '../calendar/calendar.js'
 import i18n from '../locales/index.js'
 
 const offsetModifier = {
@@ -16,7 +22,7 @@ const offsetModifier = {
 }
 
 export const CalendarInput = ({
-    onDateSelect,
+    onDateSelect: parentOnDateSelect,
     calendar,
     date,
     dir,
@@ -27,44 +33,90 @@ export const CalendarInput = ({
     width,
     cellSize,
     clearable,
+    minDate,
+    maxDate,
+    format, // todo: props and types for format and validation
+    strictValidation,
     ...rest
 } = {}) => {
     const ref = useRef()
     const [open, setOpen] = useState(false)
+    const [partialDate, setPartialDate] = useState(date)
 
-    const calendarProps = React.useMemo(() => {
-        const onDateSelectWrapper = (selectedDate) => {
-            setOpen(false)
-            onDateSelect?.(selectedDate)
-        }
-        return {
-            onDateSelect: onDateSelectWrapper,
+    const excludeRef = useRef(null)
+
+    useEffect(() => setPartialDate(date), [date])
+
+    const useDatePickerOptions = useMemo(
+        () => ({
             calendar,
-            date,
-            dir,
             locale,
+            timeZone, // todo: we probably shouldn't have had timezone here in the first place
             numberingSystem,
             weekDayFormat,
-            timeZone,
-            width,
-            cellSize,
-        }
-    }, [
-        calendar,
-        cellSize,
+        }),
+        [calendar, locale, numberingSystem, timeZone, weekDayFormat]
+    )
+
+    const pickerResults = useDatePicker({
+        onDateSelect: (result) => {
+            setOpen(false)
+            parentOnDateSelect?.(result)
+        },
         date,
-        dir,
-        locale,
-        numberingSystem,
-        onDateSelect,
-        timeZone,
-        weekDayFormat,
-        width,
-    ])
+        minDate: minDate,
+        maxDate: maxDate,
+        strictValidation: strictValidation,
+        format: format,
+        options: useDatePickerOptions,
+    })
+
+    const handleChange = (e) => {
+        setOpen(false)
+        setPartialDate(e.value)
+    }
+
+    const handleBlur = (_, e) => {
+        const validated = validateDateString(partialDate, {
+            calendar,
+            format,
+            minDateString: minDate,
+            maxDateString: maxDate,
+            strictValidation,
+        })
+        parentOnDateSelect?.({ calendarDateString: partialDate, ...validated })
+
+        if (
+            excludeRef.current &&
+            !excludeRef.current.contains(e.relatedTarget)
+        ) {
+            setOpen(false)
+        }
+    }
 
     const onFocus = () => {
         setOpen(true)
     }
+
+    const languageDirection = useResolvedDirection(dir, locale)
+
+    const calendarProps = useMemo(() => {
+        return {
+            date,
+            width,
+            cellSize,
+            isValid: pickerResults.isValid,
+            calendarWeekDays: pickerResults.calendarWeekDays,
+            weekDayLabels: pickerResults.weekDayLabels,
+            currMonth: pickerResults.currMonth,
+            currYear: pickerResults.currYear,
+            nextMonth: pickerResults.nextMonth,
+            nextYear: pickerResults.nextYear,
+            prevMonth: pickerResults.prevMonth,
+            prevYear: pickerResults.prevYear,
+            languageDirection,
+        }
+    }, [cellSize, date, pickerResults, width, languageDirection])
 
     return (
         <>
@@ -74,14 +126,19 @@ export const CalendarInput = ({
                     {...rest}
                     type="text"
                     onFocus={onFocus}
-                    value={date}
+                    value={partialDate}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    validationText={
+                        pickerResults.errorMessage ||
+                        pickerResults.warningMessage
+                    }
+                    error={!!pickerResults.errorMessage}
+                    warning={!!pickerResults.warningMessage}
                 />
                 {clearable && (
                     <div
                         className={cx('calendar-clear-button', {
-                            // ToDo: this is a workaround to show the clear button in the correct place when an icon is shown.
-                            // Long-term, we should abstract and share the logic multi-select uses for the input-wrapper
-                            // https://dhis2.atlassian.net/browse/DHIS2-14848
                             'with-icon':
                                 rest.valid ||
                                 rest.error ||
@@ -94,7 +151,9 @@ export const CalendarInput = ({
                             dataTest="calendar-clear-button"
                             secondary
                             small
-                            onClick={() => calendarProps.onDateSelect(null)}
+                            onClick={() => {
+                                parentOnDateSelect?.(null)
+                            }}
                             type="button"
                         >
                             {i18n.t('Clear')}
@@ -114,7 +173,11 @@ export const CalendarInput = ({
                         modifiers={[offsetModifier]}
                     >
                         <Card>
-                            <Calendar {...calendarProps} date={date} />
+                            <CalendarContainer
+                                {...calendarProps}
+                                excludedRef={excludeRef}
+                                unfocusable
+                            />
                         </Card>
                     </Popper>
                 </Layer>
@@ -130,7 +193,6 @@ export const CalendarInput = ({
                         inset-inline-end: 6px;
                         inset-block-start: 27px;
                     }
-
                     .calendar-clear-button.with-icon {
                         inset-inline-end: 36px;
                     }
@@ -148,5 +210,4 @@ CalendarInput.defaultProps = {
 }
 CalendarInput.propTypes = {
     ...CalendarProps,
-    ...InputFieldProps,
 }

@@ -4,7 +4,6 @@ import { ButtonProps } from '@dhis2-ui/button'
 export interface SelectorBarProps {
     children: React.ReactNode
     additionalContent?: React.ReactNode
-    ariaLabel?: string
     className?: string
     dataTest?: string
     disableClearSelections?: boolean
