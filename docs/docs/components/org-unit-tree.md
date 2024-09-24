@@ -42,7 +42,3 @@ An organisation unit tree is used to choose organisation units from a hierarchy.
 ## API Reference
 
 <API />
-
-## Links
-
--   <a href="/demo/?path=/story/organisation-unit-tree--collapsed" target="_blank">Demo</a>

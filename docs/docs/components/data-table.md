@@ -201,7 +201,3 @@ Patterns are common ways of achieving some functionality. Patterns aren't offere
 ## API Reference
 
 <API />
-
-## Links
-
--   <a href="/demo/?path=datatable--default" target="_blank">Demo</a>
