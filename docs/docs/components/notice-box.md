@@ -124,7 +124,3 @@ A notice box shows important information about a situation.
 ## API Reference
 
 <API />
-
-## Links
-
--   <a href="/demo/?path=/story/notice-box--default" target="_blank">Demo</a>

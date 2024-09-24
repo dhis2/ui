@@ -183,7 +183,3 @@ Here's the modal that is controlled by the buttons:
 ## API Reference
 
 <API />
-
-## Links
-
--   <a href="/demo/?path=/story/modal--default-content" target="_blank">Demo</a>

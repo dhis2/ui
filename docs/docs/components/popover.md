@@ -34,7 +34,3 @@ A popover is used to show more information when a user interacts with a trigger 
 ## API Reference
 
 <API />
-
-## Links
-
--   <a href="/demo/?path=/story/popover--default" target="_blank">Demo</a>

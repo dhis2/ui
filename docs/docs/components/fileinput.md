@@ -101,7 +101,3 @@ A file input is used to choose and upload files.
 ## API Reference
 
 <API />
-
-## Links
-
--   <a href="/demo/?path=/story/file-input--default" target="_blank">Demo</a>

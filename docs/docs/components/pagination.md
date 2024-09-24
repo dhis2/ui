@@ -107,7 +107,3 @@ Different elements of the pagination component can be included, depending on the
 ## API Reference
 
 <API />
-
-## Links
-
--   <a href="/demo/?path=/story/pagination--default" target="_blank">Demo</a>

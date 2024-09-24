@@ -208,7 +208,3 @@ As shown in the [order and grouping](#order-and-grouping) section, a menu can co
 ## API Reference
 
 <API />
-
-## Links
-
--   <a href="/demo/?path=/story/flyout-menu--default" target="_blank">Demo</a>

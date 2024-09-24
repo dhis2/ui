@@ -224,7 +224,3 @@ import { AlertStack, AlertBar } from '@dhis2/ui'
 ## API Reference
 
 <API />
-
-## Links
-
--   <a href="/demo/?path=/story/alert-bar--default" target="_blank">Demo</a>

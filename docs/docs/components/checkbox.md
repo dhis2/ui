@@ -55,7 +55,3 @@ Checkboxes are used to choose one or more items from a list. A checkbox can also
 ## API Reference
 
 <API />
-
-## Links
-
--   <a href="/demo/?path=/story/checkbox--default" target="_blank">Demo</a>

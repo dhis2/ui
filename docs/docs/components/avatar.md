@@ -55,7 +55,3 @@ The Demo above lists the different sizes available. The related JSX is:
 ## API Reference
 
 <API />
-
-## Links
-
--   <a href="/demo/?path=/story/user-avatar--default" target="_blank">Demo</a>

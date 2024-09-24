@@ -245,7 +245,3 @@ Selects are used to choose one or more items from a list of options.
 ## API Reference
 
 <API />
-
-## Links
-
--   <a href="/demo/?path=/story/single-select--with-options-and-on-change" target="_blank">Demo</a>

@@ -98,7 +98,3 @@ A tooltip is used to show contextual information when triggered by clicking, foc
 ## API Reference
 
 <API />
-
-## Links
-
--   <a href="/demo/?path=/story/tooltip--default-placement-top" target="_blank">Demo</a>

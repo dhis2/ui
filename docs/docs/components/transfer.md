@@ -155,7 +155,3 @@ The footer component is as follows:
 ## API Reference
 
 <API />
-
-## Links
-
--   <a href="/demo/?path=/story/transfer--multiple" target="_blank">Demo</a>
