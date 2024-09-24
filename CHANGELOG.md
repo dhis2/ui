@@ -1,3 +1,10 @@
+# [9.12.0-alpha.2](https://github.com/dhis2/ui/compare/v9.12.0-alpha.1...v9.12.0-alpha.2) (2024-09-24)
+
+
+### Bug Fixes
+
+* update multi-calendar library ([6aa01cc](https://github.com/dhis2/ui/commit/6aa01cc9fd0cde91fd8d20716b132fe6518476e9))
+
 # [9.12.0-alpha.1](https://github.com/dhis2/ui/compare/v9.11.4...v9.12.0-alpha.1) (2024-09-23)
 
 
