@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Field, Form } from 'react-final-form'
 import { CalendarInput } from '../calendar-input/calendar-input.js'
 import { CalendarStoryWrapper } from './calendar-story-wrapper.js'
 
@@ -138,5 +139,61 @@ export function CalendarWithEditiableInput() {
                 />
             </>
         </div>
+    )
+}
+
+export function CalendarWithEditiableInputReactForm() {
+    const [calendarError, setCalendarError] = useState(undefined)
+
+    const errored = () => {
+        return { calendar: calendarError }
+    }
+
+    return (
+        <Form
+            onSubmit={(values, meta) => {
+                console.log('SUBMITTING', { values, meta })
+            }}
+            initialValues={{ calendar: '2022-10-12' }}
+            validate={errored}
+        >
+            {({ handleSubmit }) => {
+                return (
+                    <form onSubmit={handleSubmit}>
+                        <Field name="calendar">
+                            {(props) => (
+                                <CalendarInput
+                                    {...props}
+                                    input={props.input}
+                                    meta={props.meta}
+                                    editable
+                                    date={props.input.value}
+                                    calendar="gregory"
+                                    onDateSelect={(date) => {
+                                        if (!date.isValid) {
+                                            setCalendarError(date.errorMessage)
+                                        } else {
+                                            setCalendarError(undefined)
+                                        }
+                                        props.input.onChange(
+                                            date ? date?.calendarDateString : ''
+                                        )
+                                    }}
+                                    timeZone={'UTC'}
+                                />
+                            )}
+                        </Field>
+
+                        <button
+                            type="submit"
+                            disabled={false}
+                            onClick={handleSubmit}
+                        >
+                            Submit
+                        </button>
+                    </form>
+                )
+            }}
+        </Form>
     )
 }
