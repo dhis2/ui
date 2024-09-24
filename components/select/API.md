@@ -33,7 +33,7 @@ import { MultiSelect } from '@dhis2/ui'
 |noMatchText|custom(function)|||Required if `filterable` prop is `true`|
 |placeholder|string||||
 |prefix|string||||
-|selected|arrayOf(string)|``[]``|||
+|selected|`arrayOf(string)`|``[]``|||
 |tabIndex|string||||
 |valid|custom||||
 |warning|custom||||
@@ -81,7 +81,7 @@ import { MultiSelectField } from '@dhis2/ui'
 |placeholder|string|||Placeholder text when the MultiSelect is empty|
 |prefix|string|||Leading text to prefix selections|
 |required|boolean|||Indicates that a selection is required|
-|selected|arrayOf(string)|``[]``||Selected items in the MultiSelect (each string should refer to the item's `value` attribute)|
+|selected|`arrayOf(string)`|``[]``||Selected items in the MultiSelect (each string should refer to the item's `value` attribute)|
 |tabIndex|string||||
 |valid|custom|||Adds 'valid' appearance for validation feedback. Mutually exclusive with 'error' and 'warning' props|
 |validationText|string|||Text to provide form validation feedback. Receives styles according to validation status|

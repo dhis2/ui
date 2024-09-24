@@ -28,7 +28,7 @@ import { Pagination } from '@dhis2/ui'
 |pageLength|custom(function)||||
 |pageSelectText|string │ function|``() => i18n.t('Page')``|||
 |pageSizeSelectText|string │ function|``() => i18n.t('Items per page')``|||
-|pageSizes|arrayOf(string)|``['5', '10', '20', '30', '40', '50', '75', '100']``|||
+|pageSizes|`arrayOf(string)`|``['5', '10', '20', '30', '40', '50', '75', '100']``|||
 |pageSummaryText|string │ function|``getDefaultPageSummaryText``|||
 |previousPageText|string │ function|``() => i18n.t('Previous')``|||
 |total|number||||

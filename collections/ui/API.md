@@ -1362,21 +1362,21 @@ import { OrganisationUnitTree } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|roots|string │ arrayOf(string)||*|Root org unit ID(s)|
+|roots|`string │ arrayOf(string)`||*|Root org unit ID(s)|
 |onChange|function||*|Will be called with the following object:<br/>`{ id: string, displayName: string, path: string, checked: boolean, selected: string[] }`|
 |autoExpandLoadingError|boolean|||When set, the error when loading children fails will be shown automatically|
 |dataTest|string|``'dhis2-uiwidgets-orgunittree'``|||
 |disableSelection|boolean|||When set to true, no unit can be selected|
 |expanded|custom||||
-|filter|arrayOf(custom)|``[]``||All organisation units with a path that includes the provided paths will be shown.<br/>All others will not be rendered. When not provided, all org units will be shown.|
+|filter|`arrayOf(custom)`|``[]``||All organisation units with a path that includes the provided paths will be shown.<br/>All others will not be rendered. When not provided, all org units will be shown.|
 |forceReload|boolean|||When true, everything will be reloaded. In order to load it again after reloading, `forceReload` has to be set to `false` and then to `true` again|
 |handleCollapse|custom||||
 |handleExpand|custom||||
-|highlighted|arrayOf(custom)|``[]``||All units provided to "highlighted" as path will be visually<br/>highlighted.<br/>Note:<br/>The d2-ui component used two props for this:<br/>* searchResults<br/>* highlightSearchResults|
-|initiallyExpanded|arrayOf(custom)|``[]``||An array of OU paths that will be expanded automatically<br/>as soon as they are encountered.<br/>The path of an OU is the UIDs of the OU<br/>and all its parent OUs separated by slashes (/)<br/>Note: This replaces "openFirstLevel" as that's redundant|
+|highlighted|`arrayOf(custom)`|``[]``||All units provided to "highlighted" as path will be visually<br/>highlighted.<br/>Note:<br/>The d2-ui component used two props for this:<br/>* searchResults<br/>* highlightSearchResults|
+|initiallyExpanded|`arrayOf(custom)`|``[]``||An array of OU paths that will be expanded automatically<br/>as soon as they are encountered.<br/>The path of an OU is the UIDs of the OU<br/>and all its parent OUs separated by slashes (/)<br/>Note: This replaces "openFirstLevel" as that's redundant|
 |isUserDataViewFallback|boolean|||When provided, the 'isUserDataViewFallback' option will be sent when requesting the org units|
 |renderNodeLabel|function|``defaultRenderNodeLabel``||Renders the actual node component for each leaf, can be used to<br/>customize the node. The default function just returns the node's<br/>displayName<br/><br/>Shape of the object passed to the callback:<br/>```<br/>{<br/>   label: string,<br/>   node: {<br/>     displayName: string,<br/>     id: string,<br/>     // Only provided once `loading` is false<br/>     path?: string,<br/>     // Only provided once `loading` is false<br/>     children?: Array.<{<br/>       id: string,<br/>       path: string,<br/>       displayName: string<br/>     }><br/>   },<br/>   loading: boolean,<br/>   error: string,<br/>   open: boolean,<br/>   selected: string[],<br/>   singleSelection: boolean,<br/>   disableSelection: boolean,<br/>}<br/>```|
-|selected|arrayOf(custom)|``[]``||An array of paths of selected OUs. The path of an OU is the UIDs of the OU and all its parent OUs separated by slashes (`/`)|
+|selected|`arrayOf(custom)`|``[]``||An array of paths of selected OUs. The path of an OU is the UIDs of the OU and all its parent OUs separated by slashes (`/`)|
 |singleSelection|boolean|||When set, no checkboxes will be displayed and only the first selected path in `selected` will be highlighted|
 |suppressAlphabeticalSorting|boolean|||Turns off alphabetical sorting of units|
 |onChildrenLoaded|function|||Called with the children's data that was loaded|
@@ -1413,7 +1413,7 @@ import { Label } from '@dhis2/ui'
 |disableSelection|boolean||||
 |hasSelectedDescendants|boolean||||
 |highlighted|boolean||||
-|selected|arrayOf(custom)||||
+|selected|`arrayOf(custom)`||||
 |singleSelection|boolean||||
 
 ### Pagination
@@ -1446,7 +1446,7 @@ import { Pagination } from '@dhis2/ui'
 |pageLength|custom||||
 |pageSelectText|string │ function|``() => i18n.t('Page')``|||
 |pageSizeSelectText|string │ function|``() => i18n.t('Items per page')``|||
-|pageSizes|arrayOf(string)|``['5', '10', '20', '30', '40', '50', '75', '100']``|||
+|pageSizes|`arrayOf(string)`|``['5', '10', '20', '30', '40', '50', '75', '100']``|||
 |pageSummaryText|string │ function|``getDefaultPageSummaryText``|||
 |previousPageText|string │ function|``() => i18n.t('Previous')``|||
 |total|number||||
@@ -1500,7 +1500,7 @@ import { Popper } from '@dhis2/ui'
 |children|node||*|Content inside the Popper|
 |className|string||||
 |dataTest|string|``'dhis2-uicore-popper'``|||
-|modifiers|arrayOf({<br/>  "name": "string",<br/>  "options": "object"<br/>})|``[]``||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
+|modifiers|`arrayOf({<br/>  "name": "string",<br/>  "options": "object"<br/>})`|``[]``||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
 |observePopperResize|boolean|||Makes the Popper update position when the **Popper content** changes size|
 |observeReferenceResize|boolean|||Makes the Popper update position when the **reference element** changes size|
 |placement|custom|``'auto'``||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
@@ -1576,7 +1576,7 @@ import { SegmentedControl } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|options|arrayOf({<br/>  "label": "string",<br/>  "value": "string",<br/>  "disabled": "boolean"<br/>})||*|Options to populate the segmented control|
+|options|`arrayOf({<br/>  "label": "string",<br/>  "value": "string",<br/>  "disabled": "boolean"<br/>})`||*|Options to populate the segmented control|
 |selected|string||*|An option to select; should match the `value` property of the option to be selected|
 |onChange|function||*|Called with the signature `({ value: string }, event)`|
 |ariaLabel|string|||Used to provide an accessible label to a segmented control without a visible label|
@@ -1606,7 +1606,7 @@ import { Input } from '@dhis2/ui'
 |options|node||||
 |placeholder|string||||
 |prefix|string||||
-|selected|arrayOf(string)||||
+|selected|`arrayOf(string)`||||
 |onChange|function||||
 
 ### Menu
@@ -1628,7 +1628,7 @@ import { Menu } from '@dhis2/ui'
 |dataTest|string||*||
 |empty|node|``''``|||
 |options|node||||
-|selected|arrayOf(string)||||
+|selected|`arrayOf(string)`||||
 |onChange|function||||
 
 ### MultiSelect
@@ -1666,7 +1666,7 @@ import { MultiSelect } from '@dhis2/ui'
 |noMatchText|custom|||Required if `filterable` prop is `true`|
 |placeholder|string||||
 |prefix|string||||
-|selected|arrayOf(string)|``[]``|||
+|selected|`arrayOf(string)`|``[]``|||
 |tabIndex|string||||
 |valid|custom||||
 |warning|custom||||
@@ -1714,7 +1714,7 @@ import { MultiSelectField } from '@dhis2/ui'
 |placeholder|string|||Placeholder text when the MultiSelect is empty|
 |prefix|string|||Leading text to prefix selections|
 |required|boolean|||Indicates that a selection is required|
-|selected|arrayOf(string)|``[]``||Selected items in the MultiSelect (each string should refer to the item's `value` attribute)|
+|selected|`arrayOf(string)`|``[]``||Selected items in the MultiSelect (each string should refer to the item's `value` attribute)|
 |tabIndex|string||||
 |valid|custom|||Adds 'valid' appearance for validation feedback. Mutually exclusive with 'error' and 'warning' props|
 |validationText|string|||Text to provide form validation feedback. Receives styles according to validation status|
@@ -2265,7 +2265,7 @@ import { StackedTableCell } from '@dhis2/ui'
 |colSpan|string||||
 |column|number||||
 |dataTest|string|``'dhis2-uicore-stackedtablecell'``|||
-|headerLabels|arrayOf(string)|``[]``|||
+|headerLabels|`arrayOf(string)`|``[]``|||
 |hideTitle|boolean||||
 |rowSpan|string||||
 |title|string||||
@@ -2369,7 +2369,7 @@ import { StackedTable } from '@dhis2/ui'
 |children|node||||
 |className|string||||
 |dataTest|string|``'dhis2-uicore-stackedtable'``|||
-|headerLabels|arrayOf(string)|||Labels for columns. Use an empty string for a column without a header.|
+|headerLabels|`arrayOf(string)`|||Labels for columns. Use an empty string for a column without a header.|
 
 ### Table
 
@@ -2916,7 +2916,7 @@ import { Transfer } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|options|arrayOf({<br/>  "label": "string",<br/>  "value": "string",<br/>  "disabled": "boolean"<br/>})||*||
+|options|`arrayOf({<br/>  "label": "string",<br/>  "value": "string",<br/>  "disabled": "boolean"<br/>})`||*||
 |onChange|function||*||
 |addAllText|string||||
 |addIndividualText|string||||
@@ -2950,7 +2950,7 @@ import { Transfer } from '@dhis2/ui'
 |rightHeader|node||||
 |searchTerm|string||||
 |searchTermPicked|string||||
-|selected|arrayOf(string)|``[]``|||
+|selected|`arrayOf(string)`|``[]``|||
 |selectedEmptyComponent|node||||
 |selectedWidth|string|``'320px'``|||
 |sourceEmptyPlaceholder|node||||

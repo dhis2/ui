@@ -124,7 +124,7 @@ import { StackedTableCell } from '@dhis2/ui'
 |colSpan|string||||
 |column|number||||
 |dataTest|string|``'dhis2-uicore-stackedtablecell'``|||
-|headerLabels|arrayOf(string)|``[]``|||
+|headerLabels|`arrayOf(string)`|``[]``|||
 |hideTitle|boolean||||
 |rowSpan|string||||
 |title|string||||
@@ -228,7 +228,7 @@ import { StackedTable } from '@dhis2/ui'
 |children|node||||
 |className|string||||
 |dataTest|string|``'dhis2-uicore-stackedtable'``|||
-|headerLabels|arrayOf(string)|||Labels for columns. Use an empty string for a column without a header.|
+|headerLabels|`arrayOf(string)`|||Labels for columns. Use an empty string for a column without a header.|
 
 ### Table
 

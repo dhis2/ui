@@ -97,7 +97,7 @@ import { FileInputFieldWithList } from '@dhis2/ui'
 |dataTest|string|``'dhis2-uiwidgets-fileinputfieldwithlist'``|||
 |disabled|boolean|||Disables the button|
 |error|custom|||Applies 'error' styling to the button and validation text. Mutually exclusive with `warning` and `valid` props|
-|files|arrayOf(instanceOf(File))|``[]``|||
+|files|`arrayOf(instanceOf(File))`|``[]``|||
 |helpText|string|||Useful guiding text for the user|
 |initialFocus|boolean||||
 |label|string|||A descriptive label above the button|

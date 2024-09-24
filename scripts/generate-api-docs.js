@@ -116,7 +116,9 @@ import { ${toDisplayName} } from '@dhis2/ui'
             description,
             type,
         } of props) {
-            table += `|${name}|${type}|${
+            table += `|${name}|${
+                type.includes('arrayOf') ? `\`${type}\`` : type
+            }|${
                 defaultValue ? `\`${defaultValue}\`` : ''
             }|${required}|${description}|\n`
         }
