@@ -187,7 +187,6 @@ Buttons are available in different sizes. Use the size that matches the usage gu
     </TabItem>
 </Tabs>
 
-
 ```jsx
 <div className="stacked-examples-horizontal">
     <Button icon={<IconCheckmark24 />}></Button>
@@ -226,7 +225,6 @@ Buttons are available in different sizes. Use the size that matches the usage gu
     path="button--disabled"
     height="120px"
 />
-
 
 ```jsx
 <Button disabled>Enroll in program</Button>
