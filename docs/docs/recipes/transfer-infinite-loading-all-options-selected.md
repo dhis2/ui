@@ -2,7 +2,7 @@
 title: Transfer – infinite loading
 ---
 
-import { InfiniteLoading } from './transfer-infinite-loading-all-options-selected.jsx'
+import { Demo } from '@site/src/components/DemoComponent.jsx'
 
 # Transfer: Infinite loading - All loaded options are already selected
 
@@ -366,6 +366,11 @@ export const InfiniteLoading = () => {
 }
 ```
 
+### Demo
+
 This is how it looks:
 
-<InfiniteLoading />
+<Demo 
+    path="transfer--infinite-loading" 
+    height="350px"
+/>
