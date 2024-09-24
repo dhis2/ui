@@ -14,13 +14,13 @@ import { Checkbox } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|checked|custom|`false`|||
+|checked|custom|``false``|||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-checkbox'`|||
+|dataTest|string|``'dhis2-uicore-checkbox'``|||
 |dense|boolean||||
 |disabled|boolean||||
 |error|custom||||
-|indeterminate|custom|`false`|||
+|indeterminate|custom|``false``|||
 |initialFocus|boolean||||
 |label|node||||
 |name|string||||
@@ -51,7 +51,7 @@ import { CheckboxField } from '@dhis2/ui'
 |---|---|---|---|---|
 |checked|boolean||||
 |className|string||||
-|dataTest|string|`'dhis2-uiwidgets-checkboxfield'`|||
+|dataTest|string|``'dhis2-uiwidgets-checkboxfield'``|||
 |dense|boolean|||Smaller dimensions for information-dense layouts|
 |disabled|boolean|||Disables the checkbox|
 |error|custom|||Applies 'error' styling to checkbox and validation text for feedback. Mutually exclusive with `warning` and `valid` props|

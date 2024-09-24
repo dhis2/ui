@@ -16,4 +16,4 @@ import { Card } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-card'`|||
+|dataTest|string|``'dhis2-uicore-card'``|||

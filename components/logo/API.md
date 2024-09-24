@@ -15,7 +15,7 @@ import { LogoIcon } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-logoicon'`|||
+|dataTest|string|``'dhis2-uicore-logoicon'``|||
 
 ### LogoIconWhite
 
@@ -34,7 +34,7 @@ import { LogoIconWhite } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-logoiconwhite'`|||
+|dataTest|string|``'dhis2-uicore-logoiconwhite'``|||
 
 ### Logo
 
@@ -53,7 +53,7 @@ import { Logo } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-logo'`|||
+|dataTest|string|``'dhis2-uicore-logo'``|||
 
 ### LogoWhite
 
@@ -72,4 +72,4 @@ import { LogoWhite } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-logowhite'`|||
+|dataTest|string|``'dhis2-uicore-logowhite'``|||

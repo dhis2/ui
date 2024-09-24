@@ -16,5 +16,5 @@ import { Legend } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-legend'`|||
+|dataTest|string|``'dhis2-uicore-legend'``|||
 |required|boolean|||Indicates the associated field set is required|

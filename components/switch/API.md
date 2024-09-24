@@ -15,16 +15,16 @@ import { Switch } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |aria-label|string|||Sets an aria-label attribute on the input|
-|checked|boolean|`false`|||
+|checked|boolean|``false``|||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-switch'`|||
+|dataTest|string|``'dhis2-uicore-switch'``|||
 |dense|boolean|||Makes the switch smaller for information-dense layouts|
 |disabled|boolean|||Disables the switch|
 |error|custom|||Applies 'error' styles for validation feedback. Mutually exclusive with `valid` and `warning` prop types|
 |initialFocus|boolean|||Grab initial focus on the page|
 |label|node|||Label for the switch. Can be a string or an element, for example an image|
 |name|string|||Name associated with the switch. Passed to event handlers in object|
-|role|string|`'switch'`||Sets a role attribute on the input|
+|role|string|``'switch'``||Sets a role attribute on the input|
 |tabIndex|string||||
 |valid|custom|||Applies 'valid' styles for validation feedback. Mutually exclusive with `error` and `warning` prop types|
 |value|string|||Value associated with the switch. Passed to event handlers in object|
@@ -52,7 +52,7 @@ import { SwitchField } from '@dhis2/ui'
 |---|---|---|---|---|
 |checked|boolean||||
 |className|string||||
-|dataTest|string|`'dhis2-uiwidgets-switchfield'`|||
+|dataTest|string|``'dhis2-uiwidgets-switchfield'``|||
 |dense|boolean|||Smaller dimensions for information-dense layouts|
 |disabled|boolean|||Disables the switch|
 |error|custom|||Applies 'error' styling to switch and validation text for feedback. Mutually exclusive with `warning` and `valid` props|

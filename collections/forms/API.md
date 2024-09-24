@@ -118,7 +118,7 @@ import { MultiSelectFieldFF } from '@dhis2/ui'
 |meta|custom|||`meta` props provided by Final Form `Field`|
 |error|boolean||||
 |loading|boolean||||
-|options|arrayOf({<br/>  "label": "string",<br/>  "value": "string"<br/>})|`[]`|||
+|options|arrayOf({<br/>  "label": "string",<br/>  "value": "string"<br/>})|``[]``|||
 |showLoadingStatus|boolean||||
 |showValidStatus|boolean||||
 |valid|boolean||||
