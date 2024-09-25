@@ -65,6 +65,7 @@ class FileInputFieldWithList extends Component {
 
         buttonLabel: () => i18n.t('Upload a file'),
         placeholder: () => i18n.t('No file uploaded yet'),
+        removeText: () => i18n.t('Remove'),
     }
 
     render() {
