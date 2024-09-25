@@ -16,7 +16,7 @@ import { Radio } from '@dhis2/ui'
 |---|---|---|---|---|
 |checked|boolean||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-radio'`|||
+|dataTest|string|``'dhis2-uicore-radio'``|||
 |dense|boolean||||
 |disabled|boolean||||
 |error|custom|||Adds 'error' styling for feedback. Mutually exclusive with `valid` and `warning` props|

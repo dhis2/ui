@@ -18,7 +18,7 @@ import { SelectorBar } from '@dhis2/ui'
 |additionalContent|any||||
 |ariaLabel|string||||
 |className|string||||
-|dataTest|string|`'dhis2-ui-selectorbar'`|||
+|dataTest|string|``'dhis2-ui-selectorbar'``|||
 |disableClearSelections|boolean||||
 |onClearSelectionClick|function||||
 
@@ -41,7 +41,7 @@ import { SelectorBarItem } from '@dhis2/ui'
 |label|string||*||
 |children|any||||
 |className|string||||
-|dataTest|string|`'dhis2-ui-selectorbaritem'`|||
+|dataTest|string|``'dhis2-ui-selectorbaritem'``|||
 |disabled|boolean||||
 |displayOnly|boolean||||
 |noValueMessage|string||||

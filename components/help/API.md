@@ -16,7 +16,7 @@ import { Help } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|string||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-help'`|||
+|dataTest|string|``'dhis2-uicore-help'``|||
 |error|custom||||
 |valid|custom||||
 |warning|custom||||
