@@ -15,11 +15,13 @@ const flipPlacement = (placement) => {
     return placement
 }
 
+// Stable object reference
+const staticArray = []
 const Popper = ({
     children,
     className,
     dataTest = 'dhis2-uicore-popper',
-    modifiers = [],
+    modifiers = staticArray,
     observePopperResize,
     observeReferenceResize,
     onFirstUpdate,

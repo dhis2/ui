@@ -8,9 +8,11 @@ import { FilterableMenu } from './filterable-menu.js'
 import { Input } from './input.js'
 import { Menu } from './menu.js'
 
+// stable object reference
+const staticArr = []
 const MultiSelect = ({
     className,
-    selected = [],
+    selected = staticArr,
     tabIndex,
     maxHeight,
     inputMaxHeight,

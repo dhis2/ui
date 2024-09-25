@@ -13,26 +13,35 @@ import { PageSummary } from './page-summary.js'
 
 const MAX_PAGE_COUNT = 2000
 
+const defaultProps = {
+    dataTest: 'dhis2-uiwidgets-pagination',
+    nextPageText: () => i18n.t('Next'),
+    pageSelectText: () => i18n.t('Page'),
+    pageSizes: ['5', '10', '20', '30', '40', '50', '75', '100'],
+    pageSizeSelectText: () => i18n.t('Items per page'),
+    pageSummaryText: getDefaultPageSummaryText,
+    previousPageText: () => i18n.t('Previous'),
+}
 const Pagination = ({
     className,
-    dataTest = 'dhis2-uiwidgets-pagination',
+    dataTest = defaultProps.dataTest,
     disabled,
     hidePageSelect,
     hidePageSizeSelect,
     hidePageSummary,
     isLastPage,
-    nextPageText = () => i18n.t('Next'),
+    nextPageText = defaultProps.nextPageText,
     onPageChange,
     onPageSizeChange,
     page,
     pageCount,
     pageLength,
-    pageSelectText = () => i18n.t('Page'),
+    pageSelectText = defaultProps.pageSelectText,
     pageSize,
-    pageSizes = ['5', '10', '20', '30', '40', '50', '75', '100'],
-    pageSizeSelectText = () => i18n.t('Items per page'),
-    pageSummaryText = getDefaultPageSummaryText,
-    previousPageText = () => i18n.t('Previous'),
+    pageSizes = defaultProps.pageSizes,
+    pageSizeSelectText = defaultProps.pageSizeSelectText,
+    pageSummaryText = defaultProps.pageSummaryText,
+    previousPageText = defaultProps.previousPageText,
     total,
 }) => {
     const { firstItem, lastItem } = getItemRange({

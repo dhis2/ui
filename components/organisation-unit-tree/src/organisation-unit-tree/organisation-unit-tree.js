@@ -11,6 +11,8 @@ import { useExpanded } from './use-expanded/index.js'
 import { useForceReload } from './use-force-reload.js'
 import { useRootOrgData } from './use-root-org-data/index.js'
 
+// A stable object to reference
+const staticArray = []
 const OrganisationUnitTree = ({
     onChange,
     roots,
@@ -19,12 +21,12 @@ const OrganisationUnitTree = ({
     dataTest = 'dhis2-uiwidgets-orgunittree',
     disableSelection,
     forceReload,
-    highlighted = [],
+    highlighted = staticArray,
     isUserDataViewFallback,
-    initiallyExpanded = [],
-    filter = [],
+    initiallyExpanded = staticArray,
+    filter = staticArray,
     renderNodeLabel = defaultRenderNodeLabel,
-    selected = [],
+    selected = staticArray,
     singleSelection,
     suppressAlphabeticalSorting,
 
