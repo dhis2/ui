@@ -82,7 +82,6 @@ class SplitButton extends Component {
 
         const arrow = open ? <IconChevronUp16 /> : <IconChevronDown16 />
 
-        console.log(dataTest)
         return (
             <div ref={this.anchorRef} data-test={dataTest}>
                 <Button

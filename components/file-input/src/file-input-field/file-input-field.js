@@ -16,9 +16,11 @@ const translate = (prop, interpolationObject) => {
     return prop
 }
 
+const defaultButtonLabel = () => i18n.t('Upload a file')
+const defaultPlaceholder = () => i18n.t('No file uploaded yet')
 const FileInputField = ({
     accept = '*',
-    buttonLabel = () => i18n.t('Upload a file'),
+    buttonLabel = defaultButtonLabel,
     children,
     className,
     dataTest = 'dhis2-uiwidgets-fileinputfield',
@@ -34,7 +36,7 @@ const FileInputField = ({
     onChange,
     onFocus,
     onKeyDown,
-    placeholder = () => i18n.t('No file uploaded yet'),
+    placeholder = defaultPlaceholder,
     required,
     small,
     tabIndex,

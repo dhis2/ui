@@ -70,7 +70,7 @@ class FileInputFieldWithList extends Component {
     render() {
         const {
             accept,
-            buttonLabel = () => i18n.t('Upload a file'),
+            buttonLabel = FileInputFieldWithList.defaultProps.buttonLabel,
             className,
             dataTest = 'dhis2-uiwidgets-fileinputfieldwithlist',
             disabled,
@@ -85,8 +85,8 @@ class FileInputFieldWithList extends Component {
             onBlur,
             onFocus,
             onKeyDown,
-            placeholder = () => i18n.t('No file uploaded yet'),
-            removeText = () => i18n.t('Remove'),
+            placeholder = FileInputFieldWithList.defaultProps.placeholder,
+            removeText = FileInputFieldWithList.defaultProps.removeText,
             required,
             small,
             tabIndex,

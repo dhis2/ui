@@ -38,19 +38,21 @@ const mutation = {
     data: ({ data }) => data,
 }
 
+const emptyFunction = () => {}
+const defaultInitialSharingSettings = {
+    name: '',
+    allowPublic: true,
+    public: ACCESS_NONE,
+    groups: {},
+    users: {},
+}
 export const SharingDialog = ({
     id,
     type,
-    onClose = () => {},
-    onError = () => {},
-    onSave = () => {},
-    initialSharingSettings = {
-        name: '',
-        allowPublic: true,
-        public: ACCESS_NONE,
-        groups: {},
-        users: {},
-    },
+    onClose = emptyFunction,
+    onError = emptyFunction,
+    onSave = emptyFunction,
+    initialSharingSettings = defaultInitialSharingSettings,
     dataTest = 'dhis2-uicore-sharingdialog',
 }) => {
     const { show: showError } = useAlert((error) => error, { critical: true })

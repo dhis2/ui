@@ -33,6 +33,7 @@ import {
 import { TransferOption } from './transfer-option.js'
 
 const identity = (value) => value
+const defaultSelected = []
 
 export const Transfer = ({
     options,
@@ -70,7 +71,7 @@ export const Transfer = ({
     rightHeader,
     searchTerm,
     searchTermPicked,
-    selected = [],
+    selected = defaultSelected,
     selectedEmptyComponent,
     selectedWidth = '320px',
     sourceEmptyPlaceholder,

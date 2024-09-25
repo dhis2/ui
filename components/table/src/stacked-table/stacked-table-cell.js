@@ -3,13 +3,14 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { ContentWithTitle } from './content-with-title.js'
 
+const defaultHeaderLabels = []
 export const StackedTableCell = ({
     children,
     className,
     colSpan,
     column,
     dataTest = 'dhis2-uicore-stackedtablecell',
-    headerLabels = [],
+    headerLabels = defaultHeaderLabels,
     hideTitle,
     rowSpan,
     title,
