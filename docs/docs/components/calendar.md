@@ -3,24 +3,149 @@ title: Calendar
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import Tabs from '@theme/Tabs'
-import TabItem from '@theme/TabItem'
-
 import API from '../../../components/calendar/API.md'
 
-# Calendar
+## Calendar Input
+
+The CalendarInput is an input field with an integrated calendar picker. It combines the functionality of the [Calendar](./calendar#calendar) component with an input field, allowing users to either type a date or select one from the calendar picker.
+
+### Demo
+
+Below you'll find a customizable demo of the CalendarInput component. Click "show full demo" to see this and other components.
+
+<Demo
+    path="/story/calendarinput--gregorian-with-english"
+    height="350px"
+/>
+
+The Gregorian with initial date is then generated with this code.
+
+```jsx
+<CalendarInput
+    label="Gregorian date (with initial date)"
+    calendar="gregory"
+    locale="en-GB"
+    date="2021-10-13"
+    onDateSelect={handelDateChange}
+/>
+```
+
+### MinDate and MaxDate
+
+This demo shows how to set minimum and maximum allowed dates.
+
+<Demo
+    path="/story/calendarinput--with-min-max-date"
+    height="350px"
+/>
+
+```jsx
+<CalendarInput
+    label="Date with min and max"
+    calendar="gregory"
+    locale="en-GB"
+    date="2023-06-15"
+    minDate="2023-06-01"
+    maxDate="2023-06-30"
+    onDateSelect={handleDateChange}
+/>
+```
+
+### StrictValidation
+
+This demo demonstrates the use of strict validation for date input.
+
+-   When `strictValidation` is set to `true`:
+    The component displays error indicators if a user selects or inputs a date outside the specified minimum and maximum date range.
+
+-   When `strictValidation` is `false` (default behavior):
+    The component shows warning indicators for dates outside the allowed range.
+
+<Demo
+    path="/story/calendarinput--with-strict-validation"
+    height="350px"
+/>
+
+```jsx
+<CalendarInput
+    label="Date with strict validation"
+    calendar="gregory"
+    locale="en-GB"
+    strictValidation={true}
+    onDateSelect={handleDateChange}
+/>
+```
+
+### Format
+
+This demo illustrates how to use the format prop to specify the date string format
+The format prop accepts two possible values:
+
+-   'YYYY-MM-DD' (default): Year-Month-Day format
+-   'DD-MM-YYYY': Day-Month-Year format
+
+<Demo
+    path="/story/calendarinput--with-custom-format"
+    height="350px"
+/>
+
+```jsx
+<CalendarInput
+    label="Date with custom format"
+    calendar="gregory"
+    locale="en-GB"
+    format="DD/MM/YYYY"
+    onDateSelect={handleDateChange}
+/>
+```
+
+### Clearable
+
+This demo showcases the use of the `clearable` prop, which adds a button to clear the selected date.
+
+<Demo
+ path="/story/calendarinput--with-clearable-button"
+ height="350px"
+/>
+
+```jsx
+<CalendarInput
+    label="Date with clear button"
+    calendar="gregory"
+    locale="en-GB"
+    date="2023-09-25"
+    clearable={true}
+    onDateSelect={handleDateChange}
+/>
+```
+
+### Usage
+
+#### When to use
+
+Use the CalendarInput component when you need to:
+
+-   Provide users with a flexible method to select a specific date, offering both manual text input and visual calendar picker.
+-   Implement date selection with validation, including min/max dates validation and format validation.
+-   Provide users with an easy way to clear a selected date.
+
+#### When not to use
+
+-   This is just a Day Picker (for now). It does not allow picking periods, date ranges, or date with times.
+
+## Calendar
 
 The Calendar is a component to display a calendar to pick a day in multiple calendar systems, such as: Gregorian, Ethiopic, Nepali and many other calendrical systems.
 
 The component is built on top of [multi-calendar-dates](https://github.com/dhis2/multi-calendar-dates/tree/beta) which is an internal library to abstract date-related operations (i.e. calendars, period selectors, date math etc..). The library itself relies on the [Temporal proposal](https://tc39.es/proposal-temporal/#sec-temporal-intro). The proposal (currently at Stage 3 draft) aims to improve built-in support for dates and times in browsers, addressing challenges such as support for timezones, DST-safe artithemtic, string serialization and interoperability via standardized formats, and full support for non-Gregorian calendars.
 
-Here are some sample calendars built with this UI component. Check [StoryBook]((https://ui.dhis2.nu/demo/?path=/story/calendar--with-ethiopic) to play with all the options available for building a Calendar.
+Here are some sample calendars built with this UI component. Check [StoryBook](https://ui.dhis2.nu/demo/?path=/story/calendar--ethiopic) to play with all the options available for building a Calendar.
 
-## Ethiopic calendar
+### Ethiopic calendar
 
 Ethiopic calendar with narrow day names, short day names and localised to English.
 
-### Narrow day names
+#### Narrow day names
 
 <Demo
     path="calendar--basic"
@@ -40,7 +165,7 @@ To display the calendar with short day names, use the codeblock below. For the n
 />
 ```
 
-## Nepali calendar
+### Nepali calendar
 
 :::note
 Nepali is a custom calendar not natively implemented in Temporal and Nepali locale is not natively supported by browsers' Internationalization standard. We are providing a custom implementation for the calendar, as well as the localised values. The only two locales allowed are: `ne-NP` (nepali) and `en-NP` (nepali transliterated in latin characters).
@@ -76,7 +201,7 @@ Nepali calendar transliterated into latin characters.
 />
 ```
 
-## Gregorian calendar
+### Gregorian calendar
 
 Gregorian calendar localised in English, Arabic (Tunisia), Arabic (Sudan), Arabic (Iraq) and Amharic.
 
@@ -124,7 +249,7 @@ To display the calendar with a specific locale, use the codeblock below. Adjust 
 <Calendar calendar="iso8601" locale="en" timeZone="Europe/London" />
 ```
 
-## Other calendars
+### Other calendars
 
 Some other calendars: Islamic in Arabic, Indian in English and Persian in Farsi
 
@@ -162,23 +287,28 @@ Each of the calendars above can be displayed with the following code.
 Additionally the component supports a number of other calendars that are not currently used in DHIS2, since they're implemented in the [Temporal API](https://tc39.es/proposal-temporal/)). These other calendars are: `hebrew`, `islamic`, `islamic-umalqura`, `islamic-tbla`, `islamic-civil`, `islamic-rgsa`, `persian`, `ethioaa`, `coptic`, `chinese`, `dangi`, `roc`, `indian`, `buddhist`, `japanese`.
 :::
 
-## Usage
+### Usage
 
-### When to use
+#### When to use
 
 To display a calendar for the user to pick a day in any supported calendar system, localised to any of the 90+ languages supported by [The Unicode Common Locale Data Repository (CLDR)](https://cldr.unicode.org/index) supported natively in all modern browsers. Supported DHIS2 calendars are: `iso8601` (i.e. the Gregorian calendar common in most of the world),`ethiopic`, `nepali` (custom implementation).
 
-### When not to use
+#### When not to use
 
 -   This is just a Day Picker (for now). It does not allow picking periods, date ranges, or date with times.
 
 ## API Reference
 
+The calendar input takes the same props as [the calendar](./calendar#calendar) component, as well as the props for [InputField](./inputfield) that are relevant to an input of type `text`.
+
+It adds one property `clearable` which is a boolean. If set to true, it adds a clear button to delete the selected date.
+
 <API />
 
 ## Links
 
--   <a href="/demo/?path=/story/calendar--ethiopic" target="_blank">Demo</a>
+-   <a href="/demo/?path=/story/calendar--basic" target="_blank">Calendar Input Demo</a>
+-   <a href="/demo/?path=/story/calendarinput--calendar-with-editiable-input" target="_blank">Calendar Demo</a>
 -   [Design document](https://docs.google.com/document/d/19zjyB45oBbqC5KeubaU8E7cw9fGhFc3tOXY0GkzZKqc/edit#)
 -   [ADR for decision to use Temporal API](https://github.com/dhis2/multi-calendar-dates/blob/beta/doc/architecture/decisions/0002-use-temporal-api-as-the-backbone-for-the-engine.md)
 -   [multi-calendar-dates](https://github.com/dhis2/multi-calendar-dates) is the library that this component is built on top of.

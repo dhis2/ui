@@ -45,7 +45,6 @@ const sidebars = {
                 'components/button',
                 'components/card',
                 'components/calendar',
-                'components/calendar-input',
                 'components/checkbox',
                 'components/chip',
                 'components/data-table',
