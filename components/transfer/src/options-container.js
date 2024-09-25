@@ -12,10 +12,12 @@ export const OptionsContainer = ({
     getOptionClickHandlers,
     highlightedOptions,
     loading,
+    maxSelections,
     renderOption,
     options,
     selected,
     selectionHandler,
+    setHighlightedOptions,
     toggleHighlightedOption,
 }) => {
     const optionsRef = useRef(null)
@@ -31,51 +33,62 @@ export const OptionsContainer = ({
             )}
 
             <div className="container" data-test={dataTest} ref={optionsRef}>
-                <div className="content-container" ref={wrapperRef}>
-                    {!options.length && emptyComponent}
-                    {options.map((option) => {
-                        const highlighted = !!highlightedOptions.find(
-                            (highlightedSourceOption) =>
-                                highlightedSourceOption === option.value
-                        )
+                {!options.length && emptyComponent}
+                {!!options.length && (
+                    <select
+                        multiple={maxSelections === Infinity}
+                        size={maxSelections === 1 ? 2 : undefined}
+                        className="content-container"
+                        ref={wrapperRef}
+                        onChange={(e) => {
+                            const nextSelected = [...e.target.options].reduce(
+                                (curNextSelected, option) => {
+                                    if (!option.selected) {
+                                        return curNextSelected
+                                    }
 
-                        return (
-                            <Fragment key={option.value}>
-                                {renderOption({
-                                    ...option,
-                                    ...getOptionClickHandlers(
-                                        option,
-                                        selectionHandler,
-                                        toggleHighlightedOption
-                                    ),
-                                    highlighted,
-                                    selected,
-                                })}
-                            </Fragment>
-                        )
-                    })}
+                                    return [...curNextSelected, option.value]
+                                },
+                                []
+                            )
+                            setHighlightedOptions(nextSelected)
+                        }}
+                    >
+                        {options.map((option, index) => {
+                            const isLast = index === options.length - 1
+                            const highlighted = !!highlightedOptions.find(
+                                (highlightedSourceOption) =>
+                                    highlightedSourceOption === option.value
+                            )
 
-                    {onEndReached && (
-                        <EndIntersectionDetector
-                            dataTest={`${dataTest}-endintersectiondetector`}
-                            key={`key-${resizeCounter}`}
-                            rootRef={optionsRef}
-                            onEndReached={onEndReached}
-                        />
-                    )}
-                </div>
+                            return (
+                                <Fragment key={option.value}>
+                                    {renderOption({
+                                        ...option,
+                                        ...getOptionClickHandlers(
+                                            option,
+                                            selectionHandler,
+                                            toggleHighlightedOption
+                                        ),
+                                        highlighted,
+                                        selected,
+                                    })}
+                                </Fragment>
+                            )
+                        })}
+                    </select>
+                )}
             </div>
 
             <style jsx>{`
                 .optionsContainer {
                     flex-grow: 1;
-                    padding: ${spacers.dp4} 0;
                     position: relative;
                     overflow: hidden;
                 }
 
                 .container {
-                    overflow-y: auto;
+                    overflow: hidden;
                     height: 100%;
                 }
 
@@ -94,6 +107,11 @@ export const OptionsContainer = ({
                 .content-container {
                     z-index: 1;
                     position: relative;
+                    height: 100%;
+                    width: 100%;
+                    overflow: auto;
+                    border: 0;
+                    padding: ${spacers.dp4} 0;
                 }
 
                 .loading + .container .content-container {
@@ -111,6 +129,8 @@ OptionsContainer.defaultProps = {
 OptionsContainer.propTypes = {
     dataTest: PropTypes.string.isRequired,
     getOptionClickHandlers: PropTypes.func.isRequired,
+    maxSelections: PropTypes.oneOf([1, Infinity]).isRequired,
+    setHighlightedOptions: PropTypes.func.isRequired,
     emptyComponent: PropTypes.node,
     highlightedOptions: PropTypes.arrayOf(PropTypes.string),
     loading: PropTypes.bool,

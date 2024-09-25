@@ -217,6 +217,8 @@ export const Transfer = ({
                 )}
 
                 <OptionsContainer
+                    maxSelections={maxSelections}
+                    setHighlightedOptions={setHighlightedSourceOptions}
                     dataTest={`${dataTest}-sourceoptions`}
                     emptyComponent={sourceEmptyPlaceholder}
                     getOptionClickHandlers={getOptionClickHandlers}
@@ -324,6 +326,8 @@ export const Transfer = ({
                 )}
 
                 <OptionsContainer
+                    maxSelections={maxSelections}
+                    setHighlightedOptions={setHighlightedPickedOptions}
                     selected
                     dataTest={`${dataTest}-pickedoptions`}
                     emptyComponent={selectedEmptyComponent}
