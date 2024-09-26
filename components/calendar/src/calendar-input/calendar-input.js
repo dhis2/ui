@@ -34,13 +34,15 @@ export const CalendarInput = ({
     clearable,
     minDate,
     maxDate,
-    format, // todo: props and types for format and validation
+    format,
     strictValidation,
+    inputWidth,
     ...rest
 } = {}) => {
     const ref = useRef()
     const [open, setOpen] = useState(false)
     const [partialDate, setPartialDate] = useState(date)
+    const [isIconDisplayed, setIsIconDisplayed] = useState(false)
 
     const excludeRef = useRef(null)
 
@@ -58,8 +60,21 @@ export const CalendarInput = ({
 
     const pickerResults = useDatePicker({
         onDateSelect: (result) => {
+            const validated = validateDateString(result.calendarDateString, {
+                calendar,
+                format,
+                minDateString: minDate,
+                maxDateString: maxDate,
+                strictValidation,
+            })
+            setIsIconDisplayed(
+                validated.errorMessage || validated.warningMessage
+            )
             setOpen(false)
-            parentOnDateSelect?.(result)
+            parentOnDateSelect?.({
+                calendarDateString: result.calendarDateString,
+                ...validated,
+            })
         },
         date,
         minDate: minDate,
@@ -82,6 +97,7 @@ export const CalendarInput = ({
             maxDateString: maxDate,
             strictValidation,
         })
+        setIsIconDisplayed(validated.errorMessage || validated.warningMessage)
         parentOnDateSelect?.({ calendarDateString: partialDate, ...validated })
 
         if (
@@ -133,6 +149,7 @@ export const CalendarInput = ({
                     }
                     error={!!pickerResults.errorMessage}
                     warning={!!pickerResults.warningMessage}
+                    inputWidth={inputWidth}
                 />
                 {clearable && (
                     <div
@@ -151,6 +168,7 @@ export const CalendarInput = ({
                             small
                             onClick={() => {
                                 parentOnDateSelect?.(null)
+                                setIsIconDisplayed(false)
                             }}
                             type="button"
                         >
@@ -185,10 +203,11 @@ export const CalendarInput = ({
                 {`
                     .calendar-input-wrapper {
                         position: relative;
+                        width: ${inputWidth};
                     }
                     .calendar-clear-button {
                         position: absolute;
-                        inset-inline-end: 6px;
+                        inset-inline-end: ${isIconDisplayed ? '36px' : '6px'};
                         inset-block-start: 27px;
                     }
                     .calendar-clear-button.with-icon {
@@ -206,7 +225,7 @@ export const CalendarInput = ({
 CalendarInput.defaultProps = {
     dataTest: 'dhis2-uiwidgets-calendar-inputfield',
     cellSize: '32px',
-    width: '240px',
+    width: '300px',
     weekDayFormat: 'narrow',
 }
 
@@ -227,6 +246,8 @@ CalendarInput.propTypes = {
     dir: PropTypes.oneOf(['ltr', 'rtl']),
     /** The date format to use either `YYYY-MM-DD` or `DD-MM-YYYY` */
     format: PropTypes.oneOf(['YYYY-MM-DD', 'DD-MM-YYYY']),
+    /** the width of input field */
+    inputWidth: PropTypes.string,
     /** any valid locale -  if none provided, the internal library will fallback to the user locale (more info here: https://github.com/dhis2/multi-calendar-dates/blob/main/src/hooks/internal/useResolvedLocaleOptions.ts#L15) */
     locale: PropTypes.string,
     /** The maximum selectable date */
