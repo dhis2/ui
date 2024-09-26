@@ -1,3 +1,10 @@
+## [9.11.5](https://github.com/dhis2/ui/compare/v9.11.4...v9.11.5) (2024-09-26)
+
+
+### Bug Fixes
+
+* update default props to JS default params ([#1598](https://github.com/dhis2/ui/issues/1598)) ([20e343f](https://github.com/dhis2/ui/commit/20e343fc9e34570dcd8678ddb449d48c5b62a140))
+
 ## [9.11.4](https://github.com/dhis2/ui/compare/v9.11.3...v9.11.4) (2024-09-10)
 
 

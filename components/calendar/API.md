@@ -37,8 +37,3 @@ import { CalendarInput } from '@dhis2/ui'
 ```
 
 
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|dataTest|undefined|`'dhis2-uiwidgets-calendar-inputfield'`|||

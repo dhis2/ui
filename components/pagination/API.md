@@ -29,7 +29,7 @@ import { Pagination } from '@dhis2/ui'
 |pageSelectText|string │ function|`() => i18n.t('Page')`|||
 |pageSizeSelectText|string │ function|`() => i18n.t('Items per page')`|||
 |pageSizes|arrayOf(string)|`['5', '10', '20', '30', '40', '50', '75', '100']`|||
-|pageSummaryText|string │ function|`getDefaultPageSummaryText`|||
+|pageSummaryText|string │ function||||
 |previousPageText|string │ function|`() => i18n.t('Previous')`|||
 |total|number||||
 |onPageChange|function||||

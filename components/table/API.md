@@ -551,7 +551,7 @@ import { TableHead } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node|||Should be `<TableRowHead>` components|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-tablehead'`|||
+|dataTest|string||||
 |role|string||||
 
 ### TableRow

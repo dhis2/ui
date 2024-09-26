@@ -243,11 +243,6 @@ import { CalendarInput } from '@dhis2/ui'
 ```
 
 
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|dataTest|undefined|`'dhis2-uiwidgets-calendar-inputfield'`|||
 
 ### Card
 
@@ -781,7 +776,7 @@ import { Input } from '@dhis2/ui'
 |role|string|||Sets a role attribute on the input|
 |step|string|||The [native `step` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-step), for use when `type` is `'number'`|
 |tabIndex|string||||
-|type|'text' │ 'number' │ 'password' │ 'email' │ 'url' │ 'tel' │ 'date' │ 'datetime' │ 'datetime-local' │ 'month' │ 'week' │ 'time' │ 'search'|`'text'`||The native input `type` attribute|
+|type|inputTypes|`'text'`||The native input `type` attribute|
 |valid|custom|||Applies 'valid' appearance for validation feedback. Mutually exclusive with `error` and `warning` props|
 |value|string|||Value in the input. Can be used to control the component (recommended). Passed to event handler callbacks in object|
 |warning|custom|||Applies 'warning' appearance for validation feedback. Mutually exclusive with `valid` and `error` props|
@@ -825,7 +820,7 @@ import { InputField } from '@dhis2/ui'
 |required|boolean|||Indicates this input is required|
 |step|string|||The [native `step` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-step), for use when `type` is `'number'`|
 |tabIndex|string||||
-|type|custom|||Type of input|
+|type|inputTypes|||Type of input|
 |valid|custom|||Applies 'valid' appearance for validation feedback. Mutually exclusive with `error` and `warning` props|
 |validationText|string|||Text below input for validation feedback. Receives styles depending on validation status|
 |value|string|||Value in the input. Can be used to control the component (recommended). Passed to event handler callbacks in object|
@@ -1447,7 +1442,7 @@ import { Pagination } from '@dhis2/ui'
 |pageSelectText|string │ function|`() => i18n.t('Page')`|||
 |pageSizeSelectText|string │ function|`() => i18n.t('Items per page')`|||
 |pageSizes|arrayOf(string)|`['5', '10', '20', '30', '40', '50', '75', '100']`|||
-|pageSummaryText|string │ function|`getDefaultPageSummaryText`|||
+|pageSummaryText|string │ function||||
 |previousPageText|string │ function|`() => i18n.t('Previous')`|||
 |total|number||||
 |onPageChange|function||||
@@ -2692,7 +2687,7 @@ import { TableHead } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node|||Should be `<TableRowHead>` components|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-tablehead'`|||
+|dataTest|string||||
 |role|string||||
 
 ### TableRow
