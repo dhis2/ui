@@ -50,11 +50,10 @@ export const CalendarInput = ({
         () => ({
             calendar,
             locale,
-            timeZone, // todo: we probably shouldn't have had timezone here in the first place
             numberingSystem,
             weekDayFormat,
         }),
-        [calendar, locale, numberingSystem, timeZone, weekDayFormat]
+        [calendar, locale, numberingSystem, weekDayFormat]
     )
 
     const pickerResults = useDatePicker({
