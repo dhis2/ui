@@ -92,73 +92,64 @@ export const NavigationContainer = ({
                 </div>
             </div>
             <style jsx>{`
-                button {
-                    background: none;
-                    border: 0;
+                .navigation-container {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: ${spacers.dp4};
+                    border-bottom: 1px solid ${wrapperBorderColor};
+                    background-color: ${headerBackground};
+                    font-size: 1.08em;
                 }
                 .month,
                 .year {
                     display: flex;
-                    width: 100%;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 50%;
+                }
+                .prev,
+                .next,
+                .curr {
+                    display: flex;
                     align-items: center;
                     justify-content: center;
-                    cursor: default;
                 }
-
-                .month .curr,
-                .year .curr {
-                    flex: 2;
-                    white-space: nowrap;
-                }
-
                 .prev,
                 .next {
-                    flex: 1;
-                    text-align: center;
+                    width: 24px;
+                    flex-shrink: 0;
                 }
-
-                .prev button,
-                .next button {
+                .curr {
+                    flex: 0 1 auto;
+                    overflow: hidden;
+                }
+                button {
+                    background: none;
+                    border: 0;
                     padding: ${spacers.dp4};
                     height: 24px;
                     width: 24px;
                     color: ${colors.grey600};
                     border-radius: 3px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                 }
-
-                .prev button svg,
-                .next button svg {
-                    width: 16px;
-                    height: 16px;
-                }
-
-                .prev:hover button,
-                .next:hover button {
+                button:hover {
                     background-color: ${colors.grey200};
                     color: ${colors.grey900};
                     cursor: pointer;
                 }
-
-                .prev button:active,
-                .next button:active {
+                button:active {
                     background-color: ${colors.grey300};
                 }
-
                 .label {
-                    display: flex;
-                    padding: 4px 8px;
-                    justify-content: center;
-                    min-height: 16px;
-                }
-
-                .navigation-container {
-                    gap: ${spacers.dp8};
-                    padding: ${spacers.dp4};
-                    display: flex;
-                    flex-direction: row;
-                    border-bottom: 1px solid ${wrapperBorderColor};
-                    background-color: ${headerBackground};
-                    font-size: 1.08em; /*15px*/
+                    padding: ${spacers.dp4} ${spacers.dp8};
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    text-align: center;
+                    max-width: 100%;
                 }
             `}</style>
         </>
