@@ -25,18 +25,19 @@ export default {
 
 const buildCalendar =
     ({ date, locale, calendar }) =>
-    () => (
-        <CalendarStoryWrapper
-            component={CalendarInput}
-            dir="ltr"
-            timeZone="Africa/Khartoum"
-            weekDayFormat="short"
-            date={date}
-            locale={locale}
-            calendar={calendar}
-            onDateSelect={() => {}}
-        />
-    )
+    () =>
+        (
+            <CalendarStoryWrapper
+                component={CalendarInput}
+                dir="ltr"
+                timeZone="Africa/Khartoum"
+                weekDayFormat="short"
+                date={date}
+                locale={locale}
+                calendar={calendar}
+                onDateSelect={() => {}}
+            />
+        )
 
 export const EthiopicWithAmharic = buildCalendar({
     calendar: 'ethiopic',
