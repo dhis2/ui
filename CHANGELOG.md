@@ -1,3 +1,10 @@
+# [9.12.0-alpha.3](https://github.com/dhis2/ui/compare/v9.12.0-alpha.2...v9.12.0-alpha.3) (2024-09-26)
+
+
+### Features
+
+* calendar input to work with react final form ([827c3f8](https://github.com/dhis2/ui/commit/827c3f853d24d08b9d1952c72149fc3359ffc34a))
+
 # [9.12.0-alpha.2](https://github.com/dhis2/ui/compare/v9.12.0-alpha.1...v9.12.0-alpha.2) (2024-09-24)
 
 
