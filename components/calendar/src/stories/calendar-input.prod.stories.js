@@ -133,7 +133,6 @@ export function CalendarWithEditiableInput() {
                     }}
                     width={'700px'}
                     inputWidth="900px"
-                    timeZone={'UTC'}
                     minDate={'2020-07-01'}
                     maxDate={'2020-07-09'}
                 />
