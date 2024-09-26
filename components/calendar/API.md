@@ -53,7 +53,7 @@ import { CalendarInput } from '@dhis2/ui'
 |maxDate|string|||The maximum selectable date|
 |minDate|string|||The minimum selectable date|
 |numberingSystem|string|||numbering system to use - full list here https://github.com/dhis2/multi-calendar-dates/blob/main/src/constants/numberingSystems.ts|
-|strictValidation|boolean|||Whether to use strict validation|
+|strictValidation|boolean|||Whether to use strict validation by showing errors for out-of-range dates when enabled (default), and warnings when disabled|
 |timeZone|string|||the timeZone to use|
 |weekDayFormat|'narrow' │ 'short' │ 'long'|`'narrow'`||the format to display for the week day, i.e. Monday (long), Mon (short), M (narrow)|
 |width|string|`'240px'`||the width of the calendar component|

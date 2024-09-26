@@ -1,5 +1,5 @@
 ---
-title: Calendar
+title: Calendar Input
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
@@ -55,10 +55,10 @@ This demo shows how to set minimum and maximum allowed dates.
 
 This demo demonstrates the use of strict validation for date input.
 
--   When `strictValidation` is set to `true`:
+-   When `strictValidation` is set to `true` (default behavior):
     The component displays error indicators if a user selects or inputs a date outside the specified minimum and maximum date range.
 
--   When `strictValidation` is `false` (default behavior):
+-   When `strictValidation` is `false`:
     The component shows warning indicators for dates outside the allowed range.
 
 <Demo

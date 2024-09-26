@@ -29,7 +29,6 @@ export const CalendarInput = ({
     locale,
     numberingSystem,
     weekDayFormat,
-    timeZone,
     width,
     cellSize,
     clearable,
@@ -237,10 +236,8 @@ CalendarInput.propTypes = {
     minDate: PropTypes.string,
     /** numbering system to use - full list here https://github.com/dhis2/multi-calendar-dates/blob/main/src/constants/numberingSystems.ts */
     numberingSystem: PropTypes.string,
-    /** Whether to use strict validation */
+    /** Whether to use strict validation by showing errors for out-of-range dates when enabled (default), and warnings when disabled */
     strictValidation: PropTypes.bool,
-    /** the timeZone to use */
-    timeZone: PropTypes.string,
     /** the format to display for the week day, i.e. Monday (long), Mon (short), M (narrow) */
     weekDayFormat: PropTypes.oneOf(['narrow', 'short', 'long']),
     /** the width of the calendar component */
