@@ -19,11 +19,11 @@ const Chip = ({
     onRemove,
     onClick,
     icon,
-    dataTest,
-    marginBottom,
+    dataTest = 'dhis2-uicore-chip',
+    marginBottom = 4,
     marginLeft,
     marginRight,
-    marginTop,
+    marginTop = 4,
     marginInlineStart,
     marginInlineEnd,
 }) => (
@@ -113,12 +113,6 @@ const Chip = ({
         `}</style>
     </span>
 )
-
-Chip.defaultProps = {
-    dataTest: 'dhis2-uicore-chip',
-    marginBottom: 4,
-    marginTop: 4,
-}
 
 Chip.propTypes = {
     children: PropTypes.any,

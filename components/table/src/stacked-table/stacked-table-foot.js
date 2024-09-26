@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export const StackedTableFoot = ({ children, className, dataTest }) => (
+export const StackedTableFoot = ({
+    children,
+    className,
+    dataTest = 'dhis2-uicore-stackedtablefoot',
+}) => (
     <tfoot className={className} data-test={dataTest}>
         {children}
         <style jsx>{`
@@ -17,8 +21,4 @@ StackedTableFoot.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     dataTest: PropTypes.string,
-}
-
-StackedTableFoot.defaultProps = {
-    dataTest: 'dhis2-uicore-stackedtablefoot',
 }

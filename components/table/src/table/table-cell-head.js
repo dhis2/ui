@@ -29,7 +29,7 @@ export const TableCellHead = ({
     dense,
     children,
     className,
-    dataTest,
+    dataTest = 'dhis2-uicore-tablecellhead',
 }) => (
     <th
         colSpan={colSpan}
@@ -43,10 +43,6 @@ export const TableCellHead = ({
         <style jsx>{tableCellHeadStyles}</style>
     </th>
 )
-
-TableCellHead.defaultProps = {
-    dataTest: 'dhis2-uicore-tablecellhead',
-}
 
 TableCellHead.propTypes = {
     children: PropTypes.node,

@@ -13,10 +13,10 @@ const AlertBar = ({
     children,
     className,
     critical,
-    dataTest,
-    duration,
+    dataTest = 'dhis2-uicore-alertbar',
+    duration = 8000,
     hidden,
-    icon,
+    icon = true,
     permanent,
     success,
     warning,
@@ -141,12 +141,6 @@ const alertTypePropType = mutuallyExclusive(
     ['success', 'warning', 'critical'],
     PropTypes.bool
 )
-
-AlertBar.defaultProps = {
-    duration: 8000,
-    dataTest: 'dhis2-uicore-alertbar',
-    icon: true,
-}
 
 AlertBar.propTypes = {
     /** An array of 0-2 action objects 

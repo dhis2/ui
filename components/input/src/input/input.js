@@ -90,6 +90,11 @@ const styles = css`
 `
 
 export class Input extends Component {
+    static defaultProps = {
+        type: 'text',
+        dataTest: 'dhis2-uicore-input',
+    }
+
     inputRef = React.createRef()
 
     componentDidMount() {
@@ -133,7 +138,7 @@ export class Input extends Component {
         const {
             role,
             className,
-            type,
+            type = 'text',
             dense,
             disabled,
             readOnly,
@@ -149,7 +154,7 @@ export class Input extends Component {
             min,
             step,
             autoComplete,
-            dataTest,
+            dataTest = 'dhis2-uicore-input',
         } = this.props
 
         return (
@@ -198,11 +203,6 @@ export class Input extends Component {
             </div>
         )
     }
-}
-
-Input.defaultProps = {
-    type: 'text',
-    dataTest: 'dhis2-uicore-input',
 }
 
 Input.propTypes = {

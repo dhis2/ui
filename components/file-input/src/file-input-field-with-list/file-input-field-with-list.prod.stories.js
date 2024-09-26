@@ -24,7 +24,11 @@ export default {
     parameters: { docs: { description: { component: description } } },
     args: {
         // Handle default props bug (see Transfer stories)
-        ...FileInputFieldWithList.defaultProps,
+        dataTest: 'dhis2-uiwidgets-fileinputfieldwithlist',
+        files: [],
+        buttonLabel: 'Upload a file',
+        placeholder: 'No file uploaded yet',
+        removeText: 'Remove',
         multiple: true,
         onChange: onChange,
         name: 'uploadName',

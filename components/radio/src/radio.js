@@ -45,6 +45,10 @@ class Radio extends Component {
         }
     }
 
+    static defaultProps = {
+        dataTest: 'dhis2-uicore-radio',
+    }
+
     render() {
         const {
             checked = false,
@@ -58,7 +62,7 @@ class Radio extends Component {
             value,
             warning,
             dense,
-            dataTest,
+            dataTest = 'dhis2-uicore-radio',
         } = this.props
 
         const classes = cx({
@@ -161,10 +165,6 @@ class Radio extends Component {
             </label>
         )
     }
-}
-
-Radio.defaultProps = {
-    dataTest: 'dhis2-uicore-radio',
 }
 
 Radio.propTypes = {

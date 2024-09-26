@@ -10,7 +10,13 @@ const createClickHandler = (onClick) => (event) => {
     }
 }
 
-const Cover = ({ children, className, dataTest, onClick, translucent }) => (
+const Cover = ({
+    children,
+    className,
+    dataTest = 'dhis2-uicore-componentcover',
+    onClick,
+    translucent,
+}) => (
     <div
         className={cx(className, { translucent })}
         onClick={createClickHandler(onClick)}
@@ -32,10 +38,6 @@ const Cover = ({ children, className, dataTest, onClick, translucent }) => (
         `}</style>
     </div>
 )
-
-Cover.defaultProps = {
-    dataTest: 'dhis2-uicore-componentcover',
-}
 
 Cover.propTypes = {
     children: PropTypes.node,
