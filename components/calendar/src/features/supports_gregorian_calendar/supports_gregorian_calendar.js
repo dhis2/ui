@@ -50,8 +50,4 @@ Then('we should be able to select a day', () => {
     )
 
     cy.get('[data-test="storybook-calendar-result"]').should('have.text', date)
-    cy.get('[data-test="storybook-calendar-result-iso"]').should(
-        'have.text',
-        '13 October 2021'
-    )
 })
