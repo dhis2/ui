@@ -2,7 +2,7 @@ import { useDataQuery, useConfig } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
-import Apps from './apps.js'
+import CommandPalette from './apps.js'
 import { HeaderBarContextProvider } from './header-bar-context.js'
 import { joinPath } from './join-path.js'
 import i18n from './locales/index.js'
@@ -55,6 +55,36 @@ export const HeaderBar = ({
         }))
     }, [data, baseUrl])
 
+    const commands = [
+        {
+            defaultAction: function handleOpen() {
+                console.log('open...')
+            },
+            description: 'Search for and open a visualisation, chart, or table',
+            displayName: 'Open...',
+            icon: 'https://domain.tld/api/../icons/dhis-web-dashboard.png',
+            name: 'open',
+        },
+        {
+            defaultAction: function handleOpen() {
+                console.log('debug...')
+            },
+            description: 'Copy debug information to the clipboard',
+            displayName: 'Debug...',
+            icon: 'https://domain.tld/api/../icons/dhis-web-dashboard.png',
+            name: 'debug',
+        },
+        {
+            defaultAction: function handleOpen() {
+                console.log('clearing cache...')
+            },
+            description: 'Empty system cache',
+            displayName: 'Clear cache...',
+            icon: 'https://domain.tld/api/../icons/dhis-web-dashboard.png',
+            name: 'clear-cache',
+        },
+    ]
+
     // See https://jira.dhis2.org/browse/LIBS-180
     if (!loading && !error) {
         // TODO: This will run every render which is probably wrong!
@@ -94,7 +124,7 @@ export const HeaderBar = ({
                                 }
                                 userAuthorities={data.user.authorities}
                             />
-                            <Apps apps={apps} />
+                            <CommandPalette apps={apps} commands={commands} />
 
                             <Profile
                                 name={data.user.name}
