@@ -1,3 +1,10 @@
+# [9.12.0-alpha.4](https://github.com/dhis2/ui/compare/v9.12.0-alpha.3...v9.12.0-alpha.4) (2024-09-27)
+
+
+### Bug Fixes
+
+* clear button and arrow alignment issues ([#1609](https://github.com/dhis2/ui/issues/1609)) ([ba0b657](https://github.com/dhis2/ui/commit/ba0b657a798c8f538ee025144d579d862bbd583a))
+
 # [9.12.0-alpha.3](https://github.com/dhis2/ui/compare/v9.12.0-alpha.2...v9.12.0-alpha.3) (2024-09-26)
 
 
