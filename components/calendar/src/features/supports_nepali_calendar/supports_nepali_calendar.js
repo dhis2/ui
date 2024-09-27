@@ -48,8 +48,4 @@ Then('we should be able to select a day', () => {
         'have.text',
         nepaliDate
     )
-    cy.get('[data-test="storybook-calendar-result-iso"]').should(
-        'have.text',
-        '13 October 2021'
-    )
 })
