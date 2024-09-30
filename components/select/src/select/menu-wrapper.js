@@ -13,7 +13,7 @@ const MenuWrapper = ({
     selectRef,
 }) => {
     return (
-        <Layer onBackdropClick={onClick} transparent disablePortal>
+        <Layer onBackdropClick={onClick} transparent>
             <Popper
                 reference={selectRef}
                 placement="bottom-start"
