@@ -1,3 +1,10 @@
+## [9.11.7](https://github.com/dhis2/ui/compare/v9.11.6...v9.11.7) (2024-10-01)
+
+
+### Bug Fixes
+
+* revert "fix: select-field not showing in correct place" ([#1614](https://github.com/dhis2/ui/issues/1614)) ([c83de6b](https://github.com/dhis2/ui/commit/c83de6b0a8993ac16a87a3351ec96ff1aa43151b))
+
 ## [9.11.6](https://github.com/dhis2/ui/compare/v9.11.5...v9.11.6) (2024-09-29)
 
 
