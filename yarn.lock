@@ -2707,7 +2707,16 @@
     i18next "^10.3"
     moment "^2.24.0"
 
-"@dhis2/multi-calendar-dates@1.3.0", "@dhis2/multi-calendar-dates@^1.2.3":
+"@dhis2/multi-calendar-dates@2.0.0-alpha.1":
+  version "2.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/multi-calendar-dates/-/multi-calendar-dates-2.0.0-alpha.1.tgz#5ae801160c044b1488704dcc13f6a4cc8cccb3e4"
+  integrity sha512-fPZ8E5ioAXPxfVQstkDOyyzBhbS5XxIUS/iUwaZxCU6Opw4CXVMBeABwQX7Y+ySTpPqGkTUYmnjhOwMlVapSng==
+  dependencies:
+    "@dhis2/d2-i18n" "^1.1.3"
+    "@js-temporal/polyfill" "0.4.3"
+    classnames "^2.3.2"
+
+"@dhis2/multi-calendar-dates@^1.2.3":
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/@dhis2/multi-calendar-dates/-/multi-calendar-dates-1.3.0.tgz#8e8943369662167b768cdaaba0a8f147875be50d"
   integrity sha512-7NlKPX+UQ+HSta0Q2SJt6RfrKLxRTX9OIMcvtUouNXfVXuS+6xVxQc4Qil+1zcIT272y7NbUmC4Z7UE/cLI9tw==
