@@ -22,7 +22,7 @@ export const CalendarTable = ({
                             <CalendarTableCell
                                 selectedDate={selectedDate}
                                 day={day}
-                                key={day?.calendarDate}
+                                key={day?.dateValue}
                                 cellSize={cellSize}
                                 width={width}
                                 unfocusable={unfocusable}

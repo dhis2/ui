@@ -13,7 +13,7 @@ export interface CalendarProps {
      */
     calendar: CalendarPickerOptions['calendar']
     /**
-     * Called with signature `(null)` \|\| `({ dateCalendarString: string, dateCalendar: Temporal.ZonedDateTime })` with `dateCalendarString` being the stringified date in the specified calendar in the format `yyyy-MM-dd`
+     * Called with signature `(null)` \|\| `({ dateCalendarString: string })` with `dateCalendarString` being the stringified date in the specified calendar in the format `yyyy-MM-dd`
      */
     onDateSelect: CalendarPickerParam['onDateSelect']
     /**
