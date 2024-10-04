@@ -42,7 +42,6 @@ export const CalendarInput = ({
     const ref = useRef()
     const [open, setOpen] = useState(false)
     const [partialDate, setPartialDate] = useState(date)
-    const [isIconDisplayed, setIsIconDisplayed] = useState(false)
 
     const excludeRef = useRef(null)
 
@@ -67,9 +66,7 @@ export const CalendarInput = ({
                 maxDateString: maxDate,
                 strictValidation,
             })
-            setIsIconDisplayed(
-                validated.errorMessage || validated.warningMessage
-            )
+
             setOpen(false)
             parentOnDateSelect?.({
                 calendarDateString: result.calendarDateString,
@@ -97,7 +94,6 @@ export const CalendarInput = ({
             maxDateString: maxDate,
             strictValidation,
         })
-        setIsIconDisplayed(validated.errorMessage || validated.warningMessage)
         parentOnDateSelect?.({ calendarDateString: partialDate, ...validated })
 
         if (
@@ -143,12 +139,6 @@ export const CalendarInput = ({
                     value={partialDate}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    validationText={
-                        pickerResults.errorMessage ||
-                        pickerResults.warningMessage
-                    }
-                    error={!!pickerResults.errorMessage}
-                    warning={!!pickerResults.warningMessage}
                     inputWidth={inputWidth}
                 />
                 {clearable && (
@@ -168,7 +158,6 @@ export const CalendarInput = ({
                             small
                             onClick={() => {
                                 parentOnDateSelect?.(null)
-                                setIsIconDisplayed(false)
                             }}
                             type="button"
                         >
@@ -207,7 +196,9 @@ export const CalendarInput = ({
                     }
                     .calendar-clear-button {
                         position: absolute;
-                        inset-inline-end: ${isIconDisplayed ? '36px' : '6px'};
+                        inset-inline-end: ${rest.error || rest.warning
+                            ? '36px'
+                            : '6px'};
                         inset-block-start: 27px;
                     }
                     .calendar-clear-button.with-icon {

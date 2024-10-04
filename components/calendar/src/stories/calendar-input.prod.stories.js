@@ -25,19 +25,18 @@ export default {
 
 const buildCalendar =
     ({ date, locale, calendar }) =>
-    () =>
-        (
-            <CalendarStoryWrapper
-                component={CalendarInput}
-                dir="ltr"
-                timeZone="Africa/Khartoum"
-                weekDayFormat="short"
-                date={date}
-                locale={locale}
-                calendar={calendar}
-                onDateSelect={() => {}}
-            />
-        )
+    () => (
+        <CalendarStoryWrapper
+            component={CalendarInput}
+            dir="ltr"
+            timeZone="Africa/Khartoum"
+            weekDayFormat="short"
+            date={date}
+            locale={locale}
+            calendar={calendar}
+            onDateSelect={() => {}}
+        />
+    )
 
 export const EthiopicWithAmharic = buildCalendar({
     calendar: 'ethiopic',
@@ -142,9 +141,13 @@ export function CalendarWithEditiableInput() {
 
 export function CalendarWithEditiableInputReactForm() {
     const [calendarError, setCalendarError] = useState(undefined)
+    const [calendarWarning, setCalendarWarning] = useState(undefined)
 
     const errored = () => {
-        return { calendar: calendarError }
+        if (!calendarError && !calendarWarning) {
+            return { calendar: undefined }
+        }
+        return { calendar: calendarError || calendarWarning }
     }
 
     return (
@@ -155,7 +158,7 @@ export function CalendarWithEditiableInputReactForm() {
             initialValues={{ calendar: '2022-10-12' }}
             validate={errored}
         >
-            {({ handleSubmit }) => {
+            {({ handleSubmit, invalid }) => {
                 return (
                     <form onSubmit={handleSubmit}>
                         <Field name="calendar">
@@ -167,12 +170,16 @@ export function CalendarWithEditiableInputReactForm() {
                                     editable
                                     date={props.input.value}
                                     calendar="gregory"
+                                    validationText={
+                                        calendarError || calendarWarning
+                                    }
+                                    error={!!calendarError}
+                                    warning={!!calendarWarning}
+                                    strictValidation={true}
+                                    minDate="2022-11-01"
                                     onDateSelect={(date) => {
-                                        if (!date.isValid) {
-                                            setCalendarError(date.errorMessage)
-                                        } else {
-                                            setCalendarError(undefined)
-                                        }
+                                        setCalendarError(date.errorMessage)
+                                        setCalendarWarning(date.warningMessage)
                                         props.input.onChange(
                                             date ? date?.calendarDateString : ''
                                         )
@@ -184,7 +191,7 @@ export function CalendarWithEditiableInputReactForm() {
 
                         <button
                             type="submit"
-                            disabled={false}
+                            disabled={invalid}
                             onClick={handleSubmit}
                         >
                             Submit

@@ -19,6 +19,9 @@ export const CalendarStoryWrapper = (props) => {
     const [selectedDirection, setSelectedDirection] = useState(dir)
     const [selectedWeekFormat, setWeekDayFormat] = useState(weekDayFormat)
 
+    const [calendarError, setCalendarError] = useState(undefined)
+    const [calendarWarning, setCalendarWarning] = useState(undefined)
+
     const [selectedLocale, setLocale] = useState(locale)
     const [selectedDate, setSelectedDate] = useState({
         calendarDateString: date,
@@ -112,7 +115,13 @@ export const CalendarStoryWrapper = (props) => {
                 dir={selectedDirection}
                 locale={selectedLocale}
                 date={selectedDate.calendarDateString}
+                validationText={calendarError || calendarWarning}
+                error={!!calendarError}
+                warning={!!calendarWarning}
                 onDateSelect={(date) => {
+                    setCalendarError(date.errorMessage)
+                    setCalendarWarning(date.warningMessage)
+
                     setSelectedDate(date)
                 }}
                 timeZone={timeZone}
