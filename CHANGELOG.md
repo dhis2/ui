@@ -1,3 +1,17 @@
+# [10.0.0-alpha.1](https://github.com/dhis2/ui/compare/v9.12.0-alpha.4...v10.0.0-alpha.1) (2024-10-04)
+
+
+### Bug Fixes
+
+* bump multi-calendar library ([#1615](https://github.com/dhis2/ui/issues/1615)) ([238de1f](https://github.com/dhis2/ui/commit/238de1f30e4b7bbfe40127ed35e9661ff1543a26))
+
+
+### BREAKING CHANGES
+
+* multi-calendar hook no longer returns Temporal date
+
+* fix: failing test
+
 # [9.12.0-alpha.4](https://github.com/dhis2/ui/compare/v9.12.0-alpha.3...v9.12.0-alpha.4) (2024-09-27)
 
 
