@@ -140,11 +140,11 @@ export function CalendarWithEditiableInput() {
     )
 }
 
-export function CalendarWithEditiableInputReactForm() {
-    const [calendarError, setCalendarError] = useState(undefined)
+export function CalendarWithEditableInputReactForm() {
+    const [validation, setValidation] = useState({})
 
     const errored = () => {
-        return { calendar: calendarError }
+        return { calendar: validation.validationText }
     }
 
     return (
@@ -155,7 +155,7 @@ export function CalendarWithEditiableInputReactForm() {
             initialValues={{ calendar: '2022-10-12' }}
             validate={errored}
         >
-            {({ handleSubmit }) => {
+            {({ handleSubmit, invalid }) => {
                 return (
                     <form onSubmit={handleSubmit}>
                         <Field name="calendar">
@@ -167,24 +167,31 @@ export function CalendarWithEditiableInputReactForm() {
                                     editable
                                     date={props.input.value}
                                     calendar="gregory"
+                                    {...validation}
+                                    minDate="2022-11-01"
                                     onDateSelect={(date) => {
-                                        if (!date.isValid) {
-                                            setCalendarError(date.errorMessage)
-                                        } else {
-                                            setCalendarError(undefined)
+                                        const validation = {
+                                            ...date.validation,
+                                            validationText:
+                                                date.validation
+                                                    .validationCode ===
+                                                'WRONG_FORMAT'
+                                                    ? 'custom validation message for format'
+                                                    : date.validation
+                                                          .validationText,
                                         }
+                                        setValidation(validation)
                                         props.input.onChange(
                                             date ? date?.calendarDateString : ''
                                         )
                                     }}
-                                    timeZone={'UTC'}
                                 />
                             )}
                         </Field>
 
                         <button
                             type="submit"
-                            disabled={false}
+                            disabled={invalid}
                             onClick={handleSubmit}
                         >
                             Submit

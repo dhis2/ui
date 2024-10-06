@@ -42,7 +42,6 @@ export const CalendarInput = ({
     const ref = useRef()
     const [open, setOpen] = useState(false)
     const [partialDate, setPartialDate] = useState(date)
-    const [isIconDisplayed, setIsIconDisplayed] = useState(false)
 
     const excludeRef = useRef(null)
 
@@ -60,20 +59,18 @@ export const CalendarInput = ({
 
     const pickerResults = useDatePicker({
         onDateSelect: (result) => {
-            const validated = validateDateString(result.calendarDateString, {
+            const validation = validateDateString(result.calendarDateString, {
                 calendar,
                 format,
                 minDateString: minDate,
                 maxDateString: maxDate,
                 strictValidation,
             })
-            setIsIconDisplayed(
-                validated.errorMessage || validated.warningMessage
-            )
+
             setOpen(false)
             parentOnDateSelect?.({
                 calendarDateString: result.calendarDateString,
-                ...validated,
+                validation,
             })
         },
         date,
@@ -90,15 +87,14 @@ export const CalendarInput = ({
     }
 
     const handleBlur = (_, e) => {
-        const validated = validateDateString(partialDate, {
+        const validation = validateDateString(partialDate, {
             calendar,
             format,
             minDateString: minDate,
             maxDateString: maxDate,
             strictValidation,
         })
-        setIsIconDisplayed(validated.errorMessage || validated.warningMessage)
-        parentOnDateSelect?.({ calendarDateString: partialDate, ...validated })
+        parentOnDateSelect?.({ calendarDateString: partialDate, validation })
 
         if (
             excludeRef.current &&
@@ -143,12 +139,6 @@ export const CalendarInput = ({
                     value={partialDate}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    validationText={
-                        pickerResults.errorMessage ||
-                        pickerResults.warningMessage
-                    }
-                    error={!!pickerResults.errorMessage}
-                    warning={!!pickerResults.warningMessage}
                     inputWidth={inputWidth}
                 />
                 {clearable && (
@@ -168,7 +158,6 @@ export const CalendarInput = ({
                             small
                             onClick={() => {
                                 parentOnDateSelect?.(null)
-                                setIsIconDisplayed(false)
                             }}
                             type="button"
                         >
@@ -207,7 +196,9 @@ export const CalendarInput = ({
                     }
                     .calendar-clear-button {
                         position: absolute;
-                        inset-inline-end: ${isIconDisplayed ? '36px' : '6px'};
+                        inset-inline-end: ${rest.error || rest.warning
+                            ? '36px'
+                            : '6px'};
                         inset-block-start: 27px;
                     }
                     .calendar-clear-button.with-icon {
@@ -232,7 +223,7 @@ CalendarInput.defaultProps = {
 CalendarInput.propTypes = {
     /** the calendar to use such gregory, ethiopic, nepali - full supported list here: https://github.com/dhis2/multi-calendar-dates/blob/main/src/constants/calendars.ts  */
     calendar: PropTypes.any.isRequired,
-    /** Called with signature `(null)` \|\| `({ dateCalendarString: string })` with `dateCalendarString` being the stringified date in the specified calendar in the format `yyyy-MM-dd` */
+    /** Called with signature `(null)` \|\| `({ dateCalendarString: string, validation: { error: boolean, warning: boolean, validationText: string} })` with `dateCalendarString` being the stringified date in the specified calendar in the format `yyyy-MM-dd` */
     onDateSelect: PropTypes.func.isRequired,
     /** the size of a single cell in the table forming the calendar */
     cellSize: PropTypes.string,
