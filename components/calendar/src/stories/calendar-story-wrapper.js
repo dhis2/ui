@@ -115,6 +115,7 @@ export const CalendarStoryWrapper = (props) => {
                 onDateSelect={(date) => {
                     setSelectedDate(date)
                 }}
+                {...selectedDate.validation}
                 timeZone={timeZone}
                 weekDayFormat={selectedWeekFormat}
                 numberingSystem={selectedNumberingSystem}
