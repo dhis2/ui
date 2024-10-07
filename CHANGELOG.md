@@ -1,3 +1,10 @@
+# [10.0.0-alpha.2](https://github.com/dhis2/ui/compare/v10.0.0-alpha.1...v10.0.0-alpha.2) (2024-10-07)
+
+
+### Bug Fixes
+
+* stories for calendar validation ([#1616](https://github.com/dhis2/ui/issues/1616)) ([c00a2d6](https://github.com/dhis2/ui/commit/c00a2d62b85c686acb4fc0ad6aea39d839940ee9))
+
 # [10.0.0-alpha.1](https://github.com/dhis2/ui/compare/v9.12.0-alpha.4...v10.0.0-alpha.1) (2024-10-04)
 
 
