@@ -137,7 +137,7 @@ Inputs width should reflect the expected content.
 ### Validation
 
 -   Validating the type of data entered isn't part of the components themselves.
--   Read more about [form handling in DHIS2](../utilities/forms/react-final-form.md).
+-   Read more about [form handling in DHIS2](/ui/utilities/forms/react-final-form).
 
 ### Read-only
 
@@ -174,7 +174,7 @@ Inputs width should reflect the expected content.
 
 -   Use an error state if there's a problem with the content of the input, or if it's required but empty.
 -   Don't show an error too early, give the user a chance to finish entering data.
--   The error text should help the user fix the problem. Refer to the [error writing guidelines](../principles/content-communication.md) for examples.
+-   The error text should help the user fix the problem. Refer to the [error writing guidelines](/ui/principles/content-communication) for examples.
 
 ### State: Disabled
 
