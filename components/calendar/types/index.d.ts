@@ -20,6 +20,11 @@ export interface CalendarProps {
      * the size of a single cell in the table forming the calendar
      */
     cellSize?: string
+
+    /**
+     * Add a "clear" button to delete the selected date
+     */
+    clearable?: boolean
     /**
      * the currently selected date using an iso-like format YYYY-MM-DD, in the calendar system provided (not iso8601)
      */
@@ -52,10 +57,7 @@ export interface CalendarProps {
 
 export const Calendar: React.FC<CalendarProps>
 
-export type CalendarInputProps = Omit<
-    InputFieldProps,
-    'label' | 'type' | 'value'
-> &
+export type CalendarInputProps = Omit<InputFieldProps, 'type' | 'value'> &
     CalendarProps
 
 export const CalendarInput: React.FC<CalendarInputProps>
