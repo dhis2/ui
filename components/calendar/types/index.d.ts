@@ -57,9 +57,7 @@ export interface CalendarProps {
 
 export const Calendar: React.FC<CalendarProps>
 
-export type CalendarInputProps = Omit<
-    InputFieldProps, 'type' | 'value'
-> &
+export type CalendarInputProps = Omit<InputFieldProps, 'type' | 'value'> &
     CalendarProps
 
 export const CalendarInput: React.FC<CalendarInputProps>
