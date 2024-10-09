@@ -1,3 +1,10 @@
+# [10.0.0-alpha.3](https://github.com/dhis2/ui/compare/v10.0.0-alpha.2...v10.0.0-alpha.3) (2024-10-09)
+
+
+### Bug Fixes
+
+* **calendar:** fix minor type issues ([#1588](https://github.com/dhis2/ui/issues/1588)) ([21e60a6](https://github.com/dhis2/ui/commit/21e60a6a275ab5cc4a1048e4dfb53183a4f92bd3))
+
 # [10.0.0-alpha.2](https://github.com/dhis2/ui/compare/v10.0.0-alpha.1...v10.0.0-alpha.2) (2024-10-07)
 
 
