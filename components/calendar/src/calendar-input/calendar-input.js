@@ -139,7 +139,6 @@ export const CalendarInput = ({
                     value={partialDate}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    inputWidth={inputWidth}
                 />
                 {clearable && (
                     <div
