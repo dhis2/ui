@@ -1,4 +1,5 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
+import { IconSearch16 } from '@dhis2/ui-icons'
 import React from 'react'
 import { InputField } from './index.js'
 
@@ -156,3 +157,25 @@ ValueTextOverflow.args = {
 
 export const Required = Template.bind({})
 Required.args = { required: true }
+
+export const InputWithPrefixIcon = (args) => (
+    <InputField
+        {...args}
+        name="prefix-icon-input"
+        label="My inputField has a prefix icon"
+        placeholder={'Search'}
+        prefixIcon={<IconSearch16 />}
+    />
+)
+
+export const ClearableInput = (args) => (
+    <InputField
+        {...args}
+        name="clearable-input"
+        label="My inputField is clearable"
+        placeholder={''}
+        clearable
+        clearText={() => console.log('clear the value')}
+        value={'value'}
+    />
+)

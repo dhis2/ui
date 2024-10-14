@@ -39,6 +39,9 @@ class InputField extends React.Component {
             validationText,
             inputWidth,
             autoComplete,
+            clearable,
+            clearText,
+            prefixIcon,
             dataTest = 'dhis2-uiwidgets-inputfield',
         } = this.props
 
@@ -79,6 +82,9 @@ class InputField extends React.Component {
                         initialFocus={initialFocus}
                         readOnly={readOnly}
                         autoComplete={autoComplete}
+                        clearable={clearable}
+                        clearText={clearText}
+                        prefixIcon={prefixIcon}
                     />
                 </Box>
             </Field>
@@ -90,6 +96,10 @@ const InputFieldProps = {
     /** The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete) */
     autoComplete: PropTypes.string,
     className: PropTypes.string,
+    /** function to clear the input value */
+    clearText: PropTypes.func,
+    /** Makes the input field clearable */
+    clearable: PropTypes.bool,
     dataTest: PropTypes.string,
     /** Makes the input smaller */
     dense: PropTypes.bool,
@@ -115,6 +125,8 @@ const InputFieldProps = {
     name: PropTypes.string,
     /** Placeholder text for the input */
     placeholder: PropTypes.string,
+    /** Add prefix icon */
+    prefixIcon: PropTypes.element,
     /** Makes the input read-only */
     readOnly: PropTypes.bool,
     /** Indicates this input is required */

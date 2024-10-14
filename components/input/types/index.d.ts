@@ -41,6 +41,14 @@ export interface InputProps {
      */
     autoComplete?: string
     className?: string
+    /**
+     * Function to clear the input value
+     */
+    clearText?: func
+    /**
+     * Makes the input clearable
+     */
+    clearable?: boolean
     dataTest?: string
     /**
      * Makes the input smaller
@@ -78,6 +86,10 @@ export interface InputProps {
      * Placeholder text for the input
      */
     placeholder?: string
+    /**
+     * Add prefix icon
+     */
+    prefixIcon?: Element
     /**
      * Makes the input read-only
      */
@@ -135,6 +147,14 @@ export interface InputFieldProps {
      */
     autoComplete?: string
     className?: string
+    /**
+     * Function to clear the input value
+     */
+    clearText?: func
+    /**
+     * Makes the input field clearable
+     */
+    clearable?: boolean
     dataTest?: string
     /**
      * Makes the input smaller
@@ -184,6 +204,10 @@ export interface InputFieldProps {
      * Placeholder text for the input
      */
     placeholder?: string
+    /**
+     * Add prefix icon to input
+     */
+    prefixIcon?: Element
     /**
      * Makes the input read-only
      */

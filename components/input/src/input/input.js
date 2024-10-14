@@ -1,4 +1,5 @@
 import { theme, colors, spacers, sharedPropTypes } from '@dhis2/ui-constants'
+import { IconCross16 } from '@dhis2/ui-icons'
 import { StatusIcon } from '@dhis2-ui/status-icon'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
@@ -155,10 +156,22 @@ export class Input extends Component {
             step,
             autoComplete,
             dataTest = 'dhis2-uicore-input',
+            clearable,
+            clearText,
+            prefixIcon,
         } = this.props
 
         return (
-            <div className={cx('input', className)} data-test={dataTest}>
+            <div
+                className={cx(
+                    'input',
+                    className,
+                    { 'input-prefix-icon': prefixIcon },
+                    { 'input-clearable': clearable }
+                )}
+                data-test={dataTest}
+            >
+                {prefixIcon && <span className="prefix">{prefixIcon}</span>}
                 <input
                     role={role}
                     id={name}
@@ -187,6 +200,14 @@ export class Input extends Component {
                         'read-only': readOnly,
                     })}
                 />
+                {clearable && value.length ? (
+                    <button onClick={clearText}>
+                        <IconCross16
+                            className="icon-clear"
+                            color={colors.white}
+                        />
+                    </button>
+                ) : null}
                 <StatusIcon
                     error={error}
                     valid={valid}
@@ -199,6 +220,35 @@ export class Input extends Component {
                     input {
                         width: 100%;
                     }
+
+                    .input-prefix-icon input {
+                        padding-left: 30px;
+                    }
+
+                    .input-clearable input {
+                        padding-right: 30px;
+                    }
+
+                    .prefix {
+                        position: absolute;
+                        transform: translate(8px, 2px);
+                        color: ${colors.grey600};
+                    }
+
+                    button {
+                        position: absolute;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border: none;
+                        cursor: pointer;
+                        height: 20px;
+                        width: 20px;
+                        border-radius: 50%;
+                        right: 1.5em;
+                        background: ${colors.grey500};
+                        padding: 0;
+                    }
                 `}</style>
             </div>
         )
@@ -209,6 +259,10 @@ Input.propTypes = {
     /** The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete) */
     autoComplete: PropTypes.string,
     className: PropTypes.string,
+    /** function to clear the input value */
+    clearText: PropTypes.func,
+    /** Makes the input field clearable */
+    clearable: PropTypes.bool,
     dataTest: PropTypes.string,
     /** Makes the input smaller */
     dense: PropTypes.bool,
@@ -228,6 +282,8 @@ Input.propTypes = {
     name: PropTypes.string,
     /** Placeholder text for the input */
     placeholder: PropTypes.string,
+    /** Add prefix icon */
+    prefixIcon: PropTypes.element,
     /** Makes the input read-only */
     readOnly: PropTypes.bool,
     /** Sets a role attribute on the input */
