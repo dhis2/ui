@@ -1,3 +1,10 @@
+## [9.11.8](https://github.com/dhis2/ui/compare/v9.11.7...v9.11.8) (2024-10-15)
+
+
+### Bug Fixes
+
+* **sharing-dialog:** add 'route' to SharingType type ([#1617](https://github.com/dhis2/ui/issues/1617)) ([1d9664a](https://github.com/dhis2/ui/commit/1d9664a80410f8ea6a8a4a4a7c3f6acc36a74587))
+
 ## [9.11.7](https://github.com/dhis2/ui/compare/v9.11.6...v9.11.7) (2024-10-01)
 
 
