@@ -54,6 +54,7 @@ type SharingType =
     | 'programStageWorkingList'
     | 'relationshipType'
     | 'report'
+    | 'route'
     | 'sqlView'
     | 'trackedEntityAttribute'
     | 'trackedEntityFilter'
