@@ -85,6 +85,7 @@ class InputField extends React.Component {
                         clearable={clearable}
                         clearText={clearText}
                         prefixIcon={prefixIcon}
+                        width={inputWidth}
                     />
                 </Box>
             </Field>

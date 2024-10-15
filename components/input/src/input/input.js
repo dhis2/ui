@@ -9,8 +9,9 @@ import { inputTypes } from './inputTypes.js'
 
 const styles = css`
     .input {
-        display: flex;
+        display: inline-flex;
         align-items: center;
+        position: relative;
         gap: ${spacers.dp8};
     }
 
@@ -159,6 +160,7 @@ export class Input extends Component {
             clearable,
             clearText,
             prefixIcon,
+            width,
         } = this.props
 
         return (
@@ -200,12 +202,13 @@ export class Input extends Component {
                         'read-only': readOnly,
                     })}
                 />
-                {clearable && value.length ? (
-                    <button onClick={clearText}>
-                        <IconCross16
-                            className="icon-clear"
-                            color={colors.white}
-                        />
+                {clearable && value?.length ? (
+                    <button
+                        type="button"
+                        onClick={clearText}
+                        className="clear-button"
+                    >
+                        <IconCross16 color={colors.white} />
                     </button>
                 ) : null}
                 <StatusIcon
@@ -217,37 +220,45 @@ export class Input extends Component {
 
                 <style jsx>{styles}</style>
                 <style jsx>{`
+                    .input {
+                        width: ${width ? width : `100%`};
+                    }
+
                     input {
                         width: 100%;
                     }
 
                     .input-prefix-icon input {
-                        padding-left: 30px;
+                        padding-inline-start: 30px;
                     }
 
                     .input-clearable input {
-                        padding-right: 30px;
+                        padding-inline-end: 30px;
                     }
 
                     .prefix {
                         position: absolute;
-                        transform: translate(8px, 2px);
+                        display: flex;
+                        align-items: center;
+                        pointer-events: none;
+                        left: 10px;
+                        padding: 0;
                         color: ${colors.grey600};
                     }
 
-                    button {
+                    .clear-button {
                         position: absolute;
                         display: flex;
                         align-items: center;
                         justify-content: center;
                         border: none;
                         cursor: pointer;
-                        height: 20px;
-                        width: 20px;
+                        height: 16px;
+                        width: 16px;
                         border-radius: 50%;
-                        right: 1.5em;
+                        right: 10px;
                         background: ${colors.grey500};
-                        padding: 0;
+                        padding: 1px;
                     }
                 `}</style>
             </div>
@@ -299,6 +310,8 @@ Input.propTypes = {
     value: PropTypes.string,
     /** Applies 'warning' appearance for validation feedback. Mutually exclusive with `valid` and `error` props */
     warning: sharedPropTypes.statusPropType,
+    /** Defines the width of the input. Can be any valid CSS measurement */
+    width: PropTypes.string,
     /** Called with signature `({ name: string, value: string }, event)` */
     onBlur: PropTypes.func,
     /** Called with signature `({ name: string, value: string }, event)` */
