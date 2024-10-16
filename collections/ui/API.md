@@ -780,6 +780,7 @@ import { Input } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
+|ariaLabel|string|||Add an aria-label attribute to the input element *|
 |autoComplete|string|||The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete)|
 |className|string||||
 |clearable|boolean|||Makes the input field clearable|
@@ -1863,6 +1864,44 @@ import { SingleSelect } from '@dhis2/ui'
 |onBlur|function||||
 |onChange|function||||
 |onFocus|function||||
+|onKeyDown|function||||
+
+### Menu
+
+#### Usage
+
+To use `Menu`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { Menu } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|comboBoxId|string||*||
+|idPrefix|string||*||
+|options|custom||||
+|onChange|function||*||
+|disabled|boolean||||
+|empty|node||||
+|filterLabel|string||||
+|filterPlaceholder|string||||
+|filterValue|string||||
+|filterable|boolean||||
+|hidden|boolean||||
+|labelledBy|string||||
+|loading|boolean||||
+|loadingText|string||||
+|maxHeight|string||||
+|selectRef|instanceOf(HTMLElement)||||
+|selected|string||||
+|onBlur|function||||
+|onClose|function||||
+|onFilterChange|function||||
 |onKeyDown|function||||
 
 ### SingleSelectField
