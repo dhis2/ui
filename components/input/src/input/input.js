@@ -129,6 +129,15 @@ export class Input extends Component {
         }
     }
 
+    handleClear = () => {
+        if (this.props.onChange) {
+            this.props.onChange({
+                value: '',
+                name: this.props.name,
+            })
+        }
+    }
+
     createHandlerPayload(e) {
         return {
             value: e.target.value,
@@ -158,7 +167,6 @@ export class Input extends Component {
             autoComplete,
             dataTest = 'dhis2-uicore-input',
             clearable,
-            clearText,
             prefixIcon,
             width,
         } = this.props
@@ -205,7 +213,7 @@ export class Input extends Component {
                 {clearable && value?.length ? (
                     <button
                         type="button"
-                        onClick={clearText}
+                        onClick={this.handleClear}
                         className="clear-button"
                     >
                         <IconCross16 color={colors.white} />
@@ -270,8 +278,6 @@ Input.propTypes = {
     /** The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete) */
     autoComplete: PropTypes.string,
     className: PropTypes.string,
-    /** function to clear the input value */
-    clearText: PropTypes.func,
     /** Makes the input field clearable */
     clearable: PropTypes.bool,
     dataTest: PropTypes.string,

@@ -42,10 +42,6 @@ export interface InputProps {
     autoComplete?: string
     className?: string
     /**
-     * Function to clear the input value
-     */
-    clearText?: func
-    /**
      * Makes the input clearable
      */
     clearable?: boolean
@@ -147,10 +143,6 @@ export interface InputFieldProps {
      */
     autoComplete?: string
     className?: string
-    /**
-     * Function to clear the input value
-     */
-    clearText?: func
     /**
      * Makes the input field clearable
      */
