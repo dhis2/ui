@@ -137,6 +137,7 @@ export class Input extends Component {
     render() {
         const {
             role,
+            ariaLabel,
             className,
             type = 'text',
             dense,
@@ -160,6 +161,7 @@ export class Input extends Component {
         return (
             <div className={cx('input', className)} data-test={dataTest}>
                 <input
+                    aria-label={ariaLabel}
                     role={role}
                     id={name}
                     name={name}
@@ -206,6 +208,8 @@ export class Input extends Component {
 }
 
 Input.propTypes = {
+    /** Add an aria-label attribute to the input element **/
+    ariaLabel: PropTypes.string,
     /** The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete) */
     autoComplete: PropTypes.string,
     className: PropTypes.string,
