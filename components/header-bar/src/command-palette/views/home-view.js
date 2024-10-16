@@ -1,46 +1,11 @@
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
-import { AppItem, Heading, List } from './fields.js'
+import AppItem from '../sections/app-item.js'
+import Heading from '../sections/heading.js'
+import { escapeRegExpCharacters } from '../utils/escapeCharacters.js'
+import ListView from './list-view.js'
 
-/**
- * Copied from here:
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Escaping
- */
-function escapeRegExpCharacters(text) {
-    return text.replace(/[/.*+?^${}()|[\]\\]/g, '\\$&')
-}
-
-export function ListView({ heading, itemsArray, filter, type }) {
-    const filteredItems = itemsArray.filter(({ displayName, name }) => {
-        const itemName = displayName || name
-        const formattedItemName = itemName.toLowerCase()
-        const formattedFilter = escapeRegExpCharacters(filter).toLowerCase()
-
-        return filter.length > 0
-            ? formattedItemName.match(formattedFilter)
-            : true
-    })
-
-    return (
-        <div>
-            <Heading
-                filter={filter}
-                filteredItems={filteredItems}
-                heading={heading}
-            />
-            <List filteredItems={filteredItems} type={type} />
-        </div>
-    )
-}
-
-ListView.propTypes = {
-    filter: PropTypes.string,
-    heading: PropTypes.string,
-    itemsArray: PropTypes.array,
-    type: PropTypes.string,
-}
-
-export function HomeView({ apps, filter }) {
+function HomeView({ apps, filter }) {
     const divRef = useRef(null)
     const [activeItem, setActiveItem] = useState(-1)
 
@@ -96,7 +61,7 @@ export function HomeView({ apps, filter }) {
             }
         }
     }, [activeItem, apps.length])
-    // filter happens across everything here
+    // filter happens across everything here - apps, commands, shorcuts
     const filteredApps = apps.filter(({ displayName, name }) => {
         const appName = displayName || name
         const formattedAppName = appName.toLowerCase()
@@ -109,13 +74,11 @@ export function HomeView({ apps, filter }) {
 
     return (
         <div onKeyDown={handleKeyDown} onFocus={handleFocus} tabIndex={-1}>
+            {/* Search results */}
             {filter.length > 0 && (
-                <ListView
-                    filter={filter}
-                    itemsArray={filteredApps}
-                    heading={'Top apps'}
-                />
+                <ListView filter={filter} itemsArray={filteredApps} />
             )}
+            {/* normal view */}
             {filter.length < 1 && (
                 <>
                     <Heading
@@ -166,34 +129,4 @@ HomeView.propTypes = {
     filter: PropTypes.string,
 }
 
-export function ViewSwitcher({ apps, commands, filter, view }) {
-    switch (view) {
-        case 'apps':
-            return (
-                <ListView
-                    heading={'All Apps'}
-                    itemsArray={apps}
-                    filter={filter}
-                />
-            )
-        case 'commands':
-            return (
-                <ListView
-                    heading={'All commands'}
-                    itemsArray={commands}
-                    filter={filter}
-                    type={'commands'}
-                />
-            )
-        case 'home':
-        default:
-            return <HomeView apps={apps} filter={filter} />
-    }
-}
-
-ViewSwitcher.propTypes = {
-    apps: PropTypes.array,
-    commands: PropTypes.array,
-    filter: PropTypes.string,
-    view: PropTypes.string,
-}
+export default HomeView
