@@ -1,0 +1,214 @@
+import { clearSensitiveCaches, useConfig } from '@dhis2/app-runtime'
+import { colors, spacers } from '@dhis2/ui-constants'
+import {
+    IconApps16,
+    IconApps24,
+    IconLogOut16,
+    IconTerminalWindow16,
+} from '@dhis2/ui-icons'
+import PropTypes from 'prop-types'
+import React, { useState, useCallback, useRef, useEffect } from 'react'
+import { joinPath } from '../join-path.js'
+import i18n from '../locales/index.js'
+import BackButton from './sections/back-button.js'
+import Container from './sections/container.js'
+import Heading from './sections/heading.js'
+import ListItem from './sections/list-item.js'
+import Search from './sections/search-field.js'
+import HomeView from './views/home-view.js'
+import ListView from './views/list-view.js'
+
+const MIN_APPS_NUM = 8
+
+const CommandPalette = ({ apps, commands }) => {
+    const { baseUrl } = useConfig()
+    const [show, setShow] = useState(false)
+    const [filter, setFilter] = useState('')
+
+    const [currentView, setCurrentView] = useState('home')
+
+    const showActions = filter.length <= 0 && currentView === 'home'
+    const showBackButton = currentView !== 'home'
+
+    const handleVisibilityToggle = useCallback(() => setShow(!show), [show])
+    const handleFilterChange = useCallback(({ value }) => setFilter(value), [])
+
+    const handleClearSearch = () => setFilter('')
+
+    const containerEl = useRef(null)
+
+    const handleKeyDown = useCallback(
+        (event) => {
+            switch (event.key) {
+                case 'Escape':
+                    event.preventDefault()
+                    if (currentView === 'home') {
+                        setShow(false)
+                    } else {
+                        setCurrentView('home')
+                    }
+                    break
+            }
+
+            if ((event.metaKey || event.ctrlKey) && event.key === '/') {
+                setShow(!show)
+            }
+        },
+        [currentView, show]
+    )
+
+    const handleFocus = () => {
+        // this is about the focus of the element
+        // on launch: focus entire element
+    }
+
+    useEffect(() => {
+        document.addEventListener('keydown', handleKeyDown)
+        document.addEventListener('focus', handleFocus)
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown)
+            document.removeEventListener('focus', handleFocus)
+        }
+    }, [handleKeyDown])
+
+    return (
+        <div ref={containerEl} data-test="headerbar-apps">
+            <button
+                onClick={handleVisibilityToggle}
+                data-test="headerbar-apps-icon"
+            >
+                <IconApps24 color={colors.white} />
+            </button>
+
+            {show ? (
+                <Container setShow={setShow} show={show}>
+                    <div data-test="headerbar-apps-menu">
+                        <Search value={filter} onChange={handleFilterChange} />
+                        <div className="content">
+                            {showBackButton ? (
+                                <BackButton
+                                    setView={setCurrentView}
+                                    handleClearSearch={handleClearSearch}
+                                />
+                            ) : null}
+                            {/* switch views */}
+                            {currentView === 'apps' && (
+                                <ListView
+                                    heading={'All Apps'}
+                                    itemsArray={apps}
+                                    filter={filter}
+                                />
+                            )}
+                            {currentView === 'commands' && (
+                                <ListView
+                                    heading={'All commands'}
+                                    itemsArray={commands}
+                                    filter={filter}
+                                    type={'commands'}
+                                />
+                            )}
+                            {currentView === 'home' && (
+                                <HomeView apps={apps} filter={filter} />
+                            )}
+                            {/* actions sections */}
+                            {showActions ? (
+                                <>
+                                    <Heading heading={'Actions'} />
+                                    {apps?.length > MIN_APPS_NUM ? (
+                                        <ListItem
+                                            title={i18n.t('Browse apps')}
+                                            icon={
+                                                <IconApps16
+                                                    color={colors.grey700}
+                                                />
+                                            }
+                                            onClickHandler={() =>
+                                                setCurrentView('apps')
+                                            }
+                                        />
+                                    ) : null}
+                                    {commands?.length > 0 ? (
+                                        <ListItem
+                                            title={i18n.t('Browse commands')}
+                                            icon={
+                                                <IconTerminalWindow16
+                                                    color={colors.grey700}
+                                                />
+                                            }
+                                            onClickHandler={() =>
+                                                setCurrentView('commands')
+                                            }
+                                        />
+                                    ) : null}
+                                    <ListItem
+                                        title={i18n.t('Logout')}
+                                        icon={
+                                            <IconLogOut16
+                                                color={colors.grey700}
+                                            />
+                                        }
+                                        onClickHandler={async () => {
+                                            await clearSensitiveCaches()
+                                            window.location.assign(
+                                                joinPath(
+                                                    baseUrl,
+                                                    'dhis-web-commons-security/logout.action'
+                                                )
+                                            )
+                                        }}
+                                        href={joinPath(
+                                            baseUrl,
+                                            'dhis-web-commons-security/logout.action'
+                                        )}
+                                    />
+                                </>
+                            ) : null}
+                        </div>
+                    </div>
+                </Container>
+            ) : null}
+
+            <style jsx>{`
+                button {
+                    display: block;
+                    background: transparent;
+                    padding-block-start: ${spacers.dp4};
+                    padding-block-end: 0;
+                    padding-inline: ${spacers.dp12};
+                    border: 0;
+                    cursor: pointer;
+                    height: 100%;
+                }
+                button:focus {
+                    outline: 2px solid white;
+                    outline-offset: -2px;
+                }
+                button:focus:not(:focus-visible) {
+                    outline: none;
+                }
+                button:hover {
+                    background: #1a557f;
+                }
+                button:active {
+                    background: #104067;
+                }
+                .content {
+                    overflow-y: auto;
+                    max-height: calc(544px - 50px);
+                }
+
+                div {
+                    position: relative;
+                    height: 100%;
+                }
+            `}</style>
+        </div>
+    )
+}
+
+CommandPalette.propTypes = {
+    apps: PropTypes.array,
+    commands: PropTypes.array,
+}
+
+export default CommandPalette
