@@ -7,14 +7,13 @@ import {
     IconArrowLeft16,
     IconSearch16,
 } from '@dhis2/ui-icons'
-import { MenuItem } from '@dhis2-ui/menu'
 import PropTypes from 'prop-types'
 import React, { useState, useRef, useEffect } from 'react'
 import { InputField } from '../../../input/src/input-field/input-field.js'
 import { joinPath } from '../join-path.js'
 import i18n from '../locales/index.js'
 
-export function Search({ value, onChange, clearSearch }) {
+export function Search({ value, onChange }) {
     return (
         <>
             <InputField
@@ -27,7 +26,6 @@ export function Search({ value, onChange, clearSearch }) {
                 autoComplete={'off'}
                 prefixIcon={<IconSearch16 />}
                 clearable
-                clearText={clearSearch}
             />
             <style>{`
                 .input {
@@ -52,7 +50,6 @@ export function Search({ value, onChange, clearSearch }) {
 }
 
 Search.propTypes = {
-    clearSearch: PropTypes.func.isRequired,
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
 }
@@ -105,12 +102,21 @@ AppItem.propTypes = {
     path: PropTypes.string,
 }
 
-export function ListItem({ name, path, image, description, type }) {
+export function ListItem({
+    title,
+    path,
+    icon,
+    image,
+    description,
+    type,
+    onClickHandler,
+}) {
     const showDescription = type === 'commands'
     return (
-        <a href={path}>
-            <img src={image} alt="logo" />
-            <div className="name">{name}</div>
+        <a href={path ? path : undefined} onClick={onClickHandler}>
+            {icon && <span className="icon">{icon}</span>}
+            {image && <img src={image} alt="logo" />}
+            <div className="title">{title}</div>
             {showDescription && (
                 <div className="description">{description}</div>
             )}
@@ -152,7 +158,7 @@ export function ListItem({ name, path, image, description, type }) {
                         cursor: pointer;
                     }
 
-                    .name {
+                    .title {
                         align-self: start;
                     }
                     .description {
@@ -165,10 +171,12 @@ export function ListItem({ name, path, image, description, type }) {
 
 ListItem.propTypes = {
     description: PropTypes.string,
+    icon: PropTypes.node,
     image: PropTypes.string,
-    name: PropTypes.string,
     path: PropTypes.string,
+    title: PropTypes.string,
     type: PropTypes.string,
+    onClickHandler: PropTypes.func,
 }
 
 export function List({ filteredItems, type }) {
@@ -222,9 +230,9 @@ export function List({ filteredItems, type }) {
                     <ListItem
                         type={type}
                         key={`app-${name}-${idx}`}
-                        name={displayName || name}
-                        path={defaultAction}
-                        img={icon}
+                        title={displayName || name}
+                        href={defaultAction}
+                        image={icon}
                         description={description}
                     />
                 )
@@ -256,31 +264,23 @@ export function Actions({ setView, showApps, showCommands }) {
             <Heading filter={''} filteredItems={[]} heading={'Actions'} />
 
             {showApps ? (
-                <MenuItem
-                    onClick={() => setView('apps')}
-                    label={i18n.t('Browse apps')}
-                    value="Browse apps"
+                <ListItem
+                    title={i18n.t('Browse apps')}
                     icon={<IconApps16 color={colors.grey700} />}
+                    onClickHandler={() => setView('apps')}
                 />
             ) : null}
             {showCommands ? (
-                <MenuItem
-                    onClick={() => setView('commands')}
-                    label={i18n.t('Browse commands')}
-                    value="Browse commands"
+                <ListItem
+                    title={i18n.t('Browse commands')}
                     icon={<IconTerminalWindow16 color={colors.grey700} />}
+                    onClickHandler={() => setView('commands')}
                 />
             ) : null}
-            {/* got from profile-menu: https://github.com/dhis2/ui/blob/4902126ef0a6163961286a29f8df44b8fd3a0604/components/header-bar/src/profile-menu/profile-menu.js#L88 */}
-            <MenuItem
-                href={joinPath(
-                    baseUrl,
-                    'dhis-web-commons-security/logout.action'
-                )}
-                // NB: By MenuItem implementation, this callback
-                // overwrites default navigation behavior but maintains
-                // the href attribute
-                onClick={async () => {
+            <ListItem
+                title={i18n.t('Logout')}
+                icon={<IconLogOut16 color={colors.grey700} />}
+                onClickHandler={async () => {
                     await clearSensitiveCaches()
                     window.location.assign(
                         joinPath(
@@ -289,9 +289,10 @@ export function Actions({ setView, showApps, showCommands }) {
                         )
                     )
                 }}
-                label={i18n.t('Logout')}
-                value="logout"
-                icon={<IconLogOut16 color={colors.grey700} />}
+                href={joinPath(
+                    baseUrl,
+                    'dhis-web-commons-security/logout.action'
+                )}
             />
         </>
     )
@@ -320,7 +321,6 @@ export function Heading({ filter, filteredItems, heading }) {
               color: ${colors.grey800};
               padding:  ${spacers.dp8};
               margin: 2px ${spacers.dp4};
-            //   margin-bottom: 
           }
           .section-header:first-of-type {
               margin-top: ${spacers.dp4};
@@ -365,7 +365,7 @@ export function BackButton({ setView, handleClearSearch }) {
                     margin-bottom: 1px;
                 }
                 button:focus {
-                    outline: 2px solid white;
+                    outline: 2px solid blue;
                     outline-offset: -2px;
                 }
                 button:focus:not(:focus-visible) {

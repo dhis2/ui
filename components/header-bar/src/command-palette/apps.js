@@ -101,11 +101,7 @@ const CommandPalette = ({ apps, commands }) => {
             {show ? (
                 <Container setShow={setShow} show={show}>
                     <div data-test="headerbar-apps-menu">
-                        <Search
-                            value={filter}
-                            onChange={handleFilterChange}
-                            clearSearch={handleClearSearch}
-                        />
+                        <Search value={filter} onChange={handleFilterChange} />
 
                         <div className="content">
                             {showBackButton ? (
