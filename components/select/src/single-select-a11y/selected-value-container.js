@@ -28,11 +28,16 @@ export const SelectedValueContainer = forwardRef(function Container(
 ) {
     // Using useEffect so we have access to the ref, which will be set before
     // the first call to the useEffect's callback
-    useEffect(() => {
-        if (autoFocus) {
-            ref.current.focus()
-        }
-    }, [])
+    useEffect(
+        () => {
+            if (autoFocus) {
+                ref.current.focus()
+            }
+        },
+        // We want to run this only once:
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        []
+    )
 
     const onClick = useCallback(
         (...args) => {
