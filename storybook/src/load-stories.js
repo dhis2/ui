@@ -52,7 +52,12 @@ exports.loadStories = () => {
         case icons.includes(curcomp): {
             console.info(`custom => Loading stories for '${curcomp}'`)
             return [
-                path.join(ICONS_DIR, 'src', '**', '*.prod.stories.@(js|jsx|mdx)'),
+                path.join(
+                    ICONS_DIR,
+                    'src',
+                    '**',
+                    '*.prod.stories.@(js|jsx|mdx)'
+                ),
             ]
         }
         case constants.includes(curcomp): {

@@ -65,7 +65,6 @@ export function Option({
     dataTest,
     disabled,
     highlighted,
-    selected,
     ...rest
 }) {
     return (

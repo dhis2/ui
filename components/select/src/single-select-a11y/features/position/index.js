@@ -32,9 +32,6 @@ When('the window is scrolled down', () => {
 })
 
 Then('the top of the menu is aligned with the bottom of the input', () => {
-    const selectDataTest = '[data-test="dhis2-uicore-singleselect"]'
-    const menuDataTest = '[data-test="dhis2-uicore-select-menu-menuwrapper"]'
-
     cy.all(
         () => cy.findByRole('combobox'),
         () => cy.findByRole('listbox')
@@ -55,9 +52,6 @@ Then('the top of the menu is aligned with the bottom of the input', () => {
 })
 
 Then('the bottom of the menu is aligned with the top of the input', () => {
-    const selectDataTest = '[data-test="dhis2-uicore-singleselect"]'
-    const menuDataTest = '[data-test="dhis2-uicore-select-menu-menuwrapper"]'
-
     cy.all(
         () => cy.findByRole('combobox'),
         // We need to get the parent as the menu itself
@@ -78,9 +72,6 @@ Then('the bottom of the menu is aligned with the top of the input', () => {
 })
 
 Then('it is rendered on top of the SingleSelect', () => {
-    const selectDataTest = '[data-test="dhis2-uicore-singleselect"]'
-    const menuDataTest = '[data-test="dhis2-uicore-select-menu-menuwrapper"]'
-
     cy.all(
         () => cy.findByRole('combobox'),
         () => cy.findByRole('listbox')
@@ -102,9 +93,6 @@ Then('it is rendered on top of the SingleSelect', () => {
 Then(
     'the left of the SingleSelect is aligned with the left of the anchor',
     () => {
-        const selectDataTest = '[data-test="dhis2-uicore-singleselect"]'
-        const menuDataTest = '[data-test="dhis2-uicore-select-menu-menuwrapper"]'
-
         cy.all(
             () => cy.findByRole('combobox'),
             () => cy.findByRole('listbox')
