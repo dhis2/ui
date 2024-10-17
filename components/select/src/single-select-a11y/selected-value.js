@@ -7,29 +7,30 @@ import { SelectedValuePlaceholder } from './selected-value-placeholder.js'
 import { SelectedValuePrefix } from './selected-value-prefix.js'
 
 export function SelectedValue({
-    comboBoxRef,
-    idPrefix,
-    expanded,
-    labelledBy,
-    comboBoxId,
-    tabIndex,
-    onBlur,
-    onFocus,
-    hasSelection,
-    valueLabel,
-    prefix,
-    dataTest,
-    placeholder,
-    onClear,
     clearText,
-    clearable,
-    disabled,
-    onClick,
-    error,
-    warning,
-    valid,
-    dense,
+    comboBoxId,
+    idPrefix,
+    valueLabel,
+    onKeyPress,
     autoFocus,
+    clearable,
+    comboBoxRef,
+    dataTest,
+    dense,
+    disabled,
+    error,
+    expanded,
+    hasSelection,
+    labelledBy,
+    placeholder,
+    prefix,
+    tabIndex,
+    valid,
+    warning,
+    onBlur,
+    onClear,
+    onClick,
+    onFocus,
 }) {
     // @TODO
     const inputMaxHeight = '300px'
@@ -54,6 +55,7 @@ export function SelectedValue({
             onBlur={onBlur}
             onClick={onClick}
             onFocus={onFocus}
+            onKeyPress={onKeyPress}
         >
             {prefix && (
                 <SelectedValuePrefix
@@ -107,6 +109,7 @@ SelectedValue.propTypes = {
     comboBoxId: PropTypes.string.isRequired,
     idPrefix: PropTypes.string.isRequired,
     valueLabel: PropTypes.string.isRequired,
+    onKeyPress: PropTypes.func.isRequired,
     autoFocus: PropTypes.bool,
     clearable: PropTypes.bool,
     comboBoxRef: PropTypes.shape({

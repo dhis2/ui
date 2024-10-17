@@ -22,6 +22,7 @@ export const SelectedValueContainer = forwardRef(function Container(
         onBlur,
         onClick: _onClick,
         onFocus,
+        onKeyPress,
     },
     ref
 ) {
@@ -47,7 +48,7 @@ export const SelectedValueContainer = forwardRef(function Container(
             className={cx({ error, warning, valid, disabled, dense })}
             data-test={dataTest}
             ref={ref}
-            aria-controls={`listbox-${idPrefix}`}
+            aria-controls={`${idPrefix}-listbox`}
             aria-expanded={expanded.toString()}
             aria-haspopup="listbox"
             aria-labelledby={labelledBy}
@@ -58,6 +59,10 @@ export const SelectedValueContainer = forwardRef(function Container(
             onFocus={onFocus}
             onBlur={onBlur}
             onClick={onClick}
+            onKeyDown={e => {
+                e.stopPropagation()
+                onKeyPress(e)
+            }}
         >
             {children}
 
@@ -118,6 +123,7 @@ SelectedValueContainer.propTypes = {
     children: PropTypes.any.isRequired,
     comboBoxId: PropTypes.string.isRequired,
     idPrefix: PropTypes.string.isRequired,
+    onKeyPress: PropTypes.func.isRequired,
     autoFocus: PropTypes.bool,
     dataTest: PropTypes.string,
     dense: PropTypes.bool,

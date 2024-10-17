@@ -7,6 +7,7 @@ import React, { useCallback, useRef, useState } from 'react'
 import { Menu } from './menu.js'
 import { SelectedValue } from './selected-value.js'
 import { optionsProp } from './shared-prop-types.js'
+import { useHandleKeyPress } from './use-handle-key-press.js'
 
 export function SingleSelectA11y({
     options,
@@ -33,7 +34,7 @@ export function SingleSelectA11y({
     noMatchText = '',
     placeholder = '',
     prefix = '',
-    tabIndex = '-1',
+    tabIndex = '0',
     valid = false,
     value = '',
     warning = false,
@@ -45,24 +46,61 @@ export function SingleSelectA11y({
 }) {
     // Non-stateful
     // ========
-    const comboBoxId = `combo-${idPrefix}`
+    const comboBoxId = `${idPrefix}-combo`
     const valueLabel = _valueLabel || options.find(option => option.value === value)?.label || ''
+
+    if (
+        !valueLabel
+        && options.length
+        && !options.find(option => option.value === '')
+        && !placeholder
+    ) {
+        throw new Error('You must either provide a "valueLabel" or include an empty option in the options array')
+    }
 
     // Stateful
     // ========
 
     // Using `useState` here so components get notified when the value changes (from null -> div)
     const comboBoxRef = useRef()
+    const [focussedOptionIndex, setFocussedOptionIndex] = useState(() => {
+        const foundIndex = options.findIndex(option => option.value === value)
+
+        return foundIndex !== -1
+            ? foundIndex
+            : 0
+    })
     const [selectRef, setSelectRef] = useState()
     const [expanded, setExpanded] = useState(false)
     const closeMenu = useCallback(() => setExpanded(false), [])
-    const toggleMenu = useCallback(
-        () => setExpanded((prevExpanded) => !prevExpanded),
-        []
-    )
-    // const focusCombo = useCallback(() => comboBoxRef.current?.focus(), [])
-    // const blurCombo = useCallback(() => comboBoxRef.current?.blur(), [])
-    // const onComboKeyDown = useCallback(() => null, []) // @TODO: Rename me!
+    const openMenu = useCallback(() => setExpanded(true), [])
+    const toggleMenu = useCallback(() => {
+        if (expanded) {
+            closeMenu()
+        } else {
+            openMenu()
+        }
+    }, [expanded])
+
+    const selectFocussedOption = useCallback(() => {
+        const option = options[focussedOptionIndex]
+
+        if (option) {
+            onChange(option.value)
+        }
+    }, [focussedOptionIndex, options])
+
+    const handleKeyPress = useHandleKeyPress({
+        value,
+        onChange,
+        expanded,
+        options,
+        openMenu,
+        closeMenu,
+        focussedOptionIndex,
+        setFocussedOptionIndex,
+        selectFocussedOption,
+    })
 
     return (
         <div
@@ -95,6 +133,7 @@ export function SingleSelectA11y({
                 disabled={disabled}
                 error={error}
                 expanded={expanded}
+                handleKeyPress={handleKeyPress}
                 hasSelection={!!value}
                 idPrefix={idPrefix}
                 labelledBy={labelledBy}
@@ -110,6 +149,7 @@ export function SingleSelectA11y({
                 onClear={() => onChange('')}
                 onClick={toggleMenu}
                 onFocus={onFocus}
+                onKeyPress={handleKeyPress}
             />
 
             <Menu
@@ -120,6 +160,7 @@ export function SingleSelectA11y({
                 filterable={filterable}
                 filterValue={filterValue}
                 filterPlaceholder={filterPlaceholder}
+                focussedOptionIndex={focussedOptionIndex}
                 hidden={!expanded}
                 idPrefix={idPrefix}
                 labelledBy={labelledBy}
