@@ -59,7 +59,7 @@ export const SelectedValueContainer = forwardRef(function Container(
             onFocus={onFocus}
             onBlur={onBlur}
             onClick={onClick}
-            onKeyDown={e => {
+            onKeyDown={(e) => {
                 e.stopPropagation()
                 onKeyPress(e)
             }}

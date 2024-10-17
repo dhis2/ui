@@ -20,6 +20,10 @@ describe('<SingleSelectA11y />', () => {
         fireEvent.blur(screen.getByRole('combobox'))
 
         // first argument passed to onBlur is a react event
+        //
+        // Reg. eslint: Eslint complains about using hasOwnProperty,
+        // but accessing `.nativeEvent` directly causes react to log an error
+        // eslint-disable-next-line no-prototype-builtins
         expect(onBlur.mock.calls[0][0].hasOwnProperty('nativeEvent')).toBe(true)
         expect(onBlur).toHaveBeenCalledTimes(1)
     })
@@ -40,7 +44,13 @@ describe('<SingleSelectA11y />', () => {
         fireEvent.focus(screen.getByRole('combobox'))
 
         // first argument passed to onFocus is a react event
-        expect(onFocus.mock.calls[0][0].hasOwnProperty('nativeEvent')).toBe(true)
+        //
+        // Reg. eslint: Eslint complains about using hasOwnProperty,
+        // but accessing `.nativeEvent` directly causes react to log an error
+        // eslint-disable-next-line no-prototype-builtins
+        expect(onFocus.mock.calls[0][0].hasOwnProperty('nativeEvent')).toBe(
+            true
+        )
         expect(onFocus).toHaveBeenCalledTimes(1)
     })
 
@@ -130,8 +140,11 @@ describe('<SingleSelectA11y />', () => {
         )
 
         const placeholder = screen.getByText('Placeholder text')
-        const dataTestValue = placeholder.attributes.getNamedItem('data-test').value
-        expect(dataTestValue).toBe('dhis2-singleselecta11y-selectedvalue-placeholder')
+        const dataTestValue =
+            placeholder.attributes.getNamedItem('data-test').value
+        expect(dataTestValue).toBe(
+            'dhis2-singleselecta11y-selectedvalue-placeholder'
+        )
     })
 
     it('should accept a prefix', () => {
@@ -146,8 +159,11 @@ describe('<SingleSelectA11y />', () => {
         )
 
         const placeholder = screen.getByText('Prefix text')
-        const dataTestValue = placeholder.attributes.getNamedItem('data-test').value
-        expect(dataTestValue).toBe('dhis2-singleselecta11y-selectedvalue-prefix')
+        const dataTestValue =
+            placeholder.attributes.getNamedItem('data-test').value
+        expect(dataTestValue).toBe(
+            'dhis2-singleselecta11y-selectedvalue-prefix'
+        )
     })
 
     it('should allow options to be selected', () => {
@@ -174,15 +190,15 @@ describe('<SingleSelectA11y />', () => {
         fireEvent.click(option)
 
         expect(onChange).toHaveBeenCalledTimes(1)
-        expect(onChange).toHaveBeenCalledWith("foo")
+        expect(onChange).toHaveBeenCalledWith('foo')
     })
 
     it('should allow custom options to be selected', () => {
         const onChange = jest.fn()
+
+        // eslint-disable-next-line react/prop-types
         const CustomOption = ({ value, label }) => (
-            <span data-test={`custom-option-${value}`}>
-                {label}
-            </span>
+            <span data-test={`custom-option-${value}`}>{label}</span>
         )
 
         render(
@@ -207,7 +223,7 @@ describe('<SingleSelectA11y />', () => {
         fireEvent.click(customOption)
 
         expect(onChange).toHaveBeenCalledTimes(1)
-        expect(onChange).toHaveBeenCalledWith("foo")
+        expect(onChange).toHaveBeenCalledWith('foo')
     })
 
     it('should be clearable when there is a selected value', () => {
@@ -317,7 +333,7 @@ describe('<SingleSelectA11y />', () => {
         expect(searchInput).toBeInstanceOf(HTMLInputElement)
         expect(searchInput).toBeVisible()
 
-        fireEvent.change(searchInput, { target: { value: 'Search term'} })
+        fireEvent.change(searchInput, { target: { value: 'Search term' } })
 
         expect(onFilterChange).toHaveBeenCalledTimes(1)
         expect(onFilterChange).toHaveBeenCalledWith('Search term')
@@ -336,7 +352,10 @@ describe('<SingleSelectA11y />', () => {
                 value=""
                 valueLabel=""
                 onChange={jest.fn()}
-                options={[{ value: '', label: 'None' }, { value: 'foo', label: 'Foo' }]}
+                options={[
+                    { value: '', label: 'None' },
+                    { value: 'foo', label: 'Foo' },
+                ]}
             />
         )
 
@@ -372,7 +391,9 @@ describe('<SingleSelectA11y />', () => {
         // Is this because of unnecessary re-renders?
         expect(consoleError).toHaveBeenNthCalledWith(
             1,
-            expect.stringContaining('Encountered two children with the same key'),
+            expect.stringContaining(
+                'Encountered two children with the same key'
+            ),
             'foo',
             expect.anything()
         )
@@ -404,14 +425,13 @@ describe('<SingleSelectA11y />', () => {
         expect(combobox).toContainElement(withTextBar)
     })
 
-
     /**************************
-    *                         *
-    *  =====================  *
-    *  Keyboard interactions  *
-    *  =====================  *
-    *                         *
-    **************************/
+     *                         *
+     *  =====================  *
+     *  Keyboard interactions  *
+     *  =====================  *
+     *                         *
+     **************************/
 
     describe.each([
         { key: ' ' },
@@ -497,12 +517,11 @@ describe('<SingleSelectA11y />', () => {
             expect(screen.queryByRole('listbox')).not.toBeNull()
 
             // highlighting the next option
-            fireEvent.keyDown(screen.getByRole('combobox'), { key: 'ArrowDown' })
+            fireEvent.keyDown(screen.getByRole('combobox'), {
+                key: 'ArrowDown',
+            })
 
-            fireEvent.keyDown(
-                screen.getByRole('combobox'),
-                keyDownOptions,
-            )
+            fireEvent.keyDown(screen.getByRole('combobox'), keyDownOptions)
 
             expect(screen.queryByRole('listbox')).toBeNull()
             expect(onChange).toHaveBeenCalledTimes(1)

@@ -47,15 +47,20 @@ export function SingleSelectA11y({
     // Non-stateful
     // ========
     const comboBoxId = `${idPrefix}-combo`
-    const valueLabel = _valueLabel || options.find(option => option.value === value)?.label || ''
+    const valueLabel =
+        _valueLabel ||
+        options.find((option) => option.value === value)?.label ||
+        ''
 
     if (
-        !valueLabel
-        && options.length
-        && !options.find(option => option.value === '')
-        && !placeholder
+        !valueLabel &&
+        options.length &&
+        !options.find((option) => option.value === '') &&
+        !placeholder
     ) {
-        throw new Error('You must either provide a "valueLabel" or include an empty option in the options array')
+        throw new Error(
+            'You must either provide a "valueLabel" or include an empty option in the options array'
+        )
     }
 
     // Stateful
@@ -64,11 +69,9 @@ export function SingleSelectA11y({
     // Using `useState` here so components get notified when the value changes (from null -> div)
     const comboBoxRef = useRef()
     const [focussedOptionIndex, setFocussedOptionIndex] = useState(() => {
-        const foundIndex = options.findIndex(option => option.value === value)
+        const foundIndex = options.findIndex((option) => option.value === value)
 
-        return foundIndex !== -1
-            ? foundIndex
-            : 0
+        return foundIndex !== -1 ? foundIndex : 0
     })
     const [selectRef, setSelectRef] = useState()
     const [expanded, setExpanded] = useState(false)
@@ -80,7 +83,7 @@ export function SingleSelectA11y({
         } else {
             openMenu()
         }
-    }, [expanded])
+    }, [expanded, openMenu, closeMenu])
 
     const selectFocussedOption = useCallback(() => {
         const option = options[focussedOptionIndex]
@@ -88,7 +91,7 @@ export function SingleSelectA11y({
         if (option) {
             onChange(option.value)
         }
-    }, [focussedOptionIndex, options])
+    }, [focussedOptionIndex, options, onChange])
 
     const handleKeyPress = useHandleKeyPress({
         value,
@@ -190,11 +193,11 @@ SingleSelectA11y.propTypes = {
     /** An array of options **/
     options: optionsProp.isRequired,
 
-    /** A callback that will be called with the new value or an empty string **/
-    onChange: PropTypes.func.isRequired,
-
     /** As of now, this component does not support being uncontrolled */
     value: PropTypes.string.isRequired,
+
+    /** A callback that will be called with the new value or an empty string **/
+    onChange: PropTypes.func.isRequired,
 
     /** Will focus the select initially **/
     autoFocus: PropTypes.bool,

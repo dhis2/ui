@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import i18n from '../locales/index.js'
 
-export const ClearButton = ({ onClear, clearText, dataTest}) => (
+export const ClearButton = ({ onClear, clearText, dataTest }) => (
     <button
         aria-label={i18n.t('{{clearText}}', { clearText })}
         data-test={dataTest}
@@ -60,7 +60,13 @@ ClearButton.propTypes = {
 }
 
 export const SelectedValueClearButton = ({ onClear, clearText, dataTest }) => {
-    const clearButton = <ClearButton onClear={onClear} dataTest={dataTest} clearText={clearText} />
+    const clearButton = (
+        <ClearButton
+            onClear={onClear}
+            dataTest={dataTest}
+            clearText={clearText}
+        />
+    )
 
     if (!clearText) {
         return clearButton
