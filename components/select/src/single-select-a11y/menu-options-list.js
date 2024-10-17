@@ -37,6 +37,7 @@ Loading.propTypes = {
 
 export function MenuOptionsList({
     comboBoxId,
+    focussedOptionIndex,
     idPrefix,
     labelledBy,
     options,
@@ -53,12 +54,11 @@ export function MenuOptionsList({
     return (
         <div
             role="listbox"
-            id={`listbox-${idPrefix}`}
+            id={`${idPrefix}-listbox`}
             aria-labelledby={labelledBy}
             aria-live="polite"
             aria-busy={loading.toString()}
             data-test={dataTest}
-            tabIndex="-1"
             onBlur={onBlur}
             onKeyDown={onKeyDown}
         >
@@ -78,13 +78,13 @@ export function MenuOptionsList({
                     return (
                         <Option
                             dataTest={`${dataTest}-option`}
+                            highlighted={focussedOptionIndex === index}
                             key={value}
                             value={value}
                             label={label}
                             index={index}
                             comboBoxId={comboBoxId}
                             disabled={disabled || optionDisabled}
-                            selected={isSelected}
                             onClick={isSelected ? () => null : onChange}
                             component={component}
                         />
@@ -105,6 +105,7 @@ export function MenuOptionsList({
 
 MenuOptionsList.propTypes = {
     comboBoxId: PropTypes.string.isRequired,
+    focussedOptionIndex: PropTypes.number.isRequired,
     idPrefix: PropTypes.string.isRequired,
     options: optionsProp.isRequired,
     onChange: PropTypes.func.isRequired,

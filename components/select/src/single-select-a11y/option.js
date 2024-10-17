@@ -3,12 +3,12 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-function DefaultStyle({ label, disabled, selected }) {
+function DefaultStyle({ label, disabled, highlighted }) {
     return (
         <span
             className={cx('option', {
                 disabled,
-                active: selected,
+                active: highlighted,
             })}
         >
             {label}
@@ -52,28 +52,31 @@ function DefaultStyle({ label, disabled, selected }) {
 DefaultStyle.propTypes = {
     label: PropTypes.string.isRequired,
     disabled: PropTypes.bool,
-    selected: PropTypes.bool,
+    highlighted: PropTypes.bool,
 }
 
 export function Option({
-    value,
-    label,
+    comboBoxId,
     index,
-    selected,
+    label,
+    value,
     onClick,
+    component: StyleComponent = DefaultStyle,
     dataTest,
     disabled,
-    comboBoxId,
-    component: StyleComponent = DefaultStyle,
+    highlighted,
+    selected,
     ...rest
 }) {
     return (
         <button
+            id={`${comboBoxId}-${index}`}
             data-test={dataTest}
             disabled={disabled}
-            aria-selected={selected?.toString() || ''}
             role="option"
-            id={`${comboBoxId}-${index}`}
+            aria-selected={highlighted || ''}
+            aria-disabled={disabled}
+            aria-label={label}
             onClick={() => {
                 if (!disabled) {
                     onClick(value)
@@ -84,8 +87,8 @@ export function Option({
                 value={value}
                 label={label}
                 index={index}
-                selected={selected}
                 disabled={disabled}
+                highlighted={highlighted}
                 {...rest}
             >
                 {label}
@@ -112,8 +115,8 @@ Option.propTypes = {
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
-    dataTest: PropTypes.string,
     component: PropTypes.elementType,
+    dataTest: PropTypes.string,
     disabled: PropTypes.bool,
-    selected: PropTypes.bool,
+    highlighted: PropTypes.bool,
 }

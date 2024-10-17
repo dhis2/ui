@@ -10,6 +10,7 @@ import { optionsProp } from './shared-prop-types.js'
 
 export function Menu({
     comboBoxId,
+    focussedOptionIndex,
     idPrefix,
     options,
     onChange,
@@ -62,16 +63,17 @@ export function Menu({
             )}
 
             <MenuOptionsList
-                dataTest={`${dataTestPrefix}-list`}
                 comboBoxId={comboBoxId}
+                dataTest={`${dataTestPrefix}-list`}
+                disabled={disabled}
+                empty={empty}
+                focussedOptionIndex={focussedOptionIndex}
                 idPrefix={idPrefix}
                 labelledBy={labelledBy}
                 options={options}
-                selected={selected}
-                disabled={disabled}
                 loading={loading}
                 loadingText={loadingText}
-                empty={empty}
+                selected={selected}
                 onChange={onChange}
                 onBlur={onBlur}
                 onKeyDown={onKeyDown}
@@ -115,6 +117,7 @@ export function Menu({
 
 Menu.propTypes = {
     comboBoxId: PropTypes.string.isRequired,
+    focussedOptionIndex: PropTypes.number.isRequired,
     idPrefix: PropTypes.string.isRequired,
     options: optionsProp.isRequired,
     onChange: PropTypes.func.isRequired,

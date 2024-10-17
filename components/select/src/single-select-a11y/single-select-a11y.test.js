@@ -12,7 +12,6 @@ describe('<SingleSelectA11y />', () => {
                 onBlur={onBlur}
                 idPrefix="a11y"
                 value="foo"
-                valueLabel="Foo"
                 onChange={() => null}
                 options={[{ value: 'foo', label: 'Foo' }]}
             />
@@ -33,7 +32,6 @@ describe('<SingleSelectA11y />', () => {
                 onFocus={onFocus}
                 idPrefix="a11y"
                 value="foo"
-                valueLabel="Foo"
                 onChange={() => null}
                 options={[{ value: 'foo', label: 'Foo' }]}
             />
@@ -55,7 +53,6 @@ describe('<SingleSelectA11y />', () => {
                 onFocus={onFocus}
                 idPrefix="a11y"
                 value="foo"
-                valueLabel="Foo"
                 onChange={() => null}
                 options={[{ value: 'foo', label: 'Foo' }]}
             />
@@ -70,7 +67,6 @@ describe('<SingleSelectA11y />', () => {
                 loading
                 idPrefix="a11y"
                 value="foo"
-                valueLabel="Foo"
                 onChange={() => null}
                 options={[{ value: 'foo', label: 'Foo' }]}
             />
@@ -90,7 +86,6 @@ describe('<SingleSelectA11y />', () => {
                 menuLoadingText="Loading text"
                 idPrefix="a11y"
                 value="foo"
-                valueLabel="Foo"
                 onChange={() => null}
                 options={[{ value: 'foo', label: 'Foo' }]}
             />
@@ -111,7 +106,6 @@ describe('<SingleSelectA11y />', () => {
                 menuMaxHeight="100px"
                 idPrefix="a11y"
                 value="foo"
-                valueLabel="Foo"
                 onChange={() => null}
                 options={[{ value: 'foo', label: 'Foo' }]}
             />
@@ -145,7 +139,7 @@ describe('<SingleSelectA11y />', () => {
             <SingleSelectA11y
                 prefix="Prefix text"
                 idPrefix="a11y"
-                value=""
+                value="foo"
                 onChange={() => null}
                 options={[{ value: 'foo', label: 'Foo' }]}
             />
@@ -163,9 +157,9 @@ describe('<SingleSelectA11y />', () => {
             <SingleSelectA11y
                 idPrefix="a11y"
                 value=""
-                valueLabel=""
                 onChange={onChange}
                 options={[
+                    { value: '', label: 'None' },
                     { value: 'foo', label: 'Foo' },
                     { value: 'bar', label: 'Bar' },
                 ]}
@@ -197,7 +191,10 @@ describe('<SingleSelectA11y />', () => {
                 value=""
                 valueLabel=""
                 onChange={onChange}
-                options={[{ value: 'foo', label: 'Foo', component: CustomOption }]}
+                options={[
+                    { value: '', label: 'None' },
+                    { value: 'foo', label: 'Foo', component: CustomOption },
+                ]}
             />
         )
 
@@ -244,9 +241,11 @@ describe('<SingleSelectA11y />', () => {
                 clearText="Clear a11y select"
                 idPrefix="a11y"
                 value=""
-                valueLabel=""
                 onChange={jest.fn()}
-                options={[{ value: 'foo', label: 'Foo' }]}
+                options={[
+                    { value: '', label: 'None' },
+                    { value: 'foo', label: 'Foo' },
+                ]}
             />
         )
 
@@ -260,7 +259,6 @@ describe('<SingleSelectA11y />', () => {
                 disabled
                 idPrefix="a11y"
                 value="foo"
-                valueLabel="Foo"
                 onChange={jest.fn()}
                 options={[{ value: 'foo', label: 'Foo' }]}
             />
@@ -282,7 +280,6 @@ describe('<SingleSelectA11y />', () => {
                 empty={<p>Empty</p>}
                 idPrefix="a11y"
                 value=""
-                valueLabel=""
                 onChange={jest.fn()}
                 options={[]}
             />
@@ -306,8 +303,7 @@ describe('<SingleSelectA11y />', () => {
                 onFilterChange={onFilterChange}
                 noMatchText="No options found"
                 idPrefix="a11y"
-                value=""
-                valueLabel=""
+                value="foo"
                 onChange={jest.fn()}
                 options={[{ value: 'foo', label: 'Foo' }]}
             />
@@ -340,7 +336,7 @@ describe('<SingleSelectA11y />', () => {
                 value=""
                 valueLabel=""
                 onChange={jest.fn()}
-                options={[{ value: 'foo', label: 'Foo' }]}
+                options={[{ value: '', label: 'None' }, { value: 'foo', label: 'Foo' }]}
             />
         )
 
@@ -364,6 +360,7 @@ describe('<SingleSelectA11y />', () => {
                 valueLabel=""
                 onChange={jest.fn()}
                 options={[
+                    { value: '', label: 'None' },
                     { value: 'foo', label: 'Foo' },
                     { value: 'bar', label: 'Bar' },
                     { value: 'foo', label: 'Foo' },
@@ -405,5 +402,161 @@ describe('<SingleSelectA11y />', () => {
         })
 
         expect(combobox).toContainElement(withTextBar)
+    })
+
+
+    /**************************
+    *                         *
+    *  =====================  *
+    *  Keyboard interactions  *
+    *  =====================  *
+    *                         *
+    **************************/
+
+    describe.each([
+        { key: ' ' },
+        { key: 'Enter' },
+        { key: 'ArrowDown', altKey: true },
+        { key: 'ArrowUp', altKey: true },
+    ])('$key ($altKey)', (keyDownOptions) => {
+        test('open the menu', () => {
+            const onChange = jest.fn()
+
+            render(
+                <SingleSelectA11y
+                    idPrefix="a11y"
+                    value=""
+                    onChange={onChange}
+                    options={[
+                        { value: '', label: 'None' },
+                        { value: 'foo', label: 'Foo' },
+                        { value: 'bar', label: 'Bar' },
+                    ]}
+                />
+            )
+
+            fireEvent.keyDown(screen.getByRole('combobox'), keyDownOptions)
+            expect(screen.queryByRole('listbox')).not.toBeNull()
+            expect(onChange).not.toHaveBeenCalled()
+        })
+    })
+
+    describe.each([
+        { key: ' ' },
+        { key: 'Enter' },
+        { key: 'ArrowDown', altKey: true },
+        { key: 'ArrowUp', altKey: true },
+    ])('$key ($altKey)', (keyDownOptions) => {
+        test('close the menu', () => {
+            const onChange = jest.fn()
+
+            render(
+                <SingleSelectA11y
+                    idPrefix="a11y"
+                    value=""
+                    onChange={onChange}
+                    options={[
+                        { value: '', label: 'None' },
+                        { value: 'foo', label: 'Foo' },
+                        { value: 'bar', label: 'Bar' },
+                    ]}
+                />
+            )
+
+            fireEvent.click(screen.getByRole('combobox'))
+            expect(screen.queryByRole('listbox')).not.toBeNull()
+            fireEvent.keyDown(screen.getByRole('combobox'), keyDownOptions)
+            expect(screen.queryByRole('listbox')).toBeNull()
+            expect(onChange).not.toHaveBeenCalled()
+        })
+    })
+
+    describe.each([
+        { key: 'Escape' },
+        { key: 'Enter' },
+        { key: 'ArrowDown', altKey: true },
+        { key: 'ArrowUp', altKey: true },
+    ])('$key ($altKey)', (keyDownOptions) => {
+        test('close the menu and select the highlighted option after having highlighted another option', () => {
+            const onChange = jest.fn()
+
+            render(
+                <SingleSelectA11y
+                    idPrefix="a11y"
+                    value=""
+                    onChange={onChange}
+                    options={[
+                        { value: '', label: 'None' },
+                        { value: 'foo', label: 'Foo' },
+                        { value: 'bar', label: 'Bar' },
+                    ]}
+                />
+            )
+
+            fireEvent.click(screen.getByRole('combobox'))
+            expect(screen.queryByRole('listbox')).not.toBeNull()
+
+            // highlighting the next option
+            fireEvent.keyDown(screen.getByRole('combobox'), { key: 'ArrowDown' })
+
+            fireEvent.keyDown(
+                screen.getByRole('combobox'),
+                keyDownOptions,
+            )
+
+            expect(screen.queryByRole('listbox')).toBeNull()
+            expect(onChange).toHaveBeenCalledTimes(1)
+            expect(onChange).toHaveBeenCalledWith('foo')
+        })
+    })
+
+    it('should select the next option when closed and user presses ArrowDown', () => {
+        const onChange = jest.fn()
+
+        render(
+            <SingleSelectA11y
+                idPrefix="a11y"
+                value=""
+                onChange={onChange}
+                options={[
+                    { value: '', label: 'None' },
+                    { value: 'foo', label: 'Foo' },
+                    { value: 'bar', label: 'Bar' },
+                ]}
+            />
+        )
+
+        expect(screen.queryByRole('listbox')).toBeNull()
+
+        // highlighting the next option
+        fireEvent.keyDown(screen.getByRole('combobox'), { key: 'ArrowDown' })
+        expect(screen.queryByRole('listbox')).toBeNull()
+        expect(onChange).toHaveBeenCalledTimes(1)
+        expect(onChange).toHaveBeenCalledWith('foo')
+    })
+
+    it('should select the previous option when closed and user presses ArrowUp', () => {
+        const onChange = jest.fn()
+
+        render(
+            <SingleSelectA11y
+                idPrefix="a11y"
+                value="bar"
+                onChange={onChange}
+                options={[
+                    { value: '', label: 'None' },
+                    { value: 'foo', label: 'Foo' },
+                    { value: 'bar', label: 'Bar' },
+                ]}
+            />
+        )
+
+        expect(screen.queryByRole('listbox')).toBeNull()
+
+        // highlighting the next option
+        fireEvent.keyDown(screen.getByRole('combobox'), { key: 'ArrowUp' })
+        expect(screen.queryByRole('listbox')).toBeNull()
+        expect(onChange).toHaveBeenCalledTimes(1)
+        expect(onChange).toHaveBeenCalledWith('foo')
     })
 })
