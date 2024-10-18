@@ -5,8 +5,8 @@ import React from 'react'
 function AppItem({ name, path, img }) {
     return (
         <a href={path}>
-            <img src={img} alt="app logo" className="app-icon" />
-            <div className="app-name">{name}</div>
+            <img src={img} alt="app" className="app-icon" />
+            <span className="app-name">{name}</span>
             <style jsx>{`
                 a {
                     display: flex;
@@ -20,15 +20,20 @@ function AppItem({ name, path, img }) {
                     color: ${colors.grey900};
                     transition: all 0.1s ease;
                 }
-                a:hover,
-                a:focus {
+                a:hover {
                     background: ${colors.grey200};
                     cursor: pointer;
-                    outline: none;
                 }
                 a:active {
                     background: ${colors.grey300};
                 }
+                a:focus {
+                    background: ${colors.grey200};
+                    outline: none;
+                }
+                // .grid-item-highlighted {
+                //     background: var(--colors-grey200);
+                // }
 
                 .app-icon {
                     width: 48px;

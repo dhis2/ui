@@ -33,7 +33,10 @@ const CommandPalette = ({ apps, commands }) => {
     const handleVisibilityToggle = useCallback(() => setShow(!show), [show])
     const handleFilterChange = useCallback(({ value }) => setFilter(value), [])
 
-    const handleClearSearch = () => setFilter('')
+    const goToDefaultView = () => {
+        setFilter('')
+        setCurrentView('home')
+    }
 
     const containerEl = useRef(null)
 
@@ -45,7 +48,7 @@ const CommandPalette = ({ apps, commands }) => {
                     if (currentView === 'home') {
                         setShow(false)
                     } else {
-                        setCurrentView('home')
+                        goToDefaultView()
                     }
                     break
             }
@@ -57,9 +60,11 @@ const CommandPalette = ({ apps, commands }) => {
         [currentView, show]
     )
 
-    const handleFocus = () => {
+    const handleFocus = (e) => {
         // this is about the focus of the element
         // on launch: focus entire element
+        console.log(e.target, 'e.target')
+        console.log(document.activeElement, 'active element')
     }
 
     useEffect(() => {
@@ -72,7 +77,7 @@ const CommandPalette = ({ apps, commands }) => {
     }, [handleKeyDown])
 
     return (
-        <div ref={containerEl} data-test="headerbar-apps">
+        <div ref={containerEl} data-test="headerbar" className="headerbar">
             <button
                 onClick={handleVisibilityToggle}
                 data-test="headerbar-apps-icon"
@@ -82,14 +87,11 @@ const CommandPalette = ({ apps, commands }) => {
 
             {show ? (
                 <Container setShow={setShow} show={show}>
-                    <div data-test="headerbar-apps-menu">
+                    <div data-test="headerbar-menu" className="headerbar-menu">
                         <Search value={filter} onChange={handleFilterChange} />
-                        <div className="content">
-                            {showBackButton ? (
-                                <BackButton
-                                    setView={setCurrentView}
-                                    handleClearSearch={handleClearSearch}
-                                />
+                        <div className="headerbar-menu-content">
+                            {showBackButton && !filter ? (
+                                <BackButton onClickHandler={goToDefaultView} />
                             ) : null}
                             {/* switch views */}
                             {currentView === 'apps' && (
@@ -192,14 +194,14 @@ const CommandPalette = ({ apps, commands }) => {
                 button:active {
                     background: #104067;
                 }
-                .content {
-                    overflow-y: auto;
-                    max-height: calc(544px - 50px);
-                }
-
-                div {
+                .headerbar {
                     position: relative;
                     height: 100%;
+                }
+                .headerbar-menu-content {
+                    display: flex;
+                    flex-direction: column;
+                    overflow-y: auto;
                 }
             `}</style>
         </div>

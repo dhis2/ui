@@ -1,23 +1,19 @@
-import { colors, spacers } from '@dhis2/ui-constants'
+import { colors, spacers, theme } from '@dhis2/ui-constants'
 import { IconArrowLeft16 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-function BackButton({ setView, handleClearSearch }) {
-    const handleClick = () => {
-        setView('home')
-        handleClearSearch()
-    }
+function BackButton({ onClickHandler }) {
     return (
         <>
             <button
-                onClick={handleClick}
+                onClick={onClickHandler}
                 aria-label="Back Button"
                 name="Back"
                 value="back"
                 className="back-btn"
             >
-                <IconArrowLeft16 color={colors.grey900} />
+                <IconArrowLeft16 />
             </button>
             <style jsx>{`
                 button {
@@ -26,13 +22,13 @@ function BackButton({ setView, handleClearSearch }) {
                     cursor: pointer;
                     width: 100%;
                     padding: ${spacers.dp4};
-                    height: 25px;
+                    height: 24px;
                     background-color: ${colors.grey100};
                     text-align: start;
-                    margin-bottom: 1px;
+                    color: ${colors.grey700};
                 }
                 button:focus {
-                    outline: 2px solid blue;
+                    outline: 2px solid ${theme.focus};
                     outline-offset: -2px;
                 }
                 button:focus:not(:focus-visible) {
@@ -42,6 +38,7 @@ function BackButton({ setView, handleClearSearch }) {
                 button:active {
                     cursor: pointer;
                     background-color: ${colors.grey200};
+                    color: ${colors.grey900};
                 }
             `}</style>
         </>
@@ -49,8 +46,7 @@ function BackButton({ setView, handleClearSearch }) {
 }
 
 BackButton.propTypes = {
-    handleClearSearch: PropTypes.func,
-    setView: PropTypes.func,
+    onClickHandler: PropTypes.func,
 }
 
 export default BackButton

@@ -1,3 +1,4 @@
+import { spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
 import AppItem from '../sections/app-item.js'
@@ -28,7 +29,7 @@ function HomeView({ apps, filter }) {
                 }
                 // row 2
                 if (activeItem >= 4) {
-                    setActiveItem(activeItem >= 7 ? 0 : activeItem + 1)
+                    setActiveItem(activeItem >= 7 ? 4 : activeItem + 1)
                 }
                 break
             case 'ArrowDown':
@@ -87,7 +88,11 @@ function HomeView({ apps, filter }) {
                         heading={'Top apps'}
                     />
 
-                    <div data-test="headerbar-apps-menu-list" ref={divRef}>
+                    <div
+                        data-test="headerbar-apps-menu-list"
+                        ref={divRef}
+                        className="headerbar-top-apps"
+                    >
                         {filteredApps.length > 0 &&
                             filteredApps
                                 .slice(0, 8)
@@ -111,10 +116,10 @@ function HomeView({ apps, filter }) {
                                 )}
 
                         <style jsx>{`
-                            div {
+                            .headerbar-top-apps {
                                 display: grid;
                                 grid-template-columns: repeat(4, 1fr);
-                                grid-template-rows: repeat(2, auto);
+                                padding: 0 ${spacers.dp4};
                             }
                         `}</style>
                     </div>

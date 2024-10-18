@@ -1,4 +1,4 @@
-import { colors, theme } from '@dhis2/ui-constants'
+import { colors, spacers, theme } from '@dhis2/ui-constants'
 import { IconSearch16 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -14,25 +14,31 @@ function Search({ value, onChange }) {
                 placeholder={i18n.t('Search apps, shortcuts, commands')}
                 onChange={onChange}
                 initialFocus
-                className="input"
+                className="search"
                 autoComplete={'off'}
                 prefixIcon={<IconSearch16 />}
                 clearable
             />
             <style>{`
-                .input {
-                    max-width: 100%;
+                .search {
+                    
+                    border-bottom: 1px solid ${colors.grey300};
+                    
+                }
+                .search input {
+                    font-size: 14px;
+                    color: ${colors.grey900};
+                    padding: ${spacers.dp12};
+                    margin: 0;
                     border: none;
-                    border-bottom: 1px solid grey;
+                    width: 100%;
                     height: 40px;
+                    border-radius: 3px 3px 0px 0px;
                 }
-                .input input {
-                    border: none;
-                }
-                .input input::placeholder {
+                .search input::placeholder {
                     color: ${colors.grey600};
                 }
-                .input input:focus {
+                .search input:focus {
                     outline: 2px solid ${theme.focus};
                     outline-offset: -2px;
                 }

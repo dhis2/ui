@@ -17,7 +17,7 @@ function Heading({ filter, filteredItems, heading }) {
               .section-header {
                   font-size: 14px;
                   font-weight: 400;
-                  color: ${colors.grey800};
+                  color: ${colors.grey700};
                   padding:  ${spacers.dp8};
                   margin: 2px ${spacers.dp4};
               }
