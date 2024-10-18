@@ -4,6 +4,7 @@ import {
     IconApps16,
     IconApps24,
     IconLogOut16,
+    IconRedo16,
     IconTerminalWindow16,
 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
@@ -20,7 +21,7 @@ import ListView from './views/list-view.js'
 
 const MIN_APPS_NUM = 8
 
-const CommandPalette = ({ apps, commands }) => {
+const CommandPalette = ({ apps, commands, shortcuts }) => {
     const { baseUrl } = useConfig()
     const [show, setShow] = useState(false)
     const [filter, setFilter] = useState('')
@@ -28,7 +29,6 @@ const CommandPalette = ({ apps, commands }) => {
     const [currentView, setCurrentView] = useState('home')
 
     const showActions = filter.length <= 0 && currentView === 'home'
-    const showBackButton = currentView !== 'home'
 
     const handleVisibilityToggle = useCallback(() => setShow(!show), [show])
     const handleFilterChange = useCallback(({ value }) => setFilter(value), [])
@@ -90,7 +90,7 @@ const CommandPalette = ({ apps, commands }) => {
                     <div data-test="headerbar-menu" className="headerbar-menu">
                         <Search value={filter} onChange={handleFilterChange} />
                         <div className="headerbar-menu-content">
-                            {showBackButton && !filter ? (
+                            {currentView !== 'home' && !filter ? (
                                 <BackButton onClickHandler={goToDefaultView} />
                             ) : null}
                             {/* switch views */}
@@ -107,6 +107,13 @@ const CommandPalette = ({ apps, commands }) => {
                                     itemsArray={commands}
                                     filter={filter}
                                     type={'commands'}
+                                />
+                            )}
+                            {currentView === 'shortcuts' && (
+                                <ListView
+                                    heading={'All shortcuts'}
+                                    itemsArray={shortcuts}
+                                    filter={filter}
                                 />
                             )}
                             {currentView === 'home' && (
@@ -142,6 +149,17 @@ const CommandPalette = ({ apps, commands }) => {
                                             }
                                         />
                                     ) : null}
+                                    <ListItem
+                                        title={i18n.t('Browse shortcuts')}
+                                        icon={
+                                            <IconRedo16
+                                                color={colors.grey700}
+                                            />
+                                        }
+                                        onClickHandler={() =>
+                                            setCurrentView('shortcuts')
+                                        }
+                                    />
                                     <ListItem
                                         title={i18n.t('Logout')}
                                         icon={
@@ -211,6 +229,7 @@ const CommandPalette = ({ apps, commands }) => {
 CommandPalette.propTypes = {
     apps: PropTypes.array,
     commands: PropTypes.array,
+    shortcuts: PropTypes.array,
 }
 
 export default CommandPalette

@@ -57,31 +57,35 @@ export const HeaderBar = ({
 
     const commands = [
         {
-            defaultAction: function handleOpen() {
-                console.log('open...')
-            },
             description: 'Search for and open a visualisation, chart, or table',
             displayName: 'Open...',
             icon: 'https://domain.tld/api/../icons/dhis-web-dashboard.png',
             name: 'open',
         },
         {
-            defaultAction: function handleOpen() {
-                console.log('debug...')
-            },
             description: 'Copy debug information to the clipboard',
             displayName: 'Debug...',
             icon: 'https://domain.tld/api/../icons/dhis-web-dashboard.png',
             name: 'debug',
         },
         {
-            defaultAction: function handleOpen() {
-                console.log('clearing cache...')
-            },
             description: 'Empty system cache',
             displayName: 'Clear cache...',
             icon: 'https://domain.tld/api/../icons/dhis-web-dashboard.png',
             name: 'clear-cache',
+        },
+    ]
+
+    const shortcuts = [
+        {
+            displayName: 'Data elements overview',
+            icon: 'https://domain.tld/api/../icons/dhis-web-dashboard.png',
+            name: 'Data elements overview',
+        },
+        {
+            displayName: 'Data sets',
+            icon: 'https://domain.tld/api/../icons/dhis-web-dashboard.png',
+            name: 'Data sets',
         },
     ]
 
@@ -124,7 +128,11 @@ export const HeaderBar = ({
                                 }
                                 userAuthorities={data.user.authorities}
                             />
-                            <CommandPalette apps={apps} commands={commands} />
+                            <CommandPalette
+                                apps={apps}
+                                commands={commands}
+                                shortcuts={shortcuts}
+                            />
 
                             <Profile
                                 name={data.user.name}
