@@ -3,12 +3,10 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 const TYPING_DEBOUNCE_TIME = 300 // ms
 
 function useHandleTyping({
+    expanded,
     options,
     setFocussedOptionIndex,
-
-    // @TODO: Scroll to highlighted option when not/partially visible
-    // eslint-disable-next-line no-unused-vars
-    listboxHTMLElement,
+    onChange,
 }) {
     const timeoutRef = useRef()
     const [value, setValue] = useState('')
@@ -34,17 +32,26 @@ function useHandleTyping({
         value,
     ])
 
+    const prevValueRef = useRef()
     useEffect(() => {
-        if (value) {
+        if (value && value !== prevValueRef.current) {
+            // We only want to do this when the value changed
+            prevValueRef.current = value
+
             const optionIndex = options.findIndex((option) =>
                 option.label.toLowerCase().startsWith(value.toLowerCase())
             )
 
             if (optionIndex !== -1) {
-                setFocussedOptionIndex(optionIndex)
+                if (expanded) {
+                    setFocussedOptionIndex(optionIndex)
+                } else {
+                    const nextSelectedOption = options[optionIndex]
+                    onChange(nextSelectedOption.value)
+                }
             }
         }
-    }, [value, options, setFocussedOptionIndex])
+    }, [value, options, setFocussedOptionIndex, expanded, onChange])
 
     const onTyping = useCallback((e) => {
         const { key } = e
@@ -78,24 +85,33 @@ export function useHandleKeyPress({
     onChange,
 }) {
     const { onTyping, typing } = useHandleTyping({
+        expanded,
         options,
         setFocussedOptionIndex,
-        listboxHTMLElement: null, // @TODO
+        onChange,
     })
 
-    console.log('> typing:', typing)
-
     const selectNextOption = useCallback(() => {
-        if (focussedOptionIndex < options.length - 1) {
-            onChange(options[focussedOptionIndex + 1].value)
+        const currentOptionIndex = options.findIndex(
+            (option) => option.value === value
+        )
+        const nextSelectedOption = options[currentOptionIndex + 1]
+
+        if (nextSelectedOption) {
+            onChange(nextSelectedOption.value)
         }
-    }, [focussedOptionIndex, options, onChange])
+    }, [options, onChange, value])
 
     const selectPrevOption = useCallback(() => {
-        if (focussedOptionIndex > 0) {
-            onChange(options[focussedOptionIndex - 1].value)
+        const currentOptionIndex = options.findIndex(
+            (option) => option.value === value
+        )
+        const nextSelectedOption = options[currentOptionIndex - 1]
+
+        if (nextSelectedOption) {
+            onChange(nextSelectedOption.value)
         }
-    }, [focussedOptionIndex, options, onChange])
+    }, [options, onChange, value])
 
     const focusNextOption = useCallback(() => {
         if (focussedOptionIndex < options.length - 1) {

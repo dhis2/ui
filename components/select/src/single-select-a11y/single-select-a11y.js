@@ -68,15 +68,20 @@ export function SingleSelectA11y({
 
     // Using `useState` here so components get notified when the value changes (from null -> div)
     const comboBoxRef = useRef()
-    const [focussedOptionIndex, setFocussedOptionIndex] = useState(() => {
-        const foundIndex = options.findIndex((option) => option.value === value)
-
-        return foundIndex !== -1 ? foundIndex : 0
-    })
+    const [focussedOptionIndex, setFocussedOptionIndex] = useState(0)
     const [selectRef, setSelectRef] = useState()
     const [expanded, setExpanded] = useState(false)
     const closeMenu = useCallback(() => setExpanded(false), [])
-    const openMenu = useCallback(() => setExpanded(true), [])
+    const openMenu = useCallback(() => {
+        const selectedOptionIndex = options.findIndex(
+            (option) => option.value === value
+        )
+        if (selectedOptionIndex !== focussedOptionIndex) {
+            setFocussedOptionIndex(selectedOptionIndex)
+        }
+
+        setExpanded(true)
+    }, [options, value, focussedOptionIndex])
     const toggleMenu = useCallback(() => {
         if (expanded) {
             closeMenu()

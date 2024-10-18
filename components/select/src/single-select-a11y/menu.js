@@ -5,6 +5,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import { MenuFilter } from './menu-filter.js'
+import { MenuLoading } from './menu-loading.js'
 import { MenuOptionsList } from './menu-options-list.js'
 import { optionsProp } from './shared-prop-types.js'
 
@@ -62,24 +63,25 @@ export function Menu({
                 />
             )}
 
+            {!options.length && <div className="empty-container">{empty}</div>}
+
             <MenuOptionsList
                 comboBoxId={comboBoxId}
                 dataTest={`${dataTestPrefix}-list`}
                 disabled={disabled}
-                empty={empty}
+                expanded={!hidden}
                 focussedOptionIndex={focussedOptionIndex}
                 idPrefix={idPrefix}
                 labelledBy={labelledBy}
-                options={options}
                 loading={loading}
-                loadingText={loadingText}
+                options={options}
                 selected={selected}
                 onChange={onChange}
                 onBlur={onBlur}
                 onKeyDown={onKeyDown}
             />
 
-            {/* Put (infinite) loading stuff here */ ''}
+            {loading && <MenuLoading message={loadingText} />}
 
             <style jsx>{`
                 .listbox-container {
@@ -93,6 +95,10 @@ export function Menu({
 
                 .hidden {
                     display: none;
+                }
+
+                .empty-container {
+                    height: 16px;
                 }
             `}</style>
         </div>

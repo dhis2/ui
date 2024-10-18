@@ -1,42 +1,12 @@
-import { colors, spacers, theme } from '@dhis2/ui-constants'
-import { CircularLoader } from '@dhis2-ui/loader'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+import { isOptionHidden } from './is-option-hidden.js'
 import { Option } from './option.js'
 import { optionsProp } from './shared-prop-types.js'
 
-function Loading({ message }) {
-    return (
-        <div className="container">
-            <div>
-                <CircularLoader small />
-            </div>
-
-            {message}
-
-            <style jsx>{`
-                .container {
-                    display: flex;
-                    gap: ${spacers.dp16};
-                    align-items: center;
-                    justify-content: center;
-                    color: ${colors.grey700};
-                    font-family: ${theme.fonts};
-                    font-size: 13px;
-                    padding-block: ${spacers.dp8};
-                    padding-inline: ${spacers.dp24};
-                }
-            `}</style>
-        </div>
-    )
-}
-
-Loading.propTypes = {
-    message: PropTypes.string,
-}
-
 export function MenuOptionsList({
     comboBoxId,
+    expanded,
     focussedOptionIndex,
     idPrefix,
     labelledBy,
@@ -44,15 +14,38 @@ export function MenuOptionsList({
     selected,
     dataTest,
     disabled,
-    empty,
     loading,
-    loadingText,
     onChange,
     onBlur,
     onKeyDown,
 }) {
+    const listBoxRef = useRef()
+
+    // scrolls the highlighted option into view when:
+    // * the highlighted option changes
+    // * the menu opens
+    useEffect(() => {
+        const { current: listBox } = listBoxRef
+        const highlightedOption = expanded
+            ? listBox.childNodes[focussedOptionIndex]
+            : null
+
+        if (highlightedOption) {
+            const listBoxParent = listBox.parentNode
+            const optionHidden = isOptionHidden(
+                highlightedOption,
+                listBoxParent
+            )
+
+            if (optionHidden) {
+                highlightedOption.scrollIntoView()
+            }
+        }
+    }, [expanded, focussedOptionIndex])
+
     return (
         <div
+            ref={listBoxRef}
             role="listbox"
             id={`${idPrefix}-listbox`}
             aria-labelledby={labelledBy}
@@ -62,8 +55,6 @@ export function MenuOptionsList({
             onBlur={onBlur}
             onKeyDown={onKeyDown}
         >
-            {!options.length && empty}
-
             {options.map(
                 (
                     {
@@ -91,30 +82,21 @@ export function MenuOptionsList({
                     )
                 }
             )}
-
-            {loading && <Loading message={loadingText} />}
-
-            <style jsx>{`
-                div:empty {
-                    height: 16px;
-                }
-            `}</style>
         </div>
     )
 }
 
 MenuOptionsList.propTypes = {
     comboBoxId: PropTypes.string.isRequired,
+    expanded: PropTypes.bool.isRequired,
     focussedOptionIndex: PropTypes.number.isRequired,
     idPrefix: PropTypes.string.isRequired,
     options: optionsProp.isRequired,
     onChange: PropTypes.func.isRequired,
     dataTest: PropTypes.string,
     disabled: PropTypes.bool,
-    empty: PropTypes.node,
     labelledBy: PropTypes.string,
     loading: PropTypes.bool,
-    loadingText: PropTypes.string,
     selected: PropTypes.string,
     onBlur: PropTypes.func,
     onKeyDown: PropTypes.func,

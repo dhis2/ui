@@ -85,9 +85,17 @@ export function SelectedValue({
                 </div>
             )}
 
-            <div className="root-right">
+            <button
+                className="toggle-icon"
+                aria-label="Open select"
+                onClick={(e) => {
+                    e.stopPropagation()
+                    comboBoxRef.current.focus()
+                    onClick()
+                }}
+            >
                 <IconChevronDown16 />
-            </div>
+            </button>
 
             <style jsx>{`
                 .selected-option-label {
@@ -98,6 +106,13 @@ export function SelectedValue({
 
                 .clear-button-container {
                     margin-inline-start: auto;
+                }
+
+                .toggle-icon {
+                    display: block;
+                    background: none;
+                    padding: 0;
+                    border: 0;
                 }
             `}</style>
         </SelectedValueContainer>
