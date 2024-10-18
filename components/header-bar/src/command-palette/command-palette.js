@@ -1,20 +1,10 @@
-import { clearSensitiveCaches, useConfig } from '@dhis2/app-runtime'
 import { colors, spacers } from '@dhis2/ui-constants'
-import {
-    IconApps16,
-    IconApps24,
-    IconLogOut16,
-    IconRedo16,
-    IconTerminalWindow16,
-} from '@dhis2/ui-icons'
+import { IconApps24 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React, { useState, useCallback, useRef, useEffect } from 'react'
-import { joinPath } from '../join-path.js'
-import i18n from '../locales/index.js'
+import ActionsMenu from './sections/actions-menu.js'
 import BackButton from './sections/back-button.js'
 import Container from './sections/container.js'
-import Heading from './sections/heading.js'
-import ListItem from './sections/list-item.js'
 import Search from './sections/search-field.js'
 import HomeView from './views/home-view.js'
 import ListView from './views/list-view.js'
@@ -22,7 +12,6 @@ import ListView from './views/list-view.js'
 const MIN_APPS_NUM = 8
 
 const CommandPalette = ({ apps, commands, shortcuts }) => {
-    const { baseUrl } = useConfig()
     const [show, setShow] = useState(false)
     const [filter, setFilter] = useState('')
 
@@ -120,69 +109,13 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
                                 <HomeView apps={apps} filter={filter} />
                             )}
                             {/* actions sections */}
-                            {showActions ? (
-                                <>
-                                    <Heading heading={'Actions'} />
-                                    {apps?.length > MIN_APPS_NUM ? (
-                                        <ListItem
-                                            title={i18n.t('Browse apps')}
-                                            icon={
-                                                <IconApps16
-                                                    color={colors.grey700}
-                                                />
-                                            }
-                                            onClickHandler={() =>
-                                                setCurrentView('apps')
-                                            }
-                                        />
-                                    ) : null}
-                                    {commands?.length > 0 ? (
-                                        <ListItem
-                                            title={i18n.t('Browse commands')}
-                                            icon={
-                                                <IconTerminalWindow16
-                                                    color={colors.grey700}
-                                                />
-                                            }
-                                            onClickHandler={() =>
-                                                setCurrentView('commands')
-                                            }
-                                        />
-                                    ) : null}
-                                    <ListItem
-                                        title={i18n.t('Browse shortcuts')}
-                                        icon={
-                                            <IconRedo16
-                                                color={colors.grey700}
-                                            />
-                                        }
-                                        onClickHandler={() =>
-                                            setCurrentView('shortcuts')
-                                        }
-                                    />
-                                    <ListItem
-                                        title={i18n.t('Logout')}
-                                        icon={
-                                            <IconLogOut16
-                                                color={colors.grey700}
-                                            />
-                                        }
-                                        onClickHandler={async () => {
-                                            await clearSensitiveCaches()
-                                            window.location.assign(
-                                                joinPath(
-                                                    baseUrl,
-                                                    'dhis-web-commons-security/logout.action'
-                                                )
-                                            )
-                                        }}
-                                        href={joinPath(
-                                            baseUrl,
-                                            'dhis-web-commons-security/logout.action'
-                                        )}
-                                    />
-                                </>
-                            ) : null}
+                            {showActions && (
+                                <ActionsMenu
+                                    showAppsList={apps?.length > MIN_APPS_NUM}
+                                    showCommandsList={commands?.length > 0}
+                                    setCurrentView={setCurrentView}
+                                />
+                            )}
                         </div>
                     </div>
                 </Container>
