@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import AppItem from '../sections/app-item.js'
 import Heading from '../sections/heading.js'
 import { escapeRegExpCharacters } from '../utils/escapeCharacters.js'
-import ListView from './list-view.js'
+import SearchResults from './search-results.js'
 
 function HomeView({ apps, filter }) {
     const divRef = useRef(null)
@@ -75,19 +75,13 @@ function HomeView({ apps, filter }) {
 
     return (
         <div onKeyDown={handleKeyDown} onFocus={handleFocus} tabIndex={-1}>
-            {/* Search results */}
             {filter.length > 0 && (
-                <ListView filter={filter} itemsArray={filteredApps} />
+                <SearchResults filter={filter} filteredItems={filteredApps} />
             )}
             {/* normal view */}
             {filter.length < 1 && (
                 <>
-                    <Heading
-                        filter={''}
-                        filteredItems={[]}
-                        heading={'Top apps'}
-                    />
-
+                    <Heading heading={'Top apps'} />
                     <div
                         data-test="headerbar-apps-menu-list"
                         ref={divRef}

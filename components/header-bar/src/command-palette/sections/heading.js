@@ -1,18 +1,12 @@
 import { colors, spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
-import i18n from '../../locales/index.js'
 
-function Heading({ filter, filteredItems, heading }) {
+function Heading({ heading }) {
     return (
         <div className="section-header">
-            <span>
-                {filter
-                    ? filteredItems.length > 0
-                        ? i18n.t(`Results for "${filter}"`)
-                        : i18n.t(`Nothing found for "${filter}"`)
-                    : i18n.t(`${heading}`)}
-            </span>
+            {/* role='header' ?*/}
+            <span>{heading}</span>
             <style>{`
               .section-header {
                   font-size: 14px;
@@ -30,8 +24,6 @@ function Heading({ filter, filteredItems, heading }) {
 }
 
 Heading.propTypes = {
-    filter: PropTypes.string,
-    filteredItems: PropTypes.array,
     heading: PropTypes.string,
 }
 

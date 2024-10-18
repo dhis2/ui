@@ -13,7 +13,12 @@ import i18n from '../../locales/index.js'
 import Heading from './heading.js'
 import ListItem from './list-item.js'
 
-const ActionsMenu = ({ showAppsList, showCommandsList, setCurrentView }) => {
+const ActionsMenu = ({
+    showAppsList,
+    showCommandsList,
+    showShortcutsList,
+    setCurrentView,
+}) => {
     const { baseUrl } = useConfig()
     return (
         <div role="menu" className="actions-menu" tabIndex={-1}>
@@ -32,11 +37,13 @@ const ActionsMenu = ({ showAppsList, showCommandsList, setCurrentView }) => {
                     onClickHandler={() => setCurrentView('commands')}
                 />
             ) : null}
-            <ListItem
-                title={i18n.t('Browse shortcuts')}
-                icon={<IconRedo16 color={colors.grey700} />}
-                onClickHandler={() => setCurrentView('shortcuts')}
-            />
+            {showShortcutsList ? (
+                <ListItem
+                    title={i18n.t('Browse shortcuts')}
+                    icon={<IconRedo16 color={colors.grey700} />}
+                    onClickHandler={() => setCurrentView('shortcuts')}
+                />
+            ) : null}
             <ListItem
                 title={i18n.t('Logout')}
                 icon={<IconLogOut16 color={colors.grey700} />}
@@ -62,6 +69,7 @@ ActionsMenu.propTypes = {
     setCurrentView: PropTypes.func,
     showAppsList: PropTypes.bool,
     showCommandsList: PropTypes.bool,
+    showShortcutsList: PropTypes.bool,
 }
 
 export default ActionsMenu

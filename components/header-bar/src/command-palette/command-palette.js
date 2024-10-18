@@ -6,8 +6,10 @@ import ActionsMenu from './sections/actions-menu.js'
 import BackButton from './sections/back-button.js'
 import Container from './sections/container.js'
 import Search from './sections/search-field.js'
+import BrowseApps from './views/browse-apps.js'
+import BrowseCommands from './views/browse-commands.js'
+import BrowseShortcuts from './views/browse-shortcuts.js'
 import HomeView from './views/home-view.js'
-import ListView from './views/list-view.js'
 
 const MIN_APPS_NUM = 8
 
@@ -73,7 +75,6 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
             >
                 <IconApps24 color={colors.white} />
             </button>
-
             {show ? (
                 <Container setShow={setShow} show={show}>
                     <div data-test="headerbar-menu" className="headerbar-menu">
@@ -84,24 +85,18 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
                             ) : null}
                             {/* switch views */}
                             {currentView === 'apps' && (
-                                <ListView
-                                    heading={'All Apps'}
-                                    itemsArray={apps}
-                                    filter={filter}
-                                />
+                                <BrowseApps apps={apps} filter={filter} />
                             )}
                             {currentView === 'commands' && (
-                                <ListView
-                                    heading={'All commands'}
-                                    itemsArray={commands}
+                                <BrowseCommands
+                                    commands={commands}
                                     filter={filter}
                                     type={'commands'}
                                 />
                             )}
                             {currentView === 'shortcuts' && (
-                                <ListView
-                                    heading={'All shortcuts'}
-                                    itemsArray={shortcuts}
+                                <BrowseShortcuts
+                                    shortcuts={shortcuts}
                                     filter={filter}
                                 />
                             )}
@@ -113,6 +108,7 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
                                 <ActionsMenu
                                     showAppsList={apps?.length > MIN_APPS_NUM}
                                     showCommandsList={commands?.length > 0}
+                                    showShortcutsList={shortcuts?.length > 0}
                                     setCurrentView={setCurrentView}
                                 />
                             )}
