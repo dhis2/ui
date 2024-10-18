@@ -5,20 +5,26 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-05-10T11:56:32.496Z\n"
-"PO-Revision-Date: 2021-05-10T11:56:32.496Z\n"
+"POT-Creation-Date: 2024-10-10T14:39:31.815Z\n"
+"PO-Revision-Date: 2024-10-10T14:39:31.816Z\n"
 
 msgid "Clear"
-msgstr ""
+msgstr "Clear"
 
 msgid "No data found"
-msgstr ""
+msgstr "No data found"
 
 msgid "Type to filter options"
-msgstr ""
+msgstr "Type to filter options"
 
 msgid "Loading options"
-msgstr ""
+msgstr "Loading options"
 
 msgid "No options found"
-msgstr ""
+msgstr "No options found"
+
+msgid "Search options"
+msgstr "Search options"
+
+msgid "{{clearText}}"
+msgstr "{{clearText}}"
