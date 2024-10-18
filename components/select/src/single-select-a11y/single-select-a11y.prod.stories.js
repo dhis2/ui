@@ -427,7 +427,7 @@ export const WithOptionsAndLoadingText = () => {
 }
 
 export const WithManyOptions = () => {
-    const [value, setValue] = useState('')
+    const [value, setValue] = useState('art_entry_point:_no_pmtct')
 
     return (
         <SingleSelectA11y
