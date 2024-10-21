@@ -7,7 +7,7 @@ import React from 'react'
 export const MenuPopup = ({
     children,
     dataTest,
-    maxHeight,
+    maxHeight = '280px',
     menuWidth,
     onClick,
     menuRef,
@@ -31,10 +31,6 @@ export const MenuPopup = ({
             `}</style>
         </Layer>
     )
-}
-
-MenuPopup.defaultProps = {
-    maxHeight: '280px',
 }
 
 MenuPopup.propTypes = {

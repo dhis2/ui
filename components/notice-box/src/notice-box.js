@@ -9,7 +9,7 @@ import { NoticeBoxIcon } from './notice-box-icon.js'
 export const NoticeBox = ({
     className,
     children,
-    dataTest,
+    dataTest = 'dhis2-uicore-noticebox',
     title,
     warning,
     error,
@@ -61,10 +61,6 @@ export const NoticeBox = ({
             `}</style>
         </div>
     )
-}
-
-NoticeBox.defaultProps = {
-    dataTest: 'dhis2-uicore-noticebox',
 }
 
 NoticeBox.propTypes = {

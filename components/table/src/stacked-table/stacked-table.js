@@ -7,7 +7,7 @@ import { Table } from './table.js'
 export const StackedTable = ({
     children,
     className,
-    dataTest,
+    dataTest = 'dhis2-uicore-stackedtable',
     headerLabels,
 }) => {
     const contextHeaderLabels = extractHeaderLabels(children)
@@ -30,8 +30,4 @@ StackedTable.propTypes = {
     dataTest: PropTypes.string,
     /** Labels for columns. Use an empty string for a column without a header. */
     headerLabels: PropTypes.arrayOf(PropTypes.string),
-}
-
-StackedTable.defaultProps = {
-    dataTest: 'dhis2-uicore-stackedtable',
 }

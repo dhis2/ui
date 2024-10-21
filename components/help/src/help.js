@@ -3,7 +3,14 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const Help = ({ children, valid, error, warning, className, dataTest }) => (
+const Help = ({
+    children,
+    valid,
+    error,
+    warning,
+    className,
+    dataTest = 'dhis2-uicore-help',
+}) => (
     <p
         className={cx(className, {
             valid,
@@ -39,10 +46,6 @@ const Help = ({ children, valid, error, warning, className, dataTest }) => (
         `}</style>
     </p>
 )
-
-Help.defaultProps = {
-    dataTest: 'dhis2-uicore-help',
-}
 
 Help.propTypes = {
     children: PropTypes.string,

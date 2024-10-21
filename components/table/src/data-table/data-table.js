@@ -8,12 +8,12 @@ export const DataTable = forwardRef(
         {
             children,
             className,
-            dataTest,
-            layout,
+            dataTest = 'dhis2-uicore-datatable',
+            layout = 'auto',
             role,
             scrollHeight,
             scrollWidth,
-            width,
+            width = '100%',
         },
         ref
     ) => {
@@ -48,12 +48,6 @@ export const DataTable = forwardRef(
 )
 
 DataTable.displayName = 'DataTable'
-
-DataTable.defaultProps = {
-    dataTest: 'dhis2-uicore-datatable',
-    width: '100%',
-    layout: 'auto',
-}
 
 DataTable.propTypes = {
     /**

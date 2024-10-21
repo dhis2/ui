@@ -22,7 +22,9 @@ export default {
     // Default args:
     args: {
         // Handle default values (see comment in Transfer.js)
-        ...FileInputField.defaultProps,
+        accept: '*',
+        dataTest: 'dhis2-uiwidgets-fileinputfield',
+        placeholder: 'No file uploaded yet',
         onChange: onChange,
         name: 'uploadName',
         label: 'Upload something',

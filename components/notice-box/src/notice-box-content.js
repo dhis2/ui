@@ -4,7 +4,11 @@ import React from 'react'
 import { NoticeBoxMessage } from './notice-box-message.js'
 import { NoticeBoxTitle } from './notice-box-title.js'
 
-export const NoticeBoxContent = ({ children, dataTest, title }) => {
+export const NoticeBoxContent = ({
+    children,
+    dataTest = 'dhis2-uicore-noticebox-content',
+    title,
+}) => {
     return (
         <div data-test={dataTest}>
             <NoticeBoxTitle title={title} dataTest={`${dataTest}-title`} />
@@ -21,10 +25,6 @@ export const NoticeBoxContent = ({ children, dataTest, title }) => {
             `}</style>
         </div>
     )
-}
-
-NoticeBoxContent.defaultProps = {
-    dataTest: 'dhis2-uicore-noticebox-content',
 }
 
 NoticeBoxContent.propTypes = {

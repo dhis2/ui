@@ -37,7 +37,7 @@ const CheckboxField = ({
     required,
     helpText,
     validationText,
-    dataTest,
+    dataTest = 'dhis2-uiwidgets-checkboxfield',
 }) => (
     <Field
         className={className}
@@ -74,10 +74,6 @@ const CheckboxField = ({
         />
     </Field>
 )
-
-CheckboxField.defaultProps = {
-    dataTest: 'dhis2-uiwidgets-checkboxfield',
-}
 
 CheckboxField.propTypes = {
     checked: PropTypes.bool,

@@ -8,9 +8,11 @@ import { FilterableMenu } from './filterable-menu.js'
 import { Input } from './input.js'
 import { Menu } from './menu.js'
 
+// stable object reference
+const staticArr = []
 const MultiSelect = ({
     className,
-    selected,
+    selected = staticArr,
     tabIndex,
     maxHeight,
     inputMaxHeight,
@@ -35,7 +37,7 @@ const MultiSelect = ({
     noMatchText,
     initialFocus,
     dense,
-    dataTest,
+    dataTest = 'dhis2-uicore-multiselect',
 }) => {
     // If the select is filterable, use a filterable menu
     const menu = filterable ? (
@@ -103,11 +105,6 @@ const MultiSelect = ({
             `}</style>
         </div>
     )
-}
-
-MultiSelect.defaultProps = {
-    selected: [],
-    dataTest: 'dhis2-uicore-multiselect',
 }
 
 MultiSelect.propTypes = {

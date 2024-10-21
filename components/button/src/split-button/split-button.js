@@ -20,6 +20,10 @@ class SplitButton extends Component {
         open: false,
     }
 
+    static defaultProps = {
+        dataTest: 'dhis2-uicore-splitbutton',
+    }
+
     anchorRef = React.createRef()
 
     componentDidMount() {
@@ -72,7 +76,7 @@ class SplitButton extends Component {
             disabled,
             type,
             tabIndex,
-            dataTest,
+            dataTest = 'dhis2-uicore-splitbutton',
             initialFocus,
         } = this.props
 
@@ -157,10 +161,6 @@ class SplitButton extends Component {
             </div>
         )
     }
-}
-
-SplitButton.defaultProps = {
-    dataTest: 'dhis2-uicore-splitbutton',
 }
 
 SplitButton.propTypes = {

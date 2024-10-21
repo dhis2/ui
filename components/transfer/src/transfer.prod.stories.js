@@ -150,18 +150,24 @@ export default {
     },
     // Default args:
     args: {
-        ...Transfer.defaultProps,
+        dataTest: 'dhis2-uicore-transfer',
+        height: '240px',
+        initialSearchTerm: '',
+        initialSearchTermPicked: '',
+        maxSelections: Infinity,
+        optionsWidth: '320px',
+        selected: [],
+        selectedWidth: '320px',
         options: options,
     },
 }
 
-const StatefulTemplate = ({ initiallySelected, ...args }) => {
+const StatefulTemplate = ({ initiallySelected = [], ...args }) => {
     const [selected, setSelected] = useState(initiallySelected)
     const onChange = (payload) => setSelected(payload.selected)
 
     return <Transfer {...args} selected={selected} onChange={onChange} />
 }
-StatefulTemplate.defaultProps = { initiallySelected: [] }
 StatefulTemplate.propTypes = { initiallySelected: PropTypes.array }
 
 export const SingleSelection = StatefulTemplate.bind({})
@@ -243,14 +249,14 @@ const RenderOptionCode = () => (
     </>
 )
 
-const StatefulTemplateCustomRenderOption = ({ initiallySelected, ...args }) => {
+const StatefulTemplateCustomRenderOption = ({
+    initiallySelected = [],
+    ...args
+}) => {
     const [selected, setSelected] = useState(initiallySelected)
     const onChange = (payload) => setSelected(payload.selected)
 
     return <Transfer {...args} selected={selected} onChange={onChange} />
-}
-StatefulTemplateCustomRenderOption.defaultProps = {
-    initiallySelected: [],
 }
 StatefulTemplateCustomRenderOption.propTypes = {
     initiallySelected: PropTypes.array,

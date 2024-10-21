@@ -11,7 +11,7 @@ const Menu = ({
     options,
     onChange,
     selected,
-    empty,
+    empty = '',
     handleFocusInput,
     handleClose,
     dataTest,
@@ -60,10 +60,6 @@ const Menu = ({
     })
 
     return <React.Fragment>{children}</React.Fragment>
-}
-
-Menu.defaultProps = {
-    empty: '',
 }
 
 Menu.propTypes = {

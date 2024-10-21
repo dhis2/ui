@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 export const StackedTableCellHead = ({
-    children,
+    children = '',
     className,
     colSpan,
-    dataTest,
+    dataTest = 'dhis2-uicore-stackedtablecellhead',
     rowSpan,
 }) => (
     <th
@@ -36,9 +36,4 @@ StackedTableCellHead.propTypes = {
     colSpan: PropTypes.string,
     dataTest: PropTypes.string,
     rowSpan: PropTypes.string,
-}
-
-StackedTableCellHead.defaultProps = {
-    children: '',
-    dataTest: 'dhis2-uicore-stackedtablecellhead',
 }

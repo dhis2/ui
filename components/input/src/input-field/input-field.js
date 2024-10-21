@@ -6,6 +6,10 @@ import React from 'react'
 import { Input, inputTypes } from '../input/index.js'
 
 class InputField extends React.Component {
+    static defaultProps = {
+        dataTest: 'dhis2-uiwidgets-inputfield',
+    }
+
     render() {
         const {
             className,
@@ -35,7 +39,7 @@ class InputField extends React.Component {
             validationText,
             inputWidth,
             autoComplete,
-            dataTest,
+            dataTest = 'dhis2-uiwidgets-inputfield',
         } = this.props
 
         return (
@@ -80,10 +84,6 @@ class InputField extends React.Component {
             </Field>
         )
     }
-}
-
-InputField.defaultProps = {
-    dataTest: 'dhis2-uiwidgets-inputfield',
 }
 
 const InputFieldProps = {

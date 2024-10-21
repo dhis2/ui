@@ -6,7 +6,15 @@ import React, { useState, useEffect, useRef } from 'react'
 
 export const Tab = React.forwardRef(
     (
-        { icon, onClick, selected, disabled, children, className, dataTest },
+        {
+            icon,
+            onClick,
+            selected,
+            disabled,
+            children,
+            className,
+            dataTest = 'dhis2-uicore-tab',
+        },
         ref
     ) => {
         let tabRef = useRef(null)
@@ -160,10 +168,6 @@ export const Tab = React.forwardRef(
         )
     }
 )
-
-Tab.defaultProps = {
-    dataTest: 'dhis2-uicore-tab',
-}
 
 Tab.propTypes = {
     children: PropTypes.node,

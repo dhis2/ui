@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const FieldSet = ({ className, children, dataTest }) => (
+const FieldSet = ({
+    className,
+    children,
+    dataTest = 'dhis2-uicore-fieldset',
+}) => (
     <fieldset className={className} data-test={dataTest}>
         {children}
         <style jsx>{`
@@ -13,10 +17,6 @@ const FieldSet = ({ className, children, dataTest }) => (
         `}</style>
     </fieldset>
 )
-
-FieldSet.defaultProps = {
-    dataTest: 'dhis2-uicore-fieldset',
-}
 
 FieldSet.propTypes = {
     children: PropTypes.node,

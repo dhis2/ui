@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export const StackedTableHead = ({ children, className, dataTest }) => (
+export const StackedTableHead = ({
+    children,
+    className,
+    dataTest = 'dhis2-uicore-stackedtablehead',
+}) => (
     <thead className={className} data-test={dataTest}>
         {children}
         <style jsx>{`
@@ -16,8 +20,4 @@ StackedTableHead.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     dataTest: PropTypes.string,
-}
-
-StackedTableHead.defaultProps = {
-    dataTest: 'dhis2-uicore-stackedtablehead',
 }

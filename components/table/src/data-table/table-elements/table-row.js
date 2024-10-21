@@ -4,7 +4,15 @@ import React, { forwardRef } from 'react'
 
 export const TableRow = forwardRef(
     (
-        { children, className, dataTest, draggable, role, selected, ...props },
+        {
+            children,
+            className,
+            dataTest = 'dhis2-uicore-tablerow',
+            draggable,
+            role,
+            selected,
+            ...props
+        },
         ref
     ) => (
         <tr
@@ -30,10 +38,6 @@ export const TableRow = forwardRef(
 )
 
 TableRow.displayName = 'TableRow'
-
-TableRow.defaultProps = {
-    dataTest: 'dhis2-uicore-tablerow',
-}
 
 TableRow.propTypes = {
     /** Should be `<TableDataCell>` or `<TableDataCellHead>` components */

@@ -11,7 +11,7 @@ export const Box = ({
     maxWidth,
     marginTop,
     children,
-    dataTest,
+    dataTest = 'dhis2-uicore-box',
     className,
 }) => (
     <div data-test={dataTest} className={className}>
@@ -30,10 +30,6 @@ export const Box = ({
         `}</style>
     </div>
 )
-
-Box.defaultProps = {
-    dataTest: 'dhis2-uicore-box',
-}
 
 Box.propTypes = {
     children: PropTypes.node,

@@ -3,7 +3,12 @@ import React, { Children, cloneElement, isValidElement, useMemo } from 'react'
 import { hasMenuItemRole } from './helpers.js'
 import { useMenuNavigation } from './use-menu.js'
 
-const Menu = ({ children, className, dataTest, dense }) => {
+const Menu = ({
+    children,
+    className,
+    dataTest = 'dhis2-uicore-menulist',
+    dense,
+}) => {
     const { menuRef, focusedIndex } = useMenuNavigation(children)
 
     const childrenToRender = useMemo(
@@ -77,10 +82,6 @@ const Menu = ({ children, className, dataTest, dense }) => {
             `}</style>
         </ul>
     )
-}
-
-Menu.defaultProps = {
-    dataTest: 'dhis2-uicore-menulist',
 }
 
 Menu.propTypes = {

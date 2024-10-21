@@ -15,7 +15,12 @@ const flipMargin = (margin) => {
     return margin
 }
 
-const Divider = ({ className, dataTest, dense, margin }) => {
+const Divider = ({
+    className,
+    dataTest = 'dhis2-uicore-divider',
+    dense,
+    margin = `${spacers.dp8} 0`,
+}) => {
     return (
         <div className={className} data-test={dataTest} role="separator">
             <style jsx>{`
@@ -36,11 +41,6 @@ const Divider = ({ className, dataTest, dense, margin }) => {
             `}</style>
         </div>
     )
-}
-
-Divider.defaultProps = {
-    dataTest: 'dhis2-uicore-divider',
-    margin: `${spacers.dp8} 0`,
 }
 
 Divider.propTypes = {

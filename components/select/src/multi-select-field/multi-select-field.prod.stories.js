@@ -39,7 +39,13 @@ export default {
     // default args for stories
     args: {
         // Fix default prop issues - causes 'i18n is not defined' error
-        ...MultiSelectField.defaultProps,
+        dataTest: 'dhis2-uiwidgets-multiselectfield',
+        clearText: 'Clear',
+        empty: 'No data found',
+        filterPlaceholder: 'Type to filter options',
+        loadingText: 'Loading options',
+        noMatchText: 'No options found',
+
         label: 'Default label',
         selected: ['1'],
         children: options,

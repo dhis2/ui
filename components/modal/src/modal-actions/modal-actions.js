@@ -2,7 +2,10 @@ import { spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export const ModalActions = ({ children, dataTest }) => (
+export const ModalActions = ({
+    children,
+    dataTest = 'dhis2-uicore-modalactions',
+}) => (
     <div data-test={dataTest}>
         {children}
 
@@ -17,10 +20,6 @@ export const ModalActions = ({ children, dataTest }) => (
         `}</style>
     </div>
 )
-
-ModalActions.defaultProps = {
-    dataTest: 'dhis2-uicore-modalactions',
-}
 
 ModalActions.propTypes = {
     children: PropTypes.node,

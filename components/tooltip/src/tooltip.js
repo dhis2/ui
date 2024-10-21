@@ -36,12 +36,12 @@ const flipModifier = {
 const Tooltip = ({
     children,
     className,
-    closeDelay,
+    closeDelay = 200,
     content,
-    dataTest,
-    maxWidth,
-    openDelay,
-    placement,
+    dataTest = 'dhis2-uicore-tooltip',
+    maxWidth = 300,
+    openDelay = 200,
+    placement = 'top',
 }) => {
     const [open, setOpen] = useState(false)
     const popperReference = useRef()
@@ -159,14 +159,6 @@ const Tooltip = ({
             `}</style>
         </>
     )
-}
-
-Tooltip.defaultProps = {
-    closeDelay: 200,
-    dataTest: 'dhis2-uicore-tooltip',
-    maxWidth: 300,
-    openDelay: 200,
-    placement: 'top',
 }
 
 Tooltip.propTypes = {

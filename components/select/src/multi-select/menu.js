@@ -33,7 +33,7 @@ const createHandler =
         return onChange(data, e)
     }
 
-const Menu = ({ options, onChange, selected, empty, dataTest }) => {
+const Menu = ({ options, onChange, selected, empty = '', dataTest }) => {
     const renderedOptions = filterIgnored(options)
 
     if (React.Children.count(renderedOptions) === 0) {
@@ -78,10 +78,6 @@ const Menu = ({ options, onChange, selected, empty, dataTest }) => {
     })
 
     return <React.Fragment>{children}</React.Fragment>
-}
-
-Menu.defaultProps = {
-    empty: '',
 }
 
 Menu.propTypes = {

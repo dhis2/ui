@@ -14,7 +14,7 @@ export const OptionsContainer = ({
     loading,
     renderOption,
     options,
-    selected,
+    selected = false,
     selectionHandler,
     toggleHighlightedOption,
 }) => {
@@ -102,10 +102,6 @@ export const OptionsContainer = ({
             `}</style>
         </div>
     )
-}
-
-OptionsContainer.defaultProps = {
-    selected: false,
 }
 
 OptionsContainer.propTypes = {

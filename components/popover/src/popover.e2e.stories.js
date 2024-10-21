@@ -19,10 +19,19 @@ const referenceElementStyle = {
 
 class PopperInBoxWithCenteredReferenceElement extends Component {
     ref = createRef()
+    static defaultProps = {
+        paddingTop: 220,
+        popoverHeight: 200,
+        popoverWidth: 336,
+    }
 
     render() {
-        const { paddingTop, popoverHeight, popoverWidth, ...popoverProps } =
-            this.props
+        const {
+            paddingTop = 220,
+            popoverHeight = 200,
+            popoverWidth = 336,
+            ...popoverProps
+        } = this.props
         return (
             <div style={{ ...boxStyle, paddingTop, height: paddingTop + 100 }}>
                 <div
@@ -44,11 +53,6 @@ class PopperInBoxWithCenteredReferenceElement extends Component {
             </div>
         )
     }
-}
-PopperInBoxWithCenteredReferenceElement.defaultProps = {
-    paddingTop: 220,
-    popoverHeight: 200,
-    popoverWidth: 336,
 }
 PopperInBoxWithCenteredReferenceElement.propTypes = {
     paddingTop: PropTypes.number,

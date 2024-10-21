@@ -27,7 +27,7 @@ const offsetModifier = {
 export const SelectorBarItem = ({
     children,
     className,
-    dataTest,
+    dataTest = 'dhis2-ui-selectorbaritem',
     disabled,
     displayOnly,
     label,
@@ -164,10 +164,6 @@ export const SelectorBarItem = ({
             `}</style>
         </button>
     )
-}
-
-SelectorBarItem.defaultProps = {
-    dataTest: 'dhis2-ui-selectorbaritem',
 }
 
 SelectorBarItem.propTypes = {

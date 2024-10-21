@@ -58,10 +58,16 @@ class Checkbox extends Component {
         }
     }
 
+    static defaultProps = {
+        checked: false,
+        indeterminate: false,
+        dataTest: 'dhis2-uicore-checkbox',
+    }
+
     render() {
         const {
-            checked,
-            indeterminate,
+            checked = false,
+            indeterminate = false,
             className,
             disabled,
             error,
@@ -72,7 +78,7 @@ class Checkbox extends Component {
             value,
             warning,
             dense,
-            dataTest,
+            dataTest = 'dhis2-uicore-checkbox',
         } = this.props
 
         const classes = cx({
@@ -176,12 +182,6 @@ class Checkbox extends Component {
             </label>
         )
     }
-}
-
-Checkbox.defaultProps = {
-    checked: false,
-    indeterminate: false,
-    dataTest: 'dhis2-uicore-checkbox',
 }
 
 const uniqueOnStatePropType = mutuallyExclusive(

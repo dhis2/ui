@@ -3,7 +3,13 @@ import React from 'react'
 import { ScrollBar } from './scroll-bar.js'
 import { Tabs } from './tabs.js'
 
-const TabBar = ({ fixed, children, className, scrollable, dataTest }) => {
+const TabBar = ({
+    fixed,
+    children,
+    className,
+    scrollable,
+    dataTest = 'dhis2-uicore-tabbar',
+}) => {
     if (scrollable) {
         return (
             <div className={className} data-test={dataTest}>
@@ -23,10 +29,6 @@ const TabBar = ({ fixed, children, className, scrollable, dataTest }) => {
             </Tabs>
         </div>
     )
-}
-
-TabBar.defaultProps = {
-    dataTest: 'dhis2-uicore-tabbar',
 }
 
 TabBar.propTypes = {

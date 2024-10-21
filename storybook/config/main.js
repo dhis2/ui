@@ -9,10 +9,7 @@ module.exports = {
             name: '@storybook/addon-essentials',
             options: { docs: false },
         },
-        {
-            name: '@storybook/addon-storysource',
-            options: { loaderOptions: { injectDecorator: false } },
-        },
+        '@mihkeleidast/storybook-addon-source',
         getAbsolutePath('@storybook/addon-a11y'),
         getAbsolutePath('@storybook/preset-create-react-app'),
     ],

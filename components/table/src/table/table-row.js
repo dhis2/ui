@@ -14,7 +14,7 @@ export const TableRow = ({
     role,
     children,
     className,
-    dataTest,
+    dataTest = 'dhis2-uicore-tablerow',
     suppressZebraStriping,
     ...rest
 }) => {
@@ -38,10 +38,6 @@ export const TableRow = ({
             <style jsx>{tableRowStyles}</style>
         </tr>
     )
-}
-
-TableRow.defaultProps = {
-    dataTest: 'dhis2-uicore-tablerow',
 }
 
 TableRow.propTypes = {

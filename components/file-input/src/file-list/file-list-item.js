@@ -13,7 +13,7 @@ const FileListItem = ({
     loading,
     onCancel,
     cancelText,
-    dataTest,
+    dataTest = 'dhis2-uicore-filelistitem',
 }) => {
     const handleKeyDown = (event) => {
         if (!onRemove) {
@@ -115,10 +115,6 @@ const FileListItem = ({
             `}</style>
         </p>
     )
-}
-
-FileListItem.defaultProps = {
-    dataTest: 'dhis2-uicore-filelistitem',
 }
 
 FileListItem.propTypes = {

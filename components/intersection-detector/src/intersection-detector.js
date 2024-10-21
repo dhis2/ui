@@ -2,11 +2,11 @@ import PropTypes from 'prop-types'
 import React, { useEffect, useRef } from 'react'
 
 export const IntersectionDetector = ({
-    threshold,
+    threshold = 0,
     onChange,
     children,
     className,
-    dataTest,
+    dataTest = 'dhis2-uicore-intersectiondetector',
     rootRef,
 }) => {
     // Use useRef instead of useState to prevent unnecessary re-render:
@@ -75,11 +75,6 @@ export const IntersectionDetector = ({
             `}</style>
         </div>
     )
-}
-
-IntersectionDetector.defaultProps = {
-    threshold: 0,
-    dataTest: 'dhis2-uicore-intersectiondetector',
 }
 
 IntersectionDetector.propTypes = {

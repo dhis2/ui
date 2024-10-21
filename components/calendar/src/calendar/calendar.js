@@ -15,10 +15,10 @@ export const Calendar = ({
     dir,
     locale,
     numberingSystem,
-    weekDayFormat,
+    weekDayFormat = 'narrow',
     timeZone,
-    width,
-    cellSize,
+    width = '240px',
+    cellSize = '32px',
 }) => {
     const wrapperBorderColor = colors.grey300
     const backgroundColor = 'none'
@@ -83,12 +83,6 @@ export const Calendar = ({
             `}</style>
         </div>
     )
-}
-
-Calendar.defaultProps = {
-    cellSize: '32px',
-    width: '240px',
-    weekDayFormat: 'narrow',
 }
 
 export const CalendarProps = {

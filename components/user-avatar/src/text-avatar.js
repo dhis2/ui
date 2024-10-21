@@ -17,7 +17,7 @@ export const getInitials = (name) => {
 
 export const TextAvatar = ({
     name,
-    dataTest,
+    dataTest = 'dhis2-uicore-textavatar',
     extralarge,
     extrasmall,
     large,
@@ -81,10 +81,6 @@ export const TextAvatar = ({
         `}</style>
     </div>
 )
-
-TextAvatar.defaultProps = {
-    dataTest: 'dhis2-uicore-textavatar',
-}
 
 TextAvatar.propTypes = {
     name: PropTypes.string.isRequired,

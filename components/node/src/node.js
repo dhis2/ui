@@ -13,7 +13,7 @@ export const Node = ({
     icon,
     onOpen,
     onClose,
-    dataTest,
+    dataTest = 'dhis2-uicore-node',
 }) => {
     const hasLeaves = !!React.Children.toArray(children).filter((i) => i).length
     const showArrow = !icon && hasLeaves
@@ -49,10 +49,6 @@ export const Node = ({
             `}</style>
         </div>
     )
-}
-
-Node.defaultProps = {
-    dataTest: 'dhis2-uicore-node',
 }
 
 Node.propTypes = {

@@ -17,10 +17,6 @@ export const TableHead = forwardRef(
 
 TableHead.displayName = 'TableHead'
 
-TableHead.defaultProps = {
-    dataTest: 'dhis2-uicore-tablehead',
-}
-
 TableHead.propTypes = {
     /** Should be `<TableRowHead>` components */
     children: PropTypes.node,

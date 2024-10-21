@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const FileList = ({ children, className, dataTest }) => (
+const FileList = ({
+    children,
+    className,
+    dataTest = 'dhis2-uicore-filelist',
+}) => (
     <div className={className} data-test={dataTest}>
         {children}
         <style jsx>{`
@@ -14,10 +18,6 @@ const FileList = ({ children, className, dataTest }) => (
         `}</style>
     </div>
 )
-
-FileList.defaultProps = {
-    dataTest: 'dhis2-uicore-filelist',
-}
 
 FileList.propTypes = {
     children: PropTypes.node,

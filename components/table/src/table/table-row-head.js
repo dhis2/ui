@@ -6,7 +6,7 @@ export const TableRowHead = ({
     role,
     children,
     className,
-    dataTest,
+    dataTest = 'dhis2-uicore-tablerowhead',
     suppressZebraStriping,
 }) => (
     <TableRow
@@ -18,10 +18,6 @@ export const TableRowHead = ({
         {children}
     </TableRow>
 )
-
-TableRowHead.defaultProps = {
-    dataTest: 'dhis2-uicore-tablerowhead',
-}
 
 TableRowHead.propTypes = {
     /** Should be `<TableCellHead>` components */

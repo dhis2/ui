@@ -4,7 +4,13 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Children } from 'react'
 
-const ButtonStrip = ({ className, children, middle, end, dataTest }) => (
+const ButtonStrip = ({
+    className,
+    children,
+    middle,
+    end,
+    dataTest = 'dhis2-uicore-buttonstrip',
+}) => (
     <div
         className={cx(className, { start: !middle && !end, middle, end })}
         data-test={dataTest}
@@ -38,10 +44,6 @@ const ButtonStrip = ({ className, children, middle, end, dataTest }) => (
 )
 
 const alignmentPropType = mutuallyExclusive(['middle', 'end'], PropTypes.bool)
-
-ButtonStrip.defaultProps = {
-    dataTest: 'dhis2-uicore-buttonstrip',
-}
 
 ButtonStrip.propTypes = {
     children: PropTypes.node,

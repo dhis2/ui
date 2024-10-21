@@ -17,6 +17,10 @@ export class Select extends Component {
         menuWidth: 'auto',
     }
 
+    static defaultProps = {
+        dataTest: 'dhis2-uicore-select',
+    }
+
     selectRef = React.createRef()
     inputRef = React.createRef()
 
@@ -215,10 +219,6 @@ export class Select extends Component {
             </div>
         )
     }
-}
-
-Select.defaultProps = {
-    dataTest: 'dhis2-uicore-select',
 }
 
 Select.propTypes = {

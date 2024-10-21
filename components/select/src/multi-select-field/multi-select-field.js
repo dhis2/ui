@@ -16,6 +16,17 @@ const translate = (prop, interpolationObject) => {
 }
 
 class MultiSelectField extends React.Component {
+    static defaultProps = {
+        selected: [],
+        dataTest: 'dhis2-uiwidgets-multiselectfield',
+
+        clearText: () => i18n.t('Clear'),
+        empty: () => i18n.t('No data found'),
+        filterPlaceholder: () => i18n.t('Type to filter options'),
+        loadingText: () => i18n.t('Loading options'),
+        noMatchText: () => i18n.t('No options found'),
+    }
+
     render() {
         const {
             className,
@@ -30,7 +41,7 @@ class MultiSelectField extends React.Component {
             disabled,
             warning,
             loading,
-            selected,
+            selected = MultiSelectField.defaultProps.selected,
             tabIndex,
             helpText,
             validationText,
@@ -39,17 +50,17 @@ class MultiSelectField extends React.Component {
             inputWidth,
             children,
             clearable,
-            clearText,
+            clearText = MultiSelectField.defaultProps.clearText,
             filterable,
-            filterPlaceholder,
+            filterPlaceholder = MultiSelectField.defaultProps.filterPlaceholder,
             placeholder,
             prefix,
-            empty,
-            loadingText,
-            noMatchText,
+            empty = MultiSelectField.defaultProps.empty,
+            loadingText = MultiSelectField.defaultProps.loadingText,
+            noMatchText = MultiSelectField.defaultProps.noMatchText,
             initialFocus,
             dense,
-            dataTest,
+            dataTest = MultiSelectField.defaultProps.dataTest,
         } = this.props
 
         return (
@@ -98,17 +109,6 @@ class MultiSelectField extends React.Component {
             </Field>
         )
     }
-}
-
-MultiSelectField.defaultProps = {
-    selected: [],
-    dataTest: 'dhis2-uiwidgets-multiselectfield',
-
-    clearText: () => i18n.t('Clear'),
-    empty: () => i18n.t('No data found'),
-    filterPlaceholder: () => i18n.t('Type to filter options'),
-    loadingText: () => i18n.t('Loading options'),
-    noMatchText: () => i18n.t('No options found'),
 }
 
 MultiSelectField.propTypes = {

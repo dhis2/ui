@@ -14,7 +14,7 @@ const Field = ({
     name,
     validationText,
     required,
-    dataTest,
+    dataTest = 'dhis2-uicore-field',
     valid,
     error,
     warning,
@@ -49,10 +49,6 @@ const Field = ({
         )}
     </Box>
 )
-
-Field.defaultProps = {
-    dataTest: 'dhis2-uicore-field',
-}
 
 Field.propTypes = {
     children: PropTypes.node,

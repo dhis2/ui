@@ -9,7 +9,12 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import i18n from '../locales/index.js'
 
-export const Modal = ({ onClose, name, children, dataTest }) => {
+export const Modal = ({
+    onClose,
+    name,
+    children,
+    dataTest = 'dhis2-uicore-sharingdialog-modal',
+}) => {
     const title = name
         ? i18n.t('Sharing and access: {{- objectName}}', {
               objectName: name,
@@ -30,10 +35,6 @@ export const Modal = ({ onClose, name, children, dataTest }) => {
             </ModalActions>
         </Dhis2Modal>
     )
-}
-
-Modal.defaultProps = {
-    dataTest: 'dhis2-uicore-sharingdialog-modal',
 }
 
 Modal.propTypes = {

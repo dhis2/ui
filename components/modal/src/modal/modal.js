@@ -19,12 +19,12 @@ const resolveLayerStyles = (hide) =>
 export const Modal = ({
     children,
     className,
-    dataTest,
+    dataTest = 'dhis2-uicore-modal',
     hide,
     fluid,
     large,
     onClose,
-    position,
+    position = 'top',
     small,
 }) => {
     const layerStyles = resolveLayerStyles(hide)
@@ -99,11 +99,6 @@ export const Modal = ({
             `}</style>
         </Layer>
     )
-}
-
-Modal.defaultProps = {
-    dataTest: 'dhis2-uicore-modal',
-    position: 'top',
 }
 
 Modal.propTypes = {

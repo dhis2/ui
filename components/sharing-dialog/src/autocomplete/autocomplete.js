@@ -8,7 +8,7 @@ import i18n from '../locales/index.js'
 import { MenuPopup } from './menu-popup.js'
 
 export const Autocomplete = ({
-    dataTest,
+    dataTest = 'dhis2-sharingdialog-autocomplete',
     inputWidth,
     label,
     loading,
@@ -58,10 +58,6 @@ export const Autocomplete = ({
             )}
         </>
     )
-}
-
-Autocomplete.defaultProps = {
-    dataTest: 'dhis2-sharingdialog-autocomplete',
 }
 
 Autocomplete.propTypes = {
