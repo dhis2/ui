@@ -1,3 +1,10 @@
+# [10.0.0-alpha.5](https://github.com/dhis2/ui/compare/v10.0.0-alpha.4...v10.0.0-alpha.5) (2024-10-21)
+
+
+### Bug Fixes
+
+* **calendar-input:** trigger onFocus if passed ([#1622](https://github.com/dhis2/ui/issues/1622)) ([293505d](https://github.com/dhis2/ui/commit/293505d6376c57a4cef453096b791137c619ca7e))
+
 # [10.0.0-alpha.4](https://github.com/dhis2/ui/compare/v10.0.0-alpha.3...v10.0.0-alpha.4) (2024-10-11)
 
 
