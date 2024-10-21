@@ -1,31 +1,32 @@
 import PropTypes from 'prop-types'
-import React, { useEffect, useRef } from 'react'
-import { isOptionHidden } from './is-option-hidden.js'
+import React, { forwardRef, useEffect } from 'react'
+import { isOptionHidden } from '../is-option-hidden.js'
+import { optionProp } from '../shared-prop-types.js'
 import { Option } from './option.js'
-import { optionsProp } from './shared-prop-types.js'
 
-export function MenuOptionsList({
-    comboBoxId,
-    expanded,
-    focussedOptionIndex,
-    idPrefix,
-    labelledBy,
-    options,
-    selected,
-    dataTest,
-    disabled,
-    loading,
-    onChange,
-    onBlur,
-    onKeyDown,
-}) {
-    const listBoxRef = useRef()
-
+export const MenuOptionsList = forwardRef(function MenuOptionsList(
+    {
+        comboBoxId,
+        expanded,
+        focussedOptionIndex,
+        idPrefix,
+        labelledBy,
+        options,
+        selected,
+        dataTest,
+        disabled,
+        loading,
+        onChange,
+        onBlur,
+        onKeyDown,
+    },
+    ref
+) {
     // scrolls the highlighted option into view when:
     // * the highlighted option changes
     // * the menu opens
     useEffect(() => {
-        const { current: listBox } = listBoxRef
+        const { current: listBox } = ref
         const highlightedOption = expanded
             ? listBox.childNodes[focussedOptionIndex]
             : null
@@ -41,11 +42,11 @@ export function MenuOptionsList({
                 highlightedOption.scrollIntoView()
             }
         }
-    }, [expanded, focussedOptionIndex])
+    }, [expanded, focussedOptionIndex, ref])
 
     return (
         <div
-            ref={listBoxRef}
+            ref={ref}
             role="listbox"
             id={`${idPrefix}-listbox`}
             aria-labelledby={labelledBy}
@@ -84,14 +85,14 @@ export function MenuOptionsList({
             )}
         </div>
     )
-}
+})
 
 MenuOptionsList.propTypes = {
     comboBoxId: PropTypes.string.isRequired,
     expanded: PropTypes.bool.isRequired,
     focussedOptionIndex: PropTypes.number.isRequired,
     idPrefix: PropTypes.string.isRequired,
-    options: optionsProp.isRequired,
+    options: PropTypes.arrayOf(optionProp).isRequired,
     onChange: PropTypes.func.isRequired,
     dataTest: PropTypes.string,
     disabled: PropTypes.bool,
