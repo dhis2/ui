@@ -213,12 +213,12 @@ TextArea.propTypes = {
     warning: sharedPropTypes.statusPropType,
     /** Width of the text area. Can be any valid CSS measurement */
     width: PropTypes.string,
-    /** Called with signature ({ name: string, value: string }, event) */
+    /** Called with signature `({ name: string, value: string }, event)` */
     onBlur: PropTypes.func,
-    /** Called with signature ({ name: string, value: string }, event) */
+    /** Called with signature `({ name: string, value: string }, event)` */
     onChange: PropTypes.func,
-    /** Called with signature ({ name: string, value: string }, event) */
+    /** Called with signature `({ name: string, value: string }, event)` */
     onFocus: PropTypes.func,
-    /** Called with signature ({ name: string, value: string }, event) */
+    /** Called with signature `({ name: string, value: string }, event)` */
     onKeyDown: PropTypes.func,
 }

@@ -16,11 +16,11 @@ import { Modal } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-modal'`|||
+|dataTest|string|``'dhis2-uicore-modal'``|||
 |fluid|boolean||||
 |hide|boolean||||
 |large|custom||||
-|position|custom|`'top'`|||
+|position|custom|``'top'``|||
 |small|custom||||
 |onClose|function|||Callback used when the Modal closes|
 
@@ -41,7 +41,7 @@ import { ModalActions } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |children|node||||
-|dataTest|string|`'dhis2-uicore-modalactions'`|||
+|dataTest|string|``'dhis2-uicore-modalactions'``|||
 
 ### ModalContent
 
@@ -61,7 +61,7 @@ import { ModalContent } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-modalcontent'`|||
+|dataTest|string|``'dhis2-uicore-modalcontent'``|||
 
 ### ModalTitle
 
@@ -80,4 +80,4 @@ import { ModalTitle } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |children|node||||
-|dataTest|string|`'dhis2-uicore-modaltitle'`|||
+|dataTest|string|``'dhis2-uicore-modaltitle'``|||

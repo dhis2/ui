@@ -16,7 +16,7 @@ import { CircularLoader } from '@dhis2/ui'
 |---|---|---|---|---|
 |aria-label|string||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-circularloader'`|||
+|dataTest|string|``'dhis2-uicore-circularloader'``|||
 |extrasmall|custom||||
 |invert|boolean||||
 |large|custom||||
@@ -41,7 +41,7 @@ import { LinearLoader } from '@dhis2/ui'
 |amount|number||*|The progression in percent without the '%' sign|
 |aria-label|string||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-linearloader'`|||
+|dataTest|string|``'dhis2-uicore-linearloader'``|||
 |invert|boolean|||Use inverted color scheme|
-|margin|string|`spacers.dp12`||The margin around the loader, can be a full shorthand|
-|width|string|`'300px'`||The width of the entire indicator|
+|margin|string|``spacers.dp12``||The margin around the loader, can be a full shorthand|
+|width|string|``'300px'``||The width of the entire indicator|

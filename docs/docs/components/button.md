@@ -4,6 +4,8 @@ title: Button
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
 import API from '../../../components/button/API.md'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
 
 # Button
 
@@ -138,9 +140,10 @@ Buttons are available in different sizes. Use the size that matches the usage gu
 
 ### Dropdown button
 
-<Demo>
-    <DropdownButton>Dropdown button</DropdownButton>
-</Demo>
+<Demo
+    path="dropdown-button--default"
+    height="120px"
+/>
 
 ```jsx
 <DropdownButton>Dropdown button</DropdownButton>
@@ -152,9 +155,10 @@ Buttons are available in different sizes. Use the size that matches the usage gu
 
 ### Split button
 
-<Demo>
-    <SplitButton>Split button</SplitButton>
-</Demo>
+<Demo
+    path="split-button--default"
+    height="120px"
+/>
 
 ```jsx
 <SplitButton>Split button</SplitButton>
@@ -167,12 +171,21 @@ Buttons are available in different sizes. Use the size that matches the usage gu
 
 ### Toggle button
 
-<Demo>
-    <div className='stacked-examples-horizontal'>
-        <Button icon={<IconCheckmark24/>}></Button>
-        <Button icon={<IconCheckmark24/>} toggled></Button>
-    </div>
-</Demo>
+<Tabs lazy>
+    <TabItem value="Toggled" label="Toggled on">
+        <Demo
+            path="button--toggled"
+            height="120px"
+        />
+    </TabItem>
+    <TabItem value="Toggledoff" label="Toggled off">
+        <Demo
+            path="button--toggled"
+            args="toggled:!false"
+            height="120px"
+        />
+    </TabItem>
+</Tabs>
 
 ```jsx
 <div className="stacked-examples-horizontal">
@@ -188,12 +201,10 @@ Buttons are available in different sizes. Use the size that matches the usage gu
 
 ### Icon
 
-<Demo>
-    <div className='stacked-examples-horizontal'>
-        <Button icon={<IconCheckmark24/>}>Mark as complete</Button>
-        <Button icon={<IconCheckmark24/>}></Button>
-    </div>
-</Demo>
+<Demo
+    path="button--icon"
+    height="120px"
+/>
 
 ```jsx
 <div className="stacked-examples-horizontal">
@@ -210,9 +221,10 @@ Buttons are available in different sizes. Use the size that matches the usage gu
 
 ### State: Disabled
 
-<Demo>
-    <Button disabled>Enroll in program</Button>
-</Demo>
+<Demo
+    path="button--disabled"
+    height="120px"
+/>
 
 ```jsx
 <Button disabled>Enroll in program</Button>
@@ -225,9 +237,10 @@ Buttons are available in different sizes. Use the size that matches the usage gu
 
 ### State: Loading
 
-<Demo>
-    <Button loading>Loading…</Button>
-</Demo>
+<Demo
+    path="button--loading"
+    height="120px"
+/>
 
 ```jsx
 <Button loading>Loading…</Button>

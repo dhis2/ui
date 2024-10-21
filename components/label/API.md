@@ -16,7 +16,7 @@ import { Label } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|string||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-label'`|||
+|dataTest|string|``'dhis2-uicore-label'``|||
 |disabled|boolean||||
 |htmlFor|string||||
 |required|boolean||||

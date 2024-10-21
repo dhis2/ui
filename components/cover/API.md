@@ -16,6 +16,6 @@ import { Cover } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-componentcover'`|||
+|dataTest|string|``'dhis2-uicore-componentcover'``|||
 |translucent|boolean|||Adds a semi-transparent background to the cover|
 |onClick|function||||

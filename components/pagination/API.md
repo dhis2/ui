@@ -17,20 +17,20 @@ import { Pagination } from '@dhis2/ui'
 |page|number||*||
 |pageSize|number||*||
 |className|string||||
-|dataTest|string|`'dhis2-uiwidgets-pagination'`|||
+|dataTest|string|``'dhis2-uiwidgets-pagination'``|||
 |disabled|boolean||||
 |hidePageSelect|boolean||||
 |hidePageSizeSelect|boolean||||
 |hidePageSummary|boolean||||
 |isLastPage|boolean||||
-|nextPageText|string │ function|`() => i18n.t('Next')`|||
+|nextPageText|string │ function|``() => i18n.t('Next')``|||
 |pageCount|number||||
 |pageLength|custom(function)||||
-|pageSelectText|string │ function|`() => i18n.t('Page')`|||
-|pageSizeSelectText|string │ function|`() => i18n.t('Items per page')`|||
-|pageSizes|arrayOf(string)|`['5', '10', '20', '30', '40', '50', '75', '100']`|||
+|pageSelectText|string │ function|``() => i18n.t('Page')``|||
+|pageSizeSelectText|string │ function|``() => i18n.t('Items per page')``|||
+|pageSizes|`arrayOf(string)`|``['5', '10', '20', '30', '40', '50', '75', '100']``|||
 |pageSummaryText|string │ function||||
-|previousPageText|string │ function|`() => i18n.t('Previous')`|||
+|previousPageText|string │ function|``() => i18n.t('Previous')``|||
 |total|number||||
 |onPageChange|function||||
 |onPageSizeChange|function||||

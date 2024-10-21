@@ -16,5 +16,5 @@ import { Center } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-centeredcontent'`|||
-|position|'top' │ 'middle' │ 'bottom'|`'middle'`||Vertical alignment|
+|dataTest|string|``'dhis2-uicore-centeredcontent'``|||
+|position|'top' │ 'middle' │ 'bottom'|``'middle'``||Vertical alignment|

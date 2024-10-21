@@ -141,19 +141,19 @@ export interface SwitchFieldProps {
      */
     warning?: boolean
     /**
-     * Called with signature ({ name: string, value: string, checked: bool }, event)
+     * Called with signature `({ name: string, value: string, checked: bool }, event)`
      */
     onBlur?: SwitchFocusHandler
     /**
-     * Called with signature ({ name: string, value: string, checked: bool }, event)
+     * Called with signature `({ name: string, value: string, checked: bool }, event)`
      */
     onChange?: SwitchChangeHandler
     /**
-     * Called with signature ({ name: string, value: string, checked: bool }, event)
+     * Called with signature `({ name: string, value: string, checked: bool }, event)`
      */
     onFocus?: SwitchFocusHandler
     /**
-     * Called with signature ({ name: string, value: string, checked: bool }, event)
+     * Called with signature `({ name: string, value: string, checked: bool }, event)`
      */
     onKeyDown?: SwitchKeyHandler
 }
