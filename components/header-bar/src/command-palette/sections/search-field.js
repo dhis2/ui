@@ -3,15 +3,14 @@ import { IconSearch16 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { InputField } from '../../../../input/src/input-field/input-field.js'
-import i18n from '../../locales/index.js'
 
-function Search({ value, onChange }) {
+function Search({ value, onChange, placeholder }) {
     return (
         <>
             <InputField
                 value={value}
                 name="filter"
-                placeholder={i18n.t('Search apps, shortcuts, commands')}
+                placeholder={placeholder}
                 onChange={onChange}
                 initialFocus
                 className="search"
@@ -50,6 +49,7 @@ function Search({ value, onChange }) {
 Search.propTypes = {
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
+    placeholder: PropTypes.string,
 }
 
 export default Search

@@ -2,6 +2,7 @@ import { colors, spacers } from '@dhis2/ui-constants'
 import { IconApps24 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React, { useState, useCallback, useRef, useEffect } from 'react'
+import i18n from '../locales/index.js'
 import ActionsMenu from './sections/actions-menu.js'
 import BackButton from './sections/back-button.js'
 import Container from './sections/container.js'
@@ -82,7 +83,21 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
             {show ? (
                 <Container setShow={setShow} show={show}>
                     <div data-test="headerbar-menu" className="headerbar-menu">
-                        <Search value={filter} onChange={handleFilterChange} />
+                        <Search
+                            value={filter}
+                            onChange={handleFilterChange}
+                            placeholder={
+                                currentView === 'home'
+                                    ? i18n.t('Search apps, shortcuts, commands')
+                                    : currentView === 'apps'
+                                    ? i18n.t('Search apps')
+                                    : currentView === 'commands'
+                                    ? i18n.t('Search commands')
+                                    : currentView === 'shortcuts'
+                                    ? i18n.t('Search shortcuts')
+                                    : null
+                            }
+                        />
                         <div className="headerbar-menu-content">
                             {currentView !== 'home' && !filter ? (
                                 <BackButton onClickHandler={goToDefaultView} />
