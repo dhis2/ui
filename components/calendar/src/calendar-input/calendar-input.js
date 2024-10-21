@@ -106,6 +106,7 @@ export const CalendarInput = ({
 
     const onFocus = () => {
         setOpen(true)
+        rest?.onFocus?.()
     }
 
     const languageDirection = useResolvedDirection(dir, locale)

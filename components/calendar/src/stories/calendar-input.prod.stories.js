@@ -131,6 +131,9 @@ export function CalendarWithEditiableInput() {
                         const date = selectedDate?.calendarDateString
                         setDate(date)
                     }}
+                    onFocus={() => {
+                        console.log('focused')
+                    }}
                     width="400px"
                     minDate="2020-07-01"
                     maxDate="2020-07-09"
