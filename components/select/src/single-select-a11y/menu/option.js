@@ -22,6 +22,7 @@ function DefaultStyle({ label, disabled, highlighted }) {
                     color: ${colors.grey900};
                     padding-block: ${spacers.dp8};
                     padding-inline: ${spacers.dp12};
+                    line-height: ${spacers.dp16};
                 }
 
                 span:hover {

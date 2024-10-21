@@ -2,7 +2,7 @@ import { colors, spacers } from '@dhis2/ui-constants'
 import { Input } from '@dhis2-ui/input'
 import PropTypes from 'prop-types'
 import React from 'react'
-import i18n from '../locales/index.js'
+import i18n from '../../locales/index.js'
 
 export function MenuFilter({ value, onChange, dataTest, placeholder, label }) {
     return (

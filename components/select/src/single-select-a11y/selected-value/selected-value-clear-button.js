@@ -2,7 +2,7 @@ import { colors, theme } from '@dhis2/ui-constants'
 import { Tooltip } from '@dhis2-ui/tooltip'
 import PropTypes from 'prop-types'
 import React from 'react'
-import i18n from '../locales/index.js'
+import i18n from '../../locales/index.js'
 
 export const ClearButton = ({ onClear, clearText, dataTest }) => (
     <button

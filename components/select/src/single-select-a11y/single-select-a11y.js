@@ -4,10 +4,10 @@ import { sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useCallback, useRef, useState } from 'react'
-import { Menu } from './menu.js'
-import { SelectedValue } from './selected-value.js'
-import { optionsProp } from './shared-prop-types.js'
-import { useHandleKeyPress } from './use-handle-key-press.js'
+import { Menu } from './menu/index.js'
+import { SelectedValue } from './selected-value/index.js'
+import { optionProp } from './shared-prop-types.js'
+import { useHandleKeyPress } from './use-handle-key-press/index.js'
 
 export function SingleSelectA11y({
     options,
@@ -30,7 +30,7 @@ export function SingleSelectA11y({
     labelledBy = '',
     loading = false,
     menuLoadingText = '',
-    menuMaxHeight = '280px',
+    menuMaxHeight = '288px',
     noMatchText = '',
     placeholder = '',
     prefix = '',
@@ -68,6 +68,7 @@ export function SingleSelectA11y({
 
     // Using `useState` here so components get notified when the value changes (from null -> div)
     const comboBoxRef = useRef()
+    const listBoxRef = useRef()
     const [focussedOptionIndex, setFocussedOptionIndex] = useState(0)
     const [selectRef, setSelectRef] = useState()
     const [expanded, setExpanded] = useState(false)
@@ -105,6 +106,7 @@ export function SingleSelectA11y({
         options,
         openMenu,
         closeMenu,
+        listBoxRef,
         focussedOptionIndex,
         setFocussedOptionIndex,
         selectFocussedOption,
@@ -141,7 +143,6 @@ export function SingleSelectA11y({
                 disabled={disabled}
                 error={error}
                 expanded={expanded}
-                handleKeyPress={handleKeyPress}
                 hasSelection={!!value}
                 idPrefix={idPrefix}
                 labelledBy={labelledBy}
@@ -172,6 +173,7 @@ export function SingleSelectA11y({
                 hidden={!expanded}
                 idPrefix={idPrefix}
                 labelledBy={labelledBy}
+                listBoxRef={listBoxRef}
                 loading={loading}
                 loadingText={menuLoadingText}
                 maxHeight={menuMaxHeight}
@@ -196,7 +198,7 @@ SingleSelectA11y.propTypes = {
     idPrefix: PropTypes.string.isRequired,
 
     /** An array of options **/
-    options: optionsProp.isRequired,
+    options: PropTypes.arrayOf(optionProp).isRequired,
 
     /** As of now, this component does not support being uncontrolled */
     value: PropTypes.string.isRequired,

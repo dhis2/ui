@@ -4,10 +4,10 @@ import { Popper } from '@dhis2-ui/popper'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
+import { optionProp } from '../shared-prop-types.js'
 import { MenuFilter } from './menu-filter.js'
 import { MenuLoading } from './menu-loading.js'
 import { MenuOptionsList } from './menu-options-list.js'
-import { optionsProp } from './shared-prop-types.js'
 
 export function Menu({
     comboBoxId,
@@ -24,6 +24,7 @@ export function Menu({
     filterable,
     hidden,
     labelledBy,
+    listBoxRef,
     loading,
     loadingText,
     maxHeight,
@@ -66,6 +67,7 @@ export function Menu({
             {!options.length && <div className="empty-container">{empty}</div>}
 
             <MenuOptionsList
+                ref={listBoxRef}
                 comboBoxId={comboBoxId}
                 dataTest={`${dataTestPrefix}-list`}
                 disabled={disabled}
@@ -91,6 +93,9 @@ export function Menu({
                     border: 1px solid ${colors.grey200};
                     border-radius: 3px;
                     box-shadow: ${elevations.e300};
+
+                    /* We want the provided height to be exact */
+                    box-sizing: content-box;
                 }
 
                 .hidden {
@@ -125,7 +130,10 @@ Menu.propTypes = {
     comboBoxId: PropTypes.string.isRequired,
     focussedOptionIndex: PropTypes.number.isRequired,
     idPrefix: PropTypes.string.isRequired,
-    options: optionsProp.isRequired,
+    listBoxRef: PropTypes.shape({
+        current: PropTypes.instanceOf(HTMLElement),
+    }).isRequired,
+    options: PropTypes.arrayOf(optionProp).isRequired,
     onChange: PropTypes.func.isRequired,
     dataTest: PropTypes.string,
     disabled: PropTypes.bool,

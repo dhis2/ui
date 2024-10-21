@@ -427,20 +427,35 @@ export const WithOptionsAndLoadingText = () => {
 }
 
 export const WithManyOptions = () => {
-    const [value, setValue] = useState('art_entry_point:_no_pmtct')
+    // const [value, setValue] = useState('art_entry_point:_no_pmtct')
+    const [value, setValue] = useState('10')
+    const selectOptions = Array.apply(null, Array(100)).map((x, i) => i)
 
     return (
-        <SingleSelectA11y
-            idPrefix="a11y"
-            value={value}
-            valueLabel={
-                value
-                    ? options.find((option) => option.value === value).label
-                    : ''
-            }
-            onChange={(nextValue) => setValue(nextValue)}
-            options={options}
-        />
+        <>
+            <SingleSelectA11y
+                idPrefix="a11y"
+                value={value}
+                // valueLabel={
+                //     value
+                //         ? options.find((option) => option.value === value).label
+                //         : ''
+                // }
+                onChange={(nextValue) => setValue(nextValue)}
+                options={selectOptions.map((i) => ({
+                    value: i.toString(),
+                    label: `Select option ${i + 1}`,
+                }))}
+            />
+
+            <select onChange={(e) => console.log('> onChange', e)}>
+                {selectOptions.map((i) => (
+                    <option key={i} value={i}>
+                        Select option {i + 1}
+                    </option>
+                ))}
+            </select>
+        </>
     )
 }
 
