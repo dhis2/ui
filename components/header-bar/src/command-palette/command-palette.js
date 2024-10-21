@@ -6,6 +6,7 @@ import ActionsMenu from './sections/actions-menu.js'
 import BackButton from './sections/back-button.js'
 import Container from './sections/container.js'
 import Search from './sections/search-field.js'
+import { filterItemsArray } from './utils/filterItemsArray.js'
 import BrowseApps from './views/browse-apps.js'
 import BrowseCommands from './views/browse-commands.js'
 import BrowseShortcuts from './views/browse-shortcuts.js'
@@ -14,6 +15,7 @@ import HomeView from './views/home-view.js'
 const MIN_APPS_NUM = 8
 
 const CommandPalette = ({ apps, commands, shortcuts }) => {
+    const containerEl = useRef(null)
     const [show, setShow] = useState(false)
     const [filter, setFilter] = useState('')
 
@@ -29,7 +31,9 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
         setCurrentView('home')
     }
 
-    const containerEl = useRef(null)
+    const filteredApps = filterItemsArray(apps, filter)
+    const filteredCommands = filterItemsArray(commands, filter)
+    const filteredShortcuts = filterItemsArray(shortcuts, filter)
 
     const handleKeyDown = useCallback(
         (event) => {
@@ -85,23 +89,31 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
                             ) : null}
                             {/* switch views */}
                             {currentView === 'apps' && (
-                                <BrowseApps apps={apps} filter={filter} />
+                                <BrowseApps
+                                    apps={filteredApps}
+                                    filter={filter}
+                                />
                             )}
                             {currentView === 'commands' && (
                                 <BrowseCommands
-                                    commands={commands}
+                                    commands={filteredCommands}
                                     filter={filter}
                                     type={'commands'}
                                 />
                             )}
                             {currentView === 'shortcuts' && (
                                 <BrowseShortcuts
-                                    shortcuts={shortcuts}
+                                    shortcuts={filteredShortcuts}
                                     filter={filter}
                                 />
                             )}
                             {currentView === 'home' && (
-                                <HomeView apps={apps} filter={filter} />
+                                <HomeView
+                                    apps={filteredApps}
+                                    commands={filteredCommands}
+                                    shortcuts={filteredShortcuts}
+                                    filter={filter}
+                                />
                             )}
                             {/* actions sections */}
                             {showActions && (

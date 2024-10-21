@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
 import AppItem from '../sections/app-item.js'
 import Heading from '../sections/heading.js'
-import { escapeRegExpCharacters } from '../utils/escapeCharacters.js'
 import SearchResults from './search-results.js'
 
-function HomeView({ apps, filter }) {
+function HomeView({ apps, commands, shortcuts, filter }) {
     const divRef = useRef(null)
     const [activeItem, setActiveItem] = useState(-1)
+    const filteredItems = apps.concat(commands, shortcuts)
 
     const handleKeyDown = (event) => {
         switch (event.key) {
@@ -62,21 +62,11 @@ function HomeView({ apps, filter }) {
             }
         }
     }, [activeItem, apps.length])
-    // filter happens across everything here - apps, commands, shorcuts
-    const filteredApps = apps.filter(({ displayName, name }) => {
-        const appName = displayName || name
-        const formattedAppName = appName.toLowerCase()
-        const formattedFilter = escapeRegExpCharacters(filter).toLowerCase()
-
-        return filter.length > 0
-            ? formattedAppName.match(formattedFilter)
-            : true
-    })
 
     return (
         <div onKeyDown={handleKeyDown} onFocus={handleFocus} tabIndex={-1}>
             {filter.length > 0 && (
-                <SearchResults filter={filter} filteredItems={filteredApps} />
+                <SearchResults filter={filter} filteredItems={filteredItems} />
             )}
             {/* normal view */}
             {filter.length < 1 && (
@@ -87,8 +77,8 @@ function HomeView({ apps, filter }) {
                         ref={divRef}
                         className="headerbar-top-apps"
                     >
-                        {filteredApps.length > 0 &&
-                            filteredApps
+                        {apps.length > 0 &&
+                            apps
                                 .slice(0, 8)
                                 .map(
                                     (
@@ -125,7 +115,9 @@ function HomeView({ apps, filter }) {
 
 HomeView.propTypes = {
     apps: PropTypes.array,
+    commands: PropTypes.array,
     filter: PropTypes.string,
+    shortcuts: PropTypes.array,
 }
 
 export default HomeView
