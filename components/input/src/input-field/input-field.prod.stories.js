@@ -1,5 +1,6 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
-import React from 'react'
+import { IconLocation16, IconSearch16 } from '@dhis2/ui-icons'
+import React, { useState } from 'react'
 import { InputField } from './index.js'
 
 const subtitle = 'Allows a user to enter data, usually text'
@@ -156,3 +157,39 @@ ValueTextOverflow.args = {
 
 export const Required = Template.bind({})
 Required.args = { required: true }
+
+export const InputWithPrefixIcon = (args) => (
+    <>
+        <InputField
+            {...args}
+            name="prefix-icon-input"
+            label="Search"
+            placeholder={'Search'}
+            prefixIcon={<IconSearch16 />}
+        />
+        <InputField
+            {...args}
+            name="prefix-icon-input"
+            label="Location"
+            placeholder={'Enter Location'}
+            prefixIcon={<IconLocation16 />}
+            inputWidth={'200px'}
+        />
+    </>
+)
+
+export const ClearableInput = (args) => {
+    const [value, setValue] = useState('value')
+    return (
+        <InputField
+            {...args}
+            name="clearable-input"
+            label="This field can be cleared"
+            placeholder={''}
+            onChange={(e) => setValue(e.value)}
+            clearable
+            clearText={() => setValue('')}
+            value={value}
+        />
+    )
+}

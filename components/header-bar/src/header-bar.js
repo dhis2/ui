@@ -2,7 +2,7 @@ import { useDataQuery, useConfig } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
-import Apps from './apps.js'
+import CommandPalette from './command-palette/command-palette.js'
 import { HeaderBarContextProvider } from './header-bar-context.js'
 import { joinPath } from './join-path.js'
 import i18n from './locales/index.js'
@@ -55,6 +55,40 @@ export const HeaderBar = ({
         }))
     }, [data, baseUrl])
 
+    const commands = [
+        {
+            description: 'Search for and open a visualisation, chart, or table',
+            displayName: 'Open...',
+            icon: 'https://domain.tld/api/../icons/dhis-web-dashboard.png',
+            name: 'open',
+        },
+        {
+            description: 'Copy debug information to the clipboard',
+            displayName: 'Debug...',
+            icon: 'https://domain.tld/api/../icons/dhis-web-dashboard.png',
+            name: 'debug',
+        },
+        {
+            description: 'Empty system cache',
+            displayName: 'Clear cache...',
+            icon: 'https://domain.tld/api/../icons/dhis-web-dashboard.png',
+            name: 'clear-cache',
+        },
+    ]
+
+    const shortcuts = [
+        {
+            displayName: 'Data elements overview',
+            icon: 'https://domain.tld/api/../icons/dhis-web-dashboard.png',
+            name: 'Data elements overview',
+        },
+        {
+            displayName: 'Data sets',
+            icon: 'https://domain.tld/api/../icons/dhis-web-dashboard.png',
+            name: 'Data sets',
+        },
+    ]
+
     // See https://jira.dhis2.org/browse/LIBS-180
     if (!loading && !error) {
         // TODO: This will run every render which is probably wrong!
@@ -94,7 +128,11 @@ export const HeaderBar = ({
                                 }
                                 userAuthorities={data.user.authorities}
                             />
-                            <Apps apps={apps} />
+                            <CommandPalette
+                                apps={apps}
+                                commands={commands}
+                                shortcuts={shortcuts}
+                            />
 
                             <Profile
                                 name={data.user.name}
