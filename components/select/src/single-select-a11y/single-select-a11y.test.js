@@ -578,4 +578,10 @@ describe('<SingleSelectA11y />', () => {
         expect(onChange).toHaveBeenCalledTimes(1)
         expect(onChange).toHaveBeenCalledWith('foo')
     })
+
+    // @TODO
+    it.skip('should move up an entire page', () => {})
+    it.skip('should move up half a page to the first option', () => {})
+    it.skip('should move down an entire page', () => {})
+    it.skip('should move down half a page to the last option', () => {})
 })
