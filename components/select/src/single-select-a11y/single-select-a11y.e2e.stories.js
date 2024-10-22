@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { SingleSelectA11y } from './single-select-a11y.js'
 
 export default {
@@ -102,7 +102,7 @@ const fiveOptions = options.slice(0, 5)
 export const DefaultPosition = () => (
     <SingleSelectA11y
         idPrefix="a11y"
-        value=""
+        value="anc_1st_visit"
         onChange={() => null}
         options={fiveOptions}
     />
@@ -112,7 +112,7 @@ export const FlippedPosition = () => (
     <>
         <SingleSelectA11y
             idPrefix="a11y"
-            value=""
+            value="anc_1st_visit"
             onChange={() => null}
             options={options}
         />
@@ -136,7 +136,7 @@ export const ShiftedIntoView = () => (
     <>
         <SingleSelectA11y
             idPrefix="a11y"
-            value=""
+            value="anc_1st_visit"
             onChange={() => null}
             options={options}
         />
@@ -155,3 +155,21 @@ export const ShiftedIntoView = () => (
         `}</style>
     </>
 )
+
+const hundretOptions = Array.apply(null, Array(100)).map((x, i) => ({
+    value: `${i}`,
+    label: `Select option ${i}`,
+}))
+
+export const HundretOptions = () => {
+    const [value, setValue] = useState('0')
+
+    return (
+        <SingleSelectA11y
+            idPrefix="a11y"
+            value={value}
+            onChange={setValue}
+            options={hundretOptions}
+        />
+    )
+}
