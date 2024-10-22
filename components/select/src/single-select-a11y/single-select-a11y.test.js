@@ -425,14 +425,13 @@ describe('<SingleSelectA11y />', () => {
         expect(combobox).toContainElement(withTextBar)
     })
 
-    /**************************
+    /***************************
      *                         *
      *  =====================  *
      *  Keyboard interactions  *
      *  =====================  *
      *                         *
      **************************/
-
     describe.each([
         { key: ' ' },
         { key: 'Enter' },
@@ -579,9 +578,163 @@ describe('<SingleSelectA11y />', () => {
         expect(onChange).toHaveBeenCalledWith('foo')
     })
 
-    // @TODO
-    it.skip('should move up an entire page', () => {})
-    it.skip('should move up half a page to the first option', () => {})
-    it.skip('should move down an entire page', () => {})
-    it.skip('should move down half a page to the last option', () => {})
+    it('should highlight the next option', () => {
+        const onChange = jest.fn()
+
+        render(
+            <SingleSelectA11y
+                idPrefix="a11y"
+                value=""
+                onChange={onChange}
+                options={[
+                    { value: '', label: 'None' },
+                    { value: 'foo', label: 'Foo' },
+                    { value: 'bar', label: 'Bar' },
+                ]}
+            />
+        )
+
+        // open the menu
+        expect(screen.queryByRole('listbox')).toBeNull()
+        const comboBox = screen.getByRole('combobox')
+        fireEvent.click(comboBox)
+        expect(screen.queryByRole('listbox')).not.toBeNull()
+
+        // the first option should be highlighted
+        const highlightedOptionBefore = screen.getByRole('option', {
+            selected: true,
+        })
+        expect(
+            highlightedOptionBefore.attributes.getNamedItem('aria-label').value
+        ).toBe('None')
+
+        // The second option should be highlighted
+        fireEvent.keyDown(comboBox, { key: 'ArrowDown' })
+        const highlightedOptionAfter = screen.getByRole('option', {
+            selected: true,
+        })
+        expect(
+            highlightedOptionAfter.attributes.getNamedItem('aria-label').value
+        ).toBe('Foo')
+    })
+
+    it('should highlight the previous option', () => {
+        const onChange = jest.fn()
+
+        render(
+            <SingleSelectA11y
+                idPrefix="a11y"
+                value="bar"
+                onChange={onChange}
+                options={[
+                    { value: '', label: 'None' },
+                    { value: 'foo', label: 'Foo' },
+                    { value: 'bar', label: 'Bar' },
+                ]}
+            />
+        )
+
+        // open the menu
+        expect(screen.queryByRole('listbox')).toBeNull()
+        const comboBox = screen.getByRole('combobox')
+        fireEvent.click(comboBox)
+        expect(screen.queryByRole('listbox')).not.toBeNull()
+
+        // the last option should be highlighted
+        const highlightedOptionBefore = screen.getByRole('option', {
+            selected: true,
+        })
+        expect(
+            highlightedOptionBefore.attributes.getNamedItem('aria-label').value
+        ).toBe('Bar')
+
+        // The second option should be highlighted
+        fireEvent.keyDown(comboBox, { key: 'ArrowUp' })
+        const highlightedOptionAfter = screen.getByRole('option', {
+            selected: true,
+        })
+        expect(
+            highlightedOptionAfter.attributes.getNamedItem('aria-label').value
+        ).toBe('Foo')
+    })
+
+    it('should highlight the first option', () => {
+        const onChange = jest.fn()
+
+        render(
+            <SingleSelectA11y
+                idPrefix="a11y"
+                value="bar"
+                onChange={onChange}
+                options={[
+                    { value: '', label: 'None' },
+                    { value: 'foo', label: 'Foo' },
+                    { value: 'bar', label: 'Bar' },
+                ]}
+            />
+        )
+
+        // open the menu
+        expect(screen.queryByRole('listbox')).toBeNull()
+        const comboBox = screen.getByRole('combobox')
+        fireEvent.click(comboBox)
+        expect(screen.queryByRole('listbox')).not.toBeNull()
+
+        // the last option should be highlighted
+        const highlightedOptionBefore = screen.getByRole('option', {
+            selected: true,
+        })
+        expect(
+            highlightedOptionBefore.attributes.getNamedItem('aria-label').value
+        ).toBe('Bar')
+
+        // The first option should be highlighted
+        fireEvent.keyDown(comboBox, { key: 'Home' })
+        const highlightedOptionAfter = screen.getByRole('option', {
+            selected: true,
+        })
+        expect(
+            highlightedOptionAfter.attributes.getNamedItem('aria-label').value
+        ).toBe('None')
+    })
+
+    it('should highlight the last option', () => {
+        const onChange = jest.fn()
+
+        render(
+            <SingleSelectA11y
+                idPrefix="a11y"
+                value=""
+                onChange={onChange}
+                options={[
+                    { value: '', label: 'None' },
+                    { value: 'foo', label: 'Foo' },
+                    { value: 'bar', label: 'Bar' },
+                ]}
+            />
+        )
+
+        // open the menu
+        expect(screen.queryByRole('listbox')).toBeNull()
+        const comboBox = screen.getByRole('combobox')
+        fireEvent.click(comboBox)
+        expect(screen.queryByRole('listbox')).not.toBeNull()
+
+        // the first option should be highlighted
+        const highlightedOptionBefore = screen.getByRole('option', {
+            selected: true,
+        })
+        expect(
+            highlightedOptionBefore.attributes.getNamedItem('aria-label').value
+        ).toBe('None')
+
+        // The last option should be highlighted
+        fireEvent.keyDown(comboBox, { key: 'End' })
+        const highlightedOptionAfter = screen.getByRole('option', {
+            selected: true,
+        })
+        expect(
+            highlightedOptionAfter.attributes.getNamedItem('aria-label').value
+        ).toBe('Bar')
+    })
 })

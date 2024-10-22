@@ -74,7 +74,7 @@ export function Option({
             data-test={dataTest}
             disabled={disabled}
             role="option"
-            aria-selected={highlighted || ''}
+            aria-selected={highlighted || 'false'}
             aria-disabled={disabled}
             aria-label={label}
             onClick={() => {
