@@ -571,6 +571,7 @@ export const WithRTL = () => {
 
 export const WithPlaceholder = () => {
     const [value, setValue] = useState('')
+    const withoutEmptyOptions = options.slice(1)
 
     return (
         <SingleSelectA11y
@@ -583,7 +584,7 @@ export const WithPlaceholder = () => {
                     : ''
             }
             onChange={(nextValue) => setValue(nextValue)}
-            options={fiveOptions}
+            options={withoutEmptyOptions}
         />
     )
 }
