@@ -1,67 +1,60 @@
 import { useCallback } from 'react'
 import { isOptionHidden } from '../is-option-hidden.js'
+import { useHighlightLastOptionOnNextPage } from './use-highlight-last-option-on-next-page.js'
+import { useHighlightLastVisibleOption } from './use-highlight-last-visible-option.js'
 
-export function usePageUpDown(
-    listBoxRef,
+function usePageDown({
+    options,
     focussedOptionIndex,
-    setFocussedOptionIndex
-) {
-    const pageDown = useCallback(() => {
+    setFocussedOptionIndex,
+    listBoxRef,
+}) {
+    const highlightLastVisibleOption = useHighlightLastVisibleOption({
+        options,
+        focussedOptionIndex,
+        setFocussedOptionIndex,
+    })
+
+    const highlightLastOptionOnNextPage = useHighlightLastOptionOnNextPage({
+        options,
+        focussedOptionIndex,
+        setFocussedOptionIndex,
+        listBoxRef,
+    })
+
+    return useCallback(() => {
         const listBoxParent = listBoxRef.current.parentNode
         const options = Array.from(listBoxRef.current.childNodes)
-        const highestVisibleIndex = options.reduce(
-            (curIndex, option, index) => {
-                if (
-                    // When option is not visible
-                    isOptionHidden(option, listBoxParent) ||
-                    // When option is not the highest-index one so far
-                    index <= curIndex
-                ) {
-                    return curIndex
-                }
-
-                return index
-            },
-            -1
+        const highestVisibleIndex = options.findLastIndex(
+            (option) => !isOptionHidden(option, listBoxParent)
         )
+
+        if (highestVisibleIndex > focussedOptionIndex) {
+            highlightLastVisibleOption(highestVisibleIndex)
+            return
+        }
+
+        if (highestVisibleIndex > -1) {
+            highlightLastOptionOnNextPage(listBoxParent)
+            return
+        }
 
         // No visible option (e.g. when menu is empty)
-        if (highestVisibleIndex === -1) {
-            return
-        }
+        return
+    }, [
+        focussedOptionIndex,
+        listBoxRef,
+        highlightLastVisibleOption,
+        highlightLastOptionOnNextPage,
+    ])
+}
 
-        // Highlight last visible option
-        if (highestVisibleIndex > focussedOptionIndex) {
-            setFocussedOptionIndex(highestVisibleIndex)
-            return
-        }
-
-        const visibleOptionsAmount = options.filter(
-            (option) => !isOptionHidden(option, listBoxParent)
-        ).length
-
-        const nextHighlightedOptionIndex = Math.min(
-            options.length - 1,
-            focussedOptionIndex + visibleOptionsAmount
-        )
-
-        // If there's no next option and we already have the last option in the list highlighted
-        if (!options[nextHighlightedOptionIndex]) {
-            return
-        }
-
-        const nextTopOptionIndex = Math.min(
-            options.length - 1,
-            focussedOptionIndex + 1
-        )
-
-        const nextTopOption = options[nextTopOptionIndex]
-        const scrollPosition = nextTopOption.offsetTop
-        listBoxParent.scrollTop = scrollPosition
-        setFocussedOptionIndex(nextHighlightedOptionIndex)
-    }, [focussedOptionIndex, setFocussedOptionIndex, listBoxRef])
-
-    const pageUp = useCallback(() => {
+function usePageUp({
+    listBoxRef,
+    focussedOptionIndex,
+    setFocussedOptionIndex,
+}) {
+    return useCallback(() => {
         const listBoxParent = listBoxRef.current.parentNode
         const options = Array.from(listBoxRef.current.childNodes)
         const lowestVisibleIndex = options.findIndex(
@@ -98,6 +91,27 @@ export function usePageUpDown(
         listBoxParent.scrollTop = scrollPosition
         setFocussedOptionIndex(nextTopOptionIndex)
     }, [focussedOptionIndex, setFocussedOptionIndex, listBoxRef])
+}
+
+export function usePageUpDown({
+    options,
+    listBoxRef,
+    focussedOptionIndex,
+    setFocussedOptionIndex,
+}) {
+    const pageDown = usePageDown({
+        options,
+        focussedOptionIndex,
+        setFocussedOptionIndex,
+        listBoxRef,
+    })
+
+    const pageUp = usePageUp({
+        options,
+        listBoxRef,
+        focussedOptionIndex,
+        setFocussedOptionIndex,
+    })
 
     return { pageDown, pageUp }
 }

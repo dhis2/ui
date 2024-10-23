@@ -156,13 +156,14 @@ export const ShiftedIntoView = () => (
     </>
 )
 
-const hundretOptions = Array.apply(null, Array(100)).map((x, i) => ({
-    value: `${i}`,
-    label: `Select option ${i}`,
-}))
-
 export const HundretOptions = () => {
     const [value, setValue] = useState('0')
+    const [hundretOptions] = useState(
+        Array.apply(null, Array(100)).map((x, i) => ({
+            value: `${i}`,
+            label: `Select option ${i}`,
+        }))
+    )
 
     return (
         <SingleSelectA11y
@@ -171,5 +172,58 @@ export const HundretOptions = () => {
             onChange={setValue}
             options={hundretOptions}
         />
+    )
+}
+
+export const HundretOptionsWithDisabled = () => {
+    const [value, setValue] = useState('0')
+    const [hundretOptions] = useState(
+        Array.apply(null, Array(100)).map((x, i) => ({
+            value: `${i}`,
+            label: `Select option ${i}`,
+            disabled: i === 17 || i === 18,
+        }))
+    )
+
+    return (
+        <SingleSelectA11y
+            idPrefix="a11y"
+            value={value}
+            onChange={setValue}
+            options={hundretOptions}
+        />
+    )
+}
+
+export const NativeSelect = () => {
+    const [value, setValue] = useState('0')
+    const [hundretOptions] = useState(
+        Array.apply(null, Array(100)).map((x, i) => ({
+            value: `${i}`,
+            label: `Select option ${i}`,
+            disabled: i > 19,
+        }))
+    )
+
+    return (
+        <>
+            <select value={value} onChange={(e) => setValue(e.target.value)}>
+                {hundretOptions.map((option) => (
+                    <option
+                        key={option.value}
+                        value={option.value}
+                        disabled={option.disabled}
+                    >
+                        {option.label}
+                    </option>
+                ))}
+            </select>
+
+            <style jsx>{`
+                option:disabled {
+                    color: grey;
+                }
+            `}</style>
+        </>
     )
 }

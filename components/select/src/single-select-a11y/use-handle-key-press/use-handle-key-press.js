@@ -21,11 +21,12 @@ export function useHandleKeyPress({
         onChange,
     })
 
-    const { pageDown, pageUp } = usePageUpDown(
+    const { pageDown, pageUp } = usePageUpDown({
+        options,
         listBoxRef,
         focussedOptionIndex,
-        setFocussedOptionIndex
-    )
+        setFocussedOptionIndex,
+    })
 
     const selectNextOption = useCallback(() => {
         const currentOptionIndex = options.findIndex(
