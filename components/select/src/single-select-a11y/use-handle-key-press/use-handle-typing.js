@@ -8,11 +8,11 @@ export function useHandleTyping({
     setFocussedOptionIndex,
     onChange,
 }) {
-    const timeoutRef = useRef()
     const [value, setValue] = useState('')
     const [typing, setTyping] = useState(false)
 
     // This will reset the typed value after a given time
+    const timeoutRef = useRef()
     useEffect(() => {
         if (timeoutRef.current) {
             clearTimeout(timeoutRef.current)
@@ -32,14 +32,18 @@ export function useHandleTyping({
         value,
     ])
 
+    // This will focus the first option with a label starting with the typed sequence
     const prevValueRef = useRef()
     useEffect(() => {
         if (value && value !== prevValueRef.current) {
             // We only want to do this when the value changed
             prevValueRef.current = value
 
-            const optionIndex = options.findIndex((option) =>
-                option.label.toLowerCase().startsWith(value.toLowerCase())
+            const optionIndex = options.findIndex(
+                (option) =>
+                    option.label
+                        .toLowerCase()
+                        .startsWith(value.toLowerCase()) && !option.disabled
             )
 
             if (optionIndex !== -1) {
