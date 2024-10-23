@@ -1,6 +1,7 @@
 import { useCallback } from 'react'
 import { useHandleTyping } from './use-handle-typing.js'
-import { usePageUpDown } from './use-page-up-down.js'
+import { usePageDown } from './use-page-down.js'
+import { usePageUp } from './use-page-up.js'
 
 export function useHandleKeyPress({
     value,
@@ -21,7 +22,14 @@ export function useHandleKeyPress({
         onChange,
     })
 
-    const { pageDown, pageUp } = usePageUpDown({
+    const pageDown = usePageDown({
+        options,
+        focussedOptionIndex,
+        setFocussedOptionIndex,
+        listBoxRef,
+    })
+
+    const pageUp = usePageUp({
         options,
         listBoxRef,
         focussedOptionIndex,

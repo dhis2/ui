@@ -176,12 +176,12 @@ export const HundretOptions = () => {
 }
 
 export const HundretOptionsWithDisabled = () => {
-    const [value, setValue] = useState('0')
+    const [value, setValue] = useState('10')
     const [hundretOptions] = useState(
         Array.apply(null, Array(100)).map((x, i) => ({
             value: `${i}`,
             label: `Select option ${i}`,
-            disabled: i === 17 || i === 18,
+            disabled: i === 1 || i === 17 || i === 18,
         }))
     )
 
