@@ -129,7 +129,7 @@ const customDataWithUserGroupAccesses = {
                 {
                     id: 'user-1',
                     name: 'Kvist',
-                    access: 'rw------',
+                    access: 'rwr-----',
                 },
             ],
             userGroupAccesses: [

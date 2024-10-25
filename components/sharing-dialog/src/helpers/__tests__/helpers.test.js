@@ -6,21 +6,21 @@ import {
     SHARE_TARGET_PUBLIC,
 } from '../../constants.js'
 import {
-    convertAccessToConstant,
-    convertConstantToAccess,
+    convertAccessToConstantObject,
+    convertConstantObjectToAccess,
     isRemovableTarget,
 } from '../helpers.js'
 
 describe('helpers', () => {
-    describe('convertAccessToConstant', () => {
+    describe('convertAccessToConstantObject', () => {
         it('disallows access if the access string is undefined', () => {
-            expect(convertAccessToConstant()).toEqual(ACCESS_NONE)
+            expect(convertAccessToConstantObject()).toEqual(ACCESS_NONE)
         })
 
         it('disallows access if the access string is invalid', () => {
-            expect(convertAccessToConstant('invalid-access-string')).toEqual(
-                ACCESS_NONE
-            )
+            expect(
+                convertAccessToConstantObject('invalid-access-string')
+            ).toEqual(ACCESS_NONE)
         })
 
         const cases = [
@@ -34,17 +34,19 @@ describe('helpers', () => {
         it.each(cases)(
             'parses the metadata portion of the access string correctly for %s',
             (accessString, accessConstant) => {
-                expect(convertAccessToConstant(accessString)).toEqual(
+                expect(convertAccessToConstantObject(accessString)).toEqual(
                     accessConstant
                 )
             }
         )
     })
 
-    describe('convertConstantToAccess', () => {
+    describe('convertConstantObjectToAccess', () => {
         it('returns the default access string if the access constant is not recognised', () => {
             const expected = '--------'
-            expect(convertConstantToAccess('NOT_RECOGNISED')).toEqual(expected)
+            expect(convertConstantObjectToAccess('NOT_RECOGNISED')).toEqual(
+                expected
+            )
         })
 
         const cases = [
@@ -56,7 +58,7 @@ describe('helpers', () => {
         it.each(cases)(
             'returns the correct metadata access string for %s',
             (accessConstant, accessString) => {
-                expect(convertConstantToAccess(accessConstant)).toEqual(
+                expect(convertConstantObjectToAccess(accessConstant)).toEqual(
                     accessString
                 )
             }
@@ -65,9 +67,9 @@ describe('helpers', () => {
         it.each(cases)(
             'returns the correct boolean value for %s',
             (accessConstant, accessString, accessBoolean) => {
-                expect(convertConstantToAccess(accessConstant, true)).toEqual(
-                    accessBoolean
-                )
+                expect(
+                    convertConstantObjectToAccess(accessConstant, true)
+                ).toEqual(accessBoolean)
             }
         )
     })

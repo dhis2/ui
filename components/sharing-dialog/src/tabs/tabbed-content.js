@@ -23,6 +23,7 @@ export const TabbedContent = ({
     onAdd,
     onChange,
     onRemove,
+    dataSharing,
 }) => {
     const [activeTabIndex, setActiveTabIndex] = useState(0)
 
@@ -46,7 +47,10 @@ export const TabbedContent = ({
                 <div>
                     {activeTabIndex === 0 && (
                         <>
-                            <AccessAdd onAdd={onAdd} />
+                            <AccessAdd
+                                onAdd={onAdd}
+                                dataSharing={dataSharing}
+                            />
                             <AccessList
                                 users={users}
                                 groups={groups}
@@ -54,6 +58,7 @@ export const TabbedContent = ({
                                 allowPublicAccess={allowPublicAccess}
                                 onChange={onChange}
                                 onRemove={onRemove}
+                                dataSharing={dataSharing}
                             />
                         </>
                     )}
@@ -85,6 +90,7 @@ export const TabbedContent = ({
 
 TabbedContent.propTypes = {
     allowPublicAccess: PropTypes.bool.isRequired,
+    dataSharing: PropTypes.bool.isRequired,
     groups: PropTypes.arrayOf(
         PropTypes.shape({
             access: PropTypes.oneOf([

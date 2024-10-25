@@ -9,7 +9,7 @@ import {
 } from './constants.js'
 import { FetchingContext } from './fetching-context/index.js'
 import {
-    convertAccessToConstant,
+    convertAccessToConstantObject,
     replaceAccessWithConstant,
     createOnChangePayload,
     createOnAddPayload,
@@ -42,7 +42,7 @@ const emptyFunction = () => {}
 const defaultInitialSharingSettings = {
     name: '',
     allowPublic: true,
-    public: ACCESS_NONE,
+    public: { data: ACCESS_NONE, metadata: ACCESS_NONE },
     groups: {},
     users: {},
 }
@@ -54,6 +54,7 @@ export const SharingDialog = ({
     onSave = emptyFunction,
     initialSharingSettings = defaultInitialSharingSettings,
     dataTest = 'dhis2-uicore-sharingdialog',
+    dataSharing = false,
 }) => {
     const { show: showError } = useAlert((error) => error, { critical: true })
 
@@ -125,7 +126,7 @@ export const SharingDialog = ({
     }
 
     const { object, meta } = data.sharing
-    const publicAccess = convertAccessToConstant(object.publicAccess)
+    const publicAccess = convertAccessToConstantObject(object.publicAccess)
     const users = object.userAccesses.map(replaceAccessWithConstant)
     const groups = object.userGroupAccesses.map(replaceAccessWithConstant)
 
@@ -180,6 +181,7 @@ export const SharingDialog = ({
                     onAdd={onAdd}
                     onChange={onChange}
                     onRemove={onRemove}
+                    dataSharing={dataSharing}
                 />
             </Modal>
         </FetchingContext.Provider>
@@ -191,6 +193,8 @@ SharingDialog.propTypes = {
     id: PropTypes.string.isRequired,
     /** The type of object to share */
     type: PropTypes.oneOf(DIALOG_TYPES_LIST).isRequired,
+    /** Whether to expose the ability to set data sharing (in addition to metadata sharing) */
+    dataSharing: PropTypes.bool,
     dataTest: PropTypes.string,
     /** Used to seed the component with data to show whilst loading */
     initialSharingSettings: PropTypes.shape({

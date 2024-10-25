@@ -20,7 +20,7 @@ import { SharingDialog } from '@dhis2/ui'
 |initialSharingSettings|{<br/>  "allowPublic": "boolean",<br/>  "groups": "objectOf",<br/>  "name": "string",<br/>  "public": "import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    DIALOG_TYPES_LIST,\n} from './constants.js' │ import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    DIALOG_TYPES_LIST,\n} from './constants.js' │ import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    DIALOG_TYPES_LIST,\n} from './constants.js'",<br/>  "users": "objectOf"<br/>}|`{
     name: '',
     allowPublic: true,
-    public: ACCESS_NONE,
+    public: { data: ACCESS_NONE, metadata: ACCESS_NONE },
     groups: {},
     users: {},
 }`||Used to seed the component with data to show whilst loading|

@@ -8,26 +8,24 @@ import {
 } from '../constants.js'
 import i18n from '../locales/index.js'
 
-export const ListItemContext = ({ access }) => {
-    let message
+const MESSAGE_MAP = {
+    [ACCESS_NONE]: i18n.t('No access'),
+    [ACCESS_VIEW_ONLY]: i18n.t('Can view'),
+    [ACCESS_VIEW_AND_EDIT]: i18n.t('Can view and edit'),
+}
 
-    switch (access) {
-        case ACCESS_NONE:
-            message = i18n.t('No access')
-            break
-        case ACCESS_VIEW_ONLY:
-            message = i18n.t('Can view')
-            break
-        case ACCESS_VIEW_AND_EDIT:
-            message = i18n.t('Can view and edit')
-            break
-        default:
-            message = ''
-    }
+export const ListItemContext = ({ access }) => {
+    const metadataMessage = i18n.t('Metadata: {{metadataAccessDescription}}', {
+        metadataAccessDescription: MESSAGE_MAP[access.metadata],
+    })
+    const dataMessage = i18n.t('Data: {{dataAccessDescription}}', {
+        dataAccessDescription: MESSAGE_MAP[access.data],
+    })
 
     return (
-        <p>
-            {message}
+        <>
+            <p>{metadataMessage}</p>
+            <span>{dataMessage}</span>
             <style jsx>{`
                 p {
                     font-size: 14px;
@@ -35,8 +33,14 @@ export const ListItemContext = ({ access }) => {
                     margin: 6px 0 0 0;
                     padding: 0;
                 }
+                span {
+                    display: block;
+                    font-size: 14px;
+                    color: ${colors.grey700};
+                    padding: 0;
+                }
             `}</style>
-        </p>
+        </>
     )
 }
 

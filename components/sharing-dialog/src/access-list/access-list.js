@@ -20,98 +20,112 @@ export const AccessList = ({
     allowPublicAccess,
     users,
     groups,
-}) => (
-    <>
-        <Title>{i18n.t('Users and groups that currently have access')}</Title>
-        <div className="header">
-            <div className="header-left-column">{i18n.t('User / Group')}</div>
-            <div className="header-right-column">{i18n.t('Access level')}</div>
-        </div>
-        <div className="list">
-            <ListItem
-                name={i18n.t('All users')}
-                target={SHARE_TARGET_PUBLIC}
-                access={publicAccess}
-                accessOptions={[
-                    ACCESS_NONE,
-                    ACCESS_VIEW_ONLY,
-                    ACCESS_VIEW_AND_EDIT,
-                ]}
-                disabled={!allowPublicAccess}
-                onChange={(newAccess) =>
-                    onChange({ type: 'public', access: newAccess })
-                }
-            />
-            {groups.map(({ id, name, access }) => (
+    dataSharing,
+}) => {
+    const accessOptions = [ACCESS_NONE, ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT]
+    return (
+        <>
+            <Title>
+                {i18n.t('Users and groups that currently have access')}
+            </Title>
+            <div className="header">
+                <div className="header-left-column">
+                    {i18n.t('User / Group')}
+                </div>
+                <div className="header-right-column">
+                    <span className="hea">{i18n.t('Access level')}</span>
+                </div>
+            </div>
+            <div className="list">
                 <ListItem
-                    key={id}
-                    name={name}
-                    target={SHARE_TARGET_GROUP}
-                    access={access}
-                    accessOptions={[ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT]}
+                    name={i18n.t('All users')}
+                    target={SHARE_TARGET_PUBLIC}
+                    access={publicAccess}
+                    accessOptions={accessOptions}
+                    disabled={!allowPublicAccess}
                     onChange={(newAccess) =>
-                        onChange({
-                            type: 'group',
-                            id,
-                            access: newAccess,
-                        })
+                        onChange({ type: 'public', access: newAccess })
                     }
-                    onRemove={() => onRemove({ type: 'group', id })}
+                    dataSharing={dataSharing}
+                    allUsersItem={true}
                 />
-            ))}
-            {users.map(
-                ({ id, name, access }) =>
-                    access && (
-                        <ListItem
-                            key={id}
-                            name={name}
-                            target={SHARE_TARGET_USER}
-                            access={access}
-                            accessOptions={[
-                                ACCESS_VIEW_ONLY,
-                                ACCESS_VIEW_AND_EDIT,
-                            ]}
-                            onChange={(newAccess) =>
-                                onChange({
-                                    type: 'user',
-                                    id,
-                                    access: newAccess,
-                                })
-                            }
-                            onRemove={() => onRemove({ type: 'user', id })}
-                        />
-                    )
-            )}
-        </div>
-        <style jsx>{`
-            .header {
-                display: flex;
-                padding: 10px 8px;
-                margin: 0 0 8px 0;
-                background-color: ${colors.grey200};
-                color: ${colors.grey900};
-                font-size: 13px;
-            }
+                {groups.map(({ id, name, access }) => (
+                    <ListItem
+                        key={id}
+                        name={name}
+                        target={SHARE_TARGET_GROUP}
+                        access={access}
+                        accessOptions={accessOptions}
+                        onChange={(newAccess) =>
+                            onChange({
+                                type: 'group',
+                                id,
+                                access: newAccess,
+                            })
+                        }
+                        onRemove={() => onRemove({ type: 'group', id })}
+                        dataSharing={dataSharing}
+                    />
+                ))}
+                {users.map(
+                    ({ id, name, access }) =>
+                        access && (
+                            <ListItem
+                                key={id}
+                                name={name}
+                                target={SHARE_TARGET_USER}
+                                access={access}
+                                accessOptions={accessOptions}
+                                onChange={(newAccess) =>
+                                    onChange({
+                                        type: 'user',
+                                        id,
+                                        access: newAccess,
+                                    })
+                                }
+                                onRemove={() => onRemove({ type: 'user', id })}
+                                dataSharing={dataSharing}
+                            />
+                        )
+                )}
+            </div>
+            <style jsx>{`
+                .header {
+                    display: flex;
+                    padding: 10px 8px;
+                    margin: 0 0 8px 0;
+                    background-color: ${colors.grey200};
+                    color: ${colors.grey900};
+                    font-size: 13px;
+                }
 
-            .header-left-column {
-                flex: 2;
-            }
+                .header-left-column {
+                    width: 35%;
+                }
 
-            .header-right-column {
-                flex: 1;
-            }
+                .header-right-column {
+                    margin-inline-start: auto;
+                    width: 65%;
+                }
 
-            .list {
-                display: flex;
-                flex-direction: column;
-                overflow-y: auto;
-            }
-        `}</style>
-    </>
-)
+                .hea {
+                    display: inline-block;
+                    margin-inline-start: 8px;
+                }
+
+                .list {
+                    display: flex;
+                    flex-direction: column;
+                    overflow-y: auto;
+                }
+            `}</style>
+        </>
+    )
+}
 
 AccessList.propTypes = {
     allowPublicAccess: PropTypes.bool.isRequired,
+    dataSharing: PropTypes.bool.isRequired,
     groups: PropTypes.arrayOf(
         PropTypes.shape({
             access: PropTypes.oneOf([
