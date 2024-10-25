@@ -57,27 +57,47 @@ export const CalendarInput = ({
         [calendar, locale, numberingSystem, weekDayFormat]
     )
 
+    const onChooseDate = (date, validationOptions) => {
+        // Handling clearing (with clicking the Clear button, or deleting input)
+        if (clearable && (date === null || date === '')) {
+            parentOnDateSelect?.({
+                calendarDateString: null,
+                validation: { valid: true },
+            })
+            return
+        }
+
+        // ToDo: This is now a workaround for handling choosing from the date picker
+        // where the blur event gets triggered causing a call with undefined first
+        if (date === undefined) {
+            return
+        }
+
+        const validation = validateDateString(date, validationOptions)
+        parentOnDateSelect?.({
+            calendarDateString: date,
+            validation,
+        })
+    }
+
+    const validationOptions = useMemo(
+        () => ({
+            calendar,
+            format,
+            minDateString: minDate,
+            maxDateString: maxDate,
+            strictValidation,
+        }),
+        [calendar, format, maxDate, minDate, strictValidation]
+    )
+
     const pickerResults = useDatePicker({
         onDateSelect: (result) => {
-            const validation = validateDateString(result.calendarDateString, {
-                calendar,
-                format,
-                minDateString: minDate,
-                maxDateString: maxDate,
-                strictValidation,
-            })
-
+            onChooseDate(result.calendarDateString, validationOptions)
             setOpen(false)
-            parentOnDateSelect?.({
-                calendarDateString: result.calendarDateString,
-                validation,
-            })
         },
         date,
-        minDate: minDate,
-        maxDate: maxDate,
-        strictValidation: strictValidation,
-        format: format,
+        ...validationOptions,
         options: useDatePickerOptions,
     })
 
@@ -87,15 +107,7 @@ export const CalendarInput = ({
     }
 
     const handleBlur = (_, e) => {
-        const validation = validateDateString(partialDate, {
-            calendar,
-            format,
-            minDateString: minDate,
-            maxDateString: maxDate,
-            strictValidation,
-        })
-        parentOnDateSelect?.({ calendarDateString: partialDate, validation })
-
+        onChooseDate(partialDate, validationOptions)
         if (
             excludeRef.current &&
             !excludeRef.current.contains(e.relatedTarget)
@@ -158,7 +170,7 @@ export const CalendarInput = ({
                             secondary
                             small
                             onClick={() => {
-                                parentOnDateSelect?.(null)
+                                onChooseDate(null)
                             }}
                             type="button"
                         >
