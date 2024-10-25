@@ -3,7 +3,7 @@ import { Layer } from '@dhis2-ui/layer'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const Container = ({ children, setShow, show }) => {
+const ModalContainer = ({ children, setShow, show }) => {
     return (
         <Layer onBackdropClick={() => setShow(false)} translucent={show}>
             <div role="dialog" aria-modal="true">
@@ -28,10 +28,10 @@ const Container = ({ children, setShow, show }) => {
     )
 }
 
-Container.propTypes = {
+ModalContainer.propTypes = {
     children: PropTypes.node,
     setShow: PropTypes.func,
     show: PropTypes.bool,
 }
 
-export default Container
+export default ModalContainer

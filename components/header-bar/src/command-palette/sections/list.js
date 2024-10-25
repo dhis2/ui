@@ -31,12 +31,7 @@ function List({ filteredItems, type }) {
     }, [activeItem, filteredItems])
 
     return (
-        <div
-            data-test="headerbar-apps-menu-list"
-            onKeyDown={handleKeyDown}
-            ref={divRef}
-            tabIndex={-1}
-        >
+        <div data-test="headerbar-list" onKeyDown={handleKeyDown} ref={divRef}>
             {filteredItems.map(
                 (
                     { displayName, name, defaultAction, icon, description },
@@ -49,6 +44,7 @@ function List({ filteredItems, type }) {
                         href={defaultAction}
                         image={icon}
                         description={description}
+                        highlighted={activeItem === idx}
                     />
                 )
             )}

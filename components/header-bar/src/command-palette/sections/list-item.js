@@ -1,4 +1,5 @@
 import { colors, spacers } from '@dhis2/ui-constants'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -10,13 +11,16 @@ function ListItem({
     description,
     type,
     onClickHandler,
+    highlighted,
+    dataTest = 'headerbar-list-item',
 }) {
     const showDescription = type === 'commands'
     return (
         <a
             href={path ? path : undefined}
             onClick={onClickHandler}
-            className="item"
+            className={cx('item', { highlighted })}
+            data-test={dataTest}
         >
             <div className="icon">
                 {icon && <span className="icon-content">{icon}</span>}
@@ -47,7 +51,7 @@ function ListItem({
                 .item:last-of-type {
                     margin-bottom: ${spacers.dp4};
                 }
-                .item:hover, .item:focus {
+                .item:hover, .highlighted {
                     background: ${colors.grey200};
                     cursor: pointer;
                     outline: none;
@@ -94,7 +98,9 @@ function ListItem({
 }
 
 ListItem.propTypes = {
+    dataTest: PropTypes.string,
     description: PropTypes.string,
+    highlighted: PropTypes.bool,
     icon: PropTypes.node,
     image: PropTypes.string,
     path: PropTypes.string,

@@ -58,20 +58,20 @@ export const HeaderBar = ({
     const commands = [
         {
             description: 'Search for and open a visualisation, chart, or table',
-            displayName: 'Open...',
-            icon: 'https://domain.tld/api/../icons/dhis-web-dashboard.png',
+            displayName: 'Open',
+            icon: 'https://domain.tld/api/../icons/open.png',
             name: 'open',
         },
         {
             description: 'Copy debug information to the clipboard',
-            displayName: 'Debug...',
-            icon: 'https://domain.tld/api/../icons/dhis-web-dashboard.png',
+            displayName: 'Debug',
+            icon: 'https://domain.tld/api/../icons/debug.png',
             name: 'debug',
         },
         {
             description: 'Empty system cache',
-            displayName: 'Clear cache...',
-            icon: 'https://domain.tld/api/../icons/dhis-web-dashboard.png',
+            displayName: 'Clear cache',
+            icon: 'https://domain.tld/api/../icons/clear-cache.png',
             name: 'clear-cache',
         },
     ]

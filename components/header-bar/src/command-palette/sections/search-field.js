@@ -17,6 +17,7 @@ function Search({ value, onChange, placeholder }) {
                 autoComplete={'off'}
                 prefixIcon={<IconSearch16 />}
                 clearable
+                dataTest="headerbar-search"
             />
             <style>{`
                 .search {

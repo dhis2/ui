@@ -21,13 +21,18 @@ const ActionsMenu = ({
 }) => {
     const { baseUrl } = useConfig()
     return (
-        <div role="menu" className="actions-menu" tabIndex={-1}>
+        <div
+            role="menu"
+            className="actions-menu"
+            data-test="headerbar-actions-menu"
+        >
             <Heading heading={'Actions'} />
             {showAppsList ? (
                 <ListItem
                     title={i18n.t('Browse apps')}
                     icon={<IconApps16 color={colors.grey700} />}
                     onClickHandler={() => setCurrentView('apps')}
+                    dataTest="headerbar-browse-apps"
                 />
             ) : null}
             {showCommandsList ? (
@@ -35,6 +40,7 @@ const ActionsMenu = ({
                     title={i18n.t('Browse commands')}
                     icon={<IconTerminalWindow16 color={colors.grey700} />}
                     onClickHandler={() => setCurrentView('commands')}
+                    dataTest="headerbar-browse-commands"
                 />
             ) : null}
             {showShortcutsList ? (
@@ -42,6 +48,7 @@ const ActionsMenu = ({
                     title={i18n.t('Browse shortcuts')}
                     icon={<IconRedo16 color={colors.grey700} />}
                     onClickHandler={() => setCurrentView('shortcuts')}
+                    dataTest="headerbar-browse-shortcuts"
                 />
             ) : null}
             <ListItem
@@ -60,6 +67,7 @@ const ActionsMenu = ({
                     baseUrl,
                     'dhis-web-commons-security/logout.action'
                 )}
+                dataTest="headerbar-logout"
             />
         </div>
     )

@@ -64,40 +64,34 @@ function HomeView({ apps, commands, shortcuts, filter }) {
     }, [activeItem, apps.length])
 
     return (
-        <div onKeyDown={handleKeyDown} onFocus={handleFocus} tabIndex={-1}>
+        <div onKeyDown={handleKeyDown} onFocus={handleFocus}>
             {filter.length > 0 && (
                 <SearchResults filter={filter} filteredItems={filteredItems} />
             )}
             {/* normal view */}
-            {filter.length < 1 && (
+            {filter.length < 1 && apps.length > 0 && (
                 <>
                     <Heading heading={'Top apps'} />
                     <div
-                        data-test="headerbar-apps-menu-list"
+                        data-test="headerbar-top-apps-list"
                         ref={divRef}
                         className="headerbar-top-apps"
                     >
-                        {apps.length > 0 &&
-                            apps
-                                .slice(0, 8)
-                                .map(
-                                    (
-                                        {
-                                            displayName,
-                                            name,
-                                            defaultAction,
-                                            icon,
-                                        },
-                                        idx
-                                    ) => (
-                                        <AppItem
-                                            key={`app-${name}-${idx}`}
-                                            name={displayName || name}
-                                            path={defaultAction}
-                                            img={icon}
-                                        />
-                                    )
-                                )}
+                        {apps
+                            .slice(0, 8)
+                            .map(
+                                (
+                                    { displayName, name, defaultAction, icon },
+                                    idx
+                                ) => (
+                                    <AppItem
+                                        key={`app-${name}-${idx}`}
+                                        name={displayName || name}
+                                        path={defaultAction}
+                                        img={icon}
+                                    />
+                                )
+                            )}
 
                         <style jsx>{`
                             .headerbar-top-apps {

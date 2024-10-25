@@ -5,7 +5,7 @@ import React, { useState, useCallback, useRef, useEffect } from 'react'
 import i18n from '../locales/index.js'
 import ActionsMenu from './sections/actions-menu.js'
 import BackButton from './sections/back-button.js'
-import Container from './sections/container.js'
+import ModalContainer from './sections/container.js'
 import Search from './sections/search-field.js'
 import { filterItemsArray } from './utils/filterItemsArray.js'
 import BrowseApps from './views/browse-apps.js'
@@ -81,7 +81,7 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
                 <IconApps24 color={colors.white} />
             </button>
             {show ? (
-                <Container setShow={setShow} show={show}>
+                <ModalContainer setShow={setShow} show={show}>
                     <div data-test="headerbar-menu" className="headerbar-menu">
                         <Search
                             value={filter}
@@ -141,7 +141,7 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
                             )}
                         </div>
                     </div>
-                </Container>
+                </ModalContainer>
             ) : null}
 
             <style jsx>{`

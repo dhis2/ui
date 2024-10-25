@@ -9,12 +9,15 @@ function SearchResults({ filter, filteredItems }) {
     return (
         <>
             {filteredItems.length > 0 ? (
-                <>
+                <div data-test="headerbar-search-results">
                     <Heading heading={i18n.t(`Results for "${filter}"`)} />
                     <List filteredItems={filteredItems} />
-                </>
+                </div>
             ) : (
-                <div className="empty-results">
+                <div
+                    className="empty-results"
+                    data-test="headerbar-empty-search"
+                >
                     <Heading
                         heading={i18n.t(`Nothing found for "${filter}"`)}
                     />
