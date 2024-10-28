@@ -465,6 +465,35 @@ describe('<SingleSelectA11y />', () => {
         { key: 'Enter' },
         { key: 'ArrowDown', altKey: true },
         { key: 'ArrowUp', altKey: true },
+    ])('disabled & $key ($altKey)', (keyDownOptions) => {
+        test('not open the menu', () => {
+            const onChange = jest.fn()
+
+            render(
+                <SingleSelectA11y
+                    disabled
+                    idPrefix="a11y"
+                    value=""
+                    onChange={onChange}
+                    options={[
+                        { value: '', label: 'None' },
+                        { value: 'foo', label: 'Foo' },
+                        { value: 'bar', label: 'Bar' },
+                    ]}
+                />
+            )
+
+            fireEvent.keyDown(screen.getByRole('combobox'), keyDownOptions)
+            expect(screen.queryByRole('listbox')).toBeNull()
+            expect(onChange).not.toHaveBeenCalled()
+        })
+    })
+
+    describe.each([
+        { key: ' ' },
+        { key: 'Enter' },
+        { key: 'ArrowDown', altKey: true },
+        { key: 'ArrowUp', altKey: true },
     ])('$key ($altKey)', (keyDownOptions) => {
         test('close the menu', () => {
             const onChange = jest.fn()
@@ -553,6 +582,56 @@ describe('<SingleSelectA11y />', () => {
         expect(onChange).toHaveBeenCalledWith('foo')
     })
 
+    it('should not select the next option when closed, disabled and user presses ArrowDown', () => {
+        const onChange = jest.fn()
+
+        render(
+            <SingleSelectA11y
+                disabled
+                idPrefix="a11y"
+                value=""
+                onChange={onChange}
+                options={[
+                    { value: '', label: 'None' },
+                    { value: 'foo', label: 'Foo' },
+                    { value: 'bar', label: 'Bar' },
+                ]}
+            />
+        )
+
+        expect(screen.queryByRole('listbox')).toBeNull()
+
+        // highlighting the next option
+        fireEvent.keyDown(screen.getByRole('combobox'), { key: 'ArrowDown' })
+        expect(screen.queryByRole('listbox')).toBeNull()
+        expect(onChange).toHaveBeenCalledTimes(0)
+    })
+
+    it('should select the second-next option when closed, next option is disabled and user presses ArrowDown', () => {
+        const onChange = jest.fn()
+
+        render(
+            <SingleSelectA11y
+                idPrefix="a11y"
+                value=""
+                onChange={onChange}
+                options={[
+                    { value: '', label: 'None' },
+                    { value: 'foo', label: 'Foo', disabled: true },
+                    { value: 'bar', label: 'Bar' },
+                ]}
+            />
+        )
+
+        expect(screen.queryByRole('listbox')).toBeNull()
+
+        // highlighting the next option
+        fireEvent.keyDown(screen.getByRole('combobox'), { key: 'ArrowDown' })
+        expect(screen.queryByRole('listbox')).toBeNull()
+        expect(onChange).toHaveBeenCalledTimes(1)
+        expect(onChange).toHaveBeenCalledWith('bar')
+    })
+
     it('should select the previous option when closed and user presses ArrowUp', () => {
         const onChange = jest.fn()
 
@@ -576,6 +655,56 @@ describe('<SingleSelectA11y />', () => {
         expect(screen.queryByRole('listbox')).toBeNull()
         expect(onChange).toHaveBeenCalledTimes(1)
         expect(onChange).toHaveBeenCalledWith('foo')
+    })
+
+    it('should not select the previous option when closed, disabled and user presses ArrowUp', () => {
+        const onChange = jest.fn()
+
+        render(
+            <SingleSelectA11y
+                disabled
+                idPrefix="a11y"
+                value="bar"
+                onChange={onChange}
+                options={[
+                    { value: '', label: 'None' },
+                    { value: 'foo', label: 'Foo' },
+                    { value: 'bar', label: 'Bar' },
+                ]}
+            />
+        )
+
+        expect(screen.queryByRole('listbox')).toBeNull()
+
+        // highlighting the next option
+        fireEvent.keyDown(screen.getByRole('combobox'), { key: 'ArrowUp' })
+        expect(screen.queryByRole('listbox')).toBeNull()
+        expect(onChange).toHaveBeenCalledTimes(0)
+    })
+
+    it('should select the second-previous option when closed, previous option disabled and user presses ArrowUp', () => {
+        const onChange = jest.fn()
+
+        render(
+            <SingleSelectA11y
+                idPrefix="a11y"
+                value="bar"
+                onChange={onChange}
+                options={[
+                    { value: '', label: 'None' },
+                    { value: 'foo', label: 'Foo', disabled: true },
+                    { value: 'bar', label: 'Bar' },
+                ]}
+            />
+        )
+
+        expect(screen.queryByRole('listbox')).toBeNull()
+
+        // highlighting the next option
+        fireEvent.keyDown(screen.getByRole('combobox'), { key: 'ArrowUp' })
+        expect(screen.queryByRole('listbox')).toBeNull()
+        expect(onChange).toHaveBeenCalledTimes(1)
+        expect(onChange).toHaveBeenCalledWith('')
     })
 
     it('should highlight the next option', () => {
@@ -618,6 +747,46 @@ describe('<SingleSelectA11y />', () => {
         ).toBe('Foo')
     })
 
+    it('should highlight the second next option when the next option is disabled', () => {
+        const onChange = jest.fn()
+
+        render(
+            <SingleSelectA11y
+                idPrefix="a11y"
+                value=""
+                onChange={onChange}
+                options={[
+                    { value: '', label: 'None' },
+                    { value: 'foo', label: 'Foo', disabled: true },
+                    { value: 'bar', label: 'Bar' },
+                ]}
+            />
+        )
+
+        // open the menu
+        expect(screen.queryByRole('listbox')).toBeNull()
+        const comboBox = screen.getByRole('combobox')
+        fireEvent.click(comboBox)
+        expect(screen.queryByRole('listbox')).not.toBeNull()
+
+        // the first option should be highlighted
+        const highlightedOptionBefore = screen.getByRole('option', {
+            selected: true,
+        })
+        expect(
+            highlightedOptionBefore.attributes.getNamedItem('aria-label').value
+        ).toBe('None')
+
+        // The second option should be highlighted
+        fireEvent.keyDown(comboBox, { key: 'ArrowDown' })
+        const highlightedOptionAfter = screen.getByRole('option', {
+            selected: true,
+        })
+        expect(
+            highlightedOptionAfter.attributes.getNamedItem('aria-label').value
+        ).toBe('Bar')
+    })
+
     it('should highlight the previous option', () => {
         const onChange = jest.fn()
 
@@ -656,6 +825,46 @@ describe('<SingleSelectA11y />', () => {
         expect(
             highlightedOptionAfter.attributes.getNamedItem('aria-label').value
         ).toBe('Foo')
+    })
+
+    it('should highlight the second previous option when previous option is disabled', () => {
+        const onChange = jest.fn()
+
+        render(
+            <SingleSelectA11y
+                idPrefix="a11y"
+                value="bar"
+                onChange={onChange}
+                options={[
+                    { value: '', label: 'None' },
+                    { value: 'foo', label: 'Foo', disabled: true },
+                    { value: 'bar', label: 'Bar' },
+                ]}
+            />
+        )
+
+        // open the menu
+        expect(screen.queryByRole('listbox')).toBeNull()
+        const comboBox = screen.getByRole('combobox')
+        fireEvent.click(comboBox)
+        expect(screen.queryByRole('listbox')).not.toBeNull()
+
+        // the last option should be highlighted
+        const highlightedOptionBefore = screen.getByRole('option', {
+            selected: true,
+        })
+        expect(
+            highlightedOptionBefore.attributes.getNamedItem('aria-label').value
+        ).toBe('Bar')
+
+        // The second option should be highlighted
+        fireEvent.keyDown(comboBox, { key: 'ArrowUp' })
+        const highlightedOptionAfter = screen.getByRole('option', {
+            selected: true,
+        })
+        expect(
+            highlightedOptionAfter.attributes.getNamedItem('aria-label').value
+        ).toBe('None')
     })
 
     it('should highlight the first option', () => {
@@ -698,6 +907,46 @@ describe('<SingleSelectA11y />', () => {
         ).toBe('None')
     })
 
+    it('should highlight the first enabled option', () => {
+        const onChange = jest.fn()
+
+        render(
+            <SingleSelectA11y
+                idPrefix="a11y"
+                value="bar"
+                onChange={onChange}
+                options={[
+                    { value: '', label: 'None', disabled: true },
+                    { value: 'foo', label: 'Foo' },
+                    { value: 'bar', label: 'Bar' },
+                ]}
+            />
+        )
+
+        // open the menu
+        expect(screen.queryByRole('listbox')).toBeNull()
+        const comboBox = screen.getByRole('combobox')
+        fireEvent.click(comboBox)
+        expect(screen.queryByRole('listbox')).not.toBeNull()
+
+        // the last option should be highlighted
+        const highlightedOptionBefore = screen.getByRole('option', {
+            selected: true,
+        })
+        expect(
+            highlightedOptionBefore.attributes.getNamedItem('aria-label').value
+        ).toBe('Bar')
+
+        // The first option should be highlighted
+        fireEvent.keyDown(comboBox, { key: 'Home' })
+        const highlightedOptionAfter = screen.getByRole('option', {
+            selected: true,
+        })
+        expect(
+            highlightedOptionAfter.attributes.getNamedItem('aria-label').value
+        ).toBe('Foo')
+    })
+
     it('should highlight the last option', () => {
         const onChange = jest.fn()
 
@@ -736,5 +985,45 @@ describe('<SingleSelectA11y />', () => {
         expect(
             highlightedOptionAfter.attributes.getNamedItem('aria-label').value
         ).toBe('Bar')
+    })
+
+    it('should highlight the last enabled option', () => {
+        const onChange = jest.fn()
+
+        render(
+            <SingleSelectA11y
+                idPrefix="a11y"
+                value=""
+                onChange={onChange}
+                options={[
+                    { value: '', label: 'None' },
+                    { value: 'foo', label: 'Foo' },
+                    { value: 'bar', label: 'Bar', disabled: true },
+                ]}
+            />
+        )
+
+        // open the menu
+        expect(screen.queryByRole('listbox')).toBeNull()
+        const comboBox = screen.getByRole('combobox')
+        fireEvent.click(comboBox)
+        expect(screen.queryByRole('listbox')).not.toBeNull()
+
+        // the first option should be highlighted
+        const highlightedOptionBefore = screen.getByRole('option', {
+            selected: true,
+        })
+        expect(
+            highlightedOptionBefore.attributes.getNamedItem('aria-label').value
+        ).toBe('None')
+
+        // The last option should be highlighted
+        fireEvent.keyDown(comboBox, { key: 'End' })
+        const highlightedOptionAfter = screen.getByRole('option', {
+            selected: true,
+        })
+        expect(
+            highlightedOptionAfter.attributes.getNamedItem('aria-label').value
+        ).toBe('Foo')
     })
 })

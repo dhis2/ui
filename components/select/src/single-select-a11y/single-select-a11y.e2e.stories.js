@@ -181,7 +181,12 @@ export const HundretOptionsWithDisabled = () => {
         Array.apply(null, Array(100)).map((x, i) => ({
             value: `${i}`,
             label: `Select option ${i}`,
-            disabled: i === 1 || i === 17 || i === 18,
+            disabled: [
+                0, // first otpion
+                17,
+                18,
+                99, // last otpion
+            ].includes(i),
         }))
     )
 
@@ -201,7 +206,7 @@ export const NativeSelect = () => {
         Array.apply(null, Array(100)).map((x, i) => ({
             value: `${i}`,
             label: `Select option ${i}`,
-            disabled: i > 19,
+            disabled: i > 19 && i < 30,
         }))
     )
 
