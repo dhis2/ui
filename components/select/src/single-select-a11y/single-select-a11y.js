@@ -26,7 +26,6 @@ export function SingleSelectA11y({
     filterPlaceholder = '',
     filterValue = '',
     filterable = false,
-    inputMaxHeight = '',
     labelledBy = '',
     loading = false,
     menuLoadingText = '',
@@ -42,10 +41,7 @@ export function SingleSelectA11y({
     onBlur = () => undefined,
     onFilterChange = () => undefined,
     onFocus = () => undefined,
-    onKeyDown = () => undefined,
 }) {
-    // Non-stateful
-    // ========
     const comboBoxId = `${idPrefix}-combo`
     const valueLabel =
         _valueLabel ||
@@ -62,9 +58,6 @@ export function SingleSelectA11y({
             'You must either provide a "valueLabel" or include an empty option in the options array'
         )
     }
-
-    // Stateful
-    // ========
 
     // Using `useState` here so components get notified when the value changes (from null -> div)
     const comboBoxRef = useRef()
@@ -188,7 +181,6 @@ export function SingleSelectA11y({
                 }}
                 onClose={closeMenu}
                 onFilterChange={onFilterChange}
-                onKeyDown={onKeyDown}
             />
         </div>
     )
@@ -216,29 +208,61 @@ SingleSelectA11y.propTypes = {
     /** This will allow us to put an aria-label on the clear button **/
     clearText: requiredIf((props) => props.clearable, PropTypes.string),
 
-    /** Whether a clear button should be displayed or not **/
+    /** Whether a clear button should be displayed or not */
     clearable: PropTypes.bool,
 
-    /** A value for a `data-test` attribute on the root element **/
+    /** A value for a `data-test` attribute on the root element */
     dataTest: PropTypes.string,
 
+    /** Renders a select with lower height **/
     dense: PropTypes.bool,
+
+    /** Disables all interactions with the select (except focussing) */
     disabled: PropTypes.bool,
+
+    /** Text or component to display when there are no options */
     empty: PropTypes.node,
+
+    /** Applies 'error' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props */
     error: sharedPropTypes.statusPropType,
+
+    /** Value will be used as aria-label attribute on the filter input **/
     filterLabel: PropTypes.string,
+
+    /** Placeholder for the filter input **/
     filterPlaceholder: PropTypes.string,
+
+    /** Value of the filter input **/
     filterValue: PropTypes.string,
+
+    /** Whether the select should display a filter input **/
     filterable: PropTypes.bool,
-    inputMaxHeight: PropTypes.string,
+
+    /** Should contain the id of the element that labels the select, if applicable **/
     labelledBy: PropTypes.string,
+
+    /** Will show a loading indicator at the end of the options-list **/
     loading: PropTypes.bool,
+
+    /** Text that will be displayed next to the loading indicator **/
     menuLoadingText: PropTypes.string,
+
+    /** Allows to modify the max height of the menu **/
     menuMaxHeight: PropTypes.string,
+
+    /** String that will be displayed when the select is being filtered but the options array is empty **/
     noMatchText: requiredIf((props) => props.filterable, PropTypes.string),
+
+    /** String to show when there's no value and no valueLabel **/
     placeholder: PropTypes.string,
+
+    /** String that will be displayed before the label of the selected option **/
     prefix: PropTypes.string,
+
+    /** Standard HTML tab-index attribute that will be put on the combobox's root element **/
     tabIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    /** Applies 'valid' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props */
     valid: sharedPropTypes.statusPropType,
 
     /**
@@ -254,9 +278,15 @@ SingleSelectA11y.propTypes = {
         return props.value
     }, PropTypes.string),
 
+    /** Applies 'warning' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props */
     warning: sharedPropTypes.statusPropType,
+
+    /** Will be called when the combobox is loses focus */
     onBlur: PropTypes.func,
+
+    /** Will be called when the filter value changes **/
     onFilterChange: PropTypes.func,
+
+    /** Will be called when the combobox is being focused */
     onFocus: PropTypes.func,
-    onKeyDown: PropTypes.func,
 }

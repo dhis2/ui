@@ -18,7 +18,6 @@ export const MenuOptionsList = forwardRef(function MenuOptionsList(
         loading,
         onChange,
         onBlur,
-        onKeyDown,
     },
     ref
 ) {
@@ -54,7 +53,6 @@ export const MenuOptionsList = forwardRef(function MenuOptionsList(
             aria-busy={loading.toString()}
             data-test={dataTest}
             onBlur={onBlur}
-            onKeyDown={onKeyDown}
         >
             {options.map(
                 (
@@ -100,5 +98,4 @@ MenuOptionsList.propTypes = {
     loading: PropTypes.bool,
     selected: PropTypes.string,
     onBlur: PropTypes.func,
-    onKeyDown: PropTypes.func,
 }

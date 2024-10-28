@@ -33,7 +33,6 @@ export function Menu({
     onBlur,
     onClose,
     onFilterChange,
-    onKeyDown,
 }) {
     const [menuWidth, setMenuWidth] = useState('auto')
     const dataTestPrefix = `${dataTest}-menu`
@@ -80,7 +79,6 @@ export function Menu({
                 selected={selected}
                 onChange={onChange}
                 onBlur={onBlur}
-                onKeyDown={onKeyDown}
             />
 
             {loading && <MenuLoading message={loadingText} />}
@@ -152,5 +150,4 @@ Menu.propTypes = {
     onBlur: PropTypes.func,
     onClose: PropTypes.func,
     onFilterChange: PropTypes.func,
-    onKeyDown: PropTypes.func,
 }
