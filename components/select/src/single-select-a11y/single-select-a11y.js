@@ -17,6 +17,7 @@ export function SingleSelectA11y({
     className = '',
     clearText = '',
     clearable = false,
+    customOption,
     dataTest = 'dhis2-singleselecta11y',
     dense = false,
     disabled = false,
@@ -157,6 +158,7 @@ export function SingleSelectA11y({
 
             <Menu
                 comboBoxId={comboBoxId}
+                customOption={customOption}
                 disabled={disabled}
                 empty={empty}
                 filterLabel={filterLabel}
@@ -210,6 +212,10 @@ SingleSelectA11y.propTypes = {
 
     /** Whether a clear button should be displayed or not */
     clearable: PropTypes.bool,
+
+    /** Allows to override what's rendered inside the `button[role="option"]`.
+     * Can be overriden on an individual option basis */
+    customOption: PropTypes.elementType,
 
     /** A value for a `data-test` attribute on the root element */
     dataTest: PropTypes.string,

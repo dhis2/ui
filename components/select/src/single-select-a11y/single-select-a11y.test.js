@@ -205,6 +205,40 @@ describe('<SingleSelectA11y />', () => {
             <SingleSelectA11y
                 idPrefix="a11y"
                 value=""
+                customOption={CustomOption}
+                valueLabel=""
+                onChange={onChange}
+                options={[
+                    { value: '', label: 'None' },
+                    { value: 'foo', label: 'Foo' },
+                ]}
+            />
+        )
+
+        fireEvent.click(screen.getByRole('combobox'))
+
+        const customOption = screen.getByTestId('custom-option-foo')
+        const option = screen.getByTestId('custom-option-foo').parentNode
+        expect(option.attributes.getNamedItem('role').value).toBe('option')
+
+        fireEvent.click(customOption)
+
+        expect(onChange).toHaveBeenCalledTimes(1)
+        expect(onChange).toHaveBeenCalledWith('foo')
+    })
+
+    it('should allow individual custom options to be selected', () => {
+        const onChange = jest.fn()
+
+        // eslint-disable-next-line react/prop-types
+        const CustomOption = ({ value, label }) => (
+            <span data-test={`custom-option-${value}`}>{label}</span>
+        )
+
+        render(
+            <SingleSelectA11y
+                idPrefix="a11y"
+                value=""
                 valueLabel=""
                 onChange={onChange}
                 options={[

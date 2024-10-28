@@ -7,6 +7,7 @@ import { Option } from './option.js'
 export const MenuOptionsList = forwardRef(function MenuOptionsList(
     {
         comboBoxId,
+        customOption,
         expanded,
         focussedOptionIndex,
         idPrefix,
@@ -76,7 +77,7 @@ export const MenuOptionsList = forwardRef(function MenuOptionsList(
                             comboBoxId={comboBoxId}
                             disabled={disabled || optionDisabled}
                             onClick={isSelected ? () => null : onChange}
-                            component={component}
+                            component={component || customOption}
                         />
                     )
                 }
@@ -92,6 +93,7 @@ MenuOptionsList.propTypes = {
     idPrefix: PropTypes.string.isRequired,
     options: PropTypes.arrayOf(optionProp).isRequired,
     onChange: PropTypes.func.isRequired,
+    customOption: PropTypes.elementType,
     dataTest: PropTypes.string,
     disabled: PropTypes.bool,
     labelledBy: PropTypes.string,

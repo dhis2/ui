@@ -15,6 +15,7 @@ export function Menu({
     idPrefix,
     options,
     onChange,
+    customOption,
     dataTest,
     disabled,
     empty,
@@ -68,6 +69,7 @@ export function Menu({
             <MenuOptionsList
                 ref={listBoxRef}
                 comboBoxId={comboBoxId}
+                customOption={customOption}
                 dataTest={`${dataTestPrefix}-list`}
                 disabled={disabled}
                 expanded={!hidden}
@@ -133,6 +135,7 @@ Menu.propTypes = {
     }).isRequired,
     options: PropTypes.arrayOf(optionProp).isRequired,
     onChange: PropTypes.func.isRequired,
+    customOption: PropTypes.elementType,
     dataTest: PropTypes.string,
     disabled: PropTypes.bool,
     empty: PropTypes.node,
