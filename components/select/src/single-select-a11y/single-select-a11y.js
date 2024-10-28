@@ -101,6 +101,7 @@ export function SingleSelectA11y({
 
     const handleKeyPress = useHandleKeyPress({
         value,
+        disabled,
         onChange,
         expanded,
         options,

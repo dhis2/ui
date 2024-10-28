@@ -3,8 +3,75 @@ import { useHandleTyping } from './use-handle-typing.js'
 import { usePageDown } from './use-page-down.js'
 import { usePageUp } from './use-page-up.js'
 
+function isEnabled({ disabled }) {
+    return !disabled
+}
+
+function findNextOptionIndex({ options, activeIndex }) {
+    const startIndex = activeIndex + 1
+    const optionsToSearch = options.slice(startIndex)
+
+    // Need to add back the count we removed by slicing the options array
+    return startIndex + optionsToSearch.findIndex(isEnabled)
+}
+
+function findPrevOptionIndex({ options, activeIndex }) {
+    return options.slice(0, activeIndex).findLastIndex(isEnabled)
+}
+
+function findFirstOptionIndex({ options }) {
+    return options.findIndex(isEnabled)
+}
+
+function findLastOptionIndex({ options }) {
+    return options.findLastIndex(isEnabled)
+}
+
+function useSelectOption(findIndexCallback, { options, onChange, value }) {
+    return useCallback(() => {
+        const currentOptionIndex = options.findIndex(
+            (option) => option.value === value
+        )
+
+        const nextSelectedOptionIndex = findIndexCallback({
+            options,
+            activeIndex: currentOptionIndex,
+        })
+
+        if (nextSelectedOptionIndex === -1) {
+            return
+        }
+
+        onChange(options[nextSelectedOptionIndex].value)
+    }, [findIndexCallback, options, onChange, value])
+}
+
+function useFocusOption(
+    findIndexCallback,
+    { options, focussedOptionIndex, setFocussedOptionIndex }
+) {
+    return useCallback(() => {
+        const nextFocussedIndex = findIndexCallback({
+            options,
+            activeIndex: focussedOptionIndex,
+        })
+
+        if (nextFocussedIndex === -1) {
+            return
+        }
+
+        setFocussedOptionIndex(nextFocussedIndex)
+    }, [
+        findIndexCallback,
+        options,
+        focussedOptionIndex,
+        setFocussedOptionIndex,
+    ])
+}
+
 export function useHandleKeyPress({
     value,
+    disabled,
     expanded,
     options,
     openMenu,
@@ -36,51 +103,47 @@ export function useHandleKeyPress({
         setFocussedOptionIndex,
     })
 
-    const selectNextOption = useCallback(() => {
-        const currentOptionIndex = options.findIndex(
-            (option) => option.value === value
-        )
-        const nextSelectedOption = options[currentOptionIndex + 1]
+    const selectNextOption = useSelectOption(findNextOptionIndex, {
+        options,
+        onChange,
+        value,
+    })
 
-        if (nextSelectedOption) {
-            onChange(nextSelectedOption.value)
-        }
-    }, [options, onChange, value])
+    const selectPrevOption = useSelectOption(findPrevOptionIndex, {
+        options,
+        onChange,
+        value,
+    })
 
-    const selectPrevOption = useCallback(() => {
-        const currentOptionIndex = options.findIndex(
-            (option) => option.value === value
-        )
-        const nextSelectedOption = options[currentOptionIndex - 1]
+    const focusNextOption = useFocusOption(findNextOptionIndex, {
+        options,
+        focussedOptionIndex,
+        setFocussedOptionIndex,
+    })
 
-        if (nextSelectedOption) {
-            onChange(nextSelectedOption.value)
-        }
-    }, [options, onChange, value])
+    const focusPrevOption = useFocusOption(findPrevOptionIndex, {
+        options,
+        focussedOptionIndex,
+        setFocussedOptionIndex,
+    })
 
-    const focusNextOption = useCallback(() => {
-        if (focussedOptionIndex < options.length - 1) {
-            setFocussedOptionIndex(focussedOptionIndex + 1)
-        }
-    }, [focussedOptionIndex, options, setFocussedOptionIndex])
+    const focusFirstOption = useFocusOption(findFirstOptionIndex, {
+        options,
+        focussedOptionIndex,
+        setFocussedOptionIndex,
+    })
 
-    const focusPrevOption = useCallback(() => {
-        if (focussedOptionIndex > 0) {
-            setFocussedOptionIndex(focussedOptionIndex - 1)
-        }
-    }, [focussedOptionIndex, setFocussedOptionIndex])
-
-    const focusFirstOption = useCallback(() => {
-        setFocussedOptionIndex(0)
-    }, [setFocussedOptionIndex])
-
-    const focusLastOption = useCallback(() => {
-        setFocussedOptionIndex(options.length - 1)
-    }, [options, setFocussedOptionIndex])
+    const focusLastOption = useFocusOption(findLastOptionIndex, {
+        options,
+        focussedOptionIndex,
+        setFocussedOptionIndex,
+    })
 
     const handleKeyPress = useCallback(
-        (e) => {
-            const { key, altKey, ctrlKey, metaKey } = e
+        ({ key, altKey, ctrlKey, metaKey }) => {
+            if (disabled) {
+                return
+            }
 
             if (
                 expanded &&
@@ -109,23 +172,23 @@ export function useHandleKeyPress({
                 return
             }
 
-            if (key === 'ArrowDown') {
-                if (!expanded) {
-                    selectNextOption()
-                } else {
-                    focusNextOption()
-                }
+            if (key === 'ArrowDown' && !expanded) {
+                selectNextOption()
+                return
+            }
 
+            if (key === 'ArrowDown') {
+                focusNextOption()
+                return
+            }
+
+            if (key === 'ArrowUp' && !expanded) {
+                selectPrevOption()
                 return
             }
 
             if (key === 'ArrowUp') {
-                if (!expanded) {
-                    selectPrevOption()
-                } else {
-                    focusPrevOption()
-                }
-
+                focusPrevOption()
                 return
             }
 
@@ -149,7 +212,7 @@ export function useHandleKeyPress({
                     !metaKey) ||
                 (key === ' ' && typing)
             ) {
-                onTyping(e)
+                onTyping(key)
                 return
             }
 
@@ -166,6 +229,7 @@ export function useHandleKeyPress({
             // Do nothing
         },
         [
+            disabled,
             expanded,
             closeMenu,
             openMenu,

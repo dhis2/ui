@@ -40,10 +40,9 @@ export function useHandleTyping({
             prevValueRef.current = value
 
             const optionIndex = options.findIndex(
-                (option) =>
-                    option.label
-                        .toLowerCase()
-                        .startsWith(value.toLowerCase()) && !option.disabled
+                ({ disabled, label }) =>
+                    !disabled &&
+                    label.toLowerCase().startsWith(value.toLowerCase())
             )
 
             if (optionIndex !== -1) {
@@ -57,8 +56,7 @@ export function useHandleTyping({
         }
     }, [value, options, setFocussedOptionIndex, expanded, onChange])
 
-    const onTyping = useCallback((e) => {
-        const { key } = e
+    const onTyping = useCallback((key) => {
         setTyping(true)
 
         if (key === 'Backspace') {
