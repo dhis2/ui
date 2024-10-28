@@ -32,6 +32,7 @@ export function SingleSelectA11y({
     menuLoadingText = '',
     menuMaxHeight = '288px',
     noMatchText = '',
+    optionUpdateStrategy = 'polite',
     placeholder = '',
     prefix = '',
     tabIndex = '0',
@@ -173,6 +174,7 @@ export function SingleSelectA11y({
                 loading={loading}
                 loadingText={menuLoadingText}
                 maxHeight={menuMaxHeight}
+                optionUpdateStrategy={optionUpdateStrategy}
                 options={options}
                 selectRef={selectRef}
                 selected={value}
@@ -195,7 +197,7 @@ SingleSelectA11y.propTypes = {
     /** An array of options **/
     options: PropTypes.arrayOf(optionProp).isRequired,
 
-    /** As of now, this component does not support being uncontrolled */
+    /** As of now, this component does not support being uncontrolled **/
     value: PropTypes.string.isRequired,
 
     /** A callback that will be called with the new value or an empty string **/
@@ -210,26 +212,26 @@ SingleSelectA11y.propTypes = {
     /** This will allow us to put an aria-label on the clear button **/
     clearText: requiredIf((props) => props.clearable, PropTypes.string),
 
-    /** Whether a clear button should be displayed or not */
+    /** Whether a clear button should be displayed or not **/
     clearable: PropTypes.bool,
 
     /** Allows to override what's rendered inside the `button[role="option"]`.
-     * Can be overriden on an individual option basis */
+     * Can be overriden on an individual option basis **/
     customOption: PropTypes.elementType,
 
-    /** A value for a `data-test` attribute on the root element */
+    /** A value for a `data-test` attribute on the root element **/
     dataTest: PropTypes.string,
 
     /** Renders a select with lower height **/
     dense: PropTypes.bool,
 
-    /** Disables all interactions with the select (except focussing) */
+    /** Disables all interactions with the select (except focussing) **/
     disabled: PropTypes.bool,
 
-    /** Text or component to display when there are no options */
+    /** Text or component to display when there are no options **/
     empty: PropTypes.node,
 
-    /** Applies 'error' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props */
+    /** Applies 'error' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props **/
     error: sharedPropTypes.statusPropType,
 
     /** Value will be used as aria-label attribute on the filter input **/
@@ -259,6 +261,9 @@ SingleSelectA11y.propTypes = {
     /** String that will be displayed when the select is being filtered but the options array is empty **/
     noMatchText: requiredIf((props) => props.filterable, PropTypes.string),
 
+    /** For a11y: How aggressively the user should be updated about changes in options **/
+    optionUpdateStrategy: PropTypes.oneOf(['off', 'polite', 'assertive']),
+
     /** String to show when there's no value and no valueLabel **/
     placeholder: PropTypes.string,
 
@@ -268,7 +273,7 @@ SingleSelectA11y.propTypes = {
     /** Standard HTML tab-index attribute that will be put on the combobox's root element **/
     tabIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
-    /** Applies 'valid' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props */
+    /** Applies 'valid' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props **/
     valid: sharedPropTypes.statusPropType,
 
     /**
@@ -284,15 +289,15 @@ SingleSelectA11y.propTypes = {
         return props.value
     }, PropTypes.string),
 
-    /** Applies 'warning' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props */
+    /** Applies 'warning' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props **/
     warning: sharedPropTypes.statusPropType,
 
-    /** Will be called when the combobox is loses focus */
+    /** Will be called when the combobox is loses focus **/
     onBlur: PropTypes.func,
 
     /** Will be called when the filter value changes **/
     onFilterChange: PropTypes.func,
 
-    /** Will be called when the combobox is being focused */
+    /** Will be called when the combobox is being focused **/
     onFocus: PropTypes.func,
 }

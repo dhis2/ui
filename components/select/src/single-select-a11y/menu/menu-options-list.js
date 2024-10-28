@@ -12,6 +12,7 @@ export const MenuOptionsList = forwardRef(function MenuOptionsList(
         focussedOptionIndex,
         idPrefix,
         labelledBy,
+        optionUpdateStrategy,
         options,
         selected,
         dataTest,
@@ -50,7 +51,7 @@ export const MenuOptionsList = forwardRef(function MenuOptionsList(
             role="listbox"
             id={`${idPrefix}-listbox`}
             aria-labelledby={labelledBy}
-            aria-live="polite"
+            aria-live={optionUpdateStrategy}
             aria-busy={loading.toString()}
             data-test={dataTest}
             onBlur={onBlur}
@@ -98,6 +99,7 @@ MenuOptionsList.propTypes = {
     disabled: PropTypes.bool,
     labelledBy: PropTypes.string,
     loading: PropTypes.bool,
+    optionUpdateStrategy: PropTypes.oneOf(['off', 'polite', 'assertive']),
     selected: PropTypes.string,
     onBlur: PropTypes.func,
 }
