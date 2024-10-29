@@ -1,3 +1,10 @@
+# [9.12.0](https://github.com/dhis2/ui/compare/v9.11.8...v9.12.0) (2024-10-29)
+
+
+### Features
+
+* **icons:** add link-off icons ([e72be1e](https://github.com/dhis2/ui/commit/e72be1ec672fd16072a33ec057ccc3413713abeb))
+
 ## [9.11.8](https://github.com/dhis2/ui/compare/v9.11.7...v9.11.8) (2024-10-15)
 
 
