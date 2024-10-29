@@ -1,3 +1,10 @@
+# [10.0.0-alpha.6](https://github.com/dhis2/ui/compare/v10.0.0-alpha.5...v10.0.0-alpha.6) (2024-10-29)
+
+
+### Bug Fixes
+
+* **calendar:** stop extra call to validation when choosing from picker ([#1623](https://github.com/dhis2/ui/issues/1623)) ([a1786d5](https://github.com/dhis2/ui/commit/a1786d593f9c3f2cac79dc6f657fa65c71d57690))
+
 # [10.0.0-alpha.5](https://github.com/dhis2/ui/compare/v10.0.0-alpha.4...v10.0.0-alpha.5) (2024-10-21)
 
 
