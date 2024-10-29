@@ -11,7 +11,7 @@ export const createRootQuery = (ids) =>
                 resource: `organisationUnits`,
                 params: ({ isUserDataViewFallback }) => ({
                     isUserDataViewFallback,
-                    fields: ['displayName', 'path', 'id'],
+                    fields: ['displayName', 'path', 'id', 'level'],
                 }),
             },
         }),
