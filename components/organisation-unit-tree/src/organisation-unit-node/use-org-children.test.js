@@ -1,5 +1,5 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
-import { renderHook } from '@testing-library/react-hooks'
+import { renderHook, waitFor } from '@testing-library/react'
 import React from 'react'
 import { useOrgChildren } from './use-org-children.js'
 
@@ -37,12 +37,9 @@ describe('OrganisationUnitTree - useOrgChildren', () => {
     }
 
     it('should respond with `loading: true`, `error: null` and `data: null` initially', async () => {
-        const { result, waitForNextUpdate } = renderHook(
-            () => useOrgChildren({ node }),
-            {
-                wrapper,
-            }
-        )
+        const { result } = renderHook(() => useOrgChildren({ node }), {
+            wrapper,
+        })
 
         expect(result.current).toEqual({
             called: true,
@@ -54,29 +51,28 @@ describe('OrganisationUnitTree - useOrgChildren', () => {
         // Prevent the following error log with
         // "Warning: An update to TestComponent inside a test was not wrapped
         // in act(...)."
-        await waitForNextUpdate()
+        await waitFor(() => {})
     })
 
     it('should provide the org unit data', async () => {
-        const { result, waitForNextUpdate } = renderHook(
-            () => useOrgChildren({ node }),
-            { wrapper }
-        )
+        const { result } = renderHook(() => useOrgChildren({ node }), {
+            wrapper,
+        })
 
-        await waitForNextUpdate()
-
-        expect(result.current).toEqual({
-            called: true,
-            loading: false,
-            error: null,
-            data: [
-                {
-                    id: 'A0000000001',
-                    path: '/A0000000000/A0000000001',
-                    children: [],
-                    displayName: 'Org Unit 2',
-                },
-            ],
+        await waitFor(() => {
+            expect(result.current).toEqual({
+                called: true,
+                loading: false,
+                error: null,
+                data: [
+                    {
+                        id: 'A0000000001',
+                        path: '/A0000000000/A0000000001',
+                        children: [],
+                        displayName: 'Org Unit 2',
+                    },
+                ],
+            })
         })
     })
 
@@ -93,18 +89,17 @@ describe('OrganisationUnitTree - useOrgChildren', () => {
             </CustomDataProvider>
         )
 
-        const { result, waitForNextUpdate } = renderHook(
-            () => useOrgChildren({ node }),
-            { wrapper: errorWrapper }
-        )
+        const { result } = renderHook(() => useOrgChildren({ node }), {
+            wrapper: errorWrapper,
+        })
 
-        await waitForNextUpdate()
-
-        expect(result.current).toEqual({
-            called: true,
-            loading: false,
-            error: new Error('Error message'),
-            data: undefined,
+        await waitFor(() => {
+            expect(result.current).toEqual({
+                called: true,
+                loading: false,
+                error: new Error('Error message'),
+                data: undefined,
+            })
         })
     })
 
@@ -112,25 +107,22 @@ describe('OrganisationUnitTree - useOrgChildren', () => {
         const onComplete = jest.fn()
         const options = { onComplete, node }
 
-        const { waitForNextUpdate } = renderHook(
-            () => useOrgChildren(options),
-            { wrapper }
-        )
+        renderHook(() => useOrgChildren(options), { wrapper })
 
-        await waitForNextUpdate()
-
-        expect(onComplete).toHaveBeenCalledWith({
-            id: 'A0000000000',
-            path: '/A0000000000',
-            displayName: 'Org Unit 1',
-            children: [
-                {
-                    id: 'A0000000001',
-                    path: '/A0000000000/A0000000001',
-                    children: [],
-                    displayName: 'Org Unit 2',
-                },
-            ],
+        await waitFor(() => {
+            expect(onComplete).toHaveBeenCalledWith({
+                id: 'A0000000000',
+                path: '/A0000000000',
+                displayName: 'Org Unit 1',
+                children: [
+                    {
+                        id: 'A0000000001',
+                        path: '/A0000000000/A0000000001',
+                        children: [],
+                        displayName: 'Org Unit 2',
+                    },
+                ],
+            })
         })
     })
 
@@ -166,31 +158,31 @@ describe('OrganisationUnitTree - useOrgChildren', () => {
             </CustomDataProvider>
         )
 
-        const { result, waitForNextUpdate } = renderHook(
+        const { result } = renderHook(
             () => useOrgChildren({ node: { ...node, children: 2 } }),
             { wrapper: wrapperWithUnsortedChildren }
         )
 
-        await waitForNextUpdate()
-
-        expect(result.current).toEqual({
-            called: true,
-            loading: false,
-            error: null,
-            data: [
-                {
-                    id: 'A0000000001',
-                    path: '/A0000000000/A0000000001',
-                    children: [],
-                    displayName: 'Org Unit 2',
-                },
-                {
-                    id: 'A0000000002',
-                    path: '/A0000000000/A0000000002',
-                    children: [],
-                    displayName: 'Org Unit 3',
-                },
-            ],
+        await waitFor(() => {
+            expect(result.current).toEqual({
+                called: true,
+                loading: false,
+                error: null,
+                data: [
+                    {
+                        id: 'A0000000001',
+                        path: '/A0000000000/A0000000001',
+                        children: [],
+                        displayName: 'Org Unit 2',
+                    },
+                    {
+                        id: 'A0000000002',
+                        path: '/A0000000000/A0000000002',
+                        children: [],
+                        displayName: 'Org Unit 3',
+                    },
+                ],
+            })
         })
     })
 
@@ -230,31 +222,30 @@ describe('OrganisationUnitTree - useOrgChildren', () => {
             node: { ...node, children: 2 },
             suppressAlphabeticalSorting: true,
         }
-        const { result, waitForNextUpdate } = renderHook(
-            () => useOrgChildren(options),
-            { wrapper: wrapperWithUnsortedChildren }
-        )
+        const { result } = renderHook(() => useOrgChildren(options), {
+            wrapper: wrapperWithUnsortedChildren,
+        })
 
-        await waitForNextUpdate()
-
-        expect(result.current).toEqual({
-            called: true,
-            loading: false,
-            error: null,
-            data: [
-                {
-                    id: 'A0000000002',
-                    path: '/A0000000000/A0000000002',
-                    children: [],
-                    displayName: 'Org Unit 3',
-                },
-                {
-                    id: 'A0000000001',
-                    path: '/A0000000000/A0000000001',
-                    children: [],
-                    displayName: 'Org Unit 2',
-                },
-            ],
+        await waitFor(() => {
+            expect(result.current).toEqual({
+                called: true,
+                loading: false,
+                error: null,
+                data: [
+                    {
+                        id: 'A0000000002',
+                        path: '/A0000000000/A0000000002',
+                        children: [],
+                        displayName: 'Org Unit 3',
+                    },
+                    {
+                        id: 'A0000000001',
+                        path: '/A0000000000/A0000000001',
+                        children: [],
+                        displayName: 'Org Unit 2',
+                    },
+                ],
+            })
         })
     })
 
@@ -294,31 +285,30 @@ describe('OrganisationUnitTree - useOrgChildren', () => {
             node: { ...node, children: 2 },
             suppressAlphabeticalSorting: true,
         }
-        const { result, waitForNextUpdate } = renderHook(
-            () => useOrgChildren(options),
-            { wrapper: wrapperWithUnsortedChildren }
-        )
+        const { result } = renderHook(() => useOrgChildren(options), {
+            wrapper: wrapperWithUnsortedChildren,
+        })
 
-        await waitForNextUpdate()
-
-        expect(result.current).toEqual({
-            called: true,
-            loading: false,
-            error: null,
-            data: [
-                {
-                    id: 'A0000000002',
-                    path: '/A0000000000/A0000000002',
-                    children: [],
-                    displayName: 'Org Unit 3',
-                },
-                {
-                    id: 'A0000000001',
-                    path: '/A0000000000/A0000000001',
-                    children: [],
-                    displayName: 'Org Unit 2',
-                },
-            ],
+        await waitFor(() => {
+            expect(result.current).toEqual({
+                called: true,
+                loading: false,
+                error: null,
+                data: [
+                    {
+                        id: 'A0000000002',
+                        path: '/A0000000000/A0000000002',
+                        children: [],
+                        displayName: 'Org Unit 3',
+                    },
+                    {
+                        id: 'A0000000001',
+                        path: '/A0000000000/A0000000001',
+                        children: [],
+                        displayName: 'Org Unit 2',
+                    },
+                ],
+            })
         })
     })
 })

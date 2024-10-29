@@ -1,11 +1,6 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
-import {
-    render,
-    screen,
-    waitFor,
-    waitForElementToBeRemoved,
-} from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { render, screen, waitFor } from '@testing-library/react'
+import { userEvent } from '@testing-library/user-event'
 import '@testing-library/jest-dom'
 import React, { useState } from 'react'
 import { SharingAutocomplete } from './sharing-autocomplete.js'
@@ -45,12 +40,10 @@ describe('SharingAutocomplete', () => {
         )
 
         const searchString = userDisplayName.slice(0, 3)
-        userEvent.type(screen.getByRole('textbox'), searchString)
+        await userEvent.type(screen.getByRole('textbox'), searchString)
         expect(screen.getByRole('textbox')).toHaveValue(searchString)
 
-        await waitForElementToBeRemoved(() => screen.getByRole('progressbar'))
-
-        userEvent.click(screen.getByRole('menuitem'))
+        await userEvent.click(screen.getByRole('menuitem'))
         expect(screen.getByRole('textbox')).toHaveValue(userDisplayName)
 
         try {

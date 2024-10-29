@@ -1,6 +1,6 @@
 import { Input } from '@dhis2-ui/input'
 import { render } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { userEvent } from '@testing-library/user-event'
 import { mount } from 'enzyme'
 import React from 'react'
 import { MenuDivider } from '../../menu-divider/menu-divider.js'
@@ -39,7 +39,7 @@ describe('Menu Component', () => {
         expect(menuElement.prop('role')).toBe('menu')
     })
 
-    it('can handle focus of first focusable element when tabbed to', () => {
+    it('can handle focus of first focusable element when tabbed to', async () => {
         const { getByRole, getByText } = render(
             <Menu dataTest={menuDataTest} dense={false}>
                 <MenuSectionHeader label="Header" />
@@ -55,8 +55,9 @@ describe('Menu Component', () => {
         const menuItem1 = getByText(/Menu item 1/i)
         const menuItem2 = getByText(/Menu item 2/i)
 
+        const user = userEvent.setup()
         expect(menu).not.toHaveFocus()
-        userEvent.tab()
+        await user.keyboard('{Tab}')
         // check if LI parent node has focus or not
         // headers and dividers do not receive focus
         expect(header.parentNode.parentNode).not.toHaveFocus()
@@ -78,14 +79,18 @@ describe('Menu Component', () => {
         const menuItem1 = getByText(/Menu item 1/i)
         const menuItem2 = getByText(/Menu item 2/i)
 
-        userEvent.tab()
+        const user = userEvent.setup()
+        expect(document.body).toHaveFocus()
+
+        // await fireEvent.focus(getByRole('menu'))
+        await user.keyboard('{Tab}')
         expect(menuItem1.parentNode.parentNode).toHaveFocus()
         // simulate arrowDown press
-        userEvent.keyboard('{ArrowDown}')
+        await user.keyboard('{ArrowDown}')
         expect(menuItem1.parentNode.parentNode).not.toHaveFocus()
         expect(menuItem2.parentNode.parentNode).toHaveFocus()
 
-        userEvent.keyboard('{ArrowDown}')
+        await user.keyboard('{ArrowDown}')
         expect(menuItem1.parentNode.parentNode).toHaveFocus()
         expect(menuItem2.parentNode.parentNode).not.toHaveFocus()
     })
@@ -103,15 +108,16 @@ describe('Menu Component', () => {
         const menuItem1 = getByText(/Menu item 1/i)
         const menuItem2 = getByText(/Menu item 2/i)
 
-        userEvent.tab()
+        const user = userEvent.setup()
+        await user.tab()
         expect(menuItem1.parentNode.parentNode).toHaveFocus()
 
         // simulate arrowUp press
-        userEvent.keyboard('{ArrowUp}')
+        await user.keyboard('{ArrowUp}')
         expect(menuItem1.parentNode.parentNode).not.toHaveFocus()
         expect(menuItem2.parentNode.parentNode).toHaveFocus()
 
-        userEvent.keyboard('{ArrowUp}')
+        await user.keyboard('{ArrowUp}')
         expect(menuItem1.parentNode.parentNode).toHaveFocus()
         expect(menuItem2.parentNode.parentNode).not.toHaveFocus()
     })
@@ -130,17 +136,18 @@ describe('Menu Component', () => {
 
         const clickableItem = getByText(/Click menu item/i)
 
-        userEvent.tab()
+        const user = userEvent.setup()
+        await user.tab()
         expect(clickableItem.parentNode.parentNode).toHaveFocus()
 
-        userEvent.keyboard('[Space]')
+        await user.keyboard('[Space]')
         expect(onClick).toHaveBeenCalledTimes(1)
 
-        userEvent.keyboard('{Enter}')
+        await user.keyboard('{Enter}')
         expect(onClick).toHaveBeenCalledTimes(2)
     })
 
-    it('can handle non MenuItem components', () => {
+    it('can handle non MenuItem components', async () => {
         const onClick = jest.fn()
         const { getByText } = render(
             <Menu dataTest={menuDataTest} dense={false}>
@@ -165,24 +172,25 @@ describe('Menu Component', () => {
         // all children must be list items
         expect(nonListMenuItem.parentElement.nodeName).toBe('LI')
 
-        userEvent.tab()
+        const user = userEvent.setup()
+        await user.tab()
         expect(nonListMenuItem.parentElement).toHaveFocus()
         expect(nonListMenuItem.parentElement.tabIndex).toBe(0)
 
         expect(onClick).toHaveBeenCalledTimes(0)
-        userEvent.keyboard('[Space]')
+        await user.keyboard(' ')
         expect(onClick).toHaveBeenCalledTimes(1)
 
-        userEvent.keyboard('{ArrowDown}')
+        await user.keyboard('{ArrowDown}')
         expect(listMenuItem.parentElement).toHaveFocus()
 
-        userEvent.keyboard('{ArrowDown}')
+        await user.keyboard('{ArrowDown}')
         expect(nonListMenuItem.parentElement).toHaveFocus()
         // non menu items do not receive focus
         expect(plainListItem.parentElement).not.toHaveFocus()
     })
 
-    it('does not hijack input change value if space entered [bug]', () => {
+    it('does not hijack input change value if space entered [bug]', async () => {
         const onChange = jest.fn()
         const { getByPlaceholderText } = render(
             <Menu dataTest={menuDataTest} dense={false}>
@@ -192,11 +200,12 @@ describe('Menu Component', () => {
         )
 
         const inputField = getByPlaceholderText('test')
-        inputField.focus()
-        userEvent.keyboard('t')
-        userEvent.keyboard('e')
-        userEvent.keyboard(' ')
-        userEvent.keyboard('st')
+        const user = userEvent.setup()
+        await inputField.focus()
+        await user.type(inputField, 't')
+        await user.type(inputField, 'e')
+        await user.type(inputField, ' ')
+        await user.type(inputField, 'st')
 
         expect(inputField.value).toBe('te st')
         expect(onChange).toHaveBeenCalled()

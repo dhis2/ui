@@ -30,8 +30,8 @@
         "build": "d2-app-scripts build"
     },
     "peerDependencies": {
-        "react": "^16.13",
-        "react-dom": "^16.13"
+        "react": "^16.13 || ^18",
+        "react-dom": "^16.13 || ^18"
     },
     "dependencies": {
         "@dhis2/prop-types": "^3.1.2",
@@ -54,8 +54,8 @@
         "types"
     ],
     "devDependencies": {
-        "react": "16.13",
-        "react-dom": "16.13"
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1"
     },
     "types": "types"
 }
