@@ -21,9 +21,7 @@ function Search({ value, onChange, placeholder }) {
             />
             <style>{`
                 .search {
-                    
                     border-bottom: 1px solid ${colors.grey300};
-                    
                 }
                 .search input {
                     font-size: 14px;

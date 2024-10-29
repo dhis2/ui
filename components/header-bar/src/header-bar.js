@@ -3,6 +3,7 @@ import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
 import CommandPalette from './command-palette/command-palette.js'
+import { CommandPaletteContextProvider } from './command-palette/context/command-palette-context.js'
 import { HeaderBarContextProvider } from './header-bar-context.js'
 import { joinPath } from './join-path.js'
 import i18n from './locales/index.js'
@@ -128,12 +129,13 @@ export const HeaderBar = ({
                                 }
                                 userAuthorities={data.user.authorities}
                             />
-                            <CommandPalette
-                                apps={apps}
-                                commands={commands}
-                                shortcuts={shortcuts}
-                            />
-
+                            <CommandPaletteContextProvider>
+                                <CommandPalette
+                                    apps={apps}
+                                    commands={commands}
+                                    shortcuts={shortcuts}
+                                />
+                            </CommandPaletteContextProvider>
                             <Profile
                                 name={data.user.name}
                                 email={data.user.email}

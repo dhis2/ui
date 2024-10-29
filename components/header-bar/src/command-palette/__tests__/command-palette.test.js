@@ -1,7 +1,24 @@
-import { render } from '@testing-library/react'
+import { render as originalRender } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import PropTypes from 'prop-types'
 import React from 'react'
 import CommandPalette from '../command-palette.js'
+import { CommandPaletteContextProvider } from '../context/command-palette-context.js'
+
+const CommandPaletteProviderWrapper = ({ children }) => {
+    return (
+        <CommandPaletteContextProvider>
+            {children}
+        </CommandPaletteContextProvider>
+    )
+}
+
+CommandPaletteProviderWrapper.propTypes = {
+    children: PropTypes.node,
+}
+
+const render = (ui, options) =>
+    originalRender(ui, { wrapper: CommandPaletteProviderWrapper, ...options })
 
 describe('Command Palette Component', () => {
     const headerBarIconTest = 'headerbar-apps-icon'
@@ -144,7 +161,6 @@ describe('Command Palette Component', () => {
         expect(searchField).toHaveValue('Command')
 
         expect(queryByTestId('headerbar-top-apps-list')).not.toBeInTheDocument()
-        expect(queryByTestId('headerbar-search-results')).toBeInTheDocument()
         expect(queryByText(/Results for "Command"/i)).toBeInTheDocument()
         expect(queryByText(/Test Command/)).toBeInTheDocument()
         expect(queryByText(/Test App/)).not.toBeInTheDocument()
@@ -153,9 +169,8 @@ describe('Command Palette Component', () => {
         const clearButton = getAllByRole('button')[1]
         userEvent.click(clearButton)
         expect(searchField).toHaveValue('')
-        expect(
-            queryByTestId('headerbar-search-results')
-        ).not.toBeInTheDocument()
+        // back to default view
+        expect(queryByTestId('headerbar-top-apps-list')).toBeInTheDocument()
     })
 
     it('renders Browse Apps View', () => {

@@ -1,37 +1,12 @@
 import PropTypes from 'prop-types'
-import React, { useState, useRef, useEffect } from 'react'
+import React from 'react'
+import { useCommandPaletteContext } from '../context/command-palette-context.js'
 import ListItem from './list-item.js'
 
 function List({ filteredItems, type }) {
-    const divRef = useRef(null)
-    const [activeItem, setActiveItem] = useState(-1)
-    const lastIndex = filteredItems.length - 1
-
-    const handleKeyDown = (event) => {
-        switch (event.key) {
-            case 'ArrowDown':
-                setActiveItem(activeItem >= lastIndex ? 0 : activeItem + 1)
-                break
-            case 'ArrowUp':
-                setActiveItem(activeItem > 0 ? activeItem - 1 : lastIndex)
-                break
-            case 'Enter':
-                event.preventDefault()
-                event.target?.click()
-                break
-        }
-    }
-
-    useEffect(() => {
-        if (divRef) {
-            if (filteredItems.length && activeItem > -1) {
-                divRef.current.children[activeItem].focus()
-            }
-        }
-    }, [activeItem, filteredItems])
-
+    const { highlightedIndex, setHighlightedIndex } = useCommandPaletteContext()
     return (
-        <div data-test="headerbar-list" onKeyDown={handleKeyDown} ref={divRef}>
+        <div data-test="headerbar-list">
             {filteredItems.map(
                 (
                     { displayName, name, defaultAction, icon, description },
@@ -41,20 +16,14 @@ function List({ filteredItems, type }) {
                         type={type}
                         key={`app-${name}-${idx}`}
                         title={displayName || name}
-                        href={defaultAction}
+                        path={defaultAction}
                         image={icon}
                         description={description}
-                        highlighted={activeItem === idx}
+                        highlighted={highlightedIndex === idx}
+                        handleMouseEnter={() => setHighlightedIndex(idx)}
                     />
                 )
             )}
-            <style jsx>{`
-                div {
-                    display: flex;
-                    flex-direction: column;
-                    overflow-x: hidden;
-                }
-            `}</style>
         </div>
     )
 }

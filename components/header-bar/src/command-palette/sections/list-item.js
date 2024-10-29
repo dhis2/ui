@@ -13,6 +13,7 @@ function ListItem({
     onClickHandler,
     highlighted,
     dataTest = 'headerbar-list-item',
+    handleMouseEnter,
 }) {
     const showDescription = type === 'commands'
     return (
@@ -21,6 +22,8 @@ function ListItem({
             onClick={onClickHandler}
             className={cx('item', { highlighted })}
             data-test={dataTest}
+            onMouseEnter={handleMouseEnter}
+            tabIndex={-1}
         >
             <div className="icon">
                 {icon && <span className="icon-content">{icon}</span>}
@@ -74,12 +77,9 @@ function ListItem({
                 }
                 .text-content {
                     display: flex;
-                    width: 100%;
-                    align-items: baseline;
-                    gap: 4px;
-                }
-                .text-content {
                     flex-direction: column;
+                    align-items: baseline;
+                    width: 100%;
                     gap: ${spacers.dp8};
                     padding-top: 2px;
                 }
@@ -100,6 +100,7 @@ function ListItem({
 ListItem.propTypes = {
     dataTest: PropTypes.string,
     description: PropTypes.string,
+    handleMouseEnter: PropTypes.func,
     highlighted: PropTypes.bool,
     icon: PropTypes.node,
     image: PropTypes.string,

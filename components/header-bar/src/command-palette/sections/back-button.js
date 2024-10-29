@@ -12,6 +12,7 @@ function BackButton({ onClickHandler }) {
                 name="Back"
                 value="back"
                 className="back-btn"
+                tabIndex={-1}
             >
                 <IconArrowLeft16 />
             </button>
