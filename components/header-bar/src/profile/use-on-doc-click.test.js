@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks'
+import { renderHook } from '@testing-library/react'
 import { useOnDocClick } from './use-on-doc-click.js'
 
 describe('useOnDocClick', () => {

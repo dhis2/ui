@@ -1,6 +1,5 @@
 import { render, fireEvent, cleanup, waitFor } from '@testing-library/react'
 import React from 'react'
-import '@testing-library/jest-dom/extend-expect'
 import { SplitButton } from './split-button.js'
 
 describe('SplitButton', () => {

@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks'
+import { renderHook } from '@testing-library/react'
 import { useOpenState } from './use-open-state.js'
 
 describe('OrganisationUnitTree - useOpenState', () => {
