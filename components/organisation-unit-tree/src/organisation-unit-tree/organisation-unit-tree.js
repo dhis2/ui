@@ -3,14 +3,14 @@ import PropTypes from 'prop-types'
 import React, { useEffect, useMemo, useState } from 'react'
 import { OrganisationUnitNode } from '../organisation-unit-node/index.js'
 import { orgUnitPathPropType } from '../prop-types.js'
+import { deduplicateOrgUnitRoots } from './deduplicate-org-unit-roots.js'
 import { defaultRenderNodeLabel } from './default-render-node-label/index.js'
-import { filterRootIds, findMinimumRootUnits } from './filter-root-ids.js'
+import { filterRootIds } from './filter-root-ids.js'
 import { OrganisationUnitTreeRootError } from './organisation-unit-tree-root-error.js'
 import { OrganisationUnitTreeRootLoading } from './organisation-unit-tree-root-loading.js'
 import { useExpanded } from './use-expanded/index.js'
 import { useForceReload } from './use-force-reload.js'
 import { useRootOrgData } from './use-root-org-data/index.js'
-import { deduplicateOrgUnitRoots } from './deduplicate-org-unit-roots.js'
 
 // A stable object to reference
 const staticArray = []
