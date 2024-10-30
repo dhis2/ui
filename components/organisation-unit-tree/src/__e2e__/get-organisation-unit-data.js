@@ -1,6 +1,6 @@
 const createResponse = ({ fields, id, path, displayName, children }) => ({
     ...(fields.includes('id') ? { id } : {}),
-    ...(fields.includes('path') ? { path } : {}),
+    ...(fields.includes('path') ? { path, level: path.split('/').length } : {}),
     ...(fields.includes('displayName') ? { displayName } : {}),
     ...(fields.includes('children::size') ? { children: children.length } : {}),
     ...(fields.includes('children[id,path,displayName]') ? { children } : {}),
