@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React, { useEffect, useMemo, useState } from 'react'
 import { OrganisationUnitNode } from '../organisation-unit-node/index.js'
 import { orgUnitPathPropType } from '../prop-types.js'
-import { deduplicateOrgUnitRoots } from './deduplicate-org-unit-roots.js'
+import { findCommonOrgUnitRoots } from './find-common-orgunit-roots.js'
 import { defaultRenderNodeLabel } from './default-render-node-label/index.js'
 import { filterRootIds } from './filter-root-ids.js'
 import { OrganisationUnitTreeRootError } from './organisation-unit-tree-root-error.js'
@@ -54,7 +54,7 @@ const OrganisationUnitTree = ({
         if (!data) {
             return []
         }
-        return deduplicateOrgUnitRoots(Object.values(data))
+        return findCommonOrgUnitRoots(Object.values(data))
     }, [data])
 
     const { expanded, handleExpand, handleCollapse } = useExpanded({

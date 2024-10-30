@@ -1,4 +1,4 @@
-import { deduplicateOrgUnitRoots } from './deduplicate-org-unit-roots.js'
+import { findCommonOrgUnitRoots } from './find-common-orgunit-roots.js'
 
 const unitToPath = {
     sierra: '/ImspTQPwCqd',
@@ -10,7 +10,7 @@ const unitToPath = {
         '/ImspTQPwCqd/O6uvpzGd5pu/dGheVylzol6/y5hLlID8ihI',
     'sierra/bargbe/barlie': '/ImspTQPwCqd/dGheVylzol6/y5hLlID8ihI',
     'sierra/bargbe/barlie/ngalu':
-        '/ImspTQPwCqd/O6uvpzGd5pu/dGheVylzol6/y5hLlID8ihI/Aj5v9z1Jt3k',
+        '/ImspTQPwCqd/dGheVylzol6/y5hLlID8ihI/Aj5v9z1Jt3k',
     'sierra/bo/baoma': '/ImspTQPwCqd/O6uvpzGd5pu/vWbkYPRmKyS',
     'sierra/bo/baoma/faabu': '/ImspTQPwCqd/O6uvpzGd5pu/vWbkYPRmKyS/ZpE2POxvl9P',
     'sierra/bo/badjia': '/ImspTQPwCqd/O6uvpzGd5pu/YuQRtpLP10I',
@@ -19,10 +19,10 @@ const unitToPath = {
     'sierra/bombali': '/ImspTQPwCqd/fdc6uOvgoji',
 }
 
-describe('findMinimumRootUnits', () => {
+describe('findCommonOrgUnitRoots', () => {
     it('should return a single root unit when there is only one unit', () => {
         const units = [{ path: unitToPath.sierra, level: 1 }]
-        const result = deduplicateOrgUnitRoots(units)
+        const result = findCommonOrgUnitRoots(units)
         expect(result).toEqual([{ path: unitToPath.sierra, level: 1 }])
         // should not mutate the input
         expect(units).toStrictEqual(units)
@@ -34,7 +34,7 @@ describe('findMinimumRootUnits', () => {
             { path: unitToPath['sierra/bombali'], level: 2 },
         ]
 
-        const result = deduplicateOrgUnitRoots(units)
+        const result = findCommonOrgUnitRoots(units)
         expect(result).toEqual([
             { path: unitToPath['sierra/bo'], level: 2 },
             { path: unitToPath['sierra/bombali'], level: 2 },
@@ -47,7 +47,7 @@ describe('findMinimumRootUnits', () => {
             { path: unitToPath['sierra'], level: 1 },
             { path: unitToPath['sierra/bo'], level: 2 },
         ]
-        const result = deduplicateOrgUnitRoots(units)
+        const result = findCommonOrgUnitRoots(units)
         expect(result).toEqual([{ path: unitToPath['sierra'], level: 1 }])
         expect(units).toStrictEqual(units)
     })
@@ -57,7 +57,7 @@ describe('findMinimumRootUnits', () => {
             { path: unitToPath['sierra'], level: 1 },
             { path: unitToPath['sierra/bo/badjia/ngelehun'], level: 4 },
         ]
-        const result = deduplicateOrgUnitRoots(units)
+        const result = findCommonOrgUnitRoots(units)
         expect(result).toEqual([{ path: unitToPath['sierra'], level: 1 }])
         expect(units).toStrictEqual(units)
     })
@@ -68,7 +68,7 @@ describe('findMinimumRootUnits', () => {
             { path: unitToPath['tanzania'], level: 1 },
             { path: unitToPath['ethiopia'], level: 1 },
         ]
-        const result = deduplicateOrgUnitRoots(units)
+        const result = findCommonOrgUnitRoots(units)
         expect(result).toEqual([
             { path: unitToPath['sierra'], level: 1 },
             { path: unitToPath['tanzania'], level: 1 },
@@ -84,7 +84,7 @@ describe('findMinimumRootUnits', () => {
             { path: unitToPath['sierra/bo/baoma'], level: 3 },
             { path: unitToPath['sierra/bo/bargbe'], level: 3 },
         ]
-        const result = deduplicateOrgUnitRoots(units)
+        const result = findCommonOrgUnitRoots(units)
         expect(result).toEqual([
             { path: unitToPath['sierra/bo/baoma'], level: 3 },
             { path: unitToPath['sierra/bo/bargbe'], level: 3 },
@@ -101,7 +101,7 @@ describe('findMinimumRootUnits', () => {
             { path: unitToPath['sierra/bargbe/barlie'], level: 3 },
             { path: unitToPath['sierra/bargbe/barlie/ngalu'], level: 4 },
         ]
-        const result = deduplicateOrgUnitRoots(units)
+        const result = findCommonOrgUnitRoots(units)
         expect(result).toEqual([
             { path: unitToPath['sierra/bo'], level: 2 },
             { path: unitToPath['sierra/bargbe/barlie'], level: 3 },
@@ -111,7 +111,7 @@ describe('findMinimumRootUnits', () => {
 
     it('should handle empty input and return an empty array', () => {
         const units = []
-        const result = deduplicateOrgUnitRoots(units)
+        const result = findCommonOrgUnitRoots(units)
         expect(result).toEqual([])
         expect(units).toStrictEqual(units)
     })

@@ -1,5 +1,5 @@
 /**
- * Find the minimum root units from a list of orgunits.
+ * Find the minimum/common root units from a list of orgunits.
  * This is used to "deduplicate" a list of units, where some unit in the list
  * may be a parent of another, and thus only the parent should be included as a root.
  *
@@ -8,7 +8,7 @@
  * @param {Array} unitsWithLevel - List of orgunits with their level
  * @returns {Array} - A filtered list of the minimum root units
  */
-export const deduplicateOrgUnitRoots = (unitsWithLevel) => {
+export const findCommonOrgUnitRoots = (unitsWithLevel) => {
     const sorted = unitsWithLevel.sort((a, b) => a.level - b.level)
 
     const minimumRoots = sorted.filter((ou, index, array) => {
