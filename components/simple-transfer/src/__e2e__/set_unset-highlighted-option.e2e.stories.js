@@ -4,7 +4,7 @@ import { options } from './common/options.js'
 import { statefulDecorator } from './common/stateful-decorator.js'
 
 export default {
-    title: 'SimpleTransfer set & unset higlighted options',
+    title: 'Simple Transfer set & unset higlighted options',
     decorators: [statefulDecorator()],
 }
 

@@ -4,7 +4,7 @@ import { options } from './common/options.js'
 import { statefulDecorator } from './common/stateful-decorator.js'
 
 export default {
-    title: 'Disabled Source Options',
+    title: 'Simple Transfer Disabled Source Options',
     decorators: [statefulDecorator()],
 }
 

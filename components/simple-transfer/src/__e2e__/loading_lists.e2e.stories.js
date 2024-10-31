@@ -2,7 +2,7 @@ import React from 'react'
 import { SimpleTransfer } from '../simple-transfer.js'
 import { options } from './common/options.js'
 
-export default { title: 'SimpleTransfer Loading Lists' }
+export default { title: 'Simple Transfer Loading Lists' }
 
 export const LoadingSource = () => (
     <SimpleTransfer

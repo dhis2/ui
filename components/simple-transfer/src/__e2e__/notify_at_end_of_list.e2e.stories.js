@@ -4,7 +4,7 @@ import { options } from './common/options.js'
 import { statefulDecorator } from './common/stateful-decorator.js'
 
 export default {
-    title: 'SimpleTransfer End Of List',
+    title: 'Simple Transfer End Of List',
     decorators: [statefulDecorator()],
 }
 

@@ -3,7 +3,7 @@ import { SimpleTransfer } from '../simple-transfer.js'
 import { options } from './common/options.js'
 import { statefulDecorator } from './common/stateful-decorator.js'
 
-export default { title: 'SimpleTransfer Display Order' }
+export default { title: 'Simple Transfer Display Order' }
 
 window.options = options
 
