@@ -1,4 +1,4 @@
-@component-transfer @transferring
+@component-simple-transfer @transferring
 Feature: Transferring items between lists
 
     Scenario: The user selects multiple items

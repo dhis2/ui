@@ -1,4 +1,4 @@
-@component-transfer @reordering
+@component-simple-transfer @reordering
 Feature: Reorder items in the selected list using buttons
 
     Background:

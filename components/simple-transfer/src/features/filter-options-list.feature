@@ -1,4 +1,4 @@
-@component-transfer @filtering
+@component-simple-transfer @filtering
 Feature: Filter options list
 
     Background:

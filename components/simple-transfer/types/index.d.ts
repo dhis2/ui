@@ -51,7 +51,7 @@ export interface SimpleTransferProps {
     onFilterChangePicked?: InputChangeHandler
 }
 
-export const Transfer: React.FC<SimpleTransferProps>
+export const SimpleTransfer: React.FC<SimpleTransferProps>
 
 export type TransferOptionOnClickProp = (payload: { value: string }) => void
 

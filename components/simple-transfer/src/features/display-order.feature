@@ -1,4 +1,4 @@
-@component-transfer @display-ordering
+@component-simple-transfer @display-ordering
 Feature: Display order of items in lists
 
     Scenario: All supplied options are rendered in the options-side

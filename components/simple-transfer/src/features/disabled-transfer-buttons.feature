@@ -1,4 +1,4 @@
-@component-transfer @button-states
+@component-simple-transfer @button-states
 Feature: Disable transfer buttons when actions are not possible
 
     Scenario: None of the selectable options are highlighted

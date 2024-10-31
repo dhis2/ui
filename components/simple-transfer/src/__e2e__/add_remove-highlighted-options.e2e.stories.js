@@ -8,6 +8,14 @@ export default {
     decorators: [statefulDecorator()],
 }
 
+export const HasOptions = (_, { onChange, selected }) => (
+    <SimpleTransfer
+        filterable
+        selected={selected}
+        onChange={onChange}
+        options={options}
+    />
+)
 export const HasSelected = (_, { onChange, selected }) => (
     <SimpleTransfer onChange={onChange} selected={selected} options={options} />
 )

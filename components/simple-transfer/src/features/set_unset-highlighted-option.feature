@@ -1,4 +1,4 @@
-@component-transfer @highlighting
+@component-simple-transfer @highlighting
 Feature: Set&unset the highlighted option
 
     Scenario Outline: The user clicks an item that is not already highlighted

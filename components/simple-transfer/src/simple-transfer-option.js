@@ -10,6 +10,7 @@ export const SimpleTransferOption = ({
     onDoubleClick,
     label,
     value,
+    lastOptionReference,
 }) => {
     return (
         <>
@@ -19,6 +20,7 @@ export const SimpleTransferOption = ({
                 data-value={value}
                 value={value}
                 onDoubleClick={() => onDoubleClick({ value }, event)}
+                ref={lastOptionReference}
             >
                 {label}
             </option>
@@ -56,5 +58,6 @@ SimpleTransferOption.propTypes = {
     className: PropTypes.string,
     dataTest: PropTypes.string,
     disabled: PropTypes.bool,
+    lastOptionReference: PropTypes.object,
     onDoubleClick: PropTypes.func,
 }

@@ -1,4 +1,4 @@
-@component-transfer @disabled-options
+@component-simple-transfer @disabled-options
 Feature: Options can be disabled
 
     Scenario: The user clicks a disabled option

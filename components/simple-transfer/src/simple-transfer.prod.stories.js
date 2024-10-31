@@ -2,7 +2,6 @@ import { SingleSelectField, SingleSelectOption } from '@dhis2-ui/select'
 import { Tab, TabBar } from '@dhis2-ui/tab'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
-import { SimpleTransferOption } from './simple-transfer-option.js'
 import { SimpleTransfer } from './simple-transfer.js'
 
 const subtitle = 'Allows users to select options from a list'
@@ -218,79 +217,6 @@ FilteredPlaceholder.args = {
     filterPlaceholder: 'Search',
 }
 
-const renderOption = ({ label, value, onClick, highlighted, selected }) => (
-    <p
-        onClick={(event) => onClick({ label, value }, event)}
-        style={{
-            background: highlighted ? 'green' : 'blue',
-            color: selected ? 'orange' : 'white',
-        }}
-    >
-        Custom: {label} (label), {value} (value)
-    </p>
-)
-
-const RenderOptionCode = () => (
-    <>
-        <strong>Custom option code:</strong>
-        <code>
-            <pre>{`const renderOption = ({ label, value, onClick, highlighted, selected }) => (
-                <p
-                    onClick={event => onClick({ label, value }, event)}
-                    style={{
-                        background: highlighted ? 'green' : 'blue',
-                        color: selected ? 'orange' : 'white',
-                    }}
-                >
-                    Custom: {label} (label), {value} (value)
-                </p>
-            )`}</pre>
-        </code>
-    </>
-)
-
-const StatefulTemplateCustomRenderOption = ({
-    initiallySelected = [],
-    ...args
-}) => {
-    const [selected, setSelected] = useState(initiallySelected)
-    const onChange = (payload) => setSelected(payload.selected)
-
-    return <SimpleTransfer {...args} selected={selected} onChange={onChange} />
-}
-StatefulTemplateCustomRenderOption.propTypes = {
-    initiallySelected: PropTypes.array,
-}
-
-export const CustomListOptions = (args) => (
-    <>
-        <RenderOptionCode />
-        <StatefulTemplateCustomRenderOption {...args} />
-    </>
-)
-CustomListOptions.args = {
-    renderOption,
-    options: options.slice(0, 2),
-    initiallySelected: options.slice(0, 2).map(({ value }) => value),
-}
-
-export const IndividualCustomOption = StatefulTemplateCustomRenderOption.bind(
-    {}
-)
-IndividualCustomOption.args = {
-    addAllText: 'Add all',
-    addIndividualText: 'Add individual',
-    removeAllText: 'Remove all',
-    removeIndividualText: 'Remove individual',
-    renderOption: (option) => {
-        if (option.value === options[0].value) {
-            return renderOption(option)
-        }
-
-        return <SimpleTransferOption {...option} />
-    },
-}
-
 export const CustomButtonText = StatefulTemplate.bind({})
 CustomButtonText.args = {
     addAllText: 'Add all',
@@ -482,7 +408,7 @@ export const InfiniteLoading = (args) => {
     // state for whether the next page's options are being loaded
     const [loading, setLoading] = useState(false)
     // captures the current page
-    const [page, setPage] = useState(0)
+    const [page, setPage] = useState(1)
     // all options (incl. available AND selected options)
     const [options, setOptions] = useState([])
     // selected options

@@ -1,11 +1,13 @@
+import { spacers } from '@dhis2/ui-constants'
 import { CircularLoader } from '@dhis2-ui/loader'
 import PropTypes from 'prop-types'
-import React, { Fragment, useRef } from 'react'
+import React, { Fragment, useEffect, useRef } from 'react'
 import { SimpleTransferOption } from './simple-transfer-option.js'
 
 export const OptionsContainer = ({
     dataTest,
     emptyComponent,
+    onEndReached,
     highlightedOptions,
     loading,
     maxSelections,
@@ -14,8 +16,37 @@ export const OptionsContainer = ({
     selectionHandler,
     setHighlightedOptions,
 }) => {
-    const optionsRef = useRef(null)
+    const selectRef = useRef(null)
     const wrapperRef = useRef(null)
+    // const resizeCounter = useResizeCounter(wrapperRef.current)
+    const lastOptionRef = useRef(null)
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        onEndReached && onEndReached()
+                    }
+                })
+            },
+            {
+                root: wrapperRef.current,
+                threshold: 1.0,
+            }
+        )
+
+        if (lastOptionRef.current) {
+            observer.observe(lastOptionRef.current)
+        }
+
+        return () => {
+            if (lastOptionRef.current) {
+                observer.unobserve(lastOptionRef.current)
+            }
+            observer.disconnect()
+        }
+    }, [options])
 
     return (
         <div className="optionsContainer">
@@ -25,14 +56,14 @@ export const OptionsContainer = ({
                 </div>
             )}
 
-            <div className="container" data-test={dataTest} ref={optionsRef}>
+            <div className="container" data-test={dataTest} ref={wrapperRef}>
                 {!options.length && emptyComponent}
                 {!!options.length && (
                     <select
+                        ref={selectRef}
+                        className="content-select"
                         multiple={maxSelections === Infinity}
                         size={maxSelections === 1 ? 2 : undefined}
-                        className="content-container"
-                        ref={wrapperRef}
                         onChange={(e) => {
                             const nextSelected = [...e.target.options].reduce(
                                 (curNextSelected, option) => {
@@ -47,7 +78,7 @@ export const OptionsContainer = ({
                             setHighlightedOptions(nextSelected)
                         }}
                     >
-                        {options.map((option) => {
+                        {options.map((option, index) => {
                             const highlighted = !!highlightedOptions.find(
                                 (highlightedSourceOption) =>
                                     highlightedSourceOption === option.value
@@ -61,6 +92,11 @@ export const OptionsContainer = ({
                                         highlighted={highlighted}
                                         selected={selected}
                                         onDoubleClick={selectionHandler}
+                                        lastOptionReference={
+                                            index === options.length - 1
+                                                ? lastOptionRef
+                                                : undefined
+                                        }
                                     />
                                 </Fragment>
                             )
@@ -70,6 +106,37 @@ export const OptionsContainer = ({
             </div>
 
             <style jsx>{`
+                .optionsContainer {
+                    flex-grow: 1;
+                    padding: ${spacers.dp4} 0;
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                .container {
+                    overflow-y: auto;
+                    height: 100%;
+                }
+
+                .loading {
+                    display: flex;
+                    height: 100%;
+                    width: 100%;
+                    align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                    z-index: 2;
+                    top: 0;
+                    inset-inline-start: 0;
+                }
+
+                .content-select {
+                    border: none;
+                    position: relative;
+                    height: 100%;
+                    width: 100%;
+                }
+
                 .loading + .container .content-container {
                     filter: blur(2px);
                 }
@@ -93,4 +160,5 @@ OptionsContainer.propTypes = {
     ),
     selected: PropTypes.bool,
     selectionHandler: PropTypes.func,
+    onEndReached: PropTypes.func,
 }
