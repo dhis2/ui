@@ -1,7 +1,9 @@
 import { colors, spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+
+const VISIBILE_INTERSECTION_RATIO = 0.99
 
 function DefaultStyle({ label, disabled, highlighted }) {
     return (
@@ -66,10 +68,42 @@ export function Option({
     dataTest,
     disabled,
     highlighted,
+    listBoxRef,
+    onBecameVisible,
     ...rest
 }) {
+    const buttonRef = useRef()
+
+    useEffect(() => {
+        if (onBecameVisible) {
+            const scrollableContainer = listBoxRef.current.parentNode.parentNode
+            const intersectionOptions = {
+                root: scrollableContainer,
+                rootMargin: '0px',
+                threshold: 1,
+            }
+
+            const intersectionHandler = (entries) => {
+                entries.forEach(({ intersectionRatio }) => {
+                    if (intersectionRatio >= VISIBILE_INTERSECTION_RATIO) {
+                        onBecameVisible()
+                    }
+                })
+            }
+
+            const observer = new IntersectionObserver(
+                intersectionHandler,
+                intersectionOptions
+            )
+
+            observer.observe(buttonRef.current)
+            return () => observer.disconnect()
+        }
+    }, [onBecameVisible, listBoxRef])
+
     return (
         <button
+            ref={buttonRef}
             id={`${comboBoxId}-${index}`}
             data-test={dataTest}
             disabled={disabled}
@@ -119,4 +153,8 @@ Option.propTypes = {
     dataTest: PropTypes.string,
     disabled: PropTypes.bool,
     highlighted: PropTypes.bool,
+    listBoxRef: PropTypes.shape({
+        current: PropTypes.instanceOf(HTMLElement),
+    }),
+    onBecameVisible: PropTypes.func,
 }

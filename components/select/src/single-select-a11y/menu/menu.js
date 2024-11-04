@@ -37,6 +37,7 @@ export function Menu({
     selected,
     onBlur,
     onClose,
+    onEndReached,
     onFilterChange,
     onFilterInputKeyDown,
     onSearch,
@@ -58,6 +59,15 @@ export function Menu({
         return null
     }
 
+    const hasNoFilterMatch =
+        !options.length &&
+        filterValue &&
+        // We don't want to show the noMatchText when
+        // we're in the process of loading options
+        !loading
+
+    const isEmpty = !options.length && !filterValue
+
     return (
         <Layer onBackdropClick={onClose} transparent>
             <Popper
@@ -66,7 +76,7 @@ export function Menu({
                 observeReferenceResize
             >
                 <div
-                    className={cx('listbox-container', { hidden })}
+                    className={cx('menu', { hidden })}
                     style={{ width: menuWidth, maxHeight }}
                 >
                     {filterable && (
@@ -81,36 +91,39 @@ export function Menu({
                         />
                     )}
 
-                    {!options.length && !filterValue && <Empty>{empty}</Empty>}
+                    {isEmpty && <Empty>{empty}</Empty>}
 
-                    {!options.length &&
-                        filterValue &&
-                        // We don't want to show the noMatchText when
-                        // we're in the process of loading options
-                        !loading && <NoMatch>{noMatchText}</NoMatch>}
+                    {hasNoFilterMatch && <NoMatch>{noMatchText}</NoMatch>}
 
-                    <MenuOptionsList
-                        ref={listBoxRef}
-                        comboBoxId={comboBoxId}
-                        customOption={customOption}
-                        dataTest={`${dataTestPrefix}-list`}
-                        disabled={disabled}
-                        expanded={!hidden}
-                        focussedOptionIndex={focussedOptionIndex}
-                        idPrefix={idPrefix}
-                        labelledBy={labelledBy}
-                        loading={loading}
-                        optionUpdateStrategy={optionUpdateStrategy}
-                        options={options}
-                        selected={selected}
-                        onChange={onChange}
-                        onBlur={onBlur}
-                    />
+                    <div className="listbox-container">
+                        <MenuOptionsList
+                            ref={listBoxRef}
+                            comboBoxId={comboBoxId}
+                            customOption={customOption}
+                            dataTest={`${dataTestPrefix}-list`}
+                            disabled={disabled}
+                            expanded={!hidden}
+                            focussedOptionIndex={focussedOptionIndex}
+                            idPrefix={idPrefix}
+                            labelledBy={labelledBy}
+                            loading={loading}
+                            optionUpdateStrategy={optionUpdateStrategy}
+                            options={options}
+                            selected={selected}
+                            onBlur={onBlur}
+                            onChange={onChange}
+                            onEndReached={onEndReached}
+                        />
 
-                    {loading && <MenuLoading message={loadingText} />}
+                        {loading && (
+                            <div className="menu-loading-container">
+                                <MenuLoading message={loadingText} />
+                            </div>
+                        )}
+                    </div>
 
                     <style jsx>{`
-                        .listbox-container {
+                        .menu {
                             height: auto;
                             overflow: auto;
                             background: ${colors.white};
@@ -120,6 +133,18 @@ export function Menu({
 
                             /* We want the provided height to be exact */
                             box-sizing: content-box;
+                        }
+
+                        .listbox-wrapper {
+                            position: relative;
+                        }
+
+                        .menu-loading-container {
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            width: 100%;
+                            height: 100%;
                         }
                     `}</style>
                 </div>
@@ -156,6 +181,7 @@ Menu.propTypes = {
     selected: PropTypes.string,
     onBlur: PropTypes.func,
     onClose: PropTypes.func,
+    onEndReached: PropTypes.func,
     onFilterChange: PropTypes.func,
     onFilterInputKeyDown: PropTypes.func,
     onSearch: PropTypes.func,

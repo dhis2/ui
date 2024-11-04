@@ -14,6 +14,9 @@ export function MenuLoading({ message }) {
 
             <style jsx>{`
                 .container {
+                    /* box-sizing: border-box; does not respect padding-block and padding-inline */
+                    width: calc(100% - 48px);
+                    height: calc(100% - 16px);
                     display: flex;
                     gap: ${spacers.dp16};
                     align-items: center;
@@ -23,6 +26,7 @@ export function MenuLoading({ message }) {
                     font-size: 13px;
                     padding-block: ${spacers.dp8};
                     padding-inline: ${spacers.dp24};
+                    background: rgba(255, 255, 255, 0.8);
                 }
             `}</style>
         </div>

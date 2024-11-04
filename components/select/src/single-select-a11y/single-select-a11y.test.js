@@ -124,7 +124,7 @@ describe('<SingleSelectA11y />', () => {
         fireEvent.click(screen.getByRole('combobox'))
 
         const listbox = screen.getByRole('listbox')
-        const listboxContainer = listbox.parentNode
+        const listboxContainer = listbox.parentNode.parentNode
         expect(listboxContainer.style.maxHeight).toBe('100px')
     })
 

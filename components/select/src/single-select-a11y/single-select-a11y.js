@@ -44,6 +44,7 @@ export function SingleSelectA11y({
     warning,
     valueLabel: _valueLabel,
     onBlur,
+    onEndReached,
     onFilterChange,
     onFocus,
 }) {
@@ -207,6 +208,7 @@ export function SingleSelectA11y({
                     closeMenu()
                 }}
                 onClose={closeMenu}
+                onEndReached={onEndReached}
                 onFilterChange={onFilterChange}
             />
         </div>
@@ -355,11 +357,12 @@ SingleSelectA11y.propTypes = {
     /** Will be called when the combobox is loses focus **/
     onBlur: PropTypes.func,
 
+    /** Will be called when the last option is scrolled into the visible area **/
+    onEndReached: PropTypes.func,
+
     /** Will be called when the filter value changes **/
     onFilterChange: PropTypes.func,
 
     /** Will be called when the combobox is being focused **/
     onFocus: PropTypes.func,
-
-    /** Will be called when the user presses enter after erntering a search term **/
 }

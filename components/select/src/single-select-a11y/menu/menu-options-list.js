@@ -20,6 +20,7 @@ export const MenuOptionsList = forwardRef(function MenuOptionsList(
         loading,
         onChange,
         onBlur,
+        onEndReached,
     },
     ref
 ) {
@@ -67,8 +68,11 @@ export const MenuOptionsList = forwardRef(function MenuOptionsList(
                     index
                 ) => {
                     const isSelected = value === selected
+                    const isLast = index === options.length - 1
+
                     return (
                         <Option
+                            listBoxRef={ref}
                             dataTest={`${dataTest}-option`}
                             highlighted={focussedOptionIndex === index}
                             key={value}
@@ -79,6 +83,7 @@ export const MenuOptionsList = forwardRef(function MenuOptionsList(
                             disabled={disabled || optionDisabled}
                             onClick={isSelected ? () => null : onChange}
                             component={component || customOption}
+                            onBecameVisible={isLast ? onEndReached : undefined}
                         />
                     )
                 }
@@ -102,4 +107,5 @@ MenuOptionsList.propTypes = {
     optionUpdateStrategy: PropTypes.oneOf(['off', 'polite', 'assertive']),
     selected: PropTypes.string,
     onBlur: PropTypes.func,
+    onEndReached: PropTypes.func,
 }
