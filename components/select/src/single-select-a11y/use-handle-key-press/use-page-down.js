@@ -35,7 +35,7 @@ export function usePageDown({
         }
 
         if (highestVisibleIndex > -1) {
-            highlightLastOptionOnNextPage(listBoxParent)
+            highlightLastOptionOnNextPage()
             return
         }
 

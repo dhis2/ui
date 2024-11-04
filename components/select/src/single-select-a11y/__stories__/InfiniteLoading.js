@@ -33,7 +33,6 @@ export const InfiniteLoading = () => {
 
     const loadNextOptions = useCallback(() => {
         const nextPage = curLoadedPage + 1
-        console.log('>', { nextPage, loading })
 
         if (
             // We're already loading a page
@@ -41,7 +40,6 @@ export const InfiniteLoading = () => {
             // No need to load anything when already loaded everything
             nextPage >= optionChunks.length
         ) {
-            console.log('> do nothing')
             return
         }
 

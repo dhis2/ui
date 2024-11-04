@@ -124,8 +124,8 @@ describe('<SingleSelectA11y />', () => {
         fireEvent.click(screen.getByRole('combobox'))
 
         const listbox = screen.getByRole('listbox')
-        const listboxContainer = listbox.parentNode.parentNode
-        expect(listboxContainer.style.maxHeight).toBe('100px')
+        const menu = listbox.parentNode.parentNode
+        expect(menu.style.maxHeight).toBe('100px')
     })
 
     it('should accept a placeholder', () => {
@@ -327,7 +327,7 @@ describe('<SingleSelectA11y />', () => {
     it('should have an empty-text in the menu', () => {
         render(
             <SingleSelectA11y
-                empty={<p>Empty</p>}
+                empty="Empty"
                 idPrefix="a11y"
                 value=""
                 onChange={jest.fn()}
@@ -336,7 +336,7 @@ describe('<SingleSelectA11y />', () => {
         )
 
         const emptyTextBeforeOpen = screen.queryByText('Empty')
-        expect(emptyTextBeforeOpen).not.toBeVisible()
+        expect(emptyTextBeforeOpen).toBeNull()
 
         fireEvent.click(screen.getByRole('combobox'))
 
@@ -359,7 +359,7 @@ describe('<SingleSelectA11y />', () => {
             />
         )
 
-        expect(screen.queryByLabelText('Search options')).not.toBeVisible()
+        expect(screen.queryByLabelText('Search options')).toBeNull()
 
         fireEvent.click(screen.getByRole('combobox'))
 
@@ -393,6 +393,8 @@ describe('<SingleSelectA11y />', () => {
             />
         )
 
+        fireEvent.click(screen.getByRole('combobox'))
+
         expect(screen.getByLabelText('Custom filter label')).not.toBeNull()
     })
 
@@ -420,6 +422,8 @@ describe('<SingleSelectA11y />', () => {
                 ]}
             />
         )
+
+        fireEvent.click(screen.getByRole('combobox'))
 
         // @TODO: For some reason this is called three times
         // Is this because of unnecessary re-renders?

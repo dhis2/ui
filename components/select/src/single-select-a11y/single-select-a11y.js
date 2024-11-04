@@ -2,7 +2,7 @@ import { requiredIf } from '@dhis2/prop-types'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useCallback, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Menu } from './menu/index.js'
 import { SelectedValue } from './selected-value/index.js'
 import { optionProp } from './shared-prop-types.js'
@@ -10,6 +10,44 @@ import {
     useHandleKeyPress,
     useHandleKeyPressOnFilterInput,
 } from './use-handle-key-press/index.js'
+
+function useFocussedOptionIndex({ filterable, filterValue, options }) {
+    const [defaultFocussedOptionIndex, setDefaultFocussedOptionIndex] =
+        useState(0)
+    const [searchFocussedOptionIndex, setSearchFocussedOptionIndex] =
+        useState(0)
+
+    // We want to reset the focussed option index when searching when the
+    // options change
+    //
+    // @TODO: We could think about making this smarter, e.g. by looking whether
+    // the previously highlighted option is still present in the options list.
+    // At this point I think that optimizations might be overkill or even cause
+    // bad UX, so I'm keeping it simple
+    const initialized = useRef(false)
+    useEffect(() => {
+        // Ignore first call to prevent unnecessary re-render
+        if (!initialized.current) {
+            initialized.current = true
+        } else if (filterable) {
+            setSearchFocussedOptionIndex(0)
+        }
+    }, [options, filterable])
+
+    const focussedOptionIndex = useMemo(() => {
+        return filterValue
+            ? searchFocussedOptionIndex
+            : defaultFocussedOptionIndex
+    }, [defaultFocussedOptionIndex, searchFocussedOptionIndex, filterValue])
+
+    const setFocussedOptionIndex = useMemo(() => {
+        return filterValue
+            ? setSearchFocussedOptionIndex
+            : setDefaultFocussedOptionIndex
+    }, [filterValue])
+
+    return [focussedOptionIndex, setFocussedOptionIndex]
+}
 
 export function SingleSelectA11y({
     options,
@@ -66,10 +104,15 @@ export function SingleSelectA11y({
         )
     }
 
-    // Using `useState` here so components get notified when the value changes (from null -> div)
     const comboBoxRef = useRef()
     const listBoxRef = useRef()
-    const [focussedOptionIndex, setFocussedOptionIndex] = useState(0)
+    const [focussedOptionIndex, setFocussedOptionIndex] =
+        useFocussedOptionIndex({
+            filterable,
+            filterValue,
+            options,
+        })
+
     const [selectRef, setSelectRef] = useState()
     const [expanded, setExpanded] = useState(false)
     const closeMenu = useCallback(() => setExpanded(false), [])
@@ -82,7 +125,7 @@ export function SingleSelectA11y({
         }
 
         setExpanded(true)
-    }, [options, value, focussedOptionIndex])
+    }, [options, value, focussedOptionIndex, setFocussedOptionIndex])
     const toggleMenu = useCallback(() => {
         if (expanded) {
             closeMenu()

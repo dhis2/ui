@@ -23,7 +23,6 @@ describe('<SingleSelectA11y/>', () => {
 
         cy.findByRole('option', { selected: true })
             .invoke('parent') // listbox
-            .invoke('parent') // .listbox-container
             .invoke('parent') // scrollable div
             .then((listBoxParent) => {
                 listBoxParent.get(0).scrollTop = optionOffset
@@ -71,7 +70,6 @@ describe('<SingleSelectA11y/>', () => {
 
         cy.findByRole('option', { selected: true })
             .invoke('parent') // listbox
-            .invoke('parent') // .listbox-container
             .invoke('parent') // scrollable div
             .then((listBoxParent) => {
                 listBoxParent.get(0).scrollTop = optionOffset
@@ -183,7 +181,6 @@ describe('<SingleSelectA11y/>', () => {
 
         cy.findByRole('option', { selected: true })
             .invoke('parent') // listbox
-            .invoke('parent') // .listbox-container
             .invoke('parent') // scrollable div
             .then((listBoxParent) => {
                 listBoxParent.get(0).scrollTop = optionOffset
@@ -228,7 +225,6 @@ describe('<SingleSelectA11y/>', () => {
 
         cy.findByRole('option', { selected: true })
             .invoke('parent') // listbox
-            .invoke('parent') // .listbox-container
             .invoke('parent') // scrollable div
             .then((listBoxParent) => {
                 listBoxParent.get(0).scrollTop = optionOffset
@@ -408,7 +404,6 @@ describe('<SingleSelectA11y/>', () => {
                     cy
                         .findByRole('option', { selected: true })
                         .invoke('parent')
-                        .invoke('parent') // .listbox-container
                         .invoke('parent')
             ).then(([nextTopOption, listBoxParent]) => {
                 const { offsetTop } = nextTopOption.get(0)
@@ -528,7 +523,7 @@ describe('<SingleSelectA11y/>', () => {
             )
             cy.all(
                 () => cy.findAllByRole('option').eq(89),
-                () => cy.findByRole('listbox').invoke('parent').invoke('parent') // scrollable div
+                () => cy.findByRole('listbox').invoke('parent') // scrollable div
             ).then(([nextTopOption, listBoxParent]) => {
                 const { offsetTop } = nextTopOption.get(0)
                 listBoxParent.get(0).scrollTop = offsetTop

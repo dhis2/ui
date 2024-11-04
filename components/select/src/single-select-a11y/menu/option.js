@@ -76,7 +76,7 @@ export function Option({
 
     useEffect(() => {
         if (onBecameVisible) {
-            const scrollableContainer = listBoxRef.current.parentNode.parentNode
+            const scrollableContainer = listBoxRef.current.parentNode
             const intersectionOptions = {
                 root: scrollableContainer,
                 rootMargin: '0px',

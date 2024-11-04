@@ -81,6 +81,7 @@ export function Menu({
                 >
                     {filterable && (
                         <MenuFilter
+                            idPrefix={idPrefix}
                             dataTest={`${dataTestPrefix}-filter`}
                             value={filterValue}
                             onChange={onFilterChange}
@@ -114,35 +115,40 @@ export function Menu({
                             onChange={onChange}
                             onEndReached={onEndReached}
                         />
-
-                        {loading && (
-                            <div className="menu-loading-container">
-                                <MenuLoading message={loadingText} />
-                            </div>
-                        )}
                     </div>
+
+                    {loading && (
+                        <div className="menu-loading-container">
+                            <MenuLoading message={loadingText} />
+                        </div>
+                    )}
 
                     <style jsx>{`
                         .menu {
+                            display: flex;
+                            flex-direction: column;
                             height: auto;
-                            overflow: auto;
                             background: ${colors.white};
                             border: 1px solid ${colors.grey200};
                             border-radius: 3px;
                             box-shadow: ${elevations.e300};
 
-                            /* We want the provided height to be exact */
+                            /* We want the provided height to be exact, otherwise
+                               the consumer would have to know about the border's width */
                             box-sizing: content-box;
                         }
 
-                        .listbox-wrapper {
+                        .listbox-container {
                             position: relative;
+                            overflow: auto;
+                            height: 100%;
+                            flex-grow: 1;
                         }
 
                         .menu-loading-container {
                             position: absolute;
                             left: 0;
-                            top: 0;
+                            bottom: 0;
                             width: 100%;
                             height: 100%;
                         }

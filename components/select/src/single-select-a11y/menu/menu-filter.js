@@ -5,6 +5,7 @@ import React from 'react'
 import i18n from '../../locales/index.js'
 
 export function MenuFilter({
+    idPrefix,
     value,
     onChange,
     dataTest,
@@ -16,6 +17,8 @@ export function MenuFilter({
         <div data-test={dataTest}>
             <Input
                 dense
+                ariaControls={`${idPrefix}-listbox`}
+                ariaHaspopup="listbox"
                 ariaLabel={label || i18n.t('Search options')}
                 dataTest={`${dataTest}-input`}
                 value={value}
@@ -43,6 +46,7 @@ export function MenuFilter({
 }
 
 MenuFilter.propTypes = {
+    idPrefix: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     dataTest: PropTypes.string,
