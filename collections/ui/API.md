@@ -1866,15 +1866,15 @@ import { SingleSelect } from '@dhis2/ui'
 |onFocus|function||||
 |onKeyDown|function||||
 
-### Menu
+### SingleSelectA11y
 
 #### Usage
 
-To use `Menu`, you can import the component from the `@dhis2/ui` library  
+To use `SingleSelectA11y`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { Menu } from '@dhis2/ui'
+import { SingleSelectA11y } from '@dhis2/ui'
 ```
 
 
@@ -1882,27 +1882,39 @@ import { Menu } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|comboBoxId|string||*||
-|idPrefix|string||*||
-|options|custom||||
-|onChange|function||*||
-|disabled|boolean||||
-|empty|node||||
-|filterLabel|string||||
-|filterPlaceholder|string||||
-|filterValue|string||||
-|filterable|boolean||||
-|hidden|boolean||||
-|labelledBy|string||||
-|loading|boolean||||
-|loadingText|string||||
-|maxHeight|string||||
-|selectRef|instanceOf(HTMLElement)||||
-|selected|string||||
-|onBlur|function||||
-|onClose|function||||
-|onFilterChange|function||||
-|onKeyDown|function||||
+|idPrefix|string||*|necessary for IDs that are required for accessibility *|
+|options|arrayOf(custom)||*|An array of options *|
+|value|string|`''`||As of now, this component does not support being uncontrolled *|
+|onChange|function||*|A callback that will be called with the new value or an empty string *|
+|autoFocus|boolean|`false`||Will focus the select initially *|
+|className|string|`''`||Additional class names that will be applied to the root element *|
+|clearText|custom|`''`||This will allow us to put an aria-label on the clear button *|
+|clearable|boolean|`false`||Whether a clear button should be displayed or not *|
+|customOption|elementType|||Allows to override what's rendered inside the `button[role="option"]`.<br/>Can be overriden on an individual option basis *|
+|dataTest|string|`'dhis2-singleselecta11y'`||A value for a `data-test` attribute on the root element *|
+|dense|boolean|`false`||Renders a select with lower height *|
+|disabled|boolean|`false`||Disables all interactions with the select (except focussing) *|
+|empty|node|`false`||Text or component to display when there are no options *|
+|error|custom|`false`||Applies 'error' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props *|
+|filterLabel|string|`''`||Value will be used as aria-label attribute on the filter input *|
+|filterPlaceholder|string|`''`||Placeholder for the filter input *|
+|filterValue|string|`''`||Value of the filter input *|
+|filterable|boolean|`false`||Whether the select should display a filter input *|
+|labelledBy|string|`''`||Should contain the id of the element that labels the select, if applicable *|
+|loading|boolean|`false`||Will show a loading indicator at the end of the options-list *|
+|menuLoadingText|string|`''`||Text that will be displayed next to the loading indicator *|
+|menuMaxHeight|string|`'288px'`||Allows to modify the max height of the menu *|
+|noMatchText|custom|`''`||String that will be displayed when the select is being filtered but the options array is empty *|
+|optionUpdateStrategy|'off' │ 'polite' │ 'assertive'|`'polite'`||For a11y: How aggressively the user should be updated about changes in options *|
+|placeholder|string|`''`||String to show when there's no value and no valueLabel *|
+|prefix|string|`''`||String that will be displayed before the label of the selected option *|
+|tabIndex|string │ number|`'0'`||Standard HTML tab-index attribute that will be put on the combobox's root element *|
+|valid|custom|`false`||Applies 'valid' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props *|
+|valueLabel|custom|`''`||When the option is not in the options list (e.g. not loaded or list is<br/>filtered), but a selected value needs to be displayed, then this prop can<br/>be used to supply the text to be shown.|
+|warning|custom|`false`||Applies 'warning' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props *|
+|onBlur|function|`() => undefined`||Will be called when the combobox is loses focus *|
+|onFilterChange|function|`() => undefined`||Will be called when the filter value changes *|
+|onFocus|function|`() => undefined`||Will be called when the combobox is being focused *|
 
 ### SingleSelectField
 
@@ -1976,6 +1988,49 @@ import { SingleSelectOption } from '@dhis2/ui'
 |dataTest|string|`'dhis2-uicore-singleselectoption'`|||
 |disabled|boolean||||
 |onClick|function||||
+
+### Menu
+
+#### Usage
+
+To use `Menu`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { Menu } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|comboBoxId|string||*||
+|focussedOptionIndex|number||*||
+|idPrefix|string||*||
+|listBoxRef|{<br/>  "current": "instanceOf(HTMLElement)"<br/>}||*||
+|options|arrayOf(custom)||*||
+|onChange|function||*||
+|customOption|elementType||||
+|dataTest|string||||
+|disabled|boolean||||
+|empty|node||||
+|filterLabel|string||||
+|filterPlaceholder|string||||
+|filterValue|string||||
+|filterable|boolean||||
+|hidden|boolean||||
+|labelledBy|string||||
+|loading|boolean||||
+|loadingText|string||||
+|maxHeight|string||||
+|noMatchText|string||||
+|optionUpdateStrategy|'off' │ 'polite' │ 'assertive'||||
+|selectRef|instanceOf(HTMLElement)||||
+|selected|string||||
+|onBlur|function||||
+|onClose|function||||
+|onFilterChange|function||||
 
 ### SelectorBar
 
