@@ -22,7 +22,7 @@ export const SelectedValueContainer = forwardRef(function Container(
         onBlur,
         onClick: _onClick,
         onFocus,
-        onKeyPress,
+        onKeyDown,
     },
     ref
 ) {
@@ -66,7 +66,7 @@ export const SelectedValueContainer = forwardRef(function Container(
             onClick={onClick}
             onKeyDown={(e) => {
                 e.stopPropagation()
-                onKeyPress(e)
+                onKeyDown(e)
             }}
         >
             {children}
@@ -128,7 +128,7 @@ SelectedValueContainer.propTypes = {
     children: PropTypes.any.isRequired,
     comboBoxId: PropTypes.string.isRequired,
     idPrefix: PropTypes.string.isRequired,
-    onKeyPress: PropTypes.func.isRequired,
+    onKeyDown: PropTypes.func.isRequired,
     autoFocus: PropTypes.bool,
     dataTest: PropTypes.string,
     dense: PropTypes.bool,

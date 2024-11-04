@@ -5,9 +5,11 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import { optionProp } from '../shared-prop-types.js'
+import { Empty } from './empty.js'
 import { MenuFilter } from './menu-filter.js'
 import { MenuLoading } from './menu-loading.js'
 import { MenuOptionsList } from './menu-options-list.js'
+import { NoMatch } from './no-match.js'
 
 export function Menu({
     comboBoxId,
@@ -29,11 +31,15 @@ export function Menu({
     loading,
     loadingText,
     maxHeight,
+    noMatchText,
+    optionUpdateStrategy,
     selectRef,
     selected,
     onBlur,
     onClose,
     onFilterChange,
+    onFilterInputKeyDown,
+    onSearch,
 }) {
     const [menuWidth, setMenuWidth] = useState('auto')
     const dataTestPrefix = `${dataTest}-menu`
@@ -41,76 +47,15 @@ export function Menu({
     useEffect(() => {
         if (selectRef) {
             const callback = () => setMenuWidth(`${selectRef.offsetWidth}px`)
-            selectRef.addEventListener('resize', callback)
+            callback() // We want to know the width as soon as the
 
-            // We want to know the width as soon as the
-            callback()
+            selectRef.addEventListener('resize', callback)
             return () => selectRef.removeEventListener('resize', callback)
         }
     }, [selectRef])
 
-    const menu = (
-        <div
-            className={cx('listbox-container', { hidden })}
-            style={{ width: menuWidth, maxHeight }}
-        >
-            {filterable && (
-                <MenuFilter
-                    dataTest={`${dataTestPrefix}-filter`}
-                    value={filterValue}
-                    onChange={onFilterChange}
-                    label={filterLabel}
-                    placeholder={filterPlaceholder}
-                />
-            )}
-
-            {!options.length && <div className="empty-container">{empty}</div>}
-
-            <MenuOptionsList
-                ref={listBoxRef}
-                comboBoxId={comboBoxId}
-                customOption={customOption}
-                dataTest={`${dataTestPrefix}-list`}
-                disabled={disabled}
-                expanded={!hidden}
-                focussedOptionIndex={focussedOptionIndex}
-                idPrefix={idPrefix}
-                labelledBy={labelledBy}
-                loading={loading}
-                options={options}
-                selected={selected}
-                onChange={onChange}
-                onBlur={onBlur}
-            />
-
-            {loading && <MenuLoading message={loadingText} />}
-
-            <style jsx>{`
-                .listbox-container {
-                    height: auto;
-                    overflow: auto;
-                    background: ${colors.white};
-                    border: 1px solid ${colors.grey200};
-                    border-radius: 3px;
-                    box-shadow: ${elevations.e300};
-
-                    /* We want the provided height to be exact */
-                    box-sizing: content-box;
-                }
-
-                .hidden {
-                    display: none;
-                }
-
-                .empty-container {
-                    height: 16px;
-                }
-            `}</style>
-        </div>
-    )
-
     if (hidden) {
-        return menu
+        return null
     }
 
     return (
@@ -120,7 +65,64 @@ export function Menu({
                 placement="bottom-start"
                 observeReferenceResize
             >
-                {menu}
+                <div
+                    className={cx('listbox-container', { hidden })}
+                    style={{ width: menuWidth, maxHeight }}
+                >
+                    {filterable && (
+                        <MenuFilter
+                            dataTest={`${dataTestPrefix}-filter`}
+                            value={filterValue}
+                            onChange={onFilterChange}
+                            label={filterLabel}
+                            placeholder={filterPlaceholder}
+                            onSearch={onSearch}
+                            onKeyDown={onFilterInputKeyDown}
+                        />
+                    )}
+
+                    {!options.length && !filterValue && <Empty>{empty}</Empty>}
+
+                    {!options.length &&
+                        filterValue &&
+                        // We don't want to show the noMatchText when
+                        // we're in the process of loading options
+                        !loading && <NoMatch>{noMatchText}</NoMatch>}
+
+                    <MenuOptionsList
+                        ref={listBoxRef}
+                        comboBoxId={comboBoxId}
+                        customOption={customOption}
+                        dataTest={`${dataTestPrefix}-list`}
+                        disabled={disabled}
+                        expanded={!hidden}
+                        focussedOptionIndex={focussedOptionIndex}
+                        idPrefix={idPrefix}
+                        labelledBy={labelledBy}
+                        loading={loading}
+                        optionUpdateStrategy={optionUpdateStrategy}
+                        options={options}
+                        selected={selected}
+                        onChange={onChange}
+                        onBlur={onBlur}
+                    />
+
+                    {loading && <MenuLoading message={loadingText} />}
+
+                    <style jsx>{`
+                        .listbox-container {
+                            height: auto;
+                            overflow: auto;
+                            background: ${colors.white};
+                            border: 1px solid ${colors.grey200};
+                            border-radius: 3px;
+                            box-shadow: ${elevations.e300};
+
+                            /* We want the provided height to be exact */
+                            box-sizing: content-box;
+                        }
+                    `}</style>
+                </div>
             </Popper>
         </Layer>
     )
@@ -148,9 +150,13 @@ Menu.propTypes = {
     loading: PropTypes.bool,
     loadingText: PropTypes.string,
     maxHeight: PropTypes.string,
+    noMatchText: PropTypes.string,
+    optionUpdateStrategy: PropTypes.oneOf(['off', 'polite', 'assertive']),
     selectRef: PropTypes.instanceOf(HTMLElement),
     selected: PropTypes.string,
     onBlur: PropTypes.func,
     onClose: PropTypes.func,
     onFilterChange: PropTypes.func,
+    onFilterInputKeyDown: PropTypes.func,
+    onSearch: PropTypes.func,
 }

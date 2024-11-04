@@ -1,31 +1,14 @@
 import { useCallback } from 'react'
+import { useFocusOption } from './use-focus-option.js'
 import { useHandleTyping } from './use-handle-typing.js'
 import { usePageDown } from './use-page-down.js'
 import { usePageUp } from './use-page-up.js'
-
-function isEnabled({ disabled }) {
-    return !disabled
-}
-
-function findNextOptionIndex({ options, activeIndex }) {
-    const startIndex = activeIndex + 1
-    const optionsToSearch = options.slice(startIndex)
-
-    // Need to add back the count we removed by slicing the options array
-    return startIndex + optionsToSearch.findIndex(isEnabled)
-}
-
-function findPrevOptionIndex({ options, activeIndex }) {
-    return options.slice(0, activeIndex).findLastIndex(isEnabled)
-}
-
-function findFirstOptionIndex({ options }) {
-    return options.findIndex(isEnabled)
-}
-
-function findLastOptionIndex({ options }) {
-    return options.findLastIndex(isEnabled)
-}
+import {
+    findNextOptionIndex,
+    findPrevOptionIndex,
+    findFirstOptionIndex,
+    findLastOptionIndex,
+} from './utils.js'
 
 function useSelectOption(findIndexCallback, { options, onChange, value }) {
     return useCallback(() => {
@@ -44,29 +27,6 @@ function useSelectOption(findIndexCallback, { options, onChange, value }) {
 
         onChange(options[nextSelectedOptionIndex].value)
     }, [findIndexCallback, options, onChange, value])
-}
-
-function useFocusOption(
-    findIndexCallback,
-    { options, focussedOptionIndex, setFocussedOptionIndex }
-) {
-    return useCallback(() => {
-        const nextFocussedIndex = findIndexCallback({
-            options,
-            activeIndex: focussedOptionIndex,
-        })
-
-        if (nextFocussedIndex === -1) {
-            return
-        }
-
-        setFocussedOptionIndex(nextFocussedIndex)
-    }, [
-        findIndexCallback,
-        options,
-        focussedOptionIndex,
-        setFocussedOptionIndex,
-    ])
 }
 
 export function useHandleKeyPress({

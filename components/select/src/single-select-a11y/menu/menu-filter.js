@@ -4,19 +4,26 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import i18n from '../../locales/index.js'
 
-export function MenuFilter({ value, onChange, dataTest, placeholder, label }) {
+export function MenuFilter({
+    value,
+    onChange,
+    dataTest,
+    placeholder,
+    label,
+    onKeyDown,
+}) {
     return (
         <div data-test={dataTest}>
             <Input
+                dense
                 ariaLabel={label || i18n.t('Search options')}
                 dataTest={`${dataTest}-input`}
-                dense
                 value={value}
                 onChange={({ value }) => onChange(value)}
                 type="text"
                 name="filter"
                 placeholder={placeholder}
-                initialFocus
+                onKeyDown={(_, e) => onKeyDown(e)}
             />
 
             <style jsx>{`
@@ -41,4 +48,5 @@ MenuFilter.propTypes = {
     dataTest: PropTypes.string,
     label: PropTypes.string,
     placeholder: PropTypes.string,
+    onKeyDown: PropTypes.func,
 }

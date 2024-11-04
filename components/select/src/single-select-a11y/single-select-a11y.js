@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { requiredIf } from '@dhis2/prop-types'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
@@ -7,42 +6,46 @@ import React, { useCallback, useRef, useState } from 'react'
 import { Menu } from './menu/index.js'
 import { SelectedValue } from './selected-value/index.js'
 import { optionProp } from './shared-prop-types.js'
-import { useHandleKeyPress } from './use-handle-key-press/index.js'
+import {
+    useHandleKeyPress,
+    useHandleKeyPressOnFilterInput,
+} from './use-handle-key-press/index.js'
 
 export function SingleSelectA11y({
     options,
     idPrefix,
     onChange,
-    autoFocus = false,
-    className = '',
-    clearText = '',
-    clearable = false,
+    autoFocus,
+    className,
+    clearText,
+    clearable,
     customOption,
-    dataTest = 'dhis2-singleselecta11y',
-    dense = false,
-    disabled = false,
-    empty = false,
-    error = false,
-    filterLabel = '',
-    filterPlaceholder = '',
-    filterValue = '',
-    filterable = false,
-    labelledBy = '',
-    loading = false,
-    menuLoadingText = '',
-    menuMaxHeight = '288px',
-    noMatchText = '',
-    optionUpdateStrategy = 'polite',
-    placeholder = '',
-    prefix = '',
-    tabIndex = '0',
-    valid = false,
-    value = '',
-    warning = false,
-    valueLabel: _valueLabel = '',
-    onBlur = () => undefined,
-    onFilterChange = () => undefined,
-    onFocus = () => undefined,
+    dataTest,
+    dense,
+    disabled,
+    empty,
+    error,
+    filterHelpText,
+    filterLabel,
+    filterPlaceholder,
+    filterValue,
+    filterable,
+    labelledBy,
+    loading,
+    menuLoadingText,
+    menuMaxHeight,
+    noMatchText,
+    optionUpdateStrategy,
+    placeholder,
+    prefix,
+    tabIndex,
+    valid,
+    value,
+    warning,
+    valueLabel: _valueLabel,
+    onBlur,
+    onFilterChange,
+    onFocus,
 }) {
     const comboBoxId = `${idPrefix}-combo`
     const valueLabel =
@@ -51,6 +54,7 @@ export function SingleSelectA11y({
         ''
 
     if (
+        value &&
         !valueLabel &&
         options.length &&
         !options.find((option) => option.value === '') &&
@@ -94,7 +98,12 @@ export function SingleSelectA11y({
         }
     }, [focussedOptionIndex, options, onChange])
 
-    const handleKeyPress = useHandleKeyPress({
+    const focusComboBox = useCallback(
+        () => comboBoxRef.current?.focus(),
+        [comboBoxRef]
+    )
+
+    const handleKeyDown = useHandleKeyPress({
         value,
         disabled,
         onChange,
@@ -103,6 +112,17 @@ export function SingleSelectA11y({
         openMenu,
         closeMenu,
         listBoxRef,
+        focussedOptionIndex,
+        setFocussedOptionIndex,
+        selectFocussedOption,
+    })
+
+    const handleKeyDownOnFilterInput = useHandleKeyPressOnFilterInput({
+        value,
+        options,
+        closeMenu,
+        listBoxRef,
+        focusComboBox,
         focussedOptionIndex,
         setFocussedOptionIndex,
         selectFocussedOption,
@@ -154,7 +174,7 @@ export function SingleSelectA11y({
                 onClear={() => onChange('')}
                 onClick={toggleMenu}
                 onFocus={onFocus}
-                onKeyPress={handleKeyPress}
+                onKeyDown={handleKeyDown}
             />
 
             <Menu
@@ -162,11 +182,13 @@ export function SingleSelectA11y({
                 customOption={customOption}
                 disabled={disabled}
                 empty={empty}
+                filterHelpText={filterHelpText}
                 filterLabel={filterLabel}
                 filterable={filterable}
                 filterValue={filterValue}
                 filterPlaceholder={filterPlaceholder}
                 focussedOptionIndex={focussedOptionIndex}
+                onFilterInputKeyDown={handleKeyDownOnFilterInput}
                 hidden={!expanded}
                 idPrefix={idPrefix}
                 labelledBy={labelledBy}
@@ -174,6 +196,7 @@ export function SingleSelectA11y({
                 loading={loading}
                 loadingText={menuLoadingText}
                 maxHeight={menuMaxHeight}
+                noMatchText={noMatchText}
                 optionUpdateStrategy={optionUpdateStrategy}
                 options={options}
                 selectRef={selectRef}
@@ -190,15 +213,46 @@ export function SingleSelectA11y({
     )
 }
 
+SingleSelectA11y.defaultProps = {
+    autoFocus: false,
+    className: '',
+    clearText: '',
+    clearable: false,
+    customOption: undefined,
+    dataTest: 'dhis2-singleselecta11y',
+    dense: false,
+    disabled: false,
+    empty: false,
+    error: false,
+    filterHelpText: '',
+    filterLabel: '',
+    filterPlaceholder: '',
+    filterValue: '',
+    filterable: false,
+    labelledBy: '',
+    loading: false,
+    menuLoadingText: '',
+    menuMaxHeight: '288px',
+    noMatchText: '',
+    optionUpdateStrategy: 'polite',
+    placeholder: '',
+    prefix: '',
+    tabIndex: '0',
+    valid: false,
+    value: '',
+    warning: false,
+    valueLabel: '',
+    onBlur: () => undefined,
+    onFilterChange: () => undefined,
+    onFocus: () => undefined,
+}
+
 SingleSelectA11y.propTypes = {
     /** necessary for IDs that are required for accessibility **/
     idPrefix: PropTypes.string.isRequired,
 
     /** An array of options **/
     options: PropTypes.arrayOf(optionProp).isRequired,
-
-    /** As of now, this component does not support being uncontrolled **/
-    value: PropTypes.string.isRequired,
 
     /** A callback that will be called with the new value or an empty string **/
     onChange: PropTypes.func.isRequired,
@@ -233,6 +287,9 @@ SingleSelectA11y.propTypes = {
 
     /** Applies 'error' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props **/
     error: sharedPropTypes.statusPropType,
+
+    /** Help text that will be displayed below the input **/
+    filterHelpText: PropTypes.string,
 
     /** Value will be used as aria-label attribute on the filter input **/
     filterLabel: PropTypes.string,
@@ -276,6 +333,9 @@ SingleSelectA11y.propTypes = {
     /** Applies 'valid' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props **/
     valid: sharedPropTypes.statusPropType,
 
+    /** As of now, this component does not support being uncontrolled **/
+    value: PropTypes.string,
+
     /**
      * When the option is not in the options list (e.g. not loaded or list is
      * filtered), but a selected value needs to be displayed, then this prop can
@@ -300,4 +360,6 @@ SingleSelectA11y.propTypes = {
 
     /** Will be called when the combobox is being focused **/
     onFocus: PropTypes.func,
+
+    /** Will be called when the user presses enter after erntering a search term **/
 }

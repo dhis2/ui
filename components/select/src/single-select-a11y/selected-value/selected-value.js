@@ -11,7 +11,7 @@ export function SelectedValue({
     comboBoxId,
     idPrefix,
     valueLabel,
-    onKeyPress,
+    onKeyDown,
     autoFocus,
     clearable,
     comboBoxRef,
@@ -55,7 +55,7 @@ export function SelectedValue({
             onBlur={onBlur}
             onClick={onClick}
             onFocus={onFocus}
-            onKeyPress={onKeyPress}
+            onKeyDown={onKeyDown}
         >
             {prefix && (
                 <SelectedValuePrefix
@@ -124,7 +124,7 @@ SelectedValue.propTypes = {
     comboBoxId: PropTypes.string.isRequired,
     idPrefix: PropTypes.string.isRequired,
     valueLabel: PropTypes.string.isRequired,
-    onKeyPress: PropTypes.func.isRequired,
+    onKeyDown: PropTypes.func.isRequired,
     autoFocus: PropTypes.bool,
     clearable: PropTypes.bool,
     comboBoxRef: PropTypes.shape({
