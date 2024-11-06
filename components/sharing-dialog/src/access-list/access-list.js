@@ -29,10 +29,22 @@ export const AccessList = ({
                 {i18n.t('Users and groups that currently have access')}
             </Title>
             <div className="header">
-                <div className="header-left-column">
+                <div
+                    className={
+                        dataSharing
+                            ? 'header-left-column-data'
+                            : 'header-left-column-metadata'
+                    }
+                >
                     {i18n.t('User / Group')}
                 </div>
-                <div className="header-right-column">
+                <div
+                    className={
+                        dataSharing
+                            ? 'header-right-column-data'
+                            : 'header-right-column-metadata'
+                    }
+                >
                     <span className="hea">{i18n.t('Access level')}</span>
                 </div>
             </div>
@@ -99,11 +111,20 @@ export const AccessList = ({
                     font-size: 13px;
                 }
 
-                .header-left-column {
+                .header-left-column-metadata {
+                    width: 65%;
+                }
+
+                .header-right-column-metadata {
+                    margin-inline-start: auto;
                     width: 35%;
                 }
 
-                .header-right-column {
+                .header-left-column-data {
+                    width: 35%;
+                }
+
+                .header-right-column-data {
                     margin-inline-start: auto;
                     width: 65%;
                 }
@@ -128,27 +149,48 @@ AccessList.propTypes = {
     dataSharing: PropTypes.bool.isRequired,
     groups: PropTypes.arrayOf(
         PropTypes.shape({
-            access: PropTypes.oneOf([
-                ACCESS_NONE,
-                ACCESS_VIEW_ONLY,
-                ACCESS_VIEW_AND_EDIT,
-            ]).isRequired,
             id: PropTypes.string.isRequired,
             name: PropTypes.string.isRequired,
+            access: PropTypes.shape({
+                data: PropTypes.oneOf([
+                    ACCESS_NONE,
+                    ACCESS_VIEW_ONLY,
+                    ACCESS_VIEW_AND_EDIT,
+                ]),
+                metadata: PropTypes.oneOf([
+                    ACCESS_NONE,
+                    ACCESS_VIEW_ONLY,
+                    ACCESS_VIEW_AND_EDIT,
+                ]),
+            }),
         })
     ).isRequired,
-    publicAccess: PropTypes.oneOf([
-        ACCESS_NONE,
-        ACCESS_VIEW_ONLY,
-        ACCESS_VIEW_AND_EDIT,
-    ]).isRequired,
+    publicAccess: PropTypes.shape({
+        data: PropTypes.oneOf([
+            ACCESS_NONE,
+            ACCESS_VIEW_ONLY,
+            ACCESS_VIEW_AND_EDIT,
+        ]),
+        metadata: PropTypes.oneOf([
+            ACCESS_NONE,
+            ACCESS_VIEW_ONLY,
+            ACCESS_VIEW_AND_EDIT,
+        ]),
+    }).isRequired,
     users: PropTypes.arrayOf(
         PropTypes.shape({
-            access: PropTypes.oneOf([
-                ACCESS_NONE,
-                ACCESS_VIEW_ONLY,
-                ACCESS_VIEW_AND_EDIT,
-            ]).isRequired,
+            access: PropTypes.shape({
+                data: PropTypes.oneOf([
+                    ACCESS_NONE,
+                    ACCESS_VIEW_ONLY,
+                    ACCESS_VIEW_AND_EDIT,
+                ]),
+                metadata: PropTypes.oneOf([
+                    ACCESS_NONE,
+                    ACCESS_VIEW_ONLY,
+                    ACCESS_VIEW_AND_EDIT,
+                ]),
+            }).isRequired,
             id: PropTypes.string.isRequired,
             name: PropTypes.string.isRequired,
         })

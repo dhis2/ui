@@ -75,7 +75,7 @@ export const TabbedContent = ({
 
     return (
         <>
-            <AccessAdd onAdd={onAdd} />
+            <AccessAdd onAdd={onAdd} dataSharing={dataSharing} />
             <AccessList
                 users={users}
                 groups={groups}
@@ -83,6 +83,7 @@ export const TabbedContent = ({
                 allowPublicAccess={allowPublicAccess}
                 onChange={onChange}
                 onRemove={onRemove}
+                dataSharing={dataSharing}
             />
         </>
     )
@@ -93,21 +94,35 @@ TabbedContent.propTypes = {
     dataSharing: PropTypes.bool.isRequired,
     groups: PropTypes.arrayOf(
         PropTypes.shape({
-            access: PropTypes.oneOf([
-                ACCESS_NONE,
-                ACCESS_VIEW_ONLY,
-                ACCESS_VIEW_AND_EDIT,
-            ]).isRequired,
+            access: PropTypes.shape({
+                data: PropTypes.oneOf([
+                    ACCESS_NONE,
+                    ACCESS_VIEW_ONLY,
+                    ACCESS_VIEW_AND_EDIT,
+                ]),
+                metadata: PropTypes.oneOf([
+                    ACCESS_NONE,
+                    ACCESS_VIEW_ONLY,
+                    ACCESS_VIEW_AND_EDIT,
+                ]),
+            }).isRequired,
             id: PropTypes.string.isRequired,
             name: PropTypes.string.isRequired,
         })
     ).isRequired,
     id: PropTypes.string.isRequired,
-    publicAccess: PropTypes.oneOf([
-        ACCESS_NONE,
-        ACCESS_VIEW_ONLY,
-        ACCESS_VIEW_AND_EDIT,
-    ]).isRequired,
+    publicAccess: PropTypes.shape({
+        data: PropTypes.oneOf([
+            ACCESS_NONE,
+            ACCESS_VIEW_ONLY,
+            ACCESS_VIEW_AND_EDIT,
+        ]),
+        metadata: PropTypes.oneOf([
+            ACCESS_NONE,
+            ACCESS_VIEW_ONLY,
+            ACCESS_VIEW_AND_EDIT,
+        ]),
+    }).isRequired,
     type: PropTypes.oneOf(DIALOG_TYPES_LIST).isRequired,
     users: PropTypes.arrayOf(
         PropTypes.shape({

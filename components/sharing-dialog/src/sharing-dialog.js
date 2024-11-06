@@ -39,13 +39,49 @@ const mutation = {
 }
 
 const emptyFunction = () => {}
+
 const defaultInitialSharingSettings = {
     name: '',
     allowPublic: true,
     public: { data: ACCESS_NONE, metadata: ACCESS_NONE },
-    groups: {},
-    users: {},
+    groups: [],
+    users: [],
 }
+
+const mapInitialSharingSettings = (originalSharingSettings) => {
+    const mappedSharingSettings = { ...originalSharingSettings }
+    if (
+        originalSharingSettings.public &&
+        typeof originalSharingSettings.public === 'string'
+    ) {
+        mappedSharingSettings.public = {
+            data: ACCESS_NONE,
+            metadata: originalSharingSettings.public,
+        }
+    }
+    mappedSharingSettings.groups = originalSharingSettings.groups.map(
+        (group) => {
+            if (group.access && typeof group.access === 'string') {
+                return {
+                    ...group,
+                    access: { data: ACCESS_NONE, metadata: group.access },
+                }
+            }
+            return group
+        }
+    )
+    mappedSharingSettings.users = originalSharingSettings.users.map((user) => {
+        if (user.access && typeof user.access === 'string') {
+            return {
+                ...user,
+                access: { data: ACCESS_NONE, metadata: user.access },
+            }
+        }
+        return user
+    })
+    return mappedSharingSettings
+}
+
 export const SharingDialog = ({
     id,
     type,
@@ -57,6 +93,9 @@ export const SharingDialog = ({
     dataSharing = false,
 }) => {
     const { show: showError } = useAlert((error) => error, { critical: true })
+    const mappedInitialSharingSettings = mapInitialSharingSettings(
+        initialSharingSettings
+    )
 
     /**
      * Data fetching
@@ -113,12 +152,15 @@ export const SharingDialog = ({
                         id={id}
                         users={users}
                         groups={groups}
-                        publicAccess={initialSharingSettings.public}
-                        allowPublicAccess={initialSharingSettings.allowPublic}
+                        publicAccess={mappedInitialSharingSettings.public}
+                        allowPublicAccess={
+                            mappedInitialSharingSettings.allowPublic
+                        }
                         type={type}
                         onAdd={() => {}}
                         onChange={() => {}}
                         onRemove={() => {}}
+                        dataSharing={dataSharing}
                     />
                 </Modal>
             </FetchingContext.Provider>
@@ -201,22 +243,72 @@ SharingDialog.propTypes = {
         allowPublic: PropTypes.bool.isRequired,
         groups: PropTypes.objectOf(
             PropTypes.shape({
-                access: PropTypes.string.isRequired,
                 id: PropTypes.string.isRequired,
                 name: PropTypes.string.isRequired,
+                access: PropTypes.oneOfType([
+                    PropTypes.shape({
+                        data: PropTypes.oneOf([
+                            ACCESS_NONE,
+                            ACCESS_VIEW_ONLY,
+                            ACCESS_VIEW_AND_EDIT,
+                        ]),
+                        metadata: PropTypes.oneOf([
+                            ACCESS_NONE,
+                            ACCESS_VIEW_ONLY,
+                            ACCESS_VIEW_AND_EDIT,
+                        ]),
+                    }),
+                    PropTypes.oneOf([
+                        ACCESS_NONE,
+                        ACCESS_VIEW_ONLY,
+                        ACCESS_VIEW_AND_EDIT,
+                    ]),
+                ]),
             })
         ),
         name: PropTypes.string,
-        public: PropTypes.oneOf([
-            ACCESS_NONE,
-            ACCESS_VIEW_ONLY,
-            ACCESS_VIEW_AND_EDIT,
+        public: PropTypes.oneOfType([
+            PropTypes.shape({
+                data: PropTypes.oneOf([
+                    ACCESS_NONE,
+                    ACCESS_VIEW_ONLY,
+                    ACCESS_VIEW_AND_EDIT,
+                ]),
+                metadata: PropTypes.oneOf([
+                    ACCESS_NONE,
+                    ACCESS_VIEW_ONLY,
+                    ACCESS_VIEW_AND_EDIT,
+                ]),
+            }),
+            PropTypes.oneOf([
+                ACCESS_NONE,
+                ACCESS_VIEW_ONLY,
+                ACCESS_VIEW_AND_EDIT,
+            ]),
         ]),
         users: PropTypes.objectOf(
             PropTypes.shape({
-                access: PropTypes.string.isRequired,
                 id: PropTypes.string.isRequired,
                 name: PropTypes.string.isRequired,
+                access: PropTypes.oneOfType([
+                    PropTypes.shape({
+                        data: PropTypes.oneOf([
+                            ACCESS_NONE,
+                            ACCESS_VIEW_ONLY,
+                            ACCESS_VIEW_AND_EDIT,
+                        ]),
+                        metadata: PropTypes.oneOf([
+                            ACCESS_NONE,
+                            ACCESS_VIEW_ONLY,
+                            ACCESS_VIEW_AND_EDIT,
+                        ]),
+                    }),
+                    PropTypes.oneOf([
+                        ACCESS_NONE,
+                        ACCESS_VIEW_ONLY,
+                        ACCESS_VIEW_AND_EDIT,
+                    ]),
+                ]),
             })
         ),
     }),

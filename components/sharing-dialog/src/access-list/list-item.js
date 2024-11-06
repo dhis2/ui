@@ -48,14 +48,24 @@ export const ListItem = ({
     return (
         <>
             <div className="wrapper">
-                <div className="details">
+                <div
+                    className={
+                        dataSharing ? 'detailsWithData' : 'detailsMetadata'
+                    }
+                >
                     <ListItemIcon target={target} name={name} />
                     <div className="details-text">
                         <p className="details-name">{name}</p>
                         <ListItemContext access={access} />
                     </div>
                 </div>
-                <div className="selectWrapper">
+                <div
+                    className={
+                        dataSharing
+                            ? 'selectWrapperWithData'
+                            : 'selectWrapperMetadata'
+                    }
+                >
                     {dataSharing && (
                         <div className="select">
                             <SingleSelectField
@@ -136,9 +146,15 @@ export const ListItem = ({
                 .wrapper {
                     display: flex;
                     padding: 4px 8px;
+                    justify-content: space-between;
                 }
 
-                .details {
+                .detailsMetadata {
+                    display: flex;
+                    width: 65%;
+                }
+
+                .detailsWithData {
                     display: flex;
                     width: 35%;
                 }
@@ -155,8 +171,11 @@ export const ListItem = ({
                     padding: 0;
                 }
 
-                .selectWrapper {
-                    margin-inline-start: auto;
+                .selectWrapperMetadata {
+                    display: flex;
+                    width: 35%;
+                }
+                .selectWrapperWithData {
                     display: flex;
                     width: 65%;
                 }
@@ -170,11 +189,18 @@ export const ListItem = ({
 }
 
 ListItem.propTypes = {
-    access: PropTypes.oneOf([
-        ACCESS_NONE,
-        ACCESS_VIEW_ONLY,
-        ACCESS_VIEW_AND_EDIT,
-    ]).isRequired,
+    access: PropTypes.shape({
+        data: PropTypes.oneOf([
+            ACCESS_NONE,
+            ACCESS_VIEW_ONLY,
+            ACCESS_VIEW_AND_EDIT,
+        ]),
+        metadata: PropTypes.oneOf([
+            ACCESS_NONE,
+            ACCESS_VIEW_ONLY,
+            ACCESS_VIEW_AND_EDIT,
+        ]),
+    }).isRequired,
     accessOptions: PropTypes.arrayOf(
         PropTypes.oneOf([ACCESS_NONE, ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT])
     ).isRequired,
