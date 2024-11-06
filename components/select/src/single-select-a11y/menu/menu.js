@@ -35,12 +35,12 @@ export function Menu({
     optionUpdateStrategy,
     selectRef,
     selected,
+    tabIndex,
     onBlur,
     onClose,
     onEndReached,
     onFilterChange,
     onFilterInputKeyDown,
-    onSearch,
 }) {
     const [menuWidth, setMenuWidth] = useState('auto')
     const dataTestPrefix = `${dataTest}-menu`
@@ -80,16 +80,18 @@ export function Menu({
                     style={{ width: menuWidth, maxHeight }}
                 >
                     {filterable && (
-                        <MenuFilter
-                            idPrefix={idPrefix}
-                            dataTest={`${dataTestPrefix}-filter`}
-                            value={filterValue}
-                            onChange={onFilterChange}
-                            label={filterLabel}
-                            placeholder={filterPlaceholder}
-                            onSearch={onSearch}
-                            onKeyDown={onFilterInputKeyDown}
-                        />
+                        <div className="filter-container">
+                            <MenuFilter
+                                idPrefix={idPrefix}
+                                dataTest={`${dataTestPrefix}-filter`}
+                                value={filterValue}
+                                label={filterLabel}
+                                placeholder={filterPlaceholder}
+                                tabIndex={tabIndex}
+                                onChange={onFilterChange}
+                                onKeyDown={onFilterInputKeyDown}
+                            />
+                        </div>
                     )}
 
                     {isEmpty && <Empty>{empty}</Empty>}
@@ -97,31 +99,33 @@ export function Menu({
                     {hasNoFilterMatch && <NoMatch>{noMatchText}</NoMatch>}
 
                     <div className="listbox-container">
-                        <MenuOptionsList
-                            ref={listBoxRef}
-                            comboBoxId={comboBoxId}
-                            customOption={customOption}
-                            dataTest={`${dataTestPrefix}-list`}
-                            disabled={disabled}
-                            expanded={!hidden}
-                            focussedOptionIndex={focussedOptionIndex}
-                            idPrefix={idPrefix}
-                            labelledBy={labelledBy}
-                            loading={loading}
-                            optionUpdateStrategy={optionUpdateStrategy}
-                            options={options}
-                            selected={selected}
-                            onBlur={onBlur}
-                            onChange={onChange}
-                            onEndReached={onEndReached}
-                        />
-                    </div>
-
-                    {loading && (
-                        <div className="menu-loading-container">
-                            <MenuLoading message={loadingText} />
+                        <div className="listbox-wrapper">
+                            <MenuOptionsList
+                                ref={listBoxRef}
+                                comboBoxId={comboBoxId}
+                                customOption={customOption}
+                                dataTest={`${dataTestPrefix}-list`}
+                                disabled={disabled}
+                                expanded={!hidden}
+                                focussedOptionIndex={focussedOptionIndex}
+                                idPrefix={idPrefix}
+                                labelledBy={labelledBy}
+                                loading={loading}
+                                optionUpdateStrategy={optionUpdateStrategy}
+                                options={options}
+                                selected={selected}
+                                onBlur={onBlur}
+                                onChange={onChange}
+                                onEndReached={onEndReached}
+                            />
                         </div>
-                    )}
+
+                        {loading && (
+                            <div className="menu-loading-container">
+                                <MenuLoading message={loadingText} />
+                            </div>
+                        )}
+                    </div>
 
                     <style jsx>{`
                         .menu {
@@ -138,17 +142,26 @@ export function Menu({
                             box-sizing: content-box;
                         }
 
+                        .filter-container {
+                        }
+
                         .listbox-container {
                             position: relative;
+                            flex-grow: 1;
+                            display: flex;
+                            flex-direction: column;
+                            overflow: hidden;
+                        }
+
+                        .listbox-wrapper {
                             overflow: auto;
-                            height: 100%;
                             flex-grow: 1;
                         }
 
                         .menu-loading-container {
                             position: absolute;
                             left: 0;
-                            bottom: 0;
+                            top: 0;
                             width: 100%;
                             height: 100%;
                         }
@@ -185,10 +198,10 @@ Menu.propTypes = {
     optionUpdateStrategy: PropTypes.oneOf(['off', 'polite', 'assertive']),
     selectRef: PropTypes.instanceOf(HTMLElement),
     selected: PropTypes.string,
+    tabIndex: PropTypes.string,
     onBlur: PropTypes.func,
     onClose: PropTypes.func,
     onEndReached: PropTypes.func,
     onFilterChange: PropTypes.func,
     onFilterInputKeyDown: PropTypes.func,
-    onSearch: PropTypes.func,
 }

@@ -15,6 +15,8 @@ import { Input } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |ariaLabel|string|||Add an aria-label attribute to the input element *|
+|ariaControls|string|||Add an aria-controls attribute to the input element *|
+|ariaHaspopup|string|||Add an aria-haspopup attribute to the input element *|
 |autoComplete|string|||The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete)|
 |className|string||||
 |clearable|boolean|||Makes the input field clearable|

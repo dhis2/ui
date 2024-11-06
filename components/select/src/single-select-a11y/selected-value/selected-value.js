@@ -85,17 +85,16 @@ export function SelectedValue({
                 </div>
             )}
 
-            <button
+            <span
                 className="toggle-icon"
                 aria-label="Open select"
-                onClick={(e) => {
-                    e.stopPropagation()
+                onClick={() => {
                     comboBoxRef.current.focus()
                     onClick()
                 }}
             >
                 <IconChevronDown16 />
-            </button>
+            </span>
 
             <style jsx>{`
                 .selected-option-label {

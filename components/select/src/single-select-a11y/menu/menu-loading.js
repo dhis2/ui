@@ -14,9 +14,9 @@ export function MenuLoading({ message }) {
 
             <style jsx>{`
                 .container {
-                    /* box-sizing: border-box; does not respect padding-block and padding-inline */
-                    width: calc(100% - 48px);
-                    height: calc(100% - 16px);
+                    box-sizing: border-box;
+                    width: 100%;
+                    height: 100%;
                     display: flex;
                     gap: ${spacers.dp16};
                     align-items: center;

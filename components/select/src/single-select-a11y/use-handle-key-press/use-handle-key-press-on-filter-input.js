@@ -12,6 +12,7 @@ import {
 export function useHandleKeyPressOnFilterInput({
     value,
     options,
+    loading,
     closeMenu,
     listBoxRef,
     focusComboBox,
@@ -59,6 +60,10 @@ export function useHandleKeyPressOnFilterInput({
 
     const handleKeyPress = useCallback(
         (e) => {
+            if (loading) {
+                return
+            }
+
             const { key, altKey } = e
 
             if (
@@ -119,6 +124,7 @@ export function useHandleKeyPressOnFilterInput({
             closeMenu,
             options,
             value,
+            loading,
             focussedOptionIndex,
             selectFocussedOption,
             focusComboBox,

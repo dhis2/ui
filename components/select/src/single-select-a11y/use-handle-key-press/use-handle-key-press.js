@@ -33,6 +33,7 @@ export function useHandleKeyPress({
     value,
     disabled,
     expanded,
+    loading,
     options,
     openMenu,
     closeMenu,
@@ -101,7 +102,7 @@ export function useHandleKeyPress({
 
     const handleKeyPress = useCallback(
         ({ key, altKey, ctrlKey, metaKey }) => {
-            if (disabled) {
+            if (disabled || loading) {
                 return
             }
 
@@ -189,9 +190,10 @@ export function useHandleKeyPress({
             // Do nothing
         },
         [
+            closeMenu,
             disabled,
             expanded,
-            closeMenu,
+            loading,
             openMenu,
             options,
             value,

@@ -18,21 +18,23 @@ function useFocussedOptionIndex({ filterable, filterValue, options }) {
         useState(0)
 
     // We want to reset the focussed option index when searching when the
-    // options change
-    //
-    // @TODO: We could think about making this smarter, e.g. by looking whether
-    // the previously highlighted option is still present in the options list.
-    // At this point I think that optimizations might be overkill or even cause
-    // bad UX, so I'm keeping it simple
+    // options change BUT we don't want to reset options when adding more
+    // options by using the "infinite scrolling" strategy
     const initialized = useRef(false)
+    const prevFirstOption = useRef()
     useEffect(() => {
         // Ignore first call to prevent unnecessary re-render
         if (!initialized.current) {
             initialized.current = true
-        } else if (filterable) {
+            prevFirstOption.current = options[0]?.value
+        } else if (
+            filterable &&
+            prevFirstOption.current !== options[0]?.value
+        ) {
+            prevFirstOption.current = options[0]?.value
             setSearchFocussedOptionIndex(0)
         }
-    }, [options, filterable])
+    }, [options, filterable, initialized, prevFirstOption])
 
     const focussedOptionIndex = useMemo(() => {
         return filterValue
@@ -152,6 +154,7 @@ export function SingleSelectA11y({
         disabled,
         onChange,
         expanded,
+        loading,
         options,
         openMenu,
         closeMenu,
@@ -164,6 +167,7 @@ export function SingleSelectA11y({
     const handleKeyDownOnFilterInput = useHandleKeyPressOnFilterInput({
         value,
         options,
+        loading,
         closeMenu,
         listBoxRef,
         focusComboBox,
@@ -245,6 +249,7 @@ export function SingleSelectA11y({
                 options={options}
                 selectRef={selectRef}
                 selected={value}
+                tabIndex={tabIndex.toString()}
                 onBlur={onBlur}
                 onChange={(nextValue) => {
                     onChange(nextValue)

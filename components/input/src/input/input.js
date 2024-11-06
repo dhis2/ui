@@ -149,6 +149,8 @@ export class Input extends Component {
         const {
             role,
             ariaLabel,
+            ariaControls,
+            ariaHaspopup,
             className,
             type = 'text',
             dense,
@@ -185,6 +187,8 @@ export class Input extends Component {
                 {prefixIcon && <span className="prefix">{prefixIcon}</span>}
                 <input
                     aria-label={ariaLabel}
+                    aria-controls={ariaControls}
+                    aria-haspopup={ariaHaspopup}
                     role={role}
                     id={name}
                     name={name}
@@ -277,6 +281,10 @@ export class Input extends Component {
 }
 
 Input.propTypes = {
+    /** Add an aria-controls attribute to the input element **/
+    ariaControls: PropTypes.string,
+    /** Add an aria-haspopup attribute to the input element **/
+    ariaHaspopup: PropTypes.string,
     /** Add an aria-label attribute to the input element **/
     ariaLabel: PropTypes.string,
     /** The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete) */

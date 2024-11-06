@@ -77,14 +77,15 @@ export function Option({
     useEffect(() => {
         if (onBecameVisible) {
             const scrollableContainer = listBoxRef.current.parentNode
+
             const intersectionOptions = {
                 root: scrollableContainer,
-                rootMargin: '0px',
-                threshold: 1,
+                threshold: VISIBILE_INTERSECTION_RATIO,
             }
 
             const intersectionHandler = (entries) => {
-                entries.forEach(({ intersectionRatio }) => {
+                entries.forEach((result) => {
+                    const { intersectionRatio } = result
                     if (intersectionRatio >= VISIBILE_INTERSECTION_RATIO) {
                         onBecameVisible()
                     }

@@ -781,6 +781,8 @@ import { Input } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |ariaLabel|string|||Add an aria-label attribute to the input element *|
+|ariaControls|string|||Add an aria-controls attribute to the input element *|
+|ariaHaspopup|string|||Add an aria-haspopup attribute to the input element *|
 |autoComplete|string|||The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete)|
 |className|string||||
 |clearable|boolean|||Makes the input field clearable|
@@ -1884,18 +1886,18 @@ import { SingleSelectA11y } from '@dhis2/ui'
 |---|---|---|---|---|
 |idPrefix|string||*|necessary for IDs that are required for accessibility *|
 |options|arrayOf(custom)||*|An array of options *|
-|value|string|`''`||As of now, this component does not support being uncontrolled *|
 |onChange|function||*|A callback that will be called with the new value or an empty string *|
 |autoFocus|boolean|`false`||Will focus the select initially *|
 |className|string|`''`||Additional class names that will be applied to the root element *|
 |clearText|custom|`''`||This will allow us to put an aria-label on the clear button *|
 |clearable|boolean|`false`||Whether a clear button should be displayed or not *|
-|customOption|elementType|||Allows to override what's rendered inside the `button[role="option"]`.<br/>Can be overriden on an individual option basis *|
+|customOption|elementType|`undefined`||Allows to override what's rendered inside the `button[role="option"]`.<br/>Can be overriden on an individual option basis *|
 |dataTest|string|`'dhis2-singleselecta11y'`||A value for a `data-test` attribute on the root element *|
 |dense|boolean|`false`||Renders a select with lower height *|
 |disabled|boolean|`false`||Disables all interactions with the select (except focussing) *|
 |empty|node|`false`||Text or component to display when there are no options *|
 |error|custom|`false`||Applies 'error' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props *|
+|filterHelpText|string|`''`||Help text that will be displayed below the input *|
 |filterLabel|string|`''`||Value will be used as aria-label attribute on the filter input *|
 |filterPlaceholder|string|`''`||Placeholder for the filter input *|
 |filterValue|string|`''`||Value of the filter input *|
@@ -1910,9 +1912,11 @@ import { SingleSelectA11y } from '@dhis2/ui'
 |prefix|string|`''`||String that will be displayed before the label of the selected option *|
 |tabIndex|string │ number|`'0'`||Standard HTML tab-index attribute that will be put on the combobox's root element *|
 |valid|custom|`false`||Applies 'valid' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props *|
+|value|string|`''`||As of now, this component does not support being uncontrolled *|
 |valueLabel|custom|`''`||When the option is not in the options list (e.g. not loaded or list is<br/>filtered), but a selected value needs to be displayed, then this prop can<br/>be used to supply the text to be shown.|
 |warning|custom|`false`||Applies 'warning' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props *|
 |onBlur|function|`() => undefined`||Will be called when the combobox is loses focus *|
+|onEndReached|function|||Will be called when the last option is scrolled into the visible area *|
 |onFilterChange|function|`() => undefined`||Will be called when the filter value changes *|
 |onFocus|function|`() => undefined`||Will be called when the combobox is being focused *|
 
@@ -2030,7 +2034,10 @@ import { Menu } from '@dhis2/ui'
 |selected|string||||
 |onBlur|function||||
 |onClose|function||||
+|onEndReached|function||||
 |onFilterChange|function||||
+|onFilterInputKeyDown|function||||
+|onSearch|function||||
 
 ### SelectorBar
 
