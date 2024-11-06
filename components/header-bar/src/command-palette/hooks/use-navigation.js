@@ -49,11 +49,13 @@ export const useNavigation = ({
             const lastIndex = listLength - 1
             switch (event.key) {
                 case 'ArrowDown':
+                    event.preventDefault()
                     setHighlightedIndex(
                         highlightedIndex >= lastIndex ? 0 : highlightedIndex + 1
                     )
                     break
                 case 'ArrowUp':
+                    event.preventDefault()
                     setHighlightedIndex(
                         highlightedIndex > 0 ? highlightedIndex - 1 : lastIndex
                     )
@@ -83,6 +85,7 @@ export const useNavigation = ({
             if (showGrid) {
                 switch (event.key) {
                     case 'ArrowLeft':
+                        event.preventDefault()
                         if (activeSection === 'grid') {
                             // row 1
                             if (highlightedIndex <= topRowLastIndex) {
@@ -103,6 +106,7 @@ export const useNavigation = ({
                         }
                         break
                     case 'ArrowRight':
+                        event.preventDefault()
                         if (activeSection === 'grid') {
                             // row 1
                             if (highlightedIndex <= topRowLastIndex) {
@@ -123,6 +127,7 @@ export const useNavigation = ({
                         }
                         break
                     case 'ArrowDown':
+                        event.preventDefault()
                         if (activeSection === 'grid') {
                             if (highlightedIndex >= lastRowFirstIndex) {
                                 setActiveSection('actions')
@@ -142,6 +147,7 @@ export const useNavigation = ({
                         }
                         break
                     case 'ArrowUp':
+                        event.preventDefault()
                         if (activeSection === 'grid') {
                             if (highlightedIndex < lastRowFirstIndex) {
                                 setActiveSection('actions')

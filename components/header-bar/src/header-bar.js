@@ -106,10 +106,6 @@ export const HeaderBar = ({
                                     apps={apps}
                                     commands={commands}
                                     shortcuts={shortcuts}
-                                    // apps={[]}
-
-                                    // commands={[]}
-                                    // shortcuts={[]}
                                 />
                             </CommandPaletteContextProvider>
                             <Profile
