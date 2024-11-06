@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import React, { useState, useCallback, useRef, useEffect } from 'react'
 import i18n from '../locales/index.js'
 import { useCommandPaletteContext } from './context/command-palette-context.js'
+import { useAvailableActions } from './hooks/use-actions.js'
 import { useFilter } from './hooks/use-filter.js'
 import { useNavigation } from './hooks/use-navigation.js'
 import BackButton from './sections/back-button.js'
@@ -27,6 +28,8 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
         [setFilter]
     )
 
+    const actionsArray = useAvailableActions({ apps, shortcuts, commands })
+
     const {
         filteredApps,
         filteredCommands,
@@ -38,6 +41,8 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
         setShow,
         itemsArray: currentViewItemsArray,
         show,
+        showGrid: apps?.length > 0,
+        actionsLength: actionsArray?.length,
     })
 
     useEffect(() => {
@@ -106,6 +111,7 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
                                     apps={filteredApps}
                                     commands={filteredCommands}
                                     shortcuts={filteredShortcuts}
+                                    actions={actionsArray}
                                 />
                             )}
                             {currentView === 'apps' && (

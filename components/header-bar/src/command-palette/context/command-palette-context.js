@@ -8,7 +8,7 @@ export const CommandPaletteContextProvider = ({ children }) => {
     const [highlightedIndex, setHighlightedIndex] = useState(0)
     const [currentView, setCurrentView] = useState('home')
     // home view sections
-    const [activeSection, setActiveSection] = useState('grid')
+    const [activeSection, setActiveSection] = useState(null)
 
     return (
         <commandPaletteContext.Provider
