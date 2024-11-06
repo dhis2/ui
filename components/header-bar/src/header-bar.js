@@ -56,39 +56,11 @@ export const HeaderBar = ({
         }))
     }, [data, baseUrl])
 
-    const commands = [
-        {
-            description: 'Search for and open a visualisation, chart, or table',
-            displayName: 'Open',
-            icon: 'https://domain.tld/api/../icons/open.png',
-            name: 'open',
-        },
-        {
-            description: 'Copy debug information to the clipboard',
-            displayName: 'Debug',
-            icon: 'https://domain.tld/api/../icons/debug.png',
-            name: 'debug',
-        },
-        {
-            description: 'Empty system cache',
-            displayName: 'Clear cache',
-            icon: 'https://domain.tld/api/../icons/clear-cache.png',
-            name: 'clear-cache',
-        },
-    ]
+    // fetch commands
+    const commands = []
 
-    const shortcuts = [
-        {
-            displayName: 'Data elements overview',
-            icon: 'https://domain.tld/api/../icons/dhis-web-dashboard.png',
-            name: 'Data elements overview',
-        },
-        {
-            displayName: 'Data sets',
-            icon: 'https://domain.tld/api/../icons/dhis-web-dashboard.png',
-            name: 'Data sets',
-        },
-    ]
+    // fetch shortcuts
+    const shortcuts = []
 
     // See https://jira.dhis2.org/browse/LIBS-180
     if (!loading && !error) {
@@ -134,6 +106,10 @@ export const HeaderBar = ({
                                     apps={apps}
                                     commands={commands}
                                     shortcuts={shortcuts}
+                                    // apps={[]}
+
+                                    // commands={[]}
+                                    // shortcuts={[]}
                                 />
                             </CommandPaletteContextProvider>
                             <Profile
