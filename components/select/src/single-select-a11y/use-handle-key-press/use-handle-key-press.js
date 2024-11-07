@@ -106,6 +106,21 @@ export function useHandleKeyPress({
                 return
             }
 
+            /*
+             * The menu won't be an ancestor / sibling of the combobox,
+             * so when pressing tab, it's highly unlikely that any element
+             * in the menu would receive focus (happens only in storybook,
+             * where there's no other focussable element).
+             *
+             * Assistive technology will know about the menu as the combobox
+             * has the appropriate aria attributes that will point to the
+             * correct HTML elements.
+             */
+            if (expanded && key === 'Tab') {
+                closeMenu()
+                return
+            }
+
             if (
                 expanded &&
                 (key === 'Escape' ||
