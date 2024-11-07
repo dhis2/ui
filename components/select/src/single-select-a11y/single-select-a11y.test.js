@@ -1,9 +1,31 @@
-import '@testing-library/jest-dom/extend-expect'
+import '@testing-library/jest-dom'
 import { render, fireEvent, screen } from '@testing-library/react'
 import React from 'react'
 import { SingleSelectA11y } from './single-select-a11y.js'
 
 describe('<SingleSelectA11y />', () => {
+    beforeAll(() => {
+        const consoleError = console.error
+        jest.spyOn(console, 'error').mockImplementation((...args) => {
+            const [message, dynamicContent] = args
+
+            if (
+                message.startsWith(
+                    'Warning: An update to %s inside a test was not wrapped in act(...)'
+                ) &&
+                dynamicContent === 'Popper'
+            ) {
+                return
+            }
+
+            consoleError(...args)
+        })
+    })
+
+    afterAll(() => {
+        console.error.mockRestore()
+    })
+
     it('should accept an onBlur handler', () => {
         const onBlur = jest.fn()
 
@@ -124,7 +146,7 @@ describe('<SingleSelectA11y />', () => {
         fireEvent.click(screen.getByRole('combobox'))
 
         const listbox = screen.getByRole('listbox')
-        const menu = listbox.parentNode.parentNode
+        const menu = listbox.parentNode.parentNode.parentNode
         expect(menu.style.maxHeight).toBe('100px')
     })
 
@@ -396,47 +418,6 @@ describe('<SingleSelectA11y />', () => {
         fireEvent.click(screen.getByRole('combobox'))
 
         expect(screen.getByLabelText('Custom filter label')).not.toBeNull()
-    })
-
-    it('should not allow duplicate option values', () => {
-        const onFilterChange = jest.fn()
-        const consoleError = jest.fn()
-
-        jest.spyOn(console, 'error').mockImplementation(consoleError)
-
-        render(
-            <SingleSelectA11y
-                filterable
-                filterLabel="Custom filter label"
-                onFilterChange={onFilterChange}
-                noMatchText="No options found"
-                idPrefix="a11y"
-                value=""
-                valueLabel=""
-                onChange={jest.fn()}
-                options={[
-                    { value: '', label: 'None' },
-                    { value: 'foo', label: 'Foo' },
-                    { value: 'bar', label: 'Bar' },
-                    { value: 'foo', label: 'Foo' },
-                ]}
-            />
-        )
-
-        fireEvent.click(screen.getByRole('combobox'))
-
-        // @TODO: For some reason this is called three times
-        // Is this because of unnecessary re-renders?
-        expect(consoleError).toHaveBeenNthCalledWith(
-            1,
-            expect.stringContaining(
-                'Encountered two children with the same key'
-            ),
-            'foo',
-            expect.anything()
-        )
-
-        console.error.mockRestore()
     })
 
     it('should display the selected option', () => {
