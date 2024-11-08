@@ -1,10 +1,10 @@
+import { useConfig } from '@dhis2/app-runtime'
+import { colors, spacers, theme } from '@dhis2/ui-constants'
+import { IconApps24, IconSettings24 } from '@dhis2/ui-icons'
 import { Card } from '@dhis2-ui/card'
 import { InputField } from '@dhis2-ui/input'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
-import { useConfig } from '@dhis2/app-runtime'
-import { colors, spacers, theme } from '@dhis2/ui-constants'
-import { IconApps24, IconSettings24 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React, { useState, useCallback, useRef } from 'react'
 import { Link, useInRouterContext } from 'react-router-dom'
@@ -197,7 +197,9 @@ function List({ apps, filter }) {
 
                     min-height: 200px;
                     max-height: 465px;
-                    margin: 0 8px 8px 8px;
+                    margin-block-start: 0;
+                    margin-block-end: 8px;
+                    margin-inline: 8px;
 
                     overflow: auto;
                     overflow-x: hidden;
@@ -260,7 +262,9 @@ const Apps = ({ apps }) => {
                 button {
                     display: block;
                     background: transparent;
-                    padding: ${spacers.dp4} ${spacers.dp12} 0;
+                    padding-block-start: ${spacers.dp4};
+                    padding-block-end: 0;
+                    padding-inline: ${spacers.dp12};
                     border: 0;
                     cursor: pointer;
                     height: 100%;

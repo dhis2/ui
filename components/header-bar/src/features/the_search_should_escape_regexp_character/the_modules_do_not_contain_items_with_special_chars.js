@@ -1,5 +1,4 @@
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
-import '../common/index.js'
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given(/no app name contains a (.*)/, (character) => {
     // Needs to be wrapped, otherwise for some reason the wrong char is in the scope

@@ -1,4 +1,4 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a Cover with a button below it is rendered', () => {
     cy.visitStory('Cover', 'Blocking')
@@ -9,7 +9,7 @@ Given('a Cover with a button in it is rendered', () => {
 })
 
 When('the user clicks the button', () => {
-    cy.get('button').click()
+    cy.get('[data-test="button"]').click()
 })
 
 When('the user clicks on the Cover', () => {

@@ -1,8 +1,8 @@
+import { colors, spacers } from '@dhis2/ui-constants'
+import { IconChevronUp24, IconChevronDown24 } from '@dhis2/ui-icons'
 import { Card } from '@dhis2-ui/card'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
-import { colors, spacers } from '@dhis2/ui-constants'
-import { IconChevronUp24, IconChevronDown24 } from '@dhis2/ui-icons'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useRef } from 'react'
@@ -27,7 +27,7 @@ const offsetModifier = {
 export const SelectorBarItem = ({
     children,
     className,
-    dataTest,
+    dataTest = 'dhis2-ui-selectorbaritem',
     disabled,
     displayOnly,
     label,
@@ -115,7 +115,9 @@ export const SelectorBarItem = ({
                          * that's why the padding on the right is only 8px.
                          */ ''
                     }
-                    padding: 0 ${spacers.dp8} 0 ${spacers.dp12};
+                    padding-block: 0;
+                    padding-inline-start: ${spacers.dp8};
+                    padding-inline-end: ${spacers.dp12};
                     font-size: 14px;
                     line-height: 16px;
                     border: none;
@@ -135,13 +137,13 @@ export const SelectorBarItem = ({
                 }
 
                 .value {
-                    padding-left: ${spacers.dp8};
+                    padding-inline-start: ${spacers.dp8};
                 }
 
                 .clear-icon {
                     display: flex;
                     align-items: center;
-                    margin-left: ${spacers.dp4};
+                    margin-inline-start: ${spacers.dp4};
                     padding: ${spacers.dp4};
                     cursor: pointer;
                 }
@@ -155,17 +157,13 @@ export const SelectorBarItem = ({
 
                 .toggle-icon {
                     display: flex;
-                    margin-left: ${spacers.dp4};
+                    margin-inline-start: ${spacers.dp4};
                     height: 100%;
                     align-items: center;
                 }
             `}</style>
         </button>
     )
-}
-
-SelectorBarItem.defaultProps = {
-    dataTest: 'dhis2-ui-selectorbaritem',
 }
 
 SelectorBarItem.propTypes = {

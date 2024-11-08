@@ -119,7 +119,7 @@ export const HeaderBar = ({
                         height: 48px;
                     }
                     .right-control-spacer {
-                        margin-left: auto;
+                        margin-inline-start: auto;
                     }
                 `}</style>
             </header>

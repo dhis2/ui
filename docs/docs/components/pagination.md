@@ -3,7 +3,6 @@ title: Pagination
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { Pagination } from '@dhis2/ui'
 
 import API from '../../../components/pagination/API.md'
 
@@ -11,9 +10,10 @@ import API from '../../../components/pagination/API.md'
 
 Pagination is used to navigate content across several pages.
 
-<Demo>
-    <Pagination page={2} pageCount={10} pageSize={50} total={430}/>
-</Demo>
+<Demo
+    path="pagination--default"
+    height="150px"
+/>
 
 ## Usage
 
@@ -39,18 +39,44 @@ Different elements of the pagination component can be included, depending on the
 
 ### Element: Page number selector
 
-<Demo>
-    <Pagination page={2} pageCount={10} pageSize={50} total={430} hidePageSizeSelect hidePageSummary/>
-</Demo>
+<Demo
+    path="pagination--without-page-size-select"
+    height="150px"
+    args="page:2;pageCount:10;total:430;hidePageSummary:!true"
+/>
+
+```jsx
+<Pagination
+    page={2}
+    pageCount={10}
+    pageSize={50}
+    total={430}
+    hidePageSizeSelect
+    hidePageSummary
+/>
+```
 
 -   Offers access to any page without navigating with previous or next buttons.
 -   Use if a user might need to jump between non-sequential pages often.
 
 ### Element: Context information
 
-<Demo>
-    <Pagination page={2} pageCount={10} pageSize={50} total={430} hidePageSelect hidePageSizeSelect/>
-</Demo>
+<Demo
+    path="pagination--without-page-size-select"
+    height="150px"
+    args="page:2;pageCount:10;total:430;hidePageSelect:!true"
+/>
+
+```jsx
+<Pagination
+    page={2}
+    pageCount={10}
+    pageSize={50}
+    total={430}
+    hidePageSelect
+    hidePageSizeSelect
+/>
+```
 
 -   Shows a short summary of the current page in context of the whole set of items.
 -   Use when positional context could be useful.
@@ -58,9 +84,22 @@ Different elements of the pagination component can be included, depending on the
 
 ### Element: Item count selector
 
-<Demo>
-    <Pagination page={2} pageCount={10} pageSize={50} total={430} hidePageSelect hidePageSummary/>
-</Demo>
+<Demo
+    path="pagination--without-page-size-select"
+    height="150px"
+    args="page:2;pageCount:10;total:430;hidePageSizeSelect:!false;hidePageSelect:!true;hidePageSummary:!true"
+/>
+
+```jsx
+<Pagination
+    page={2}
+    pageCount={10}
+    pageSize={50}
+    total={430}
+    hidePageSelect
+    hidePageSummary
+/>
+```
 
 -   Changes the number of items included in a page.
 -   Use when a user might want to customize the view.
@@ -68,7 +107,3 @@ Different elements of the pagination component can be included, depending on the
 ## API Reference
 
 <API />
-
-## Links
-
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/navigation-pagination--default)

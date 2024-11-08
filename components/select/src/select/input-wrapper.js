@@ -8,7 +8,7 @@ const InputWrapper = ({
     dataTest,
     onToggle,
     children,
-    tabIndex,
+    tabIndex = '0',
     error,
     warning,
     valid,
@@ -95,10 +95,6 @@ const InputWrapper = ({
             `}</style>
         </div>
     )
-}
-
-InputWrapper.defaultProps = {
-    tabIndex: '0',
 }
 
 InputWrapper.propTypes = {

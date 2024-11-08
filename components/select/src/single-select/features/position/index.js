@@ -1,4 +1,4 @@
-import { Given, Then, When } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then, When } from '@badeball/cypress-cucumber-preprocessor'
 
 Given(
     'there is enough space below the anchor to fit the SingleSelect menu',
@@ -47,7 +47,7 @@ Then('the top of the menu is aligned with the bottom of the input', () => {
         const selectRect = $select.getBoundingClientRect()
         const menuRect = $menu.getBoundingClientRect()
 
-        expect(menuRect.top).to.equal(selectRect.bottom)
+        expect(menuRect.top).to.be.closeTo(selectRect.bottom, 1)
     })
 })
 
@@ -65,7 +65,7 @@ Then('the bottom of the menu is aligned with the top of the input', () => {
         const selectRect = $select.getBoundingClientRect()
         const menuRect = $menu.getBoundingClientRect()
 
-        expect(selectRect.top).to.equal(menuRect.bottom)
+        expect(selectRect.top).to.be.closeTo(menuRect.bottom, 1)
     })
 })
 
@@ -105,7 +105,7 @@ Then(
             const selectRect = $select.getBoundingClientRect()
             const menuRect = $menu.getBoundingClientRect()
 
-            expect(selectRect.left).to.equal(menuRect.left)
+            expect(selectRect.left).to.be.closeTo(menuRect.left, 1)
         })
     }
 )

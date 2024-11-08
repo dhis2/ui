@@ -1,9 +1,10 @@
-import { StatusIcon } from '@dhis2-ui/status-icon'
 import { theme, colors, spacers, sharedPropTypes } from '@dhis2/ui-constants'
+import { StatusIcon } from '@dhis2-ui/status-icon'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import css from 'styled-jsx/css'
+import { inputTypes } from './inputTypes.js'
 
 const styles = css`
     .input {
@@ -89,6 +90,11 @@ const styles = css`
 `
 
 export class Input extends Component {
+    static defaultProps = {
+        type: 'text',
+        dataTest: 'dhis2-uicore-input',
+    }
+
     inputRef = React.createRef()
 
     componentDidMount() {
@@ -132,7 +138,7 @@ export class Input extends Component {
         const {
             role,
             className,
-            type,
+            type = 'text',
             dense,
             disabled,
             readOnly,
@@ -148,7 +154,7 @@ export class Input extends Component {
             min,
             step,
             autoComplete,
-            dataTest,
+            dataTest = 'dhis2-uicore-input',
         } = this.props
 
         return (
@@ -199,11 +205,6 @@ export class Input extends Component {
     }
 }
 
-Input.defaultProps = {
-    type: 'text',
-    dataTest: 'dhis2-uicore-input',
-}
-
 Input.propTypes = {
     /** The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete) */
     autoComplete: PropTypes.string,
@@ -235,21 +236,7 @@ Input.propTypes = {
     step: PropTypes.string,
     tabIndex: PropTypes.string,
     /** The native input `type` attribute */
-    type: PropTypes.oneOf([
-        'text',
-        'number',
-        'password',
-        'email',
-        'url',
-        'tel',
-        'date',
-        'datetime',
-        'datetime-local',
-        'month',
-        'week',
-        'time',
-        'search',
-    ]),
+    type: PropTypes.oneOf(inputTypes),
     /** Applies 'valid' appearance for validation feedback. Mutually exclusive with `error` and `warning` props */
     valid: sharedPropTypes.statusPropType,
     /** Value in the input. Can be used to control the component (recommended). Passed to event handler callbacks in object */

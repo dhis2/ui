@@ -1,11 +1,15 @@
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import { Box } from '@dhis2-ui/box'
 import { Field } from '@dhis2-ui/field'
-import { Input } from '@dhis2-ui/input'
-import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { Input, inputTypes } from '../input/index.js'
 
 class InputField extends React.Component {
+    static defaultProps = {
+        dataTest: 'dhis2-uiwidgets-inputfield',
+    }
+
     render() {
         const {
             className,
@@ -35,7 +39,7 @@ class InputField extends React.Component {
             validationText,
             inputWidth,
             autoComplete,
-            dataTest,
+            dataTest = 'dhis2-uiwidgets-inputfield',
         } = this.props
 
         return (
@@ -82,10 +86,6 @@ class InputField extends React.Component {
     }
 }
 
-InputField.defaultProps = {
-    dataTest: 'dhis2-uiwidgets-inputfield',
-}
-
 const InputFieldProps = {
     /** The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete) */
     autoComplete: PropTypes.string,
@@ -123,7 +123,7 @@ const InputFieldProps = {
     step: PropTypes.string,
     tabIndex: PropTypes.string,
     /** Type of input */
-    type: Input.propTypes.type,
+    type: PropTypes.oneOf(inputTypes),
     /** Applies 'valid' appearance for validation feedback. Mutually exclusive with `error` and `warning` props */
     valid: sharedPropTypes.statusPropType,
     /** Text below input for validation feedback. Receives styles depending on validation status */

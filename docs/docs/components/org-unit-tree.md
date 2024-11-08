@@ -3,8 +3,6 @@ title: Organisation unit tree
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { OrganisationUnitTree } from '@dhis2/ui'
-
 import API from '../../../components/organisation-unit-tree/API.md'
 
 # Organisation unit tree
@@ -13,9 +11,10 @@ import API from '../../../components/organisation-unit-tree/API.md'
 
 An organisation unit tree is used to choose organisation units from a hierarchy.
 
-<Demo>
-    <p>See <a href="https://ui.dhis2.nu/demo/?path=/story/forms-organisation-unit-tree--collapsed" target="_blank">storybook</a> for demos.</p> 
-</Demo>
+<Demo
+    path="organisation-unit-tree--expanded"
+    height="250px"
+/>
 
 ## Usage
 
@@ -32,13 +31,14 @@ An organisation unit tree is used to choose organisation units from a hierarchy.
 
 ### Selection mode: Single
 
+<Demo
+    path="organisation-unit-tree--single-selection"
+    height="250px"
+/>
+
 -   In _Single selection mode_ only one organisation unit can be chosen.
 -   Use this mode when choosing more than one organisation unit isn't valid.
 
 ## API Reference
 
 <API />
-
-## Links
-
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-organisation-unit-tree--collapsed)

@@ -1,5 +1,4 @@
-import '../common/index.js'
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('an unchecked Checkbox with a value is rendered', () => {
     cy.visitStory('Testing:Checkbox', 'Unchecked with value')

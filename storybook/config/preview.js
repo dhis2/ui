@@ -1,12 +1,11 @@
 import '@fontsource/roboto/latin.css'
 import { CssReset } from '@dhis2-ui/css'
 import React, { Fragment } from 'react'
-import { jsxDecorator } from 'storybook-addon-jsx'
 import '@storybook/addon-console'
+const { withJsx } = require('@mihkeleidast/storybook-addon-source')
 
 export const decorators = [
-    // Enable storybook jsx visualization
-    jsxDecorator,
+    withJsx,
     /**
      * Basic wrapper for all our components, styles the root elements and applies
      * our css reset for consistency/
@@ -38,13 +37,6 @@ export const parameters = {
         storySort: {
             method: 'alphabetical',
         },
-    },
-    jsx: {
-        filterProps: (val) => val !== undefined,
-        showDefaultProps: false,
-        functionValue: (fn) => fn.name,
-        tabStop: 4,
-        maxInlineAttributesLineLength: 80,
     },
     // A11y addon config
     a11y: {

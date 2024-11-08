@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/ui-icons",
-    "version": "9.3.0",
+    "version": "9.13.0",
     "description": "Icons used in the UI libs",
     "main": "./build/cjs/react/index.js",
     "module": "./build/es/react/index.js",
@@ -23,7 +23,7 @@
         "access": "public"
     },
     "scripts": {
-        "start": "start-storybook -c ../storybook/config --port 5000",
+        "start": "storybook dev -c ../storybook/config --port 5000",
         "build": "yarn run clean && yarn run build:icons && yarn run build:lib",
         "build:icons": "svgr -d src/react src/svg",
         "build:lib": "d2-app-scripts build",
@@ -34,13 +34,13 @@
         "types"
     ],
     "peerDependencies": {
-        "react": "^16.8",
-        "react-dom": "^16.8"
+        "react": "^16.13 || ^18",
+        "react-dom": "^16.13 || ^18"
     },
     "dependencies": {},
     "devDependencies": {
-        "react": "16.13",
-        "react-dom": "16.13"
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1"
     },
     "types": "types"
 }

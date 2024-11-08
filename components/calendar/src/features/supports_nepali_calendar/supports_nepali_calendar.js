@@ -1,4 +1,4 @@
-import { Given, Then, And } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a nepali calendar in "{word}" is rendered', (language) => {
     cy.visitStory('CalendarInputTesting', `Nepali With ${language}`)
@@ -19,7 +19,7 @@ Then('nepali days should be rendered in "{word}"', (language) => {
     })
 })
 
-And('months should be rendered in "{word}" with navigation', (language) => {
+Then('months should be rendered in "{word}" with navigation', (language) => {
     //
 
     const months =

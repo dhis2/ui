@@ -9,7 +9,8 @@ const CircularLoader = ({
     extrasmall,
     invert,
     className,
-    dataTest,
+    dataTest = 'dhis2-uicore-circularloader',
+    'aria-label': ariaLabel,
 }) => (
     <div
         role="progressbar"
@@ -20,6 +21,7 @@ const CircularLoader = ({
             invert,
         })}
         data-test={dataTest}
+        aria-label={ariaLabel}
     >
         <style jsx>{`
             div {
@@ -62,11 +64,8 @@ const CircularLoader = ({
     </div>
 )
 
-CircularLoader.defaultProps = {
-    dataTest: 'dhis2-uicore-circularloader',
-}
-
 CircularLoader.propTypes = {
+    'aria-label': PropTypes.string,
     className: PropTypes.string,
     dataTest: PropTypes.string,
     extrasmall: sharedPropTypes.sizePropType,

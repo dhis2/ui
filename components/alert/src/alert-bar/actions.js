@@ -21,8 +21,8 @@ const Actions = ({ actions, hide, dataTest }) => {
             ))}
             <style jsx>{`
                 div {
-                    margin-left: ${spacers.dp48};
-                    margin-right: -${spacers.dp12};
+                    margin-inline-start: ${spacers.dp48};
+                    margin-inline-end: -${spacers.dp12};
                 }
             `}</style>
         </div>

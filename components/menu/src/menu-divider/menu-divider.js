@@ -1,9 +1,13 @@
-import { Divider } from '@dhis2-ui/divider'
 import { colors } from '@dhis2/ui-constants'
+import { Divider } from '@dhis2-ui/divider'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const MenuDivider = ({ className, dataTest, dense }) => (
+const MenuDivider = ({
+    className,
+    dataTest = 'dhis2-uicore-menudivider',
+    dense,
+}) => (
     <li className={className} data-test={dataTest}>
         <Divider dense={dense} />
 
@@ -18,10 +22,6 @@ const MenuDivider = ({ className, dataTest, dense }) => (
         `}</style>
     </li>
 )
-
-MenuDivider.defaultProps = {
-    dataTest: 'dhis2-uicore-menudivider',
-}
 
 MenuDivider.propTypes = {
     className: PropTypes.string,

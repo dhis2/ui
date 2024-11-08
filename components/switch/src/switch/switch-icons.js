@@ -11,6 +11,14 @@ const styles = css`
         width: 35px;
     }
 
+    svg:dir(rtl) {
+        transform: scale(-1, 1);
+    }
+
+    svg[dir='rtl'] {
+        transform: scale(-1, 1);
+    }
+
     svg.dense {
         height: 14px;
         width: 27px;
@@ -25,6 +33,14 @@ const styles = css`
     svg .cross,
     svg .handle {
         fill: ${colors.white};
+    }
+
+    svg .checkmark:dir(rtl) {
+        display: none;
+    }
+
+    svg[dir='rtl'] .checkmark {
+        display: none;
     }
 
     svg.checked .handle-unchecked,
@@ -85,6 +101,7 @@ export function SwitchRegular({ className }) {
             viewBox="0 0 42 22"
             xmlns="http://www.w3.org/2000/svg"
             className={className}
+            dir={document.documentElement?.dir ?? 'ltr'}
         >
             <path
                 d="M0,11 L0,11 C0,4.92486775 4.92076837,0 11.0075657,0 L30.9924343,0 C37.071745,0 42,4.923532 42,11 L42,11 C42,17.0751322 37.0792316,22 30.9924343,22 L11.0075657,22 C4.92825504,22 0,17.0791222 0,11 L0,11 Z"

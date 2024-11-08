@@ -2,14 +2,8 @@ import { useConfig } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { joinPath } from './join-path.js'
+import i18n from './locales/index.js'
 import { NotificationIcon } from './notification-icon.js'
-
-/*
- AUTHORITIES:
- - ALL: superuser
- - M_dhis-web-interpretation: access to interpretations app
- - M_dhis-web-messaging: access to messaging app
- */
 
 const hasAuthority = (userAuthorities, authId) =>
     Array.isArray(userAuthorities) &&
@@ -32,6 +26,8 @@ export const Notifications = ({
                     href={joinPath(baseUrl, 'dhis-web-interpretation')}
                     kind="message"
                     dataTestId="headerbar-interpretations"
+                    title={i18n.t('Interpretations')}
+                    aria-label={i18n.t('Interpretations')}
                 />
             )}
 
@@ -42,6 +38,8 @@ export const Notifications = ({
                     href={joinPath(baseUrl, 'dhis-web-messaging')}
                     kind="interpretation"
                     dataTestId="headerbar-messages"
+                    title={i18n.t('Messages')}
+                    aria-label={i18n.t('Messages')}
                 />
             )}
 

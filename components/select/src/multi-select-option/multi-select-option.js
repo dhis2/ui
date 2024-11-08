@@ -1,5 +1,5 @@
-import { Checkbox } from '@dhis2-ui/checkbox'
 import { colors, spacers } from '@dhis2/ui-constants'
+import { Checkbox } from '@dhis2-ui/checkbox'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -16,7 +16,7 @@ const MultiSelectOption = ({
     disabled,
     onClick,
     className,
-    dataTest,
+    dataTest = 'dhis2-uicore-multiselectoption',
     value,
 }) => (
     <div
@@ -48,10 +48,6 @@ const MultiSelectOption = ({
         `}</style>
     </div>
 )
-
-MultiSelectOption.defaultProps = {
-    dataTest: 'dhis2-uicore-multiselectoption',
-}
 
 MultiSelectOption.propTypes = {
     label: PropTypes.string.isRequired,

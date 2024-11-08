@@ -1,6 +1,6 @@
 {
     "name": "ui-storybook",
-    "version": "9.3.0",
+    "version": "9.13.0",
     "description": "UI Storybook",
     "repository": {
         "type": "git",
@@ -11,38 +11,38 @@
     "license": "BSD-3-Clause",
     "private": true,
     "scripts": {
-        "start": "EXTEND_ESLINT=true start-storybook -c config --port 5000 --quiet --ci -s static",
-        "build": "EXTEND_ESLINT=true build-storybook -c config -o ../dist/demo --quiet -s static"
+        "start": "EXTEND_ESLINT=true storybook dev -c config --port 5000 --ci",
+        "build": "EXTEND_ESLINT=true storybook build -c config -o ../dist/demo"
     },
     "peerDependencies": {
-        "react": "^16.8",
-        "react-dom": "^16.8",
-        "styled-jsx": "^4"
+        "styled-jsx": "^4",
+        "typescript": "^4"
     },
     "dependencies": {
         "@babel/plugin-proposal-class-properties": "^7.13.0",
         "@babel/plugin-proposal-private-methods": "^7.13.0",
         "@babel/plugin-proposal-private-property-in-object": "^7.14.0",
-        "@dhis2-ui/css": "9.3.0",
-        "@dhis2/ui-constants": "9.3.0",
+        "@dhis2-ui/css": "9.13.0",
+        "@dhis2/ui-constants": "9.13.0",
         "@fontsource/roboto": "^4.5.0",
-        "@storybook/addon-a11y": "^6.3.7",
-        "@storybook/addon-console": "^1.2.3",
-        "@storybook/addon-essentials": "^6.3.7",
-        "@storybook/addon-storysource": "^6.3.7",
-        "@storybook/addons": "^6.3.7",
-        "@storybook/channels": "^6.3.7",
-        "@storybook/components": "^6.3.7",
-        "@storybook/core-events": "^6.3.8",
-        "@storybook/node-logger": "^6.3.7",
-        "@storybook/preset-create-react-app": "^3.2.0",
-        "@storybook/react": "^6.3.7",
-        "@storybook/theming": "^6.3.7",
-        "storybook-addon-jsx": "^7.3.14"
+        "@storybook/addon-a11y": "^8.3.3",
+        "@storybook/addon-console": "^3.0.0",
+        "@storybook/addon-essentials": "^8.3.3",
+        "@storybook/addon-storysource": "^8.3.3",
+        "@storybook/channels": "^8.3.3",
+        "@storybook/components": "^8.3.3",
+        "@storybook/core-events": "^8.3.3",
+        "@storybook/node-logger": "^8.3.3",
+        "@storybook/preset-create-react-app": "^8.3.3",
+        "@storybook/react": "^8.3.3",
+        "@storybook/theming": "^8.3.3",
+        "@mihkeleidast/storybook-addon-source": "1.0.1"
     },
     "devDependencies": {
-        "react": "16.13",
-        "react-dom": "16.13",
+        "@storybook/react-webpack5": "^8.3.3",
+        "crypto-browserify": "^3.12.0",
+        "storybook": "^8.3.3",
+        "stream-browserify": "^3.0.0",
         "styled-jsx": "^4.0.1"
     }
 }

@@ -1,5 +1,4 @@
-import '../common/index.js'
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a SingleSelect with hidden sibling elements', () => {
     cy.visitStory('SingleSelect', 'Menu width changing')
@@ -8,7 +7,7 @@ Given('a SingleSelect with hidden sibling elements', () => {
     })
 })
 When('the button is clicked', () => {
-    cy.get('button').click()
+    cy.get('button:contains("Toggle")').click()
 })
 Then('the siblings are displayed', () => {
     cy.get('.toggler').should('exist').and('have.length', 2)

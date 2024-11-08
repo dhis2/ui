@@ -3,13 +3,14 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { ContentWithTitle } from './content-with-title.js'
 
+const defaultHeaderLabels = []
 export const StackedTableCell = ({
     children,
     className,
     colSpan,
     column,
-    dataTest,
-    headerLabels,
+    dataTest = 'dhis2-uicore-stackedtablecell',
+    headerLabels = defaultHeaderLabels,
     hideTitle,
     rowSpan,
     title,
@@ -34,6 +35,9 @@ export const StackedTableCell = ({
                     width: 100%;
                     display: block;
                 }
+                td:dir(rtl) {
+                    text-align: right;
+                }
 
                 td:last-child {
                     border-bottom: 0;
@@ -53,9 +57,4 @@ StackedTableCell.propTypes = {
     hideTitle: PropTypes.bool,
     rowSpan: PropTypes.string,
     title: PropTypes.string,
-}
-
-StackedTableCell.defaultProps = {
-    dataTest: 'dhis2-uicore-stackedtablecell',
-    headerLabels: [],
 }

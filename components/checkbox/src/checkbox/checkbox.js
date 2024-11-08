@@ -58,10 +58,16 @@ class Checkbox extends Component {
         }
     }
 
+    static defaultProps = {
+        checked: false,
+        indeterminate: false,
+        dataTest: 'dhis2-uicore-checkbox',
+    }
+
     render() {
         const {
-            checked,
-            indeterminate,
+            checked = false,
+            indeterminate = false,
             className,
             disabled,
             error,
@@ -72,7 +78,7 @@ class Checkbox extends Component {
             value,
             warning,
             dense,
-            dataTest,
+            dataTest = 'dhis2-uicore-checkbox',
         } = this.props
 
         const classes = cx({
@@ -146,7 +152,7 @@ class Checkbox extends Component {
                         height: 18px;
                         width: 18px;
                         /* The same offset as the icon, 2px border, 1px padding */
-                        left: 3px;
+                        inset-inline-start: 3px;
                     }
 
                     label.dense input {
@@ -157,14 +163,14 @@ class Checkbox extends Component {
 
                     .icon {
                         user-select: none;
-                        margin-right: ${spacers.dp4};
+                        margin-inline-end: ${spacers.dp4};
                         border: 2px solid transparent;
                         padding: 1px;
                         border-radius: 5px;
                     }
 
                     label.dense .icon {
-                        margin-right: 3px;
+                        margin-inline-end: 3px;
                         border-radius: 4px;
                     }
 
@@ -176,12 +182,6 @@ class Checkbox extends Component {
             </label>
         )
     }
-}
-
-Checkbox.defaultProps = {
-    checked: false,
-    indeterminate: false,
-    dataTest: 'dhis2-uicore-checkbox',
 }
 
 const uniqueOnStatePropType = mutuallyExclusive(

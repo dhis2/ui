@@ -33,15 +33,18 @@ Progress.propTypes = {
 
 const LinearLoader = ({
     amount,
-    width,
-    margin,
+    width = '300px',
+    margin = spacers.dp12,
     invert,
     className,
-    dataTest,
+    dataTest = 'dhis2-uicore-linearloader',
+    'aria-label': ariaLabel,
 }) => {
     return (
         <div
             role="progressbar"
+            aria-valuenow={amount}
+            aria-label={ariaLabel}
             className={cx(className, { invert })}
             data-test={dataTest}
         >
@@ -69,15 +72,10 @@ const LinearLoader = ({
     )
 }
 
-LinearLoader.defaultProps = {
-    margin: spacers.dp12,
-    width: '300px',
-    dataTest: 'dhis2-uicore-linearloader',
-}
-
 LinearLoader.propTypes = {
     /** The progression in percent without the '%' sign */
     amount: PropTypes.number.isRequired,
+    'aria-label': PropTypes.string,
     className: PropTypes.string,
     dataTest: PropTypes.string,
     /** Use inverted color scheme */

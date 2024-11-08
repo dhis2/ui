@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `LogoIcon`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { LogoIcon } from '@dhis2-ui/logo'
+import { LogoIcon } from '@dhis2/ui'
 ```
 
 
@@ -21,11 +21,11 @@ import { LogoIcon } from '@dhis2-ui/logo'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `LogoIconWhite`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { LogoIconWhite } from '@dhis2-ui/logo'
+import { LogoIconWhite } from '@dhis2/ui'
 ```
 
 
@@ -40,11 +40,11 @@ import { LogoIconWhite } from '@dhis2-ui/logo'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Logo`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { Logo } from '@dhis2-ui/logo'
+import { Logo } from '@dhis2/ui'
 ```
 
 
@@ -59,11 +59,11 @@ import { Logo } from '@dhis2-ui/logo'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `LogoWhite`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { LogoWhite } from '@dhis2-ui/logo'
+import { LogoWhite } from '@dhis2/ui'
 ```
 
 

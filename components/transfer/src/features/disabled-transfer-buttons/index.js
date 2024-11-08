@@ -1,4 +1,4 @@
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('the options list has items', () => {
     cy.visitStory('Transfer Disabled Transfer Buttons', 'Has Options')
@@ -18,10 +18,6 @@ Given('all options have been selected', () => {
 
 Given('the selected list does not have items', () => {
     cy.visitStory('Transfer Disabled Transfer Buttons', 'Has Options')
-})
-
-Given('the selected list has items', () => {
-    cy.visitStory('Transfer Disabled Transfer Buttons', 'Some Options Selected')
 })
 
 Given('no option items are highlighted', () => {

@@ -7,14 +7,14 @@ import { TagIcon } from './tag-icon.js'
 import { TagText } from './tag-text.js'
 
 export const Tag = ({
-    maxWidth,
+    maxWidth = '240px',
     neutral,
     negative,
     positive,
     icon,
     bold,
     className,
-    dataTest,
+    dataTest = 'dhis2-uicore-tag',
     children,
 }) => (
     <div
@@ -94,15 +94,10 @@ const tagVariantPropType = mutuallyExclusive(
     PropTypes.bool
 )
 
-Tag.defaultProps = {
-    dataTest: 'dhis2-uicore-tag',
-    maxWidth: '240px',
-}
-
 Tag.propTypes = {
     /** Use bold tags where it is important that the tag is seen by the user in an information dense interface. Bold tags should be reserved for edge cases and not overused. */
     bold: PropTypes.bool,
-    children: PropTypes.string,
+    children: PropTypes.node,
     className: PropTypes.string,
     dataTest: PropTypes.string,
     /** Tags can contain icons. Use icons where they will help users easily identify the content of the tag. Tags must have a text label and cannot display only an icon. */

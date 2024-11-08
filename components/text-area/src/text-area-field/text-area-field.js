@@ -1,9 +1,9 @@
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import { Box } from '@dhis2-ui/box'
 import { Field } from '@dhis2-ui/field'
-import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { TextArea } from '../index.js'
+import { TextArea } from '../text-area/index.js'
 
 const TextAreaField = ({
     className,
@@ -28,10 +28,10 @@ const TextAreaField = ({
     validationText,
     autoGrow,
     readOnly,
-    resize,
-    rows,
+    resize = 'vertical',
+    rows = 4,
     inputWidth,
-    dataTest,
+    dataTest = 'dhis2-uiwidgets-textareafield',
 }) => (
     <Field
         className={className}
@@ -71,12 +71,6 @@ const TextAreaField = ({
         </Box>
     </Field>
 )
-
-TextAreaField.defaultProps = {
-    rows: 4,
-    resize: 'vertical',
-    dataTest: 'dhis2-uiwidgets-textareafield',
-}
 
 TextAreaField.propTypes = {
     /** Grow the text area in response to overflow instead of adding a scroll bar */

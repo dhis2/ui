@@ -15,8 +15,8 @@ export const Icon = ({ icon, dataTest }) => {
                 span {
                     width: 24px;
                     height: 24px;
-                    margin-left: ${spacers.dp4};
-                    margin-right: -6px;
+                    margin-inline-start: ${spacers.dp4};
+                    margin-inline-end: -6px;
                     border-radius: 50%;
                     overflow: hidden;
                 }

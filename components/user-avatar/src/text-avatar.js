@@ -17,14 +17,14 @@ export const getInitials = (name) => {
 
 export const TextAvatar = ({
     name,
-    dataTest,
+    dataTest = 'dhis2-uicore-textavatar',
     extralarge,
     extrasmall,
     large,
     medium,
     small,
 }) => (
-    <div className="text-avatar" data-test={dataTest}>
+    <div className="text-avatar" data-test={dataTest} aria-label={name}>
         <div
             className={cx('text-avatar-initials', {
                 extrasmall,
@@ -81,10 +81,6 @@ export const TextAvatar = ({
         `}</style>
     </div>
 )
-
-TextAvatar.defaultProps = {
-    dataTest: 'dhis2-uicore-textavatar',
-}
 
 TextAvatar.propTypes = {
     name: PropTypes.string.isRequired,

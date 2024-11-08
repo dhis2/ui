@@ -1,5 +1,5 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
-import { renderHook } from '@testing-library/react-hooks'
+import { renderHook, waitFor } from '@testing-library/react'
 import React from 'react'
 import { useOrgData } from './use-org-data.js'
 
@@ -52,21 +52,21 @@ describe('OrganisationUnitTree - useOrgData', () => {
     })
 
     it('should provide the org unit data', async () => {
-        const { result, waitForNextUpdate } = renderHook(
+        const { result } = renderHook(
             () => useOrgData('A0000000000', { displayName: 'Display name' }),
             { wrapper }
         )
 
-        await waitForNextUpdate()
-
-        expect(result.current).toEqual({
-            loading: false,
-            error: null,
-            data: {
-                id: 'A0000000000',
-                path: '/A0000000000',
-                displayName: 'Org Unit 1',
-            },
+        await waitFor(() => {
+            expect(result.current).toEqual({
+                loading: false,
+                error: null,
+                data: {
+                    id: 'A0000000000',
+                    path: '/A0000000000',
+                    displayName: 'Org Unit 1',
+                },
+            })
         })
     })
 
@@ -83,39 +83,35 @@ describe('OrganisationUnitTree - useOrgData', () => {
             </CustomDataProvider>
         )
 
-        const { result, waitForNextUpdate } = renderHook(
+        const { result } = renderHook(
             () => useOrgData('A0000000000', { displayName: 'Display name' }),
             { wrapper: errorWrapper }
         )
 
-        await waitForNextUpdate()
-
-        expect(result.current).toEqual({
-            loading: false,
-            error: new Error('Error message'),
-            data: { displayName: 'Display name', id: 'A0000000000' },
+        await waitFor(() => {
+            expect(result.current).toEqual({
+                loading: false,
+                error: new Error('Error message'),
+                data: { displayName: 'Display name', id: 'A0000000000' },
+            })
         })
     })
 
     it('should send the "isUserDataViewFallback" parameter with value "undefined"', async () => {
         const options = { displayName: 'Display name' }
 
-        const { waitForNextUpdate } = renderHook(
-            () => useOrgData('A0000000000', options),
-            { wrapper }
-        )
-
-        await waitForNextUpdate()
-
-        expect(dataProviderData.organisationUnits).toHaveBeenCalledWith(
-            'read',
-            expect.objectContaining({
-                params: expect.objectContaining({
-                    isUserDataViewFallback: undefined,
+        renderHook(() => useOrgData('A0000000000', options), { wrapper })
+        await waitFor(() => {
+            expect(dataProviderData.organisationUnits).toHaveBeenCalledWith(
+                'read',
+                expect.objectContaining({
+                    params: expect.objectContaining({
+                        isUserDataViewFallback: undefined,
+                    }),
                 }),
-            }),
-            expect.objectContaining({}) // contains the `signal`
-        )
+                expect.objectContaining({}) // contains the `signal`
+            )
+        })
     })
 
     it('should send the "isUserDataViewFallback" parameter with value "true"', async () => {
@@ -124,21 +120,18 @@ describe('OrganisationUnitTree - useOrgData', () => {
             displayName: 'Display name',
         }
 
-        const { waitForNextUpdate } = renderHook(
-            () => useOrgData('A0000000000', options),
-            { wrapper }
-        )
+        renderHook(() => useOrgData('A0000000000', options), { wrapper })
 
-        await waitForNextUpdate()
-
-        expect(dataProviderData.organisationUnits).toHaveBeenCalledWith(
-            'read',
-            expect.objectContaining({
-                params: expect.objectContaining({
-                    isUserDataViewFallback: true,
+        await waitFor(() => {
+            expect(dataProviderData.organisationUnits).toHaveBeenCalledWith(
+                'read',
+                expect.objectContaining({
+                    params: expect.objectContaining({
+                        isUserDataViewFallback: true,
+                    }),
                 }),
-            }),
-            expect.objectContaining({}) // contains the `signal`
-        )
+                expect.objectContaining({}) // contains the `signal`
+            )
+        })
     })
 })

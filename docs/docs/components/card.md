@@ -3,19 +3,23 @@ title: Card
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { Card } from '@dhis2/ui'
-
 import API from '../../../components/card/API.md'
 
 # Card
 
 A card is a container element used to group together and separate blocks of content.
 
-<Demo>
-    <Card>This is content that's inside a card.</Card>
-</Demo>
+<Demo
+    path="card--default"
+    args="children:Card Content."
+    height="150px"
+/>
 
 ## Usage
+
+```jsx
+<Card>Card Content.</Card>
+```
 
 ### When to use
 
@@ -28,7 +32,3 @@ A card is a container element used to group together and separate blocks of cont
 ## API Reference
 
 <API />
-
-## Links
-
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/layout-card--default)

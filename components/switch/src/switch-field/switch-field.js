@@ -1,9 +1,9 @@
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import { Field } from '@dhis2-ui/field'
 import { Required } from '@dhis2-ui/required'
-import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Switch } from '../index.js'
+import { Switch } from '../switch/index.js'
 
 const AddRequired = ({ label, required, dataTest }) => (
     <React.Fragment>
@@ -37,7 +37,7 @@ const SwitchField = ({
     required,
     helpText,
     validationText,
-    dataTest,
+    dataTest = 'dhis2-uiwidgets-switchfield',
 }) => (
     <Field
         className={className}
@@ -76,10 +76,6 @@ const SwitchField = ({
         />
     </Field>
 )
-
-SwitchField.defaultProps = {
-    dataTest: 'dhis2-uiwidgets-switchfield',
-}
 
 SwitchField.propTypes = {
     checked: PropTypes.bool,

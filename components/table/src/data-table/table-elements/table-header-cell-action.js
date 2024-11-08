@@ -3,7 +3,17 @@ import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
 
 export const TableHeaderCellAction = forwardRef(
-    ({ onClick, children, className, dataTest, title, ...props }, ref) => (
+    (
+        {
+            onClick,
+            children,
+            className,
+            dataTest = 'dhis2-uicore-tableheadercellaction',
+            title,
+            ...props
+        },
+        ref
+    ) => (
         <button
             {...props}
             className={className}
@@ -26,7 +36,7 @@ export const TableHeaderCellAction = forwardRef(
                     flex-shrink: 0;
                     cursor: pointer;
                     border-radius: 4px;
-                    margin-left: 2px;
+                    margin-inline-start: 2px;
                 }
                 button:hover,
                 button:focus-visible {
@@ -42,10 +52,6 @@ export const TableHeaderCellAction = forwardRef(
 )
 
 TableHeaderCellAction.displayName = 'TableHeaderCellAction'
-
-TableHeaderCellAction.defaultProps = {
-    dataTest: 'dhis2-uicore-tableheadercellaction',
-}
 
 TableHeaderCellAction.propTypes = {
     children: PropTypes.node,

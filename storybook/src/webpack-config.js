@@ -18,7 +18,8 @@ const { uiPackages } = require('./ui-packages.js')
  */
 function modify_internal_package_loaders(cfg) {
     // Find the rules that configure the webpack loaders
-    const loaderRules = cfg.module.rules.find((rule) => 'oneOf' in rule).oneOf
+    const loaderRules =
+        cfg.module.rules.find((rule) => 'oneOf' in rule)?.oneOf || []
 
     // Filter only the rules that have a regex under the test property
     const regexLoaders = loaderRules.filter(
@@ -96,7 +97,12 @@ function modify_internal_package_resolutions(cfg) {
         const p = require(pkg)
         const name = p.name
 
-        const index = fg.sync(`node_modules/${name}/src/**/index.js`, {
+        const pathToResolve =
+            process.env.NODE_ENV === 'production'
+                ? `node_modules/${name}/build/es/**/index.js`
+                : `node_modules/${name}/src/**/index.js`
+
+        const index = fg.sync(pathToResolve, {
             depth: 1,
             onlyFiles: true,
             cwd: PROJECT_ROOT,
@@ -148,6 +154,12 @@ exports.webpackConfig = async (config) => {
     modify_internal_package_loaders(config)
     modify_internal_package_resolutions(config)
     modify_webpack_plugins(config)
+
+    config.resolve.fallback = {
+        ...config.resolve.fallback,
+        crypto: require.resolve('crypto-browserify'),
+        stream: require.resolve('stream-browserify'),
+    }
 
     return config
 }

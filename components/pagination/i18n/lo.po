@@ -1,15 +1,16 @@
 # 
 # Translators:
-# phil_dhis2, 2021
+# Philip Larsen Donnelly, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
+# Namwan Chanthavisouk, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-03-10T20:20:19.392Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2021\n"
-"Language-Team: Lao (https://www.transifex.com/hisp-uio/teams/100509/lo/)\n"
+"Last-Translator: Namwan Chanthavisouk, 2024\n"
+"Language-Team: Lao (https://app.transifex.com/hisp-uio/teams/100509/lo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,12 +21,14 @@ msgid ""
 "Page {{page}} of {{pageCount}}, items {{firstItem}}-{{lastItem}} of "
 "{{total}}"
 msgstr ""
+"ໜ້າ {{page}} ຂອງ {{pageCount}} , ລາຍການ {{firstItem}} - {{lastItem}} ຂອງ "
+"{{total}}"
 
 msgid "Page {{page}}, items {{firstItem}}-{{lastItem}}"
-msgstr ""
+msgstr "ໜ້າ {{page}} , ລາຍການ {{firstItem}} - {{lastItem}}"
 
 msgid "Page {{page}}"
-msgstr ""
+msgstr "ໜ້າ {{page}}"
 
 msgid "Next"
 msgstr "ຕໍ່ໄປ"
@@ -34,7 +37,7 @@ msgid "Page"
 msgstr "ໜ້າ"
 
 msgid "Items per page"
-msgstr ""
+msgstr "ລາຍການຕໍ່ໜ້າ"
 
 msgid "Previous"
 msgstr "ຍ້ອນກັບ"
@@ -43,3 +46,5 @@ msgid ""
 "You are at page {{page}} showing items {{firstItem}}-{{lastItem}}, but there"
 " are {{pageCount}} pages and {{total}} items"
 msgstr ""
+"ທ່ານຢູ່ທີ່ໜ້າ {{page}} ສະແດງລາຍການ {{firstItem}} - {{lastItem}} , ແຕ່ມີໜ້າ "
+"{{pageCount}} ແລະ {{total}} ລາຍການ"

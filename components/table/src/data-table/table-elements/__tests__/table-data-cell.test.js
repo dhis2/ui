@@ -71,7 +71,7 @@ describe('<TableDataCell>', () => {
         const left = '200px'
         const wrapper = shallow(<TableDataCell left={left} />)
 
-        expect(wrapper.html()).toContain(`left: ${left};`)
+        expect(wrapper.html()).toContain(`inset-inline-start: ${left};`)
     })
     it('accepts a muted prop', () => {
         const wrapper = shallow(<TableDataCell muted />)

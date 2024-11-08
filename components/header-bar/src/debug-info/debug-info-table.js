@@ -38,7 +38,9 @@ export function DebugInfoTable() {
                     font-famile: Menlo, Courier, monospace !important;
                 }
                 td {
-                    padding: 3px 16px 3px 0;
+                    padding-block: 3px;
+                    padding-inline-end: 16px;
+                    padding-inline-start: 0;
                 }
                 .debug-info-key {
                     font-weight: bold;

@@ -1,12 +1,13 @@
-import { Layer } from '@dhis2-ui/layer'
-import { Popper } from '@dhis2-ui/popper'
 import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
 import { IconChevronUp16, IconChevronDown16 } from '@dhis2/ui-icons'
+import { Layer } from '@dhis2-ui/layer'
+import { Popper } from '@dhis2-ui/popper'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import css from 'styled-jsx/css'
-import { Button } from '../index.js'
+import { Button } from '../button/index.js'
+import i18n from '../locales/index.js'
 
 const rightButton = css.resolve`
     button {
@@ -18,7 +19,28 @@ class SplitButton extends Component {
     state = {
         open: false,
     }
+
+    static defaultProps = {
+        dataTest: 'dhis2-uicore-splitbutton',
+    }
+
     anchorRef = React.createRef()
+
+    componentDidMount() {
+        document.addEventListener('keydown', this.handleKeyDown)
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('keydown', this.handleKeyDown)
+    }
+    handleKeyDown = (event) => {
+        if (event.key === 'Escape' && this.state.open) {
+            event.preventDefault()
+            event.stopPropagation()
+            this.setState({ open: false })
+            this.anchorRef.current && this.anchorRef.current.focus()
+        }
+    }
 
     onClick = (payload, event) => {
         if (this.props.onClick) {
@@ -33,7 +55,9 @@ class SplitButton extends Component {
         }
     }
 
-    onToggle = () => this.setState({ open: !this.state.open })
+    onToggle = () => {
+        this.setState((prevState) => ({ open: !prevState.open }))
+    }
 
     render() {
         const { open } = this.state
@@ -52,7 +76,7 @@ class SplitButton extends Component {
             disabled,
             type,
             tabIndex,
-            dataTest,
+            dataTest = 'dhis2-uicore-splitbutton',
             initialFocus,
         } = this.props
 
@@ -94,6 +118,8 @@ class SplitButton extends Component {
                     tabIndex={tabIndex}
                     className={cx(className, rightButton.className)}
                     dataTest={`${dataTest}-toggle`}
+                    title={i18n.t('Toggle dropdown')}
+                    aria-label={i18n.t('Toggle dropdown')}
                 >
                     {arrow}
                 </Button>
@@ -122,23 +148,19 @@ class SplitButton extends Component {
                     }
 
                     div > :global(button:first-child) {
-                        border-top-right-radius: 0;
-                        border-bottom-right-radius: 0;
-                        border-right: 0;
+                        border-start-end-radius: 0;
+                        border-end-end-radius: 0;
+                        border-inline-end: 0;
                     }
 
                     div > :global(button:last-child) {
-                        border-top-left-radius: 0;
-                        border-bottom-left-radius: 0;
+                        border-start-start-radius: 0;
+                        border-end-start-radius: 0;
                     }
                 `}</style>
             </div>
         )
     }
-}
-
-SplitButton.defaultProps = {
-    dataTest: 'dhis2-uicore-splitbutton',
 }
 
 SplitButton.propTypes = {

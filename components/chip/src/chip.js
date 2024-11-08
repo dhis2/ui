@@ -6,6 +6,8 @@ import { Content } from './content.js'
 import { Icon } from './icon.js'
 import { Remove } from './remove.js'
 
+const DEFAULT_INLINE_MARGIN = '4'
+
 const Chip = ({
     selected,
     dense,
@@ -17,11 +19,13 @@ const Chip = ({
     onRemove,
     onClick,
     icon,
-    dataTest,
-    marginBottom,
+    dataTest = 'dhis2-uicore-chip',
+    marginBottom = 4,
     marginLeft,
     marginRight,
-    marginTop,
+    marginTop = 4,
+    marginInlineStart,
+    marginInlineEnd,
 }) => (
     <span
         onClick={(e) => {
@@ -98,21 +102,17 @@ const Chip = ({
         <style jsx>{`
             span {
                 ${marginBottom && `margin-bottom: ${marginBottom}px;`}
-                ${marginLeft && `margin-left: ${marginLeft}px;`}
-                ${marginRight && `margin-right: ${marginRight}px;`}
+                margin-inline-start: ${marginInlineStart ??
+                marginLeft ??
+                DEFAULT_INLINE_MARGIN}px;
+                margin-inline-end: ${marginInlineEnd ??
+                marginRight ??
+                DEFAULT_INLINE_MARGIN}px;
                 ${marginTop && `margin-top: ${marginTop}px`}
             }
         `}</style>
     </span>
 )
-
-Chip.defaultProps = {
-    dataTest: 'dhis2-uicore-chip',
-    marginBottom: 4,
-    marginLeft: 4,
-    marginRight: 4,
-    marginTop: 4,
-}
 
 Chip.propTypes = {
     children: PropTypes.any,
@@ -124,9 +124,13 @@ Chip.propTypes = {
     icon: PropTypes.element,
     /** `margin-bottom` value, applied in `px`  */
     marginBottom: PropTypes.number,
-    /** `margin-left` value, applied in `px`  */
+    /** `margin-inline-end` value, applied in `px`  */
+    marginInlineEnd: PropTypes.number,
+    /** `margin-inline-start` value, applied in `px`  */
+    marginInlineStart: PropTypes.number,
+    /** `margin-inline-start` value, applied in `px`  */
     marginLeft: PropTypes.number,
-    /** `margin-right` value, applied in `px`  */
+    /** `margin-inline-end` value, applied in `px`  */
     marginRight: PropTypes.number,
     /** `margin-top` value, applied in `px`  */
     marginTop: PropTypes.number,

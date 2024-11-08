@@ -14,10 +14,10 @@ export default css`
         outline-offset: -2px;
     }
     td.bordered {
-        border-right: 1px solid ${colors.grey300};
+        border-inline-end: 1px solid ${colors.grey300};
     }
     td.bordered:last-child {
-        border-right: 1px solid transparent;
+        border-inline-end: 1px solid transparent;
     }
     td.error {
         color: ${colors.red700};

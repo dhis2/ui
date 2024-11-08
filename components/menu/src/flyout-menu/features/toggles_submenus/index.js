@@ -1,4 +1,4 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a FlyoutMenu with two SubMenus is rendered', () => {
     cy.visitStory('FlyoutMenu', 'Toggles Sub Menus')

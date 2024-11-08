@@ -1,5 +1,5 @@
-import { SingleSelect, SingleSelectOption } from '@dhis2-ui/select'
 import { spacers } from '@dhis2/ui-constants'
+import { SingleSelect, SingleSelectOption } from '@dhis2-ui/select'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -43,7 +43,7 @@ const PageSelect = ({
         </SingleSelect>
         <style jsx>{`
             div {
-                margin-right: ${spacers.dp12};
+                margin-inline-end: ${spacers.dp12};
             }
         `}</style>
     </div>

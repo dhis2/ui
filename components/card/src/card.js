@@ -3,7 +3,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const Card = ({ className, children, dataTest }) => (
+const Card = ({ className, children, dataTest = 'dhis2-uicore-card' }) => (
     <div className={cx(className)} data-test={dataTest}>
         {children}
 
@@ -22,10 +22,6 @@ const Card = ({ className, children, dataTest }) => (
         `}</style>
     </div>
 )
-
-Card.defaultProps = {
-    dataTest: 'dhis2-uicore-card',
-}
 
 Card.propTypes = {
     children: PropTypes.node,

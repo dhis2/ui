@@ -1,5 +1,4 @@
-import '../common/index.js'
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a SingleSelect with options and a loading flag is rendered', () => {
     cy.visitStory('SingleSelect', 'With options and loading')

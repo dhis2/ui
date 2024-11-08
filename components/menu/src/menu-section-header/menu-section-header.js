@@ -1,12 +1,12 @@
-import { Divider } from '@dhis2-ui/divider'
 import { colors, spacers } from '@dhis2/ui-constants'
+import { Divider } from '@dhis2-ui/divider'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 
 const MenuSectionHeader = ({
     className,
-    dataTest,
+    dataTest = 'dhis2-uicore-menusectionheader',
     dense,
     hideDivider,
     label,
@@ -40,10 +40,6 @@ const MenuSectionHeader = ({
         `}</style>
     </li>
 )
-
-MenuSectionHeader.defaultProps = {
-    dataTest: 'dhis2-uicore-menusectionheader',
-}
 
 MenuSectionHeader.propTypes = {
     className: PropTypes.string,

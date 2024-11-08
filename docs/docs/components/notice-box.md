@@ -3,7 +3,6 @@ title: Notice box
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { NoticeBox, Button } from '@dhis2/ui'
 
 import API from '../../../components/notice-box/API.md'
 
@@ -11,11 +10,10 @@ import API from '../../../components/notice-box/API.md'
 
 A notice box shows important information about a situation.
 
-<Demo>
-    <NoticeBox title="Notice box title">
-        Notice box content
-    </NoticeBox>
-</Demo>
+<Demo
+    path="notice-box--default"
+    height="200px"
+/>
 
 ## Usage
 
@@ -43,45 +41,66 @@ A notice box shows important information about a situation.
 
 #### Information
 
-<Demo>
-    <NoticeBox title="Database recently updated">
-        Dashboard data can take a few hours to update, so the most recent data might not be shown.
-    </NoticeBox>
-</Demo>
+<Demo
+    path="notice-box--default"
+    height="200px"
+/>
+
+```jsx
+<NoticeBox title="Database recently updated">
+    Dashboard data can take a few hours to update, so the most recent data might
+    not be shown.
+</NoticeBox>
+```
 
 -   The default choice. Use whenever the information isn't a problem or something the user definitely needs to know before moving on.
 
 #### Warning
 
-<Demo>
-    <NoticeBox warning title="No assigned organisation units">
-        No one will be able to find this program because it doesn't have any assigned organisation units.
-        <br/><Button small secondary>Edit access settings</Button>
-    </NoticeBox>
-</Demo>
+<Demo
+    path="notice-box--warning"
+    height="200px"
+/>
+
+```jsx
+<NoticeBox warning title="This program has no assigned Organisation Units">
+    No one will be able to access this program. Add some Organisation Units to
+    the access list.
+</NoticeBox>
+```
 
 -   Use to alert the user to a problem that isn't blocking the current workflow.
 -   If possible, offer an [action](#actions) to help the user fix the problem.
 
 #### Error
 
-<Demo>
-    <NoticeBox error title="Analytics tables failed">
-        There isn't any data because there was a problem generating analytics tables.
-        <br/><Button small secondary>Go to analytics tables</Button>
-    </NoticeBox>
-</Demo>
+<Demo
+    path="notice-box--error"
+    height="200px"
+/>
+
+```jsx
+<NoticeBox error title="Access rules for this instance are set to 'Public'">
+    Data could be accessed from outside this instance. Update access rules
+    immediately.
+</NoticeBox>
+```
 
 -   Use to alert the user to a problem or error that's blocking the current workflow.
 -   If possible, offer an [action](#actions) to help the user fix the problem.
 
 #### Valid
 
-<Demo>
-    <NoticeBox valid title="Password reset successfully">
-        Your password has been reset. You can log in with your username and password.
-    </NoticeBox>
-</Demo>
+<Demo
+    path="notice-box--valid"
+    height="200px"
+/>
+
+```jsx
+<NoticeBox valid title="Program rules exported successfully">
+    Programs using these rules are updated automatically.
+</NoticeBox>
+```
 
 -   Use to inform the user that an important action is complete, or the process was successful.
 -   Only use when the information needs to stay on screen. In most `valid` cases, using an [alert bar](./alertbar.md) is a better choice.
@@ -105,7 +124,3 @@ A notice box shows important information about a situation.
 ## API Reference
 
 <API />
-
-## Links
-
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/data-display-notice-box--default)

@@ -87,6 +87,15 @@ yarn start
 yarn start --no-manager-cache
 ```
 
+## Conditional E2E Test Recording
+
+To record e2e tests in Cypress Cloud, you can use one of the following methods based on your needs:
+
+-   **Commit Message**: Include `[e2e record]` in your commit messages to activate recording.
+-   **GitHub Labels**: Apply the `e2e record` label to your pull request to trigger recording.
+
+This setup helps in managing Cypress Cloud credits more efficiently, ensuring recordings are only made when explicitly required.
+
 ## Reporting an issue or opening a PR
 
 See [CONTRIBUTING.md](CONTRIBUTING.md)

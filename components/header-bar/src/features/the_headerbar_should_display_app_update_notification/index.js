@@ -1,4 +1,4 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('the HeaderBar is rendered without an available update', () => {
     cy.visitStory('HeaderBarTesting', 'default')

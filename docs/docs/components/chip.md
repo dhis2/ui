@@ -3,17 +3,21 @@ title: Chip
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { Chip, IconStar24 } from '@dhis2/ui'
-
 import API from '../../../components/chip/API.md'
 
 # Chip
 
 Chips are used to select from a set of defined options. Chips can also represent a set of chosen options.
 
-<Demo>
-    <Chip>Hello world</Chip>
-</Demo>
+<Demo
+    path="chip--default"
+    args="children:Hello World"
+    height="120px"
+/>
+
+```jsx
+<Chip>Hello world</Chip>
+```
 
 ## Usage
 
@@ -36,10 +40,15 @@ Chips are used to select from a set of defined options. Chips can also represent
 
 #### Size
 
-<Demo>
-    <Chip>Hello world</Chip>
-    <Chip dense>Hello world</Chip>
-</Demo>
+<Demo
+    path="chip--dense"
+    args="children:Hello World"
+    height="120px"
+/>
+
+```jsx
+<Chip dense>Hello world</Chip>
+```
 
 -   Chips are available in two sizes, regular and `dense`.
 -   Use regular sized chips where there is space.
@@ -61,18 +70,30 @@ Chips are used to select from a set of defined options. Chips can also represent
 
 ### Removable
 
-<Demo>
-    <Chip onRemove>Hello world</Chip>
-</Demo>
+<Demo
+    path="chip--removable"
+    args="children:Hello World"
+    height="120px"
+/>
+
+```jsx
+<Chip onRemove>Hello world</Chip>
+```
 
 -   Use removable chips if an option can be removed from the group.
 -   Only use removable chips when chips can be added back to the same group through another action, like choosing from a menu.
 
 ### Icon
 
-<Demo>
-    <Chip icon={<IconStar24/>} >Hello world</Chip>
-</Demo>
+<Demo
+    path="chip--icon"
+    args="children:Hello World"
+    height="120px"
+/>
+
+```jsx
+<Chip icon={<IconStar24 />}>Hello world</Chip>
+```
 
 -   Chips can show an icon before the text label.
 -   Icons are useful to highlight special chips, like starred items.
@@ -81,7 +102,3 @@ Chips are used to select from a set of defined options. Chips can also represent
 ## API Reference
 
 <API />
-
-## Links
-
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/actions-chip--default)
