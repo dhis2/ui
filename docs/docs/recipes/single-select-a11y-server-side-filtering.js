@@ -3,99 +3,82 @@ import { SingleSelectA11y } from '@dhis2/ui'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { CustomDataProvider } from './single-select-a11y-server-side-filtering/index.js'
 
-function useDebouncedFunction({ callback, onAbort, delay = 200 }) {
-    const timeout = useRef(null)
-
-    return useCallback(
-        (...args) => {
-            if (timeout.current) {
-                clearTimeout(timeout.current)
-                onAbort()
-            }
-
-            return new Promise((resolve, reject) => {
-                timeout.current = setTimeout(async () => {
-                    try {
-                        const result = await callback(...args)
-                        timeout.current = null
-                        resolve(result)
-                    } catch (e) {
-                        reject(e)
-                    }
-                }, delay)
-            })
-        },
-        [callback, delay, onAbort]
-    )
-}
-
 function dataElementToOption({ id, displayName }) {
     return { value: id, label: displayName }
 }
 
 function useLoadDataElementQuery(options) {
-    return useDataQuery(
-        {
-            result: {
-                resource: 'dataElements',
-                id: ({ id }) => id,
-            },
+    return useDataQuery({
+        result: {
+            resource: 'dataElements',
+            id: ({ id }) => id,
         },
-        { ...options, lazy: true }
-    )
+    }, { ...options, lazy: true })
 }
 
 function useLoadDataElementsQuery(options) {
-    return useDataQuery(
-        {
-            result: {
-                resource: 'dataElements',
-                params: ({ page }) => ({ page, pageSize: 10 }),
-            },
+    return useDataQuery({
+        result: {
+            resource: 'dataElements',
+            params: ({ page }) => ({ page, pageSize: 10 }),
         },
-        options
-    )
+    }, options)
 }
 
 function useLoadFilteredDataElementsQuery(customOptions) {
     const engine = useDataEngine()
+    const timeout = useRef(null)
     const abortController = useRef()
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
 
-    const refetch = useDebouncedFunction({
-        onAbort: () => {
-            abortController.current?.abort()
-        },
-        callback: ({ searchTerm, page }) => {
-            abortController.current = new AbortController()
-            setLoading(true)
-
-            const query = {
-                result: {
-                    resource: 'dataElements',
-                    params: {
-                        filter: [`displayName:ilike:${searchTerm}`],
-                        pageSize: 10,
-                        page,
-                    },
-                },
+    const refetch = useCallback(
+        ({ searchTerm, page }) => {
+            if (timeout.current) {
+                clearTimeout(timeout.current)
+                abortController.current?.abort()
             }
 
-            const options = {
-                ...customOptions,
-                signal: abortController.current.signal,
-            }
+            return new Promise((resolve, reject) => {
+                timeout.current = setTimeout(async () => {
+                    try {
+                        abortController.current = new AbortController()
+                        setLoading(true)
 
-            return engine
-                .query(query, options)
-                .catch((e) => setError(e))
-                .finally(() => {
-                    abortController.current = null
-                    setLoading(false)
-                })
+                        const query = {
+                            result: {
+                                resource: 'dataElements',
+                                params: {
+                                    filter: [`displayName:ilike:${searchTerm}`],
+                                    pageSize: 10,
+                                    page,
+                                },
+                            },
+                        }
+
+                        const options = {
+                            ...customOptions,
+                            signal: abortController.current.signal,
+                        }
+
+                        try {
+                            const result = await engine.query(query, options)
+                            resolve(result)
+                        } catch (e) {
+                            setError(e)
+                        }
+
+                        abortController.current = null
+                        timeout.current = null
+                        setLoading(false)
+                    } catch (e) {
+                        reject(e)
+                    }
+                }, 200)
+            })
         },
-    })
+        [abortController, engine]
+    )
 
     return { loading, error, refetch }
 }
@@ -107,6 +90,7 @@ function ServerSideFilteringSelect() {
         value: 'fbfJHSPpUQD',
         label: '',
     })
+    const valueLabel = initializedSelectedLabel ? selectedOption.label : 'Loading...'
 
     const [loadedOptions, setLoadedOptions] = useState([])
     const [defaultPager, setDefaultPager] = useState({
@@ -136,28 +120,24 @@ function ServerSideFilteringSelect() {
         },
     })
 
-    const { loading: loadingDataElements, refetch: refetchDataElements } =
-        useLoadDataElementsQuery({
-            onComplete: ({ result }) => {
-                setDefaultPager(result.pager)
-                setLoadedOptions((prevLoadedOptions) => [
-                    ...prevLoadedOptions,
-                    ...result.dataElements.map(dataElementToOption),
-                ])
-            },
-            onError: () => {
-                setDefaultPager((prevPager) => ({
-                    ...prevPager,
-                    pageCount: prevPager.page,
-                    total: loadedOptions.length,
-                }))
-            },
-        })
+    const loadDataElementsQuery = useLoadDataElementsQuery({
+        onComplete: ({ result }) => {
+            setDefaultPager(result.pager)
+            setLoadedOptions((prevLoadedOptions) => [
+                ...prevLoadedOptions,
+                ...result.dataElements.map(dataElementToOption),
+            ])
+        },
+        onError: () => {
+            setDefaultPager((prevPager) => ({
+                ...prevPager,
+                pageCount: prevPager.page,
+                total: loadedOptions.length,
+            }))
+        },
+    })
 
-    const {
-        loading: loadingFilteredDataElements,
-        refetch: refetchFilteredDataElements,
-    } = useLoadFilteredDataElementsQuery({
+    const loadFilteredDataElementsQuery = useLoadFilteredDataElementsQuery({
         onComplete: ({ result }) => {
             setFilterPager(result.pager)
             setFilteredOptions((prevFilteredOptions) => {
@@ -168,50 +148,60 @@ function ServerSideFilteringSelect() {
                     : [...prevFilteredOptions, ...newOptions]
             })
         },
+        onError: () => {
+            setFilterPager((prevPager) => ({
+                ...prevPager,
+                pageCount: prevPager.page,
+                total: filteredOptions.length,
+            }))
+        },
     })
 
-    const loading =
-        loadDataElementQuery.loading ||
-        loadingDataElements ||
-        loadingFilteredDataElements
+    const loadingOptions = loadDataElementsQuery.loading || loadFilteredDataElementsQuery.loading
+    const options = searchTerm ? filteredOptions : loadedOptions
+
+    const selectOption = useCallback((nextValue) => {
+        const nextSelectedOption = options.find(
+            ({ value }) => value === nextValue
+        )
+
+        setSelectedOption(nextSelectedOption)
+    }, [options])
+
+    const setSearchTerm = useCallback((nextSearchTerm) => {
+        _setSearchTerm(nextSearchTerm)
+
+        if (nextSearchTerm.trim()) {
+            loadFilteredDataElementsQuery.refetch({
+                page: 1,
+                searchTerm: nextSearchTerm,
+            })
+        }
+    }, [loadFilteredDataElementsQuery.refetch])
 
     const loadNextPage = useCallback(() => {
         const pager = searchTerm ? filterPager : defaultPager
 
-        if (pager.page === pager.pageCount || loading) {
+        if (pager.page === pager.pageCount || loadingOptions) {
             return
         }
 
         if (searchTerm) {
-            refetchFilteredDataElements({
+            loadFilteredDataElementsQuery.refetch({
                 page: pager.page + 1,
                 searchTerm,
             })
         } else {
-            refetchDataElements({ page: pager.page + 1 })
+            loadDataElementsQuery.refetch({ page: pager.page + 1 })
         }
     }, [
         filterPager,
         defaultPager,
         searchTerm,
-        loading,
-        refetchFilteredDataElements,
-        refetchDataElements,
+        loadingOptions,
+        loadFilteredDataElementsQuery.refetch,
+        loadDataElementsQuery.refetch,
     ])
-
-    const setSearchTerm = useCallback(
-        (nextSearchTerm) => {
-            _setSearchTerm(nextSearchTerm)
-
-            if (nextSearchTerm.trim()) {
-                refetchFilteredDataElements({
-                    page: 1,
-                    searchTerm: nextSearchTerm,
-                })
-            }
-        },
-        [refetchFilteredDataElements]
-    )
 
     useEffect(
         () => {
@@ -226,32 +216,21 @@ function ServerSideFilteringSelect() {
         []
     )
 
-    const options = searchTerm ? filteredOptions : loadedOptions
-
     return (
         <SingleSelectA11y
-            disabled={
-                !initializedSelectedLabel || defaultPager.pageCount === -1
-            }
-            idPrefix="serversidefiltering"
+            idPrefix="demo"
+            disabled={!initializedSelectedLabel}
+            loading={loadingOptions}
             options={options}
             value={selectedOption?.value}
-            valueLabel={
-                !initializedSelectedLabel ? 'Loading...' : selectedOption?.label
-            }
-            onChange={(nextValue) => {
-                const nextSelectedOption = options.find(
-                    ({ value }) => value === nextValue
-                )
-                setSelectedOption(nextSelectedOption)
-            }}
-            loading={loading}
+            valueLabel={valueLabel}
             filterable
             filterValue={searchTerm}
             filterPlaceholder="search for 'ART' or 'ANC'"
             onFilterChange={setSearchTerm}
             noMatchText="No options were found"
             empty="Please use the search input to find data elements"
+            onChange={selectOption}
             onEndReached={loadNextPage}
         />
     )
