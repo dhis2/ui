@@ -98,7 +98,11 @@ export function Menu({
 
                     {hasNoFilterMatch && <NoMatch>{noMatchText}</NoMatch>}
 
-                    <div className="listbox-container">
+                    <div
+                        className={cx('listbox-container', {
+                            'no-options': !options.length,
+                        })}
+                    >
                         <div className="listbox-wrapper">
                             <MenuOptionsList
                                 ref={listBoxRef}
@@ -142,15 +146,18 @@ export function Menu({
                             box-sizing: content-box;
                         }
 
-                        .filter-container {
-                        }
-
                         .listbox-container {
                             position: relative;
                             flex-grow: 1;
                             display: flex;
                             flex-direction: column;
                             overflow: hidden;
+                        }
+
+                        .no-options {
+                            // @TODO: What should this value be?
+                            // Ask Joe
+                            height: 50px;
                         }
 
                         .listbox-wrapper {
