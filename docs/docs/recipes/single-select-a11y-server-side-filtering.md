@@ -13,12 +13,12 @@ import { ServerSideFilteringSelect } from './single-select-a11y-server-side-filt
 ## Summary
 
 The `<SingleSelectA11y/>` component does not handle filtering automatically.
-Instead, it provides all necessary toold to implement filtering is various ways.
+Instead, it provides all the necessary tools to implement filtering in various ways.
 This recipe will show how to set up filtering in a more complex scenario:
 
 -   The select loads options progressively (10 at a time in this case)
 -   The select can be filtered by asking the server for a search result
--   The search result is paginated, options also load progressively
+-   The search result is paginated, and options also load progressively
 
 ## Example
 
@@ -33,7 +33,7 @@ step:
     -   only when there is a next page
     -   only when not already loading options
     -   loads the next page of the searched options when there is a search-term
--   When searching for options, the actual request is debounced to prevent sending many unnecesary requests
+-   When searching for options, the actual request is debounced to prevent sending many unnecessary requests
     -   and previously send requests that haven't responded yet should be aborted
 -   When loading options or the initial value, the select is disabled
     -   and shows a "Loading" text
@@ -69,20 +69,25 @@ This allows us to define the label of the selected option even when we don't
 have a value yet:
 
 ```js
-const valueLabel = initializedSelectedLabel ? selectedOption?.label : 'Loading...'
+const valueLabel = initializedSelectedLabel
+    ? selectedOption?.label
+    : 'Loading...'
 ```
 
 With this, we can create component that returns a select component:
 
 ```jsx
 function OurSelectComponent() {
-    const [initializedSelectedLabel, setInitializedSelectedLabel] = useState(false)
+    const [initializedSelectedLabel, setInitializedSelectedLabel] =
+        useState(false)
     const [selectedOption, setSelectedOption] = useState({
         value: 'fbfJHSPpUQD', // This value should come from the props
         label: '',
     })
-    const valueLabel = initializedSelectedLabel ? selectedOption.label : 'Loading'
-    
+    const valueLabel = initializedSelectedLabel
+        ? selectedOption.label
+        : 'Loading'
+
     return (
         <SingleSelectA11y
             disabled={!initializedSelectedLabel}
@@ -103,23 +108,26 @@ To get the label, the select component can leverage our `useDataQuery` hook:
 
 ```js
 function useLoadDataElementQuery(options) {
-    return useDataQuery({
-        result: {
-            resource: 'dataElements',
-            id: ({ id }) => id,
+    return useDataQuery(
+        {
+            result: {
+                resource: 'dataElements',
+                id: ({ id }) => id,
+            },
         },
-    }, { ...options, lazy: true })
+        { ...options, lazy: true }
+    )
 }
 ```
 
-The query has the `lazy: true` option to not start loading the label right
+The query has the `lazy: true` option to not start loading the label, right
 away. The idea behind this is that we don't want to load anything when
 there is no selected value, but that also means we'll have to start the
 process manually.
 
 We can use the hook we just added inside the component.
-In order to transform the result to options that the `SingleSelectA11y` accepts,
-we'll also add a utility function which we'll use again later:
+In order to transform the result into options that the `SingleSelectA11y` accepts,
+we'll also add a utility function, which we'll use again later:
 
 ```js
 // Outside of the component
@@ -198,7 +206,7 @@ const [defaultPager, setDefaultPager] = useState({
 ```
 
 By using `0` as the default value for page and `-1`s for the other values,
-we can leverage that as these value mean that we haven't loaded any options yet.
+we can leverage that, as these values mean that we haven't loaded any options yet.
 
 Now we also need a way to load the elements, for which we'll use `useDataQuery` again:
 
@@ -211,12 +219,15 @@ function dataElementToOption({ id, displayName }) {
 
 // Outside of the component
 function useLoadDataElementsQuery(options) {
-    return useDataQuery({
-        result: {
-            resource: 'dataElements',
-            params: ({ page }) => ({ page, pageSize: 10 }),
+    return useDataQuery(
+        {
+            result: {
+                resource: 'dataElements',
+                params: ({ page }) => ({ page, pageSize: 10 }),
+            },
         },
-    }, options)
+        options
+    )
 }
 
 // Inside the component
@@ -252,7 +263,7 @@ With the logic that loads the options, we can set the select's loading state:
 <SingleSelectA11y
     idPrefix="demo"
     disabled={!initializedSelectedLabel}
-    loading={loadDataElementQuery.loading}    // <--
+    loading={loadDataElementQuery.loading} // <--
     value={selectedOption.value}
     valueLabel={valueLabel}
     onChange={() => null} // @TODO
@@ -277,7 +288,7 @@ const [filterPager, setFilterPager] = useState({
 ```
 
 Note that we prefixed the function for setting the value of `searchTerm` with an underscore.
-We'll write a custom setter function that will also send a request to search for option a little further down.
+We'll write a custom setter function that will also send a request to search for an option a little further down.
 The `useDataQuery` hook does not accept a signal (see [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal)),
 so we'll have to send the request manually by getting the underlying `DataEngine` and using its `query` method:
 
@@ -322,7 +333,7 @@ function useLoadFilteredDataElementsQuery(customOptions) {
 }
 ```
 
-Here we're manually setting the `loading` and `error` state and ensuring that
+Here we're manually setting the `loading` and `error` states and ensuring that
 the reference to the callback remains stable.
 
 This implementation has one Problem: The component will send many requests when
@@ -390,7 +401,7 @@ function useLoadFilteredDataElementsQuery(customOptions) {
 
 Contrary to loading the data elements when not searching, the implementation
 for loading filtered data elements does not trigger automatically. We can use
-the hook we create above like this inside the component:
+the hook we created above like this inside the component:
 
 ```js
 const loadFilteredDataElementsQuery = useLoadFilteredDataElementsQuery({
@@ -414,28 +425,27 @@ const loadFilteredDataElementsQuery = useLoadFilteredDataElementsQuery({
 })
 ```
 
-This is almost identical to how we treat loading data elements normally with the
-exception that we'll overwrite the existing options when we've loaded the first
-page (which happens when the user changes the filter value).
+This is almost identical to how we treat loading data elements normally with the exception that we'll overwrite the existing options when we've loaded the first page (which happens when the user changes the filter value).
 
-Now we can create the function that sets the value of `searchTerm` when the
-user types as well as triggers the request to ask the server for options:
+Now we can create the function that sets the value of `searchTerm` when the user types as well as triggers the request to ask the server for options:
 
 ```js
-const setSearchTerm = useCallback((nextSearchTerm) => {
-    _setSearchTerm(nextSearchTerm)
+const setSearchTerm = useCallback(
+    (nextSearchTerm) => {
+        _setSearchTerm(nextSearchTerm)
 
-    if (nextSearchTerm.trim()) {
-        loadFilteredDataElementsQuery.refetch({
-            page: 1,
-            searchTerm: nextSearchTerm,
-        })
-    }
-}, [loadFilteredDataElementsQuery.refetch])
+        if (nextSearchTerm.trim()) {
+            loadFilteredDataElementsQuery.refetch({
+                page: 1,
+                searchTerm: nextSearchTerm,
+            })
+        }
+    },
+    [loadFilteredDataElementsQuery.refetch]
+)
 ```
 
-When the user types, we'll throw away the entire previous search result,
-which means we can start at page 1 again.
+When the user types, we'll throw away the entire previous search result, which means we can start at page 1 again.
 
 The options we want to render now depend on whether we have a filter value or not:
 
@@ -446,18 +456,19 @@ const options = searchTerm ? filteredOptions : loadedOptions
 With this value, we can finally create the callback passed to `onChange`:
 
 ```js
-const selectOption = useCallback((nextValue) => {
-    const nextSelectedOption = options.find(
-        ({ value }) => value === nextValue
-    )
-    
-    setSelectedOption(nextSelectedOption)
-}, [options])
+const selectOption = useCallback(
+    (nextValue) => {
+        const nextSelectedOption = options.find(
+            ({ value }) => value === nextValue
+        )
+
+        setSelectedOption(nextSelectedOption)
+    },
+    [options]
+)
 ```
 
-Because there are two different loading states, we can combine them into a
-single value, which we'll pass to the SingleSelectA11y component, as well as
-the props required for the search to work:
+Because there are two different loading states, we can combine them into a single value, which we'll pass to the SingleSelectA11y component, as well as the props required for the search to work:
 
 ```
 const loadingOptions = loadDataElementsQuery.loading || loadFilteredDataElementsQuery.loading
@@ -465,15 +476,14 @@ const loadingOptions = loadDataElementsQuery.loading || loadFilteredDataElements
 
 ### When reaching the end of the options list, the select loads the next page
 
-The only things that's missing at this point is the callback we have to pass to
-the `onEndReached` prop.
+The only things that's missing at this point is the callback we have to pass to the `onEndReached` prop.
 
 The callback should do nothing when:
 
-* the page is already the last page
-* we're currently loading options
-* load the next page of the normal options list when there's no filter value
-* load the next page of the filtered options list when there is a filter value
+-   the page is already the last page
+-   we're currently loading options
+-   load the next page of the normal options list when there's no filter value
+-   load the next page of the filtered options list when there is a filter value
 
 ```js
 const loadNextPage = useCallback(() => {
@@ -516,7 +526,7 @@ return (
         onFilterChange={setSearchTerm}
         noMatchText="No options were found"
         onChange={selectOption}
-        onEndReached={loadNextPage}                     // <--
+        onEndReached={loadNextPage} // <--
     />
 )
 ```
@@ -535,21 +545,27 @@ function dataElementToOption({ id, displayName }) {
 }
 
 function useLoadDataElementQuery(options) {
-    return useDataQuery({
-        result: {
-            resource: 'dataElements',
-            id: ({ id }) => id,
+    return useDataQuery(
+        {
+            result: {
+                resource: 'dataElements',
+                id: ({ id }) => id,
+            },
         },
-    }, { ...options, lazy: true })
+        { ...options, lazy: true }
+    )
 }
 
 function useLoadDataElementsQuery(options) {
-    return useDataQuery({
-        result: {
-            resource: 'dataElements',
-            params: ({ page }) => ({ page, pageSize: 10 }),
+    return useDataQuery(
+        {
+            result: {
+                resource: 'dataElements',
+                params: ({ page }) => ({ page, pageSize: 10 }),
+            },
         },
-    }, options)
+        options
+    )
 }
 
 function useLoadFilteredDataElementsQuery(customOptions) {
@@ -617,7 +633,9 @@ function OurSelectComponent() {
         value: 'fbfJHSPpUQD', // This value should come from the props
         label: '',
     })
-    const valueLabel = initializedSelectedLabel ? selectedOption?.label : 'Loading...'
+    const valueLabel = initializedSelectedLabel
+        ? selectedOption?.label
+        : 'Loading...'
 
     const [loadedOptions, setLoadedOptions] = useState([])
     // The name is "default" because we'll have another pager later for filtering
@@ -685,27 +703,34 @@ function OurSelectComponent() {
         },
     })
 
-    const loadingOptions = loadDataElementsQuery.loading || loadFilteredDataElementsQuery.loading
+    const loadingOptions =
+        loadDataElementsQuery.loading || loadFilteredDataElementsQuery.loading
     const options = searchTerm ? filteredOptions : loadedOptions
 
-    const selectOption = useCallback((nextValue) => {
-        const nextSelectedOption = options.find(
-            ({ value }) => value === nextValue
-        )
+    const selectOption = useCallback(
+        (nextValue) => {
+            const nextSelectedOption = options.find(
+                ({ value }) => value === nextValue
+            )
 
-        setSelectedOption(nextSelectedOption)
-    }, [options])
+            setSelectedOption(nextSelectedOption)
+        },
+        [options]
+    )
 
-    const setSearchTerm = useCallback((nextSearchTerm) => {
-        _setSearchTerm(nextSearchTerm)
+    const setSearchTerm = useCallback(
+        (nextSearchTerm) => {
+            _setSearchTerm(nextSearchTerm)
 
-        if (nextSearchTerm.trim()) {
-            loadFilteredDataElementsQuery.refetch({
-                page: 1,
-                searchTerm: nextSearchTerm,
-            })
-        }
-    }, [loadFilteredDataElementsQuery.refetch])
+            if (nextSearchTerm.trim()) {
+                loadFilteredDataElementsQuery.refetch({
+                    page: 1,
+                    searchTerm: nextSearchTerm,
+                })
+            }
+        },
+        [loadFilteredDataElementsQuery.refetch]
+    )
 
     const loadNextPage = useCallback(() => {
         const pager = searchTerm ? filterPager : defaultPager

@@ -8,21 +8,27 @@ function dataElementToOption({ id, displayName }) {
 }
 
 function useLoadDataElementQuery(options) {
-    return useDataQuery({
-        result: {
-            resource: 'dataElements',
-            id: ({ id }) => id,
+    return useDataQuery(
+        {
+            result: {
+                resource: 'dataElements',
+                id: ({ id }) => id,
+            },
         },
-    }, { ...options, lazy: true })
+        { ...options, lazy: true }
+    )
 }
 
 function useLoadDataElementsQuery(options) {
-    return useDataQuery({
-        result: {
-            resource: 'dataElements',
-            params: ({ page }) => ({ page, pageSize: 10 }),
+    return useDataQuery(
+        {
+            result: {
+                resource: 'dataElements',
+                params: ({ page }) => ({ page, pageSize: 10 }),
+            },
         },
-    }, options)
+        options
+    )
 }
 
 function useLoadFilteredDataElementsQuery(customOptions) {
@@ -90,7 +96,9 @@ function ServerSideFilteringSelect() {
         value: 'fbfJHSPpUQD',
         label: '',
     })
-    const valueLabel = initializedSelectedLabel ? selectedOption.label : 'Loading...'
+    const valueLabel = initializedSelectedLabel
+        ? selectedOption.label
+        : 'Loading...'
 
     const [loadedOptions, setLoadedOptions] = useState([])
     const [defaultPager, setDefaultPager] = useState({
@@ -157,27 +165,34 @@ function ServerSideFilteringSelect() {
         },
     })
 
-    const loadingOptions = loadDataElementsQuery.loading || loadFilteredDataElementsQuery.loading
+    const loadingOptions =
+        loadDataElementsQuery.loading || loadFilteredDataElementsQuery.loading
     const options = searchTerm ? filteredOptions : loadedOptions
 
-    const selectOption = useCallback((nextValue) => {
-        const nextSelectedOption = options.find(
-            ({ value }) => value === nextValue
-        )
+    const selectOption = useCallback(
+        (nextValue) => {
+            const nextSelectedOption = options.find(
+                ({ value }) => value === nextValue
+            )
 
-        setSelectedOption(nextSelectedOption)
-    }, [options])
+            setSelectedOption(nextSelectedOption)
+        },
+        [options]
+    )
 
-    const setSearchTerm = useCallback((nextSearchTerm) => {
-        _setSearchTerm(nextSearchTerm)
+    const setSearchTerm = useCallback(
+        (nextSearchTerm) => {
+            _setSearchTerm(nextSearchTerm)
 
-        if (nextSearchTerm.trim()) {
-            loadFilteredDataElementsQuery.refetch({
-                page: 1,
-                searchTerm: nextSearchTerm,
-            })
-        }
-    }, [loadFilteredDataElementsQuery.refetch])
+            if (nextSearchTerm.trim()) {
+                loadFilteredDataElementsQuery.refetch({
+                    page: 1,
+                    searchTerm: nextSearchTerm,
+                })
+            }
+        },
+        [loadFilteredDataElementsQuery.refetch]
+    )
 
     const loadNextPage = useCallback(() => {
         const pager = searchTerm ? filterPager : defaultPager
