@@ -70,6 +70,8 @@ describe('helpers', () => {
             [{ data: ACCESS_NONE, metadata: ACCESS_NONE }, '--------'],
             [{ data: ACCESS_NONE, metadata: ACCESS_VIEW_ONLY }, 'r-------'],
             [{ data: ACCESS_NONE, metadata: ACCESS_VIEW_AND_EDIT }, 'rw------'],
+            [{ data: ACCESS_VIEW_ONLY, metadata: ACCESS_NONE }, '--r-----'],
+            [{ data: ACCESS_VIEW_AND_EDIT, metadata: ACCESS_VIEW_AND_EDIT }, 'rwrw----'],
         ]
 
         it.each(cases)(

@@ -23,3 +23,9 @@ export const Dashboard = () => (
         <SharingDialog type="dashboard" id="id" />
     </Provider>
 )
+
+export const Data = () => (
+    <Provider config={config}>
+        <SharingDialog type="visualization" id="id" dataSharing={true} />
+    </Provider>
+)

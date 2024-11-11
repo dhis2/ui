@@ -84,6 +84,7 @@ export const AccessList = ({
                         access && (
                             <ListItem
                                 key={id}
+                                id={id}
                                 name={name}
                                 target={SHARE_TARGET_USER}
                                 access={access}

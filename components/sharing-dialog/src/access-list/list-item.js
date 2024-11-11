@@ -28,6 +28,7 @@ const isRemoveEnabled = ({ dataSharing, accessOtherField }) => {
 
 export const ListItem = ({
     name,
+    id,
     target,
     access,
     accessOptions,
@@ -56,7 +57,7 @@ export const ListItem = ({
                     <ListItemIcon target={target} name={name} />
                     <div className="details-text">
                         <p className="details-name">{name}</p>
-                        <ListItemContext access={access} />
+                        <ListItemContext target={target} id={id} />
                     </div>
                 </div>
                 <div
@@ -214,5 +215,6 @@ ListItem.propTypes = {
     onChange: PropTypes.func.isRequired,
     allUsersItem: PropTypes.bool,
     disabled: PropTypes.bool,
+    id: PropTypes.string,
     onRemove: PropTypes.func,
 }
