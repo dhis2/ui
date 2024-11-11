@@ -31,8 +31,9 @@ describe('OrganisationUnitTree', () => {
                 )
 
                 expect(errorMock).toHaveBeenCalledTimes(1)
-                expect(errorMock.mock.calls[0][0]).toMatch(
-                    /^Warning: Failed prop type: Invalid prop `handleCollapse` supplied to `OrganisationUnitTree`/
+                expect(errorMock.mock.calls[0][2]).toMatch(
+                    /Invalid prop `handleCollapse` supplied to `OrganisationUnitTree`/,
+                    {}
                 )
             })
 
@@ -49,8 +50,8 @@ describe('OrganisationUnitTree', () => {
                 )
 
                 expect(errorMock).toHaveBeenCalledTimes(1)
-                expect(errorMock.mock.calls[0][0]).toMatch(
-                    /^Warning: Failed prop type: Invalid prop `handleExpand` supplied to `OrganisationUnitTree`/
+                expect(errorMock.mock.calls[0][2]).toMatch(
+                    /Invalid prop `handleExpand` supplied to `OrganisationUnitTree`/
                 )
             })
 
@@ -67,8 +68,8 @@ describe('OrganisationUnitTree', () => {
                 )
 
                 expect(errorMock).toHaveBeenCalledTimes(1)
-                expect(errorMock.mock.calls[0][0]).toMatch(
-                    /^Warning: Failed prop type: Invalid prop `expanded` supplied to `OrganisationUnitTree`/
+                expect(errorMock.mock.calls[0][2]).toMatch(
+                    'Invalid prop `expanded` supplied to `OrganisationUnitTree`, this prop is conditionally required but has value `undefined`. The condition that made this prop required is: `props => !!props.handleExpand || !!props.handleCollapse`.'
                 )
             })
         })

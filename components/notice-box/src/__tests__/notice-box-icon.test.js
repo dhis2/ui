@@ -17,8 +17,19 @@ describe('NoticeBoxIcon', () => {
             .mockImplementation(() => {})
         shallow(<NoticeBoxIcon warning error dataTest="test" />)
 
-        expect(spy.mock.calls[0][0]).toMatchSnapshot()
-        expect(spy.mock.calls[1][0]).toMatchSnapshot()
+        expect(spy.mock.calls[0]).toEqual([
+            'Warning: Failed %s type: %s%s',
+            'prop',
+            "Invalid prop `error` supplied to `NoticeBoxIcon`, Property 'error' is mutually exclusive with 'warning', but both have a thruthy value.",
+            expect.any(String),
+        ])
+
+        expect(spy.mock.calls[1]).toEqual([
+            'Warning: Failed %s type: %s%s',
+            'prop',
+            "Invalid prop `warning` supplied to `NoticeBoxIcon`, Property 'warning' is mutually exclusive with 'error', but both have a thruthy value.",
+            expect.any(String),
+        ])
 
         spy.mockRestore()
     })
