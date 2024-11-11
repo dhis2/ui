@@ -46,6 +46,7 @@
         "@dhis2-ui/logo": "9.13.0",
         "@dhis2-ui/menu": "9.13.0",
         "@dhis2-ui/modal": "9.13.0",
+        "@dhis2-ui/popper": "9.13.0",
         "@dhis2-ui/user-avatar": "9.13.0",
         "@dhis2/prop-types": "^3.1.2",
         "@dhis2/ui-constants": "9.13.0",
