@@ -120,8 +120,6 @@ When(
     }
 )
 
-// dhis2-uicore-singleselect-prefix
-
 Then('the user should be added to the access list', () => {
     cy.contains('.wrapper', 'A user').should('be.visible').as('user-item')
 
@@ -639,64 +637,6 @@ When(
         cy.contains('Remove access').should('be.visible').click()
     }
 )
-
-/*
-Given('a sharing dialog with user item with No access for data and {string} for metadata is visible',(metadataAccess)=>{
-    cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
-        body: getUserWithDataAndMetadataAccess(metadataAccess,"No access"),
-    })
-    cy.visitStory('sharing-dialog', 'data')
-    cy.contains('Sharing and access').should('be.visible')
-
-    cy.contains('.details-text', 'A user')
-        .should('be.visible')
-        .contains('user-1')
-        .should('be.visible')
-        .closest('.wrapper')
-        .as('user-list-item')
-
-    cy.get('@user-list-item').within(()=>{
-        cy.contains('[data-test="dhis2-uicore-singleselect"]', 'Metadata').within(()=>{
-            cy.contains(metadataAccess).should('be.visible')
-        })
-    })
-
-    cy.get('@user-list-item').within(()=>{
-        cy.contains('[data-test="dhis2-uicore-singleselect"]', 'Data').within(()=>{
-            cy.contains("No access").should('be.visible')
-        })
-    })
-})
-*/
-
-/*
-Given('a sharing dialog with group item with No access for data and {string} for metadata is visible',(metadataAccess)=>{
-    cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
-        body: getGroupWithDataAndMetadataAccess(metadataAccess,"No access"),
-    })
-    cy.visitStory('sharing-dialog', 'data')
-    cy.contains('Sharing and access').should('be.visible')
-
-    cy.contains('.details-text', 'A group')
-        .should('be.visible')
-        .contains('User group')
-        .should('be.visible')
-        .closest('.wrapper')
-        .as('group-list-item')
-
-    cy.get('@group-list-item').within(()=>{
-        cy.contains('[data-test="dhis2-uicore-singleselect"]', 'Metadata').within(()=>{
-            cy.contains(metadataAccess).should('be.visible')
-        })
-    })
-
-    cy.get('@group-list-item').within(()=>{
-        cy.contains('[data-test="dhis2-uicore-singleselect"]', 'Data').within(()=>{
-            cy.contains("No access").should('be.visible')
-        })
-    })
-})
-*/
 
 Then('the user item should be removed', () => {
     cy.contains('.details-text', 'A user').should('not.exist')

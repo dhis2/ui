@@ -32,8 +32,8 @@ export const AccessList = ({
                 <div
                     className={
                         dataSharing
-                            ? 'header-left-column-data'
-                            : 'header-left-column-metadata'
+                            ? 'header-start-column-data'
+                            : 'header-start-column-metadata'
                     }
                 >
                     {i18n.t('User / Group')}
@@ -41,8 +41,8 @@ export const AccessList = ({
                 <div
                     className={
                         dataSharing
-                            ? 'header-right-column-data'
-                            : 'header-right-column-metadata'
+                            ? 'header-end-column-data'
+                            : 'header-end-column-metadata'
                     }
                 >
                     <span className="hea">{i18n.t('Access level')}</span>
@@ -112,20 +112,20 @@ export const AccessList = ({
                     font-size: 13px;
                 }
 
-                .header-left-column-metadata {
+                .header-start-column-metadata {
                     width: 65%;
                 }
 
-                .header-right-column-metadata {
+                .header-end-column-metadata {
                     margin-inline-start: auto;
                     width: 35%;
                 }
 
-                .header-left-column-data {
+                .header-start-column-data {
                     width: 35%;
                 }
 
-                .header-right-column-data {
+                .header-end-column-data {
                     margin-inline-start: auto;
                     width: 65%;
                 }

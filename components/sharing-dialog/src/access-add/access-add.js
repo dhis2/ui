@@ -61,7 +61,9 @@ export const AccessAdd = ({ onAdd, dataSharing }) => {
             <form onSubmit={onSubmit}>
                 <div
                     className={
-                        dataSharing ? 'leftWrapperData' : 'leftWrapperMetadata'
+                        dataSharing
+                            ? 'startWrapperData'
+                            : 'startWrapperMetadata'
                     }
                 >
                     <SharingAutocomplete
@@ -72,8 +74,8 @@ export const AccessAdd = ({ onAdd, dataSharing }) => {
                 <div
                     className={
                         dataSharing
-                            ? 'rightWrapper rightWrapperData'
-                            : 'rightWrapper rightWrapperMetadata'
+                            ? 'endWrapper endWrapperData'
+                            : 'endWrapper endWrapperMetadata'
                     }
                 >
                     {dataSharing && (
@@ -167,22 +169,22 @@ export const AccessAdd = ({ onAdd, dataSharing }) => {
                 .select-wrapper {
                     flex: 1;
                 }
-                .leftWrapperData {
+                .startWrapperData {
                     width: 35%;
                 }
-                .leftWrapperMetadata {
+                .startWrapperMetadata {
                     width: 55%;
                 }
-                .rightWrapper {
+                .endWrapper {
                     margin-inline-start: 8px;
                     display: flex;
                     align-items: flex-end;
                     gap: ${spacers.dp8};
                 }
-                .rightWrapperMetadata {
+                .endWrapperMetadata {
                     width: 45%;
                 }
-                .rightWrapperData {
+                .endWrapperData {
                     width: 65%;
                 }
             `}</style>
