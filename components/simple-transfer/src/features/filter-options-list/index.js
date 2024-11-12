@@ -30,14 +30,14 @@ Given(
             cy.visitStory('SimpleTransfer filtering', 'Lowercase Search')
         }
 
-        cy.get('{transfer-filter} input')
+        cy.get('{simple-transfer-filter} input')
             .then(($input) => $input.val())
             .as('firstCaseTerm')
     }
 )
 
 Given('some options are listed', () => {
-    cy.get('{transfer-sourceoptions} {transferoption}')
+    cy.get('{simple-transfer-sourceoptions} {transferoption}')
         .should('have.length.of.at.least', 1)
         .as('firstCaseOptions')
 })
@@ -53,7 +53,7 @@ Given("the filter value is controlled by the component's consumer", () => {
 When('the user uses the same search term but {string}', (secondCase) => {
     cy.all(
         () => cy.get('@firstCaseTerm'),
-        () => cy.get('{transfer-filter} input')
+        () => cy.get('{simple-transfer-filter} input')
     ).then(([firstCaseTerm, $filterInput]) => {
         let secondCaseTerm
 
@@ -68,18 +68,18 @@ When('the user uses the same search term but {string}', (secondCase) => {
 })
 
 When('searching for "s"', () => {
-    cy.get('{transfer-filter} input').type('s')
+    cy.get('{simple-transfer-filter} input').type('s')
 })
 
 When('the filter value changes', () => {
-    cy.get('{transfer-filter} input')
+    cy.get('{simple-transfer-filter} input')
         .then(($input) => console.log('$input', $input) || $input)
         .type('ANC')
 })
 
 Then('all the matching items should be shown in the options list', () => {
     cy.all(
-        () => cy.get('{transfer-filter}'),
+        () => cy.get('{simple-transfer-filter}'),
         () => cy.get('{transferoption}')
     ).should(([$filter, $options]) => {
         const searchTerm = $filter.val()
@@ -103,7 +103,7 @@ Then('information should be displayed that no items matched the filter', () => {
 Then('the same options should be shown', () => {
     cy.all(
         () => cy.get('@firstCaseOptions'),
-        () => cy.get('{transfer-sourceoptions} {transferoption}')
+        () => cy.get('{simple-transfer-sourceoptions} {transferoption}')
     ).should(([$firstCaseOptions, $secondCaseOptions]) => {
         const firstCaseOptions = $firstCaseOptions
             .toArray()
@@ -117,7 +117,7 @@ Then('the same options should be shown', () => {
 })
 
 Then('only the results including the word "ANC" are included', () => {
-    cy.get('{transfer-sourceoptions} {transferoption}').each(($option) =>
+    cy.get('{simple-transfer-sourceoptions} {transferoption}').each(($option) =>
         expect($option.text()).to.match(/ANC/)
     )
 })

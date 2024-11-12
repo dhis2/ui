@@ -1,14 +1,13 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
-import { extractOptionFromElement } from '../common/index.js'
 
 const enabledSourceOptionSelector =
-    '{transfer-sourceoptions} {transferoption}:not(.disabled)'
+    '{simple-transfer-sourceoptions} {transferoption}:not(.disabled)'
 
 const disabledSourceOptionSelector =
-    '{transfer-sourceoptions} {transferoption}.disabled'
+    '{simple-transfer-sourceoptions} {transferoption}.disabled'
 
 Given('a source list that contains a disabled option', () => {
-    cy.visitStory('Disabled Source Options', 'One Disabled')
+    cy.visitStory('SimpleTransfer Disabled Source Options', 'One Disabled')
     cy.get(disabledSourceOptionSelector)
         .first()
         .as('disabledSourceOption')
@@ -18,7 +17,7 @@ Given('a source list that contains a disabled option', () => {
 Given(
     'a source list that contains at least one disabled option and at least one enabled option',
     () => {
-        cy.visitStory('Disabled Source Options', 'One Disabled')
+        cy.visitStory('SimpleTransfer Disabled Source Options', 'One Disabled')
         cy.get(disabledSourceOptionSelector)
             .first()
             .as('disabledSourceOption')
@@ -32,23 +31,27 @@ Given(
 Given(
     'a source list that contains at least one disabled option and at least one enabled highlighted option',
     () => {
-        cy.visitStory('Disabled Source Options', 'One Disabled')
+        cy.visitStory('SimpleTransfer Disabled Source Options', 'One Disabled')
         cy.get(disabledSourceOptionSelector)
             .first()
             .as('disabledSourceOption')
             .should('exist')
-        cy.get(enabledSourceOptionSelector)
-            .invoke('slice', 0, 2)
-            .as('enabledHighlightedSourceOptions')
-            .each(($option) => cy.wrap($option).click())
-            .should('have.class', 'highlighted')
+
+        cy.get(enabledSourceOptionSelector).then(($options) => {
+            const values = $options
+                .slice(0, 2)
+                .map((index, option) => option.value)
+                .get()
+            cy.wrap(values).as('enabledHighlightedSourceOptions')
+            cy.get('{simple-transfer-sourceoptions}').select(values)
+        })
     }
 )
 
 Given(
     'a source list that contains at least one disabled option and several enabled options',
     () => {
-        cy.visitStory('Disabled Source Options', 'One Disabled')
+        cy.visitStory('SimpleTransfer Disabled Source Options', 'One Disabled')
         cy.get(disabledSourceOptionSelector)
             .first()
             .as('disabledSourceOption')
@@ -59,51 +62,8 @@ Given(
     }
 )
 
-When('the user clicks a disabled option', () => {
-    cy.get(disabledSourceOptionSelector).click().as('clickedDisabledOption')
-})
-
-When('the user double clicks a disabled option', () => {
-    cy.get(disabledSourceOptionSelector)
-        .dblclick()
-        .as('doubleClickedDisabledOption')
-})
-
 When("the user clicks the 'move all to picked list' button", () => {
-    cy.get('{transfer-actions-addall}').click()
-})
-
-When('the user clicks the disabled item with {string}', (type) => {
-    cy.get(disabledSourceOptionSelector)
-        .clickWith(type)
-        .as('clickedWithModifierDisabledOption')
-})
-
-When('the user SHIFT+clicks the disabled item', () => {
-    cy.get(disabledSourceOptionSelector)
-        .clickWith('shift')
-        .as('clickedWithShiftDisabledOption')
-})
-
-When('the user clicks an enabled option', () => {
-    cy.get(enabledSourceOptionSelector)
-        .first()
-        .click()
-        .as('clickedEnabledOption')
-})
-
-When(
-    'SHIFT+clicks another enabled option, including a disabled item in the range of options',
-    () => {
-        cy.get(disabledSourceOptionSelector)
-            .next()
-            .clickWith('shift')
-            .as('clickedWithShiftEnabledOption')
-    }
-)
-
-Then('the disabled option is not highlighted', () => {
-    cy.get('@disabledSourceOption').should('not.have.class', 'highlighted')
+    cy.get('{simple-transfer-actions-addall}').click()
 })
 
 Then('the disabled option is not transferred to the picked list', () => {
@@ -125,58 +85,4 @@ Then('the enabled options are transferred to the picked list', () => {
     // from the source list. Transferring does not need to be tested
     // here as that's covered by another test
     cy.get('@enabledSourceOptions').should('not.exist')
-})
-
-Then('the previously highlighted items are still highlighted', () => {
-    cy.get('@enabledHighlightedSourceOptions').should(
-        'have.class',
-        'highlighted'
-    )
-})
-
-Then('only the previously highlighted items are highlighted', () => {
-    cy.get('@enabledHighlightedSourceOptions').should(
-        'have.class',
-        'highlighted'
-    )
-
-    cy.all(
-        () => cy.get('{transfer-sourceoptions} {transferoption}'),
-        () => cy.get('@enabledHighlightedSourceOptions')
-    ).should(([$sourceOptions, $previouslyHighlightedOptions]) => {
-        const previouslyHighlightedOptions = $previouslyHighlightedOptions
-            .toArray()
-            .map(extractOptionFromElement)
-
-        const $notHighlightedSourceOptions = $sourceOptions.filter(
-            (_index, sourceOptionEl) => {
-                const label = sourceOptionEl.innerText
-                const value = sourceOptionEl.dataset.value
-                !previouslyHighlightedOptions.find(
-                    (option) => value === option.value && label === option.label
-                )
-            }
-        )
-
-        $notHighlightedSourceOptions.each((_index, option) => {
-            cy.wrap(option).should('not.have.class', 'highlighted')
-        })
-    })
-})
-
-Then('the enabled options in the range are highlighted', () => {
-    cy.all(
-        () => cy.get('{transfer-sourceoptions} {transferoption}'),
-        () => cy.get('@clickedEnabledOption'),
-        () => cy.get('@clickedWithShiftEnabledOption')
-    ).should(
-        ([$all, $clickedEnabledOption, $clickedWithShiftEnabledOption]) => {
-            const from = $clickedEnabledOption.index()
-            const to = $clickedWithShiftEnabledOption.index()
-            const $allInRange = $all.slice(from, to + 1)
-            const $allInRangeEnabled = $allInRange.filter(':not(.disabled)')
-
-            expect($allInRangeEnabled).to.have.class('highlighted')
-        }
-    )
 })

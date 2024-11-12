@@ -10,60 +10,62 @@ Given('some options are selected', () => {
     cy.visitStory('SimpleTransfer Transferring Items', 'Some Selected')
 })
 
-Given('one or more items in the options list are highlighted', () => {
-    cy.get('{transfer-sourceoptions} {transferoption}')
-        .filter((index) => index < 3)
-        // shuffle order so we can check they're added in the right order
-        .then(($options) => cy.wrap([$options[2], $options[0], $options[1]]))
-        .each(($option) => cy.wrap($option).clickWith('ctrl'))
-        .then(($options) => $options.toArray().map(extractOptionFromElement))
-        .as('itemsToBeSelected')
-})
-
 Given('some items in the options list are highlighted', () => {
-    cy.get('{transfer-sourceoptions} {transferoption}')
-        .filter((index) => index < 3)
-        // shuffle order so we can check they're added in the right order
-        .then(($options) => cy.wrap([$options[2], $options[0], $options[1]]))
-        .each(($option) => cy.wrap($option).clickWith('ctrl'))
-        .then(($options) => $options.toArray().map(extractOptionFromElement))
-        .as('itemsToBeSelected')
+    cy.get('{simple-transfer-sourceoptions}')
+        .select([0, 1, 2])
+        .then(() => {
+            cy.get('{simple-transfer-sourceoptions}')
+                .find('option:selected')
+                .then(($highlightedOptions) => {
+                    cy.wrap(
+                        $highlightedOptions
+                            .toArray()
+                            .map(extractOptionFromElement)
+                    ).as('itemsToBeSelected')
+                })
+        })
 })
 
 Given('some items in the selected list are highlighted', () => {
-    cy.get('{transfer-pickedoptions} {transferoption}')
-        .filter((index) => index < 3)
-        // shuffle order so we can check they're added in the right order
-        .then(($options) => cy.wrap([$options[2], $options[0], $options[1]]))
-        .each(($option) => cy.wrap($option).clickWith('ctrl'))
-        .then(($options) => $options.toArray().map(extractOptionFromElement))
-        .as('itemsToBeDeselected')
+    cy.get('{simple-transfer-pickedoptions}')
+        .select([0, 1, 2])
+        .then(() => {
+            cy.get('{simple-transfer-pickedoptions}')
+                .find('option:selected')
+                .then(($highlightedOptions) => {
+                    cy.wrap(
+                        $highlightedOptions
+                            .toArray()
+                            .map(extractOptionFromElement)
+                    ).as('itemsToBeDeselected')
+                })
+        })
 })
 
 When("the user clicks the 'move to selected list' button", () => {
-    cy.get('{transfer-actions-addindividual}').click()
+    cy.get('{simple-transfer-actions-addindividual}').click()
 })
 
 When("the user clicks the 'move to options list' button", () => {
-    cy.get('{transfer-actions-removeindividual}').click()
+    cy.get('{simple-transfer-actions-removeindividual}').click()
 })
 
 When("the user clicks the 'move all to selected list' button", () => {
-    cy.get('{transfer-sourceoptions} {transferoption}')
+    cy.get('{simple-transfer-sourceoptions} {transferoption}')
         .then(($options) => $options.toArray().map(extractOptionFromElement))
         .as('itemsToBeSelected')
-    cy.get('{transfer-actions-addall}').click()
+    cy.get('{simple-transfer-actions-addall}').click()
 })
 
 When("the user clicks the 'move all to options list' button", () => {
-    cy.get('{transfer-pickedoptions} {transferoption}')
+    cy.get('{simple-transfer-pickedoptions} {transferoption}')
         .then(($options) => $options.toArray().map(extractOptionFromElement))
         .as('itemsToBeDeselected')
-    cy.get('{transfer-actions-removeall}').click()
+    cy.get('{simple-transfer-actions-removeall}').click()
 })
 
 When('the user double clicks an item in the options list', () => {
-    cy.get('{transfer-sourceoptions} {transferoption}')
+    cy.get('{simple-transfer-sourceoptions} {transferoption}')
         .first()
         .dblclick()
         .then(extractOptionFromElement)
@@ -71,7 +73,7 @@ When('the user double clicks an item in the options list', () => {
 })
 
 When('the user double clicks an item in the selected list', () => {
-    cy.get('{transfer-pickedoptions} {transferoption}')
+    cy.get('{simple-transfer-pickedoptions} {transferoption}')
         .first()
         .dblclick()
         .then(extractOptionFromElement)
@@ -81,7 +83,7 @@ When('the user double clicks an item in the selected list', () => {
 Then('the highlighted items should be removed from the options list', () => {
     cy.all(
         () => cy.get('@itemsToBeSelected'),
-        () => cy.get('{transfer-sourceoptions} {transferoption}')
+        () => cy.get('{simple-transfer-sourceoptions} {transferoption}')
     ).should(([itemsToBeSelected, $selectableSourceOptions]) => {
         const selectableSourceOptions = $selectableSourceOptions
             .toArray()
@@ -105,7 +107,7 @@ Then('the highlighted items should be removed from the options list', () => {
 Then('the highlighted items should be visible in the selected list', () => {
     cy.all(
         () => cy.get('@itemsToBeSelected'),
-        () => cy.get('{transfer-pickedoptions} {transferoption}')
+        () => cy.get('{simple-transfer-pickedoptions} {transferoption}')
     ).should(([itemsToBeSelected, $selectedOptions]) => {
         const selectedOptions = $selectedOptions
             .toArray()
@@ -127,7 +129,7 @@ Then(
     () => {
         cy.all(
             () => cy.get('@itemsToBeSelected'),
-            () => cy.get('{transfer-pickedoptions} {transferoption}')
+            () => cy.get('{simple-transfer-pickedoptions} {transferoption}')
         ).should(([itemsToBeSelected, $selectedOptions]) => {
             const lastNSelectedOptions = $selectedOptions
                 .toArray()
@@ -142,7 +144,7 @@ Then(
 Then('the highlighted items should be removed from the selected list', () => {
     cy.all(
         () => cy.get('@itemsToBeDeselected'),
-        () => cy.get('{transfer-pickedoptions} {transferoption}')
+        () => cy.get('{simple-transfer-pickedoptions} {transferoption}')
     ).should(([itemsToBeDeselected, $selectedOptions]) => {
         const selectedOptions = $selectedOptions
             .toArray()
@@ -166,7 +168,7 @@ Then('the highlighted items should be removed from the selected list', () => {
 Then('the highlighted items should be visible in the options list', () => {
     cy.all(
         () => cy.get('@itemsToBeDeselected'),
-        () => cy.get('{transfer-sourceoptions} {transferoption}')
+        () => cy.get('{simple-transfer-sourceoptions} {transferoption}')
     ).should(([itemsToBeDeselected, $selectedOptions]) => {
         const selectedOptions = $selectedOptions
             .toArray()
@@ -192,8 +194,8 @@ Then(
     () => {
         cy.all(
             () => cy.window(),
-            () => cy.get('{transfer-sourceoptions} {transferoption}'),
-            () => cy.get('{transfer-pickedoptions} {transferoption}')
+            () => cy.get('{simple-transfer-sourceoptions} {transferoption}'),
+            () => cy.get('{simple-transfer-pickedoptions} {transferoption}')
         ).should(([win, $selectableSourceOptions, $selectedOptions]) => {
             const selectedOptions = $selectedOptions
                 .toArray()
@@ -214,7 +216,9 @@ Then(
 )
 
 Then('all items should be removed from the options list', () => {
-    cy.get('{transfer-sourceoptions} {transferoption}').should('not.exist')
+    cy.get('{simple-transfer-sourceoptions} {transferoption}').should(
+        'not.exist'
+    )
 })
 
 Then(
@@ -222,7 +226,7 @@ Then(
     () => {
         cy.all(
             () => cy.get('@itemsToBeSelected'),
-            () => cy.get('{transfer-pickedoptions} {transferoption}')
+            () => cy.get('{simple-transfer-pickedoptions} {transferoption}')
         ).should(([itemsToBeSelected, $selectedOptions]) => {
             const selectedOptions = $selectedOptions
                 .toArray()
@@ -240,7 +244,9 @@ Then(
 )
 
 Then('all items should be removed from the selected list', () => {
-    cy.get('{transfer-pickedoptions} {transferoption}').should('not.exist')
+    cy.get('{simple-transfer-pickedoptions} {transferoption}').should(
+        'not.exist'
+    )
 })
 
 Then(
@@ -248,7 +254,7 @@ Then(
     () => {
         cy.all(
             () => cy.get('@itemsToBeDeselected'),
-            () => cy.get('{transfer-sourceoptions} {transferoption}')
+            () => cy.get('{simple-transfer-sourceoptions} {transferoption}')
         ).should(([itemsToBeDeselected, $selectableSourceOptions]) => {
             const selectableSourceOptions = $selectableSourceOptions
                 .toArray()
@@ -270,7 +276,7 @@ Then(
     () => {
         cy.all(
             () => cy.get('@itemsToBeSelected'),
-            () => cy.get('{transfer-pickedoptions} {transferoption}')
+            () => cy.get('{simple-transfer-pickedoptions} {transferoption}')
         ).should(([itemsToBeSelected, $selectedOptions]) => {
             const selectedOptions = $selectedOptions
                 .toArray()
@@ -287,9 +293,9 @@ Then(
 Then('the options list items should be ordered in the original order', () => {
     cy.all(
         () => cy.window(),
-        () => cy.get('{transfer-sourceoptions} {transferoption}'),
+        () => cy.get('{simple-transfer-sourceoptions} {transferoption}'),
         () =>
-            cy.get('{transfer-pickedoptions}').then(($pickedOptions) => {
+            cy.get('{simple-transfer-pickedoptions}').then(($pickedOptions) => {
                 return $pickedOptions.find(
                     parseSelectorWithDataTest('{transferoption}')
                 )
@@ -320,7 +326,7 @@ Then('the options list items should be ordered in the original order', () => {
 Then('the item should be removed from its options list', () => {
     cy.all(
         () => cy.get('@doubleClickedPlainOption'),
-        () => cy.get('{transfer-sourceoptions} {transferoption}')
+        () => cy.get('{simple-transfer-sourceoptions} {transferoption}')
     ).should(([doubleClickedPlainOption, $sourceOptions]) => {
         const sourcePlainOptions = $sourceOptions
             .toArray()
@@ -339,7 +345,7 @@ Then('the item should be removed from its options list', () => {
 Then('the item should be visible at the bottom of the selected list', () => {
     cy.all(
         () => cy.get('@doubleClickedPlainOption'),
-        () => cy.get('{transfer-pickedoptions} {transferoption}')
+        () => cy.get('{simple-transfer-pickedoptions} {transferoption}')
     ).should(([doubleClickedPlainOption, $pickedOptions]) => {
         const lastSourcePlainOption = $pickedOptions
             .last()
@@ -358,7 +364,7 @@ Then('the item should be visible at the bottom of the selected list', () => {
 Then('the item should be removed from the selected list', () => {
     cy.all(
         () => cy.get('@doubleClickedPlainOption'),
-        () => cy.get('{transfer-pickedoptions} {transferoption}')
+        () => cy.get('{simple-transfer-pickedoptions} {transferoption}')
     ).should(([doubleClickedPlainOption, $pickedOptions]) => {
         const pickedPlainOptions = $pickedOptions
             .toArray()

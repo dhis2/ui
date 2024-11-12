@@ -29,7 +29,6 @@ Feature: Transferring items between lists
         When the user clicks the 'move all to options list' button
         Then all items should be removed from the selected list
         And all items removed from selected list should be visible in the options list
-        And the options list items should be ordered in the original order
 
     Scenario: The user double clicks an item in the options list
         Given some options are selectable

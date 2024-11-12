@@ -14,55 +14,58 @@ Given('some selectable options are selectable', () => {
 })
 
 When('the user deselects one selected option', () => {
-    cy.get('{transfer-pickedoptions} {transferoption}').first().click()
-    cy.get('{transfer-pickedoptions}')
-        .find('.highlighted')
+    cy.get('{simple-transfer-pickedoptions}').select([0])
+    cy.get('{simple-transfer-pickedoptions}')
+        .find('option:selected')
         .then(($el) => $el.toArray().map(extractOptionFromElement))
         .as('deselectedOptions')
-    cy.get('{transfer-actions-removeindividual}').click()
+    cy.get('{simple-transfer-actions-removeindividual}').click()
 })
 
 When('the user deselects multiple selected options', () => {
-    cy.get('{transfer-pickedoptions} {transferoption}')
-        // should take third, then first item
-        .then(($options) => {
-            const $arr = $options.toArray()
-            return [$arr[2], $arr[0]]
+    cy.get('{simple-transfer-pickedoptions}')
+        .select([0, 1, 2])
+        .then(() => {
+            // Now capture the selected options (after performing the .select([0, 1, 2]))
+            cy.get('{simple-transfer-pickedoptions}')
+                .find('option:selected') // Get all the selected options
+                .then(($highlightedOptions) => {
+                    cy.wrap(
+                        $highlightedOptions
+                            .toArray()
+                            .map(extractOptionFromElement)
+                    ).as('deselectedOptions')
+                })
         })
-        .each(($option) => cy.wrap($option).clickWith('cmd'))
-        .then(($options) =>
-            cy
-                .wrap($options.toArray().map(extractOptionFromElement))
-                .as('deselectedOptions')
-        )
-
-    cy.get('{transfer-actions-removeindividual}').click()
+    cy.get('{simple-transfer-actions-removeindividual}').click()
 })
 
 When('the user selects one option', () => {
-    cy.get('{transfer-sourceoptions} {transferoption}').first().click()
-    cy.get('{transfer-sourceoptions}')
-        .find('.highlighted')
+    cy.get('{simple-transfer-sourceoptions}').select([0])
+    cy.get('{simple-transfer-sourceoptions}')
+        .find('option:selected')
         .then(($el) => $el.toArray().map(extractOptionFromElement))
         .as('selectedOptions')
-    cy.get('{transfer-actions-addindividual}').click()
+    cy.get('{simple-transfer-actions-addindividual}').click()
 })
 
 When('the user selects multiple options', () => {
-    cy.get('{transfer-sourceoptions} {transferoption}')
-        // should take fifth, then first item
-        .then(($options) => {
-            const $arr = $options.toArray()
-            return [$arr[4], $arr[0]]
-        })
-        .each(($option) => cy.wrap($option).clickWith('ctrl'))
-        .then(($options) => {
-            cy.wrap($options.toArray().map(extractOptionFromElement)).as(
-                'selectedOptions'
-            )
+    cy.get('{simple-transfer-sourceoptions}')
+        .select([0, 1, 2, 3, 4])
+        .then(() => {
+            // Now capture the selected options (after performing the .select([0, 1, 2]))
+            cy.get('{simple-transfer-sourceoptions}')
+                .find('option:selected') // Get all the selected options
+                .then(($highlightedOptions) => {
+                    cy.wrap(
+                        $highlightedOptions
+                            .toArray()
+                            .map(extractOptionFromElement)
+                    ).as('selectedOptions')
+                })
         })
 
-    cy.get('{transfer-actions-addindividual}').click()
+    cy.get('{simple-transfer-actions-addindividual}').click()
 })
 
 Then(
@@ -70,7 +73,7 @@ Then(
     () => {
         cy.all(
             () => cy.window(),
-            () => cy.get('{transfer-sourceoptions} {transferoption}')
+            () => cy.get('{simple-transfer-sourceoptions} {transferoption}')
         ).should(([win, $options]) => {
             const { options } = win
             const selectableSourceOptions = $options
@@ -87,7 +90,7 @@ Then(
     () => {
         cy.all(
             () => cy.window(),
-            () => cy.get('{transfer-sourceoptions} {transferoption}')
+            () => cy.get('{simple-transfer-sourceoptions} {transferoption}')
         ).should(([win, $options]) => {
             const selectableSourceOptions = $options
                 .toArray()
@@ -110,7 +113,7 @@ Then(
     () => {
         cy.all(
             () => cy.window(),
-            () => cy.get('{transfer-sourceoptions} {transferoption}'),
+            () => cy.get('{simple-transfer-sourceoptions} {transferoption}'),
             () => cy.get('@deselectedOptions')
         ).should(([win, $selectableSourceOptions, deselectedOptions]) => {
             // filter out non-selectable options and compare with selectable options
@@ -143,7 +146,7 @@ Then(
     () => {
         cy.all(
             () => cy.window(),
-            () => cy.get('{transfer-sourceoptions} {transferoption}'),
+            () => cy.get('{simple-transfer-sourceoptions} {transferoption}'),
             () => cy.get('@deselectedOptions')
         ).should(([win, $selectableSourceOptions, deselectedOptions]) => {
             const selectableSourceOptions = $selectableSourceOptions
@@ -176,7 +179,7 @@ Then(
 Then('it should be added to the end of the selected options list', () => {
     cy.all(
         () => cy.get('@selectedOptions'),
-        () => cy.get('{transfer-pickedoptions} {transferoption}')
+        () => cy.get('{simple-transfer-pickedoptions} {transferoption}')
     ).should(([transferredOptions, $selectedOptions]) => {
         const lastSelectedOptions = $selectedOptions
             .toArray()
@@ -192,7 +195,7 @@ Then(
     () => {
         cy.all(
             () => cy.get('@selectedOptions'),
-            () => cy.get('{transfer-pickedoptions} {transferoption}')
+            () => cy.get('{simple-transfer-pickedoptions} {transferoption}')
         ).should(([transferredOptions, $selectedOptions]) => {
             const lastSelectedOptions = $selectedOptions
                 .toArray()

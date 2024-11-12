@@ -217,7 +217,6 @@ export const SimpleTransfer = ({
                     maxSelections={maxSelections}
                     dataTest={`${dataTest}-sourceoptions`}
                     emptyComponent={sourceEmptyPlaceholder}
-                    highlightedOptions={highlightedSourceOptions}
                     loading={loading}
                     options={sourceOptions}
                     setHighlightedOptions={setHighlightedSourceOptions}
@@ -323,10 +322,8 @@ export const SimpleTransfer = ({
                 <OptionsContainer
                     maxSelections={maxSelections}
                     setHighlightedOptions={setHighlightedPickedOptions}
-                    selected
                     dataTest={`${dataTest}-pickedoptions`}
                     emptyComponent={selectedEmptyComponent}
-                    highlightedOptions={highlightedPickedOptions}
                     loading={loadingPicked}
                     options={pickedOptions}
                     selectionHandler={deselectSingleOption}

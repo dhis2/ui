@@ -1,4 +1,5 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
+import { extractOptionFromElement } from '../common/index.js'
 
 Given('reordering of items is enabled', () => {
     // no op
@@ -16,37 +17,55 @@ Given('the {int}. item is highlighted', (previousPosition) => {
     const index = previousPosition - 1
     console.log('> index', index)
 
-    cy.get('{transfer-pickedoptions} {transferoption}')
+    cy.get('{simple-transfer-pickedoptions} {transferoption}')
         .eq(index)
         .invoke('attr', 'data-value')
         .as('previousValue', { type: 'static' })
 
-    cy.get('{transfer-pickedoptions} {transferoption}')
+    cy.get('{simple-transfer-pickedoptions} {transferoption}')
         .eq(index)
         .as('previous')
         .click()
+
+    cy.get('{simple-transfer-pickedoptions}')
+        .select(index)
+        .then(() => {
+            cy.get('{simple-transfer-pickedoptions}')
+                .find('option:selected')
+                .then(($highlightedOptions) => {
+                    cy.wrap(
+                        $highlightedOptions
+                            .toArray()
+                            .map(extractOptionFromElement)
+                    ).as('selectedOptions')
+                })
+        })
 })
 
 Given('no items are highlighted in the list', () => {
-    cy.get('{transfer-pickedoptions} {transferoption}.highlighted').should(
-        'not.exist'
-    )
+    cy.get('{simple-transfer-pickedoptions}')
+        .find('option:selected')
+        .should('have.length', 0)
 })
 
 Given('more than one item is highlighted in the list', () => {
-    cy.get('{transfer-pickedoptions} {transferoption}')
+    cy.get('{simple-transfer-pickedoptions} {transferoption}')
         .filter((index) => index < 2)
         .each(($option) => cy.wrap($option).clickWith('ctrl'))
 })
 
 When("the user clicks the 'move up' button", () => {
     // force, so we click disabled buttons
-    cy.get('{transfer-reorderingactions-buttonmoveup}').click({ force: true })
+    cy.get('{simple-transfer-reorderingactions-buttonmoveup}').click({
+        force: true,
+    })
 })
 
 When("the user clicks the 'move down' button", () => {
     // force, so we click disabled buttons
-    cy.get('{transfer-reorderingactions-buttonmovedown}').click({ force: true })
+    cy.get('{simple-transfer-reorderingactions-buttonmovedown}').click({
+        force: true,
+    })
 })
 
 Then('the highlighted item should be moved to the {int}. place', (next) => {
@@ -59,11 +78,11 @@ Then('the highlighted item should be moved to the {int}. place', (next) => {
 })
 
 Then("the 'move up' and 'move down' buttons should be disabled", () => {
-    cy.get('{transfer-reorderingactions-buttonmoveup}').should(
+    cy.get('{simple-transfer-reorderingactions-buttonmoveup}').should(
         'have.attr',
         'disabled'
     )
-    cy.get('{transfer-reorderingactions-buttonmovedown}').should(
+    cy.get('{simple-transfer-reorderingactions-buttonmovedown}').should(
         'have.attr',
         'disabled'
     )

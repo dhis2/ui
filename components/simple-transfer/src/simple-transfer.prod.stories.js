@@ -163,7 +163,9 @@ export default {
 
 const StatefulTemplate = ({ initiallySelected = [], ...args }) => {
     const [selected, setSelected] = useState(initiallySelected)
-    const onChange = (payload) => setSelected(payload.selected)
+    const onChange = (payload) => {
+        setSelected(payload.selected)
+    }
 
     return <SimpleTransfer {...args} selected={selected} onChange={onChange} />
 }
@@ -378,7 +380,9 @@ const createCustomFilteringInHeader = (hideFilterInput) => {
 
     return ({ initiallySelected, ...args }) => {
         const [selected, setSelected] = useState(initiallySelected)
-        const onChange = (payload) => setSelected(payload.selected)
+        const onChange = (payload) => {
+            setSelected(payload.selected)
+        }
 
         return (
             <CustomTransfer {...args} selected={selected} onChange={onChange} />
@@ -418,10 +422,6 @@ export const InfiniteLoading = (args) => {
     )
 
     const onEndReached = () => {
-        // do nothing when loading already
-        if (loading) {
-            return
-        }
         setPage(page + 1)
     }
 

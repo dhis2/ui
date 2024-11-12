@@ -21,6 +21,7 @@ export const SimpleTransferOption = ({
                 value={value}
                 onDoubleClick={() => onDoubleClick({ value }, event)}
                 ref={lastOptionReference}
+                disabled={disabled}
             >
                 {label}
             </option>
@@ -36,11 +37,6 @@ export const SimpleTransferOption = ({
 
                 option:hover {
                     background: ${colors.grey200};
-                }
-
-                option:checked {
-                    background: ${colors.teal700};
-                    color: ${colors.white};
                 }
 
                 option.disabled {

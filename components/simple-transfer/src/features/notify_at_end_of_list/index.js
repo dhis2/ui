@@ -36,10 +36,10 @@ When('the user scroll to the end of the list', () => {
     cy.get('@listType').then((listType) => {
         const listSelector =
             listType === 'source'
-                ? 'transfer-sourceoptions'
-                : 'transfer-pickedoptions'
+                ? 'simple-transfer-sourceoptions'
+                : 'simple-transfer-pickedoptions'
 
-        cy.get(`{${listSelector}-endintersectiondetector}`).scrollIntoView()
+        cy.get(`{${listSelector}}`).find('option').last().scrollIntoView()
     })
 })
 

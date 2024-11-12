@@ -8,25 +8,29 @@ export const OptionsContainer = ({
     dataTest,
     emptyComponent,
     onEndReached,
-    highlightedOptions,
     loading,
     maxSelections,
     options,
-    selected = false,
     selectionHandler,
     setHighlightedOptions,
 }) => {
     const selectRef = useRef(null)
     const wrapperRef = useRef(null)
-    // const resizeCounter = useResizeCounter(wrapperRef.current)
     const lastOptionRef = useRef(null)
+    const hasEndReachedRef = useRef(false)
 
     useEffect(() => {
+        hasEndReachedRef.current = false
+        const lastOption = lastOptionRef.current
+
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        onEndReached && onEndReached()
+                    if (entry.isIntersecting && !hasEndReachedRef.current) {
+                        if (onEndReached) {
+                            onEndReached()
+                            hasEndReachedRef.current = true
+                        }
                     }
                 })
             },
@@ -36,17 +40,21 @@ export const OptionsContainer = ({
             }
         )
 
-        if (lastOptionRef.current) {
-            observer.observe(lastOptionRef.current)
+        if (lastOption) {
+            observer.observe(lastOption)
         }
 
         return () => {
-            if (lastOptionRef.current) {
-                observer.unobserve(lastOptionRef.current)
+            if (lastOption) {
+                observer.unobserve(lastOption)
             }
             observer.disconnect()
         }
-    }, [options])
+    }, [options.length])
+
+    useEffect(() => {
+        hasEndReachedRef.current = false
+    }, [options.length])
 
     return (
         <div className="optionsContainer">
@@ -56,10 +64,11 @@ export const OptionsContainer = ({
                 </div>
             )}
 
-            <div className="container" data-test={dataTest} ref={wrapperRef}>
+            <div className="container" ref={wrapperRef}>
                 {!options.length && emptyComponent}
                 {!!options.length && (
                     <select
+                        data-test={dataTest}
                         ref={selectRef}
                         className="content-select"
                         multiple={maxSelections === Infinity}
@@ -79,18 +88,12 @@ export const OptionsContainer = ({
                         }}
                     >
                         {options.map((option, index) => {
-                            const highlighted = !!highlightedOptions.find(
-                                (highlightedSourceOption) =>
-                                    highlightedSourceOption === option.value
-                            )
-
                             return (
                                 <Fragment key={option.value}>
                                     <SimpleTransferOption
                                         label={option.label}
                                         value={option.value}
-                                        highlighted={highlighted}
-                                        selected={selected}
+                                        disabled={option.disabled}
                                         onDoubleClick={selectionHandler}
                                         lastOptionReference={
                                             index === options.length - 1
@@ -114,7 +117,6 @@ export const OptionsContainer = ({
                 }
 
                 .container {
-                    overflow-y: auto;
                     height: 100%;
                 }
 
@@ -137,7 +139,7 @@ export const OptionsContainer = ({
                     width: 100%;
                 }
 
-                .loading + .container .content-container {
+                .loading + .container .content-select {
                     filter: blur(2px);
                 }
             `}</style>
@@ -150,7 +152,6 @@ OptionsContainer.propTypes = {
     maxSelections: PropTypes.oneOf([1, Infinity]).isRequired,
     setHighlightedOptions: PropTypes.func.isRequired,
     emptyComponent: PropTypes.node,
-    highlightedOptions: PropTypes.arrayOf(PropTypes.string),
     loading: PropTypes.bool,
     options: PropTypes.arrayOf(
         PropTypes.shape({
@@ -158,7 +159,6 @@ OptionsContainer.propTypes = {
             value: PropTypes.string.isRequired,
         })
     ),
-    selected: PropTypes.bool,
     selectionHandler: PropTypes.func,
     onEndReached: PropTypes.func,
 }

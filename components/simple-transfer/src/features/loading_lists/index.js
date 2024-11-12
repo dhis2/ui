@@ -24,8 +24,8 @@ Then('the loading indicator should be shown', () => {
     cy.get('@listType').then((listType) => {
         const listSelector =
             listType === 'source'
-                ? '{transfer-leftside}'
-                : '{transfer-rightside}'
+                ? '{simple-transfer-leftside}'
+                : '{simple-transfer-rightside}'
 
         cy.get(`${listSelector} .loading`).should('exist')
     })
@@ -35,8 +35,8 @@ Then('the loading indicator should not be shown', () => {
     cy.get('@listType').then((listType) => {
         const listSelector =
             listType === 'source'
-                ? '{transfer-leftside}'
-                : '{transfer-rightside}'
+                ? '{simple-transfer-leftside}'
+                : '{simple-transfer-rightside}'
 
         cy.get(`${listSelector} .loading`).should('not.exist')
     })
