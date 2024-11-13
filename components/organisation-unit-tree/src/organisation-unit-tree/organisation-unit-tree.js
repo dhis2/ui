@@ -1,8 +1,9 @@
 import { requiredIf } from '@dhis2/prop-types'
 import PropTypes from 'prop-types'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { OrganisationUnitNode } from '../organisation-unit-node/index.js'
 import { orgUnitPathPropType } from '../prop-types.js'
+import { findCommonOrgUnitRoots } from './find-common-orgunit-roots.js'
 import { defaultRenderNodeLabel } from './default-render-node-label/index.js'
 import { filterRootIds } from './filter-root-ids.js'
 import { OrganisationUnitTreeRootError } from './organisation-unit-tree-root-error.js'
@@ -49,6 +50,13 @@ const OrganisationUnitTree = ({
         suppressAlphabeticalSorting,
     })
 
+    const rootNodes = useMemo(() => {
+        if (!data) {
+            return []
+        }
+        return findCommonOrgUnitRoots(Object.values(data))
+    }, [data])
+
     const { expanded, handleExpand, handleCollapse } = useExpanded({
         initiallyExpanded,
         onExpand,
@@ -79,36 +87,32 @@ const OrganisationUnitTree = ({
             {error && <OrganisationUnitTreeRootError error={error} />}
             {!error &&
                 !isLoading &&
-                rootIds.map((rootId) => {
-                    const rootNode = data[rootId]
-
-                    return (
-                        <OrganisationUnitNode
-                            key={rootNode.path}
-                            rootId={rootId}
-                            autoExpandLoadingError={autoExpandLoadingError}
-                            dataTest={dataTest}
-                            disableSelection={disableSelection}
-                            displayName={rootNode.displayName}
-                            expanded={expanded}
-                            highlighted={highlighted}
-                            id={rootId}
-                            isUserDataViewFallback={isUserDataViewFallback}
-                            filter={filter}
-                            path={rootNode.path}
-                            renderNodeLabel={renderNodeLabel}
-                            selected={selected}
-                            singleSelection={singleSelection}
-                            suppressAlphabeticalSorting={
-                                suppressAlphabeticalSorting
-                            }
-                            onChange={onChange}
-                            onChildrenLoaded={onChildrenLoaded}
-                            onCollapse={handleCollapse}
-                            onExpand={handleExpand}
-                        />
-                    )
-                })}
+                rootNodes.map((rootNode) => (
+                    <OrganisationUnitNode
+                        key={rootNode.path}
+                        rootId={rootNode.id}
+                        autoExpandLoadingError={autoExpandLoadingError}
+                        dataTest={dataTest}
+                        disableSelection={disableSelection}
+                        displayName={rootNode.displayName}
+                        expanded={expanded}
+                        highlighted={highlighted}
+                        id={rootNode.id}
+                        isUserDataViewFallback={isUserDataViewFallback}
+                        filter={filter}
+                        path={rootNode.path}
+                        renderNodeLabel={renderNodeLabel}
+                        selected={selected}
+                        singleSelection={singleSelection}
+                        suppressAlphabeticalSorting={
+                            suppressAlphabeticalSorting
+                        }
+                        onChange={onChange}
+                        onChildrenLoaded={onChildrenLoaded}
+                        onCollapse={handleCollapse}
+                        onExpand={handleExpand}
+                    />
+                ))}
         </div>
     )
 }
