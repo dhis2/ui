@@ -22,7 +22,7 @@ Given('a sharing dialog with all users item with no access is visible', () => {
 
     cy.contains('.details-text', 'All users')
         .should('be.visible')
-        .contains('No access')
+        .contains('Anyone logged in')
         .should('be.visible')
         .closest('.wrapper')
         .as('all-users-list-item')
@@ -45,7 +45,7 @@ Given('a sharing dialog with user item with view is visible', () => {
 
     cy.contains('.details-text', 'A user')
         .should('be.visible')
-        .contains('Can view')
+        .contains('user-1')
         .should('be.visible')
         .closest('.wrapper')
         .as('user-list-item')
@@ -68,7 +68,7 @@ Given('a sharing dialog with group item with view is visible', () => {
 
     cy.contains('.details-text', 'A group')
         .should('be.visible')
-        .contains('Can view')
+        .contains('User group')
         .should('be.visible')
         .closest('.wrapper')
         .as('group-list-item')
@@ -235,26 +235,20 @@ Then('the group access control should be set to view and edit', () => {
  * the <target> section should be labeled for <changed>
  */
 
-Then('the all users section should be labeled for view only', () => {
+Then('the all users section should be labeled for all users', () => {
     cy.get('@all-users-list-item')
-        .contains('.details-text', 'Can view')
+        .contains('.details-text', 'Anyone logged in')
         .should('be.visible')
 })
 
-Then('the all users section should be labeled for view and edit', () => {
-    cy.get('@all-users-list-item')
-        .contains('.details-text', 'Can view and edit')
-        .should('be.visible')
-})
-
-Then('the user section should be labeled for view and edit', () => {
+Then('the user section should be labeled for user', () => {
     cy.get('@user-list-item')
-        .contains('.details-text', 'Can view and edit')
+        .contains('.details-text', 'user-1')
         .should('be.visible')
 })
 
-Then('the group section should be labeled for view and edit', () => {
+Then('the group section should be labeled for group', () => {
     cy.get('@group-list-item')
-        .contains('.details-text', 'Can view and edit')
+        .contains('.details-text', 'User group')
         .should('be.visible')
 })

@@ -2,32 +2,22 @@ import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 import {
-    ACCESS_NONE,
-    ACCESS_VIEW_ONLY,
-    ACCESS_VIEW_AND_EDIT,
+    SHARE_TARGET_PUBLIC,
+    SHARE_TARGET_GROUP,
+    SHARE_TARGET_USER,
 } from '../constants.js'
 import i18n from '../locales/index.js'
 
-export const ListItemContext = ({ access }) => {
-    let message
+const LABELS = {
+    [SHARE_TARGET_PUBLIC]: i18n.t('Anyone logged in'),
+    [SHARE_TARGET_GROUP]: i18n.t('User group'),
+    [SHARE_TARGET_USER]: i18n.t('User'),
+}
 
-    switch (access) {
-        case ACCESS_NONE:
-            message = i18n.t('No access')
-            break
-        case ACCESS_VIEW_ONLY:
-            message = i18n.t('Can view')
-            break
-        case ACCESS_VIEW_AND_EDIT:
-            message = i18n.t('Can view and edit')
-            break
-        default:
-            message = ''
-    }
-
+export const ListItemContext = ({ target, id }) => {
     return (
-        <p>
-            {message}
+        <>
+            <p>{target === SHARE_TARGET_USER ? id : LABELS[target] ?? ''}</p>
             <style jsx>{`
                 p {
                     font-size: 14px;
@@ -36,14 +26,15 @@ export const ListItemContext = ({ access }) => {
                     padding: 0;
                 }
             `}</style>
-        </p>
+        </>
     )
 }
 
 ListItemContext.propTypes = {
-    access: PropTypes.oneOf([
-        ACCESS_NONE,
-        ACCESS_VIEW_ONLY,
-        ACCESS_VIEW_AND_EDIT,
+    target: PropTypes.oneOf([
+        SHARE_TARGET_PUBLIC,
+        SHARE_TARGET_GROUP,
+        SHARE_TARGET_USER,
     ]).isRequired,
+    id: PropTypes.string,
 }

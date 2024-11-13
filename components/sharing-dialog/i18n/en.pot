@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-11-25T09:59:40.995Z\n"
-"PO-Revision-Date: 2021-11-25T09:59:40.995Z\n"
+"POT-Creation-Date: 2024-11-07T15:20:34.373Z\n"
+"PO-Revision-Date: 2024-11-07T15:20:34.375Z\n"
 
 msgid "View only"
 msgstr "View only"
@@ -14,17 +14,26 @@ msgstr "View only"
 msgid "View and edit"
 msgstr "View and edit"
 
+msgid "No access"
+msgstr "No access"
+
 msgid "Give access to a user or group"
 msgstr "Give access to a user or group"
 
-msgid "Access level"
-msgstr "Access level"
+msgid "Data access level"
+msgstr "Data access level"
 
-msgid "Select a level"
-msgstr "Select a level"
+msgid "Choose a level"
+msgstr "Choose a level"
 
 msgid "Not available offline"
 msgstr "Not available offline"
+
+msgid "Metadata access level"
+msgstr "Metadata access level"
+
+msgid "Access level"
+msgstr "Access level"
 
 msgid "Give access"
 msgstr "Give access"
@@ -38,20 +47,23 @@ msgstr "User / Group"
 msgid "All users"
 msgstr "All users"
 
-msgid "No access"
-msgstr "No access"
+msgid "Anyone logged in"
+msgstr "Anyone logged in"
 
-msgid "Can view"
-msgstr "Can view"
+msgid "User group"
+msgstr "User group"
 
-msgid "Can view and edit"
-msgstr "Can view and edit"
+msgid "User"
+msgstr "User"
 
-msgid "Metadata"
-msgstr "Metadata"
+msgid "Data"
+msgstr "Data"
 
 msgid "Remove access"
 msgstr "Remove access"
+
+msgid "Metadata"
+msgstr "Metadata"
 
 msgid "User or group"
 msgstr "User or group"

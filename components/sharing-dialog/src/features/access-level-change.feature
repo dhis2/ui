@@ -4,7 +4,7 @@ Feature: Allows users to view and change the access level for specific entities
         Given a sharing dialog with <target> item with <initial> is visible
         When the user sets the <target> access level to <changed>
         Then the <target> access control should be set to <changed>
-        And the <target> section should be labeled for <changed>
+        And the <target> section should be labeled for <target>
 
     Scenarios:
         | initial   | target    | changed       |
