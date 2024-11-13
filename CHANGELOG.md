@@ -1,3 +1,10 @@
+# [9.14.0](https://github.com/dhis2/ui/compare/v9.13.0...v9.14.0) (2024-11-13)
+
+
+### Features
+
+* add data sharing to sharing dialog [LIBS-677] ([#1629](https://github.com/dhis2/ui/issues/1629)) ([7e15c7f](https://github.com/dhis2/ui/commit/7e15c7f19becf6fc6657270a3f1ef94d8a48f048))
+
 # [9.13.0](https://github.com/dhis2/ui/compare/v9.12.0...v9.13.0) (2024-11-05)
 
 
