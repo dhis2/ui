@@ -21,90 +21,124 @@ const unitToPath = {
 
 describe('findCommonOrgUnitRoots', () => {
     it('should return a single root unit when there is only one unit', () => {
-        const units = [{ path: unitToPath.sierra, level: 1 }]
-        const result = findCommonOrgUnitRoots(units)
-        expect(result).toEqual([{ path: unitToPath.sierra, level: 1 }])
+        const units = [{ id: '1', path: unitToPath.sierra, level: 1 }]
+        const result = findCommonOrgUnitRoots(units, ['1'])
+        expect(result).toEqual([{ id: '1', path: unitToPath.sierra, level: 1 }])
         // should not mutate the input
         expect(units).toStrictEqual(units)
     })
 
     it('should return two root units when there are two sibling units', () => {
         const units = [
-            { path: unitToPath['sierra/bo'], level: 2 },
-            { path: unitToPath['sierra/bombali'], level: 2 },
+            { id: '1', path: unitToPath['sierra/bo'], level: 2 },
+            { id: '2', path: unitToPath['sierra/bombali'], level: 2 },
         ]
 
-        const result = findCommonOrgUnitRoots(units)
+        const result = findCommonOrgUnitRoots(units, ['1', '2'])
         expect(result).toEqual([
-            { path: unitToPath['sierra/bo'], level: 2 },
-            { path: unitToPath['sierra/bombali'], level: 2 },
+            { id: '1', path: unitToPath['sierra/bo'], level: 2 },
+            { id: '2', path: unitToPath['sierra/bombali'], level: 2 },
         ])
         expect(units).toStrictEqual(units)
     })
 
     it('should return only the root unit when one unit is a child of another', () => {
         const units = [
-            { path: unitToPath['sierra'], level: 1 },
-            { path: unitToPath['sierra/bo'], level: 2 },
+            { id: '1', path: unitToPath['sierra'], level: 1 },
+            { id: '2', path: unitToPath['sierra/bo'], level: 2 },
         ]
-        const result = findCommonOrgUnitRoots(units)
-        expect(result).toEqual([{ path: unitToPath['sierra'], level: 1 }])
+        const result = findCommonOrgUnitRoots(units, ['1', '2'])
+        expect(result).toEqual([
+            { id: '1', path: unitToPath['sierra'], level: 1 },
+        ])
         expect(units).toStrictEqual(units)
     })
 
     it('should return only the root unit when one unit is a deep child of another', () => {
         const units = [
-            { path: unitToPath['sierra'], level: 1 },
-            { path: unitToPath['sierra/bo/badjia/ngelehun'], level: 4 },
+            { id: '1', path: unitToPath['sierra'], level: 1 },
+            {
+                id: '2',
+                path: unitToPath['sierra/bo/badjia/ngelehun'],
+                level: 4,
+            },
         ]
-        const result = findCommonOrgUnitRoots(units)
-        expect(result).toEqual([{ path: unitToPath['sierra'], level: 1 }])
+        const result = findCommonOrgUnitRoots(units, ['1', '2'])
+        expect(result).toEqual([
+            { id: '1', path: unitToPath['sierra'], level: 1 },
+        ])
         expect(units).toStrictEqual(units)
     })
 
     it('should return multiple root units when paths do not overlap', () => {
         const units = [
-            { path: unitToPath['sierra'], level: 1 },
-            { path: unitToPath['tanzania'], level: 1 },
-            { path: unitToPath['ethiopia'], level: 1 },
+            { id: '1', path: unitToPath['sierra'], level: 1 },
+            { id: '2', path: unitToPath['tanzania'], level: 1 },
+            { id: '3', path: unitToPath['ethiopia'], level: 1 },
         ]
-        const result = findCommonOrgUnitRoots(units)
+        const result = findCommonOrgUnitRoots(units, ['1', '2', '3'])
         expect(result).toEqual([
-            { path: unitToPath['sierra'], level: 1 },
-            { path: unitToPath['tanzania'], level: 1 },
-            { path: unitToPath['ethiopia'], level: 1 },
+            { id: '1', path: unitToPath['sierra'], level: 1 },
+            { id: '2', path: unitToPath['tanzania'], level: 1 },
+            { id: '3', path: unitToPath['ethiopia'], level: 1 },
+        ])
+        expect(units).toStrictEqual(units)
+    })
+
+    it('should filter org units where is in not part of the roots ids', () => {
+        const units = [
+            { id: '1', path: unitToPath['sierra'], level: 1 },
+            { id: '2', path: unitToPath['tanzania'], level: 1 },
+            { id: '3', path: unitToPath['ethiopia'], level: 1 },
+        ]
+        const result = findCommonOrgUnitRoots(units, ['1', '3'])
+        expect(result).toEqual([
+            { id: '1', path: unitToPath['sierra'], level: 1 },
+            { id: '3', path: unitToPath['ethiopia'], level: 1 },
         ])
         expect(units).toStrictEqual(units)
     })
 
     it('should return the correct root units when there is a mix of roots and children', () => {
         const units = [
-            { path: unitToPath['sierra/bo/badjia/ngelehun'], level: 4 },
-            { path: unitToPath['sierra/bo/baoma/faabu'], level: 4 },
-            { path: unitToPath['sierra/bo/baoma'], level: 3 },
-            { path: unitToPath['sierra/bo/bargbe'], level: 3 },
+            {
+                id: '1',
+                path: unitToPath['sierra/bo/badjia/ngelehun'],
+                level: 4,
+            },
+            { id: '2', path: unitToPath['sierra/bo/baoma/faabu'], level: 4 },
+            { id: '3', path: unitToPath['sierra/bo/baoma'], level: 3 },
+            { id: '4', path: unitToPath['sierra/bo/bargbe'], level: 3 },
         ]
-        const result = findCommonOrgUnitRoots(units)
+        const result = findCommonOrgUnitRoots(units, ['1', '2', '3', '4'])
         expect(result).toEqual([
-            { path: unitToPath['sierra/bo/baoma'], level: 3 },
-            { path: unitToPath['sierra/bo/bargbe'], level: 3 },
-            { path: unitToPath['sierra/bo/badjia/ngelehun'], level: 4 },
+            { id: '3', path: unitToPath['sierra/bo/baoma'], level: 3 },
+            { id: '4', path: unitToPath['sierra/bo/bargbe'], level: 3 },
+            {
+                id: '1',
+                path: unitToPath['sierra/bo/badjia/ngelehun'],
+                level: 4,
+            },
         ])
         expect(units).toStrictEqual(units)
     })
 
     it('should return the root units when multiple nested children exist', () => {
         const units = [
-            { path: unitToPath['sierra/bo'], level: 2 },
-            { path: unitToPath['sierra/bo/badjia'], level: 3 },
-            { path: unitToPath['sierra/bo/baoma'], level: 3 },
-            { path: unitToPath['sierra/bargbe/barlie'], level: 3 },
-            { path: unitToPath['sierra/bargbe/barlie/ngalu'], level: 4 },
+            { id: '1', path: unitToPath['sierra/bo'], level: 2 },
+            { id: '2', path: unitToPath['sierra/bo/badjia'], level: 3 },
+            { id: '3', path: unitToPath['sierra/bo/baoma'], level: 3 },
+            { id: '4', path: unitToPath['sierra/bargbe/barlie'], level: 3 },
+            {
+                id: '5',
+                path: unitToPath['sierra/bargbe/barlie/ngalu'],
+                level: 4,
+            },
         ]
-        const result = findCommonOrgUnitRoots(units)
+        const result = findCommonOrgUnitRoots(units, ['1', '2', '3', '4', '5'])
         expect(result).toEqual([
-            { path: unitToPath['sierra/bo'], level: 2 },
-            { path: unitToPath['sierra/bargbe/barlie'], level: 3 },
+            { id: '1', path: unitToPath['sierra/bo'], level: 2 },
+            { id: '4', path: unitToPath['sierra/bargbe/barlie'], level: 3 },
         ])
         expect(units).toStrictEqual(units)
     })

@@ -1,4 +1,4 @@
-import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 const getRootOrgUnitByLabel = (label) => {
     const rootOrgUnitLabelSelector = `
@@ -28,38 +28,17 @@ Given(
     }
 )
 
-Given(
-    'both a sub org unit with children and a main org unit are root org units',
-    () => {
-        cy.visitStory(
-            'OrganisationUnitTree',
-            'with root main and root sub org unit'
-        )
-    }
-)
+Given('both a sub org unit and its parent are root org units', () => {
+    cy.visitStory(
+        'OrganisationUnitTree',
+        'with root main and root sub org unit'
+    )
+})
 
 Given('the root main org unit is expanded', () => {
     getRootOrgUnitByLabel('Org Unit 1')
         .find('> [data-test="dhis2-uiwidgets-orgunittree-node-toggle"]')
         .click()
-})
-
-When('the user expands the sub org unit within the main org unit tree', () => {
-    getRootOrgUnitByLabel('Org Unit 1')
-        .contains(
-            '[data-test="dhis2-uiwidgets-orgunittree-node"]',
-            'Org Unit 2'
-        )
-        .find('> [data-test="dhis2-uiwidgets-orgunittree-node-toggle"]')
-        .click()
-        .should('have.class', 'open')
-})
-
-When('the user expands the root sub org unit', () => {
-    getRootOrgUnitByLabel('Org Unit 2')
-        .find('> [data-test="dhis2-uiwidgets-orgunittree-node-toggle"]')
-        .click()
-        .should('have.class', 'open')
 })
 
 Then('the root unit is closed', () => {
@@ -70,18 +49,21 @@ Then('the root unit is opened', () => {
     cy.getOrgUnitByLabel('Org Unit 1').shouldBeAnOrgUnitNode()
 })
 
-Then('the root sub org unit should not expand', () => {
-    getRootOrgUnitByLabel('Org Unit 2')
-        .find('> [data-test="dhis2-uiwidgets-orgunittree-node-toggle"]')
-        .should('not.have.class', 'open')
+Then('only the parent unit is first rendered', () => {
+    cy.contains(
+        '[data-test="dhis2-uiwidgets-orgunittree-node-label"]',
+        'Org Unit 1'
+    ).should('exist')
+
+    cy.contains(
+        '[data-test="dhis2-uiwidgets-orgunittree-node-label"]',
+        'Org Unit 2'
+    ).should('not.exist')
 })
 
-Then('the sub org unit within the main org unit tree should not expand', () => {
-    getRootOrgUnitByLabel('Org Unit 1')
-        .contains(
-            '[data-test="dhis2-uiwidgets-orgunittree-node"]',
-            'Org Unit 2'
-        )
-        .find('> [data-test="dhis2-uiwidgets-orgunittree-node-toggle"]')
-        .should('not.have.class', 'open')
+Then('the sub org unit is rendered', () => {
+    cy.contains(
+        '[data-test="dhis2-uiwidgets-orgunittree-node-label"]',
+        'Org Unit 2'
+    ).should('exist')
 })

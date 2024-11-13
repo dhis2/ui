@@ -16,7 +16,7 @@ export const MultipleRootSubAndOneMainOrgUnit = (_, { selected, onChange }) => {
                 filter={filter ? filter.split(',') : []}
                 onChange={onChange}
                 selected={selected}
-                roots={['A0000000000', 'A0000000001', 'A0000000002']}
+                roots={['A0000000001', 'A0000000002']}
             />
         </>
     )
