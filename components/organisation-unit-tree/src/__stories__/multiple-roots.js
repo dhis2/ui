@@ -9,7 +9,7 @@ export const MultipleRoots = (_, { onChange, selected }) => (
     <OrganisationUnitTree
         selected={selected}
         onChange={onChange}
-        roots={['A0000000000', 'A0000000001']}
+        roots={['A0000000000', 'B0000000000']}
         initiallyExpanded={['/A0000000000/A0000000001']}
     />
 )

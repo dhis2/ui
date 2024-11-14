@@ -7,113 +7,121 @@ const createResponse = ({ fields, id, path, displayName, children }) => ({
 })
 
 export const getOrganisationUnitData = (id, { fields }) => {
-    let data
-
-    if (id === 'A0000000000') {
-        data = createResponse({
-            fields,
-            id: 'A0000000000',
-            path: '/A0000000000',
-            displayName: 'Org Unit 1',
-            children: [
-                {
-                    id: 'A0000000001',
-                    path: '/A0000000000/A0000000001',
-                    displayName: 'Org Unit 2',
-                },
-                {
-                    id: 'A0000000002',
-                    path: '/A0000000000/A0000000002',
-                    displayName: 'Org Unit 3',
-                },
-                {
-                    id: 'A0000000006',
-                    path: '/A0000000000/A0000000006',
-                    displayName: 'Org Unit 7',
-                },
-            ],
-        })
+    const allData = {
+        ...createHierarchyResponses({ rootPrefix: 'A', fields }),
+        ...createHierarchyResponses({ rootPrefix: 'B', fields, nameGenerator: (num) => `Org unit B ${num}` }),
     }
+    // return null
+    console.log({ id})
+    console.log({allData})
+    return allData[id]
+}
 
-    if (id === 'A0000000001') {
-        data = createResponse({
-            fields,
-            id: 'A0000000001',
-            path: '/A0000000000/A0000000001',
-            displayName: 'Org Unit 2',
-            children: [
-                {
-                    id: 'A0000000003',
-                    path: '/A0000000000/A0000000001/A0000000003',
-                    children: [],
-                    displayName: 'Org Unit 4',
-                },
-                {
-                    id: 'A0000000004',
-                    path: '/A0000000000/A0000000001/A0000000004',
-                    children: [],
-                    displayName: 'Org Unit 5',
-                },
-            ],
-        })
-    }
+const createHierarchyResponses = ({ rootPrefix, nameGenerator, fields }) => {
+    nameGenerator =
+        typeof nameGenerator === 'function'
+            ? nameGenerator
+            : (num) => `Org Unit ${num}`
+    const data = {}
+    const generateId = (num) => `${rootPrefix}000000000${num}`
 
-    if (id === 'A0000000002') {
-        data = createResponse({
-            fields,
-            displayName: 'Org Unit 3',
-            id: 'A0000000002',
-            path: '/A0000000000/A0000000002',
-            children: [],
-        })
-    }
+    data[generateId(0)] = createResponse({
+        fields,
+        id: generateId(0),
+        path: `/${rootPrefix}0000000000`,
+        displayName: nameGenerator(1),
+        children: [
+            {
+                id: generateId(1),
+                path: [generateId(0), generateId(1)].join('/'),
+                displayName: nameGenerator(2), //'Org Unit 2',
+            },
+            {
+                id: generateId(2),
+                path: [generateId(0), generateId(2)].join('/'),
+                displayName: nameGenerator(3),
+            },
+            {
+                id: generateId(6),
+                path: [generateId(0), generateId(6)].join('/'),
+                displayName: nameGenerator(7),
+            },
+        ],
+    })
 
-    if (id === 'A0000000003') {
-        data = createResponse({
-            fields,
-            displayName: 'Org Unit 4',
-            id: 'A0000000003',
-            path: '/A0000000000/A0000000001/A0000000003',
-            children: [
-                {
-                    id: 'A0000000007',
-                    path: '/A0000000000/A0000000001/A0000000003/A0000000007',
-                    children: [],
-                    displayName: 'Org Unit 8',
-                },
-            ],
-        })
-    }
+    data[generateId(1)] = createResponse({
+        fields,
+        id: generateId(1),
+        path: [generateId(0), generateId(1)].join('/'),
+        displayName: nameGenerator(2),
+        children: [
+            {
+                id: generateId(3),
+                path: [generateId(0), generateId(1), generateId(3)].join('/'),
+                children: [],
+                displayName: nameGenerator(4),
+            },
+            {
+                id: generateId(4),
+                path: [generateId(0), generateId(1), generateId(4)].join('/'),
+                children: [],
+                displayName: nameGenerator(5),
+            },
+        ],
+    })
 
-    if (id === 'A0000000004') {
-        data = createResponse({
-            fields,
-            displayName: 'Org Unit 5',
-            id: 'A0000000004',
-            path: '/A0000000000/A0000000001/A0000000004',
-            children: [],
-        })
-    }
+    data[generateId(2)] = createResponse({
+        fields,
+        displayName: nameGenerator(3),
+        id: generateId(2),
+        path: [generateId(0), generateId(2)].join('/'),
+        children: [],
+    })
 
-    if (id === 'A0000000006') {
-        data = createResponse({
-            fields,
-            displayName: 'Org Unit 7',
-            id: 'A0000000006',
-            path: '/A0000000000/A0000000006',
-            children: [],
-        })
-    }
+    data[generateId(3)] = createResponse({
+        fields,
+        displayName: nameGenerator(4),
+        id: generateId(3),
+        path: [generateId(0), generateId(1), generateId(3)].join('/'),
+        children: [
+            {
+                id: generateId(7),
+                path: [
+                    generateId(0),
+                    generateId(1),
+                    generateId(3),
+                    generateId(7),
+                ].join('/'),
+                displayName: nameGenerator(8),
+            },
+        ],
+    })
 
-    if (id === 'A0000000007') {
-        data = createResponse({
-            fields,
-            displayName: 'Org Unit 8',
-            id: 'A0000000007',
-            path: '/A0000000000/A0000000001/A0000000003/A0000000007',
-            children: [],
-        })
-    }
+    data[generateId(4)] = createResponse({
+        fields,
+        displayName: nameGenerator(5),
+        id: generateId(4),
+        path: [generateId(0), generateId(1), generateId(4)].join('/'),
+        children: [],
+    })
+
+    data[generateId(6)] = createResponse({
+        fields,
+        displayName: nameGenerator(7),
+        id: generateId(6),
+        path: [generateId(0), generateId(6)].join('/'),
+        children: [],
+    })
+
+    data[generateId(7)] = createResponse({
+        fields,
+        displayName: nameGenerator(8),
+        id: generateId(7),
+        path: [generateId(0), generateId(1), generateId(3), generateId(7)].join(
+            '/'
+        ),
+        children: [],
+    })
 
     return data
 }

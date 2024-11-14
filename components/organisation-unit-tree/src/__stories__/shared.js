@@ -16,8 +16,11 @@ const createResponse = ({ fields, id, path, displayName, children }) => ({
     ...(fields.includes('children::size') ? { children: children.length } : {}),
     ...(fields.includes('children[id,path,displayName]') ? { children } : {}),
 })
+import { getOrganisationUnitData as goud } from '../__e2e__/get-organisation-unit-data'
 
-export const getOrganisationUnitData = (id, { fields }) => {
+export const getOrganisationUnitData = goud
+
+const t = (id, { fields }) => {
     let data
 
     if (id === 'A0000000000') {
