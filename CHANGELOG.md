@@ -1,3 +1,19 @@
+# [10.0.0-alpha.7](https://github.com/dhis2/ui/compare/v10.0.0-alpha.6...v10.0.0-alpha.7) (2024-11-14)
+
+
+### Bug Fixes
+
+* **sharing-dialog:** add 'route' to SharingType type ([#1617](https://github.com/dhis2/ui/issues/1617)) ([1d9664a](https://github.com/dhis2/ui/commit/1d9664a80410f8ea6a8a4a4a7c3f6acc36a74587))
+* revert "fix: select-field not showing in correct place" ([#1614](https://github.com/dhis2/ui/issues/1614)) ([c83de6b](https://github.com/dhis2/ui/commit/c83de6b0a8993ac16a87a3351ec96ff1aa43151b))
+* **translations:** sync translations from transifex (master) ([491bf04](https://github.com/dhis2/ui/commit/491bf0477e8990e591b32ebfb32e6837f5e563b3))
+* update default props to JS default params ([#1598](https://github.com/dhis2/ui/issues/1598)) ([20e343f](https://github.com/dhis2/ui/commit/20e343fc9e34570dcd8678ddb449d48c5b62a140))
+
+
+### Features
+
+* merge branch master into branch ([0577074](https://github.com/dhis2/ui/commit/05770745cbe17b8b059162d19fd66cb73eb7dad6))
+* **icons:** add link-off icons ([e72be1e](https://github.com/dhis2/ui/commit/e72be1ec672fd16072a33ec057ccc3413713abeb))
+
 # [9.12.0](https://github.com/dhis2/ui/compare/v9.11.8...v9.12.0) (2024-10-29)
 
 
