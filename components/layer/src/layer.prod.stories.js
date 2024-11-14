@@ -33,7 +33,11 @@ export default {
         },
     },
     // Handle weird treatment of non-literal defaultProps (see Transfer.stories)
-    args: { ...Layer.defaultProps },
+    args: {
+        position: 'fixed',
+        dataTest: 'dhis2-uicore-layer',
+        level: 'auto',
+    },
 }
 
 const Template = (args) => (

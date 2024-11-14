@@ -33,7 +33,7 @@ const MenuItem = ({
     disabled,
     dense,
     active,
-    dataTest,
+    dataTest = 'dhis2-uicore-menuitem',
     chevron,
     value,
     label,
@@ -146,10 +146,6 @@ const MenuItem = ({
             )}
         </>
     )
-}
-
-MenuItem.defaultProps = {
-    dataTest: 'dhis2-uicore-menuitem',
 }
 
 MenuItem.propTypes = {

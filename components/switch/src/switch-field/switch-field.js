@@ -37,7 +37,7 @@ const SwitchField = ({
     required,
     helpText,
     validationText,
-    dataTest,
+    dataTest = 'dhis2-uiwidgets-switchfield',
 }) => (
     <Field
         className={className}
@@ -76,10 +76,6 @@ const SwitchField = ({
         />
     </Field>
 )
-
-SwitchField.defaultProps = {
-    dataTest: 'dhis2-uiwidgets-switchfield',
-}
 
 SwitchField.propTypes = {
     checked: PropTypes.bool,

@@ -106,6 +106,12 @@ export class TextArea extends Component {
             name: this.props.name,
         }
     }
+    static defaultProps = {
+        rows: 4,
+        width: '100%',
+        resize: 'vertical',
+        dataTest: 'dhis2-uicore-textarea',
+    }
 
     render() {
         const {
@@ -121,10 +127,10 @@ export class TextArea extends Component {
             loading,
             value,
             tabIndex,
-            rows,
-            width,
-            resize,
-            dataTest,
+            resize = 'vertical',
+            rows = 4,
+            width = '100%',
+            dataTest = 'dhis2-uicore-textarea',
         } = this.props
         const { height } = this.state
 
@@ -171,13 +177,6 @@ export class TextArea extends Component {
             </div>
         )
     }
-}
-
-TextArea.defaultProps = {
-    rows: 4,
-    width: '100%',
-    resize: 'vertical',
-    dataTest: 'dhis2-uicore-textarea',
 }
 
 TextArea.propTypes = {

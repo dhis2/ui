@@ -2498,6 +2498,46 @@ import { IconLink24 } from '@dhis2/ui'
 |dataTest|string||||
 |ariaLabel|string||||
 
+### SvgLinkOff16
+
+#### Usage
+
+To use `IconLinkOff16`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { IconLinkOff16 } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|color|string||||
+|dataTest|string||||
+|ariaLabel|string||||
+
+### SvgLinkOff24
+
+#### Usage
+
+To use `IconLinkOff24`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { IconLinkOff24 } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|color|string||||
+|dataTest|string||||
+|ariaLabel|string||||
+
 ### SvgList16
 
 #### Usage

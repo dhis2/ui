@@ -7,13 +7,13 @@ import React from 'react'
 const MenuWrapper = ({
     children,
     dataTest,
-    maxHeight,
+    maxHeight = '280px',
     menuWidth,
     onClick,
     selectRef,
 }) => {
     return (
-        <Layer onBackdropClick={onClick} transparent disablePortal>
+        <Layer onBackdropClick={onClick} transparent>
             <Popper
                 reference={selectRef}
                 placement="bottom-start"
@@ -38,10 +38,6 @@ const MenuWrapper = ({
             </Popper>
         </Layer>
     )
-}
-
-MenuWrapper.defaultProps = {
-    maxHeight: '280px',
 }
 
 MenuWrapper.propTypes = {

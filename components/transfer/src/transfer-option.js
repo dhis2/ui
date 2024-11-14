@@ -8,7 +8,7 @@ const DOUBLE_CLICK_MAX_DELAY = 500
 export const TransferOption = ({
     className,
     disabled,
-    dataTest,
+    dataTest = 'dhis2-uicore-transferoption',
     highlighted,
     onClick,
     onDoubleClick,
@@ -69,10 +69,6 @@ export const TransferOption = ({
             `}</style>
         </div>
     )
-}
-
-TransferOption.defaultProps = {
-    dataTest: 'dhis2-uicore-transferoption',
 }
 
 TransferOption.propTypes = {

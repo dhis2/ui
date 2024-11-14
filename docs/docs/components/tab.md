@@ -82,7 +82,3 @@ In the example above you can see the 3rd tab is disabled.
 ## API Reference
 
 <API />
-
-## Links
-
--   <a href="/demo/?path=/story/tab-bar--default-fluid" target="_blank">Demo</a>

@@ -9,14 +9,14 @@ import { combineModifiers } from './modifiers.js'
 const Popover = ({
     children,
     reference,
-    arrow,
+    arrow = true,
     className,
-    dataTest,
-    elevation,
-    maxWidth,
+    dataTest = 'dhis2-uicore-popover',
+    elevation = elevations.e200,
+    maxWidth = 360,
     observePopperResize,
     observeReferenceResize,
-    placement,
+    placement = 'top',
     onClickOutside,
 }) => {
     const referenceElement = getReferenceElement(reference)
@@ -72,13 +72,6 @@ const Popover = ({
     )
 }
 
-Popover.defaultProps = {
-    arrow: true,
-    dataTest: 'dhis2-uicore-popover',
-    elevation: elevations.e200,
-    maxWidth: 360,
-    placement: 'top',
-}
 Popover.propTypes = {
     children: PropTypes.node.isRequired,
     /** Show or hide the arrow */

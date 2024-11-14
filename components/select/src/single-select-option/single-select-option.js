@@ -9,7 +9,7 @@ const SingleSelectOption = ({
     disabled,
     onClick,
     className,
-    dataTest,
+    dataTest = 'dhis2-uicore-singleselectoption',
     value,
 }) => (
     <div
@@ -57,10 +57,6 @@ const SingleSelectOption = ({
         `}</style>
     </div>
 )
-
-SingleSelectOption.defaultProps = {
-    dataTest: 'dhis2-uicore-singleselectoption',
-}
 
 SingleSelectOption.propTypes = {
     label: PropTypes.string.isRequired,

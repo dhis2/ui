@@ -123,7 +123,3 @@ Loaders are used to show that something is in progress. They keep users informed
 ## API Reference
 
 <API />
-
-## Links
-
--   <a href="/demo/?path=/story/circular-loader--default" target="_blank">Demo</a>

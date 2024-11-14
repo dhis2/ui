@@ -33,6 +33,7 @@ import {
 import { TransferOption } from './transfer-option.js'
 
 const identity = (value) => value
+const defaultSelected = []
 
 export const Transfer = ({
     options,
@@ -41,38 +42,38 @@ export const Transfer = ({
     addAllText,
     addIndividualText,
     className,
-    dataTest,
+    dataTest = 'dhis2-uicore-transfer',
     disabled,
     enableOrderChange,
-    filterCallback,
-    filterCallbackPicked,
+    filterCallback = defaultFilterCallback,
+    filterCallbackPicked = defaultFilterCallback,
     filterLabel,
     filterLabelPicked,
     filterPlaceholder,
     filterPlaceholderPicked,
     filterable,
     filterablePicked,
-    height,
+    height = '240px',
     hideFilterInput,
     hideFilterInputPicked,
-    initialSearchTerm,
-    initialSearchTermPicked,
+    initialSearchTerm = '',
+    initialSearchTermPicked = '',
     leftFooter,
     leftHeader,
     loadingPicked,
     loading,
-    maxSelections,
-    optionsWidth,
+    maxSelections = Infinity,
+    optionsWidth = '320px',
     removeAllText,
     removeIndividualText,
-    renderOption,
+    renderOption = defaultRenderOption,
     rightFooter,
     rightHeader,
     searchTerm,
     searchTermPicked,
-    selected,
+    selected = defaultSelected,
     selectedEmptyComponent,
-    selectedWidth,
+    selectedWidth = '320px',
     sourceEmptyPlaceholder,
     onFilterChange,
     onFilterChangePicked,
@@ -376,20 +377,6 @@ export const Transfer = ({
 }
 
 const defaultRenderOption = (option) => <TransferOption {...option} />
-
-Transfer.defaultProps = {
-    dataTest: 'dhis2-uicore-transfer',
-    height: '240px',
-    initialSearchTerm: '',
-    initialSearchTermPicked: '',
-    maxSelections: Infinity,
-    optionsWidth: '320px',
-    renderOption: defaultRenderOption,
-    selected: [],
-    selectedWidth: '320px',
-    filterCallback: defaultFilterCallback,
-    filterCallbackPicked: defaultFilterCallback,
-}
 
 Transfer.propTypes = {
     options: PropTypes.arrayOf(

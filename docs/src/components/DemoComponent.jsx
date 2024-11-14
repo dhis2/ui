@@ -3,7 +3,7 @@ import React, { useRef } from 'react'
 import { DEMO_URL } from '../constants.js'
 import styles from './DemoComponent.module.css'
 
-export const Demo = ({ path, args, height }) => {
+export const Demo = ({ path, args = '', height = '100px' }) => {
     const iframeRef = useRef(null)
 
     const handleReload = () => {
@@ -16,12 +16,12 @@ export const Demo = ({ path, args, height }) => {
         if (!path) {
             return false
         }
-        return path.startsWith('/story/') ? path : `/story/${path}`
+        return path.replace('/story/', '')
     }
 
     const handleShowFullDemo = () => {
         const formattedPath = formatPath(path)
-        const fullDemoUrl = `${DEMO_URL}/?path=${encodeURIComponent(
+        const fullDemoUrl = `${DEMO_URL}/?path=/story/${encodeURIComponent(
             formattedPath
         )}${
             args
@@ -33,7 +33,7 @@ export const Demo = ({ path, args, height }) => {
         window.open(fullDemoUrl, '_blank', 'noopener,noreferrer')
     }
 
-    const iframeSrc = `${DEMO_URL}/iframe.html?path=${encodeURIComponent(
+    const iframeSrc = `${DEMO_URL}/iframe.html?path=/story/${encodeURIComponent(
         formatPath(path)
     )}&full=1&shortcuts=false&singleStory=true${
         args ? `&args=${encodeURIComponent(args)}` : ''
@@ -72,9 +72,4 @@ Demo.propTypes = {
     path: PropTypes.string.isRequired,
     args: PropTypes.string,
     height: PropTypes.string,
-}
-
-Demo.defaultProps = {
-    args: '',
-    height: '100px',
 }

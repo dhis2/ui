@@ -5,7 +5,11 @@ import { addColNumToChildren } from './add-col-num-to-children.js'
 import { supplyHeaderLabelsToChildren } from './supply-header-labels-to-children.js'
 import { Consumer } from './table-context.js'
 
-export const StackedTableRow = ({ children, className, dataTest }) => (
+export const StackedTableRow = ({
+    children,
+    className,
+    dataTest = 'dhis2-uicore-stackedtablerow',
+}) => (
     <tr className={className} data-test={dataTest}>
         <Consumer>
             {({ headerLabels }) =>
@@ -43,8 +47,4 @@ StackedTableRow.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     dataTest: PropTypes.string,
-}
-
-StackedTableRow.defaultProps = {
-    dataTest: 'dhis2-uicore-stackedtablerow',
 }

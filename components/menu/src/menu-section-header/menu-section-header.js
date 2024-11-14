@@ -6,7 +6,7 @@ import React from 'react'
 
 const MenuSectionHeader = ({
     className,
-    dataTest,
+    dataTest = 'dhis2-uicore-menusectionheader',
     dense,
     hideDivider,
     label,
@@ -40,10 +40,6 @@ const MenuSectionHeader = ({
         `}</style>
     </li>
 )
-
-MenuSectionHeader.defaultProps = {
-    dataTest: 'dhis2-uicore-menusectionheader',
-}
 
 MenuSectionHeader.propTypes = {
     className: PropTypes.string,

@@ -7,12 +7,12 @@ import React from 'react'
 const Layer = ({
     children,
     className,
-    dataTest,
+    dataTest = 'dhis2-uicore-layer',
     disablePortal,
-    level,
+    level = 'auto',
     onBackdropClick,
     onClick,
-    position,
+    position = 'fixed',
     translucent,
 }) => {
     const resolvedOnClick = onBackdropClick || onClick
@@ -68,12 +68,6 @@ const Layer = ({
             </div>
         </Portal>
     )
-}
-
-Layer.defaultProps = {
-    position: 'fixed',
-    dataTest: 'dhis2-uicore-layer',
-    level: 'auto',
 }
 
 Layer.propTypes = {
