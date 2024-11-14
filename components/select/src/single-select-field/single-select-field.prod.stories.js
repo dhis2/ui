@@ -39,7 +39,15 @@ export default {
     // default args for stories
     args: {
         // Fix default prop issues - causes 'i18n is not defined' error
-        ...SingleSelectField.defaultProps,
+        dataTest: 'dhis2-uiwidgets-singleselectfield',
+        selected: '',
+
+        clearText: 'Clear',
+        empty: 'No data found',
+        filterPlaceholder: 'Type to filter options',
+        loadingText: 'Loading options',
+        noMatchText: 'No options found',
+
         label: 'Default label',
         children: options,
         onChange: onChange,

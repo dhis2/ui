@@ -18,7 +18,7 @@ export const Table = ({
     role,
     children,
     className,
-    dataTest,
+    dataTest = 'dhis2-uicore-table',
     suppressZebraStriping,
 }) => (
     <Provider value={{ suppressZebraStriping }}>
@@ -29,10 +29,6 @@ export const Table = ({
         </table>
     </Provider>
 )
-
-Table.defaultProps = {
-    dataTest: 'dhis2-uicore-table',
-}
 
 Table.propTypes = {
     /** Should be `<TableHead>`, `<TableBody>`, and `<TableFoot>` components */

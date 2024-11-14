@@ -21,7 +21,7 @@ const Input = ({
     options,
     className,
     disabled,
-    inputMaxHeight,
+    inputMaxHeight = '100px',
 }) => {
     const hasSelection = selected.length > 0
     const onClear = (e) => {
@@ -90,10 +90,6 @@ const Input = ({
             `}</style>
         </div>
     )
-}
-
-Input.defaultProps = {
-    inputMaxHeight: '100px',
 }
 
 Input.propTypes = {

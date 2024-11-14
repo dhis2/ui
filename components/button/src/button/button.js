@@ -8,7 +8,7 @@ import styles from './button.styles.js'
 export const Button = ({
     children,
     className,
-    dataTest,
+    dataTest = 'dhis2-uicore-button',
     destructive,
     disabled,
     icon,
@@ -20,7 +20,7 @@ export const Button = ({
     small,
     tabIndex,
     toggled,
-    type,
+    type = 'button',
     value,
     onBlur,
     onClick,
@@ -92,11 +92,6 @@ export const Button = ({
             <style jsx>{styles}</style>
         </button>
     )
-}
-
-Button.defaultProps = {
-    type: 'button',
-    dataTest: 'dhis2-uicore-button',
 }
 
 Button.propTypes = {

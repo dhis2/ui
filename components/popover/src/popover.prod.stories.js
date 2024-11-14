@@ -37,7 +37,13 @@ export default {
         },
     },
     // Handles weird treatment of non-literal args (`elevation: elevations.e200`)
-    args: { ...Popover.defaultProps },
+    args: {
+        arrow: true,
+        dataTest: 'dhis2-uicore-popover',
+        elevation: elevations.e200,
+        maxWidth: 360,
+        placement: 'top',
+    },
     argTypes: {
         reference: { ...sharedPropTypes.popperReferenceArgType },
         placement: { ...sharedPropTypes.popperPlacementArgType },

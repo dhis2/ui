@@ -61,7 +61,3 @@ The value of each property can be used to select the option, using the `selected
 ## API Reference
 
 <API />
-
-## Links
-
--   <a href="/demo/?path=/story/segmented-control--default" target="_blank">Demo</a>

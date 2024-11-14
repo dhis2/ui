@@ -12,7 +12,7 @@ const FieldGroup = ({
     label,
     name,
     required,
-    dataTest,
+    dataTest = 'dhis2-uiwidgets-fieldsetfield',
     valid,
     error,
     warning,
@@ -33,10 +33,6 @@ const FieldGroup = ({
         </Field>
     </FieldSet>
 )
-
-FieldGroup.defaultProps = {
-    dataTest: 'dhis2-uiwidgets-fieldsetfield',
-}
 
 FieldGroup.propTypes = {
     children: PropTypes.node,

@@ -2,7 +2,16 @@ import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
 
 export const TableFoot = forwardRef(
-    ({ children, className, dataTest, role, ...props }, ref) => (
+    (
+        {
+            children,
+            className,
+            dataTest = 'dhis2-uicore-tablefoot',
+            role,
+            ...props
+        },
+        ref
+    ) => (
         <tfoot
             {...props}
             className={className}
@@ -16,10 +25,6 @@ export const TableFoot = forwardRef(
 )
 
 TableFoot.displayName = 'TableFoot'
-
-TableFoot.defaultProps = {
-    dataTest: 'dhis2-uicore-tablefoot',
-}
 
 TableFoot.propTypes = {
     /** Should be `<TableRow>` components */

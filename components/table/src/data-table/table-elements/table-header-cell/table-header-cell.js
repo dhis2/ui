@@ -11,25 +11,25 @@ export const TableHeaderCell = forwardRef(
     (
         {
             active,
-            align,
+            align = 'left',
             backgroundColor,
             bordered,
             children,
             className,
             colSpan,
-            dataTest,
+            dataTest = 'dhis2-uicore-tablecell',
             error,
             fixed,
             large,
-            left,
+            left = AUTO,
             muted,
             rowSpan,
             role,
             scope,
             staticStyle,
-            top,
+            top = AUTO,
             valid,
-            width,
+            width = AUTO,
             onClick,
             ...props
         },
@@ -82,14 +82,6 @@ export const TableHeaderCell = forwardRef(
 )
 
 TableHeaderCell.displayName = 'TableHeaderCell'
-
-TableHeaderCell.defaultProps = {
-    align: 'left',
-    dataTest: 'dhis2-uicore-tablecell',
-    left: AUTO,
-    width: AUTO,
-    top: AUTO,
-}
 
 const stylePropType = mutuallyExclusive(
     ['valid', 'error', 'muted'],

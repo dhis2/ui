@@ -13,10 +13,10 @@ import { Menu } from '../menu/index.js'
 const FlyoutMenu = ({
     children,
     className,
-    dataTest,
+    dataTest = 'dhis2-uicore-menu',
     dense,
-    maxHeight,
-    maxWidth,
+    maxHeight = 'auto',
+    maxWidth = '380px',
     closeMenu,
 }) => {
     const [openedSubMenu, setOpenedSubMenu] = useState(null)
@@ -91,12 +91,6 @@ const FlyoutMenu = ({
             `}</style>
         </div>
     )
-}
-
-FlyoutMenu.defaultProps = {
-    dataTest: 'dhis2-uicore-menu',
-    maxWidth: '380px',
-    maxHeight: 'auto',
 }
 
 FlyoutMenu.propTypes = {

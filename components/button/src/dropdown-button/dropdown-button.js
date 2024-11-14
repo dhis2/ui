@@ -67,6 +67,10 @@ class DropdownButton extends Component {
         open: false,
     }
 
+    static defaultProps = {
+        dataTest: 'dhis2-uicore-dropdownbutton',
+    }
+
     anchorRef = React.createRef()
 
     componentDidMount() {
@@ -124,7 +128,7 @@ class DropdownButton extends Component {
             tabIndex,
             type,
             initialFocus,
-            dataTest,
+            dataTest = 'dhis2-uicore-dropdownbutton',
         } = this.props
         const open =
             typeof this.props.open === 'boolean'
@@ -179,10 +183,6 @@ class DropdownButton extends Component {
             </div>
         )
     }
-}
-
-DropdownButton.defaultProps = {
-    dataTest: 'dhis2-uicore-dropdownbutton',
 }
 
 DropdownButton.propTypes = {

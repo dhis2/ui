@@ -52,7 +52,3 @@ Switches are used to toggle something between an on and off state.
 ## API Reference
 
 <API />
-
-## Links
-
--   <a href="/demo/?path=/story/switch--default" target="_blank">Demo</a>

@@ -33,11 +33,11 @@ Progress.propTypes = {
 
 const LinearLoader = ({
     amount,
-    width,
-    margin,
+    width = '300px',
+    margin = spacers.dp12,
     invert,
     className,
-    dataTest,
+    dataTest = 'dhis2-uicore-linearloader',
     'aria-label': ariaLabel,
 }) => {
     return (
@@ -70,12 +70,6 @@ const LinearLoader = ({
             `}</style>
         </div>
     )
-}
-
-LinearLoader.defaultProps = {
-    margin: spacers.dp12,
-    width: '300px',
-    dataTest: 'dhis2-uicore-linearloader',
 }
 
 LinearLoader.propTypes = {

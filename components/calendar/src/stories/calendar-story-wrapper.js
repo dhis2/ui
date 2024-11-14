@@ -6,13 +6,13 @@ import { Calendar } from '../calendar/calendar.js'
 const { calendars, numberingSystems } = constants
 export const CalendarStoryWrapper = (props) => {
     const {
-        calendar,
+        calendar = 'gregory',
         locale,
         timeZone,
         dir,
-        component: Component,
+        component: Component = Calendar,
         date,
-        weekDayFormat,
+        weekDayFormat = 'narrow',
     } = props
     const [selectedCalendar, setSelectedCalendar] = useState(calendar)
     const [selectedNumberingSystem, setSelectedNumberingSystem] = useState()
@@ -148,12 +148,6 @@ export const CalendarStoryWrapper = (props) => {
             </div>
         </div>
     )
-}
-
-CalendarStoryWrapper.defaultProps = {
-    calendar: 'gregorian',
-    component: Calendar,
-    weekDayFormat: 'narrow',
 }
 
 CalendarStoryWrapper.propTypes = {

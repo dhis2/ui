@@ -102,7 +102,3 @@ Chips are used to select from a set of defined options. Chips can also represent
 ## API Reference
 
 <API />
-
-## Links
-
--   <a href="/demo/?path=/story/chip--default" target="_blank">Demo</a>

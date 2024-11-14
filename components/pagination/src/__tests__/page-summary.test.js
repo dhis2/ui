@@ -1,12 +1,12 @@
 import { shallow } from 'enzyme'
 import React from 'react'
+import { getDefaultPageSummaryText } from '../get-default-page-summary-text.js'
 import { PageSummary } from '../page-summary.js'
-import { Pagination } from '../pagination.js'
 
 describe('<PageSummary />', () => {
     const props = {
         dataTest: 'test',
-        pageSummaryText: Pagination.defaultProps.pageSummaryText,
+        pageSummaryText: getDefaultPageSummaryText,
     }
 
     it('renders without errors', () => {

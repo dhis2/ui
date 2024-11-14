@@ -4,7 +4,11 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export const AlertStack = ({ className, children, dataTest }) => (
+export const AlertStack = ({
+    className,
+    children,
+    dataTest = 'dhis2-uicore-alertstack',
+}) => (
     <Portal>
         <div className={cx(className)} data-test={dataTest}>
             {children}
@@ -32,10 +36,6 @@ export const AlertStack = ({ className, children, dataTest }) => (
         </div>
     </Portal>
 )
-
-AlertStack.defaultProps = {
-    dataTest: 'dhis2-uicore-alertstack',
-}
 
 AlertStack.propTypes = {
     children: PropTypes.node,

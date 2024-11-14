@@ -13,7 +13,7 @@ export const DataTableRow = forwardRef(
         {
             children,
             className,
-            dataTest,
+            dataTest = 'dhis2-uicore-datatablerow',
             expandableContent,
             expanded,
             selected,
@@ -77,10 +77,6 @@ export const DataTableRow = forwardRef(
 )
 
 DataTableRow.displayName = 'DataTableRow'
-
-DataTableRow.defaultProps = {
-    dataTest: 'dhis2-uicore-datatablerow',
-}
 
 DataTableRow.propTypes = {
     /** Should be `<DataTableCell>` or `<DataTableCellHead>` components */

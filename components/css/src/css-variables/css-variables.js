@@ -15,7 +15,13 @@ const toCustomPropertyString = (themeSection) =>
         .map(([key, value]) => `--${key}: ${value};`)
         .join('\n')
 
-const CssVariables = ({ colors, theme, layers, spacers, elevations }) => {
+const CssVariables = ({
+    colors = false,
+    theme = false,
+    layers = false,
+    spacers = false,
+    elevations = false,
+}) => {
     const allowedProps = { colors, theme, layers, spacers, elevations }
     const variables = Object.keys(allowedProps)
         // Filter all props that are false
@@ -34,14 +40,6 @@ const CssVariables = ({ colors, theme, layers, spacers, elevations }) => {
             }
         `}</style>
     )
-}
-
-CssVariables.defaultProps = {
-    colors: false,
-    theme: false,
-    layers: false,
-    spacers: false,
-    elevations: false,
 }
 
 CssVariables.propTypes = {
