@@ -1,6 +1,6 @@
 {
     "name": "ui-docusaurus",
-    "version": "9.12.0",
+    "version": "9.14.1",
     "private": true,
     "description": "UI Docusaurus",
     "repository": {
@@ -30,9 +30,13 @@
         "prop-types": "^15.7.2",
         "url-loader": "^4.1.1"
     },
+    "devDependencies": {
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1"
+    },
     "peerDependencies": {
-        "react": "^16.13",
-        "react-dom": "^16.13",
+        "react": ">=16.13",
+        "react-dom": ">=16.13",
         "styled-jsx": "^4"
     },
     "browserslist": {

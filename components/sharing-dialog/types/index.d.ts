@@ -1,13 +1,19 @@
 import * as React from 'react'
-import { ModalOnCloseEventHandler } from '../modal'
+import { LayerBackdropClickHandler } from '@dhis2-ui/layer'
 
-interface SharingObject {
-    access: string
+type ModalOnCloseEventHandler = LayerBackdropClickHandler
+
+type SharingAccess = {
+    data: 'ACCESS_NONE' | 'ACCESS_VIEW_ONLY' | 'ACCESS_VIEW_AND_EDIT'
+    metadata: 'ACCESS_NONE' | 'ACCESS_VIEW_ONLY' | 'ACCESS_VIEW_AND_EDIT'
+}
+
+type SharingObject = {
+    access: SharingAccess
     id: string
     name: string
 }
 
-type SharingPublic = 'ACCESS_NONE' | 'ACCESS_VIEW_ONLY' | 'ACCESS_VIEW_AND_EDIT'
 type SharingType =
     | 'aggregateDataExchange'
     | 'apiToken'
@@ -67,10 +73,10 @@ type SharingType =
 
 export interface SharingDialogInitialSharingSettings {
     allowPublic: boolean
-    groups?: SharingObject
+    groups?: SharingObject[]
     name?: string
-    public?: SharingPublic
-    users?: SharingObject
+    public?: SharingAccess
+    users?: SharingObject[]
 }
 
 export interface SharingDialogProps {
@@ -86,6 +92,7 @@ export interface SharingDialogProps {
      * Used to seed the component with data to show whilst loading
      */
     initialSharingSettings?: SharingDialogInitialSharingSettings
+    dataSharing?: boolean
     onClose?: ModalOnCloseEventHandler
     onError?: (error: any) => void
     onSave?: () => void
