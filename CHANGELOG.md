@@ -1,3 +1,10 @@
+# [9.15.0](https://github.com/dhis2/ui/compare/v9.14.1...v9.15.0) (2024-11-18)
+
+
+### Features
+
+* make input field clearable and add prefix icon ([#1619](https://github.com/dhis2/ui/issues/1619)) ([7f87fb4](https://github.com/dhis2/ui/commit/7f87fb4ece42e1ba63143369dcefa1c33c65040f))
+
 ## [9.14.1](https://github.com/dhis2/ui/compare/v9.14.0...v9.14.1) (2024-11-17)
 
 
