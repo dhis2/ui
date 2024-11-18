@@ -3,14 +3,14 @@ title: SimpleTransfer
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import API from '../../../components/transfer/API.md'
+import API from '../../../components/simple-transfer/API.md'
 
 # SimpleTransfer
 
 A transfer is used to make complex selections from a list of options.
 
 <Demo
-    path="transfer--single-selection"
+    path="simpletransfer--single-selection"
     height="320px"
 />
 
@@ -20,13 +20,14 @@ A transfer is made up of two lists. The _source list_ that shows the available o
 
 ### When to use
 
--   **Choose from many items**. Use a transfer if a user needs to choose from many items. Transfers can work for hundreds of thousands of items.
--   **Ordered selections**. Use a transfer if chosen options need to have a specific order.
--   **Choose from several groups**. Use a transfer if a user needs to choose from several groups into a single set of chosen options.
+-   **Choose from many items**. Use a simple transfer if a user needs to choose from many items. Simple Transfers can work for hundreds of thousands of items.
+-   **Ordered selections**. Use a simple transfer if chosen options need to have a specific order.
+-   **Choose from several groups**. Use a simple transfer if a user needs to choose from several groups into a single set of chosen options.
 
 ### When not to use
 
--   **Choosing from a few items**. Don't use a transfer to choose from a few options. Use a [`Select`](select.md) instead.
+-   **Choosing from a few items**. Don't use a simple transfer to choose from a few options. Use a [`Select`](select.md) instead.
+-   **Wanting to customized the way the options appear**. Don't use a simple transfer if you need to customize the way you option items appear, Use a [`Transfer`](transfer.md) instead.
 
 ## Options
 
@@ -51,7 +52,7 @@ const onChange = (payload) => setSelected(payload.selected)
 ### Header
 
 <Demo
-    path="transfer--header"
+    path="simpletransfer--header"
     height="320px"
     args="leftHeader.type:h4;leftHeader.props.children:Available+Options;rightHeader.props.children:Selected+Options"
 />
@@ -74,7 +75,7 @@ The `header` component in this case is a simple `h4` element.
 ### Footer
 
 <Demo
-    path="transfer--options-footer"
+    path="simpletransfer--options-footer"
     height="320px"
 />
 
@@ -107,7 +108,7 @@ The footer component is as follows:
 ### Reordering
 
 <Demo
-    path="transfer--reordering"
+    path="simpletransfer--reordering"
     height="320px"
 />
 
@@ -125,7 +126,7 @@ The footer component is as follows:
 ### Filtering
 
 <Demo
-    path="transfer--filtered"
+    path="simpletransfer--filtered"
     height="320px"
 />
 
@@ -144,7 +145,7 @@ The footer component is as follows:
 ### Loading
 
 <Demo
-    path="transfer--loading-source"
+    path="simpletransfer--loading-source"
     height="320px"
 />
 

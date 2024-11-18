@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { InputChangeHandler, InputEventHandler } from '@dhis2-ui/input'
+import { InputChangeHandler } from '@dhis2-ui/input'
 
 export interface SimpleTransferProps {
     options: TransferOption[]
@@ -52,28 +52,6 @@ export interface SimpleTransferProps {
 }
 
 export const SimpleTransfer: React.FC<SimpleTransferProps>
-
-export type TransferOptionOnClickProp = (payload: { value: string }) => void
-
-export interface TransferOptionRenderProps extends TransferOption {
-    highlighted: boolean
-    selected: boolean
-    onClick: TransferOptionOnClickProp
-    onDoubleClick: TransferOptionOnClickProp
-}
-
-export interface TransferOptionProps {
-    label: React.ReactNode
-    value: string
-    onClick: TransferOptionOnClickProp
-    onDoubleClick: TransferOptionOnClickProp
-    className?: string
-    dataTest?: string
-    disabled?: boolean
-    highlighted?: boolean
-}
-
-export const TransferOption: React.FC<TransferOptionProps>
 
 export interface TransferOption {
     label: string
