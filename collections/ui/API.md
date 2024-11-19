@@ -512,6 +512,7 @@ import { Field } from '@dhis2/ui'
 |error|custom|||Field status. Mutually exclusive with `valid` and `warning` props|
 |helpText|string|||Useful text within the field|
 |label|string|||Label at the top of the field|
+|labelId|string|||id passed to the label element|
 |name|string|||`name` will become the target of the `for`/`htmlFor` attribute on the `<label>` element|
 |required|boolean|||Inidcates this field is required|
 |valid|custom|||Field status. Mutually exclusive with `error` and `warning` props|
@@ -780,9 +781,9 @@ import { Input } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|ariaLabel|string|||Add an aria-label attribute to the input element *|
 |ariaControls|string|||Add an aria-controls attribute to the input element *|
 |ariaHaspopup|string|||Add an aria-haspopup attribute to the input element *|
+|ariaLabel|string|||Add an aria-label attribute to the input element *|
 |autoComplete|string|||The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete)|
 |className|string||||
 |clearable|boolean|||Makes the input field clearable|
@@ -902,6 +903,7 @@ import { Label } from '@dhis2/ui'
 |dataTest|string|`'dhis2-uicore-label'`|||
 |disabled|boolean||||
 |htmlFor|string||||
+|id|string||||
 |required|boolean||||
 
 ### Layer
@@ -1916,7 +1918,7 @@ import { SingleSelectA11y } from '@dhis2/ui'
 |valueLabel|custom|`''`||When the option is not in the options list (e.g. not loaded or list is<br/>filtered), but a selected value needs to be displayed, then this prop can<br/>be used to supply the text to be shown.|
 |warning|custom|`false`||Applies 'warning' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props *|
 |onBlur|function|`() => undefined`||Will be called when the combobox is loses focus *|
-|onEndReached|function|||Will be called when the last option is scrolled into the visible area *|
+|onEndReached|function|`() => undefined`||Will be called when the last option is scrolled into the visible area *|
 |onFilterChange|function|`() => undefined`||Will be called when the filter value changes *|
 |onFocus|function|`() => undefined`||Will be called when the combobox is being focused *|
 
@@ -2032,12 +2034,12 @@ import { Menu } from '@dhis2/ui'
 |optionUpdateStrategy|'off' │ 'polite' │ 'assertive'||||
 |selectRef|instanceOf(HTMLElement)||||
 |selected|string||||
+|tabIndex|string||||
 |onBlur|function||||
 |onClose|function||||
 |onEndReached|function||||
 |onFilterChange|function||||
 |onFilterInputKeyDown|function||||
-|onSearch|function||||
 
 ### SelectorBar
 
