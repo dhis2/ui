@@ -3,6 +3,7 @@ import { sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import i18n from '../locales/index.js'
 import { Menu } from './menu/index.js'
 import { SelectedValue } from './selected-value/index.js'
 import { optionProp } from './shared-prop-types.js'
@@ -57,24 +58,24 @@ export function SingleSelectA11y({
     onChange,
     autoFocus = false,
     className = '',
-    clearText = '',
+    clearText: _clearText = '',
     clearable = false,
     customOption = undefined,
     dataTest = 'dhis2-singleselecta11y',
     dense = false,
     disabled = false,
-    empty = false,
+    empty: _empty = false,
     error = false,
     filterHelpText = '',
     filterLabel = '',
-    filterPlaceholder = '',
+    filterPlaceholder: _filterPlaceholder = '',
     filterValue = '',
     filterable = false,
     labelledBy = '',
     loading = false,
-    menuLoadingText = '',
+    menuLoadingText: _menuLoadingText = '',
     menuMaxHeight = '288px',
-    noMatchText = '',
+    noMatchText: _noMatchText = '',
     optionUpdateStrategy = 'polite',
     placeholder = '',
     prefix = '',
@@ -88,6 +89,15 @@ export function SingleSelectA11y({
     onFilterChange = () => undefined,
     onFocus = () => undefined,
 }) {
+    // We can't translate with default props as the translation function would
+    // be called before we get any translations from the consuming app/lib
+    const clearText = _clearText || i18n.t('Clear')
+    const empty = _empty || i18n.t('No data found')
+    const filterPlaceholder =
+        _filterPlaceholder || i18n.t('Type to filter options')
+    const menuLoadingText = _menuLoadingText || i18n.t('Loading options')
+    const noMatchText = _noMatchText || i18n.t('No options found')
+
     const comboBoxId = `${idPrefix}-combo`
     const valueLabel =
         _valueLabel ||
