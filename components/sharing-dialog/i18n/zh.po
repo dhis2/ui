@@ -1,16 +1,16 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2021
 # 晓东 林 <13981924470@126.com>, 2021
-# easylin <lin_xd@126.com>, 2021
 # Philip Larsen Donnelly, 2024
+# Viktor Varland <viktor@dhis2.org>, 2024
+# easylin <lin_xd@126.com>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-11-25T09:59:40.995Z\n"
+"POT-Creation-Date: 2024-11-07T15:20:34.373Z\n"
 "PO-Revision-Date: 2021-10-01 23:39+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2024\n"
 "Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,17 +24,26 @@ msgstr "只读"
 msgid "View and edit"
 msgstr "查看和编辑"
 
+msgid "No access"
+msgstr "不能访问"
+
 msgid "Give access to a user or group"
 msgstr "授予用户或组访问权限"
 
-msgid "Access level"
-msgstr "访问等级"
+msgid "Data access level"
+msgstr ""
 
-msgid "Select a level"
-msgstr "选择一个等级"
+msgid "Choose a level"
+msgstr ""
 
 msgid "Not available offline"
 msgstr "离线不可用"
+
+msgid "Metadata access level"
+msgstr ""
+
+msgid "Access level"
+msgstr "访问等级"
 
 msgid "Give access"
 msgstr "授予访问权限"
@@ -48,20 +57,23 @@ msgstr "用户/组"
 msgid "All users"
 msgstr "全部用户"
 
-msgid "No access"
-msgstr "不能访问"
+msgid "Anyone logged in"
+msgstr ""
 
-msgid "Can view"
-msgstr "可查看"
+msgid "User group"
+msgstr "用户组"
 
-msgid "Can view and edit"
-msgstr "可以查看和编辑"
+msgid "User"
+msgstr "用户"
 
-msgid "Metadata"
-msgstr "元数据"
+msgid "Data"
+msgstr "数据"
 
 msgid "Remove access"
 msgstr "删除访问权限"
+
+msgid "Metadata"
+msgstr "元数据"
 
 msgid "User or group"
 msgstr "用户或组"

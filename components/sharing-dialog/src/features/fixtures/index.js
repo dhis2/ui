@@ -4,6 +4,11 @@ import allUsersViewEditAccess from './all-users-view-edit-access.json'
 import dashboardSharing from './dashboard-sharing.json'
 import dashboards from './dashboards.json'
 import disabledAccess from './disabled-access.json'
+import {
+    getUserWithDataAndMetadataAccess,
+    getGroupWithDataAndMetadataAccess,
+    getAllUsersWithDataAndMetadataAccess,
+} from './get-object-data-metadata-access.js'
 import groupNoAccess from './group-no-access.json'
 import groupViewAccess from './group-view-access.json'
 import groupViewEditAccess from './group-view-edit-access.json'
@@ -34,4 +39,7 @@ export {
     userViewEditAccess,
     withDisplayname,
     withoutDisplayname,
+    getGroupWithDataAndMetadataAccess,
+    getUserWithDataAndMetadataAccess,
+    getAllUsersWithDataAndMetadataAccess,
 }

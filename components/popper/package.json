@@ -27,8 +27,8 @@
         "test": "d2-app-scripts test --jestConfig ../../jest.config.shared.js"
     },
     "peerDependencies": {
-        "react": "^16.13",
-        "react-dom": "^16.13",
+        "react": "^16.13 || ^18",
+        "react-dom": "^16.13 || ^18",
         "styled-jsx": "^4"
     },
     "dependencies": {
@@ -45,8 +45,8 @@
         "types"
     ],
     "devDependencies": {
-        "react": "16.13",
-        "react-dom": "16.13",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
         "styled-jsx": "^4.0.1"
     },
     "types": "types"

@@ -16,6 +16,7 @@ import { Input } from '@dhis2/ui'
 |---|---|---|---|---|
 |autoComplete|string|||The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete)|
 |className|string||||
+|clearable|boolean|||Makes the input field clearable|
 |dataTest|string|`'dhis2-uicore-input'`|||
 |dense|boolean|||Makes the input smaller|
 |disabled|boolean|||Disables the input|
@@ -26,6 +27,7 @@ import { Input } from '@dhis2/ui'
 |min|string|||The [native `min` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-min), for use when `type` is `'number'`|
 |name|string|||Name associated with the input. Passed to event handler callbacks in object|
 |placeholder|string|||Placeholder text for the input|
+|prefixIcon|element|||Add prefix icon|
 |readOnly|boolean|||Makes the input read-only|
 |role|string|||Sets a role attribute on the input|
 |step|string|||The [native `step` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-step), for use when `type` is `'number'`|
@@ -34,6 +36,7 @@ import { Input } from '@dhis2/ui'
 |valid|custom|||Applies 'valid' appearance for validation feedback. Mutually exclusive with `error` and `warning` props|
 |value|string|||Value in the input. Can be used to control the component (recommended). Passed to event handler callbacks in object|
 |warning|custom|||Applies 'warning' appearance for validation feedback. Mutually exclusive with `valid` and `error` props|
+|width|string|||Defines the width of the input. Can be any valid CSS measurement|
 |onBlur|function|||Called with signature `({ name: string, value: string }, event)`|
 |onChange|function|||Called with signature `({ name: string, value: string }, event)`|
 |onFocus|function|||Called with signature `({ name: string, value: string }, event)`|
@@ -57,6 +60,7 @@ import { InputField } from '@dhis2/ui'
 |---|---|---|---|---|
 |autoComplete|string|||The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete)|
 |className|string||||
+|clearable|boolean|||Makes the input field clearable|
 |dataTest|string|`'dhis2-uiwidgets-inputfield'`|||
 |dense|boolean|||Makes the input smaller|
 |disabled|boolean|||Disables the input|
@@ -70,6 +74,7 @@ import { InputField } from '@dhis2/ui'
 |min|string|||The [native `min` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-min), for use when `type` is `'number'`|
 |name|string|||Name associated with the input. Passed to event handler callbacks in object|
 |placeholder|string|||Placeholder text for the input|
+|prefixIcon|element|||Add prefix icon|
 |readOnly|boolean|||Makes the input read-only|
 |required|boolean|||Indicates this input is required|
 |step|string|||The [native `step` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-step), for use when `type` is `'number'`|

@@ -1,15 +1,16 @@
 # 
 # Translators:
-# phil_dhis2, 2021
-# Viktor Varland <viktor@dhis2.org>, 2021
-# Éva Tamási, 2022
+# Philip Larsen Donnelly, 2021
+# Éva Tamási, 2024
+# Wanda <wanda@frontlineaids.org>, 2024
+# Viktor Varland <viktor@dhis2.org>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-11-25T09:59:40.995Z\n"
+"POT-Creation-Date: 2024-11-07T15:20:34.373Z\n"
 "PO-Revision-Date: 2021-10-01 23:39+0000\n"
-"Last-Translator: Éva Tamási, 2022\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2024\n"
 "Language-Team: Ukrainian (https://app.transifex.com/hisp-uio/teams/100509/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,17 +24,26 @@ msgstr "Тільки перегляд"
 msgid "View and edit"
 msgstr "Перегляд і редагування"
 
+msgid "No access"
+msgstr "Немає доступу"
+
 msgid "Give access to a user or group"
 msgstr "Надати доступ користувачеві або групі"
 
-msgid "Access level"
-msgstr "Рівень доступу"
+msgid "Data access level"
+msgstr ""
 
-msgid "Select a level"
-msgstr "Вибрати рівень"
+msgid "Choose a level"
+msgstr ""
 
 msgid "Not available offline"
 msgstr "Недоступно в автономному режимі"
+
+msgid "Metadata access level"
+msgstr ""
+
+msgid "Access level"
+msgstr "Рівень доступу"
 
 msgid "Give access"
 msgstr "Надати доступ"
@@ -47,20 +57,23 @@ msgstr "Користувач / Група"
 msgid "All users"
 msgstr "Всі користувачі"
 
-msgid "No access"
-msgstr "Немає доступу"
+msgid "Anyone logged in"
+msgstr ""
 
-msgid "Can view"
-msgstr "Може переглядати"
+msgid "User group"
+msgstr "Група користувачів"
 
-msgid "Can view and edit"
-msgstr "Може переглядати й редагувати"
+msgid "User"
+msgstr "Користувач"
 
-msgid "Metadata"
-msgstr "Метадані"
+msgid "Data"
+msgstr "Дані"
 
 msgid "Remove access"
 msgstr "Видалити доступ"
+
+msgid "Metadata"
+msgstr "Метадані"
 
 msgid "User or group"
 msgstr "Користувач або група"
