@@ -2,7 +2,8 @@ import { useDataQuery, useConfig } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
-import Apps from './apps.js'
+import CommandPalette from './command-palette/command-palette.js'
+import { CommandPaletteContextProvider } from './command-palette/context/command-palette-context.js'
 import { HeaderBarContextProvider } from './header-bar-context.js'
 import { joinPath } from './join-path.js'
 import i18n from './locales/index.js'
@@ -55,6 +56,12 @@ export const HeaderBar = ({
         }))
     }, [data, baseUrl])
 
+    // fetch commands
+    const commands = []
+
+    // fetch shortcuts
+    const shortcuts = []
+
     // See https://jira.dhis2.org/browse/LIBS-180
     if (!loading && !error) {
         // TODO: This will run every render which is probably wrong!
@@ -94,8 +101,13 @@ export const HeaderBar = ({
                                 }
                                 userAuthorities={data.user.authorities}
                             />
-                            <Apps apps={apps} />
-
+                            <CommandPaletteContextProvider>
+                                <CommandPalette
+                                    apps={apps}
+                                    commands={commands}
+                                    shortcuts={shortcuts}
+                                />
+                            </CommandPaletteContextProvider>
                             <Profile
                                 name={data.user.name}
                                 email={data.user.email}
