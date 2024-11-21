@@ -28,9 +28,9 @@ export const CalendarInput = ({
     dir,
     locale,
     numberingSystem,
-    weekDayFormat,
-    width,
-    cellSize,
+    weekDayFormat = 'narrow',
+    width = '300px',
+    cellSize = '32px',
     clearable,
     minDate,
     maxDate,
@@ -226,13 +226,6 @@ export const CalendarInput = ({
             </style>
         </>
     )
-}
-
-CalendarInput.defaultProps = {
-    dataTest: 'dhis2-uiwidgets-calendar-inputfield',
-    cellSize: '32px',
-    width: '300px',
-    weekDayFormat: 'narrow',
 }
 
 CalendarInput.propTypes = {
