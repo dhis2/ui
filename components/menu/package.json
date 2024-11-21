@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/menu",
-    "version": "10.0.0-alpha.7",
+    "version": "10.0.0-alpha.8",
     "description": "UI Menu",
     "repository": {
         "type": "git",
@@ -33,13 +33,13 @@
     },
     "dependencies": {
         "@dhis2/prop-types": "^3.1.2",
-        "@dhis2-ui/card": "10.0.0-alpha.7",
-        "@dhis2-ui/divider": "10.0.0-alpha.7",
-        "@dhis2-ui/layer": "10.0.0-alpha.7",
-        "@dhis2-ui/popper": "10.0.0-alpha.7",
-        "@dhis2-ui/portal": "10.0.0-alpha.7",
-        "@dhis2/ui-constants": "10.0.0-alpha.7",
-        "@dhis2/ui-icons": "10.0.0-alpha.7",
+        "@dhis2-ui/card": "10.0.0-alpha.8",
+        "@dhis2-ui/divider": "10.0.0-alpha.8",
+        "@dhis2-ui/layer": "10.0.0-alpha.8",
+        "@dhis2-ui/popper": "10.0.0-alpha.8",
+        "@dhis2-ui/portal": "10.0.0-alpha.8",
+        "@dhis2/ui-constants": "10.0.0-alpha.8",
+        "@dhis2/ui-icons": "10.0.0-alpha.8",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },

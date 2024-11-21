@@ -1,3 +1,21 @@
+# [10.0.0-alpha.8](https://github.com/dhis2/ui/compare/v10.0.0-alpha.7...v10.0.0-alpha.8) (2024-11-21)
+
+
+### Bug Fixes
+
+* peer dependency issue with npm publish ([#1628](https://github.com/dhis2/ui/issues/1628)) ([1319654](https://github.com/dhis2/ui/commit/13196549eb2450d33d3debcbfa68d0321f8c6358))
+* update calendar tests for react 18 ([98831a7](https://github.com/dhis2/ui/commit/98831a7ab25b43d3c9424b6e8fbca93b6009cb26))
+* update testing-library for selector-bar ([893024d](https://github.com/dhis2/ui/commit/893024db1666610ffc0d6321ae8531f407e7da5e))
+* **translations:** sync translations from transifex (master) ([d89ce94](https://github.com/dhis2/ui/commit/d89ce946b7145851a5c39ede8a4cbbaaa60411ca))
+* **translations:** sync translations from transifex (master) ([7f22330](https://github.com/dhis2/ui/commit/7f22330ddfd1af2ac6e0199f4df78abf695200a2))
+
+
+### Features
+
+* add data sharing to sharing dialog [LIBS-677] ([#1629](https://github.com/dhis2/ui/issues/1629)) ([7e15c7f](https://github.com/dhis2/ui/commit/7e15c7f19becf6fc6657270a3f1ef94d8a48f048))
+* make input field clearable and add prefix icon ([#1619](https://github.com/dhis2/ui/issues/1619)) ([7f87fb4](https://github.com/dhis2/ui/commit/7f87fb4ece42e1ba63143369dcefa1c33c65040f))
+* update react peer dependency to react@18 ([#1624](https://github.com/dhis2/ui/issues/1624)) ([5d3c2a4](https://github.com/dhis2/ui/commit/5d3c2a4f6fc4683354a5af3d8ec2f8bfd88169f5))
+
 # [10.0.0-alpha.7](https://github.com/dhis2/ui/compare/v10.0.0-alpha.6...v10.0.0-alpha.7) (2024-11-14)
 
 
