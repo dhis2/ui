@@ -1,3 +1,10 @@
+## [10.0.1](https://github.com/dhis2/ui/compare/v10.0.0...v10.0.1) (2024-11-21)
+
+
+### Bug Fixes
+
+* bump multi-calendar library ([5c21525](https://github.com/dhis2/ui/commit/5c215253ba1131e68114558c1f3945453e96633b))
+
 # [10.0.0](https://github.com/dhis2/ui/compare/v9.15.0...v10.0.0) (2024-11-21)
 
 
