@@ -1,6 +1,6 @@
 import { Button } from '@dhis2-ui/button'
 import { fireEvent, render, waitFor, within } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { userEvent } from '@testing-library/user-event'
 import React, { useState } from 'react'
 import { Field, Form } from 'react-final-form'
 import { CalendarInput } from '../calendar-input.js'
@@ -62,6 +62,7 @@ describe('Calendar Input', () => {
     })
 
     describe('validation', () => {
+        beforeEach(jest.useRealTimers)
         it('should validate minimum date', async () => {
             const onDateSelectMock = jest.fn()
             const screen = render(
@@ -77,9 +78,9 @@ describe('Calendar Input', () => {
                 screen.getByTestId('dhis2-uicore-input')
             ).getByRole('textbox')
 
-            userEvent.clear(dateInput)
-            userEvent.type(dateInput, dateInputString)
-            userEvent.tab()
+            await userEvent.clear(dateInput)
+            await userEvent.type(dateInput, dateInputString)
+            await userEvent.tab()
 
             expect(
                 await screen.findByText(
@@ -101,9 +102,9 @@ describe('Calendar Input', () => {
                 getByTestId('dhis2-uicore-input')
             ).getByRole('textbox')
 
-            userEvent.clear(dateInput)
-            userEvent.type(dateInput, dateInputString)
-            userEvent.tab()
+            await userEvent.clear(dateInput)
+            await userEvent.type(dateInput, dateInputString)
+            await userEvent.tab()
 
             expect(
                 await findByText(
@@ -126,9 +127,9 @@ describe('Calendar Input', () => {
                 getByTestId('dhis2-uicore-input')
             ).getByRole('textbox')
 
-            userEvent.clear(dateInput)
-            userEvent.type(dateInput, dateInputString)
-            userEvent.tab()
+            await userEvent.clear(dateInput)
+            await userEvent.type(dateInput, dateInputString)
+            await userEvent.tab()
 
             expect(
                 await findByText(
@@ -137,9 +138,9 @@ describe('Calendar Input', () => {
             )
 
             dateInputString = '2018-13-05'
-            userEvent.clear(dateInput)
-            userEvent.type(dateInput, dateInputString)
-            userEvent.tab()
+            await userEvent.clear(dateInput)
+            await userEvent.type(dateInput, dateInputString)
+            await userEvent.tab()
 
             expect(
                 queryByText(
@@ -148,9 +149,9 @@ describe('Calendar Input', () => {
             ).not.toBeInTheDocument()
 
             dateInputString = '2018-13-07'
-            userEvent.clear(dateInput)
-            userEvent.type(dateInput, dateInputString)
-            userEvent.tab()
+            await userEvent.clear(dateInput)
+            await userEvent.type(dateInput, dateInputString)
+            await userEvent.tab()
 
             expect(
                 await findByText('Invalid date in specified calendar')
@@ -171,9 +172,9 @@ describe('Calendar Input', () => {
                 getByTestId('dhis2-uicore-input')
             ).getByRole('textbox')
 
-            userEvent.clear(dateInput)
-            userEvent.type(dateInput, dateInputString)
-            userEvent.tab()
+            await userEvent.clear(dateInput)
+            await userEvent.type(dateInput, dateInputString)
+            await userEvent.tab()
 
             expect(
                 await findByText(
@@ -182,24 +183,27 @@ describe('Calendar Input', () => {
             )
 
             dateInputString = '2080-04-32'
-            userEvent.clear(dateInput)
-            userEvent.type(dateInput, dateInputString)
-            userEvent.tab()
+            await userEvent.clear(dateInput)
+            await userEvent.type(dateInput, dateInputString)
+            await userEvent.tab()
 
             expect(
                 queryByText(/greater than the maximum allowed date/)
             ).not.toBeInTheDocument()
 
             dateInputString = '2080-01-32'
-            userEvent.clear(dateInput)
-            userEvent.type(dateInput, dateInputString)
-            userEvent.tab()
+            await userEvent.clear(dateInput)
+            await userEvent.type(dateInput, dateInputString)
+            await userEvent.tab()
 
             expect(
                 await findByText('Invalid date in specified calendar')
             ).toBeInTheDocument()
         })
         it('should validate from date picker', async () => {
+            jest.useFakeTimers('modern')
+            jest.setSystemTime(new Date('2024-10-22T09:05:00.000Z'))
+
             const onDateSelectMock = jest.fn()
             const { queryByText, getByText, getByTestId } = render(
                 <CalendarWithValidation
@@ -213,11 +217,11 @@ describe('Calendar Input', () => {
                 getByTestId('dhis2-uicore-input')
             ).getByRole('textbox')
 
-            await userEvent.click(dateInput)
-            await userEvent.click(getByText('17'))
+            await fireEvent.focusIn(dateInput)
+            await fireEvent.click(getByText('17'))
             expect(queryByText('17')).not.toBeInTheDocument()
 
-            // Bug where callback used to be called first with undefined
+            // Checking fix for Bug where callback used to be called twice - first with undefined
             expect(onDateSelectMock).toHaveBeenCalledTimes(1)
             expect(onDateSelectMock).toHaveBeenCalledWith({
                 calendarDateString: '2024-10-17',
@@ -241,9 +245,9 @@ describe('Calendar Input', () => {
                 getByTestId('dhis2-uicore-input')
             ).getByRole('textbox')
 
-            userEvent.clear(dateInput)
-            userEvent.type(dateInput, dateInputString)
-            userEvent.tab()
+            await userEvent.clear(dateInput)
+            await userEvent.type(dateInput, dateInputString)
+            await userEvent.tab()
 
             expect(
                 getByTestId('dhis2-uiwidgets-calendar-inputfield-validation')
@@ -274,16 +278,16 @@ describe('Calendar Input', () => {
                 getByTestId('dhis2-uicore-input')
             ).getByRole('textbox')
 
-            userEvent.clear(dateInput)
-            userEvent.type(dateInput, dateInputString)
-            userEvent.tab()
+            await userEvent.clear(dateInput)
+            await userEvent.type(dateInput, dateInputString)
+            await userEvent.tab()
 
             expect(
                 getByTestId('dhis2-uiwidgets-calendar-inputfield-validation')
             ).toBeInTheDocument()
 
-            userEvent.clear(dateInput)
-            userEvent.tab()
+            await userEvent.clear(dateInput)
+            await userEvent.tab()
 
             expect(onDateSelectMock).toHaveBeenCalledWith({
                 calendarDateString: null,

@@ -12,8 +12,8 @@ const backgroundColor = 'none'
 
 export const CalendarContainer = React.memo(function CalendarContainer({
     date,
-    width,
-    cellSize,
+    width = '240px',
+    cellSize = '32px',
     calendarWeekDays,
     weekDayLabels,
     currMonth,
@@ -24,7 +24,7 @@ export const CalendarContainer = React.memo(function CalendarContainer({
     prevYear,
     languageDirection,
     excludedRef,
-    unfocusable,
+    unfocusable = false,
 }) {
     const navigationProps = useMemo(() => {
         return {
@@ -86,12 +86,6 @@ export const CalendarContainer = React.memo(function CalendarContainer({
         </div>
     )
 })
-
-CalendarContainer.defaultProps = {
-    cellSize: '32px',
-    width: '240px',
-    unfocusable: false,
-}
 
 CalendarContainer.propTypes = {
     /** the currently selected date using an iso-like format YYYY-MM-DD, in the calendar system provided (not iso8601) */
