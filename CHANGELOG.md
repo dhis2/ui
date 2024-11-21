@@ -1,3 +1,48 @@
+# [10.0.0](https://github.com/dhis2/ui/compare/v9.15.0...v10.0.0) (2024-11-21)
+
+
+### Bug Fixes
+
+* update calendar tests for react 18 ([98831a7](https://github.com/dhis2/ui/commit/98831a7ab25b43d3c9424b6e8fbca93b6009cb26))
+* update testing-library for selector-bar ([893024d](https://github.com/dhis2/ui/commit/893024db1666610ffc0d6321ae8531f407e7da5e))
+* **calendar:** fix minor type issues ([#1588](https://github.com/dhis2/ui/issues/1588)) ([21e60a6](https://github.com/dhis2/ui/commit/21e60a6a275ab5cc4a1048e4dfb53183a4f92bd3))
+* **calendar:** stop extra call to validation when choosing from picker ([#1623](https://github.com/dhis2/ui/issues/1623)) ([a1786d5](https://github.com/dhis2/ui/commit/a1786d593f9c3f2cac79dc6f657fa65c71d57690))
+* **calendar-input:** trigger onFocus if passed ([#1622](https://github.com/dhis2/ui/issues/1622)) ([293505d](https://github.com/dhis2/ui/commit/293505d6376c57a4cef453096b791137c619ca7e))
+* bump multi calendar library version in calendar ([#1566](https://github.com/dhis2/ui/issues/1566)) ([d205016](https://github.com/dhis2/ui/commit/d205016ae9f51eb286007762d99549325199cedc))
+* bump multi calendar library version in calendar component  ([#1576](https://github.com/dhis2/ui/issues/1576)) ([5f2b13d](https://github.com/dhis2/ui/commit/5f2b13dc3abfd2396c83c39fb399d3c7e0d1dffe))
+* bump multi-calendar library ([#1615](https://github.com/dhis2/ui/issues/1615)) ([238de1f](https://github.com/dhis2/ui/commit/238de1f30e4b7bbfe40127ed35e9661ff1543a26))
+* bump multi-calendar library ([#1618](https://github.com/dhis2/ui/issues/1618)) ([769c7ae](https://github.com/dhis2/ui/commit/769c7aee5fee159d9eb8eb67cb869ee87367f7fd))
+* clear button and arrow alignment issues ([#1609](https://github.com/dhis2/ui/issues/1609)) ([ba0b657](https://github.com/dhis2/ui/commit/ba0b657a798c8f538ee025144d579d862bbd583a))
+* stories for calendar validation ([#1616](https://github.com/dhis2/ui/issues/1616)) ([c00a2d6](https://github.com/dhis2/ui/commit/c00a2d62b85c686acb4fc0ad6aea39d839940ee9))
+* update multi-calendar library ([6aa01cc](https://github.com/dhis2/ui/commit/6aa01cc9fd0cde91fd8d20716b132fe6518476e9))
+* update yarn.lock after deduping ([5c24b02](https://github.com/dhis2/ui/commit/5c24b02782c2e9c530ec857669ba51ff3e5f3768))
+
+
+### Features
+
+* add aria attributes to loaders ([#1449](https://github.com/dhis2/ui/issues/1449)) ([2832584](https://github.com/dhis2/ui/commit/28325848aac6e1c5244b7a48ed5d8951a0cfa1d3))
+* calendar input to work with react final form ([827c3f8](https://github.com/dhis2/ui/commit/827c3f853d24d08b9d1952c72149fc3359ffc34a))
+* memorize calendar container component to improve perfromance ([#1575](https://github.com/dhis2/ui/issues/1575)) ([0d00a19](https://github.com/dhis2/ui/commit/0d00a19663147b24acc0513aa8958d630ffed94c))
+* merge branch master into branch ([0577074](https://github.com/dhis2/ui/commit/05770745cbe17b8b059162d19fd66cb73eb7dad6))
+* merge master into alpha ([7afecf9](https://github.com/dhis2/ui/commit/7afecf9121d573bc96f58f8bb89215440036c970))
+* splitButton accessibility improvements ([#1458](https://github.com/dhis2/ui/issues/1458)) ([51a1b14](https://github.com/dhis2/ui/commit/51a1b149ae720703339dc36edc88de70c6798bf8))
+* support editable input | min & max dates | dd-mm-yyyy format in CalendarInput ([#1504](https://github.com/dhis2/ui/issues/1504)) ([99a78f5](https://github.com/dhis2/ui/commit/99a78f5caec83529af26a11a2dd4d93fface30b4))
+* use alpha of multi calendar library ([0c6b966](https://github.com/dhis2/ui/commit/0c6b966fca18912e88a13c6822ec68b46208e99a))
+* verify date input only on blur on calendar input, close calendar popup on blur as well ([d8b0d1c](https://github.com/dhis2/ui/commit/d8b0d1cd2fd93a88413f0f73ad216783e6dd3ff7))
+* **tooltip:** accessibility improvements for tooltip ([#1463](https://github.com/dhis2/ui/issues/1463)) ([f11eabb](https://github.com/dhis2/ui/commit/f11eabb87309efdb6e1d961a461002cdc76664b1))
+
+
+### Reverts
+
+* Revert "feat(selectionBar): accessibility improvements for SelectionBar (#1475)" ([54498fb](https://github.com/dhis2/ui/commit/54498fbdd8cec448c891855b72691d5613c83a47)), closes [#1475](https://github.com/dhis2/ui/issues/1475)
+
+
+### BREAKING CHANGES
+
+* multi-calendar hook no longer returns Temporal date
+
+* fix: failing test
+
 # [10.0.0-alpha.8](https://github.com/dhis2/ui/compare/v10.0.0-alpha.7...v10.0.0-alpha.8) (2024-11-21)
 
 
