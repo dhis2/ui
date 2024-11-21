@@ -7,14 +7,20 @@ import i18n from '../locales/index.js'
 const wrapperBorderColor = colors.grey300
 const headerBackground = colors.grey050
 
-export const NavigationContainer = ({ languageDirection, pickerOptions }) => {
+export const NavigationContainer = ({
+    languageDirection,
+    currMonth,
+    currYear,
+    nextMonth,
+    nextYear,
+    prevMonth,
+    prevYear,
+    unfocusable,
+}) => {
     const PreviousIcon =
         languageDirection === 'ltr' ? IconChevronLeft16 : IconChevronRight16
     const NextIcon =
         languageDirection === 'ltr' ? IconChevronRight16 : IconChevronLeft16
-
-    const { currMonth, currYear, nextMonth, nextYear, prevMonth, prevYear } =
-        pickerOptions
 
     // Ethiopic years - when localised to English - add the era (i.e. 2015 ERA1), which is redundant in practice (like writing AD for gregorian years)
     // there is an ongoing discussion in JS-Temporal polyfill whether the era should be included or not, but for our case, it's safer to remove it
@@ -31,6 +37,7 @@ export const NavigationContainer = ({ languageDirection, pickerOptions }) => {
                             data-test="calendar-previous-month"
                             aria-label={`${i18n.t(`Go to ${prevMonth.label}`)}`}
                             type="button"
+                            tabIndex={unfocusable ? -1 : 0}
                         >
                             <PreviousIcon />
                         </button>
@@ -45,6 +52,7 @@ export const NavigationContainer = ({ languageDirection, pickerOptions }) => {
                             name="next-month"
                             aria-label={`${i18n.t(`Go to ${nextMonth.label}`)}`}
                             type="button"
+                            tabIndex={unfocusable ? -1 : 0}
                         >
                             <NextIcon />
                         </button>
@@ -57,6 +65,7 @@ export const NavigationContainer = ({ languageDirection, pickerOptions }) => {
                             name="previous-year"
                             aria-label={`${i18n.t('Go to previous year')}`}
                             type="button"
+                            tabIndex={unfocusable ? -1 : 0}
                         >
                             <PreviousIcon />
                         </button>
@@ -75,6 +84,7 @@ export const NavigationContainer = ({ languageDirection, pickerOptions }) => {
                             name="next-year"
                             aria-label={`${i18n.t('Go to next year')}`}
                             type="button"
+                            tabIndex={unfocusable ? -1 : 0}
                         >
                             <NextIcon />
                         </button>
@@ -82,103 +92,95 @@ export const NavigationContainer = ({ languageDirection, pickerOptions }) => {
                 </div>
             </div>
             <style jsx>{`
-                button {
-                    background: none;
-                    border: 0;
+                .navigation-container {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: ${spacers.dp4};
+                    border-bottom: 1px solid ${wrapperBorderColor};
+                    background-color: ${headerBackground};
+                    font-size: 1.08em;
                 }
                 .month,
                 .year {
                     display: flex;
-                    width: 100%;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 50%;
+                }
+                .prev,
+                .next,
+                .curr {
+                    display: flex;
                     align-items: center;
                     justify-content: center;
-                    cursor: default;
                 }
-
-                .month .curr,
-                .year .curr {
-                    flex: 2;
-                    white-space: nowrap;
-                }
-
                 .prev,
                 .next {
-                    flex: 1;
-                    text-align: center;
+                    width: 24px;
+                    flex-shrink: 0;
                 }
-
-                .prev button,
-                .next button {
+                .curr {
+                    flex: 0 1 auto;
+                    overflow: hidden;
+                }
+                button {
+                    background: none;
+                    border: 0;
                     padding: ${spacers.dp4};
                     height: 24px;
                     width: 24px;
                     color: ${colors.grey600};
                     border-radius: 3px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                 }
-
-                .prev button svg,
-                .next button svg {
-                    width: 16px;
-                    height: 16px;
-                }
-
-                .prev:hover button,
-                .next:hover button {
+                button:hover {
                     background-color: ${colors.grey200};
                     color: ${colors.grey900};
                     cursor: pointer;
                 }
-
-                .prev button:active,
-                .next button:active {
+                button:active {
                     background-color: ${colors.grey300};
                 }
-
                 .label {
-                    display: flex;
-                    padding: 4px 8px;
-                    justify-content: center;
-                    min-height: 16px;
-                }
-
-                .navigation-container {
-                    gap: ${spacers.dp8};
-                    padding: ${spacers.dp4};
-                    display: flex;
-                    flex-direction: row;
-                    border-bottom: 1px solid ${wrapperBorderColor};
-                    background-color: ${headerBackground};
-                    font-size: 1.08em; /*15px*/
+                    padding: ${spacers.dp4} ${spacers.dp8};
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    text-align: center;
+                    max-width: 100%;
                 }
             `}</style>
         </>
     )
 }
 
-NavigationContainer.propTypes = {
-    languageDirection: PropTypes.oneOf(['ltr', 'rtl']),
-    pickerOptions: PropTypes.shape({
-        currMonth: PropTypes.shape({
-            label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        }),
-        currYear: PropTypes.shape({
-            label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        }),
-        nextMonth: PropTypes.shape({
-            label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-            navigateTo: PropTypes.func,
-        }),
-        nextYear: PropTypes.shape({
-            label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-            navigateTo: PropTypes.func,
-        }),
-        prevMonth: PropTypes.shape({
-            label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-            navigateTo: PropTypes.func,
-        }),
-        prevYear: PropTypes.shape({
-            label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-            navigateTo: PropTypes.func,
-        }),
+export const NavigationContainerProps = {
+    currMonth: PropTypes.shape({
+        label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     }),
+    currYear: PropTypes.shape({
+        label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    }),
+    languageDirection: PropTypes.oneOf(['ltr', 'rtl']),
+    nextMonth: PropTypes.shape({
+        label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        navigateTo: PropTypes.func,
+    }),
+    nextYear: PropTypes.shape({
+        label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        navigateTo: PropTypes.func,
+    }),
+    prevMonth: PropTypes.shape({
+        label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        navigateTo: PropTypes.func,
+    }),
+    prevYear: PropTypes.shape({
+        label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        navigateTo: PropTypes.func,
+    }),
+    unfocusable: PropTypes.bool,
 }
+
+NavigationContainer.propTypes = NavigationContainerProps

@@ -3,19 +3,25 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export const CalendarTableCell = ({ day, cellSize, selectedDate }) => {
+export const CalendarTableCell = ({
+    day,
+    cellSize,
+    selectedDate,
+    unfocusable,
+}) => {
     const dayHoverBackgroundColor = colors.grey200
     const selectedDayBackgroundColor = colors.teal700
 
     return (
-        <td data-test={day?.calendarDate} onClick={day.onClick}>
+        <td data-test={day?.dateValue} onClick={day.onClick}>
             <button
                 name="day"
                 className={cx('day', {
-                    isSelected: selectedDate === day?.calendarDate,
+                    isSelected: selectedDate === day?.dateValue,
                     isToday: day.isToday,
                     otherMonth: !day.isInCurrentMonth,
                 })}
+                tabIndex={unfocusable ? -1 : 0}
             >
                 {day.label}
             </button>
@@ -86,7 +92,7 @@ export const CalendarTableCell = ({ day, cellSize, selectedDate }) => {
 CalendarTableCell.propTypes = {
     cellSize: PropTypes.string,
     day: PropTypes.shape({
-        calendarDate: PropTypes.string,
+        dateValue: PropTypes.string,
         isInCurrentMonth: PropTypes.bool,
         isSelected: PropTypes.bool,
         isToday: PropTypes.bool,
@@ -94,4 +100,5 @@ CalendarTableCell.propTypes = {
         onClick: PropTypes.func,
     }),
     selectedDate: PropTypes.string,
+    unfocusable: PropTypes.bool,
 }

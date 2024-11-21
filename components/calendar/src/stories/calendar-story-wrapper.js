@@ -115,6 +115,7 @@ export const CalendarStoryWrapper = (props) => {
                 onDateSelect={(date) => {
                     setSelectedDate(date)
                 }}
+                {...selectedDate.validation}
                 timeZone={timeZone}
                 weekDayFormat={selectedWeekFormat}
                 numberingSystem={selectedNumberingSystem}
@@ -135,16 +136,6 @@ export const CalendarStoryWrapper = (props) => {
                                 <label>calendar date: </label>
                                 <span data-test="storybook-calendar-result">
                                     {selectedDate.calendarDateString}
-                                </span>
-                            </div>
-                            <div>
-                                <label>iso date: </label>
-                                <span data-test="storybook-calendar-result-iso">
-                                    {selectedDate.calendarDate
-                                        ?.withCalendar('iso8601')
-                                        .toLocaleString('en-GB', {
-                                            dateStyle: 'long',
-                                        })}
                                 </span>
                             </div>
                             <div>
