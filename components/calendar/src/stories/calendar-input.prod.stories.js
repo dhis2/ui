@@ -120,7 +120,7 @@ export const CalendarWithClearButton = ({
 }
 
 export function CalendarWithEditiableInput() {
-    const [date, setDate] = useState(undefined)
+    const [date, setDate] = useState('')
     const [validation, setValidation] = useState({})
 
     const errorProps = {
@@ -128,7 +128,6 @@ export function CalendarWithEditiableInput() {
         validationText: validation?.validationText,
     }
 
-    console.log(date, 'date')
     return (
         <div>
             <>
@@ -144,8 +143,6 @@ export function CalendarWithEditiableInput() {
                         console.log('focused')
                     }}
                     width="400px"
-                    /*                     minDate="2020-07-01"
-                    maxDate="2020-07-09" */
                     {...errorProps}
                     clearable
                 />
@@ -168,7 +165,7 @@ export function CalendarWithStrictValidation() {
             onSubmit={(values, meta) => {
                 console.log('SUBMITTING', { values, meta })
             }}
-            initialValues={{ calendar: '' }}
+            initialValues={{ calendar: '2022-10-12' }}
             validate={errored}
         >
             {({ handleSubmit, invalid }) => {
