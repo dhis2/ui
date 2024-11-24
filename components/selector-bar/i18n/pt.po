@@ -1,14 +1,12 @@
 # 
 # Translators:
-# Philip Larsen Donnelly, 2021
-# Viktor Varland <viktor@dhis2.org>, 2021
 # Laurência Luís, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-05-10T11:56:32.496Z\n"
-"PO-Revision-Date: 2021-06-24 12:50+0000\n"
+"POT-Creation-Date: 2021-12-07T14:09:16.792Z\n"
+"PO-Revision-Date: 2023-06-08 13:23+0000\n"
 "Last-Translator: Laurência Luís, 2024\n"
 "Language-Team: Portuguese (https://app.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -17,17 +15,5 @@ msgstr ""
 "Language: pt\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
-msgid "Clear"
-msgstr "Limpar"
-
-msgid "No data found"
-msgstr "Dado não encontrado"
-
-msgid "Type to filter options"
-msgstr "Tipo de opções de filtros"
-
-msgid "Loading options"
-msgstr ""
-
-msgid "No options found"
-msgstr ""
+msgid "Clear selections"
+msgstr "Limpar selecções"
