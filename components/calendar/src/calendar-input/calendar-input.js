@@ -41,10 +41,9 @@ export const CalendarInput = ({
     ...rest
 } = {}) => {
     const ref = useRef()
+    const calendarRef = useRef()
     const [open, setOpen] = useState(false)
     const [partialDate, setPartialDate] = useState(date)
-
-    const excludeRef = useRef(null)
 
     useEffect(() => setPartialDate(date), [date])
 
@@ -59,18 +58,11 @@ export const CalendarInput = ({
     )
 
     const onChooseDate = (date, validationOptions) => {
-        // Handling clearing (with clicking the Clear button, or deleting input)
-        if (clearable && (date === null || date === '')) {
+        if (!date) {
             parentOnDateSelect?.({
                 calendarDateString: null,
                 validation: { valid: true },
             })
-            return
-        }
-
-        // ToDo: This is now a workaround for handling choosing from the date picker
-        // where the blur event gets triggered causing a call with undefined first
-        if (date === undefined) {
             return
         }
 
@@ -108,13 +100,12 @@ export const CalendarInput = ({
     }
 
     const handleBlur = (_, e) => {
-        onChooseDate(partialDate, validationOptions)
-        if (
-            excludeRef.current &&
-            !excludeRef.current.contains(e.relatedTarget)
-        ) {
-            setOpen(false)
+        if (e.relatedTarget && calendarRef.current?.contains(e.relatedTarget)) {
+            return
         }
+
+        onChooseDate(partialDate, validationOptions)
+        setOpen(false)
     }
 
     const onFocus = () => {
@@ -124,8 +115,8 @@ export const CalendarInput = ({
 
     const languageDirection = useResolvedDirection(dir, locale)
 
-    const calendarProps = useMemo(() => {
-        return {
+    const calendarProps = useMemo(
+        () => ({
             date,
             width,
             cellSize,
@@ -139,8 +130,9 @@ export const CalendarInput = ({
             prevMonth: pickerResults.prevMonth,
             prevYear: pickerResults.prevYear,
             languageDirection,
-        }
-    }, [cellSize, date, pickerResults, width, languageDirection])
+        }),
+        [cellSize, date, pickerResults, width, languageDirection]
+    )
 
     return (
         <>
@@ -171,9 +163,7 @@ export const CalendarInput = ({
                             dataTest="calendar-clear-button"
                             secondary
                             small
-                            onClick={() => {
-                                onChooseDate(null)
-                            }}
+                            onClick={() => onChooseDate(null)}
                             type="button"
                         >
                             {i18n.t('Clear')}
@@ -182,11 +172,7 @@ export const CalendarInput = ({
                 )}
             </div>
             {open && (
-                <Layer
-                    onBackdropClick={() => {
-                        setOpen(false)
-                    }}
-                >
+                <Layer onBackdropClick={() => setOpen(false)}>
                     <Popper
                         reference={ref}
                         placement="bottom-start"
@@ -195,8 +181,7 @@ export const CalendarInput = ({
                         <Card>
                             <CalendarContainer
                                 {...calendarProps}
-                                excludedRef={excludeRef}
-                                unfocusable
+                                calendarRef={calendarRef}
                             />
                         </Card>
                     </Popper>

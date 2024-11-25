@@ -23,8 +23,7 @@ export const CalendarContainer = React.memo(function CalendarContainer({
     prevMonth,
     prevYear,
     languageDirection,
-    excludedRef,
-    unfocusable = false,
+    calendarRef,
 }) {
     const navigationProps = useMemo(() => {
         return {
@@ -52,18 +51,14 @@ export const CalendarContainer = React.memo(function CalendarContainer({
                 dir={languageDirection}
                 data-test="calendar"
             >
-                <div ref={excludedRef}>
-                    <NavigationContainer
-                        {...navigationProps}
-                        unfocusable={unfocusable}
-                    />
+                <div ref={calendarRef}>
+                    <NavigationContainer {...navigationProps} />
                     <CalendarTable
                         selectedDate={date}
                         calendarWeekDays={calendarWeekDays}
                         weekDayLabels={weekDayLabels}
                         cellSize={cellSize}
                         width={width}
-                        unfocusable={unfocusable}
                     />
                 </div>
             </div>
@@ -90,7 +85,6 @@ export const CalendarContainer = React.memo(function CalendarContainer({
 CalendarContainer.propTypes = {
     /** the currently selected date using an iso-like format YYYY-MM-DD, in the calendar system provided (not iso8601) */
     date: PropTypes.string,
-    unfocusable: PropTypes.bool,
     ...CalendarTableProps,
     ...NavigationContainerProps,
 }

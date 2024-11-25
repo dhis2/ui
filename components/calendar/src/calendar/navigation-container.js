@@ -15,7 +15,6 @@ export const NavigationContainer = ({
     nextYear,
     prevMonth,
     prevYear,
-    unfocusable,
 }) => {
     const PreviousIcon =
         languageDirection === 'ltr' ? IconChevronLeft16 : IconChevronRight16
@@ -37,7 +36,6 @@ export const NavigationContainer = ({
                             data-test="calendar-previous-month"
                             aria-label={`${i18n.t(`Go to ${prevMonth.label}`)}`}
                             type="button"
-                            tabIndex={unfocusable ? -1 : 0}
                         >
                             <PreviousIcon />
                         </button>
@@ -52,7 +50,6 @@ export const NavigationContainer = ({
                             name="next-month"
                             aria-label={`${i18n.t(`Go to ${nextMonth.label}`)}`}
                             type="button"
-                            tabIndex={unfocusable ? -1 : 0}
                         >
                             <NextIcon />
                         </button>
@@ -65,7 +62,6 @@ export const NavigationContainer = ({
                             name="previous-year"
                             aria-label={`${i18n.t('Go to previous year')}`}
                             type="button"
-                            tabIndex={unfocusable ? -1 : 0}
                         >
                             <PreviousIcon />
                         </button>
@@ -84,7 +80,6 @@ export const NavigationContainer = ({
                             name="next-year"
                             aria-label={`${i18n.t('Go to next year')}`}
                             type="button"
-                            tabIndex={unfocusable ? -1 : 0}
                         >
                             <NextIcon />
                         </button>
@@ -180,7 +175,6 @@ export const NavigationContainerProps = {
         label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
         navigateTo: PropTypes.func,
     }),
-    unfocusable: PropTypes.bool,
 }
 
 NavigationContainer.propTypes = NavigationContainerProps
