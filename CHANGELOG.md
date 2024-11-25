@@ -1,3 +1,10 @@
+## [10.0.4](https://github.com/dhis2/ui/compare/v10.0.3...v10.0.4) (2024-11-25)
+
+
+### Bug Fixes
+
+* remove redundant wrapper object from onfocus and onblur callbacks ([#1637](https://github.com/dhis2/ui/issues/1637)) ([d259c09](https://github.com/dhis2/ui/commit/d259c097c70fd82568d28142162324c83706005d))
+
 ## [10.0.3](https://github.com/dhis2/ui/compare/v10.0.2...v10.0.3) (2024-11-25)
 
 
