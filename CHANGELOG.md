@@ -1,3 +1,10 @@
+## [10.0.3](https://github.com/dhis2/ui/compare/v10.0.2...v10.0.3) (2024-11-25)
+
+
+### Bug Fixes
+
+* **calendar:** prevent handleBlur triggering on empty input focus ([#1636](https://github.com/dhis2/ui/issues/1636)) ([32b57bc](https://github.com/dhis2/ui/commit/32b57bc5b33f9c0380ec8d611b0d506b73b845fc))
+
 ## [10.0.2](https://github.com/dhis2/ui/compare/v10.0.1...v10.0.2) (2024-11-24)
 
 
