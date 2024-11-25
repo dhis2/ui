@@ -80,6 +80,7 @@ import { MenuItem } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |active|boolean||||
+|ariaLabel|string|||By default, the label prop is used for the aria-label attribute on the<br/>underlying HTML element. If this prop is defined, it will be used as the<br/>aria-label instead|
 |checkbox|boolean||||
 |checked|boolean||||
 |chevron|boolean||||
@@ -91,7 +92,7 @@ import { MenuItem } from '@dhis2/ui'
 |disabled|boolean||||
 |href|string|||For using menu item as a link|
 |icon|node|||An icon for the left side of the menu item|
-|label|node|||Text in the menu item|
+|label|node|||Text in the menu item. If it's a string, will be used as aria-label|
 |showSubMenu|boolean|||When true, nested menu items are shown in a Popper|
 |suffix|node|||A supporting element shown at the end of the menu item|
 |tabIndex|number||||

@@ -1,3 +1,10 @@
+# [10.1.0](https://github.com/dhis2/ui/compare/v10.0.4...v10.1.0) (2024-11-25)
+
+
+### Features
+
+* **menu-item:** add ariaLabel prop to use if label prop is not a string ([#1638](https://github.com/dhis2/ui/issues/1638)) ([2c1c065](https://github.com/dhis2/ui/commit/2c1c065548841674cea1b6c3abf4da2e01de9083))
+
 ## [10.0.4](https://github.com/dhis2/ui/compare/v10.0.3...v10.0.4) (2024-11-25)
 
 
