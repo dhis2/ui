@@ -1,23 +1,17 @@
-import { colors } from '@dhis2/ui-constants'
+import { colors, spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export const SelectedValuePlaceholder = ({
-    placeholder,
-    className,
-    dataTest,
-}) => {
-    if (!placeholder) {
-        return null
-    }
-
+export function Prefix({ prefix, className, dataTest }) {
     return (
         <div className={className} data-test={dataTest}>
-            {placeholder}
+            {prefix}
 
             <style jsx>{`
                 div {
                     color: ${colors.grey600};
+                    padding-inline-end: ${spacers.dp12};
+                    font-size: 14px;
                     user-select: none;
                 }
             `}</style>
@@ -25,8 +19,8 @@ export const SelectedValuePlaceholder = ({
     )
 }
 
-SelectedValuePlaceholder.propTypes = {
+Prefix.propTypes = {
     dataTest: PropTypes.string.isRequired,
     className: PropTypes.string,
-    placeholder: PropTypes.string,
+    prefix: PropTypes.string,
 }

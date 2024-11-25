@@ -39,6 +39,8 @@ describe('<SingleSelectA11y/>', () => {
         cy.log(
             '**Then the first option on the currently displayed page is highlighted**'
         )
+        // For some reason, it takes a little time to change the highlighted  option
+        cy.wait(1)
         cy.findByRole('option', { selected: true })
             .invoke('attr', 'aria-label')
             .should('equal', 'Select option 70')
@@ -86,6 +88,8 @@ describe('<SingleSelectA11y/>', () => {
         cy.log(
             '**Then the first option on the currently displayed page is highlighted**'
         )
+        // For some reason, it takes a little time to change the highlighted  option
+        cy.wait(1)
         cy.findByRole('option', { selected: true })
             .invoke('attr', 'aria-label')
             .should('equal', 'Select option 16')
@@ -110,6 +114,8 @@ describe('<SingleSelectA11y/>', () => {
         })
 
         cy.log('**Then the first option on the previous page is highlighted**')
+        // For some reason, it takes a little time to change the highlighted  option
+        cy.wait(1)
         cy.findByRole('option', { selected: true })
             .invoke('attr', 'aria-label')
             .should('equal', 'Select option 61')
@@ -145,6 +151,8 @@ describe('<SingleSelectA11y/>', () => {
         })
 
         cy.log('**Then the first option on the previous page is highlighted**')
+        // For some reason, it takes a little time to change the highlighted  option
+        cy.wait(1)
         cy.findByRole('option', { selected: true })
             .invoke('attr', 'aria-label')
             .should('equal', 'Select option 16')
@@ -193,6 +201,8 @@ describe('<SingleSelectA11y/>', () => {
         })
 
         cy.log('**Then the first option is being highlighted**')
+        // For some reason, it takes a little time to change the highlighted  option
+        cy.wait(1)
         cy.all(
             () => cy.findAllByRole('option').invoke('get', 0),
             () => cy.findByRole('option', { selected: true }).invoke('get', 0)
@@ -237,6 +247,8 @@ describe('<SingleSelectA11y/>', () => {
         })
 
         cy.log('**Then the second option is being highlighted**')
+        // For some reason, it takes a little time to change the highlighted  option
+        cy.wait(1)
         cy.all(
             () => cy.findAllByRole('option').invoke('get', 1),
             () => cy.findByRole('option', { selected: true }).invoke('get', 0)
@@ -263,6 +275,8 @@ describe('<SingleSelectA11y/>', () => {
         cy.log(
             '**Then the last option on the currently displayed page is highlighted**'
         )
+        // For some reason, it takes a little time to change the highlighted  option
+        cy.wait(1)
         cy.all(
             () => cy.get('[role="option"]:visible').last().invoke('get', 0),
             () => cy.findByRole('option', { selected: true }).invoke('get', 0)
@@ -299,6 +313,9 @@ describe('<SingleSelectA11y/>', () => {
             force: true,
         })
 
+        // For some reason, it takes a little time to change the highlighted  option
+        cy.wait(1)
+
         cy.log(
             '**Then the first enabled option after last option on the currently displayed page is highlighted**'
         )
@@ -309,14 +326,10 @@ describe('<SingleSelectA11y/>', () => {
             expect(highlightedOption).to.equal(eighteensOptions)
         })
 
-        // For some reason, without the timeout,
-        // cypress will still get the previously visible page
-        // when using the `:visible` pseudo-selector
-        cy.wait(0)
-
         cy.log(
             '**And the first enabled option after last option on the currently displayed page is the first visible option**'
         )
+
         cy.all(
             () => cy.get('[role="option"]:visible').invoke('get', 0),
             () => cy.findByRole('option', { selected: true }).invoke('get', 0)
@@ -467,13 +480,14 @@ describe('<SingleSelectA11y/>', () => {
             )
             for (
                 let i = 0;
-                i < 11; // This will bring us to the second last option exactly
+                i < 98; // This will bring us to the second last option exactly
                 ++i
             ) {
                 cy.findByRole('combobox').trigger('keydown', {
-                    key: 'PageDown',
+                    key: 'ArrowDown',
                     force: true,
                 })
+                cy.wait(1)
             }
             cy.findAllByRole('option').eq(98).should('be.visible')
 
@@ -487,6 +501,8 @@ describe('<SingleSelectA11y/>', () => {
             })
 
             cy.log('**Then the last option is highlighted**')
+            // For some reason, it takes a little time to change the highlighted  option
+            cy.wait(1)
             cy.all(
                 () => cy.findAllByRole('option').last().invoke('get', 0),
                 () =>
@@ -540,6 +556,8 @@ describe('<SingleSelectA11y/>', () => {
             })
 
             cy.log('**Then the last option is highlighted**')
+            // For some reason, it takes a little time to change the highlighted  option
+            cy.wait(1)
             cy.all(
                 () => cy.findAllByRole('option').invoke('get', 98),
                 () =>

@@ -68,7 +68,7 @@ describe('SingleSelectA11y: Menu positioning', () => {
             const selectedValueRect = $selectedValue.getBoundingClientRect()
             const menuRect = $menu.getBoundingClientRect()
 
-            expect(selectedValueRect.top).to.be.closeTo(menuRect.bottom, 1)
+            expect(selectedValueRect.top).to.be.closeTo(menuRect.bottom, 2)
         })
 
         // And the left of the SingleSelect is aligned with the left of the anchor

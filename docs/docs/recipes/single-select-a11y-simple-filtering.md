@@ -27,6 +27,7 @@ Consider the following options:
 
 ```js
 const options = [
+    { label: 'No selection', value: '' },
     { label: 'ANC 1st visit', value: 'anc_1st_visit' },
     { label: 'ANC 2nd visit', value: 'anc_2nd_visit' },
     { label: 'ARI treated follow-up', value: 'ari_treated_follow-up' },
@@ -69,19 +70,6 @@ const filteredOptions = useMemo(
 )
 ```
 
-Normally the select component will extract the label of a selected option
-from the options array so it can display the currently selected option.
-When filtering, that option might not be present if the filtered array,
-so we'll have to make sure we can tell the select component what the label is:
-
-```js
-// We have to default to an empty string in case there is no selection
-// and the options array does not include an "empty"-option,
-// e.g. `{ value: '', label: 'None' }`
-const valueLabel =
-    options.find((option) => option.value === value)?.label || 'No selection'
-```
-
 Now all necessary parts are available to create a simple searchable select:
 
 ```jsx
@@ -110,7 +98,10 @@ function filterOptions(options, searchTerm) {
 
 export const SimpleFilterSelect = () => {
     // Handle actual value changes
-    const [value, setValue] = useState('')
+    const [selected, setSelected] = useState({
+        value: '',
+        label: 'No selection',
+    })
 
     // Handle filtering
     const [searchTerm, setSearchTerm] = useState('')
@@ -119,22 +110,14 @@ export const SimpleFilterSelect = () => {
         [options, searchTerm]
     )
 
-    // We have to default to an empty string in case there is no selection
-    // and the options array does not include an "empty"-option,
-    // e.g. `{ value: '', label: 'None' }`
-    const valueLabel =
-        options.find((option) => option.value === value)?.label ||
-        'No selection'
-
     return (
         <SingleSelectA11y
             filterable
             filterValue={searchTerm}
-            idPrefix="a11y"
+            name="a11y"
             options={filteredOptions}
-            value={value}
-            valueLabel={valueLabel}
-            onChange={setValue}
+            selected={selected}
+            onChange={setSelected}
             onFilterChange={setSearchTerm}
         />
     )

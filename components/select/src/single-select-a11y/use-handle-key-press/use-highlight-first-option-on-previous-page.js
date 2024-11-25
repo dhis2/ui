@@ -1,5 +1,4 @@
 import { useCallback } from 'react'
-import { isOptionHidden } from '../is-option-hidden.js'
 
 export function useHighlightFirstOptionOnPreviousPage({
     options,
@@ -10,9 +9,9 @@ export function useHighlightFirstOptionOnPreviousPage({
     return useCallback(() => {
         const listBoxParent = listBoxRef.current.parentNode
         const optionElements = Array.from(listBoxRef.current.childNodes)
-        const visibleOptionsAmount = optionElements.filter(
-            (optionElement) => !isOptionHidden(optionElement, listBoxParent)
-        ).length
+        const visibleOptionsAmount = Math.floor(
+            listBoxParent.offsetHeight / optionElements[0].offsetHeight
+        )
 
         const nextTopOptionIndex = Math.max(
             0,

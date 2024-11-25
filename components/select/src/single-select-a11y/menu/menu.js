@@ -1,23 +1,22 @@
 import { colors, elevations } from '@dhis2/ui-constants'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
-import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import { optionProp } from '../shared-prop-types.js'
 import { Empty } from './empty.js'
-import { MenuFilter } from './menu-filter.js'
-import { MenuLoading } from './menu-loading.js'
-import { MenuOptionsList } from './menu-options-list.js'
+import { Filter } from './filter.js'
+import { Loading } from './loading.js'
 import { NoMatch } from './no-match.js'
+import { OptionsList } from './options-list.js'
 
 export function Menu({
     comboBoxId,
     focussedOptionIndex,
-    idPrefix,
+    name,
     options,
     onChange,
-    customOption,
+    optionComponent,
     dataTest,
     disabled,
     empty,
@@ -34,7 +33,7 @@ export function Menu({
     noMatchText,
     optionUpdateStrategy,
     selectRef,
-    selected,
+    selectedValue,
     tabIndex,
     onBlur,
     onClose,
@@ -42,12 +41,12 @@ export function Menu({
     onFilterChange,
     onFilterInputKeyDown,
 }) {
-    const [menuWidth, setMenuWidth] = useState('auto')
+    const [menuWidth, setWidth] = useState('auto')
     const dataTestPrefix = `${dataTest}-menu`
 
     useEffect(() => {
         if (selectRef) {
-            const callback = () => setMenuWidth(`${selectRef.offsetWidth}px`)
+            const callback = () => setWidth(`${selectRef.offsetWidth}px`)
             callback() // We want to know the width as soon as the
 
             selectRef.addEventListener('resize', callback)
@@ -75,17 +74,14 @@ export function Menu({
                 placement="bottom-start"
                 observeReferenceResize
             >
-                <div
-                    className={cx('menu', { hidden })}
-                    style={{ width: menuWidth, maxHeight }}
-                >
+                <div className="menu" style={{ width: menuWidth, maxHeight }}>
                     {filterable && (
                         <div className="filter-container">
-                            <MenuFilter
-                                idPrefix={idPrefix}
+                            <Filter
                                 dataTest={`${dataTestPrefix}-filter`}
                                 value={filterValue}
                                 label={filterLabel}
+                                ariaControls={`${name}-listbox`}
                                 placeholder={filterPlaceholder}
                                 tabIndex={tabIndex}
                                 onChange={onFilterChange}
@@ -98,26 +94,21 @@ export function Menu({
 
                     {hasNoFilterMatch && <NoMatch>{noMatchText}</NoMatch>}
 
-                    <div
-                        className={cx('listbox-container', {
-                            'no-options': !options.length,
-                        })}
-                    >
+                    <div className="listbox-container">
                         <div className="listbox-wrapper">
-                            <MenuOptionsList
+                            <OptionsList
                                 ref={listBoxRef}
                                 comboBoxId={comboBoxId}
-                                customOption={customOption}
+                                optionComponent={optionComponent}
                                 dataTest={`${dataTestPrefix}-list`}
                                 disabled={disabled}
-                                expanded={!hidden}
                                 focussedOptionIndex={focussedOptionIndex}
-                                idPrefix={idPrefix}
                                 labelledBy={labelledBy}
                                 loading={loading}
+                                id={`${name}-listbox`}
                                 optionUpdateStrategy={optionUpdateStrategy}
                                 options={options}
-                                selected={selected}
+                                selectedValue={selectedValue}
                                 onBlur={onBlur}
                                 onChange={onChange}
                                 onEndReached={onEndReached}
@@ -126,7 +117,7 @@ export function Menu({
 
                         {loading && (
                             <div className="menu-loading-container">
-                                <MenuLoading message={loadingText} />
+                                <Loading message={loadingText} />
                             </div>
                         )}
                     </div>
@@ -154,12 +145,6 @@ export function Menu({
                             overflow: hidden;
                         }
 
-                        .no-options {
-                            // @TODO: What should this value be?
-                            // Ask Joe
-                            height: 50px;
-                        }
-
                         .listbox-wrapper {
                             overflow: auto;
                             flex-grow: 1;
@@ -182,13 +167,12 @@ export function Menu({
 Menu.propTypes = {
     comboBoxId: PropTypes.string.isRequired,
     focussedOptionIndex: PropTypes.number.isRequired,
-    idPrefix: PropTypes.string.isRequired,
     listBoxRef: PropTypes.shape({
         current: PropTypes.instanceOf(HTMLElement),
     }).isRequired,
+    name: PropTypes.string.isRequired,
     options: PropTypes.arrayOf(optionProp).isRequired,
     onChange: PropTypes.func.isRequired,
-    customOption: PropTypes.elementType,
     dataTest: PropTypes.string,
     disabled: PropTypes.bool,
     empty: PropTypes.node,
@@ -202,9 +186,10 @@ Menu.propTypes = {
     loadingText: PropTypes.string,
     maxHeight: PropTypes.string,
     noMatchText: PropTypes.string,
+    optionComponent: PropTypes.elementType,
     optionUpdateStrategy: PropTypes.oneOf(['off', 'polite', 'assertive']),
     selectRef: PropTypes.instanceOf(HTMLElement),
-    selected: PropTypes.string,
+    selectedValue: PropTypes.string,
     tabIndex: PropTypes.string,
     onBlur: PropTypes.func,
     onClose: PropTypes.func,

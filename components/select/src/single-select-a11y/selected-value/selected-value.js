@@ -1,16 +1,16 @@
 import { IconChevronDown16 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { SelectedValueClearButton } from './selected-value-clear-button.js'
-import { SelectedValueContainer } from './selected-value-container.js'
-import { SelectedValuePlaceholder } from './selected-value-placeholder.js'
-import { SelectedValuePrefix } from './selected-value-prefix.js'
+import { ClearButton } from './clear-button.js'
+import { Container } from './container.js'
+import { Placeholder } from './placeholder.js'
+import { Prefix } from './prefix.js'
 
 export function SelectedValue({
     clearText,
     comboBoxId,
-    idPrefix,
-    valueLabel,
+    name,
+    selectedLabel,
     onKeyDown,
     autoFocus,
     clearable,
@@ -21,6 +21,7 @@ export function SelectedValue({
     error,
     expanded,
     hasSelection,
+    inputMaxHeight,
     labelledBy,
     placeholder,
     prefix,
@@ -32,22 +33,20 @@ export function SelectedValue({
     onClick,
     onFocus,
 }) {
-    // @TODO
-    const inputMaxHeight = '300px'
     const dataTestPrefix = `${dataTest}-selectedvalue`
 
     return (
-        <SelectedValueContainer
+        <Container
             dataTest={`${dataTestPrefix}-container`}
             ref={comboBoxRef}
             comboBoxId={comboBoxId}
-            idPrefix={idPrefix}
             autoFocus={autoFocus}
             dense={dense}
             disabled={disabled}
             error={error}
             expanded={expanded}
             labelledBy={labelledBy}
+            name={name}
             placeholder={placeholder}
             tabIndex={tabIndex}
             valid={valid}
@@ -58,26 +57,23 @@ export function SelectedValue({
             onKeyDown={onKeyDown}
         >
             {prefix && (
-                <SelectedValuePrefix
-                    dataTest={`${dataTestPrefix}-prefix`}
-                    prefix={prefix}
-                />
+                <Prefix dataTest={`${dataTestPrefix}-prefix`} prefix={prefix} />
             )}
 
             <div className="selected-option-label">
-                {!valueLabel && !prefix && (
-                    <SelectedValuePlaceholder
+                {!selectedLabel && !prefix && placeholder && (
+                    <Placeholder
                         dataTest={`${dataTestPrefix}-placeholder`}
                         placeholder={placeholder}
                     />
                 )}
 
-                {valueLabel}
+                {selectedLabel}
             </div>
 
             {hasSelection && clearable && !disabled && (
                 <div className="clear-button-container">
-                    <SelectedValueClearButton
+                    <ClearButton
                         clearText={clearText}
                         dataTest={`${dataTestPrefix}-clear`}
                         onClear={onClear}
@@ -114,15 +110,15 @@ export function SelectedValue({
                     border: 0;
                 }
             `}</style>
-        </SelectedValueContainer>
+        </Container>
     )
 }
 
 SelectedValue.propTypes = {
     clearText: PropTypes.string.isRequired,
     comboBoxId: PropTypes.string.isRequired,
-    idPrefix: PropTypes.string.isRequired,
-    valueLabel: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    selectedLabel: PropTypes.string.isRequired,
     onKeyDown: PropTypes.func.isRequired,
     autoFocus: PropTypes.bool,
     clearable: PropTypes.bool,
@@ -135,6 +131,7 @@ SelectedValue.propTypes = {
     error: PropTypes.bool,
     expanded: PropTypes.bool,
     hasSelection: PropTypes.bool,
+    inputMaxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     labelledBy: PropTypes.string,
     placeholder: PropTypes.string,
     prefix: PropTypes.string,

@@ -12,14 +12,14 @@ export function SingleSelectA11yField(props) {
         disabled,
         error,
         helpText,
-        idPrefix,
         label,
+        name,
         required,
         valid,
         validationText,
         warning,
     } = props
-    const labelId = `${idPrefix}-label`
+    const labelId = `${name}-label`
 
     return (
         <Field
@@ -41,11 +41,11 @@ export function SingleSelectA11yField(props) {
 }
 
 SingleSelectA11yField.propTypes = {
-    /** necessary for IDs that are required for accessibility **/
-    idPrefix: PropTypes.string.isRequired,
-
     /** Label displayed above the input **/
     label: PropTypes.string.isRequired,
+
+    /** necessary for IDs that are required for accessibility **/
+    name: PropTypes.string.isRequired,
 
     /** An array of options **/
     options: PropTypes.arrayOf(optionProp).isRequired,
@@ -64,10 +64,6 @@ SingleSelectA11yField.propTypes = {
 
     /** Whether a clear button should be displayed or not **/
     clearable: PropTypes.bool,
-
-    /** Allows to override what's rendered inside the `button[role="option"]`.
-     * Can be overriden on an individual option basis **/
-    customOption: PropTypes.elementType,
 
     /** A value for a `data-test` attribute on the root element **/
     dataTest: PropTypes.string,
@@ -113,6 +109,10 @@ SingleSelectA11yField.propTypes = {
 
     /** String that will be displayed when the select is being filtered but the options array is empty **/
     noMatchText: requiredIf((props) => props.filterable, PropTypes.string),
+
+    /** Allows to override what's rendered inside the `button[role="option"]`.
+     * Can be overriden on an individual option basis **/
+    optionComponent: PropTypes.elementType,
 
     /** For a11y: How aggressively the user should be updated about changes in options **/
     optionUpdateStrategy: PropTypes.oneOf(['off', 'polite', 'assertive']),

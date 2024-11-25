@@ -28,6 +28,7 @@ export const SingleSelectA11yFieldFF = ({
     return (
         <SingleSelectA11yField
             {...rest}
+            name={input.name}
             error={hasError(meta, error)}
             valid={isValid(meta, valid, showValidStatus)}
             loading={isLoading(meta, loading, showLoadingStatus)}
@@ -41,9 +42,6 @@ export const SingleSelectA11yFieldFF = ({
 }
 
 SingleSelectA11yFieldFF.propTypes = {
-    /** necessary for IDs that are required for accessibility **/
-    idPrefix: PropTypes.string.isRequired,
-
     /** `input` props received from Final Form `Field` */
     input: inputPropType.isRequired,
 
@@ -71,10 +69,6 @@ SingleSelectA11yFieldFF.propTypes = {
 
     /** Whether a clear button should be displayed or not **/
     clearable: PropTypes.bool,
-
-    /** Allows to override what's rendered inside the `button[role="option"]`.
-     * Can be overriden on an individual option basis **/
-    customOption: PropTypes.elementType,
 
     /** A value for a `data-test` attribute on the root element **/
     dataTest: PropTypes.string,
@@ -120,6 +114,10 @@ SingleSelectA11yFieldFF.propTypes = {
 
     /** String that will be displayed when the select is being filtered but the options array is empty **/
     noMatchText: requiredIf((props) => props.filterable, PropTypes.string),
+
+    /** Allows to override what's rendered inside the `button[role="option"]`.
+     * Can be overriden on an individual option basis **/
+    optionComponent: PropTypes.elementType,
 
     /** For a11y: How aggressively the user should be updated about changes in options **/
     optionUpdateStrategy: PropTypes.oneOf(['off', 'polite', 'assertive']),

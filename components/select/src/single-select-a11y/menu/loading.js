@@ -3,7 +3,7 @@ import { CircularLoader } from '@dhis2-ui/loader'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export function MenuLoading({ message }) {
+export function Loading({ message }) {
     return (
         <div className="container">
             <div>
@@ -33,6 +33,6 @@ export function MenuLoading({ message }) {
     )
 }
 
-MenuLoading.propTypes = {
+Loading.propTypes = {
     message: PropTypes.string,
 }

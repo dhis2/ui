@@ -8,7 +8,7 @@ import { Menu } from './menu/index.js'
 import { SelectedValue } from './selected-value/index.js'
 import { optionProp } from './shared-prop-types.js'
 import {
-    useHandleKeyPress,
+    useHandleKeyPressOnCombobox,
     useHandleKeyPressOnFilterInput,
 } from './use-handle-key-press/index.js'
 
@@ -53,14 +53,14 @@ function useFocussedOptionIndex({ filterable, filterValue, options }) {
 }
 
 export function SingleSelectA11y({
+    name,
     options,
-    idPrefix,
     onChange,
     autoFocus = false,
     className = '',
     clearText: _clearText = '',
     clearable = false,
-    customOption = undefined,
+    optionComponent = undefined,
     dataTest = 'dhis2-singleselecta11y',
     dense = false,
     disabled = false,
@@ -71,6 +71,7 @@ export function SingleSelectA11y({
     filterPlaceholder: _filterPlaceholder = '',
     filterValue = '',
     filterable = false,
+    inputMaxHeight = '',
     labelledBy = '',
     loading = false,
     menuLoadingText: _menuLoadingText = '',
@@ -79,12 +80,12 @@ export function SingleSelectA11y({
     optionUpdateStrategy = 'polite',
     placeholder = '',
     prefix = '',
+    selected = { label: '', value: '' },
     tabIndex = '0',
     valid = false,
-    value = '',
     warning = false,
-    valueLabel: _valueLabel = '',
     onBlur = () => undefined,
+    onClear = () => undefined,
     onEndReached = () => undefined,
     onFilterChange = () => undefined,
     onFocus = () => undefined,
@@ -98,23 +99,7 @@ export function SingleSelectA11y({
     const menuLoadingText = _menuLoadingText || i18n.t('Loading options')
     const noMatchText = _noMatchText || i18n.t('No options found')
 
-    const comboBoxId = `${idPrefix}-combo`
-    const valueLabel =
-        _valueLabel ||
-        options.find((option) => option.value === value)?.label ||
-        ''
-
-    if (
-        value &&
-        !valueLabel &&
-        options.length &&
-        !options.find((option) => option.value === '') &&
-        !placeholder
-    ) {
-        throw new Error(
-            'You must either provide a "valueLabel" or include an empty option in the options array'
-        )
-    }
+    const comboBoxId = `${name}-combo`
 
     const comboBoxRef = useRef()
     const listBoxRef = useRef()
@@ -128,16 +113,20 @@ export function SingleSelectA11y({
     const [selectRef, setSelectRef] = useState()
     const [expanded, setExpanded] = useState(false)
     const closeMenu = useCallback(() => setExpanded(false), [])
+
+    const selectedValue = selected?.value || ''
+    const selectedLabel = selected?.label || ''
     const openMenu = useCallback(() => {
         const selectedOptionIndex = options.findIndex(
-            (option) => option.value === value
+            (option) => option.value === selectedValue
         )
         if (selectedOptionIndex !== focussedOptionIndex) {
             setFocussedOptionIndex(selectedOptionIndex)
         }
 
         setExpanded(true)
-    }, [options, value, focussedOptionIndex, setFocussedOptionIndex])
+    }, [options, selectedValue, focussedOptionIndex, setFocussedOptionIndex])
+
     const toggleMenu = useCallback(() => {
         if (expanded) {
             closeMenu()
@@ -150,7 +139,7 @@ export function SingleSelectA11y({
         const option = options[focussedOptionIndex]
 
         if (option) {
-            onChange(option.value)
+            onChange(option)
         }
     }, [focussedOptionIndex, options, onChange])
 
@@ -159,8 +148,8 @@ export function SingleSelectA11y({
         [comboBoxRef]
     )
 
-    const handleKeyDown = useHandleKeyPress({
-        value,
+    const handleKeyDown = useHandleKeyPressOnCombobox({
+        value: selectedValue,
         disabled,
         onChange,
         expanded,
@@ -175,7 +164,7 @@ export function SingleSelectA11y({
     })
 
     const handleKeyDownOnFilterInput = useHandleKeyPressOnFilterInput({
-        value,
+        value: selectedValue,
         options,
         loading,
         closeMenu,
@@ -217,19 +206,18 @@ export function SingleSelectA11y({
                 disabled={disabled}
                 error={error}
                 expanded={expanded}
-                hasSelection={!!value}
-                idPrefix={idPrefix}
+                hasSelection={!!selectedValue}
+                inputMaxHeight={inputMaxHeight}
                 labelledBy={labelledBy}
-                options={options}
+                name={name}
                 placeholder={placeholder}
                 prefix={prefix}
                 tabIndex={tabIndex.toString()}
-                value={value}
                 warning={warning}
                 valid={valid}
-                valueLabel={valueLabel}
+                selectedLabel={selectedLabel}
                 onBlur={onBlur}
-                onClear={() => onChange('')}
+                onClear={onClear}
                 onClick={toggleMenu}
                 onFocus={onFocus}
                 onKeyDown={handleKeyDown}
@@ -237,7 +225,7 @@ export function SingleSelectA11y({
 
             <Menu
                 comboBoxId={comboBoxId}
-                customOption={customOption}
+                optionComponent={optionComponent}
                 disabled={disabled}
                 empty={empty}
                 filterHelpText={filterHelpText}
@@ -248,7 +236,7 @@ export function SingleSelectA11y({
                 focussedOptionIndex={focussedOptionIndex}
                 onFilterInputKeyDown={handleKeyDownOnFilterInput}
                 hidden={!expanded}
-                idPrefix={idPrefix}
+                name={name}
                 labelledBy={labelledBy}
                 listBoxRef={listBoxRef}
                 loading={loading}
@@ -258,7 +246,7 @@ export function SingleSelectA11y({
                 optionUpdateStrategy={optionUpdateStrategy}
                 options={options}
                 selectRef={selectRef}
-                selected={value}
+                selectedValue={selectedValue}
                 tabIndex={tabIndex.toString()}
                 onBlur={onBlur}
                 onChange={(nextValue) => {
@@ -275,7 +263,7 @@ export function SingleSelectA11y({
 
 SingleSelectA11y.propTypes = {
     /** necessary for IDs that are required for accessibility **/
-    idPrefix: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
 
     /** An array of options **/
     options: PropTypes.arrayOf(optionProp).isRequired,
@@ -294,10 +282,6 @@ SingleSelectA11y.propTypes = {
 
     /** Whether a clear button should be displayed or not **/
     clearable: PropTypes.bool,
-
-    /** Allows to override what's rendered inside the `button[role="option"]`.
-     * Can be overriden on an individual option basis **/
-    customOption: PropTypes.elementType,
 
     /** A value for a `data-test` attribute on the root element **/
     dataTest: PropTypes.string,
@@ -329,6 +313,9 @@ SingleSelectA11y.propTypes = {
     /** Whether the select should display a filter input **/
     filterable: PropTypes.bool,
 
+    /** Max height of the container displaying the selected value **/
+    inputMaxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
     /** Should contain the id of the element that labels the select, if applicable **/
     labelledBy: PropTypes.string,
 
@@ -344,14 +331,23 @@ SingleSelectA11y.propTypes = {
     /** String that will be displayed when the select is being filtered but the options array is empty **/
     noMatchText: requiredIf((props) => props.filterable, PropTypes.string),
 
+    /** Allows to override what's rendered inside the `button[role="option"]`.
+     * Can be overriden on an individual option basis **/
+    optionComponent: PropTypes.elementType,
+
     /** For a11y: How aggressively the user should be updated about changes in options **/
     optionUpdateStrategy: PropTypes.oneOf(['off', 'polite', 'assertive']),
 
-    /** String to show when there's no value and no valueLabel **/
+    /** String to show when there's no selected option **/
     placeholder: PropTypes.string,
 
     /** String that will be displayed before the label of the selected option **/
     prefix: PropTypes.string,
+
+    selected: PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        value: PropTypes.string.isRequired,
+    }),
 
     /** Standard HTML tab-index attribute that will be put on the combobox's root element **/
     tabIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -359,27 +355,14 @@ SingleSelectA11y.propTypes = {
     /** Applies 'valid' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props **/
     valid: sharedPropTypes.statusPropType,
 
-    /** As of now, this component does not support being uncontrolled **/
-    value: PropTypes.string,
-
-    /**
-     * When the option is not in the options list (e.g. not loaded or list is
-     * filtered), but a selected value needs to be displayed, then this prop can
-     * be used to supply the text to be shown.
-     **/
-    valueLabel: requiredIf((props) => {
-        if (props.options.find(({ value }) => props.value === value)) {
-            return false
-        }
-
-        return props.value
-    }, PropTypes.string),
-
     /** Applies 'warning' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props **/
     warning: sharedPropTypes.statusPropType,
 
     /** Will be called when the combobox is loses focus **/
     onBlur: PropTypes.func,
+
+    /** Will be called when the combobox is loses focus **/
+    onClear: PropTypes.func,
 
     /** Will be called when the last option is scrolled into the visible area **/
     onEndReached: PropTypes.func,

@@ -59,7 +59,7 @@ const CustomOption = ({ label }) => (
 )
 
 export const WithCustomOptions = () => {
-    const [value, setValue] = useState('')
+    const [selected, setSelected] = useState(null)
     const optionsWithCustomStyle = useMemo(() => {
         return options.slice(0, 3).map((option) => ({
             ...option,
@@ -69,14 +69,9 @@ export const WithCustomOptions = () => {
 
     return (
         <SingleSelectA11y
-            idPrefix="a11y"
-            value={value}
-            valueLabel={
-                value
-                    ? options.find((option) => option.value === value).label
-                    : ''
-            }
-            onChange={(nextValue) => setValue(nextValue)}
+            name="a11y"
+            selected={selected}
+            onChange={setSelected}
             options={optionsWithCustomStyle}
         />
     )

@@ -21,7 +21,7 @@ describe('<SingleSelectA11yField />', () => {
 
     it('should forward props to the SingleSelectA11y component', () => {
         const options = []
-        const customOption = () => null
+        const optionComponent = () => null
         const onChange = () => null
         const onBlur = () => null
         const onEndReached = () => null
@@ -32,14 +32,14 @@ describe('<SingleSelectA11yField />', () => {
             <SingleSelectA11yField
                 label="Label text"
                 // Props that'll be passed to SingleSelectA11y
-                idPrefix="foo"
+                name="foo"
                 options={options}
                 onChange={onChange}
                 autoFocus={false}
                 className=""
                 clearText=""
                 clearable={false}
-                customOption={customOption}
+                optionComponent={optionComponent}
                 dataTest=""
                 dense={false}
                 disabled={false}
@@ -67,15 +67,15 @@ describe('<SingleSelectA11yField />', () => {
             />
         )
 
-        expect(SingleSelectA11y.mock.calls[0][0].idPrefix).toBe('foo')
+        expect(SingleSelectA11y.mock.calls[0][0].name).toBe('foo')
         expect(SingleSelectA11y.mock.calls[0][0].options).toBe(options)
         expect(SingleSelectA11y.mock.calls[0][0].onChange).toBe(onChange)
         expect(SingleSelectA11y.mock.calls[0][0].autoFocus).toBe(false)
         expect(SingleSelectA11y.mock.calls[0][0].className).toBe('')
         expect(SingleSelectA11y.mock.calls[0][0].clearText).toBe('')
         expect(SingleSelectA11y.mock.calls[0][0].clearable).toBe(false)
-        expect(SingleSelectA11y.mock.calls[0][0].customOption).toBe(
-            customOption
+        expect(SingleSelectA11y.mock.calls[0][0].optionComponent).toBe(
+            optionComponent
         )
         expect(SingleSelectA11y.mock.calls[0][0].dataTest).toBe('')
         expect(SingleSelectA11y.mock.calls[0][0].dense).toBe(false)
@@ -122,7 +122,7 @@ describe('<SingleSelectA11yField />', () => {
                 validationText="Validation text"
                 valid={true}
                 // Props required by SingleSelectA11y
-                idPrefix="foo"
+                name="foo"
                 options={[]}
                 onChange={() => null}
             />

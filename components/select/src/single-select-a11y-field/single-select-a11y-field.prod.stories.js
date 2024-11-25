@@ -40,7 +40,7 @@ export const Default = () => {
 
     return (
         <SingleSelectA11yField
-            idPrefix="a11y"
+            name="a11y"
             label="This is the label"
             value={value}
             valueLabel={valueLabel}
@@ -58,7 +58,7 @@ export const WithHelpText = () => {
 
     return (
         <SingleSelectA11yField
-            idPrefix="a11y"
+            name="a11y"
             label="This is the label"
             helpText="This is the help text"
             value={value}
@@ -78,7 +78,7 @@ export const StatusValid = () => {
     return (
         <SingleSelectA11yField
             valid
-            idPrefix="a11y"
+            name="a11y"
             label="This is the label"
             value={value}
             valueLabel={valueLabel}
@@ -98,7 +98,7 @@ export const StatusWarning = () => {
     return (
         <SingleSelectA11yField
             warning
-            idPrefix="a11y"
+            name="a11y"
             label="This is the label"
             value={value}
             valueLabel={valueLabel}
@@ -118,7 +118,7 @@ export const StatusError = () => {
     return (
         <SingleSelectA11yField
             error
-            idPrefix="a11y"
+            name="a11y"
             label="This is the label"
             value={value}
             valueLabel={valueLabel}
@@ -138,7 +138,7 @@ export const StatusDisabled = () => {
     return (
         <SingleSelectA11yField
             disabled
-            idPrefix="a11y"
+            name="a11y"
             label="This is the label"
             value={value}
             valueLabel={valueLabel}
@@ -157,7 +157,7 @@ export const Required = () => {
     return (
         <SingleSelectA11yField
             required
-            idPrefix="a11y"
+            name="a11y"
             label="This is the label"
             value={value}
             valueLabel={valueLabel}
@@ -176,7 +176,7 @@ export const InputWidth = () => {
     return (
         <div style={{ width: 200 }}>
             <SingleSelectA11yField
-                idPrefix="a11y"
+                name="a11y"
                 label="A very long label indeed, well at least longer than the input field to show how it looks and works and stuff"
                 value={value}
                 valueLabel={valueLabel}

@@ -50,7 +50,10 @@ export function useHandleTyping({
                     setFocussedOptionIndex(optionIndex)
                 } else {
                     const nextSelectedOption = options[optionIndex]
-                    onChange(nextSelectedOption.value)
+                    onChange({
+                        label: nextSelectedOption.label,
+                        value: nextSelectedOption.value,
+                    })
                 }
             }
         }

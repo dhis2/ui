@@ -4,17 +4,16 @@ import { isOptionHidden } from '../is-option-hidden.js'
 import { optionProp } from '../shared-prop-types.js'
 import { Option } from './option.js'
 
-export const MenuOptionsList = forwardRef(function MenuOptionsList(
+export const OptionsList = forwardRef(function OptionsList(
     {
         comboBoxId,
-        customOption,
-        expanded,
+        optionComponent,
         focussedOptionIndex,
-        idPrefix,
+        id,
         labelledBy,
         optionUpdateStrategy,
         options,
-        selected,
+        selectedValue,
         dataTest,
         disabled,
         loading,
@@ -29,9 +28,7 @@ export const MenuOptionsList = forwardRef(function MenuOptionsList(
     // * the menu opens
     useEffect(() => {
         const { current: listBox } = ref
-        const highlightedOption = expanded
-            ? listBox.childNodes[focussedOptionIndex]
-            : null
+        const highlightedOption = listBox.childNodes[focussedOptionIndex]
 
         if (highlightedOption) {
             const listBoxParent = listBox.parentNode
@@ -44,13 +41,13 @@ export const MenuOptionsList = forwardRef(function MenuOptionsList(
                 highlightedOption.scrollIntoView()
             }
         }
-    }, [expanded, focussedOptionIndex, ref])
+    }, [focussedOptionIndex, ref])
 
     return (
         <div
             ref={ref}
             role="listbox"
-            id={`${idPrefix}-listbox`}
+            id={id}
             aria-labelledby={labelledBy}
             aria-live={optionUpdateStrategy}
             aria-busy={loading.toString()}
@@ -67,7 +64,7 @@ export const MenuOptionsList = forwardRef(function MenuOptionsList(
                     },
                     index
                 ) => {
-                    const isSelected = value === selected
+                    const isSelected = value === selectedValue
                     const isLast = index === options.length - 1
 
                     return (
@@ -82,7 +79,7 @@ export const MenuOptionsList = forwardRef(function MenuOptionsList(
                             comboBoxId={comboBoxId}
                             disabled={disabled || optionDisabled}
                             onClick={isSelected ? () => null : onChange}
-                            component={component || customOption}
+                            component={component || optionComponent}
                             onBecameVisible={isLast ? onEndReached : undefined}
                         />
                     )
@@ -92,20 +89,19 @@ export const MenuOptionsList = forwardRef(function MenuOptionsList(
     )
 })
 
-MenuOptionsList.propTypes = {
+OptionsList.propTypes = {
     comboBoxId: PropTypes.string.isRequired,
-    expanded: PropTypes.bool.isRequired,
     focussedOptionIndex: PropTypes.number.isRequired,
-    idPrefix: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
     options: PropTypes.arrayOf(optionProp).isRequired,
     onChange: PropTypes.func.isRequired,
-    customOption: PropTypes.elementType,
     dataTest: PropTypes.string,
     disabled: PropTypes.bool,
     labelledBy: PropTypes.string,
     loading: PropTypes.bool,
+    optionComponent: PropTypes.elementType,
     optionUpdateStrategy: PropTypes.oneOf(['off', 'polite', 'assertive']),
-    selected: PropTypes.string,
+    selectedValue: PropTypes.string,
     onBlur: PropTypes.func,
     onEndReached: PropTypes.func,
 }

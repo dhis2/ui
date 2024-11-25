@@ -6,9 +6,8 @@ export const Loading = () => {
     return (
         <SingleSelectA11y
             loading
-            idPrefix="a11y"
-            value=""
-            valueLabel=""
+            name="a11y"
+            selected={null}
             onChange={() => null}
             options={options}
         />

@@ -3,7 +3,7 @@ import { SingleSelectA11y } from '../single-select-a11y.js'
 import { options } from './options.js'
 
 export const WithFilterField = () => {
-    const [value, setValue] = useState('')
+    const [selected, setSelected] = useState(null)
     const [filterValue, setFilterValue] = useState('')
     const filteredOptions = useMemo(() => {
         return filterValue
@@ -14,16 +14,11 @@ export const WithFilterField = () => {
             : options
     }, [filterValue])
 
-    const valueLabel = value
-        ? options.find((option) => option.value === value).label
-        : ''
-
     return (
         <SingleSelectA11y
-            idPrefix="a11y"
-            value={value}
-            valueLabel={valueLabel}
-            onChange={(nextValue) => setValue(nextValue)}
+            name="a11y"
+            selected={selected}
+            onChange={setSelected}
             filterable
             filterPlaceholder="Filter placeholder"
             filterValue={filterValue}

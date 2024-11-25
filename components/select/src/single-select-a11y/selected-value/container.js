@@ -3,11 +3,10 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { forwardRef, useCallback, useEffect } from 'react'
 
-export const SelectedValueContainer = forwardRef(function Container(
+export const Container = forwardRef(function Container(
     {
         children,
         comboBoxId,
-        idPrefix,
         autoFocus,
         dataTest,
         dense,
@@ -15,6 +14,7 @@ export const SelectedValueContainer = forwardRef(function Container(
         error,
         expanded,
         labelledBy,
+        name,
         placeholder,
         tabIndex,
         valid,
@@ -53,7 +53,7 @@ export const SelectedValueContainer = forwardRef(function Container(
             className={cx({ error, warning, valid, disabled, dense })}
             data-test={dataTest}
             ref={ref}
-            aria-controls={`${idPrefix}-listbox`}
+            aria-controls={`${name}-listbox`}
             aria-expanded={expanded.toString()}
             aria-haspopup="listbox"
             aria-labelledby={labelledBy}
@@ -124,10 +124,10 @@ export const SelectedValueContainer = forwardRef(function Container(
     )
 })
 
-SelectedValueContainer.propTypes = {
+Container.propTypes = {
     children: PropTypes.any.isRequired,
     comboBoxId: PropTypes.string.isRequired,
-    idPrefix: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     onKeyDown: PropTypes.func.isRequired,
     autoFocus: PropTypes.bool,
     dataTest: PropTypes.string,

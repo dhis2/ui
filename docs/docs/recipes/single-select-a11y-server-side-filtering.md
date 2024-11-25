@@ -46,12 +46,13 @@ As this is a demo, we simply define the selected value statically:
 ```js
 const [selectedOption, setSelectedOption] = useState({
     value: 'fbfJHSPpUQD', // This value should come from the props
-    label: '',
+    label: 'Loading...',
 })
 ```
 
 The reason we're storing the object rather than just the selected value is:
-When the user searches for options while having already selected an option,
+The SingleSelectA11y component expects the whole option as selected value, so
+that when the user searches for options while having already selected an option,
 we could lose the label we want to display. This can happen when the user
 searches for an option, then selects an option from the search result,
 and then searches the options again.
@@ -65,15 +66,6 @@ before the initially selected option's label hasn't been fetched yet).
 const [initializedSelectedLabel, setInitializedSelectedLabel] = useState(false)
 ```
 
-This allows us to define the label of the selected option even when we don't
-have a value yet:
-
-```js
-const valueLabel = initializedSelectedLabel
-    ? selectedOption?.label
-    : 'Loading...'
-```
-
 With this, we can create component that returns a select component:
 
 ```jsx
@@ -82,19 +74,15 @@ function OurSelectComponent() {
         useState(false)
     const [selectedOption, setSelectedOption] = useState({
         value: 'fbfJHSPpUQD', // This value should come from the props
-        label: '',
+        label: 'Loading...',
     })
-    const valueLabel = initializedSelectedLabel
-        ? selectedOption.label
-        : 'Loading'
 
     return (
         <SingleSelectA11y
+            name="demo"
             disabled={!initializedSelectedLabel}
-            idPrefix="demo"
-            value={selectedOption.value}
-            valueLabel={valueLabel}
-            onChange={() => null} // @TODO
+            selected={selectedOption}
+            onChange={setSelectedOption}
             options={[]} // @TODO
         />
     )
@@ -182,11 +170,10 @@ const [loadedOptions, setLoadedOptions] = useState([])
 
 return (
     <SingleSelectA11y
-        idPrefix="demo"
+        name="demo"
         disabled={!initializedSelectedLabel}
-        value={selectedOption.value}
-        valueLabel={valueLabel}
-        onChange={() => null} // @TODO
+        selected={selectedOption}
+        onChange={setSelectedOption}
         options={loadedOptions}               // <--
     />
 )}
@@ -261,11 +248,10 @@ With the logic that loads the options, we can set the select's loading state:
 
 ```jsx
 <SingleSelectA11y
-    idPrefix="demo"
+    name="demo"
     disabled={!initializedSelectedLabel}
     loading={loadDataElementQuery.loading} // <--
-    value={selectedOption.value}
-    valueLabel={valueLabel}
+    selected={selectedOption}
     onChange={() => null} // @TODO
     options={loadedOptions}
 />
@@ -392,7 +378,7 @@ function useLoadFilteredDataElementsQuery(customOptions) {
                 }, 200)
             })
         },
-        [abortController, engine]
+        [abortController, engine, customOptions]
     )
 
     return { loading, error, refetch }
@@ -453,21 +439,6 @@ The options we want to render now depend on whether we have a filter value or no
 const options = searchTerm ? filteredOptions : loadedOptions
 ```
 
-With this value, we can finally create the callback passed to `onChange`:
-
-```js
-const selectOption = useCallback(
-    (nextValue) => {
-        const nextSelectedOption = options.find(
-            ({ value }) => value === nextValue
-        )
-
-        setSelectedOption(nextSelectedOption)
-    },
-    [options]
-)
-```
-
 Because there are two different loading states, we can combine them into a single value, which we'll pass to the SingleSelectA11y component, as well as the props required for the search to work:
 
 ```
@@ -514,18 +485,17 @@ const loadNextPage = useCallback(() => {
 
 return (
     <SingleSelectA11y
-        idPrefix="demo"
+        name="demo"
         disabled={!initializedSelectedLabel}
         loading={loadingOptions}
         options={loadedOptions}
-        value={selectedOption.value}
-        valueLabel={valueLabel}
+        selected={selectedOption}
         filterable
         filterValue={searchTerm}
         filterPlaceholder="search for 'ART' or 'ANC'"
         onFilterChange={setSearchTerm}
         noMatchText="No options were found"
-        onChange={selectOption}
+        onChange={setSelectedOption}
         onEndReached={loadNextPage} // <--
     />
 )
@@ -620,7 +590,7 @@ function useLoadFilteredDataElementsQuery(customOptions) {
                 }, 200)
             })
         },
-        [abortController, engine]
+        [abortController, engine, customOptions]
     )
 
     return { loading, error, refetch }
@@ -771,7 +741,7 @@ function OurSelectComponent() {
 
     return (
         <SingleSelectA11y
-            idPrefix="demo"
+            name="demo"
             disabled={!initializedSelectedLabel}
             loading={loadingOptions}
             options={options}

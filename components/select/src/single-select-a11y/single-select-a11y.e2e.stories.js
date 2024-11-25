@@ -101,8 +101,11 @@ const fiveOptions = options.slice(0, 5)
 
 export const DefaultPosition = () => (
     <SingleSelectA11y
-        idPrefix="a11y"
-        value="anc_1st_visit"
+        name="a11y"
+        selected={{
+            label: 'ANC 1st visit',
+            value: 'anc_1st_visit',
+        }}
         onChange={() => null}
         options={fiveOptions}
     />
@@ -111,8 +114,11 @@ export const DefaultPosition = () => (
 export const FlippedPosition = () => (
     <>
         <SingleSelectA11y
-            idPrefix="a11y"
-            value="anc_1st_visit"
+            name="a11y"
+            selected={{
+                label: 'ANC 1st visit',
+                value: 'anc_1st_visit',
+            }}
             onChange={() => null}
             options={options}
         />
@@ -135,8 +141,11 @@ export const FlippedPosition = () => (
 export const ShiftedIntoView = () => (
     <>
         <SingleSelectA11y
-            idPrefix="a11y"
-            value="anc_1st_visit"
+            name="a11y"
+            selected={{
+                label: 'ANC 1st visit',
+                value: 'anc_1st_visit',
+            }}
             onChange={() => null}
             options={options}
         />
@@ -157,7 +166,10 @@ export const ShiftedIntoView = () => (
 )
 
 export const HundretOptions = () => {
-    const [value, setValue] = useState('0')
+    const [selected, setSelected] = useState({
+        value: '0',
+        label: `Select option 0`,
+    })
     const [hundretOptions] = useState(
         Array.apply(null, Array(100)).map((x, i) => ({
             value: `${i}`,
@@ -167,16 +179,19 @@ export const HundretOptions = () => {
 
     return (
         <SingleSelectA11y
-            idPrefix="a11y"
-            value={value}
-            onChange={setValue}
+            name="a11y"
+            selected={selected}
+            onChange={setSelected}
             options={hundretOptions}
         />
     )
 }
 
 export const HundretOptionsWithDisabled = () => {
-    const [value, setValue] = useState('10')
+    const [selected, setSelected] = useState({
+        value: '10',
+        label: `Select option 10`,
+    })
     const [hundretOptions] = useState(
         Array.apply(null, Array(100)).map((x, i) => ({
             value: `${i}`,
@@ -192,43 +207,10 @@ export const HundretOptionsWithDisabled = () => {
 
     return (
         <SingleSelectA11y
-            idPrefix="a11y"
-            value={value}
-            onChange={setValue}
+            name="a11y"
+            selected={selected}
+            onChange={setSelected}
             options={hundretOptions}
         />
-    )
-}
-
-export const NativeSelect = () => {
-    const [value, setValue] = useState('0')
-    const [hundretOptions] = useState(
-        Array.apply(null, Array(100)).map((x, i) => ({
-            value: `${i}`,
-            label: `Select option ${i}`,
-            disabled: i > 19 && i < 30,
-        }))
-    )
-
-    return (
-        <>
-            <select value={value} onChange={(e) => setValue(e.target.value)}>
-                {hundretOptions.map((option) => (
-                    <option
-                        key={option.value}
-                        value={option.value}
-                        disabled={option.disabled}
-                    >
-                        {option.label}
-                    </option>
-                ))}
-            </select>
-
-            <style jsx>{`
-                option:disabled {
-                    color: grey;
-                }
-            `}</style>
-        </>
     )
 }

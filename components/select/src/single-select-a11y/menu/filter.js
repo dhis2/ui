@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import i18n from '../../locales/index.js'
 
-export function MenuFilter({
+export function Filter({
+    ariaControls,
     dataTest,
-    idPrefix,
     label,
     placeholder,
     tabIndex,
@@ -19,7 +19,7 @@ export function MenuFilter({
             <Input
                 dense
                 tabIndex={tabIndex}
-                ariaControls={`${idPrefix}-listbox`}
+                ariaControls={ariaControls}
                 ariaHaspopup="listbox"
                 ariaLabel={label || i18n.t('Search options')}
                 dataTest={`${dataTest}-input`}
@@ -46,8 +46,8 @@ export function MenuFilter({
     )
 }
 
-MenuFilter.propTypes = {
-    idPrefix: PropTypes.string.isRequired,
+Filter.propTypes = {
+    ariaControls: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     dataTest: PropTypes.string,

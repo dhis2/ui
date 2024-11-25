@@ -3,22 +3,16 @@ import { SingleSelectA11y } from '../single-select-a11y.js'
 import { fiveOptions } from './options.js'
 
 export const WithOnBlur = () => {
-    const [value, setValue] = useState('')
+    const [selected, setSelected] = useState(null)
     const [blurTime, setBlurTime] = useState('')
 
     return (
         <>
             <SingleSelectA11y
                 onBlur={() => setBlurTime(new Date().toISOString())}
-                idPrefix="a11y"
-                value={value}
-                valueLabel={
-                    value
-                        ? fiveOptions.find((option) => option.value === value)
-                              .label
-                        : ''
-                }
-                onChange={(nextValue) => setValue(nextValue)}
+                name="a11y"
+                selected={selected}
+                onChange={setSelected}
                 options={fiveOptions}
             />
 

@@ -2,6 +2,7 @@ import { SingleSelectA11y } from '@dhis2/ui'
 import React, { useMemo, useState } from 'react'
 
 const options = [
+    { label: 'No selection', value: '' },
     { label: 'ANC 1st visit', value: 'anc_1st_visit' },
     { label: 'ANC 2nd visit', value: 'anc_2nd_visit' },
     { label: 'ARI treated follow-up', value: 'ari_treated_follow-up' },
@@ -23,7 +24,10 @@ function filterOptions(options, searchTerm) {
 
 export const SimpleFilterSelect = () => {
     // Handle actual value changes
-    const [value, setValue] = useState('')
+    const [selected, setSelected] = useState({
+        value: '',
+        label: 'No selection',
+    })
 
     // Handle filtering
     const [searchTerm, setSearchTerm] = useState('')
@@ -32,22 +36,14 @@ export const SimpleFilterSelect = () => {
         [searchTerm]
     )
 
-    // We have to default to an empty string in case there is no selection
-    // and the options array does not include an "empty"-option,
-    // e.g. `{ value: '', label: 'None' }`
-    const valueLabel =
-        options.find((option) => option.value === value)?.label ||
-        'No selection'
-
     return (
         <SingleSelectA11y
             filterable
             filterValue={searchTerm}
             idPrefix="a11y"
             options={filteredOptions}
-            value={value}
-            valueLabel={valueLabel}
-            onChange={setValue}
+            selected={selected}
+            onChange={setSelected}
             onFilterChange={setSearchTerm}
         />
     )

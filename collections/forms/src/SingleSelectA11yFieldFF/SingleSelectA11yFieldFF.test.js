@@ -16,8 +16,7 @@ describe('<SingleSelectA11yFieldFF/>', () => {
                     <form onSubmit={formRenderProps.handleSubmit}>
                         <Field
                             component={SingleSelectA11yFieldFF}
-                            idPrefix="story"
-                            name="selectName"
+                            name="story"
                             label="Label text"
                             options={[
                                 { value: '', label: 'None' },
@@ -56,8 +55,7 @@ describe('<SingleSelectA11yFieldFF/>', () => {
                         <Field
                             required
                             component={SingleSelectA11yFieldFF}
-                            idPrefix="story"
-                            name="selectName"
+                            name="story"
                             label="Label text"
                             validate={hasValue}
                             options={[

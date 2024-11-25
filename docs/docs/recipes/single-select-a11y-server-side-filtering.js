@@ -83,7 +83,7 @@ function useLoadFilteredDataElementsQuery(customOptions) {
                 }, 200)
             })
         },
-        [abortController, engine]
+        [abortController, engine, customOptions]
     )
 
     return { loading, error, refetch }
@@ -94,11 +94,8 @@ function ServerSideFilteringSelect() {
         useState(false)
     const [selectedOption, setSelectedOption] = useState({
         value: 'fbfJHSPpUQD',
-        label: '',
+        label: 'Loading...',
     })
-    const valueLabel = initializedSelectedLabel
-        ? selectedOption.label
-        : 'Loading...'
 
     const [loadedOptions, setLoadedOptions] = useState([])
     const [defaultPager, setDefaultPager] = useState({
@@ -169,17 +166,6 @@ function ServerSideFilteringSelect() {
         loadDataElementsQuery.loading || loadFilteredDataElementsQuery.loading
     const options = searchTerm ? filteredOptions : loadedOptions
 
-    const selectOption = useCallback(
-        (nextValue) => {
-            const nextSelectedOption = options.find(
-                ({ value }) => value === nextValue
-            )
-
-            setSelectedOption(nextSelectedOption)
-        },
-        [options]
-    )
-
     const setSearchTerm = useCallback(
         (nextSearchTerm) => {
             _setSearchTerm(nextSearchTerm)
@@ -233,19 +219,18 @@ function ServerSideFilteringSelect() {
 
     return (
         <SingleSelectA11y
-            idPrefix="demo"
+            name="demo"
             disabled={!initializedSelectedLabel}
             loading={loadingOptions}
             options={options}
-            value={selectedOption?.value}
-            valueLabel={valueLabel}
+            selected={selectedOption}
             filterable
             filterValue={searchTerm}
             filterPlaceholder="search for 'ART' or 'ANC'"
             onFilterChange={setSearchTerm}
             noMatchText="No options were found"
             empty="Please use the search input to find data elements"
-            onChange={selectOption}
+            onChange={setSelectedOption}
             onEndReached={loadNextPage}
         />
     )

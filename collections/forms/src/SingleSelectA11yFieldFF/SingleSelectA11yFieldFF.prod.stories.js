@@ -61,8 +61,7 @@ export const Default = () => (
     <Field
         required
         component={SingleSelectA11yFieldFF}
-        idPrefix="story"
-        name="agree"
+        name="story"
         label="Do you agree?"
         options={options}
         validate={hasValue}
@@ -72,8 +71,7 @@ export const Default = () => (
 export const InitialValue = () => (
     <Field
         component={SingleSelectA11yFieldFF}
-        idPrefix="story"
-        name="agree"
+        name="story"
         label="Do you agree?"
         options={options}
         initialValue="4"

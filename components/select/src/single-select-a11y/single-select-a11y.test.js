@@ -32,8 +32,8 @@ describe('<SingleSelectA11y />', () => {
         render(
             <SingleSelectA11y
                 onBlur={onBlur}
-                idPrefix="a11y"
-                value="foo"
+                name="a11y"
+                selected={{ value: 'foo', label: 'Foo' }}
                 onChange={() => null}
                 options={[{ value: 'foo', label: 'Foo' }]}
             />
@@ -56,8 +56,8 @@ describe('<SingleSelectA11y />', () => {
         render(
             <SingleSelectA11y
                 onFocus={onFocus}
-                idPrefix="a11y"
-                value="foo"
+                name="a11y"
+                selected={{ value: 'foo', label: 'Foo' }}
                 onChange={() => null}
                 options={[{ value: 'foo', label: 'Foo' }]}
             />
@@ -83,8 +83,8 @@ describe('<SingleSelectA11y />', () => {
             <SingleSelectA11y
                 autoFocus
                 onFocus={onFocus}
-                idPrefix="a11y"
-                value="foo"
+                name="a11y"
+                selected={{ value: 'foo', label: 'Foo' }}
                 onChange={() => null}
                 options={[{ value: 'foo', label: 'Foo' }]}
             />
@@ -97,8 +97,8 @@ describe('<SingleSelectA11y />', () => {
         render(
             <SingleSelectA11y
                 loading
-                idPrefix="a11y"
-                value="foo"
+                name="a11y"
+                selected={{ value: 'foo', label: 'Foo' }}
                 onChange={() => null}
                 options={[{ value: 'foo', label: 'Foo' }]}
             />
@@ -116,8 +116,8 @@ describe('<SingleSelectA11y />', () => {
             <SingleSelectA11y
                 loading
                 menuLoadingText="Loading text"
-                idPrefix="a11y"
-                value="foo"
+                name="a11y"
+                selected={{ value: 'foo', label: 'Foo' }}
                 onChange={() => null}
                 options={[{ value: 'foo', label: 'Foo' }]}
             />
@@ -136,8 +136,8 @@ describe('<SingleSelectA11y />', () => {
         render(
             <SingleSelectA11y
                 menuMaxHeight="100px"
-                idPrefix="a11y"
-                value="foo"
+                name="a11y"
+                selected={{ value: 'foo', label: 'Foo' }}
                 onChange={() => null}
                 options={[{ value: 'foo', label: 'Foo' }]}
             />
@@ -153,8 +153,8 @@ describe('<SingleSelectA11y />', () => {
     it('should accept a placeholder', () => {
         render(
             <SingleSelectA11y
-                idPrefix="a11y"
-                value=""
+                name="a11y"
+                selected={null}
                 placeholder="Placeholder text"
                 onChange={() => null}
                 options={[{ value: 'foo', label: 'Foo' }]}
@@ -173,8 +173,8 @@ describe('<SingleSelectA11y />', () => {
         render(
             <SingleSelectA11y
                 prefix="Prefix text"
-                idPrefix="a11y"
-                value="foo"
+                name="a11y"
+                selected={{ value: 'foo', label: 'Foo' }}
                 onChange={() => null}
                 options={[{ value: 'foo', label: 'Foo' }]}
             />
@@ -193,8 +193,8 @@ describe('<SingleSelectA11y />', () => {
 
         render(
             <SingleSelectA11y
-                idPrefix="a11y"
-                value=""
+                name="a11y"
+                selected={null}
                 onChange={onChange}
                 options={[
                     { value: '', label: 'None' },
@@ -212,7 +212,7 @@ describe('<SingleSelectA11y />', () => {
         fireEvent.click(option)
 
         expect(onChange).toHaveBeenCalledTimes(1)
-        expect(onChange).toHaveBeenCalledWith('foo')
+        expect(onChange).toHaveBeenCalledWith({ value: 'foo', label: 'Foo' })
     })
 
     it('should allow custom options to be selected', () => {
@@ -225,9 +225,9 @@ describe('<SingleSelectA11y />', () => {
 
         render(
             <SingleSelectA11y
-                idPrefix="a11y"
-                value=""
-                customOption={CustomOption}
+                name="a11y"
+                selected={null}
+                optionComponent={CustomOption}
                 valueLabel=""
                 onChange={onChange}
                 options={[
@@ -239,14 +239,14 @@ describe('<SingleSelectA11y />', () => {
 
         fireEvent.click(screen.getByRole('combobox'))
 
-        const customOption = screen.getByTestId('custom-option-foo')
+        const optionComponent = screen.getByTestId('custom-option-foo')
         const option = screen.getByTestId('custom-option-foo').parentNode
         expect(option.attributes.getNamedItem('role').value).toBe('option')
 
-        fireEvent.click(customOption)
+        fireEvent.click(optionComponent)
 
         expect(onChange).toHaveBeenCalledTimes(1)
-        expect(onChange).toHaveBeenCalledWith('foo')
+        expect(onChange).toHaveBeenCalledWith({ value: 'foo', label: 'Foo' })
     })
 
     it('should allow individual custom options to be selected', () => {
@@ -259,8 +259,8 @@ describe('<SingleSelectA11y />', () => {
 
         render(
             <SingleSelectA11y
-                idPrefix="a11y"
-                value=""
+                name="a11y"
+                selected={null}
                 valueLabel=""
                 onChange={onChange}
                 options={[
@@ -272,27 +272,28 @@ describe('<SingleSelectA11y />', () => {
 
         fireEvent.click(screen.getByRole('combobox'))
 
-        const customOption = screen.getByTestId('custom-option-foo')
+        const optionComponent = screen.getByTestId('custom-option-foo')
         const option = screen.getByTestId('custom-option-foo').parentNode
         expect(option.attributes.getNamedItem('role').value).toBe('option')
 
-        fireEvent.click(customOption)
+        fireEvent.click(optionComponent)
 
         expect(onChange).toHaveBeenCalledTimes(1)
-        expect(onChange).toHaveBeenCalledWith('foo')
+        expect(onChange).toHaveBeenCalledWith({ value: 'foo', label: 'Foo' })
     })
 
     it('should be clearable when there is a selected value', () => {
-        const onChange = jest.fn()
+        const onClear = jest.fn()
 
         render(
             <SingleSelectA11y
                 clearable
                 clearText="Clear a11y select"
-                idPrefix="a11y"
-                value="foo"
+                name="a11y"
+                selected={{ value: 'foo', label: 'Foo' }}
                 valueLabel="Foo"
-                onChange={onChange}
+                onChange={() => null}
+                onClear={onClear}
                 options={[{ value: 'foo', label: 'Foo' }]}
             />
         )
@@ -302,8 +303,7 @@ describe('<SingleSelectA11y />', () => {
 
         fireEvent.click(clearButton)
 
-        expect(onChange).toHaveBeenCalledTimes(1)
-        expect(onChange).toHaveBeenCalledWith('')
+        expect(onClear).toHaveBeenCalledTimes(1)
     })
 
     it('should not be clearable when there is no selected value', () => {
@@ -311,8 +311,8 @@ describe('<SingleSelectA11y />', () => {
             <SingleSelectA11y
                 clearable
                 clearText="Clear a11y select"
-                idPrefix="a11y"
-                value=""
+                name="a11y"
+                selected={null}
                 onChange={jest.fn()}
                 options={[
                     { value: '', label: 'None' },
@@ -329,8 +329,8 @@ describe('<SingleSelectA11y />', () => {
         render(
             <SingleSelectA11y
                 disabled
-                idPrefix="a11y"
-                value="foo"
+                name="a11y"
+                selected={{ value: 'foo', label: 'Foo' }}
                 onChange={jest.fn()}
                 options={[{ value: 'foo', label: 'Foo' }]}
             />
@@ -350,8 +350,8 @@ describe('<SingleSelectA11y />', () => {
         render(
             <SingleSelectA11y
                 empty="Empty"
-                idPrefix="a11y"
-                value=""
+                name="a11y"
+                selected={null}
                 onChange={jest.fn()}
                 options={[]}
             />
@@ -374,8 +374,8 @@ describe('<SingleSelectA11y />', () => {
                 filterable
                 onFilterChange={onFilterChange}
                 noMatchText="No options found"
-                idPrefix="a11y"
-                value="foo"
+                name="a11y"
+                selected={{ value: 'foo', label: 'Foo' }}
                 onChange={jest.fn()}
                 options={[{ value: 'foo', label: 'Foo' }]}
             />
@@ -404,8 +404,8 @@ describe('<SingleSelectA11y />', () => {
                 filterLabel="Custom filter label"
                 onFilterChange={onFilterChange}
                 noMatchText="No options found"
-                idPrefix="a11y"
-                value=""
+                name="a11y"
+                selected={null}
                 valueLabel=""
                 onChange={jest.fn()}
                 options={[
@@ -425,8 +425,8 @@ describe('<SingleSelectA11y />', () => {
 
         render(
             <SingleSelectA11y
-                idPrefix="a11y"
-                value="bar"
+                name="a11y"
+                selected={{ value: 'bar', label: 'Bar' }}
                 onChange={onChange}
                 options={[
                     { value: 'foo', label: 'Foo' },
@@ -462,8 +462,8 @@ describe('<SingleSelectA11y />', () => {
 
             render(
                 <SingleSelectA11y
-                    idPrefix="a11y"
-                    value=""
+                    name="a11y"
+                    selected={null}
                     onChange={onChange}
                     options={[
                         { value: '', label: 'None' },
@@ -491,8 +491,8 @@ describe('<SingleSelectA11y />', () => {
             render(
                 <SingleSelectA11y
                     disabled
-                    idPrefix="a11y"
-                    value=""
+                    name="a11y"
+                    selected={null}
                     onChange={onChange}
                     options={[
                         { value: '', label: 'None' },
@@ -519,8 +519,8 @@ describe('<SingleSelectA11y />', () => {
 
             render(
                 <SingleSelectA11y
-                    idPrefix="a11y"
-                    value=""
+                    name="a11y"
+                    selected={null}
                     onChange={onChange}
                     options={[
                         { value: '', label: 'None' },
@@ -549,8 +549,8 @@ describe('<SingleSelectA11y />', () => {
 
             render(
                 <SingleSelectA11y
-                    idPrefix="a11y"
-                    value=""
+                    name="a11y"
+                    selected={null}
                     onChange={onChange}
                     options={[
                         { value: '', label: 'None' },
@@ -572,7 +572,10 @@ describe('<SingleSelectA11y />', () => {
 
             expect(screen.queryByRole('listbox')).toBeNull()
             expect(onChange).toHaveBeenCalledTimes(1)
-            expect(onChange).toHaveBeenCalledWith('foo')
+            expect(onChange).toHaveBeenCalledWith({
+                value: 'foo',
+                label: 'Foo',
+            })
         })
     })
 
@@ -581,8 +584,8 @@ describe('<SingleSelectA11y />', () => {
 
         render(
             <SingleSelectA11y
-                idPrefix="a11y"
-                value=""
+                name="a11y"
+                selected={null}
                 onChange={onChange}
                 options={[
                     { value: '', label: 'None' },
@@ -598,7 +601,7 @@ describe('<SingleSelectA11y />', () => {
         fireEvent.keyDown(screen.getByRole('combobox'), { key: 'ArrowDown' })
         expect(screen.queryByRole('listbox')).toBeNull()
         expect(onChange).toHaveBeenCalledTimes(1)
-        expect(onChange).toHaveBeenCalledWith('foo')
+        expect(onChange).toHaveBeenCalledWith({ value: 'foo', label: 'Foo' })
     })
 
     it('should not select the next option when closed, disabled and user presses ArrowDown', () => {
@@ -607,8 +610,8 @@ describe('<SingleSelectA11y />', () => {
         render(
             <SingleSelectA11y
                 disabled
-                idPrefix="a11y"
-                value=""
+                name="a11y"
+                selected={null}
                 onChange={onChange}
                 options={[
                     { value: '', label: 'None' },
@@ -631,8 +634,8 @@ describe('<SingleSelectA11y />', () => {
 
         render(
             <SingleSelectA11y
-                idPrefix="a11y"
-                value=""
+                name="a11y"
+                selected={null}
                 onChange={onChange}
                 options={[
                     { value: '', label: 'None' },
@@ -648,7 +651,7 @@ describe('<SingleSelectA11y />', () => {
         fireEvent.keyDown(screen.getByRole('combobox'), { key: 'ArrowDown' })
         expect(screen.queryByRole('listbox')).toBeNull()
         expect(onChange).toHaveBeenCalledTimes(1)
-        expect(onChange).toHaveBeenCalledWith('bar')
+        expect(onChange).toHaveBeenCalledWith({ value: 'bar', label: 'Bar' })
     })
 
     it('should select the previous option when closed and user presses ArrowUp', () => {
@@ -656,8 +659,8 @@ describe('<SingleSelectA11y />', () => {
 
         render(
             <SingleSelectA11y
-                idPrefix="a11y"
-                value="bar"
+                name="a11y"
+                selected={{ value: 'bar', label: 'Bar' }}
                 onChange={onChange}
                 options={[
                     { value: '', label: 'None' },
@@ -673,7 +676,7 @@ describe('<SingleSelectA11y />', () => {
         fireEvent.keyDown(screen.getByRole('combobox'), { key: 'ArrowUp' })
         expect(screen.queryByRole('listbox')).toBeNull()
         expect(onChange).toHaveBeenCalledTimes(1)
-        expect(onChange).toHaveBeenCalledWith('foo')
+        expect(onChange).toHaveBeenCalledWith({ value: 'foo', label: 'Foo' })
     })
 
     it('should not select the previous option when closed, disabled and user presses ArrowUp', () => {
@@ -682,8 +685,8 @@ describe('<SingleSelectA11y />', () => {
         render(
             <SingleSelectA11y
                 disabled
-                idPrefix="a11y"
-                value="bar"
+                name="a11y"
+                selected={{ value: 'bar', label: 'Bar' }}
                 onChange={onChange}
                 options={[
                     { value: '', label: 'None' },
@@ -706,8 +709,8 @@ describe('<SingleSelectA11y />', () => {
 
         render(
             <SingleSelectA11y
-                idPrefix="a11y"
-                value="bar"
+                name="a11y"
+                selected={{ value: 'bar', label: 'Bar' }}
                 onChange={onChange}
                 options={[
                     { value: '', label: 'None' },
@@ -723,7 +726,7 @@ describe('<SingleSelectA11y />', () => {
         fireEvent.keyDown(screen.getByRole('combobox'), { key: 'ArrowUp' })
         expect(screen.queryByRole('listbox')).toBeNull()
         expect(onChange).toHaveBeenCalledTimes(1)
-        expect(onChange).toHaveBeenCalledWith('')
+        expect(onChange).toHaveBeenCalledWith({ value: '', label: 'None' })
     })
 
     it('should highlight the next option', () => {
@@ -731,8 +734,8 @@ describe('<SingleSelectA11y />', () => {
 
         render(
             <SingleSelectA11y
-                idPrefix="a11y"
-                value=""
+                name="a11y"
+                selected={null}
                 onChange={onChange}
                 options={[
                     { value: '', label: 'None' },
@@ -771,8 +774,8 @@ describe('<SingleSelectA11y />', () => {
 
         render(
             <SingleSelectA11y
-                idPrefix="a11y"
-                value=""
+                name="a11y"
+                selected={null}
                 onChange={onChange}
                 options={[
                     { value: '', label: 'None' },
@@ -811,8 +814,8 @@ describe('<SingleSelectA11y />', () => {
 
         render(
             <SingleSelectA11y
-                idPrefix="a11y"
-                value="bar"
+                name="a11y"
+                selected={{ value: 'bar', label: 'Bar' }}
                 onChange={onChange}
                 options={[
                     { value: '', label: 'None' },
@@ -851,8 +854,8 @@ describe('<SingleSelectA11y />', () => {
 
         render(
             <SingleSelectA11y
-                idPrefix="a11y"
-                value="bar"
+                name="a11y"
+                selected={{ value: 'bar', label: 'Bar' }}
                 onChange={onChange}
                 options={[
                     { value: '', label: 'None' },
@@ -891,8 +894,8 @@ describe('<SingleSelectA11y />', () => {
 
         render(
             <SingleSelectA11y
-                idPrefix="a11y"
-                value="bar"
+                name="a11y"
+                selected={{ value: 'bar', label: 'Bar' }}
                 onChange={onChange}
                 options={[
                     { value: '', label: 'None' },
@@ -931,8 +934,8 @@ describe('<SingleSelectA11y />', () => {
 
         render(
             <SingleSelectA11y
-                idPrefix="a11y"
-                value="bar"
+                name="a11y"
+                selected={{ value: 'bar', label: 'Bar' }}
                 onChange={onChange}
                 options={[
                     { value: '', label: 'None', disabled: true },
@@ -971,8 +974,8 @@ describe('<SingleSelectA11y />', () => {
 
         render(
             <SingleSelectA11y
-                idPrefix="a11y"
-                value=""
+                name="a11y"
+                selected={null}
                 onChange={onChange}
                 options={[
                     { value: '', label: 'None' },
@@ -1011,8 +1014,8 @@ describe('<SingleSelectA11y />', () => {
 
         render(
             <SingleSelectA11y
-                idPrefix="a11y"
-                value=""
+                name="a11y"
+                selected={null}
                 onChange={onChange}
                 options={[
                     { value: '', label: 'None' },

@@ -9,19 +9,14 @@ const options = [
 ]
 
 export const WithOptionsAndLoading = () => {
-    const [value, setValue] = useState('')
+    const [selected, setSelected] = useState(null)
 
     return (
         <SingleSelectA11y
             loading
-            idPrefix="a11y"
-            value={value}
-            valueLabel={
-                value
-                    ? options.find((option) => option.value === value).label
-                    : ''
-            }
-            onChange={(nextValue) => setValue(nextValue)}
+            name="a11y"
+            selected={selected}
+            onChange={setSelected}
             options={options}
         />
     )

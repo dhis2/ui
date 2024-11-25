@@ -25,11 +25,15 @@ function useSelectOption(findIndexCallback, { options, onChange, value }) {
             return
         }
 
-        onChange(options[nextSelectedOptionIndex].value)
+        const nextOption = options[nextSelectedOptionIndex]
+        onChange({
+            label: nextOption.label,
+            value: nextOption.value,
+        })
     }, [findIndexCallback, options, onChange, value])
 }
 
-export function useHandleKeyPress({
+export function useHandleKeyPressOnCombobox({
     value,
     disabled,
     expanded,

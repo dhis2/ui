@@ -3,18 +3,13 @@ import { SingleSelectA11y } from '../single-select-a11y.js'
 import { options } from './options.js'
 
 export const WithCustomLowMaxHeight = () => {
-    const [value, setValue] = useState('')
+    const [selected, setSelected] = useState(null)
 
     return (
         <SingleSelectA11y
-            idPrefix="a11y"
-            value={value}
-            valueLabel={
-                value
-                    ? options.find((option) => option.value === value).label
-                    : ''
-            }
-            onChange={(nextValue) => setValue(nextValue)}
+            name="a11y"
+            selected={selected}
+            onChange={setSelected}
             options={options}
             menuMaxHeight="100px"
         />

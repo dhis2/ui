@@ -25,11 +25,8 @@ const optionChunks = options.reduce((chunks, option, index) => {
 export const InfiniteLoading = () => {
     const [loading, setLoading] = useState(false)
     const [curLoadedPage, setCurLoadedPage] = useState(0)
-    const [value, setValue] = useState('')
+    const [selected, setSelected] = useState(null)
     const [loadedOptions, setLoadedOptions] = useState(optionChunks[0])
-    const valueLabel = value
-        ? loadedOptions.find((option) => option.value === value).label
-        : ''
 
     const loadNextOptions = useCallback(() => {
         const nextPage = curLoadedPage + 1
@@ -56,12 +53,11 @@ export const InfiniteLoading = () => {
 
     return (
         <SingleSelectA11y
-            idPrefix="a11y"
-            value={value}
-            valueLabel={valueLabel}
+            name="a11y"
+            selected={selected}
             loading={loading}
             menuLoadingText="Foo bar baz"
-            onChange={(nextValue) => setValue(nextValue)}
+            onChange={setSelected}
             options={loadedOptions}
             onEndReached={loadNextOptions}
         />

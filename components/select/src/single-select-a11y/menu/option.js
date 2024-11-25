@@ -114,7 +114,7 @@ export function Option({
             aria-label={label}
             onClick={() => {
                 if (!disabled) {
-                    onClick(value)
+                    onClick({ value, label })
                 }
             }}
         >
