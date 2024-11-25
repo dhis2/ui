@@ -73,4 +73,46 @@ describe('Menu Component', () => {
             false
         )
     })
+
+    describe('aria-label attribute', () => {
+        it('produces a log if the label prop is not a string', () => {
+            // Prep to test logs
+            const originalConsoleDebug = console.debug
+            const consoleDebugMock = jest.fn()
+            console.debug = consoleDebugMock
+
+            const menuItemDataTest = 'data-test-menu-item'
+            const wrapper = mount(
+                <MenuItem
+                    dataTest={menuItemDataTest}
+                    label={<span>{'Node label'}</span>}
+                />
+            )
+            const menuItem = wrapper.find({ 'data-test': menuItemDataTest })
+
+            expect(menuItem.childAt(0).prop('role')).toBe('menuitem')
+            expect(menuItem.childAt(0).prop('aria-label')).toBe(undefined)
+            expect(consoleDebugMock).toHaveBeenCalledWith(
+                'The label prop on MenuItem is not a string; a value for the ariaLabel prop should be provided'
+            )
+
+            // Teardown
+            console.debug = originalConsoleDebug
+        })
+
+        it('uses the ariaLabel prop for aria-label if defined', () => {
+            const menuItemDataTest = 'data-test-menu-item'
+            const wrapper = mount(
+                <MenuItem
+                    dataTest={menuItemDataTest}
+                    label={<span>{'Node label'}</span>}
+                    ariaLabel="Aria label"
+                />
+            )
+            const menuItem = wrapper.find({ 'data-test': menuItemDataTest })
+
+            expect(menuItem.childAt(0).prop('role')).toBe('menuitem')
+            expect(menuItem.childAt(0).prop('aria-label')).toBe('Aria label')
+        })
+    })
 })
