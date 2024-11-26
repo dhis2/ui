@@ -1,3 +1,10 @@
+## [10.1.2](https://github.com/dhis2/ui/compare/v10.1.1...v10.1.2) (2024-11-26)
+
+
+### Bug Fixes
+
+* prevent prop-types error by making tabIndex an optional prop ([#1640](https://github.com/dhis2/ui/issues/1640)) ([b57b81c](https://github.com/dhis2/ui/commit/b57b81c190fe874a3318e45aac091b7a1418bd76))
+
 ## [10.1.1](https://github.com/dhis2/ui/compare/v10.1.0...v10.1.1) (2024-11-26)
 
 
