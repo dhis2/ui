@@ -34,6 +34,10 @@ export interface CalendarProps {
      */
     dir?: CalendarDir
     /**
+     * the date format
+     */
+    format?: 'YYYY-MM-DD' | 'DD-MM-YYYY'
+    /**
      * any valid locale -  if none provided, the internal library will fallback to the user locale (more info here: https://github.com/dhis2/multi-calendar-dates/blob/main/src/hooks/internal/useResolvedLocaleOptions.ts#L15)
      */
     locale?: string
