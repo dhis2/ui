@@ -34,10 +34,6 @@ export interface CalendarProps {
      */
     dir?: CalendarDir
     /**
-     * the date format
-     */
-    format?: 'YYYY-MM-DD' | 'DD-MM-YYYY'
-    /**
      * any valid locale -  if none provided, the internal library will fallback to the user locale (more info here: https://github.com/dhis2/multi-calendar-dates/blob/main/src/hooks/internal/useResolvedLocaleOptions.ts#L15)
      */
     locale?: string
@@ -62,6 +58,12 @@ export interface CalendarProps {
 export const Calendar: React.FC<CalendarProps>
 
 export type CalendarInputProps = Omit<InputFieldProps, 'type' | 'value'> &
-    CalendarProps
+    CalendarProps & {
+        /**
+         * Optional format for the date. Determines how the date is displayed
+         * or processed. If not provided it supports both formats
+         */
+        format?: 'YYYY-MM-DD' | 'DD-MM-YYYY'
+    }
 
 export const CalendarInput: React.FC<CalendarInputProps>
