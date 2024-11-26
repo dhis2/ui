@@ -1,3 +1,10 @@
+## [10.1.1](https://github.com/dhis2/ui/compare/v10.1.0...v10.1.1) (2024-11-26)
+
+
+### Bug Fixes
+
+* **menu-item:** tweak active and focused styles ([#1639](https://github.com/dhis2/ui/issues/1639)) ([e6bf884](https://github.com/dhis2/ui/commit/e6bf8842622f2fc32692610877200a978c2ccd8d))
+
 # [10.1.0](https://github.com/dhis2/ui/compare/v10.0.4...v10.1.0) (2024-11-25)
 
 
