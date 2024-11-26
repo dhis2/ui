@@ -100,13 +100,13 @@ const InputWrapper = ({
 InputWrapper.propTypes = {
     dataTest: PropTypes.string.isRequired,
     inputRef: PropTypes.object.isRequired,
-    tabIndex: PropTypes.string.isRequired,
     onToggle: PropTypes.func.isRequired,
     children: PropTypes.element,
     className: PropTypes.string,
     dense: PropTypes.bool,
     disabled: PropTypes.bool,
     error: sharedPropTypes.statusPropType,
+    tabIndex: PropTypes.string,
     valid: sharedPropTypes.statusPropType,
     warning: sharedPropTypes.statusPropType,
 }
