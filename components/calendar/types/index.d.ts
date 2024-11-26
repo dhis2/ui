@@ -58,6 +58,12 @@ export interface CalendarProps {
 export const Calendar: React.FC<CalendarProps>
 
 export type CalendarInputProps = Omit<InputFieldProps, 'type' | 'value'> &
-    CalendarProps
+    CalendarProps & {
+        /**
+         * Optional format for the date. Determines how the date is displayed
+         * or processed. If not provided it supports both formats
+         */
+        format?: 'YYYY-MM-DD' | 'DD-MM-YYYY'
+    }
 
 export const CalendarInput: React.FC<CalendarInputProps>
