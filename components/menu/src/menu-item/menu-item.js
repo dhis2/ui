@@ -104,7 +104,7 @@ const MenuItem = ({
                     destructive,
                     disabled,
                     dense,
-                    active: active || showSubMenu || tabIndex === 0,
+                    active: active || showSubMenu,
                     'with-chevron': children || chevron,
                 })}
                 ref={menuItemRef}
