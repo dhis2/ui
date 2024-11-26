@@ -1,3 +1,11 @@
+## [10.1.3](https://github.com/dhis2/ui/compare/v10.1.2...v10.1.3) (2024-11-26)
+
+
+### Bug Fixes
+
+* add format only to calendar input and not for calendar types ([741fb6c](https://github.com/dhis2/ui/commit/741fb6c84f0ce29ae6a53729cf52a3c05750f80a))
+* add format to calendar input props ([bbfbb56](https://github.com/dhis2/ui/commit/bbfbb561ffd9288eccbe37b66b5849c32a0694c0))
+
 ## [10.1.2](https://github.com/dhis2/ui/compare/v10.1.1...v10.1.2) (2024-11-26)
 
 
