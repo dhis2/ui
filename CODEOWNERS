@@ -1,2 +1,3 @@
 # default code owner for repo
-*        @dhis2/platform-frontend @dhis2/team-extensibility
+*        @dhis2/team-extensibility
+*        @dhis2/platform-frontend
