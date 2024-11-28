@@ -224,8 +224,9 @@ export default css`
         margin-inline-end: 6px;
         color: inherit;
         fill: inherit;
-        font-size: 26px;
-        vertical-align: middle;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         pointer-events: none;
     }
 
