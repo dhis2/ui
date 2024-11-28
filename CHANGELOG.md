@@ -1,3 +1,10 @@
+## [10.1.4](https://github.com/dhis2/ui/compare/v10.1.3...v10.1.4) (2024-11-28)
+
+
+### Bug Fixes
+
+* use flexbox instead of font-size to ensure the icon is centered ([#1643](https://github.com/dhis2/ui/issues/1643)) ([939f5fa](https://github.com/dhis2/ui/commit/939f5fad0861570ec0003dd893dc2bc28d4258e6))
+
 ## [10.1.3](https://github.com/dhis2/ui/compare/v10.1.2...v10.1.3) (2024-11-26)
 
 
