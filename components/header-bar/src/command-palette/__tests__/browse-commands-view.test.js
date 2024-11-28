@@ -1,4 +1,4 @@
-import userEvent from '@testing-library/user-event'
+import { userEvent } from '@testing-library/user-event'
 import React from 'react'
 import CommandPalette from '../command-palette.js'
 import {
@@ -8,7 +8,8 @@ import {
 } from './command-palette.test.js'
 
 describe('Command Palette - List View - Browse Commands', () => {
-    it('renders Browse Commands View', () => {
+    it('renders Browse Commands View', async () => {
+        const user = userEvent.setup()
         const {
             getByTestId,
             queryByTestId,
@@ -19,10 +20,10 @@ describe('Command Palette - List View - Browse Commands', () => {
             <CommandPalette apps={[]} shortcuts={[]} commands={testCommands} />
         )
         // open command palette
-        userEvent.click(getByTestId(headerBarIconTest))
+        await user.click(getByTestId(headerBarIconTest))
 
         expect(queryByTestId('headerbar-actions-menu')).toBeInTheDocument()
-        userEvent.click(getByTestId('headerbar-browse-commands'))
+        await user.click(getByTestId('headerbar-browse-commands'))
 
         // Browse Commands View
         // Search field
@@ -42,7 +43,7 @@ describe('Command Palette - List View - Browse Commands', () => {
         expect(listItem).toHaveClass('highlighted')
 
         // Esc key goes back to default view
-        userEvent.keyboard('{esc}')
+        await user.keyboard('{esc}')
         expect(queryByText(/All Commands/i)).not.toBeInTheDocument()
         expect(queryByTestId('headerbar-actions-menu')).toBeInTheDocument()
     })

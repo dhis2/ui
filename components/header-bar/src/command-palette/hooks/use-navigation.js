@@ -220,7 +220,7 @@ export const useNavigation = ({
             }
 
             if ((event.metaKey || event.ctrlKey) && event.key === '/') {
-                setShow(!show)
+                setShow((show) => !show)
                 goToDefaultView()
             }
 

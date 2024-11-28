@@ -1,5 +1,5 @@
-import { render as originalRender } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { render as originalRender, waitFor } from '@testing-library/react'
+import { userEvent } from '@testing-library/user-event'
 import PropTypes from 'prop-types'
 import React from 'react'
 import CommandPalette from '../command-palette.js'
@@ -53,7 +53,8 @@ export const testShortcuts = [
 ]
 
 describe('Command Palette Component', () => {
-    it('renders bare default view when Command Palette is opened', () => {
+    it('renders bare default view when Command Palette is opened', async () => {
+        const user = userEvent.setup()
         const { getByTestId, queryByTestId, getByPlaceholderText } = render(
             <CommandPalette apps={[]} shortcuts={[]} commands={[]} />
         )
@@ -62,7 +63,7 @@ describe('Command Palette Component', () => {
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
 
         const headerBarIcon = getByTestId(headerBarIconTest)
-        userEvent.click(headerBarIcon)
+        await user.click(headerBarIcon)
         expect(queryByTestId(modalTest)).toBeInTheDocument()
 
         // Search field
@@ -90,11 +91,12 @@ describe('Command Palette Component', () => {
         expect(queryByTestId('headerbar-logout')).toBeInTheDocument()
 
         // click outside modal
-        userEvent.click(headerBarIcon)
+        await user.click(headerBarIcon)
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
     })
 
-    it('opens and closes Command Palette using ctrl + /', () => {
+    it('opens and closes Command Palette using ctrl + /', async () => {
+        const user = userEvent.setup()
         const { queryByTestId } = render(
             <CommandPalette apps={[]} shortcuts={[]} commands={[]} />
         )
@@ -103,14 +105,15 @@ describe('Command Palette Component', () => {
 
         // ctrl + /
         // open modal
-        userEvent.keyboard('{ctrl}/')
+        await user.keyboard('{ctrl}/')
         expect(queryByTestId(modalTest)).toBeInTheDocument()
         // close modal
-        userEvent.keyboard('{ctrl}/')
+        await user.keyboard('{ctrl}/')
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
     })
 
-    it('opens and closes Command Palette using meta + /', () => {
+    it('opens and closes Command Palette using meta + /', async () => {
+        const user = userEvent.setup()
         const { queryByTestId } = render(
             <CommandPalette apps={[]} shortcuts={[]} commands={[]} />
         )
@@ -119,14 +122,15 @@ describe('Command Palette Component', () => {
 
         // meta + /
         // open modal
-        userEvent.keyboard('{meta}/')
+        await user.keyboard('{meta}/')
         expect(queryByTestId(modalTest)).toBeInTheDocument()
         // close modal
-        userEvent.keyboard('{meta}/')
+        await user.keyboard('{meta}/')
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
     })
 
-    it('closes Command Palette using Esc key', () => {
+    it('closes Command Palette using Esc key', async () => {
+        const user = userEvent.setup()
         const { queryByTestId } = render(
             <CommandPalette apps={[]} shortcuts={[]} commands={[]} />
         )
@@ -134,10 +138,16 @@ describe('Command Palette Component', () => {
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
 
         // open modal
-        userEvent.keyboard('{ctrl}/')
-        expect(queryByTestId(modalTest)).toBeInTheDocument()
+        await user.keyboard('{ctrl}/')
+
+        await waitFor(() =>
+            expect(queryByTestId(modalTest)).toBeInTheDocument()
+        )
+
         // Esc key closes the modal
-        userEvent.keyboard('{esc}')
-        expect(queryByTestId(modalTest)).not.toBeInTheDocument()
+        await user.keyboard('{esc}')
+        await waitFor(() =>
+            expect(queryByTestId(modalTest)).not.toBeInTheDocument()
+        )
     })
 })
