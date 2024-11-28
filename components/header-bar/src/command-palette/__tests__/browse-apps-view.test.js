@@ -1,4 +1,6 @@
+import { fireEvent, wait } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+
 import React from 'react'
 import CommandPalette from '../command-palette.js'
 import {
@@ -45,13 +47,13 @@ describe('Command Palette - List View - Browse Apps View', () => {
         expect(listItems[0]).toHaveClass('highlighted')
 
         // go back to default view
-        user.click(getByLabelText('Back Button'))
+        await user.click(getByLabelText('Back Button'))
         expect(queryByText(/Top Apps/i)).toBeInTheDocument()
         expect(queryByText(/Actions/i)).toBeInTheDocument()
     })
 
-    it.only('handles navigation and hover state of list items', async () => {
-        const user = userEvent.setup()
+    it('handles navigation and hover state of list items', async () => {
+        // const user = userEvent.setup()
         const {
             getAllByRole,
             queryByTestId,
@@ -59,6 +61,8 @@ describe('Command Palette - List View - Browse Apps View', () => {
             queryByText,
             findByPlaceholderText,
             container,
+            findByTestId,
+            debug,
         } = render(
             <CommandPalette
                 apps={testApps}
@@ -66,17 +70,18 @@ describe('Command Palette - List View - Browse Apps View', () => {
                 commands={testCommands}
             />
         )
-        // open modal
-        await container.focus()
-        await user.keyboard('{ctrl}/')
-        // fireEvent.keyDown(container, '{ctrl}/')
 
-        //open browse apps view
-        await user.click(queryByTestId('headerbar-browse-apps'))
+        await userEvent.keyboard('{meta>}/')
+
+        // ToDo: this is a workaround after upgrading react because otherwise / is typed into the Searchbox in the test
+        await userEvent.keyboard('{backspace}')
+
+        const browseAppsLink = await findByTestId('headerbar-browse-apps')
+
+        await userEvent.click(browseAppsLink)
 
         // no filter view
         const searchField = await findByPlaceholderText('Search apps')
-        console.log(searchField)
         expect(queryByText(/All Apps/i)).toBeInTheDocument()
 
         const listItems = queryAllByTestId('headerbar-list-item')
@@ -89,21 +94,21 @@ describe('Command Palette - List View - Browse Apps View', () => {
             'Test App 1'
         )
 
-        await user.keyboard('{ArrowDown}')
+        await userEvent.keyboard('{ArrowDown}')
         expect(listItems[0]).not.toHaveClass('highlighted')
         expect(listItems[1]).toHaveClass('highlighted')
         expect(listItems[1].querySelector('span')).toHaveTextContent(
             'Test App 2'
         )
 
-        await user.keyboard('{ArrowDown}')
+        await userEvent.keyboard('{ArrowDown}')
         expect(listItems[1]).not.toHaveClass('highlighted')
         expect(listItems[2]).toHaveClass('highlighted')
         expect(listItems[2].querySelector('span')).toHaveTextContent(
             'Test App 3'
         )
 
-        await user.keyboard('{ArrowUp}')
+        await userEvent.keyboard('{ArrowUp}')
         expect(listItems[2]).not.toHaveClass('highlighted')
         expect(listItems[1]).toHaveClass('highlighted')
         expect(listItems[1].querySelector('span')).toHaveTextContent(
@@ -111,7 +116,7 @@ describe('Command Palette - List View - Browse Apps View', () => {
         )
 
         // filter items view
-        await user.type(searchField, 'Test App')
+        await userEvent.type(searchField, 'Test App')
         expect(searchField).toHaveValue('Test App')
         expect(queryByText(/All Apps/i)).not.toBeInTheDocument()
         expect(queryByText(/Results for "Test App"/i)).toBeInTheDocument()
@@ -124,7 +129,7 @@ describe('Command Palette - List View - Browse Apps View', () => {
         )
 
         // simulate hover
-        await user.hover(listItems[8])
+        await userEvent.hover(listItems[8])
         expect(listItems[1]).not.toHaveClass('highlighted')
         expect(listItems[8]).toHaveClass('highlighted')
         expect(listItems[8].querySelector('span')).toHaveTextContent(
@@ -132,7 +137,7 @@ describe('Command Palette - List View - Browse Apps View', () => {
         )
 
         const clearButton = getAllByRole('button')[1]
-        await user.click(clearButton)
+        await userEvent.click(clearButton)
 
         // back to normal list view/no filter view
         expect(queryByText(/All Apps/i)).toBeInTheDocument()

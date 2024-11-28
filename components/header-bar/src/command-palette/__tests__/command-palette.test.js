@@ -1,4 +1,8 @@
-import { render as originalRender, waitFor } from '@testing-library/react'
+import {
+    render as originalRender,
+    waitFor,
+    waitForElementToBeRemoved,
+} from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -105,10 +109,12 @@ describe('Command Palette Component', () => {
 
         // ctrl + /
         // open modal
-        await user.keyboard('{ctrl}/')
+        await user.keyboard('{meta>}/')
         expect(queryByTestId(modalTest)).toBeInTheDocument()
+
+        await user.keyboard('{backspace}')
         // close modal
-        await user.keyboard('{ctrl}/')
+        await user.keyboard('{meta>}/')
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
     })
 
@@ -122,10 +128,11 @@ describe('Command Palette Component', () => {
 
         // meta + /
         // open modal
-        await user.keyboard('{meta}/')
+        await user.keyboard('{meta>}/')
         expect(queryByTestId(modalTest)).toBeInTheDocument()
+        await user.keyboard('{backspace}')
         // close modal
-        await user.keyboard('{meta}/')
+        await user.keyboard('{meta>}/')
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
     })
 
@@ -138,16 +145,18 @@ describe('Command Palette Component', () => {
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
 
         // open modal
-        await user.keyboard('{ctrl}/')
+        await user.keyboard('{meta>}/')
 
         await waitFor(() =>
             expect(queryByTestId(modalTest)).toBeInTheDocument()
         )
 
+        // ToDo: this is a workaround after react-18 upgrade
+        await user.keyboard('{backspace}')
+
         // Esc key closes the modal
-        await user.keyboard('{esc}')
-        await waitFor(() =>
-            expect(queryByTestId(modalTest)).not.toBeInTheDocument()
-        )
+        await user.keyboard('{Escape}')
+
+        expect(queryByTestId(modalTest)).not.toBeInTheDocument()
     })
 })
