@@ -1,5 +1,6 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import React from 'react'
+import { HashRouter } from 'react-router-dom'
 import {
     createDecoratorProvider,
     mockOfflineInterface,
@@ -180,6 +181,16 @@ export default {
 export const Default = () => (
     <CustomDataProvider data={customData}>
         <HeaderBar appName="Example!" />
+    </CustomDataProvider>
+)
+
+export const WithGlobalShellRouter = () => (
+    <CustomDataProvider data={customData}>
+        <HashRouter basename="/">
+            <HeaderBar appName="Example!" />
+            {/* To test the menu closing functionality */}
+            <iframe width={'100%'} height={'400px'} src={'https://dhis2.org'} />
+        </HashRouter>
     </CustomDataProvider>
 )
 
