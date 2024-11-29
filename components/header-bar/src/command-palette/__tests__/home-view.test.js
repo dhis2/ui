@@ -1,3 +1,4 @@
+import { fireEvent } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 import React from 'react'
 import CommandPalette from '../command-palette.js'
@@ -78,7 +79,7 @@ describe('Command Palette - Home View', () => {
 
     it('handles right arrow navigation in the grid on the home view', async () => {
         const user = userEvent.setup()
-        const { getAllByRole } = render(
+        const { container, queryByTestId } = render(
             <CommandPalette
                 apps={testApps}
                 shortcuts={testShortcuts}
@@ -86,46 +87,47 @@ describe('Command Palette - Home View', () => {
             />
         )
 
-        // open modal
-        await user.keyboard('{ctrl}/')
+        // open modal with (Ctrl + /) keys
+        fireEvent.keyDown(container, { key: '/', ctrlKey: true })
 
         // topApps
-        const appLinks = getAllByRole('link')
-        const firstAppLink = appLinks[0]
-        expect(appLinks.length).toBe(minAppsNum)
+        const appsGrid = queryByTestId('headerbar-top-apps-list')
+        expect(appsGrid).toBeInTheDocument()
+
+        const topApps = appsGrid.querySelectorAll('a')
+        expect(topApps.length).toBe(minAppsNum)
+        const firstApp = topApps[0]
 
         // first highlighted item
-        expect(firstAppLink).toHaveClass('highlighted')
-        expect(firstAppLink.querySelector('span')).toHaveTextContent(
-            'Test App 1'
-        )
+        expect(firstApp).toHaveClass('highlighted')
+        expect(firstApp.querySelector('span')).toHaveTextContent('Test App 1')
 
         // move right through the first row of items (0 - 3)
         for (
             let prevIndex = 0;
-            prevIndex < appLinks.length / 2 - 1;
+            prevIndex < topApps.length / 2 - 1;
             prevIndex++
         ) {
             const activeIndex = prevIndex + 1
-            expect(appLinks[prevIndex]).toHaveClass('highlighted')
+            expect(topApps[prevIndex]).toHaveClass('highlighted')
 
             // move to next item
             await user.keyboard('{ArrowRight}')
-            expect(appLinks[prevIndex]).not.toHaveClass('highlighted')
-            expect(appLinks[activeIndex]).toHaveClass('highlighted')
+            expect(topApps[prevIndex]).not.toHaveClass('highlighted')
+            expect(topApps[activeIndex]).toHaveClass('highlighted')
             expect(
-                appLinks[activeIndex].querySelector('span')
+                topApps[activeIndex].querySelector('span')
             ).toHaveTextContent(`Test App ${activeIndex + 1}`)
         }
 
         // loops back to the first item
         await user.keyboard('{ArrowRight}')
-        expect(firstAppLink).toHaveClass('highlighted')
+        expect(firstApp).toHaveClass('highlighted')
     })
 
     it('handles left arrow navigation in the grid on the home view', async () => {
         const user = userEvent.setup()
-        const { getAllByRole } = render(
+        const { container, getByTestId } = render(
             <CommandPalette
                 apps={testApps}
                 shortcuts={testShortcuts}
@@ -133,51 +135,51 @@ describe('Command Palette - Home View', () => {
             />
         )
 
-        // open modal
-        await user.keyboard('{ctrl}/')
+        // open modal with (Ctrl + /) keys
+        fireEvent.keyDown(container, { key: '/', ctrlKey: true })
 
         // topApps
-        const appLinks = getAllByRole('link')
-        const firstAppLink = appLinks[0]
-        const lastAppLinkFirstRow = appLinks[3]
-        expect(appLinks.length).toBe(minAppsNum)
+        const appsGrid = getByTestId('headerbar-top-apps-list')
+
+        const topApps = appsGrid.querySelectorAll('a')
+        expect(topApps.length).toBe(minAppsNum)
+        const firstApp = topApps[0]
+        const lastAppInFirstRow = topApps[3]
 
         // first highlighted item
-        expect(firstAppLink).toHaveClass('highlighted')
-        expect(firstAppLink.querySelector('span')).toHaveTextContent(
-            'Test App 1'
-        )
+        expect(firstApp).toHaveClass('highlighted')
+        expect(firstApp.querySelector('span')).toHaveTextContent('Test App 1')
 
         // loops to last item in the row
         await user.keyboard('{ArrowLeft}')
-        expect(firstAppLink).not.toHaveClass('highlighted')
-        expect(lastAppLinkFirstRow).toHaveClass('highlighted')
-        expect(lastAppLinkFirstRow.querySelector('span')).toHaveTextContent(
+        expect(firstApp).not.toHaveClass('highlighted')
+        expect(lastAppInFirstRow).toHaveClass('highlighted')
+        expect(lastAppInFirstRow.querySelector('span')).toHaveTextContent(
             'Test App 4'
         )
 
         // move left through the first row of items (3 - 0)
         for (
-            let prevIndex = appLinks.length / 2 - 1;
+            let prevIndex = topApps.length / 2 - 1;
             prevIndex > 0;
             prevIndex--
         ) {
             const activeIndex = prevIndex - 1
-            expect(appLinks[prevIndex]).toHaveClass('highlighted')
+            expect(topApps[prevIndex]).toHaveClass('highlighted')
 
             // move to next item
             await user.keyboard('{ArrowLeft}')
-            expect(appLinks[prevIndex]).not.toHaveClass('highlighted')
-            expect(appLinks[activeIndex]).toHaveClass('highlighted')
+            expect(topApps[prevIndex]).not.toHaveClass('highlighted')
+            expect(topApps[activeIndex]).toHaveClass('highlighted')
             expect(
-                appLinks[activeIndex].querySelector('span')
+                topApps[activeIndex].querySelector('span')
             ).toHaveTextContent(`Test App ${activeIndex + 1}`)
         }
     })
 
     it('handles down arrow navigation on the home view', async () => {
         const user = userEvent.setup()
-        const { getAllByRole, queryByTestId } = render(
+        const { queryByTestId, container } = render(
             <CommandPalette
                 apps={testApps}
                 shortcuts={testShortcuts}
@@ -185,24 +187,28 @@ describe('Command Palette - Home View', () => {
             />
         )
 
-        // open modal
-        await user.keyboard('{ctrl}/')
+        // open modal with (Ctrl + /) keys
+        fireEvent.keyDown(container, { key: '/', ctrlKey: true })
 
         // topApps
-        const appLinks = getAllByRole('link')
-        const rowOneFirstAppLink = appLinks[0]
-        const rowTwoFirstAppLink = appLinks[4]
+        const appsGrid = queryByTestId('headerbar-top-apps-list')
+        expect(appsGrid).toBeInTheDocument()
+
+        const topApps = appsGrid.querySelectorAll('a')
+        expect(topApps.length).toBe(minAppsNum)
+        const rowOneFirstApp = topApps[0]
+        const rowTwoFirstApp = topApps[4]
 
         // first highlighted item
-        expect(rowOneFirstAppLink).toHaveClass('highlighted')
-        expect(rowOneFirstAppLink.querySelector('span')).toHaveTextContent(
+        expect(rowOneFirstApp).toHaveClass('highlighted')
+        expect(rowOneFirstApp.querySelector('span')).toHaveTextContent(
             'Test App 1'
         )
 
         await user.keyboard('{ArrowDown}')
-        expect(rowOneFirstAppLink).not.toHaveClass('highlighted')
-        expect(rowTwoFirstAppLink).toHaveClass('highlighted')
-        expect(rowTwoFirstAppLink.querySelector('span')).toHaveTextContent(
+        expect(rowOneFirstApp).not.toHaveClass('highlighted')
+        expect(rowTwoFirstApp).toHaveClass('highlighted')
+        expect(rowTwoFirstApp.querySelector('span')).toHaveTextContent(
             'Test App '
         )
 
@@ -227,12 +233,12 @@ describe('Command Palette - Home View', () => {
 
         // loop back to grid
         await user.keyboard('{ArrowDown}')
-        expect(rowOneFirstAppLink).toHaveClass('highlighted')
+        expect(rowOneFirstApp).toHaveClass('highlighted')
     })
 
     it('handles up arrow navigation on the home view', async () => {
         const user = userEvent.setup()
-        const { getAllByRole, queryByTestId } = render(
+        const { container, getByTestId, queryByTestId } = render(
             <CommandPalette
                 apps={testApps}
                 shortcuts={testShortcuts}
@@ -240,23 +246,25 @@ describe('Command Palette - Home View', () => {
             />
         )
 
-        // open modal
-        await user.keyboard('{ctrl}/')
+        // open modal with (Ctrl + /) keys
+        fireEvent.keyDown(container, { key: '/', ctrlKey: true })
 
         // topApps
-        const appLinks = getAllByRole('link')
-        const rowOneFirstAppLink = appLinks[0]
-        const rowTwoFirstAppLink = appLinks[4]
+        const appsGrid = getByTestId('headerbar-top-apps-list')
+        const topApps = appsGrid.querySelectorAll('a')
+
+        const rowOneFirstApp = topApps[0]
+        const rowTwoFirstApp = topApps[4]
 
         // first highlighted item
-        expect(rowOneFirstAppLink).toHaveClass('highlighted')
-        expect(rowOneFirstAppLink.querySelector('span')).toHaveTextContent(
+        expect(rowOneFirstApp).toHaveClass('highlighted')
+        expect(rowOneFirstApp.querySelector('span')).toHaveTextContent(
             'Test App 1'
         )
 
         // goes to bottom of actions menu
         await user.keyboard('{ArrowUp}')
-        expect(rowOneFirstAppLink).not.toHaveClass('highlighted')
+        expect(rowOneFirstApp).not.toHaveClass('highlighted')
         expect(queryByTestId('headerbar-logout')).toHaveClass('highlighted')
 
         await user.keyboard('{ArrowUp}')
@@ -276,12 +284,12 @@ describe('Command Palette - Home View', () => {
 
         // moves to grid
         await user.keyboard('{ArrowUp}')
-        expect(rowTwoFirstAppLink).toHaveClass('highlighted')
-        expect(rowTwoFirstAppLink.querySelector('span')).toHaveTextContent(
+        expect(rowTwoFirstApp).toHaveClass('highlighted')
+        expect(rowTwoFirstApp.querySelector('span')).toHaveTextContent(
             'Test App 5'
         )
 
         await user.keyboard('{ArrowUp}')
-        expect(rowOneFirstAppLink).toHaveClass('highlighted')
+        expect(rowOneFirstApp).toHaveClass('highlighted')
     })
 })

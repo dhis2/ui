@@ -22,6 +22,7 @@ describe('Command Palette - List View - Browse Shortcuts', () => {
         // open command palette
         await user.click(getByTestId(headerBarIconTest))
 
+        // click browse-shortcuts link
         expect(queryByTestId('headerbar-actions-menu')).toBeInTheDocument()
         await user.click(getByTestId('headerbar-browse-shortcuts'))
 

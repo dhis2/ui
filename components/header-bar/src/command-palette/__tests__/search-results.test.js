@@ -1,3 +1,4 @@
+import { fireEvent } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 import React from 'react'
 import CommandPalette from '../command-palette.js'
@@ -12,7 +13,7 @@ import {
 describe('Command Palette - List View - Search Results', () => {
     it('filters for one item and handles navigation of singular item list', async () => {
         const user = userEvent.setup()
-        const { getByPlaceholderText, queryAllByTestId } = render(
+        const { getByPlaceholderText, queryAllByTestId, container } = render(
             <CommandPalette
                 apps={testApps}
                 shortcuts={testShortcuts}
@@ -20,7 +21,7 @@ describe('Command Palette - List View - Search Results', () => {
             />
         )
         // open modal
-        await user.keyboard('{ctrl}/')
+        fireEvent.keyDown(container, { key: '/', metaKey: true })
 
         // Search field
         const searchField = await getByPlaceholderText(

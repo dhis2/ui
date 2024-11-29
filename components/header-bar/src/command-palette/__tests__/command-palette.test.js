@@ -1,8 +1,4 @@
-import {
-    render as originalRender,
-    waitFor,
-    waitForElementToBeRemoved,
-} from '@testing-library/react'
+import { fireEvent, render as originalRender } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -100,63 +96,51 @@ describe('Command Palette Component', () => {
     })
 
     it('opens and closes Command Palette using ctrl + /', async () => {
-        const user = userEvent.setup()
-        const { queryByTestId } = render(
+        const { container, queryByTestId } = render(
             <CommandPalette apps={[]} shortcuts={[]} commands={[]} />
         )
         // modal not rendered yet
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
 
-        // ctrl + /
-        // open modal
-        await user.keyboard('{meta>}/')
+        // open modal with (Ctrl + /) keys
+        fireEvent.keyDown(container, { key: '/', ctrlKey: true })
         expect(queryByTestId(modalTest)).toBeInTheDocument()
 
-        await user.keyboard('{backspace}')
-        // close modal
-        await user.keyboard('{meta>}/')
+        // close modal with (Ctrl + /) keys
+        fireEvent.keyDown(container, { key: '/', ctrlKey: true })
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
     })
 
     it('opens and closes Command Palette using meta + /', async () => {
-        const user = userEvent.setup()
-        const { queryByTestId } = render(
+        const { container, queryByTestId } = render(
             <CommandPalette apps={[]} shortcuts={[]} commands={[]} />
         )
         // modal not rendered yet
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
 
-        // meta + /
-        // open modal
-        await user.keyboard('{meta>}/')
+        // open modal with (Meta + /) keys
+        fireEvent.keyDown(container, { key: '/', metaKey: true })
         expect(queryByTestId(modalTest)).toBeInTheDocument()
-        await user.keyboard('{backspace}')
-        // close modal
-        await user.keyboard('{meta>}/')
+
+        // close modal with (Ctrl + /) keys
+        fireEvent.keyDown(container, { key: '/', metaKey: true })
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
     })
 
     it('closes Command Palette using Esc key', async () => {
         const user = userEvent.setup()
-        const { queryByTestId } = render(
+        const { container, queryByTestId } = render(
             <CommandPalette apps={[]} shortcuts={[]} commands={[]} />
         )
         // modal not rendered yet
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
 
-        // open modal
-        await user.keyboard('{meta>}/')
-
-        await waitFor(() =>
-            expect(queryByTestId(modalTest)).toBeInTheDocument()
-        )
-
-        // ToDo: this is a workaround after react-18 upgrade
-        await user.keyboard('{backspace}')
+        // open modal with (Ctrl + /) keys
+        fireEvent.keyDown(container, { key: '/', ctrlKey: true })
+        expect(queryByTestId(modalTest)).toBeInTheDocument()
 
         // Esc key closes the modal
         await user.keyboard('{Escape}')
-
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
     })
 })
