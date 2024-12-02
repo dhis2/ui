@@ -1,3 +1,10 @@
+## [10.1.5](https://github.com/dhis2/ui/compare/v10.1.4...v10.1.5) (2024-12-02)
+
+
+### Bug Fixes
+
+* **types:** fix missing width type for input ([#1644](https://github.com/dhis2/ui/issues/1644)) ([15fa0f9](https://github.com/dhis2/ui/commit/15fa0f96528b74d568d05d374a2dfac7f6ba309a))
+
 ## [10.1.4](https://github.com/dhis2/ui/compare/v10.1.3...v10.1.4) (2024-11-28)
 
 
