@@ -1,4 +1,4 @@
-import userEvent from '@testing-library/user-event'
+import { userEvent } from '@testing-library/user-event'
 import React from 'react'
 import CommandPalette from '../command-palette.js'
 import {
@@ -8,7 +8,8 @@ import {
 } from './command-palette.test.js'
 
 describe('Command Palette - List View - Browse Shortcuts', () => {
-    it('renders Browse Shortcuts View', () => {
+    it('renders Browse Shortcuts View', async () => {
+        const user = userEvent.setup()
         const {
             getByTestId,
             queryByTestId,
@@ -19,10 +20,11 @@ describe('Command Palette - List View - Browse Shortcuts', () => {
             <CommandPalette apps={[]} shortcuts={testShortcuts} commands={[]} />
         )
         // open command palette
-        userEvent.click(getByTestId(headerBarIconTest))
+        await user.click(getByTestId(headerBarIconTest))
 
+        // click browse-shortcuts link
         expect(queryByTestId('headerbar-actions-menu')).toBeInTheDocument()
-        userEvent.click(getByTestId('headerbar-browse-shortcuts'))
+        await user.click(getByTestId('headerbar-browse-shortcuts'))
 
         // Browse Shortcuts View
         // Search field
@@ -42,7 +44,7 @@ describe('Command Palette - List View - Browse Shortcuts', () => {
         expect(listItem).toHaveClass('highlighted')
 
         // go back to default view
-        userEvent.click(getByLabelText('Back Button'))
+        await user.click(getByLabelText('Back Button'))
         expect(queryByText(/All Shortcuts/i)).not.toBeInTheDocument()
         expect(queryByText(/Actions/i)).toBeInTheDocument()
     })
