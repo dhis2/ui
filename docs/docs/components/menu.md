@@ -32,7 +32,7 @@ A menu gives access to menu items, through a panel that opens from a trigger ele
 
 -   Menu item labels should be short and easy to understand.
 -   One or two words is often enough to explain the action.
--   Refer to the [writing guidelines](../patterns/writing.md) and [glossary](../patterns/glossary.md) for more information about writing useful labels.
+-   Refer to the [writing guidelines](/design-system/patterns/writing) and [glossary](/design-system/patterns/glossary) for more information about writing useful labels.
 
 ##### Order and grouping
 

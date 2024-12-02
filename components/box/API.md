@@ -16,7 +16,7 @@ import { Box } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-box'`|||
+|dataTest|string|``'dhis2-uicore-box'``|||
 |height|string||||
 |marginTop|string||||
 |maxHeight|string||||

@@ -17,7 +17,7 @@ import { Input } from '@dhis2/ui'
 |autoComplete|string|||The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete)|
 |className|string||||
 |clearable|boolean|||Makes the input field clearable|
-|dataTest|string|`'dhis2-uicore-input'`|||
+|dataTest|string|``'dhis2-uicore-input'``|||
 |dense|boolean|||Makes the input smaller|
 |disabled|boolean|||Disables the input|
 |error|custom|||Applies 'error' appearance for validation feedback. Mutually exclusive with `valid` and `warning` props|
@@ -32,7 +32,7 @@ import { Input } from '@dhis2/ui'
 |role|string|||Sets a role attribute on the input|
 |step|string|||The [native `step` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-step), for use when `type` is `'number'`|
 |tabIndex|string||||
-|type|inputTypes|`'text'`||The native input `type` attribute|
+|type|inputTypes|``'text'``||The native input `type` attribute|
 |valid|custom|||Applies 'valid' appearance for validation feedback. Mutually exclusive with `error` and `warning` props|
 |value|string|||Value in the input. Can be used to control the component (recommended). Passed to event handler callbacks in object|
 |warning|custom|||Applies 'warning' appearance for validation feedback. Mutually exclusive with `valid` and `error` props|
@@ -61,7 +61,7 @@ import { InputField } from '@dhis2/ui'
 |autoComplete|string|||The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete)|
 |className|string||||
 |clearable|boolean|||Makes the input field clearable|
-|dataTest|string|`'dhis2-uiwidgets-inputfield'`|||
+|dataTest|string|``'dhis2-uiwidgets-inputfield'``|||
 |dense|boolean|||Makes the input smaller|
 |disabled|boolean|||Disables the input|
 |error|custom|||Applies 'error' appearance for validation feedback. Mutually exclusive with `valid` and `warning` props|
