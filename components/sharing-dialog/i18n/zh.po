@@ -31,16 +31,16 @@ msgid "Give access to a user or group"
 msgstr "授予用户或组访问权限"
 
 msgid "Data access level"
-msgstr ""
+msgstr "数据访问级别"
 
 msgid "Choose a level"
-msgstr ""
+msgstr "选择级别"
 
 msgid "Not available offline"
 msgstr "离线不可用"
 
 msgid "Metadata access level"
-msgstr ""
+msgstr "元数据访问级别"
 
 msgid "Access level"
 msgstr "访问等级"
@@ -58,7 +58,7 @@ msgid "All users"
 msgstr "全部用户"
 
 msgid "Anyone logged in"
-msgstr ""
+msgstr "已经登录的任何人"
 
 msgid "User group"
 msgstr "用户组"
