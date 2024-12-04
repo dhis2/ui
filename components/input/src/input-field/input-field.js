@@ -66,13 +66,7 @@ class InputField extends React.Component {
                         onChange={onChange}
                         name={name}
                         type={type}
-                        value={
-                            value === null ||
-                            value === undefined ||
-                            Number.isNaN(value)
-                                ? ''
-                                : value
-                        }
+                        value={value ?? ''}
                         placeholder={placeholder}
                         disabled={disabled}
                         max={max}
