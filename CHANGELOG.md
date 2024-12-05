@@ -1,3 +1,10 @@
+## [10.1.7](https://github.com/dhis2/ui/compare/v10.1.6...v10.1.7) (2024-12-05)
+
+
+### Bug Fixes
+
+* **deps:** remove testing-library from selector-bar prod deps ([#1648](https://github.com/dhis2/ui/issues/1648)) ([e8ea894](https://github.com/dhis2/ui/commit/e8ea894eb57d394b5d819e78f8b6700fc5b37205))
+
 ## [10.1.6](https://github.com/dhis2/ui/compare/v10.1.5...v10.1.6) (2024-12-03)
 
 
