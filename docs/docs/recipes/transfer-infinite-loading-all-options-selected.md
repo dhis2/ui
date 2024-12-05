@@ -6,7 +6,7 @@ import { InfiniteLoading } from './transfer-infinite-loading-all-options-selecte
 
 # Transfer: Infinite loading - All loaded options are already selected
 
-## Abstract
+## Summary
 
 If you have a Transfer component with infinite loading capability (by using the
 `onEndReached` callback to load more items), there's a potential edge case:

@@ -84,6 +84,8 @@ const sidebars = {
         {
             Recipes: [
                 'recipes/recipes',
+                'recipes/single-select-a11y-simple-filtering',
+                'recipes/single-select-a11y-server-side-filtering',
                 'recipes/transfer-infinite-loading-all-options-selected',
             ],
         },
