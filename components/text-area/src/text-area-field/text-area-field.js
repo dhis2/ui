@@ -114,13 +114,13 @@ TextAreaField.propTypes = {
     value: PropTypes.string,
     /** Applies 'warning' styles for validation feedback. Mutually exclusive with `valid` and `error` props */
     warning: sharedPropTypes.statusPropType,
-    /** Called with signature ({ name: string, value: string }, event) */
+    /** Called with signature `({ name: string, value: string }, event)` */
     onBlur: PropTypes.func,
-    /** Called with signature ({ name: string, value: string }, event) */
+    /** Called with signature `({ name: string, value: string }, event)` */
     onChange: PropTypes.func,
-    /** Called with signature ({ name: string, value: string }, event) */
+    /** Called with signature `({ name: string, value: string }, event)` */
     onFocus: PropTypes.func,
-    /** Called with signature ({ name: string, value: string }, event) */
+    /** Called with signature `({ name: string, value: string }, event)` */
     onKeyDown: PropTypes.func,
 }
 

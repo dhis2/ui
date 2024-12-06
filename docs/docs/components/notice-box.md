@@ -111,7 +111,7 @@ A notice box shows important information about a situation.
 
 -   Notice box titles should be a short summary to help the user scan elements the page.
 -   Notice box text should be clear and informative. Explain what the situation is and, if relevant, offer a solution.
--   Check the [writing guidelines](../patterns/writing.md) for more information.
+-   Check the [writing guidelines](/design-system/patterns/writing) for more information.
 
 ## Options
 
