@@ -24,4 +24,12 @@ describe('<Input>', () => {
 
         expect(onKeyDown).toHaveBeenCalledTimes(1)
     })
+
+    it('should render a field with value zero', () => {
+        const screen = render(
+            <InputField label="label" name="foo" type="number" value={0} />
+        )
+
+        expect(screen.getByLabelText('label')).toHaveValue(0)
+    })
 })
