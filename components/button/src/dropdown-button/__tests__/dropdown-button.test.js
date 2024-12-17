@@ -1,10 +1,10 @@
 import { Layer } from '@dhis2-ui/layer'
+import { Modal } from '@dhis2-ui/modal'
 import { Popper } from '@dhis2-ui/popper'
 import { render, fireEvent, waitFor } from '@testing-library/react'
 import { mount } from 'enzyme'
 import React from 'react'
 import { act } from 'react-dom/test-utils'
-import { Modal } from '../../../../modal/src/modal/modal.js'
 import { Button } from '../../index.js'
 import { DropdownButton } from '../dropdown-button.js'
 

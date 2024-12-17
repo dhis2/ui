@@ -5,11 +5,44 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-06-12T03:40:49.012Z\n"
-"PO-Revision-Date: 2024-06-12T03:40:49.013Z\n"
+"POT-Creation-Date: 2024-12-17T01:42:03.299Z\n"
+"PO-Revision-Date: 2024-12-17T01:42:03.300Z\n"
 
 msgid "Search apps"
 msgstr "Search apps"
+
+msgid "Search commands"
+msgstr "Search commands"
+
+msgid "Search shortcuts"
+msgstr "Search shortcuts"
+
+msgid "Search apps, shortcuts, commands"
+msgstr "Search apps, shortcuts, commands"
+
+msgid "Browse apps"
+msgstr "Browse apps"
+
+msgid "Browse commands"
+msgstr "Browse commands"
+
+msgid "Browse shortcuts"
+msgstr "Browse shortcuts"
+
+msgid "Logout"
+msgstr "Logout"
+
+msgid "Top apps"
+msgstr "Top apps"
+
+msgid "All Apps"
+msgstr "All Apps"
+
+msgid "All Commands"
+msgstr "All Commands"
+
+msgid "All Shortcuts"
+msgstr "All Shortcuts"
 
 msgid "DHIS2 {{dhis2Version}}"
 msgstr "DHIS2 {{dhis2Version}}"
@@ -61,9 +94,6 @@ msgstr "Help"
 
 msgid "About DHIS2"
 msgstr "About DHIS2"
-
-msgid "Logout"
-msgstr "Logout"
 
 msgid "New {{appName}} version available"
 msgstr "New {{appName}} version available"

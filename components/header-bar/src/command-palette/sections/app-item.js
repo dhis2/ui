@@ -7,6 +7,7 @@ function AppItem({ name, path, img, highlighted, handleMouseEnter }) {
     return (
         <a
             href={path}
+            target="_self"
             className={cx('item', { highlighted })}
             onMouseEnter={handleMouseEnter}
             tabIndex={-1}
