@@ -1,4 +1,5 @@
-import userEvent from '@testing-library/user-event'
+import { fireEvent } from '@testing-library/dom'
+import { userEvent } from '@testing-library/user-event'
 import React from 'react'
 import CommandPalette from '../command-palette.js'
 import {
@@ -10,8 +11,9 @@ import {
 } from './command-palette.test.js'
 
 describe('Command Palette - List View - Search Results', () => {
-    it('filters for one item and handles navigation of singular item list', () => {
-        const { getByPlaceholderText, queryAllByTestId } = render(
+    it('filters for one item and handles navigation of singular item list', async () => {
+        const user = userEvent.setup()
+        const { getByPlaceholderText, queryAllByTestId, container } = render(
             <CommandPalette
                 apps={testApps}
                 shortcuts={testShortcuts}
@@ -19,30 +21,31 @@ describe('Command Palette - List View - Search Results', () => {
             />
         )
         // open modal
-        userEvent.keyboard('{ctrl}/')
+        fireEvent.keyDown(container, { key: '/', metaKey: true })
 
         // Search field
-        const searchField = getByPlaceholderText(
+        const searchField = await getByPlaceholderText(
             'Search apps, shortcuts, commands'
         )
         expect(searchField).toHaveValue('')
 
         // one item result
-        userEvent.type(searchField, 'Shortcut')
+        await user.type(searchField, 'Shortcut')
         const listItems = queryAllByTestId('headerbar-list-item')
         expect(listItems.length).toBe(1)
 
         expect(listItems[0]).toHaveTextContent('Test Shortcut 1')
         expect(listItems[0]).toHaveClass('highlighted')
 
-        userEvent.keyboard('{ArrowUp}')
+        await user.keyboard('{ArrowUp}')
         expect(listItems[0]).toHaveClass('highlighted')
 
-        userEvent.keyboard('{ArrowDown}')
+        await user.keyboard('{ArrowDown}')
         expect(listItems[0]).toHaveClass('highlighted')
     })
 
-    it('shows empty search results if no match is made', () => {
+    it('shows empty search results if no match is made', async () => {
+        const user = userEvent.setup()
         const {
             getByTestId,
             getByPlaceholderText,
@@ -52,7 +55,7 @@ describe('Command Palette - List View - Search Results', () => {
             <CommandPalette apps={[]} shortcuts={testShortcuts} commands={[]} />
         )
         // open command palette
-        userEvent.click(getByTestId(headerBarIconTest))
+        await user.click(getByTestId(headerBarIconTest))
 
         // Search field
         const searchField = getByPlaceholderText(
@@ -60,7 +63,7 @@ describe('Command Palette - List View - Search Results', () => {
         )
         expect(searchField).toHaveValue('')
 
-        userEvent.type(searchField, 'abc')
+        await user.type(searchField, 'abc')
         expect(searchField).toHaveValue('abc')
 
         expect(queryByTestId('headerbar-empty-search')).toBeInTheDocument()

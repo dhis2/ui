@@ -1,5 +1,5 @@
-import { render as originalRender } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { fireEvent, render as originalRender } from '@testing-library/react'
+import { userEvent } from '@testing-library/user-event'
 import PropTypes from 'prop-types'
 import React from 'react'
 import CommandPalette from '../command-palette.js'
@@ -53,7 +53,8 @@ export const testShortcuts = [
 ]
 
 describe('Command Palette Component', () => {
-    it('renders bare default view when Command Palette is opened', () => {
+    it('renders bare default view when Command Palette is opened', async () => {
+        const user = userEvent.setup()
         const { getByTestId, queryByTestId, getByPlaceholderText } = render(
             <CommandPalette apps={[]} shortcuts={[]} commands={[]} />
         )
@@ -62,7 +63,7 @@ describe('Command Palette Component', () => {
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
 
         const headerBarIcon = getByTestId(headerBarIconTest)
-        userEvent.click(headerBarIcon)
+        await user.click(headerBarIcon)
         expect(queryByTestId(modalTest)).toBeInTheDocument()
 
         // Search field
@@ -90,54 +91,56 @@ describe('Command Palette Component', () => {
         expect(queryByTestId('headerbar-logout')).toBeInTheDocument()
 
         // click outside modal
-        userEvent.click(headerBarIcon)
+        await user.click(headerBarIcon)
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
     })
 
-    it('opens and closes Command Palette using ctrl + /', () => {
-        const { queryByTestId } = render(
+    it('opens and closes Command Palette using ctrl + /', async () => {
+        const { container, queryByTestId } = render(
             <CommandPalette apps={[]} shortcuts={[]} commands={[]} />
         )
         // modal not rendered yet
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
 
-        // ctrl + /
-        // open modal
-        userEvent.keyboard('{ctrl}/')
+        // open modal with (Ctrl + /) keys
+        fireEvent.keyDown(container, { key: '/', ctrlKey: true })
         expect(queryByTestId(modalTest)).toBeInTheDocument()
-        // close modal
-        userEvent.keyboard('{ctrl}/')
+
+        // close modal with (Ctrl + /) keys
+        fireEvent.keyDown(container, { key: '/', ctrlKey: true })
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
     })
 
-    it('opens and closes Command Palette using meta + /', () => {
-        const { queryByTestId } = render(
+    it('opens and closes Command Palette using meta + /', async () => {
+        const { container, queryByTestId } = render(
             <CommandPalette apps={[]} shortcuts={[]} commands={[]} />
         )
         // modal not rendered yet
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
 
-        // meta + /
-        // open modal
-        userEvent.keyboard('{meta}/')
+        // open modal with (Meta + /) keys
+        fireEvent.keyDown(container, { key: '/', metaKey: true })
         expect(queryByTestId(modalTest)).toBeInTheDocument()
-        // close modal
-        userEvent.keyboard('{meta}/')
+
+        // close modal with (Ctrl + /) keys
+        fireEvent.keyDown(container, { key: '/', metaKey: true })
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
     })
 
-    it('closes Command Palette using Esc key', () => {
-        const { queryByTestId } = render(
+    it('closes Command Palette using Esc key', async () => {
+        const user = userEvent.setup()
+        const { container, queryByTestId } = render(
             <CommandPalette apps={[]} shortcuts={[]} commands={[]} />
         )
         // modal not rendered yet
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
 
-        // open modal
-        userEvent.keyboard('{ctrl}/')
+        // open modal with (Ctrl + /) keys
+        fireEvent.keyDown(container, { key: '/', ctrlKey: true })
         expect(queryByTestId(modalTest)).toBeInTheDocument()
+
         // Esc key closes the modal
-        userEvent.keyboard('{esc}')
+        await user.keyboard('{Escape}')
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
     })
 })
