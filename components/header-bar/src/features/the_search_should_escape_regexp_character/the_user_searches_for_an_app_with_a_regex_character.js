@@ -18,7 +18,7 @@ Given(/some app names contain a (.*)/, (character) => {
 })
 
 Then(/only apps with (.*) in their name should be shown/, (character) => {
-    cy.get('[data-test="headerbar-apps-menu-list"] > a > div').should(
+    cy.get('[data-test="headerbar-list"] > a .text-content .title').should(
         ($modules) => {
             $modules.each((index, module) => {
                 const displayName = Cypress.$(module).text()

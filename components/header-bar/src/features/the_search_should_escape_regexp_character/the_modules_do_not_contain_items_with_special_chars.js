@@ -17,7 +17,8 @@ Given(/no app name contains a (.*)/, (character) => {
 })
 
 Then('no results should be shown', () => {
-    cy.get('[data-test="headerbar-apps-menu-list"] > a > div').should(
+    cy.get('[data-test="headerbar-list"] > a > .text-content .title').should(
         'not.exist'
     )
+    cy.get('[data-test="headerbar-empty-search"]').should('exist')
 })

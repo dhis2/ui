@@ -5,5 +5,5 @@ When('the user opens the menu', () => {
 })
 
 When('the user clicks outside of the menu', () => {
-    cy.get('[data-test="headerbar-title"]').click()
+    cy.get('.backdrop').click({ force: true })
 })
