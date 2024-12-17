@@ -1,8 +1,8 @@
 import { colors, spacers, theme } from '@dhis2/ui-constants'
 import { IconSearch16 } from '@dhis2/ui-icons'
+import { InputField } from '@dhis2-ui/input'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { InputField } from '../../../../input/src/input-field/input-field.js'
 
 function Search({ value, onChange, placeholder }) {
     return (
