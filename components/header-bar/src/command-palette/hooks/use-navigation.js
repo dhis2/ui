@@ -231,7 +231,8 @@ export const useNavigation = ({
                         ?.childNodes?.[highlightedIndex]?.click()
                 } else {
                     // open apps, shortcuts link
-                    window.location.href = itemsArray[highlightedIndex]?.['defaultAction']
+                    window.location.href =
+                        itemsArray[highlightedIndex]?.['defaultAction']
                     // TODO: execute commands
                 }
             }
