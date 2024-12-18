@@ -1,3 +1,11 @@
+## [10.1.9](https://github.com/dhis2/ui/compare/v10.1.8...v10.1.9) (2024-12-18)
+
+
+### Bug Fixes
+
+* **transfer:** apply margin to first and last items, remove container padding ([7fbb161](https://github.com/dhis2/ui/commit/7fbb161fdffc9a9326e119c83ff4cf90a6f2ebab))
+* **transfer:** use dense inputs for filtering ([e62f9e7](https://github.com/dhis2/ui/commit/e62f9e78982f8fa155779f147bea02894d55c5fc))
+
 ## [10.1.8](https://github.com/dhis2/ui/compare/v10.1.7...v10.1.8) (2024-12-08)
 
 
