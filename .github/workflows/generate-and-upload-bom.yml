@@ -1,12 +1,8 @@
 name: 'This workflow creates bill of material and uploads it to Dependency-Track each night'
 
 on:
-    pull_request:
-        types: ['opened', 'edited', 'reopened', 'synchronize']
-        
-# on:
-#    schedule:
-#        - cron: '0 0 * * *'
+    schedule:
+        - cron: '0 0 * * *'
 
 concurrency:
     group: ${{ github.workflow}}-${{ github.ref }}
@@ -26,14 +22,9 @@ jobs:
               with:
                   node-version: 20.x
 
-            - uses: c-hive/gha-yarn-cache@v1
-            - run: yarn install --frozen-lockfile
+            - name: Install Dependencies
+              run: yarn install --frozen-lockfile
 
-            - name: Install CycloneDX CLI
-              run: |
-                  curl -s https://api.github.com/repos/CycloneDX/cyclonedx-cli/releases/latest | grep "browser_download_url.*linux.x64" | cut -d '"' -f 4 | wget -i -
-                  sudo mv cyclonedx-linux-x64 /usr/local/bin/
-                  sudo chmod +x /usr/local/bin/cyclonedx-linux-x64
             - name: Generate BOMs
               run: |
                   npm install -g @cyclonedx/cdxgen
