@@ -5,9 +5,8 @@ export const GRID_ITEMS_LENGTH = 8
 export const MIN_APPS_NUM = GRID_ITEMS_LENGTH
 
 export const useNavigation = ({
-    setShow,
+    setOpenModal,
     itemsArray,
-    show,
     showGrid,
     actionsLength,
 }) => {
@@ -180,7 +179,7 @@ export const useNavigation = ({
 
             if (event.key === 'Escape') {
                 event.preventDefault()
-                setShow(false)
+                setOpenModal(false)
                 setActiveSection(defaultSection)
                 setHighlightedIndex(0)
             }
@@ -193,7 +192,7 @@ export const useNavigation = ({
             highlightedIndex,
             setActiveSection,
             setHighlightedIndex,
-            setShow,
+            setOpenModal,
         ]
     )
 
@@ -219,11 +218,6 @@ export const useNavigation = ({
                 })
             }
 
-            if ((event.metaKey || event.ctrlKey) && event.key === '/') {
-                setShow((show) => !show)
-                goToDefaultView()
-            }
-
             if (event.key === 'Enter') {
                 if (activeSection === 'actions') {
                     modal
@@ -246,8 +240,7 @@ export const useNavigation = ({
             highlightedIndex,
             itemsArray,
             setActiveSection,
-            setShow,
-            show,
+            setOpenModal,
             showGrid,
         ]
     )

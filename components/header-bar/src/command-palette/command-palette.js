@@ -19,10 +19,13 @@ import {
 
 const CommandPalette = ({ apps, commands, shortcuts }) => {
     const containerEl = useRef(null)
-    const [show, setShow] = useState(false)
+    const [openModal, setOpenModal] = useState(false)
     const { currentView, filter, setFilter } = useCommandPaletteContext()
 
-    const handleVisibilityToggle = useCallback(() => setShow(!show), [show])
+    const handleVisibilityToggle = useCallback(
+        () => setOpenModal(!openModal),
+        [openModal]
+    )
     const handleFilterChange = useCallback(
         ({ value }) => setFilter(value),
         [setFilter]
@@ -38,9 +41,8 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
     } = useFilter({ apps, commands, shortcuts })
 
     const { handleKeyDown, goToDefaultView, modalRef } = useNavigation({
-        setShow,
+        setOpenModal,
         itemsArray: currentViewItemsArray,
-        show,
         showGrid: apps?.length > 0,
         actionsLength: actionsArray?.length,
     })
@@ -65,11 +67,17 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
     }
 
     useEffect(() => {
+        const handleKeyDown = (event) => {
+            if ((event.metaKey || event.ctrlKey) && event.key === '/') {
+                setOpenModal((open) => !open)
+                goToDefaultView()
+            }
+        }
         document.addEventListener('keydown', handleKeyDown)
         return () => {
             document.removeEventListener('keydown', handleKeyDown)
         }
-    }, [handleKeyDown])
+    }, [goToDefaultView])
 
     return (
         <div ref={containerEl} data-test="headerbar" className="headerbar">
@@ -79,14 +87,15 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
             >
                 <IconApps24 color={colors.white} />
             </button>
-            {show ? (
-                <ModalContainer setShow={setShow} show={show}>
+            {openModal ? (
+                <ModalContainer setShow={setOpenModal} show={openModal}>
                     <div
                         data-test="headerbar-menu"
                         className="headerbar-menu"
                         ref={modalRef}
                         tabIndex={0}
                         onFocus={handleFocus}
+                        onKeyDown={handleKeyDown}
                     >
                         <Search
                             value={filter}
