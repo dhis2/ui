@@ -24,12 +24,20 @@ export const useNavigation = ({
         setActiveSection,
     } = useCommandPaletteContext()
 
+    const defaultSection = showGrid ? 'grid' : 'actions'
+
     // highlight first item in filtered results
     useEffect(() => {
         setHighlightedIndex(0)
     }, [filter, setHighlightedIndex])
 
-    const defaultSection = showGrid ? 'grid' : 'actions'
+    // highlight first item in home view
+    useEffect(() => {
+        if (currentView === 'home' && !activeSection) {
+            setActiveSection(defaultSection)
+            setHighlightedIndex(0)
+        }
+    }, [])
 
     const goToDefaultView = useCallback(() => {
         setFilter('')
@@ -256,7 +264,5 @@ export const useNavigation = ({
         handleKeyDown,
         goToDefaultView,
         modalRef,
-        activeSection,
-        setActiveSection,
     }
 }
