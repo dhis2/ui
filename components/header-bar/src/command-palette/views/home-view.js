@@ -18,7 +18,6 @@ function HomeView({ apps, commands, shortcuts, actions }) {
         highlightedIndex,
         setHighlightedIndex,
         activeSection,
-        setActiveSection,
     } = useCommandPaletteContext()
     const filteredItems = apps.concat(commands, shortcuts)
     const topApps = apps?.slice(0, 8)
@@ -54,10 +53,6 @@ function HomeView({ apps, commands, shortcuts, actions }) {
                                                 activeSection === 'grid' &&
                                                 highlightedIndex === idx
                                             }
-                                            handleMouseEnter={() => {
-                                                setActiveSection('grid')
-                                                setHighlightedIndex(idx)
-                                            }}
                                         />
                                     )
                                 )}
@@ -118,10 +113,6 @@ function HomeView({ apps, commands, shortcuts, actions }) {
                                             activeSection === 'actions' &&
                                             highlightedIndex === index
                                         }
-                                        handleMouseEnter={() => {
-                                            setActiveSection('actions')
-                                            setHighlightedIndex(index)
-                                        }}
                                     />
                                 )
                             }

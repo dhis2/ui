@@ -3,14 +3,9 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-function AppItem({ name, path, img, highlighted, handleMouseEnter }) {
+function AppItem({ name, path, img, highlighted }) {
     return (
-        <a
-            href={path}
-            className={cx('item', { highlighted })}
-            onMouseEnter={handleMouseEnter}
-            tabIndex={-1}
-        >
+        <a href={path} className={cx('item', { highlighted })} tabIndex={-1}>
             <img src={img} alt="app" className="app-icon" />
             <span className="app-name">{name}</span>
             <style jsx>{`
@@ -51,7 +46,6 @@ function AppItem({ name, path, img, highlighted, handleMouseEnter }) {
 }
 
 AppItem.propTypes = {
-    handleMouseEnter: PropTypes.func,
     highlighted: PropTypes.bool,
     img: PropTypes.string,
     name: PropTypes.string,

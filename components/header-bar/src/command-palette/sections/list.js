@@ -4,7 +4,7 @@ import { useCommandPaletteContext } from '../context/command-palette-context.js'
 import ListItem from './list-item.js'
 
 function List({ filteredItems, type }) {
-    const { highlightedIndex, setHighlightedIndex } = useCommandPaletteContext()
+    const { highlightedIndex } = useCommandPaletteContext()
     return (
         <div data-test="headerbar-list">
             {filteredItems.map(
@@ -20,7 +20,6 @@ function List({ filteredItems, type }) {
                         image={icon}
                         description={description}
                         highlighted={highlightedIndex === idx}
-                        handleMouseEnter={() => setHighlightedIndex(idx)}
                     />
                 )
             )}

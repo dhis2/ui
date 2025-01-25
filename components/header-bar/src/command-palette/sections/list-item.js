@@ -13,7 +13,6 @@ function ListItem({
     onClickHandler,
     highlighted,
     dataTest = 'headerbar-list-item',
-    handleMouseEnter,
 }) {
     const showDescription = type === 'commands'
     return (
@@ -22,7 +21,6 @@ function ListItem({
             onClick={onClickHandler}
             className={cx('item', { highlighted })}
             data-test={dataTest}
-            onMouseEnter={handleMouseEnter}
             tabIndex={-1}
         >
             <div className="icon">
@@ -100,7 +98,6 @@ function ListItem({
 ListItem.propTypes = {
     dataTest: PropTypes.string,
     description: PropTypes.string,
-    handleMouseEnter: PropTypes.func,
     highlighted: PropTypes.bool,
     icon: PropTypes.node,
     image: PropTypes.string,
