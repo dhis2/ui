@@ -122,13 +122,10 @@ describe('Command Palette - List View - Browse Apps View', () => {
             'Test App 1'
         )
 
-        // simulate hover
+        // simulate hover - no highlight
         await user.hover(listItems[8])
-        expect(listItems[1]).not.toHaveClass('highlighted')
-        expect(listItems[8]).toHaveClass('highlighted')
-        expect(listItems[8].querySelector('span')).toHaveTextContent(
-            'Test App 9'
-        )
+        expect(listItems[0]).toHaveClass('highlighted')
+        expect(listItems[8]).not.toHaveClass('highlighted')
 
         const clearButton = getAllByRole('button')[1]
         await user.click(clearButton)
