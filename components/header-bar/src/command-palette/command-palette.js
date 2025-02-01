@@ -44,7 +44,7 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
         setOpenModal,
         itemsArray: currentViewItemsArray,
         showGrid: apps?.length > 0,
-        actionsLength: actionsArray?.length,
+        actionsArray,
     })
 
     useEffect(() => {

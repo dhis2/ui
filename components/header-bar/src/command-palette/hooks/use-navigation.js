@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from 'react'
+import { useCallback, useEffect, useMemo, useRef } from 'react'
 import { useCommandPaletteContext } from '../context/command-palette-context.js'
 
 export const GRID_ITEMS_LENGTH = 8
@@ -8,7 +8,7 @@ export const useNavigation = ({
     setOpenModal,
     itemsArray,
     showGrid,
-    actionsLength,
+    actionsArray,
 }) => {
     const modalRef = useRef(null)
 
@@ -22,6 +22,15 @@ export const useNavigation = ({
         setCurrentView,
         setActiveSection,
     } = useCommandPaletteContext()
+
+    const actionsLength = actionsArray?.length || 0
+
+    const activeItems = useMemo(() => {
+        if (currentView === 'home' && activeSection === 'actions') {
+            return actionsArray
+        }
+        return itemsArray
+    }, [itemsArray, actionsArray, currentView, activeSection])
 
     // highlight first item in filtered results
     useEffect(() => {
@@ -198,14 +207,12 @@ export const useNavigation = ({
 
     const handleKeyDown = useCallback(
         (event) => {
-            const modal = modalRef.current
-
             if (currentView === 'home') {
                 if (filter.length > 0) {
                     // search mode
                     handleListViewNavigation({
                         event,
-                        listLength: itemsArray.length,
+                        listLength: activeItems.length,
                     })
                 } else {
                     handleHomeViewNavigation(event)
@@ -214,19 +221,17 @@ export const useNavigation = ({
                 setActiveSection(null)
                 handleListViewNavigation({
                     event,
-                    listLength: itemsArray.length,
+                    listLength: activeItems.length,
                 })
             }
 
             if (event.key === 'Enter') {
-                if (activeSection === 'actions') {
-                    modal
-                        ?.querySelector('.actions-menu')
-                        ?.childNodes?.[highlightedIndex]?.click()
-                } else {
-                    // open apps, shortcuts link
-                    window.open(itemsArray[highlightedIndex]?.['defaultAction'])
-                    // TODO: execute commands
+                const activeItem = activeItems[highlightedIndex]
+
+                if (activeItem?.['action']) {
+                    activeItem?.['action']?.()
+                } else if (activeItem?.['defaultAction']) {
+                    window.open(activeItem?.['defaultAction'])
                 }
             }
         },
@@ -238,7 +243,7 @@ export const useNavigation = ({
             handleHomeViewNavigation,
             handleListViewNavigation,
             highlightedIndex,
-            itemsArray,
+            activeItems,
             setActiveSection,
             setOpenModal,
             showGrid,

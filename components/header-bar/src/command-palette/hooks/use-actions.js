@@ -7,9 +7,20 @@ import {
 } from '@dhis2/ui-icons'
 import React, { useMemo } from 'react'
 import i18n from '../../locales/index.js'
+import useLogout from '../commands/useLogout.js'
+import { useCommandPaletteContext } from '../context/command-palette-context.js'
 import { MIN_APPS_NUM } from './use-navigation.js'
 
 export const useAvailableActions = ({ apps, shortcuts, commands }) => {
+    const { setCurrentView, setHighlightedIndex } = useCommandPaletteContext()
+
+    const switchViewAction = (type) => {
+        setCurrentView(type)
+        setHighlightedIndex(0)
+    }
+
+    const { logoutAction, logoutURL } = useLogout()
+
     const actions = useMemo(() => {
         const actionsArray = []
         if (apps?.length > MIN_APPS_NUM) {
@@ -18,6 +29,7 @@ export const useAvailableActions = ({ apps, shortcuts, commands }) => {
                 title: i18n.t('Browse apps'),
                 icon: <IconApps16 color={colors.grey700} />,
                 dataTest: 'headerbar-browse-apps',
+                action: () => switchViewAction('apps'),
             })
         }
         if (commands?.length > 0) {
@@ -26,6 +38,7 @@ export const useAvailableActions = ({ apps, shortcuts, commands }) => {
                 title: i18n.t('Browse commands'),
                 icon: <IconTerminalWindow16 color={colors.grey700} />,
                 dataTest: 'headerbar-browse-commands',
+                action: () => switchViewAction('commands'),
             })
         }
         if (shortcuts?.length > 0) {
@@ -34,6 +47,7 @@ export const useAvailableActions = ({ apps, shortcuts, commands }) => {
                 title: i18n.t('Browse shortcuts'),
                 icon: <IconRedo16 color={colors.grey700} />,
                 dataTest: 'headerbar-browse-shortcuts',
+                action: () => switchViewAction('shortcuts'),
             })
         }
         // default logout action
@@ -42,6 +56,8 @@ export const useAvailableActions = ({ apps, shortcuts, commands }) => {
             title: i18n.t('Logout'),
             icon: <IconLogOut16 color={colors.grey700} />,
             dataTest: 'headerbar-logout',
+            action: logoutAction,
+            href: logoutURL,
         })
         return actionsArray
     }, [apps, shortcuts, commands])

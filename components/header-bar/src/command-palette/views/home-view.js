@@ -1,8 +1,6 @@
-import { clearSensitiveCaches, useConfig } from '@dhis2/app-runtime'
 import { spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { joinPath } from '../../join-path.js'
 import i18n from '../../locales/index.js'
 import { useCommandPaletteContext } from '../context/command-palette-context.js'
 import AppItem from '../sections/app-item.js'
@@ -11,10 +9,8 @@ import ListItem from '../sections/list-item.js'
 import ListView from './list-view.js'
 
 function HomeView({ apps, commands, shortcuts, actions }) {
-    const { baseUrl } = useConfig()
     const {
         filter,
-        setCurrentView,
         highlightedIndex,
         setHighlightedIndex,
         activeSection,
@@ -79,41 +75,18 @@ function HomeView({ apps, commands, shortcuts, actions }) {
                         data-test="headerbar-actions-menu"
                     >
                         {actions.map(
-                            ({ dataTest, icon, title, type }, index) => {
-                                const logoutActionHandler = async () => {
-                                    await clearSensitiveCaches()
-                                    window.location.assign(
-                                        joinPath(
-                                            baseUrl,
-                                            'dhis-web-commons-security/logout.action'
-                                        )
-                                    )
-                                }
-
-                                const viewActionHandler = () => {
-                                    setCurrentView(type)
-                                    setHighlightedIndex(0)
-                                }
-
+                            (
+                                { dataTest, icon, title, type, href, action },
+                                index
+                            ) => {
                                 return (
                                     <ListItem
                                         key={`action-${type}-${index}`}
                                         title={title}
                                         icon={icon}
                                         dataTest={dataTest}
-                                        href={
-                                            type === 'logout'
-                                                ? joinPath(
-                                                      baseUrl,
-                                                      'dhis-web-commons-security/logout.action'
-                                                  )
-                                                : undefined
-                                        }
-                                        onClickHandler={
-                                            type === 'logout'
-                                                ? logoutActionHandler
-                                                : viewActionHandler
-                                        }
+                                        href={href}
+                                        onClickHandler={action}
                                         highlighted={
                                             activeSection === 'actions' &&
                                             highlightedIndex === index

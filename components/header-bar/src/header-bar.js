@@ -3,6 +3,7 @@ import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
 import CommandPalette from './command-palette/command-palette.js'
+import useCommands from './command-palette/commands/index.js'
 import { CommandPaletteContextProvider } from './command-palette/context/command-palette-context.js'
 import { HeaderBarContextProvider } from './header-bar-context.js'
 import { joinPath } from './join-path.js'
@@ -57,7 +58,7 @@ export const HeaderBar = ({
     }, [data, baseUrl])
 
     // fetch commands
-    const commands = []
+    const commands = useCommands()
 
     // fetch shortcuts
     const shortcuts = []
