@@ -1,15 +1,15 @@
 # 
 # Translators:
-# phil_dhis2, 2021
-# Viktor Varland <viktor@dhis2.org>, 2021
+# Philip Larsen Donnelly, 2021
+# Edson Nhancale, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-03-10T20:20:19.392Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2021\n"
-"Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
+"Last-Translator: Edson Nhancale, 2025\n"
+"Language-Team: Portuguese (https://app.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,21 +20,23 @@ msgid ""
 "Page {{page}} of {{pageCount}}, items {{firstItem}}-{{lastItem}} of "
 "{{total}}"
 msgstr ""
+"Página {{page}} de {{pageCount}}, itens {{firstItem}}-{{lastItem}} de "
+"{{total}}"
 
 msgid "Page {{page}}, items {{firstItem}}-{{lastItem}}"
-msgstr ""
+msgstr "Página {{page}}, itens {{firstItem}}-{{lastItem}}"
 
 msgid "Page {{page}}"
-msgstr ""
+msgstr "Página {{page}}"
 
 msgid "Next"
 msgstr "Próximo"
 
 msgid "Page"
-msgstr "Pagina"
+msgstr "Página"
 
 msgid "Items per page"
-msgstr ""
+msgstr "Itens por página"
 
 msgid "Previous"
 msgstr "Anterior"
@@ -43,3 +45,5 @@ msgid ""
 "You are at page {{page}} showing items {{firstItem}}-{{lastItem}}, but there"
 " are {{pageCount}} pages and {{total}} items"
 msgstr ""
+"Está na página {{page}} que mostra os itens {{firstItem}}-{{lastItem}}, mas "
+"existem páginas {{pageCount}} e itens {{total}} "
