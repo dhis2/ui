@@ -1,15 +1,12 @@
 import { useCallback, useEffect, useRef } from 'react'
 import { useCommandPaletteContext } from '../context/command-palette-context.js'
+import { ACTIONS_SECTION, GRID_SECTION, HOME_VIEW } from '../utils/constants.js'
+import useModal from './use-modal.js'
 
 export const GRID_ITEMS_LENGTH = 8
 export const MIN_APPS_NUM = GRID_ITEMS_LENGTH
 
-export const useNavigation = ({
-    setOpenModal,
-    itemsArray,
-    showGrid,
-    actionsLength,
-}) => {
+export const useNavigation = ({ itemsArray, showGrid, actionsLength }) => {
     const modalRef = useRef(null)
 
     const {
@@ -23,16 +20,18 @@ export const useNavigation = ({
         setActiveSection,
     } = useCommandPaletteContext()
 
+    const { modalOpen, setModalOpen } = useModal(modalRef)
+
     // highlight first item in filtered results
     useEffect(() => {
         setHighlightedIndex(0)
     }, [filter, setHighlightedIndex])
 
-    const defaultSection = showGrid ? 'grid' : 'actions'
+    const defaultSection = showGrid ? GRID_SECTION : ACTIONS_SECTION
 
     const goToDefaultView = useCallback(() => {
         setFilter('')
-        setCurrentView('home')
+        setCurrentView(HOME_VIEW)
         setActiveSection(defaultSection)
         setHighlightedIndex(0)
     }, [
@@ -85,7 +84,7 @@ export const useNavigation = ({
                 switch (event.key) {
                     case 'ArrowLeft':
                         event.preventDefault()
-                        if (activeSection === 'grid') {
+                        if (activeSection === GRID_SECTION) {
                             // row 1
                             if (highlightedIndex <= topRowLastIndex) {
                                 setHighlightedIndex(
@@ -106,7 +105,7 @@ export const useNavigation = ({
                         break
                     case 'ArrowRight':
                         event.preventDefault()
-                        if (activeSection === 'grid') {
+                        if (activeSection === GRID_SECTION) {
                             // row 1
                             if (highlightedIndex <= topRowLastIndex) {
                                 setHighlightedIndex(
@@ -127,18 +126,18 @@ export const useNavigation = ({
                         break
                     case 'ArrowDown':
                         event.preventDefault()
-                        if (activeSection === 'grid') {
+                        if (activeSection === GRID_SECTION) {
                             if (highlightedIndex >= lastRowFirstIndex) {
-                                setActiveSection('actions')
+                                setActiveSection(ACTIONS_SECTION)
                                 setHighlightedIndex(0)
                             } else {
                                 setHighlightedIndex(
                                     highlightedIndex + gridRowLength
                                 )
                             }
-                        } else if (activeSection === 'actions') {
+                        } else if (activeSection === ACTIONS_SECTION) {
                             if (highlightedIndex >= actionsLength - 1) {
-                                setActiveSection('grid')
+                                setActiveSection(GRID_SECTION)
                                 setHighlightedIndex(0)
                             } else {
                                 setHighlightedIndex(highlightedIndex + 1)
@@ -147,18 +146,18 @@ export const useNavigation = ({
                         break
                     case 'ArrowUp':
                         event.preventDefault()
-                        if (activeSection === 'grid') {
+                        if (activeSection === GRID_SECTION) {
                             if (highlightedIndex < lastRowFirstIndex) {
-                                setActiveSection('actions')
+                                setActiveSection(ACTIONS_SECTION)
                                 setHighlightedIndex(lastActionIndex)
                             } else {
                                 setHighlightedIndex(
                                     highlightedIndex - gridRowLength
                                 )
                             }
-                        } else if (activeSection === 'actions') {
+                        } else if (activeSection === ACTIONS_SECTION) {
                             if (highlightedIndex <= 0) {
-                                setActiveSection('grid')
+                                setActiveSection(GRID_SECTION)
                                 setHighlightedIndex(lastRowFirstIndex)
                             } else {
                                 setHighlightedIndex(highlightedIndex - 1)
@@ -169,7 +168,7 @@ export const useNavigation = ({
                         break
                 }
             } else {
-                if (activeSection === 'actions') {
+                if (activeSection === ACTIONS_SECTION) {
                     handleListViewNavigation({
                         event,
                         listLength: actionsLength,
@@ -179,7 +178,7 @@ export const useNavigation = ({
 
             if (event.key === 'Escape') {
                 event.preventDefault()
-                setOpenModal(false)
+                setModalOpen(false)
                 setActiveSection(defaultSection)
                 setHighlightedIndex(0)
             }
@@ -192,15 +191,14 @@ export const useNavigation = ({
             highlightedIndex,
             setActiveSection,
             setHighlightedIndex,
-            setOpenModal,
         ]
     )
 
     const handleKeyDown = useCallback(
         (event) => {
-            const modal = modalRef.current
+            const modal = modalRef.current.childNodes[0]
 
-            if (currentView === 'home') {
+            if (currentView === HOME_VIEW) {
                 if (filter.length > 0) {
                     // search mode
                     handleListViewNavigation({
@@ -219,7 +217,7 @@ export const useNavigation = ({
             }
 
             if (event.key === 'Enter') {
-                if (activeSection === 'actions') {
+                if (activeSection === ACTIONS_SECTION) {
                     modal
                         ?.querySelector('.actions-menu')
                         ?.childNodes?.[highlightedIndex]?.click()
@@ -240,7 +238,6 @@ export const useNavigation = ({
             highlightedIndex,
             itemsArray,
             setActiveSection,
-            setOpenModal,
             showGrid,
         ]
     )
@@ -249,7 +246,7 @@ export const useNavigation = ({
         handleKeyDown,
         goToDefaultView,
         modalRef,
-        activeSection,
-        setActiveSection,
+        setModalOpen,
+        showModal: modalOpen,
     }
 }

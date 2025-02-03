@@ -1,32 +1,21 @@
 import { colors, elevations } from '@dhis2/ui-constants'
-import { Layer } from '@dhis2-ui/layer'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { forwardRef } from 'react'
 
-const ModalContainer = ({
-    children,
-    setShow,
-    show,
-    modalRef,
-    onFocus,
-    onKeyDown,
-}) => {
+const ModalContainer = forwardRef(function ModalContainer(
+    { children, onFocus, onKeyDown },
+    ref
+) {
     return (
-        <Layer onBackdropClick={() => setShow(false)} translucent={show}>
-            <div
-                role="dialog"
-                aria-modal="true"
-                ref={modalRef}
-                tabIndex={0}
-                onFocus={onFocus}
-                onKeyDown={onKeyDown}
-            >
+        <>
+            <dialog ref={ref} onFocus={onFocus} onKeyDown={onKeyDown}>
                 {children}
-            </div>
+            </dialog>
             <style jsx>{`
-                div {
+                dialog {
                     display: flex;
                     flex-direction: column;
+                    border: none;
                     border-radius: 1px;
                     padding: 1px;
                     width: 572px;
@@ -38,15 +27,12 @@ const ModalContainer = ({
                     margin-top: 92px;
                 }
             `}</style>
-        </Layer>
+        </>
     )
-}
+})
 
 ModalContainer.propTypes = {
     children: PropTypes.node,
-    modalRef: PropTypes.object,
-    setShow: PropTypes.func,
-    show: PropTypes.bool,
     onFocus: PropTypes.func,
     onKeyDown: PropTypes.func,
 }

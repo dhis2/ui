@@ -1,7 +1,7 @@
 import { colors, spacers } from '@dhis2/ui-constants'
 import { IconApps24 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
-import React, { useState, useCallback, useRef, useEffect } from 'react'
+import React, { useCallback, useRef, useEffect } from 'react'
 import i18n from '../locales/index.js'
 import { useCommandPaletteContext } from './context/command-palette-context.js'
 import { useAvailableActions } from './hooks/use-actions.js'
@@ -10,6 +10,12 @@ import { useNavigation } from './hooks/use-navigation.js'
 import BackButton from './sections/back-button.js'
 import ModalContainer from './sections/container.js'
 import Search from './sections/search-field.js'
+import {
+    ALL_APPS_VIEW,
+    ALL_COMMANDS_VIEW,
+    ALL_SHORTCUTS_VIEW,
+    HOME_VIEW,
+} from './utils/constants.js'
 import HomeView from './views/home-view.js'
 import {
     BrowseApps,
@@ -19,13 +25,8 @@ import {
 
 const CommandPalette = ({ apps, commands, shortcuts }) => {
     const containerEl = useRef(null)
-    const [openModal, setOpenModal] = useState(false)
     const { currentView, filter, setFilter } = useCommandPaletteContext()
 
-    const handleVisibilityToggle = useCallback(
-        () => setOpenModal(!openModal),
-        [openModal]
-    )
     const handleFilterChange = useCallback(
         ({ value }) => setFilter(value),
         [setFilter]
@@ -40,12 +41,22 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
         currentViewItemsArray,
     } = useFilter({ apps, commands, shortcuts })
 
-    const { handleKeyDown, goToDefaultView, modalRef } = useNavigation({
-        setOpenModal,
+    const {
+        handleKeyDown,
+        goToDefaultView,
+        modalRef,
+        setModalOpen,
+        showModal,
+    } = useNavigation({
         itemsArray: currentViewItemsArray,
         showGrid: apps?.length > 0,
         actionsLength: actionsArray?.length,
     })
+
+    const handleVisibilityToggle = useCallback(
+        () => setModalOpen((open) => !open),
+        []
+    )
 
     useEffect(() => {
         const activeItem = document.querySelector('.highlighted')
@@ -69,13 +80,22 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
     useEffect(() => {
         const handleKeyDown = (event) => {
             if ((event.metaKey || event.ctrlKey) && event.key === '/') {
-                setOpenModal((open) => !open)
+                setModalOpen((open) => !open)
                 goToDefaultView()
             }
         }
+
+        const onDocClick = (evt) => {
+            if (containerEl.current && evt.target === modalRef.current) {
+                setModalOpen(false)
+                goToDefaultView()
+            }
+        }
+        document.addEventListener('click', onDocClick)
         document.addEventListener('keydown', handleKeyDown)
         return () => {
             document.removeEventListener('keydown', handleKeyDown)
+            document.removeEventListener('click', onDocClick)
         }
     }, [goToDefaultView])
 
@@ -87,11 +107,9 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
             >
                 <IconApps24 color={colors.white} />
             </button>
-            {openModal ? (
+            {showModal ? (
                 <ModalContainer
-                    setShow={setOpenModal}
-                    show={openModal}
-                    modalRef={modalRef}
+                    ref={modalRef}
                     onFocus={handleFocus}
                     onKeyDown={handleKeyDown}
                 >
@@ -100,21 +118,21 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
                             value={filter}
                             onChange={handleFilterChange}
                             placeholder={
-                                currentView === 'apps'
+                                currentView === ALL_APPS_VIEW
                                     ? i18n.t('Search apps')
-                                    : currentView === 'commands'
+                                    : currentView === ALL_COMMANDS_VIEW
                                     ? i18n.t('Search commands')
-                                    : currentView === 'shortcuts'
+                                    : currentView === ALL_SHORTCUTS_VIEW
                                     ? i18n.t('Search shortcuts')
                                     : i18n.t('Search apps, shortcuts, commands')
                             }
                         />
                         <div className="headerbar-menu-content">
-                            {currentView !== 'home' && !filter ? (
+                            {currentView !== HOME_VIEW && !filter ? (
                                 <BackButton onClickHandler={goToDefaultView} />
                             ) : null}
                             {/* switch views */}
-                            {currentView === 'home' && (
+                            {currentView === HOME_VIEW && (
                                 <HomeView
                                     apps={filteredApps}
                                     commands={filteredCommands}
@@ -122,13 +140,13 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
                                     actions={actionsArray}
                                 />
                             )}
-                            {currentView === 'apps' && (
+                            {currentView === ALL_APPS_VIEW && (
                                 <BrowseApps apps={filteredApps} />
                             )}
-                            {currentView === 'commands' && (
+                            {currentView === ALL_COMMANDS_VIEW && (
                                 <BrowseCommands commands={filteredCommands} />
                             )}
-                            {currentView === 'shortcuts' && (
+                            {currentView === ALL_SHORTCUTS_VIEW && (
                                 <BrowseShortcuts
                                     shortcuts={filteredShortcuts}
                                 />
@@ -164,6 +182,9 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
                 .headerbar {
                     position: relative;
                     height: 100%;
+                }
+                .headerbar-menu {
+                    width: 100%;
                 }
                 .headerbar-menu-content {
                     overflow-y: auto;

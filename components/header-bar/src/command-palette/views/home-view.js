@@ -8,6 +8,7 @@ import { useCommandPaletteContext } from '../context/command-palette-context.js'
 import AppItem from '../sections/app-item.js'
 import Heading from '../sections/heading.js'
 import ListItem from '../sections/list-item.js'
+import { ACTIONS_SECTION, GRID_SECTION, LOGOUT } from '../utils/constants.js'
 import ListView from './list-view.js'
 
 function HomeView({ apps, commands, shortcuts, actions }) {
@@ -51,11 +52,12 @@ function HomeView({ apps, commands, shortcuts, actions }) {
                                             path={defaultAction}
                                             img={icon}
                                             highlighted={
-                                                activeSection === 'grid' &&
+                                                activeSection ===
+                                                    GRID_SECTION &&
                                                 highlightedIndex === idx
                                             }
                                             handleMouseEnter={() => {
-                                                setActiveSection('grid')
+                                                setActiveSection(GRID_SECTION)
                                                 setHighlightedIndex(idx)
                                             }}
                                         />
@@ -72,7 +74,7 @@ function HomeView({ apps, commands, shortcuts, actions }) {
                         </>
                     )}
                     {/* actions menu */}
-                    <Heading heading={'Actions'} />
+                    <Heading heading={i18n.t('Actions')} />
                     <div
                         role="menu"
                         className="actions-menu"
@@ -102,7 +104,7 @@ function HomeView({ apps, commands, shortcuts, actions }) {
                                         icon={icon}
                                         dataTest={dataTest}
                                         href={
-                                            type === 'logout'
+                                            type === LOGOUT
                                                 ? joinPath(
                                                       baseUrl,
                                                       'dhis-web-commons-security/logout.action'
@@ -110,16 +112,16 @@ function HomeView({ apps, commands, shortcuts, actions }) {
                                                 : undefined
                                         }
                                         onClickHandler={
-                                            type === 'logout'
+                                            type === LOGOUT
                                                 ? logoutActionHandler
                                                 : viewActionHandler
                                         }
                                         highlighted={
-                                            activeSection === 'actions' &&
+                                            activeSection === ACTIONS_SECTION &&
                                             highlightedIndex === index
                                         }
                                         handleMouseEnter={() => {
-                                            setActiveSection('actions')
+                                            setActiveSection(ACTIONS_SECTION)
                                             setHighlightedIndex(index)
                                         }}
                                     />

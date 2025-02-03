@@ -7,6 +7,7 @@ import {
 } from '@dhis2/ui-icons'
 import React, { useMemo } from 'react'
 import i18n from '../../locales/index.js'
+import { APPS, COMMANDS, LOGOUT, SHORTCUTS } from '../utils/constants.js'
 import { MIN_APPS_NUM } from './use-navigation.js'
 
 export const useAvailableActions = ({ apps, shortcuts, commands }) => {
@@ -14,7 +15,7 @@ export const useAvailableActions = ({ apps, shortcuts, commands }) => {
         const actionsArray = []
         if (apps?.length > MIN_APPS_NUM) {
             actionsArray.push({
-                type: 'apps',
+                type: APPS,
                 title: i18n.t('Browse apps'),
                 icon: <IconApps16 color={colors.grey700} />,
                 dataTest: 'headerbar-browse-apps',
@@ -22,7 +23,7 @@ export const useAvailableActions = ({ apps, shortcuts, commands }) => {
         }
         if (commands?.length > 0) {
             actionsArray.push({
-                type: 'commands',
+                type: COMMANDS,
                 title: i18n.t('Browse commands'),
                 icon: <IconTerminalWindow16 color={colors.grey700} />,
                 dataTest: 'headerbar-browse-commands',
@@ -30,7 +31,7 @@ export const useAvailableActions = ({ apps, shortcuts, commands }) => {
         }
         if (shortcuts?.length > 0) {
             actionsArray.push({
-                type: 'shortcuts',
+                type: SHORTCUTS,
                 title: i18n.t('Browse shortcuts'),
                 icon: <IconRedo16 color={colors.grey700} />,
                 dataTest: 'headerbar-browse-shortcuts',
@@ -38,7 +39,7 @@ export const useAvailableActions = ({ apps, shortcuts, commands }) => {
         }
         // default logout action
         actionsArray.push({
-            type: 'logout',
+            type: LOGOUT,
             title: i18n.t('Logout'),
             icon: <IconLogOut16 color={colors.grey700} />,
             dataTest: 'headerbar-logout',

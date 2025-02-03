@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types'
 import React, { createContext, useContext, useState } from 'react'
+import { HOME_VIEW } from '../utils/constants.js'
 
 const commandPaletteContext = createContext()
 
 export const CommandPaletteContextProvider = ({ children }) => {
     const [filter, setFilter] = useState('')
     const [highlightedIndex, setHighlightedIndex] = useState(0)
-    const [currentView, setCurrentView] = useState('home')
+    const [currentView, setCurrentView] = useState(HOME_VIEW)
     // home view sections
     const [activeSection, setActiveSection] = useState(null)
 
