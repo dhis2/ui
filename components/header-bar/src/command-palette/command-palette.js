@@ -88,15 +88,14 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
                 <IconApps24 color={colors.white} />
             </button>
             {openModal ? (
-                <ModalContainer setShow={setOpenModal} show={openModal}>
-                    <div
-                        data-test="headerbar-menu"
-                        className="headerbar-menu"
-                        ref={modalRef}
-                        tabIndex={0}
-                        onFocus={handleFocus}
-                        onKeyDown={handleKeyDown}
-                    >
+                <ModalContainer
+                    setShow={setOpenModal}
+                    show={openModal}
+                    modalRef={modalRef}
+                    onFocus={handleFocus}
+                    onKeyDown={handleKeyDown}
+                >
+                    <div data-test="headerbar-menu" className="headerbar-menu">
                         <Search
                             value={filter}
                             onChange={handleFilterChange}
