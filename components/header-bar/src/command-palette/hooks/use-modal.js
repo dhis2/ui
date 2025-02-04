@@ -19,7 +19,7 @@ const useModal = (modalRef) => {
         if (modalOpen) {
             handleOpenModal()
         } else {
-            handleCloseModal
+            handleCloseModal()
         }
     }, [modalOpen, handleCloseModal, handleOpenModal])
 

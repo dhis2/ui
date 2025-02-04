@@ -10,9 +10,9 @@ import {
 import useGrid from './use-grid.js'
 import useListNavigation from './use-list-navigation.js'
 import useModal from './use-modal.js'
-import useViewHandler from './use-view-handler.js'
+import useViewAndSectionHandler from './use-view-handler.js'
 
-export const useNavigation = ({ itemsArray, showGrid, actionsLength }) => {
+export const useNavigation = ({ itemsArray, actionsLength }) => {
     const modalRef = useRef(null)
 
     const {
@@ -22,13 +22,12 @@ export const useNavigation = ({ itemsArray, showGrid, actionsLength }) => {
         highlightedIndex,
         setHighlightedIndex,
         setActiveSection,
+        showGrid,
     } = useCommandPaletteContext()
 
     const { modalOpen, setModalOpen } = useModal(modalRef)
 
-    const defaultSection = showGrid ? GRID_SECTION : ACTIONS_SECTION
-
-    const goToDefaultView = useViewHandler({ section: defaultSection })
+    const { goToDefaultSection, goToDefaultView } = useViewAndSectionHandler()
 
     const { nextLeftIndex, nextRightIndex, lastRowFirstIndex } = useGrid({
         columns: GRID_COLUMNS,
@@ -147,14 +146,12 @@ export const useNavigation = ({ itemsArray, showGrid, actionsLength }) => {
             if (event.key === 'Escape') {
                 event.preventDefault()
                 setModalOpen(false)
-                setActiveSection(defaultSection)
-                setHighlightedIndex(0)
+                goToDefaultSection()
             }
         },
         [
             activeSection,
             actionsLength,
-            defaultSection,
             handleListViewNavigation,
             highlightedIndex,
             nextLeftIndex,
@@ -163,8 +160,8 @@ export const useNavigation = ({ itemsArray, showGrid, actionsLength }) => {
             setModalOpen,
             showGrid,
             switchActiveSection,
-            setActiveSection,
             setHighlightedIndex,
+            goToDefaultSection,
         ]
     )
 
@@ -216,7 +213,6 @@ export const useNavigation = ({ itemsArray, showGrid, actionsLength }) => {
 
     return {
         handleKeyDown,
-        goToDefaultView,
         modalRef,
         setModalOpen,
         showModal: modalOpen,

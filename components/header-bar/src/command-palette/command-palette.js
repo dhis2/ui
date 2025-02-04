@@ -2,14 +2,14 @@ import { colors, spacers } from '@dhis2/ui-constants'
 import { IconApps24 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React, { useCallback, useRef, useEffect } from 'react'
-import i18n from '../locales/index.js'
 import { useCommandPaletteContext } from './context/command-palette-context.js'
 import { useAvailableActions } from './hooks/use-actions.js'
 import { useFilter } from './hooks/use-filter.js'
 import { useNavigation } from './hooks/use-navigation.js'
+import useViewAndSectionHandler from './hooks/use-view-handler.js'
 import BackButton from './sections/back-button.js'
-import ModalContainer from './sections/container.js'
-import Search from './sections/search-field.js'
+import ModalContainer from './sections/modal-container.js'
+import SearchFilter from './sections/search-field.js'
 import {
     ALL_APPS_VIEW,
     ALL_COMMANDS_VIEW,
@@ -25,12 +25,7 @@ import {
 
 const CommandPalette = ({ apps, commands, shortcuts }) => {
     const containerEl = useRef(null)
-    const { currentView, filter, setFilter } = useCommandPaletteContext()
-
-    const handleFilterChange = useCallback(
-        ({ value }) => setFilter(value),
-        [setFilter]
-    )
+    const { currentView, filter, setShowGrid } = useCommandPaletteContext()
 
     const actionsArray = useAvailableActions({ apps, shortcuts, commands })
 
@@ -41,41 +36,21 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
         currentViewItemsArray,
     } = useFilter({ apps, commands, shortcuts })
 
-    const {
-        handleKeyDown,
-        goToDefaultView,
-        modalRef,
-        setModalOpen,
-        showModal,
-    } = useNavigation({
+    useEffect(() => {
+        setShowGrid(apps?.length > 0)
+    }, [apps, setShowGrid])
+
+    const { handleKeyDown, modalRef, setModalOpen, showModal } = useNavigation({
         itemsArray: currentViewItemsArray,
-        showGrid: apps?.length > 0,
         actionsLength: actionsArray?.length,
     })
+
+    const { goToDefaultView } = useViewAndSectionHandler()
 
     const handleVisibilityToggle = useCallback(
         () => setModalOpen((open) => !open),
         [setModalOpen]
     )
-
-    useEffect(() => {
-        const activeItem = document.querySelector('.highlighted')
-        if (activeItem && typeof activeItem.scrollIntoView === 'function') {
-            activeItem?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
-        }
-    })
-
-    useEffect(() => {
-        if (modalRef.current) {
-            modalRef.current?.focus()
-        }
-    })
-
-    const handleFocus = (event) => {
-        if (event.target === modalRef?.current) {
-            modalRef.current?.querySelector('input').focus()
-        }
-    }
 
     useEffect(() => {
         const handleKeyDown = (event) => {
@@ -108,25 +83,9 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
                 <IconApps24 color={colors.white} />
             </button>
             {showModal ? (
-                <ModalContainer
-                    ref={modalRef}
-                    onFocus={handleFocus}
-                    onKeyDown={handleKeyDown}
-                >
+                <ModalContainer ref={modalRef} onKeyDown={handleKeyDown}>
                     <div data-test="headerbar-menu" className="headerbar-menu">
-                        <Search
-                            value={filter}
-                            onChange={handleFilterChange}
-                            placeholder={
-                                currentView === ALL_APPS_VIEW
-                                    ? i18n.t('Search apps')
-                                    : currentView === ALL_COMMANDS_VIEW
-                                    ? i18n.t('Search commands')
-                                    : currentView === ALL_SHORTCUTS_VIEW
-                                    ? i18n.t('Search shortcuts')
-                                    : i18n.t('Search apps, shortcuts, commands')
-                            }
-                        />
+                        <SearchFilter />
                         <div className="headerbar-menu-content">
                             {currentView !== HOME_VIEW && !filter ? (
                                 <BackButton onClickHandler={goToDefaultView} />

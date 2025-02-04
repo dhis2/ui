@@ -1,17 +1,41 @@
 import { colors, spacers, theme } from '@dhis2/ui-constants'
 import { IconSearch16 } from '@dhis2/ui-icons'
-import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useCallback, useMemo } from 'react'
 import { InputField } from '../../../../input/src/input-field/input-field.js'
+import i18n from '../../locales/index.js'
+import { useCommandPaletteContext } from '../context/command-palette-context.js'
+import {
+    ALL_APPS_VIEW,
+    ALL_COMMANDS_VIEW,
+    ALL_SHORTCUTS_VIEW,
+} from '../utils/constants.js'
 
-function Search({ value, onChange, placeholder }) {
+function SearchFilter() {
+    const { currentView, filter, setFilter } = useCommandPaletteContext()
+
+    const handleFilterChange = useCallback(
+        ({ value }) => setFilter(value),
+        [setFilter]
+    )
+
+    const placeholder = useMemo(() => {
+        if (currentView === ALL_APPS_VIEW) {
+            return i18n.t('Search apps')
+        } else if (currentView === ALL_COMMANDS_VIEW) {
+            return i18n.t('Search commands')
+        } else if (currentView === ALL_SHORTCUTS_VIEW) {
+            return i18n.t('Search shortcuts')
+        }
+        return i18n.t('Search apps, shortcuts, commands')
+    }, [currentView])
+
     return (
         <>
             <InputField
-                value={value}
+                value={filter}
                 name="filter"
                 placeholder={placeholder}
-                onChange={onChange}
+                onChange={handleFilterChange}
                 initialFocus
                 className="search"
                 autoComplete={'off'}
@@ -45,10 +69,4 @@ function Search({ value, onChange, placeholder }) {
     )
 }
 
-Search.propTypes = {
-    value: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
-    placeholder: PropTypes.string,
-}
-
-export default Search
+export default SearchFilter
