@@ -53,6 +53,12 @@ export const testShortcuts = [
 ]
 
 describe('Command Palette Component', () => {
+    beforeAll(() => {
+        // Testing environment does not support the <dialog> component yet so it has to mocked
+        // linked issue: https://github.com/jsdom/jsdom/issues/3294
+        HTMLDialogElement.prototype.showModal = jest.fn()
+        HTMLDialogElement.prototype.close = jest.fn()
+    })
     it('renders bare default view when Command Palette is opened', async () => {
         const user = userEvent.setup()
         const { getByTestId, queryByTestId, getByPlaceholderText } = render(

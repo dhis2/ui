@@ -8,6 +8,12 @@ import {
 } from './command-palette.test.js'
 
 describe('Command Palette - List View - Browse Commands', () => {
+    beforeAll(() => {
+        // Testing environment does not support the <dialog> component yet so it has to mocked
+        // linked issue: https://github.com/jsdom/jsdom/issues/3294
+        HTMLDialogElement.prototype.showModal = jest.fn()
+        HTMLDialogElement.prototype.close = jest.fn()
+    })
     it('renders Browse Commands View', async () => {
         const user = userEvent.setup()
         const {
@@ -42,10 +48,11 @@ describe('Command Palette - List View - Browse Commands', () => {
             'Test Command 1'
         )
         expect(listItem).toHaveClass('highlighted')
+        listItem.focus()
 
         // Esc key goes back to default view
         await user.keyboard('{Escape}')
-        // expect(queryByText(/All Commands/i)).not.toBeInTheDocument()
+        expect(queryByText(/All Commands/i)).not.toBeInTheDocument()
         expect(queryByTestId('headerbar-actions-menu')).toBeInTheDocument()
     })
 })

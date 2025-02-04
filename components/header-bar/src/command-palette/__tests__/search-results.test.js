@@ -11,6 +11,12 @@ import {
 } from './command-palette.test.js'
 
 describe('Command Palette - List View - Search Results', () => {
+    beforeAll(() => {
+        // Testing environment does not support the <dialog> component yet so it has to mocked
+        // linked issue: https://github.com/jsdom/jsdom/issues/3294
+        HTMLDialogElement.prototype.showModal = jest.fn()
+        HTMLDialogElement.prototype.close = jest.fn()
+    })
     it('filters for one item and handles navigation of singular item list', async () => {
         const user = userEvent.setup()
         const { getByPlaceholderText, queryAllByTestId, container } = render(

@@ -11,6 +11,13 @@ import {
 } from './command-palette.test.js'
 
 describe('Command Palette - List View - Browse Apps View', () => {
+    beforeAll(() => {
+        // Testing environment does not support the <dialog> component yet so it has to mocked
+        // linked issue: https://github.com/jsdom/jsdom/issues/3294
+        HTMLDialogElement.prototype.showModal = jest.fn()
+        HTMLDialogElement.prototype.close = jest.fn()
+    })
+
     it('renders Browse Apps View', async () => {
         const user = userEvent.setup()
         const {
@@ -60,6 +67,7 @@ describe('Command Palette - List View - Browse Apps View', () => {
             findByPlaceholderText,
             container,
             findByTestId,
+            // debug
         } = render(
             <CommandPalette
                 apps={testApps}
@@ -87,6 +95,9 @@ describe('Command Palette - List View - Browse Apps View', () => {
         expect(listItems[0].querySelector('span')).toHaveTextContent(
             'Test App 1'
         )
+        listItems[0].focus()
+
+        // debug()
 
         await user.keyboard('{ArrowDown}')
         expect(listItems[0]).not.toHaveClass('highlighted')
@@ -94,6 +105,7 @@ describe('Command Palette - List View - Browse Apps View', () => {
         expect(listItems[1].querySelector('span')).toHaveTextContent(
             'Test App 2'
         )
+        listItems[1].focus()
 
         await user.keyboard('{ArrowDown}')
         expect(listItems[1]).not.toHaveClass('highlighted')
@@ -101,6 +113,7 @@ describe('Command Palette - List View - Browse Apps View', () => {
         expect(listItems[2].querySelector('span')).toHaveTextContent(
             'Test App 3'
         )
+        listItems[2].focus()
 
         await user.keyboard('{ArrowUp}')
         expect(listItems[2]).not.toHaveClass('highlighted')
@@ -108,6 +121,7 @@ describe('Command Palette - List View - Browse Apps View', () => {
         expect(listItems[1].querySelector('span')).toHaveTextContent(
             'Test App 2'
         )
+        listItems[1].focus()
 
         // filter items view
         await user.type(searchField, 'Test App')
