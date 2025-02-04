@@ -5,6 +5,7 @@ import { useCommandPaletteContext } from '../context/command-palette-context.js'
 import Heading from '../sections/heading.js'
 import List from '../sections/list.js'
 import { EmptySearchResults } from '../sections/search-results.js'
+import { COMMANDS } from '../utils/constants.js'
 
 export function BrowseApps({ apps }) {
     return <ListView heading={i18n.t('All Apps')} filteredItems={apps} />
@@ -18,7 +19,7 @@ export function BrowseCommands({ commands }) {
         <ListView
             heading={i18n.t('All Commands')}
             filteredItems={commands}
-            type={'commands'}
+            type={COMMANDS}
         />
     )
 }

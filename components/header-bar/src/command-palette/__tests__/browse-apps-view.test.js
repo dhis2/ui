@@ -1,5 +1,5 @@
 import { fireEvent } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { userEvent } from '@testing-library/user-event'
 import React from 'react'
 import CommandPalette from '../command-palette.js'
 import {
@@ -136,10 +136,10 @@ describe('Command Palette - List View - Browse Apps View', () => {
             'Test App 1'
         )
 
-        // simulate hover
+        // simulate hover - no highlight
         await user.hover(listItems[8])
-        expect(listItems[1]).not.toHaveClass('highlighted')
-        expect(listItems[8]).toHaveClass('highlighted')
+        expect(listItems[0]).toHaveClass('highlighted')
+        expect(listItems[8]).not.toHaveClass('highlighted')
         expect(listItems[8].querySelector('span')).toHaveTextContent(
             'Test App 9'
         )
