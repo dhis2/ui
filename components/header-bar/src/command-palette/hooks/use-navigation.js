@@ -1,10 +1,16 @@
 import { useCallback, useEffect, useRef } from 'react'
 import { useCommandPaletteContext } from '../context/command-palette-context.js'
-import { ACTIONS_SECTION, GRID_SECTION, HOME_VIEW } from '../utils/constants.js'
+import {
+    ACTIONS_SECTION,
+    GRID_COLUMNS,
+    GRID_ROWS,
+    GRID_SECTION,
+    HOME_VIEW,
+} from '../utils/constants.js'
+import useGrid from './use-grid.js'
+import useListNavigation from './use-list-navigation.js'
 import useModal from './use-modal.js'
-
-export const GRID_ITEMS_LENGTH = 8
-export const MIN_APPS_NUM = GRID_ITEMS_LENGTH
+import useViewHandler from './use-view-handler.js'
 
 export const useNavigation = ({ itemsArray, showGrid, actionsLength }) => {
     const modalRef = useRef(null)
@@ -15,67 +21,51 @@ export const useNavigation = ({ itemsArray, showGrid, actionsLength }) => {
         filter,
         highlightedIndex,
         setHighlightedIndex,
-        setFilter,
-        setCurrentView,
         setActiveSection,
     } = useCommandPaletteContext()
 
     const { modalOpen, setModalOpen } = useModal(modalRef)
+
+    const defaultSection = showGrid ? GRID_SECTION : ACTIONS_SECTION
+
+    const goToDefaultView = useViewHandler({ section: defaultSection })
+
+    const { nextLeftIndex, nextRightIndex, lastRowFirstIndex } = useGrid({
+        columns: GRID_COLUMNS,
+        rows: GRID_ROWS,
+    })
 
     // highlight first item in filtered results
     useEffect(() => {
         setHighlightedIndex(0)
     }, [filter, setHighlightedIndex])
 
-    const defaultSection = showGrid ? GRID_SECTION : ACTIONS_SECTION
+    const switchActiveSection = useCallback(
+        ({ section, index }) => {
+            setActiveSection(section)
+            setHighlightedIndex(index)
+        },
+        [setActiveSection, setHighlightedIndex]
+    )
 
-    const goToDefaultView = useCallback(() => {
-        setFilter('')
-        setCurrentView(HOME_VIEW)
-        setActiveSection(defaultSection)
-        setHighlightedIndex(0)
-    }, [
-        setActiveSection,
-        setCurrentView,
-        setFilter,
-        setHighlightedIndex,
-        defaultSection,
-    ])
+    const handleListNavigation = useListNavigation()
 
     const handleListViewNavigation = useCallback(
         ({ event, listLength }) => {
-            const lastIndex = listLength - 1
-            switch (event.key) {
-                case 'ArrowDown':
-                    event.preventDefault()
-                    setHighlightedIndex(
-                        highlightedIndex >= lastIndex ? 0 : highlightedIndex + 1
-                    )
-                    break
-                case 'ArrowUp':
-                    event.preventDefault()
-                    setHighlightedIndex(
-                        highlightedIndex > 0 ? highlightedIndex - 1 : lastIndex
-                    )
-                    break
-                case 'Escape':
-                    event.preventDefault()
-                    goToDefaultView()
-                    break
-                default:
-                    break
+            handleListNavigation({ event, listLength })
+
+            if (event.key === 'Escape') {
+                event.preventDefault()
+                goToDefaultView()
             }
         },
-        [goToDefaultView, highlightedIndex, setHighlightedIndex]
+        [handleListNavigation, goToDefaultView]
     )
 
     const handleHomeViewNavigation = useCallback(
         (event) => {
             // grid
-            const gridRowLength = GRID_ITEMS_LENGTH / 2 // 4
-            const topRowLastIndex = gridRowLength - 1 // 3
-            const lastRowFirstIndex = gridRowLength // 4
-            const lastRowLastIndex = GRID_ITEMS_LENGTH - 1 // 7
+            const verticalPositionGap = GRID_COLUMNS
 
             // actions
             const lastActionIndex = actionsLength - 1
@@ -85,60 +75,34 @@ export const useNavigation = ({ itemsArray, showGrid, actionsLength }) => {
                     case 'ArrowLeft':
                         event.preventDefault()
                         if (activeSection === GRID_SECTION) {
-                            // row 1
-                            if (highlightedIndex <= topRowLastIndex) {
-                                setHighlightedIndex(
-                                    highlightedIndex > 0
-                                        ? highlightedIndex - 1
-                                        : topRowLastIndex
-                                )
-                            }
-                            // row 2
-                            if (highlightedIndex >= lastRowFirstIndex) {
-                                setHighlightedIndex(
-                                    highlightedIndex > lastRowFirstIndex
-                                        ? highlightedIndex - 1
-                                        : lastRowLastIndex
-                                )
-                            }
+                            setHighlightedIndex(nextLeftIndex)
                         }
                         break
                     case 'ArrowRight':
                         event.preventDefault()
                         if (activeSection === GRID_SECTION) {
-                            // row 1
-                            if (highlightedIndex <= topRowLastIndex) {
-                                setHighlightedIndex(
-                                    highlightedIndex >= topRowLastIndex
-                                        ? 0
-                                        : highlightedIndex + 1
-                                )
-                            }
-                            // row 2
-                            if (highlightedIndex >= lastRowFirstIndex) {
-                                setHighlightedIndex(
-                                    highlightedIndex >= lastRowLastIndex
-                                        ? lastRowFirstIndex
-                                        : highlightedIndex + 1
-                                )
-                            }
+                            setHighlightedIndex(nextRightIndex)
                         }
                         break
                     case 'ArrowDown':
                         event.preventDefault()
                         if (activeSection === GRID_SECTION) {
                             if (highlightedIndex >= lastRowFirstIndex) {
-                                setActiveSection(ACTIONS_SECTION)
-                                setHighlightedIndex(0)
+                                switchActiveSection({
+                                    section: ACTIONS_SECTION,
+                                    index: 0,
+                                })
                             } else {
                                 setHighlightedIndex(
-                                    highlightedIndex + gridRowLength
+                                    highlightedIndex + verticalPositionGap
                                 )
                             }
                         } else if (activeSection === ACTIONS_SECTION) {
                             if (highlightedIndex >= actionsLength - 1) {
-                                setActiveSection(GRID_SECTION)
-                                setHighlightedIndex(0)
+                                switchActiveSection({
+                                    section: GRID_SECTION,
+                                    index: 0,
+                                })
                             } else {
                                 setHighlightedIndex(highlightedIndex + 1)
                             }
@@ -148,17 +112,21 @@ export const useNavigation = ({ itemsArray, showGrid, actionsLength }) => {
                         event.preventDefault()
                         if (activeSection === GRID_SECTION) {
                             if (highlightedIndex < lastRowFirstIndex) {
-                                setActiveSection(ACTIONS_SECTION)
-                                setHighlightedIndex(lastActionIndex)
+                                switchActiveSection({
+                                    section: ACTIONS_SECTION,
+                                    index: lastActionIndex,
+                                })
                             } else {
                                 setHighlightedIndex(
-                                    highlightedIndex - gridRowLength
+                                    highlightedIndex - verticalPositionGap
                                 )
                             }
                         } else if (activeSection === ACTIONS_SECTION) {
                             if (highlightedIndex <= 0) {
-                                setActiveSection(GRID_SECTION)
-                                setHighlightedIndex(lastRowFirstIndex)
+                                switchActiveSection({
+                                    section: GRID_SECTION,
+                                    index: lastRowFirstIndex,
+                                })
                             } else {
                                 setHighlightedIndex(highlightedIndex - 1)
                             }
@@ -189,6 +157,12 @@ export const useNavigation = ({ itemsArray, showGrid, actionsLength }) => {
             defaultSection,
             handleListViewNavigation,
             highlightedIndex,
+            nextLeftIndex,
+            nextRightIndex,
+            lastRowFirstIndex,
+            setModalOpen,
+            showGrid,
+            switchActiveSection,
             setActiveSection,
             setHighlightedIndex,
         ]
@@ -232,13 +206,11 @@ export const useNavigation = ({ itemsArray, showGrid, actionsLength }) => {
             activeSection,
             currentView,
             filter.length,
-            goToDefaultView,
             handleHomeViewNavigation,
             handleListViewNavigation,
             highlightedIndex,
             itemsArray,
             setActiveSection,
-            showGrid,
         ]
     )
 

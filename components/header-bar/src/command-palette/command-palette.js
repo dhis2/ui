@@ -55,7 +55,7 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
 
     const handleVisibilityToggle = useCallback(
         () => setModalOpen((open) => !open),
-        []
+        [setModalOpen]
     )
 
     useEffect(() => {
@@ -97,7 +97,7 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
             document.removeEventListener('keydown', handleKeyDown)
             document.removeEventListener('click', onDocClick)
         }
-    }, [goToDefaultView])
+    }, [goToDefaultView, setModalOpen, modalRef])
 
     return (
         <div ref={containerEl} data-test="headerbar" className="headerbar">

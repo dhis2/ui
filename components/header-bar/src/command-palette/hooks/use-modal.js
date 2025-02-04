@@ -7,13 +7,13 @@ const useModal = (modalRef) => {
         if (modalRef.current) {
             modalRef.current.showModal()
         }
-    }, [])
+    }, [modalRef])
 
     const handleCloseModal = useCallback(() => {
         if (modalRef.current) {
             modalRef.current.close()
         }
-    }, [])
+    }, [modalRef])
 
     useEffect(() => {
         if (modalOpen) {
@@ -21,7 +21,7 @@ const useModal = (modalRef) => {
         } else {
             handleCloseModal
         }
-    }, [modalOpen])
+    }, [modalOpen, handleCloseModal, handleOpenModal])
 
     return {
         modalOpen,

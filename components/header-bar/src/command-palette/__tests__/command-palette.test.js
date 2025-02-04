@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import CommandPalette from '../command-palette.js'
 import { CommandPaletteContextProvider } from '../context/command-palette-context.js'
-import { MIN_APPS_NUM } from '../hooks/use-navigation.js'
+import { MIN_APPS_NUM } from '../utils/constants.js'
 
 const CommandPaletteProviderWrapper = ({ children }) => {
     return (

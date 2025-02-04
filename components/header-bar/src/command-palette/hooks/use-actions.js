@@ -7,8 +7,13 @@ import {
 } from '@dhis2/ui-icons'
 import React, { useMemo } from 'react'
 import i18n from '../../locales/index.js'
-import { APPS, COMMANDS, LOGOUT, SHORTCUTS } from '../utils/constants.js'
-import { MIN_APPS_NUM } from './use-navigation.js'
+import {
+    APPS,
+    COMMANDS,
+    LOGOUT,
+    MIN_APPS_NUM,
+    SHORTCUTS,
+} from '../utils/constants.js'
 
 export const useAvailableActions = ({ apps, shortcuts, commands }) => {
     const actions = useMemo(() => {

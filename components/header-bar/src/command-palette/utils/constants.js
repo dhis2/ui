@@ -13,3 +13,8 @@ export const APPS = 'APPS'
 export const COMMANDS = 'COMMANDS'
 export const SHORTCUTS = 'SHORTCUTS'
 export const LOGOUT = 'LOGOUT'
+
+// grid
+export const MIN_APPS_NUM = 8
+export const GRID_COLUMNS = 4
+export const GRID_ROWS = 2
