@@ -27,7 +27,7 @@ export const useNavigation = ({ itemsArray, actionsLength }) => {
 
     const { modalOpen, setModalOpen } = useModal(modalRef)
 
-    const { goToDefaultSection, goToDefaultView } = useViewAndSectionHandler()
+    const { goToDefaultView } = useViewAndSectionHandler()
 
     const { nextLeftIndex, nextRightIndex, lastRowFirstIndex } = useGrid({
         columns: GRID_COLUMNS,
@@ -146,7 +146,6 @@ export const useNavigation = ({ itemsArray, actionsLength }) => {
             if (event.key === 'Escape') {
                 event.preventDefault()
                 setModalOpen(false)
-                goToDefaultSection()
             }
         },
         [
@@ -161,7 +160,6 @@ export const useNavigation = ({ itemsArray, actionsLength }) => {
             showGrid,
             switchActiveSection,
             setHighlightedIndex,
-            goToDefaultSection,
         ]
     )
 

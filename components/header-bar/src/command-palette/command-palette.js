@@ -47,32 +47,34 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
 
     const { goToDefaultView } = useViewAndSectionHandler()
 
-    const handleVisibilityToggle = useCallback(
-        () => setModalOpen((open) => !open),
-        [setModalOpen]
+    const handleVisibilityToggle = useCallback(() => {
+        setModalOpen((open) => !open)
+        goToDefaultView()
+    }, [setModalOpen, goToDefaultView])
+
+    const handleModalClick = useCallback(
+        (event) => {
+            if (event.target === modalRef?.current) {
+                setModalOpen(false)
+            } else {
+                modalRef?.current?.querySelector('input').focus()
+            }
+        },
+        [modalRef, setModalOpen]
     )
 
     useEffect(() => {
         const handleKeyDown = (event) => {
             if ((event.metaKey || event.ctrlKey) && event.key === '/') {
-                setModalOpen((open) => !open)
-                goToDefaultView()
+                handleVisibilityToggle()
             }
         }
 
-        const onDocClick = (evt) => {
-            if (containerEl.current && evt.target === modalRef.current) {
-                setModalOpen(false)
-                goToDefaultView()
-            }
-        }
-        document.addEventListener('click', onDocClick)
         document.addEventListener('keydown', handleKeyDown)
         return () => {
             document.removeEventListener('keydown', handleKeyDown)
-            document.removeEventListener('click', onDocClick)
         }
-    }, [goToDefaultView, setModalOpen, modalRef])
+    }, [handleVisibilityToggle])
 
     return (
         <div ref={containerEl} data-test="headerbar" className="headerbar">
@@ -83,7 +85,11 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
                 <IconApps24 color={colors.white} />
             </button>
             {showModal ? (
-                <ModalContainer ref={modalRef} onKeyDown={handleKeyDown}>
+                <ModalContainer
+                    ref={modalRef}
+                    onKeyDown={handleKeyDown}
+                    onClick={handleModalClick}
+                >
                     <div data-test="headerbar-menu" className="headerbar-menu">
                         <SearchFilter />
                         <div className="headerbar-menu-content">

@@ -13,6 +13,7 @@ const useViewAndSectionHandler = () => {
 
     const goToDefaultSection = useCallback(() => {
         const defaultSection = showGrid ? GRID_SECTION : ACTIONS_SECTION
+
         setActiveSection(defaultSection)
         setHighlightedIndex(0)
     }, [showGrid, setActiveSection, setHighlightedIndex])
@@ -21,11 +22,10 @@ const useViewAndSectionHandler = () => {
         setFilter('')
         setCurrentView(HOME_VIEW)
         goToDefaultSection()
-    }, [setCurrentView, setFilter, goToDefaultSection])
+    }, [showGrid, setCurrentView, setFilter, goToDefaultSection])
 
     return {
         goToDefaultView,
-        goToDefaultSection,
     }
 }
 

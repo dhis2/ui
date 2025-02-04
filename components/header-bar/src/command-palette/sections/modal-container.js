@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React, { forwardRef, useEffect } from 'react'
 
 const ModalContainer = forwardRef(function ModalContainer(
-    { children, onKeyDown },
+    { children, onKeyDown, onClick },
     ref
 ) {
     useEffect(() => {
@@ -17,20 +17,22 @@ const ModalContainer = forwardRef(function ModalContainer(
         if (!ref.current) {
             return
         }
-        const dialog = ref.current
+        const modal = ref.current
 
         const handleFocus = (event) => {
-            if (event.target === ref?.current) {
-                ref.current?.querySelector('input').focus()
+            if (event.target === modal) {
+                modal?.querySelector('input').focus()
             }
         }
 
-        dialog.addEventListener('focus', handleFocus)
-        dialog.addEventListener('keydown', onKeyDown)
+        modal.addEventListener('click', onClick)
+        modal.addEventListener('focus', handleFocus)
+        modal.addEventListener('keydown', onKeyDown)
 
         return () => {
-            dialog.removeEventListener('focus', handleFocus)
-            dialog.removeEventListener('keydown', onKeyDown)
+            modal.removeEventListener('click', onClick)
+            modal.removeEventListener('focus', handleFocus)
+            modal.removeEventListener('keydown', onKeyDown)
         }
     }, [onKeyDown, ref])
 
@@ -59,6 +61,7 @@ const ModalContainer = forwardRef(function ModalContainer(
 
 ModalContainer.propTypes = {
     children: PropTypes.node,
+    onClick: PropTypes.func,
     onKeyDown: PropTypes.func,
 }
 
