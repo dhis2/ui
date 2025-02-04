@@ -1,17 +1,18 @@
 # 
 # Translators:
-# phil_dhis2, 2021
+# Philip Larsen Donnelly, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # David Júnior <davidjr.mondlane@gmail.com>, 2022
+# Edson Nhancale, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-11T13:37:19.312Z\n"
+"POT-Creation-Date: 2024-11-29T06:54:11.622Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
-"Last-Translator: David Júnior <davidjr.mondlane@gmail.com>, 2022\n"
-"Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
+"Last-Translator: Edson Nhancale, 2025\n"
+"Language-Team: Portuguese (https://app.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,47 +23,52 @@ msgid "Upload file"
 msgstr "Carregar arquivo"
 
 msgid "Upload files"
-msgstr ""
+msgstr "Carregar arquivos"
 
 msgid "Remove"
 msgstr "Remover"
 
 msgid "Please provide an alpha-numeric value"
-msgstr ""
+msgstr "Fornecer um valor alfanumérico"
 
 msgid "Please provide a boolean value"
-msgstr ""
+msgstr "Forneça um valor booleano"
 
 msgid "Please enter between {{lowerBound}} and {{upperBound}} characters"
-msgstr ""
+msgstr "Introduzir entre {{lowerBound}} e {{upperBound}} caracteres"
 
 msgid ""
 "Please make sure the value of this input matches the value in "
 "\"{{otherField}}\"."
 msgstr ""
+"Por favor, certifique-se de que o valor deste campo corresponde ao valor em "
+"\"{{otherField}}\"."
 
 msgid "Please enter a maximum of {{upperBound}} characters"
-msgstr ""
+msgstr "Introduza um máximo de {{upperBound}} caracteres"
 
 msgid "Please enter a number with a maximum of {{upperBound}}"
-msgstr ""
+msgstr "Introduza um número com um máximo de {{upperBound}}"
 
 msgid "Please enter at least {{lowerBound}} characters"
-msgstr ""
+msgstr "Introduza pelo menos {{lowerBound}} caracteres"
 
 msgid "Please enter a number of at least {{lowerBound}}"
-msgstr ""
+msgstr "Por favor, introduza um número de, pelo menos {{lowerBound}}"
 
 msgid "Number cannot be less than {{lowerBound}} or more than {{upperBound}}"
 msgstr ""
+"O número não pode ser inferior a {{lowerBound}} ou superior a {{upperBound}}"
 
 msgid ""
 "Please make sure the value of this input matches the pattern "
 "{{patternString}}."
 msgstr ""
+"Certifique-se de que o valor deste campo corresponde ao padrão "
+"{{patternString}}."
 
 msgid "Password should be a string"
-msgstr ""
+msgstr "A senha deve ser uma cadeia de caracteres"
 
 msgid "Password should be at least 8 characters long"
 msgstr "A senha deve ter pelo menos 8 caracteres"
@@ -82,26 +88,31 @@ msgstr "A senha deve conter pelo menos um número"
 msgid "Password should have at least one special character"
 msgstr "A senha deve ter pelo menos um caractere especial"
 
-msgid "Please provide a username between 4 and 255 characters"
-msgstr ""
-
 msgid "Please provide a valid email address"
 msgstr "Por favor forneça um endereço de e-mail válido"
 
 msgid "Please provide a value"
-msgstr ""
+msgstr "Forneça um valor"
 
 msgid "Please provide a round number without decimals"
-msgstr ""
+msgstr "Forneça um número inteiro sem decimais"
 
 msgid "Please provide a valid international phone number."
-msgstr ""
+msgstr "Indique um número de telefone internacional válido."
 
 msgid "Please provide a number"
-msgstr ""
+msgstr "Forneça um número"
 
 msgid "Please provide a string"
-msgstr ""
+msgstr "Forneça um texto"
 
 msgid "Please provide a valid url"
 msgstr "Forneça uma URL válida"
+
+msgctxt " - or @"
+msgid ""
+"Please provide a username between 4 and 255 characters long and possibly "
+"separated by . "
+msgstr ""
+"Forneça um nome de utilizador com um comprimento entre 4 e 255 caracteres e "
+"possivelmente separado por . _ - ou @"

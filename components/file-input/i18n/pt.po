@@ -2,13 +2,14 @@
 # Translators:
 # Philip Larsen Donnelly, 2021
 # Helton Dias, 2024
+# Edson Nhancale, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-06-04T18:40:29.413Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
-"Last-Translator: Helton Dias, 2024\n"
+"Last-Translator: Edson Nhancale, 2025\n"
 "Language-Team: Portuguese (https://app.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgid "Upload a file"
 msgstr "Carregar um ficheiro"
 
 msgid "No file uploaded yet"
-msgstr ""
+msgstr "Nenhum ficheiro carregado"
 
 msgid "Remove"
 msgstr "Remover"
