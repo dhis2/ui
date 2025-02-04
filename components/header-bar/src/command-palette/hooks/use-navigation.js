@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from 'react'
+import { useCallback, useEffect, useMemo, useRef } from 'react'
 import { useCommandPaletteContext } from '../context/command-palette-context.js'
 import {
     ACTIONS_SECTION,
@@ -12,7 +12,7 @@ import useListNavigation from './use-list-navigation.js'
 import useModal from './use-modal.js'
 import useViewAndSectionHandler from './use-view-handler.js'
 
-export const useNavigation = ({ itemsArray, actionsLength }) => {
+export const useNavigation = ({ itemsArray, actionsArray }) => {
     const modalRef = useRef(null)
 
     const {
@@ -24,6 +24,15 @@ export const useNavigation = ({ itemsArray, actionsLength }) => {
         setActiveSection,
         showGrid,
     } = useCommandPaletteContext()
+
+    const actionsLength = actionsArray?.length || 0
+
+    const activeItems = useMemo(() => {
+        if (currentView === HOME_VIEW && activeSection === ACTIONS_SECTION) {
+            return actionsArray
+        }
+        return itemsArray
+    }, [itemsArray, actionsArray, currentView, activeSection])
 
     const { modalOpen, setModalOpen } = useModal(modalRef)
 
@@ -165,14 +174,12 @@ export const useNavigation = ({ itemsArray, actionsLength }) => {
 
     const handleKeyDown = useCallback(
         (event) => {
-            const modal = modalRef.current.childNodes[0]
-
             if (currentView === HOME_VIEW) {
                 if (filter.length > 0) {
                     // search mode
                     handleListViewNavigation({
                         event,
-                        listLength: itemsArray.length,
+                        listLength: activeItems.length,
                     })
                 } else {
                     handleHomeViewNavigation(event)
@@ -181,30 +188,28 @@ export const useNavigation = ({ itemsArray, actionsLength }) => {
                 setActiveSection(null)
                 handleListViewNavigation({
                     event,
-                    listLength: itemsArray.length,
+                    listLength: activeItems.length,
                 })
             }
 
             if (event.key === 'Enter') {
-                if (activeSection === ACTIONS_SECTION) {
-                    modal
-                        ?.querySelector('.actions-menu')
-                        ?.childNodes?.[highlightedIndex]?.click()
-                } else {
-                    // open apps, shortcuts link
-                    window.open(itemsArray[highlightedIndex]?.['defaultAction'])
-                    // TODO: execute commands
+                const activeItem = activeItems[highlightedIndex]
+
+                if (activeItem?.['action']) {
+                    activeItem?.['action']?.()
+                } else if (activeItem?.['defaultAction']) {
+                    window.open(activeItem?.['defaultAction'])
                 }
+                // TODO: execute commands, shortcuts
             }
         },
         [
-            activeSection,
+            activeItems,
             currentView,
             filter.length,
             handleHomeViewNavigation,
             handleListViewNavigation,
             highlightedIndex,
-            itemsArray,
             setActiveSection,
         ]
     )

@@ -1,25 +1,17 @@
-import { clearSensitiveCaches, useConfig } from '@dhis2/app-runtime'
 import { spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { joinPath } from '../../join-path.js'
 import i18n from '../../locales/index.js'
 import { useCommandPaletteContext } from '../context/command-palette-context.js'
 import AppItem from '../sections/app-item.js'
 import Heading from '../sections/heading.js'
 import ListItem from '../sections/list-item.js'
-import { ACTIONS_SECTION, GRID_SECTION, LOGOUT } from '../utils/constants.js'
+import { ACTIONS_SECTION, GRID_SECTION } from '../utils/constants.js'
 import ListView from './list-view.js'
 
 function HomeView({ apps, commands, shortcuts, actions }) {
-    const { baseUrl } = useConfig()
-    const {
-        filter,
-        setCurrentView,
-        highlightedIndex,
-        setHighlightedIndex,
-        activeSection,
-    } = useCommandPaletteContext()
+    const { filter, highlightedIndex, activeSection } =
+        useCommandPaletteContext()
     const filteredItems = apps.concat(commands, shortcuts)
     const topApps = apps?.slice(0, 8)
     return (
@@ -76,48 +68,23 @@ function HomeView({ apps, commands, shortcuts, actions }) {
                         data-test="headerbar-actions-menu"
                     >
                         {actions.map(
-                            ({ dataTest, icon, title, type }, index) => {
-                                const logoutActionHandler = async () => {
-                                    await clearSensitiveCaches()
-                                    window.location.assign(
-                                        joinPath(
-                                            baseUrl,
-                                            'dhis-web-commons-security/logout.action'
-                                        )
-                                    )
-                                }
-
-                                const viewActionHandler = () => {
-                                    setCurrentView(type)
-                                    setHighlightedIndex(0)
-                                }
-
-                                return (
-                                    <ListItem
-                                        key={`action-${type}-${index}`}
-                                        title={title}
-                                        icon={icon}
-                                        dataTest={dataTest}
-                                        href={
-                                            type === LOGOUT
-                                                ? joinPath(
-                                                      baseUrl,
-                                                      'dhis-web-commons-security/logout.action'
-                                                  )
-                                                : undefined
-                                        }
-                                        onClickHandler={
-                                            type === LOGOUT
-                                                ? logoutActionHandler
-                                                : viewActionHandler
-                                        }
-                                        highlighted={
-                                            activeSection === ACTIONS_SECTION &&
-                                            highlightedIndex === index
-                                        }
-                                    />
-                                )
-                            }
+                            (
+                                { dataTest, icon, title, type, href, action },
+                                index
+                            ) => (
+                                <ListItem
+                                    key={`action-${type}-${index}`}
+                                    title={title}
+                                    icon={icon}
+                                    dataTest={dataTest}
+                                    href={href}
+                                    onClickHandler={action}
+                                    highlighted={
+                                        activeSection === ACTIONS_SECTION &&
+                                        highlightedIndex === index
+                                    }
+                                />
+                            )
                         )}
                     </div>
                 </>

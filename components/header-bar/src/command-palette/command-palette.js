@@ -42,7 +42,7 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
 
     const { handleKeyDown, modalRef, setModalOpen, showModal } = useNavigation({
         itemsArray: currentViewItemsArray,
-        actionsLength: actionsArray?.length,
+        actionsArray,
     })
 
     const { goToDefaultView } = useViewAndSectionHandler()
