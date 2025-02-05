@@ -40,10 +40,10 @@ const useHomeNavigation = ({ actionsLength }) => {
     const isLastListIndex = (index, listLength) => index >= listLength - 1
 
     const getNextUpperIndex = useCallback(
-        ({ condition, nextIndex }) => {
-            if (condition) {
+        ({ isTopIndexInCurrentSection, lastIndexInNextSection }) => {
+            if (isTopIndexInCurrentSection) {
                 setActiveSection(nextSection)
-                return nextIndex
+                return lastIndexInNextSection
             } else {
                 return highlightedIndex - verticalGap
             }
@@ -52,8 +52,8 @@ const useHomeNavigation = ({ actionsLength }) => {
     )
 
     const getNextLowerIndex = useCallback(
-        ({ condition }) => {
-            if (condition) {
+        ({ isLastIndexInCurrentSection }) => {
+            if (isLastIndexInCurrentSection) {
                 setActiveSection(nextSection)
                 return 0
             } else {
@@ -65,9 +65,6 @@ const useHomeNavigation = ({ actionsLength }) => {
 
     const handleHomeNavigation = useCallback(
         (event) => {
-            // actions
-            const lastActionIndex = actionsLength - 1
-
             let nextTopIndex
             let nextLowerIndex
 
@@ -85,15 +82,17 @@ const useHomeNavigation = ({ actionsLength }) => {
                         case 'ArrowDown':
                             event.preventDefault()
                             nextLowerIndex = getNextLowerIndex({
-                                condition: isInLastRow(highlightedIndex),
+                                isLastIndexInCurrentSection:
+                                    isInLastRow(highlightedIndex),
                             })
                             setHighlightedIndex(nextLowerIndex)
                             break
                         case 'ArrowUp':
                             event.preventDefault()
                             nextTopIndex = getNextUpperIndex({
-                                condition: isInFirstRow(highlightedIndex),
-                                nextIndex: lastActionIndex,
+                                isTopIndexInCurrentSection:
+                                    isInFirstRow(highlightedIndex),
+                                lastIndexInNextSection: actionsLength - 1,
                             })
                             setHighlightedIndex(nextTopIndex)
                             break
@@ -105,7 +104,7 @@ const useHomeNavigation = ({ actionsLength }) => {
                         case 'ArrowDown':
                             event.preventDefault()
                             nextLowerIndex = getNextLowerIndex({
-                                condition: isLastListIndex(
+                                isLastIndexInCurrentSection: isLastListIndex(
                                     highlightedIndex,
                                     actionsLength
                                 ),
@@ -115,8 +114,9 @@ const useHomeNavigation = ({ actionsLength }) => {
                         case 'ArrowUp':
                             event.preventDefault()
                             nextTopIndex = getNextUpperIndex({
-                                condition: isFirstListIndex(highlightedIndex),
-                                nextIndex: lastRowFirstIndex,
+                                isTopIndexInCurrentSection:
+                                    isFirstListIndex(highlightedIndex),
+                                lastIndexInNextSection: lastRowFirstIndex,
                             })
                             setHighlightedIndex(nextTopIndex)
                             break

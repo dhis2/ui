@@ -76,12 +76,12 @@ export const useNavigation = ({ itemsArray, actionsArray }) => {
             if (event.key === 'Enter') {
                 const activeItem = activeItems[highlightedIndex]
 
+                // caters to triggering apps and actions menu items
                 if (activeItem?.['action']) {
                     activeItem?.['action']?.()
                 } else if (activeItem?.['defaultAction']) {
                     window.open(activeItem?.['defaultAction'])
                 }
-                // TODO: execute commands, shortcuts
             }
         },
         [
