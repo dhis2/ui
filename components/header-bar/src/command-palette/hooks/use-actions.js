@@ -1,4 +1,3 @@
-import { clearSensitiveCaches, useConfig } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import {
     IconApps16,
@@ -7,8 +6,8 @@ import {
     IconTerminalWindow16,
 } from '@dhis2/ui-icons'
 import React, { useCallback, useMemo } from 'react'
-import { joinPath } from '../../join-path.js'
 import i18n from '../../locales/index.js'
+import useLogout from '../commands/useLogout.js'
 import { useCommandPaletteContext } from '../context/command-palette-context.js'
 import {
     ALL_APPS_VIEW,
@@ -22,12 +21,8 @@ import {
 } from '../utils/constants.js'
 
 export const useAvailableActions = ({ apps, shortcuts, commands }) => {
-    const { baseUrl } = useConfig()
-    const logoutURL = joinPath(
-        baseUrl,
-        'dhis-web-commons-security/logout.action'
-    )
     const { setCurrentView, setHighlightedIndex } = useCommandPaletteContext()
+    const { logoutAction, logoutURL } = useLogout()
 
     const switchViewAction = useCallback(
         (type) => {
@@ -36,11 +31,6 @@ export const useAvailableActions = ({ apps, shortcuts, commands }) => {
         },
         [setCurrentView, setHighlightedIndex]
     )
-
-    const logoutAction = useCallback(async () => {
-        await clearSensitiveCaches()
-        window.location.assign(logoutURL)
-    }, [logoutURL])
 
     const actions = useMemo(() => {
         const actionsArray = []
