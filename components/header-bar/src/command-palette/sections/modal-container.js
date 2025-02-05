@@ -34,7 +34,7 @@ const ModalContainer = forwardRef(function ModalContainer(
             modal.removeEventListener('focus', handleFocus)
             modal.removeEventListener('keydown', onKeyDown)
         }
-    }, [onKeyDown, ref])
+    }, [onKeyDown, ref, onClick])
 
     return (
         <>

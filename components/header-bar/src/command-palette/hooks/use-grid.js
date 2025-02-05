@@ -1,61 +1,80 @@
-import { useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
 import { useCommandPaletteContext } from '../context/command-palette-context.js'
 
 const useGrid = ({ rows, columns }) => {
     const { highlightedIndex } = useCommandPaletteContext()
-    const rowIndexDifference = useMemo(() => columns - 1, [columns])
+    const rowIndexDifference = columns - 1
 
     const firstIndexPerRowArray = useMemo(() => {
         const arr = []
-        for (let i = 0; i < rows; i++) {
-            arr.push(i * columns)
+        for (let rowNumber = 0; rowNumber < rows; rowNumber++) {
+            arr.push(rowNumber * columns)
         }
         return arr
     }, [rows, columns])
 
     const lastIndexPerRowArray = useMemo(() => {
-        return firstIndexPerRowArray.map((index) => index + rowIndexDifference)
+        return firstIndexPerRowArray.map(
+            (firstIndex) => firstIndex + rowIndexDifference
+        )
     }, [firstIndexPerRowArray, rowIndexDifference])
 
     const activeRow = useMemo(() => {
         let row = 0
-        for (let i = 0; i < rows; i++) {
-            if (highlightedIndex >= firstIndexPerRowArray[i]) {
-                row = i
+        for (let rowNumber = 0; rowNumber < rows; rowNumber++) {
+            if (highlightedIndex >= firstIndexPerRowArray[rowNumber]) {
+                row = rowNumber
             }
         }
         return row
     }, [rows, firstIndexPerRowArray, highlightedIndex])
 
-    const [rowFirstIndex, rowLastIndex] = useMemo(() => {
-        const row = activeRow
-        const rowFirstIndex = firstIndexPerRowArray[row]
-        const rowLastIndex = lastIndexPerRowArray[row]
+    const [activeRowFirstIndex, activeRowLastIndex] = useMemo(() => {
+        const activeRowFirstIndex = firstIndexPerRowArray[activeRow]
+        const activeRowLastIndex = lastIndexPerRowArray[activeRow]
 
-        return [rowFirstIndex, rowLastIndex]
+        return [activeRowFirstIndex, activeRowLastIndex]
     }, [activeRow, firstIndexPerRowArray, lastIndexPerRowArray])
 
     const nextLeftIndex = useMemo(() => {
-        return highlightedIndex > rowFirstIndex
+        return highlightedIndex > activeRowFirstIndex
             ? highlightedIndex - 1
-            : rowLastIndex
-    }, [highlightedIndex, rowFirstIndex, rowLastIndex])
+            : activeRowLastIndex
+    }, [highlightedIndex, activeRowFirstIndex, activeRowLastIndex])
 
     const nextRightIndex = useMemo(() => {
-        return highlightedIndex >= rowLastIndex
-            ? rowFirstIndex
+        return highlightedIndex >= activeRowLastIndex
+            ? activeRowFirstIndex
             : highlightedIndex + 1
-    }, [highlightedIndex, rowFirstIndex, rowLastIndex])
+    }, [highlightedIndex, activeRowFirstIndex, activeRowLastIndex])
 
     const lastRowFirstIndex = useMemo(() => {
         return firstIndexPerRowArray[rows - 1]
     }, [firstIndexPerRowArray, rows])
 
+    const isInFirstRow = useCallback(
+        (index) => {
+            const firstRowFirstIndex = firstIndexPerRowArray[0]
+            const firstRowLastIndex = lastIndexPerRowArray[0]
+
+            return index >= firstRowFirstIndex && index <= firstRowLastIndex
+        },
+        [firstIndexPerRowArray, lastIndexPerRowArray]
+    )
+
+    const isInLastRow = useCallback(
+        (index) => {
+            return index >= lastRowFirstIndex
+        },
+        [lastRowFirstIndex]
+    )
+
     return {
+        isInFirstRow,
+        isInLastRow,
         nextLeftIndex,
         nextRightIndex,
         lastRowFirstIndex,
-        rows,
     }
 }
 

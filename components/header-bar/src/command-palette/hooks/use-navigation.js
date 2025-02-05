@@ -1,13 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef } from 'react'
 import { useCommandPaletteContext } from '../context/command-palette-context.js'
-import {
-    ACTIONS_SECTION,
-    GRID_COLUMNS,
-    GRID_ROWS,
-    GRID_SECTION,
-    HOME_VIEW,
-} from '../utils/constants.js'
-import useGrid from './use-grid.js'
+import { ACTIONS_SECTION, HOME_VIEW } from '../utils/constants.js'
+import useHomeNavigation from './use-home-navigation.js'
 import useListNavigation from './use-list-navigation.js'
 import useModal from './use-modal.js'
 import useViewAndSectionHandler from './use-view-handler.js'
@@ -21,11 +15,7 @@ export const useNavigation = ({ itemsArray, actionsArray }) => {
         filter,
         highlightedIndex,
         setHighlightedIndex,
-        setActiveSection,
-        showGrid,
     } = useCommandPaletteContext()
-
-    const actionsLength = actionsArray?.length || 0
 
     const activeItems = useMemo(() => {
         if (currentView === HOME_VIEW && activeSection === ACTIONS_SECTION) {
@@ -38,25 +28,15 @@ export const useNavigation = ({ itemsArray, actionsArray }) => {
 
     const { goToDefaultView } = useViewAndSectionHandler()
 
-    const { nextLeftIndex, nextRightIndex, lastRowFirstIndex } = useGrid({
-        columns: GRID_COLUMNS,
-        rows: GRID_ROWS,
-    })
-
     // highlight first item in filtered results
     useEffect(() => {
         setHighlightedIndex(0)
     }, [filter, setHighlightedIndex])
 
-    const switchActiveSection = useCallback(
-        ({ section, index }) => {
-            setActiveSection(section)
-            setHighlightedIndex(index)
-        },
-        [setActiveSection, setHighlightedIndex]
-    )
-
     const handleListNavigation = useListNavigation()
+    const handleHomeNavigation = useHomeNavigation({
+        actionsLength: actionsArray.length,
+    })
 
     const handleListViewNavigation = useCallback(
         ({ event, listLength }) => {
@@ -72,120 +52,21 @@ export const useNavigation = ({ itemsArray, actionsArray }) => {
 
     const handleHomeViewNavigation = useCallback(
         (event) => {
-            // grid
-            const verticalPositionGap = GRID_COLUMNS
-
-            // actions
-            const lastActionIndex = actionsLength - 1
-
-            if (showGrid) {
-                switch (event.key) {
-                    case 'ArrowLeft':
-                        event.preventDefault()
-                        if (activeSection === GRID_SECTION) {
-                            setHighlightedIndex(nextLeftIndex)
-                        }
-                        break
-                    case 'ArrowRight':
-                        event.preventDefault()
-                        if (activeSection === GRID_SECTION) {
-                            setHighlightedIndex(nextRightIndex)
-                        }
-                        break
-                    case 'ArrowDown':
-                        event.preventDefault()
-                        if (activeSection === GRID_SECTION) {
-                            if (highlightedIndex >= lastRowFirstIndex) {
-                                switchActiveSection({
-                                    section: ACTIONS_SECTION,
-                                    index: 0,
-                                })
-                            } else {
-                                setHighlightedIndex(
-                                    highlightedIndex + verticalPositionGap
-                                )
-                            }
-                        } else if (activeSection === ACTIONS_SECTION) {
-                            if (highlightedIndex >= actionsLength - 1) {
-                                switchActiveSection({
-                                    section: GRID_SECTION,
-                                    index: 0,
-                                })
-                            } else {
-                                setHighlightedIndex(highlightedIndex + 1)
-                            }
-                        }
-                        break
-                    case 'ArrowUp':
-                        event.preventDefault()
-                        if (activeSection === GRID_SECTION) {
-                            if (highlightedIndex < lastRowFirstIndex) {
-                                switchActiveSection({
-                                    section: ACTIONS_SECTION,
-                                    index: lastActionIndex,
-                                })
-                            } else {
-                                setHighlightedIndex(
-                                    highlightedIndex - verticalPositionGap
-                                )
-                            }
-                        } else if (activeSection === ACTIONS_SECTION) {
-                            if (highlightedIndex <= 0) {
-                                switchActiveSection({
-                                    section: GRID_SECTION,
-                                    index: lastRowFirstIndex,
-                                })
-                            } else {
-                                setHighlightedIndex(highlightedIndex - 1)
-                            }
-                        }
-                        break
-                    default:
-                        break
-                }
-            } else {
-                if (activeSection === ACTIONS_SECTION) {
-                    handleListViewNavigation({
-                        event,
-                        listLength: actionsLength,
-                    })
-                }
-            }
+            handleHomeNavigation(event)
 
             if (event.key === 'Escape') {
                 event.preventDefault()
                 setModalOpen(false)
             }
         },
-        [
-            activeSection,
-            actionsLength,
-            handleListViewNavigation,
-            highlightedIndex,
-            nextLeftIndex,
-            nextRightIndex,
-            lastRowFirstIndex,
-            setModalOpen,
-            showGrid,
-            switchActiveSection,
-            setHighlightedIndex,
-        ]
+        [handleHomeNavigation, setModalOpen]
     )
 
     const handleKeyDown = useCallback(
         (event) => {
-            if (currentView === HOME_VIEW) {
-                if (filter.length > 0) {
-                    // search mode
-                    handleListViewNavigation({
-                        event,
-                        listLength: activeItems.length,
-                    })
-                } else {
-                    handleHomeViewNavigation(event)
-                }
+            if (currentView === HOME_VIEW && filter?.length === 0) {
+                handleHomeViewNavigation(event)
             } else {
-                setActiveSection(null)
                 handleListViewNavigation({
                     event,
                     listLength: activeItems.length,
@@ -210,7 +91,6 @@ export const useNavigation = ({ itemsArray, actionsArray }) => {
             handleHomeViewNavigation,
             handleListViewNavigation,
             highlightedIndex,
-            setActiveSection,
         ]
     )
 
