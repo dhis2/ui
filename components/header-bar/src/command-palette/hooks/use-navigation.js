@@ -1,10 +1,15 @@
 import { useCallback, useEffect, useMemo, useRef } from 'react'
 import { useCommandPaletteContext } from '../context/command-palette-context.js'
-import { ACTIONS_SECTION, HOME_VIEW } from '../utils/constants.js'
-import useHomeNavigation from './use-home-navigation.js'
-import useListNavigation from './use-list-navigation.js'
+import {
+    ACTIONS_SECTION,
+    GRID_COLUMNS,
+    GRID_ROWS,
+    GRID_SECTION,
+    HOME_VIEW,
+} from '../utils/constants.js'
+import { handleHomeNavigation } from '../utils/home-navigation.js'
+import { handleListNavigation } from '../utils/list-navigation.js'
 import useModal from './use-modal.js'
-import useViewAndSectionHandler from './use-view-handler.js'
 
 export const useNavigation = ({ itemsArray, actionsArray }) => {
     const modalRef = useRef(null)
@@ -15,6 +20,10 @@ export const useNavigation = ({ itemsArray, actionsArray }) => {
         filter,
         highlightedIndex,
         setHighlightedIndex,
+        showGrid,
+        setActiveSection,
+        setFilter,
+        setCurrentView,
     } = useCommandPaletteContext()
 
     const activeItems = useMemo(() => {
@@ -26,40 +35,82 @@ export const useNavigation = ({ itemsArray, actionsArray }) => {
 
     const { modalOpen, setModalOpen } = useModal(modalRef)
 
-    const { goToDefaultView } = useViewAndSectionHandler()
+    const goToDefaultView = useCallback(() => {
+        const defaultSection = showGrid ? GRID_SECTION : ACTIONS_SECTION
+
+        setFilter('')
+        setCurrentView(HOME_VIEW)
+        setActiveSection(defaultSection)
+        setHighlightedIndex(0)
+    }, [
+        showGrid,
+        setCurrentView,
+        setFilter,
+        setActiveSection,
+        setHighlightedIndex,
+    ])
 
     // highlight first item in filtered results
     useEffect(() => {
         setHighlightedIndex(0)
     }, [filter, setHighlightedIndex])
 
-    const handleListNavigation = useListNavigation()
-    const handleHomeNavigation = useHomeNavigation({
-        actionsLength: actionsArray.length,
-    })
-
     const handleListViewNavigation = useCallback(
         ({ event, listLength }) => {
-            handleListNavigation({ event, listLength })
+            const index = handleListNavigation({
+                event,
+                listLength,
+                highlightedIndex,
+            })
+            setHighlightedIndex(index)
 
             if (event.key === 'Escape') {
                 event.preventDefault()
                 goToDefaultView()
             }
         },
-        [handleListNavigation, goToDefaultView]
+        [goToDefaultView, highlightedIndex, setHighlightedIndex]
     )
 
     const handleHomeViewNavigation = useCallback(
         (event) => {
-            handleHomeNavigation(event)
+            const actionsListLength = actionsArray.length
+
+            if (showGrid) {
+                const { section, index } = handleHomeNavigation({
+                    event,
+                    activeSection,
+                    showGrid,
+                    rows: GRID_ROWS,
+                    columns: GRID_COLUMNS,
+                    highlightedIndex,
+                    actionsListLength,
+                })
+                setActiveSection(section)
+                setHighlightedIndex(index)
+            } else {
+                const index = handleListNavigation({
+                    event,
+                    listLength: actionsListLength,
+                    highlightedIndex,
+                })
+                setHighlightedIndex(index)
+            }
 
             if (event.key === 'Escape') {
                 event.preventDefault()
                 setModalOpen(false)
             }
         },
-        [handleHomeNavigation, setModalOpen]
+        [
+            actionsArray,
+            activeSection,
+            highlightedIndex,
+            showGrid,
+            setActiveSection,
+            setHighlightedIndex,
+            setModalOpen,
+        ]
     )
 
     const handleKeyDown = useCallback(
@@ -74,14 +125,7 @@ export const useNavigation = ({ itemsArray, actionsArray }) => {
             }
 
             if (event.key === 'Enter') {
-                const activeItem = activeItems[highlightedIndex]
-
-                // caters to triggering apps and actions menu items
-                if (activeItem?.['action']) {
-                    activeItem?.['action']?.()
-                } else if (activeItem?.['defaultAction']) {
-                    window.open(activeItem?.['defaultAction'])
-                }
+                activeItems[highlightedIndex]?.['action']?.()
             }
         },
         [
@@ -99,5 +143,6 @@ export const useNavigation = ({ itemsArray, actionsArray }) => {
         modalRef,
         setModalOpen,
         showModal: modalOpen,
+        goToDefaultView,
     }
 }

@@ -6,7 +6,6 @@ import { useCommandPaletteContext } from './context/command-palette-context.js'
 import { useAvailableActions } from './hooks/use-actions.js'
 import { useFilter } from './hooks/use-filter.js'
 import { useNavigation } from './hooks/use-navigation.js'
-import useViewAndSectionHandler from './hooks/use-view-handler.js'
 import BackButton from './sections/back-button.js'
 import ModalContainer from './sections/modal-container.js'
 import SearchFilter from './sections/search-field.js'
@@ -40,12 +39,16 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
         setShowGrid(apps?.length > 0)
     }, [apps, setShowGrid])
 
-    const { handleKeyDown, modalRef, setModalOpen, showModal } = useNavigation({
+    const {
+        handleKeyDown,
+        modalRef,
+        setModalOpen,
+        showModal,
+        goToDefaultView,
+    } = useNavigation({
         itemsArray: currentViewItemsArray,
         actionsArray,
     })
-
-    const { goToDefaultView } = useViewAndSectionHandler()
 
     const handleVisibilityToggle = useCallback(() => {
         setModalOpen((open) => !open)
