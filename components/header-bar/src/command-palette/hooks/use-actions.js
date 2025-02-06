@@ -1,28 +1,27 @@
+import { useConfig } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
-import {
-    IconApps16,
-    IconLogOut16,
-    IconRedo16,
-    IconTerminalWindow16,
-} from '@dhis2/ui-icons'
+import { IconApps16, IconRedo16, IconTerminalWindow16 } from '@dhis2/ui-icons'
 import React, { useCallback, useMemo } from 'react'
+import { joinPath } from '../../join-path.js'
 import i18n from '../../locales/index.js'
-import useLogout from '../commands/useLogout.js'
+import logoutCommand from '../commands/logout-command.js'
 import { useCommandPaletteContext } from '../context/command-palette-context.js'
 import {
+    ACTION,
     ALL_APPS_VIEW,
     ALL_COMMANDS_VIEW,
     ALL_SHORTCUTS_VIEW,
-    APPS,
-    COMMANDS,
-    LOGOUT,
     MIN_APPS_NUM,
-    SHORTCUTS,
 } from '../utils/constants.js'
 
 export const useAvailableActions = ({ apps, shortcuts, commands }) => {
+    const { baseUrl } = useConfig()
     const { setCurrentView, setHighlightedIndex } = useCommandPaletteContext()
-    const { logoutAction, logoutURL } = useLogout()
+
+    const logoutURL = joinPath(
+        baseUrl,
+        'dhis-web-commons-security/logout.action'
+    )
 
     const switchViewAction = useCallback(
         (type) => {
@@ -36,7 +35,7 @@ export const useAvailableActions = ({ apps, shortcuts, commands }) => {
         const actionsArray = []
         if (apps?.length > MIN_APPS_NUM) {
             actionsArray.push({
-                type: APPS,
+                type: ACTION,
                 title: i18n.t('Browse apps'),
                 icon: <IconApps16 color={colors.grey700} />,
                 dataTest: 'headerbar-browse-apps',
@@ -45,7 +44,7 @@ export const useAvailableActions = ({ apps, shortcuts, commands }) => {
         }
         if (commands?.length > 0) {
             actionsArray.push({
-                type: COMMANDS,
+                type: ACTION,
                 title: i18n.t('Browse commands'),
                 icon: <IconTerminalWindow16 color={colors.grey700} />,
                 dataTest: 'headerbar-browse-commands',
@@ -54,7 +53,7 @@ export const useAvailableActions = ({ apps, shortcuts, commands }) => {
         }
         if (shortcuts?.length > 0) {
             actionsArray.push({
-                type: SHORTCUTS,
+                type: ACTION,
                 title: i18n.t('Browse shortcuts'),
                 icon: <IconRedo16 color={colors.grey700} />,
                 dataTest: 'headerbar-browse-shortcuts',
@@ -62,15 +61,8 @@ export const useAvailableActions = ({ apps, shortcuts, commands }) => {
             })
         }
         // default logout action
-        actionsArray.push({
-            type: LOGOUT,
-            title: i18n.t('Logout'),
-            icon: <IconLogOut16 color={colors.grey700} />,
-            dataTest: 'headerbar-logout',
-            action: logoutAction,
-            href: logoutURL,
-        })
+        actionsArray.push(logoutCommand(logoutURL))
         return actionsArray
-    }, [apps, shortcuts, commands, logoutAction, logoutURL, switchViewAction])
+    }, [apps, shortcuts, commands, logoutURL, switchViewAction])
     return actions
 }

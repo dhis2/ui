@@ -69,12 +69,20 @@ function HomeView({ apps, commands, shortcuts, actions }) {
                     >
                         {actions.map(
                             (
-                                { dataTest, icon, title, type, href, action },
+                                {
+                                    dataTest,
+                                    icon,
+                                    title,
+                                    name,
+                                    type,
+                                    href,
+                                    action,
+                                },
                                 index
                             ) => (
                                 <ListItem
                                     key={`action-${type}-${index}`}
-                                    title={title}
+                                    title={title || name}
                                     icon={icon}
                                     dataTest={dataTest}
                                     href={href}

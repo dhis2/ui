@@ -2,7 +2,7 @@ import { colors, spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { COMMANDS } from '../utils/constants.js'
+import { COMMAND } from '../utils/constants.js'
 
 function ListItem({
     title,
@@ -15,7 +15,7 @@ function ListItem({
     highlighted,
     dataTest = 'headerbar-list-item',
 }) {
-    const showDescription = type === COMMANDS
+    const showDescription = type === COMMAND
     return (
         <a
             href={path ? path : undefined}

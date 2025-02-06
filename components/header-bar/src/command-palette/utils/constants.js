@@ -8,13 +8,13 @@ export const ALL_SHORTCUTS_VIEW = 'SHORTCUTS'
 export const GRID_SECTION = 'GRID'
 export const ACTIONS_SECTION = 'ACTIONS'
 
-// action types
-export const APPS = 'APPS'
-export const COMMANDS = 'COMMANDS'
-export const SHORTCUTS = 'SHORTCUTS'
-export const LOGOUT = 'LOGOUT'
-
 // grid
 export const MIN_APPS_NUM = 8
 export const GRID_COLUMNS = 4
 export const GRID_ROWS = 2
+
+// types
+export const ACTION = 'ACTION'
+export const APP = 'APP'
+export const COMMAND = 'COMMAND'
+export const SHORTCUT = 'SHORTCUT'
