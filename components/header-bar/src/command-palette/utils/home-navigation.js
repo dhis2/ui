@@ -44,96 +44,89 @@ export const handleHomeNavigation = ({
     actionsListLength,
 }) => {
     const gridVerticalGap = GRID_COLUMNS
-    const firstIndexOfLastRow = getFirstIndexOfLastRow(rows, columns)
 
     const nextSection =
         activeSection === GRID_SECTION ? ACTIONS_SECTION : GRID_SECTION
-
     const verticalGap = activeSection === GRID_SECTION ? gridVerticalGap : 1
 
-    let nextTopIndex
-    let nextLowerIndex
-    let isTopIndex
-    let isLastIndex
+    const defaultValue = { section: activeSection, index: highlightedIndex }
 
-    if (activeSection === GRID_SECTION) {
-        switch (event.key) {
-            case 'ArrowLeft':
-                event.preventDefault()
-                return {
-                    section: activeSection,
-                    index: getNextLeftIndex(rows, columns, highlightedIndex),
-                }
-            case 'ArrowRight':
-                event.preventDefault()
-                return {
-                    section: activeSection,
-                    index: getNextRightIndex(rows, columns, highlightedIndex),
-                }
-            case 'ArrowDown':
-                event.preventDefault()
-                isLastIndex = isInLastRow(rows, columns, highlightedIndex)
-
-                nextLowerIndex = getNextLowerIndex({
-                    isLastIndexInCurrentSection: isLastIndex,
-                    verticalGap,
-                    highlightedIndex,
-                })
-                return {
-                    section: isLastIndex ? nextSection : activeSection,
-                    index: nextLowerIndex,
-                }
-            case 'ArrowUp':
-                event.preventDefault()
-                isTopIndex = isInFirstRow(rows, columns, highlightedIndex)
-                nextTopIndex = getNextUpperIndex({
-                    isTopIndexInCurrentSection: isTopIndex,
-                    lastIndexInNextSection: actionsListLength - 1,
-                    verticalGap,
-                    highlightedIndex,
-                })
-
-                return {
-                    section: isTopIndex ? nextSection : activeSection,
-                    index: nextTopIndex,
-                }
+    const handleArrowLeft = () => {
+        event.preventDefault()
+        if (activeSection === GRID_SECTION) {
+            return {
+                section: activeSection,
+                index: getNextLeftIndex(rows, columns, highlightedIndex),
+            }
         }
-    } else if (activeSection === ACTIONS_SECTION) {
-        switch (event.key) {
-            case 'ArrowDown':
-                event.preventDefault()
-                isLastIndex = isLastListIndex(
-                    highlightedIndex,
-                    actionsListLength
-                )
+        return defaultValue
+    }
 
-                nextLowerIndex = getNextLowerIndex({
-                    isLastIndexInCurrentSection: isLastIndex,
-                    verticalGap,
-                    highlightedIndex,
-                })
-                return {
-                    section: isLastIndex ? nextSection : activeSection,
-                    index: nextLowerIndex,
-                }
-            case 'ArrowUp':
-                event.preventDefault()
-                isTopIndex = isFirstListIndex(highlightedIndex)
-                nextTopIndex = getNextUpperIndex({
-                    isTopIndexInCurrentSection: isTopIndex,
-                    lastIndexInNextSection: firstIndexOfLastRow,
-                    verticalGap,
-                    highlightedIndex,
-                })
-                return {
-                    section: isTopIndex ? nextSection : activeSection,
-                    index: nextTopIndex,
-                }
+    const handleArrowRight = () => {
+        event.preventDefault()
+        if (activeSection === GRID_SECTION) {
+            return {
+                section: activeSection,
+                index: getNextRightIndex(rows, columns, highlightedIndex),
+            }
+        }
+        return defaultValue
+    }
+
+    const handleArrowUp = () => {
+        event.preventDefault()
+        const firstIndexOfLastRow = getFirstIndexOfLastRow(rows, columns)
+        const isTopIndex =
+            activeSection === GRID_SECTION
+                ? isInFirstRow(rows, columns, highlightedIndex)
+                : isFirstListIndex(highlightedIndex)
+
+        const lastIndexInNextSection =
+            activeSection === GRID_SECTION
+                ? actionsListLength - 1
+                : firstIndexOfLastRow
+
+        const nextTopIndex = getNextUpperIndex({
+            isTopIndexInCurrentSection: isTopIndex,
+            lastIndexInNextSection,
+            verticalGap,
+            highlightedIndex,
+        })
+
+        return {
+            section: isTopIndex ? nextSection : activeSection,
+            index: nextTopIndex,
         }
     }
 
-    return {
-        section: activeSection,
-        index: highlightedIndex,
+    const handleArrowDown = () => {
+        event.preventDefault()
+        const isLastIndex =
+            activeSection === GRID_SECTION
+                ? isInLastRow(rows, columns, highlightedIndex)
+                : isLastListIndex(highlightedIndex, actionsListLength)
+
+        const nextLowerIndex = getNextLowerIndex({
+            isLastIndexInCurrentSection: isLastIndex,
+            verticalGap,
+            highlightedIndex,
+        })
+        return {
+            section: isLastIndex ? nextSection : activeSection,
+            index: nextLowerIndex,
+        }
+    }
+
+    switch (event.key) {
+        case 'ArrowLeft':
+            return handleArrowLeft()
+        case 'ArrowRight':
+            return handleArrowRight()
+        case 'ArrowDown':
+            return handleArrowDown()
+        case 'ArrowUp':
+            return handleArrowUp()
+        default:
+            return defaultValue
     }
 }

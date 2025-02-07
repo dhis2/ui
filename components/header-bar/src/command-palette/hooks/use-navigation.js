@@ -80,7 +80,6 @@ export const useNavigation = ({ itemsArray, actionsArray }) => {
                 const { section, index } = handleHomeNavigation({
                     event,
                     activeSection,
-                    showGrid,
                     rows: GRID_ROWS,
                     columns: GRID_COLUMNS,
                     highlightedIndex,
