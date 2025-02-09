@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/organisation-unit-tree",
-    "version": "10.1.11",
+    "version": "10.1.12",
     "description": "UI OrganisationUnitTree",
     "repository": {
         "type": "git",
@@ -35,11 +35,11 @@
     },
     "dependencies": {
         "@dhis2/prop-types": "^3.1.2",
-        "@dhis2-ui/button": "10.1.11",
-        "@dhis2-ui/checkbox": "10.1.11",
-        "@dhis2-ui/loader": "10.1.11",
-        "@dhis2-ui/node": "10.1.11",
-        "@dhis2/ui-constants": "10.1.11",
+        "@dhis2-ui/button": "10.1.12",
+        "@dhis2-ui/checkbox": "10.1.12",
+        "@dhis2-ui/loader": "10.1.12",
+        "@dhis2-ui/node": "10.1.12",
+        "@dhis2/ui-constants": "10.1.12",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },
