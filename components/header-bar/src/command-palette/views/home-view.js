@@ -6,14 +6,18 @@ import { useCommandPaletteContext } from '../context/command-palette-context.js'
 import AppItem from '../sections/app-item.js'
 import Heading from '../sections/heading.js'
 import ListItem from '../sections/list-item.js'
-import { ACTIONS_SECTION, GRID_SECTION } from '../utils/constants.js'
+import {
+    ACTIONS_SECTION,
+    GRID_SECTION,
+    MIN_APPS_NUM,
+} from '../utils/constants.js'
 import ListView from './list-view.js'
 
 function HomeView({ apps, commands, shortcuts, actions }) {
     const { filter, highlightedIndex, activeSection } =
         useCommandPaletteContext()
     const filteredItems = apps.concat(commands, shortcuts)
-    const topApps = apps?.slice(0, 8)
+    const topApps = apps?.slice(0, MIN_APPS_NUM)
     return (
         <>
             {filter.length > 0 ? (

@@ -12,6 +12,8 @@ import {
     ALL_COMMANDS_VIEW,
     ALL_SHORTCUTS_VIEW,
     MIN_APPS_NUM,
+    MIN_COMMANDS_NUM,
+    MIN_SHORTCUTS_NUM,
 } from '../utils/constants.js'
 
 export const useAvailableActions = ({ apps, shortcuts, commands }) => {
@@ -42,7 +44,7 @@ export const useAvailableActions = ({ apps, shortcuts, commands }) => {
                 action: () => switchViewAction(ALL_APPS_VIEW),
             })
         }
-        if (commands?.length > 0) {
+        if (commands?.length > MIN_COMMANDS_NUM) {
             actionsArray.push({
                 type: ACTION,
                 title: i18n.t('Browse commands'),
@@ -51,7 +53,7 @@ export const useAvailableActions = ({ apps, shortcuts, commands }) => {
                 action: () => switchViewAction(ALL_COMMANDS_VIEW),
             })
         }
-        if (shortcuts?.length > 0) {
+        if (shortcuts?.length > MIN_SHORTCUTS_NUM) {
             actionsArray.push({
                 type: ACTION,
                 title: i18n.t('Browse shortcuts'),
