@@ -38,6 +38,7 @@ export const CalendarInput = ({
     strictValidation,
     inputWidth,
     dataTest = 'dhis2-uiwidgets-calendar-inputfield',
+    pastOnly,
     ...rest
 } = {}) => {
     const ref = useRef()
@@ -120,6 +121,7 @@ export const CalendarInput = ({
             date,
             width,
             cellSize,
+            pastOnly,
             isValid: pickerResults.isValid,
             calendarWeekDays: pickerResults.calendarWeekDays,
             weekDayLabels: pickerResults.weekDayLabels,
@@ -129,9 +131,12 @@ export const CalendarInput = ({
             nextYear: pickerResults.nextYear,
             prevMonth: pickerResults.prevMonth,
             prevYear: pickerResults.prevYear,
+            navigateToYear: pickerResults.navigateToYear,
+            navigateToMonth: pickerResults.navigateToMonth,
+            months: pickerResults.months,
             languageDirection,
         }),
-        [cellSize, date, pickerResults, width, languageDirection]
+        [cellSize, date, pastOnly, pickerResults, width, languageDirection]
     )
 
     return (
@@ -240,6 +245,8 @@ CalendarInput.propTypes = {
     minDate: PropTypes.string,
     /** numbering system to use - full list here https://github.com/dhis2/multi-calendar-dates/blob/main/src/constants/numberingSystems.ts */
     numberingSystem: PropTypes.string,
+    /** When true, only shows years in the past (current year and earlier) */
+    pastOnly: PropTypes.bool,
     /** Whether to use strict validation by showing errors for out-of-range dates when enabled (default), and warnings when disabled */
     strictValidation: PropTypes.bool,
     /** the format to display for the week day, i.e. Monday (long), Mon (short), M (narrow) */
