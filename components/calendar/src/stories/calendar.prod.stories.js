@@ -43,6 +43,10 @@ export default {
             control: 'select',
             options: ['latn', 'arab', 'ethi'],
         },
+        pastOnly: {
+            control: 'boolean',
+            defaultValue: false,
+        },
     },
 }
 
