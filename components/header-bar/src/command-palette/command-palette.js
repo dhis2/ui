@@ -13,6 +13,7 @@ import {
     ALL_APPS_VIEW,
     ALL_COMMANDS_VIEW,
     ALL_SHORTCUTS_VIEW,
+    FILTERABLE_ACTION,
     HOME_VIEW,
 } from './utils/constants.js'
 import HomeView from './views/home-view.js'
@@ -27,13 +28,21 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
     const { currentView, filter, setShowGrid } = useCommandPaletteContext()
 
     const actionsArray = useAvailableActions({ apps, shortcuts, commands })
+    const searchableActions = actionsArray.filter(
+        (action) => action.type === FILTERABLE_ACTION
+    )
 
     const {
         filteredApps,
         filteredCommands,
         filteredShortcuts,
         currentViewItemsArray,
-    } = useFilter({ apps, commands, shortcuts })
+    } = useFilter({
+        apps,
+        commands,
+        shortcuts,
+        actions: searchableActions,
+    })
 
     useEffect(() => {
         setShowGrid(apps?.length > 0)
@@ -103,9 +112,8 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
                             {currentView === HOME_VIEW && (
                                 <HomeView
                                     apps={filteredApps}
-                                    commands={filteredCommands}
-                                    shortcuts={filteredShortcuts}
                                     actions={actionsArray}
+                                    filteredItems={currentViewItemsArray}
                                 />
                             )}
                             {currentView === ALL_APPS_VIEW && (

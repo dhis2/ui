@@ -13,10 +13,9 @@ import {
 } from '../utils/constants.js'
 import ListView from './list-view.js'
 
-function HomeView({ apps, commands, shortcuts, actions }) {
+function HomeView({ apps, filteredItems, actions }) {
     const { filter, highlightedIndex, activeSection } =
         useCommandPaletteContext()
-    const filteredItems = apps.concat(commands, shortcuts)
     const topApps = apps?.slice(0, MIN_APPS_NUM)
     return (
         <>
@@ -108,8 +107,7 @@ function HomeView({ apps, commands, shortcuts, actions }) {
 HomeView.propTypes = {
     actions: PropTypes.array,
     apps: PropTypes.array,
-    commands: PropTypes.array,
-    shortcuts: PropTypes.array,
+    filteredItems: PropTypes.array,
 }
 
 export default HomeView

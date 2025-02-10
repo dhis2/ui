@@ -14,7 +14,7 @@ export const GRID_COLUMNS = 4
 export const GRID_ROWS = 2
 
 // actions
-export const MIN_COMMANDS_NUM = 1 // account for default logout command that appears in the actions section too
+export const MIN_COMMANDS_NUM = 0
 export const MIN_SHORTCUTS_NUM = 0
 
 // types
@@ -22,3 +22,4 @@ export const ACTION = 'ACTION'
 export const APP = 'APP'
 export const COMMAND = 'COMMAND'
 export const SHORTCUT = 'SHORTCUT'
+export const FILTERABLE_ACTION = 'FILTERABLE_ACTION'

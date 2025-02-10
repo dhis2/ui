@@ -75,4 +75,31 @@ describe('Command Palette - List View - Search Results', () => {
         expect(queryByTestId('headerbar-empty-search')).toBeInTheDocument()
         expect(queryByText(/Nothing found for "abc"/i)).toBeInTheDocument()
     })
+
+    it('handles search for logout action in the command palette', async () => {
+        const user = userEvent.setup()
+        const { getByPlaceholderText, queryAllByTestId, container } = render(
+            <CommandPalette
+                apps={testApps}
+                shortcuts={testShortcuts}
+                commands={testCommands}
+            />
+        )
+        // open modal
+        fireEvent.keyDown(container, { key: '/', metaKey: true })
+
+        // Search field
+        const searchField = await getByPlaceholderText(
+            'Search apps, shortcuts, commands'
+        )
+        expect(searchField).toHaveValue('')
+
+        // result
+        await user.type(searchField, 'Logout')
+        const listItems = queryAllByTestId('headerbar-list-item')
+        expect(listItems.length).toBe(1)
+
+        expect(listItems[0]).toHaveTextContent('Logout')
+        expect(listItems[0]).toHaveClass('highlighted')
+    })
 })
