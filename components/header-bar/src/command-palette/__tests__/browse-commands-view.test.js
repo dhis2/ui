@@ -50,8 +50,8 @@ describe('Command Palette - List View - Browse Commands', () => {
         expect(listItem).toHaveClass('highlighted')
         listItem.focus()
 
-        // Esc key goes back to default view
-        await user.keyboard('{Escape}')
+        // Backspace key goes back to default view
+        await user.keyboard('{Backspace}')
         expect(queryByText(/All Commands/i)).not.toBeInTheDocument()
         expect(queryByTestId('headerbar-actions-menu')).toBeInTheDocument()
     })

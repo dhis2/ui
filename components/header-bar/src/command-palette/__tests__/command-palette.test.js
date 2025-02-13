@@ -133,7 +133,7 @@ describe('Command Palette Component', () => {
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
     })
 
-    it('closes Command Palette using Esc key', async () => {
+    it('closes Command Palette using Esc key in default view', async () => {
         const user = userEvent.setup()
         const { container, queryByTestId } = render(
             <CommandPalette apps={[]} shortcuts={[]} commands={[]} />
@@ -148,5 +148,90 @@ describe('Command Palette Component', () => {
         // Esc key closes the modal
         await user.keyboard('{Escape}')
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
+    })
+
+    it('closes Command Palette using Esc key in any list view', async () => {
+        const user = userEvent.setup()
+        const { container, getByTestId, queryByTestId, queryByText } = render(
+            <CommandPalette apps={[]} shortcuts={testShortcuts} commands={[]} />
+        )
+        // modal not rendered yet
+        expect(queryByTestId(modalTest)).not.toBeInTheDocument()
+
+        // open modal with (Ctrl + k) keys
+        fireEvent.keyDown(container, { key: 'k', ctrlKey: true })
+        expect(queryByTestId(modalTest)).toBeInTheDocument()
+
+        // go to All Shortcuts (list) view
+        await user.click(getByTestId('headerbar-browse-shortcuts'))
+        expect(queryByText(/Top Apps/i)).not.toBeInTheDocument()
+        expect(queryByText(/All Shortcuts/i)).toBeInTheDocument()
+
+        // Esc key closes the modal
+        await user.keyboard('{Escape}')
+        expect(queryByTestId(modalTest)).not.toBeInTheDocument()
+    })
+
+    it('deletes the search filter with the backspace key', async () => {
+        const user = userEvent.setup()
+        const { container, getByPlaceholderText } = render(
+            <CommandPalette
+                apps={testApps}
+                shortcuts={testShortcuts}
+                commands={testCommands}
+            />
+        )
+        // open modal
+        fireEvent.keyDown(container, { key: 'k', ctrlKey: true })
+
+        // Search field
+        const searchField = await getByPlaceholderText(
+            'Search apps, shortcuts, commands'
+        )
+        expect(searchField).toHaveValue('')
+        searchField.focus()
+
+        // backspace
+        await user.type(searchField, '123')
+        expect(searchField).toHaveValue('123')
+
+        await user.keyboard('{Backspace}')
+        expect(searchField).toHaveValue('12')
+
+        await user.keyboard('{Backspace}')
+        expect(searchField).toHaveValue('1')
+
+        await user.keyboard('{Backspace}')
+        expect(searchField).toHaveValue('')
+    })
+
+    it('moves to the default view with backspace key if there is no search filter', async () => {
+        const user = userEvent.setup()
+        const {
+            container,
+            getByPlaceholderText,
+            getByTestId,
+            queryByTestId,
+            queryByText,
+        } = render(
+            <CommandPalette apps={[]} shortcuts={testShortcuts} commands={[]} />
+        )
+        // open modal
+        fireEvent.keyDown(container, { key: 'k', ctrlKey: true })
+
+        // go to All Shortcuts (list) view
+        await user.click(getByTestId('headerbar-browse-shortcuts'))
+
+        expect(queryByTestId('headerbar-actions-menu')).not.toBeInTheDocument()
+        expect(queryByText(/All Shortcuts/i)).toBeInTheDocument()
+
+        // Search field
+        const searchField = await getByPlaceholderText('Search shortcuts')
+        expect(searchField).toHaveValue('')
+
+        // Backspace key goes back to default view
+        await user.keyboard('{Backspace}')
+        expect(queryByText(/All Shortcuts/i)).not.toBeInTheDocument()
+        expect(queryByTestId('headerbar-actions-menu')).toBeInTheDocument()
     })
 })
