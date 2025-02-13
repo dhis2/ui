@@ -101,35 +101,35 @@ describe('Command Palette Component', () => {
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
     })
 
-    it('opens and closes Command Palette using ctrl + /', async () => {
+    it('opens and closes Command Palette using ctrl + k', async () => {
         const { container, queryByTestId } = render(
             <CommandPalette apps={[]} shortcuts={[]} commands={[]} />
         )
         // modal not rendered yet
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
 
-        // open modal with (Ctrl + /) keys
-        fireEvent.keyDown(container, { key: '/', ctrlKey: true })
+        // open modal with (Ctrl + k) keys
+        fireEvent.keyDown(container, { key: 'k', ctrlKey: true })
         expect(queryByTestId(modalTest)).toBeInTheDocument()
 
-        // close modal with (Ctrl + /) keys
-        fireEvent.keyDown(container, { key: '/', ctrlKey: true })
+        // close modal with (Ctrl + k) keys
+        fireEvent.keyDown(container, { key: 'k', ctrlKey: true })
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
     })
 
-    it('opens and closes Command Palette using meta + /', async () => {
+    it('opens and closes Command Palette using meta + k', async () => {
         const { container, queryByTestId } = render(
             <CommandPalette apps={[]} shortcuts={[]} commands={[]} />
         )
         // modal not rendered yet
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
 
-        // open modal with (Meta + /) keys
-        fireEvent.keyDown(container, { key: '/', metaKey: true })
+        // open modal with (Meta + k) keys
+        fireEvent.keyDown(container, { key: 'k', metaKey: true })
         expect(queryByTestId(modalTest)).toBeInTheDocument()
 
         // close modal with (Ctrl + /) keys
-        fireEvent.keyDown(container, { key: '/', metaKey: true })
+        fireEvent.keyDown(container, { key: 'k', metaKey: true })
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
     })
 
@@ -141,8 +141,8 @@ describe('Command Palette Component', () => {
         // modal not rendered yet
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
 
-        // open modal with (Ctrl + /) keys
-        fireEvent.keyDown(container, { key: '/', ctrlKey: true })
+        // open modal with (Ctrl + k) keys
+        fireEvent.keyDown(container, { key: 'k', ctrlKey: true })
         expect(queryByTestId(modalTest)).toBeInTheDocument()
 
         // Esc key closes the modal
