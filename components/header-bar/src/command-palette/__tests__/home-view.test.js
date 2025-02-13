@@ -93,8 +93,8 @@ describe('Command Palette - Home View', () => {
             />
         )
 
-        // open modal with (Ctrl + /) keys
-        fireEvent.keyDown(container, { key: '/', ctrlKey: true })
+        // open modal with (Ctrl + k) keys
+        fireEvent.keyDown(container, { key: 'k', ctrlKey: true })
 
         // topApps
         const appsGrid = queryByTestId('headerbar-top-apps-list')
@@ -141,8 +141,8 @@ describe('Command Palette - Home View', () => {
             />
         )
 
-        // open modal with (Ctrl + /) keys
-        fireEvent.keyDown(container, { key: '/', ctrlKey: true })
+        // open modal with (Ctrl + k) keys
+        fireEvent.keyDown(container, { key: 'k', ctrlKey: true })
 
         // topApps
         const appsGrid = getByTestId('headerbar-top-apps-list')
@@ -193,8 +193,8 @@ describe('Command Palette - Home View', () => {
             />
         )
 
-        // open modal with (Ctrl + /) keys
-        fireEvent.keyDown(container, { key: '/', ctrlKey: true })
+        // open modal with (Ctrl + k) keys
+        fireEvent.keyDown(container, { key: 'k', ctrlKey: true })
 
         // topApps
         const appsGrid = queryByTestId('headerbar-top-apps-list')
@@ -252,8 +252,8 @@ describe('Command Palette - Home View', () => {
             />
         )
 
-        // open modal with (Ctrl + /) keys
-        fireEvent.keyDown(container, { key: '/', ctrlKey: true })
+        // open modal with (Ctrl + k) keys
+        fireEvent.keyDown(container, { key: 'k', ctrlKey: true })
 
         // topApps
         const appsGrid = getByTestId('headerbar-top-apps-list')

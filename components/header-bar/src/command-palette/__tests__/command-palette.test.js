@@ -128,7 +128,7 @@ describe('Command Palette Component', () => {
         fireEvent.keyDown(container, { key: 'k', metaKey: true })
         expect(queryByTestId(modalTest)).toBeInTheDocument()
 
-        // close modal with (Ctrl + /) keys
+        // close modal with (Ctrl + k) keys
         fireEvent.keyDown(container, { key: 'k', metaKey: true })
         expect(queryByTestId(modalTest)).not.toBeInTheDocument()
     })

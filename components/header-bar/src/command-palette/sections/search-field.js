@@ -1,7 +1,7 @@
 import { colors, spacers, theme } from '@dhis2/ui-constants'
 import { IconSearch16 } from '@dhis2/ui-icons'
+import { InputField } from '@dhis2-ui/input'
 import React, { useCallback, useMemo } from 'react'
-import { InputField } from '../../../../input/src/input-field/input-field.js'
 import i18n from '../../locales/index.js'
 import { useCommandPaletteContext } from '../context/command-palette-context.js'
 import {
