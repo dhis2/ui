@@ -27,7 +27,7 @@ describe('Command Palette - List View - Search Results', () => {
             />
         )
         // open modal
-        fireEvent.keyDown(container, { key: '/', metaKey: true })
+        fireEvent.keyDown(container, { key: 'k', metaKey: true })
 
         // Search field
         const searchField = await getByPlaceholderText(
@@ -86,7 +86,7 @@ describe('Command Palette - List View - Search Results', () => {
             />
         )
         // open modal
-        fireEvent.keyDown(container, { key: '/', metaKey: true })
+        fireEvent.keyDown(container, { key: 'k', metaKey: true })
 
         // Search field
         const searchField = await getByPlaceholderText(

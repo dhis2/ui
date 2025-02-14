@@ -67,7 +67,6 @@ describe('Command Palette - List View - Browse Apps View', () => {
             findByPlaceholderText,
             container,
             findByTestId,
-            // debug
         } = render(
             <CommandPalette
                 apps={testApps}
@@ -75,8 +74,8 @@ describe('Command Palette - List View - Browse Apps View', () => {
                 commands={testCommands}
             />
         )
-        // open modal with (meta + /) keys
-        fireEvent.keyDown(container, { key: '/', metaKey: true })
+        // open modal with (meta + k) keys
+        fireEvent.keyDown(container, { key: 'k', metaKey: true })
 
         // click browse-apps link
         const browseAppsLink = await findByTestId('headerbar-browse-apps')

@@ -19,6 +19,7 @@ function ListItem({
     return (
         <a
             href={path ? path : undefined}
+            target="_self"
             onClick={onClickHandler}
             className={cx('item', { highlighted })}
             data-test={dataTest}
