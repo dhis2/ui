@@ -45,6 +45,13 @@ describe('Command Palette - List View - Browse Apps View', () => {
 
         expect(queryByText(/All Apps/i)).toBeInTheDocument()
 
+        // check for navigation keys legend
+        expect(
+            queryByTestId('headerbar-navigation-keys-legend')
+        ).toBeInTheDocument()
+        // list view vertical navigation icon
+        expect(queryByTestId('vertical-navigation-icon')).toBeInTheDocument()
+
         const listItems = queryAllByTestId('headerbar-list-item')
         // first item highlighted
         expect(listItems[0].querySelector('span')).toHaveTextContent(
