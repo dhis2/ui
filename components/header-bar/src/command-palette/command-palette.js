@@ -78,6 +78,7 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
     useEffect(() => {
         const handleKeyDown = (event) => {
             if ((event.metaKey || event.ctrlKey) && event.key === 'k') {
+                event.preventDefault()
                 handleVisibilityToggle()
             }
         }
