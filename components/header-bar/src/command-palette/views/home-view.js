@@ -6,6 +6,7 @@ import { useCommandPaletteContext } from '../context/command-palette-context.js'
 import AppItem from '../sections/app-item.js'
 import Heading from '../sections/heading.js'
 import ListItem from '../sections/list-item.js'
+import NavigationKeysLegend from '../sections/navigation-keys-legend.js'
 import {
     ACTIONS_SECTION,
     GRID_SECTION,
@@ -98,6 +99,7 @@ function HomeView({ apps, filteredItems, actions }) {
                             )
                         )}
                     </div>
+                    <NavigationKeysLegend />
                 </>
             )}
         </>
