@@ -5,7 +5,12 @@ import React from 'react'
 
 function AppItem({ name, path, img, highlighted }) {
     return (
-        <a href={path} className={cx('item', { highlighted })} tabIndex={-1}>
+        <a
+            href={path}
+            className={cx('item', { highlighted })}
+            tabIndex={-1}
+            target="_self"
+        >
             <img src={img} alt="app" className="app-icon" />
             <span className="app-name">{name}</span>
             <style jsx>{`

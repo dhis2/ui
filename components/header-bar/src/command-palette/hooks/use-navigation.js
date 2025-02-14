@@ -64,12 +64,12 @@ export const useNavigation = ({ itemsArray, actionsArray }) => {
             })
             setHighlightedIndex(index)
 
-            if (event.key === 'Escape') {
+            if (!filter.length && event.key === 'Backspace') {
                 event.preventDefault()
                 goToDefaultView()
             }
         },
-        [goToDefaultView, highlightedIndex, setHighlightedIndex]
+        [filter, goToDefaultView, highlightedIndex, setHighlightedIndex]
     )
 
     const handleHomeViewNavigation = useCallback(
@@ -95,11 +95,6 @@ export const useNavigation = ({ itemsArray, actionsArray }) => {
                 })
                 setHighlightedIndex(index)
             }
-
-            if (event.key === 'Escape') {
-                event.preventDefault()
-                setModalOpen(false)
-            }
         },
         [
             actionsArray,
@@ -108,7 +103,6 @@ export const useNavigation = ({ itemsArray, actionsArray }) => {
             showGrid,
             setActiveSection,
             setHighlightedIndex,
-            setModalOpen,
         ]
     )
 
@@ -123,8 +117,20 @@ export const useNavigation = ({ itemsArray, actionsArray }) => {
                 })
             }
 
-            if (event.key === 'Enter') {
-                activeItems[highlightedIndex]?.['action']?.()
+            switch (event.key) {
+                case 'Escape':
+                    event.preventDefault()
+                    setModalOpen(false)
+                    break
+                case 'Enter':
+                    event.preventDefault()
+                    activeItems[highlightedIndex]?.['action']?.()
+                    break
+                case 'Tab':
+                    event.preventDefault()
+                    break
+                default:
+                    break
             }
         },
         [
@@ -134,6 +140,7 @@ export const useNavigation = ({ itemsArray, actionsArray }) => {
             handleHomeViewNavigation,
             handleListViewNavigation,
             highlightedIndex,
+            setModalOpen,
         ]
     )
 
