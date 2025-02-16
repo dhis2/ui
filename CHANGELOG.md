@@ -1,3 +1,10 @@
+## [10.1.13](https://github.com/dhis2/ui/compare/v10.1.12...v10.1.13) (2025-02-16)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([94b01cc](https://github.com/dhis2/ui/commit/94b01cc3c8916bff26dd3424e09b6ce7aa7e98fa))
+
 ## [10.1.12](https://github.com/dhis2/ui/compare/v10.1.11...v10.1.12) (2025-02-09)
 
 
