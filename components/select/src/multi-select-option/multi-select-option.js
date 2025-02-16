@@ -20,7 +20,7 @@ const MultiSelectOption = ({
     value,
 }) => (
     <div
-        className={cx(className, { disabled })}
+        className={cx(className, { active, disabled })}
         data-test={dataTest}
         data-value={value}
         data-label={label}
@@ -40,6 +40,14 @@ const MultiSelectOption = ({
         <style jsx>{`
             div:hover {
                 background-color: ${colors.grey200};
+            }
+
+            div.active {
+                background-color: ${colors.teal050};
+            }
+
+            div.active:hover {
+                background-color: #e6f4f4;
             }
 
             div.disabled:hover {
