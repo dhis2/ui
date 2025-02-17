@@ -6,39 +6,24 @@ import { useCommandPaletteContext } from './context/command-palette-context.js'
 import { useAvailableActions } from './hooks/use-actions.js'
 import { useFilter } from './hooks/use-filter.js'
 import { useNavigation } from './hooks/use-navigation.js'
-import BackButton from './sections/back-button.js'
 import ModalContainer from './sections/modal-container.js'
 import NavigationKeysLegend from './sections/navigation-keys-legend.js'
 import SearchFilter from './sections/search-field.js'
-import {
-    ALL_APPS_VIEW,
-    ALL_COMMANDS_VIEW,
-    ALL_SHORTCUTS_VIEW,
-    FILTERABLE_ACTION,
-    HOME_VIEW,
-} from './utils/constants.js'
+import { FILTERABLE_ACTION, HOME_VIEW } from './utils/constants.js'
 import HomeView from './views/home-view.js'
-import {
-    BrowseApps,
-    BrowseCommands,
-    BrowseShortcuts,
-} from './views/list-view.js'
+import ListView from './views/list-view.js'
 
 const CommandPalette = ({ apps, commands, shortcuts }) => {
     const containerEl = useRef(null)
-    const { currentView, filter, setShowGrid } = useCommandPaletteContext()
+    const { currentView, goToDefaultView, setShowGrid } =
+        useCommandPaletteContext()
 
     const actionsArray = useAvailableActions({ apps, shortcuts, commands })
     const searchableActions = actionsArray.filter(
         (action) => action.type === FILTERABLE_ACTION
     )
 
-    const {
-        filteredApps,
-        filteredCommands,
-        filteredShortcuts,
-        currentViewItemsArray,
-    } = useFilter({
+    const { filteredApps, currentViewItemsArray } = useFilter({
         apps,
         commands,
         shortcuts,
@@ -49,13 +34,7 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
         setShowGrid(apps?.length > 0)
     }, [apps, setShowGrid])
 
-    const {
-        handleKeyDown,
-        modalRef,
-        setModalOpen,
-        showModal,
-        goToDefaultView,
-    } = useNavigation({
+    const { handleKeyDown, modalRef, setModalOpen, showModal } = useNavigation({
         itemsArray: currentViewItemsArray,
         actionsArray,
     })
@@ -107,26 +86,16 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
                     <div data-test="headerbar-menu" className="headerbar-menu">
                         <SearchFilter />
                         <div className="headerbar-menu-content">
-                            {currentView !== HOME_VIEW && !filter ? (
-                                <BackButton onClickHandler={goToDefaultView} />
-                            ) : null}
-                            {/* switch views */}
-                            {currentView === HOME_VIEW && (
+                            {currentView === HOME_VIEW ? (
                                 <HomeView
-                                    apps={filteredApps}
                                     actions={actionsArray}
                                     filteredItems={currentViewItemsArray}
+                                    apps={filteredApps}
                                 />
-                            )}
-                            {currentView === ALL_APPS_VIEW && (
-                                <BrowseApps apps={filteredApps} />
-                            )}
-                            {currentView === ALL_COMMANDS_VIEW && (
-                                <BrowseCommands commands={filteredCommands} />
-                            )}
-                            {currentView === ALL_SHORTCUTS_VIEW && (
-                                <BrowseShortcuts
-                                    shortcuts={filteredShortcuts}
+                            ) : (
+                                <ListView
+                                    filteredItems={currentViewItemsArray}
+                                    actions={actionsArray}
                                 />
                             )}
                         </div>

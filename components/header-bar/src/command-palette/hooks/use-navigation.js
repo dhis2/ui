@@ -4,7 +4,6 @@ import {
     ACTIONS_SECTION,
     GRID_COLUMNS,
     GRID_ROWS,
-    GRID_SECTION,
     HOME_VIEW,
 } from '../utils/constants.js'
 import { handleHomeNavigation } from '../utils/home-navigation.js'
@@ -22,33 +21,18 @@ export const useNavigation = ({ itemsArray, actionsArray }) => {
         setHighlightedIndex,
         showGrid,
         setActiveSection,
-        setFilter,
-        setCurrentView,
+        goToDefaultView,
     } = useCommandPaletteContext()
 
     const activeItems = useMemo(() => {
-        if (currentView === HOME_VIEW && activeSection === ACTIONS_SECTION) {
-            return actionsArray
+        if (currentView === HOME_VIEW) {
+            return activeSection === ACTIONS_SECTION ? actionsArray : itemsArray
+        } else {
+            return filter ? itemsArray : actionsArray.concat(itemsArray)
         }
-        return itemsArray
-    }, [itemsArray, actionsArray, currentView, activeSection])
+    }, [filter, itemsArray, actionsArray, currentView, activeSection])
 
     const { modalOpen, setModalOpen } = useModal(modalRef)
-
-    const goToDefaultView = useCallback(() => {
-        const defaultSection = showGrid ? GRID_SECTION : ACTIONS_SECTION
-
-        setFilter('')
-        setCurrentView(HOME_VIEW)
-        setActiveSection(defaultSection)
-        setHighlightedIndex(0)
-    }, [
-        showGrid,
-        setCurrentView,
-        setFilter,
-        setActiveSection,
-        setHighlightedIndex,
-    ])
 
     // highlight first item in filtered results
     useEffect(() => {
@@ -149,6 +133,5 @@ export const useNavigation = ({ itemsArray, actionsArray }) => {
         modalRef,
         setModalOpen,
         showModal: modalOpen,
-        goToDefaultView,
     }
 }

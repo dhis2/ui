@@ -2,6 +2,7 @@ import { clearSensitiveCaches, useConfig } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import {
     IconApps16,
+    IconArrowLeft16,
     IconLogOut16,
     IconRedo16,
     IconTerminalWindow16,
@@ -16,6 +17,7 @@ import {
     ALL_COMMANDS_VIEW,
     ALL_SHORTCUTS_VIEW,
     FILTERABLE_ACTION,
+    HOME_VIEW,
     MIN_APPS_NUM,
     MIN_COMMANDS_NUM,
     MIN_SHORTCUTS_NUM,
@@ -23,7 +25,12 @@ import {
 
 export const useAvailableActions = ({ apps, shortcuts, commands }) => {
     const { baseUrl } = useConfig()
-    const { setCurrentView, setHighlightedIndex } = useCommandPaletteContext()
+    const {
+        currentView,
+        goToDefaultView,
+        setCurrentView,
+        setHighlightedIndex,
+    } = useCommandPaletteContext()
 
     const logoutURL = joinPath(
         baseUrl,
@@ -37,50 +44,69 @@ export const useAvailableActions = ({ apps, shortcuts, commands }) => {
 
     const switchViewAction = useCallback(
         (type) => {
+            const firstItemIndexInList = 1
             setCurrentView(type)
-            setHighlightedIndex(0)
+            setHighlightedIndex(firstItemIndexInList)
         },
         [setCurrentView, setHighlightedIndex]
     )
 
     const actions = useMemo(() => {
         const actionsArray = []
-        if (apps?.length > MIN_APPS_NUM) {
+        if (currentView === HOME_VIEW) {
+            if (apps?.length > MIN_APPS_NUM) {
+                actionsArray.push({
+                    type: ACTION,
+                    name: i18n.t('Browse apps'),
+                    icon: <IconApps16 color={colors.grey700} />,
+                    dataTest: 'headerbar-browse-apps',
+                    action: () => switchViewAction(ALL_APPS_VIEW),
+                })
+            }
+            if (commands?.length > MIN_COMMANDS_NUM) {
+                actionsArray.push({
+                    type: ACTION,
+                    name: i18n.t('Browse commands'),
+                    icon: <IconTerminalWindow16 color={colors.grey700} />,
+                    dataTest: 'headerbar-browse-commands',
+                    action: () => switchViewAction(ALL_COMMANDS_VIEW),
+                })
+            }
+            if (shortcuts?.length > MIN_SHORTCUTS_NUM) {
+                actionsArray.push({
+                    type: ACTION,
+                    name: i18n.t('Browse shortcuts'),
+                    icon: <IconRedo16 color={colors.grey700} />,
+                    dataTest: 'headerbar-browse-shortcuts',
+                    action: () => switchViewAction(ALL_SHORTCUTS_VIEW),
+                })
+            }
+            // default logout action
+            actionsArray.push({
+                type: FILTERABLE_ACTION,
+                name: i18n.t('Logout'),
+                icon: <IconLogOut16 color={colors.grey700} />,
+                dataTest: 'headerbar-logout',
+                action: () => logoutAction(logoutURL),
+            })
+        } else {
             actionsArray.push({
                 type: ACTION,
-                name: i18n.t('Browse apps'),
-                icon: <IconApps16 color={colors.grey700} />,
-                dataTest: 'headerbar-browse-apps',
-                action: () => switchViewAction(ALL_APPS_VIEW),
+                name: i18n.t('Back'),
+                icon: <IconArrowLeft16 color={colors.grey700} />,
+                dataTest: 'headerbar-back-action',
+                action: goToDefaultView,
             })
         }
-        if (commands?.length > MIN_COMMANDS_NUM) {
-            actionsArray.push({
-                type: ACTION,
-                name: i18n.t('Browse commands'),
-                icon: <IconTerminalWindow16 color={colors.grey700} />,
-                dataTest: 'headerbar-browse-commands',
-                action: () => switchViewAction(ALL_COMMANDS_VIEW),
-            })
-        }
-        if (shortcuts?.length > MIN_SHORTCUTS_NUM) {
-            actionsArray.push({
-                type: ACTION,
-                name: i18n.t('Browse shortcuts'),
-                icon: <IconRedo16 color={colors.grey700} />,
-                dataTest: 'headerbar-browse-shortcuts',
-                action: () => switchViewAction(ALL_SHORTCUTS_VIEW),
-            })
-        }
-        // default logout action
-        actionsArray.push({
-            type: FILTERABLE_ACTION,
-            name: i18n.t('Logout'),
-            icon: <IconLogOut16 color={colors.grey700} />,
-            dataTest: 'headerbar-logout',
-            action: () => logoutAction(logoutURL),
-        })
         return actionsArray
-    }, [apps, shortcuts, commands, logoutURL, switchViewAction])
+    }, [
+        apps,
+        shortcuts,
+        commands,
+        currentView,
+        logoutURL,
+        goToDefaultView,
+        switchViewAction,
+    ])
     return actions
 }

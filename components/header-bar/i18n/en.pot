@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-02-13T15:42:36.303Z\n"
-"PO-Revision-Date: 2025-02-13T15:42:36.304Z\n"
+"POT-Creation-Date: 2025-02-17T10:58:14.678Z\n"
+"PO-Revision-Date: 2025-02-17T10:58:14.680Z\n"
 
 msgid "Browse apps"
 msgstr "Browse apps"
@@ -19,6 +19,9 @@ msgstr "Browse shortcuts"
 
 msgid "Logout"
 msgstr "Logout"
+
+msgid "Back"
+msgstr "Back"
 
 msgid "Search apps"
 msgstr "Search apps"
@@ -37,15 +40,6 @@ msgstr "Top apps"
 
 msgid "Actions"
 msgstr "Actions"
-
-msgid "All Apps"
-msgstr "All Apps"
-
-msgid "All Commands"
-msgstr "All Commands"
-
-msgid "All Shortcuts"
-msgstr "All Shortcuts"
 
 msgid "DHIS2 {{dhis2Version}}"
 msgstr "DHIS2 {{dhis2Version}}"

@@ -1,6 +1,12 @@
 import PropTypes from 'prop-types'
-import React, { createContext, useContext, useMemo, useState } from 'react'
-import { HOME_VIEW } from '../utils/constants.js'
+import React, {
+    createContext,
+    useCallback,
+    useContext,
+    useMemo,
+    useState,
+} from 'react'
+import { ACTIONS_SECTION, GRID_SECTION, HOME_VIEW } from '../utils/constants.js'
 
 const commandPaletteContext = createContext()
 
@@ -12,10 +18,26 @@ export const CommandPaletteContextProvider = ({ children }) => {
     const [activeSection, setActiveSection] = useState(null)
     const [showGrid, setShowGrid] = useState(null)
 
+    const goToDefaultView = useCallback(() => {
+        const defaultSection = showGrid ? GRID_SECTION : ACTIONS_SECTION
+
+        setFilter('')
+        setCurrentView(HOME_VIEW)
+        setActiveSection(defaultSection)
+        setHighlightedIndex(0)
+    }, [
+        showGrid,
+        setCurrentView,
+        setFilter,
+        setActiveSection,
+        setHighlightedIndex,
+    ])
+
     const contextValue = useMemo(
         () => ({
             filter,
             setFilter,
+            goToDefaultView,
             highlightedIndex,
             setHighlightedIndex,
             currentView,
@@ -25,7 +47,14 @@ export const CommandPaletteContextProvider = ({ children }) => {
             showGrid,
             setShowGrid,
         }),
-        [filter, highlightedIndex, currentView, activeSection, showGrid]
+        [
+            filter,
+            goToDefaultView,
+            highlightedIndex,
+            currentView,
+            activeSection,
+            showGrid,
+        ]
     )
 
     return (
