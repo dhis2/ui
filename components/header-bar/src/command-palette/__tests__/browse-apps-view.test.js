@@ -25,7 +25,6 @@ describe('Command Palette - List View - Browse Apps View', () => {
             queryByTestId,
             getByPlaceholderText,
             queryByText,
-            getByLabelText,
             queryAllByTestId,
         } = render(
             <CommandPalette apps={testApps} shortcuts={[]} commands={[]} />
@@ -40,11 +39,6 @@ describe('Command Palette - List View - Browse Apps View', () => {
         const searchField = getByPlaceholderText('Search apps')
         expect(searchField).toHaveValue('')
 
-        const backButton = getByLabelText('Back Button')
-        expect(backButton).toBeInTheDocument()
-
-        expect(queryByText(/All Apps/i)).toBeInTheDocument()
-
         // check for navigation keys legend
         expect(
             queryByTestId('headerbar-navigation-keys-legend')
@@ -52,15 +46,20 @@ describe('Command Palette - List View - Browse Apps View', () => {
         // list view vertical navigation icon
         expect(queryByTestId('vertical-navigation-icon')).toBeInTheDocument()
 
-        const listItems = queryAllByTestId('headerbar-list-item')
+        // back action
+        const backActionListItem = getByTestId('headerbar-back-action')
+        expect(backActionListItem).not.toHaveClass('highlighted')
+
+        const appsListItems = queryAllByTestId('headerbar-list-item')
+
         // first item highlighted
-        expect(listItems[0].querySelector('span')).toHaveTextContent(
+        expect(appsListItems[0].querySelector('span')).toHaveTextContent(
             'Test App 1'
         )
-        expect(listItems[0]).toHaveClass('highlighted')
+        expect(appsListItems[0]).toHaveClass('highlighted')
 
         // go back to default view
-        await user.click(getByLabelText('Back Button'))
+        await user.click(getByTestId('headerbar-back-action'))
         expect(queryByText(/Top Apps/i)).toBeInTheDocument()
         expect(queryByText(/Actions/i)).toBeInTheDocument()
     })
@@ -70,10 +69,10 @@ describe('Command Palette - List View - Browse Apps View', () => {
         const {
             getAllByRole,
             queryAllByTestId,
-            queryByText,
             findByPlaceholderText,
             container,
             findByTestId,
+            getByTestId,
         } = render(
             <CommandPalette
                 apps={testApps}
@@ -90,24 +89,25 @@ describe('Command Palette - List View - Browse Apps View', () => {
 
         // no filter view
         const searchField = await findByPlaceholderText('Search apps')
-        expect(queryByText(/All Apps/i)).toBeInTheDocument()
 
-        const listItems = queryAllByTestId('headerbar-list-item')
-        // 9 apps
-        expect(listItems.length).toBe(9)
+        // back action
+        const list = queryAllByTestId('headerbar-list')
+        const backActionListItem = getByTestId('headerbar-back-action')
+        const appsListItems = queryAllByTestId('headerbar-list-item')
 
-        // first item highlighted
-        expect(listItems[0]).toHaveClass('highlighted')
-        expect(listItems[0].querySelector('span')).toHaveTextContent(
-            'Test App 1'
-        )
-        listItems[0].focus()
+        const listItems = list[0].children
+        // 9 apps + back action
+        expect(listItems.length).toBe(10)
+        expect(appsListItems.length).toBe(9)
 
-        await user.keyboard('{ArrowDown}')
-        expect(listItems[0]).not.toHaveClass('highlighted')
+        // first list item not to be highlighted
+        expect(listItems[0]).toBe(backActionListItem)
+        expect(backActionListItem).not.toHaveClass('highlighted')
+
+        // first app item highlighted
         expect(listItems[1]).toHaveClass('highlighted')
         expect(listItems[1].querySelector('span')).toHaveTextContent(
-            'Test App 2'
+            'Test App 1'
         )
         listItems[1].focus()
 
@@ -115,14 +115,22 @@ describe('Command Palette - List View - Browse Apps View', () => {
         expect(listItems[1]).not.toHaveClass('highlighted')
         expect(listItems[2]).toHaveClass('highlighted')
         expect(listItems[2].querySelector('span')).toHaveTextContent(
+            'Test App 2'
+        )
+        listItems[1].focus()
+
+        await user.keyboard('{ArrowDown}')
+        expect(listItems[2]).not.toHaveClass('highlighted')
+        expect(listItems[3]).toHaveClass('highlighted')
+        expect(listItems[3].querySelector('span')).toHaveTextContent(
             'Test App 3'
         )
         listItems[2].focus()
 
         await user.keyboard('{ArrowUp}')
-        expect(listItems[2]).not.toHaveClass('highlighted')
-        expect(listItems[1]).toHaveClass('highlighted')
-        expect(listItems[1].querySelector('span')).toHaveTextContent(
+        expect(listItems[3]).not.toHaveClass('highlighted')
+        expect(listItems[2]).toHaveClass('highlighted')
+        expect(listItems[2].querySelector('span')).toHaveTextContent(
             'Test App 2'
         )
         listItems[1].focus()
@@ -130,8 +138,6 @@ describe('Command Palette - List View - Browse Apps View', () => {
         // filter items view
         await user.type(searchField, 'Test App')
         expect(searchField).toHaveValue('Test App')
-        expect(queryByText(/All Apps/i)).not.toBeInTheDocument()
-        expect(queryByText(/Results for "Test App"/i)).toBeInTheDocument()
 
         // first item highlighted
         expect(listItems[1]).not.toHaveClass('highlighted')
@@ -151,15 +157,7 @@ describe('Command Palette - List View - Browse Apps View', () => {
         const clearButton = getAllByRole('button')[1]
         await user.click(clearButton)
 
-        // back to normal list view/no filter view
-        expect(queryByText(/All Apps/i)).toBeInTheDocument()
-        expect(queryByText(/Results for "Test App"/i)).not.toBeInTheDocument()
-
-        // first item highlighted
-        expect(listItems[8]).not.toHaveClass('highlighted')
+        // first item - back Action highlighted
         expect(listItems[0]).toHaveClass('highlighted')
-        expect(listItems[0].querySelector('span')).toHaveTextContent(
-            'Test App 1'
-        )
     })
 })

@@ -16,13 +16,7 @@ describe('Command Palette - List View - Browse Commands', () => {
     })
     it('renders Browse Commands View', async () => {
         const user = userEvent.setup()
-        const {
-            getByTestId,
-            queryByTestId,
-            getByPlaceholderText,
-            queryByText,
-            getByLabelText,
-        } = render(
+        const { getByTestId, queryByTestId, getByPlaceholderText } = render(
             <CommandPalette apps={[]} shortcuts={[]} commands={testCommands} />
         )
         // open command palette
@@ -37,22 +31,19 @@ describe('Command Palette - List View - Browse Commands', () => {
         const searchField = getByPlaceholderText('Search commands')
         expect(searchField).toHaveValue('')
 
-        const backButton = getByLabelText('Back Button')
-        expect(backButton).toBeInTheDocument()
+        const backActionListItem = getByTestId('headerbar-back-action')
+        expect(backActionListItem).not.toHaveClass('highlighted')
 
-        expect(queryByText(/All Commands/i)).toBeInTheDocument()
-
-        const listItem = queryByTestId('headerbar-list-item')
+        const commandsListItem = queryByTestId('headerbar-list-item')
         // first item highlighted
-        expect(listItem.querySelector('span')).toHaveTextContent(
+        expect(commandsListItem.querySelector('span')).toHaveTextContent(
             'Test Command 1'
         )
-        expect(listItem).toHaveClass('highlighted')
-        listItem.focus()
+        expect(commandsListItem).toHaveClass('highlighted')
+        commandsListItem.focus()
 
         // Backspace key goes back to default view
         await user.keyboard('{Backspace}')
-        expect(queryByText(/All Commands/i)).not.toBeInTheDocument()
         expect(queryByTestId('headerbar-actions-menu')).toBeInTheDocument()
     })
 })

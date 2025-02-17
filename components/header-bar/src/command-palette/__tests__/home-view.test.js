@@ -73,7 +73,6 @@ describe('Command Palette - Home View', () => {
         expect(searchField).toHaveValue('Test')
 
         expect(queryByTestId('headerbar-top-apps-list')).not.toBeInTheDocument()
-        expect(queryByText(/Results for "Test"/i)).toBeInTheDocument()
 
         const listItems = queryAllByTestId('headerbar-list-item')
         // 9 apps + 1 command + 1 shortcut
@@ -89,7 +88,6 @@ describe('Command Palette - Home View', () => {
 
         // back to default view
         expect(queryByTestId('headerbar-top-apps-list')).toBeInTheDocument()
-        expect(queryByText(/Results for "Test"/i)).not.toBeInTheDocument()
     })
 
     it('handles right arrow navigation in the grid on the home view', async () => {
