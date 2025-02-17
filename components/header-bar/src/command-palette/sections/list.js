@@ -2,14 +2,18 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { useCommandPaletteContext } from '../context/command-palette-context.js'
 import { HOME_VIEW } from '../utils/constants.js'
+import BackActionItem from './back-action.js'
 import ListItem from './list-item.js'
 
-function List({ filteredItems }) {
+function List({ filteredItems, backAction }) {
     const { currentView, highlightedIndex, filter } = useCommandPaletteContext()
-    const isBackActionActive = currentView !== HOME_VIEW && !filter
+    const showBackAction = currentView !== HOME_VIEW && !filter
 
     return (
         <div data-test="headerbar-list">
+            {showBackAction ? (
+                <BackActionItem actionProps={backAction} />
+            ) : null}
             {filteredItems.map(
                 (
                     {
@@ -25,7 +29,7 @@ function List({ filteredItems }) {
                 ) => {
                     const isImage = typeof icon === 'string'
                     const isIcon = React.isValidElement(icon)
-                    const index = isBackActionActive ? idx + 1 : idx
+                    const index = showBackAction ? idx + 1 : idx
 
                     return (
                         <ListItem
@@ -45,6 +49,7 @@ function List({ filteredItems }) {
     )
 }
 List.propTypes = {
+    backAction: PropTypes.object,
     filteredItems: PropTypes.array,
 }
 

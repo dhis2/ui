@@ -3,9 +3,9 @@ import React from 'react'
 import { useCommandPaletteContext } from '../context/command-palette-context.js'
 import ListItem from './list-item.js'
 
-function BackActionItem({ actions }) {
+function BackActionItem({ actionProps }) {
     const { highlightedIndex } = useCommandPaletteContext()
-    const { name, icon, dataTest, action } = actions?.[0]
+    const { name, icon, dataTest, action } = actionProps
     const backActionIndexInListView = 0
 
     return (
@@ -21,7 +21,12 @@ function BackActionItem({ actions }) {
 }
 
 BackActionItem.propTypes = {
-    actions: PropTypes.array,
+    actionProps: PropTypes.shape({
+        action: PropTypes.func,
+        dataTest: PropTypes.string,
+        icon: PropTypes.element,
+        name: PropTypes.string,
+    }),
 }
 
 export default BackActionItem
