@@ -50,7 +50,7 @@ describe('Command Palette - Home View', () => {
         expect(getAllByText(/Test App/)).toHaveLength(8)
 
         // Actions menu
-        // since apps > MIN_APPS_NUM(8)
+        // since apps > minAppsNum(8)
         expect(queryByTestId('headerbar-browse-apps')).toBeInTheDocument()
         // since commands > 1
         expect(queryByTestId('headerbar-browse-commands')).toBeInTheDocument()
@@ -220,9 +220,10 @@ describe('Command Palette - Home View', () => {
 
         await user.keyboard('{ArrowDown}')
         expect(rowOneFirstApp).not.toHaveClass('highlighted')
+
         expect(rowTwoFirstApp).toHaveClass('highlighted')
         expect(rowTwoFirstApp.querySelector('span')).toHaveTextContent(
-            'Test App '
+            'Test App 5'
         )
 
         // actions menu
@@ -304,5 +305,142 @@ describe('Command Palette - Home View', () => {
 
         await user.keyboard('{ArrowUp}')
         expect(rowOneFirstApp).toHaveClass('highlighted')
+    })
+
+    it('handles home view navigation for a grid with 2 apps', async () => {
+        const user = userEvent.setup()
+        const { container, getByTestId, queryByTestId } = render(
+            <CommandPalette
+                apps={testApps.slice(0, 2)}
+                shortcuts={[]}
+                commands={[]}
+            />
+        )
+
+        // open modal with (Ctrl + k) keys
+        fireEvent.keyDown(container, { key: 'k', ctrlKey: true })
+
+        // topApps
+        const appsGrid = getByTestId('headerbar-top-apps-list')
+        const topApps = appsGrid.querySelectorAll('a')
+
+        expect(topApps.length).toBe(2)
+        expect(topApps.length).toBeLessThan(minAppsNum)
+        expect(queryByTestId('headerbar-browse-apps')).not.toBeInTheDocument()
+        expect(
+            queryByTestId('headerbar-browse-commands')
+        ).not.toBeInTheDocument()
+        expect(
+            queryByTestId('headerbar-browse-shortcuts')
+        ).not.toBeInTheDocument()
+
+        const firstApp = topApps[0]
+        const secondApp = topApps[1]
+
+        expect(firstApp.querySelector('span')).toHaveTextContent('Test App 1')
+        expect(secondApp.querySelector('span')).toHaveTextContent('Test App 2')
+
+        // first highlighted item
+        expect(firstApp).toHaveClass('highlighted')
+
+        // right arrow navigation
+        await user.keyboard('{ArrowRight}')
+        expect(secondApp).toHaveClass('highlighted')
+
+        await user.keyboard('{ArrowRight}')
+        expect(firstApp).toHaveClass('highlighted') // loop back to first
+
+        // left arrow navigation
+        await user.keyboard('{ArrowLeft}')
+        expect(secondApp).toHaveClass('highlighted')
+
+        await user.keyboard('{ArrowLeft}')
+        expect(firstApp).toHaveClass('highlighted') // loop back to first
+
+        // down arrow navigation
+        await user.keyboard('{ArrowDown}')
+        expect(queryByTestId('headerbar-logout')).toHaveClass('highlighted')
+
+        await user.keyboard('{ArrowDown}')
+        expect(firstApp).toHaveClass('highlighted')
+
+        // up arrow navigation
+        await user.keyboard('{ArrowUp}')
+        expect(queryByTestId('headerbar-logout')).toHaveClass('highlighted')
+
+        await user.keyboard('{ArrowUp}')
+        expect(firstApp).toHaveClass('highlighted')
+    })
+
+    it('handles home view navigation for a grid with 6 apps', async () => {
+        const user = userEvent.setup()
+        const { container, getByTestId, queryByTestId } = render(
+            <CommandPalette
+                apps={testApps.slice(0, 6)}
+                shortcuts={[]}
+                commands={[]}
+            />
+        )
+
+        // open modal with (Ctrl + k) keys
+        fireEvent.keyDown(container, { key: 'k', ctrlKey: true })
+
+        // topApps
+        const appsGrid = getByTestId('headerbar-top-apps-list')
+        const topApps = appsGrid.querySelectorAll('a')
+
+        expect(topApps.length).toBe(6)
+        expect(topApps.length).toBeLessThan(minAppsNum)
+        expect(queryByTestId('headerbar-browse-apps')).not.toBeInTheDocument()
+        expect(
+            queryByTestId('headerbar-browse-commands')
+        ).not.toBeInTheDocument()
+        expect(
+            queryByTestId('headerbar-browse-shortcuts')
+        ).not.toBeInTheDocument()
+
+        const firstApp = topApps[0]
+        const thirdApp = topApps[2]
+        const fifthApp = topApps[4]
+        const sixthApp = topApps[5]
+
+        expect(firstApp.querySelector('span')).toHaveTextContent('Test App 1')
+        expect(thirdApp.querySelector('span')).toHaveTextContent('Test App 3')
+        expect(fifthApp.querySelector('span')).toHaveTextContent('Test App 5')
+        expect(sixthApp.querySelector('span')).toHaveTextContent('Test App 6')
+
+        // first highlighted item
+        expect(firstApp).toHaveClass('highlighted')
+
+        // right arrow navigation - top Row
+        await user.keyboard('{ArrowRight}')
+        await user.keyboard('{ArrowRight}')
+        expect(thirdApp).toHaveClass('highlighted')
+
+        // down navigation - to actions
+        await user.keyboard('{ArrowDown}')
+        expect(queryByTestId('headerbar-logout')).toHaveClass('highlighted')
+
+        // up navigation - to bottom row
+        await user.keyboard('{ArrowUp}')
+        expect(fifthApp).toHaveClass('highlighted')
+
+        // left arrow navigation - row 2
+        await user.keyboard('{ArrowLeft}')
+        expect(sixthApp).toHaveClass('highlighted')
+
+        await user.keyboard('{ArrowLeft}')
+        expect(fifthApp).toHaveClass('highlighted')
+
+        //right arrow navigation - row 2
+        await user.keyboard('{ArrowRight}')
+        expect(sixthApp).toHaveClass('highlighted')
+
+        await user.keyboard('{ArrowRight}')
+        expect(fifthApp).toHaveClass('highlighted')
+
+        // up to first row
+        await user.keyboard('{ArrowUp}')
+        expect(firstApp).toHaveClass('highlighted')
     })
 })

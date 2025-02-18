@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import CommandPalette from '../command-palette.js'
 import { CommandPaletteContextProvider } from '../context/command-palette-context.js'
-import { MIN_APPS_NUM } from '../utils/constants.js'
+import { MIN_APPS_NUM, APP, COMMAND, SHORTCUT } from '../utils/constants.js'
 
 const CommandPaletteProviderWrapper = ({ children }) => {
     return (
@@ -28,27 +28,30 @@ export const minAppsNum = MIN_APPS_NUM // 8
 export const testApps = new Array(minAppsNum + 1)
     .fill(null)
     .map((_, index) => ({
+        type: APP,
         name: `Test App ${index + 1}`,
         displayName: `Test App ${index + 1}`,
         icon: '',
-        defaultAction: '',
+        action: '',
     }))
 
 export const testCommands = [
     {
+        type: COMMAND,
         name: 'Test Command 1',
         displayName: 'Test Command 1',
         icon: '',
-        defaultAction: '',
+        action: '',
     },
 ]
 
 export const testShortcuts = [
     {
+        type: SHORTCUT,
         name: 'Test Shortcut 1',
         displayName: 'Test Shortcut 1',
         icon: '',
-        defaultAction: '',
+        action: '',
     },
 ]
 
@@ -83,7 +86,7 @@ describe('Command Palette Component', () => {
 
         // Actions menu
         expect(queryByTestId('headerbar-actions-menu')).toBeInTheDocument()
-        // since apps < MIN_APPS_NUM (8)
+        // since apps < minAppsNum (8)
         expect(queryByTestId('headerbar-browse-apps')).not.toBeInTheDocument()
         // since commands < 1
         expect(

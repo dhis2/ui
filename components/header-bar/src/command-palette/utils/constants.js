@@ -9,11 +9,16 @@ export const GRID_SECTION = 'GRID'
 export const ACTIONS_SECTION = 'ACTIONS'
 
 // grid
-export const MIN_APPS_NUM = 8
-export const GRID_COLUMNS = 4
-export const GRID_ROWS = 2
+// big screens
+export const GRID_COLUMNS_DESKTOP = 4
+export const GRID_ROWS_DESKTOP = 2
+
+// small screens
+export const GRID_COLUMNS_MOBILE = 2
+export const GRID_ROWS_MOBILE = 4
 
 // actions
+export const MIN_APPS_NUM = GRID_COLUMNS_DESKTOP * GRID_ROWS_DESKTOP
 export const MIN_COMMANDS_NUM = 0
 export const MIN_SHORTCUTS_NUM = 0
 

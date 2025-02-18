@@ -1,27 +1,17 @@
-import { useCallback, useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 const useModal = (modalRef) => {
     const [modalOpen, setModalOpen] = useState(false)
 
-    const handleOpenModal = useCallback(() => {
-        if (modalRef.current) {
-            modalRef.current.showModal()
-        }
-    }, [modalRef])
-
-    const handleCloseModal = useCallback(() => {
-        if (modalRef.current) {
-            modalRef.current.close()
-        }
-    }, [modalRef])
-
     useEffect(() => {
-        if (modalOpen) {
-            handleOpenModal()
-        } else {
-            handleCloseModal()
+        if (modalRef.current) {
+            if (modalOpen) {
+                modalRef.current.showModal()
+            } else {
+                modalRef.current.close()
+            }
         }
-    }, [modalOpen, handleCloseModal, handleOpenModal])
+    }, [modalOpen, modalRef])
 
     return {
         modalOpen,

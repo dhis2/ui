@@ -1,16 +1,11 @@
 import { useCallback, useMemo, useRef } from 'react'
 import { useCommandPaletteContext } from '../context/command-palette-context.js'
-import {
-    GRID_COLUMNS,
-    GRID_ROWS,
-    GRID_SECTION,
-    HOME_VIEW,
-} from '../utils/constants.js'
+import { GRID_SECTION, HOME_VIEW } from '../utils/constants.js'
 import { handleHomeNavigation } from '../utils/home-navigation.js'
 import { handleListNavigation } from '../utils/list-navigation.js'
 import useModal from './use-modal.js'
 
-export const useNavigation = ({ itemsArray, actionsArray }) => {
+export const useNavigation = ({ itemsArray, actionsArray, gridLayout }) => {
     const modalRef = useRef(null)
 
     const {
@@ -64,13 +59,16 @@ export const useNavigation = ({ itemsArray, actionsArray }) => {
             const actionsListLength = actionsArray.length
 
             if (showGrid) {
+                const { columns, rows, size } = gridLayout
+
                 const { section, index } = handleHomeNavigation({
                     event,
                     activeSection,
-                    rows: GRID_ROWS,
-                    columns: GRID_COLUMNS,
+                    rows,
+                    columns,
                     highlightedIndex,
                     actionsListLength,
+                    gridSize: size,
                 })
                 setActiveSection(section)
                 setHighlightedIndex(index)
@@ -90,6 +88,7 @@ export const useNavigation = ({ itemsArray, actionsArray }) => {
             showGrid,
             setActiveSection,
             setHighlightedIndex,
+            gridLayout,
         ]
     )
 

@@ -37,7 +37,6 @@ const ModalContainer = forwardRef(function ModalContainer(
         modal.addEventListener('click', onClick)
         modal.addEventListener('focus', handleFocus)
         modal.addEventListener('keydown', onKeyDown)
-
         return () => {
             modal.removeEventListener('click', onClick)
             modal.removeEventListener('focus', handleFocus)
@@ -50,6 +49,7 @@ const ModalContainer = forwardRef(function ModalContainer(
             <dialog ref={ref}>{children}</dialog>
             <style jsx>{`
                 dialog {
+                    position: fixed;
                     display: flex;
                     flex-direction: row;
                     border: none;

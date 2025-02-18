@@ -5,18 +5,25 @@ import React, { useCallback, useRef, useEffect } from 'react'
 import { useCommandPaletteContext } from './context/command-palette-context.js'
 import { useAvailableActions } from './hooks/use-actions.js'
 import { useFilter } from './hooks/use-filter.js'
+import { useGridLayout } from './hooks/use-grid-layout.js'
 import { useNavigation } from './hooks/use-navigation.js'
 import ModalContainer from './sections/modal-container.js'
 import NavigationKeysLegend from './sections/navigation-keys-legend.js'
 import SearchFilter from './sections/search-field.js'
-import { FILTERABLE_ACTION, HOME_VIEW } from './utils/constants.js'
+import {
+    FILTERABLE_ACTION,
+    GRID_COLUMNS_DESKTOP,
+    GRID_COLUMNS_MOBILE,
+    HOME_VIEW,
+} from './utils/constants.js'
 import HomeView from './views/home-view.js'
 import ListView from './views/list-view.js'
 
 const CommandPalette = ({ apps, commands, shortcuts }) => {
     const containerEl = useRef(null)
-    const { currentView, goToDefaultView, setShowGrid } =
-        useCommandPaletteContext()
+    const { currentView, goToDefaultView } = useCommandPaletteContext()
+
+    const { isMobile, gridLayout } = useGridLayout(apps)
 
     const actionsArray = useAvailableActions({ apps, shortcuts, commands })
     const searchableActions = actionsArray.filter(
@@ -30,13 +37,10 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
         actions: searchableActions,
     })
 
-    useEffect(() => {
-        setShowGrid(apps?.length > 0)
-    }, [apps, setShowGrid])
-
     const { handleKeyDown, modalRef, setModalOpen, showModal } = useNavigation({
         itemsArray: currentViewItemsArray,
         actionsArray,
+        gridLayout,
     })
 
     const handleVisibilityToggle = useCallback(() => {
@@ -91,6 +95,11 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
                                     actions={actionsArray}
                                     filteredItems={currentViewItemsArray}
                                     apps={filteredApps}
+                                    gridColumns={
+                                        isMobile
+                                            ? GRID_COLUMNS_MOBILE
+                                            : GRID_COLUMNS_DESKTOP
+                                    }
                                 />
                             ) : (
                                 <ListView
