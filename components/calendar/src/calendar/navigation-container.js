@@ -15,15 +15,30 @@ export const NavigationContainer = ({
     nextYear,
     prevMonth,
     prevYear,
+    navigateToYear,
+    navigateToMonth,
+    months,
+    years,
 }) => {
     const PreviousIcon =
         languageDirection === 'ltr' ? IconChevronLeft16 : IconChevronRight16
     const NextIcon =
         languageDirection === 'ltr' ? IconChevronRight16 : IconChevronLeft16
 
-    // Ethiopic years - when localised to English - add the era (i.e. 2015 ERA1), which is redundant in practice (like writing AD for gregorian years)
-    // there is an ongoing discussion in JS-Temporal polyfill whether the era should be included or not, but for our case, it's safer to remove it
-    const currentYearLabel = currYear.label?.toString().replace(/ERA1/, '')
+    const handleYearChange = (e) => {
+        const targetYear = parseInt(e.target.value)
+        navigateToYear(targetYear)
+    }
+
+    const handleMonthChange = (e) => {
+        const selectedMonth = months.find(
+            (month) => month.label === e.target.value
+        )
+
+        if (selectedMonth) {
+            navigateToMonth(selectedMonth.value)
+        }
+    }
 
     return (
         <>
@@ -40,8 +55,19 @@ export const NavigationContainer = ({
                             <PreviousIcon />
                         </button>
                     </div>
-                    <div className="curr">
-                        <span className="label">{currMonth.label}</span>
+                    <div className="monthList">
+                        <select
+                            value={currMonth.label}
+                            onChange={handleMonthChange}
+                            className="month-select"
+                            data-test="calendar-month-select"
+                        >
+                            {months.map((month) => (
+                                <option key={month.value} value={month.label}>
+                                    {month.label}
+                                </option>
+                            ))}
+                        </select>
                     </div>
                     <div className="next">
                         <button
@@ -66,13 +92,19 @@ export const NavigationContainer = ({
                             <PreviousIcon />
                         </button>
                     </div>
-                    <div className="curr">
-                        <span
-                            data-test="calendar-current-year"
-                            className="label"
+                    <div className="yearList">
+                        <select
+                            value={currYear.value}
+                            onChange={handleYearChange}
+                            className="year-select"
+                            data-test="calendar-year-select"
                         >
-                            {currentYearLabel}
-                        </span>
+                            {years.map((year) => (
+                                <option key={year.value} value={year.value}>
+                                    {year.label}
+                                </option>
+                            ))}
+                        </select>
                     </div>
                     <div className="next">
                         <button
@@ -104,7 +136,8 @@ export const NavigationContainer = ({
                 }
                 .prev,
                 .next,
-                .curr {
+                .monthList,
+                .yearList {
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -114,7 +147,8 @@ export const NavigationContainer = ({
                     width: 24px;
                     flex-shrink: 0;
                 }
-                .curr {
+                .monthList,
+                .yearList {
                     flex: 0 1 auto;
                     overflow: hidden;
                 }
@@ -138,11 +172,11 @@ export const NavigationContainer = ({
                 button:active {
                     background-color: ${colors.grey300};
                 }
-                .label {
+                .month-select,
+                .year-select {
                     padding: ${spacers.dp4} ${spacers.dp8};
                     white-space: nowrap;
                     overflow: hidden;
-                    text-overflow: ellipsis;
                     text-align: center;
                     max-width: 100%;
                 }
@@ -157,8 +191,17 @@ export const NavigationContainerProps = {
     }),
     currYear: PropTypes.shape({
         label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        value: PropTypes.number,
     }),
     languageDirection: PropTypes.oneOf(['ltr', 'rtl']),
+    months: PropTypes.arrayOf(
+        PropTypes.shape({
+            label: PropTypes.string.isRequired,
+            value: PropTypes.number.isRequired,
+        })
+    ),
+    navigateToMonth: PropTypes.func,
+    navigateToYear: PropTypes.func,
     nextMonth: PropTypes.shape({
         label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
         navigateTo: PropTypes.func,
@@ -175,6 +218,12 @@ export const NavigationContainerProps = {
         label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
         navigateTo: PropTypes.func,
     }),
+    years: PropTypes.arrayOf(
+        PropTypes.shape({
+            label: PropTypes.string.isRequired,
+            value: PropTypes.number.isRequired,
+        })
+    ),
 }
 
 NavigationContainer.propTypes = NavigationContainerProps
