@@ -1,4 +1,4 @@
-import { GRID_COLUMNS, GRID_SECTION, ACTIONS_SECTION } from './constants.js'
+import { GRID_SECTION, ACTIONS_SECTION } from './constants.js'
 import {
     getNextLeftIndex,
     getNextRightIndex,
@@ -42,8 +42,9 @@ export const handleHomeNavigation = ({
     columns,
     highlightedIndex,
     actionsListLength,
+    // gridItemsLength,
 }) => {
-    const gridVerticalGap = GRID_COLUMNS
+    const gridVerticalGap = columns
 
     const nextSection =
         activeSection === GRID_SECTION ? ACTIONS_SECTION : GRID_SECTION

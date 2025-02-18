@@ -5,6 +5,7 @@ import React, { useCallback, useRef, useEffect } from 'react'
 import { useCommandPaletteContext } from './context/command-palette-context.js'
 import { useAvailableActions } from './hooks/use-actions.js'
 import { useFilter } from './hooks/use-filter.js'
+import { useGridLayout } from './hooks/use-grid-layout.js'
 import { useNavigation } from './hooks/use-navigation.js'
 import BackButton from './sections/back-button.js'
 import ModalContainer from './sections/modal-container.js'
@@ -25,7 +26,9 @@ import {
 
 const CommandPalette = ({ apps, commands, shortcuts }) => {
     const containerEl = useRef(null)
-    const { currentView, filter, setShowGrid } = useCommandPaletteContext()
+    const { currentView, filter } = useCommandPaletteContext()
+
+    const { gridColumns, gridRows, gridLayout } = useGridLayout(apps)
 
     const actionsArray = useAvailableActions({ apps, shortcuts, commands })
     const searchableActions = actionsArray.filter(
@@ -44,10 +47,6 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
         actions: searchableActions,
     })
 
-    useEffect(() => {
-        setShowGrid(apps?.length > 0)
-    }, [apps, setShowGrid])
-
     const {
         handleKeyDown,
         modalRef,
@@ -57,6 +56,8 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
     } = useNavigation({
         itemsArray: currentViewItemsArray,
         actionsArray,
+        gridColumns,
+        gridRows,
     })
 
     const handleVisibilityToggle = useCallback(() => {
@@ -115,6 +116,7 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
                                     apps={filteredApps}
                                     actions={actionsArray}
                                     filteredItems={currentViewItemsArray}
+                                    gridLayout={gridLayout}
                                 />
                             )}
                             {currentView === ALL_APPS_VIEW && (

@@ -16,14 +16,14 @@ import {
     ALL_COMMANDS_VIEW,
     ALL_SHORTCUTS_VIEW,
     FILTERABLE_ACTION,
-    MIN_APPS_NUM,
     MIN_COMMANDS_NUM,
     MIN_SHORTCUTS_NUM,
 } from '../utils/constants.js'
 
 export const useAvailableActions = ({ apps, shortcuts, commands }) => {
     const { baseUrl } = useConfig()
-    const { setCurrentView, setHighlightedIndex } = useCommandPaletteContext()
+    const { setCurrentView, setHighlightedIndex, minAppsNumber } =
+        useCommandPaletteContext()
 
     const logoutURL = joinPath(
         baseUrl,
@@ -45,7 +45,7 @@ export const useAvailableActions = ({ apps, shortcuts, commands }) => {
 
     const actions = useMemo(() => {
         const actionsArray = []
-        if (apps?.length > MIN_APPS_NUM) {
+        if (apps?.length > minAppsNumber) {
             actionsArray.push({
                 type: ACTION,
                 name: i18n.t('Browse apps'),
@@ -81,6 +81,6 @@ export const useAvailableActions = ({ apps, shortcuts, commands }) => {
             action: () => logoutAction(logoutURL),
         })
         return actionsArray
-    }, [apps, shortcuts, commands, logoutURL, switchViewAction])
+    }, [apps, shortcuts, commands, logoutURL, switchViewAction, minAppsNumber])
     return actions
 }

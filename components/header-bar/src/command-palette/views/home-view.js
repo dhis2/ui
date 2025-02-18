@@ -8,15 +8,22 @@ import Heading from '../sections/heading.js'
 import ListItem from '../sections/list-item.js'
 import {
     ACTIONS_SECTION,
+    GRID_COLUMNS_DESKTOP,
+    GRID_COLUMNS_MOBILE,
+    GRID_ROWS_DESKTOP,
+    GRID_ROWS_MOBILE,
     GRID_SECTION,
-    MIN_APPS_NUM,
 } from '../utils/constants.js'
 import ListView from './list-view.js'
 
-function HomeView({ apps, filteredItems, actions }) {
+function HomeView({ apps, filteredItems, actions, gridLayout }) {
     const { filter, highlightedIndex, activeSection } =
         useCommandPaletteContext()
-    const topApps = apps?.slice(0, MIN_APPS_NUM)
+    const cols =
+        gridLayout === 'desktop' ? GRID_COLUMNS_DESKTOP : GRID_COLUMNS_MOBILE
+    const rows = gridLayout === 'desktop' ? GRID_ROWS_DESKTOP : GRID_ROWS_MOBILE
+    const topApps = apps?.slice(0, cols * rows)
+
     return (
         <>
             {filter.length > 0 ? (
@@ -56,7 +63,10 @@ function HomeView({ apps, filteredItems, actions }) {
                                 <style jsx>{`
                                     .headerbar-top-apps {
                                         display: grid;
-                                        grid-template-columns: repeat(4, 1fr);
+                                        grid-template-columns: repeat(
+                                            ${cols},
+                                            1fr
+                                        );
                                         padding: 0 ${spacers.dp4};
                                     }
                                 `}</style>
@@ -108,6 +118,7 @@ HomeView.propTypes = {
     actions: PropTypes.array,
     apps: PropTypes.array,
     filteredItems: PropTypes.array,
+    gridLayout: PropTypes.string,
 }
 
 export default HomeView

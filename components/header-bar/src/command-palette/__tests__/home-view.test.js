@@ -4,7 +4,7 @@ import React from 'react'
 import CommandPalette from '../command-palette.js'
 import {
     headerBarIconTest,
-    minAppsNum,
+    minAppsNumForBigScreens,
     render,
     testApps,
     testCommands,
@@ -50,7 +50,7 @@ describe('Command Palette - Home View', () => {
         expect(getAllByText(/Test App/)).toHaveLength(8)
 
         // Actions menu
-        // since apps > MIN_APPS_NUM(8)
+        // since apps > minAppsNumForBigScreens(8)
         expect(queryByTestId('headerbar-browse-apps')).toBeInTheDocument()
         // since commands > 1
         expect(queryByTestId('headerbar-browse-commands')).toBeInTheDocument()
@@ -101,7 +101,7 @@ describe('Command Palette - Home View', () => {
         expect(appsGrid).toBeInTheDocument()
 
         const topApps = appsGrid.querySelectorAll('a')
-        expect(topApps.length).toBe(minAppsNum)
+        expect(topApps.length).toBe(minAppsNumForBigScreens)
         const firstApp = topApps[0]
 
         // first highlighted item
@@ -148,7 +148,7 @@ describe('Command Palette - Home View', () => {
         const appsGrid = getByTestId('headerbar-top-apps-list')
 
         const topApps = appsGrid.querySelectorAll('a')
-        expect(topApps.length).toBe(minAppsNum)
+        expect(topApps.length).toBe(minAppsNumForBigScreens)
         const firstApp = topApps[0]
         const lastAppInFirstRow = topApps[3]
 
@@ -201,7 +201,7 @@ describe('Command Palette - Home View', () => {
         expect(appsGrid).toBeInTheDocument()
 
         const topApps = appsGrid.querySelectorAll('a')
-        expect(topApps.length).toBe(minAppsNum)
+        expect(topApps.length).toBe(minAppsNumForBigScreens)
         const rowOneFirstApp = topApps[0]
         const rowTwoFirstApp = topApps[4]
 

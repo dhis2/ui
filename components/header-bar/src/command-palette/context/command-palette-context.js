@@ -11,6 +11,7 @@ export const CommandPaletteContextProvider = ({ children }) => {
     // home view sections
     const [activeSection, setActiveSection] = useState(null)
     const [showGrid, setShowGrid] = useState(null)
+    const [minAppsNumber, setMinAppsNumber] = useState(null)
 
     const contextValue = useMemo(
         () => ({
@@ -24,8 +25,17 @@ export const CommandPaletteContextProvider = ({ children }) => {
             setActiveSection,
             showGrid,
             setShowGrid,
+            minAppsNumber,
+            setMinAppsNumber,
         }),
-        [filter, highlightedIndex, currentView, activeSection, showGrid]
+        [
+            filter,
+            highlightedIndex,
+            currentView,
+            activeSection,
+            showGrid,
+            minAppsNumber,
+        ]
     )
 
     return (
