@@ -54,8 +54,9 @@ export const CalendarInput = ({
             locale,
             numberingSystem,
             weekDayFormat,
+            pastOnly,
         }),
-        [calendar, locale, numberingSystem, weekDayFormat]
+        [calendar, locale, numberingSystem, weekDayFormat, pastOnly]
     )
 
     const onChooseDate = (date, validationOptions) => {
@@ -121,7 +122,6 @@ export const CalendarInput = ({
             date,
             width,
             cellSize,
-            pastOnly,
             isValid: pickerResults.isValid,
             calendarWeekDays: pickerResults.calendarWeekDays,
             weekDayLabels: pickerResults.weekDayLabels,
@@ -134,9 +134,10 @@ export const CalendarInput = ({
             navigateToYear: pickerResults.navigateToYear,
             navigateToMonth: pickerResults.navigateToMonth,
             months: pickerResults.months,
+            years: pickerResults.years,
             languageDirection,
         }),
-        [cellSize, date, pastOnly, pickerResults, width, languageDirection]
+        [cellSize, date, pickerResults, width, languageDirection]
     )
 
     return (

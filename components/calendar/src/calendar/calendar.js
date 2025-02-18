@@ -28,6 +28,7 @@ export const Calendar = ({
         timeZone,
         numberingSystem,
         weekDayFormat,
+        pastOnly,
     }
 
     const pickerResults = useDatePicker({
@@ -47,7 +48,6 @@ export const Calendar = ({
             locale,
             width,
             cellSize,
-            pastOnly,
             // minDate,
             // maxDate,
             // validation, // todo: clarify how we use validation props (and format) in Calendar (not CalendarInput)
@@ -64,18 +64,10 @@ export const Calendar = ({
             navigateToYear: pickerResults.navigateToYear,
             navigateToMonth: pickerResults.navigateToMonth,
             months: pickerResults.months,
+            years: pickerResults.years,
             languageDirection,
         }
-    }, [
-        cellSize,
-        date,
-        dir,
-        locale,
-        pastOnly,
-        pickerResults,
-        width,
-        languageDirection,
-    ])
+    }, [cellSize, date, dir, locale, pickerResults, width, languageDirection])
 
     return (
         <div>

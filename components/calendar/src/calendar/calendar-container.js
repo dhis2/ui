@@ -25,9 +25,9 @@ export const CalendarContainer = React.memo(function CalendarContainer({
     navigateToYear,
     navigateToMonth,
     months,
+    years,
     languageDirection,
     calendarRef,
-    pastOnly,
 }) {
     const navigationProps = useMemo(() => {
         return {
@@ -38,10 +38,10 @@ export const CalendarContainer = React.memo(function CalendarContainer({
             prevMonth,
             prevYear,
             languageDirection,
-            pastOnly,
             navigateToYear,
             navigateToMonth,
             months,
+            years,
         }
     }, [
         currMonth,
@@ -54,7 +54,7 @@ export const CalendarContainer = React.memo(function CalendarContainer({
         navigateToYear,
         navigateToMonth,
         months,
-        pastOnly,
+        years,
     ])
     return (
         <div>
