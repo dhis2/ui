@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import CommandPalette from '../command-palette.js'
 import { CommandPaletteContextProvider } from '../context/command-palette-context.js'
-import { MIN_APPS_NUM } from '../utils/constants.js'
 
 const CommandPaletteProviderWrapper = ({ children }) => {
     return (
@@ -23,9 +22,9 @@ export const render = (ui, options) =>
 
 export const headerBarIconTest = 'headerbar-apps-icon'
 export const modalTest = 'headerbar-menu'
-export const minAppsNum = MIN_APPS_NUM // 8
+export const minAppsNumForBigScreens = 8
 
-export const testApps = new Array(minAppsNum + 1)
+export const testApps = new Array(minAppsNumForBigScreens + 1)
     .fill(null)
     .map((_, index) => ({
         name: `Test App ${index + 1}`,
@@ -83,7 +82,7 @@ describe('Command Palette Component', () => {
 
         // Actions menu
         expect(queryByTestId('headerbar-actions-menu')).toBeInTheDocument()
-        // since apps < MIN_APPS_NUM (8)
+        // since apps < minAppsNumForBigScreens (8)
         expect(queryByTestId('headerbar-browse-apps')).not.toBeInTheDocument()
         // since commands < 1
         expect(
