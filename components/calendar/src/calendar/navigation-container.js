@@ -1,7 +1,7 @@
 import { colors, spacers } from '@dhis2/ui-constants'
 import { IconChevronLeft16, IconChevronRight16 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
-import React, { useMemo } from 'react'
+import React from 'react'
 import i18n from '../locales/index.js'
 
 const wrapperBorderColor = colors.grey300
@@ -15,38 +15,15 @@ export const NavigationContainer = ({
     nextYear,
     prevMonth,
     prevYear,
-    pastOnly = false,
     navigateToYear,
     navigateToMonth,
     months,
+    years,
 }) => {
     const PreviousIcon =
         languageDirection === 'ltr' ? IconChevronLeft16 : IconChevronRight16
     const NextIcon =
         languageDirection === 'ltr' ? IconChevronRight16 : IconChevronLeft16
-
-    const yearOptions = useMemo(() => {
-        if (!currYear?.value) {
-            return []
-        }
-
-        const currentYearValue = parseInt(currYear.value)
-        if (isNaN(currentYearValue)) {
-            return []
-        }
-
-        const years = []
-        const startYear = currentYearValue - (pastOnly ? 125 : 100)
-        const endYear = pastOnly ? currentYearValue : currentYearValue + 25
-
-        for (let year = startYear; year <= endYear; year++) {
-            years.push({
-                label: year.toString(),
-                value: year,
-            })
-        }
-        return years
-    }, [currYear?.value, pastOnly])
 
     const handleYearChange = (e) => {
         const targetYear = parseInt(e.target.value)
@@ -122,7 +99,7 @@ export const NavigationContainer = ({
                             className="year-select"
                             data-test="calendar-year-select"
                         >
-                            {yearOptions.map((year) => (
+                            {years.map((year) => (
                                 <option key={year.value} value={year.value}>
                                     {year.label}
                                 </option>
@@ -233,7 +210,6 @@ export const NavigationContainerProps = {
         label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
         navigateTo: PropTypes.func,
     }),
-    pastOnly: PropTypes.bool,
     prevMonth: PropTypes.shape({
         label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
         navigateTo: PropTypes.func,
@@ -242,6 +218,12 @@ export const NavigationContainerProps = {
         label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
         navigateTo: PropTypes.func,
     }),
+    years: PropTypes.arrayOf(
+        PropTypes.shape({
+            label: PropTypes.string.isRequired,
+            value: PropTypes.number.isRequired,
+        })
+    ),
 }
 
 NavigationContainer.propTypes = NavigationContainerProps
