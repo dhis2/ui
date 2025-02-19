@@ -96,8 +96,6 @@ describe('Command Palette - List View - Browse Apps View', () => {
         )
         listItems[0].focus()
 
-        // debug()
-
         await user.keyboard('{ArrowDown}')
         expect(listItems[0]).not.toHaveClass('highlighted')
         expect(listItems[1]).toHaveClass('highlighted')
