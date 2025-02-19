@@ -1,16 +1,17 @@
-import { useCallback, useEffect, useRef } from 'react'
+import { useCallback, useEffect, useMemo, useRef } from 'react'
 import { useCommandPaletteContext } from '../context/command-palette-context.js'
+import {
+    ACTIONS_SECTION,
+    GRID_COLUMNS,
+    GRID_ROWS,
+    GRID_SECTION,
+    HOME_VIEW,
+} from '../utils/constants.js'
+import { handleHomeNavigation } from '../utils/home-navigation.js'
+import { handleListNavigation } from '../utils/list-navigation.js'
+import useModal from './use-modal.js'
 
-export const GRID_ITEMS_LENGTH = 8
-export const MIN_APPS_NUM = GRID_ITEMS_LENGTH
-
-export const useNavigation = ({
-    setShow,
-    itemsArray,
-    show,
-    showGrid,
-    actionsLength,
-}) => {
+export const useNavigation = ({ itemsArray, actionsArray }) => {
     const modalRef = useRef(null)
 
     const {
@@ -19,244 +20,135 @@ export const useNavigation = ({
         filter,
         highlightedIndex,
         setHighlightedIndex,
+        showGrid,
+        setActiveSection,
         setFilter,
         setCurrentView,
-        setActiveSection,
     } = useCommandPaletteContext()
+
+    const activeItems = useMemo(() => {
+        if (currentView === HOME_VIEW && activeSection === ACTIONS_SECTION) {
+            return actionsArray
+        }
+        return itemsArray
+    }, [itemsArray, actionsArray, currentView, activeSection])
+
+    const { modalOpen, setModalOpen } = useModal(modalRef)
+
+    const goToDefaultView = useCallback(() => {
+        const defaultSection = showGrid ? GRID_SECTION : ACTIONS_SECTION
+
+        setFilter('')
+        setCurrentView(HOME_VIEW)
+        setActiveSection(defaultSection)
+        setHighlightedIndex(0)
+    }, [
+        showGrid,
+        setCurrentView,
+        setFilter,
+        setActiveSection,
+        setHighlightedIndex,
+    ])
 
     // highlight first item in filtered results
     useEffect(() => {
         setHighlightedIndex(0)
     }, [filter, setHighlightedIndex])
 
-    const defaultSection = showGrid ? 'grid' : 'actions'
-
-    const goToDefaultView = useCallback(() => {
-        setFilter('')
-        setCurrentView('home')
-        setActiveSection(defaultSection)
-        setHighlightedIndex(0)
-    }, [
-        setActiveSection,
-        setCurrentView,
-        setFilter,
-        setHighlightedIndex,
-        defaultSection,
-    ])
-
     const handleListViewNavigation = useCallback(
         ({ event, listLength }) => {
-            const lastIndex = listLength - 1
-            switch (event.key) {
-                case 'ArrowDown':
-                    event.preventDefault()
-                    setHighlightedIndex(
-                        highlightedIndex >= lastIndex ? 0 : highlightedIndex + 1
-                    )
-                    break
-                case 'ArrowUp':
-                    event.preventDefault()
-                    setHighlightedIndex(
-                        highlightedIndex > 0 ? highlightedIndex - 1 : lastIndex
-                    )
-                    break
-                case 'Escape':
-                    event.preventDefault()
-                    goToDefaultView()
-                    break
-                default:
-                    break
+            const index = handleListNavigation({
+                event,
+                listLength,
+                highlightedIndex,
+            })
+            setHighlightedIndex(index)
+
+            if (!filter.length && event.key === 'Backspace') {
+                event.preventDefault()
+                goToDefaultView()
             }
         },
-        [goToDefaultView, highlightedIndex, setHighlightedIndex]
+        [filter, goToDefaultView, highlightedIndex, setHighlightedIndex]
     )
 
     const handleHomeViewNavigation = useCallback(
         (event) => {
-            // grid
-            const gridRowLength = GRID_ITEMS_LENGTH / 2 // 4
-            const topRowLastIndex = gridRowLength - 1 // 3
-            const lastRowFirstIndex = gridRowLength // 4
-            const lastRowLastIndex = GRID_ITEMS_LENGTH - 1 // 7
-
-            // actions
-            const lastActionIndex = actionsLength - 1
+            const actionsListLength = actionsArray.length
 
             if (showGrid) {
-                switch (event.key) {
-                    case 'ArrowLeft':
-                        event.preventDefault()
-                        if (activeSection === 'grid') {
-                            // row 1
-                            if (highlightedIndex <= topRowLastIndex) {
-                                setHighlightedIndex(
-                                    highlightedIndex > 0
-                                        ? highlightedIndex - 1
-                                        : topRowLastIndex
-                                )
-                            }
-                            // row 2
-                            if (highlightedIndex >= lastRowFirstIndex) {
-                                setHighlightedIndex(
-                                    highlightedIndex > lastRowFirstIndex
-                                        ? highlightedIndex - 1
-                                        : lastRowLastIndex
-                                )
-                            }
-                        }
-                        break
-                    case 'ArrowRight':
-                        event.preventDefault()
-                        if (activeSection === 'grid') {
-                            // row 1
-                            if (highlightedIndex <= topRowLastIndex) {
-                                setHighlightedIndex(
-                                    highlightedIndex >= topRowLastIndex
-                                        ? 0
-                                        : highlightedIndex + 1
-                                )
-                            }
-                            // row 2
-                            if (highlightedIndex >= lastRowFirstIndex) {
-                                setHighlightedIndex(
-                                    highlightedIndex >= lastRowLastIndex
-                                        ? lastRowFirstIndex
-                                        : highlightedIndex + 1
-                                )
-                            }
-                        }
-                        break
-                    case 'ArrowDown':
-                        event.preventDefault()
-                        if (activeSection === 'grid') {
-                            if (highlightedIndex >= lastRowFirstIndex) {
-                                setActiveSection('actions')
-                                setHighlightedIndex(0)
-                            } else {
-                                setHighlightedIndex(
-                                    highlightedIndex + gridRowLength
-                                )
-                            }
-                        } else if (activeSection === 'actions') {
-                            if (highlightedIndex >= actionsLength - 1) {
-                                setActiveSection('grid')
-                                setHighlightedIndex(0)
-                            } else {
-                                setHighlightedIndex(highlightedIndex + 1)
-                            }
-                        }
-                        break
-                    case 'ArrowUp':
-                        event.preventDefault()
-                        if (activeSection === 'grid') {
-                            if (highlightedIndex < lastRowFirstIndex) {
-                                setActiveSection('actions')
-                                setHighlightedIndex(lastActionIndex)
-                            } else {
-                                setHighlightedIndex(
-                                    highlightedIndex - gridRowLength
-                                )
-                            }
-                        } else if (activeSection === 'actions') {
-                            if (highlightedIndex <= 0) {
-                                setActiveSection('grid')
-                                setHighlightedIndex(lastRowFirstIndex)
-                            } else {
-                                setHighlightedIndex(highlightedIndex - 1)
-                            }
-                        }
-                        break
-                    default:
-                        break
-                }
+                const { section, index } = handleHomeNavigation({
+                    event,
+                    activeSection,
+                    rows: GRID_ROWS,
+                    columns: GRID_COLUMNS,
+                    highlightedIndex,
+                    actionsListLength,
+                })
+                setActiveSection(section)
+                setHighlightedIndex(index)
             } else {
-                if (activeSection === 'actions') {
-                    handleListViewNavigation({
-                        event,
-                        listLength: actionsLength,
-                    })
-                }
-            }
-
-            if (event.key === 'Escape') {
-                event.preventDefault()
-                setShow(false)
-                setActiveSection(defaultSection)
-                setHighlightedIndex(0)
+                const index = handleListNavigation({
+                    event,
+                    listLength: actionsListLength,
+                    highlightedIndex,
+                })
+                setHighlightedIndex(index)
             }
         },
         [
+            actionsArray,
             activeSection,
-            actionsLength,
-            defaultSection,
-            handleListViewNavigation,
             highlightedIndex,
+            showGrid,
             setActiveSection,
             setHighlightedIndex,
-            setShow,
         ]
     )
 
     const handleKeyDown = useCallback(
         (event) => {
-            const modal = modalRef.current
-
-            if (currentView === 'home') {
-                if (filter.length > 0) {
-                    // search mode
-                    handleListViewNavigation({
-                        event,
-                        listLength: itemsArray.length,
-                    })
-                } else {
-                    handleHomeViewNavigation(event)
-                }
+            if (currentView === HOME_VIEW && filter?.length === 0) {
+                handleHomeViewNavigation(event)
             } else {
-                setActiveSection(null)
                 handleListViewNavigation({
                     event,
-                    listLength: itemsArray.length,
+                    listLength: activeItems.length,
                 })
             }
 
-            if ((event.metaKey || event.ctrlKey) && event.key === '/') {
-                setShow((show) => !show)
-                goToDefaultView()
-            }
-
-            if (event.key === 'Enter') {
-                if (activeSection === 'actions') {
-                    modal
-                        ?.querySelector('.actions-menu')
-                        ?.childNodes?.[highlightedIndex]?.click()
-                } else {
-                    // open apps, shortcuts link
-                    window.open(itemsArray[highlightedIndex]?.['defaultAction'])
-                    // TODO: execute commands
-                }
+            switch (event.key) {
+                case 'Escape':
+                    event.preventDefault()
+                    setModalOpen(false)
+                    break
+                case 'Enter':
+                    event.preventDefault()
+                    activeItems[highlightedIndex]?.['action']?.()
+                    break
+                case 'Tab':
+                    event.preventDefault()
+                    break
+                default:
+                    break
             }
         },
         [
-            activeSection,
+            activeItems,
             currentView,
             filter.length,
-            goToDefaultView,
             handleHomeViewNavigation,
             handleListViewNavigation,
             highlightedIndex,
-            itemsArray,
-            setActiveSection,
-            setShow,
-            show,
-            showGrid,
+            setModalOpen,
         ]
     )
 
     return {
         handleKeyDown,
-        goToDefaultView,
         modalRef,
-        activeSection,
-        setActiveSection,
+        setModalOpen,
+        showModal: modalOpen,
+        goToDefaultView,
     }
 }

@@ -1,5 +1,5 @@
 import { fireEvent } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { userEvent } from '@testing-library/user-event'
 import React from 'react'
 import CommandPalette from '../command-palette.js'
 import {
@@ -11,6 +11,13 @@ import {
 } from './command-palette.test.js'
 
 describe('Command Palette - List View - Browse Apps View', () => {
+    beforeAll(() => {
+        // Testing environment does not support the <dialog> component yet so it has to mocked
+        // linked issue: https://github.com/jsdom/jsdom/issues/3294
+        HTMLDialogElement.prototype.showModal = jest.fn()
+        HTMLDialogElement.prototype.close = jest.fn()
+    })
+
     it('renders Browse Apps View', async () => {
         const user = userEvent.setup()
         const {
@@ -67,8 +74,8 @@ describe('Command Palette - List View - Browse Apps View', () => {
                 commands={testCommands}
             />
         )
-        // open modal with (meta + /) keys
-        fireEvent.keyDown(container, { key: '/', metaKey: true })
+        // open modal with (meta + k) keys
+        fireEvent.keyDown(container, { key: 'k', metaKey: true })
 
         // click browse-apps link
         const browseAppsLink = await findByTestId('headerbar-browse-apps')
@@ -87,6 +94,7 @@ describe('Command Palette - List View - Browse Apps View', () => {
         expect(listItems[0].querySelector('span')).toHaveTextContent(
             'Test App 1'
         )
+        listItems[0].focus()
 
         await user.keyboard('{ArrowDown}')
         expect(listItems[0]).not.toHaveClass('highlighted')
@@ -94,6 +102,7 @@ describe('Command Palette - List View - Browse Apps View', () => {
         expect(listItems[1].querySelector('span')).toHaveTextContent(
             'Test App 2'
         )
+        listItems[1].focus()
 
         await user.keyboard('{ArrowDown}')
         expect(listItems[1]).not.toHaveClass('highlighted')
@@ -101,6 +110,7 @@ describe('Command Palette - List View - Browse Apps View', () => {
         expect(listItems[2].querySelector('span')).toHaveTextContent(
             'Test App 3'
         )
+        listItems[2].focus()
 
         await user.keyboard('{ArrowUp}')
         expect(listItems[2]).not.toHaveClass('highlighted')
@@ -108,6 +118,7 @@ describe('Command Palette - List View - Browse Apps View', () => {
         expect(listItems[1].querySelector('span')).toHaveTextContent(
             'Test App 2'
         )
+        listItems[1].focus()
 
         // filter items view
         await user.type(searchField, 'Test App')
@@ -122,10 +133,10 @@ describe('Command Palette - List View - Browse Apps View', () => {
             'Test App 1'
         )
 
-        // simulate hover
+        // simulate hover - no highlight
         await user.hover(listItems[8])
-        expect(listItems[1]).not.toHaveClass('highlighted')
-        expect(listItems[8]).toHaveClass('highlighted')
+        expect(listItems[0]).toHaveClass('highlighted')
+        expect(listItems[8]).not.toHaveClass('highlighted')
         expect(listItems[8].querySelector('span')).toHaveTextContent(
             'Test App 9'
         )

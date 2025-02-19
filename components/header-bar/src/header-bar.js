@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
 import CommandPalette from './command-palette/command-palette.js'
 import { CommandPaletteContextProvider } from './command-palette/context/command-palette-context.js'
+import { APP } from './command-palette/utils/constants.js'
 import { HeaderBarContextProvider } from './header-bar-context.js'
 import { joinPath } from './join-path.js'
 import i18n from './locales/index.js'
@@ -51,8 +52,11 @@ export const HeaderBar = ({
 
         return data?.apps.modules.map((app) => ({
             ...app,
+            type: APP,
             icon: getPath(app.icon),
-            defaultAction: getPath(app.defaultAction),
+            action: () => {
+                window.location.href = getPath(app.defaultAction)
+            },
         }))
     }, [data, baseUrl])
 

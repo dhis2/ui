@@ -4,25 +4,36 @@ import { useCommandPaletteContext } from '../context/command-palette-context.js'
 import ListItem from './list-item.js'
 
 function List({ filteredItems, type }) {
-    const { highlightedIndex, setHighlightedIndex } = useCommandPaletteContext()
+    const { highlightedIndex } = useCommandPaletteContext()
     return (
         <div data-test="headerbar-list">
             {filteredItems.map(
                 (
-                    { displayName, name, defaultAction, icon, description },
+                    {
+                        displayName,
+                        name,
+                        defaultAction,
+                        icon,
+                        description,
+                        url,
+                    },
                     idx
-                ) => (
-                    <ListItem
-                        type={type}
-                        key={`app-${name}-${idx}`}
-                        title={displayName || name}
-                        path={defaultAction}
-                        image={icon}
-                        description={description}
-                        highlighted={highlightedIndex === idx}
-                        handleMouseEnter={() => setHighlightedIndex(idx)}
-                    />
-                )
+                ) => {
+                    const isImage = typeof icon === 'string'
+                    const isIcon = React.isValidElement(icon)
+                    return (
+                        <ListItem
+                            type={type}
+                            key={`app-${name}-${idx}`}
+                            title={displayName || name}
+                            path={defaultAction || url}
+                            image={isImage ? icon : undefined}
+                            icon={isIcon ? icon : undefined}
+                            description={description}
+                            highlighted={highlightedIndex === idx}
+                        />
+                    )
+                }
             )}
         </div>
     )

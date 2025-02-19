@@ -3,13 +3,13 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-function AppItem({ name, path, img, highlighted, handleMouseEnter }) {
+function AppItem({ name, path, img, highlighted }) {
     return (
         <a
             href={path}
             className={cx('item', { highlighted })}
-            onMouseEnter={handleMouseEnter}
             tabIndex={-1}
+            target="_self"
         >
             <img src={img} alt="app" className="app-icon" />
             <span className="app-name">{name}</span>
@@ -20,6 +20,7 @@ function AppItem({ name, path, img, highlighted, handleMouseEnter }) {
                     gap: ${spacers.dp12};
                     align-items: center;
                     padding: ${spacers.dp16} ${spacers.dp4};
+                    margin: 0;
                     background: ${colors.white};
                     border-radius: 1px;
                     text-decoration: none;
@@ -37,6 +38,9 @@ function AppItem({ name, path, img, highlighted, handleMouseEnter }) {
                 a:focus {
                     outline: none;
                 }
+                a:last-of-type {
+                    margin-bottom: 0;
+                }
                 .app-icon {
                     width: 48px;
                     height: 48px;
@@ -51,7 +55,6 @@ function AppItem({ name, path, img, highlighted, handleMouseEnter }) {
 }
 
 AppItem.propTypes = {
-    handleMouseEnter: PropTypes.func,
     highlighted: PropTypes.bool,
     img: PropTypes.string,
     name: PropTypes.string,

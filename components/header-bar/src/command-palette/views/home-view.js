@@ -1,27 +1,22 @@
-import { clearSensitiveCaches, useConfig } from '@dhis2/app-runtime'
 import { spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { joinPath } from '../../join-path.js'
 import i18n from '../../locales/index.js'
 import { useCommandPaletteContext } from '../context/command-palette-context.js'
 import AppItem from '../sections/app-item.js'
 import Heading from '../sections/heading.js'
 import ListItem from '../sections/list-item.js'
+import {
+    ACTIONS_SECTION,
+    GRID_SECTION,
+    MIN_APPS_NUM,
+} from '../utils/constants.js'
 import ListView from './list-view.js'
 
-function HomeView({ apps, commands, shortcuts, actions }) {
-    const { baseUrl } = useConfig()
-    const {
-        filter,
-        setCurrentView,
-        highlightedIndex,
-        setHighlightedIndex,
-        activeSection,
-        setActiveSection,
-    } = useCommandPaletteContext()
-    const filteredItems = apps.concat(commands, shortcuts)
-    const topApps = apps?.slice(0, 8)
+function HomeView({ apps, filteredItems, actions }) {
+    const { filter, highlightedIndex, activeSection } =
+        useCommandPaletteContext()
+    const topApps = apps?.slice(0, MIN_APPS_NUM)
     return (
         <>
             {filter.length > 0 ? (
@@ -51,13 +46,10 @@ function HomeView({ apps, commands, shortcuts, actions }) {
                                             path={defaultAction}
                                             img={icon}
                                             highlighted={
-                                                activeSection === 'grid' &&
+                                                activeSection ===
+                                                    GRID_SECTION &&
                                                 highlightedIndex === idx
                                             }
-                                            handleMouseEnter={() => {
-                                                setActiveSection('grid')
-                                                setHighlightedIndex(idx)
-                                            }}
                                         />
                                     )
                                 )}
@@ -72,59 +64,38 @@ function HomeView({ apps, commands, shortcuts, actions }) {
                         </>
                     )}
                     {/* actions menu */}
-                    <Heading heading={'Actions'} />
+                    <Heading heading={i18n.t('Actions')} />
                     <div
                         role="menu"
                         className="actions-menu"
                         data-test="headerbar-actions-menu"
                     >
                         {actions.map(
-                            ({ dataTest, icon, title, type }, index) => {
-                                const logoutActionHandler = async () => {
-                                    await clearSensitiveCaches()
-                                    window.location.assign(
-                                        joinPath(
-                                            baseUrl,
-                                            'dhis-web-commons-security/logout.action'
-                                        )
-                                    )
-                                }
-
-                                const viewActionHandler = () => {
-                                    setCurrentView(type)
-                                    setHighlightedIndex(0)
-                                }
-
-                                return (
-                                    <ListItem
-                                        key={`action-${type}-${index}`}
-                                        title={title}
-                                        icon={icon}
-                                        dataTest={dataTest}
-                                        href={
-                                            type === 'logout'
-                                                ? joinPath(
-                                                      baseUrl,
-                                                      'dhis-web-commons-security/logout.action'
-                                                  )
-                                                : undefined
-                                        }
-                                        onClickHandler={
-                                            type === 'logout'
-                                                ? logoutActionHandler
-                                                : viewActionHandler
-                                        }
-                                        highlighted={
-                                            activeSection === 'actions' &&
-                                            highlightedIndex === index
-                                        }
-                                        handleMouseEnter={() => {
-                                            setActiveSection('actions')
-                                            setHighlightedIndex(index)
-                                        }}
-                                    />
-                                )
-                            }
+                            (
+                                {
+                                    dataTest,
+                                    icon,
+                                    title,
+                                    name,
+                                    type,
+                                    href,
+                                    action,
+                                },
+                                index
+                            ) => (
+                                <ListItem
+                                    key={`action-${type}-${index}`}
+                                    title={title || name}
+                                    icon={icon}
+                                    dataTest={dataTest}
+                                    href={href}
+                                    onClickHandler={action}
+                                    highlighted={
+                                        activeSection === ACTIONS_SECTION &&
+                                        highlightedIndex === index
+                                    }
+                                />
+                            )
                         )}
                     </div>
                 </>
@@ -136,8 +107,7 @@ function HomeView({ apps, commands, shortcuts, actions }) {
 HomeView.propTypes = {
     actions: PropTypes.array,
     apps: PropTypes.array,
-    commands: PropTypes.array,
-    shortcuts: PropTypes.array,
+    filteredItems: PropTypes.array,
 }
 
 export default HomeView
