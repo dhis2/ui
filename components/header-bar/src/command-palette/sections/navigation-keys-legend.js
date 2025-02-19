@@ -1,7 +1,7 @@
 import { colors, spacers } from '@dhis2/ui-constants'
-import PropTypes from 'prop-types'
 import React from 'react'
 import i18n from '../../locales/index.js'
+import { useCommandPaletteContext } from '../context/command-palette-context.js'
 import {
     BackNavigationIcon,
     CloseKeyIcon,
@@ -9,9 +9,15 @@ import {
     SelectKeyIcon,
     VerticalNavigationIcon,
 } from '../icons/navigation-icons.js'
+import { HOME_VIEW } from '../utils/constants.js'
 import NavigationKey from './navigation-key.js'
 
-const NavigationKeysLegend = ({ showBackspace, verticalOnly }) => {
+const NavigationKeysLegend = () => {
+    const { currentView } = useCommandPaletteContext()
+
+    const verticalOnly = currentView !== HOME_VIEW
+    const showBackspace = currentView !== HOME_VIEW
+
     return (
         <div data-test={'headerbar-navigation-keys-legend'}>
             <NavigationKey
@@ -46,11 +52,6 @@ const NavigationKeysLegend = ({ showBackspace, verticalOnly }) => {
             `}</style>
         </div>
     )
-}
-
-NavigationKeysLegend.propTypes = {
-    showBackspace: PropTypes.bool,
-    verticalOnly: PropTypes.bool,
 }
 
 export default NavigationKeysLegend

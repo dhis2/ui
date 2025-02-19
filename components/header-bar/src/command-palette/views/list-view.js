@@ -4,7 +4,6 @@ import i18n from '../../locales/index.js'
 import { useCommandPaletteContext } from '../context/command-palette-context.js'
 import Heading from '../sections/heading.js'
 import List from '../sections/list.js'
-import NavigationKeysLegend from '../sections/navigation-keys-legend.js'
 import { EmptySearchResults } from '../sections/search-results.js'
 import { COMMAND } from '../utils/constants.js'
 
@@ -58,7 +57,6 @@ function ListView({ heading, filteredItems, type }) {
             ) : (
                 filter && <EmptySearchResults />
             )}
-            <NavigationKeysLegend showBackspace verticalOnly />
         </>
     )
 }
