@@ -35,7 +35,7 @@ export const CalendarTable = ({
                 border: none;
                 border-collapse: collapse;
                 width: 100%;
-                margin-block: ${spacers.dp4};
+                margin-block: 0 ${spacers.dp4};
             }
             .calendar-table tr,
             .calendar-table td {
