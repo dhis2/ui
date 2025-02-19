@@ -8,6 +8,7 @@ import { useFilter } from './hooks/use-filter.js'
 import { useNavigation } from './hooks/use-navigation.js'
 import BackButton from './sections/back-button.js'
 import ModalContainer from './sections/modal-container.js'
+import NavigationKeysLegend from './sections/navigation-keys-legend.js'
 import SearchFilter from './sections/search-field.js'
 import {
     ALL_APPS_VIEW,
@@ -129,6 +130,7 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
                                 />
                             )}
                         </div>
+                        <NavigationKeysLegend />
                     </div>
                 </ModalContainer>
             ) : null}
@@ -165,7 +167,7 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
                 }
                 .headerbar-menu-content {
                     overflow-y: auto;
-                    max-height: calc(544px - 50px);
+                    max-height: calc(544px - 100px);
                 }
             `}</style>
         </div>

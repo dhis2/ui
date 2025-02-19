@@ -59,6 +59,15 @@ describe('Command Palette - Home View', () => {
         // default action
         expect(queryByTestId('headerbar-logout')).toBeInTheDocument()
 
+        // check for navigation keys legend
+        expect(
+            queryByTestId('headerbar-navigation-keys-legend')
+        ).toBeInTheDocument()
+        // list multi-direction navigation icon
+        expect(
+            queryByTestId('multi-direction-navigation-icon')
+        ).toBeInTheDocument()
+
         // full search across apps, shortcuts, commands
         await await user.type(searchField, 'Test')
         expect(searchField).toHaveValue('Test')

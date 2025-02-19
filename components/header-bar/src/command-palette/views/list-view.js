@@ -41,20 +41,24 @@ BrowseShortcuts.propTypes = {
 function ListView({ heading, filteredItems, type }) {
     const { filter } = useCommandPaletteContext()
 
-    return filteredItems.length > 0 ? (
+    return (
         <>
-            <Heading
-                heading={
-                    filter.length > 0
-                        ? i18n.t(`Results for "${filter}"`)
-                        : heading
-                }
-            />
-            <List filteredItems={filteredItems} type={type} />
+            {filteredItems.length > 0 ? (
+                <>
+                    <Heading
+                        heading={
+                            filter.length > 0
+                                ? i18n.t(`Results for "${filter}"`)
+                                : heading
+                        }
+                    />
+                    <List filteredItems={filteredItems} type={type} />
+                </>
+            ) : (
+                filter && <EmptySearchResults />
+            )}
         </>
-    ) : filter ? (
-        <EmptySearchResults />
-    ) : null
+    )
 }
 
 ListView.propTypes = {
