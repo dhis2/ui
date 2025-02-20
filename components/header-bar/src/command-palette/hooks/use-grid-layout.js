@@ -53,14 +53,12 @@ export const useGridLayout = (apps) => {
             if (availableApps / columns < 1) {
                 setGridColumns(availableApps)
                 setGridRows(1)
+            } else if (availableApps % columns === 0) {
+                setGridColumns(columns)
+                setGridRows(availableApps / columns)
             } else {
-                if (availableApps % columns === 0) {
-                    setGridColumns(columns)
-                    setGridRows(availableApps / columns)
-                } else {
-                    setGridColumns(columns)
-                    setGridRows(Math.trunc(availableApps / columns + 1))
-                }
+                setGridColumns(columns)
+                setGridRows(Math.trunc(availableApps / columns + 1))
             }
         } else {
             setGridColumns(columns)
