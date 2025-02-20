@@ -15,6 +15,8 @@ import {
     ALL_COMMANDS_VIEW,
     ALL_SHORTCUTS_VIEW,
     FILTERABLE_ACTION,
+    GRID_COLUMNS_DESKTOP,
+    GRID_COLUMNS_MOBILE,
     HOME_VIEW,
 } from './utils/constants.js'
 import HomeView from './views/home-view.js'
@@ -28,7 +30,7 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
     const containerEl = useRef(null)
     const { currentView, filter } = useCommandPaletteContext()
 
-    const { gridColumns, gridRows, gridLayout } = useGridLayout(apps)
+    const { isMobile, gridLayout } = useGridLayout(apps)
 
     const actionsArray = useAvailableActions({ apps, shortcuts, commands })
     const searchableActions = actionsArray.filter(
@@ -56,8 +58,7 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
     } = useNavigation({
         itemsArray: currentViewItemsArray,
         actionsArray,
-        gridColumns,
-        gridRows,
+        gridLayout,
     })
 
     const handleVisibilityToggle = useCallback(() => {
@@ -116,7 +117,11 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
                                     apps={filteredApps}
                                     actions={actionsArray}
                                     filteredItems={currentViewItemsArray}
-                                    gridLayout={gridLayout}
+                                    gridColumns={
+                                        isMobile
+                                            ? GRID_COLUMNS_MOBILE
+                                            : GRID_COLUMNS_DESKTOP
+                                    }
                                 />
                             )}
                             {currentView === ALL_APPS_VIEW && (

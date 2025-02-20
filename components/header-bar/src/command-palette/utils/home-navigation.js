@@ -1,39 +1,8 @@
 import { GRID_SECTION, ACTIONS_SECTION } from './constants.js'
-import {
-    getNextLeftIndex,
-    getNextRightIndex,
-    getFirstIndexOfLastRow,
-    isInFirstRow,
-    isInLastRow,
-} from './grid-functions.js'
+import GridNavigation from './grid-navigation.js'
 
 const isFirstListIndex = (index) => index <= 0
 const isLastListIndex = (index, listLength) => index >= listLength - 1
-
-const getNextUpperIndex = ({
-    isTopIndexInCurrentSection,
-    lastIndexInNextSection,
-    verticalGap,
-    highlightedIndex,
-}) => {
-    if (isTopIndexInCurrentSection) {
-        return lastIndexInNextSection
-    } else {
-        return highlightedIndex - verticalGap
-    }
-}
-
-const getNextLowerIndex = ({
-    isLastIndexInCurrentSection,
-    verticalGap,
-    highlightedIndex,
-}) => {
-    if (isLastIndexInCurrentSection) {
-        return 0
-    } else {
-        return highlightedIndex + verticalGap
-    }
-}
 
 export const handleHomeNavigation = ({
     event,
@@ -44,11 +13,14 @@ export const handleHomeNavigation = ({
     actionsListLength,
     gridSize,
 }) => {
+    const grid = new GridNavigation(rows, columns)
     const gridVerticalGap = columns
+    const listVerticalGap = 1
 
     const nextSection =
         activeSection === GRID_SECTION ? ACTIONS_SECTION : GRID_SECTION
-    const verticalGap = activeSection === GRID_SECTION ? gridVerticalGap : 1
+    const verticalGap =
+        activeSection === GRID_SECTION ? gridVerticalGap : listVerticalGap
 
     const defaultValue = { section: activeSection, index: highlightedIndex }
 
@@ -57,12 +29,7 @@ export const handleHomeNavigation = ({
         if (activeSection === GRID_SECTION) {
             return {
                 section: activeSection,
-                index: getNextLeftIndex({
-                    rows,
-                    columns,
-                    highlightedIndex,
-                    gridSize,
-                }),
+                index: grid.getNextLeftIndex(highlightedIndex, gridSize),
             }
         }
         return defaultValue
@@ -73,12 +40,7 @@ export const handleHomeNavigation = ({
         if (activeSection === GRID_SECTION) {
             return {
                 section: activeSection,
-                index: getNextRightIndex({
-                    rows,
-                    columns,
-                    highlightedIndex,
-                    gridSize,
-                }),
+                index: grid.getNextRightIndex(highlightedIndex, gridSize),
             }
         }
         return defaultValue
@@ -86,23 +48,17 @@ export const handleHomeNavigation = ({
 
     const handleArrowUp = () => {
         event.preventDefault()
-        const firstIndexOfLastRow = getFirstIndexOfLastRow({ rows, columns })
         const isTopIndex =
             activeSection === GRID_SECTION
-                ? isInFirstRow({
-                      rows,
-                      columns,
-                      index: highlightedIndex,
-                      gridSize,
-                  })
+                ? grid.isInFirstRow(highlightedIndex, gridSize)
                 : isFirstListIndex(highlightedIndex)
 
         const lastIndexInNextSection =
             activeSection === GRID_SECTION
                 ? actionsListLength - 1
-                : firstIndexOfLastRow
+                : grid.getFirstIndexOfLastRow()
 
-        const nextTopIndex = getNextUpperIndex({
+        const nextTopIndex = grid.getNextUpperIndex({
             isTopIndexInCurrentSection: isTopIndex,
             lastIndexInNextSection,
             verticalGap,
@@ -119,15 +75,10 @@ export const handleHomeNavigation = ({
         event.preventDefault()
         const isLastIndex =
             activeSection === GRID_SECTION
-                ? isInLastRow({
-                      rows,
-                      columns,
-                      index: highlightedIndex,
-                      gridSize,
-                  })
+                ? grid.isInLastRow(highlightedIndex, gridSize)
                 : isLastListIndex(highlightedIndex, actionsListLength)
 
-        const nextLowerIndex = getNextLowerIndex({
+        const nextLowerIndex = grid.getNextLowerIndex({
             isLastIndexInCurrentSection: isLastIndex,
             verticalGap,
             highlightedIndex,

@@ -1,21 +1,11 @@
 import { useCallback, useEffect, useMemo, useRef } from 'react'
 import { useCommandPaletteContext } from '../context/command-palette-context.js'
-import {
-    ACTIONS_SECTION,
-    APP,
-    GRID_SECTION,
-    HOME_VIEW,
-} from '../utils/constants.js'
+import { ACTIONS_SECTION, GRID_SECTION, HOME_VIEW } from '../utils/constants.js'
 import { handleHomeNavigation } from '../utils/home-navigation.js'
 import { handleListNavigation } from '../utils/list-navigation.js'
 import useModal from './use-modal.js'
 
-export const useNavigation = ({
-    itemsArray,
-    actionsArray,
-    gridRows,
-    gridColumns,
-}) => {
+export const useNavigation = ({ itemsArray, actionsArray, gridLayout }) => {
     const modalRef = useRef(null)
 
     const {
@@ -81,20 +71,16 @@ export const useNavigation = ({
             const actionsListLength = actionsArray.length
 
             if (showGrid) {
-                const apps = itemsArray?.filter((item) => item.type === APP)
-                const expectedGridSize = gridColumns * gridRows
-                const appsGridSize =
-                    apps.length >= expectedGridSize
-                        ? expectedGridSize
-                        : apps.length
+                const { columns, rows, size } = gridLayout
+
                 const { section, index } = handleHomeNavigation({
                     event,
                     activeSection,
-                    rows: gridRows,
-                    columns: gridColumns,
+                    rows,
+                    columns,
                     highlightedIndex,
                     actionsListLength,
-                    gridSize: appsGridSize,
+                    gridSize: size,
                 })
                 setActiveSection(section)
                 setHighlightedIndex(index)
@@ -114,9 +100,7 @@ export const useNavigation = ({
             showGrid,
             setActiveSection,
             setHighlightedIndex,
-            gridColumns,
-            gridRows,
-            itemsArray,
+            gridLayout,
         ]
     )
 
