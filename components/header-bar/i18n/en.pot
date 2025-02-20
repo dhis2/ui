@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-02-17T10:58:14.678Z\n"
-"PO-Revision-Date: 2025-02-17T10:58:14.680Z\n"
+"POT-Creation-Date: 2025-02-26T14:39:24.393Z\n"
+"PO-Revision-Date: 2025-02-26T14:39:24.393Z\n"
 
 msgid "Browse apps"
 msgstr "Browse apps"
@@ -22,6 +22,18 @@ msgstr "Logout"
 
 msgid "Back"
 msgstr "Back"
+
+msgid "to navigate"
+msgstr "to navigate"
+
+msgid "to select"
+msgstr "to select"
+
+msgid "to close"
+msgstr "to close"
+
+msgid "to go back one level"
+msgstr "to go back one level"
 
 msgid "Search apps"
 msgstr "Search apps"
@@ -77,29 +89,32 @@ msgstr "Online"
 msgid "Offline"
 msgstr "Offline"
 
-msgid "Edit profile"
-msgstr "Edit profile"
+msgid "Logged in as "
+msgstr "Logged in as "
 
 msgid "Settings"
 msgstr "Settings"
 
-msgid "Account"
-msgstr "Account"
+msgid "Account security"
+msgstr "Account security"
+
+msgid "My profile"
+msgstr "My profile"
 
 msgid "Help"
 msgstr "Help"
 
-msgid "About DHIS2"
-msgstr "About DHIS2"
+msgid "System info"
+msgstr "System info"
 
-msgid "New {{appName}} version available"
-msgstr "New {{appName}} version available"
+msgid "Log out"
+msgstr "Log out"
 
-msgid "New app version available"
-msgstr "New app version available"
+msgid "New {{appName}} version available — Reload to update"
+msgstr "New {{appName}} version available — Reload to update"
 
-msgid "Click to reload"
-msgstr "Click to reload"
+msgid "New app version available — Reload to update"
+msgstr "New app version available — Reload to update"
 
 msgid "header bar profile"
 msgstr "header bar profile"
