@@ -157,7 +157,8 @@ describe('Command Palette - List View - Browse Apps View', () => {
         const clearButton = getAllByRole('button')[1]
         await user.click(clearButton)
 
-        // first item - back Action highlighted
-        expect(listItems[0]).toHaveClass('highlighted')
+        // first app item - highlighted
+        expect(backActionListItem).not.toHaveClass('highlighted')
+        expect(listItems[1]).toHaveClass('highlighted')
     })
 })

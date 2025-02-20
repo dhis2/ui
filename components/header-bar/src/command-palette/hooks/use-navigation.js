@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef } from 'react'
+import { useCallback, useMemo, useRef } from 'react'
 import { useCommandPaletteContext } from '../context/command-palette-context.js'
 import {
     ACTIONS_SECTION,
@@ -33,11 +33,6 @@ export const useNavigation = ({ itemsArray, actionsArray }) => {
     }, [filter, itemsArray, actionsArray, currentView, activeSection])
 
     const { modalOpen, setModalOpen } = useModal(modalRef)
-
-    // highlight first item in filtered results
-    useEffect(() => {
-        setHighlightedIndex(0)
-    }, [filter, setHighlightedIndex])
 
     const handleListViewNavigation = useCallback(
         ({ event, listLength }) => {
