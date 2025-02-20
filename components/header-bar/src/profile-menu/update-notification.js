@@ -1,6 +1,5 @@
 import { useConfig } from '@dhis2/app-runtime'
-import { colors } from '@dhis2/ui-constants'
-import { MenuItem } from '@dhis2-ui/menu'
+import { colors, spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { useHeaderBarContext } from '../header-bar-context.js'
@@ -20,45 +19,68 @@ export function UpdateNotification({ hideProfileMenu }) {
             <div className="spacer" />
             <div className="message">
                 {appName
-                    ? i18n.t('New {{appName}} version available', { appName })
-                    : i18n.t('New app version available')}
-                <br />
-                {i18n.t('Click to reload')}
+                    ? i18n.t(
+                          'New {{appName}} version available — Reload to update',
+                          { appName }
+                      )
+                    : i18n.t('New app version available — Reload to update')}
             </div>
             <style jsx>{`
                 .root {
                     display: flex;
                     flex-direction: row;
-                    align-items: center;
-                    font-size: 14px;
-                    line-height: 17px;
+                    align-items: flex-start;
+                    font-size: 12px;
+                    line-height: 15px;
+                    color: ${colors.grey700};
                 }
                 .badge {
                     display: inline-block;
-                    width: 12px;
-                    height: 12px;
-                    margin: 0 8px;
+                    width: 8px;
+                    height: 8px;
+                    margin: 0;
+                    margin-block-start: 3px;
                     border-radius: 6px;
                     background-color: ${colors.blue600};
+                    flex-shrink: 0;
                 }
                 .spacer {
                     display: inline-block;
-                    width: 8px;
+                    width: 6px;
+                    flex-shrink: 0;
                 }
                 .message {
                     display: inline-block;
+                    text-align: start;
                 }
             `}</style>
         </div>
     )
 
     return updateAvailable ? (
-        <MenuItem
-            dense
+        <button
             onClick={onClick}
-            label={updateNotificationLabel}
-            dataTest="dhis2-ui-headerbar-updatenotification"
-        />
+            aria-label={i18n.t('New app version available — Reload to update')}
+            data-test="dhis2-ui-headerbar-updatenotification"
+        >
+            {updateNotificationLabel}
+            <style jsx>{`
+                button {
+                    display: flex;
+                    align-items: center;
+                    background: ${colors.grey050};
+                    border: none;
+                    padding: ${spacers.dp8} ${spacers.dp12};
+                    width: 100%;
+                    cursor: pointer;
+                    font-size: 12px;
+                    line-height: 15px;
+                    color: ${colors.grey700};
+                }
+                    button:hover {
+                        background: ${colors.grey200};
+            `}</style>
+        </button>
     ) : null
 }
 

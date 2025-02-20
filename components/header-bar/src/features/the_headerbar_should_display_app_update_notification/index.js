@@ -31,13 +31,13 @@ Then('the update notification should not be displayed', () => {
 Then('the update notification should be displayed', () => {
     cy.get('[data-test="dhis2-ui-headerbar-updatenotification"]')
         .should('contain', 'New Data Visualizer version available')
-        .should('contain', 'Click to reload')
+        .should('contain', 'Reload to update')
 })
 
 Then('the update notification should be displayed without app name', () => {
     cy.get('[data-test="dhis2-ui-headerbar-updatenotification"]')
         .should('contain', 'New app version available')
-        .should('contain', 'Click to reload')
+        .should('contain', 'Reload to update')
 })
 
 When('the user clicks the update notification', () => {

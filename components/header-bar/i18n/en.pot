@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-06-12T03:40:49.012Z\n"
-"PO-Revision-Date: 2024-06-12T03:40:49.013Z\n"
+"POT-Creation-Date: 2025-02-20T09:30:45.543Z\n"
+"PO-Revision-Date: 2025-02-20T09:30:45.547Z\n"
 
 msgid "Search apps"
 msgstr "Search apps"
@@ -47,32 +47,32 @@ msgstr "Online"
 msgid "Offline"
 msgstr "Offline"
 
-msgid "Edit profile"
-msgstr "Edit profile"
+msgid "Logged in as "
+msgstr "Logged in as "
 
 msgid "Settings"
 msgstr "Settings"
 
-msgid "Account"
-msgstr "Account"
+msgid "Account security"
+msgstr "Account security"
+
+msgid "My profile"
+msgstr "My profile"
 
 msgid "Help"
 msgstr "Help"
 
-msgid "About DHIS2"
-msgstr "About DHIS2"
+msgid "System info"
+msgstr "System info"
 
-msgid "Logout"
-msgstr "Logout"
+msgid "Log out"
+msgstr "Log out"
 
-msgid "New {{appName}} version available"
-msgstr "New {{appName}} version available"
+msgid "New {{appName}} version available — Reload to update"
+msgstr "New {{appName}} version available — Reload to update"
 
-msgid "New app version available"
-msgstr "New app version available"
-
-msgid "Click to reload"
-msgstr "Click to reload"
+msgid "New app version available — Reload to update"
+msgstr "New app version available — Reload to update"
 
 msgid "header bar profile"
 msgstr "header bar profile"
