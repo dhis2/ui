@@ -30,13 +30,13 @@ describe('Command Palette - List View - Search Results', () => {
         fireEvent.keyDown(container, { key: 'k', metaKey: true })
 
         // Search field
-        const searchField = await getByPlaceholderText(
+        const searchField = getByPlaceholderText(
             'Search apps, shortcuts, commands'
         )
         expect(searchField).toHaveValue('')
 
         // one item result
-        await user.type(searchField, 'Shortcut')
+        await user.type(searchField, 'Test Shortcut')
         const listItems = queryAllByTestId('headerbar-list-item')
         expect(listItems.length).toBe(1)
 
@@ -76,26 +76,77 @@ describe('Command Palette - List View - Search Results', () => {
         expect(queryByText(/Nothing found for "abc"/i)).toBeInTheDocument()
     })
 
-    it('handles search for logout action in the command palette', async () => {
+    it('handles search for actions in the command palette', async () => {
         const user = userEvent.setup()
-        const { getByPlaceholderText, queryAllByTestId, container } = render(
-            <CommandPalette apps={[]} shortcuts={[]} commands={[]} />
+        const {
+            getByPlaceholderText,
+            queryAllByTestId,
+            queryByPlaceholderText,
+            getByTestId,
+            queryByTestId,
+            container,
+        } = render(
+            <CommandPalette
+                apps={testApps}
+                shortcuts={testShortcuts}
+                commands={testCommands}
+            />
         )
         // open modal
         fireEvent.keyDown(container, { key: 'k', metaKey: true })
 
         // Search field
-        const searchField = await getByPlaceholderText(
+        const searchField = getByPlaceholderText(
             'Search apps, shortcuts, commands'
         )
 
-        // result
-        await user.type(searchField, 'Logout')
-        const listItems = queryAllByTestId('headerbar-list-item')
+        // search for logout action
+        let searchTerm = 'Logout'
+        await user.type(searchField, searchTerm)
+        let listItems = queryAllByTestId('headerbar-list-item')
         expect(listItems.length).toBe(1)
 
         expect(listItems[0]).toHaveTextContent('Logout')
         expect(listItems[0]).toHaveClass('highlighted')
+
+        // clear search field
+        await user.keyboard('{Backspace}'.repeat(searchTerm.length))
+
+        // search for category actions
+        searchTerm = 'apps'
+        await user.type(searchField, searchTerm)
+        listItems = queryAllByTestId('headerbar-list-item')
+        expect(listItems[0]).toHaveTextContent('Browse apps')
+        expect(listItems[0]).toHaveClass('highlighted')
+
+        await user.keyboard('{Backspace}'.repeat(searchTerm.length))
+
+        searchTerm = 'commands'
+        await user.type(searchField, searchTerm)
+        listItems = queryAllByTestId('headerbar-list-item')
+        expect(listItems[0]).toHaveTextContent('Browse commands')
+        expect(listItems[0]).toHaveClass('highlighted')
+
+        await user.keyboard('{Backspace}'.repeat(searchTerm.length))
+
+        searchTerm = 'shortcuts'
+        await user.type(searchField, searchTerm)
+        listItems = queryAllByTestId('headerbar-list-item')
+        expect(listItems[0]).toHaveTextContent('Browse shortcuts')
+        expect(listItems[0]).toHaveClass('highlighted')
+
+        // go to shorcuts
+        await user.keyboard('{Enter}')
+        expect(queryByPlaceholderText('Search shortcuts')).toBeInTheDocument()
+        // back action
+        const backActionListItem = getByTestId('headerbar-back-action')
+        expect(backActionListItem).not.toHaveClass('highlighted')
+        // first shortcut highlighted
+        const shortcutsListItem = queryByTestId('headerbar-list-item')
+        expect(shortcutsListItem.querySelector('span')).toHaveTextContent(
+            'Test Shortcut 1'
+        )
+        expect(shortcutsListItem).toHaveClass('highlighted')
     })
 
     it('handles multiple search results in the HOME View', async () => {
@@ -113,12 +164,12 @@ describe('Command Palette - List View - Search Results', () => {
         fireEvent.keyDown(container, { key: 'k', metaKey: true })
 
         // Search field
-        const searchField = await getByPlaceholderText(
+        const searchField = getByPlaceholderText(
             'Search apps, shortcuts, commands'
         )
         expect(searchField).toHaveValue('')
 
-        const searchTerm = 'app'
+        const searchTerm = 'Test app'
 
         await user.type(searchField, searchTerm)
         expect(queryByTestId('headerbar-top-apps-list')).not.toBeInTheDocument()
@@ -140,7 +191,6 @@ describe('Command Palette - List View - Search Results', () => {
 
         // clear search field
         await user.keyboard('{Backspace}'.repeat(searchTerm.length))
-
         expect(searchField).toHaveValue('')
 
         const appsGrid = getByTestId('headerbar-top-apps-list')
@@ -182,7 +232,7 @@ describe('Command Palette - List View - Search Results', () => {
         expect(browseCommandsAction).toHaveClass('highlighted')
 
         // Search field
-        const searchField = await getByPlaceholderText(
+        const searchField = getByPlaceholderText(
             'Search apps, shortcuts, commands'
         )
         const searchTerm = 'test'

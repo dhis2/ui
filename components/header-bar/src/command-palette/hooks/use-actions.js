@@ -29,6 +29,7 @@ export const useAvailableActions = ({ apps, shortcuts, commands }) => {
         currentView,
         goToDefaultView,
         setCurrentView,
+        setFilter,
         setHighlightedIndex,
     } = useCommandPaletteContext()
 
@@ -46,9 +47,10 @@ export const useAvailableActions = ({ apps, shortcuts, commands }) => {
         (type) => {
             const firstItemIndexInList = 1
             setCurrentView(type)
+            setFilter('')
             setHighlightedIndex(firstItemIndexInList)
         },
-        [setCurrentView, setHighlightedIndex]
+        [setCurrentView, setFilter, setHighlightedIndex]
     )
 
     const actions = useMemo(() => {
@@ -56,7 +58,7 @@ export const useAvailableActions = ({ apps, shortcuts, commands }) => {
         if (currentView === HOME_VIEW) {
             if (apps?.length > MIN_APPS_NUM) {
                 actionsArray.push({
-                    type: ACTION,
+                    type: FILTERABLE_ACTION,
                     name: i18n.t('Browse apps'),
                     icon: <IconApps16 color={colors.grey700} />,
                     dataTest: 'headerbar-browse-apps',
@@ -65,7 +67,7 @@ export const useAvailableActions = ({ apps, shortcuts, commands }) => {
             }
             if (commands?.length > MIN_COMMANDS_NUM) {
                 actionsArray.push({
-                    type: ACTION,
+                    type: FILTERABLE_ACTION,
                     name: i18n.t('Browse commands'),
                     icon: <IconTerminalWindow16 color={colors.grey700} />,
                     dataTest: 'headerbar-browse-commands',
@@ -74,7 +76,7 @@ export const useAvailableActions = ({ apps, shortcuts, commands }) => {
             }
             if (shortcuts?.length > MIN_SHORTCUTS_NUM) {
                 actionsArray.push({
-                    type: ACTION,
+                    type: FILTERABLE_ACTION,
                     name: i18n.t('Browse shortcuts'),
                     icon: <IconRedo16 color={colors.grey700} />,
                     dataTest: 'headerbar-browse-shortcuts',
