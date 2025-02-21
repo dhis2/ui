@@ -50,8 +50,9 @@ class GridNavigation {
     getLastIndexOfActiveRow = (highlightedIndex, gridSize) => {
         const activeRow = this.getActiveRow(highlightedIndex)
         const lastIndexPerRowArray = this.getLastIndexPerRow(gridSize)
+        const lastIndexOfActiveRow = lastIndexPerRowArray[activeRow]
 
-        return lastIndexPerRowArray[activeRow]
+        return lastIndexOfActiveRow || highlightedIndex
     }
 
     getFirstIndexOfLastRow = () => {
@@ -83,9 +84,10 @@ class GridNavigation {
         const firstIndexOfActiveRow =
             this.getFirstIndexOfActiveRow(highlightedIndex)
 
-        const lastIndexOfActiveRow =
-            this.getLastIndexOfActiveRow(highlightedIndex, gridSize) ||
-            highlightedIndex
+        const lastIndexOfActiveRow = this.getLastIndexOfActiveRow(
+            highlightedIndex,
+            gridSize
+        )
 
         return highlightedIndex > firstIndexOfActiveRow
             ? highlightedIndex - 1
@@ -95,16 +97,17 @@ class GridNavigation {
     getNextRightIndex = (highlightedIndex, gridSize) => {
         const firstIndexOfActiveRow =
             this.getFirstIndexOfActiveRow(highlightedIndex)
-        const lastIndexOfActiveRow =
-            this.getLastIndexOfActiveRow(highlightedIndex, gridSize) ||
-            highlightedIndex
+        const lastIndexOfActiveRow = this.getLastIndexOfActiveRow(
+            highlightedIndex,
+            gridSize
+        )
 
         return highlightedIndex >= lastIndexOfActiveRow
             ? firstIndexOfActiveRow
             : highlightedIndex + 1
     }
 
-    getNextUpperIndex = ({
+    static getNextUpperIndex = ({
         isTopIndexInCurrentSection,
         lastIndexInNextSection,
         verticalGap,
@@ -117,7 +120,7 @@ class GridNavigation {
         }
     }
 
-    getNextLowerIndex = ({
+    static getNextLowerIndex = ({
         isLastIndexInCurrentSection,
         verticalGap,
         highlightedIndex,

@@ -58,7 +58,7 @@ export const handleHomeNavigation = ({
                 ? actionsListLength - 1
                 : grid.getFirstIndexOfLastRow()
 
-        const nextTopIndex = grid.getNextUpperIndex({
+        const nextTopIndex = GridNavigation.getNextUpperIndex({
             isTopIndexInCurrentSection: isTopIndex,
             lastIndexInNextSection,
             verticalGap,
@@ -78,7 +78,7 @@ export const handleHomeNavigation = ({
                 ? grid.isInLastRow(highlightedIndex, gridSize)
                 : isLastListIndex(highlightedIndex, actionsListLength)
 
-        const nextLowerIndex = grid.getNextLowerIndex({
+        const nextLowerIndex = GridNavigation.getNextLowerIndex({
             isLastIndexInCurrentSection: isLastIndex,
             verticalGap,
             highlightedIndex,
