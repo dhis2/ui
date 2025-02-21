@@ -160,5 +160,8 @@ describe('Command Palette - List View - Browse Apps View', () => {
         // first app item - highlighted
         expect(backActionListItem).not.toHaveClass('highlighted')
         expect(listItems[1]).toHaveClass('highlighted')
+        expect(listItems[1].querySelector('span')).toHaveTextContent(
+            'Test App 1'
+        )
     })
 })

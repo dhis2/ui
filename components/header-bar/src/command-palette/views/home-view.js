@@ -1,6 +1,6 @@
 import { spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useEffect } from 'react'
 import i18n from '../../locales/index.js'
 import { useCommandPaletteContext } from '../context/command-palette-context.js'
 import AppItem from '../sections/app-item.js'
@@ -14,9 +14,16 @@ import {
 import ListView from './list-view.js'
 
 function HomeView({ apps, filteredItems, actions }) {
-    const { filter, highlightedIndex, activeSection } =
+    const { filter, highlightedIndex, activeSection, goToDefaultSection } =
         useCommandPaletteContext()
     const topApps = apps?.slice(0, MIN_APPS_NUM)
+
+    useEffect(() => {
+        if (!filter) {
+            goToDefaultSection()
+        }
+    }, [filter, goToDefaultSection])
+
     return (
         <>
             {filter.length > 0 ? (
