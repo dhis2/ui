@@ -1,9 +1,9 @@
 import { useCallback, useMemo, useRef } from 'react'
 import { useCommandPaletteContext } from '../context/command-palette-context.js'
 import {
-    ACTIONS_SECTION,
     GRID_COLUMNS,
     GRID_ROWS,
+    GRID_SECTION,
     HOME_VIEW,
 } from '../utils/constants.js'
 import { handleHomeNavigation } from '../utils/home-navigation.js'
@@ -26,7 +26,9 @@ export const useNavigation = ({ itemsArray, actionsArray }) => {
 
     const activeItems = useMemo(() => {
         if (currentView === HOME_VIEW) {
-            return activeSection === ACTIONS_SECTION ? actionsArray : itemsArray
+            return filter || activeSection === GRID_SECTION
+                ? itemsArray
+                : actionsArray
         } else {
             return filter ? itemsArray : actionsArray.concat(itemsArray)
         }
