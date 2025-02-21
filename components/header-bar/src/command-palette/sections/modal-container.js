@@ -1,17 +1,21 @@
 import { colors, elevations } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { forwardRef, useEffect } from 'react'
+import { useCommandPaletteContext } from '../context/command-palette-context.js'
 
 const ModalContainer = forwardRef(function ModalContainer(
     { children, onKeyDown, onClick },
     ref
 ) {
+    const { highlightedIndex } = useCommandPaletteContext()
+
     useEffect(() => {
         const activeItem = ref?.current?.querySelector('.highlighted')
         if (activeItem && typeof activeItem.scrollIntoView === 'function') {
-            activeItem?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+            highlightedIndex !== null &&
+                activeItem.scrollIntoView({ behavior: 'smooth' })
         }
-    }, [ref])
+    }, [ref, highlightedIndex])
 
     useEffect(() => {
         if (!ref.current) {
@@ -28,7 +32,6 @@ const ModalContainer = forwardRef(function ModalContainer(
         modal.addEventListener('click', onClick)
         modal.addEventListener('focus', handleFocus)
         modal.addEventListener('keydown', onKeyDown)
-
         return () => {
             modal.removeEventListener('click', onClick)
             modal.removeEventListener('focus', handleFocus)
@@ -41,6 +44,7 @@ const ModalContainer = forwardRef(function ModalContainer(
             <dialog ref={ref}>{children}</dialog>
             <style jsx>{`
                 dialog {
+                    position: fixed;
                     display: flex;
                     flex-direction: row;
                     border: none;

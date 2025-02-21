@@ -13,10 +13,12 @@ import {
 } from '../utils/constants.js'
 import ListView from './list-view.js'
 
-function HomeView({ apps, filteredItems, actions }) {
+function HomeView({ apps, filteredItems, actions, gridColumns }) {
     const { filter, highlightedIndex, activeSection } =
         useCommandPaletteContext()
+
     const topApps = apps?.slice(0, MIN_APPS_NUM)
+
     return (
         <>
             {filter.length > 0 ? (
@@ -56,7 +58,10 @@ function HomeView({ apps, filteredItems, actions }) {
                                 <style jsx>{`
                                     .headerbar-top-apps {
                                         display: grid;
-                                        grid-template-columns: repeat(4, 1fr);
+                                        grid-template-columns: repeat(
+                                            ${gridColumns},
+                                            1fr
+                                        );
                                         padding: 0 ${spacers.dp4};
                                     }
                                 `}</style>
@@ -108,6 +113,7 @@ HomeView.propTypes = {
     actions: PropTypes.array,
     apps: PropTypes.array,
     filteredItems: PropTypes.array,
+    gridColumns: PropTypes.number,
 }
 
 export default HomeView
