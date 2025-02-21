@@ -133,17 +133,13 @@ describe('Command Palette - List View - Search Results', () => {
         expect(firstResult).toHaveClass('highlighted')
 
         // scroll down to fifth result
-        for (let keyPress = 1; keyPress < 5; keyPress++) {
-            await user.keyboard('{ArrowDown}')
-        }
+        await user.keyboard('{ArrowDown}'.repeat(4))
 
         expect(fifthResult).toHaveTextContent('Test App 5')
         expect(fifthResult).toHaveClass('highlighted')
 
         // clear search field
-        for (let keyPress = 0; keyPress < searchTerm.length; keyPress++) {
-            await user.keyboard('{Backspace}')
-        }
+        await user.keyboard('{Backspace}'.repeat(searchTerm.length))
 
         expect(searchField).toHaveValue('')
 
@@ -197,9 +193,7 @@ describe('Command Palette - List View - Search Results', () => {
         expect(resultsListItems[0]).toHaveClass('highlighted')
 
         // clear search field
-        for (let keyPress = 0; keyPress < searchTerm.length; keyPress++) {
-            await user.keyboard('{Backspace}')
-        }
+        await user.keyboard('{Backspace}'.repeat(searchTerm.length))
 
         expect(searchField).toHaveValue('')
         expect(browseCommandsAction).toHaveClass('highlighted')
