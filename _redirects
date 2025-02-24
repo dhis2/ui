@@ -1,0 +1,5 @@
+# Redirect legacy ui.dhis2.nu netlify site to the developer portal
+/demo https://developers.dhis2.org/demo
+/components/*  https://developers.dhis2.org/docs/ui/components/:splat
+/recipes/* https://developers.dhis2.org/docs/ui/recipes/:splat
+/* https://developers.dhis2.org/design-system/:splat 

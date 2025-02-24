@@ -1,15 +1,15 @@
 # 
 # Translators:
-# Rica Zamora Duchateau, 2022
 # Charel van den Elsen, 2023
 # Philip Larsen Donnelly, 2024
+# Rica, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-11-25T09:59:40.995Z\n"
+"POT-Creation-Date: 2024-11-07T15:20:34.373Z\n"
 "PO-Revision-Date: 2021-10-01 23:39+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Last-Translator: Rica, 2024\n"
 "Language-Team: Dutch (https://app.transifex.com/hisp-uio/teams/100509/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,17 +23,26 @@ msgstr "Alleen bekijken"
 msgid "View and edit"
 msgstr "Bekijk en bewerk"
 
+msgid "No access"
+msgstr "Geen toegang"
+
 msgid "Give access to a user or group"
 msgstr "Geef toegang aan een gebruiker of groep"
 
-msgid "Access level"
-msgstr "Toegangsniveau"
+msgid "Data access level"
+msgstr ""
 
-msgid "Select a level"
-msgstr "Selecteer een niveau"
+msgid "Choose a level"
+msgstr ""
 
 msgid "Not available offline"
 msgstr "Niet beschikbaar offline"
+
+msgid "Metadata access level"
+msgstr ""
+
+msgid "Access level"
+msgstr "Toegangsniveau"
 
 msgid "Give access"
 msgstr "Toegang geven"
@@ -47,20 +56,23 @@ msgstr "Gebruiker / groep"
 msgid "All users"
 msgstr "Alle gebruikers"
 
-msgid "No access"
-msgstr "Geen toegang"
+msgid "Anyone logged in"
+msgstr ""
 
-msgid "Can view"
-msgstr "Kan bekijken"
+msgid "User group"
+msgstr ""
 
-msgid "Can view and edit"
-msgstr "Kan bekijken en bewerken"
+msgid "User"
+msgstr "Gebruiker"
 
-msgid "Metadata"
-msgstr "Metagegevens"
+msgid "Data"
+msgstr "Gegevens"
 
 msgid "Remove access"
 msgstr "Toegang verwijderen"
+
+msgid "Metadata"
+msgstr "Metagegevens"
 
 msgid "User or group"
 msgstr "Gebruiker of groep"

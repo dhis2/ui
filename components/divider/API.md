@@ -15,6 +15,6 @@ import { Divider } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-divider'`|||
+|dataTest|string|``'dhis2-uicore-divider'``|||
 |dense|boolean||||
-|margin|string|``${spacers.dp8} 0``|||
+|margin|string|```${spacers.dp8} 0```|||

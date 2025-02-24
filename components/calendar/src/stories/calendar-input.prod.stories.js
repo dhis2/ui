@@ -1,4 +1,6 @@
+import { Button } from '@dhis2-ui/button'
 import React, { useState } from 'react'
+import { Field, Form } from 'react-final-form'
 import { CalendarInput } from '../calendar-input/calendar-input.js'
 import { CalendarStoryWrapper } from './calendar-story-wrapper.js'
 
@@ -114,5 +116,172 @@ export const CalendarWithClearButton = ({
                 </span>
             </div>
         </>
+    )
+}
+
+export function CalendarWithEditiableInput() {
+    const [date, setDate] = useState('')
+    const [validation, setValidation] = useState({})
+
+    const errorProps = {
+        error: !!validation?.error,
+        validationText: validation?.validationText,
+    }
+
+    return (
+        <div>
+            <>
+                <CalendarInput
+                    date={date}
+                    calendar="gregory"
+                    onDateSelect={(result) => {
+                        const { calendarDateString, validation } = result || {}
+                        setDate(calendarDateString)
+                        setValidation(validation)
+                    }}
+                    onFocus={() => {
+                        console.log('focused')
+                    }}
+                    width="400px"
+                    {...errorProps}
+                    clearable
+                />
+            </>
+        </div>
+    )
+}
+
+export function CalendarWithStrictValidation() {
+    const [validation, setValidation] = useState({})
+
+    const errored = () => {
+        if (validation.error) {
+            return { calendar: validation.validationText }
+        }
+    }
+
+    return (
+        <Form
+            onSubmit={(values, meta) => {
+                console.log('SUBMITTING', { values, meta })
+            }}
+            initialValues={{ calendar: '2022-10-12' }}
+            validate={errored}
+        >
+            {({ handleSubmit, invalid }) => {
+                return (
+                    <form onSubmit={handleSubmit}>
+                        <Field name="calendar">
+                            {(props) => (
+                                <CalendarInput
+                                    {...props}
+                                    label="Enter a date"
+                                    helpText="Date has to be after 2022-11-01"
+                                    input={props.input}
+                                    meta={props.meta}
+                                    editable
+                                    date={props.input.value}
+                                    calendar="gregory"
+                                    {...validation}
+                                    minDate="2022-11-01"
+                                    onDateSelect={(date) => {
+                                        const validation = {
+                                            ...date.validation,
+                                            validationText:
+                                                date.validation
+                                                    .validationCode ===
+                                                'WRONG_FORMAT'
+                                                    ? 'custom validation message for format'
+                                                    : date.validation
+                                                          .validationText,
+                                        }
+                                        setValidation(validation)
+                                        props.input.onChange(
+                                            date ? date?.calendarDateString : ''
+                                        )
+                                    }}
+                                />
+                            )}
+                        </Field>
+
+                        <Button
+                            type="submit"
+                            disabled={invalid}
+                            onClick={handleSubmit}
+                        >
+                            Submit
+                        </Button>
+                    </form>
+                )
+            }}
+        </Form>
+    )
+}
+
+export function CalendarWithNonStrictValidation() {
+    const [validation, setValidation] = useState({})
+
+    const errored = () => {
+        if (validation.error) {
+            return { calendar: validation.validationText }
+        }
+    }
+
+    return (
+        <Form
+            onSubmit={(values, meta) => {
+                console.log('SUBMITTING', { values, meta })
+            }}
+            initialValues={{ calendar: '2022-10-12' }}
+            validate={errored}
+        >
+            {({ handleSubmit, invalid }) => {
+                return (
+                    <form onSubmit={handleSubmit}>
+                        <Field name="calendar">
+                            {(props) => (
+                                <CalendarInput
+                                    {...props}
+                                    label="Enter a date"
+                                    helpText="Date has to be after 2022-11-01"
+                                    input={props.input}
+                                    meta={props.meta}
+                                    editable
+                                    date={props.input.value}
+                                    calendar="gregory"
+                                    {...validation}
+                                    minDate="2022-11-01"
+                                    strictValidation={false}
+                                    onDateSelect={(date) => {
+                                        const validation = {
+                                            ...date.validation,
+                                            validationText:
+                                                date.validation
+                                                    .validationCode ===
+                                                'WRONG_FORMAT'
+                                                    ? 'custom validation message for format'
+                                                    : date.validation
+                                                          .validationText,
+                                        }
+                                        setValidation(validation)
+                                        props.input.onChange(
+                                            date ? date?.calendarDateString : ''
+                                        )
+                                    }}
+                                />
+                            )}
+                        </Field>
+
+                        <Button
+                            type="submit"
+                            disabled={invalid}
+                            onClick={handleSubmit}
+                        >
+                            Submit
+                        </Button>
+                    </form>
+                )
+            }}
+        </Form>
     )
 }

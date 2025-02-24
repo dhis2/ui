@@ -49,6 +49,15 @@ export default css`
         background-color: ${colors.white};
     }
 
+    /*focus-visible backwards compatibility for safari: https://css-tricks.com/platform-news-using-focus-visible-bbcs-new-typeface-declarative-shadow-doms-a11y-and-placeholders/*/
+    li:focus {
+        outline: 3px solid ${theme.focus};
+        outline-offset: -3px;
+    }
+    li:focus:not(:focus-visible) {
+        outline: none;
+    }
+
     a {
         display: inline-flex;
         flex-grow: 1;
@@ -57,14 +66,6 @@ export default css`
         min-height: 40px;
         text-decoration: none;
         color: inherit;
-    }
-    /*focus-visible backwards compatibility for safari: https://css-tricks.com/platform-news-using-focus-visible-bbcs-new-typeface-declarative-shadow-doms-a11y-and-placeholders/*/
-    a:focus {
-        outline: 3px solid ${theme.focus};
-        outline-offset: -3px;
-    }
-    a:focus:not(:focus-visible) {
-        outline: none;
     }
 
     li.with-chevron a {

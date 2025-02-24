@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Caroline Hesthagen Holen <caroline@devotta.no>, 2021
-# Karoline Tufte Lien <karoline@dhis2.org>, 2023
+# Caroline Hesthagen Holen <caroline@devotta.no>, 2024
+# Karoline Tufte Lien <karoline@dhis2.org>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-11-25T09:59:40.995Z\n"
+"POT-Creation-Date: 2024-11-07T15:20:34.373Z\n"
 "PO-Revision-Date: 2021-10-01 23:39+0000\n"
-"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2023\n"
+"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2024\n"
 "Language-Team: Norwegian Bokmål (https://app.transifex.com/hisp-uio/teams/100509/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,17 +22,26 @@ msgstr ""
 msgid "View and edit"
 msgstr ""
 
+msgid "No access"
+msgstr "Ingen tilgang"
+
 msgid "Give access to a user or group"
+msgstr ""
+
+msgid "Data access level"
+msgstr ""
+
+msgid "Choose a level"
+msgstr ""
+
+msgid "Not available offline"
+msgstr "Ikke tilgjengelig i frakoblet modus"
+
+msgid "Metadata access level"
 msgstr ""
 
 msgid "Access level"
 msgstr "Tilgangsnivå"
-
-msgid "Select a level"
-msgstr "Velg et nivå"
-
-msgid "Not available offline"
-msgstr "Ikke tilgjengelig i frakoblet modus"
 
 msgid "Give access"
 msgstr ""
@@ -46,20 +55,23 @@ msgstr ""
 msgid "All users"
 msgstr ""
 
-msgid "No access"
-msgstr "Ingen tilgang"
+msgid "Anyone logged in"
+msgstr ""
 
-msgid "Can view"
-msgstr "Kan se"
+msgid "User group"
+msgstr "Brukergruppe"
 
-msgid "Can view and edit"
+msgid "User"
+msgstr "Bruker"
+
+msgid "Data"
+msgstr "Data"
+
+msgid "Remove access"
 msgstr ""
 
 msgid "Metadata"
 msgstr "Metadata"
-
-msgid "Remove access"
-msgstr ""
 
 msgid "User or group"
 msgstr ""

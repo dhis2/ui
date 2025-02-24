@@ -44,7 +44,6 @@ const sidebars = {
                 'components/alertbar',
                 'components/button',
                 'components/card',
-                'components/calendar',
                 'components/calendar-input',
                 'components/checkbox',
                 'components/chip',
@@ -83,10 +82,7 @@ const sidebars = {
             ],
         },
         {
-            Recipes: [
-                'recipes/recipes',
-                'recipes/transfer-infinite-loading-all-options-selected',
-            ],
+            Recipes: ['recipes/transfer-infinite-loading-all-options-selected'],
         },
         {
             Help: [

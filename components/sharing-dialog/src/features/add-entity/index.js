@@ -42,7 +42,7 @@ When('the user gives user view only access', () => {
     cy.get('[placeholder="Search"]').type('A user')
     cy.contains('[data-test="dhis2-uicore-menuitem"]', 'A user').click()
 
-    cy.contains('Select a level').click()
+    cy.contains('Choose a level').click()
     cy.contains(
         '[data-test="dhis2-uicore-singleselectoption"]',
         'View only'
@@ -69,7 +69,7 @@ When('the user gives user view and edit access', () => {
     cy.get('[placeholder="Search"]').type('A user')
     cy.contains('[data-test="dhis2-uicore-menuitem"]', 'A user').click()
 
-    cy.contains('Select a level').click()
+    cy.contains('Choose a level').click()
     cy.contains(
         '[data-test="dhis2-uicore-singleselectoption"]',
         'View and edit'
@@ -96,7 +96,7 @@ When('the user gives group view only access', () => {
     cy.get('[placeholder="Search"]').type('A group')
     cy.contains('[data-test="dhis2-uicore-menuitem"]', 'A group').click()
 
-    cy.contains('Select a level').click()
+    cy.contains('Choose a level').click()
     cy.contains(
         '[data-test="dhis2-uicore-singleselectoption"]',
         'View only'
@@ -123,7 +123,7 @@ When('the user gives group view and edit access', () => {
     cy.get('[placeholder="Search"]').type('A group')
     cy.contains('[data-test="dhis2-uicore-menuitem"]', 'A group').click()
 
-    cy.contains('Select a level').click()
+    cy.contains('Choose a level').click()
     cy.contains(
         '[data-test="dhis2-uicore-singleselectoption"]',
         'View and edit'
@@ -152,7 +152,7 @@ Then(
     () => {
         cy.contains('.wrapper', 'A user').should('be.visible').as('user-item')
 
-        cy.get('@user-item').contains('Can view').should('be.visible')
+        cy.get('@user-item').contains('user-1').should('be.visible')
         cy.get('@user-item').contains('View only').should('be.visible')
     }
 )
@@ -162,7 +162,7 @@ Then(
     () => {
         cy.contains('.wrapper', 'A user').should('be.visible').as('user-item')
 
-        cy.get('@user-item').contains('Can view and edit').should('be.visible')
+        cy.get('@user-item').contains('user-1').should('be.visible')
         cy.get('@user-item').contains('View and edit').should('be.visible')
     }
 )
@@ -172,7 +172,7 @@ Then(
     () => {
         cy.contains('.wrapper', 'A group').should('be.visible').as('group-item')
 
-        cy.get('@group-item').contains('Can view').should('be.visible')
+        cy.get('@group-item').contains('User group').should('be.visible')
         cy.get('@group-item').contains('View only').should('be.visible')
     }
 )
@@ -182,7 +182,7 @@ Then(
     () => {
         cy.contains('.wrapper', 'A group').should('be.visible').as('group-item')
 
-        cy.get('@group-item').contains('Can view and edit').should('be.visible')
+        cy.get('@group-item').contains('User group').should('be.visible')
         cy.get('@group-item').contains('View and edit').should('be.visible')
     }
 )

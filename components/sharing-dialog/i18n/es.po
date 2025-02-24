@@ -1,19 +1,20 @@
 # 
 # Translators:
 # Philip Larsen Donnelly, 2021
-# Viktor Varland <viktor@dhis2.org>, 2021
 # William Aviles <waviles@clintonhealthaccess.org>, 2021
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # Marta Vila <marta@dhis2.org>, 2023
 # Janeth Cruz, 2023
 # Enzo Nicolas Rossi <enzo@dhis2.org>, 2023
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2024
+# Viktor Varland <viktor@dhis2.org>, 2024
+# Manuel Silva <manuel@dhis2.org>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-11-25T09:59:40.995Z\n"
+"POT-Creation-Date: 2024-11-07T15:20:34.373Z\n"
 "PO-Revision-Date: 2021-10-01 23:39+0000\n"
-"Last-Translator: Enzo Nicolas Rossi <enzo@dhis2.org>, 2023\n"
+"Last-Translator: Manuel Silva <manuel@dhis2.org>, 2024\n"
 "Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,17 +28,26 @@ msgstr "Solo lectura"
 msgid "View and edit"
 msgstr "Ver y editar"
 
+msgid "No access"
+msgstr "Sin acceso"
+
 msgid "Give access to a user or group"
 msgstr "Dar acceso a un usuario o grupo"
 
-msgid "Access level"
-msgstr "Nivel de acceso"
+msgid "Data access level"
+msgstr ""
 
-msgid "Select a level"
-msgstr "Selecciona un nivel"
+msgid "Choose a level"
+msgstr ""
 
 msgid "Not available offline"
 msgstr "No disponible sin conexión a internet"
+
+msgid "Metadata access level"
+msgstr ""
+
+msgid "Access level"
+msgstr "Nivel de acceso"
 
 msgid "Give access"
 msgstr "Dar acceso"
@@ -51,20 +61,23 @@ msgstr "Usuario / Grupo"
 msgid "All users"
 msgstr "Todos los usuarios"
 
-msgid "No access"
-msgstr "Sin acceso"
+msgid "Anyone logged in"
+msgstr ""
 
-msgid "Can view"
-msgstr "Puede ver"
+msgid "User group"
+msgstr "Grupo de usuario"
 
-msgid "Can view and edit"
-msgstr "Puede ver y editar"
+msgid "User"
+msgstr "Usuario"
 
-msgid "Metadata"
-msgstr "Metadatos"
+msgid "Data"
+msgstr "Datos"
 
 msgid "Remove access"
 msgstr "Eliminar acceso"
+
+msgid "Metadata"
+msgstr "Metadatos"
 
 msgid "User or group"
 msgstr "Usuario o Grupo"

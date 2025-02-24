@@ -104,8 +104,8 @@ const Tooltip = ({
                 children({
                     onMouseOver: onMouseOver,
                     onMouseOut: onMouseOut,
-                    onFocus: { onFocus },
-                    onBlur: { onBlur },
+                    onFocus: onFocus,
+                    onBlur: onBlur,
                     ref: popperReference,
                 })
             ) : (

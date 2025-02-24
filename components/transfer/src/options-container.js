@@ -1,4 +1,3 @@
-import { spacers } from '@dhis2/ui-constants'
 import { CircularLoader } from '@dhis2-ui/loader'
 import PropTypes from 'prop-types'
 import React, { Fragment, useRef } from 'react'
@@ -69,7 +68,6 @@ export const OptionsContainer = ({
             <style jsx>{`
                 .optionsContainer {
                     flex-grow: 1;
-                    padding: ${spacers.dp4} 0;
                     position: relative;
                     overflow: hidden;
                 }

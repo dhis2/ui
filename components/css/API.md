@@ -27,8 +27,8 @@ import { CssVariables } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|colors|boolean|`false`|||
-|elevations|boolean|`false`|||
-|layers|boolean|`false`|||
-|spacers|boolean|`false`|||
-|theme|boolean|`false`|||
+|colors|boolean|``false``|||
+|elevations|boolean|``false``|||
+|layers|boolean|``false``|||
+|spacers|boolean|``false``|||
+|theme|boolean|``false``|||
