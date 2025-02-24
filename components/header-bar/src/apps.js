@@ -80,7 +80,10 @@ function ItemWrapper({ name, path, children }) {
     if (inRouterContext) {
         // todo: adjust to client-side routing scheme
         return (
-            <Link to={`/apps/${name.replace('dhis-web-', '')}`} className={className}>
+            <Link
+                to={`/apps/${name.replace('dhis-web-', '')}`}
+                className={className}
+            >
                 {children}
                 {styles}
             </Link>
