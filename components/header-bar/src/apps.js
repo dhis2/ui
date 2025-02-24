@@ -3,8 +3,12 @@ import { colors, spacers, theme } from '@dhis2/ui-constants'
 import { IconApps24, IconSettings24 } from '@dhis2/ui-icons'
 import { Card } from '@dhis2-ui/card'
 import { InputField } from '@dhis2-ui/input'
+import { Layer } from '@dhis2-ui/layer'
+import { Popper } from '@dhis2-ui/popper'
 import PropTypes from 'prop-types'
-import React, { useState, useEffect, useCallback, useRef } from 'react'
+import React, { useState, useCallback, useRef } from 'react'
+import { Link, useInRouterContext } from 'react-router-dom'
+import css from 'styled-jsx/css'
 import { joinPath } from './join-path.js'
 import i18n from './locales/index.js'
 
@@ -64,34 +68,67 @@ Search.propTypes = {
     onChange: PropTypes.func.isRequired,
 }
 
-function Item({ name, path, img }) {
+const { className, styles } = css.resolve`
+    a {
+        text-decoration: none;
+        margin: 8px;
+    }
+`
+function ItemWrapper({ name, path, children }) {
+    const inRouterContext = useInRouterContext()
+
+    if (inRouterContext) {
+        // todo: adjust to client-side routing scheme
+        return (
+            <Link
+                to={`/apps/${name.replace('dhis-web-', '')}`}
+                className={className}
+            >
+                {children}
+                {styles}
+            </Link>
+        )
+    }
+
     return (
-        <a href={path}>
-            <img src={img} alt="app logo" />
+        <a href={path} className={className}>
+            {children}
+            {styles}
+        </a>
+    )
+}
+ItemWrapper.propTypes = {
+    children: PropTypes.node,
+    name: PropTypes.string,
+    path: PropTypes.string,
+}
 
-            <div>{name}</div>
+function Item({ displayName, name, path, img }) {
+    return (
+        <ItemWrapper name={name} path={path}>
+            <div className="wrapper">
+                <img src={img} alt="app logo" />
 
+                <div className="name">{displayName}</div>
+            </div>
             <style jsx>{`
-                a {
-                    display: inline-block;
+                div.wrapper {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     justify-content: center;
                     width: 96px;
-                    margin: 8px;
                     border-radius: 12px;
-                    text-decoration: none;
                     cursor: pointer;
                 }
 
-                a:hover,
-                a:focus {
+                div.wrapper:hover,
+                div.wrapper:focus {
                     background-color: ${theme.primary050};
                     cursor: pointer;
                 }
 
-                a:hover > div {
+                div.wrapper:hover > div.name {
                     font-weight: 500;
                     cursor: pointer;
                 }
@@ -103,7 +140,7 @@ function Item({ name, path, img }) {
                     cursor: pointer;
                 }
 
-                div {
+                div.name {
                     overflow-wrap: anywhere;
                     margin-top: 14px;
                     color: rgba(0, 0, 0, 0.87);
@@ -114,11 +151,12 @@ function Item({ name, path, img }) {
                     cursor: pointer;
                 }
             `}</style>
-        </a>
+        </ItemWrapper>
     )
 }
 
 Item.propTypes = {
+    displayName: PropTypes.string,
     img: PropTypes.string,
     name: PropTypes.string,
     path: PropTypes.string,
@@ -141,7 +179,8 @@ function List({ apps, filter }) {
                 .map(({ displayName, name, defaultAction, icon }, idx) => (
                     <Item
                         key={`app-${name}-${idx}`}
-                        name={displayName || name}
+                        displayName={displayName || name}
+                        name={name}
                         path={defaultAction}
                         img={icon}
                     />
@@ -183,14 +222,6 @@ const AppMenu = ({ apps, filter, onFilterChange }) => (
             <Search value={filter} onChange={onFilterChange} />
             <List apps={apps} filter={filter} />
         </Card>
-
-        <style jsx>{`
-            div {
-                z-index: 10000;
-                position: absolute;
-                inset-inline-end: -4px;
-            }
-        `}</style>
     </div>
 )
 
@@ -204,22 +235,13 @@ const Apps = ({ apps }) => {
     const [show, setShow] = useState(false)
     const [filter, setFilter] = useState('')
 
-    const handleVisibilityToggle = useCallback(() => setShow(!show), [show])
+    const handleVisibilityToggle = useCallback(() => setShow((s) => !s), [])
     const handleFilterChange = useCallback(({ value }) => setFilter(value), [])
 
-    const containerEl = useRef(null)
-    const onDocClick = useCallback((evt) => {
-        if (containerEl.current && !containerEl.current.contains(evt.target)) {
-            setShow(false)
-        }
-    }, [])
-    useEffect(() => {
-        document.addEventListener('click', onDocClick)
-        return () => document.removeEventListener('click', onDocClick)
-    }, [onDocClick])
+    const containerRef = useRef(null)
 
     return (
-        <div ref={containerEl} data-test="headerbar-apps">
+        <div ref={containerRef} data-test="headerbar-apps">
             <button
                 onClick={handleVisibilityToggle}
                 data-test="headerbar-apps-icon"
@@ -228,11 +250,15 @@ const Apps = ({ apps }) => {
             </button>
 
             {show ? (
-                <AppMenu
-                    apps={apps}
-                    filter={filter}
-                    onFilterChange={handleFilterChange}
-                />
+                <Layer onBackdropClick={handleVisibilityToggle}>
+                    <Popper reference={containerRef} placement="bottom-end">
+                        <AppMenu
+                            apps={apps}
+                            filter={filter}
+                            onFilterChange={handleFilterChange}
+                        />
+                    </Popper>
+                </Layer>
             ) : null}
 
             <style jsx>{`
