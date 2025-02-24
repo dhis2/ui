@@ -13,9 +13,9 @@ import { HOME_VIEW } from '../utils/constants.js'
 import NavigationKey from './navigation-key.js'
 
 const NavigationKeysLegend = () => {
-    const { currentView } = useCommandPaletteContext()
+    const { currentView, filter } = useCommandPaletteContext()
 
-    const verticalOnly = currentView !== HOME_VIEW
+    const verticalOnly = currentView !== HOME_VIEW || Boolean(filter.length)
     const showBackspace = currentView !== HOME_VIEW
 
     return (
