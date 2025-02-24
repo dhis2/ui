@@ -11,6 +11,12 @@ import {
 } from './command-palette.test.js'
 
 describe('Command Palette - List View - Search Results', () => {
+    beforeAll(() => {
+        // Testing environment does not support the <dialog> component yet so it has to mocked
+        // linked issue: https://github.com/jsdom/jsdom/issues/3294
+        HTMLDialogElement.prototype.showModal = jest.fn()
+        HTMLDialogElement.prototype.close = jest.fn()
+    })
     it('filters for one item and handles navigation of singular item list', async () => {
         const user = userEvent.setup()
         const { getByPlaceholderText, queryAllByTestId, container } = render(
@@ -21,7 +27,7 @@ describe('Command Palette - List View - Search Results', () => {
             />
         )
         // open modal
-        fireEvent.keyDown(container, { key: '/', metaKey: true })
+        fireEvent.keyDown(container, { key: 'k', metaKey: true })
 
         // Search field
         const searchField = await getByPlaceholderText(
@@ -68,5 +74,32 @@ describe('Command Palette - List View - Search Results', () => {
 
         expect(queryByTestId('headerbar-empty-search')).toBeInTheDocument()
         expect(queryByText(/Nothing found for "abc"/i)).toBeInTheDocument()
+    })
+
+    it('handles search for logout action in the command palette', async () => {
+        const user = userEvent.setup()
+        const { getByPlaceholderText, queryAllByTestId, container } = render(
+            <CommandPalette
+                apps={testApps}
+                shortcuts={testShortcuts}
+                commands={testCommands}
+            />
+        )
+        // open modal
+        fireEvent.keyDown(container, { key: 'k', metaKey: true })
+
+        // Search field
+        const searchField = await getByPlaceholderText(
+            'Search apps, shortcuts, commands'
+        )
+        expect(searchField).toHaveValue('')
+
+        // result
+        await user.type(searchField, 'Logout')
+        const listItems = queryAllByTestId('headerbar-list-item')
+        expect(listItems.length).toBe(1)
+
+        expect(listItems[0]).toHaveTextContent('Logout')
+        expect(listItems[0]).toHaveClass('highlighted')
     })
 })

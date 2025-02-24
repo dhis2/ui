@@ -1,15 +1,21 @@
 import { colors, spacers } from '@dhis2/ui-constants'
 import { IconApps24 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
-import React, { useState, useCallback, useRef, useEffect } from 'react'
-import i18n from '../locales/index.js'
+import React, { useCallback, useRef, useEffect } from 'react'
 import { useCommandPaletteContext } from './context/command-palette-context.js'
 import { useAvailableActions } from './hooks/use-actions.js'
 import { useFilter } from './hooks/use-filter.js'
 import { useNavigation } from './hooks/use-navigation.js'
 import BackButton from './sections/back-button.js'
-import ModalContainer from './sections/container.js'
-import Search from './sections/search-field.js'
+import ModalContainer from './sections/modal-container.js'
+import SearchFilter from './sections/search-field.js'
+import {
+    ALL_APPS_VIEW,
+    ALL_COMMANDS_VIEW,
+    ALL_SHORTCUTS_VIEW,
+    FILTERABLE_ACTION,
+    HOME_VIEW,
+} from './utils/constants.js'
 import HomeView from './views/home-view.js'
 import {
     BrowseApps,
@@ -19,57 +25,69 @@ import {
 
 const CommandPalette = ({ apps, commands, shortcuts }) => {
     const containerEl = useRef(null)
-    const [show, setShow] = useState(false)
-    const { currentView, filter, setFilter } = useCommandPaletteContext()
-
-    const handleVisibilityToggle = useCallback(() => setShow(!show), [show])
-    const handleFilterChange = useCallback(
-        ({ value }) => setFilter(value),
-        [setFilter]
-    )
+    const { currentView, filter, setShowGrid } = useCommandPaletteContext()
 
     const actionsArray = useAvailableActions({ apps, shortcuts, commands })
+    const searchableActions = actionsArray.filter(
+        (action) => action.type === FILTERABLE_ACTION
+    )
 
     const {
         filteredApps,
         filteredCommands,
         filteredShortcuts,
         currentViewItemsArray,
-    } = useFilter({ apps, commands, shortcuts })
+    } = useFilter({
+        apps,
+        commands,
+        shortcuts,
+        actions: searchableActions,
+    })
 
-    const { handleKeyDown, goToDefaultView, modalRef } = useNavigation({
-        setShow,
+    useEffect(() => {
+        setShowGrid(apps?.length > 0)
+    }, [apps, setShowGrid])
+
+    const {
+        handleKeyDown,
+        modalRef,
+        setModalOpen,
+        showModal,
+        goToDefaultView,
+    } = useNavigation({
         itemsArray: currentViewItemsArray,
-        show,
-        showGrid: apps?.length > 0,
-        actionsLength: actionsArray?.length,
+        actionsArray,
     })
 
-    useEffect(() => {
-        const activeItem = document.querySelector('.highlighted')
-        if (activeItem && typeof activeItem.scrollIntoView === 'function') {
-            activeItem?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
-        }
-    })
+    const handleVisibilityToggle = useCallback(() => {
+        setModalOpen((open) => !open)
+        goToDefaultView()
+    }, [setModalOpen, goToDefaultView])
+
+    const handleModalClick = useCallback(
+        (event) => {
+            if (event.target === modalRef?.current) {
+                setModalOpen(false)
+            } else {
+                modalRef?.current?.querySelector('input').focus()
+            }
+        },
+        [modalRef, setModalOpen]
+    )
 
     useEffect(() => {
-        if (modalRef.current) {
-            modalRef.current?.focus()
+        const handleKeyDown = (event) => {
+            if ((event.metaKey || event.ctrlKey) && event.key === 'k') {
+                event.preventDefault()
+                handleVisibilityToggle()
+            }
         }
-    })
 
-    const handleFocus = (event) => {
-        if (event.target === modalRef?.current) {
-            modalRef.current?.querySelector('input').focus()
-        }
-    }
-
-    useEffect(() => {
         document.addEventListener('keydown', handleKeyDown)
         return () => {
             document.removeEventListener('keydown', handleKeyDown)
         }
-    }, [handleKeyDown])
+    }, [handleVisibilityToggle])
 
     return (
         <div ref={containerEl} data-test="headerbar" className="headerbar">
@@ -79,48 +97,33 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
             >
                 <IconApps24 color={colors.white} />
             </button>
-            {show ? (
-                <ModalContainer setShow={setShow} show={show}>
-                    <div
-                        data-test="headerbar-menu"
-                        className="headerbar-menu"
-                        ref={modalRef}
-                        tabIndex={0}
-                        onFocus={handleFocus}
-                    >
-                        <Search
-                            value={filter}
-                            onChange={handleFilterChange}
-                            placeholder={
-                                currentView === 'apps'
-                                    ? i18n.t('Search apps')
-                                    : currentView === 'commands'
-                                    ? i18n.t('Search commands')
-                                    : currentView === 'shortcuts'
-                                    ? i18n.t('Search shortcuts')
-                                    : i18n.t('Search apps, shortcuts, commands')
-                            }
-                        />
+            {showModal ? (
+                <ModalContainer
+                    ref={modalRef}
+                    onKeyDown={handleKeyDown}
+                    onClick={handleModalClick}
+                >
+                    <div data-test="headerbar-menu" className="headerbar-menu">
+                        <SearchFilter />
                         <div className="headerbar-menu-content">
-                            {currentView !== 'home' && !filter ? (
+                            {currentView !== HOME_VIEW && !filter ? (
                                 <BackButton onClickHandler={goToDefaultView} />
                             ) : null}
                             {/* switch views */}
-                            {currentView === 'home' && (
+                            {currentView === HOME_VIEW && (
                                 <HomeView
                                     apps={filteredApps}
-                                    commands={filteredCommands}
-                                    shortcuts={filteredShortcuts}
                                     actions={actionsArray}
+                                    filteredItems={currentViewItemsArray}
                                 />
                             )}
-                            {currentView === 'apps' && (
+                            {currentView === ALL_APPS_VIEW && (
                                 <BrowseApps apps={filteredApps} />
                             )}
-                            {currentView === 'commands' && (
+                            {currentView === ALL_COMMANDS_VIEW && (
                                 <BrowseCommands commands={filteredCommands} />
                             )}
-                            {currentView === 'shortcuts' && (
+                            {currentView === ALL_SHORTCUTS_VIEW && (
                                 <BrowseShortcuts
                                     shortcuts={filteredShortcuts}
                                 />
@@ -156,6 +159,9 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
                 .headerbar {
                     position: relative;
                     height: 100%;
+                }
+                .headerbar-menu {
+                    width: 100%;
                 }
                 .headerbar-menu-content {
                     overflow-y: auto;

@@ -2,6 +2,7 @@ import { colors, spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { COMMAND } from '../utils/constants.js'
 
 function ListItem({
     title,
@@ -13,16 +14,15 @@ function ListItem({
     onClickHandler,
     highlighted,
     dataTest = 'headerbar-list-item',
-    handleMouseEnter,
 }) {
-    const showDescription = type === 'commands'
+    const showDescription = type === COMMAND
     return (
         <a
             href={path ? path : undefined}
+            target="_self"
             onClick={onClickHandler}
             className={cx('item', { highlighted })}
             data-test={dataTest}
-            onMouseEnter={handleMouseEnter}
             tabIndex={-1}
         >
             <div className="icon">
@@ -100,7 +100,6 @@ function ListItem({
 ListItem.propTypes = {
     dataTest: PropTypes.string,
     description: PropTypes.string,
-    handleMouseEnter: PropTypes.func,
     highlighted: PropTypes.bool,
     icon: PropTypes.node,
     image: PropTypes.string,

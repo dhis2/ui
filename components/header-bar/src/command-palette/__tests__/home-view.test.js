@@ -12,6 +12,12 @@ import {
 } from './command-palette.test.js'
 
 describe('Command Palette - Home View', () => {
+    beforeAll(() => {
+        // Testing environment does not support the <dialog> component yet so it has to mocked
+        // linked issue: https://github.com/jsdom/jsdom/issues/3294
+        HTMLDialogElement.prototype.showModal = jest.fn()
+        HTMLDialogElement.prototype.close = jest.fn()
+    })
     it('shows the full default view upon opening the Command Palette', async () => {
         const user = userEvent.setup()
         const {
@@ -87,8 +93,8 @@ describe('Command Palette - Home View', () => {
             />
         )
 
-        // open modal with (Ctrl + /) keys
-        fireEvent.keyDown(container, { key: '/', ctrlKey: true })
+        // open modal with (Ctrl + k) keys
+        fireEvent.keyDown(container, { key: 'k', ctrlKey: true })
 
         // topApps
         const appsGrid = queryByTestId('headerbar-top-apps-list')
@@ -135,8 +141,8 @@ describe('Command Palette - Home View', () => {
             />
         )
 
-        // open modal with (Ctrl + /) keys
-        fireEvent.keyDown(container, { key: '/', ctrlKey: true })
+        // open modal with (Ctrl + k) keys
+        fireEvent.keyDown(container, { key: 'k', ctrlKey: true })
 
         // topApps
         const appsGrid = getByTestId('headerbar-top-apps-list')
@@ -187,8 +193,8 @@ describe('Command Palette - Home View', () => {
             />
         )
 
-        // open modal with (Ctrl + /) keys
-        fireEvent.keyDown(container, { key: '/', ctrlKey: true })
+        // open modal with (Ctrl + k) keys
+        fireEvent.keyDown(container, { key: 'k', ctrlKey: true })
 
         // topApps
         const appsGrid = queryByTestId('headerbar-top-apps-list')
@@ -246,8 +252,8 @@ describe('Command Palette - Home View', () => {
             />
         )
 
-        // open modal with (Ctrl + /) keys
-        fireEvent.keyDown(container, { key: '/', ctrlKey: true })
+        // open modal with (Ctrl + k) keys
+        fireEvent.keyDown(container, { key: 'k', ctrlKey: true })
 
         // topApps
         const appsGrid = getByTestId('headerbar-top-apps-list')
