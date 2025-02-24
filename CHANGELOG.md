@@ -1,3 +1,10 @@
+# [10.2.0](https://github.com/dhis2/ui/compare/v10.1.13...v10.2.0) (2025-02-24)
+
+
+### Features
+
+* add dataStore to SharingDialog types ([#1664](https://github.com/dhis2/ui/issues/1664)) ([853f7e4](https://github.com/dhis2/ui/commit/853f7e4f358ae4a95582dd66d58e72c745e69870))
+
 ## [10.1.13](https://github.com/dhis2/ui/compare/v10.1.12...v10.1.13) (2025-02-16)
 
 
