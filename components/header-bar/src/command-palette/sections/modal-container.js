@@ -1,17 +1,26 @@
 import { colors, elevations } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { forwardRef, useEffect } from 'react'
+import { useCommandPaletteContext } from '../context/command-palette-context.js'
 
 const ModalContainer = forwardRef(function ModalContainer(
     { children, onKeyDown, onClick },
     ref
 ) {
+    const { highlightedIndex } = useCommandPaletteContext()
+
     useEffect(() => {
-        const activeItem = ref?.current?.querySelector('.highlighted')
-        if (activeItem && typeof activeItem.scrollIntoView === 'function') {
-            activeItem?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+        if (ref.current) {
+            const activeItem = ref.current.querySelector('.highlighted')
+            if (activeItem && typeof activeItem.scrollIntoView === 'function') {
+                highlightedIndex !== null &&
+                    activeItem.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest',
+                    })
+            }
         }
-    }, [ref])
+    }, [ref, highlightedIndex])
 
     useEffect(() => {
         if (!ref.current) {

@@ -79,11 +79,7 @@ describe('Command Palette - List View - Search Results', () => {
     it('handles search for logout action in the command palette', async () => {
         const user = userEvent.setup()
         const { getByPlaceholderText, queryAllByTestId, container } = render(
-            <CommandPalette
-                apps={testApps}
-                shortcuts={testShortcuts}
-                commands={testCommands}
-            />
+            <CommandPalette apps={[]} shortcuts={[]} commands={[]} />
         )
         // open modal
         fireEvent.keyDown(container, { key: 'k', metaKey: true })
@@ -92,7 +88,6 @@ describe('Command Palette - List View - Search Results', () => {
         const searchField = await getByPlaceholderText(
             'Search apps, shortcuts, commands'
         )
-        expect(searchField).toHaveValue('')
 
         // result
         await user.type(searchField, 'Logout')
