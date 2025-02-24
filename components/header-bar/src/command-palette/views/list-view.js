@@ -10,9 +10,9 @@ function ListView({ filteredItems, actions }) {
 
     return filteredItems.length > 0 ? (
         <List filteredItems={filteredItems} backAction={backAction} />
-    ) : filter ? (
-        <EmptySearchResults />
-    ) : null
+    ) : (
+        filter && <EmptySearchResults />
+    )
 }
 
 ListView.propTypes = {
