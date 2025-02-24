@@ -4,7 +4,7 @@ import i18n from '../../locales/index.js'
 import { useCommandPaletteContext } from '../context/command-palette-context.js'
 import Heading from './heading.js'
 
-export function EmptySearchResults() {
+function EmptySearchResults() {
     const { filter } = useCommandPaletteContext()
 
     return (

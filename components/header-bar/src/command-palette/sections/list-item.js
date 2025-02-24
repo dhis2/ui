@@ -18,7 +18,7 @@ function ListItem({
     const showDescription = type === COMMAND
     return (
         <a
-            href={path ? path : undefined}
+            href={path || undefined}
             target="_self"
             onClick={onClickHandler}
             className={cx('item', { highlighted })}
