@@ -36,6 +36,7 @@ export const DIALOG_TYPES = {
     DATA_ELEMENT_GROUP: 'dataElementGroup',
     DATA_ELEMENT_GROUP_SET: 'dataElementGroupSet',
     DATA_SET: 'dataSet',
+    DATASTORE: 'dataStore',
     DOCUMENT: 'document',
     EVENT_CHART: 'eventChart',
     EVENT_FILTER: 'eventFilter',
