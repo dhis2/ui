@@ -100,42 +100,27 @@ describe('Command Palette - List View - Search Results', () => {
             'Search apps, shortcuts, commands'
         )
 
+        const testActionSearch = async (searchTerm, action) => {
+            await user.type(searchField, searchTerm)
+
+            const listItems = queryAllByTestId('headerbar-list-item')
+            expect(listItems.length).toBe(1)
+            expect(listItems[0]).toHaveTextContent(action)
+            expect(listItems[0]).toHaveClass('highlighted')
+
+            // clear search field
+            await user.keyboard('{Backspace}'.repeat(searchTerm.length))
+        }
+
         // search for logout action
-        let searchTerm = 'Logout'
-        await user.type(searchField, searchTerm)
-        let listItems = queryAllByTestId('headerbar-list-item')
-        expect(listItems.length).toBe(1)
-
-        expect(listItems[0]).toHaveTextContent('Logout')
-        expect(listItems[0]).toHaveClass('highlighted')
-
-        // clear search field
-        await user.keyboard('{Backspace}'.repeat(searchTerm.length))
-
+        await testActionSearch('Logout', 'Logout')
         // search for category actions
-        searchTerm = 'apps'
-        await user.type(searchField, searchTerm)
-        listItems = queryAllByTestId('headerbar-list-item')
-        expect(listItems[0]).toHaveTextContent('Browse apps')
-        expect(listItems[0]).toHaveClass('highlighted')
+        await testActionSearch('apps', 'Browse apps')
+        await testActionSearch('commands', 'Browse commands')
+        await testActionSearch('shortcuts', 'Browse shortcuts')
 
-        await user.keyboard('{Backspace}'.repeat(searchTerm.length))
-
-        searchTerm = 'commands'
-        await user.type(searchField, searchTerm)
-        listItems = queryAllByTestId('headerbar-list-item')
-        expect(listItems[0]).toHaveTextContent('Browse commands')
-        expect(listItems[0]).toHaveClass('highlighted')
-
-        await user.keyboard('{Backspace}'.repeat(searchTerm.length))
-
-        searchTerm = 'shortcuts'
-        await user.type(searchField, searchTerm)
-        listItems = queryAllByTestId('headerbar-list-item')
-        expect(listItems[0]).toHaveTextContent('Browse shortcuts')
-        expect(listItems[0]).toHaveClass('highlighted')
-
-        // go to shorcuts
+        // go to shortcuts
+        await user.type(searchField, 'Browse shortcuts')
         await user.keyboard('{Enter}')
         expect(queryByPlaceholderText('Search shortcuts')).toBeInTheDocument()
         // back action
