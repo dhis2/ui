@@ -17,6 +17,7 @@ function List({ filteredItems, backAction }) {
             {filteredItems.map(
                 (
                     {
+                        action,
                         displayName,
                         name,
                         defaultAction,
@@ -41,6 +42,7 @@ function List({ filteredItems, backAction }) {
                             icon={isIcon ? icon : undefined}
                             description={description}
                             highlighted={highlightedIndex === index}
+                            onClickHandler={action}
                         />
                     )
                 }
