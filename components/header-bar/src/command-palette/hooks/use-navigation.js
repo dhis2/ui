@@ -25,12 +25,18 @@ export const useNavigation = ({ itemsArray, actionsArray }) => {
     } = useCommandPaletteContext()
 
     const activeItems = useMemo(() => {
+        if (filter) {
+            return itemsArray
+        }
+
         if (currentView === HOME_VIEW) {
-            return filter || activeSection === GRID_SECTION
-                ? itemsArray
-                : actionsArray
+            if (activeSection === GRID_SECTION) {
+                return itemsArray
+            } else {
+                return actionsArray
+            }
         } else {
-            return filter ? itemsArray : actionsArray.concat(itemsArray)
+            return actionsArray.concat(itemsArray)
         }
     }, [filter, itemsArray, actionsArray, currentView, activeSection])
 
