@@ -18,25 +18,24 @@ export const CommandPaletteContextProvider = ({ children }) => {
     const [activeSection, setActiveSection] = useState(null)
     const [showGrid, setShowGrid] = useState(null)
 
-    const goToDefaultView = useCallback(() => {
+    const goToDefaultSection = useCallback(() => {
         const defaultSection = showGrid ? GRID_SECTION : ACTIONS_SECTION
 
-        setFilter('')
-        setCurrentView(HOME_VIEW)
         setActiveSection(defaultSection)
         setHighlightedIndex(0)
-    }, [
-        showGrid,
-        setCurrentView,
-        setFilter,
-        setActiveSection,
-        setHighlightedIndex,
-    ])
+    }, [showGrid, setActiveSection, setHighlightedIndex])
+
+    const goToDefaultView = useCallback(() => {
+        setFilter('')
+        setCurrentView(HOME_VIEW)
+        goToDefaultSection()
+    }, [setCurrentView, setFilter, goToDefaultSection])
 
     const contextValue = useMemo(
         () => ({
             filter,
             setFilter,
+            goToDefaultSection,
             goToDefaultView,
             highlightedIndex,
             setHighlightedIndex,
@@ -49,6 +48,7 @@ export const CommandPaletteContextProvider = ({ children }) => {
         }),
         [
             filter,
+            goToDefaultSection,
             goToDefaultView,
             highlightedIndex,
             currentView,

@@ -97,4 +97,105 @@ describe('Command Palette - List View - Search Results', () => {
         expect(listItems[0]).toHaveTextContent('Logout')
         expect(listItems[0]).toHaveClass('highlighted')
     })
+
+    it('handles multiple search results in the HOME View', async () => {
+        const user = userEvent.setup()
+        const {
+            getByPlaceholderText,
+            queryAllByTestId,
+            container,
+            getByTestId,
+            queryByTestId,
+        } = render(
+            <CommandPalette apps={testApps} shortcuts={[]} commands={[]} />
+        )
+        // open modal
+        fireEvent.keyDown(container, { key: 'k', metaKey: true })
+
+        // Search field
+        const searchField = await getByPlaceholderText(
+            'Search apps, shortcuts, commands'
+        )
+        expect(searchField).toHaveValue('')
+
+        const searchTerm = 'app'
+
+        await user.type(searchField, searchTerm)
+        expect(queryByTestId('headerbar-top-apps-list')).not.toBeInTheDocument()
+
+        const resultsListItems = queryAllByTestId('headerbar-list-item')
+        expect(resultsListItems.length).toBe(9)
+
+        const firstResult = resultsListItems[0]
+        const fifthResult = resultsListItems[4]
+
+        expect(firstResult).toHaveTextContent('Test App 1')
+        expect(firstResult).toHaveClass('highlighted')
+
+        // scroll down to fifth result
+        await user.keyboard('{ArrowDown}'.repeat(4))
+
+        expect(fifthResult).toHaveTextContent('Test App 5')
+        expect(fifthResult).toHaveClass('highlighted')
+
+        // clear search field
+        await user.keyboard('{Backspace}'.repeat(searchTerm.length))
+
+        expect(searchField).toHaveValue('')
+
+        const appsGrid = getByTestId('headerbar-top-apps-list')
+        const firstGridApp = appsGrid.querySelectorAll('a')[0]
+
+        expect(firstGridApp).toHaveClass('highlighted')
+        expect(firstGridApp.querySelector('span')).toHaveTextContent(
+            'Test App 1'
+        )
+    })
+
+    it('highlights first action in "no grid home view" when search is cleared', async () => {
+        const user = userEvent.setup()
+        const {
+            getByPlaceholderText,
+            queryAllByTestId,
+            container,
+            queryByTestId,
+        } = render(
+            <CommandPalette
+                apps={[]}
+                shortcuts={testShortcuts}
+                commands={testCommands}
+            />
+        )
+        // open modal
+        fireEvent.keyDown(container, { key: 'k', metaKey: true })
+
+        const appsGrid = queryByTestId('headerbar-top-apps-list')
+        const browseAppsAction = queryByTestId('headerbar-browse-apps')
+        const browseCommandsAction = queryByTestId('headerbar-browse-commands')
+
+        // since there are no apps
+        expect(appsGrid).not.toBeInTheDocument()
+        // since apps < MIN_APPS_NUM(8)
+        expect(browseAppsAction).not.toBeInTheDocument()
+        // since commands > 1
+        expect(browseCommandsAction).toBeInTheDocument()
+        expect(browseCommandsAction).toHaveClass('highlighted')
+
+        // Search field
+        const searchField = await getByPlaceholderText(
+            'Search apps, shortcuts, commands'
+        )
+        const searchTerm = 'test'
+        await user.type(searchField, searchTerm)
+
+        const resultsListItems = queryAllByTestId('headerbar-list-item')
+        expect(resultsListItems.length).toBe(2)
+        expect(resultsListItems[0]).toHaveClass('highlighted')
+
+        // clear search field
+        await user.keyboard('{Backspace}'.repeat(searchTerm.length))
+
+        expect(searchField).toHaveValue('')
+        expect(browseCommandsAction).toHaveClass('highlighted')
+    })
 })

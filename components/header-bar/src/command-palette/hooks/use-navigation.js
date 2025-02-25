@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useMemo, useRef } from 'react'
+import { useCallback, useMemo, useRef } from 'react'
 import { useCommandPaletteContext } from '../context/command-palette-context.js'
 import {
-    ACTIONS_SECTION,
     GRID_COLUMNS,
     GRID_ROWS,
+    GRID_SECTION,
     HOME_VIEW,
 } from '../utils/constants.js'
 import { handleHomeNavigation } from '../utils/home-navigation.js'
@@ -25,19 +25,22 @@ export const useNavigation = ({ itemsArray, actionsArray }) => {
     } = useCommandPaletteContext()
 
     const activeItems = useMemo(() => {
+        if (filter) {
+            return itemsArray
+        }
+
         if (currentView === HOME_VIEW) {
-            return activeSection === ACTIONS_SECTION ? actionsArray : itemsArray
+            if (activeSection === GRID_SECTION) {
+                return itemsArray
+            } else {
+                return actionsArray
+            }
         } else {
-            return filter ? itemsArray : actionsArray.concat(itemsArray)
+            return actionsArray.concat(itemsArray)
         }
     }, [filter, itemsArray, actionsArray, currentView, activeSection])
 
     const { modalOpen, setModalOpen } = useModal(modalRef)
-
-    // highlight first item in filtered results
-    useEffect(() => {
-        setHighlightedIndex(0)
-    }, [filter, setHighlightedIndex])
 
     const handleListViewNavigation = useCallback(
         ({ event, listLength }) => {
