@@ -10,33 +10,45 @@ const HomeView = ({ grid, gridColumnCount, gridRowCount, currentItem }) => {
     // TODO: highlight first grid item if no filter
     return (
         <>
-            <Heading heading={i18n.t('Top apps')} />
-            <div
-                data-test="headerbar-top-apps-list"
-                className="headerbar-top-apps"
-            >
-                {grid.slice(0, gridRowCount).map((arr) => {
-                    return arr.map((item, idx) => {
-                        const { displayName, name, defaultAction, icon } = item
-                        return (
-                            <AppItem
-                                key={`app-${name}-${idx}`}
-                                name={displayName || name}
-                                path={defaultAction}
-                                img={icon}
-                                highlighted={item === currentItem}
-                            />
-                        )
-                    })
-                })}
-                <style jsx>{`
-                    .headerbar-top-apps {
-                        display: grid;
-                        grid-template-columns: repeat(${gridColumnCount}, 1fr);
-                        padding: 0 ${spacers.dp4};
-                    }
-                `}</style>
-            </div>
+            {gridRowCount > 0 && (
+                <>
+                    <Heading heading={i18n.t('Top apps')} />
+                    <div
+                        data-test="headerbar-top-apps-list"
+                        className="headerbar-top-apps"
+                    >
+                        {grid.slice(0, gridRowCount).map((arr) => {
+                            return arr.map((item, idx) => {
+                                const {
+                                    displayName,
+                                    name,
+                                    defaultAction,
+                                    icon,
+                                } = item
+                                return (
+                                    <AppItem
+                                        key={`app-${name}-${idx}`}
+                                        name={displayName || name}
+                                        path={defaultAction}
+                                        img={icon}
+                                        highlighted={item === currentItem}
+                                    />
+                                )
+                            })
+                        })}
+                        <style jsx>{`
+                            .headerbar-top-apps {
+                                display: grid;
+                                grid-template-columns: repeat(
+                                    ${gridColumnCount},
+                                    1fr
+                                );
+                                padding: 0 ${spacers.dp4};
+                            }
+                        `}</style>
+                    </div>
+                </>
+            )}
 
             {/* actions menu */}
             <Heading heading={i18n.t('Actions')} />
