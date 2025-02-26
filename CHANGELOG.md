@@ -1,3 +1,10 @@
+# [10.3.0](https://github.com/dhis2/ui/compare/v10.2.0...v10.3.0) (2025-02-26)
+
+
+### Features
+
+* **sharing-dialog:** allow sharing dashboards without cascading sharing ([#1674](https://github.com/dhis2/ui/issues/1674)) ([18af4f7](https://github.com/dhis2/ui/commit/18af4f7ba560b28fae2366258b17cdb73fab22f8))
+
 # [10.2.0](https://github.com/dhis2/ui/compare/v10.1.13...v10.2.0) (2025-02-24)
 
 
