@@ -100,10 +100,10 @@ describe('Command Palette - List View - Search Results', () => {
             'Search apps, shortcuts, commands'
         )
 
-        const testActionSearch = async (searchTerm, action) => {
+        const testActionSearch = async (searchTerm, action, dataTestId) => {
             await user.type(searchField, searchTerm)
 
-            const listItems = queryAllByTestId('headerbar-list-item')
+            const listItems = queryAllByTestId(dataTestId)
             expect(listItems.length).toBe(1)
             expect(listItems[0]).toHaveTextContent(action)
             expect(listItems[0]).toHaveClass('highlighted')
@@ -113,11 +113,19 @@ describe('Command Palette - List View - Search Results', () => {
         }
 
         // search for logout action
-        await testActionSearch('Logout', 'Logout')
+        await testActionSearch('Logout', 'Logout', 'headerbar-logout')
         // search for category actions
-        await testActionSearch('apps', 'Browse apps')
-        await testActionSearch('commands', 'Browse commands')
-        await testActionSearch('shortcuts', 'Browse shortcuts')
+        await testActionSearch('apps', 'Browse apps', 'headerbar-browse-apps')
+        await testActionSearch(
+            'commands',
+            'Browse commands',
+            'headerbar-browse-commands'
+        )
+        await testActionSearch(
+            'shortcuts',
+            'Browse shortcuts',
+            'headerbar-browse-shortcuts'
+        )
 
         // go to shortcuts
         await user.type(searchField, 'Browse shortcuts')
