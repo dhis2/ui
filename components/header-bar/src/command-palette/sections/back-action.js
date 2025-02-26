@@ -3,6 +3,7 @@ import React from 'react'
 import { useCommandPaletteContext } from '../context/command-palette-context.js'
 import ListItem from './list-item.js'
 
+// TODO: delete redundant component
 function BackActionItem({ actionProps }) {
     const { highlightedIndex } = useCommandPaletteContext()
     const { name, icon, dataTest, action } = actionProps
