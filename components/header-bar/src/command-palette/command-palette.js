@@ -1,48 +1,93 @@
 import { colors, spacers } from '@dhis2/ui-constants'
 import { IconApps24 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
-import React, { useCallback, useRef, useEffect } from 'react'
+import React, { useCallback, useRef, useEffect, useMemo } from 'react'
 import { useCommandPaletteContext } from './context/command-palette-context.js'
 import { useAvailableActions } from './hooks/use-actions.js'
 import { useFilter } from './hooks/use-filter.js'
-import { useNavigation } from './hooks/use-navigation.js'
+import useGridNavigation from './hooks/use-grid-navigation.js'
+import useModal from './hooks/use-modal.js'
 import ModalContainer from './sections/modal-container.js'
 import NavigationKeysLegend from './sections/navigation-keys-legend.js'
-import SearchFilter from './sections/search-field.js'
-import { FILTERABLE_ACTION, HOME_VIEW } from './utils/constants.js'
+import SearchFilter from './sections/search-filter.js'
+import { HOME_VIEW } from './utils/constants.js'
 import HomeView from './views/home-view.js'
 import ListView from './views/list-view.js'
 
 const CommandPalette = ({ apps, commands, shortcuts }) => {
     const containerEl = useRef(null)
-    const { currentView, goToDefaultView, setShowGrid } =
-        useCommandPaletteContext()
-
-    const actionsArray = useAvailableActions({ apps, shortcuts, commands })
-    const searchableActions = actionsArray.filter(
-        (action) => action.type === FILTERABLE_ACTION
-    )
-
-    const { filteredApps, currentViewItemsArray } = useFilter({
+    const { modalOpen, modalRef, setModalOpen } = useModal()
+    const { currentView, filter, setCurrentView } = useCommandPaletteContext()
+    const actions = useAvailableActions({ apps, shortcuts, commands })
+    const filteredItems = useFilter({
         apps,
         commands,
         shortcuts,
-        actions: searchableActions,
+        actions,
     })
+    const gridItems = currentView === HOME_VIEW && !filter ? apps : []
+    const listItems = useMemo(() => {
+        if (filter) {
+            return filteredItems
+        }
 
-    useEffect(() => {
-        setShowGrid(apps?.length > 0)
-    }, [apps, setShowGrid])
+        if (currentView === HOME_VIEW) {
+            return actions
+        } else {
+            return [...actions, ...filteredItems]
+        }
+    }, [actions, currentView, filter, filteredItems])
 
-    const { handleKeyDown, modalRef, setModalOpen, showModal } = useNavigation({
-        itemsArray: currentViewItemsArray,
-        actionsArray,
-    })
+    const {
+        currentItem,
+        grid,
+        gridColumnCount,
+        gridRowCount,
+        handleKeyDown: handleGridNavigation,
+    } = useGridNavigation(gridItems, listItems)
+
+    const handleKeyDown = useCallback(
+        (event) => {
+            if (currentView !== HOME_VIEW) {
+                if (!filter.length && event.key === 'Backspace') {
+                    event.preventDefault()
+                    setCurrentView(HOME_VIEW)
+                    // TODO: focus 1st item
+                }
+            }
+
+            handleGridNavigation(event)
+
+            switch (event.key) {
+                case 'Escape':
+                    event.preventDefault()
+                    setModalOpen(false)
+                    break
+                case 'Enter':
+                    event.preventDefault()
+                    currentItem?.['action']?.()
+                    break
+                case 'Tab':
+                    event.preventDefault()
+                    break
+                default:
+                    break
+            }
+        },
+        [
+            currentItem,
+            currentView,
+            filter,
+            handleGridNavigation,
+            setCurrentView,
+            setModalOpen,
+        ]
+    )
 
     const handleVisibilityToggle = useCallback(() => {
         setModalOpen((open) => !open)
-        goToDefaultView()
-    }, [setModalOpen, goToDefaultView])
+        // to do: reset to first item index
+    }, [setModalOpen])
 
     const handleModalClick = useCallback(
         (event) => {
@@ -77,7 +122,7 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
             >
                 <IconApps24 color={colors.white} />
             </button>
-            {showModal ? (
+            {modalOpen ? (
                 <ModalContainer
                     ref={modalRef}
                     onKeyDown={handleKeyDown}
@@ -86,16 +131,17 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
                     <div data-test="headerbar-menu" className="headerbar-menu">
                         <SearchFilter />
                         <div className="headerbar-menu-content">
-                            {currentView === HOME_VIEW ? (
+                            {currentView === HOME_VIEW && !filter ? (
                                 <HomeView
-                                    actions={actionsArray}
-                                    filteredItems={currentViewItemsArray}
-                                    apps={filteredApps}
+                                    grid={grid}
+                                    gridColumnCount={gridColumnCount}
+                                    gridRowCount={gridRowCount}
+                                    currentItem={currentItem}
                                 />
                             ) : (
                                 <ListView
-                                    filteredItems={currentViewItemsArray}
-                                    actions={actionsArray}
+                                    grid={grid}
+                                    currentItem={currentItem}
                                 />
                             )}
                         </div>
