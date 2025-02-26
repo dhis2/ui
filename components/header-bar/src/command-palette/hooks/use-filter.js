@@ -4,18 +4,23 @@ import {
     ALL_APPS_VIEW,
     ALL_COMMANDS_VIEW,
     ALL_SHORTCUTS_VIEW,
+    FILTERABLE_ACTION,
 } from '../utils/constants.js'
 import { filterItemsArray } from '../utils/filterItemsArray.js'
 
 export const useFilter = ({ apps, commands, shortcuts, actions }) => {
     const { filter, currentView } = useCommandPaletteContext()
 
+    const searchableActions = actions.filter(
+        (action) => action.type === FILTERABLE_ACTION
+    )
+
     const filteredApps = filterItemsArray(apps, filter)
     const filteredCommands = filterItemsArray(commands, filter)
     const filteredShortcuts = filterItemsArray(shortcuts, filter)
-    const filteredActions = filterItemsArray(actions, filter)
+    const filteredActions = filterItemsArray(searchableActions, filter)
 
-    const currentViewItemsArray = useMemo(() => {
+    const filteredItems = useMemo(() => {
         if (currentView === ALL_APPS_VIEW) {
             return filteredApps
         } else if (currentView === ALL_COMMANDS_VIEW) {
@@ -37,10 +42,5 @@ export const useFilter = ({ apps, commands, shortcuts, actions }) => {
         filteredActions,
     ])
 
-    return {
-        filteredApps,
-        filteredCommands,
-        filteredShortcuts,
-        currentViewItemsArray,
-    }
+    return filteredItems
 }

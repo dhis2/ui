@@ -25,13 +25,8 @@ import {
 
 export const useAvailableActions = ({ apps, shortcuts, commands }) => {
     const { baseUrl } = useConfig()
-    const {
-        currentView,
-        goToDefaultView,
-        setCurrentView,
-        setFilter,
-        setHighlightedIndex,
-    } = useCommandPaletteContext()
+    const { currentView, setCurrentView, setFilter } =
+        useCommandPaletteContext()
 
     const logoutURL = joinPath(
         baseUrl,
@@ -45,12 +40,12 @@ export const useAvailableActions = ({ apps, shortcuts, commands }) => {
 
     const switchViewAction = useCallback(
         (type) => {
-            const firstItemIndexInList = 1
             setCurrentView(type)
             setFilter('')
-            setHighlightedIndex(firstItemIndexInList)
+            // to do: reset to first category item index for list view
+            // for home view, reset to first item index
         },
-        [setCurrentView, setFilter, setHighlightedIndex]
+        [setCurrentView, setFilter]
     )
 
     const actions = useMemo(() => {
@@ -97,18 +92,10 @@ export const useAvailableActions = ({ apps, shortcuts, commands }) => {
                 name: i18n.t('Back'),
                 icon: <IconArrowLeft16 color={colors.grey700} />,
                 dataTest: 'headerbar-back-action',
-                action: goToDefaultView,
+                action: () => switchViewAction(HOME_VIEW),
             })
         }
         return actionsArray
-    }, [
-        apps,
-        shortcuts,
-        commands,
-        currentView,
-        logoutURL,
-        goToDefaultView,
-        switchViewAction,
-    ])
+    }, [apps, shortcuts, commands, currentView, logoutURL, switchViewAction])
     return actions
 }
