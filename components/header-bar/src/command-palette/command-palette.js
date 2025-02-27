@@ -4,13 +4,13 @@ import PropTypes from 'prop-types'
 import React, { useCallback, useRef, useEffect, useMemo } from 'react'
 import { useCommandPaletteContext } from './context/command-palette-context.js'
 import { useAvailableActions } from './hooks/use-actions.js'
-import { useFilter } from './hooks/use-filter.js'
 import useGridNavigation from './hooks/use-grid-navigation.js'
 import useModal from './hooks/use-modal.js'
 import ModalContainer from './sections/modal-container.js'
 import NavigationKeysLegend from './sections/navigation-keys-legend.js'
 import SearchFilter from './sections/search-filter.js'
 import { HOME_VIEW } from './utils/constants.js'
+import { filterItemsPerView } from './utils/filter.js'
 import HomeView from './views/home-view.js'
 import ListView from './views/list-view.js'
 
@@ -18,12 +18,18 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
     const containerEl = useRef(null)
     const { currentView, filter, setCurrentView } = useCommandPaletteContext()
     const actions = useAvailableActions({ apps, shortcuts, commands })
-    const filteredItems = useFilter({
-        apps,
-        commands,
-        shortcuts,
-        actions,
-    })
+    const filteredItems = useMemo(
+        () =>
+            filterItemsPerView({
+                apps,
+                commands,
+                shortcuts,
+                actions,
+                filter,
+                currentView,
+            }),
+        [apps, commands, shortcuts, actions, filter, currentView]
+    )
     const gridItems = currentView === HOME_VIEW && !filter ? apps : []
     const listItems = useMemo(() => {
         if (filter) {
