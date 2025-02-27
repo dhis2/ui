@@ -42,8 +42,6 @@ export const useAvailableActions = ({ apps, shortcuts, commands }) => {
         (type) => {
             setCurrentView(type)
             setFilter('')
-            // to do: reset to first category item index for list view
-            // for home view, reset to first item index
         },
         [setCurrentView, setFilter]
     )

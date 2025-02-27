@@ -9,8 +9,6 @@ const ListView = ({ grid, currentItem }) => {
         return acc
     }, [])
 
-    // TODO: highlight first index if there is a filter else 2nd item/category item
-
     return (
         <>
             {listItems.length > 0 ? (

@@ -1,6 +1,10 @@
-import { useState, useMemo, useCallback } from 'react'
+import { useState, useMemo, useCallback, useRef, useEffect } from 'react'
+import { useCommandPaletteContext } from '../context/command-palette-context.js'
+import { isSameArray } from '../utils/compareArrays.js'
 import {
     DESKTOP_GRID_COLUMNS,
+    HOME_VIEW,
+    MIN_APPS_NUM,
     MOBILE_GRID_COLUMNS,
 } from '../utils/constants.js'
 import { useIsMobile } from './use-is-mobile.js'
@@ -22,10 +26,17 @@ const constructGrid = (items, isMobile) => {
 }
 
 const useGridNavigation = (gridItems, listItems) => {
+    const gridItemsRef = useRef(gridItems)
+    const listItemsRef = useRef(listItems)
+    const { currentView, filter } = useCommandPaletteContext()
+
     const isMobile = useIsMobile(gridItems.length > 1)
     const [currentLocation, setCurrentLocation] = useState({ x: 0, y: 0 })
 
-    const gridSection = constructGrid(gridItems.slice(0, 8), isMobile)
+    const gridSection = constructGrid(
+        gridItems.slice(0, MIN_APPS_NUM),
+        isMobile
+    )
 
     const grid = useMemo(
         () => [...gridSection, ...listItems.map((item) => [item])],
@@ -35,17 +46,19 @@ const useGridNavigation = (gridItems, listItems) => {
     const handleKeyDown = useCallback(
         (event) => {
             const updateLocation = (location) => {
-                if (location.y < 0) {
-                    location.y = grid.length - 1
-                }
-                if (location.y > grid.length - 1) {
-                    location.y = 0
-                }
-                if (location.x < 0) {
-                    location.x = grid[location.y].length - 1
-                }
-                if (location.x > grid[location.y].length - 1) {
-                    location.x = 0
+                if (grid?.length) {
+                    if (location.y < 0) {
+                        location.y = grid.length - 1
+                    }
+                    if (location.y > grid.length - 1) {
+                        location.y = 0
+                    }
+                    if (location.x < 0) {
+                        location.x = grid[location.y].length - 1
+                    }
+                    if (location.x > grid[location.y].length - 1) {
+                        location.x = 0
+                    }
                 }
 
                 return location
@@ -53,11 +66,13 @@ const useGridNavigation = (gridItems, listItems) => {
 
             switch (event.key) {
                 case 'ArrowUp':
+                    event.preventDefault()
                     setCurrentLocation((prev) =>
                         updateLocation({ x: prev.x, y: prev.y - 1 })
                     )
                     break
                 case 'ArrowDown':
+                    event.preventDefault()
                     setCurrentLocation((prev) =>
                         updateLocation({ x: prev.x, y: prev.y + 1 })
                     )
@@ -77,9 +92,26 @@ const useGridNavigation = (gridItems, listItems) => {
         [grid, setCurrentLocation]
     )
 
-    const currentItem = grid.length
-        ? grid?.[currentLocation.y]?.[currentLocation.x]
-        : {}
+    useEffect(() => {
+        if (gridItemsRef.current && listItemsRef.current) {
+            const isSameGrid =
+                isSameArray(gridItemsRef.current, gridItems) &&
+                isSameArray(listItemsRef.current, listItems)
+
+            if (isSameGrid) {
+                return
+            } else if (currentView === HOME_VIEW || filter) {
+                setCurrentLocation({ x: 0, y: 0 })
+            } else {
+                setCurrentLocation({ x: 0, y: 1 })
+            }
+        }
+
+        gridItemsRef.current = gridItems
+        listItemsRef.current = listItems
+    }, [currentView, filter, gridItems, listItems])
+
+    const currentItem = grid?.[currentLocation.y]?.[currentLocation.x] || null
 
     const gridRowCount = gridSection.length
     const gridColumnCount = gridSection[0]?.length || 0

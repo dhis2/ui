@@ -7,7 +7,6 @@ import Heading from '../sections/heading.js'
 import ListItem from '../sections/list-item.js'
 
 const HomeView = ({ grid, gridColumnCount, gridRowCount, currentItem }) => {
-    // TODO: highlight first grid item if no filter
     return (
         <>
             {gridRowCount > 0 && (
