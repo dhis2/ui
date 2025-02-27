@@ -9,9 +9,7 @@ import {
 } from '../utils/constants.js'
 import { useIsMobile } from './use-is-mobile.js'
 
-const constructGrid = (items, isMobile) => {
-    const columns = isMobile ? MOBILE_GRID_COLUMNS : DESKTOP_GRID_COLUMNS
-
+const constructGrid = (items, columns) => {
     return items.reduce((acc, item, index) => {
         const rowIndex = Math.floor(index / columns)
 
@@ -30,12 +28,15 @@ const useGridNavigation = (gridItems, listItems) => {
     const listItemsRef = useRef(listItems)
     const { currentView, filter } = useCommandPaletteContext()
 
-    const isMobile = useIsMobile(gridItems.length > 1)
+    const isMobile = useIsMobile(gridItems.length > 0)
     const [currentLocation, setCurrentLocation] = useState({ x: 0, y: 0 })
+    const gridColumnCount = isMobile
+        ? MOBILE_GRID_COLUMNS
+        : DESKTOP_GRID_COLUMNS
 
-    const gridSection = constructGrid(
-        gridItems.slice(0, MIN_APPS_NUM),
-        isMobile
+    const gridSection = useMemo(
+        () => constructGrid(gridItems.slice(0, MIN_APPS_NUM), gridColumnCount),
+        [gridItems, gridColumnCount]
     )
 
     const grid = useMemo(
@@ -114,9 +115,14 @@ const useGridNavigation = (gridItems, listItems) => {
     const currentItem = grid?.[currentLocation.y]?.[currentLocation.x] || null
 
     const gridRowCount = gridSection.length
-    const gridColumnCount = gridSection[0]?.length || 0
 
-    return { handleKeyDown, grid, currentItem, gridRowCount, gridColumnCount }
+    return {
+        currentItem,
+        grid,
+        gridRowCount,
+        gridColumnCount,
+        handleKeyDown,
+    }
 }
 
 export default useGridNavigation
