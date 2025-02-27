@@ -7,19 +7,6 @@ const ModalContainer = forwardRef(function ModalContainer(
     ref
 ) {
     useEffect(() => {
-        if (ref.current) {
-            const activeItem = ref.current.querySelector('.highlighted')
-            if (activeItem && typeof activeItem.scrollIntoView === 'function') {
-                // TODO: track current item to focus it
-                activeItem.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'nearest',
-                })
-            }
-        }
-    }, [ref])
-
-    useEffect(() => {
         if (!ref.current) {
             return
         }

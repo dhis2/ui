@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react'
 
-const useModal = () => {
+const useModal = (currentItem) => {
     const modalRef = useRef(null)
     const [modalOpen, setModalOpen] = useState(false)
 
@@ -13,6 +13,19 @@ const useModal = () => {
             }
         }
     }, [modalOpen, modalRef])
+
+    useEffect(() => {
+        if (modalRef.current) {
+            const activeItem = modalRef.current.querySelector('.highlighted')
+            if (activeItem && typeof activeItem.scrollIntoView === 'function') {
+                currentItem !== null &&
+                    activeItem.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest',
+                    })
+            }
+        }
+    }, [currentItem, modalRef])
 
     return {
         modalRef,

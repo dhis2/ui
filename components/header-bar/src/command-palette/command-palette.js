@@ -16,7 +16,6 @@ import ListView from './views/list-view.js'
 
 const CommandPalette = ({ apps, commands, shortcuts }) => {
     const containerEl = useRef(null)
-    const { modalOpen, modalRef, setModalOpen } = useModal()
     const { currentView, filter, setCurrentView } = useCommandPaletteContext()
     const actions = useAvailableActions({ apps, shortcuts, commands })
     const filteredItems = useFilter({
@@ -46,13 +45,14 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
         handleKeyDown: handleGridNavigation,
     } = useGridNavigation(gridItems, listItems)
 
+    const { modalOpen, modalRef, setModalOpen } = useModal(currentItem)
+
     const handleKeyDown = useCallback(
         (event) => {
             if (currentView !== HOME_VIEW) {
                 if (!filter.length && event.key === 'Backspace') {
                     event.preventDefault()
                     setCurrentView(HOME_VIEW)
-                    // TODO: focus 1st item
                 }
             }
 
@@ -86,7 +86,6 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
 
     const handleVisibilityToggle = useCallback(() => {
         setModalOpen((open) => !open)
-        // to do: reset to first item index
     }, [setModalOpen])
 
     const handleModalClick = useCallback(
