@@ -1,29 +1,34 @@
-import { useCallback, useState, useEffect } from 'react'
+import { useRef, useState, useEffect } from 'react'
 
-const useModal = (modalRef) => {
+const useModal = (currentItem) => {
+    const modalRef = useRef(null)
     const [modalOpen, setModalOpen] = useState(false)
 
-    const handleOpenModal = useCallback(() => {
+    useEffect(() => {
         if (modalRef.current) {
-            modalRef.current.showModal()
+            if (modalOpen) {
+                modalRef.current.showModal()
+            } else {
+                modalRef.current.close()
+            }
         }
-    }, [modalRef])
-
-    const handleCloseModal = useCallback(() => {
-        if (modalRef.current) {
-            modalRef.current.close()
-        }
-    }, [modalRef])
+    }, [modalOpen, modalRef])
 
     useEffect(() => {
-        if (modalOpen) {
-            handleOpenModal()
-        } else {
-            handleCloseModal()
+        if (modalRef.current) {
+            const activeItem = modalRef.current.querySelector('.highlighted')
+            if (activeItem && typeof activeItem.scrollIntoView === 'function') {
+                currentItem !== null &&
+                    activeItem.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest',
+                    })
+            }
         }
-    }, [modalOpen, handleCloseModal, handleOpenModal])
+    }, [currentItem, modalRef])
 
     return {
+        modalRef,
         modalOpen,
         setModalOpen,
     }
