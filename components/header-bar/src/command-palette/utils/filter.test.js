@@ -1,7 +1,15 @@
 import { filterItemsArray, processString } from './filter.js'
 
 describe('filter helper functions', () => {
-    it('processString function - handles different string inputs', () => {
+    const itemsToSearch = [
+        { name: 'Médic' },
+        { name: 'Medical Records' },
+        { name: 'Import/Export App' },
+        { name: 'Covid 19' },
+        { name: "Facility's Dashboard" },
+        { name: '{App}' },
+    ]
+    test('processString function - handles different string inputs', () => {
         expect(processString('ABC')).toBe('ABC')
 
         // strips away spaces
@@ -15,60 +23,52 @@ describe('filter helper functions', () => {
         expect(processString('hello, world!')).toBe('helloworld')
     })
 
-    it('filterItemsArray function - handles search across various inputs', () => {
-        const itemsToSearch = [
-            { name: 'Médic' },
-            { name: 'Medical Records' },
-            { name: 'Import/Export App' },
-            { name: 'Covid 19' },
-            { name: "Facility's Dashboard" },
-            { name: '{App}' },
-        ]
+    test.each([
+        {
+            searchTerm: 'e',
+            expected: [
+                { name: 'Médic' },
+                { name: 'Medical Records' },
+                { name: 'Import/Export App' },
+            ],
+        },
+        { searchTerm: "'", expected: [{ name: "Facility's Dashboard" }] },
+        {
+            searchTerm: 'FACILITYSDASHBOARD',
+            expected: [{ name: "Facility's Dashboard" }],
+        },
+        { searchTerm: '/', expected: [{ name: 'Import/Export App' }] },
 
-        expect(filterItemsArray(itemsToSearch, 'e')).toEqual([
-            { name: 'Médic' },
-            { name: 'Medical Records' },
-            { name: 'Import/Export App' },
-        ])
+        { searchTerm: 'Covid19', expected: [{ name: 'Covid 19' }] },
+        { searchTerm: 'Covid-19', expected: [{ name: 'Covid 19' }] },
+        { searchTerm: '{', expected: [{ name: '{App}' }] },
+        {
+            searchTerm: '',
+            expected: [
+                { name: 'Médic' },
+                { name: 'Medical Records' },
+                { name: 'Import/Export App' },
+                { name: 'Covid 19' },
+                { name: "Facility's Dashboard" },
+                { name: '{App}' },
+            ],
+        },
 
-        expect(filterItemsArray(itemsToSearch, "'")).toEqual([
-            { name: "Facility's Dashboard" },
-        ])
-
-        expect(filterItemsArray(itemsToSearch, 'FACILITYSDASHBOARD')).toEqual([
-            { name: "Facility's Dashboard" },
-        ])
-
-        expect(filterItemsArray(itemsToSearch, '/')).toEqual([
-            { name: 'Import/Export App' },
-        ])
-
-        expect(filterItemsArray(itemsToSearch, 'Covid19')).toEqual([
-            { name: 'Covid 19' },
-        ])
-
-        expect(filterItemsArray(itemsToSearch, 'Covid-19')).toEqual([
-            { name: 'Covid 19' },
-        ])
-
-        expect(filterItemsArray(itemsToSearch, '{')).toEqual([
-            { name: '{App}' },
-        ])
-
-        expect(filterItemsArray(itemsToSearch, '')).toEqual([
-            { name: 'Médic' },
-            { name: 'Medical Records' },
-            { name: 'Import/Export App' },
-            { name: 'Covid 19' },
-            { name: "Facility's Dashboard" },
-            { name: '{App}' },
-        ])
-
-        expect(filterItemsArray(itemsToSearch, ' ')).toEqual([
-            { name: 'Medical Records' },
-            { name: 'Import/Export App' },
-            { name: 'Covid 19' },
-            { name: "Facility's Dashboard" },
-        ])
-    })
+        {
+            searchTerm: ' ',
+            expected: [
+                { name: 'Medical Records' },
+                { name: 'Import/Export App' },
+                { name: 'Covid 19' },
+                { name: "Facility's Dashboard" },
+            ],
+        },
+    ])(
+        'filterItemsArray function handles search for $searchTerm',
+        ({ searchTerm, expected }) => {
+            expect(filterItemsArray(itemsToSearch, searchTerm)).toEqual(
+                expected
+            )
+        }
+    )
 })
