@@ -119,38 +119,6 @@ export const CalendarWithClearButton = ({
     )
 }
 
-export function CalendarWithEditiableInput() {
-    const [date, setDate] = useState('')
-    const [validation, setValidation] = useState({})
-
-    const errorProps = {
-        error: !!validation?.error,
-        validationText: validation?.validationText,
-    }
-
-    return (
-        <div>
-            <>
-                <CalendarInput
-                    date={date}
-                    calendar="gregory"
-                    onDateSelect={(result) => {
-                        const { calendarDateString, validation } = result || {}
-                        setDate(calendarDateString)
-                        setValidation(validation)
-                    }}
-                    onFocus={() => {
-                        console.log('focused')
-                    }}
-                    width="400px"
-                    {...errorProps}
-                    clearable
-                />
-            </>
-        </div>
-    )
-}
-
 export function CalendarWithStrictValidation() {
     const [validation, setValidation] = useState({})
 
