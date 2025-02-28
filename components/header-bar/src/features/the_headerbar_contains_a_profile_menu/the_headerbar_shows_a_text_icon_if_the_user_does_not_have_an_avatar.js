@@ -20,11 +20,11 @@ When('the user clicks on the text icon', () => {
     cy.get('[data-test="headerbar-profile-icon-text"]').click()
 })
 
-Then(`the profile menu contains a text icon of size 48px`, () => {
+Then(`the profile menu contains a text icon of size 36px`, () => {
     cy.fixture('HeaderBar/me').then(() => {
         cy.get('[data-test="headerbar-profile-menu-icon-text"]')
             .should('be.visible')
-            .and('have.css', 'height', '48px')
-            .and('have.css', 'width', '48px')
+            .and('have.css', 'height', '36px')
+            .and('have.css', 'width', '36px')
     })
 })

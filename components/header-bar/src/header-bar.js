@@ -24,7 +24,7 @@ const query = {
     user: {
         resource: 'me',
         params: {
-            fields: ['authorities', 'avatar', 'email', 'name', 'settings'],
+            fields: ['authorities', 'avatar', 'name', 'settings', 'username'],
         },
     },
     apps: {
@@ -114,7 +114,7 @@ export const HeaderBar = ({
                             </CommandPaletteContextProvider>
                             <Profile
                                 name={data.user.name}
-                                email={data.user.email}
+                                username={data.user.username}
                                 avatarId={data.user.avatar?.id}
                                 helpUrl={data.help.helpPageLink}
                             />

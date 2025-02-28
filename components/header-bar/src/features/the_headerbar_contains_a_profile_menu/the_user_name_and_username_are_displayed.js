@@ -7,16 +7,16 @@ Then('contains the user name', () => {
     ).then(([win, $name]) => {
         console.log('win.dataProviderData', win.dataProviderData)
         const { name } = win.dataProviderData.me
-        expect($name.text()).to.equal(name)
+        expect($name.text()).to.contain(name)
     })
 })
 
-Then('contains the user email', () => {
+Then('contains the user username', () => {
     cy.all(
         () => cy.window(),
-        () => cy.get('[data-test="headerbar-profile-user-email"]')
-    ).then(([win, $email]) => {
-        const { email } = win.dataProviderData.me
-        expect($email.text()).to.equal(email)
+        () => cy.get('[data-test="headerbar-profile-user-subtitle"]')
+    ).then(([win, $username]) => {
+        const { username } = win.dataProviderData.me
+        expect($username.text()).to.equal(username)
     })
 })

@@ -5,7 +5,7 @@ const logoutUrl = `${baseUrl}dhis-web-commons-security/logout.action`
 
 Then('contains a link to log out the user', () => {
     cy.get('[data-test="headerbar-profile-menu"] > li').should((lis) => {
-        const menuItem = lis.eq(4)
+        const menuItem = lis.eq(7)
         expect(menuItem).to.be.visible
         expect(menuItem.find('a')).to.have.attr('href', logoutUrl)
     })
