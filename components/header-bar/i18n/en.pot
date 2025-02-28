@@ -89,9 +89,6 @@ msgstr "Online"
 msgid "Offline"
 msgstr "Offline"
 
-msgid "Logged in as "
-msgstr "Logged in as "
-
 msgid "Settings"
 msgstr "Settings"
 

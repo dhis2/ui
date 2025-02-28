@@ -2,25 +2,17 @@ import { colors, spacers } from '@dhis2/ui-constants'
 import { UserAvatar } from '@dhis2-ui/user-avatar'
 import PropTypes from 'prop-types'
 import React from 'react'
-import i18n from '../locales/index.js'
 
 const ProfileName = ({ children }) => (
     <div data-test="headerbar-profile-username">
-        <span>
-            {i18n.t('Logged in as ')}
-            <strong>{children}</strong>
-        </span>
+        {children}
         <style jsx>{`
             div {
                 font-size: 13px;
                 line-height: 15px;
+                font-weight: 500;
                 color: ${colors.grey900};
-            }
-            span {
                 word-break: break-all;
-            }
-            strong {
-                font-weight: 700;
             }
         `}</style>
     </div>
