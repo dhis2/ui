@@ -86,6 +86,7 @@ const CommandPalette = ({ apps, commands, shortcuts }) => {
 
     const handleVisibilityToggle = useCallback(() => {
         setModalOpen((open) => !open)
+        setCurrentView(HOME_VIEW)
     }, [setModalOpen])
 
     const handleModalClick = useCallback(
