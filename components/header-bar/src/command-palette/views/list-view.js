@@ -1,32 +1,59 @@
 import PropTypes from 'prop-types'
-import React, { useEffect } from 'react'
-import { useCommandPaletteContext } from '../context/command-palette-context.js'
-import List from '../sections/list.js'
-import EmptySearchResults from '../sections/search-results.js'
+import React from 'react'
+import EmptySearchResults from '../sections/empty-search-results.js'
+import ListItem from '../sections/list-item.js'
 
-function ListView({ filteredItems, actions }) {
-    const { filter, setHighlightedIndex } = useCommandPaletteContext()
-    const backAction = actions?.[0]
+const ListView = ({ grid, currentItem }) => {
+    const listItems = grid.reduce((acc, arr) => {
+        acc.push(arr[0])
+        return acc
+    }, [])
 
-    useEffect(() => {
-        const firstItemIndexInListView = 1
-        if (filter) {
-            setHighlightedIndex(0)
-        } else {
-            setHighlightedIndex(firstItemIndexInListView)
-        }
-    }, [filter, setHighlightedIndex])
+    return (
+        <>
+            {listItems.length > 0 ? (
+                <div data-test="headerbar-list">
+                    {listItems.map((item, idx) => {
+                        const {
+                            action,
+                            displayName,
+                            name,
+                            defaultAction,
+                            icon,
+                            description,
+                            url,
+                            type,
+                            dataTest,
+                        } = item
+                        const isImage = typeof icon === 'string'
+                        const isIcon = React.isValidElement(icon)
 
-    return filteredItems.length > 0 ? (
-        <List filteredItems={filteredItems} backAction={backAction} />
-    ) : (
-        filter && <EmptySearchResults />
+                        return (
+                            <ListItem
+                                type={type}
+                                key={`app-${name}-${idx}`}
+                                title={displayName || name}
+                                path={defaultAction || url}
+                                image={isImage ? icon : undefined}
+                                icon={isIcon ? icon : undefined}
+                                description={description}
+                                highlighted={currentItem === item}
+                                onClickHandler={action}
+                                dataTest={dataTest}
+                            />
+                        )
+                    })}
+                </div>
+            ) : (
+                <EmptySearchResults />
+            )}
+        </>
     )
 }
 
 ListView.propTypes = {
-    actions: PropTypes.array,
-    filteredItems: PropTypes.array,
+    currentItem: PropTypes.object,
+    grid: PropTypes.array,
 }
 
 export default ListView
