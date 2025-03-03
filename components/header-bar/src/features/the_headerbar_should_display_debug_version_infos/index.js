@@ -79,7 +79,7 @@ Then('the instance version should show as unknown', () => {
 })
 
 When('the user clicks the debug info menu item', () => {
-    cy.get('[data-test="dhis2-ui-headerbar-debuginfo"] > a').click()
+    cy.get('[data-test="dhis2-ui-headerbar-debuginfo"]').click()
 })
 
 Then('the debug info modal should be shown', () => {

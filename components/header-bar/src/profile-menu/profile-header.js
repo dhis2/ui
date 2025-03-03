@@ -1,19 +1,18 @@
-import { useConfig } from '@dhis2/app-runtime'
+import { colors, spacers } from '@dhis2/ui-constants'
 import { UserAvatar } from '@dhis2-ui/user-avatar'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { joinPath } from '../join-path.js'
-import i18n from '../locales/index.js'
 
 const ProfileName = ({ children }) => (
     <div data-test="headerbar-profile-username">
         {children}
-
         <style jsx>{`
             div {
-                margin-bottom: 3px;
-                font-size: 16px;
-                line-height: 19px;
+                font-size: 13px;
+                line-height: 15px;
+                font-weight: 500;
+                color: ${colors.grey900};
+                word-break: break-all;
             }
         `}</style>
     </div>
@@ -22,63 +21,36 @@ ProfileName.propTypes = {
     children: PropTypes.string,
 }
 
-const ProfileEmail = ({ children }) => (
-    <div data-test="headerbar-profile-user-email">
+const ProfileSubtitle = ({ children }) => (
+    <div data-test="headerbar-profile-user-subtitle">
         {children}
 
         <style jsx>{`
             div {
-                margin-bottom: 6px;
-                font-size: 14px;
-                line-height: 16px;
+                font-size: 13px;
+                line-height: 15px;
+                color: ${colors.grey600};
+                word-break: break-all;
             }
         `}</style>
     </div>
 )
-ProfileEmail.propTypes = {
+ProfileSubtitle.propTypes = {
     children: PropTypes.string,
 }
 
-const ProfileEdit = ({ children }) => {
-    const { baseUrl } = useConfig()
-
-    return (
-        <a
-            href={joinPath(baseUrl, 'dhis-web-user-profile/#/profile')}
-            data-test="headerbar-profile-edit-profile-link"
-        >
-            {children}
-
-            <style jsx>{`
-                a {
-                    color: rgba(0, 0, 0, 0.87);
-                    font-size: 12px;
-                    line-height: 14px;
-                    text-decoration: underline;
-                    cursor: pointer;
-                }
-            `}</style>
-        </a>
-    )
-}
-
-ProfileEdit.propTypes = {
-    children: PropTypes.string,
-}
-
-const ProfileDetails = ({ name, email }) => (
+const ProfileDetails = ({ name, username }) => (
     <div>
         <ProfileName>{name}</ProfileName>
-        <ProfileEmail>{email}</ProfileEmail>
-        <ProfileEdit>{i18n.t('Edit profile')}</ProfileEdit>
+        <ProfileSubtitle>{username}</ProfileSubtitle>
 
         <style jsx>{`
             div {
                 display: flex;
                 flex-direction: column;
-                margin-inline-start: 20px;
-                color: #000;
-                font-size: 14px;
+                gap: ${spacers.dp4};
+                padding-block-start: 1px;
+                font-size: 13px;
                 font-weight: 400;
             }
         `}</style>
@@ -86,26 +58,36 @@ const ProfileDetails = ({ name, email }) => (
 )
 
 ProfileDetails.propTypes = {
-    email: PropTypes.string,
     name: PropTypes.string,
+    username: PropTypes.string,
 }
 
-export const ProfileHeader = ({ name, email, avatarId }) => (
+export const ProfileHeader = ({ name, avatarId, username }) => (
     <div>
-        <UserAvatar
-            avatarId={avatarId}
-            name={name}
-            dataTest="headerbar-profile-menu-icon"
-            large
-        />
-        <ProfileDetails name={name} email={email} />
+        <span className="user-avatar">
+            <UserAvatar
+                avatarId={avatarId}
+                name={name}
+                dataTest="headerbar-profile-menu-icon"
+                medium
+            />
+        </span>
+        <ProfileDetails name={name} username={username} />
 
         <style jsx>{`
             div {
                 display: flex;
                 flex-direction: row;
-                margin-inline-start: 24px;
-                padding-top: 20px;
+                overflow: hidden;
+                align-items: flex-start;
+                gap: ${spacers.dp8};
+                padding: ${spacers.dp12} ${spacers.dp8};
+                margin-block-end: ${spacers.dp4};
+                background: ${colors.grey100};
+                border-block-end: 1px solid ${colors.grey300};
+            }
+            span.user-avatar {
+                flex-shrink: 0;
             }
         `}</style>
     </div>
@@ -113,6 +95,6 @@ export const ProfileHeader = ({ name, email, avatarId }) => (
 
 ProfileHeader.propTypes = {
     avatarId: PropTypes.string,
-    email: PropTypes.string,
     name: PropTypes.string,
+    username: PropTypes.string,
 }

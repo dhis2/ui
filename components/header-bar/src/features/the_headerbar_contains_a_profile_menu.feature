@@ -4,13 +4,13 @@ Feature: The HeaderBar contains a profile menu
         Given the HeaderBar loads without an error and the user does not have an avatar
         Then the headerbar contains a text icon of size 36px
         When the user clicks on the text icon
-        Then the profile menu contains a text icon of size 48px
+        Then the profile menu contains a text icon of size 36px
 
     Scenario: The HeaderBar shows an image icon if the user has an avatar
         Given the HeaderBar loads without an error and the user has an avatar
         Then the headerbar contains an image icon of size 36px
         When the user clicks on the image icon
-        Then the profile menu contains an image icon of size 48px
+        Then the profile menu contains an image icon of size 36px
 
     Scenario: The menu is closed by default
         Given the HeaderBar loads without an error
@@ -21,11 +21,11 @@ Feature: The HeaderBar contains a profile menu
         When the user clicks on the profile icons
         Then the menu opens
 
-    Scenario: The user name and email are displayed
+    Scenario: The user name and username are displayed
         Given the HeaderBar loads without an error
         When the user opens the menu
         And contains the user name
-        And contains the user email
+        And contains the user username
 
     Scenario: The user can edit his profile
         Given the HeaderBar loads without an error

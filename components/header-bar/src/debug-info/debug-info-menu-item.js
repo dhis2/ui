@@ -1,5 +1,4 @@
-import { colors } from '@dhis2/ui-constants'
-import { MenuItem } from '@dhis2-ui/menu'
+import { colors, spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 import i18n from '../locales/index.js'
@@ -42,27 +41,45 @@ export const DebugInfoMenuItem = ({ hideProfileMenu, showDebugInfoModal }) => {
             <style jsx>{`
                 .root {
                     color: ${colors.grey700};
-                    font-style: italic;
-                    font-size: 14px;
-                    line-height: 17px;
+                    font-size: 12px;
+                    line-height: 15px;
                 }
                 .instance-info {
-                    margin-bottom: 4px;
+                    margin-block-end: ${spacers.dp4};
+                    word-break: break-all;
                 }
                 .version {
-                    white-space: no-wrap;
+                    word-break: break-all;
+                }
+                .debug-info-menu-item {
+                    padding: 0;
                 }
             `}</style>
         </div>
     )
 
     return (
-        <MenuItem
-            dense
+        <button
             onClick={openDebugModal}
-            label={debugInfoLabel}
-            dataTest="dhis2-ui-headerbar-debuginfo"
-        />
+            data-test="dhis2-ui-headerbar-debuginfo"
+        >
+            {debugInfoLabel}
+            <style jsx>{`
+                button {
+                    width: 100%;
+                    margin-block-start: ${spacers.dp4};
+                    padding: ${spacers.dp8} ${spacers.dp12};
+                    background-color: ${colors.grey050};
+                    border: none;
+                    border-block-start: 1px solid ${colors.grey300};
+                    cursor: pointer;
+                    text-align: left;
+                }
+                button:hover {
+                    background-color: ${colors.grey200};
+                }
+            `}</style>
+        </button>
     )
 }
 

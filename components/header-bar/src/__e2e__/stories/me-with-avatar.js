@@ -13,7 +13,7 @@ MeWithAvatar.decorators = [
         ...dataProviderData,
         me: {
             name: 'John Doe',
-            email: 'john_doe@dhis2.org',
+            username: 'john_doe',
             settings: {
                 keyUiLocale: 'en',
             },
