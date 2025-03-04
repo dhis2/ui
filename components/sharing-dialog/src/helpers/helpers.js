@@ -41,7 +41,7 @@ export const debounce = (func, wait, immediate) => {
  * Access and constant conversion
  */
 
-export const convertAccessToConstant = (access) => {
+const convertAccessStringToConstant = (access) => {
     if (access === undefined) {
         return ACCESS_NONE
     }
@@ -59,17 +59,39 @@ export const convertAccessToConstant = (access) => {
     }
 }
 
-export const convertConstantToAccess = (constant, useBoolean) => {
+export const convertAccessToConstantObject = (accessString) => {
+    if (typeof accessString === 'boolean') {
+        return {
+            data: ACCESS_NONE,
+            metadata: convertAccessStringToConstant(accessString),
+        }
+    }
+    const metadataAccessString = accessString?.substring(0, 2)
+    const dataAccessString = accessString?.substring(2, 4)
+
+    return {
+        data: convertAccessStringToConstant(dataAccessString),
+        metadata: convertAccessStringToConstant(metadataAccessString),
+    }
+}
+
+export const convertConstantToAccessString = (constant) => {
     switch (constant) {
         case ACCESS_NONE:
-            return useBoolean ? false : '--------'
+            return '--'
         case ACCESS_VIEW_ONLY:
-            return useBoolean ? true : 'r-------'
+            return 'r-'
         case ACCESS_VIEW_AND_EDIT:
-            return useBoolean ? true : 'rw------'
+            return 'rw'
         default:
-            return useBoolean ? false : '--------'
+            return '--'
     }
+}
+
+export const convertConstantObjectToAccess = (accessObject) => {
+    return `${convertConstantToAccessString(
+        accessObject.metadata
+    )}${convertConstantToAccessString(accessObject.data)}----`
 }
 
 /**
@@ -78,7 +100,7 @@ export const convertConstantToAccess = (constant, useBoolean) => {
 
 export const replaceAccessWithConstant = ({ access, ...rest }) => ({
     ...rest,
-    access: convertAccessToConstant(access),
+    access: convertAccessToConstantObject(access),
 })
 
 /**
@@ -102,7 +124,7 @@ export const createOnChangePayload = ({ object, type, access, id }) => {
             const data = {
                 object: {
                     ...object,
-                    publicAccess: convertConstantToAccess(access),
+                    publicAccess: convertConstantObjectToAccess(access),
                 },
             }
             return data
@@ -115,7 +137,7 @@ export const createOnChangePayload = ({ object, type, access, id }) => {
 
                 return {
                     ...group,
-                    access: convertConstantToAccess(access),
+                    access: convertConstantObjectToAccess(access),
                 }
             })
             const data = {
@@ -124,6 +146,7 @@ export const createOnChangePayload = ({ object, type, access, id }) => {
                     userGroupAccesses,
                 },
             }
+            console.log(data)
             return data
         }
         case 'user': {
@@ -134,7 +157,7 @@ export const createOnChangePayload = ({ object, type, access, id }) => {
 
                 return {
                     ...user,
-                    access: convertConstantToAccess(access),
+                    access: convertConstantObjectToAccess(access),
                 }
             })
             const data = {
@@ -159,7 +182,7 @@ export const createOnAddPayload = ({ object, type, id, access, name }) => {
                         {
                             id,
                             name,
-                            access: convertConstantToAccess(access),
+                            access: convertConstantObjectToAccess(access),
                         },
                     ],
                 },
@@ -175,7 +198,7 @@ export const createOnAddPayload = ({ object, type, id, access, name }) => {
                         {
                             id,
                             name,
-                            access: convertConstantToAccess(access),
+                            access: convertConstantObjectToAccess(access),
                         },
                     ],
                 },

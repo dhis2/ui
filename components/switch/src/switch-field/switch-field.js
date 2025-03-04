@@ -1,9 +1,9 @@
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import { Field } from '@dhis2-ui/field'
 import { Required } from '@dhis2-ui/required'
-import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Switch } from '../index.js'
+import { Switch } from '../switch/index.js'
 
 const AddRequired = ({ label, required, dataTest }) => (
     <React.Fragment>
@@ -37,7 +37,7 @@ const SwitchField = ({
     required,
     helpText,
     validationText,
-    dataTest,
+    dataTest = 'dhis2-uiwidgets-switchfield',
 }) => (
     <Field
         className={className}
@@ -77,10 +77,6 @@ const SwitchField = ({
     </Field>
 )
 
-SwitchField.defaultProps = {
-    dataTest: 'dhis2-uiwidgets-switchfield',
-}
-
 SwitchField.propTypes = {
     checked: PropTypes.bool,
     className: PropTypes.string,
@@ -109,13 +105,13 @@ SwitchField.propTypes = {
     value: PropTypes.string,
     /** Applies 'warning' styling to switch and validation text for feedback. Mutually exclusive with `valid` and `error` props */
     warning: sharedPropTypes.statusPropType,
-    /** Called with signature ({ name: string, value: string, checked: bool }, event) */
+    /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
     onBlur: PropTypes.func,
-    /** Called with signature ({ name: string, value: string, checked: bool }, event) */
+    /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
     onChange: PropTypes.func,
-    /** Called with signature ({ name: string, value: string, checked: bool }, event) */
+    /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
     onFocus: PropTypes.func,
-    /** Called with signature ({ name: string, value: string, checked: bool }, event) */
+    /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
     onKeyDown: PropTypes.func,
 }
 

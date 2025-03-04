@@ -1,6 +1,6 @@
-import { StatusIcon } from '@dhis2-ui/status-icon'
 import { requiredIf } from '@dhis2/prop-types'
 import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
+import { StatusIcon } from '@dhis2-ui/status-icon'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Loading as CommonLoading, Select } from '../select/index.js'
@@ -10,7 +10,7 @@ import { Menu } from './menu.js'
 
 const SingleSelect = ({
     className,
-    selected,
+    selected = '',
     tabIndex,
     maxHeight,
     inputMaxHeight,
@@ -35,7 +35,7 @@ const SingleSelect = ({
     noMatchText,
     initialFocus,
     dense,
-    dataTest,
+    dataTest = 'dhis2-uicore-singleselect',
 }) => {
     // If the select is filterable, use a filterable menu
     const menu = filterable ? (
@@ -103,11 +103,6 @@ const SingleSelect = ({
             `}</style>
         </div>
     )
-}
-
-SingleSelect.defaultProps = {
-    selected: '',
-    dataTest: 'dhis2-uicore-singleselect',
 }
 
 SingleSelect.propTypes = {

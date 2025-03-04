@@ -1,6 +1,6 @@
+import { spacers } from '@dhis2/ui-constants'
 import { Field } from '@dhis2-ui/field'
 import { Input } from '@dhis2-ui/input'
-import { spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -8,6 +8,7 @@ export const Filter = ({ dataTest, filter, onChange, label, placeholder }) => (
     <div data-test={dataTest}>
         <Field label={label} name={dataTest} dataTest={`${dataTest}-field`}>
             <Input
+                dense
                 dataTest={`${dataTest}-input`}
                 type="search"
                 placeholder={placeholder}

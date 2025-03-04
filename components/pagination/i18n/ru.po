@@ -1,14 +1,15 @@
 # 
 # Translators:
-# phil_dhis2, 2021
+# Philip Larsen Donnelly, 2021
+# Yury Rogachev <yury@dhis2.org>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-03-10T20:20:19.392Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
-"Last-Translator: phil_dhis2, 2021\n"
-"Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2024\n"
+"Language-Team: Russian (https://app.transifex.com/hisp-uio/teams/100509/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,12 +20,14 @@ msgid ""
 "Page {{page}} of {{pageCount}}, items {{firstItem}}-{{lastItem}} of "
 "{{total}}"
 msgstr ""
+"Страница {{page}} из {{pageCount}}, элементы {{firstItem}}-{{lastItem}} из "
+"{{total}}"
 
 msgid "Page {{page}}, items {{firstItem}}-{{lastItem}}"
-msgstr ""
+msgstr "Страница {{page}}, элементы {{firstItem}}-{{lastItem}}"
 
 msgid "Page {{page}}"
-msgstr ""
+msgstr "Страница {{page}}"
 
 msgid "Next"
 msgstr "Следующая"
@@ -33,7 +36,7 @@ msgid "Page"
 msgstr "Страница"
 
 msgid "Items per page"
-msgstr ""
+msgstr "Количество элементов на странице"
 
 msgid "Previous"
 msgstr "Предыдущая"
@@ -42,3 +45,6 @@ msgid ""
 "You are at page {{page}} showing items {{firstItem}}-{{lastItem}}, but there"
 " are {{pageCount}} pages and {{total}} items"
 msgstr ""
+"Вы находитесь на странице {{page}}, где отображены элементы "
+"{{firstItem}}-{{lastItem}}, при этом всего страниц -{{pageCount}}, и "
+"элементов - {{total}}."

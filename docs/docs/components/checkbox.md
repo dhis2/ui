@@ -3,18 +3,21 @@ title: Checkbox
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { Checkbox } from '@dhis2/ui'
-
 import API from '../../../components/checkbox/API.md'
 
 # Checkbox
 
 Checkboxes are used to choose one or more items from a list. A checkbox can also be used to toggle an option.
 
-<Demo>
-    <Checkbox label="Checkbox" />
-    <Checkbox checked label="Checkbox" />
-</Demo>
+<Demo
+    path="checkbox--checked"
+    args="label:Checked Checkbox"
+    height="120px"
+/>
+
+```jsx
+<Checkbox checked label="Checked Checkbox" />
+```
 
 ## Usage
 
@@ -37,17 +40,18 @@ Checkboxes are used to choose one or more items from a list. A checkbox can also
 
 #### Size
 
-<Demo>
-    <Checkbox checked label="Checkbox" />
-    <Checkbox checked dense label="Checkbox" />
-</Demo>
+<Demo
+    path="checkbox--checked-dense"
+    args="label:Dense Checked Checkbox"
+    height="120px"
+/>
+
+```jsx
+<Checkbox checked dense label="Dense Checked Checkbox" />
+```
 
 -   Checkboxes are available in two sizes, regular and `dense`. Regular sized checkboxes are useful when there's space available. Use `dense` sized checkboxes in compact, information-dense interfaces.
 
 ## API Reference
 
 <API />
-
-## Links
-
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-checkbox-checkbox--default)

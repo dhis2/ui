@@ -1,10 +1,10 @@
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import { Box } from '@dhis2-ui/box'
 import { Field } from '@dhis2-ui/field'
-import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { SingleSelect } from '../index.js'
 import i18n from '../locales/index.js'
+import { SingleSelect } from '../single-select/index.js'
 
 // TODO: translate
 const translate = (prop, interpolationObject) => {
@@ -15,6 +15,17 @@ const translate = (prop, interpolationObject) => {
     return prop
 }
 class SingleSelectField extends React.Component {
+    static defaultProps = {
+        dataTest: 'dhis2-uiwidgets-singleselectfield',
+        selected: '',
+
+        clearText: () => i18n.t('Clear'),
+        empty: () => i18n.t('No data found'),
+        filterPlaceholder: () => i18n.t('Type to filter options'),
+        loadingText: () => i18n.t('Loading options'),
+        noMatchText: () => i18n.t('No options found'),
+    }
+
     render() {
         const {
             className,
@@ -29,7 +40,7 @@ class SingleSelectField extends React.Component {
             warning,
             disabled,
             loading,
-            selected,
+            selected = SingleSelectField.defaultProps.selected,
             tabIndex,
             helpText,
             validationText,
@@ -38,17 +49,18 @@ class SingleSelectField extends React.Component {
             inputWidth,
             children,
             clearable,
-            clearText,
+            clearText = SingleSelectField.defaultProps.clearText,
             filterable,
-            filterPlaceholder,
+            filterPlaceholder = SingleSelectField.defaultProps
+                .filterPlaceholder,
             placeholder,
             prefix,
-            empty,
-            loadingText,
-            noMatchText,
+            empty = SingleSelectField.defaultProps.empty,
+            loadingText = SingleSelectField.defaultProps.loadingText,
+            noMatchText = SingleSelectField.defaultProps.noMatchText,
             initialFocus,
             dense,
-            dataTest,
+            dataTest = SingleSelectField.defaultProps.dataTest,
         } = this.props
 
         return (
@@ -97,17 +109,6 @@ class SingleSelectField extends React.Component {
             </Field>
         )
     }
-}
-
-SingleSelectField.defaultProps = {
-    dataTest: 'dhis2-uiwidgets-singleselectfield',
-    selected: '',
-
-    clearText: () => i18n.t('Clear'),
-    empty: () => i18n.t('No data found'),
-    filterPlaceholder: () => i18n.t('Type to filter options'),
-    loadingText: () => i18n.t('Loading options'),
-    noMatchText: () => i18n.t('No options found'),
 }
 
 SingleSelectField.propTypes = {

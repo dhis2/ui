@@ -1,14 +1,14 @@
 # 
 # Translators:
-# trendspotter <jirka.p@volny.cz>, 2021
+# Jiří Podhorecký <jirka.p@volny.cz>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-11-25T09:59:40.995Z\n"
+"POT-Creation-Date: 2024-11-07T15:20:34.373Z\n"
 "PO-Revision-Date: 2021-10-01 23:39+0000\n"
-"Last-Translator: trendspotter <jirka.p@volny.cz>, 2021\n"
-"Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
+"Last-Translator: Jiří Podhorecký <jirka.p@volny.cz>, 2024\n"
+"Language-Team: Czech (https://app.transifex.com/hisp-uio/teams/100509/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,17 +21,26 @@ msgstr "Pouze zobrazení"
 msgid "View and edit"
 msgstr "Zobrazení a úpravy"
 
+msgid "No access"
+msgstr "Žádný přístup"
+
 msgid "Give access to a user or group"
 msgstr "Udělte přístup uživateli nebo skupině"
 
-msgid "Access level"
-msgstr "Úroveň přístupu"
+msgid "Data access level"
+msgstr ""
 
-msgid "Select a level"
-msgstr "Vybrat úroveň"
+msgid "Choose a level"
+msgstr ""
 
 msgid "Not available offline"
 msgstr "Není k dispozici offline"
+
+msgid "Metadata access level"
+msgstr ""
+
+msgid "Access level"
+msgstr "Úroveň přístupu"
 
 msgid "Give access"
 msgstr "Povolit přístup"
@@ -45,20 +54,23 @@ msgstr "Uživatel / Skupina"
 msgid "All users"
 msgstr "Všichni uživatelé"
 
-msgid "No access"
-msgstr "Žádný přístup"
+msgid "Anyone logged in"
+msgstr ""
 
-msgid "Can view"
-msgstr "Může zobrazit"
+msgid "User group"
+msgstr "Uživatelská skupina"
 
-msgid "Can view and edit"
-msgstr "Lze prohlížet a upravovat"
+msgid "User"
+msgstr "Uživatel"
 
-msgid "Metadata"
-msgstr "Metadata"
+msgid "Data"
+msgstr "Data"
 
 msgid "Remove access"
 msgstr "Odebrat přístup"
+
+msgid "Metadata"
+msgstr "Metadata"
 
 msgid "User or group"
 msgstr "Uživatel nebo skupina"

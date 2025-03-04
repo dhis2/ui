@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Label`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { Label } from '@dhis2-ui/label'
+import { Label } from '@dhis2/ui'
 ```
 
 
@@ -16,7 +16,7 @@ import { Label } from '@dhis2-ui/label'
 |---|---|---|---|---|
 |children|string||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-label'`|||
+|dataTest|string|``'dhis2-uicore-label'``|||
 |disabled|boolean||||
 |htmlFor|string||||
 |required|boolean||||

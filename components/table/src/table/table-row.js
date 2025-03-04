@@ -14,8 +14,9 @@ export const TableRow = ({
     role,
     children,
     className,
-    dataTest,
+    dataTest = 'dhis2-uicore-tablerow',
     suppressZebraStriping,
+    ...rest
 }) => {
     const { suppressZebraStriping: suppressZebraStripingFromContext } =
         useContext(TableContext)
@@ -30,16 +31,13 @@ export const TableRow = ({
             className={cx(className, { zebraStriping })}
             data-test={dataTest}
             role={role}
+            {...rest}
         >
             {children}
 
             <style jsx>{tableRowStyles}</style>
         </tr>
     )
-}
-
-TableRow.defaultProps = {
-    dataTest: 'dhis2-uicore-tablerow',
 }
 
 TableRow.propTypes = {

@@ -21,10 +21,10 @@ const Input = ({
     options,
     className,
     disabled,
-    inputMaxHeight,
+    inputMaxHeight = '100px',
 }) => {
     const hasSelection = selected.length > 0
-    const onClear = (_, e) => {
+    const onClear = (e) => {
         const data = { selected: [] }
 
         e.stopPropagation()
@@ -79,8 +79,7 @@ const Input = ({
                 }
 
                 .root-right {
-                    margin-left: auto;
-                    margin-right: 10px;
+                    margin-inline-start: auto;
                 }
             `}</style>
 
@@ -91,10 +90,6 @@ const Input = ({
             `}</style>
         </div>
     )
-}
-
-Input.defaultProps = {
-    inputMaxHeight: '100px',
 }
 
 Input.propTypes = {

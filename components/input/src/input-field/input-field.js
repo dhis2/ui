@@ -1,11 +1,15 @@
+import { sharedPropTypes } from '@dhis2/ui-constants'
 import { Box } from '@dhis2-ui/box'
 import { Field } from '@dhis2-ui/field'
-import { Input } from '@dhis2-ui/input'
-import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { Input, inputTypes } from '../input/index.js'
 
 class InputField extends React.Component {
+    static defaultProps = {
+        dataTest: 'dhis2-uiwidgets-inputfield',
+    }
+
     render() {
         const {
             className,
@@ -35,7 +39,9 @@ class InputField extends React.Component {
             validationText,
             inputWidth,
             autoComplete,
-            dataTest,
+            clearable,
+            prefixIcon,
+            dataTest = 'dhis2-uiwidgets-inputfield',
         } = this.props
 
         return (
@@ -75,6 +81,9 @@ class InputField extends React.Component {
                         initialFocus={initialFocus}
                         readOnly={readOnly}
                         autoComplete={autoComplete}
+                        clearable={clearable}
+                        prefixIcon={prefixIcon}
+                        width={inputWidth}
                     />
                 </Box>
             </Field>
@@ -82,14 +91,12 @@ class InputField extends React.Component {
     }
 }
 
-InputField.defaultProps = {
-    dataTest: 'dhis2-uiwidgets-inputfield',
-}
-
 const InputFieldProps = {
     /** The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete) */
     autoComplete: PropTypes.string,
     className: PropTypes.string,
+    /** Makes the input field clearable */
+    clearable: PropTypes.bool,
     dataTest: PropTypes.string,
     /** Makes the input smaller */
     dense: PropTypes.bool,
@@ -115,6 +122,8 @@ const InputFieldProps = {
     name: PropTypes.string,
     /** Placeholder text for the input */
     placeholder: PropTypes.string,
+    /** Add prefix icon */
+    prefixIcon: PropTypes.element,
     /** Makes the input read-only */
     readOnly: PropTypes.bool,
     /** Indicates this input is required */
@@ -123,7 +132,7 @@ const InputFieldProps = {
     step: PropTypes.string,
     tabIndex: PropTypes.string,
     /** Type of input */
-    type: Input.propTypes.type,
+    type: PropTypes.oneOf(inputTypes),
     /** Applies 'valid' appearance for validation feedback. Mutually exclusive with `error` and `warning` props */
     valid: sharedPropTypes.statusPropType,
     /** Text below input for validation feedback. Receives styles depending on validation status */

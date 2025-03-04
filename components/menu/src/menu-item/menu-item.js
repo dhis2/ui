@@ -1,10 +1,10 @@
+import { IconChevronRight24 } from '@dhis2/ui-icons'
 import { Popper } from '@dhis2-ui/popper'
 import { Portal } from '@dhis2-ui/portal'
-import { IconChevronRight24 } from '@dhis2/ui-icons'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useRef } from 'react'
-import { FlyoutMenu } from '../index.js'
+import React, { useEffect, useRef, useState, useMemo } from 'react'
+import { FlyoutMenu } from '../flyout-menu/index.js'
 import styles from './menu-item.styles.js'
 
 const isModifiedEvent = (evt) =>
@@ -33,14 +33,69 @@ const MenuItem = ({
     disabled,
     dense,
     active,
-    dataTest,
+    dataTest = 'dhis2-uicore-menuitem',
     chevron,
     value,
     label,
+    ariaLabel,
     showSubMenu,
     toggleSubMenu,
+    suffix,
+    checkbox,
+    checked,
+    tabIndex,
 }) => {
     const menuItemRef = useRef()
+    const [openSubMenus, setOpenSubMenus] = useState([])
+
+    useEffect(() => {
+        // track open submenus
+        setOpenSubMenus(document.querySelectorAll('[data-submenu-open=true]'))
+    }, [])
+
+    useEffect(() => {
+        if (!menuItemRef.current) {
+            return
+        }
+
+        const menuItem = menuItemRef.current
+
+        const handleKeyDown = (event) => {
+            const firstChild = event.target.children[0]
+            const hasSubMenu = firstChild?.getAttribute('aria-haspopup')
+            switch (event.key) {
+                // for submenus
+                case 'ArrowRight':
+                    event.preventDefault()
+                    if (hasSubMenu) {
+                        firstChild.click()
+                    }
+                    break
+                case 'ArrowLeft':
+                case 'Escape': // close flyout menu
+                    event.preventDefault()
+                    openSubMenus[openSubMenus.length - 1]?.focus()
+                    openSubMenus[openSubMenus.length - 1]?.children[0].click()
+                    break
+            }
+        }
+
+        menuItem.addEventListener('keydown', handleKeyDown)
+
+        return () => {
+            menuItem.removeEventListener('keydown', handleKeyDown)
+        }
+    }, [openSubMenus])
+
+    const resolvedAriaLabel = useMemo(() => {
+        if (typeof label !== 'string' && ariaLabel === undefined) {
+            console.debug(
+                'The label prop on MenuItem is not a string; a value for the ariaLabel prop should be provided'
+            )
+        }
+
+        return ariaLabel ?? (typeof label === 'string' ? label : undefined)
+    }, [ariaLabel, label])
 
     return (
         <>
@@ -54,6 +109,9 @@ const MenuItem = ({
                 })}
                 ref={menuItemRef}
                 data-test={dataTest}
+                role="presentation"
+                tabIndex={tabIndex}
+                data-submenu-open={children && showSubMenu}
             >
                 <a
                     target={target}
@@ -68,10 +126,18 @@ const MenuItem = ({
                               })
                             : undefined
                     }
+                    role={checkbox ? 'menuitemcheckbox' : 'menuitem'}
+                    aria-checked={checkbox ? checked : null}
+                    aria-disabled={disabled}
+                    aria-haspopup={children && 'menu'}
+                    aria-expanded={showSubMenu}
+                    aria-label={resolvedAriaLabel}
                 >
                     {icon && <span className="icon">{icon}</span>}
 
                     <span className="label">{label}</span>
+
+                    {suffix && <span className="suffix">{suffix}</span>}
 
                     {(chevron || children) && (
                         <span className="chevron">
@@ -93,12 +159,16 @@ const MenuItem = ({
     )
 }
 
-MenuItem.defaultProps = {
-    dataTest: 'dhis2-uicore-menuitem',
-}
-
 MenuItem.propTypes = {
     active: PropTypes.bool,
+    /**
+     * By default, the label prop is used for the aria-label attribute on the
+     * underlying HTML element. If this prop is defined, it will be used as the
+     * aria-label instead
+     */
+    ariaLabel: PropTypes.string,
+    checkbox: PropTypes.bool,
+    checked: PropTypes.bool,
     chevron: PropTypes.bool,
     /**
      * Nested menu items can become submenus.
@@ -114,10 +184,13 @@ MenuItem.propTypes = {
     href: PropTypes.string,
     /** An icon for the left side of the menu item */
     icon: PropTypes.node,
-    /** Text in the menu item */
+    /** Text in the menu item. If it's a string, will be used as aria-label */
     label: PropTypes.node,
     /** When true, nested menu items are shown in a Popper */
     showSubMenu: PropTypes.bool,
+    /** A supporting element shown at the end of the menu item */
+    suffix: PropTypes.node,
+    tabIndex: PropTypes.number,
     /** For using menu item as a link */
     target: PropTypes.string,
     /** On click, this function is called (without args) */

@@ -1,15 +1,16 @@
 # 
 # Translators:
-# phil_dhis2, 2021
-# Viktor Varland <viktor@dhis2.org>, 2021
+# Philip Larsen Donnelly, 2021
+# Laurência Luís, 2024
+# Edson Nhancale, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-05-10T11:56:32.496Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2021\n"
-"Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
+"Last-Translator: Edson Nhancale, 2025\n"
+"Language-Team: Portuguese (https://app.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,13 +21,13 @@ msgid "Clear"
 msgstr "Limpar"
 
 msgid "No data found"
-msgstr "Dado não encontrado"
+msgstr "Não foram encontrados dados"
 
 msgid "Type to filter options"
-msgstr ""
+msgstr "Tipo de opções de filtros"
 
 msgid "Loading options"
-msgstr ""
+msgstr "Carregando opções"
 
 msgid "No options found"
-msgstr ""
+msgstr "Não foram encontradas opções"

@@ -1,6 +1,6 @@
+import { colors, layers } from '@dhis2/ui-constants'
 import { Popper } from '@dhis2-ui/popper'
 import { Portal } from '@dhis2-ui/portal'
-import { colors, layers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
 import { resolve } from 'styled-jsx/css'
@@ -9,8 +9,6 @@ const TOOLTIP_OFFSET = 4
 
 const popperStyle = resolve`
     z-index: ${layers.applicationTop};
-    pointer-events: none;
-
     // Hide popper when reference component is obscured (https://popper.js.org/docs/v2/modifiers/hide/)
     div[data-popper-reference-hidden="true"] {
         visibility: hidden;
@@ -38,12 +36,12 @@ const flipModifier = {
 const Tooltip = ({
     children,
     className,
-    closeDelay,
+    closeDelay = 200,
     content,
-    dataTest,
-    maxWidth,
-    openDelay,
-    placement,
+    dataTest = 'dhis2-uicore-tooltip',
+    maxWidth = 300,
+    openDelay = 200,
+    placement = 'top',
 }) => {
     const [open, setOpen] = useState(false)
     const popperReference = useRef()
@@ -66,13 +64,39 @@ const Tooltip = ({
         }, closeDelay)
     }
 
-    useEffect(
-        () => () => {
+    const onFocus = () => {
+        clearTimeout(closeTimerRef.current)
+
+        openTimerRef.current = setTimeout(() => {
+            setOpen(true)
+        }, openDelay)
+    }
+
+    const onBlur = () => {
+        clearTimeout(openTimerRef.current)
+
+        closeTimerRef.current = setTimeout(() => {
+            setOpen(false)
+        }, closeDelay)
+    }
+
+    const handleKeyDown = (event) => {
+        if (event.key === 'Escape') {
+            closeTimerRef.current = setTimeout(() => {
+                setOpen(false)
+            }, closeDelay)
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener('keydown', handleKeyDown)
+
+        return () => {
             clearTimeout(openTimerRef.current)
             clearTimeout(closeTimerRef.current)
-        },
-        []
-    )
+            document.removeEventListener('keydown', handleKeyDown)
+        }
+    }, [])
 
     return (
         <>
@@ -80,19 +104,24 @@ const Tooltip = ({
                 children({
                     onMouseOver: onMouseOver,
                     onMouseOut: onMouseOut,
+                    onFocus: onFocus,
+                    onBlur: onBlur,
                     ref: popperReference,
                 })
             ) : (
                 <span
                     onMouseOver={onMouseOver}
                     onMouseOut={onMouseOut}
+                    onFocus={onFocus}
+                    onBlur={onBlur}
                     ref={popperReference}
+                    tabIndex={0}
+                    aria-describedby={open ? 'tooltipContenDhis2Ui' : ''}
                     data-test={`${dataTest}-reference`}
                 >
                     {children}
                 </span>
             )}
-
             {open && (
                 <Portal>
                     <Popper
@@ -103,7 +132,11 @@ const Tooltip = ({
                     >
                         <div
                             className={className}
+                            id="tooltipContenDhis2Ui"
+                            onMouseOver={onMouseOver}
+                            onMouseOut={onMouseOut}
                             data-test={`${dataTest}-content`}
+                            role="tooltip"
                         >
                             {content}
                         </div>
@@ -126,14 +159,6 @@ const Tooltip = ({
             `}</style>
         </>
     )
-}
-
-Tooltip.defaultProps = {
-    closeDelay: 200,
-    dataTest: 'dhis2-uicore-tooltip',
-    maxWidth: 300,
-    openDelay: 200,
-    placement: 'top',
 }
 
 Tooltip.propTypes = {

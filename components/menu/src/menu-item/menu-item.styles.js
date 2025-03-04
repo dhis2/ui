@@ -49,6 +49,15 @@ export default css`
         background-color: ${colors.white};
     }
 
+    /*focus-visible backwards compatibility for safari: https://css-tricks.com/platform-news-using-focus-visible-bbcs-new-typeface-declarative-shadow-doms-a11y-and-placeholders/*/
+    li:focus {
+        outline: 3px solid ${theme.focus};
+        outline-offset: -3px;
+    }
+    li:focus:not(:focus-visible) {
+        outline: none;
+    }
+
     a {
         display: inline-flex;
         flex-grow: 1;
@@ -58,17 +67,9 @@ export default css`
         text-decoration: none;
         color: inherit;
     }
-    /*focus-visible backwards compatibility for safari: https://css-tricks.com/platform-news-using-focus-visible-bbcs-new-typeface-declarative-shadow-doms-a11y-and-placeholders/*/
-    a:focus {
-        outline: 3px solid ${theme.focus};
-        outline-offset: -3px;
-    }
-    a:focus:not(:focus-visible) {
-        outline: none;
-    }
 
     li.with-chevron a {
-        padding-right: ${spacers.dp8};
+        padding-inline-end: ${spacers.dp8};
     }
 
     li.dense a {
@@ -77,7 +78,7 @@ export default css`
     }
 
     li.with-chevron.dense a {
-        padding-right: ${spacers.dp4};
+        padding-inline-end: ${spacers.dp4};
     }
 
     .label {
@@ -91,20 +92,30 @@ export default css`
 
     .icon {
         flex-grow: 0;
-        margin-right: ${spacers.dp12};
+        margin-inline-end: ${spacers.dp12};
         width: 24px;
         height: 24px;
+    }
+
+    .suffix {
+        display: flex;
+        align-items: center;
+        margin-inline-start: ${spacers.dp8};
     }
 
     .chevron {
         display: flex;
         align-items: center;
         flex-grow: 0;
-        margin-left: ${spacers.dp24};
+        margin-inline-start: ${spacers.dp24};
+    }
+
+    .chevron:dir(rtl) {
+        transform: rotate(180deg);
     }
 
     li.dense .icon {
-        margin-right: ${spacers.dp8};
+        margin-inline-end: ${spacers.dp8};
         width: 16px;
         height: 16px;
     }

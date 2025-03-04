@@ -38,7 +38,7 @@ const PageSummary = ({
                     align-items: center;
                     flex-shrink: 0;
                     min-height: 32px;
-                    margin-right: ${spacers.dp12};
+                    margin-inline-end: ${spacers.dp12};
                 }
                 span {
                     color: ${colors.grey700};

@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Checkbox`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { Checkbox } from '@dhis2-ui/checkbox'
+import { Checkbox } from '@dhis2/ui'
 ```
 
 
@@ -14,13 +14,13 @@ import { Checkbox } from '@dhis2-ui/checkbox'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|checked|custom|`false`|||
+|checked|custom|``false``|||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-checkbox'`|||
+|dataTest|string|``'dhis2-uicore-checkbox'``|||
 |dense|boolean||||
 |disabled|boolean||||
 |error|custom||||
-|indeterminate|custom|`false`|||
+|indeterminate|custom|``false``|||
 |initialFocus|boolean||||
 |label|node||||
 |name|string||||
@@ -37,11 +37,11 @@ import { Checkbox } from '@dhis2-ui/checkbox'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `CheckboxField`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { CheckboxField } from '@dhis2-ui/checkbox'
+import { CheckboxField } from '@dhis2/ui'
 ```
 
 
@@ -51,7 +51,7 @@ import { CheckboxField } from '@dhis2-ui/checkbox'
 |---|---|---|---|---|
 |checked|boolean||||
 |className|string||||
-|dataTest|string|`'dhis2-uiwidgets-checkboxfield'`|||
+|dataTest|string|``'dhis2-uiwidgets-checkboxfield'``|||
 |dense|boolean|||Smaller dimensions for information-dense layouts|
 |disabled|boolean|||Disables the checkbox|
 |error|custom|||Applies 'error' styling to checkbox and validation text for feedback. Mutually exclusive with `warning` and `valid` props|

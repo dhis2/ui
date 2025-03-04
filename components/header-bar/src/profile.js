@@ -3,8 +3,9 @@ import { spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useCallback, useRef, useState } from 'react'
 import { DebugInfoModal } from './debug-info/debug-info-modal.js'
-import { ProfileMenu } from './profile-menu/index.js'
+import i18n from './locales/index.js'
 import { useOnDocClick } from './profile/use-on-doc-click.js'
+import { ProfileMenu } from './profile-menu/index.js'
 
 const Profile = ({ name, email, avatarId, helpUrl }) => {
     const [showProfileMenu, setShowProfileMenu] = useState(false)
@@ -30,6 +31,8 @@ const Profile = ({ name, email, avatarId, helpUrl }) => {
             <button
                 className="headerbar-profile-btn"
                 onClick={toggleProfileMenu}
+                title={i18n.t('header bar profile')}
+                aria-label={i18n.t('header bar profile')}
             >
                 <UserAvatar
                     avatarId={avatarId}

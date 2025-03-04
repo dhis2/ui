@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Modal`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { Modal } from '@dhis2-ui/modal'
+import { Modal } from '@dhis2/ui'
 ```
 
 
@@ -16,11 +16,11 @@ import { Modal } from '@dhis2-ui/modal'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-modal'`|||
+|dataTest|string|``'dhis2-uicore-modal'``|||
 |fluid|boolean||||
 |hide|boolean||||
 |large|custom||||
-|position|custom|`'top'`|||
+|position|custom|``'top'``|||
 |small|custom||||
 |onClose|function|||Callback used when the Modal closes|
 
@@ -28,11 +28,11 @@ import { Modal } from '@dhis2-ui/modal'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `ModalActions`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { ModalActions } from '@dhis2-ui/modal'
+import { ModalActions } from '@dhis2/ui'
 ```
 
 
@@ -41,17 +41,17 @@ import { ModalActions } from '@dhis2-ui/modal'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |children|node||||
-|dataTest|string|`'dhis2-uicore-modalactions'`|||
+|dataTest|string|``'dhis2-uicore-modalactions'``|||
 
 ### ModalContent
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `ModalContent`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { ModalContent } from '@dhis2-ui/modal'
+import { ModalContent } from '@dhis2/ui'
 ```
 
 
@@ -61,17 +61,17 @@ import { ModalContent } from '@dhis2-ui/modal'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-modalcontent'`|||
+|dataTest|string|``'dhis2-uicore-modalcontent'``|||
 
 ### ModalTitle
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `ModalTitle`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { ModalTitle } from '@dhis2-ui/modal'
+import { ModalTitle } from '@dhis2/ui'
 ```
 
 
@@ -79,5 +79,5 @@ import { ModalTitle } from '@dhis2-ui/modal'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|children|string||||
-|dataTest|string|`'dhis2-uicore-modaltitle'`|||
+|children|node||||
+|dataTest|string|``'dhis2-uicore-modaltitle'``|||

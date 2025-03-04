@@ -1,11 +1,11 @@
-import { Layer } from '@dhis2-ui/layer'
-import { Popper } from '@dhis2-ui/popper'
 import { requiredIf } from '@dhis2/prop-types'
 import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
+import { Layer } from '@dhis2-ui/layer'
+import { Popper } from '@dhis2-ui/popper'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { resolve } from 'styled-jsx/css'
-import { Button } from '../index.js'
+import { Button } from '../button/index.js'
 
 function ArrowDown({ className }) {
     return (
@@ -59,7 +59,7 @@ ArrowUp.propTypes = {
 }
 
 const arrow = resolve`
-    margin-left: ${spacers.dp12};
+    margin-inline-start: ${spacers.dp12};
 `
 
 class DropdownButton extends Component {
@@ -67,7 +67,27 @@ class DropdownButton extends Component {
         open: false,
     }
 
+    static defaultProps = {
+        dataTest: 'dhis2-uicore-dropdownbutton',
+    }
+
     anchorRef = React.createRef()
+
+    componentDidMount() {
+        document.addEventListener('keydown', this.handleKeyDown)
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('keydown', this.handleKeyDown)
+    }
+
+    handleKeyDown = (event) => {
+        if (event.key === 'Escape' && this.state.open) {
+            event.preventDefault()
+            event.stopPropagation()
+            this.setState({ open: false })
+        }
+    }
 
     onClickHandler = ({ name, value }, event) => {
         const handleClick = (open) => {
@@ -108,7 +128,7 @@ class DropdownButton extends Component {
             tabIndex,
             type,
             initialFocus,
-            dataTest,
+            dataTest = 'dhis2-uicore-dropdownbutton',
         } = this.props
         const open =
             typeof this.props.open === 'boolean'
@@ -133,6 +153,7 @@ class DropdownButton extends Component {
                     tabIndex={tabIndex}
                     type={type}
                     initialFocus={initialFocus}
+                    data-test="dhis2-uicore-dropdownbutton-toggle"
                 >
                     {children}
                     <ArrowIconComponent className={arrow.className} />
@@ -164,10 +185,6 @@ class DropdownButton extends Component {
     }
 }
 
-DropdownButton.defaultProps = {
-    dataTest: 'dhis2-uicore-dropdownbutton',
-}
-
 DropdownButton.propTypes = {
     /** Children to render inside the buton */
     children: PropTypes.node,
@@ -175,8 +192,10 @@ DropdownButton.propTypes = {
     /** Component to show/hide when button is clicked */
     component: PropTypes.element,
     dataTest: PropTypes.string,
-    /** Button variant. Mutually exclusive with `primary` and `secondary` props */
-    destructive: sharedPropTypes.buttonVariantPropType,
+    /**
+     * Applies 'destructive' button appearance, implying a dangerous action.
+     */
+    destructive: PropTypes.bool,
     /** Make the button non-interactive */
     disabled: PropTypes.bool,
     icon: PropTypes.element,
@@ -187,10 +206,14 @@ DropdownButton.propTypes = {
     name: PropTypes.string,
     /** Controls popper visibility. When implementing this prop the component becomes a controlled component */
     open: PropTypes.bool,
-    /** Button variant. Mutually exclusive with `destructive` and `secondary` props */
-    primary: sharedPropTypes.buttonVariantPropType,
-    /** Button variant. Mutually exclusive with `primary` and `destructive` props */
-    secondary: sharedPropTypes.buttonVariantPropType,
+    /**
+     * Applies 'primary' button appearance, implying the most important action.
+     */
+    primary: PropTypes.bool,
+    /**
+     * Applies 'secondary' button appearance.
+     */
+    secondary: PropTypes.bool,
     /** Button size. Mutually exclusive with `large` prop */
     small: sharedPropTypes.sizePropType,
     tabIndex: PropTypes.string,

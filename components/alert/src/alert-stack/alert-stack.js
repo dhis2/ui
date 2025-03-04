@@ -1,10 +1,14 @@
-import { Portal } from '@dhis2-ui/portal'
 import { layers } from '@dhis2/ui-constants'
+import { Portal } from '@dhis2-ui/portal'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export const AlertStack = ({ className, children, dataTest }) => (
+export const AlertStack = ({
+    className,
+    children,
+    dataTest = 'dhis2-uicore-alertstack',
+}) => (
     <Portal>
         <div className={cx(className)} data-test={dataTest}>
             {children}
@@ -12,9 +16,9 @@ export const AlertStack = ({ className, children, dataTest }) => (
                 div {
                     position: fixed;
                     top: auto;
-                    right: auto;
+                    inset-inline-end: auto;
                     bottom: 0;
-                    left: 50%;
+                    inset-inline-start: 50%;
                     transform: translateX(-50%);
 
                     z-index: ${layers.alert};
@@ -24,14 +28,14 @@ export const AlertStack = ({ className, children, dataTest }) => (
 
                     pointer-events: none;
                 }
+
+                div:dir(rtl) {
+                    transform: translateX(50%);
+                }
             `}</style>
         </div>
     </Portal>
 )
-
-AlertStack.defaultProps = {
-    dataTest: 'dhis2-uicore-alertstack',
-}
 
 AlertStack.propTypes = {
     children: PropTypes.node,

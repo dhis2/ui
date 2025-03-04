@@ -1,12 +1,11 @@
-import '../common/index.js'
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given(
     'a clearable MultiSelect with a selection and onchange handler is rendered',
     () => {
         cy.visitStory(
             'MultiSelect',
-            'With clear button, selection and onChange'
+            'With clear button, selection and on change'
         )
     }
 )

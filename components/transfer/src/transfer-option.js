@@ -1,4 +1,4 @@
-import { colors } from '@dhis2/ui-constants'
+import { colors, spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useRef } from 'react'
@@ -8,7 +8,7 @@ const DOUBLE_CLICK_MAX_DELAY = 500
 export const TransferOption = ({
     className,
     disabled,
-    dataTest,
+    dataTest = 'dhis2-uicore-transferoption',
     highlighted,
     onClick,
     onDoubleClick,
@@ -66,13 +66,17 @@ export const TransferOption = ({
                     color: ${colors.grey600};
                     cursor: not-allowed;
                 }
+
+                div:first-child {
+                    margin-block-start: ${spacers.dp4};
+                }
+
+                div:last-child {
+                    margin-block-end: ${spacers.dp4};
+                }
             `}</style>
         </div>
     )
-}
-
-TransferOption.defaultProps = {
-    dataTest: 'dhis2-uicore-transferoption',
 }
 
 TransferOption.propTypes = {

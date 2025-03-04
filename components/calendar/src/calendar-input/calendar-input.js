@@ -1,11 +1,17 @@
+import {
+    useDatePicker,
+    useResolvedDirection,
+    validateDateString,
+} from '@dhis2/multi-calendar-dates'
 import { Button } from '@dhis2-ui/button'
 import { Card } from '@dhis2-ui/card'
-import { InputField, InputFieldProps } from '@dhis2-ui/input'
+import { InputField } from '@dhis2-ui/input'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
 import cx from 'classnames'
-import React, { useRef, useState } from 'react'
-import { Calendar, CalendarProps } from '../calendar/calendar.js'
+import PropTypes from 'prop-types'
+import React, { useRef, useState, useMemo, useEffect } from 'react'
+import { CalendarContainer } from '../calendar/calendar-container.js'
 import i18n from '../locales/index.js'
 
 const offsetModifier = {
@@ -16,72 +22,135 @@ const offsetModifier = {
 }
 
 export const CalendarInput = ({
-    onDateSelect,
+    onDateSelect: parentOnDateSelect,
     calendar,
     date,
     dir,
     locale,
     numberingSystem,
-    weekDayFormat,
-    timeZone,
-    width,
-    cellSize,
+    weekDayFormat = 'narrow',
+    width = '300px',
+    cellSize = '32px',
     clearable,
+    minDate,
+    maxDate,
+    format,
+    strictValidation,
+    inputWidth,
+    dataTest = 'dhis2-uiwidgets-calendar-inputfield',
     ...rest
 } = {}) => {
     const ref = useRef()
+    const calendarRef = useRef()
     const [open, setOpen] = useState(false)
+    const [partialDate, setPartialDate] = useState(date)
 
-    const calendarProps = React.useMemo(() => {
-        const onDateSelectWrapper = (selectedDate) => {
-            setOpen(false)
-            onDateSelect?.(selectedDate)
-        }
-        return {
-            onDateSelect: onDateSelectWrapper,
+    useEffect(() => setPartialDate(date), [date])
+
+    const useDatePickerOptions = useMemo(
+        () => ({
             calendar,
-            date,
-            dir,
             locale,
             numberingSystem,
             weekDayFormat,
-            timeZone,
-            width,
-            cellSize,
+        }),
+        [calendar, locale, numberingSystem, weekDayFormat]
+    )
+
+    const onChooseDate = (date, validationOptions) => {
+        if (!date) {
+            parentOnDateSelect?.({
+                calendarDateString: null,
+                validation: { valid: true },
+            })
+            return
         }
-    }, [
-        calendar,
-        cellSize,
+
+        const validation = validateDateString(date, validationOptions)
+        parentOnDateSelect?.({
+            calendarDateString: date,
+            validation,
+        })
+    }
+
+    const validationOptions = useMemo(
+        () => ({
+            calendar,
+            format,
+            minDateString: minDate,
+            maxDateString: maxDate,
+            strictValidation,
+        }),
+        [calendar, format, maxDate, minDate, strictValidation]
+    )
+
+    const pickerResults = useDatePicker({
+        onDateSelect: (result) => {
+            onChooseDate(result.calendarDateString, validationOptions)
+            setOpen(false)
+        },
         date,
-        dir,
-        locale,
-        numberingSystem,
-        onDateSelect,
-        timeZone,
-        weekDayFormat,
-        width,
-    ])
+        ...validationOptions,
+        options: useDatePickerOptions,
+    })
+
+    const handleChange = (e) => {
+        setOpen(false)
+        setPartialDate(e.value)
+    }
+
+    const handleBlur = (_, e) => {
+        if (e.relatedTarget && calendarRef.current?.contains(e.relatedTarget)) {
+            return
+        }
+
+        onChooseDate(partialDate, validationOptions)
+        setOpen(false)
+    }
 
     const onFocus = () => {
         setOpen(true)
+        rest?.onFocus?.()
     }
+
+    const languageDirection = useResolvedDirection(dir, locale)
+
+    const calendarProps = useMemo(
+        () => ({
+            date,
+            width,
+            cellSize,
+            isValid: pickerResults.isValid,
+            calendarWeekDays: pickerResults.calendarWeekDays,
+            weekDayLabels: pickerResults.weekDayLabels,
+            currMonth: pickerResults.currMonth,
+            currYear: pickerResults.currYear,
+            nextMonth: pickerResults.nextMonth,
+            nextYear: pickerResults.nextYear,
+            prevMonth: pickerResults.prevMonth,
+            prevYear: pickerResults.prevYear,
+            languageDirection,
+        }),
+        [cellSize, date, pickerResults, width, languageDirection]
+    )
 
     return (
         <>
             <div className="calendar-input-wrapper" ref={ref}>
                 <InputField
-                    label="Pick a date"
+                    label={i18n.t('Pick a date')}
                     {...rest}
+                    dataTest={dataTest}
                     type="text"
                     onFocus={onFocus}
-                    value={date}
+                    value={partialDate}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    inputWidth={inputWidth}
                 />
                 {clearable && (
                     <div
                         className={cx('calendar-clear-button', {
-                            // ToDo: this is a workaround to show the clear button in the correct place when an icon is shown.
-                            // Long-term, we should abstract and share the logic multi-select uses for the input-wrapper
-                            // https://dhis2.atlassian.net/browse/DHIS2-14848
                             'with-icon':
                                 rest.valid ||
                                 rest.error ||
@@ -94,7 +163,7 @@ export const CalendarInput = ({
                             dataTest="calendar-clear-button"
                             secondary
                             small
-                            onClick={() => calendarProps.onDateSelect(null)}
+                            onClick={() => onChooseDate(null)}
                             type="button"
                         >
                             {i18n.t('Clear')}
@@ -103,18 +172,17 @@ export const CalendarInput = ({
                 )}
             </div>
             {open && (
-                <Layer
-                    onBackdropClick={() => {
-                        setOpen(false)
-                    }}
-                >
+                <Layer onBackdropClick={() => setOpen(false)}>
                     <Popper
                         reference={ref}
                         placement="bottom-start"
                         modifiers={[offsetModifier]}
                     >
                         <Card>
-                            <Calendar {...calendarProps} date={date} />
+                            <CalendarContainer
+                                {...calendarProps}
+                                calendarRef={calendarRef}
+                            />
                         </Card>
                     </Popper>
                 </Layer>
@@ -124,13 +192,15 @@ export const CalendarInput = ({
                 {`
                     .calendar-input-wrapper {
                         position: relative;
+                        width: ${inputWidth};
                     }
                     .calendar-clear-button {
                         position: absolute;
-                        inset-inline-end: 6px;
+                        inset-inline-end: ${rest.error || rest.warning
+                            ? '36px'
+                            : '6px'};
                         inset-block-start: 27px;
                     }
-
                     .calendar-clear-button.with-icon {
                         inset-inline-end: 36px;
                     }
@@ -143,10 +213,37 @@ export const CalendarInput = ({
     )
 }
 
-CalendarInput.defaultProps = {
-    dataTest: 'dhis2-uiwidgets-calendar-inputfield',
-}
 CalendarInput.propTypes = {
-    ...CalendarProps,
-    ...InputFieldProps,
+    /** the calendar to use such gregory, ethiopic, nepali - full supported list here: https://github.com/dhis2/multi-calendar-dates/blob/main/src/constants/calendars.ts  */
+    calendar: PropTypes.any.isRequired,
+    /** Called with signature `(null)` \|\| `({ dateCalendarString: string, validation: { error: boolean, warning: boolean, validationText: string} })` with `dateCalendarString` being the stringified date in the specified calendar in the format `yyyy-MM-dd` */
+    onDateSelect: PropTypes.func.isRequired,
+    /** the size of a single cell in the table forming the calendar */
+    cellSize: PropTypes.string,
+    /** Whether the clear button is displayed */
+    clearable: PropTypes.bool,
+    /** 'data-test' attribute of `InputField` component */
+    dataTest: PropTypes.string,
+    /** the currently selected date using an iso-like format YYYY-MM-DD, in the calendar system provided (not iso8601) */
+    date: PropTypes.string,
+    /** the direction of the library - internally the library will use rtl for rtl-languages but this can be overridden here for more control */
+    dir: PropTypes.oneOf(['ltr', 'rtl']),
+    /** The date format to use either `YYYY-MM-DD` or `DD-MM-YYYY` */
+    format: PropTypes.oneOf(['YYYY-MM-DD', 'DD-MM-YYYY']),
+    /** the width of input field */
+    inputWidth: PropTypes.string,
+    /** any valid locale -  if none provided, the internal library will fallback to the user locale (more info here: https://github.com/dhis2/multi-calendar-dates/blob/main/src/hooks/internal/useResolvedLocaleOptions.ts#L15) */
+    locale: PropTypes.string,
+    /** The maximum selectable date */
+    maxDate: PropTypes.string,
+    /** The minimum selectable date */
+    minDate: PropTypes.string,
+    /** numbering system to use - full list here https://github.com/dhis2/multi-calendar-dates/blob/main/src/constants/numberingSystems.ts */
+    numberingSystem: PropTypes.string,
+    /** Whether to use strict validation by showing errors for out-of-range dates when enabled (default), and warnings when disabled */
+    strictValidation: PropTypes.bool,
+    /** the format to display for the week day, i.e. Monday (long), Mon (short), M (narrow) */
+    weekDayFormat: PropTypes.oneOf(['narrow', 'short', 'long']),
+    /** the width of the calendar component */
+    width: PropTypes.string,
 }

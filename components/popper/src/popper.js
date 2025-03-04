@@ -1,19 +1,31 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import { usePopper } from 'react-popper'
 import { getReferenceElement } from './get-reference-element.js'
 import { deduplicateModifiers } from './modifiers.js'
 
+const flipPlacement = (placement) => {
+    if (placement.startsWith('right')) {
+        return placement.replace('right', 'left')
+    }
+    if (placement.startsWith('left')) {
+        return placement.replace('left', 'right')
+    }
+    return placement
+}
+
+// Stable object reference
+const staticArray = []
 const Popper = ({
     children,
     className,
-    dataTest,
-    modifiers,
+    dataTest = 'dhis2-uicore-popper',
+    modifiers = staticArray,
     observePopperResize,
     observeReferenceResize,
     onFirstUpdate,
-    placement,
+    placement = 'auto',
     reference,
     strategy,
 }) => {
@@ -32,9 +44,18 @@ const Popper = ({
     const { styles, attributes } = usePopper(referenceElement, popperElement, {
         strategy,
         onFirstUpdate,
-        placement,
+        placement:
+            document.documentElement.dir === 'rtl'
+                ? flipPlacement(placement)
+                : placement,
         modifiers: deduplicatedModifiers,
     })
+
+    useEffect(() => {
+        if (popperElement) {
+            popperElement?.firstElementChild?.focus()
+        }
+    }, [popperElement])
 
     return (
         <div
@@ -43,16 +64,11 @@ const Popper = ({
             ref={setPopperElement}
             style={styles.popper}
             {...attributes.popper}
+            tabIndex={0}
         >
             {children}
         </div>
     )
-}
-
-Popper.defaultProps = {
-    dataTest: 'dhis2-uicore-popper',
-    modifiers: [],
-    placement: 'auto',
 }
 
 // Prop names follow the names here: https://popper.js.org/docs/v2/constructors/

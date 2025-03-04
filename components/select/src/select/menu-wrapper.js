@@ -1,13 +1,13 @@
+import { colors, elevations } from '@dhis2/ui-constants'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
-import { colors, elevations } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 
 const MenuWrapper = ({
     children,
     dataTest,
-    maxHeight,
+    maxHeight = '280px',
     menuWidth,
     onClick,
     selectRef,
@@ -38,10 +38,6 @@ const MenuWrapper = ({
             </Popper>
         </Layer>
     )
-}
-
-MenuWrapper.defaultProps = {
-    maxHeight: '280px',
 }
 
 MenuWrapper.propTypes = {

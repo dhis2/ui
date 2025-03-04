@@ -1,14 +1,15 @@
 # 
 # Translators:
-# phil_dhis2, 2021
+# Philip Larsen Donnelly, 2021
+# Thiago Rocha, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-03-10T20:20:19.392Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
-"Last-Translator: phil_dhis2, 2021\n"
-"Language-Team: Portuguese (Brazil) (https://www.transifex.com/hisp-uio/teams/100509/pt_BR/)\n"
+"Last-Translator: Thiago Rocha, 2024\n"
+"Language-Team: Portuguese (Brazil) (https://app.transifex.com/hisp-uio/teams/100509/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -30,13 +31,13 @@ msgid "Next"
 msgstr "Próximo"
 
 msgid "Page"
-msgstr ""
+msgstr "Página"
 
 msgid "Items per page"
 msgstr ""
 
 msgid "Previous"
-msgstr ""
+msgstr "Anterior"
 
 msgid ""
 "You are at page {{page}} showing items {{firstItem}}-{{lastItem}}, but there"

@@ -2,6 +2,7 @@ import { colors, theme, spacers } from '@dhis2/ui-constants'
 import { IconMessages24, IconMail24 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React from 'react'
+import i18n from './locales/index.js'
 
 function icon(kind) {
     if (kind === 'message') {
@@ -11,8 +12,22 @@ function icon(kind) {
     }
 }
 
-export const NotificationIcon = ({ count, href, kind, dataTestId }) => (
-    <a href={href} className={kind} data-test={dataTestId}>
+export const NotificationIcon = ({
+    count = 0,
+    href,
+    kind,
+    dataTestId,
+    title,
+    'aria-label': ariaLabel,
+}) => (
+    <a
+        dir="ltr"
+        href={href}
+        className={kind}
+        data-test={dataTestId}
+        title={i18n.t(title)}
+        aria-label={i18n.t(ariaLabel)}
+    >
         {icon(kind)}
 
         {count > 0 && <span data-test={`${dataTestId}-count`}>{count}</span>}
@@ -47,9 +62,9 @@ export const NotificationIcon = ({ count, href, kind, dataTestId }) => (
                 z-index: 1;
                 position: absolute;
                 top: 3px;
-                right: 2px;
-                min-width: 16px;
-                min-height: 16px;
+                inset-inline-end: 2px;
+                min-inline-size: 16px;
+                min-block-size: 16px;
                 border-radius: ${spacers.dp12};
                 box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
                     0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -68,12 +83,10 @@ export const NotificationIcon = ({ count, href, kind, dataTestId }) => (
     </a>
 )
 
-NotificationIcon.defaultProps = {
-    count: 0,
-}
-
 NotificationIcon.propTypes = {
+    'aria-label': PropTypes.string.isRequired,
     href: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
     count: PropTypes.number,
     dataTestId: PropTypes.string,
     kind: PropTypes.oneOf(['interpretation', 'message']),

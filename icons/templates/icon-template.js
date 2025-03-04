@@ -2,7 +2,6 @@
  * https://react-svgr.com/docs/custom-templates
  * https://babeljs.io/docs/en/babel-template#ast-1
  */
-
 function template(
     { template },
     opts,
@@ -12,18 +11,18 @@ function template(
     const tpl = template.smart({ plugins })
 
     return tpl.ast`
-        import PropTypes from 'prop-types'
+        import PropTypes from 'prop-types';
         ${imports}
 
-        function ${componentName}({ color, dataTest }) {
-            return ${jsx};
+        function ${componentName}({ color, dataTest, ariaLabel }) {
+            return ${jsx}
         }
 
         ${componentName}.propTypes = {
             color: PropTypes.string,
             dataTest: PropTypes.string,
+            ariaLabel: PropTypes.string
         }
-
         ${exports}
     `
 }

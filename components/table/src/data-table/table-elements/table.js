@@ -8,11 +8,11 @@ export const Table = forwardRef(
         {
             children,
             className,
-            dataTest,
-            layout,
+            dataTest = 'dhis2-uicore-table',
+            layout = 'auto',
             role,
             borderless,
-            width,
+            width = '100%',
             ...props
         },
         ref
@@ -43,12 +43,6 @@ export const Table = forwardRef(
 )
 
 Table.displayName = 'Table'
-
-Table.defaultProps = {
-    dataTest: 'dhis2-uicore-table',
-    width: '100%',
-    layout: 'auto',
-}
 
 Table.propTypes = {
     /**

@@ -1,3 +1,762 @@
+## [10.1.13](https://github.com/dhis2/ui/compare/v10.1.12...v10.1.13) (2025-02-16)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([94b01cc](https://github.com/dhis2/ui/commit/94b01cc3c8916bff26dd3424e09b6ce7aa7e98fa))
+
+## [10.1.12](https://github.com/dhis2/ui/compare/v10.1.11...v10.1.12) (2025-02-09)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([0d45048](https://github.com/dhis2/ui/commit/0d4504855ae5a2e683950c0b62a1e448a9987e44))
+
+## [10.1.11](https://github.com/dhis2/ui/compare/v10.1.10...v10.1.11) (2025-02-04)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([5af9182](https://github.com/dhis2/ui/commit/5af918224eebcf8996200f41e9f024342c8d1535))
+
+## [10.1.10](https://github.com/dhis2/ui/compare/v10.1.9...v10.1.10) (2024-12-22)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([ab8e62e](https://github.com/dhis2/ui/commit/ab8e62ebc248abec13307e39988879c7f926bd76))
+
+## [10.1.9](https://github.com/dhis2/ui/compare/v10.1.8...v10.1.9) (2024-12-18)
+
+
+### Bug Fixes
+
+* **transfer:** apply margin to first and last items, remove container padding ([7fbb161](https://github.com/dhis2/ui/commit/7fbb161fdffc9a9326e119c83ff4cf90a6f2ebab))
+* **transfer:** use dense inputs for filtering ([e62f9e7](https://github.com/dhis2/ui/commit/e62f9e78982f8fa155779f147bea02894d55c5fc))
+
+## [10.1.8](https://github.com/dhis2/ui/compare/v10.1.7...v10.1.8) (2024-12-08)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([7c24711](https://github.com/dhis2/ui/commit/7c24711ca2e07198fa513debf6792710b9034efb))
+
+## [10.1.7](https://github.com/dhis2/ui/compare/v10.1.6...v10.1.7) (2024-12-05)
+
+
+### Bug Fixes
+
+* **deps:** remove testing-library from selector-bar prod deps ([#1648](https://github.com/dhis2/ui/issues/1648)) ([e8ea894](https://github.com/dhis2/ui/commit/e8ea894eb57d394b5d819e78f8b6700fc5b37205))
+
+## [10.1.6](https://github.com/dhis2/ui/compare/v10.1.5...v10.1.6) (2024-12-03)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([6377b62](https://github.com/dhis2/ui/commit/6377b62bdfef810bb39b26c6dcd3d663d8da149b))
+
+## [10.1.5](https://github.com/dhis2/ui/compare/v10.1.4...v10.1.5) (2024-12-02)
+
+
+### Bug Fixes
+
+* **types:** fix missing width type for input ([#1644](https://github.com/dhis2/ui/issues/1644)) ([15fa0f9](https://github.com/dhis2/ui/commit/15fa0f96528b74d568d05d374a2dfac7f6ba309a))
+
+## [10.1.4](https://github.com/dhis2/ui/compare/v10.1.3...v10.1.4) (2024-11-28)
+
+
+### Bug Fixes
+
+* use flexbox instead of font-size to ensure the icon is centered ([#1643](https://github.com/dhis2/ui/issues/1643)) ([939f5fa](https://github.com/dhis2/ui/commit/939f5fad0861570ec0003dd893dc2bc28d4258e6))
+
+## [10.1.3](https://github.com/dhis2/ui/compare/v10.1.2...v10.1.3) (2024-11-26)
+
+
+### Bug Fixes
+
+* add format only to calendar input and not for calendar types ([741fb6c](https://github.com/dhis2/ui/commit/741fb6c84f0ce29ae6a53729cf52a3c05750f80a))
+* add format to calendar input props ([bbfbb56](https://github.com/dhis2/ui/commit/bbfbb561ffd9288eccbe37b66b5849c32a0694c0))
+
+## [10.1.2](https://github.com/dhis2/ui/compare/v10.1.1...v10.1.2) (2024-11-26)
+
+
+### Bug Fixes
+
+* prevent prop-types error by making tabIndex an optional prop ([#1640](https://github.com/dhis2/ui/issues/1640)) ([b57b81c](https://github.com/dhis2/ui/commit/b57b81c190fe874a3318e45aac091b7a1418bd76))
+
+## [10.1.1](https://github.com/dhis2/ui/compare/v10.1.0...v10.1.1) (2024-11-26)
+
+
+### Bug Fixes
+
+* **menu-item:** tweak active and focused styles ([#1639](https://github.com/dhis2/ui/issues/1639)) ([e6bf884](https://github.com/dhis2/ui/commit/e6bf8842622f2fc32692610877200a978c2ccd8d))
+
+# [10.1.0](https://github.com/dhis2/ui/compare/v10.0.4...v10.1.0) (2024-11-25)
+
+
+### Features
+
+* **menu-item:** add ariaLabel prop to use if label prop is not a string ([#1638](https://github.com/dhis2/ui/issues/1638)) ([2c1c065](https://github.com/dhis2/ui/commit/2c1c065548841674cea1b6c3abf4da2e01de9083))
+
+## [10.0.4](https://github.com/dhis2/ui/compare/v10.0.3...v10.0.4) (2024-11-25)
+
+
+### Bug Fixes
+
+* remove redundant wrapper object from onfocus and onblur callbacks ([#1637](https://github.com/dhis2/ui/issues/1637)) ([d259c09](https://github.com/dhis2/ui/commit/d259c097c70fd82568d28142162324c83706005d))
+
+## [10.0.3](https://github.com/dhis2/ui/compare/v10.0.2...v10.0.3) (2024-11-25)
+
+
+### Bug Fixes
+
+* **calendar:** prevent handleBlur triggering on empty input focus ([#1636](https://github.com/dhis2/ui/issues/1636)) ([32b57bc](https://github.com/dhis2/ui/commit/32b57bc5b33f9c0380ec8d611b0d506b73b845fc))
+
+## [10.0.2](https://github.com/dhis2/ui/compare/v10.0.1...v10.0.2) (2024-11-24)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([595cfba](https://github.com/dhis2/ui/commit/595cfba9ba2ff8784dc178b68d7797103002eee4))
+
+## [10.0.1](https://github.com/dhis2/ui/compare/v10.0.0...v10.0.1) (2024-11-21)
+
+
+### Bug Fixes
+
+* bump multi-calendar library ([5c21525](https://github.com/dhis2/ui/commit/5c215253ba1131e68114558c1f3945453e96633b))
+
+# [10.0.0](https://github.com/dhis2/ui/compare/v9.15.0...v10.0.0) (2024-11-21)
+
+
+### Bug Fixes
+
+* update calendar tests for react 18 ([98831a7](https://github.com/dhis2/ui/commit/98831a7ab25b43d3c9424b6e8fbca93b6009cb26))
+* update testing-library for selector-bar ([893024d](https://github.com/dhis2/ui/commit/893024db1666610ffc0d6321ae8531f407e7da5e))
+* **calendar:** fix minor type issues ([#1588](https://github.com/dhis2/ui/issues/1588)) ([21e60a6](https://github.com/dhis2/ui/commit/21e60a6a275ab5cc4a1048e4dfb53183a4f92bd3))
+* **calendar:** stop extra call to validation when choosing from picker ([#1623](https://github.com/dhis2/ui/issues/1623)) ([a1786d5](https://github.com/dhis2/ui/commit/a1786d593f9c3f2cac79dc6f657fa65c71d57690))
+* **calendar-input:** trigger onFocus if passed ([#1622](https://github.com/dhis2/ui/issues/1622)) ([293505d](https://github.com/dhis2/ui/commit/293505d6376c57a4cef453096b791137c619ca7e))
+* bump multi calendar library version in calendar ([#1566](https://github.com/dhis2/ui/issues/1566)) ([d205016](https://github.com/dhis2/ui/commit/d205016ae9f51eb286007762d99549325199cedc))
+* bump multi calendar library version in calendar component  ([#1576](https://github.com/dhis2/ui/issues/1576)) ([5f2b13d](https://github.com/dhis2/ui/commit/5f2b13dc3abfd2396c83c39fb399d3c7e0d1dffe))
+* bump multi-calendar library ([#1615](https://github.com/dhis2/ui/issues/1615)) ([238de1f](https://github.com/dhis2/ui/commit/238de1f30e4b7bbfe40127ed35e9661ff1543a26))
+* bump multi-calendar library ([#1618](https://github.com/dhis2/ui/issues/1618)) ([769c7ae](https://github.com/dhis2/ui/commit/769c7aee5fee159d9eb8eb67cb869ee87367f7fd))
+* clear button and arrow alignment issues ([#1609](https://github.com/dhis2/ui/issues/1609)) ([ba0b657](https://github.com/dhis2/ui/commit/ba0b657a798c8f538ee025144d579d862bbd583a))
+* stories for calendar validation ([#1616](https://github.com/dhis2/ui/issues/1616)) ([c00a2d6](https://github.com/dhis2/ui/commit/c00a2d62b85c686acb4fc0ad6aea39d839940ee9))
+* update multi-calendar library ([6aa01cc](https://github.com/dhis2/ui/commit/6aa01cc9fd0cde91fd8d20716b132fe6518476e9))
+* update yarn.lock after deduping ([5c24b02](https://github.com/dhis2/ui/commit/5c24b02782c2e9c530ec857669ba51ff3e5f3768))
+
+
+### Features
+
+* add aria attributes to loaders ([#1449](https://github.com/dhis2/ui/issues/1449)) ([2832584](https://github.com/dhis2/ui/commit/28325848aac6e1c5244b7a48ed5d8951a0cfa1d3))
+* calendar input to work with react final form ([827c3f8](https://github.com/dhis2/ui/commit/827c3f853d24d08b9d1952c72149fc3359ffc34a))
+* memorize calendar container component to improve perfromance ([#1575](https://github.com/dhis2/ui/issues/1575)) ([0d00a19](https://github.com/dhis2/ui/commit/0d00a19663147b24acc0513aa8958d630ffed94c))
+* merge branch master into branch ([0577074](https://github.com/dhis2/ui/commit/05770745cbe17b8b059162d19fd66cb73eb7dad6))
+* merge master into alpha ([7afecf9](https://github.com/dhis2/ui/commit/7afecf9121d573bc96f58f8bb89215440036c970))
+* splitButton accessibility improvements ([#1458](https://github.com/dhis2/ui/issues/1458)) ([51a1b14](https://github.com/dhis2/ui/commit/51a1b149ae720703339dc36edc88de70c6798bf8))
+* support editable input | min & max dates | dd-mm-yyyy format in CalendarInput ([#1504](https://github.com/dhis2/ui/issues/1504)) ([99a78f5](https://github.com/dhis2/ui/commit/99a78f5caec83529af26a11a2dd4d93fface30b4))
+* use alpha of multi calendar library ([0c6b966](https://github.com/dhis2/ui/commit/0c6b966fca18912e88a13c6822ec68b46208e99a))
+* verify date input only on blur on calendar input, close calendar popup on blur as well ([d8b0d1c](https://github.com/dhis2/ui/commit/d8b0d1cd2fd93a88413f0f73ad216783e6dd3ff7))
+* **tooltip:** accessibility improvements for tooltip ([#1463](https://github.com/dhis2/ui/issues/1463)) ([f11eabb](https://github.com/dhis2/ui/commit/f11eabb87309efdb6e1d961a461002cdc76664b1))
+
+
+### Reverts
+
+* Revert "feat(selectionBar): accessibility improvements for SelectionBar (#1475)" ([54498fb](https://github.com/dhis2/ui/commit/54498fbdd8cec448c891855b72691d5613c83a47)), closes [#1475](https://github.com/dhis2/ui/issues/1475)
+
+
+### BREAKING CHANGES
+
+* multi-calendar hook no longer returns Temporal date
+
+* fix: failing test
+
+# [10.0.0-alpha.8](https://github.com/dhis2/ui/compare/v10.0.0-alpha.7...v10.0.0-alpha.8) (2024-11-21)
+
+
+### Bug Fixes
+
+* peer dependency issue with npm publish ([#1628](https://github.com/dhis2/ui/issues/1628)) ([1319654](https://github.com/dhis2/ui/commit/13196549eb2450d33d3debcbfa68d0321f8c6358))
+* update calendar tests for react 18 ([98831a7](https://github.com/dhis2/ui/commit/98831a7ab25b43d3c9424b6e8fbca93b6009cb26))
+* update testing-library for selector-bar ([893024d](https://github.com/dhis2/ui/commit/893024db1666610ffc0d6321ae8531f407e7da5e))
+* **translations:** sync translations from transifex (master) ([d89ce94](https://github.com/dhis2/ui/commit/d89ce946b7145851a5c39ede8a4cbbaaa60411ca))
+* **translations:** sync translations from transifex (master) ([7f22330](https://github.com/dhis2/ui/commit/7f22330ddfd1af2ac6e0199f4df78abf695200a2))
+
+
+### Features
+
+* add data sharing to sharing dialog [LIBS-677] ([#1629](https://github.com/dhis2/ui/issues/1629)) ([7e15c7f](https://github.com/dhis2/ui/commit/7e15c7f19becf6fc6657270a3f1ef94d8a48f048))
+* make input field clearable and add prefix icon ([#1619](https://github.com/dhis2/ui/issues/1619)) ([7f87fb4](https://github.com/dhis2/ui/commit/7f87fb4ece42e1ba63143369dcefa1c33c65040f))
+* update react peer dependency to react@18 ([#1624](https://github.com/dhis2/ui/issues/1624)) ([5d3c2a4](https://github.com/dhis2/ui/commit/5d3c2a4f6fc4683354a5af3d8ec2f8bfd88169f5))
+
+# [10.0.0-alpha.7](https://github.com/dhis2/ui/compare/v10.0.0-alpha.6...v10.0.0-alpha.7) (2024-11-14)
+
+
+### Bug Fixes
+
+* **sharing-dialog:** add 'route' to SharingType type ([#1617](https://github.com/dhis2/ui/issues/1617)) ([1d9664a](https://github.com/dhis2/ui/commit/1d9664a80410f8ea6a8a4a4a7c3f6acc36a74587))
+* revert "fix: select-field not showing in correct place" ([#1614](https://github.com/dhis2/ui/issues/1614)) ([c83de6b](https://github.com/dhis2/ui/commit/c83de6b0a8993ac16a87a3351ec96ff1aa43151b))
+* **translations:** sync translations from transifex (master) ([491bf04](https://github.com/dhis2/ui/commit/491bf0477e8990e591b32ebfb32e6837f5e563b3))
+* update default props to JS default params ([#1598](https://github.com/dhis2/ui/issues/1598)) ([20e343f](https://github.com/dhis2/ui/commit/20e343fc9e34570dcd8678ddb449d48c5b62a140))
+
+
+### Features
+
+* merge branch master into branch ([0577074](https://github.com/dhis2/ui/commit/05770745cbe17b8b059162d19fd66cb73eb7dad6))
+* **icons:** add link-off icons ([e72be1e](https://github.com/dhis2/ui/commit/e72be1ec672fd16072a33ec057ccc3413713abeb))
+
+# [9.12.0](https://github.com/dhis2/ui/compare/v9.11.8...v9.12.0) (2024-10-29)
+
+
+### Features
+
+* **icons:** add link-off icons ([e72be1e](https://github.com/dhis2/ui/commit/e72be1ec672fd16072a33ec057ccc3413713abeb))
+
+## [9.11.8](https://github.com/dhis2/ui/compare/v9.11.7...v9.11.8) (2024-10-15)
+
+
+### Bug Fixes
+
+* **sharing-dialog:** add 'route' to SharingType type ([#1617](https://github.com/dhis2/ui/issues/1617)) ([1d9664a](https://github.com/dhis2/ui/commit/1d9664a80410f8ea6a8a4a4a7c3f6acc36a74587))
+
+## [9.11.7](https://github.com/dhis2/ui/compare/v9.11.6...v9.11.7) (2024-10-01)
+
+
+### Bug Fixes
+
+* revert "fix: select-field not showing in correct place" ([#1614](https://github.com/dhis2/ui/issues/1614)) ([c83de6b](https://github.com/dhis2/ui/commit/c83de6b0a8993ac16a87a3351ec96ff1aa43151b))
+
+## [9.11.6](https://github.com/dhis2/ui/compare/v9.11.5...v9.11.6) (2024-09-29)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([491bf04](https://github.com/dhis2/ui/commit/491bf0477e8990e591b32ebfb32e6837f5e563b3))
+
+## [9.11.5](https://github.com/dhis2/ui/compare/v9.11.4...v9.11.5) (2024-09-26)
+
+
+### Bug Fixes
+
+* update default props to JS default params ([#1598](https://github.com/dhis2/ui/issues/1598)) ([20e343f](https://github.com/dhis2/ui/commit/20e343fc9e34570dcd8678ddb449d48c5b62a140))
+
+# [10.0.0-alpha.6](https://github.com/dhis2/ui/compare/v10.0.0-alpha.5...v10.0.0-alpha.6) (2024-10-29)
+
+
+### Bug Fixes
+
+* **calendar:** stop extra call to validation when choosing from picker ([#1623](https://github.com/dhis2/ui/issues/1623)) ([a1786d5](https://github.com/dhis2/ui/commit/a1786d593f9c3f2cac79dc6f657fa65c71d57690))
+
+# [10.0.0-alpha.5](https://github.com/dhis2/ui/compare/v10.0.0-alpha.4...v10.0.0-alpha.5) (2024-10-21)
+
+
+### Bug Fixes
+
+* **calendar-input:** trigger onFocus if passed ([#1622](https://github.com/dhis2/ui/issues/1622)) ([293505d](https://github.com/dhis2/ui/commit/293505d6376c57a4cef453096b791137c619ca7e))
+
+# [10.0.0-alpha.4](https://github.com/dhis2/ui/compare/v10.0.0-alpha.3...v10.0.0-alpha.4) (2024-10-11)
+
+
+### Bug Fixes
+
+* bump multi-calendar library ([#1618](https://github.com/dhis2/ui/issues/1618)) ([769c7ae](https://github.com/dhis2/ui/commit/769c7aee5fee159d9eb8eb67cb869ee87367f7fd))
+
+# [10.0.0-alpha.3](https://github.com/dhis2/ui/compare/v10.0.0-alpha.2...v10.0.0-alpha.3) (2024-10-09)
+
+
+### Bug Fixes
+
+* **calendar:** fix minor type issues ([#1588](https://github.com/dhis2/ui/issues/1588)) ([21e60a6](https://github.com/dhis2/ui/commit/21e60a6a275ab5cc4a1048e4dfb53183a4f92bd3))
+
+# [10.0.0-alpha.2](https://github.com/dhis2/ui/compare/v10.0.0-alpha.1...v10.0.0-alpha.2) (2024-10-07)
+
+
+### Bug Fixes
+
+* stories for calendar validation ([#1616](https://github.com/dhis2/ui/issues/1616)) ([c00a2d6](https://github.com/dhis2/ui/commit/c00a2d62b85c686acb4fc0ad6aea39d839940ee9))
+
+# [10.0.0-alpha.1](https://github.com/dhis2/ui/compare/v9.12.0-alpha.4...v10.0.0-alpha.1) (2024-10-04)
+
+
+### Bug Fixes
+
+* bump multi-calendar library ([#1615](https://github.com/dhis2/ui/issues/1615)) ([238de1f](https://github.com/dhis2/ui/commit/238de1f30e4b7bbfe40127ed35e9661ff1543a26))
+
+
+### BREAKING CHANGES
+
+* multi-calendar hook no longer returns Temporal date
+
+* fix: failing test
+
+# [9.12.0-alpha.4](https://github.com/dhis2/ui/compare/v9.12.0-alpha.3...v9.12.0-alpha.4) (2024-09-27)
+
+
+### Bug Fixes
+
+* clear button and arrow alignment issues ([#1609](https://github.com/dhis2/ui/issues/1609)) ([ba0b657](https://github.com/dhis2/ui/commit/ba0b657a798c8f538ee025144d579d862bbd583a))
+
+# [9.12.0-alpha.3](https://github.com/dhis2/ui/compare/v9.12.0-alpha.2...v9.12.0-alpha.3) (2024-09-26)
+
+
+### Features
+
+* calendar input to work with react final form ([827c3f8](https://github.com/dhis2/ui/commit/827c3f853d24d08b9d1952c72149fc3359ffc34a))
+
+# [9.12.0-alpha.2](https://github.com/dhis2/ui/compare/v9.12.0-alpha.1...v9.12.0-alpha.2) (2024-09-24)
+
+
+### Bug Fixes
+
+* update multi-calendar library ([6aa01cc](https://github.com/dhis2/ui/commit/6aa01cc9fd0cde91fd8d20716b132fe6518476e9))
+
+# [9.12.0-alpha.1](https://github.com/dhis2/ui/compare/v9.11.4...v9.12.0-alpha.1) (2024-09-23)
+
+
+### Bug Fixes
+
+* bump multi calendar library version in calendar ([#1566](https://github.com/dhis2/ui/issues/1566)) ([d205016](https://github.com/dhis2/ui/commit/d205016ae9f51eb286007762d99549325199cedc))
+* bump multi calendar library version in calendar component  ([#1576](https://github.com/dhis2/ui/issues/1576)) ([5f2b13d](https://github.com/dhis2/ui/commit/5f2b13dc3abfd2396c83c39fb399d3c7e0d1dffe))
+* update yarn.lock after deduping ([5c24b02](https://github.com/dhis2/ui/commit/5c24b02782c2e9c530ec857669ba51ff3e5f3768))
+
+
+### Features
+
+* add aria attributes to loaders ([#1449](https://github.com/dhis2/ui/issues/1449)) ([2832584](https://github.com/dhis2/ui/commit/28325848aac6e1c5244b7a48ed5d8951a0cfa1d3))
+* memorize calendar container component to improve perfromance ([#1575](https://github.com/dhis2/ui/issues/1575)) ([0d00a19](https://github.com/dhis2/ui/commit/0d00a19663147b24acc0513aa8958d630ffed94c))
+* merge master into alpha ([7afecf9](https://github.com/dhis2/ui/commit/7afecf9121d573bc96f58f8bb89215440036c970))
+* splitButton accessibility improvements ([#1458](https://github.com/dhis2/ui/issues/1458)) ([51a1b14](https://github.com/dhis2/ui/commit/51a1b149ae720703339dc36edc88de70c6798bf8))
+* support editable input | min & max dates | dd-mm-yyyy format in CalendarInput ([#1504](https://github.com/dhis2/ui/issues/1504)) ([99a78f5](https://github.com/dhis2/ui/commit/99a78f5caec83529af26a11a2dd4d93fface30b4))
+* use alpha of multi calendar library ([0c6b966](https://github.com/dhis2/ui/commit/0c6b966fca18912e88a13c6822ec68b46208e99a))
+* verify date input only on blur on calendar input, close calendar popup on blur as well ([d8b0d1c](https://github.com/dhis2/ui/commit/d8b0d1cd2fd93a88413f0f73ad216783e6dd3ff7))
+* **tooltip:** accessibility improvements for tooltip ([#1463](https://github.com/dhis2/ui/issues/1463)) ([f11eabb](https://github.com/dhis2/ui/commit/f11eabb87309efdb6e1d961a461002cdc76664b1))
+
+
+### Reverts
+
+* Revert "feat(selectionBar): accessibility improvements for SelectionBar (#1475)" ([54498fb](https://github.com/dhis2/ui/commit/54498fbdd8cec448c891855b72691d5613c83a47)), closes [#1475](https://github.com/dhis2/ui/issues/1475)
+
+## [9.11.4](https://github.com/dhis2/ui/compare/v9.11.3...v9.11.4) (2024-09-10)
+
+
+### Bug Fixes
+
+* circular dependency in input-field ([#1590](https://github.com/dhis2/ui/issues/1590)) ([bcd0f41](https://github.com/dhis2/ui/commit/bcd0f41f3ba583c5ce23af316a61709e4f90b93a))
+
+## [9.11.3](https://github.com/dhis2/ui/compare/v9.11.2...v9.11.3) (2024-08-21)
+
+
+### Bug Fixes
+
+* select-field not showing in correct place ([#1400](https://github.com/dhis2/ui/issues/1400)) ([d97d640](https://github.com/dhis2/ui/commit/d97d640f92c1c42dbc92e46771b6a58870add895))
+
+## [9.11.2](https://github.com/dhis2/ui/compare/v9.11.1...v9.11.2) (2024-08-18)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([2f82be2](https://github.com/dhis2/ui/commit/2f82be21006c25b40b3d4e29f479a2c7ee0bd2fa))
+* **translations:** sync translations from transifex (master) ([e8b0559](https://github.com/dhis2/ui/commit/e8b05595730f02fdf58e12eb58daf346fc66ffd8))
+
+## [9.11.1](https://github.com/dhis2/ui/compare/v9.11.0...v9.11.1) (2024-08-08)
+
+
+### Bug Fixes
+
+* fix publishing to npm ([#1577](https://github.com/dhis2/ui/issues/1577)) ([1889a7b](https://github.com/dhis2/ui/commit/1889a7baf0ad1b6709272be61094da80cad65fe1))
+* get rid of storybook references in docs ([1904b17](https://github.com/dhis2/ui/commit/1904b172bfde066a17a0edf82c196959ba35c8bb))
+* get storybook 8 working ([8c6be62](https://github.com/dhis2/ui/commit/8c6be62c2df9261109df12e51c7dc2339b59eedf))
+* issue with production build not loading some dependent modules ([5060c61](https://github.com/dhis2/ui/commit/5060c6143e3788895ab4282ba7dc84283d62bae8))
+* pin react version in resolution ([#1573](https://github.com/dhis2/ui/issues/1573)) ([46cdd79](https://github.com/dhis2/ui/commit/46cdd79c27b28d69eb8e5d72a6946376961ba670))
+* resolve react version ([#1567](https://github.com/dhis2/ui/issues/1567)) ([c18a73d](https://github.com/dhis2/ui/commit/c18a73d71a1a59e4229adae2f964e06041eaab8b))
+* **calendar:** pin temporal dependency to version 0.4.3 due to breaking changes ([3b5a586](https://github.com/dhis2/ui/commit/3b5a58614eb6992469d5c5d74aa19aa225fb2b1c))
+
+# [9.11.0](https://github.com/dhis2/ui/compare/v9.10.3...v9.11.0) (2024-07-29)
+
+
+### Features
+
+* implement accessible flyout menu and handle submenus ([#1495](https://github.com/dhis2/ui/issues/1495)) ([73d1f7e](https://github.com/dhis2/ui/commit/73d1f7e062ad393a156b3b439b590c5927f0fc9d))
+
+## [9.10.3](https://github.com/dhis2/ui/compare/v9.10.2...v9.10.3) (2024-07-24)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([b7d3ec6](https://github.com/dhis2/ui/commit/b7d3ec6a91d7fd54c9220364c678f71c9daa14eb))
+
+## [9.10.2](https://github.com/dhis2/ui/compare/v9.10.1...v9.10.2) (2024-07-15)
+
+
+### Bug Fixes
+
+* **icon types:** export IconSubtract16 & IconSubtract24 ([5237c66](https://github.com/dhis2/ui/commit/5237c66ffa372ca79eb28c55369cefc7d4eab327))
+* **menu item types:** make suffix prop optional ([c059fde](https://github.com/dhis2/ui/commit/c059fde8e511c21c8540a418833a98b2f868eb6e))
+* **modal types:** accept ReactNodes as children ([bc59cf7](https://github.com/dhis2/ui/commit/bc59cf769d24ac66061b78424db0732f164ce387))
+* **tag types:** accept ReactNodes as children ([c093a14](https://github.com/dhis2/ui/commit/c093a14988da636a88bc9ce2c5e7589a5a7e8f80))
+
+## [9.10.1](https://github.com/dhis2/ui/compare/v9.10.0...v9.10.1) (2024-07-04)
+
+
+### Bug Fixes
+
+* **selectorbar:** handle components other than SelectorBarItem correctly as children ([#1534](https://github.com/dhis2/ui/issues/1534)) ([7c78ac7](https://github.com/dhis2/ui/commit/7c78ac729b763e1c230d50828cc2728f0ed360e7))
+* do not hijack input when inside a menu ([#1551](https://github.com/dhis2/ui/issues/1551)) ([7a27d3d](https://github.com/dhis2/ui/commit/7a27d3df5e4812ee01a3c2a9b1d69a3bab1ce96e))
+
+# [9.10.0](https://github.com/dhis2/ui/compare/v9.9.1...v9.10.0) (2024-07-03)
+
+
+### Features
+
+* **menu:** memoise menu's childrenToRender function and add valid role checks ([#1539](https://github.com/dhis2/ui/issues/1539)) ([bddbdae](https://github.com/dhis2/ui/commit/bddbdaeb63180b80a4352a256e7916ab75f633e9))
+* **TabBar:** accessibility improvements for TabBar & Tab ([#1468](https://github.com/dhis2/ui/issues/1468)) ([b095f5a](https://github.com/dhis2/ui/commit/b095f5a90688b7e95338622137c71b2305fd9fe7))
+
+## [9.9.1](https://github.com/dhis2/ui/compare/v9.9.0...v9.9.1) (2024-07-02)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#1532](https://github.com/dhis2/ui/issues/1532)) ([bb15173](https://github.com/dhis2/ui/commit/bb151732970dee94d0431d379373fbb369776346))
+
+# [9.9.0](https://github.com/dhis2/ui/compare/v9.8.10...v9.9.0) (2024-07-02)
+
+
+### Features
+
+* **menu:** add aria-attributes and roles to menu and its components ([#1514](https://github.com/dhis2/ui/issues/1514)) ([54b816c](https://github.com/dhis2/ui/commit/54b816c8ac28ef74ac628130994c9c8fadf9d178))
+* **menu:** add keyboard accessibility to menus ([#1533](https://github.com/dhis2/ui/issues/1533)) ([235a71e](https://github.com/dhis2/ui/commit/235a71e92d41c35b84e61407adfbfa53b3513d4e))
+
+## [9.8.10](https://github.com/dhis2/ui/compare/v9.8.9...v9.8.10) (2024-07-01)
+
+
+### Bug Fixes
+
+* **LIBS-629:** bump library to use Nepali script when 'ne' locale passed ([6546572](https://github.com/dhis2/ui/commit/6546572ea30d8faed53728cb8b005da0445326d4))
+
+## [9.8.9](https://github.com/dhis2/ui/compare/v9.8.8...v9.8.9) (2024-06-20)
+
+
+### Bug Fixes
+
+* update @dhis2/multi-calendar-dates ([#1525](https://github.com/dhis2/ui/issues/1525)) ([cf5d39d](https://github.com/dhis2/ui/commit/cf5d39d2b9898958e6e3c359d1062f16b2011778))
+
+## [9.8.8](https://github.com/dhis2/ui/compare/v9.8.7...v9.8.8) (2024-06-20)
+
+
+### Bug Fixes
+
+* i18n wrap pick a date ([#1531](https://github.com/dhis2/ui/issues/1531)) ([4e4a43d](https://github.com/dhis2/ui/commit/4e4a43db24342300c4db94ac497d1a381c50dab2))
+
+## [9.8.7](https://github.com/dhis2/ui/compare/v9.8.6...v9.8.7) (2024-06-20)
+
+
+### Bug Fixes
+
+* **split-button:** stop swallowing key down events ([22d43bc](https://github.com/dhis2/ui/commit/22d43bc54ee5be5fc6b17400ac7b4a518051dfe7))
+
+## [9.8.6](https://github.com/dhis2/ui/compare/v9.8.5...v9.8.6) (2024-06-20)
+
+
+### Bug Fixes
+
+* add aggregate data exchange to sharing dialog type prop's type ([d3b5486](https://github.com/dhis2/ui/commit/d3b54860337913be53ed25cbb72a0710787fdd28))
+* add all possible sharing dialog type prop's types ([43210cb](https://github.com/dhis2/ui/commit/43210cb1f7df6e903f86ad8f5a4d93471704a28b))
+* restrict dialog types to only sharable and restrict type of sharing type ([1748809](https://github.com/dhis2/ui/commit/1748809b093ebefefc01db2e4054d61b039fcd52))
+
+## [9.8.5](https://github.com/dhis2/ui/compare/v9.8.4...v9.8.5) (2024-06-19)
+
+
+### Bug Fixes
+
+* **modal:** dont swallow keyDown events ([d4a0c44](https://github.com/dhis2/ui/commit/d4a0c44bcd3892f46510eae0c16c977681f8069f))
+
+## [9.8.4](https://github.com/dhis2/ui/compare/v9.8.3...v9.8.4) (2024-06-19)
+
+
+### Bug Fixes
+
+* **drop-down:** dont swallow keyDown events unless its esc and open ([#1529](https://github.com/dhis2/ui/issues/1529)) ([bdb8eff](https://github.com/dhis2/ui/commit/bdb8eff1c34f1352ce27130584bcf2f442b9e6d5))
+
+## [9.8.3](https://github.com/dhis2/ui/compare/v9.8.2...v9.8.3) (2024-06-16)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([5f7f65a](https://github.com/dhis2/ui/commit/5f7f65a01bb0819a5794e1ce10550b283a9b3c0e))
+
+## [9.8.2](https://github.com/dhis2/ui/compare/v9.8.1...v9.8.2) (2024-06-14)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([0dfb475](https://github.com/dhis2/ui/commit/0dfb4754c0d0d13f54a499b7a589633b877fe2a7))
+
+## [9.8.1](https://github.com/dhis2/ui/compare/v9.8.0...v9.8.1) (2024-06-09)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([ca3f6bf](https://github.com/dhis2/ui/commit/ca3f6bf6f46d1fcac88eafe2a62e80d03861b693))
+
+# [9.8.0](https://github.com/dhis2/ui/compare/v9.7.0...v9.8.0) (2024-06-06)
+
+
+### Features
+
+* add data test prop to sharing dialog ([5a1d81d](https://github.com/dhis2/ui/commit/5a1d81d769e48487c922fb3bc6e12b31f58cdd9a))
+
+# [9.7.0](https://github.com/dhis2/ui/compare/v9.6.0...v9.7.0) (2024-06-03)
+
+
+### Bug Fixes
+
+* **Tooltip:** add missing tabIndex ([389e61a](https://github.com/dhis2/ui/commit/389e61aa40f46180045005be09ef295adfae65e7))
+
+
+### Features
+
+* splitButton accessibility improvements ([#1458](https://github.com/dhis2/ui/issues/1458)) ([8370915](https://github.com/dhis2/ui/commit/8370915eb91252a501ef6c1acb6ed40a26160b5a))
+* **tooltip:** accessibility improvements for tooltip ([#1463](https://github.com/dhis2/ui/issues/1463)) ([9afcfdf](https://github.com/dhis2/ui/commit/9afcfdf4b6b13e927351364d29d63a774bb1cfa1))
+* add aria attributes to loaders ([#1449](https://github.com/dhis2/ui/issues/1449)) ([aaa60fb](https://github.com/dhis2/ui/commit/aaa60fbd5b4d83f5ede5d3f98db182099af49134))
+* add optional aria-label prop to switch component ([bf9927a](https://github.com/dhis2/ui/commit/bf9927a204d56e688ee64cbff021e249f7f94b5e))
+
+# [9.6.0](https://github.com/dhis2/ui/compare/v9.5.0...v9.6.0) (2024-06-03)
+
+
+### Features
+
+* accessibility on dropdown button ([#1460](https://github.com/dhis2/ui/issues/1460)) ([51750ea](https://github.com/dhis2/ui/commit/51750ea88450d587066127d0bf7592494234bca4))
+* **selectionBar:** accessibility improvements for SelectionBar ([#1475](https://github.com/dhis2/ui/issues/1475)) ([b43882c](https://github.com/dhis2/ui/commit/b43882c93e7c4dc0b514560f2a1ee37bb2bad72f))
+
+# [9.5.0](https://github.com/dhis2/ui/compare/v9.4.9...v9.5.0) (2024-05-29)
+
+
+### Features
+
+* **FileListItem:** accessibility improvements for FileListItem ([#1474](https://github.com/dhis2/ui/issues/1474)) ([b5d5e2d](https://github.com/dhis2/ui/commit/b5d5e2d5b050206ff66da4b0864912ac1f517ede))
+
+## [9.4.9](https://github.com/dhis2/ui/compare/v9.4.8...v9.4.9) (2024-05-27)
+
+
+### Bug Fixes
+
+* **button:** fix prop types for button ([9e9ba33](https://github.com/dhis2/ui/commit/9e9ba33c5dffd7490b72eaa77f65d565b4ef42ba))
+* **types:** update button props to follow best practices ([9c9ff02](https://github.com/dhis2/ui/commit/9c9ff02bfb2b52b842f7ce0d6050342063fd6d3f))
+
+## [9.4.8](https://github.com/dhis2/ui/compare/v9.4.7...v9.4.8) (2024-05-26)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([b84d585](https://github.com/dhis2/ui/commit/b84d58557e13f122dce7c65fc52e1a5017012e93))
+
+## [9.4.7](https://github.com/dhis2/ui/compare/v9.4.6...v9.4.7) (2024-05-19)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([157bc54](https://github.com/dhis2/ui/commit/157bc54f4c755fc5de5b22426cf0f3e4efed3d86))
+
+## [9.4.6](https://github.com/dhis2/ui/compare/v9.4.5...v9.4.6) (2024-05-10)
+
+
+### Bug Fixes
+
+* li key to be unique ([7de6dc5](https://github.com/dhis2/ui/commit/7de6dc5b805abee8f3ff8538ba5f0414e8240802))
+
+## [9.4.5](https://github.com/dhis2/ui/compare/v9.4.4...v9.4.5) (2024-05-10)
+
+
+### Bug Fixes
+
+* upgrade @dhis2/cypress-commands and @dhis2/cypress-plugins to 10.0.5 ([c7bcc68](https://github.com/dhis2/ui/commit/c7bcc68a5d9496a53f7e8933d1f48699f403a8cb))
+* use npm version 6 for semantic release action in publish step ([#1499](https://github.com/dhis2/ui/issues/1499)) ([4d4fb40](https://github.com/dhis2/ui/commit/4d4fb40afd945ad3f78c943e24c3ed702cd4ce31))
+* **translations:** sync translations from transifex (master) ([0bf3520](https://github.com/dhis2/ui/commit/0bf352080cbd58c292325c1adf1c4cb6e840423f))
+
+## [9.4.4](https://github.com/dhis2/ui/compare/v9.4.3...v9.4.4) (2024-04-09)
+
+
+### Bug Fixes
+
+* **deps:** upgrade @dhis2/multi-calendar-dates for relaxed peer deps fix ([#1472](https://github.com/dhis2/ui/issues/1472)) ([5d743fc](https://github.com/dhis2/ui/commit/5d743fccc2f68a8e5a5078b02aa25e6c679772be))
+
+## [9.4.3](https://github.com/dhis2/ui/compare/v9.4.2...v9.4.3) (2024-03-19)
+
+
+### Bug Fixes
+
+* **select:** adjust clear button ([367f04c](https://github.com/dhis2/ui/commit/367f04c8d89d6eda101647b18c6f2a4fc30979ad))
+
+## [9.4.2](https://github.com/dhis2/ui/compare/v9.4.1...v9.4.2) (2024-03-07)
+
+
+### Bug Fixes
+
+* force a new release ([ba66677](https://github.com/dhis2/ui/commit/ba666771c5efec00626ad91294ae1bc303cee7c8))
+
+## [9.4.1](https://github.com/dhis2/ui/compare/v9.4.0...v9.4.1) (2024-02-28)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([4091c9d](https://github.com/dhis2/ui/commit/4091c9d489724424f9581a600374da6d71939f33))
+
+# [9.4.0](https://github.com/dhis2/ui/compare/v9.3.0...v9.4.0) (2024-02-16)
+
+
+### Features
+
+* add rtl support for ui components ([#1452](https://github.com/dhis2/ui/issues/1452)) ([19bffac](https://github.com/dhis2/ui/commit/19bffacafb1f6963a648736e165e82757705fbad))
+
+# [9.4.0-alpha.2](https://github.com/dhis2/ui/compare/v9.4.0-alpha.1...v9.4.0-alpha.2) (2024-02-16)
+
+
+### Bug Fixes
+
+* clean up from pr review ([#1456](https://github.com/dhis2/ui/issues/1456)) ([ced3e26](https://github.com/dhis2/ui/commit/ced3e26c90b586995706cfe14f5beda215e58f57))
+
+# [9.4.0-alpha.1](https://github.com/dhis2/ui/compare/v9.3.0...v9.4.0-alpha.1) (2024-02-14)
+
+
+### Bug Fixes
+
+* rtl cleanup ([#1450](https://github.com/dhis2/ui/issues/1450)) ([5f6761f](https://github.com/dhis2/ui/commit/5f6761f8b6154dc9d9b44b226d3562f4035cf536))
+
+
+### Features
+
+* rtl support for components [LIBS-525] ([#1448](https://github.com/dhis2/ui/issues/1448)) ([d8b5fec](https://github.com/dhis2/ui/commit/d8b5feccd4b20aa17c10f6fa9315e40daa03902a))
+
+# [9.3.0](https://github.com/dhis2/ui/compare/v9.2.0...v9.3.0) (2024-02-13)
+
+
+### Features
+
+* update accessibility in button component ([0a015c7](https://github.com/dhis2/ui/commit/0a015c7fe9115edcaa5126daca0ef65f092c925e))
+
+# [9.3.0-alpha.2](https://github.com/dhis2/ui/compare/v9.3.0-alpha.1...v9.3.0-alpha.2) (2024-02-13)
+
+
+### Bug Fixes
+
+* rtl cleanup ([#1450](https://github.com/dhis2/ui/issues/1450)) ([5f6761f](https://github.com/dhis2/ui/commit/5f6761f8b6154dc9d9b44b226d3562f4035cf536))
+
+# [9.3.0-alpha.1](https://github.com/dhis2/ui/compare/v9.2.0...v9.3.0-alpha.1) (2024-02-08)
+
+
+### Features
+
+* rtl support for components [LIBS-525] ([#1448](https://github.com/dhis2/ui/issues/1448)) ([d8b5fec](https://github.com/dhis2/ui/commit/d8b5feccd4b20aa17c10f6fa9315e40daa03902a))
+
+# [9.2.0](https://github.com/dhis2/ui/compare/v9.1.2...v9.2.0) (2024-01-11)
+
+
+### Features
+
+* **icons:** add visualization outlier table icon ([6c6dae9](https://github.com/dhis2/ui/commit/6c6dae9ccd9e43b3862aac518ebabf0784d178ed))
+
+## [9.1.2](https://github.com/dhis2/ui/compare/v9.1.1...v9.1.2) (2024-01-11)
+
+
+### Bug Fixes
+
+* **segmented-control:** add aria-label prop ([cce94e0](https://github.com/dhis2/ui/commit/cce94e01ce27f00f0002fa7f617f63546909aa3a))
+* **segmented-control:** adjust design ([558973f](https://github.com/dhis2/ui/commit/558973f51a0bf60d0d406072f60b36d7c2d1fb71))
+* **segmented-control:** use semantic markup ([5fd90a0](https://github.com/dhis2/ui/commit/5fd90a05557b0ab650f38d788cc04331519fc953))
+
+## [9.1.1](https://github.com/dhis2/ui/compare/v9.1.0...v9.1.1) (2023-12-24)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([866ce3e](https://github.com/dhis2/ui/commit/866ce3eb16845c5fbea6a0efac3b84b0e7d1146c))
+
+# [9.1.0](https://github.com/dhis2/ui/compare/v9.0.1...v9.1.0) (2023-12-21)
+
+
+### Features
+
+* **LIBS-539:** forward data-row props to allow handling dom events ([a293b16](https://github.com/dhis2/ui/commit/a293b16c82d8f69797eed73c3d028b8bcd4a668d))
+
+## [9.0.1](https://github.com/dhis2/ui/compare/v9.0.0...v9.0.1) (2023-12-11)
+
+
+### Bug Fixes
+
+* **alertbar action:** prevent text wrapping ([f51f45d](https://github.com/dhis2/ui/commit/f51f45d0dcda7c78b61cef66d34cbe24e4a5e206))
+
+# [9.0.0](https://github.com/dhis2/ui/compare/v8.16.0...v9.0.0) (2023-12-08)
+
+
+### Bug Fixes
+
+* **constants:** remove buttonVariantProptype from constants ([#1436](https://github.com/dhis2/ui/issues/1436)) ([d4dc535](https://github.com/dhis2/ui/commit/d4dc5350ac4254feb7a4e0c1aa4a55113845e247))
+* **package:** include types in exports field ([e16036b](https://github.com/dhis2/ui/commit/e16036b6c4fc32f702fe0e677f7bd4598c258fd5))
+* **types:** add type declarations for components ([#1399](https://github.com/dhis2/ui/issues/1399)) ([d3e74c5](https://github.com/dhis2/ui/commit/d3e74c572f30f383e94868c66ff4c767a68c97dc))
+* **types:** minor type fixes ([#1434](https://github.com/dhis2/ui/issues/1434)) [skip release] ([5e1068d](https://github.com/dhis2/ui/commit/5e1068d5ce6be0e52bee1d98ace752b1bf08f683))
+* minor type fixes ([#1416](https://github.com/dhis2/ui/issues/1416)) ([71f4537](https://github.com/dhis2/ui/commit/71f4537098bd9869a4903127a5ccde78f64a8c7f))
+
+
+### Features
+
+* **types:** add types for forms collection ([#1415](https://github.com/dhis2/ui/issues/1415)) ([2e9d91a](https://github.com/dhis2/ui/commit/2e9d91a688f4d60ae2107f1b9ef9b26fecb53585))
+
+
+### BREAKING CHANGES
+
+* **constants:** `buttonVariantPropType` has been removed from constants.
+This is mostly intended for internal use, but was part of the public API.
+
+# [9.0.0-alpha.2](https://github.com/dhis2/ui/compare/v9.0.0-alpha.1...v9.0.0-alpha.2) (2023-12-08)
+
+
+### Features
+
+* **menu-item:** add suffix prop ([77cd949](https://github.com/dhis2/ui/commit/77cd94953cf8c14b21373c53d055a8f8ed68110d))
+
+# [8.16.0](https://github.com/dhis2/ui/compare/v8.15.1...v8.16.0) (2023-12-07)
+
+
+### Features
+
+* **menu-item:** add suffix prop ([77cd949](https://github.com/dhis2/ui/commit/77cd94953cf8c14b21373c53d055a8f8ed68110d))
+
+## [8.15.1](https://github.com/dhis2/ui/compare/v8.15.0...v8.15.1) (2023-11-28)
+
+
+### Bug Fixes
+
+* **prop-type:** fix deprecation of buttonVariantPropType ([#1433](https://github.com/dhis2/ui/issues/1433)) ([81644a8](https://github.com/dhis2/ui/commit/81644a8e54cf7a4f29ff33536029df6e2bad9437))
+
+# [8.15.0](https://github.com/dhis2/ui/compare/v8.14.13...v8.15.0) (2023-11-27)
+
+
+### Features
+
+* **button:** destructive secondary variant ([b72a04a](https://github.com/dhis2/ui/commit/b72a04a93cfb08180c030a94b8ad6008f3084bcf))
+
+## [8.14.13](https://github.com/dhis2/ui/compare/v8.14.12...v8.14.13) (2023-11-26)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([cefd956](https://github.com/dhis2/ui/commit/cefd956826c7ab12c16b30f90e3c9c494f3c682a))
+
+## [8.14.12](https://github.com/dhis2/ui/compare/v8.14.11...v8.14.12) (2023-11-22)
+
+
+### Bug Fixes
+
+* republish to fix broken release ([d503a51](https://github.com/dhis2/ui/commit/d503a51258c308b33875716e680278a9095ef86f))
+* trigger publish ([323a9dc](https://github.com/dhis2/ui/commit/323a9dc1037c138690e24bc2203076f654cc3c04))
+
+## [8.14.11](https://github.com/dhis2/ui/compare/v8.14.10...v8.14.11) (2023-11-17)
+
+
+### Bug Fixes
+
+* **button:** adjust small variant icon usage ([5fd8d29](https://github.com/dhis2/ui/commit/5fd8d29ae2ccc9fbc4a9c8ef06a4fc9dbf6eb518))
+
 ## [8.14.10](https://github.com/dhis2/ui/compare/v8.14.9...v8.14.10) (2023-11-05)
 
 

@@ -12,6 +12,10 @@ const tableCellHeadStyles = css`
         height: 45px;
     }
 
+    th:dir(rtl) {
+        text-align: right;
+    }
+
     .dense {
         padding: 9px 12px;
         height: 36px;
@@ -25,7 +29,7 @@ export const TableCellHead = ({
     dense,
     children,
     className,
-    dataTest,
+    dataTest = 'dhis2-uicore-tablecellhead',
 }) => (
     <th
         colSpan={colSpan}
@@ -39,10 +43,6 @@ export const TableCellHead = ({
         <style jsx>{tableCellHeadStyles}</style>
     </th>
 )
-
-TableCellHead.defaultProps = {
-    dataTest: 'dhis2-uicore-tablecellhead',
-}
 
 TableCellHead.propTypes = {
     children: PropTypes.node,

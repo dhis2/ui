@@ -1,4 +1,4 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 import {
     userNoAccess,
     userViewAccess,
@@ -21,10 +21,14 @@ Given('a sharing dialog with user item with view is visible', () => {
 
     cy.contains('.details-text', 'A user')
         .should('be.visible')
-        .contains('Can view')
+        .contains('user-1')
         .should('be.visible')
         .closest('.wrapper')
         .as('user-list-item')
+
+    cy.get('@user-list-item')
+        .contains('[data-test="dhis2-uicore-singleselect"]', 'View only')
+        .should('be.visible')
 })
 
 Given('a sharing dialog with user item with view and edit is visible', () => {
@@ -36,10 +40,14 @@ Given('a sharing dialog with user item with view and edit is visible', () => {
 
     cy.contains('.details-text', 'A user')
         .should('be.visible')
-        .contains('Can view and edit')
+        .contains('user-1')
         .should('be.visible')
         .closest('.wrapper')
         .as('user-list-item')
+
+    cy.get('@user-list-item')
+        .contains('[data-test="dhis2-uicore-singleselect"]', 'View and edit')
+        .should('be.visible')
 })
 
 Given('a sharing dialog with group item with view is visible', () => {
@@ -51,10 +59,14 @@ Given('a sharing dialog with group item with view is visible', () => {
 
     cy.contains('.details-text', 'A group')
         .should('be.visible')
-        .contains('Can view')
+        .contains('User group')
         .should('be.visible')
         .closest('.wrapper')
         .as('group-list-item')
+
+    cy.get('@group-list-item')
+        .contains('[data-test="dhis2-uicore-singleselect"]', 'View only')
+        .should('be.visible')
 })
 
 Given('a sharing dialog with group item with view and edit is visible', () => {
@@ -66,10 +78,14 @@ Given('a sharing dialog with group item with view and edit is visible', () => {
 
     cy.contains('.details-text', 'A group')
         .should('be.visible')
-        .contains('Can view and edit')
+        .contains('User group')
         .should('be.visible')
         .closest('.wrapper')
         .as('group-list-item')
+
+    cy.get('@group-list-item')
+        .contains('[data-test="dhis2-uicore-singleselect"]', 'View and edit')
+        .should('be.visible')
 })
 
 /**

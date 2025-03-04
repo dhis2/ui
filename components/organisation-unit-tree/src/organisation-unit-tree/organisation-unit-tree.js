@@ -5,26 +5,28 @@ import { OrganisationUnitNode } from '../organisation-unit-node/index.js'
 import { orgUnitPathPropType } from '../prop-types.js'
 import { defaultRenderNodeLabel } from './default-render-node-label/index.js'
 import { filterRootIds } from './filter-root-ids.js'
-import { RootError } from './root-error.js'
-import { RootLoading } from './root-loading.js'
+import { OrganisationUnitTreeRootError } from './organisation-unit-tree-root-error.js'
+import { OrganisationUnitTreeRootLoading } from './organisation-unit-tree-root-loading.js'
 import { useExpanded } from './use-expanded/index.js'
 import { useForceReload } from './use-force-reload.js'
 import { useRootOrgData } from './use-root-org-data/index.js'
 
+// A stable object to reference
+const staticArray = []
 const OrganisationUnitTree = ({
     onChange,
     roots,
 
     autoExpandLoadingError,
-    dataTest,
+    dataTest = 'dhis2-uiwidgets-orgunittree',
     disableSelection,
     forceReload,
-    highlighted,
+    highlighted = staticArray,
     isUserDataViewFallback,
-    initiallyExpanded,
-    filter,
-    renderNodeLabel,
-    selected,
+    initiallyExpanded = staticArray,
+    filter = staticArray,
+    renderNodeLabel = defaultRenderNodeLabel,
+    selected = staticArray,
     singleSelection,
     suppressAlphabeticalSorting,
 
@@ -73,8 +75,8 @@ const OrganisationUnitTree = ({
 
     return (
         <div data-test={dataTest}>
-            {isLoading && <RootLoading />}
-            {error && <RootError error={error} />}
+            {isLoading && <OrganisationUnitTreeRootLoading />}
+            {error && <OrganisationUnitTreeRootError error={error} />}
             {!error &&
                 !isLoading &&
                 rootIds.map((rootId) => {
@@ -235,15 +237,6 @@ OrganisationUnitTree.propTypes = {
      * we'd have to reload the sibling nodes currently as well)
      */
     //idsThatShouldBeReloaded: propTypes.arrayOf(orgUnitIdPropType),
-}
-
-OrganisationUnitTree.defaultProps = {
-    dataTest: 'dhis2-uiwidgets-orgunittree',
-    filter: [],
-    highlighted: [],
-    initiallyExpanded: [],
-    selected: [],
-    renderNodeLabel: defaultRenderNodeLabel,
 }
 
 export { OrganisationUnitTree }

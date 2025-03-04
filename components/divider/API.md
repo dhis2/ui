@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Divider`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { Divider } from '@dhis2-ui/divider'
+import { Divider } from '@dhis2/ui'
 ```
 
 
@@ -15,6 +15,6 @@ import { Divider } from '@dhis2-ui/divider'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-divider'`|||
+|dataTest|string|``'dhis2-uicore-divider'``|||
 |dense|boolean||||
-|margin|string|``${spacers.dp8} 0``|||
+|margin|string|```${spacers.dp8} 0```|||

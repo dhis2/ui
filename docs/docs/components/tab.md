@@ -3,7 +3,6 @@ title: Tabs
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { TabBar, Tab, IconSubscribe16, IconShare16, IconDownload16 } from '@dhis2/ui'
 
 import API from '../../../components/tab/API.md'
 
@@ -11,14 +10,10 @@ import API from '../../../components/tab/API.md'
 
 Tabs are used to navigate between different views within the same page or context.
 
-<Demo>
-    <TabBar>
-        <Tab>Tab label 1</Tab>
-        <Tab selected>Tab label 2</Tab>
-        <Tab>Tab label 3</Tab>
-        <Tab>Tab label 4</Tab>
-    </TabBar>
-</Demo>
+<Demo
+    path="tab-bar--default-fluid"
+    height="120px"
+/>
 
 ## Usage
 
@@ -43,13 +38,20 @@ Tabs are used to navigate between different views within the same page or contex
 
 ### Icon
 
-<Demo>
-    <TabBar>
-        <Tab icon={<IconSubscribe16/>}>Notifications</Tab>
-        <Tab icon={<IconShare16/>} selected>Sharing and access</Tab>
-        <Tab icon={<IconDownload16/>}>Downloads</Tab>
-    </TabBar>
-</Demo>
+<Demo
+    path="tab-bar--tab-states-with-icon"
+    height="120px"
+/>
+
+```jsx
+<TabBar>
+    <Tab icon={<IconSubscribe16 />}>Notifications</Tab>
+    <Tab icon={<IconShare16 />} selected>
+        Sharing and access
+    </Tab>
+    <Tab icon={<IconDownload16 />}>Downloads</Tab>
+</TabBar>
+```
 
 -   A tab can show an icon.
 -   Use icons to support the text label by providing context or a visual reference.
@@ -57,14 +59,21 @@ Tabs are used to navigate between different views within the same page or contex
 
 ### State: Disabled
 
-<Demo>
-    <TabBar>
-        <Tab>Tab label 1</Tab>
-        <Tab selected>Tab label 2</Tab>
-        <Tab disabled >Tab label 3</Tab>
-        <Tab disabled>Tab label 4</Tab>
-    </TabBar>
-</Demo>
+<Demo
+    path="tab-bar--tab-states"
+    height="120px"
+/>
+
+In the example above you can see the 3rd tab is disabled.
+
+```jsx
+<TabBar>
+    <Tab>Tab label 1</Tab>
+    <Tab selected>Tab label 2</Tab>
+    <Tab disabled>Tab label 3</Tab>
+    <Tab disabled>Tab label 4</Tab>
+</TabBar>
+```
 
 -   Use a disabled state if a tab can't be used temporarily.
 -   Show a [`Tooltip`](tooltip.md) when hovering a disabled tab to give a short explanation of why the tab can't be used.
@@ -73,7 +82,3 @@ Tabs are used to navigate between different views within the same page or contex
 ## API Reference
 
 <API />
-
-## Links
-
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/data-display-tooltip--default-placement-top)

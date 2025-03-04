@@ -12,6 +12,10 @@ const tableCellStyles = css`
         height: 45px;
     }
 
+    td:dir(rtl) {
+        text-align: right;
+    }
+
     .dense {
         padding: 9px 12px;
         height: 36px;
@@ -25,7 +29,7 @@ export const TableCell = ({
     colSpan,
     rowSpan,
     dense,
-    dataTest,
+    dataTest = 'dhis2-uicore-tablecell',
 }) => (
     <td
         colSpan={colSpan}
@@ -39,10 +43,6 @@ export const TableCell = ({
         <style jsx>{tableCellStyles}</style>
     </td>
 )
-
-TableCell.defaultProps = {
-    dataTest: 'dhis2-uicore-tablecell',
-}
 
 TableCell.propTypes = {
     children: PropTypes.node,

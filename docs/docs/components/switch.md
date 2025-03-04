@@ -3,7 +3,6 @@ title: Switch
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { Switch } from '@dhis2/ui'
 
 import API from '../../../components/switch/API.md'
 
@@ -11,12 +10,16 @@ import API from '../../../components/switch/API.md'
 
 Switches are used to toggle something between an on and off state.
 
-<Demo>
-    <Switch label="Label"/>
-    <Switch checked label="Label"/>
-</Demo>
+<Demo
+    path="switch--focused-unchecked"
+    height="150px"
+/>
 
 ## Usage
+
+```jsx
+<Switch label="Switch" />
+```
 
 ### When to use
 
@@ -35,16 +38,17 @@ Switches are used to toggle something between an on and off state.
 
 #### Size
 
-<Demo>
-    <Switch checked label="Regular sized switch"/>
-    <Switch checked dense label="Dense sized switch"/>
-</Demo>
-- Switches are available in two sizes, regular and `dense`. Regular sized switches are useful when there's space available. Use `dense` sized switches in compact, information-dense interfaces.
+<Demo
+    path="switch--checked-dense"
+    height="120px"
+/>
+
+```jsx
+<Switch checked dense label="Dense sized switch" />
+```
+
+-   Switches are available in two sizes, regular and `dense`. Regular sized switches are useful when there's space available. Use `dense` sized switches in compact, information-dense interfaces.
 
 ## API Reference
 
 <API />
-
-## Links
-
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-switch-switch-field--default)

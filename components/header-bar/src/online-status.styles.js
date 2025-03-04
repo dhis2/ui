@@ -13,7 +13,7 @@ export default css`
     }
 
     .container.badge {
-        margin-right: ${spacers.dp8};
+        margin-inline-end: ${spacers.dp8};
         padding: 6px;
         border-radius: 5px;
         font-size: 13px;
@@ -42,11 +42,11 @@ export default css`
     }
 
     .info {
-        margin-right: ${spacers.dp12};
+        margin-inline-end: ${spacers.dp12};
     }
 
     .info-dense {
-        margin-left: ${spacers.dp12};
+        margin-inline-start: ${spacers.dp12};
         font-size: 12px;
     }
 
@@ -55,7 +55,7 @@ export default css`
         min-width: 8px;
         height: 8px;
         border-radius: 8px;
-        margin-right: ${spacers.dp4};
+        margin-inline-end: ${spacers.dp4};
     }
 
     .icon.online {

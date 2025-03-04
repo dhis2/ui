@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Field`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { Field } from '@dhis2-ui/field'
+import { Field } from '@dhis2/ui'
 ```
 
 
@@ -16,7 +16,7 @@ import { Field } from '@dhis2-ui/field'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-field'`|||
+|dataTest|string|``'dhis2-uicore-field'``|||
 |disabled|boolean|||Disabled status, shown when mouse is over label|
 |error|custom|||Field status. Mutually exclusive with `valid` and `warning` props|
 |helpText|string|||Useful text within the field|
@@ -31,11 +31,11 @@ import { Field } from '@dhis2-ui/field'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `FieldGroup`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { FieldGroup } from '@dhis2-ui/field'
+import { FieldGroup } from '@dhis2/ui'
 ```
 
 
@@ -45,7 +45,7 @@ import { FieldGroup } from '@dhis2-ui/field'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uiwidgets-fieldsetfield'`|||
+|dataTest|string|``'dhis2-uiwidgets-fieldsetfield'``|||
 |disabled|boolean|||Disables the form controls within|
 |error|custom|||Applies 'error' styling to validation text for feedback. Mutually exclusive with `warning` and `valid` props|
 |helpText|string|||Useful instructions for the user|
@@ -60,11 +60,11 @@ import { FieldGroup } from '@dhis2-ui/field'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `FieldSet`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { FieldSet } from '@dhis2-ui/field'
+import { FieldSet } from '@dhis2/ui'
 ```
 
 
@@ -74,4 +74,4 @@ import { FieldSet } from '@dhis2-ui/field'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-fieldset'`|||
+|dataTest|string|``'dhis2-uicore-fieldset'``|||

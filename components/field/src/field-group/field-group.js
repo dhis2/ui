@@ -1,7 +1,8 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Field, FieldSet } from '../index.js'
+import { Field } from '../field/index.js'
+import { FieldSet } from '../field-set/index.js'
 const FieldGroup = ({
     children,
     className,
@@ -11,7 +12,7 @@ const FieldGroup = ({
     label,
     name,
     required,
-    dataTest,
+    dataTest = 'dhis2-uiwidgets-fieldsetfield',
     valid,
     error,
     warning,
@@ -32,10 +33,6 @@ const FieldGroup = ({
         </Field>
     </FieldSet>
 )
-
-FieldGroup.defaultProps = {
-    dataTest: 'dhis2-uiwidgets-fieldsetfield',
-}
 
 FieldGroup.propTypes = {
     children: PropTypes.node,

@@ -45,10 +45,16 @@ class Switch extends Component {
         }
     }
 
+    static defaultProps = {
+        checked: false,
+        dataTest: 'dhis2-uicore-switch',
+        role: 'switch',
+    }
+
     render() {
         const {
-            ariaLabel,
-            checked,
+            'aria-label': ariaLabel,
+            checked = false,
             className,
             disabled,
             error,
@@ -59,8 +65,8 @@ class Switch extends Component {
             value,
             warning,
             dense,
-            dataTest,
-            role,
+            dataTest = 'dhis2-uicore-switch',
+            role = 'switch',
         } = this.props
 
         const classes = cx({
@@ -164,15 +170,9 @@ class Switch extends Component {
     }
 }
 
-Switch.defaultProps = {
-    checked: false,
-    dataTest: 'dhis2-uicore-switch',
-    role: 'switch',
-}
-
 Switch.propTypes = {
     /** Sets an aria-label attribute on the input */
-    ariaLabel: PropTypes.string,
+    'aria-label': PropTypes.string,
     checked: PropTypes.bool,
     className: PropTypes.string,
     dataTest: PropTypes.string,

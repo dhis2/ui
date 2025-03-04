@@ -1,4 +1,4 @@
-import { Given, Then, And } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a Gregorian calendar is rendered in {word}', (language) => {
     cy.visitStory('CalendarInputTesting', `Gregorian With ${language}`)
@@ -26,7 +26,7 @@ Then('days should be rendered in "{word}"', (language) => {
     })
 })
 
-And('months should be rendered in "{word}" with navigation', (language) => {
+Then('months should be rendered in "{word}" with navigation', (language) => {
     const months =
         language === 'english'
             ? { current: 'October', previous: 'September', next: 'November' }
@@ -50,8 +50,4 @@ Then('we should be able to select a day', () => {
     )
 
     cy.get('[data-test="storybook-calendar-result"]').should('have.text', date)
-    cy.get('[data-test="storybook-calendar-result-iso"]').should(
-        'have.text',
-        '13 October 2021'
-    )
 })

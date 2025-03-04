@@ -1,2 +1,0 @@
--   [**Getting started**](getting-started)
--   [**Hello**](getting-started)

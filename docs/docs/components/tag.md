@@ -3,7 +3,8 @@ title: Tag
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { Chip, Tag, IconError16, IconCheckmarkCircle16 } from '@dhis2/ui'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
 
 import API from '../../../components/tag/API.md'
 
@@ -11,9 +12,10 @@ import API from '../../../components/tag/API.md'
 
 Tags are used to label items by a set of shared properties, like category or status.
 
-<Demo>
-    <Tag>Tag label</Tag>
-</Demo>
+<Demo
+    path="tag--default"
+    height="120px"
+/>
 
 ## Usage
 
@@ -28,12 +30,46 @@ Tags are used to label items by a set of shared properties, like category or sta
 
 ### Variants
 
-| Variant                      | When to use                                                               |
-| ---------------------------- | ------------------------------------------------------------------------- |
-| <Tag>Default</Tag>           | The default choice. Use this if no other variant matches the use case.    |
-| <Tag neutral>Neutral</Tag>   | Use to communicate neutrality, when something isn't positive or negative. |
-| <Tag positive>Positive</Tag> | Use to communicate success or validity.                                   |
-| <Tag negative>Negative</Tag> | Use to communicate a problem or error.                                    |
+| Variant  | When to use                                                               |
+| -------- | ------------------------------------------------------------------------- |
+| Default  | The default choice. Use this if no other variant matches the use case.    |
+| Neutral  | Use to communicate neutrality, when something isn't positive or negative. |
+| Positive | Use to communicate success or validity.                                   |
+| Negative | Use to communicate a problem or error.                                    |
+
+<Tabs>
+    <TabItem value="Default" label="Default">
+        <Demo
+            path="tag--default"
+            height="120px"
+        />
+    </TabItem>
+    <TabItem value="Neutral" label="Neutral">
+        <Demo
+            path="tag--neutral"
+            height="120px"
+        />
+    </TabItem>
+    <TabItem value="Positive" label="Positive">
+        <Demo
+            path="tag--positive"
+            height="120px"
+        />
+    </TabItem>
+    <TabItem value="Negative" label="Negative">
+        <Demo
+            path="tag--negative"
+            height="120px"
+        />
+    </TabItem>
+</Tabs>
+
+```jsx
+<Tag>Default</Tag>
+<Tag neutral>Neutral</Tag>
+<Tag positive>Positive</Tag>
+<Tag negative>Negative</Tag>
+```
 
 ### Format
 
@@ -45,12 +81,15 @@ Tags are used to label items by a set of shared properties, like category or sta
 
 ### Icon
 
-<Demo>
-    <div className='stacked-examples-horizontal'>
-        <Tag icon={<IconCheckmarkCircle16/>} positive>Passed</Tag>
-        <Tag icon={<IconError16/>} negative>Failed</Tag>
-    </div>
-</Demo>
+<Demo
+    path="tag--with-large-icon"
+    height="120px"
+/>
+
+```jsx
+<Tag icon={<IconCheckmarkCircle16/>} positive>Passed</Tag>
+<Tag icon={<IconError16/>} negative>Failed</Tag>
+```
 
 -   A tag can show an icon before the text label.
 -   Use icons to support the text label by providing context or a visual reference.
@@ -58,14 +97,42 @@ Tags are used to label items by a set of shared properties, like category or sta
 
 ### Bold
 
-<Demo>
-    <div className='stacked-examples-horizontal'>
-        <Tag bold>Tag label</Tag>
-        <Tag bold neutral>Tag label</Tag>
-        <Tag bold positive>Tag label</Tag>
-        <Tag bold negative>Tag label</Tag>
-    </div>
-</Demo>
+<Tabs>
+    <TabItem value="Default" label="Default">
+        <Demo
+            path="tag--bold"
+            height="120px"
+        />
+    </TabItem>
+    <TabItem value="Neutral" label="Neutral">
+        <Demo
+            path="tag--bold"
+            height="120px"
+            args="neutral:true"
+        />
+    </TabItem>
+    <TabItem value="Positive" label="Positive">
+        <Demo
+            path="tag--bold"
+            height="120px"
+            args="positive:true"
+        />
+    </TabItem>
+    <TabItem value="Negative" label="Negative">
+        <Demo
+            path="tag--bold"
+            height="120px"
+            args="negative:true"
+        />
+    </TabItem>
+</Tabs>
+
+```jsx
+<Tag bold>Tag label</Tag>
+<Tag bold neutral>Tag label</Tag>
+<Tag bold positive>Tag label</Tag>
+<Tag bold negative>Tag label</Tag>
+```
 
 -   Use bold tags where it's important the information is noticed by a user.
 -   Don't overuse bold tags, only use them when the information is important.
@@ -73,7 +140,3 @@ Tags are used to label items by a set of shared properties, like category or sta
 ## API Reference
 
 <API />
-
-## Links
-
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/data-display-tag--default)

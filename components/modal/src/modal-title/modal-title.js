@@ -3,7 +3,10 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export const ModalTitle = ({ children, dataTest }) => (
+export const ModalTitle = ({
+    children,
+    dataTest = 'dhis2-uicore-modaltitle',
+}) => (
     <h1 className={cx('title')} data-test={dataTest}>
         {children}
 
@@ -21,11 +24,7 @@ export const ModalTitle = ({ children, dataTest }) => (
     </h1>
 )
 
-ModalTitle.defaultProps = {
-    dataTest: 'dhis2-uicore-modaltitle',
-}
-
 ModalTitle.propTypes = {
-    children: PropTypes.string,
+    children: PropTypes.node,
     dataTest: PropTypes.string,
 }

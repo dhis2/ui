@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `Legend`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { Legend } from '@dhis2-ui/legend'
+import { Legend } from '@dhis2/ui'
 ```
 
 
@@ -16,5 +16,5 @@ import { Legend } from '@dhis2-ui/legend'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-legend'`|||
+|dataTest|string|``'dhis2-uicore-legend'``|||
 |required|boolean|||Indicates the associated field set is required|

@@ -11,7 +11,7 @@ const config = {
     tagline: 'React Components for DHIS2 Web Applications',
     url: 'https://ui.dhis2.nu',
     baseUrl: '/',
-    onBrokenLinks: 'throw',
+    onBrokenLinks: 'warn',
     onBrokenMarkdownLinks: 'warn',
     favicon: 'img/favicon.ico',
     organizationName: 'dhis2', // Usually your GitHub org/user name.

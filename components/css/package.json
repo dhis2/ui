@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/css",
-    "version": "8.14.10",
+    "version": "10.1.13",
     "description": "UI CSS",
     "repository": {
         "type": "git",
@@ -13,6 +13,7 @@
     "main": "./build/cjs/index.js",
     "module": "./build/es/index.js",
     "exports": {
+        "types": "./types/index.d.ts",
         "import": "./build/es/index.js",
         "require": "./build/cjs/index.js"
     },
@@ -21,27 +22,29 @@
         "access": "public"
     },
     "scripts": {
-        "start": "start-storybook -c ../../storybook/config --port 5000",
+        "start": "storybook dev -c ../../storybook/config --port 5000",
         "build": "d2-app-scripts build",
         "test": "d2-app-scripts test --jestConfig ../../jest.config.shared.js"
     },
     "peerDependencies": {
-        "react": "^16.8",
-        "react-dom": "^16.8",
+        "react": "^16.13 || ^18",
+        "react-dom": "^16.13 || ^18",
         "styled-jsx": "^4"
     },
     "dependencies": {
         "@dhis2/prop-types": "^3.1.2",
-        "@dhis2/ui-constants": "8.14.10",
+        "@dhis2/ui-constants": "10.1.13",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },
     "files": [
-        "build"
+        "build",
+        "types"
     ],
     "devDependencies": {
-        "react": "16.13",
-        "react-dom": "16.13",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
         "styled-jsx": "^4.0.1"
-    }
+    },
+    "types": "types"
 }

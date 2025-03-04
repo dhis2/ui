@@ -1,4 +1,4 @@
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a MenuItem supplied with a label is rendered', () => {
     cy.visitStory('MenuItem', 'With Label')
@@ -6,5 +6,5 @@ Given('a MenuItem supplied with a label is rendered', () => {
 })
 
 Then('the label is visible', () => {
-    cy.contains('label').should('be.visible')
+    cy.get(':contains("label")').should('be.visible')
 })

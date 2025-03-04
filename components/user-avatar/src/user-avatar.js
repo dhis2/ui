@@ -21,12 +21,13 @@ const UserAvatar = ({
     name,
     avatarId,
     className,
-    dataTest,
+    dataTest = 'dhis2-uicore-useravatar',
     extralarge,
     extrasmall,
     large,
     medium,
     small,
+    ariaLabel,
 }) => (
     <div
         className={cx(className, {
@@ -37,6 +38,8 @@ const UserAvatar = ({
             extralarge,
         })}
         data-test={dataTest}
+        aria-label={ariaLabel || name}
+        aria-hidden={!name}
     >
         {avatarId ? (
             <ImageAvatar avatarId={avatarId} dataTest={`${dataTest}-image`} />
@@ -81,15 +84,12 @@ const UserAvatar = ({
     </div>
 )
 
-UserAvatar.defaultProps = {
-    dataTest: 'dhis2-uicore-useravatar',
-}
-
 UserAvatar.propTypes = {
     // Name could stop being required if we implement an
     // SVG fallback with a `IconUser24`.
     // This has been discussed and deferred
     name: PropTypes.string.isRequired,
+    ariaLabel: PropTypes.string,
     avatarId: PropTypes.string,
     className: PropTypes.string,
     dataTest: PropTypes.string,

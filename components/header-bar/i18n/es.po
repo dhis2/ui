@@ -1,15 +1,16 @@
 # 
 # Translators:
 # Prabhjot Singh, 2021
-# phil_dhis2, 2022
 # Janeth Cruz, 2023
+# Philip Larsen Donnelly, 2024
+# Enzo Nicolas Rossi <enzo@dhis2.org>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-01-18T16:13:05.063Z\n"
+"POT-Creation-Date: 2024-06-12T03:40:49.012Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
-"Last-Translator: Janeth Cruz, 2023\n"
+"Last-Translator: Enzo Nicolas Rossi <enzo@dhis2.org>, 2024\n"
 "Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,6 +45,12 @@ msgstr "Cerrar"
 msgid "Copy debug info"
 msgstr "Copiar la información de depuración"
 
+msgid "Interpretations"
+msgstr "Interpretaciones"
+
+msgid "Messages"
+msgstr "Mensajes"
+
 msgid "Online"
 msgstr "Conectado"
 
@@ -76,3 +83,6 @@ msgstr "Nueva versión de la aplicación disponible"
 
 msgid "Click to reload"
 msgstr "Clic para recargar"
+
+msgid "header bar profile"
+msgstr "Perfil de la barra de cabecera"

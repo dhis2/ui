@@ -1,5 +1,5 @@
-import { CircularLoader } from '@dhis2-ui/loader'
 import { sharedPropTypes } from '@dhis2/ui-constants'
+import { CircularLoader } from '@dhis2-ui/loader'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef } from 'react'
@@ -8,7 +8,7 @@ import styles from './button.styles.js'
 export const Button = ({
     children,
     className,
-    dataTest,
+    dataTest = 'dhis2-uicore-button',
     destructive,
     disabled,
     icon,
@@ -20,13 +20,14 @@ export const Button = ({
     small,
     tabIndex,
     toggled,
-    type,
+    type = 'button',
     value,
     onBlur,
     onClick,
     onFocus,
     onKeyDown,
     loading,
+    ...otherProps
 }) => {
     const ref = useRef()
 
@@ -35,6 +36,14 @@ export const Button = ({
             ref.current.focus()
         }
     }, [initialFocus, ref.current])
+
+    const { 'aria-label': ariaLabel, title } = otherProps
+
+    if (!children && !title && !ariaLabel) {
+        console.debug(
+            'Button component has no children but is missing title and ariaLabel attribute.'
+        )
+    }
 
     const handleClick = (event) => onClick && onClick({ value, name }, event)
     const handleBlur = (event) => onBlur && onBlur({ value, name }, event)
@@ -67,6 +76,7 @@ export const Button = ({
             onClick={handleClick}
             onFocus={handleFocus}
             onKeyDown={handleKeyDown}
+            {...otherProps}
         >
             {loading && (
                 <span className="loader">
@@ -84,11 +94,6 @@ export const Button = ({
     )
 }
 
-Button.defaultProps = {
-    type: 'button',
-    dataTest: 'dhis2-uicore-button',
-}
-
 Button.propTypes = {
     /** Component to render inside the button */
     children: PropTypes.node,
@@ -100,11 +105,9 @@ Button.propTypes = {
      */
     dataTest: PropTypes.string,
     /**
-     * Indicates that the button makes potentially dangerous
-     * deletions or data changes.
-     * Mutually exclusive with `primary` and `secondary` props
+     * Applies 'destructive' button appearance, implying a dangerous action.
      */
-    destructive: sharedPropTypes.buttonVariantPropType,
+    destructive: PropTypes.bool,
     /** Applies a greyed-out appearance and makes the button non-interactive  */
     disabled: PropTypes.bool,
     /** An icon element to display inside the button */
@@ -121,15 +124,13 @@ Button.propTypes = {
      */
     name: PropTypes.string,
     /**
-     * Applies 'primary' button appearance.
-     * Mutually exclusive with `destructive` and `secondary` props
+     * Applies 'primary' button appearance, implying the most important action.
      */
-    primary: sharedPropTypes.buttonVariantPropType,
+    primary: PropTypes.bool,
     /**
      * Applies 'secondary' button appearance.
-     * Mutually exclusive with `primary` and `destructive` props
      */
-    secondary: sharedPropTypes.buttonVariantPropType,
+    secondary: PropTypes.bool,
     /** Makes the button small. Mutually exclusive with `large` prop */
     small: sharedPropTypes.sizePropType,
     /** Tab index for focusing the button with a keyboard */
@@ -153,6 +154,7 @@ Button.propTypes = {
      * Called with args `({ value, name }, event)`
      * */
     onClick: PropTypes.func,
+
     /** Callback to trigger on focus. Called with same args as `onClick` */
     onFocus: PropTypes.func,
     /** Callback to trigger on key-down. Called with same args as `onClick` */

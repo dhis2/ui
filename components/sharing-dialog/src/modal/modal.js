@@ -9,7 +9,12 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import i18n from '../locales/index.js'
 
-export const Modal = ({ onClose, name, children }) => {
+export const Modal = ({
+    onClose,
+    name,
+    children,
+    dataTest = 'dhis2-uicore-sharingdialog-modal',
+}) => {
     const title = name
         ? i18n.t('Sharing and access: {{- objectName}}', {
               objectName: name,
@@ -18,7 +23,7 @@ export const Modal = ({ onClose, name, children }) => {
         : i18n.t('Sharing and access')
 
     return (
-        <Dhis2Modal large position="top" onClose={onClose}>
+        <Dhis2Modal large position="top" onClose={onClose} dataTest={dataTest}>
             <ModalTitle>{title}</ModalTitle>
             <ModalContent>{children}</ModalContent>
             <ModalActions>
@@ -34,6 +39,7 @@ export const Modal = ({ onClose, name, children }) => {
 
 Modal.propTypes = {
     children: PropTypes.node.isRequired,
+    dataTest: PropTypes.string,
     name: PropTypes.string,
     onClose: PropTypes.func,
 }

@@ -1,5 +1,5 @@
-import { Required } from '@dhis2-ui/required'
 import { colors } from '@dhis2/ui-constants'
+import { Required } from '@dhis2-ui/required'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -31,7 +31,7 @@ export const Label = ({
     required,
     disabled,
     className,
-    dataTest,
+    dataTest = 'dhis2-uicore-label',
 }) => (
     <label
         htmlFor={htmlFor}
@@ -45,10 +45,6 @@ export const Label = ({
         <style jsx>{styles}</style>
     </label>
 )
-
-Label.defaultProps = {
-    dataTest: 'dhis2-uicore-label',
-}
 
 Label.propTypes = {
     children: PropTypes.string,

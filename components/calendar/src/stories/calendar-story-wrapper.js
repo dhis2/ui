@@ -6,13 +6,13 @@ import { Calendar } from '../calendar/calendar.js'
 const { calendars, numberingSystems } = constants
 export const CalendarStoryWrapper = (props) => {
     const {
-        calendar,
+        calendar = 'gregory',
         locale,
         timeZone,
         dir,
-        component: Component,
+        component: Component = Calendar,
         date,
-        weekDayFormat,
+        weekDayFormat = 'narrow',
     } = props
     const [selectedCalendar, setSelectedCalendar] = useState(calendar)
     const [selectedNumberingSystem, setSelectedNumberingSystem] = useState()
@@ -115,6 +115,7 @@ export const CalendarStoryWrapper = (props) => {
                 onDateSelect={(date) => {
                     setSelectedDate(date)
                 }}
+                {...selectedDate.validation}
                 timeZone={timeZone}
                 weekDayFormat={selectedWeekFormat}
                 numberingSystem={selectedNumberingSystem}
@@ -138,16 +139,6 @@ export const CalendarStoryWrapper = (props) => {
                                 </span>
                             </div>
                             <div>
-                                <label>iso date: </label>
-                                <span data-test="storybook-calendar-result-iso">
-                                    {selectedDate.calendarDate
-                                        ?.withCalendar('iso8601')
-                                        .toLocaleString('en-GB', {
-                                            dateStyle: 'long',
-                                        })}
-                                </span>
-                            </div>
-                            <div>
                                 <label>callback:</label>
                                 {JSON.stringify(selectedDate, null, 2)}
                             </div>
@@ -157,12 +148,6 @@ export const CalendarStoryWrapper = (props) => {
             </div>
         </div>
     )
-}
-
-CalendarStoryWrapper.defaultProps = {
-    calendar: 'gregorian',
-    component: Calendar,
-    weekDayFormat: 'narrow',
 }
 
 CalendarStoryWrapper.propTypes = {

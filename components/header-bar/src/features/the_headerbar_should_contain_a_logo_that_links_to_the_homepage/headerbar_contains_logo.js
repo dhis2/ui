@@ -1,4 +1,4 @@
-import { Then } from 'cypress-cucumber-preprocessor/steps'
+import { Then } from '@badeball/cypress-cucumber-preprocessor'
 import { baseUrl } from '../common/index.js'
 
 Then('the HeaderBar should display the dhis2 logo', () => {

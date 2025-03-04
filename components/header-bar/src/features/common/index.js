@@ -1,4 +1,4 @@
-import { Before, Given } from 'cypress-cucumber-preprocessor/steps'
+import { Before, Given } from '@badeball/cypress-cucumber-preprocessor'
 
 export const baseUrl = 'https://domain.tld/'
 export const webCommons = 'https://domain.tld/dhis-web-commons/'

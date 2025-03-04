@@ -3,18 +3,18 @@ title: Radio
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { Radio } from '@dhis2/ui'
-
 import API from '../../../components/radio/API.md'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
 
 # Radio
 
 Radio inputs are used to choose one item from a list.
 
-<Demo>
-    <Radio label="Radio input"/>
-    <Radio label="Radio input" checked />
-</Demo>
+<Demo
+    path="radio--default"
+    height="120px"
+/>
 
 ## Usage
 
@@ -43,17 +43,28 @@ Radio inputs are used to choose one item from a list.
 
 #### Size
 
-<Demo>
-    <Radio label="Radio input" checked />
-    <Radio label="Radio input" checked dense />
-</Demo>
+<Tabs lazy>
+    <TabItem value="Default" label="Default">
+        <Demo
+            path="radio--checked"
+            height="120px"
+        />
+    </TabItem>
+    <TabItem value="Dense" label="Dense">
+        <Demo
+            path="radio--checked-dense"
+            height="120px"
+        />
+    </TabItem>
+</Tabs>
+
+```jsx
+<Radio label="Radio input" checked />
+<Radio label="Radio input" checked dense />
+```
 
 -   Radio inputs are available in two sizes, regular and `dense`. Regular sized radio inputs are useful when there's space available. Use `dense` sized radio inputs in compact, information dense interfaces.
 
 ## API Reference
 
 <API />
-
-## Links
-
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/forms-radio-radio--default)

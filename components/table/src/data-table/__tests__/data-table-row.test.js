@@ -140,4 +140,23 @@ describe('<DataTableRow>', () => {
         expect(cb).toHaveBeenCalledTimes(1)
         expect(cb).toHaveBeenCalledWith({ expanded: true })
     })
+
+    it('accepts a hover prop', () => {
+        const cb = jest.fn()
+        const wrapper = mount(
+            <DataTableRow
+                expandable
+                expandableContent="test"
+                onExpandToggle={cb}
+                onMouseOver={cb}
+                onClick={cb}
+            />
+        )
+
+        wrapper.find('tr').simulate('mouseover')
+
+        wrapper.find('tr').simulate('click')
+
+        expect(cb).toHaveBeenCalledTimes(2)
+    })
 })

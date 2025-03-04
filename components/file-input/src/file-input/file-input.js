@@ -1,12 +1,17 @@
-import { Button } from '@dhis2-ui/button'
-import { StatusIcon } from '@dhis2-ui/status-icon'
 import { colors, spacers, sharedPropTypes } from '@dhis2/ui-constants'
 import { IconUpload24 } from '@dhis2/ui-icons'
+import { Button } from '@dhis2-ui/button'
+import { StatusIcon } from '@dhis2-ui/status-icon'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { createRef, Component } from 'react'
 
 class FileInput extends Component {
+    static defaultProps = {
+        accept: '*',
+        dataTest: 'dhis2-uicore-fileinput',
+    }
+
     ref = createRef()
 
     handleClick = () => {
@@ -50,10 +55,10 @@ class FileInput extends Component {
 
     render() {
         const {
-            accept,
+            accept = '*',
             buttonLabel,
             className,
-            dataTest,
+            dataTest = 'dhis2-uicore-fileinput',
             disabled,
             error,
             initialFocus,
@@ -113,11 +118,6 @@ class FileInput extends Component {
             </div>
         )
     }
-}
-
-FileInput.defaultProps = {
-    accept: '*',
-    dataTest: 'dhis2-uicore-fileinput',
 }
 
 FileInput.propTypes = {

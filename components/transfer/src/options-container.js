@@ -1,5 +1,4 @@
 import { CircularLoader } from '@dhis2-ui/loader'
-import { spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { Fragment, useRef } from 'react'
 import { EndIntersectionDetector } from './end-intersection-detector.js'
@@ -14,7 +13,7 @@ export const OptionsContainer = ({
     loading,
     renderOption,
     options,
-    selected,
+    selected = false,
     selectionHandler,
     toggleHighlightedOption,
 }) => {
@@ -69,7 +68,6 @@ export const OptionsContainer = ({
             <style jsx>{`
                 .optionsContainer {
                     flex-grow: 1;
-                    padding: ${spacers.dp4} 0;
                     position: relative;
                     overflow: hidden;
                 }
@@ -88,7 +86,7 @@ export const OptionsContainer = ({
                     position: absolute;
                     z-index: 2;
                     top: 0;
-                    left: 0;
+                    inset-inline-start: 0;
                 }
 
                 .content-container {
@@ -102,10 +100,6 @@ export const OptionsContainer = ({
             `}</style>
         </div>
     )
-}
-
-OptionsContainer.defaultProps = {
-    selected: false,
 }
 
 OptionsContainer.propTypes = {

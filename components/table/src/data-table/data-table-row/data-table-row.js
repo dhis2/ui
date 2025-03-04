@@ -13,13 +13,14 @@ export const DataTableRow = forwardRef(
         {
             children,
             className,
-            dataTest,
+            dataTest = 'dhis2-uicore-datatablerow',
             expandableContent,
             expanded,
             selected,
             draggable,
             role,
             onExpandToggle,
+            ...rest
         },
         ref
     ) => {
@@ -45,6 +46,7 @@ export const DataTableRow = forwardRef(
                     selected={selected}
                     draggable={draggable}
                     role={role}
+                    {...rest}
                 >
                     {draggable && <DragHandleCell />}
                     {expandableContent && (
@@ -75,10 +77,6 @@ export const DataTableRow = forwardRef(
 )
 
 DataTableRow.displayName = 'DataTableRow'
-
-DataTableRow.defaultProps = {
-    dataTest: 'dhis2-uicore-datatablerow',
-}
 
 DataTableRow.propTypes = {
     /** Should be `<DataTableCell>` or `<DataTableCellHead>` components */

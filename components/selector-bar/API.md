@@ -2,11 +2,11 @@
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SelectorBar`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SelectorBar } from '@dhis2-ui/selector-bar'
+import { SelectorBar } from '@dhis2/ui'
 ```
 
 
@@ -16,8 +16,9 @@ import { SelectorBar } from '@dhis2-ui/selector-bar'
 |---|---|---|---|---|
 |children|any||*||
 |additionalContent|any||||
+|ariaLabel|string||||
 |className|string||||
-|dataTest|string|`'dhis2-ui-selectorbar'`|||
+|dataTest|string|``'dhis2-ui-selectorbar'``|||
 |disableClearSelections|boolean||||
 |onClearSelectionClick|function||||
 
@@ -25,11 +26,11 @@ import { SelectorBar } from '@dhis2-ui/selector-bar'
 
 #### Usage
 
-**Note**: If possible, import the component from the main UI (`@dhis2/ui`) package.
+To use `SelectorBarItem`, you can import the component from the `@dhis2/ui` library  
 
 
 ```js
-import { SelectorBarItem } from '@dhis2-ui/selector-bar'
+import { SelectorBarItem } from '@dhis2/ui'
 ```
 
 
@@ -40,7 +41,7 @@ import { SelectorBarItem } from '@dhis2-ui/selector-bar'
 |label|string||*||
 |children|any||||
 |className|string||||
-|dataTest|string|`'dhis2-ui-selectorbaritem'`|||
+|dataTest|string|``'dhis2-ui-selectorbaritem'``|||
 |disabled|boolean||||
 |displayOnly|boolean||||
 |noValueMessage|string||||

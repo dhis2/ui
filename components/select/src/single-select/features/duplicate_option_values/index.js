@@ -1,5 +1,4 @@
-import '../common/index.js'
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given(
     'a SingleSelect with options with a duplicate value and this value is selected',
@@ -17,11 +16,11 @@ Then(
     }
 )
 Then('both options are highlighted in the dropdown', () => {
-    cy.get('[data-test="dhis2-uicore-singleselectoption"]')
-        .contains('option one')
-        .should('have.class', 'active')
+    cy.get(
+        '[data-test="dhis2-uicore-singleselectoption"]:contains("option one")'
+    ).should('have.class', 'active')
 
-    cy.get('[data-test="dhis2-uicore-singleselectoption"]')
-        .contains('option one a')
-        .should('have.class', 'active')
+    cy.get(
+        '[data-test="dhis2-uicore-singleselectoption"]:contains("option one a")'
+    ).should('have.class', 'active')
 })

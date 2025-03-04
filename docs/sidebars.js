@@ -42,10 +42,8 @@ const sidebars = {
         {
             Components: [
                 'components/alertbar',
-                'components/avatar',
                 'components/button',
                 'components/card',
-                'components/calendar',
                 'components/calendar-input',
                 'components/checkbox',
                 'components/chip',
@@ -68,6 +66,7 @@ const sidebars = {
                 'components/tag',
                 'components/tooltip',
                 'components/transfer',
+                'components/avatar',
             ],
         },
         {
@@ -83,10 +82,7 @@ const sidebars = {
             ],
         },
         {
-            Recipes: [
-                'recipes/recipes',
-                'recipes/transfer-infinite-loading-all-options-selected',
-            ],
+            Recipes: ['recipes/transfer-infinite-loading-all-options-selected'],
         },
         {
             Help: [
@@ -96,6 +92,11 @@ const sidebars = {
             ],
         },
         'package/changelog',
+        {
+            type: 'link',
+            label: 'Developer Portal',
+            href: 'https://developers.dhis2.org',
+        },
     ],
 }
 

@@ -1,19 +1,24 @@
-import { Button } from '@dhis2-ui/button'
-import { SingleSelectField, SingleSelectOption } from '@dhis2-ui/select'
 import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import { colors, spacers } from '@dhis2/ui-constants'
+import { Button } from '@dhis2-ui/button'
+import { SingleSelectField, SingleSelectOption } from '@dhis2-ui/select'
 import PropTypes from 'prop-types'
 import React, { useState, useContext } from 'react'
 import { SharingAutocomplete } from '../autocomplete/index.js'
-import { ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT } from '../constants.js'
+import {
+    ACCESS_NONE,
+    ACCESS_VIEW_ONLY,
+    ACCESS_VIEW_AND_EDIT,
+} from '../constants.js'
 import { FetchingContext } from '../fetching-context/index.js'
 import i18n from '../locales/index.js'
 import { Title } from '../text/index.js'
 
-export const AccessAdd = ({ onAdd }) => {
+export const AccessAdd = ({ onAdd, dataSharing }) => {
     const isFetching = useContext(FetchingContext)
     const [entity, setEntity] = useState(null)
-    const [access, setAccess] = useState('')
+    const [dataAccess, setDataAccess] = useState('')
+    const [metadataAccess, setMetadataAccess] = useState('')
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
 
     const onSubmit = (e) => {
@@ -23,14 +28,15 @@ export const AccessAdd = ({ onAdd }) => {
             type: entity.type,
             id: entity.id,
             name: entity.displayName || entity.name,
-            access,
+            access: { data: dataAccess, metadata: metadataAccess },
         })
 
         setEntity(null)
-        setAccess('')
+        setDataAccess('')
+        setMetadataAccess('')
     }
 
-    const accessOptions = [
+    const accessOptionsMetadata = [
         {
             value: ACCESS_VIEW_ONLY,
             label: i18n.t('View only'),
@@ -41,41 +47,109 @@ export const AccessAdd = ({ onAdd }) => {
         },
     ]
 
+    const accessOptionsData = [
+        ...accessOptionsMetadata,
+        {
+            value: ACCESS_NONE,
+            label: i18n.t('No access'),
+        },
+    ]
+
     return (
         <>
             <Title>{i18n.t('Give access to a user or group')}</Title>
             <form onSubmit={onSubmit}>
-                <SharingAutocomplete
-                    selected={entity?.displayName || entity?.name}
-                    onSelection={setEntity}
-                />
-                <div className="select-wrapper">
-                    <SingleSelectField
-                        label={i18n.t('Access level')}
-                        placeholder={i18n.t('Select a level')}
-                        disabled={offline}
-                        selected={access}
-                        helpText={
-                            offline ? i18n.t('Not available offline') : ''
-                        }
-                        onChange={({ selected }) => setAccess(selected)}
-                    >
-                        {accessOptions.map(({ value, label }) => (
-                            <SingleSelectOption
-                                key={value}
-                                label={label}
-                                value={value}
-                                active={value === access}
-                            />
-                        ))}
-                    </SingleSelectField>
-                </div>
-                <Button
-                    type="submit"
-                    disabled={offline || isFetching || !entity || !access}
+                <div
+                    className={
+                        dataSharing
+                            ? 'startWrapperData'
+                            : 'startWrapperMetadata'
+                    }
                 >
-                    {i18n.t('Give access')}
-                </Button>
+                    <SharingAutocomplete
+                        selected={entity?.displayName || entity?.name}
+                        onSelection={setEntity}
+                    />
+                </div>
+                <div
+                    className={
+                        dataSharing
+                            ? 'endWrapper endWrapperData'
+                            : 'endWrapper endWrapperMetadata'
+                    }
+                >
+                    {dataSharing && (
+                        <div className="select-wrapper">
+                            <SingleSelectField
+                                label={i18n.t('Data access level')}
+                                placeholder={i18n.t('Choose a level')}
+                                disabled={offline}
+                                selected={dataAccess}
+                                helpText={
+                                    offline
+                                        ? i18n.t('Not available offline')
+                                        : ''
+                                }
+                                onChange={({ selected }) =>
+                                    setDataAccess(selected)
+                                }
+                            >
+                                {accessOptionsData.map(({ value, label }) => (
+                                    <SingleSelectOption
+                                        key={value}
+                                        label={label}
+                                        value={value}
+                                        active={value === dataAccess}
+                                    />
+                                ))}
+                            </SingleSelectField>
+                        </div>
+                    )}
+                    <div className="select-wrapper">
+                        <SingleSelectField
+                            label={
+                                dataSharing
+                                    ? i18n.t('Metadata access level')
+                                    : i18n.t('Access level')
+                            }
+                            placeholder={i18n.t('Choose a level')}
+                            disabled={offline}
+                            selected={metadataAccess}
+                            helpText={
+                                offline ? i18n.t('Not available offline') : ''
+                            }
+                            onChange={({ selected }) =>
+                                setMetadataAccess(selected)
+                            }
+                        >
+                            {(dataSharing
+                                ? accessOptionsData
+                                : accessOptionsMetadata
+                            ).map(({ value, label }) => (
+                                <SingleSelectOption
+                                    key={value}
+                                    label={label}
+                                    value={value}
+                                    active={value === metadataAccess}
+                                />
+                            ))}
+                        </SingleSelectField>
+                    </div>
+                    <Button
+                        type="submit"
+                        disabled={
+                            offline ||
+                            isFetching ||
+                            !entity ||
+                            (dataSharing && !dataAccess) ||
+                            !metadataAccess ||
+                            (dataAccess === ACCESS_NONE &&
+                                metadataAccess === ACCESS_NONE)
+                        }
+                    >
+                        {i18n.t('Give access')}
+                    </Button>
+                </div>
             </form>
             <style jsx>{`
                 form {
@@ -86,11 +160,32 @@ export const AccessAdd = ({ onAdd }) => {
                     border-radius: 5px;
                     display: flex;
                     align-items: flex-end;
-                    gap: ${spacers.dp8};
+                    justify-content: space-between;
+                }
+
+                .wrapper {
                 }
 
                 .select-wrapper {
                     flex: 1;
+                }
+                .startWrapperData {
+                    width: 35%;
+                }
+                .startWrapperMetadata {
+                    width: 55%;
+                }
+                .endWrapper {
+                    margin-inline-start: 8px;
+                    display: flex;
+                    align-items: flex-end;
+                    gap: ${spacers.dp8};
+                }
+                .endWrapperMetadata {
+                    width: 45%;
+                }
+                .endWrapperData {
+                    width: 65%;
                 }
             `}</style>
         </>
@@ -99,4 +194,5 @@ export const AccessAdd = ({ onAdd }) => {
 
 AccessAdd.propTypes = {
     onAdd: PropTypes.func.isRequired,
+    dataSharing: PropTypes.bool,
 }

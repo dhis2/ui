@@ -3,16 +3,18 @@ title: Button
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import { Button, DropdownButton, SplitButton, IconCheckmark24 } from '@dhis2/ui'
-
 import API from '../../../components/button/API.md'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
 
 # Button
 
 Buttons are used to trigger actions. There are different button variants that are used for different types of actions.
-<Demo>
-<Button>Enroll in program</Button>
-</Demo>
+<Demo
+    path="button--basic"
+    args="children:Enroll in program"
+    height="120px"
+/>
 
 ## Usage
 
@@ -32,23 +34,35 @@ Buttons are used to trigger actions. There are different button variants that ar
 | ------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | `Basic`       | Default. Will suit the majority of actions on a page.                                                                      |
 | `Primary`     | Use for the most important action on a page, like a _Save data_ button in a form. Only use one `primary` button on a page. |
-| `Secondary`   | Use for less important actions, usually in combination with other buttons.                                                 |
+| `Secondary`   | Use for less important actions, usually in combination with other buttons. Can be applied to `Destructive`.                |
 | `Destructive` | Only for primary-type actions that will delete or destroy something. Don't use several on a single page.                   |
 
 #### Basic
 
-<Demo>
-    <Button basic>Basic button</Button>
-</Demo>
+<Demo
+    path="button--basic"
+    args="children:Basic button"
+    height="120px"
+/>
+
+```jsx
+<Button basic>Basic button</Button>
+```
 
 -   A `basic` button is the default button to use. It suits the majority of use cases.
 -   Don't use a `basic` button for the most important action on the page. Use `primary` instead.
 
 #### Primary
 
-<Demo>
-    <Button primary>Primary button</Button>
-</Demo>
+<Demo
+    path="button--primary"
+    args="children:Primary button"
+    height="120px"
+/>
+
+```jsx
+<Button primary>Primary button</Button>
+```
 
 -   Only use for the most important action on a page, like _Save data_ in a form.
 -   Only use one `primary` button per page, otherwise it's not clear what the main action is.
@@ -56,9 +70,15 @@ Buttons are used to trigger actions. There are different button variants that ar
 
 #### Secondary
 
-<Demo>
-    <Button secondary>Secondary button</Button>
-</Demo>
+<Demo
+    path="button--secondary"
+    args="children:Secondary button"
+    height="120px"
+/>
+
+```jsx
+<Button secondary>Secondary button</Button>
+```
 
 -   Use for actions that are used less often. Using `secondary` buttons reduces amount of elements on a page competing for a user's attention.
 -   Use as a passive alternative to `primary` actions, like _Cancel_ as a passive alternative to _Save_.
@@ -66,13 +86,32 @@ Buttons are used to trigger actions. There are different button variants that ar
 
 #### Destructive
 
-<Demo>
-    <Button destructive>Destructive button</Button>
-</Demo>
+<Demo
+    path="button--destructive"
+    args="children:Descructive button"
+    height="120px"
+/>
+
+```jsx
+<Button destructive>Destructive button</Button>
+```
+
+<Demo
+    path="button--destructive-secondary"
+    args="children:Destructive secondary button"
+    height="120px"
+/>
+
+```jsx
+<Button destructive secondary>
+    Destructive secondary button
+</Button>
+```
 
 -   Only use for primary-type actions that will destroy data.
 -   Don't use if the action will only remove an item from the current context.
 -   Only use a one `destructive` button per page.
+-   `Destructive secondary` can be used more than once per page for less important destructive actions.
 
 ### Format
 
@@ -101,9 +140,14 @@ Buttons are available in different sizes. Use the size that matches the usage gu
 
 ### Dropdown button
 
-<Demo>
-    <DropdownButton>Dropdown button</DropdownButton>
-</Demo>
+<Demo
+    path="dropdown-button--default"
+    height="120px"
+/>
+
+```jsx
+<DropdownButton>Dropdown button</DropdownButton>
+```
 
 -   A dropdown button offers several actions in a small space. Clicking the button opens a menu with several actions.
 -   Use to replace a group of buttons where space is limited.
@@ -111,9 +155,14 @@ Buttons are available in different sizes. Use the size that matches the usage gu
 
 ### Split button
 
-<Demo>
-    <SplitButton>Split button</SplitButton>
-</Demo>
+<Demo
+    path="split-button--default"
+    height="120px"
+/>
+
+```jsx
+<SplitButton>Split button</SplitButton>
+```
 
 -   A split button offers a main action and a dropdown of several other actions. Clicking the main button triggers an action. Clicking the split arrow opens a menu with several actions.
 -   Use when there is a main action and several secondary actions, like a main action of _Save_ and secondary actions of _Save and add another_ and _Save and open_.
@@ -122,12 +171,28 @@ Buttons are available in different sizes. Use the size that matches the usage gu
 
 ### Toggle button
 
-<Demo>
-    <div className='stacked-examples-horizontal'>
-        <Button icon={<IconCheckmark24/>}></Button>
-        <Button icon={<IconCheckmark24/>} toggled></Button>
-    </div>
-</Demo>
+<Tabs lazy>
+    <TabItem value="Toggled" label="Toggled on">
+        <Demo
+            path="button--toggled"
+            height="120px"
+        />
+    </TabItem>
+    <TabItem value="Toggledoff" label="Toggled off">
+        <Demo
+            path="button--toggled"
+            args="toggled:!false"
+            height="120px"
+        />
+    </TabItem>
+</Tabs>
+
+```jsx
+<div className="stacked-examples-horizontal">
+    <Button icon={<IconCheckmark24 />}></Button>
+    <Button icon={<IconCheckmark24 />} toggled></Button>
+</div>
+```
 
 -   Represents an on/off state.
 -   Use a toggle button when an option can be turned on or off, and a checkbox ==link== isn't suitable, like in a toolbar.
@@ -136,23 +201,34 @@ Buttons are available in different sizes. Use the size that matches the usage gu
 
 ### Icon
 
-<Demo>
-    <div className='stacked-examples-horizontal'>
-        <Button icon={<IconCheckmark24/>}>Mark as complete</Button>
-        <Button icon={<IconCheckmark24/>}></Button>
-    </div>
-</Demo>
+<Demo
+    path="button--icon"
+    height="120px"
+/>
+
+```jsx
+<div className="stacked-examples-horizontal">
+    <Button icon={<IconCheckmark24 />}>Mark as complete</Button>
+    <Button icon={<IconCheckmark24 />}></Button>
+</div>
+```
 
 -   Buttons can have an optional icon alongside the text label.
 -   Buttons can show only an icon.
 -   Icons with a text label are useful for providing more information about the action. Users scanning an interface might recognize an icon quicker than text.
 -   Buttons with only an icon need to show a tooltip ==link== on hover and focus that tells the user what the button action is.
+-   Regular size buttons use 24px icons. Buttons size `small` use 16px icons.
 
 ### State: Disabled
 
-<Demo>
-    <Button disabled>Enroll in program</Button>
-</Demo>
+<Demo
+    path="button--disabled"
+    height="120px"
+/>
+
+```jsx
+<Button disabled>Enroll in program</Button>
+```
 
 -   Use a disabled state when the button action can't be triggered.
 -   Show a tooltip ==link== on hover, or help text, that tells the user why the action can't be triggered.
@@ -161,9 +237,14 @@ Buttons are available in different sizes. Use the size that matches the usage gu
 
 ### State: Loading
 
-<Demo>
-    <Button loading>Loading…</Button>
-</Demo>
+<Demo
+    path="button--loading"
+    height="120px"
+/>
+
+```jsx
+<Button loading>Loading…</Button>
+```
 
 -   Use a loading state after a user triggers that button.
 -   Change the button label to tell the user what's happening. For example, after clicking a _Start job_ button, the loading state label could be _Starting job…_.
@@ -172,7 +253,3 @@ Buttons are available in different sizes. Use the size that matches the usage gu
 ## API Reference
 
 <API />
-
-## Links
-
--   [Demo](https://ui.dhis2.nu/demo/?path=/story/actions-buttons-button--basic)

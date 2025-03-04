@@ -14,8 +14,9 @@ class Action extends Component {
                 {this.props.label}
                 <style jsx>{`
                     span {
-                        margin-right: ${spacers.dp12};
+                        margin-inline-end: ${spacers.dp12};
                         text-decoration: underline;
+                        white-space: nowrap;
                     }
                     span:hover {
                         cursor: pointer;
