@@ -1,5 +1,5 @@
-import { UserAvatar } from '@dhis2-ui/user-avatar'
 import { spacers } from '@dhis2/ui-constants'
+import { UserAvatar } from '@dhis2-ui/user-avatar'
 import PropTypes from 'prop-types'
 import React, { useCallback, useRef, useState } from 'react'
 import { DebugInfoModal } from './debug-info/debug-info-modal.js'
