@@ -1,3 +1,11 @@
+## [10.3.1](https://github.com/dhis2/ui/compare/v10.3.0...v10.3.1) (2025-03-06)
+
+
+### Bug Fixes
+
+* **multiSelect:** adjust active item style ([48334db](https://github.com/dhis2/ui/commit/48334dbd7bb0d75b77408653049db8246d38d905))
+* **singleSelect:** adjust active item style ([e11ccb6](https://github.com/dhis2/ui/commit/e11ccb64985bccfb396b07e6c8a7c2b9e1908ec7))
+
 # [10.3.0](https://github.com/dhis2/ui/compare/v10.2.0...v10.3.0) (2025-02-26)
 
 
