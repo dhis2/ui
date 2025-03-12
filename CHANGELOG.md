@@ -1,3 +1,10 @@
+# [10.4.0](https://github.com/dhis2/ui/compare/v10.3.1...v10.4.0) (2025-03-12)
+
+
+### Features
+
+* add year month selector to calendar component ([#1663](https://github.com/dhis2/ui/issues/1663)) ([b643b16](https://github.com/dhis2/ui/commit/b643b16cf927bca885d67eb5113639abf71c1ebe))
+
 ## [10.3.1](https://github.com/dhis2/ui/compare/v10.3.0...v10.3.1) (2025-03-06)
 
 
