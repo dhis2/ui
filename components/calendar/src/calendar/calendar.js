@@ -17,6 +17,7 @@ export const Calendar = ({
     timeZone,
     width = '240px',
     cellSize = '32px',
+    pastOnly,
 }) => {
     const [selectedDateString, setSelectedDateString] = useState(date)
     const languageDirection = useResolvedDirection(dir, locale)
@@ -27,6 +28,7 @@ export const Calendar = ({
         timeZone,
         numberingSystem,
         weekDayFormat,
+        pastOnly,
     }
 
     const pickerResults = useDatePicker({
@@ -59,6 +61,10 @@ export const Calendar = ({
             nextYear: pickerResults.nextYear,
             prevMonth: pickerResults.prevMonth,
             prevYear: pickerResults.prevYear,
+            navigateToYear: pickerResults.navigateToYear,
+            navigateToMonth: pickerResults.navigateToMonth,
+            months: pickerResults.months,
+            years: pickerResults.years,
             languageDirection,
         }
     }, [cellSize, date, dir, locale, pickerResults, width, languageDirection])
@@ -85,6 +91,8 @@ export const CalendarProps = {
     locale: PropTypes.string,
     /** numbering system to use - full list here https://github.com/dhis2/multi-calendar-dates/blob/main/src/constants/numberingSystems.ts */
     numberingSystem: PropTypes.string,
+    /** When true, only shows years in the past (current year and earlier) */
+    pastOnly: PropTypes.bool,
     /** the timeZone to use */
     timeZone: PropTypes.string,
     /** the format to display for the week day, i.e. Monday (long), Mon (short), M (narrow) */
