@@ -113,7 +113,9 @@ export const NavigationContainer = ({
                         >
                             {years.map((year) => (
                                 <option key={year.value} value={year.value}>
-                                    {year.label}
+                                    {/* ToDo: this is a workaround for Ethiopic years showing the era
+                                    The workaround is needed but should be done in multi-calendar lib */}
+                                    {year.label?.replace(/ERA\d/, '')}
                                 </option>
                             ))}
                         </select>
