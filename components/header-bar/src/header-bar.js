@@ -1,10 +1,10 @@
 import { useDataQuery, useConfig } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
-import React, { useMemo } from 'react'
+import React, { useMemo, useCallback } from 'react'
 import CommandPalette from './command-palette/command-palette.js'
 import { CommandPaletteContextProvider } from './command-palette/context/command-palette-context.js'
-import { APP } from './command-palette/utils/constants.js'
+import { APP, SHORTCUT } from './command-palette/utils/constants.js'
 import { HeaderBarContextProvider } from './header-bar-context.js'
 import { joinPath } from './join-path.js'
 import i18n from './locales/index.js'
@@ -37,6 +37,7 @@ const query = {
 
 export const HeaderBar = ({
     appName,
+    appVersion,
     className,
     updateAvailable,
     onApplyAvailableUpdate,
@@ -44,12 +45,15 @@ export const HeaderBar = ({
     const { appName: configAppName, baseUrl, pwaEnabled } = useConfig()
     const { loading, error, data } = useDataQuery(query)
 
-    const apps = useMemo(() => {
-        const getPath = (path) =>
+    const getPath = useCallback(
+        (path) =>
             path.startsWith('http:') || path.startsWith('https:')
                 ? path
-                : joinPath(baseUrl, 'api', path)
+                : joinPath(baseUrl, 'api', path),
+        [baseUrl]
+    )
 
+    const apps = useMemo(() => {
         return data?.apps.modules.map((app) => ({
             ...app,
             type: APP,
@@ -58,13 +62,38 @@ export const HeaderBar = ({
                 window.location.href = getPath(app.defaultAction)
             },
         }))
-    }, [data, baseUrl])
+    }, [data, getPath])
 
     // fetch commands
     const commands = []
 
     // fetch shortcuts
-    const shortcuts = []
+    const shortcuts = useMemo(() => {
+        if (!data?.apps?.modules) {
+            return []
+        }
+
+        return data.apps.modules?.reduce((acc, currModule) => {
+            const { defaultAction, icon } = currModule
+            const shortcuts =
+                currModule.shortcuts?.map(({ name, url }) => {
+                    const shortcutDefaultAction = getPath(defaultAction) + url
+                    return {
+                        type: SHORTCUT,
+                        name,
+                        // ToDo: confirm what the default action should be in Global shell
+                        // ToDo: check why dhis-web-pivot doesn't have manifest
+                        defaultAction: shortcutDefaultAction,
+                        icon: getPath(icon),
+                        action: () => {
+                            window.location.href = shortcutDefaultAction
+                        },
+                    }
+                }) ?? []
+
+            return [...acc, ...shortcuts]
+        }, [])
+    }, [data])
 
     // See https://jira.dhis2.org/browse/LIBS-180
     if (!loading && !error) {
@@ -79,6 +108,8 @@ export const HeaderBar = ({
         <HeaderBarContextProvider
             updateAvailable={updateAvailable}
             onApplyAvailableUpdate={onApplyAvailableUpdate}
+            clientAppName={appName}
+            clientAppVersion={appVersion}
         >
             <header className={className}>
                 <div className="main">
@@ -130,9 +161,9 @@ export const HeaderBar = ({
                         flex-direction: row;
                         align-items: center;
                         justify-content: space-between;
-                        background-color: #2c6693;
+                        background-color: #165c92;
                         color: ${colors.white};
-                        height: 48px;
+                        height: 40px;
                     }
                     .right-control-spacer {
                         margin-inline-start: auto;
@@ -145,6 +176,7 @@ export const HeaderBar = ({
 
 HeaderBar.propTypes = {
     appName: PropTypes.string,
+    appVersion: PropTypes.string,
     className: PropTypes.string,
     updateAvailable: PropTypes.bool,
     onApplyAvailableUpdate: PropTypes.func,

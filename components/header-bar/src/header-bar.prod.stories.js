@@ -72,6 +72,17 @@ const customData = {
                 displayName: 'Maintenance',
                 icon: '../icons/dhis-web-maintenance.png',
                 description: '',
+                version: '100.3.0',
+                shortcuts: [
+                    {
+                        name: 'Category Section',
+                        url: '#/overview/categories',
+                    },
+                    {
+                        name: 'Category',
+                        url: '#/categories',
+                    },
+                ],
             },
             {
                 name: 'dhis-web-maps',
@@ -80,6 +91,13 @@ const customData = {
                 displayName: 'Maps',
                 icon: '../icons/dhis-web-maps.png',
                 description: '',
+                version: '100.3.0',
+                shortcuts: [
+                    {
+                        name: 'Map overview',
+                        url: '#/map-overview',
+                    },
+                ],
             },
             {
                 name: 'dhis-web-event-reports',
