@@ -252,7 +252,7 @@ export class Input extends Component {
                         display: flex;
                         align-items: center;
                         pointer-events: none;
-                        left: 10px;
+                        inset-inline-start: 10px;
                         padding: 0;
                         color: ${colors.grey600};
                     }
