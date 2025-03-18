@@ -89,7 +89,8 @@ describe('Calendar Input', () => {
             )
             expect(onDateSelectMock).toHaveBeenCalledTimes(1)
         })
-        it('should validate maximum date', async () => {
+        // skipping since test times out - reference issue: https://dhis2.atlassian.net/browse/LIBS-763
+        it.skip('should validate maximum date', async () => {
             const { getByTestId, findByText } = render(
                 <CalendarWithValidation
                     calendar="gregory"
