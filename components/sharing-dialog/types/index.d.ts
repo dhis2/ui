@@ -31,6 +31,7 @@ type SharingType =
     | 'dataElementGroup'
     | 'dataElementGroupSet'
     | 'dataSet'
+    | 'dataStore'
     | 'document'
     | 'eventChart'
     | 'eventFilter'
