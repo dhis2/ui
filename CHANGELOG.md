@@ -1,3 +1,10 @@
+## [10.5.1](https://github.com/dhis2/ui/compare/v10.5.0...v10.5.1) (2025-03-18)
+
+
+### Bug Fixes
+
+* **input:** adjust icon prefix and clear button padding and position ([#1678](https://github.com/dhis2/ui/issues/1678)) ([0b144aa](https://github.com/dhis2/ui/commit/0b144aaa77ec28bda312fa78f86aa1846177e117))
+
 # [10.5.0](https://github.com/dhis2/ui/compare/v10.4.0...v10.5.0) (2025-03-18)
 
 
