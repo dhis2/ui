@@ -4,7 +4,6 @@ import {
     validateDateString,
 } from '@dhis2/multi-calendar-dates'
 import { Button } from '@dhis2-ui/button'
-import { Card } from '@dhis2-ui/card'
 import { InputField } from '@dhis2-ui/input'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
@@ -184,12 +183,10 @@ export const CalendarInput = ({
                         placement="bottom-start"
                         modifiers={[offsetModifier]}
                     >
-                        <Card>
-                            <CalendarContainer
-                                {...calendarProps}
-                                calendarRef={calendarRef}
-                            />
-                        </Card>
+                        <CalendarContainer
+                            {...calendarProps}
+                            calendarRef={calendarRef}
+                        />
                     </Popper>
                 </Layer>
             )}
