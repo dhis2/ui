@@ -4,7 +4,6 @@ import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { resolve } from 'styled-jsx/css'
 import { Button } from '../button/index.js'
 
 function ArrowDown({ className }) {
@@ -57,10 +56,6 @@ function ArrowUp({ className }) {
 ArrowUp.propTypes = {
     className: PropTypes.string,
 }
-
-const arrow = resolve`
-    margin-inline-start: ${spacers.dp12};
-`
 
 class DropdownButton extends Component {
     state = {
@@ -156,7 +151,9 @@ class DropdownButton extends Component {
                     data-test="dhis2-uicore-dropdownbutton-toggle"
                 >
                     {children}
-                    <ArrowIconComponent className={arrow.className} />
+                    <ArrowIconComponent
+                        className={`arrow ${small && 'arrow-small'}`}
+                    />
                 </Button>
 
                 {open && (
@@ -171,8 +168,15 @@ class DropdownButton extends Component {
                     </Layer>
                 )}
 
-                {arrow.styles}
                 <style jsx>{`
+                    .arrow {
+                        margin-inline-start: ${spacers.dp8};
+                    }
+
+                    .arrow-small {
+                        margin-inline-start: ${spacers.dp4};
+                    }
+
                     div {
                         display: inline-flex;
                         position: relative;
