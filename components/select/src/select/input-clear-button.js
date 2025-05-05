@@ -28,12 +28,16 @@ const InputClearButton = ({ onClear, clearText, className, dataTest }) => (
                     background: none;
                     border: none;
                     display: flex;
+                    flex-shrink: 0;
                     align-items: center;
                     justify-content: center;
                     cursor: pointer;
                     height: 24px;
                     width: 24px;
                     border-radius: 3px;
+                }
+                button svg {
+                    flex-shrink: 0;
                 }
                 button svg path {
                     fill: ${colors.grey500};
