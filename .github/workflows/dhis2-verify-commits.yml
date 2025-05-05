@@ -13,7 +13,7 @@ jobs:
               with:
                   node-version: 20.x
                   cache: 'yarn'
-                  
+
             - run: yarn install --frozen-lockfile
             - id: commitlint
               run: echo ::set-output name=config_path::$(node -e "process.stdout.write(require('@dhis2/cli-style').config.commitlint)")
@@ -31,7 +31,7 @@ jobs:
               with:
                   node-version: 20.x
                   cache: 'yarn'
-                  
+
             - run: yarn install --frozen-lockfile
             - id: commitlint
               run: echo ::set-output name=config_path::$(node -e "process.stdout.write(require('@dhis2/cli-style').config.commitlint)")
