@@ -1496,7 +1496,7 @@ import { Popover } from '@dhis2/ui'
 |arrow|boolean|``true``||Show or hide the arrow|
 |className|string||||
 |dataTest|string|``'dhis2-uicore-popover'``|||
-|elevation|string|``elevations.e200``||Box-shadow to create appearance of elevation.  Use `elevations` constants from the UI library.|
+|elevation|string|``elevations.popover``||Box-shadow to create appearance of elevation.  Use `elevations` constants from the UI library.|
 |maxWidth|number|``360``|||
 |observePopperResize|boolean||||
 |observeReferenceResize|boolean||||

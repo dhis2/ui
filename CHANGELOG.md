@@ -1,3 +1,22 @@
+# [10.6.0](https://github.com/dhis2/ui/compare/v10.5.1...v10.6.0) (2025-05-05)
+
+
+### Bug Fixes
+
+* **button:** adjust dropdown arrow spacing for small buttons ([d80205a](https://github.com/dhis2/ui/commit/d80205a7414acd3a9e5a76ef8efd66ee4c84393a))
+* **calendar:** use popover elevation constant ([1459551](https://github.com/dhis2/ui/commit/14595510ad8c5130029c81b8817db6192f4eb45b))
+* **flyoutMenu:** use popover elevation constant ([11451be](https://github.com/dhis2/ui/commit/11451bef9612509055a0416389e966198fb06a28))
+* **popover:** use popover elevation constant ([103020b](https://github.com/dhis2/ui/commit/103020b43c8399afaebb80dc1b9e1c0c706a3520))
+* **select:** adjust padding and spacing ([67bdd29](https://github.com/dhis2/ui/commit/67bdd2977f4a0d0596f9556fce56ac109e1ae8c9))
+* **select:** prevent clear icon from shrinking ([6e6d163](https://github.com/dhis2/ui/commit/6e6d1634b181bd49f845d37ad79e6e842e05ce1d))
+* **select:** use popover elevation constant ([e47a530](https://github.com/dhis2/ui/commit/e47a530cae30653f64acafe9a1b3b6f86ebe8be1))
+* **translations:** sync translations from transifex (master) ([90bffb1](https://github.com/dhis2/ui/commit/90bffb11b26fb8c172a014fc440d46514d814a02))
+
+
+### Features
+
+* **constants:** introduce popover elevation constant ([32fdb17](https://github.com/dhis2/ui/commit/32fdb1774124d40a7b358f0b614c51369e5fb762))
+
 ## [10.5.1](https://github.com/dhis2/ui/compare/v10.5.0...v10.5.1) (2025-03-18)
 
 
