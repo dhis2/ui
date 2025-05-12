@@ -63,7 +63,17 @@ class SplitButton extends Component {
 
     handlePrimaryAction = (payload, event) => {
         if (this.props.onClick) {
-            this.props.onClick(payload, event)
+            this.props.onClick(
+                {
+                    name: payload.name,
+                    value: payload.value,
+                    open:
+                        typeof this.props.open === 'boolean'
+                            ? this.props.open
+                            : this.state.open,
+                },
+                event
+            )
         }
     }
 
@@ -251,7 +261,7 @@ SplitButton.propTypes = {
     value: PropTypes.string,
     /**
      * Callback triggered when the main button is clicked.
-     * Called with signature `({ name: string, value: string }, event)`
+     * Called with signature `({ name: string, value: string, open: bool }, event)`
      */
     onClick: PropTypes.func,
     /**

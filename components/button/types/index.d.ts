@@ -235,7 +235,7 @@ export interface SplitButtonProps {
     value?: string
     /**
      * Callback triggered when the main button is clicked.
-     * Called with signature `({ name: string, value: string }, event)`
+     * Called with signature `({ name: string, value: string, open: bool }, event)`
      */
     onClick?: ButtonEventHandler<React.MouseEvent<HTMLButtonElement>>
     /**
