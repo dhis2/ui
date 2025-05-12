@@ -1,5 +1,9 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
+import { FlyoutMenu, MenuItem } from '@dhis2-ui/menu'
+import { Modal, ModalContent, ModalTitle, ModalActions } from '@dhis2-ui/modal'
 import React from 'react'
+import { Button } from '../button/button.js'
+import { ButtonStrip } from '../button-strip/button-strip.js'
 import { SplitButton } from './split-button.js'
 
 const description = `
@@ -87,4 +91,72 @@ export const RTL = (args) => (
 )
 RTL.args = {
     children: 'RTL text',
+}
+
+export const ControlledOpen = (args) => {
+    const [openFlyout, setOpenFlyout] = React.useState(false)
+    const [openModal, setOpenModal] = React.useState(false)
+
+    const handleClick = () => {
+        console.log('Main button clicked. This will not open the flyout menu.')
+    }
+
+    const handleToggle = () => {
+        setOpenFlyout((prevState) => !prevState)
+    }
+
+    const component = (
+        <FlyoutMenu>
+            <MenuItem
+                onClick={() => {
+                    console.log('Console log and close flyout')
+                    setOpenFlyout(false)
+                }}
+                label="Action 1"
+            />
+            <MenuItem
+                onClick={() => {
+                    console.log('Open modal and close flyout')
+                    setOpenFlyout(false)
+                    setOpenModal(true)
+                }}
+                label="Open modal"
+            />
+        </FlyoutMenu>
+    )
+
+    return (
+        <div>
+            <SplitButton
+                {...args}
+                open={openFlyout}
+                onClick={handleClick}
+                onToggle={handleToggle}
+                component={component}
+            />
+
+            {openModal && (
+                <Modal onClose={() => setOpenModal(false)}>
+                    <ModalTitle>Modal</ModalTitle>
+                    <ModalContent>
+                        <p>Modal content</p>
+                    </ModalContent>
+                    <ModalActions>
+                        <ButtonStrip>
+                            <Button onClick={() => setOpenModal(false)}>
+                                Close
+                            </Button>
+                        </ButtonStrip>
+                    </ModalActions>
+                </Modal>
+            )}
+        </div>
+    )
+}
+ControlledOpen.parameters = {
+    docs: {
+        description: {
+            story: 'This story demonstrates how the `SplitButton` can be controlled from the outside using the `open` prop and an `onToggle` handler that updates the external state.',
+        },
+    },
 }
