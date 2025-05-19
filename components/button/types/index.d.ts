@@ -212,6 +212,10 @@ export interface SplitButtonProps {
      */
     large?: boolean
     name?: string
+    /**
+     * Controls popper visibility. When implementing this prop the component becomes a controlled component
+     */
+    open?: boolean
     /** Applies 'primary' button appearance, implying the most important action */
     primary?: boolean
     /** Applies 'secondary' button appearance */
@@ -229,7 +233,17 @@ export interface SplitButtonProps {
      * Value associated with the button. Passed in object to onClick handler
      */
     value?: string
-    onClick?: ButtonOpenEventHandler
+    /**
+     * Callback triggered when the main button is clicked.
+     * Called with signature `({ name: string, value: string, open: bool }, event)`
+     */
+    onClick?: ButtonEventHandler<React.MouseEvent<HTMLButtonElement>>
+    /**
+     * Callback triggered when the dropdown is toggled (by clicking the chevron, pressing Escape, or clicking the backdrop).
+     * Called with signature `({ name: string, value: string, open: bool }, event)`.
+     * Required if `open` prop is used (controlled component).
+     */
+    onToggle?: ButtonOpenEventHandler
 }
 
 export class SplitButton extends React.Component<SplitButtonProps, any> {

@@ -196,13 +196,15 @@ import { SplitButton } from '@dhis2/ui'
 |initialFocus|boolean|||Grants the button the initial focus|
 |large|custom|||Changes button size. Mutually exclusive with `small` prop|
 |name|string||||
+|open|boolean|||Controls popper visibility. When implementing this prop the component becomes a controlled component|
 |primary|boolean|||Applies 'primary' button appearance, implying the most important action.|
 |secondary|boolean|||Applies 'secondary' button appearance.|
 |small|custom|||Changes button size. Mutually exclusive with `large` prop|
 |tabIndex|string||||
 |type|'submit' │ 'reset' │ 'button'|||Type of button. Applied to html `button` element|
 |value|string|||Value associated with the button. Passed in object to onClick handler|
-|onClick|function||||
+|onClick|function|||Callback triggered when the main button is clicked.<br/>Called with signature `({ name: string, value: string }, event)`|
+|onToggle|custom|||Callback triggered when the dropdown is toggled (by clicking the chevron, pressing Escape, or clicking the backdrop).<br/>Called with signature `({ name: string, value: string, open: bool }, event)`.<br/>Required if `open` prop is used (controlled component).|
 
 ### Calendar
 
