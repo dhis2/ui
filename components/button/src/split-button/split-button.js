@@ -27,6 +27,8 @@ class SplitButton extends Component {
 
     anchorRef = React.createRef()
 
+    isControlled = () => typeof this.props.open === 'boolean'
+
     componentDidMount() {
         document.addEventListener('keydown', this.handleKeyDown)
     }
@@ -36,14 +38,11 @@ class SplitButton extends Component {
     }
 
     handleKeyDown = (event) => {
-        const open =
-            typeof this.props.open === 'boolean'
-                ? this.props.open
-                : this.state.open
+        const open = this.isControlled() ? this.props.open : this.state.open
         if (event.key === 'Escape' && open) {
             event.preventDefault()
             event.stopPropagation()
-            if (typeof this.props.open === 'boolean') {
+            if (this.isControlled()) {
                 if (this.props.onToggle) {
                     this.props.onToggle(
                         {
@@ -67,10 +66,9 @@ class SplitButton extends Component {
                 {
                     name: payload.name,
                     value: payload.value,
-                    open:
-                        typeof this.props.open === 'boolean'
-                            ? this.props.open
-                            : this.state.open,
+                    open: this.isControlled()
+                        ? this.props.open
+                        : this.state.open,
                 },
                 event
             )
@@ -78,7 +76,7 @@ class SplitButton extends Component {
     }
 
     handleToggle = (payload, event) => {
-        if (typeof this.props.open === 'boolean') {
+        if (this.isControlled()) {
             if (this.props.onToggle) {
                 this.props.onToggle(
                     {
@@ -95,7 +93,7 @@ class SplitButton extends Component {
     }
 
     handleBackdropClick = (event) => {
-        if (typeof this.props.open === 'boolean') {
+        if (this.isControlled()) {
             if (this.props.onToggle) {
                 this.props.onToggle(
                     {
@@ -112,10 +110,7 @@ class SplitButton extends Component {
     }
 
     render() {
-        const open =
-            typeof this.props.open === 'boolean'
-                ? this.props.open
-                : this.state.open
+        const open = this.isControlled() ? this.props.open : this.state.open
         const {
             component,
             children,
