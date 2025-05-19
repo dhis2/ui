@@ -1,3 +1,10 @@
+# [10.7.0](https://github.com/dhis2/ui/compare/v10.6.0...v10.7.0) (2025-05-19)
+
+
+### Features
+
+* **button:** add controlled component functionality to SplitButton ([#1685](https://github.com/dhis2/ui/issues/1685)) ([f027b0b](https://github.com/dhis2/ui/commit/f027b0b84bc4d0d5cb5b587d9007629caa768d52))
+
 # [10.6.0](https://github.com/dhis2/ui/compare/v10.5.1...v10.6.0) (2025-05-05)
 
 

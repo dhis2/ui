@@ -126,5 +126,5 @@ import { SplitButton } from '@dhis2/ui'
 |tabIndex|string||||
 |type|'submit' │ 'reset' │ 'button'|||Type of button. Applied to html `button` element|
 |value|string|||Value associated with the button. Passed in object to onClick handler|
-|onClick|function|||Callback triggered when the main button is clicked.<br/>Called with signature `({ name: string, value: string }, event)`|
+|onClick|function|||Callback triggered when the main button is clicked.<br/>Called with signature `({ name: string, value: string, open: bool }, event)`|
 |onToggle|custom(function)|||Callback triggered when the dropdown is toggled (by clicking the chevron, pressing Escape, or clicking the backdrop).<br/>Called with signature `({ name: string, value: string, open: bool }, event)`.<br/>Required if `open` prop is used (controlled component).|
