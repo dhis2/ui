@@ -1,3 +1,10 @@
+## [10.7.1](https://github.com/dhis2/ui/compare/v10.7.0...v10.7.1) (2025-05-21)
+
+
+### Bug Fixes
+
+* **header-bar:** profile menu title ([#1686](https://github.com/dhis2/ui/issues/1686)) ([8bc8da0](https://github.com/dhis2/ui/commit/8bc8da0b94d83fe396445290e66ebccd410d8ea5))
+
 # [10.7.0](https://github.com/dhis2/ui/compare/v10.6.0...v10.7.0) (2025-05-19)
 
 
