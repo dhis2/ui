@@ -76,7 +76,6 @@
         "execa": "^5.1.1",
         "fast-glob": "^3.2.7",
         "find-up": "^5.0.0",
-        "react-dev-utils": "^10.2.1",
         "react-docgen": "^5.4.0",
         "rimraf": "^3.0.2",
         "wait-on": "^6.0.0"
