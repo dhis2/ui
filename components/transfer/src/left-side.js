@@ -1,6 +1,6 @@
+import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { backgroundColor, borderColor, borderRadius } from './common/index.js'
 
 export const LeftSide = ({ children, dataTest, width }) => (
     <div data-test={dataTest}>
@@ -16,9 +16,9 @@ export const LeftSide = ({ children, dataTest, width }) => (
             div {
                 display: flex;
                 flex-direction: column;
-                background-color: ${backgroundColor};
-                border-radius: ${borderRadius};
-                border: 1px solid ${borderColor};
+                background-color: ${colors.white};
+                border-radius: 3px;
+                border: 1px solid ${colors.grey400};
                 min-height: 240px;
                 max-width: 100%;
                 width: ${width};
