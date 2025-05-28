@@ -142,7 +142,6 @@ const [components, collections, icons, constants] = uiPackages({
 
 const ignore = [
     '**/index.js',
-    '**/*.styles.js',
     '**/*.test.js',
     '**/*.stories.*',
     '**/features',
