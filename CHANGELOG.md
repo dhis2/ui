@@ -1,3 +1,10 @@
+## [10.7.2](https://github.com/dhis2/ui/compare/v10.7.1...v10.7.2) (2025-05-28)
+
+
+### Bug Fixes
+
+* trigger release ([e417220](https://github.com/dhis2/ui/commit/e41722024d7cec9056606d3f1825797b4fe9880f))
+
 ## [10.7.1](https://github.com/dhis2/ui/compare/v10.7.0...v10.7.1) (2025-05-21)
 
 
