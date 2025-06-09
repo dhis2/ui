@@ -1,3 +1,10 @@
+## [10.7.4](https://github.com/dhis2/ui/compare/v10.7.3...v10.7.4) (2025-06-09)
+
+
+### Bug Fixes
+
+* ensure publishing docs ([#1692](https://github.com/dhis2/ui/issues/1692)) ([4ee19b8](https://github.com/dhis2/ui/commit/4ee19b8b100dff0c9fb445e734ccd6e84b0e7c0c))
+
 ## [10.7.3](https://github.com/dhis2/ui/compare/v10.7.2...v10.7.3) (2025-06-09)
 
 
