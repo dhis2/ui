@@ -191,3 +191,15 @@ jobs:
                   publish-github: true
                   github-token: ${{ env.GH_TOKEN }}
                   npm-token: ${{ env.NPM_TOKEN }}
+
+    send-slack-message:
+        runs-on: ubuntu-latest
+        if: ${{ always() && github.ref == 'refs/heads/master' }}
+        needs: [build, lint, test, e2e, publish]
+        steps:
+            - uses: rtCamp/action-slack-notify@v2
+              env:
+                  SLACK_WEBHOOK: ${{ secrets.SLACK_BACKEND_WEBHOOK }}
+                  SLACK_CHANNEL: 'team-extensibility-notifications'
+                  SLACK_MESSAGE_ON_FAILURE: 'Master branch failed to build or publish the UI library.'
+                  SLACK_COLOR: ${{ job.status }}

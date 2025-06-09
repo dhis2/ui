@@ -13,8 +13,6 @@ on:
     push:
         branches:
             - master
-        paths:
-            - '_redirects' # only rebuild and deploy when redirects file changes
 
 concurrency:
     group: ${{ github.workflow}}-${{ github.ref }}
