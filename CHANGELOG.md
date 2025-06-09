@@ -1,3 +1,10 @@
+## [10.7.3](https://github.com/dhis2/ui/compare/v10.7.2...v10.7.3) (2025-06-09)
+
+
+### Bug Fixes
+
+* bump multi-calendar-dates ([#1691](https://github.com/dhis2/ui/issues/1691)) ([5ac3347](https://github.com/dhis2/ui/commit/5ac3347c9b10625770394be81654b21ae85f9e1c))
+
 ## [10.7.2](https://github.com/dhis2/ui/compare/v10.7.1...v10.7.2) (2025-05-28)
 
 
