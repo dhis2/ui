@@ -14,9 +14,19 @@ import {
     createOnChangePayload,
     createOnAddPayload,
     createOnRemovePayload,
+    isMetadataWriteAccessRemoved,
 } from './helpers/index.js'
 import { Modal } from './modal/index.js'
 import { TabbedContent } from './tabs/index.js'
+
+const userQuery = {
+    me: {
+        resource: 'me',
+        params: {
+            fields: ['id', 'userGroups[id]', 'authorities'],
+        },
+    },
+}
 
 const query = {
     sharing: {
@@ -110,6 +120,12 @@ export const SharingDialog = ({
         },
     })
 
+    const { data: userData, loading: userLoading } = useDataQuery(userQuery)
+    // const userData = {
+    //     id: 'user-1',
+    //     userGroups: [{ id: 'group1' }],
+    // }
+
     const [mutate, { loading: mutating }] = useDataMutation(mutation, {
         variables: {
             type,
@@ -138,7 +154,7 @@ export const SharingDialog = ({
      * Block interaction during the initial load
      */
 
-    if (loading) {
+    if (loading || userLoading) {
         const users = Object.keys(initialSharingSettings.users).map(
             replaceAccessWithConstant
         )
@@ -190,6 +206,22 @@ export const SharingDialog = ({
     }
 
     const onChange = ({ type: changedType, id: changedId, access }) => {
+        if (
+            isMetadataWriteAccessRemoved({
+                currentUser: userData?.me,
+                type: changedType,
+                access,
+                id: changedId,
+                publicAccess,
+                users,
+                groups,
+            })
+        ) {
+            showError(
+                'This action would remove your metadata write access, which is not allowed'
+            )
+            return
+        }
         const data = createOnChangePayload({
             object,
             type: changedType,
@@ -215,6 +247,7 @@ export const SharingDialog = ({
                 name={object.displayName || object.name}
                 dataTest={dataTest}
             >
+                <div>test - sharing restriction</div>
                 <TabbedContent
                     id={id}
                     users={users}
