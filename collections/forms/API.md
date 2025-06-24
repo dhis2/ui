@@ -69,7 +69,7 @@ import { FileInputFieldFF } from '@dhis2/ui'
 |showValidStatus|boolean||||
 |valid|boolean||||
 |validationText|string||||
-|value|arrayOf(instanceOf(File)) │ ''||||
+|value|`arrayOf(instanceOf(File)) │ ''`||||
 
 ### InputFieldFF
 
@@ -118,7 +118,7 @@ import { MultiSelectFieldFF } from '@dhis2/ui'
 |meta|custom|||`meta` props provided by Final Form `Field`|
 |error|boolean||||
 |loading|boolean||||
-|options|arrayOf({<br/>  "label": "string",<br/>  "value": "string"<br/>})|`[]`|||
+|options|`arrayOf({<br/>  "label": "string",<br/>  "value": "string"<br/>})`|``[]``|||
 |showLoadingStatus|boolean||||
 |showValidStatus|boolean||||
 |valid|boolean||||
@@ -169,7 +169,7 @@ import { SingleSelectFieldFF } from '@dhis2/ui'
 |---|---|---|---|---|
 |input|custom|||`input` props received from Final Form `Field`|
 |meta|custom|||`meta` props received from Final Form `Field`|
-|options|arrayOf({<br/>  "label": "string",<br/>  "value": "string"<br/>})||*||
+|options|`arrayOf({<br/>  "label": "string",<br/>  "value": "string"<br/>})`||*||
 |error|boolean||||
 |loading|boolean||||
 |showLoadingStatus|boolean||||

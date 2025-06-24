@@ -31,6 +31,7 @@ type SharingType =
     | 'dataElementGroup'
     | 'dataElementGroupSet'
     | 'dataSet'
+    | 'dataStore'
     | 'document'
     | 'eventChart'
     | 'eventFilter'
@@ -93,6 +94,7 @@ export interface SharingDialogProps {
      */
     initialSharingSettings?: SharingDialogInitialSharingSettings
     dataSharing?: boolean
+    cascadeDashboardSharing?: boolean
     onClose?: ModalOnCloseEventHandler
     onError?: (error: any) => void
     onSave?: () => void

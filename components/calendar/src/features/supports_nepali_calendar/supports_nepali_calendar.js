@@ -27,12 +27,21 @@ Then('months should be rendered in "{word}" with navigation', (language) => {
             ? { current: 'असोज', previous: 'भदौ', next: 'कार्तिक' }
             : { current: 'Ashwin', previous: 'Bhadra', next: 'Kartik' }
 
-    cy.contains(months.current).should('be.visible')
+    cy.get('[data-test="calendar-month-select"] option:selected').should(
+        'have.text',
+        months.current
+    )
     cy.get('[data-test="calendar-next-month"]').click()
-    cy.contains(months.next).should('be.visible')
+    cy.get('[data-test="calendar-month-select"] option:selected').should(
+        'have.text',
+        months.next
+    )
     cy.get('[data-test="calendar-previous-month"]').click()
     cy.get('[data-test="calendar-previous-month"]').click()
-    cy.contains(months.previous).should('be.visible')
+    cy.get('[data-test="calendar-month-select"] option:selected').should(
+        'have.text',
+        months.previous
+    )
 })
 
 Then('we should be able to select a day', () => {
@@ -47,9 +56,5 @@ Then('we should be able to select a day', () => {
     cy.get('[data-test="storybook-calendar-result"]').should(
         'have.text',
         nepaliDate
-    )
-    cy.get('[data-test="storybook-calendar-result-iso"]').should(
-        'have.text',
-        '13 October 2021'
     )
 })

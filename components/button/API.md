@@ -16,7 +16,7 @@ import { Button } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node|||Component to render inside the button|
 |className|string|||A className that will be passed to the `<button>` element|
-|dataTest|string|`'dhis2-uicore-button'`||A string that will be applied as a `data-test` attribute on the button element<br/>for identification during testing|
+|dataTest|string|``'dhis2-uicore-button'``||A string that will be applied as a `data-test` attribute on the button element<br/>for identification during testing|
 |destructive|boolean|||Applies 'destructive' button appearance, implying a dangerous action.|
 |disabled|boolean|||Applies a greyed-out appearance and makes the button non-interactive|
 |icon|element|||An icon element to display inside the button|
@@ -29,7 +29,7 @@ import { Button } from '@dhis2/ui'
 |small|custom|||Makes the button small. Mutually exclusive with `large` prop|
 |tabIndex|string|||Tab index for focusing the button with a keyboard|
 |toggled|boolean|||Changes appearance of button to an on/off state|
-|type|'submit' │ 'reset' │ 'button'|`'button'`||Sets `type` attribute on `<button>` element|
+|type|'submit' │ 'reset' │ 'button'|``'button'``||Sets `type` attribute on `<button>` element|
 |value|string|||Value associated with the button.<br/>Gets passed as part of the first argument to callbacks (see `onClick`).|
 |onBlur|function|||Callback to trigger on de-focus (blur).<br/>Called with same args as `onClick`|
 |onClick|function|||Callback to trigger on click.<br/>Called with args `({ value, name }, event)`|
@@ -54,7 +54,7 @@ import { ButtonStrip } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-buttonstrip'`|||
+|dataTest|string|``'dhis2-uicore-buttonstrip'``|||
 |end|custom|||Horizontal alignment for buttons. Mutually exclusive with `middle` prop|
 |middle|custom|||Horizontal alignment. Mutually exclusive with `end` prop|
 
@@ -77,7 +77,7 @@ import { DropdownButton } from '@dhis2/ui'
 |children|node|||Children to render inside the buton|
 |className|string||||
 |component|element|||Component to show/hide when button is clicked|
-|dataTest|string|`'dhis2-uicore-dropdownbutton'`|||
+|dataTest|string|``'dhis2-uicore-dropdownbutton'``|||
 |destructive|boolean|||Applies 'destructive' button appearance, implying a dangerous action.|
 |disabled|boolean|||Make the button non-interactive|
 |icon|element||||
@@ -112,17 +112,19 @@ import { SplitButton } from '@dhis2/ui'
 |children|string||||
 |className|string||||
 |component|element|||Component to render when the dropdown is opened|
-|dataTest|string|`'dhis2-uicore-splitbutton'`|||
+|dataTest|string|``'dhis2-uicore-splitbutton'``|||
 |destructive|boolean|||Applies 'destructive' button appearance, implying a dangerous action.|
 |disabled|boolean|||Disables the button and makes it uninteractive|
 |icon|element|||An icon to add inside the button|
 |initialFocus|boolean|||Grants the button the initial focus|
 |large|custom|||Changes button size. Mutually exclusive with `small` prop|
 |name|string||||
+|open|boolean|||Controls popper visibility. When implementing this prop the component becomes a controlled component|
 |primary|boolean|||Applies 'primary' button appearance, implying the most important action.|
 |secondary|boolean|||Applies 'secondary' button appearance.|
 |small|custom|||Changes button size. Mutually exclusive with `large` prop|
 |tabIndex|string||||
 |type|'submit' │ 'reset' │ 'button'|||Type of button. Applied to html `button` element|
 |value|string|||Value associated with the button. Passed in object to onClick handler|
-|onClick|function||||
+|onClick|function|||Callback triggered when the main button is clicked.<br/>Called with signature `({ name: string, value: string, open: bool }, event)`|
+|onToggle|custom(function)|||Callback triggered when the dropdown is toggled (by clicking the chevron, pressing Escape, or clicking the backdrop).<br/>Called with signature `({ name: string, value: string, open: bool }, event)`.<br/>Required if `open` prop is used (controlled component).|

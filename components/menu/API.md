@@ -17,10 +17,10 @@ import { FlyoutMenu } from '@dhis2/ui'
 |children|node|||Typically, but not limited to, `MenuItem` components|
 |className|string||||
 |closeMenu|function|||when Escape key is pressed, this function is called to close the flyout menu|
-|dataTest|string|`'dhis2-uicore-menu'`|||
+|dataTest|string|``'dhis2-uicore-menu'``|||
 |dense|boolean|||Menu uses smaller dimensions|
-|maxHeight|string|`'auto'`|||
-|maxWidth|string|`'380px'`|||
+|maxHeight|string|``'auto'``|||
+|maxWidth|string|``'380px'``|||
 
 ### Menu
 
@@ -40,7 +40,7 @@ import { Menu } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node|||Typically `MenuItem`, `MenuDivider`, and `MenuSectionHeader`|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-menulist'`|||
+|dataTest|string|``'dhis2-uicore-menulist'``|||
 |dense|boolean|||Applies `dense` property to all child components unless already specified|
 
 ### MenuDivider
@@ -60,7 +60,7 @@ import { MenuDivider } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-menudivider'`|||
+|dataTest|string|``'dhis2-uicore-menudivider'``|||
 |dense|boolean||||
 
 ### MenuItem
@@ -80,18 +80,19 @@ import { MenuItem } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |active|boolean||||
+|ariaLabel|string|||By default, the label prop is used for the aria-label attribute on the<br/>underlying HTML element. If this prop is defined, it will be used as the<br/>aria-label instead|
 |checkbox|boolean||||
 |checked|boolean||||
 |chevron|boolean||||
 |children|node|||Nested menu items can become submenus.<br/>See `showSubMenu` and `toggleSubMenu` props, and 'Children' demo|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-menuitem'`|||
+|dataTest|string|``'dhis2-uicore-menuitem'``|||
 |dense|boolean||||
 |destructive|boolean||||
 |disabled|boolean||||
 |href|string|||For using menu item as a link|
 |icon|node|||An icon for the left side of the menu item|
-|label|node|||Text in the menu item|
+|label|node|||Text in the menu item. If it's a string, will be used as aria-label|
 |showSubMenu|boolean|||When true, nested menu items are shown in a Popper|
 |suffix|node|||A supporting element shown at the end of the menu item|
 |tabIndex|number||||
@@ -117,7 +118,7 @@ import { MenuSectionHeader } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-menusectionheader'`|||
+|dataTest|string|``'dhis2-uicore-menusectionheader'``|||
 |dense|boolean||||
 |hideDivider|boolean||||
 |label|node||||

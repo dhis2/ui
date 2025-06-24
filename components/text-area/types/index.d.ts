@@ -87,19 +87,19 @@ export interface TextAreaProps {
      */
     width?: string
     /**
-     * Called with signature ({ name: string, value: string }, event)
+     * Called with signature `({ name: string, value: string }, event)`
      */
     onBlur?: TextAreaFocusHandler
     /**
-     * Called with signature ({ name: string, value: string }, event)
+     * Called with signature `({ name: string, value: string }, event)`
      */
     onChange?: TextAreaChangeHandler
     /**
-     * Called with signature ({ name: string, value: string }, event)
+     * Called with signature `({ name: string, value: string }, event)`
      */
     onFocus?: TextAreaFocusHandler
     /**
-     * Called with signature ({ name: string, value: string }, event)
+     * Called with signature `({ name: string, value: string }, event)`
      */
     onKeyDown?: TextAreaKeyHandler
 }
@@ -189,19 +189,19 @@ export interface TextAreaFieldProps {
      */
     warning?: boolean
     /**
-     * Called with signature ({ name: string, value: string }, event)
+     * Called with signature `({ name: string, value: string }, event)`
      */
     onBlur?: TextAreaFocusHandler
     /**
-     * Called with signature ({ name: string, value: string }, event)
+     * Called with signature `({ name: string, value: string }, event)`
      */
     onChange?: TextAreaChangeHandler
     /**
-     * Called with signature ({ name: string, value: string }, event)
+     * Called with signature `({ name: string, value: string }, event)`
      */
     onFocus?: TextAreaFocusHandler
     /**
-     * Called with signature ({ name: string, value: string }, event)
+     * Called with signature `({ name: string, value: string }, event)`
      */
     onKeyDown?: TextAreaKeyHandler
 }

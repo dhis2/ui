@@ -40,7 +40,6 @@ export default {
     args: {
         arrow: true,
         dataTest: 'dhis2-uicore-popover',
-        elevation: elevations.e200,
         maxWidth: 360,
         placement: 'top',
     },

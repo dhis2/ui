@@ -91,6 +91,22 @@ Icon.parameters = {
     },
 }
 
+export const InContainer = (args) => {
+    return (
+        <div
+            style={{
+                height: 40,
+                width: 300,
+                overflow: 'hidden',
+            }}
+        >
+            <Menu {...args}>
+                <MenuItem label="Menu item" />
+            </Menu>
+        </div>
+    )
+}
+
 export const Suffix = Template.bind({})
 Suffix.args = {
     label: 'Open in Data Visualizer',

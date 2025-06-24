@@ -21,7 +21,7 @@ export const CalendarTable = ({
                             <CalendarTableCell
                                 selectedDate={selectedDate}
                                 day={day}
-                                key={day?.calendarDate}
+                                key={day?.dateValue}
                                 cellSize={cellSize}
                                 width={width}
                             />
@@ -35,7 +35,7 @@ export const CalendarTable = ({
                 border: none;
                 border-collapse: collapse;
                 width: 100%;
-                margin-block: ${spacers.dp4};
+                margin-block: 0 ${spacers.dp4};
             }
             .calendar-table tr,
             .calendar-table td {
@@ -48,7 +48,7 @@ export const CalendarTable = ({
     </div>
 )
 
-CalendarTable.propTypes = {
+export const CalendarTableProps = {
     calendarWeekDays: PropTypes.arrayOf(
         PropTypes.arrayOf(
             PropTypes.shape({
@@ -70,3 +70,5 @@ CalendarTable.propTypes = {
     weekDayLabels: PropTypes.arrayOf(PropTypes.string),
     width: PropTypes.string,
 }
+
+CalendarTable.propTypes = CalendarTableProps

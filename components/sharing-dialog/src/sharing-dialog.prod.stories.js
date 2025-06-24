@@ -259,6 +259,18 @@ ForDashboardWithCascadeSharingPartialSuccess.storyName =
     'For dashboard with cascading sharing partial success'
 ForDashboardWithCascadeSharingPartialSuccess.args = { type: 'dashboard' }
 
+export const ForDashboardWithoutCascadeSharing = (args) => (
+    <CustomDataProvider data={{ ...dashboardData }}>
+        <SharingDialog {...args} />
+    </CustomDataProvider>
+)
+ForDashboardWithoutCascadeSharing.storyName =
+    'For dashboard without cascading sharing (embedded dashboard)'
+ForDashboardWithoutCascadeSharing.args = {
+    type: 'dashboard',
+    cascadeDashboardSharing: false,
+}
+
 export const RTL = (args) => {
     useEffect(() => {
         document.body.dir = 'rtl'

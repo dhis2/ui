@@ -1,3 +1,4 @@
+import { requiredIf } from '@dhis2/prop-types'
 import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
 import { IconChevronUp16, IconChevronDown16 } from '@dhis2/ui-icons'
 import { Layer } from '@dhis2-ui/layer'
@@ -26,6 +27,8 @@ class SplitButton extends Component {
 
     anchorRef = React.createRef()
 
+    isControlled = () => typeof this.props.open === 'boolean'
+
     componentDidMount() {
         document.addEventListener('keydown', this.handleKeyDown)
     }
@@ -33,34 +36,81 @@ class SplitButton extends Component {
     componentWillUnmount() {
         document.removeEventListener('keydown', this.handleKeyDown)
     }
+
     handleKeyDown = (event) => {
-        if (event.key === 'Escape' && this.state.open) {
+        const open = this.isControlled() ? this.props.open : this.state.open
+        if (event.key === 'Escape' && open) {
             event.preventDefault()
             event.stopPropagation()
-            this.setState({ open: false })
+            if (this.isControlled()) {
+                if (this.props.onToggle) {
+                    this.props.onToggle(
+                        {
+                            name: this.props.name,
+                            value: this.props.value,
+                            open: false,
+                        },
+                        event
+                    )
+                }
+            } else {
+                this.setState({ open: false })
+            }
             this.anchorRef.current && this.anchorRef.current.focus()
         }
     }
 
-    onClick = (payload, event) => {
+    handlePrimaryAction = (payload, event) => {
         if (this.props.onClick) {
             this.props.onClick(
                 {
                     name: payload.name,
                     value: payload.value,
-                    open: this.state.open,
+                    open: this.isControlled()
+                        ? this.props.open
+                        : this.state.open,
                 },
                 event
             )
         }
     }
 
-    onToggle = () => {
-        this.setState((prevState) => ({ open: !prevState.open }))
+    handleToggle = (payload, event) => {
+        if (this.isControlled()) {
+            if (this.props.onToggle) {
+                this.props.onToggle(
+                    {
+                        name: payload.name,
+                        value: payload.value,
+                        open: !this.props.open,
+                    },
+                    event
+                )
+            }
+        } else {
+            this.setState((prevState) => ({ open: !prevState.open }))
+        }
+    }
+
+    handleBackdropClick = (event) => {
+        if (this.isControlled()) {
+            if (this.props.onToggle) {
+                this.props.onToggle(
+                    {
+                        name: this.props.name,
+                        value: this.props.value,
+                        open: false,
+                    },
+                    event
+                )
+            }
+        } else {
+            this.setState({ open: false })
+        }
     }
 
     render() {
-        const { open } = this.state
+        const open = this.isControlled() ? this.props.open : this.state.open
         const {
             component,
             children,
@@ -94,7 +144,7 @@ class SplitButton extends Component {
                     secondary={secondary}
                     destructive={destructive}
                     disabled={disabled}
-                    onClick={this.onClick}
+                    onClick={this.handlePrimaryAction}
                     type={type}
                     tabIndex={tabIndex}
                     className={cx(className)}
@@ -113,7 +163,7 @@ class SplitButton extends Component {
                     secondary={secondary}
                     destructive={destructive}
                     disabled={disabled}
-                    onClick={this.onToggle}
+                    onClick={this.handleToggle}
                     type={type}
                     tabIndex={tabIndex}
                     className={cx(className, rightButton.className)}
@@ -125,7 +175,10 @@ class SplitButton extends Component {
                 </Button>
 
                 {open && (
-                    <Layer onBackdropClick={this.onToggle} transparent>
+                    <Layer
+                        onBackdropClick={this.handleBackdropClick}
+                        transparent
+                    >
                         <Popper
                             dataTest={`${dataTest}-menu`}
                             placement="bottom-end"
@@ -183,6 +236,10 @@ SplitButton.propTypes = {
     large: sharedPropTypes.sizePropType,
     name: PropTypes.string,
     /**
+     * Controls popper visibility. When implementing this prop the component becomes a controlled component
+     */
+    open: PropTypes.bool,
+    /**
      * Applies 'primary' button appearance, implying the most important action.
      */
     primary: PropTypes.bool,
@@ -197,7 +254,20 @@ SplitButton.propTypes = {
     type: PropTypes.oneOf(['submit', 'reset', 'button']),
     /** Value associated with the button. Passed in object to onClick handler */
     value: PropTypes.string,
+    /**
+     * Callback triggered when the main button is clicked.
+     * Called with signature `({ name: string, value: string, open: bool }, event)`
+     */
     onClick: PropTypes.func,
+    /**
+     * Callback triggered when the dropdown is toggled (by clicking the chevron, pressing Escape, or clicking the backdrop).
+     * Called with signature `({ name: string, value: string, open: bool }, event)`.
+     * Required if `open` prop is used (controlled component).
+     */
+    onToggle: requiredIf(
+        (props) => typeof props.open === 'boolean',
+        PropTypes.func
+    ),
 }
 
 export { SplitButton }

@@ -3,7 +3,7 @@ import { Popper } from '@dhis2-ui/popper'
 import { Portal } from '@dhis2-ui/portal'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, useMemo } from 'react'
 import { FlyoutMenu } from '../flyout-menu/index.js'
 import styles from './menu-item.styles.js'
 
@@ -37,6 +37,7 @@ const MenuItem = ({
     chevron,
     value,
     label,
+    ariaLabel,
     showSubMenu,
     toggleSubMenu,
     suffix,
@@ -86,6 +87,16 @@ const MenuItem = ({
         }
     }, [openSubMenus])
 
+    const resolvedAriaLabel = useMemo(() => {
+        if (typeof label !== 'string' && ariaLabel === undefined) {
+            console.debug(
+                'The label prop on MenuItem is not a string; a value for the ariaLabel prop should be provided'
+            )
+        }
+
+        return ariaLabel ?? (typeof label === 'string' ? label : undefined)
+    }, [ariaLabel, label])
+
     return (
         <>
             <li
@@ -93,7 +104,7 @@ const MenuItem = ({
                     destructive,
                     disabled,
                     dense,
-                    active: active || showSubMenu || tabIndex === 0,
+                    active: active || showSubMenu,
                     'with-chevron': children || chevron,
                 })}
                 ref={menuItemRef}
@@ -120,7 +131,7 @@ const MenuItem = ({
                     aria-disabled={disabled}
                     aria-haspopup={children && 'menu'}
                     aria-expanded={showSubMenu}
-                    aria-label={label}
+                    aria-label={resolvedAriaLabel}
                 >
                     {icon && <span className="icon">{icon}</span>}
 
@@ -150,6 +161,12 @@ const MenuItem = ({
 
 MenuItem.propTypes = {
     active: PropTypes.bool,
+    /**
+     * By default, the label prop is used for the aria-label attribute on the
+     * underlying HTML element. If this prop is defined, it will be used as the
+     * aria-label instead
+     */
+    ariaLabel: PropTypes.string,
     checkbox: PropTypes.bool,
     checked: PropTypes.bool,
     chevron: PropTypes.bool,
@@ -167,7 +184,7 @@ MenuItem.propTypes = {
     href: PropTypes.string,
     /** An icon for the left side of the menu item */
     icon: PropTypes.node,
-    /** Text in the menu item */
+    /** Text in the menu item. If it's a string, will be used as aria-label */
     label: PropTypes.node,
     /** When true, nested menu items are shown in a Popper */
     showSubMenu: PropTypes.bool,

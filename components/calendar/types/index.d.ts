@@ -13,13 +13,18 @@ export interface CalendarProps {
      */
     calendar: CalendarPickerOptions['calendar']
     /**
-     * Called with signature `(null)` \|\| `({ dateCalendarString: string, dateCalendar: Temporal.ZonedDateTime })` with `dateCalendarString` being the stringified date in the specified calendar in the format `yyyy-MM-dd`
+     * Called with signature `(null)` \|\| `({ dateCalendarString: string })` with `dateCalendarString` being the stringified date in the specified calendar in the format `yyyy-MM-dd`
      */
     onDateSelect: CalendarPickerParam['onDateSelect']
     /**
      * the size of a single cell in the table forming the calendar
      */
     cellSize?: string
+
+    /**
+     * Add a "clear" button to delete the selected date
+     */
+    clearable?: boolean
     /**
      * the currently selected date using an iso-like format YYYY-MM-DD, in the calendar system provided (not iso8601)
      */
@@ -52,10 +57,13 @@ export interface CalendarProps {
 
 export const Calendar: React.FC<CalendarProps>
 
-export type CalendarInputProps = Omit<
-    InputFieldProps,
-    'label' | 'type' | 'value'
-> &
-    CalendarProps
+export type CalendarInputProps = Omit<InputFieldProps, 'type' | 'value'> &
+    CalendarProps & {
+        /**
+         * Optional format for the date. Determines how the date is displayed
+         * or processed. If not provided it supports both formats
+         */
+        format?: 'YYYY-MM-DD' | 'DD-MM-YYYY'
+    }
 
 export const CalendarInput: React.FC<CalendarInputProps>

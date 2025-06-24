@@ -91,6 +91,7 @@ export const SharingDialog = ({
     initialSharingSettings = defaultInitialSharingSettings,
     dataTest = 'dhis2-uicore-sharingdialog',
     dataSharing = false,
+    cascadeDashboardSharing = true,
 }) => {
     const { show: showError } = useAlert((error) => error, { critical: true })
     const mappedInitialSharingSettings = mapInitialSharingSettings(
@@ -161,6 +162,7 @@ export const SharingDialog = ({
                         onChange={() => {}}
                         onRemove={() => {}}
                         dataSharing={dataSharing}
+                        cascadeDashboardSharing={cascadeDashboardSharing}
                     />
                 </Modal>
             </FetchingContext.Provider>
@@ -224,6 +226,7 @@ export const SharingDialog = ({
                     onChange={onChange}
                     onRemove={onRemove}
                     dataSharing={dataSharing}
+                    cascadeDashboardSharing={cascadeDashboardSharing}
                 />
             </Modal>
         </FetchingContext.Provider>
@@ -235,6 +238,8 @@ SharingDialog.propTypes = {
     id: PropTypes.string.isRequired,
     /** The type of object to share */
     type: PropTypes.oneOf(DIALOG_TYPES_LIST).isRequired,
+    /** Whether to show the tabbed sharing interface for applying cascade sharing of dashboard items */
+    cascadeDashboardSharing: PropTypes.bool,
     /** Whether to expose the ability to set data sharing (in addition to metadata sharing) */
     dataSharing: PropTypes.bool,
     dataTest: PropTypes.string,

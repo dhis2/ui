@@ -150,7 +150,7 @@ The footer component is as follows:
 
 -   Different types of data will need different loading strategies.
 -   Use a [`Loader`](loading.md) to block interaction if using the transfer while loading is taking place can cause problems.
--   A common pattern is loading more options as a user scrolls. See the [Transfer: Infinite Loading recipe](../recipes/transfer-infinite-loading-all-options-selected.md) for more information.
+-   A common pattern is loading more options as a user scrolls. See the [Transfer: Infinite Loading recipe](/docs/ui/recipes/transfer-infinite-loading-all-options-selected) for more information.
 
 ## API Reference
 

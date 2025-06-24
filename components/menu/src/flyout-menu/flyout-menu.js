@@ -78,9 +78,8 @@ const FlyoutMenu = ({
             <style jsx>{`
                 div {
                     background: ${colors.white};
-                    border: 1px solid ${colors.grey200};
                     border-radius: 3px;
-                    box-shadow: ${elevations.e300};
+                    box-shadow: ${elevations.popover};
                     display: inline-block;
                     min-width: ${dense ? '128' : '180'}px;
                     max-width: ${maxWidth};

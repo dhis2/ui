@@ -18,10 +18,10 @@ import { AlertBar } from '@dhis2/ui'
 |children|string|||The message string for the alert|
 |className|string||||
 |critical|custom|||Alert bars with `critical` will not autohide|
-|dataTest|string|`'dhis2-uicore-alertbar'`|||
-|duration|number|`8000`||How long you want the notification to display, in `ms`, when it's not permanent|
+|dataTest|string|``'dhis2-uicore-alertbar'``|||
+|duration|number|``8000``||How long you want the notification to display, in `ms`, when it's not permanent|
 |hidden|boolean|||AlertBar will be hidden on creation when this is set to true|
-|icon|custom|`true`||A specific icon to override the default icon in the bar.<br/>If `false` is provided, no icon will be shown.|
+|icon|custom|``true``||A specific icon to override the default icon in the bar.<br/>If `false` is provided, no icon will be shown.|
 |permanent|boolean|||When set, AlertBar will not autohide|
 |success|custom||||
 |warning|custom|||Alert bars with `warning` will not autohide|
@@ -45,7 +45,7 @@ import { AlertStack } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-alertstack'`|||
+|dataTest|string|``'dhis2-uicore-alertstack'``|||
 
 ### Box
 
@@ -65,7 +65,7 @@ import { Box } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-box'`|||
+|dataTest|string|``'dhis2-uicore-box'``|||
 |height|string||||
 |marginTop|string||||
 |maxHeight|string||||
@@ -93,7 +93,7 @@ import { Button } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node|||Component to render inside the button|
 |className|string|||A className that will be passed to the `<button>` element|
-|dataTest|string|`'dhis2-uicore-button'`||A string that will be applied as a `data-test` attribute on the button element<br/>for identification during testing|
+|dataTest|string|``'dhis2-uicore-button'``||A string that will be applied as a `data-test` attribute on the button element<br/>for identification during testing|
 |destructive|boolean|||Applies 'destructive' button appearance, implying a dangerous action.|
 |disabled|boolean|||Applies a greyed-out appearance and makes the button non-interactive|
 |icon|element|||An icon element to display inside the button|
@@ -106,7 +106,7 @@ import { Button } from '@dhis2/ui'
 |small|custom|||Makes the button small. Mutually exclusive with `large` prop|
 |tabIndex|string|||Tab index for focusing the button with a keyboard|
 |toggled|boolean|||Changes appearance of button to an on/off state|
-|type|'submit' │ 'reset' │ 'button'|`'button'`||Sets `type` attribute on `<button>` element|
+|type|'submit' │ 'reset' │ 'button'|``'button'``||Sets `type` attribute on `<button>` element|
 |value|string|||Value associated with the button.<br/>Gets passed as part of the first argument to callbacks (see `onClick`).|
 |onBlur|function|||Callback to trigger on de-focus (blur).<br/>Called with same args as `onClick`|
 |onClick|function|||Callback to trigger on click.<br/>Called with args `({ value, name }, event)`|
@@ -131,7 +131,7 @@ import { ButtonStrip } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-buttonstrip'`|||
+|dataTest|string|``'dhis2-uicore-buttonstrip'``|||
 |end|custom|||Horizontal alignment for buttons. Mutually exclusive with `middle` prop|
 |middle|custom|||Horizontal alignment. Mutually exclusive with `end` prop|
 
@@ -154,7 +154,7 @@ import { DropdownButton } from '@dhis2/ui'
 |children|node|||Children to render inside the buton|
 |className|string||||
 |component|element|||Component to show/hide when button is clicked|
-|dataTest|string|`'dhis2-uicore-dropdownbutton'`|||
+|dataTest|string|``'dhis2-uicore-dropdownbutton'``|||
 |destructive|boolean|||Applies 'destructive' button appearance, implying a dangerous action.|
 |disabled|boolean|||Make the button non-interactive|
 |icon|element||||
@@ -189,20 +189,22 @@ import { SplitButton } from '@dhis2/ui'
 |children|string||||
 |className|string||||
 |component|element|||Component to render when the dropdown is opened|
-|dataTest|string|`'dhis2-uicore-splitbutton'`|||
+|dataTest|string|``'dhis2-uicore-splitbutton'``|||
 |destructive|boolean|||Applies 'destructive' button appearance, implying a dangerous action.|
 |disabled|boolean|||Disables the button and makes it uninteractive|
 |icon|element|||An icon to add inside the button|
 |initialFocus|boolean|||Grants the button the initial focus|
 |large|custom|||Changes button size. Mutually exclusive with `small` prop|
 |name|string||||
+|open|boolean|||Controls popper visibility. When implementing this prop the component becomes a controlled component|
 |primary|boolean|||Applies 'primary' button appearance, implying the most important action.|
 |secondary|boolean|||Applies 'secondary' button appearance.|
 |small|custom|||Changes button size. Mutually exclusive with `large` prop|
 |tabIndex|string||||
 |type|'submit' │ 'reset' │ 'button'|||Type of button. Applied to html `button` element|
 |value|string|||Value associated with the button. Passed in object to onClick handler|
-|onClick|function||||
+|onClick|function|||Callback triggered when the main button is clicked.<br/>Called with signature `({ name: string, value: string, open: bool }, event)`|
+|onToggle|custom|||Callback triggered when the dropdown is toggled (by clicking the chevron, pressing Escape, or clicking the backdrop).<br/>Called with signature `({ name: string, value: string, open: bool }, event)`.<br/>Required if `open` prop is used (controlled component).|
 
 ### Calendar
 
@@ -221,15 +223,16 @@ import { Calendar } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |calendar|any||*|the calendar to use such gregory, ethiopic, nepali - full supported list here: https://github.com/dhis2/multi-calendar-dates/blob/main/src/constants/calendars.ts|
-|onDateSelect|function||*|Called with signature `(null)` \|\| `({ dateCalendarString: string, dateCalendar: Temporal.ZonedDateTime })` with `dateCalendarString` being the stringified date in the specified calendar in the format `yyyy-MM-dd`|
-|cellSize|string|`'32px'`||the size of a single cell in the table forming the calendar|
+|onDateSelect|function||*|Called with signature `(null)` \|\| `({ dateCalendarString: string, validation: { error: boolean, warning: boolean, validationText: string} })` with `dateCalendarString` being the stringified date in the specified calendar in the format `yyyy-MM-dd`|
+|cellSize|string|``'32px'``||the size of a single cell in the table forming the calendar|
 |date|string|||the currently selected date using an iso-like format YYYY-MM-DD, in the calendar system provided (not iso8601)|
 |dir|'ltr' │ 'rtl'|||the direction of the library - internally the library will use rtl for rtl-languages but this can be overridden here for more control|
 |locale|string|||any valid locale -  if none provided, the internal library will fallback to the user locale (more info here: https://github.com/dhis2/multi-calendar-dates/blob/main/src/hooks/internal/useResolvedLocaleOptions.ts#L15)|
 |numberingSystem|string|||numbering system to use - full list here https://github.com/dhis2/multi-calendar-dates/blob/main/src/constants/numberingSystems.ts|
+|pastOnly|boolean|||When true, only shows years in the past (current year and earlier)|
 |timeZone|string|||the timeZone to use|
-|weekDayFormat|'narrow' │ 'short' │ 'long'|`'narrow'`||the format to display for the week day, i.e. Monday (long), Mon (short), M (narrow)|
-|width|string|`'240px'`||the width of the calendar component|
+|weekDayFormat|'narrow' │ 'short' │ 'long'|``'narrow'``||the format to display for the week day, i.e. Monday (long), Mon (short), M (narrow)|
+|width|string|``'240px'``||the width of the calendar component|
 
 ### CalendarInput
 
@@ -243,6 +246,27 @@ import { CalendarInput } from '@dhis2/ui'
 ```
 
 
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|calendar|any||*|the calendar to use such gregory, ethiopic, nepali - full supported list here: https://github.com/dhis2/multi-calendar-dates/blob/main/src/constants/calendars.ts|
+|onDateSelect|function||*|Called with signature `(null)` \|\| `({ dateCalendarString: string, validation: { error: boolean, warning: boolean, validationText: string} })` with `dateCalendarString` being the stringified date in the specified calendar in the format `yyyy-MM-dd`|
+|cellSize|string|||the size of a single cell in the table forming the calendar|
+|clearable|boolean|||Whether the clear button is displayed|
+|dataTest|string|||'data-test' attribute of `InputField` component|
+|date|string|||the currently selected date using an iso-like format YYYY-MM-DD, in the calendar system provided (not iso8601)|
+|dir|'ltr' │ 'rtl'|||the direction of the library - internally the library will use rtl for rtl-languages but this can be overridden here for more control|
+|format|'YYYY-MM-DD' │ 'DD-MM-YYYY'|||The date format to use either `YYYY-MM-DD` or `DD-MM-YYYY`|
+|inputWidth|string|||the width of input field|
+|locale|string|||any valid locale -  if none provided, the internal library will fallback to the user locale (more info here: https://github.com/dhis2/multi-calendar-dates/blob/main/src/hooks/internal/useResolvedLocaleOptions.ts#L15)|
+|maxDate|string|||The maximum selectable date|
+|minDate|string|||The minimum selectable date|
+|numberingSystem|string|||numbering system to use - full list here https://github.com/dhis2/multi-calendar-dates/blob/main/src/constants/numberingSystems.ts|
+|pastOnly|boolean|||When true, only shows years in the past (current year and earlier)|
+|strictValidation|boolean|||Whether to use strict validation by showing errors for out-of-range dates when enabled (default), and warnings when disabled|
+|weekDayFormat|'narrow' │ 'short' │ 'long'|||the format to display for the week day, i.e. Monday (long), Mon (short), M (narrow)|
+|width|string|||the width of the calendar component|
 
 ### Card
 
@@ -262,7 +286,7 @@ import { Card } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-card'`|||
+|dataTest|string|``'dhis2-uicore-card'``|||
 
 ### Center
 
@@ -282,8 +306,8 @@ import { Center } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-centeredcontent'`|||
-|position|'top' │ 'middle' │ 'bottom'|`'middle'`||Vertical alignment|
+|dataTest|string|``'dhis2-uicore-centeredcontent'``|||
+|position|'top' │ 'middle' │ 'bottom'|``'middle'``||Vertical alignment|
 
 ### Checkbox
 
@@ -301,13 +325,13 @@ import { Checkbox } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|checked|custom|`false`|||
+|checked|custom|``false``|||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-checkbox'`|||
+|dataTest|string|``'dhis2-uicore-checkbox'``|||
 |dense|boolean||||
 |disabled|boolean||||
 |error|custom||||
-|indeterminate|custom|`false`|||
+|indeterminate|custom|``false``|||
 |initialFocus|boolean||||
 |label|node||||
 |name|string||||
@@ -338,7 +362,7 @@ import { CheckboxField } from '@dhis2/ui'
 |---|---|---|---|---|
 |checked|boolean||||
 |className|string||||
-|dataTest|string|`'dhis2-uiwidgets-checkboxfield'`|||
+|dataTest|string|``'dhis2-uiwidgets-checkboxfield'``|||
 |dense|boolean|||Smaller dimensions for information-dense layouts|
 |disabled|boolean|||Disables the checkbox|
 |error|custom|||Applies 'error' styling to checkbox and validation text for feedback. Mutually exclusive with `warning` and `valid` props|
@@ -375,17 +399,17 @@ import { Chip } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|any||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-chip'`|||
+|dataTest|string|``'dhis2-uicore-chip'``|||
 |dense|boolean||||
 |disabled|boolean||||
 |dragging|boolean||||
 |icon|element||||
-|marginBottom|number|`4`||`margin-bottom` value, applied in `px`|
+|marginBottom|number|``4``||`margin-bottom` value, applied in `px`|
 |marginInlineEnd|number|||`margin-inline-end` value, applied in `px`|
 |marginInlineStart|number|||`margin-inline-start` value, applied in `px`|
 |marginLeft|number|||`margin-inline-start` value, applied in `px`|
 |marginRight|number|||`margin-inline-end` value, applied in `px`|
-|marginTop|number|`4`||`margin-top` value, applied in `px`|
+|marginTop|number|``4``||`margin-top` value, applied in `px`|
 |overflow|boolean||||
 |selected|boolean||||
 |onClick|function||||
@@ -409,7 +433,7 @@ import { Cover } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-componentcover'`|||
+|dataTest|string|``'dhis2-uicore-componentcover'``|||
 |translucent|boolean|||Adds a semi-transparent background to the cover|
 |onClick|function||||
 
@@ -442,11 +466,11 @@ import { CssVariables } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|colors|boolean|`false`|||
-|elevations|boolean|`false`|||
-|layers|boolean|`false`|||
-|spacers|boolean|`false`|||
-|theme|boolean|`false`|||
+|colors|boolean|``false``|||
+|elevations|boolean|``false``|||
+|layers|boolean|``false``|||
+|spacers|boolean|``false``|||
+|theme|boolean|``false``|||
 
 ### Divider
 
@@ -465,9 +489,9 @@ import { Divider } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-divider'`|||
+|dataTest|string|``'dhis2-uicore-divider'``|||
 |dense|boolean||||
-|margin|string|``${spacers.dp8} 0``|||
+|margin|string|```${spacers.dp8} 0```|||
 
 ### Field
 
@@ -487,7 +511,7 @@ import { Field } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-field'`|||
+|dataTest|string|``'dhis2-uicore-field'``|||
 |disabled|boolean|||Disabled status, shown when mouse is over label|
 |error|custom|||Field status. Mutually exclusive with `valid` and `warning` props|
 |helpText|string|||Useful text within the field|
@@ -516,7 +540,7 @@ import { FieldGroup } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uiwidgets-fieldsetfield'`|||
+|dataTest|string|``'dhis2-uiwidgets-fieldsetfield'``|||
 |disabled|boolean|||Disables the form controls within|
 |error|custom|||Applies 'error' styling to validation text for feedback. Mutually exclusive with `warning` and `valid` props|
 |helpText|string|||Useful instructions for the user|
@@ -545,7 +569,7 @@ import { FieldSet } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-fieldset'`|||
+|dataTest|string|``'dhis2-uicore-fieldset'``|||
 
 ### FileInput
 
@@ -563,10 +587,10 @@ import { FileInput } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|accept|string|`'*'`||The `accept` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept)|
+|accept|string|``'*'``||The `accept` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept)|
 |buttonLabel|string||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-fileinput'`|||
+|dataTest|string|``'dhis2-uicore-fileinput'``|||
 |disabled|boolean||||
 |error|custom|||Input status. Mutually exclusive with `warning` and `valid`|
 |initialFocus|boolean||||
@@ -598,11 +622,11 @@ import { FileInputField } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|accept|string|`'*'`||The `accept` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept)|
-|buttonLabel|string │ function|`() => i18n.t('Upload a file')`||Text on the button|
+|accept|string|``'*'``||The `accept` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept)|
+|buttonLabel|string │ function|``() => i18n.t('Upload a file')``||Text on the button|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uiwidgets-fileinputfield'`|||
+|dataTest|string|``'dhis2-uiwidgets-fileinputfield'``|||
 |disabled|boolean|||Disables the button|
 |error|custom|||Applies 'error' styling to the validation text. Mutually exclusive with `warning` and `valid` props|
 |helpText|string|||Useful guiding text for the user|
@@ -611,7 +635,7 @@ import { FileInputField } from '@dhis2/ui'
 |large|custom|||Size of the button. Mutually exclusive with the `small` prop|
 |multiple|boolean|||The `multiple` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple)|
 |name|string|||Name associated with input. Passed to event handler callbacks|
-|placeholder|string │ function|`() => i18n.t('No file uploaded yet')`||Placeholder below the button|
+|placeholder|string │ function|``() => i18n.t('No file uploaded yet')``||Placeholder below the button|
 |required|boolean|||Adds an asterisk to indicate this field is required|
 |small|custom|||Size of the button. Mutually exclusive with the `large` prop|
 |tabIndex|string||||
@@ -642,7 +666,7 @@ import { FileListItem } from '@dhis2/ui'
 |onRemove|function||*||
 |cancelText|string||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-filelistitem'`|||
+|dataTest|string|``'dhis2-uicore-filelistitem'``|||
 |label|string||||
 |loading|boolean||||
 |removeText|string||||
@@ -665,7 +689,7 @@ import { FileListPlaceholder } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |children|string||||
-|dataTest|string|`'dhis2-uicore-filelistplaceholder'`|||
+|dataTest|string|``'dhis2-uicore-filelistplaceholder'``|||
 
 ### FileList
 
@@ -685,7 +709,7 @@ import { FileList } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-filelist'`|||
+|dataTest|string|``'dhis2-uicore-filelist'``|||
 
 ### HeaderBar
 
@@ -739,7 +763,7 @@ import { Help } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|string||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-help'`|||
+|dataTest|string|``'dhis2-uicore-help'``|||
 |error|custom||||
 |valid|custom||||
 |warning|custom||||
@@ -762,7 +786,8 @@ import { Input } from '@dhis2/ui'
 |---|---|---|---|---|
 |autoComplete|string|||The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete)|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-input'`|||
+|clearable|boolean|||Makes the input field clearable|
+|dataTest|string|``'dhis2-uicore-input'``|||
 |dense|boolean|||Makes the input smaller|
 |disabled|boolean|||Disables the input|
 |error|custom|||Applies 'error' appearance for validation feedback. Mutually exclusive with `valid` and `warning` props|
@@ -772,14 +797,16 @@ import { Input } from '@dhis2/ui'
 |min|string|||The [native `min` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-min), for use when `type` is `'number'`|
 |name|string|||Name associated with the input. Passed to event handler callbacks in object|
 |placeholder|string|||Placeholder text for the input|
+|prefixIcon|element|||Add prefix icon|
 |readOnly|boolean|||Makes the input read-only|
 |role|string|||Sets a role attribute on the input|
 |step|string|||The [native `step` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-step), for use when `type` is `'number'`|
 |tabIndex|string||||
-|type|inputTypes|`'text'`||The native input `type` attribute|
+|type|inputTypes|``'text'``||The native input `type` attribute|
 |valid|custom|||Applies 'valid' appearance for validation feedback. Mutually exclusive with `error` and `warning` props|
 |value|string|||Value in the input. Can be used to control the component (recommended). Passed to event handler callbacks in object|
 |warning|custom|||Applies 'warning' appearance for validation feedback. Mutually exclusive with `valid` and `error` props|
+|width|string|||Defines the width of the input. Can be any valid CSS measurement|
 |onBlur|function|||Called with signature `({ name: string, value: string }, event)`|
 |onChange|function|||Called with signature `({ name: string, value: string }, event)`|
 |onFocus|function|||Called with signature `({ name: string, value: string }, event)`|
@@ -803,7 +830,8 @@ import { InputField } from '@dhis2/ui'
 |---|---|---|---|---|
 |autoComplete|string|||The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete)|
 |className|string||||
-|dataTest|string|`'dhis2-uiwidgets-inputfield'`|||
+|clearable|boolean|||Makes the input field clearable|
+|dataTest|string|``'dhis2-uiwidgets-inputfield'``|||
 |dense|boolean|||Makes the input smaller|
 |disabled|boolean|||Disables the input|
 |error|custom|||Applies 'error' appearance for validation feedback. Mutually exclusive with `valid` and `warning` props|
@@ -816,6 +844,7 @@ import { InputField } from '@dhis2/ui'
 |min|string|||The [native `min` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-min), for use when `type` is `'number'`|
 |name|string|||Name associated with the input. Passed to event handler callbacks in object|
 |placeholder|string|||Placeholder text for the input|
+|prefixIcon|element|||Add prefix icon|
 |readOnly|boolean|||Makes the input read-only|
 |required|boolean|||Indicates this input is required|
 |step|string|||The [native `step` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-step), for use when `type` is `'number'`|
@@ -850,8 +879,8 @@ import { IntersectionDetector } from '@dhis2/ui'
 |onChange|function||*|Called with signature `({ isIntersecting: bool })`|
 |children|any||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-intersectiondetector'`|||
-|threshold|number|`0`||The [threshold](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options) value: a value from 0.0 to 1.0 that controls the point at which an intersecting component is considered 'intersected' or 'visible' and the onChange callback triggers|
+|dataTest|string|``'dhis2-uicore-intersectiondetector'``|||
+|threshold|number|``0``||The [threshold](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options) value: a value from 0.0 to 1.0 that controls the point at which an intersecting component is considered 'intersected' or 'visible' and the onChange callback triggers|
 
 ### Label
 
@@ -871,7 +900,7 @@ import { Label } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|string||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-label'`|||
+|dataTest|string|``'dhis2-uicore-label'``|||
 |disabled|boolean||||
 |htmlFor|string||||
 |required|boolean||||
@@ -894,10 +923,10 @@ import { Layer } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-layer'`|||
+|dataTest|string|``'dhis2-uicore-layer'``|||
 |disablePortal|boolean|||Disable the Portal, useful for nesting layers|
-|level|number │ string|`'auto'`||Z-index level|
-|position|'absolute' │ 'fixed'|`'fixed'`|||
+|level|number │ string|``'auto'``||Z-index level|
+|position|'absolute' │ 'fixed'|``'fixed'``|||
 |translucent|boolean|||Adds a semi-transparent background|
 |onBackdropClick|function|||Backdrop click handler|
 |onClick|custom|||Click handler - DEPRECATED|
@@ -920,7 +949,7 @@ import { Legend } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-legend'`|||
+|dataTest|string|``'dhis2-uicore-legend'``|||
 |required|boolean|||Indicates the associated field set is required|
 
 ### CircularLoader
@@ -941,7 +970,7 @@ import { CircularLoader } from '@dhis2/ui'
 |---|---|---|---|---|
 |aria-label|string||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-circularloader'`|||
+|dataTest|string|``'dhis2-uicore-circularloader'``|||
 |extrasmall|custom||||
 |invert|boolean||||
 |large|custom||||
@@ -966,10 +995,10 @@ import { LinearLoader } from '@dhis2/ui'
 |amount|number||*|The progression in percent without the '%' sign|
 |aria-label|string||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-linearloader'`|||
+|dataTest|string|``'dhis2-uicore-linearloader'``|||
 |invert|boolean|||Use inverted color scheme|
-|margin|string|`spacers.dp12`||The margin around the loader, can be a full shorthand|
-|width|string|`'300px'`||The width of the entire indicator|
+|margin|string|``spacers.dp12``||The margin around the loader, can be a full shorthand|
+|width|string|``'300px'``||The width of the entire indicator|
 
 ### LogoIcon
 
@@ -988,7 +1017,7 @@ import { LogoIcon } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-logoicon'`|||
+|dataTest|string|``'dhis2-uicore-logoicon'``|||
 
 ### LogoIconWhite
 
@@ -1007,7 +1036,7 @@ import { LogoIconWhite } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-logoiconwhite'`|||
+|dataTest|string|``'dhis2-uicore-logoiconwhite'``|||
 
 ### Logo
 
@@ -1026,7 +1055,7 @@ import { Logo } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-logo'`|||
+|dataTest|string|``'dhis2-uicore-logo'``|||
 
 ### LogoWhite
 
@@ -1045,7 +1074,7 @@ import { LogoWhite } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-logowhite'`|||
+|dataTest|string|``'dhis2-uicore-logowhite'``|||
 
 ### FlyoutMenu
 
@@ -1066,10 +1095,10 @@ import { FlyoutMenu } from '@dhis2/ui'
 |children|node|||Typically, but not limited to, `MenuItem` components|
 |className|string||||
 |closeMenu|function|||when Escape key is pressed, this function is called to close the flyout menu|
-|dataTest|string|`'dhis2-uicore-menu'`|||
+|dataTest|string|``'dhis2-uicore-menu'``|||
 |dense|boolean|||Menu uses smaller dimensions|
-|maxHeight|string|`'auto'`|||
-|maxWidth|string|`'380px'`|||
+|maxHeight|string|``'auto'``|||
+|maxWidth|string|``'380px'``|||
 
 ### Menu
 
@@ -1089,7 +1118,7 @@ import { Menu } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node|||Typically `MenuItem`, `MenuDivider`, and `MenuSectionHeader`|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-menulist'`|||
+|dataTest|string|``'dhis2-uicore-menulist'``|||
 |dense|boolean|||Applies `dense` property to all child components unless already specified|
 
 ### MenuDivider
@@ -1109,7 +1138,7 @@ import { MenuDivider } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-menudivider'`|||
+|dataTest|string|``'dhis2-uicore-menudivider'``|||
 |dense|boolean||||
 
 ### MenuItem
@@ -1129,18 +1158,19 @@ import { MenuItem } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |active|boolean||||
+|ariaLabel|string|||By default, the label prop is used for the aria-label attribute on the<br/>underlying HTML element. If this prop is defined, it will be used as the<br/>aria-label instead|
 |checkbox|boolean||||
 |checked|boolean||||
 |chevron|boolean||||
 |children|node|||Nested menu items can become submenus.<br/>See `showSubMenu` and `toggleSubMenu` props, and 'Children' demo|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-menuitem'`|||
+|dataTest|string|``'dhis2-uicore-menuitem'``|||
 |dense|boolean||||
 |destructive|boolean||||
 |disabled|boolean||||
 |href|string|||For using menu item as a link|
 |icon|node|||An icon for the left side of the menu item|
-|label|node|||Text in the menu item|
+|label|node|||Text in the menu item. If it's a string, will be used as aria-label|
 |showSubMenu|boolean|||When true, nested menu items are shown in a Popper|
 |suffix|node|||A supporting element shown at the end of the menu item|
 |tabIndex|number||||
@@ -1166,7 +1196,7 @@ import { MenuSectionHeader } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-menusectionheader'`|||
+|dataTest|string|``'dhis2-uicore-menusectionheader'``|||
 |dense|boolean||||
 |hideDivider|boolean||||
 |label|node||||
@@ -1189,11 +1219,11 @@ import { Modal } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-modal'`|||
+|dataTest|string|``'dhis2-uicore-modal'``|||
 |fluid|boolean||||
 |hide|boolean||||
 |large|custom||||
-|position|custom|`'top'`|||
+|position|custom|``'top'``|||
 |small|custom||||
 |onClose|function|||Callback used when the Modal closes|
 
@@ -1214,7 +1244,7 @@ import { ModalActions } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |children|node||||
-|dataTest|string|`'dhis2-uicore-modalactions'`|||
+|dataTest|string|``'dhis2-uicore-modalactions'``|||
 
 ### ModalContent
 
@@ -1234,7 +1264,7 @@ import { ModalContent } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-modalcontent'`|||
+|dataTest|string|``'dhis2-uicore-modalcontent'``|||
 
 ### ModalTitle
 
@@ -1253,7 +1283,7 @@ import { ModalTitle } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |children|node||||
-|dataTest|string|`'dhis2-uicore-modaltitle'`|||
+|dataTest|string|``'dhis2-uicore-modaltitle'``|||
 
 ### Node
 
@@ -1274,7 +1304,7 @@ import { Node } from '@dhis2/ui'
 |children|node|||Content below this level of the hierarchy; children are revealed when this leaf is 'open'|
 |className|string||||
 |component|element|||Content/label for this leaf, for example a checkbox|
-|dataTest|string|`'dhis2-uicore-node'`|||
+|dataTest|string|``'dhis2-uicore-node'``|||
 |icon|node|||A custom icon to use instead of a toggle arrow|
 |open|boolean||||
 |onClose|function||||
@@ -1298,7 +1328,7 @@ import { NoticeBox } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-noticebox'`|||
+|dataTest|string|``'dhis2-uicore-noticebox'``|||
 |error|custom|||Applies 'error' message styles. Mutually exclusive with the `valid` and `warning` props|
 |title|string||||
 |valid|custom|||Applies 'valid' message styles. Mutually exclusive with the `error` and `warning` props|
@@ -1321,7 +1351,7 @@ import { OrganisationUnitTreeRootError } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |error|string||*||
-|dataTest|string|`'dhis2-uiwidgets-orgunittree-error'`|||
+|dataTest|string|``'dhis2-uiwidgets-orgunittree-error'``|||
 
 ### OrganisationUnitTreeRootLoading
 
@@ -1339,7 +1369,7 @@ import { OrganisationUnitTreeRootLoading } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|dataTest|string|`'dhis2-uiwidgets-orgunittree-loading'`|||
+|dataTest|string|``'dhis2-uiwidgets-orgunittree-loading'``|||
 
 ### OrganisationUnitTree
 
@@ -1357,21 +1387,21 @@ import { OrganisationUnitTree } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|roots|string │ arrayOf(string)||*|Root org unit ID(s)|
+|roots|`string │ arrayOf(string)`||*|Root org unit ID(s)|
 |onChange|function||*|Will be called with the following object:<br/>`{ id: string, displayName: string, path: string, checked: boolean, selected: string[] }`|
 |autoExpandLoadingError|boolean|||When set, the error when loading children fails will be shown automatically|
-|dataTest|string|`'dhis2-uiwidgets-orgunittree'`|||
+|dataTest|string|``'dhis2-uiwidgets-orgunittree'``|||
 |disableSelection|boolean|||When set to true, no unit can be selected|
 |expanded|custom||||
-|filter|arrayOf(custom)|`[]`||All organisation units with a path that includes the provided paths will be shown.<br/>All others will not be rendered. When not provided, all org units will be shown.|
+|filter|`arrayOf(custom)`|``[]``||All organisation units with a path that includes the provided paths will be shown.<br/>All others will not be rendered. When not provided, all org units will be shown.|
 |forceReload|boolean|||When true, everything will be reloaded. In order to load it again after reloading, `forceReload` has to be set to `false` and then to `true` again|
 |handleCollapse|custom||||
 |handleExpand|custom||||
-|highlighted|arrayOf(custom)|`[]`||All units provided to "highlighted" as path will be visually<br/>highlighted.<br/>Note:<br/>The d2-ui component used two props for this:<br/>* searchResults<br/>* highlightSearchResults|
-|initiallyExpanded|arrayOf(custom)|`[]`||An array of OU paths that will be expanded automatically<br/>as soon as they are encountered.<br/>The path of an OU is the UIDs of the OU<br/>and all its parent OUs separated by slashes (/)<br/>Note: This replaces "openFirstLevel" as that's redundant|
+|highlighted|`arrayOf(custom)`|``[]``||All units provided to "highlighted" as path will be visually<br/>highlighted.<br/>Note:<br/>The d2-ui component used two props for this:<br/>* searchResults<br/>* highlightSearchResults|
+|initiallyExpanded|`arrayOf(custom)`|``[]``||An array of OU paths that will be expanded automatically<br/>as soon as they are encountered.<br/>The path of an OU is the UIDs of the OU<br/>and all its parent OUs separated by slashes (/)<br/>Note: This replaces "openFirstLevel" as that's redundant|
 |isUserDataViewFallback|boolean|||When provided, the 'isUserDataViewFallback' option will be sent when requesting the org units|
-|renderNodeLabel|function|`defaultRenderNodeLabel`||Renders the actual node component for each leaf, can be used to<br/>customize the node. The default function just returns the node's<br/>displayName<br/><br/>Shape of the object passed to the callback:<br/>```<br/>{<br/>   label: string,<br/>   node: {<br/>     displayName: string,<br/>     id: string,<br/>     // Only provided once `loading` is false<br/>     path?: string,<br/>     // Only provided once `loading` is false<br/>     children?: Array.<{<br/>       id: string,<br/>       path: string,<br/>       displayName: string<br/>     }><br/>   },<br/>   loading: boolean,<br/>   error: string,<br/>   open: boolean,<br/>   selected: string[],<br/>   singleSelection: boolean,<br/>   disableSelection: boolean,<br/>}<br/>```|
-|selected|arrayOf(custom)|`[]`||An array of paths of selected OUs. The path of an OU is the UIDs of the OU and all its parent OUs separated by slashes (`/`)|
+|renderNodeLabel|function|``defaultRenderNodeLabel``||Renders the actual node component for each leaf, can be used to<br/>customize the node. The default function just returns the node's<br/>displayName<br/><br/>Shape of the object passed to the callback:<br/>```<br/>{<br/>   label: string,<br/>   node: {<br/>     displayName: string,<br/>     id: string,<br/>     // Only provided once `loading` is false<br/>     path?: string,<br/>     // Only provided once `loading` is false<br/>     children?: Array.<{<br/>       id: string,<br/>       path: string,<br/>       displayName: string<br/>     }><br/>   },<br/>   loading: boolean,<br/>   error: string,<br/>   open: boolean,<br/>   selected: string[],<br/>   singleSelection: boolean,<br/>   disableSelection: boolean,<br/>}<br/>```|
+|selected|`arrayOf(custom)`|``[]``||An array of paths of selected OUs. The path of an OU is the UIDs of the OU and all its parent OUs separated by slashes (`/`)|
 |singleSelection|boolean|||When set, no checkboxes will be displayed and only the first selected path in `selected` will be highlighted|
 |suppressAlphabeticalSorting|boolean|||Turns off alphabetical sorting of units|
 |onChildrenLoaded|function|||Called with the children's data that was loaded|
@@ -1408,7 +1438,7 @@ import { Label } from '@dhis2/ui'
 |disableSelection|boolean||||
 |hasSelectedDescendants|boolean||||
 |highlighted|boolean||||
-|selected|arrayOf(custom)||||
+|selected|`arrayOf(custom)`||||
 |singleSelection|boolean||||
 
 ### Pagination
@@ -1430,20 +1460,20 @@ import { Pagination } from '@dhis2/ui'
 |page|number||*||
 |pageSize|number||*||
 |className|string||||
-|dataTest|string|`'dhis2-uiwidgets-pagination'`|||
+|dataTest|string|``'dhis2-uiwidgets-pagination'``|||
 |disabled|boolean||||
 |hidePageSelect|boolean||||
 |hidePageSizeSelect|boolean||||
 |hidePageSummary|boolean||||
 |isLastPage|boolean||||
-|nextPageText|string │ function|`() => i18n.t('Next')`|||
+|nextPageText|string │ function|``() => i18n.t('Next')``|||
 |pageCount|number||||
 |pageLength|custom||||
-|pageSelectText|string │ function|`() => i18n.t('Page')`|||
-|pageSizeSelectText|string │ function|`() => i18n.t('Items per page')`|||
-|pageSizes|arrayOf(string)|`['5', '10', '20', '30', '40', '50', '75', '100']`|||
+|pageSelectText|string │ function|``() => i18n.t('Page')``|||
+|pageSizeSelectText|string │ function|``() => i18n.t('Items per page')``|||
+|pageSizes|`arrayOf(string)`|``['5', '10', '20', '30', '40', '50', '75', '100']``|||
 |pageSummaryText|string │ function||||
-|previousPageText|string │ function|`() => i18n.t('Previous')`|||
+|previousPageText|string │ function|``() => i18n.t('Previous')``|||
 |total|number||||
 |onPageChange|function||||
 |onPageSizeChange|function||||
@@ -1465,14 +1495,14 @@ import { Popover } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |children|node||*||
-|arrow|boolean|`true`||Show or hide the arrow|
+|arrow|boolean|``true``||Show or hide the arrow|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-popover'`|||
-|elevation|string|`elevations.e200`||Box-shadow to create appearance of elevation.  Use `elevations` constants from the UI library.|
-|maxWidth|number|`360`|||
+|dataTest|string|``'dhis2-uicore-popover'``|||
+|elevation|string|``elevations.popover``||Box-shadow to create appearance of elevation.  Use `elevations` constants from the UI library.|
+|maxWidth|number|``360``|||
 |observePopperResize|boolean||||
 |observeReferenceResize|boolean||||
-|placement|custom|`'top'`|||
+|placement|custom|``'top'``|||
 |reference|custom|||A React ref that refers to the element the Popover should position against|
 |onClickOutside|function||||
 
@@ -1494,11 +1524,11 @@ import { Popper } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||*|Content inside the Popper|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-popper'`|||
-|modifiers|arrayOf({<br/>  "name": "string",<br/>  "options": "object"<br/>})|`[]`||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
+|dataTest|string|``'dhis2-uicore-popper'``|||
+|modifiers|`arrayOf({<br/>  "name": "string",<br/>  "options": "object"<br/>})`|``[]``||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
 |observePopperResize|boolean|||Makes the Popper update position when the **Popper content** changes size|
 |observeReferenceResize|boolean|||Makes the Popper update position when the **reference element** changes size|
-|placement|custom|`'auto'`||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
+|placement|custom|``'auto'``||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
 |reference|custom|||A React ref, DOM node, or [virtual element](https://popper.js.org/docs/v2/virtual-elements/) for the popper to position itself against|
 |strategy|'absolute' │ 'fixed'|||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
 |onFirstUpdate|function|||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
@@ -1521,7 +1551,7 @@ import { Radio } from '@dhis2/ui'
 |---|---|---|---|---|
 |checked|boolean||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-radio'`|||
+|dataTest|string|``'dhis2-uicore-radio'``|||
 |dense|boolean||||
 |disabled|boolean||||
 |error|custom|||Adds 'error' styling for feedback. Mutually exclusive with `valid` and `warning` props|
@@ -1571,7 +1601,7 @@ import { SegmentedControl } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|options|arrayOf({<br/>  "label": "string",<br/>  "value": "string",<br/>  "disabled": "boolean"<br/>})||*|Options to populate the segmented control|
+|options|`arrayOf({<br/>  "label": "string",<br/>  "value": "string",<br/>  "disabled": "boolean"<br/>})`||*|Options to populate the segmented control|
 |selected|string||*|An option to select; should match the `value` property of the option to be selected|
 |onChange|function||*|Called with the signature `({ value: string }, event)`|
 |ariaLabel|string|||Used to provide an accessible label to a segmented control without a visible label|
@@ -1597,11 +1627,11 @@ import { Input } from '@dhis2/ui'
 |clearText|custom||||
 |clearable|boolean||||
 |disabled|boolean||||
-|inputMaxHeight|string|`'100px'`|||
+|inputMaxHeight|string|``'100px'``|||
 |options|node||||
 |placeholder|string||||
 |prefix|string||||
-|selected|arrayOf(string)||||
+|selected|`arrayOf(string)`||||
 |onChange|function||||
 
 ### Menu
@@ -1621,9 +1651,9 @@ import { Menu } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |dataTest|string||*||
-|empty|node|`''`|||
+|empty|node|``''``|||
 |options|node||||
-|selected|arrayOf(string)||||
+|selected|`arrayOf(string)`||||
 |onChange|function||||
 
 ### MultiSelect
@@ -1646,7 +1676,7 @@ import { MultiSelect } from '@dhis2/ui'
 |className|string||||
 |clearText|custom|||Required if `clearable` prop is `true`|
 |clearable|boolean|||Adds a 'clear' option to the menu|
-|dataTest|string|`'dhis2-uicore-multiselect'`|||
+|dataTest|string|``'dhis2-uicore-multiselect'``|||
 |dense|boolean||||
 |disabled|boolean||||
 |empty|node||||
@@ -1661,7 +1691,7 @@ import { MultiSelect } from '@dhis2/ui'
 |noMatchText|custom|||Required if `filterable` prop is `true`|
 |placeholder|string||||
 |prefix|string||||
-|selected|arrayOf(string)|`[]`|||
+|selected|`arrayOf(string)`|``[]``|||
 |tabIndex|string||||
 |valid|custom||||
 |warning|custom||||
@@ -1688,14 +1718,14 @@ import { MultiSelectField } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node|||Should be `MultiSelectOption` components|
 |className|string||||
-|clearText|string │ function|`() => i18n.t('Clear')`||Label for the button that clears selections|
+|clearText|string │ function|``() => i18n.t('Clear')``||Label for the button that clears selections|
 |clearable|boolean|||Adds a button to the MultiSelect that clears selections when pressed|
-|dataTest|string|`'dhis2-uiwidgets-multiselectfield'`|||
+|dataTest|string|``'dhis2-uiwidgets-multiselectfield'``|||
 |dense|boolean|||Makes the MultiSelect smaller|
 |disabled|boolean|||Disables the MultiSelect|
-|empty|node │ function|`() => i18n.t('No data found')`||Text to display when there are no options|
+|empty|node │ function|``() => i18n.t('No data found')``||Text to display when there are no options|
 |error|custom|||Adds 'error' appearance for validation feedback. Mutually exclusive with 'valid' and 'warning' props|
-|filterPlaceholder|node │ function|`() => i18n.t('Type to filter options')`||Placeholder text to show in the filter field when it is empty|
+|filterPlaceholder|node │ function|``() => i18n.t('Type to filter options')``||Placeholder text to show in the filter field when it is empty|
 |filterable|boolean|||Adds a field to filter options|
 |helpText|string|||Useful guiding text to display below the MultiSelect|
 |initialFocus|boolean|||Grabs initial focus on the page|
@@ -1703,13 +1733,13 @@ import { MultiSelectField } from '@dhis2/ui'
 |inputWidth|string|||Sets the width of the input. Can be any valid CSS measurement|
 |label|string|||Text for the label above the MultiSelect|
 |loading|boolean|||Applies a loading appearance to the dropdown options|
-|loadingText|string │ function|`() => i18n.t('Loading options')`||Text to display when `loading` is true|
+|loadingText|string │ function|``() => i18n.t('Loading options')``||Text to display when `loading` is true|
 |maxHeight|string|||Constrains height of the MultiSelect|
-|noMatchText|string │ function|`() => i18n.t('No options found')`||Text to display when there are no filter results|
+|noMatchText|string │ function|``() => i18n.t('No options found')``||Text to display when there are no filter results|
 |placeholder|string|||Placeholder text when the MultiSelect is empty|
 |prefix|string|||Leading text to prefix selections|
 |required|boolean|||Indicates that a selection is required|
-|selected|arrayOf(string)|`[]`||Selected items in the MultiSelect (each string should refer to the item's `value` attribute)|
+|selected|`arrayOf(string)`|``[]``||Selected items in the MultiSelect (each string should refer to the item's `value` attribute)|
 |tabIndex|string||||
 |valid|custom|||Adds 'valid' appearance for validation feedback. Mutually exclusive with 'error' and 'warning' props|
 |validationText|string|||Text to provide form validation feedback. Receives styles according to validation status|
@@ -1739,7 +1769,7 @@ import { MultiSelectOption } from '@dhis2/ui'
 |value|string||*||
 |active|boolean||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-multiselectoption'`|||
+|dataTest|string|``'dhis2-uicore-multiselectoption'``|||
 |disabled|boolean||||
 |onClick|function||||
 
@@ -1764,7 +1794,7 @@ import { Input } from '@dhis2/ui'
 |clearText|custom||||
 |clearable|boolean||||
 |disabled|boolean||||
-|inputMaxHeight|string|`'100px'`|||
+|inputMaxHeight|string|``'100px'``|||
 |options|node||||
 |placeholder|string||||
 |prefix|string||||
@@ -1788,7 +1818,7 @@ import { Menu } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |dataTest|string||*||
-|empty|node|`''`|||
+|empty|node|``''``|||
 |handleClose|function||||
 |handleFocusInput|function||||
 |options|node||||
@@ -1815,7 +1845,7 @@ import { SingleSelect } from '@dhis2/ui'
 |className|string||||
 |clearText|custom|||Text on button that clears selection. Required if `clearable` prop is true|
 |clearable|boolean|||Adds a button to clear selection|
-|dataTest|string|`'dhis2-uicore-singleselect'`|||
+|dataTest|string|``'dhis2-uicore-singleselect'``|||
 |dense|boolean||||
 |disabled|boolean||||
 |empty|node|||Text or component to display when there are no options|
@@ -1830,7 +1860,7 @@ import { SingleSelect } from '@dhis2/ui'
 |noMatchText|custom|||Text to show when filter returns no results. Required if `filterable` prop is true|
 |placeholder|string||||
 |prefix|string||||
-|selected|string|`''`|||
+|selected|string|``''``|||
 |tabIndex|string||||
 |valid|custom|||Applies 'valid' appearance for validation feedback. Mutually exclusive with `warning` and `error` props|
 |warning|custom|||Applies 'warning' appearance for validation feedback. Mutually exclusive with `valid` and `error` props|
@@ -1857,14 +1887,14 @@ import { SingleSelectField } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node|||Should be `SingleSelectOption` components|
 |className|string||||
-|clearText|string │ function|`() => i18n.t('Clear')`||Label for the button that clears selections|
+|clearText|string │ function|``() => i18n.t('Clear')``||Label for the button that clears selections|
 |clearable|boolean|||Adds a button to the SingleSelect that clears selections when pressed|
-|dataTest|string|`'dhis2-uiwidgets-singleselectfield'`|||
+|dataTest|string|``'dhis2-uiwidgets-singleselectfield'``|||
 |dense|boolean|||Makes the SingleSelect smaller|
 |disabled|boolean|||Disables the SingleSelect|
-|empty|node │ function|`() => i18n.t('No data found')`||Text to display when there are no options|
+|empty|node │ function|``() => i18n.t('No data found')``||Text to display when there are no options|
 |error|custom|||Adds 'error' appearance for validation feedback. Mutually exclusive with 'valid' and 'warning' props|
-|filterPlaceholder|node │ function|`() => i18n.t('Type to filter options')`||Placeholder text to show in the filter field when it is empty|
+|filterPlaceholder|node │ function|``() => i18n.t('Type to filter options')``||Placeholder text to show in the filter field when it is empty|
 |filterable|boolean|||Adds a field to filter options|
 |helpText|string|||Useful guiding text to display below the SingleSelect|
 |initialFocus|boolean|||Grabs initial focus on the page|
@@ -1872,13 +1902,13 @@ import { SingleSelectField } from '@dhis2/ui'
 |inputWidth|string|||Sets the width of the input. Can be any valid CSS measurement|
 |label|string|||Text for the label above the SingleSelect|
 |loading|boolean|||Applies a loading appearance to the dropdown options|
-|loadingText|string │ function|`() => i18n.t('Loading options')`||Text to display when `loading` is true|
+|loadingText|string │ function|``() => i18n.t('Loading options')``||Text to display when `loading` is true|
 |maxHeight|string|||Constrains height of the SingleSelect|
-|noMatchText|string │ function|`() => i18n.t('No options found')`||Text to display when there are no filter results|
+|noMatchText|string │ function|``() => i18n.t('No options found')``||Text to display when there are no filter results|
 |placeholder|string|||Placeholder text when the SingleSelect is empty|
 |prefix|string|||Leading text to prefix selections|
 |required|boolean|||Indicates that a selection is required|
-|selected|string|`''`||Selected item in the SingleSelect (the string should refer to the item's `value` attribute)|
+|selected|string|``''``||Selected item in the SingleSelect (the string should refer to the item's `value` attribute)|
 |tabIndex|string||||
 |valid|custom|||Adds 'valid' appearance for validation feedback. Mutually exclusive with 'error' and 'warning' props|
 |validationText|string|||Text to provide form validation feedback. Receives styles according to validation status|
@@ -1908,7 +1938,7 @@ import { SingleSelectOption } from '@dhis2/ui'
 |value|string||*||
 |active|boolean||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-singleselectoption'`|||
+|dataTest|string|``'dhis2-uicore-singleselectoption'``|||
 |disabled|boolean||||
 |onClick|function||||
 
@@ -1932,7 +1962,7 @@ import { SelectorBar } from '@dhis2/ui'
 |additionalContent|any||||
 |ariaLabel|string||||
 |className|string||||
-|dataTest|string|`'dhis2-ui-selectorbar'`|||
+|dataTest|string|``'dhis2-ui-selectorbar'``|||
 |disableClearSelections|boolean||||
 |onClearSelectionClick|function||||
 
@@ -1955,7 +1985,7 @@ import { SelectorBarItem } from '@dhis2/ui'
 |label|string||*||
 |children|any||||
 |className|string||||
-|dataTest|string|`'dhis2-ui-selectorbaritem'`|||
+|dataTest|string|``'dhis2-ui-selectorbaritem'``|||
 |disabled|boolean||||
 |displayOnly|boolean||||
 |noValueMessage|string||||
@@ -1982,18 +2012,19 @@ import { SharingDialog } from '@dhis2/ui'
 |---|---|---|---|---|
 |id|string||*|The id of the object to share|
 |type|DIALOG_TYPES_LIST||*|The type of object to share|
-|dataSharing|boolean|`false`||Whether to expose the ability to set data sharing (in addition to metadata sharing)|
-|dataTest|string|`'dhis2-uicore-sharingdialog'`|||
-|initialSharingSettings|{<br/>  "allowPublic": "boolean",<br/>  "groups": "objectOf",<br/>  "name": "string",<br/>  "public": "{<br/>  \"data\": \"import {\\n    ACCESS_NONE,\\n    ACCESS_VIEW_ONLY,\\n    ACCESS_VIEW_AND_EDIT,\\n    DIALOG_TYPES_LIST,\\n} from './constants.js' │ import {\\n    ACCESS_NONE,\\n    ACCESS_VIEW_ONLY,\\n    ACCESS_VIEW_AND_EDIT,\\n    DIALOG_TYPES_LIST,\\n} from './constants.js' │ import {\\n    ACCESS_NONE,\\n    ACCESS_VIEW_ONLY,\\n    ACCESS_VIEW_AND_EDIT,\\n    DIALOG_TYPES_LIST,\\n} from './constants.js'\",<br/>  \"metadata\": \"import {\\n    ACCESS_NONE,\\n    ACCESS_VIEW_ONLY,\\n    ACCESS_VIEW_AND_EDIT,\\n    DIALOG_TYPES_LIST,\\n} from './constants.js' │ import {\\n    ACCESS_NONE,\\n    ACCESS_VIEW_ONLY,\\n    ACCESS_VIEW_AND_EDIT,\\n    DIALOG_TYPES_LIST,\\n} from './constants.js' │ import {\\n    ACCESS_NONE,\\n    ACCESS_VIEW_ONLY,\\n    ACCESS_VIEW_AND_EDIT,\\n    DIALOG_TYPES_LIST,\\n} from './constants.js'\"<br/>} │ import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    DIALOG_TYPES_LIST,\n} from './constants.js' │ import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    DIALOG_TYPES_LIST,\n} from './constants.js' │ import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    DIALOG_TYPES_LIST,\n} from './constants.js'",<br/>  "users": "objectOf"<br/>}|`{
+|cascadeDashboardSharing|boolean|``true``||Whether to show the tabbed sharing interface for applying cascade sharing of dashboard items|
+|dataSharing|boolean|``false``||Whether to expose the ability to set data sharing (in addition to metadata sharing)|
+|dataTest|string|``'dhis2-uicore-sharingdialog'``|||
+|initialSharingSettings|{<br/>  "allowPublic": "boolean",<br/>  "groups": "objectOf",<br/>  "name": "string",<br/>  "public": "{<br/>  \"data\": \"import {\\n    ACCESS_NONE,\\n    ACCESS_VIEW_ONLY,\\n    ACCESS_VIEW_AND_EDIT,\\n    DIALOG_TYPES_LIST,\\n} from './constants.js' │ import {\\n    ACCESS_NONE,\\n    ACCESS_VIEW_ONLY,\\n    ACCESS_VIEW_AND_EDIT,\\n    DIALOG_TYPES_LIST,\\n} from './constants.js' │ import {\\n    ACCESS_NONE,\\n    ACCESS_VIEW_ONLY,\\n    ACCESS_VIEW_AND_EDIT,\\n    DIALOG_TYPES_LIST,\\n} from './constants.js'\",<br/>  \"metadata\": \"import {\\n    ACCESS_NONE,\\n    ACCESS_VIEW_ONLY,\\n    ACCESS_VIEW_AND_EDIT,\\n    DIALOG_TYPES_LIST,\\n} from './constants.js' │ import {\\n    ACCESS_NONE,\\n    ACCESS_VIEW_ONLY,\\n    ACCESS_VIEW_AND_EDIT,\\n    DIALOG_TYPES_LIST,\\n} from './constants.js' │ import {\\n    ACCESS_NONE,\\n    ACCESS_VIEW_ONLY,\\n    ACCESS_VIEW_AND_EDIT,\\n    DIALOG_TYPES_LIST,\\n} from './constants.js'\"<br/>} │ import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    DIALOG_TYPES_LIST,\n} from './constants.js' │ import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    DIALOG_TYPES_LIST,\n} from './constants.js' │ import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    DIALOG_TYPES_LIST,\n} from './constants.js'",<br/>  "users": "objectOf"<br/>}|``{
     name: '',
     allowPublic: true,
     public: { data: ACCESS_NONE, metadata: ACCESS_NONE },
     groups: [],
     users: [],
-}`||Used to seed the component with data to show whilst loading|
-|onClose|function|`() => {}`|||
-|onError|function|`() => {}`|||
-|onSave|function|`() => {}`|||
+}``||Used to seed the component with data to show whilst loading|
+|onClose|function|``() => {}``|||
+|onError|function|``() => {}``|||
+|onSave|function|``() => {}``|||
 
 ### Modal
 
@@ -2012,7 +2043,7 @@ import { Modal } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |children|node||*||
-|dataTest|string|`'dhis2-uicore-sharingdialog-modal'`|||
+|dataTest|string|``'dhis2-uicore-sharingdialog-modal'``|||
 |name|string||||
 |onClose|function||||
 
@@ -2033,16 +2064,16 @@ import { Switch } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |aria-label|string|||Sets an aria-label attribute on the input|
-|checked|boolean|`false`|||
+|checked|boolean|``false``|||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-switch'`|||
+|dataTest|string|``'dhis2-uicore-switch'``|||
 |dense|boolean|||Makes the switch smaller for information-dense layouts|
 |disabled|boolean|||Disables the switch|
 |error|custom|||Applies 'error' styles for validation feedback. Mutually exclusive with `valid` and `warning` prop types|
 |initialFocus|boolean|||Grab initial focus on the page|
 |label|node|||Label for the switch. Can be a string or an element, for example an image|
 |name|string|||Name associated with the switch. Passed to event handlers in object|
-|role|string|`'switch'`||Sets a role attribute on the input|
+|role|string|``'switch'``||Sets a role attribute on the input|
 |tabIndex|string||||
 |valid|custom|||Applies 'valid' styles for validation feedback. Mutually exclusive with `error` and `warning` prop types|
 |value|string|||Value associated with the switch. Passed to event handlers in object|
@@ -2070,7 +2101,7 @@ import { SwitchField } from '@dhis2/ui'
 |---|---|---|---|---|
 |checked|boolean||||
 |className|string||||
-|dataTest|string|`'dhis2-uiwidgets-switchfield'`|||
+|dataTest|string|``'dhis2-uiwidgets-switchfield'``|||
 |dense|boolean|||Smaller dimensions for information-dense layouts|
 |disabled|boolean|||Disables the switch|
 |error|custom|||Applies 'error' styling to switch and validation text for feedback. Mutually exclusive with `warning` and `valid` props|
@@ -2084,10 +2115,10 @@ import { SwitchField } from '@dhis2/ui'
 |validationText|string|||Adds text below the switch to provide validation feedback. Acquires styles from `valid`, `warning` and `error` statuses|
 |value|string|||Value associated with the switch. Passed in object as argument to event handlers|
 |warning|custom|||Applies 'warning' styling to switch and validation text for feedback. Mutually exclusive with `valid` and `error` props|
-|onBlur|function|||Called with signature ({ name: string, value: string, checked: bool }, event)|
-|onChange|function|||Called with signature ({ name: string, value: string, checked: bool }, event)|
-|onFocus|function|||Called with signature ({ name: string, value: string, checked: bool }, event)|
-|onKeyDown|function|||Called with signature ({ name: string, value: string, checked: bool }, event)|
+|onBlur|function|||Called with signature `({ name: string, value: string, checked: bool }, event)`|
+|onChange|function|||Called with signature `({ name: string, value: string, checked: bool }, event)`|
+|onFocus|function|||Called with signature `({ name: string, value: string, checked: bool }, event)`|
+|onKeyDown|function|||Called with signature `({ name: string, value: string, checked: bool }, event)`|
 
 ### Tab
 
@@ -2107,7 +2138,7 @@ import { Tab } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-tab'`|||
+|dataTest|string|``'dhis2-uicore-tab'``|||
 |disabled|boolean||||
 |icon|element||||
 |selected|boolean|||Indicates this tab is selected|
@@ -2131,7 +2162,7 @@ import { TabBar } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-tabbar'`|||
+|dataTest|string|``'dhis2-uicore-tabbar'``|||
 |fixed|boolean|||Fixed tabs fill the width of their container. If false (i.e. fluid), tabs take up an amount of space defined by the tab name. Fluid tabs should be used most of the time.|
 |scrollable|boolean|||Enables horizontal scrolling for many tabs that don't fit the width of the container|
 
@@ -2152,17 +2183,17 @@ import { DataTableCell } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |active|boolean|||To toggle border color, for example for editing|
-|align|'left' │ 'center' │ 'right'|`'left'`|||
+|align|'left' │ 'center' │ 'right'|``'left'``|||
 |backgroundColor|string|||Sets background color of the cell. Disables dynamic background colors from active, hover, and selected states|
 |bordered|boolean||||
 |children|node||||
 |className|string||||
 |colSpan|string||||
-|dataTest|string|`'dhis2-uicore-datatablecell'`|||
+|dataTest|string|``'dhis2-uicore-datatablecell'``|||
 |error|custom|||Mutually exclusive with muted and valid|
 |fixed|boolean|||When true a TableHeaderCell with sticky positioning will be rendered|
 |large|boolean||||
-|left|custom|`'auto'`||Required when fixed|
+|left|custom|``'auto'``||Required when fixed|
 |muted|custom|||Mutually exclusive with error and valid|
 |role|string||||
 |rowSpan|string||||
@@ -2170,7 +2201,7 @@ import { DataTableCell } from '@dhis2/ui'
 |staticStyle|boolean|||Surpress hover and active event styles|
 |tag|'td' │ 'th'|||Render a TableDataCell or TableHeaderCell respectively|
 |valid|custom|||Mutually exclusive with error and muted|
-|width|custom|`'auto'`||Required when fixed|
+|width|custom|``'auto'``||Required when fixed|
 |onClick|function||||
 
 ### DataTable
@@ -2191,12 +2222,12 @@ import { DataTable } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node|||Should be `<DataTableHead>`, `<DataTableBody>`, and `<DataTableFoot>` components|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-datatable'`|||
-|layout|'auto' │ 'fixed' │ 'initial' │ 'inherit'|`'auto'`||Sets the `datatable-layout` property. Switching to `fixed` can prevent style<br/>issues when dealing with a datatable with multiple frozen columns or when dealing<br/>with filter elements in the datatable headers.|
+|dataTest|string|``'dhis2-uicore-datatable'``|||
+|layout|'auto' │ 'fixed' │ 'initial' │ 'inherit'|``'auto'``||Sets the `datatable-layout` property. Switching to `fixed` can prevent style<br/>issues when dealing with a datatable with multiple frozen columns or when dealing<br/>with filter elements in the datatable headers.|
 |role|string||||
 |scrollHeight|string|||Sets max-height of scrollbox|
 |scrollWidth|string|||Sets max-width of scrollbox|
-|width|string|`'100%'`||Sets the `width` property. Providing an explicit width can prevent style<br/>issues when dealing with horizontally scrolling datatables with a fixed layout.|
+|width|string|``'100%'``||Sets the `width` property. Providing an explicit width can prevent style<br/>issues when dealing with horizontally scrolling datatables with a fixed layout.|
 
 ### StackedTableBody
 
@@ -2216,7 +2247,7 @@ import { StackedTableBody } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-stackedtablebody'`|||
+|dataTest|string|``'dhis2-uicore-stackedtablebody'``|||
 
 ### StackedTableCellHead
 
@@ -2234,10 +2265,10 @@ import { StackedTableCellHead } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|children|string|`''`|||
+|children|string|``''``|||
 |className|string||||
 |colSpan|string||||
-|dataTest|string|`'dhis2-uicore-stackedtablecellhead'`|||
+|dataTest|string|``'dhis2-uicore-stackedtablecellhead'``|||
 |rowSpan|string||||
 
 ### StackedTableCell
@@ -2260,8 +2291,8 @@ import { StackedTableCell } from '@dhis2/ui'
 |className|string||||
 |colSpan|string||||
 |column|number||||
-|dataTest|string|`'dhis2-uicore-stackedtablecell'`|||
-|headerLabels|arrayOf(string)|`[]`|||
+|dataTest|string|``'dhis2-uicore-stackedtablecell'``|||
+|headerLabels|`arrayOf(string)`|``[]``|||
 |hideTitle|boolean||||
 |rowSpan|string||||
 |title|string||||
@@ -2284,7 +2315,7 @@ import { StackedTableFoot } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-stackedtablefoot'`|||
+|dataTest|string|``'dhis2-uicore-stackedtablefoot'``|||
 
 ### StackedTableHead
 
@@ -2304,7 +2335,7 @@ import { StackedTableHead } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-stackedtablehead'`|||
+|dataTest|string|``'dhis2-uicore-stackedtablehead'``|||
 
 ### StackedTableRowHead
 
@@ -2324,7 +2355,7 @@ import { StackedTableRowHead } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-stackedtablerowhead'`|||
+|dataTest|string|``'dhis2-uicore-stackedtablerowhead'``|||
 
 ### StackedTableRow
 
@@ -2344,7 +2375,7 @@ import { StackedTableRow } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-stackedtablerow'`|||
+|dataTest|string|``'dhis2-uicore-stackedtablerow'``|||
 
 ### StackedTable
 
@@ -2364,8 +2395,8 @@ import { StackedTable } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-stackedtable'`|||
-|headerLabels|arrayOf(string)|||Labels for columns. Use an empty string for a column without a header.|
+|dataTest|string|``'dhis2-uicore-stackedtable'``|||
+|headerLabels|`arrayOf(string)`|||Labels for columns. Use an empty string for a column without a header.|
 
 ### Table
 
@@ -2405,7 +2436,7 @@ import { TableBody } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node|||Should be `<TableRow>` components|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-tablebody'`|||
+|dataTest|string|``'dhis2-uicore-tablebody'``|||
 |role|string||||
 
 ### TableCellHead
@@ -2427,7 +2458,7 @@ import { TableCellHead } from '@dhis2/ui'
 |children|node||||
 |className|string||||
 |colSpan|string||||
-|dataTest|string|`'dhis2-uicore-tablecellhead'`|||
+|dataTest|string|``'dhis2-uicore-tablecellhead'``|||
 |dense|boolean|||Uses less padding and height for information-dense layouts|
 |role|string||||
 |rowSpan|string||||
@@ -2451,7 +2482,7 @@ import { TableCell } from '@dhis2/ui'
 |children|node||||
 |className|string||||
 |colSpan|string||||
-|dataTest|string|`'dhis2-uicore-tablecell'`|||
+|dataTest|string|``'dhis2-uicore-tablecell'``|||
 |dense|boolean|||Usees less padding and height for information-dense layouts|
 |role|string||||
 |rowSpan|string||||
@@ -2474,7 +2505,7 @@ import { TableFoot } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node|||Should be `<TableRow>` components|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-tablefoot'`|||
+|dataTest|string|``'dhis2-uicore-tablefoot'``|||
 |role|string||||
 
 ### TableHead
@@ -2495,7 +2526,7 @@ import { TableHead } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node|||Should be `<TableRowHead>` components|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-tablehead'`|||
+|dataTest|string|``'dhis2-uicore-tablehead'``|||
 |role|string||||
 
 ### TableRowHead
@@ -2516,7 +2547,7 @@ import { TableRowHead } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node|||Should be `<TableCellHead>` components|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-tablerowhead'`|||
+|dataTest|string|``'dhis2-uicore-tablerowhead'``|||
 |role|string||||
 |suppressZebraStriping|boolean|||Disables the default row striping for this row|
 
@@ -2538,7 +2569,7 @@ import { TableRow } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node|||Should be `<TableCell>` or `<TableCellHead>` components|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-tablerow'`|||
+|dataTest|string|``'dhis2-uicore-tablerow'``|||
 |role|string||||
 |suppressZebraStriping|boolean|||Disables the default row striping for this row|
 
@@ -2560,7 +2591,7 @@ import { Table } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node|||Should be `<TableHead>`, `<TableBody>`, and `<TableFoot>` components|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-table'`|||
+|dataTest|string|``'dhis2-uicore-table'``|||
 |role|string||||
 |suppressZebraStriping|boolean|||Remove the default striping on alternating rows|
 
@@ -2584,7 +2615,7 @@ import { DataTableColumnHeader } from '@dhis2/ui'
 |children|node||||
 |className|string||||
 |colSpan|string||||
-|dataTest|string|`'dhis2-uicore-datatablecellhead'`|||
+|dataTest|string|``'dhis2-uicore-datatablecellhead'``|||
 |filter|custom|||The filter element (JSX), required when onFilterIconClick or showFilter are present|
 |fixed|boolean||||
 |large|boolean||||
@@ -2619,7 +2650,7 @@ import { DataTableRow } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node|||Should be `<DataTableCell>` or `<DataTableCellHead>` components|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-datatablerow'`|||
+|dataTest|string|``'dhis2-uicore-datatablerow'``|||
 |draggable|boolean|||Renders and additional table cell with drag icon and applies draggable styles|
 |expandableContent|custom|||This content will be rendered into an additional row with fullwidth cell and the presence of this prop will display an additional table cell with expand icon|
 |expanded|boolean|||Toggles expand icon (up/down) and expandable content visibility|
@@ -2645,7 +2676,7 @@ import { TableBody } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node|||Should be `<TableRow>` components|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-tablebody'`|||
+|dataTest|string|``'dhis2-uicore-tablebody'``|||
 |loading|boolean||||
 |role|string||||
 
@@ -2667,7 +2698,7 @@ import { TableFoot } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node|||Should be `<TableRow>` components|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-tablefoot'`|||
+|dataTest|string|``'dhis2-uicore-tablefoot'``|||
 |role|string||||
 
 ### TableHead
@@ -2709,7 +2740,7 @@ import { TableRow } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node|||Should be `<TableDataCell>` or `<TableDataCellHead>` components|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-tablerow'`|||
+|dataTest|string|``'dhis2-uicore-tablerow'``|||
 |draggable|boolean|||Applies draggable cursor styles|
 |role|string||||
 |selected|boolean|||Sets a selected (teal) background color|
@@ -2733,10 +2764,10 @@ import { Table } from '@dhis2/ui'
 |borderless|boolean|||Removes border from the table|
 |children|node|||Should be `<TableHead>`, `<TableBody>`, and `<TableFoot>` components|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-table'`|||
-|layout|'auto' │ 'fixed' │ 'initial' │ 'inherit'|`'auto'`||Sets the `table-layout` property. Switching to `fixed` can prevent style<br/>issues when dealing with a table with multiple frozen columns or when dealing<br/>with filter elements in the table headers.|
+|dataTest|string|``'dhis2-uicore-table'``|||
+|layout|'auto' │ 'fixed' │ 'initial' │ 'inherit'|``'auto'``||Sets the `table-layout` property. Switching to `fixed` can prevent style<br/>issues when dealing with a table with multiple frozen columns or when dealing<br/>with filter elements in the table headers.|
 |role|string||||
-|width|string|`'100%'`||Sets the `width` property. Providing an explicit width can prevent style<br/>issues when dealing with horizontally scrolling tables with a fixed layout.|
+|width|string|``'100%'``||Sets the `width` property. Providing an explicit width can prevent style<br/>issues when dealing with horizontally scrolling tables with a fixed layout.|
 
 ### Tag
 
@@ -2757,9 +2788,9 @@ import { Tag } from '@dhis2/ui'
 |bold|boolean|||Use bold tags where it is important that the tag is seen by the user in an information dense interface. Bold tags should be reserved for edge cases and not overused.|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-tag'`|||
+|dataTest|string|``'dhis2-uicore-tag'``|||
 |icon|node|||Tags can contain icons. Use icons where they will help users easily identify the content of the tag. Tags must have a text label and cannot display only an icon.|
-|maxWidth|string|`'240px'`|||
+|maxWidth|string|``'240px'``|||
 |negative|custom|||Red 'negative' tags imply an error or a problem. `neutral`, `positive`, and `negative` are mutually exclusive props|
 |neutral|custom|||Blue 'neutral' tags are used when a tag _could_ have valid or error status but is currently neutral. `neutral`, `positive`, and `negative` are mutually exclusive props|
 |positive|custom|||Green 'valid' tags should be used to indicate validity or success. `neutral`, `positive`, and `negative` are mutually exclusive props|
@@ -2782,7 +2813,7 @@ import { TextArea } from '@dhis2/ui'
 |---|---|---|---|---|
 |autoGrow|boolean|||Grow the text area in response to overflow instead of adding a scroll bar|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-textarea'`|||
+|dataTest|string|``'dhis2-uicore-textarea'``|||
 |dense|boolean|||Compact mode|
 |disabled|boolean|||Disables the textarea and makes in non-interactive|
 |error|custom|||Applies 'error' styles for validation feedback. Mutually exclusive with `valid` and `warning` props|
@@ -2791,17 +2822,17 @@ import { TextArea } from '@dhis2/ui'
 |name|string|||Name associated with the text area. Passed in object argument to event handlers.|
 |placeholder|string|||Placeholder text for an empty textarea|
 |readOnly|boolean|||Makes the textarea read-only|
-|resize|'none' │ 'both' │ 'horizontal' │ 'vertical'|`'vertical'`||[Resize property](https://developer.mozilla.org/en-US/docs/Web/CSS/resize) for the textarea element|
-|rows|number|`4`||Initial height of the textarea, in lines of text|
+|resize|'none' │ 'both' │ 'horizontal' │ 'vertical'|``'vertical'``||[Resize property](https://developer.mozilla.org/en-US/docs/Web/CSS/resize) for the textarea element|
+|rows|number|``4``||Initial height of the textarea, in lines of text|
 |tabIndex|string||||
 |valid|custom|||Applies 'valid' styles for validation feedback. Mutually exclusive with `warning` and `error` props|
 |value|string|||Value in the textarea. Can be used to control component (recommended). Passed in object argument to event handlers.|
 |warning|custom|||Applies 'warning' styles for validation feedback. Mutually exclusive with `valid` and `error` props|
-|width|string|`'100%'`||Width of the text area. Can be any valid CSS measurement|
-|onBlur|function|||Called with signature ({ name: string, value: string }, event)|
-|onChange|function|||Called with signature ({ name: string, value: string }, event)|
-|onFocus|function|||Called with signature ({ name: string, value: string }, event)|
-|onKeyDown|function|||Called with signature ({ name: string, value: string }, event)|
+|width|string|``'100%'``||Width of the text area. Can be any valid CSS measurement|
+|onBlur|function|||Called with signature `({ name: string, value: string }, event)`|
+|onChange|function|||Called with signature `({ name: string, value: string }, event)`|
+|onFocus|function|||Called with signature `({ name: string, value: string }, event)`|
+|onKeyDown|function|||Called with signature `({ name: string, value: string }, event)`|
 
 ### TextAreaField
 
@@ -2821,7 +2852,7 @@ import { TextAreaField } from '@dhis2/ui'
 |---|---|---|---|---|
 |autoGrow|boolean|||Grow the text area in response to overflow instead of adding a scroll bar|
 |className|string||||
-|dataTest|string|`'dhis2-uiwidgets-textareafield'`|||
+|dataTest|string|``'dhis2-uiwidgets-textareafield'``|||
 |dense|boolean|||Compact mode|
 |disabled|boolean|||Disables the textarea and makes in non-interactive|
 |error|custom|||Applies 'error' styles for validation feedback. Mutually exclusive with `valid` and `warning` props|
@@ -2834,17 +2865,17 @@ import { TextAreaField } from '@dhis2/ui'
 |placeholder|string|||Placeholder text for an empty textarea|
 |readOnly|boolean|||Makes the textarea read-only|
 |required|boolean|||Adds an asterisk to the label to indicate this field is required|
-|resize|'none' │ 'both' │ 'horizontal' │ 'vertical'|`'vertical'`||[Resize property](https://developer.mozilla.org/en-US/docs/Web/CSS/resize) for the textarea element|
-|rows|number|`4`||Initial height of the textarea, in lines of text|
+|resize|'none' │ 'both' │ 'horizontal' │ 'vertical'|``'vertical'``||[Resize property](https://developer.mozilla.org/en-US/docs/Web/CSS/resize) for the textarea element|
+|rows|number|``4``||Initial height of the textarea, in lines of text|
 |tabIndex|string||||
 |valid|custom|||Applies 'valid' styles for validation feedback. Mutually exclusive with `warning` and `error` props|
 |validationText|string|||Validation text below the textarea to provide validation feedback. Changes appearance depending on validation status|
 |value|string|||Value in the textarea. Can be used to control component (recommended). Passed in object argument to event handlers.|
 |warning|custom|||Applies 'warning' styles for validation feedback. Mutually exclusive with `valid` and `error` props|
-|onBlur|function|||Called with signature ({ name: string, value: string }, event)|
-|onChange|function|||Called with signature ({ name: string, value: string }, event)|
-|onFocus|function|||Called with signature ({ name: string, value: string }, event)|
-|onKeyDown|function|||Called with signature ({ name: string, value: string }, event)|
+|onBlur|function|||Called with signature `({ name: string, value: string }, event)`|
+|onChange|function|||Called with signature `({ name: string, value: string }, event)`|
+|onFocus|function|||Called with signature `({ name: string, value: string }, event)`|
+|onKeyDown|function|||Called with signature `({ name: string, value: string }, event)`|
 
 ### Tooltip
 
@@ -2864,12 +2895,12 @@ import { Tooltip } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node │ function|||If child is a function, it's called with `{ onMouseOver, onMouseOut, ref }` args to apply to a reference element. If child is a node, it is wrapped in a `span` with the appropriate attributes and handlers.|
 |className|string||||
-|closeDelay|number|`200`||Time (in ms) until tooltip closes after mouse out|
+|closeDelay|number|``200``||Time (in ms) until tooltip closes after mouse out|
 |content|node|||Content to display when the tooltip is open|
-|dataTest|string|`'dhis2-uicore-tooltip'`|||
-|maxWidth|number|`300`||Max width of the tooltip in px|
-|openDelay|number|`200`||Time (in ms) until tooltip open after mouse over|
-|placement|'top' │ 'right' │ 'bottom' │ 'left'|`'top'`||Where to place the tooltip relative to its reference|
+|dataTest|string|``'dhis2-uicore-tooltip'``|||
+|maxWidth|number|``300``||Max width of the tooltip in px|
+|openDelay|number|``200``||Time (in ms) until tooltip open after mouse over|
+|placement|'top' │ 'right' │ 'bottom' │ 'left'|``'top'``||Where to place the tooltip relative to its reference|
 
 
 ### TransferOption
@@ -2891,7 +2922,7 @@ import { TransferOption } from '@dhis2/ui'
 |label|node||*||
 |value|string||*||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-transferoption'`|||
+|dataTest|string|``'dhis2-uicore-transferoption'``|||
 |disabled|boolean||||
 |highlighted|boolean||||
 |onClick|function||||
@@ -2926,43 +2957,43 @@ import { SimpleTransfer } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|options|arrayOf({<br/>  "label": "string",<br/>  "value": "string",<br/>  "disabled": "boolean"<br/>})||*||
+|options|`arrayOf({<br/>  "label": "string",<br/>  "value": "string",<br/>  "disabled": "boolean"<br/>})`||*||
 |onChange|function||*||
 |addAllText|string||||
 |addIndividualText|string||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-transfer'`|||
+|dataTest|string|``'dhis2-uicore-transfer'``|||
 |disabled|boolean||||
 |enableOrderChange|boolean||||
-|filterCallback|function|`defaultFilterCallback`|||
-|filterCallbackPicked|function|`defaultFilterCallback`|||
+|filterCallback|function|``defaultFilterCallback``|||
+|filterCallbackPicked|function|``defaultFilterCallback``|||
 |filterLabel|string||||
 |filterLabelPicked|string||||
 |filterPlaceholder|string||||
 |filterPlaceholderPicked|string||||
 |filterable|boolean||||
 |filterablePicked|boolean||||
-|height|string|`'240px'`|||
+|height|string|``'240px'``|||
 |hideFilterInput|boolean||||
 |hideFilterInputPicked|boolean||||
-|initialSearchTerm|string|`''`|||
-|initialSearchTermPicked|string|`''`|||
+|initialSearchTerm|string|``''``|||
+|initialSearchTermPicked|string|``''``|||
 |leftFooter|node||||
 |leftHeader|node||||
 |loading|boolean||||
 |loadingPicked|boolean||||
-|maxSelections|1 │ Infinity|`Infinity`|||
-|optionsWidth|string|`'320px'`|||
+|maxSelections|1 │ Infinity|``Infinity``|||
+|optionsWidth|string|``'320px'``|||
 |removeAllText|string||||
 |removeIndividualText|string||||
-|renderOption|function|`(option) => <TransferOption {...option} />`|||
+|renderOption|function|``(option) => <TransferOption {...option} />``|||
 |rightFooter|node||||
 |rightHeader|node||||
 |searchTerm|string||||
 |searchTermPicked|string||||
-|selected|arrayOf(string)|`[]`|||
+|selected|`arrayOf(string)`|``[]``|||
 |selectedEmptyComponent|node||||
-|selectedWidth|string|`'320px'`|||
+|selectedWidth|string|``'320px'``|||
 |sourceEmptyPlaceholder|node||||
 |onEndReached|function||||
 |onEndReachedPicked|function||||
@@ -2989,7 +3020,7 @@ import { UserAvatar } from '@dhis2/ui'
 |ariaLabel|string||||
 |avatarId|string||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-useravatar'`|||
+|dataTest|string|``'dhis2-uicore-useravatar'``|||
 |extralarge|custom||||
 |extrasmall|custom||||
 |large|custom||||

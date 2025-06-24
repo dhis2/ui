@@ -2,11 +2,9 @@ import {
     useDatePicker,
     useResolvedDirection,
 } from '@dhis2/multi-calendar-dates'
-import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
-import { CalendarTable } from './calendar-table.js'
-import { NavigationContainer } from './navigation-container.js'
+import React, { useMemo, useState } from 'react'
+import { CalendarContainer } from './calendar-container.js'
 
 export const Calendar = ({
     onDateSelect,
@@ -19,10 +17,8 @@ export const Calendar = ({
     timeZone,
     width = '240px',
     cellSize = '32px',
+    pastOnly,
 }) => {
-    const wrapperBorderColor = colors.grey300
-    const backgroundColor = 'none'
-
     const [selectedDateString, setSelectedDateString] = useState(date)
     const languageDirection = useResolvedDirection(dir, locale)
 
@@ -32,9 +28,10 @@ export const Calendar = ({
         timeZone,
         numberingSystem,
         weekDayFormat,
+        pastOnly,
     }
 
-    const pickerOptions = useDatePicker({
+    const pickerResults = useDatePicker({
         onDateSelect: (result) => {
             const { calendarDateString } = result
             setSelectedDateString(calendarDateString)
@@ -44,43 +41,37 @@ export const Calendar = ({
         options,
     })
 
-    const { calendarWeekDays, weekDayLabels } = pickerOptions
+    const calendarProps = useMemo(() => {
+        return {
+            date,
+            dir,
+            locale,
+            width,
+            cellSize,
+            // minDate,
+            // maxDate,
+            // validation, // todo: clarify how we use validation props (and format) in Calendar (not CalendarInput)
+            // format,
+            isValid: pickerResults.isValid,
+            calendarWeekDays: pickerResults.calendarWeekDays,
+            weekDayLabels: pickerResults.weekDayLabels,
+            currMonth: pickerResults.currMonth,
+            currYear: pickerResults.currYear,
+            nextMonth: pickerResults.nextMonth,
+            nextYear: pickerResults.nextYear,
+            prevMonth: pickerResults.prevMonth,
+            prevYear: pickerResults.prevYear,
+            navigateToYear: pickerResults.navigateToYear,
+            navigateToMonth: pickerResults.navigateToMonth,
+            months: pickerResults.months,
+            years: pickerResults.years,
+            languageDirection,
+        }
+    }, [cellSize, date, dir, locale, pickerResults, width, languageDirection])
 
     return (
         <div>
-            <div
-                className="calendar-wrapper"
-                dir={languageDirection}
-                data-test="calendar"
-            >
-                <NavigationContainer
-                    pickerOptions={pickerOptions}
-                    languageDirection={languageDirection}
-                />
-                <CalendarTable
-                    selectedDate={selectedDateString}
-                    calendarWeekDays={calendarWeekDays}
-                    weekDayLabels={weekDayLabels}
-                    cellSize={cellSize}
-                    width={width}
-                />
-            </div>
-            <style jsx>{`
-                .calendar-wrapper {
-                    font-family: Roboto, sans-serif;
-                    font-weight: 400;
-                    font-size: 14px;
-                    background-color: ${backgroundColor};
-                    display: flex;
-                    flex-direction: column;
-                    border: 1px solid ${wrapperBorderColor};
-                    border-radius: 3px;
-                    min-width: ${width};
-                    width: max-content;
-                    box-shadow: 0px 4px 6px -2px #2129340d;
-                    box-shadow: 0px 10px 15px -3px #2129341a;
-                }
-            `}</style>
+            <CalendarContainer {...calendarProps} />
         </div>
     )
 }
@@ -88,7 +79,7 @@ export const Calendar = ({
 export const CalendarProps = {
     /** the calendar to use such gregory, ethiopic, nepali - full supported list here: https://github.com/dhis2/multi-calendar-dates/blob/main/src/constants/calendars.ts  */
     calendar: PropTypes.any.isRequired,
-    /** Called with signature `(null)` \|\| `({ dateCalendarString: string, dateCalendar: Temporal.ZonedDateTime })` with `dateCalendarString` being the stringified date in the specified calendar in the format `yyyy-MM-dd` */
+    /** Called with signature `(null)` \|\| `({ dateCalendarString: string, validation: { error: boolean, warning: boolean, validationText: string} })` with `dateCalendarString` being the stringified date in the specified calendar in the format `yyyy-MM-dd` */
     onDateSelect: PropTypes.func.isRequired,
     /** the size of a single cell in the table forming the calendar */
     cellSize: PropTypes.string,
@@ -100,6 +91,8 @@ export const CalendarProps = {
     locale: PropTypes.string,
     /** numbering system to use - full list here https://github.com/dhis2/multi-calendar-dates/blob/main/src/constants/numberingSystems.ts */
     numberingSystem: PropTypes.string,
+    /** When true, only shows years in the past (current year and earlier) */
+    pastOnly: PropTypes.bool,
     /** the timeZone to use */
     timeZone: PropTypes.string,
     /** the format to display for the week day, i.e. Monday (long), Mon (short), M (narrow) */

@@ -14,7 +14,7 @@ The Calendar is a component to display a calendar to pick a day in multiple cale
 
 The component is built on top of [multi-calendar-dates](https://github.com/dhis2/multi-calendar-dates/tree/beta) which is an internal library to abstract date-related operations (i.e. calendars, period selectors, date math etc..). The library itself relies on the [Temporal proposal](https://tc39.es/proposal-temporal/#sec-temporal-intro). The proposal (currently at Stage 3 draft) aims to improve built-in support for dates and times in browsers, addressing challenges such as support for timezones, DST-safe artithemtic, string serialization and interoperability via standardized formats, and full support for non-Gregorian calendars.
 
-Here are some sample calendars built with this UI component. Check [StoryBook]((https://ui.dhis2.nu/demo/?path=/story/calendar--with-ethiopic) to play with all the options available for building a Calendar.
+Here are some sample calendars built with this UI component. Check [StoryBook](pathname:///demo/?path=/story/calendar--with-ethiopic) to play with all the options available for building a Calendar.
 
 ## Ethiopic calendar
 
