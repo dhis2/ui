@@ -16,6 +16,14 @@ Given('a sharing dialog with user item with view is visible', () => {
     cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
         body: userViewAccess,
     })
+    cy.intercept('GET', '/api/38/me', {
+        body: {
+            id: 'currentUSER',
+            displayName: 'Current User',
+            authorities: ['ALL'],
+            userGroups: [],
+        },
+    })
     cy.visitStory('sharing-dialog', 'visualization')
     cy.contains('Sharing and access').should('be.visible')
 
@@ -34,6 +42,14 @@ Given('a sharing dialog with user item with view is visible', () => {
 Given('a sharing dialog with user item with view and edit is visible', () => {
     cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
         body: userViewEditAccess,
+    })
+    cy.intercept('GET', '/api/38/me', {
+        body: {
+            id: 'currentUSER',
+            displayName: 'Current User',
+            authorities: ['ALL'],
+            userGroups: [],
+        },
     })
     cy.visitStory('sharing-dialog', 'visualization')
     cy.contains('Sharing and access').should('be.visible')
@@ -54,6 +70,14 @@ Given('a sharing dialog with group item with view is visible', () => {
     cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
         body: groupViewAccess,
     })
+    cy.intercept('GET', '/api/38/me', {
+        body: {
+            id: 'currentUSER',
+            displayName: 'Current User',
+            authorities: ['ALL'],
+            userGroups: [],
+        },
+    })
     cy.visitStory('sharing-dialog', 'visualization')
     cy.contains('Sharing and access').should('be.visible')
 
@@ -72,6 +96,14 @@ Given('a sharing dialog with group item with view is visible', () => {
 Given('a sharing dialog with group item with view and edit is visible', () => {
     cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
         body: groupViewEditAccess,
+    })
+    cy.intercept('GET', '/api/38/me', {
+        body: {
+            id: 'currentUSER',
+            displayName: 'Current User',
+            authorities: ['ALL'],
+            userGroups: [],
+        },
     })
     cy.visitStory('sharing-dialog', 'visualization')
     cy.contains('Sharing and access').should('be.visible')

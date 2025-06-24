@@ -17,6 +17,14 @@ Given('a sharing dialog with all users item with no access is visible', () => {
     cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
         body: allUsersNoAccess,
     })
+    cy.intercept('GET', '/api/38/me', {
+        body: {
+            id: 'currentUSER',
+            displayName: 'Current User',
+            authorities: ['ALL'],
+            userGroups: [],
+        },
+    })
     cy.visitStory('sharing-dialog', 'visualization')
     cy.contains('Sharing and access').should('be.visible')
 
@@ -40,6 +48,14 @@ Given('a sharing dialog with user item with view is visible', () => {
     cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
         body: userViewAccess,
     })
+    cy.intercept('GET', '/api/38/me', {
+        body: {
+            id: 'currentUSER',
+            displayName: 'Current User',
+            authorities: ['ALL'],
+            userGroups: [],
+        },
+    })
     cy.visitStory('sharing-dialog', 'visualization')
     cy.contains('Sharing and access').should('be.visible')
 
@@ -62,6 +78,14 @@ Given('a sharing dialog with user item with view is visible', () => {
 Given('a sharing dialog with group item with view is visible', () => {
     cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
         body: groupViewAccess,
+    })
+    cy.intercept('GET', '/api/38/me', {
+        body: {
+            id: 'currentUSER',
+            displayName: 'Current User',
+            authorities: ['ALL'],
+            userGroups: [],
+        },
     })
     cy.visitStory('sharing-dialog', 'visualization')
     cy.contains('Sharing and access').should('be.visible')
