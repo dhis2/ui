@@ -1,5 +1,4 @@
 import { colors } from '@dhis2/ui-constants'
-// import { NoticeBox } from '@dhis2-ui/notice-box'
 import PropTypes from 'prop-types'
 import React from 'react'
 import {
@@ -13,18 +12,6 @@ import {
 import i18n from '../locales/index.js'
 import { Title } from '../text/index.js'
 import { ListItem } from './list-item.js'
-
-// const WriteAccessRemoveWarning = () => (
-//     <NoticeBox error>
-//         <div>
-//             Removing metadata write access would remove your write access.
-//         </div>
-//         <div>
-//             Make sure that you or a user group of which you are a member has
-//             metadata write access before removing metadata write access here.
-//         </div>
-//     </NoticeBox>
-// )
 
 export const AccessList = ({
     onChange,

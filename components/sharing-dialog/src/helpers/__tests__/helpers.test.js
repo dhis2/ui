@@ -9,6 +9,7 @@ import {
     convertAccessToConstantObject,
     convertConstantObjectToAccess,
     isRemovableTarget,
+    isMetadataWriteAccessRemoved,
 } from '../helpers.js'
 
 describe('helpers', () => {
@@ -95,6 +96,344 @@ describe('helpers', () => {
 
         it('returns true for all other targets', () => {
             expect(isRemovableTarget('Does not exist')).toBe(true)
+        })
+    })
+
+    describe.only('isMetadataWriteAccessRemoved', () => {
+        const cases = [
+            [
+                false,
+                'user has ALL authority',
+                {
+                    currentUser: {
+                        id: 'currentUSER',
+                        userGroups: [{ id: 'userGroup01' }],
+                        authorities: ['ALL'],
+                    },
+                    type: 'group',
+                    access: { data: ACCESS_NONE, metadata: ACCESS_NONE },
+                    id: 'userGroup01',
+                    publicAccess: { data: ACCESS_NONE, metadata: ACCESS_NONE },
+                    users: [],
+                    groups: [
+                        {
+                            id: 'userGroup01',
+                            access: {
+                                data: ACCESS_VIEW_AND_EDIT,
+                                metadata: ACCESS_VIEW_AND_EDIT,
+                            },
+                        },
+                    ],
+                },
+            ],
+            [
+                true,
+                'user tries to remove their only access via user group',
+                {
+                    currentUser: {
+                        id: 'currentUSER',
+                        userGroups: [{ id: 'userGroup01' }],
+                        authorities: [],
+                    },
+                    type: 'group',
+                    access: { data: ACCESS_NONE, metadata: ACCESS_NONE },
+                    id: 'userGroup01',
+                    publicAccess: { data: ACCESS_NONE, metadata: ACCESS_NONE },
+                    users: [],
+                    groups: [
+                        {
+                            id: 'userGroup01',
+                            access: {
+                                data: ACCESS_VIEW_AND_EDIT,
+                                metadata: ACCESS_VIEW_AND_EDIT,
+                            },
+                        },
+                    ],
+                },
+            ],
+            [
+                false,
+                'user updates only data access their only access via user group',
+                {
+                    currentUser: {
+                        id: 'currentUSER',
+                        userGroups: [{ id: 'userGroup01' }],
+                        authorities: [],
+                    },
+                    type: 'group',
+                    access: {
+                        data: ACCESS_NONE,
+                        metadata: ACCESS_VIEW_AND_EDIT,
+                    },
+                    id: 'userGroup01',
+                    publicAccess: { data: ACCESS_NONE, metadata: ACCESS_NONE },
+                    users: [],
+                    groups: [
+                        {
+                            id: 'userGroup01',
+                            access: {
+                                data: ACCESS_VIEW_AND_EDIT,
+                                metadata: ACCESS_VIEW_AND_EDIT,
+                            },
+                        },
+                    ],
+                },
+            ],
+            [
+                false,
+                'user update groups access but still has access via their user',
+                {
+                    currentUser: {
+                        id: 'currentUSER',
+                        userGroups: [{ id: 'userGroup01' }],
+                        authorities: [],
+                    },
+                    type: 'group',
+                    access: { data: ACCESS_NONE, metadata: ACCESS_NONE },
+                    id: 'userGroup01',
+                    publicAccess: { data: ACCESS_NONE, metadata: ACCESS_NONE },
+                    users: [
+                        {
+                            id: 'currentUSER',
+                            access: {
+                                data: ACCESS_VIEW_AND_EDIT,
+                                metadata: ACCESS_VIEW_AND_EDIT,
+                            },
+                        },
+                    ],
+                    groups: [
+                        {
+                            id: 'userGroup01',
+                            access: {
+                                data: ACCESS_VIEW_AND_EDIT,
+                                metadata: ACCESS_VIEW_AND_EDIT,
+                            },
+                        },
+                    ],
+                },
+            ],
+            [
+                false,
+                'user update groups access but still has access via public access',
+                {
+                    currentUser: {
+                        id: 'currentUSER',
+                        userGroups: [{ id: 'userGroup01' }],
+                        authorities: [],
+                    },
+                    type: 'group',
+                    access: {
+                        data: ACCESS_NONE,
+                        metadata: ACCESS_VIEW_AND_EDIT,
+                    },
+                    id: 'userGroup01',
+                    publicAccess: { data: ACCESS_NONE, metadata: ACCESS_NONE },
+                    users: [],
+                    groups: [
+                        {
+                            id: 'userGroup01',
+                            access: {
+                                data: ACCESS_VIEW_AND_EDIT,
+                                metadata: ACCESS_VIEW_AND_EDIT,
+                            },
+                        },
+                    ],
+                },
+            ],
+            [
+                true,
+                'user update groups access to give only view access',
+                {
+                    currentUser: {
+                        id: 'currentUSER',
+                        userGroups: [{ id: 'userGroup01' }],
+                        authorities: [],
+                    },
+                    type: 'group',
+                    access: { data: ACCESS_NONE, metadata: ACCESS_VIEW_ONLY },
+                    id: 'userGroup01',
+                    publicAccess: { data: ACCESS_NONE, metadata: ACCESS_NONE },
+                    users: [],
+                    groups: [
+                        {
+                            id: 'userGroup01',
+                            access: {
+                                data: ACCESS_VIEW_AND_EDIT,
+                                metadata: ACCESS_VIEW_AND_EDIT,
+                            },
+                        },
+                    ],
+                },
+            ],
+            [
+                false,
+                'user update groups access to give only view access but hass access from another gropu',
+                {
+                    currentUser: {
+                        id: 'currentUSER',
+                        userGroups: [
+                            { id: 'userGroup01' },
+                            { id: 'userGroup02' },
+                        ],
+                        authorities: [],
+                    },
+                    type: 'group',
+                    access: { data: ACCESS_NONE, metadata: ACCESS_VIEW_ONLY },
+                    id: 'userGroup01',
+                    publicAccess: { data: ACCESS_NONE, metadata: ACCESS_NONE },
+                    users: [],
+                    groups: [
+                        {
+                            id: 'userGroup01',
+                            access: {
+                                data: ACCESS_VIEW_AND_EDIT,
+                                metadata: ACCESS_VIEW_AND_EDIT,
+                            },
+                        },
+                        {
+                            id: 'userGroup02',
+                            access: {
+                                data: ACCESS_VIEW_AND_EDIT,
+                                metadata: ACCESS_VIEW_AND_EDIT,
+                            },
+                        },
+                    ],
+                },
+            ],
+            [
+                false,
+                'user update user access but has access via group',
+                {
+                    currentUser: {
+                        id: 'currentUSER',
+                        userGroups: [{ id: 'userGroup01' }],
+                        authorities: [],
+                    },
+                    type: 'user',
+                    access: { data: ACCESS_NONE, metadata: ACCESS_VIEW_ONLY },
+                    id: 'currentUSER',
+                    publicAccess: { data: ACCESS_NONE, metadata: ACCESS_NONE },
+                    users: [
+                        {
+                            id: 'currentUSER',
+                            access: {
+                                data: ACCESS_VIEW_AND_EDIT,
+                                metadata: ACCESS_VIEW_AND_EDIT,
+                            },
+                        },
+                    ],
+                    groups: [
+                        {
+                            id: 'userGroup01',
+                            access: {
+                                data: ACCESS_VIEW_AND_EDIT,
+                                metadata: ACCESS_VIEW_AND_EDIT,
+                            },
+                        },
+                    ],
+                },
+            ],
+            [
+                true,
+                'user update user access and has no other access',
+                {
+                    currentUser: {
+                        id: 'currentUSER',
+                        userGroups: [],
+                        authorities: [],
+                    },
+                    type: 'user',
+                    access: { data: ACCESS_NONE, metadata: ACCESS_VIEW_ONLY },
+                    id: 'currentUSER',
+                    publicAccess: { data: ACCESS_NONE, metadata: ACCESS_NONE },
+                    users: [
+                        {
+                            id: 'currentUSER',
+                            access: {
+                                data: ACCESS_VIEW_AND_EDIT,
+                                metadata: ACCESS_VIEW_AND_EDIT,
+                            },
+                        },
+                    ],
+                    groups: [],
+                },
+            ],
+            [
+                false,
+                'user update public access and access through user',
+                {
+                    currentUser: {
+                        id: 'currentUSER',
+                        userGroups: [],
+                        authorities: [],
+                    },
+                    type: 'public',
+                    access: { data: ACCESS_NONE, metadata: ACCESS_VIEW_ONLY },
+                    publicAccess: {
+                        data: ACCESS_NONE,
+                        metadata: ACCESS_VIEW_AND_EDIT,
+                    },
+                    users: [
+                        {
+                            id: 'currentUSER',
+                            access: {
+                                data: ACCESS_VIEW_AND_EDIT,
+                                metadata: ACCESS_VIEW_AND_EDIT,
+                            },
+                        },
+                    ],
+                    groups: [],
+                },
+            ],
+            [
+                false,
+                'user update public access and access through user group',
+                {
+                    currentUser: {
+                        id: 'currentUSER',
+                        userGroups: [{ id: 'userGroup01' }],
+                        authorities: [],
+                    },
+                    type: 'public',
+                    access: { data: ACCESS_NONE, metadata: ACCESS_VIEW_ONLY },
+                    publicAccess: {
+                        data: ACCESS_NONE,
+                        metadata: ACCESS_VIEW_AND_EDIT,
+                    },
+                    users: [],
+                    groups: [
+                        {
+                            id: 'userGroup01',
+                            access: {
+                                data: ACCESS_VIEW_AND_EDIT,
+                                metadata: ACCESS_VIEW_AND_EDIT,
+                            },
+                        },
+                    ],
+                },
+            ],
+            [
+                true,
+                'user update public access and has no other access',
+                {
+                    currentUser: {
+                        id: 'currentUSER',
+                        userGroups: [],
+                        authorities: [],
+                    },
+                    type: 'public',
+                    access: { data: ACCESS_NONE, metadata: ACCESS_VIEW_ONLY },
+                    publicAccess: {
+                        data: ACCESS_NONE,
+                        metadata: ACCESS_VIEW_AND_EDIT,
+                    },
+                    users: [],
+                    groups: [],
+                },
+            ],
+        ]
+        it.each(cases)('returns %s when %s', (result, _, metadata) => {
+            expect(isMetadataWriteAccessRemoved(metadata)).toEqual(result)
         })
     })
 })

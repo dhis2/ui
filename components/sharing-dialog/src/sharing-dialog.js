@@ -16,6 +16,7 @@ import {
     createOnRemovePayload,
     isMetadataWriteAccessRemoved,
 } from './helpers/index.js'
+import i18n from './locales/index.js'
 import { Modal } from './modal/index.js'
 import { TabbedContent } from './tabs/index.js'
 
@@ -218,7 +219,9 @@ export const SharingDialog = ({
             })
         ) {
             showError(
-                'This action would remove your metadata write access, which is not allowed'
+                i18n.t(
+                    'This action would remove your metadata write access, which is not allowed'
+                )
             )
             return
         }
@@ -232,6 +235,24 @@ export const SharingDialog = ({
     }
 
     const onRemove = ({ type: removedType, id: removedId }) => {
+        if (
+            isMetadataWriteAccessRemoved({
+                currentUser: userData?.me,
+                type: removedType,
+                access: { data: ACCESS_NONE, metadata: ACCESS_NONE },
+                id: removedId,
+                publicAccess,
+                users,
+                groups,
+            })
+        ) {
+            showError(
+                i18n.t(
+                    'This action would remove your metadata write access, which is not allowed'
+                )
+            )
+            return
+        }
         const data = createOnRemovePayload({
             object,
             type: removedType,
@@ -247,7 +268,6 @@ export const SharingDialog = ({
                 name={object.displayName || object.name}
                 dataTest={dataTest}
             >
-                <div>test - sharing restriction</div>
                 <TabbedContent
                     id={id}
                     users={users}
