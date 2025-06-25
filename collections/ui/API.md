@@ -2902,7 +2902,6 @@ import { Tooltip } from '@dhis2/ui'
 |openDelay|number|``200``||Time (in ms) until tooltip open after mouse over|
 |placement|'top' │ 'right' │ 'bottom' │ 'left'|``'top'``||Where to place the tooltip relative to its reference|
 
-
 ### TransferOption
 
 #### Usage
@@ -2938,19 +2937,6 @@ To use `Transfer`, you can import the component from the `@dhis2/ui` library
 ```js
 import { Transfer } from '@dhis2/ui'
 ```
-
-
-### SimpleTransfer
-
-#### Usage
-
-To use `SimpleTransfer`, you can import the component from the `@dhis2/ui` library
-
-
-```js
-import { SimpleTransfer } from '@dhis2/ui'
-```
-
 
 
 #### Props

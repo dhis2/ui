@@ -108,12 +108,7 @@ export const SimpleTransfer = ({
     const {
         highlightedOptions: highlightedSourceOptions,
         setHighlightedOptions: setHighlightedSourceOptions,
-        toggleHighlightedOption: toggleHighlightedSourceOption,
-    } = useHighlightedOptions({
-        options: sourceOptions,
-        disabled,
-        maxSelections,
-    })
+    } = useHighlightedOptions()
 
     /* Picked options search value:
      * Depending on whether the onFilterChangePicked callback has been provided
@@ -203,10 +198,8 @@ export const SimpleTransfer = ({
                                 dataTest={`${dataTest}-filter`}
                                 filter={actualFilter}
                                 onChange={
-                                    onFilterChange
-                                        ? onFilterChange
-                                        : ({ value }) =>
-                                              setInternalFilter(value)
+                                    onFilterChange ??
+                                    (({ value }) => setInternalFilter(value))
                                 }
                             />
                         )}
@@ -221,7 +214,6 @@ export const SimpleTransfer = ({
                     options={sourceOptions}
                     setHighlightedOptions={setHighlightedSourceOptions}
                     selectionHandler={selectSingleOption}
-                    toggleHighlightedOption={toggleHighlightedSourceOption}
                     onEndReached={onEndReached}
                 />
 
@@ -309,10 +301,9 @@ export const SimpleTransfer = ({
                                 dataTest={`${dataTest}-filter`}
                                 filter={actualFilterPicked}
                                 onChange={
-                                    onFilterChangePicked
-                                        ? onFilterChangePicked
-                                        : ({ value }) =>
-                                              setInternalFilterPicked(value)
+                                    onFilterChangePicked ??
+                                    (({ value }) =>
+                                        setInternalFilterPicked(value))
                                 }
                             />
                         )}

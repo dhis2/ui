@@ -19,7 +19,7 @@ export const SimpleTransferOption = ({
                 data-test={dataTest}
                 data-value={value}
                 value={value}
-                onDoubleClick={() => onDoubleClick({ value }, event)}
+                onDoubleClick={(e) => onDoubleClick({ value }, e)}
                 ref={lastOptionReference}
                 disabled={disabled}
             >

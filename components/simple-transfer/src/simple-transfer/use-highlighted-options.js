@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { createToggleHighlightedOption } from './use-highlighted-options/create-toggle-highlighted-option.js'
 
 /**
  * @param {Object} args
@@ -8,27 +7,15 @@ import { createToggleHighlightedOption } from './use-highlighted-options/create-
  * @param {Object[]} args.options
  * @returns {Object} highlighted options & helpers
  */
-export const useHighlightedOptions = ({ disabled, maxSelections, options }) => {
+export const useHighlightedOptions = () => {
     /**
      * These are important so the stored element can be used
      * as range-start when using shift multiple times consecutively
      */
-    const [lastClicked, setLastClicked] = useState(null)
     const [highlightedOptions, setHighlightedOptions] = useState([])
-
-    const toggleHighlightedOption = createToggleHighlightedOption({
-        disabled,
-        highlightedOptions,
-        setHighlightedOptions,
-        maxSelections,
-        setLastClicked,
-        options,
-        lastClicked,
-    })
 
     return {
         highlightedOptions,
         setHighlightedOptions,
-        toggleHighlightedOption,
     }
 }

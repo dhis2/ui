@@ -15,7 +15,7 @@ export const ReorderingActions = ({
         <Button
             small
             disabled={disabledDown}
-            onClick={() => !disabledDown && onChangeDown(event)}
+            onClick={(e) => !disabledDown && onChangeDown(e)}
             dataTest={`${dataTest}-buttonmovedown`}
             icon={
                 <IconMoveDown
@@ -28,7 +28,7 @@ export const ReorderingActions = ({
         <Button
             small
             disabled={disabledUp}
-            onClick={() => !disabledUp && onChangeUp(event)}
+            onClick={(e) => !disabledUp && onChangeUp(e)}
             dataTest={`${dataTest}-buttonmoveup`}
             icon={
                 <IconMoveUp
