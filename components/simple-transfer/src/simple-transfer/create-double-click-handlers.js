@@ -7,7 +7,6 @@
  * @param {Function} args.setHighlightedPickedOptions
  * @returns void
  */
-
 export const createDoubleClickHandlers = ({
     maxSelections,
     onChange,

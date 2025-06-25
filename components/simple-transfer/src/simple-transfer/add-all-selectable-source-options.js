@@ -6,7 +6,6 @@
  * @param {Function} arg.setHighlightedSourceOptions
  * @returns {void}
  */
-
 export const addAllSelectableSourceOptions = ({
     sourceOptions,
     onChange,

@@ -3,7 +3,6 @@
  * @param {string} filter
  * @returns {Object[]}
  */
-
 export const defaultFilterCallback = (options, filter) =>
     filter === ''
         ? options

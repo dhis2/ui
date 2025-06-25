@@ -8,6 +8,7 @@ export const Filter = ({ dataTest, filter, onChange, label, placeholder }) => (
     <div data-test={dataTest}>
         <Field label={label} name={dataTest} dataTest={`${dataTest}-field`}>
             <Input
+                dense
                 dataTest={`${dataTest}-input`}
                 type="search"
                 placeholder={placeholder}

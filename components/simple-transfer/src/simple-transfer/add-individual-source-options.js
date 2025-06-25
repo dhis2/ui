@@ -8,7 +8,6 @@
  * @param {Function} args.setHighlightedSourceOptions
  * @returns void
  */
-
 export const addIndividualSourceOptions = ({
     filterable,
     sourceOptions,
