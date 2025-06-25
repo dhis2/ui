@@ -1,4 +1,4 @@
-import { findOptionIndex, isOption, toggleValue } from '../common/index.js'
+import { findOptionIndex, isOption } from '../common/index.js'
 
 describe('SimpleTransfer - isOption', () => {
     it('should return true when the options are the same', () => {
@@ -52,34 +52,5 @@ describe('SimpleTransfer - findOptionIndex', () => {
         const expected = -1
 
         expect(actual).toBe(expected)
-    })
-})
-
-describe('SimpleTransfer - toggleValue', () => {
-    it('should remove the last value from the array when value inside array', () => {
-        const values = ['foo', 'bar', 'baz']
-        const value = 'baz'
-        const expected = ['foo', 'bar']
-        const actual = toggleValue(values, value)
-
-        expect(actual).toEqual(expected)
-    })
-
-    it('should remove the first value from the array when value inside array', () => {
-        const values = ['foo', 'bar', 'baz']
-        const value = 'foo'
-        const expected = ['bar', 'baz']
-        const actual = toggleValue(values, value)
-
-        expect(actual).toEqual(expected)
-    })
-
-    it('should add the value if not inside the array', () => {
-        const values = ['foo', 'bar']
-        const value = 'baz'
-        const expected = ['foo', 'bar', 'baz']
-        const actual = toggleValue(values, value)
-
-        expect(actual).toEqual(expected)
     })
 })
