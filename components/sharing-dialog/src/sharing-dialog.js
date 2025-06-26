@@ -369,7 +369,7 @@ SharingDialog.propTypes = {
             })
         ),
     }),
-    /** Whether to disallow users from  */
+    /** Whether to disallow users from removing their metadata write access */
     preventUsersFromRemovingMetadataWriteAccess: PropTypes.bool,
     onClose: PropTypes.func,
     onError: PropTypes.func,
