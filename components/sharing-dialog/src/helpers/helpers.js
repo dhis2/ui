@@ -141,14 +141,10 @@ const willHaveUserGroupMetadataWriteAccess = ({ currentUser, groups, id }) => {
     const groupsWithSharing = groups
         .filter((group) => userGroupsForUser.includes(group?.id))
         .filter((group) => group?.id !== id)
-    if (
-        groupsWithSharing
-            .map((group) => group.access.metadata === ACCESS_VIEW_AND_EDIT)
-            .some((shared) => shared)
-    ) {
-        return true
-    }
-    return false
+
+    return groupsWithSharing
+        .map((group) => group.access.metadata === ACCESS_VIEW_AND_EDIT)
+        .some((shared) => shared)
 }
 
 const willHavePublicMetadataWriteAccess = ({ type, publicAccess }) => {
@@ -157,10 +153,7 @@ const willHavePublicMetadataWriteAccess = ({ type, publicAccess }) => {
         return false
     }
     // else check if public has metadata write access
-    if (publicAccess?.metadata === ACCESS_VIEW_AND_EDIT) {
-        return true
-    }
-    return false
+    return publicAccess?.metadata === ACCESS_VIEW_AND_EDIT
 }
 
 export const isMetadataWriteAccessRemoved = ({
@@ -198,15 +191,11 @@ export const isMetadataWriteAccessRemoved = ({
     })
 
     // if user has metadata write access, after operation, metadata write is not being removed
-    if (
+    return !(
         userMetadataWriteAccess ||
         userGroupMetadataWriteAccess ||
         publicMetadataWriteAccess
-    ) {
-        return false
-    }
-
-    return true
+    )
 }
 
 /**

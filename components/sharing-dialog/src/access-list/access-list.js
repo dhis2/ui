@@ -49,20 +49,19 @@ export const AccessList = ({
                 </div>
             </div>
             <div className="list">
-                <>
-                    <ListItem
-                        name={i18n.t('All users')}
-                        target={SHARE_TARGET_PUBLIC}
-                        access={publicAccess}
-                        accessOptions={accessOptions}
-                        disabled={!allowPublicAccess}
-                        onChange={(newAccess) =>
-                            onChange({ type: 'public', access: newAccess })
-                        }
-                        dataSharing={dataSharing}
-                        allUsersItem={true}
-                    />
-                </>
+                <ListItem
+                    name={i18n.t('All users')}
+                    target={SHARE_TARGET_PUBLIC}
+                    access={publicAccess}
+                    accessOptions={accessOptions}
+                    disabled={!allowPublicAccess}
+                    onChange={(newAccess) =>
+                        onChange({ type: 'public', access: newAccess })
+                    }
+                    dataSharing={dataSharing}
+                    allUsersItem={true}
+                />
+
                 {groups.map(({ id, name, access }) => (
                     <ListItem
                         key={id}
