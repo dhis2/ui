@@ -115,6 +115,90 @@ export const isRemovableTarget = (target) => {
 }
 
 /**
+ * Check that metadata write access is not removed for user
+ */
+
+const willHaveUserMetadataWriteAccess = ({ currentUser, users, type, id }) => {
+    // if type is user, and user is editing their own user access, return false
+    if (type === 'user' && currentUser?.id === id) {
+        return false
+    }
+
+    // else check if user has metadata write access
+    const userAccess = users.find((user) => user.id === currentUser?.id)
+    if (!userAccess) {
+        return false
+    }
+    return userAccess?.access?.metadata === ACCESS_VIEW_AND_EDIT
+}
+
+const willHaveUserGroupMetadataWriteAccess = ({ currentUser, groups, id }) => {
+    // check if the groups that the user belongs to (excluding edited group) have metadata write access
+    const userGroupsForUser =
+        currentUser?.userGroups
+            ?.map((group) => group?.id)
+            ?.filter((id) => id) ?? []
+    const groupsWithSharing = groups
+        .filter((group) => userGroupsForUser.includes(group?.id))
+        .filter((group) => group?.id !== id)
+
+    return groupsWithSharing
+        .map((group) => group.access.metadata === ACCESS_VIEW_AND_EDIT)
+        .some((shared) => shared)
+}
+
+const willHavePublicMetadataWriteAccess = ({ type, publicAccess }) => {
+    // if type is public, return false (they are removing public access)
+    if (type === 'public') {
+        return false
+    }
+    // else check if public has metadata write access
+    return publicAccess?.metadata === ACCESS_VIEW_AND_EDIT
+}
+
+export const isMetadataWriteAccessRemoved = ({
+    currentUser,
+    type,
+    access,
+    id,
+    publicAccess,
+    users,
+    groups,
+}) => {
+    // if updated access includes metadata write, return false
+    if (access.metadata === ACCESS_VIEW_AND_EDIT) {
+        return false
+    }
+    // if user has ALL authority, return false
+    if (currentUser?.authorities?.includes('ALL')) {
+        return false
+    }
+    const userMetadataWriteAccess = willHaveUserMetadataWriteAccess({
+        currentUser,
+        users,
+        type,
+        id,
+    })
+    const userGroupMetadataWriteAccess = willHaveUserGroupMetadataWriteAccess({
+        currentUser,
+        groups,
+        type,
+        id,
+    })
+    const publicMetadataWriteAccess = willHavePublicMetadataWriteAccess({
+        type,
+        publicAccess,
+    })
+
+    // if user has metadata write access, after operation, metadata write is not being removed
+    return !(
+        userMetadataWriteAccess ||
+        userGroupMetadataWriteAccess ||
+        publicMetadataWriteAccess
+    )
+}
+
+/**
  * Mutation payload creators
  */
 
@@ -146,7 +230,6 @@ export const createOnChangePayload = ({ object, type, access, id }) => {
                     userGroupAccesses,
                 },
             }
-            console.log(data)
             return data
         }
         case 'user': {
