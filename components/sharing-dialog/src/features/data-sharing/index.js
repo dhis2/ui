@@ -8,6 +8,7 @@ import {
     getUserWithDataAndMetadataAccess,
     getAllUsersWithDataAndMetadataAccess,
     groupNoAccess,
+    userAllAuthority,
 } from '../fixtures/index.js'
 
 /**
@@ -20,14 +21,13 @@ Given(
         cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
             body: noAccess,
         })
-        cy.intercept('GET', '/api/38/me', {
-            body: {
-                id: 'currentUSER',
-                displayName: 'Current User',
-                authorities: ['ALL'],
-                userGroups: [],
-            },
-        })
+        cy.intercept(
+            'GET',
+            '/api/38/me?fields=id,userGroups%5Bid%5D,authorities',
+            {
+                body: userAllAuthority,
+            }
+        )
 
         cy.visitStory('sharing-dialog', 'data')
         cy.contains('Give access to a user or group').should('be.visible')
@@ -200,14 +200,13 @@ Given(
         cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
             body: getUserWithDataAndMetadataAccess(metadatalevel, datalevel),
         })
-        cy.intercept('GET', '/api/38/me', {
-            body: {
-                id: 'currentUSER',
-                displayName: 'Current User',
-                authorities: ['ALL'],
-                userGroups: [],
-            },
-        })
+        cy.intercept(
+            'GET',
+            '/api/38/me?fields=id,userGroups%5Bid%5D,authorities',
+            {
+                body: userAllAuthority,
+            }
+        )
         cy.visitStory('sharing-dialog', 'data')
         cy.contains('Sharing and access').should('be.visible')
 
@@ -244,14 +243,13 @@ Given(
         cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
             body: getGroupWithDataAndMetadataAccess(metadatalevel, datalevel),
         })
-        cy.intercept('GET', '/api/38/me', {
-            body: {
-                id: 'currentUSER',
-                displayName: 'Current User',
-                authorities: ['ALL'],
-                userGroups: [],
-            },
-        })
+        cy.intercept(
+            'GET',
+            '/api/38/me?fields=id,userGroups%5Bid%5D,authorities',
+            {
+                body: userAllAuthority,
+            }
+        )
         cy.visitStory('sharing-dialog', 'data')
         cy.contains('Sharing and access').should('be.visible')
 
@@ -291,14 +289,13 @@ Given(
                 datalevel
             ),
         })
-        cy.intercept('GET', '/api/38/me', {
-            body: {
-                id: 'currentUSER',
-                displayName: 'Current User',
-                authorities: ['ALL'],
-                userGroups: [],
-            },
-        })
+        cy.intercept(
+            'GET',
+            '/api/38/me?fields=id,userGroups%5Bid%5D,authorities',
+            {
+                body: userAllAuthority,
+            }
+        )
         cy.visitStory('sharing-dialog', 'data')
         cy.contains('Sharing and access').should('be.visible')
 

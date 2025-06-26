@@ -103,6 +103,7 @@ export const SharingDialog = ({
     dataTest = 'dhis2-uicore-sharingdialog',
     dataSharing = false,
     cascadeDashboardSharing = true,
+    preventUsersFromRemovingMetadataWriteAccess = false,
 }) => {
     const { show: showError } = useAlert((error) => error, { critical: true })
     const mappedInitialSharingSettings = mapInitialSharingSettings(
@@ -122,10 +123,6 @@ export const SharingDialog = ({
     })
 
     const { data: userData, loading: userLoading } = useDataQuery(userQuery)
-    // const userData = {
-    //     id: 'user-1',
-    //     userGroups: [{ id: 'group1' }],
-    // }
 
     const [mutate, { loading: mutating }] = useDataMutation(mutation, {
         variables: {
@@ -208,6 +205,7 @@ export const SharingDialog = ({
 
     const onChange = ({ type: changedType, id: changedId, access }) => {
         if (
+            preventUsersFromRemovingMetadataWriteAccess &&
             isMetadataWriteAccessRemoved({
                 currentUser: userData?.me,
                 type: changedType,
@@ -236,6 +234,7 @@ export const SharingDialog = ({
 
     const onRemove = ({ type: removedType, id: removedId }) => {
         if (
+            preventUsersFromRemovingMetadataWriteAccess &&
             isMetadataWriteAccessRemoved({
                 currentUser: userData?.me,
                 type: removedType,
@@ -370,6 +369,8 @@ SharingDialog.propTypes = {
             })
         ),
     }),
+    /** Whether to disallow users from  */
+    preventUsersFromRemovingMetadataWriteAccess: PropTypes.bool,
     onClose: PropTypes.func,
     onError: PropTypes.func,
     onSave: PropTypes.func,

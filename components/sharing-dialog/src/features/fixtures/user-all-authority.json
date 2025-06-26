@@ -1,0 +1,6 @@
+{
+    "id": "currentUSER",
+    "displayName": "Current User",
+    "authorities": ["ALL"],
+    "userGroups": []
+}

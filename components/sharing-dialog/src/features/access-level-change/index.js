@@ -5,6 +5,7 @@ import {
     allUsersViewEditAccess,
     userViewAccess,
     userViewEditAccess,
+    userAllAuthority,
     groupViewAccess,
     groupViewEditAccess,
 } from '../fixtures/index.js'
@@ -17,13 +18,8 @@ Given('a sharing dialog with all users item with no access is visible', () => {
     cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
         body: allUsersNoAccess,
     })
-    cy.intercept('GET', '/api/38/me', {
-        body: {
-            id: 'currentUSER',
-            displayName: 'Current User',
-            authorities: ['ALL'],
-            userGroups: [],
-        },
+    cy.intercept('GET', '/api/38/me?fields=id,userGroups%5Bid%5D,authorities', {
+        body: userAllAuthority,
     })
     cy.visitStory('sharing-dialog', 'visualization')
     cy.contains('Sharing and access').should('be.visible')
@@ -48,13 +44,8 @@ Given('a sharing dialog with user item with view is visible', () => {
     cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
         body: userViewAccess,
     })
-    cy.intercept('GET', '/api/38/me', {
-        body: {
-            id: 'currentUSER',
-            displayName: 'Current User',
-            authorities: ['ALL'],
-            userGroups: [],
-        },
+    cy.intercept('GET', '/api/38/me?fields=id,userGroups%5Bid%5D,authorities', {
+        body: userAllAuthority,
     })
     cy.visitStory('sharing-dialog', 'visualization')
     cy.contains('Sharing and access').should('be.visible')
@@ -79,13 +70,8 @@ Given('a sharing dialog with group item with view is visible', () => {
     cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
         body: groupViewAccess,
     })
-    cy.intercept('GET', '/api/38/me', {
-        body: {
-            id: 'currentUSER',
-            displayName: 'Current User',
-            authorities: ['ALL'],
-            userGroups: [],
-        },
+    cy.intercept('GET', '/api/38/me?fields=id,userGroups%5Bid%5D,authorities', {
+        body: userAllAuthority,
     })
     cy.visitStory('sharing-dialog', 'visualization')
     cy.contains('Sharing and access').should('be.visible')
@@ -105,6 +91,126 @@ Given('a sharing dialog with group item with view is visible', () => {
         .contains('[data-test="dhis2-uicore-singleselect"]', 'Metadata')
         .should('be.visible')
 })
+
+Given(
+    'a sharing dialog with user group item with View and edit is visible and user has access through group',
+    () => {
+        cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
+            body: groupViewEditAccess,
+        })
+        cy.intercept(
+            'GET',
+            '/api/38/me?fields=id,userGroups%5Bid%5D,authorities',
+            {
+                body: {
+                    id: 'currentUSER',
+                    authorities: [],
+                    userGroups: [{ id: 'group-1' }],
+                },
+            }
+        )
+        cy.visitStory('sharing-dialog', 'visualization')
+        cy.contains('Sharing and access').should('be.visible')
+
+        cy.contains('.details-text', 'A group')
+            .should('be.visible')
+            .contains('User group')
+            .should('be.visible')
+            .closest('.wrapper')
+            .as('group-list-item')
+
+        cy.get('@group-list-item')
+            .contains(
+                '[data-test="dhis2-uicore-singleselect"]',
+                'View and edit'
+            )
+            .should('be.visible')
+
+        cy.get('@group-list-item')
+            .contains('[data-test="dhis2-uicore-singleselect"]', 'Metadata')
+            .should('be.visible')
+    }
+)
+
+Given(
+    'a sharing dialog with user group item with View and edit is visible and user has access through group and preventUsersFromRemovingMetadataWriteAccess=true',
+    () => {
+        cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
+            body: groupViewEditAccess,
+        })
+        cy.intercept(
+            'GET',
+            '/api/38/me?fields=id,userGroups%5Bid%5D,authorities',
+            {
+                body: {
+                    id: 'currentUSER',
+                    authorities: [],
+                    userGroups: [{ id: 'group-1' }],
+                },
+            }
+        )
+        cy.visitStory('sharing-dialog', 'prevent')
+        cy.contains('Sharing and access').should('be.visible')
+
+        cy.contains('.details-text', 'A group')
+            .should('be.visible')
+            .contains('User group')
+            .should('be.visible')
+            .closest('.wrapper')
+            .as('group-list-item')
+
+        cy.get('@group-list-item')
+            .contains(
+                '[data-test="dhis2-uicore-singleselect"]',
+                'View and edit'
+            )
+            .should('be.visible')
+
+        cy.get('@group-list-item')
+            .contains('[data-test="dhis2-uicore-singleselect"]', 'Metadata')
+            .should('be.visible')
+    }
+)
+
+Given(
+    'a sharing dialog with user group item with View and edit is visible and user has all authority',
+    () => {
+        cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
+            body: groupViewEditAccess,
+        })
+        cy.intercept(
+            'GET',
+            '/api/38/me?fields=id,userGroups%5Bid%5D,authorities',
+            {
+                body: {
+                    id: 'currentUSER',
+                    authorities: ['ALL'],
+                    userGroups: [{ id: 'group-1' }],
+                },
+            }
+        )
+        cy.visitStory('sharing-dialog', 'prevent')
+        cy.contains('Sharing and access').should('be.visible')
+
+        cy.contains('.details-text', 'A group')
+            .should('be.visible')
+            .contains('User group')
+            .should('be.visible')
+            .closest('.wrapper')
+            .as('group-list-item')
+
+        cy.get('@group-list-item')
+            .contains(
+                '[data-test="dhis2-uicore-singleselect"]',
+                'View and edit'
+            )
+            .should('be.visible')
+
+        cy.get('@group-list-item')
+            .contains('[data-test="dhis2-uicore-singleselect"]', 'Metadata')
+            .should('be.visible')
+    }
+)
 
 /**
  * the user sets the <target> access level to <changed>
@@ -227,6 +333,35 @@ When('the user sets the group access level to view and edit', () => {
     )
 })
 
+When('the user sets the user group access level to view only', () => {
+    cy.intercept('PUT', '/api/38/sharing?type=visualization&id=id', (req) => {
+        const expected = {
+            object: groupViewAccess.object,
+        }
+        expect(req.body).to.deep.equal(expected)
+        req.reply({ statusCode: 200 })
+    })
+    cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
+        body: groupViewAccess,
+    })
+
+    cy.get('@group-list-item')
+        .find('[data-test="dhis2-uicore-singleselect"]')
+        .click()
+
+    cy.contains(
+        '[data-test="dhis2-uicore-select-menu-menuwrapper"] [data-test="dhis2-uicore-singleselectoption"]',
+        'View only'
+    )
+        .should('be.visible')
+        .click()
+
+    // Menu should be closed before continuing
+    cy.get('[data-test="dhis2-uicore-select-menu-menuwrapper"]').should(
+        'not.exist'
+    )
+})
+
 /**
  * the <target> access control should be set to <changed>
  */
@@ -252,6 +387,18 @@ Then('the user access control should be set to view and edit', () => {
 Then('the group access control should be set to view and edit', () => {
     cy.get('@group-list-item')
         .contains('[data-test="dhis2-uicore-singleselect"]', 'View and edit')
+        .should('be.visible')
+})
+
+Then('the user group access control should remain as View and edit', () => {
+    cy.get('@group-list-item')
+        .contains('[data-test="dhis2-uicore-singleselect"]', 'View and edit')
+        .should('be.visible')
+})
+
+Then('the user group access control should be set to View only', () => {
+    cy.get('@group-list-item')
+        .contains('[data-test="dhis2-uicore-singleselect"]', 'View only')
         .should('be.visible')
 })
 
