@@ -120,12 +120,12 @@ export const isRemovableTarget = (target) => {
 
 const willHaveUserMetadataWriteAccess = ({ currentUser, users, type, id }) => {
     // if type is user, and user is editing their own user access, return false
-    if (type === 'user' && currentUser.id === id) {
+    if (type === 'user' && currentUser?.id === id) {
         return false
     }
 
     // else check if user has metadata write access
-    const userAccess = users.find((user) => user.id === currentUser.id)
+    const userAccess = users.find((user) => user.id === currentUser?.id)
     if (!userAccess) {
         return false
     }
