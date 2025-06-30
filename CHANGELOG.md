@@ -1,3 +1,10 @@
+## [10.7.5](https://github.com/dhis2/ui/compare/v10.7.4...v10.7.5) (2025-06-30)
+
+
+### Bug Fixes
+
+* upgrade react-popper and popperjs core to ensure react 18 compatability ([#1695](https://github.com/dhis2/ui/issues/1695)) ([2418bbc](https://github.com/dhis2/ui/commit/2418bbc0380198f9f5ed2b9c6931af2420421385))
+
 ## [10.7.4](https://github.com/dhis2/ui/compare/v10.7.3...v10.7.4) (2025-06-09)
 
 
