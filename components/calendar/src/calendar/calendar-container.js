@@ -1,4 +1,4 @@
-import { elevations } from '@dhis2/ui-constants'
+import { colors, elevations } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
 import { CalendarTable, CalendarTableProps } from './calendar-table.js'
@@ -7,7 +7,7 @@ import {
     NavigationContainerProps,
 } from './navigation-container.js'
 
-const backgroundColor = 'none'
+const backgroundColor = colors.white
 
 export const CalendarContainer = React.memo(function CalendarContainer({
     date,
