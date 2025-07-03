@@ -42,6 +42,7 @@ export const CalendarInput = ({
 } = {}) => {
     const ref = useRef()
     const calendarRef = useRef()
+    const popperRef = useRef()
     const [open, setOpen] = useState(false)
     const [partialDate, setPartialDate] = useState(date)
 
@@ -101,7 +102,11 @@ export const CalendarInput = ({
     }
 
     const handleBlur = (_, e) => {
-        if (e.relatedTarget && calendarRef.current?.contains(e.relatedTarget)) {
+        if (
+            e.relatedTarget &&
+            (calendarRef.current?.contains(e.relatedTarget) ||
+                popperRef.current === e.relatedTarget)
+        ) {
             return
         }
 
@@ -182,6 +187,9 @@ export const CalendarInput = ({
                         reference={ref}
                         placement="bottom-start"
                         modifiers={[offsetModifier]}
+                        onFirstUpdate={(component) => {
+                            popperRef.current = component?.elements?.popper
+                        }}
                     >
                         <CalendarContainer
                             {...calendarProps}
