@@ -1,3 +1,10 @@
+## [10.7.6](https://github.com/dhis2/ui/compare/v10.7.5...v10.7.6) (2025-07-03)
+
+
+### Bug Fixes
+
+* calendar input onBlur in Safari ([#1697](https://github.com/dhis2/ui/issues/1697)) ([639ba79](https://github.com/dhis2/ui/commit/639ba794d51ddcdebfc6c9985cb562e9c44d736a))
+
 ## [10.7.5](https://github.com/dhis2/ui/compare/v10.7.4...v10.7.5) (2025-06-30)
 
 
