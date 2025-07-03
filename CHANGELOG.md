@@ -1,3 +1,10 @@
+## [10.7.7](https://github.com/dhis2/ui/compare/v10.7.6...v10.7.7) (2025-07-03)
+
+
+### Bug Fixes
+
+* **select:** do not block event propagation unless needed ([#1696](https://github.com/dhis2/ui/issues/1696)) ([3dd6679](https://github.com/dhis2/ui/commit/3dd6679d74e0619fe1963ba006ad18a2ea4319c3))
+
 ## [10.7.6](https://github.com/dhis2/ui/compare/v10.7.5...v10.7.6) (2025-07-03)
 
 
