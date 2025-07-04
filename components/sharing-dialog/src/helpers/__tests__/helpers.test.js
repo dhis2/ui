@@ -99,7 +99,7 @@ describe('helpers', () => {
         })
     })
 
-    describe.only('isMetadataWriteAccessRemoved', () => {
+    describe('isMetadataWriteAccessRemoved', () => {
         const cases = [
             [
                 false,
