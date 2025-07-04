@@ -1,30 +1,48 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
-import { mount } from 'enzyme'
+import { render, screen } from '@testing-library/react'
+import { userEvent } from '@testing-library/user-event'
 import React from 'react'
 import { SharingDialog } from '../sharing-dialog.js'
 
 describe('<SharingDialog />', () => {
-    it('calls the onClose callback when the close button is clicked', () => {
+    it('calls the onClose callback when the close button is clicked', async () => {
         const requiredProps = {
             id: 'sharing-test',
             type: 'visualization',
             onClose: () => {},
         }
         const spy = jest.fn()
-        const wrapper = mount(
-            <SharingDialog {...requiredProps} onClose={spy} />,
-            {
-                wrappingComponent: CustomDataProvider,
-            }
+        const customerProviderData = {
+            me: {
+                id: 'currentUser',
+                userGroups: [],
+                authorities: ['ALL'],
+            },
+            sharing: {
+                meta: {
+                    allowExternalAccess: true,
+                    allowPublicAccess: true,
+                },
+                object: {
+                    id: 'id',
+                    name: '',
+                    displayName: '',
+                    externalAccess: false,
+                    publicAccess: '--------',
+                    userAccesses: [],
+                    userGroupAccesses: [],
+                },
+            },
+        }
+        render(
+            <CustomDataProvider data={customerProviderData}>
+                <SharingDialog {...requiredProps} onClose={spy} />
+            </CustomDataProvider>
         )
-        const elements = wrapper
-            .find('button')
-            .filterWhere((el) => el.text().includes('Close'))
 
-        expect(elements).toHaveLength(1)
         expect(spy).toHaveBeenCalledTimes(0)
 
-        elements.first().simulate('click')
+        await userEvent.click(screen.getByRole('button', { name: 'Close' }))
 
         expect(spy).toHaveBeenCalledTimes(1)
     })
