@@ -1,3 +1,10 @@
+## [10.7.8](https://github.com/dhis2/ui/compare/v10.7.7...v10.7.8) (2025-07-10)
+
+
+### Bug Fixes
+
+* **transfer:** allow any number for maxSelections prop ([#1698](https://github.com/dhis2/ui/issues/1698)) ([e87eebd](https://github.com/dhis2/ui/commit/e87eebdb5a2fc026fad98603ad48c66efb7cd955))
+
 ## [10.7.7](https://github.com/dhis2/ui/compare/v10.7.6...v10.7.7) (2025-07-03)
 
 

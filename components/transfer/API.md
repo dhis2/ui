@@ -64,7 +64,7 @@ import { Transfer } from '@dhis2/ui'
 |leftHeader|node||||
 |loading|boolean||||
 |loadingPicked|boolean||||
-|maxSelections|1 │ Infinity|``Infinity``|||
+|maxSelections|number|``Infinity``|||
 |optionsWidth|string|``'320px'``|||
 |removeAllText|string||||
 |removeIndividualText|string||||
