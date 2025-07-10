@@ -411,7 +411,7 @@ Transfer.propTypes = {
     leftHeader: PropTypes.node,
     loading: PropTypes.bool,
     loadingPicked: PropTypes.bool,
-    maxSelections: PropTypes.oneOf([1, Infinity]),
+    maxSelections: PropTypes.number,
     optionsWidth: PropTypes.string,
     removeAllText: PropTypes.string,
     removeIndividualText: PropTypes.string,
