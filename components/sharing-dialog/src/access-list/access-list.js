@@ -61,6 +61,7 @@ export const AccessList = ({
                     dataSharing={dataSharing}
                     allUsersItem={true}
                 />
+
                 {groups.map(({ id, name, access }) => (
                     <ListItem
                         key={id}
