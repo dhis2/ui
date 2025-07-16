@@ -95,6 +95,7 @@ export interface SharingDialogProps {
     initialSharingSettings?: SharingDialogInitialSharingSettings
     dataSharing?: boolean
     cascadeDashboardSharing?: boolean
+    preventUsersFromRemovingMetadataWriteAccess?: boolean
     onClose?: ModalOnCloseEventHandler
     onError?: (error: any) => void
     onSave?: () => void
