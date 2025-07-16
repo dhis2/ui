@@ -1,3 +1,10 @@
+## [10.8.1](https://github.com/dhis2/ui/compare/v10.8.0...v10.8.1) (2025-07-16)
+
+
+### Bug Fixes
+
+* add preventUsersFromRemovingMetadataWriteAccess to type def ([#1699](https://github.com/dhis2/ui/issues/1699)) ([e438803](https://github.com/dhis2/ui/commit/e4388036319e45abe90ce1a0e9331c0c42e9064d))
+
 # [10.8.0](https://github.com/dhis2/ui/compare/v10.7.8...v10.8.0) (2025-07-16)
 
 
