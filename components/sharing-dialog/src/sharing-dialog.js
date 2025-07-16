@@ -14,9 +14,20 @@ import {
     createOnChangePayload,
     createOnAddPayload,
     createOnRemovePayload,
+    isMetadataWriteAccessRemoved,
 } from './helpers/index.js'
+import i18n from './locales/index.js'
 import { Modal } from './modal/index.js'
 import { TabbedContent } from './tabs/index.js'
+
+const userQuery = {
+    me: {
+        resource: 'me',
+        params: {
+            fields: ['id', 'userGroups[id]', 'authorities'],
+        },
+    },
+}
 
 const query = {
     sharing: {
@@ -92,6 +103,7 @@ export const SharingDialog = ({
     dataTest = 'dhis2-uicore-sharingdialog',
     dataSharing = false,
     cascadeDashboardSharing = true,
+    preventUsersFromRemovingMetadataWriteAccess = false,
 }) => {
     const { show: showError } = useAlert((error) => error, { critical: true })
     const mappedInitialSharingSettings = mapInitialSharingSettings(
@@ -109,6 +121,8 @@ export const SharingDialog = ({
             onError(error)
         },
     })
+
+    const { data: userData, loading: userLoading } = useDataQuery(userQuery)
 
     const [mutate, { loading: mutating }] = useDataMutation(mutation, {
         variables: {
@@ -138,7 +152,7 @@ export const SharingDialog = ({
      * Block interaction during the initial load
      */
 
-    if (loading) {
+    if (loading || userLoading) {
         const users = Object.keys(initialSharingSettings.users).map(
             replaceAccessWithConstant
         )
@@ -190,6 +204,25 @@ export const SharingDialog = ({
     }
 
     const onChange = ({ type: changedType, id: changedId, access }) => {
+        if (
+            preventUsersFromRemovingMetadataWriteAccess &&
+            isMetadataWriteAccessRemoved({
+                currentUser: userData?.me,
+                type: changedType,
+                access,
+                id: changedId,
+                publicAccess,
+                users,
+                groups,
+            })
+        ) {
+            showError(
+                i18n.t(
+                    'This action would remove your metadata write access, which is not allowed'
+                )
+            )
+            return
+        }
         const data = createOnChangePayload({
             object,
             type: changedType,
@@ -200,6 +233,25 @@ export const SharingDialog = ({
     }
 
     const onRemove = ({ type: removedType, id: removedId }) => {
+        if (
+            preventUsersFromRemovingMetadataWriteAccess &&
+            isMetadataWriteAccessRemoved({
+                currentUser: userData?.me,
+                type: removedType,
+                access: { data: ACCESS_NONE, metadata: ACCESS_NONE },
+                id: removedId,
+                publicAccess,
+                users,
+                groups,
+            })
+        ) {
+            showError(
+                i18n.t(
+                    'This action would remove your metadata write access, which is not allowed'
+                )
+            )
+            return
+        }
         const data = createOnRemovePayload({
             object,
             type: removedType,
@@ -317,6 +369,8 @@ SharingDialog.propTypes = {
             })
         ),
     }),
+    /** Whether to disallow users from removing their metadata write access */
+    preventUsersFromRemovingMetadataWriteAccess: PropTypes.bool,
     onClose: PropTypes.func,
     onError: PropTypes.func,
     onSave: PropTypes.func,

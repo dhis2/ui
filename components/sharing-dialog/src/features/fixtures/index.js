@@ -15,6 +15,7 @@ import groupViewEditAccess from './group-view-edit-access.json'
 import noAccess from './no-access.json'
 import searchGroup from './search-group.json'
 import searchUser from './search-user.json'
+import userAllAuthority from './user-all-authority.json'
 import userNoAccess from './user-no-access.json'
 import userViewAccess from './user-view-access.json'
 import userViewEditAccess from './user-view-edit-access.json'
@@ -39,6 +40,7 @@ export {
     userViewEditAccess,
     withDisplayname,
     withoutDisplayname,
+    userAllAuthority,
     getGroupWithDataAndMetadataAccess,
     getUserWithDataAndMetadataAccess,
     getAllUsersWithDataAndMetadataAccess,
