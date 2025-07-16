@@ -2022,6 +2022,7 @@ import { SharingDialog } from '@dhis2/ui'
     groups: [],
     users: [],
 }``||Used to seed the component with data to show whilst loading|
+|preventUsersFromRemovingMetadataWriteAccess|boolean|``false``||Whether to disallow users from removing their metadata write access|
 |onClose|function|``() => {}``|||
 |onError|function|``() => {}``|||
 |onSave|function|``() => {}``|||

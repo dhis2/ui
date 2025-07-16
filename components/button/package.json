@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/button",
-    "version": "10.7.8",
+    "version": "10.8.0",
     "description": "UI Button",
     "repository": {
         "type": "git",
@@ -33,11 +33,11 @@
     },
     "dependencies": {
         "@dhis2/prop-types": "^3.1.2",
-        "@dhis2-ui/layer": "10.7.8",
-        "@dhis2-ui/loader": "10.7.8",
-        "@dhis2-ui/popper": "10.7.8",
-        "@dhis2/ui-constants": "10.7.8",
-        "@dhis2/ui-icons": "10.7.8",
+        "@dhis2-ui/layer": "10.8.0",
+        "@dhis2-ui/loader": "10.8.0",
+        "@dhis2-ui/popper": "10.8.0",
+        "@dhis2/ui-constants": "10.8.0",
+        "@dhis2/ui-icons": "10.8.0",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },

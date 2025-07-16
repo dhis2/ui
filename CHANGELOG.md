@@ -1,3 +1,10 @@
+# [10.8.0](https://github.com/dhis2/ui/compare/v10.7.8...v10.8.0) (2025-07-16)
+
+
+### Features
+
+* sharing dialog prevent users from removing metadata write access [DHIS2-18430] ([#1694](https://github.com/dhis2/ui/issues/1694)) ([a267689](https://github.com/dhis2/ui/commit/a267689b3189c5ca867b126a5d7cd06f853f67c7))
+
 ## [10.7.8](https://github.com/dhis2/ui/compare/v10.7.7...v10.7.8) (2025-07-10)
 
 
