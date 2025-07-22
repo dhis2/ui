@@ -65,6 +65,7 @@ const Profile = ({ name, email, avatarId, helpUrl }) => {
                 .headerbar-profile {
                     position: relative;
                     height: 100%;
+                    overflow: hidden;
                 }
 
                 .headerbar-profile-btn {
