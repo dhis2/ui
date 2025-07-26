@@ -3,14 +3,14 @@
 # 晓东 林 <13981924470@126.com>, 2021
 # Philip Larsen Donnelly, 2024
 # Viktor Varland <viktor@dhis2.org>, 2024
-# easylin <lin_xd@126.com>, 2024
+# easylin <lin_xd@126.com>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-11-07T15:20:34.373Z\n"
+"POT-Creation-Date: 2025-06-24T11:04:00.759Z\n"
 "PO-Revision-Date: 2021-10-01 23:39+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2024\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2025\n"
 "Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -144,13 +144,17 @@ msgid ""
 msgstr "应用共享无法撤消，如果新的可视化添加到仪表板或更改其共享设置，则需要再次执行。"
 
 msgid "Sharing and access: {{- objectName}}"
-msgstr "共享和访问：{{- objectName}}"
+msgstr "共享和访问权限：{{- objectName}}"
 
 msgid "Sharing and access"
-msgstr "共享和访问"
+msgstr "共享和权限"
 
 msgid "Close"
 msgstr "关闭"
 
+msgid ""
+"This action would remove your metadata write access, which is not allowed"
+msgstr "该操作将删除元数据写入权限，而这是不允许的"
+
 msgid "Dashboard sharing"
-msgstr "仪表板共享"
+msgstr "仪表盘共享"
