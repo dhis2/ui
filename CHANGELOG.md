@@ -1,3 +1,10 @@
+## [10.8.2](https://github.com/dhis2/ui/compare/v10.8.1...v10.8.2) (2025-07-29)
+
+
+### Bug Fixes
+
+* **icons:** add missing exports for icon types ([#1701](https://github.com/dhis2/ui/issues/1701)) ([6e20640](https://github.com/dhis2/ui/commit/6e20640ae8d6e4b631697205cc0e20a6f6bdd8fc))
+
 ## [10.8.1](https://github.com/dhis2/ui/compare/v10.8.0...v10.8.1) (2025-07-16)
 
 
