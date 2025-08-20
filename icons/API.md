@@ -1338,6 +1338,26 @@ import { IconDimensionOrgUnitGroupset16 } from '@dhis2/ui'
 |dataTest|string||||
 |ariaLabel|string||||
 
+### SvgDimensionProgramAttribute16
+
+#### Usage
+
+To use `IconDimensionProgramAttribute16`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { IconDimensionProgramAttribute16 } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|color|string||||
+|dataTest|string||||
+|ariaLabel|string||||
+
 ### SvgDimensionProgramIndicator16
 
 #### Usage
