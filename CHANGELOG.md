@@ -1,3 +1,10 @@
+# [10.9.0](https://github.com/dhis2/ui/compare/v10.8.2...v10.9.0) (2025-08-22)
+
+
+### Features
+
+* add program attribute icon size 16 ([#1702](https://github.com/dhis2/ui/issues/1702)) ([30943cf](https://github.com/dhis2/ui/commit/30943cf99477341a5e34da95b4b59bd698bad69d))
+
 ## [10.8.2](https://github.com/dhis2/ui/compare/v10.8.1...v10.8.2) (2025-07-29)
 
 
