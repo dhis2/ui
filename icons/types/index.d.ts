@@ -72,6 +72,7 @@ export const IconDimensionEventDataItem16: React.FC<IconProps>
 export const IconDimensionIndicator16: React.FC<IconProps>
 export const IconDimensionOrgUnit16: React.FC<IconProps>
 export const IconDimensionOrgUnitGroupset16: React.FC<IconProps>
+export const IconDimensionProgramAttribute16: React.FC<IconProps>
 export const IconDimensionProgramIndicator16: React.FC<IconProps>
 export const IconDimensionValidationRule16: React.FC<IconProps>
 export const IconDirectionNorth16: React.FC<IconProps>
