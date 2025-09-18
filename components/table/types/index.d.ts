@@ -319,7 +319,7 @@ export interface DataTableColumnHeaderProps {
     /**
      * Left or top required when fixed
      */
-    left?: boolean
+    left?: string
     /**
      * Can be used to match a column with a property name
      */
@@ -333,7 +333,7 @@ export interface DataTableColumnHeaderProps {
     /**
      * Left or top required when fixed
      */
-    top?: boolean
+    top?: string
     width?: string
     onFilterIconClick?: (
         payload: { name?: string; active: boolean },
