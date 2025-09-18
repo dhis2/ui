@@ -1,3 +1,10 @@
+## [10.9.1](https://github.com/dhis2/ui/compare/v10.9.0...v10.9.1) (2025-09-18)
+
+
+### Bug Fixes
+
+* adjust type definitions to align with prop-types ([#1703](https://github.com/dhis2/ui/issues/1703)) ([a8fbf1d](https://github.com/dhis2/ui/commit/a8fbf1dfc15c9f5433649d76715031b1fb750a74))
+
 # [10.9.0](https://github.com/dhis2/ui/compare/v10.8.2...v10.9.0) (2025-08-22)
 
 
