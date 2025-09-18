@@ -14,7 +14,7 @@ export interface PaginationProps {
     isLastPage?: boolean
     nextPageText?: TranslateableProp
     pageCount?: number
-    pageLength?: boolean
+    pageLength?: number
     pageSelectText?: TranslateableProp
     pageSizeSelectText?: TranslateableProp
     pageSizes?: string[]
