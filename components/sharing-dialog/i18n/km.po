@@ -24,7 +24,7 @@ msgid "View and edit"
 msgstr ""
 
 msgid "No access"
-msgstr ""
+msgstr "គ្មានសិទ្ធិចូលប្រើប្រាស់ទេ"
 
 msgid "Give access to a user or group"
 msgstr ""
@@ -84,7 +84,7 @@ msgid "Apply dashboard sharing settings to visualizations"
 msgstr ""
 
 msgid "Something went wrong"
-msgstr ""
+msgstr "មានអ្វីមួយខុសប្រក្រតី"
 
 msgid "Apply sharing to dashboard visualizations"
 msgstr ""

@@ -1,18 +1,18 @@
 # 
 # Translators:
 # Philip Larsen Donnelly, 2021
-# Viktor Varland <viktor@dhis2.org>, 2021
 # Bram Piot <bram.piot@gmail.com>, 2021
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
-# Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2022
 # Yayra Gomado <ygomado@hispwca.org>, 2025
+# Esther Tokouli, 2025
+# Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-11-29T06:54:11.622Z\n"
+"POT-Creation-Date: 2025-05-12T17:16:33.390Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
-"Last-Translator: Yayra Gomado <ygomado@hispwca.org>, 2025\n"
+"Last-Translator: Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2025\n"
 "Language-Team: French (https://app.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,50 +21,56 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Upload file"
-msgstr "Charger fichier"
+msgstr "Télécharger le fichier"
 
 msgid "Upload files"
-msgstr ""
+msgstr "Télécharger les fichiers"
 
 msgid "Remove"
 msgstr "Supprimer"
 
 msgid "Please provide an alpha-numeric value"
-msgstr ""
+msgstr "Veuillez saisir une valeur alpha numérique"
 
 msgid "Please provide a boolean value"
-msgstr ""
+msgstr "Veuillez saisir une valeur booléenne"
 
 msgid "Please enter between {{lowerBound}} and {{upperBound}} characters"
-msgstr ""
+msgstr "Veuillez saisir entre {{lowerBound}}et {{upperBound}} caractères"
 
 msgid ""
 "Please make sure the value of this input matches the value in "
 "\"{{otherField}}\"."
 msgstr ""
+"Veuillez vous assurer que la valeur de cette entrée correspond à la valeur "
+"dans \"{{otherField}}\""
 
 msgid "Please enter a maximum of {{upperBound}} characters"
-msgstr ""
+msgstr "Veuillez saisir au maximum {{upperBound}} caractères"
 
 msgid "Please enter a number with a maximum of {{upperBound}}"
-msgstr ""
+msgstr "Veuillez saisir un nombre avec un maximum de {{upperBound}}"
 
 msgid "Please enter at least {{lowerBound}} characters"
 msgstr "Veuillez saisir au moins {{lowerBound}} caractères"
 
 msgid "Please enter a number of at least {{lowerBound}}"
-msgstr ""
+msgstr "Veuillez saisir un nombre d'au moins {{lowerBound}}"
 
 msgid "Number cannot be less than {{lowerBound}} or more than {{upperBound}}"
 msgstr ""
+"Le nombre ne peut pas être inférieur à {{lowerBound}} ou supérieur à "
+"{{upperBound}}"
 
 msgid ""
 "Please make sure the value of this input matches the pattern "
 "{{patternString}}."
 msgstr ""
+"Veuillez vous assurer que la valeur de cette entrée correspond au modèle "
+"{{patternString}}."
 
 msgid "Password should be a string"
-msgstr ""
+msgstr "Le mot de passe doit être une chaine de caractères"
 
 msgid "Password should be at least 8 characters long"
 msgstr "Le mot de passe doit contenir au moins 8 caractères"
@@ -88,19 +94,19 @@ msgid "Please provide a valid email address"
 msgstr "Veuillez saisir une adresse email valide"
 
 msgid "Please provide a value"
-msgstr "Veuillez entrer une valeur"
+msgstr "Veuillez saisir une valeur"
 
 msgid "Please provide a round number without decimals"
-msgstr ""
+msgstr "Veuillez saisir un nombre entier sans décimales"
 
 msgid "Please provide a valid international phone number."
-msgstr ""
+msgstr "Veuillez saisir un numéro de téléphone international valide."
 
 msgid "Please provide a number"
-msgstr ""
+msgstr "Veuillez saisir un nombre"
 
 msgid "Please provide a string"
-msgstr ""
+msgstr "Veuillez saisir une chaîne de caractères"
 
 msgid "Please provide a valid url"
 msgstr "Veuillez saisir un lien URL valide"
@@ -110,3 +116,5 @@ msgid ""
 "Please provide a username between 4 and 255 characters long and possibly "
 "separated by . "
 msgstr ""
+"Veuillez saisir un nom d'utilisateur comprenant entre 4 et 255 caractères, "
+"pouvant être séparés par . _ - ou @"
