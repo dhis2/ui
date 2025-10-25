@@ -9,7 +9,7 @@
 To install `@dhis2/ui` run:
 
 ```bash
-yarn install @dhis2/ui
+yarn add @dhis2/ui
 ```
 
 All components can be imported directly from `@dhis2/ui` like so:
